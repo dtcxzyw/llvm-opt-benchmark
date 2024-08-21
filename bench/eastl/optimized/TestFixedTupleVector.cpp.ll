@@ -977,7 +977,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EiE30DoUninitializedMoveAndDestruct
   store ptr %cond.i.i.i.i.i, ptr %singleElementVec, align 8
   %12 = load ptr, ptr %mpData.i.i, align 8
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i.i.i = icmp eq ptr %12, %13
   %isnull.i.i.i.i.i = icmp eq ptr %12, null
   %or.cond.i.i.i.i = or i1 %isnull.i.i.i.i.i, %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm8ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0EEEEJiEE12DoReallocateEmm.exit.i.i, label %delete.notnull.i.i.i.i.i
@@ -1026,7 +1026,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EiE30DoUninitializedMoveAndDestruct
   store ptr %cond.i.i.i.i.i.i, ptr %singleElementVec, align 8, !noalias !5
   %17 = load ptr, ptr %mpData.i.i, align 8, !noalias !5
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8, !noalias !5
-  %cmp.not.i.i.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i.i.i = icmp eq ptr %17, %18
   %isnull.i.i.i.i.i.i = icmp eq ptr %17, null
   %or.cond.i.i.i.i.i = or i1 %isnull.i.i.i.i.i.i, %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm8ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0EEEEJiEE12DoReallocateEmm.exit.i.i.i, label %delete.notnull.i.i.i.i.i.i
@@ -1133,7 +1133,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %39, ptr %34, align 8
   %41 = load ptr, ptr %mpData.i.i532, align 8
   %42 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i.i543 = icmp eq ptr %42, %41
+  %cmp.not.i.i.i.i543 = icmp eq ptr %41, %42
   %isnull.i.i.i.i.i544 = icmp eq ptr %41, null
   %or.cond.i.i.i.i545 = or i1 %isnull.i.i.i.i.i544, %cmp.not.i.i.i.i543
   br i1 %or.cond.i.i.i.i545, label %invoke.cont40, label %delete.notnull.i.i.i.i.i546
@@ -1183,7 +1183,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %45, ptr %34, align 8
   %50 = load ptr, ptr %mpData.i.i532, align 8
   %51 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i.i569 = icmp eq ptr %51, %50
+  %cmp.not.i.i.i.i569 = icmp eq ptr %50, %51
   %isnull.i.i.i.i.i570 = icmp eq ptr %50, null
   %or.cond.i.i.i.i571 = or i1 %isnull.i.i.i.i.i570, %cmp.not.i.i.i.i569
   br i1 %or.cond.i.i.i.i571, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i573, label %delete.notnull.i.i.i.i.i572
@@ -1253,7 +1253,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %58, ptr %34, align 8, !noalias !8
   %63 = load ptr, ptr %mpData.i.i532, align 8, !noalias !8
   %64 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8, !noalias !8
-  %cmp.not.i.i.i.i13374 = icmp eq ptr %64, %63
+  %cmp.not.i.i.i.i13374 = icmp eq ptr %63, %64
   %isnull.i.i.i.i.i13375 = icmp eq ptr %63, null
   %or.cond.i.i.i.i13376 = or i1 %isnull.i.i.i.i.i13375, %cmp.not.i.i.i.i13374
   br i1 %or.cond.i.i.i.i13376, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i13378, label %delete.notnull.i.i.i.i.i13377
@@ -1323,7 +1323,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %71, ptr %34, align 8, !noalias !12
   %76 = load ptr, ptr %mpData.i.i532, align 8, !noalias !12
   %77 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8, !noalias !12
-  %cmp.not.i.i.i.i13420 = icmp eq ptr %77, %76
+  %cmp.not.i.i.i.i13420 = icmp eq ptr %76, %77
   %isnull.i.i.i.i.i13421 = icmp eq ptr %76, null
   %or.cond.i.i.i.i13422 = or i1 %isnull.i.i.i.i.i13421, %cmp.not.i.i.i.i13420
   br i1 %or.cond.i.i.i.i13422, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i13424, label %delete.notnull.i.i.i.i.i13423
@@ -1393,7 +1393,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %84, ptr %34, align 8
   %89 = load ptr, ptr %mpData.i.i532, align 8
   %90 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i.i13463 = icmp eq ptr %90, %89
+  %cmp.not.i.i.i.i13463 = icmp eq ptr %89, %90
   %isnull.i.i.i.i.i13464 = icmp eq ptr %89, null
   %or.cond.i.i.i.i13465 = or i1 %isnull.i.i.i.i.i13464, %cmp.not.i.i.i.i13463
   br i1 %or.cond.i.i.i.i13465, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i13467, label %delete.notnull.i.i.i.i.i13466
@@ -1463,7 +1463,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %97, ptr %34, align 8, !noalias !15
   %102 = load ptr, ptr %mpData.i.i532, align 8, !noalias !15
   %103 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8, !noalias !15
-  %cmp.not.i.i.i.i611 = icmp eq ptr %103, %102
+  %cmp.not.i.i.i.i611 = icmp eq ptr %102, %103
   %isnull.i.i.i.i.i612 = icmp eq ptr %102, null
   %or.cond.i.i.i.i613 = or i1 %isnull.i.i.i.i.i612, %cmp.not.i.i.i.i611
   br i1 %or.cond.i.i.i.i613, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i615, label %delete.notnull.i.i.i.i.i614
@@ -1693,7 +1693,7 @@ invoke.cont215:                                   ; preds = %invoke.cont212
   %159 = load ptr, ptr %mpData.i.i532, align 8
   %tobool.not.i.i = icmp eq ptr %159, null
   %160 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i = icmp eq ptr %160, %159
+  %cmp.not.i.i.i = icmp eq ptr %159, %160
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJifbEED2Ev.exit, label %delete.notnull.i.i.i.i
 
@@ -1705,7 +1705,7 @@ _ZN5eastl18fixed_tuple_vectorILm2ELb1EJifbEED2Ev.exit: ; preds = %invoke.cont215
   %161 = load ptr, ptr %mpData.i.i, align 8
   %tobool.not.i.i702 = icmp eq ptr %161, null
   %162 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i704 = icmp eq ptr %162, %161
+  %cmp.not.i.i.i704 = icmp eq ptr %161, %162
   %or.cond.i.i705 = select i1 %tobool.not.i.i702, i1 true, i1 %cmp.not.i.i.i704
   br i1 %or.cond.i.i705, label %invoke.cont219, label %delete.notnull.i.i.i.i706
 
@@ -1814,7 +1814,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm2
   store ptr %175, ptr %165, align 8
   %182 = load ptr, ptr %mpData.i.i708, align 16
   %183 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13524 = icmp eq ptr %183, %182
+  %cmp.not.i.i13524 = icmp eq ptr %182, %183
   %isnull.i.i.i13525 = icmp eq ptr %182, null
   %or.cond.i.i13526 = or i1 %isnull.i.i.i13525, %cmp.not.i.i13524
   br i1 %or.cond.i.i13526, label %.noexc754, label %delete.notnull.i.i.i13527
@@ -1911,7 +1911,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm2
   store ptr %191, ptr %165, align 8
   %198 = load ptr, ptr %mpData.i.i708, align 16
   %199 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13568 = icmp eq ptr %199, %198
+  %cmp.not.i.i13568 = icmp eq ptr %198, %199
   %isnull.i.i.i13569 = icmp eq ptr %198, null
   %or.cond.i.i13570 = or i1 %isnull.i.i.i13569, %cmp.not.i.i13568
   br i1 %or.cond.i.i13570, label %.noexc779, label %delete.notnull.i.i.i13571
@@ -2008,7 +2008,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm2
   store ptr %207, ptr %165, align 8
   %214 = load ptr, ptr %mpData.i.i708, align 16
   %215 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13612 = icmp eq ptr %215, %214
+  %cmp.not.i.i13612 = icmp eq ptr %214, %215
   %isnull.i.i.i13613 = icmp eq ptr %214, null
   %or.cond.i.i13614 = or i1 %isnull.i.i.i13613, %cmp.not.i.i13612
   br i1 %or.cond.i.i13614, label %.noexc804, label %delete.notnull.i.i.i13615
@@ -2105,7 +2105,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm2
   store ptr %223, ptr %165, align 8
   %230 = load ptr, ptr %mpData.i.i708, align 16
   %231 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13656 = icmp eq ptr %231, %230
+  %cmp.not.i.i13656 = icmp eq ptr %230, %231
   %isnull.i.i.i13657 = icmp eq ptr %230, null
   %or.cond.i.i13658 = or i1 %isnull.i.i.i13657, %cmp.not.i.i13656
   br i1 %or.cond.i.i13658, label %.noexc829, label %delete.notnull.i.i.i13659
@@ -2162,7 +2162,7 @@ invoke.cont237:                                   ; preds = %invoke.cont231
   %240 = load ptr, ptr %mpData.i.i708, align 16
   %tobool.not.i.i833 = icmp eq ptr %240, null
   %241 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i.i835 = icmp eq ptr %241, %240
+  %cmp.not.i.i.i835 = icmp eq ptr %240, %241
   %or.cond.i.i836 = select i1 %tobool.not.i.i833, i1 true, i1 %cmp.not.i.i.i835
   br i1 %or.cond.i.i836, label %if.then.i.i847, label %delete.notnull.i.i.i.i837
 
@@ -2283,7 +2283,7 @@ lpad39:                                           ; preds = %cond.true.i.i.i.i.i
   %262 = load ptr, ptr %mpData.i.i532, align 8
   %tobool.not.i.i864 = icmp eq ptr %262, null
   %263 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i866 = icmp eq ptr %263, %262
+  %cmp.not.i.i.i866 = icmp eq ptr %262, %263
   %or.cond.i.i867 = select i1 %tobool.not.i.i864, i1 true, i1 %cmp.not.i.i.i866
   br i1 %or.cond.i.i867, label %ehcleanup, label %delete.notnull.i.i.i.i868
 
@@ -2296,7 +2296,7 @@ ehcleanup:                                        ; preds = %delete.notnull.i.i.
   %264 = load ptr, ptr %mpData.i.i, align 8
   %tobool.not.i.i871 = icmp eq ptr %264, null
   %265 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i873 = icmp eq ptr %265, %264
+  %cmp.not.i.i.i873 = icmp eq ptr %264, %265
   %or.cond.i.i874 = select i1 %tobool.not.i.i871, i1 true, i1 %cmp.not.i.i.i873
   br i1 %or.cond.i.i874, label %eh.resume, label %delete.notnull.i.i.i.i875
 
@@ -2310,7 +2310,7 @@ lpad218:                                          ; preds = %cond.true.i.i.i.i.i
   %267 = load ptr, ptr %mpData.i.i708, align 16
   %tobool.not.i.i878 = icmp eq ptr %267, null
   %268 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i.i880 = icmp eq ptr %268, %267
+  %cmp.not.i.i.i880 = icmp eq ptr %267, %268
   %or.cond.i.i881 = select i1 %tobool.not.i.i878, i1 true, i1 %cmp.not.i.i.i880
   br i1 %or.cond.i.i881, label %eh.resume, label %delete.notnull.i.i.i.i882
 
@@ -3151,7 +3151,7 @@ invoke.cont17.i.i:                                ; preds = %for.cond.for.end_cr
   %433 = load ptr, ptr %mpData.i.i839, align 8
   %tobool.not.i.i1179 = icmp eq ptr %433, null
   %434 = load ptr, ptr %mpPoolBegin.i.i.i.i.i843, align 8
-  %cmp.not.i.i.i1181 = icmp eq ptr %434, %433
+  %cmp.not.i.i.i1181 = icmp eq ptr %433, %434
   %or.cond.i.i1182 = select i1 %tobool.not.i.i1179, i1 true, i1 %cmp.not.i.i.i1181
   br i1 %or.cond.i.i1182, label %if.then.i.i1200, label %delete.notnull.i.i.i.i1183
 
@@ -3746,7 +3746,7 @@ invoke.cont17.i.i1524:                            ; preds = %for.cond.for.end_cr
   %553 = load ptr, ptr %mpData.i.i1185, align 8
   %tobool.not.i.i1526 = icmp eq ptr %553, null
   %554 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1189, align 8
-  %cmp.not.i.i.i1528 = icmp eq ptr %554, %553
+  %cmp.not.i.i.i1528 = icmp eq ptr %553, %554
   %or.cond.i.i1529 = select i1 %tobool.not.i.i1526, i1 true, i1 %cmp.not.i.i.i1528
   br i1 %or.cond.i.i1529, label %if.then.i.i1548, label %delete.notnull.i.i.i.i1530
 
@@ -4347,7 +4347,7 @@ invoke.cont17.i.i1888:                            ; preds = %for.cond.for.end_cr
   %672 = load ptr, ptr %mpData.i.i1533, align 8
   %tobool.not.i.i1890 = icmp eq ptr %672, null
   %673 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1537, align 8
-  %cmp.not.i.i.i1892 = icmp eq ptr %673, %672
+  %cmp.not.i.i.i1892 = icmp eq ptr %672, %673
   %or.cond.i.i1893 = select i1 %tobool.not.i.i1890, i1 true, i1 %cmp.not.i.i.i1892
   br i1 %or.cond.i.i1893, label %if.then.i.i1911, label %delete.notnull.i.i.i.i1894
 
@@ -4976,7 +4976,7 @@ invoke.cont17.i.i2491:                            ; preds = %for.cond.for.end_cr
   %795 = load ptr, ptr %mpData.i.i1897, align 8
   %tobool.not.i.i2493 = icmp eq ptr %795, null
   %796 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1901, align 8
-  %cmp.not.i.i.i2495 = icmp eq ptr %796, %795
+  %cmp.not.i.i.i2495 = icmp eq ptr %795, %796
   %or.cond.i.i2496 = select i1 %tobool.not.i.i2493, i1 true, i1 %cmp.not.i.i.i2495
   br i1 %or.cond.i.i2496, label %if.then.i.i2515, label %delete.notnull.i.i.i.i2497
 
@@ -5603,7 +5603,7 @@ invoke.cont17.i.i3099:                            ; preds = %for.cond.for.end_cr
   %918 = load ptr, ptr %mpData.i.i2500, align 8
   %tobool.not.i.i3101 = icmp eq ptr %918, null
   %919 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2504, align 8
-  %cmp.not.i.i.i3103 = icmp eq ptr %919, %918
+  %cmp.not.i.i.i3103 = icmp eq ptr %918, %919
   %or.cond.i.i3104 = select i1 %tobool.not.i.i3101, i1 true, i1 %cmp.not.i.i.i3103
   br i1 %or.cond.i.i3104, label %if.then.i.i3123, label %delete.notnull.i.i.i.i3105
 
@@ -6744,7 +6744,7 @@ invoke.cont17.i.i4271:                            ; preds = %for.cond.for.end_cr
   %1082 = load ptr, ptr %mpData.i.i3108, align 8
   %tobool.not.i.i4273 = icmp eq ptr %1082, null
   %1083 = load ptr, ptr %mpPoolBegin.i.i.i.i.i3112, align 8
-  %cmp.not.i.i.i4275 = icmp eq ptr %1083, %1082
+  %cmp.not.i.i.i4275 = icmp eq ptr %1082, %1083
   %or.cond.i.i4276 = select i1 %tobool.not.i.i4273, i1 true, i1 %cmp.not.i.i.i4275
   br i1 %or.cond.i.i4276, label %if.then.i.i4289, label %delete.notnull.i.i.i.i4277
 
@@ -7465,7 +7465,7 @@ invoke.cont17.i.i4610:                            ; preds = %for.cond.for.end_cr
   %1218 = load ptr, ptr %mpData.i.i4280, align 8
   %tobool.not.i.i4612 = icmp eq ptr %1218, null
   %1219 = load ptr, ptr %mpPoolBegin.i.i.i.i.i4284, align 8
-  %cmp.not.i.i.i4614 = icmp eq ptr %1219, %1218
+  %cmp.not.i.i.i4614 = icmp eq ptr %1218, %1219
   %or.cond.i.i4615 = select i1 %tobool.not.i.i4612, i1 true, i1 %cmp.not.i.i.i4614
   br i1 %or.cond.i.i4615, label %if.then.i.i4627, label %delete.notnull.i.i.i.i4616
 
@@ -8180,7 +8180,7 @@ invoke.cont17.i.i4957:                            ; preds = %for.cond.for.end_cr
   %1352 = load ptr, ptr %mpData.i.i4618, align 8
   %tobool.not.i.i4959 = icmp eq ptr %1352, null
   %1353 = load ptr, ptr %mpPoolBegin.i.i.i.i.i4622, align 8
-  %cmp.not.i.i.i4961 = icmp eq ptr %1353, %1352
+  %cmp.not.i.i.i4961 = icmp eq ptr %1352, %1353
   %or.cond.i.i4962 = select i1 %tobool.not.i.i4959, i1 true, i1 %cmp.not.i.i.i4961
   br i1 %or.cond.i.i4962, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit4964, label %delete.notnull.i.i.i.i4963
 
@@ -8749,7 +8749,7 @@ invoke.cont17.i.i5401:                            ; preds = %for.cond.for.end_cr
   %1460 = load ptr, ptr %mpData.i.i5019, align 8
   %tobool.not.i.i5403 = icmp eq ptr %1460, null
   %1461 = load ptr, ptr %mpPoolBegin.i.i.i.i.i5023, align 8
-  %cmp.not.i.i.i5405 = icmp eq ptr %1461, %1460
+  %cmp.not.i.i.i5405 = icmp eq ptr %1460, %1461
   %or.cond.i.i5406 = select i1 %tobool.not.i.i5403, i1 true, i1 %cmp.not.i.i.i5405
   br i1 %or.cond.i.i5406, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit5408, label %delete.notnull.i.i.i.i5407
 
@@ -8803,7 +8803,7 @@ invoke.cont17.i.i5433:                            ; preds = %for.cond.for.end_cr
   %1465 = load ptr, ptr %mpData.i.i4966, align 8
   %tobool.not.i.i5435 = icmp eq ptr %1465, null
   %1466 = load ptr, ptr %mpPoolBegin.i.i.i.i.i4970, align 8
-  %cmp.not.i.i.i5437 = icmp eq ptr %1466, %1465
+  %cmp.not.i.i.i5437 = icmp eq ptr %1465, %1466
   %or.cond.i.i5438 = select i1 %tobool.not.i.i5435, i1 true, i1 %cmp.not.i.i.i5437
   br i1 %or.cond.i.i5438, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit5440, label %delete.notnull.i.i.i.i5439
 
@@ -9350,7 +9350,7 @@ invoke.cont17.i.i5734:                            ; preds = %for.cond.for.end_cr
   %1577 = load ptr, ptr %mpData.i.i5448, align 8
   %tobool.not.i.i5736 = icmp eq ptr %1577, null
   %1578 = load ptr, ptr %mpPoolBegin.i.i.i.i.i5452, align 8
-  %cmp.not.i.i.i5738 = icmp eq ptr %1578, %1577
+  %cmp.not.i.i.i5738 = icmp eq ptr %1577, %1578
   %or.cond.i.i5739 = select i1 %tobool.not.i.i5736, i1 true, i1 %cmp.not.i.i.i5738
   br i1 %or.cond.i.i5739, label %invoke.cont2514, label %delete.notnull.i.i.i.i5740
 
@@ -9740,7 +9740,7 @@ invoke.cont17.i.i6028:                            ; preds = %for.cond.for.end_cr
   %1660 = load ptr, ptr %mpData.i.i5749, align 8
   %tobool.not.i.i6030 = icmp eq ptr %1660, null
   %1661 = load ptr, ptr %mpPoolBegin.i.i.i.i.i5753, align 8
-  %cmp.not.i.i.i6032 = icmp eq ptr %1661, %1660
+  %cmp.not.i.i.i6032 = icmp eq ptr %1660, %1661
   %or.cond.i.i6033 = select i1 %tobool.not.i.i6030, i1 true, i1 %cmp.not.i.i.i6032
   br i1 %or.cond.i.i6033, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit6035, label %delete.notnull.i.i.i.i6034
 
@@ -10224,7 +10224,7 @@ invoke.cont17.i.i6289:                            ; preds = %for.cond.for.end_cr
   %1763 = load ptr, ptr %mpData.i.i6104, align 8
   %tobool.not.i.i6291 = icmp eq ptr %1763, null
   %1764 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6108, align 8
-  %cmp.not.i.i.i6293 = icmp eq ptr %1764, %1763
+  %cmp.not.i.i.i6293 = icmp eq ptr %1763, %1764
   %or.cond.i.i6294 = select i1 %tobool.not.i.i6291, i1 true, i1 %cmp.not.i.i.i6293
   br i1 %or.cond.i.i6294, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit6296, label %delete.notnull.i.i.i.i6295
 
@@ -10278,7 +10278,7 @@ invoke.cont17.i.i6321:                            ; preds = %for.cond.for.end_cr
   %1768 = load ptr, ptr %mpData.i.i6044, align 8
   %tobool.not.i.i6323 = icmp eq ptr %1768, null
   %1769 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6048, align 8
-  %cmp.not.i.i.i6325 = icmp eq ptr %1769, %1768
+  %cmp.not.i.i.i6325 = icmp eq ptr %1768, %1769
   %or.cond.i.i6326 = select i1 %tobool.not.i.i6323, i1 true, i1 %cmp.not.i.i.i6325
   br i1 %or.cond.i.i6326, label %invoke.cont2778, label %delete.notnull.i.i.i.i6327
 
@@ -10908,7 +10908,7 @@ invoke.cont17.i.i6806:                            ; preds = %for.cond.for.end_cr
   %1875 = load ptr, ptr %mpData.i.i6330, align 8
   %tobool.not.i.i6808 = icmp eq ptr %1875, null
   %1876 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6334, align 8
-  %cmp.not.i.i.i6810 = icmp eq ptr %1876, %1875
+  %cmp.not.i.i.i6810 = icmp eq ptr %1875, %1876
   %or.cond.i.i6811 = select i1 %tobool.not.i.i6808, i1 true, i1 %cmp.not.i.i.i6810
   br i1 %or.cond.i.i6811, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit6813, label %delete.notnull.i.i.i.i6812
 
@@ -11939,7 +11939,7 @@ invoke.cont17.i.i7562:                            ; preds = %for.cond.for.end_cr
   %2083 = load ptr, ptr %mpData.i.i6874, align 8
   %tobool.not.i.i7564 = icmp eq ptr %2083, null
   %2084 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6878, align 8
-  %cmp.not.i.i.i7566 = icmp eq ptr %2084, %2083
+  %cmp.not.i.i.i7566 = icmp eq ptr %2083, %2084
   %or.cond.i.i7567 = select i1 %tobool.not.i.i7564, i1 true, i1 %cmp.not.i.i.i7566
   br i1 %or.cond.i.i7567, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit7569, label %delete.notnull.i.i.i.i7568
 
@@ -11993,7 +11993,7 @@ invoke.cont17.i.i7594:                            ; preds = %for.cond.for.end_cr
   %2088 = load ptr, ptr %mpData.i.i6821, align 8
   %tobool.not.i.i7596 = icmp eq ptr %2088, null
   %2089 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6825, align 8
-  %cmp.not.i.i.i7598 = icmp eq ptr %2089, %2088
+  %cmp.not.i.i.i7598 = icmp eq ptr %2088, %2089
   %or.cond.i.i7599 = select i1 %tobool.not.i.i7596, i1 true, i1 %cmp.not.i.i.i7598
   br i1 %or.cond.i.i7599, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit7601, label %delete.notnull.i.i.i.i7600
 
@@ -12945,7 +12945,7 @@ invoke.cont17.i.i8335:                            ; preds = %for.cond.for.end_cr
   %2294 = load ptr, ptr %mpData.i.i7656, align 8
   %tobool.not.i.i8337 = icmp eq ptr %2294, null
   %2295 = load ptr, ptr %mpPoolBegin.i.i.i.i.i7660, align 8
-  %cmp.not.i.i.i8339 = icmp eq ptr %2295, %2294
+  %cmp.not.i.i.i8339 = icmp eq ptr %2294, %2295
   %or.cond.i.i8340 = select i1 %tobool.not.i.i8337, i1 true, i1 %cmp.not.i.i.i8339
   br i1 %or.cond.i.i8340, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit8342, label %delete.notnull.i.i.i.i8341
 
@@ -12999,7 +12999,7 @@ invoke.cont17.i.i8367:                            ; preds = %for.cond.for.end_cr
   %2299 = load ptr, ptr %mpData.i.i7603, align 8
   %tobool.not.i.i8369 = icmp eq ptr %2299, null
   %2300 = load ptr, ptr %mpPoolBegin.i.i.i.i.i7607, align 8
-  %cmp.not.i.i.i8371 = icmp eq ptr %2300, %2299
+  %cmp.not.i.i.i8371 = icmp eq ptr %2299, %2300
   %or.cond.i.i8372 = select i1 %tobool.not.i.i8369, i1 true, i1 %cmp.not.i.i.i8371
   br i1 %or.cond.i.i8372, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit8374, label %delete.notnull.i.i.i.i8373
 
@@ -13191,7 +13191,7 @@ call.i.i.i.i.i.i.i.i.i.noexc13779:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2332, ptr %2327, align 8
   %2334 = load ptr, ptr %mpData.i.i8542, align 8
   %2335 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8546, align 8
-  %cmp.not.i.i.i13776 = icmp eq ptr %2335, %2334
+  %cmp.not.i.i.i13776 = icmp eq ptr %2334, %2335
   %isnull.i.i.i.i = icmp eq ptr %2334, null
   %or.cond.i.i.i = or i1 %isnull.i.i.i.i, %cmp.not.i.i.i13776
   br i1 %or.cond.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i, label %delete.notnull.i.i.i.i13777
@@ -13342,7 +13342,7 @@ call.i.i.i.i.i.i.i.i.i.noexc13822:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2356, ptr %2347, align 8
   %2358 = load ptr, ptr %mpData.i.i8638, align 8
   %2359 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8642, align 8
-  %cmp.not.i.i.i13816 = icmp eq ptr %2359, %2358
+  %cmp.not.i.i.i13816 = icmp eq ptr %2358, %2359
   %isnull.i.i.i.i13817 = icmp eq ptr %2358, null
   %or.cond.i.i.i13818 = or i1 %isnull.i.i.i.i13817, %cmp.not.i.i.i13816
   br i1 %or.cond.i.i.i13818, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i13787.thread, label %delete.notnull.i.i.i.i13819
@@ -13610,7 +13610,7 @@ invoke.cont17.i.i8811:                            ; preds = %for.cond.for.end_cr
   %2402 = load ptr, ptr %mpData.i.i8638, align 8
   %tobool.not.i.i8813 = icmp eq ptr %2402, null
   %2403 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8642, align 8
-  %cmp.not.i.i.i8815 = icmp eq ptr %2403, %2402
+  %cmp.not.i.i.i8815 = icmp eq ptr %2402, %2403
   %or.cond.i.i8816 = select i1 %tobool.not.i.i8813, i1 true, i1 %cmp.not.i.i.i8815
   br i1 %or.cond.i.i8816, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit.i.i, label %delete.notnull.i.i.i.i8817
 
@@ -13826,7 +13826,7 @@ invoke.cont17.i.i8910:                            ; preds = %for.cond.for.end_cr
   %2441 = load ptr, ptr %mpData.i.i8820, align 8
   %tobool.not.i.i8912 = icmp eq ptr %2441, null
   %2442 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8824, align 8
-  %cmp.not.i.i.i8914 = icmp eq ptr %2442, %2441
+  %cmp.not.i.i.i8914 = icmp eq ptr %2441, %2442
   %or.cond.i.i8915 = select i1 %tobool.not.i.i8912, i1 true, i1 %cmp.not.i.i.i8914
   br i1 %or.cond.i.i8915, label %invoke.cont3836, label %delete.notnull.i.i.i.i8916
 
@@ -14225,7 +14225,7 @@ invoke.cont17.i.i9336:                            ; preds = %for.cond.for.end_cr
   %2505 = load ptr, ptr %mpData.i.i8919, align 8
   %tobool.not.i.i9338 = icmp eq ptr %2505, null
   %2506 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8923, align 8
-  %cmp.not.i.i.i9340 = icmp eq ptr %2506, %2505
+  %cmp.not.i.i.i9340 = icmp eq ptr %2505, %2506
   %or.cond.i.i9341 = select i1 %tobool.not.i.i9338, i1 true, i1 %cmp.not.i.i.i9340
   br i1 %or.cond.i.i9341, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13861, label %delete.notnull.i.i.i.i9342
 
@@ -14272,7 +14272,7 @@ call.i.i.i.i.i.i.i.i.i.noexc13880:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2516, ptr %2511, align 8
   %2518 = load ptr, ptr %mpData.i.i9366, align 8
   %2519 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9370, align 8
-  %cmp.not.i.i.i13874 = icmp eq ptr %2519, %2518
+  %cmp.not.i.i.i13874 = icmp eq ptr %2518, %2519
   %isnull.i.i.i.i13875 = icmp eq ptr %2518, null
   %or.cond.i.i.i13876 = or i1 %isnull.i.i.i.i13875, %cmp.not.i.i.i13874
   br i1 %or.cond.i.i.i13876, label %for.body.i.i.i.preheader.i13835, label %delete.notnull.i.i.i.i13877
@@ -14494,7 +14494,7 @@ invoke.cont17.i.i9446:                            ; preds = %for.cond.for.end_cr
   %2560 = load ptr, ptr %mpData.i.i9366, align 8
   %tobool.not.i.i9448 = icmp eq ptr %2560, null
   %2561 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9370, align 8
-  %cmp.not.i.i.i9450 = icmp eq ptr %2561, %2560
+  %cmp.not.i.i.i9450 = icmp eq ptr %2560, %2561
   %or.cond.i.i9451 = select i1 %tobool.not.i.i9448, i1 true, i1 %cmp.not.i.i.i9450
   br i1 %or.cond.i.i9451, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13896, label %delete.notnull.i.i.i.i9452
 
@@ -14538,7 +14538,7 @@ call.i.i.i.i.i.i.i.i.i.noexc13909:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2568, ptr %2563, align 8
   %2570 = load ptr, ptr %mpData.i.i9455, align 8
   %2571 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9459, align 8
-  %cmp.not.i.i.i13903 = icmp eq ptr %2571, %2570
+  %cmp.not.i.i.i13903 = icmp eq ptr %2570, %2571
   %isnull.i.i.i.i13904 = icmp eq ptr %2570, null
   %or.cond.i.i.i13905 = or i1 %isnull.i.i.i.i13904, %cmp.not.i.i.i13903
   br i1 %or.cond.i.i.i13905, label %for.body.i.preheader.i, label %delete.notnull.i.i.i.i13906
@@ -14744,7 +14744,7 @@ invoke.cont17.i.i9532:                            ; preds = %for.cond.for.end_cr
   %2605 = load ptr, ptr %mpData.i.i9455, align 8
   %tobool.not.i.i9534 = icmp eq ptr %2605, null
   %2606 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9459, align 8
-  %cmp.not.i.i.i9536 = icmp eq ptr %2606, %2605
+  %cmp.not.i.i.i9536 = icmp eq ptr %2605, %2606
   %or.cond.i.i9537 = select i1 %tobool.not.i.i9534, i1 true, i1 %cmp.not.i.i.i9536
   br i1 %or.cond.i.i9537, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13932, label %delete.notnull.i.i.i.i9538
 
@@ -14797,7 +14797,7 @@ call.i.i.i.i.i.i.i.i.i.noexc13945:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2616, ptr %2611, align 8
   %2618 = load ptr, ptr %mpData.i.i9547, align 8
   %2619 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9551, align 8
-  %cmp.not.i.i.i13939 = icmp eq ptr %2619, %2618
+  %cmp.not.i.i.i13939 = icmp eq ptr %2618, %2619
   %isnull.i.i.i.i13940 = icmp eq ptr %2618, null
   %or.cond.i.i.i13941 = or i1 %isnull.i.i.i.i13940, %cmp.not.i.i.i13939
   br i1 %or.cond.i.i.i13941, label %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i, label %delete.notnull.i.i.i.i13942
@@ -15023,7 +15023,7 @@ invoke.cont17.i.i9639:                            ; preds = %for.cond.for.end_cr
   %2656 = load ptr, ptr %mpData.i.i9547, align 8
   %tobool.not.i.i9641 = icmp eq ptr %2656, null
   %2657 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9551, align 8
-  %cmp.not.i.i.i9643 = icmp eq ptr %2657, %2656
+  %cmp.not.i.i.i9643 = icmp eq ptr %2656, %2657
   %or.cond.i.i9644 = select i1 %tobool.not.i.i9641, i1 true, i1 %cmp.not.i.i.i9643
   br i1 %or.cond.i.i9644, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13975, label %delete.notnull.i.i.i.i9645
 
@@ -15082,7 +15082,7 @@ call.i.i.i.i.i.i.i.i.i.noexc13989:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2669, ptr %2664, align 8
   %2671 = load ptr, ptr %mpData.i.i9674, align 8
   %2672 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9678, align 8
-  %cmp.not.i.i.i13982 = icmp eq ptr %2672, %2671
+  %cmp.not.i.i.i13982 = icmp eq ptr %2671, %2672
   %isnull.i.i.i.i13983 = icmp eq ptr %2671, null
   %or.cond.i.i.i13984 = or i1 %isnull.i.i.i.i13983, %cmp.not.i.i.i13982
   br i1 %or.cond.i.i.i13984, label %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i13951, label %delete.notnull.i.i.i.i13985
@@ -15296,7 +15296,7 @@ invoke.cont17.i.i9760:                            ; preds = %for.cond.for.end_cr
   %2705 = load ptr, ptr %mpData.i.i9674, align 8
   %tobool.not.i.i9762 = icmp eq ptr %2705, null
   %2706 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9678, align 8
-  %cmp.not.i.i.i9764 = icmp eq ptr %2706, %2705
+  %cmp.not.i.i.i9764 = icmp eq ptr %2705, %2706
   %or.cond.i.i9765 = select i1 %tobool.not.i.i9762, i1 true, i1 %cmp.not.i.i.i9764
   br i1 %or.cond.i.i9765, label %invoke.cont4145, label %delete.notnull.i.i.i.i9766
 
@@ -15537,7 +15537,7 @@ invoke.cont17.i.i9880:                            ; preds = %for.cond.for.end_cr
   %2759 = load ptr, ptr %mpData.i.i9784, align 8
   %tobool.not.i.i9882 = icmp eq ptr %2759, null
   %2760 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9788, align 8
-  %cmp.not.i.i.i9884 = icmp eq ptr %2760, %2759
+  %cmp.not.i.i.i9884 = icmp eq ptr %2759, %2760
   %or.cond.i.i9885 = select i1 %tobool.not.i.i9882, i1 true, i1 %cmp.not.i.i.i9884
   br i1 %or.cond.i.i9885, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit9887, label %delete.notnull.i.i.i.i9886
 
@@ -15591,7 +15591,7 @@ invoke.cont17.i.i9912:                            ; preds = %for.cond.for.end_cr
   %2764 = load ptr, ptr %mpData.i.i9776, align 8
   %tobool.not.i.i9914 = icmp eq ptr %2764, null
   %2765 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9780, align 8
-  %cmp.not.i.i.i9916 = icmp eq ptr %2765, %2764
+  %cmp.not.i.i.i9916 = icmp eq ptr %2764, %2765
   %or.cond.i.i9917 = select i1 %tobool.not.i.i9914, i1 true, i1 %cmp.not.i.i.i9916
   br i1 %or.cond.i.i9917, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit9919, label %delete.notnull.i.i.i.i9918
 
@@ -15649,7 +15649,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14048:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2776, ptr %2767, align 8
   %2778 = load ptr, ptr %mpData.i.i9923, align 8
   %2779 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9927, align 8
-  %cmp.not.i.i.i14042 = icmp eq ptr %2779, %2778
+  %cmp.not.i.i.i14042 = icmp eq ptr %2778, %2779
   %isnull.i.i.i.i14043 = icmp eq ptr %2778, null
   %or.cond.i.i.i14044 = or i1 %isnull.i.i.i.i14043, %cmp.not.i.i.i14042
   br i1 %or.cond.i.i.i14044, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i14000.thread, label %delete.notnull.i.i.i.i14045
@@ -15927,7 +15927,7 @@ invoke.cont17.i.i10030:                           ; preds = %for.cond.for.end_cr
   %2831 = load ptr, ptr %mpData.i.i9923, align 8
   %tobool.not.i.i10032 = icmp eq ptr %2831, null
   %2832 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9927, align 8
-  %cmp.not.i.i.i10034 = icmp eq ptr %2832, %2831
+  %cmp.not.i.i.i10034 = icmp eq ptr %2831, %2832
   %or.cond.i.i10035 = select i1 %tobool.not.i.i10032, i1 true, i1 %cmp.not.i.i.i10034
   br i1 %or.cond.i.i10035, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14079, label %delete.notnull.i.i.i.i10036
 
@@ -15980,7 +15980,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14093:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2842, ptr %2837, align 8
   %2844 = load ptr, ptr %mpData.i.i10045, align 8
   %2845 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10049, align 8
-  %cmp.not.i.i.i14086 = icmp eq ptr %2845, %2844
+  %cmp.not.i.i.i14086 = icmp eq ptr %2844, %2845
   %isnull.i.i.i.i14087 = icmp eq ptr %2844, null
   %or.cond.i.i.i14088 = or i1 %isnull.i.i.i.i14087, %cmp.not.i.i.i14086
   br i1 %or.cond.i.i.i14088, label %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i14055, label %delete.notnull.i.i.i.i14089
@@ -16206,7 +16206,7 @@ invoke.cont17.i.i10137:                           ; preds = %for.cond.for.end_cr
   %2882 = load ptr, ptr %mpData.i.i10045, align 8
   %tobool.not.i.i10139 = icmp eq ptr %2882, null
   %2883 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10049, align 8
-  %cmp.not.i.i.i10141 = icmp eq ptr %2883, %2882
+  %cmp.not.i.i.i10141 = icmp eq ptr %2882, %2883
   %or.cond.i.i10142 = select i1 %tobool.not.i.i10139, i1 true, i1 %cmp.not.i.i.i10141
   br i1 %or.cond.i.i10142, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit10144, label %delete.notnull.i.i.i.i10143
 
@@ -16360,7 +16360,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14130:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2915, ptr %2906, align 8
   %2917 = load ptr, ptr %mpData.i.i10197, align 8
   %2918 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10201, align 8
-  %cmp.not.i.i.i14125 = icmp eq ptr %2918, %2917
+  %cmp.not.i.i.i14125 = icmp eq ptr %2917, %2918
   %isnull.i.i.i.i14126 = icmp eq ptr %2917, null
   %or.cond.i.i.i14127 = or i1 %isnull.i.i.i.i14126, %cmp.not.i.i.i14125
   br i1 %or.cond.i.i.i14127, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i.thread, label %delete.notnull.i.i.i.i14128
@@ -16672,7 +16672,7 @@ invoke.cont17.i.i10317:                           ; preds = %for.cond.for.end_cr
   %2970 = load ptr, ptr %mpData.i.i10197, align 8
   %tobool.not.i.i10319 = icmp eq ptr %2970, null
   %2971 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10201, align 8
-  %cmp.not.i.i.i10321 = icmp eq ptr %2971, %2970
+  %cmp.not.i.i.i10321 = icmp eq ptr %2970, %2971
   %or.cond.i.i10322 = select i1 %tobool.not.i.i10319, i1 true, i1 %cmp.not.i.i.i10321
   br i1 %or.cond.i.i10322, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10324, label %delete.notnull.i.i.i.i10323
 
@@ -16726,7 +16726,7 @@ invoke.cont17.i.i10349:                           ; preds = %for.cond.for.end_cr
   %2975 = load ptr, ptr %mpData.i.i10146, align 8
   %tobool.not.i.i10351 = icmp eq ptr %2975, null
   %2976 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10150, align 8
-  %cmp.not.i.i.i10353 = icmp eq ptr %2976, %2975
+  %cmp.not.i.i.i10353 = icmp eq ptr %2975, %2976
   %or.cond.i.i10354 = select i1 %tobool.not.i.i10351, i1 true, i1 %cmp.not.i.i.i10353
   br i1 %or.cond.i.i10354, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10356, label %delete.notnull.i.i.i.i10355
 
@@ -16885,7 +16885,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14195:                ; preds = %_ZN5eastl16TupleVec
   store ptr %3008, ptr %2999, align 8
   %3010 = load ptr, ptr %mpData.i.i10416, align 8
   %3011 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10420, align 8
-  %cmp.not.i.i.i14189 = icmp eq ptr %3011, %3010
+  %cmp.not.i.i.i14189 = icmp eq ptr %3010, %3011
   %isnull.i.i.i.i14190 = icmp eq ptr %3010, null
   %or.cond.i.i.i14191 = or i1 %isnull.i.i.i.i14190, %cmp.not.i.i.i14189
   br i1 %or.cond.i.i.i14191, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14143.thread, label %delete.notnull.i.i.i.i14192
@@ -17198,7 +17198,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14261:                ; preds = %_ZN5eastl16TupleVec
   store ptr %3070, ptr %3061, align 8
   %3072 = load ptr, ptr %mpData.i.i10515, align 8
   %3073 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10519, align 8
-  %cmp.not.i.i.i14255 = icmp eq ptr %3073, %3072
+  %cmp.not.i.i.i14255 = icmp eq ptr %3072, %3073
   %isnull.i.i.i.i14256 = icmp eq ptr %3072, null
   %or.cond.i.i.i14257 = or i1 %isnull.i.i.i.i14256, %cmp.not.i.i.i14255
   br i1 %or.cond.i.i.i14257, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14209.thread, label %delete.notnull.i.i.i.i14258
@@ -17510,7 +17510,7 @@ invoke.cont17.i.i10643:                           ; preds = %for.cond.for.end_cr
   %3125 = load ptr, ptr %mpData.i.i10515, align 8
   %tobool.not.i.i10645 = icmp eq ptr %3125, null
   %3126 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10519, align 8
-  %cmp.not.i.i.i10647 = icmp eq ptr %3126, %3125
+  %cmp.not.i.i.i10647 = icmp eq ptr %3125, %3126
   %or.cond.i.i10648 = select i1 %tobool.not.i.i10645, i1 true, i1 %cmp.not.i.i.i10647
   br i1 %or.cond.i.i10648, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10650, label %delete.notnull.i.i.i.i10649
 
@@ -17564,7 +17564,7 @@ invoke.cont17.i.i10675:                           ; preds = %for.cond.for.end_cr
   %3130 = load ptr, ptr %mpData.i.i10416, align 8
   %tobool.not.i.i10677 = icmp eq ptr %3130, null
   %3131 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10420, align 8
-  %cmp.not.i.i.i10679 = icmp eq ptr %3131, %3130
+  %cmp.not.i.i.i10679 = icmp eq ptr %3130, %3131
   %or.cond.i.i10680 = select i1 %tobool.not.i.i10677, i1 true, i1 %cmp.not.i.i.i10679
   br i1 %or.cond.i.i10680, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10682, label %delete.notnull.i.i.i.i10681
 
@@ -17618,7 +17618,7 @@ invoke.cont17.i.i10707:                           ; preds = %for.cond.for.end_cr
   %3135 = load ptr, ptr %mpData.i.i10358, align 8
   %tobool.not.i.i10709 = icmp eq ptr %3135, null
   %3136 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10362, align 8
-  %cmp.not.i.i.i10711 = icmp eq ptr %3136, %3135
+  %cmp.not.i.i.i10711 = icmp eq ptr %3135, %3136
   %or.cond.i.i10712 = select i1 %tobool.not.i.i10709, i1 true, i1 %cmp.not.i.i.i10711
   br i1 %or.cond.i.i10712, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10714, label %delete.notnull.i.i.i.i10713
 
@@ -17774,7 +17774,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14327:                ; preds = %_ZN5eastl16TupleVec
   store ptr %3167, ptr %3162, align 8
   %3169 = load ptr, ptr %mpData.i.i10794, align 8
   %3170 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10798, align 8
-  %cmp.not.i.i.i14321 = icmp eq ptr %3170, %3169
+  %cmp.not.i.i.i14321 = icmp eq ptr %3169, %3170
   %isnull.i.i.i.i14322 = icmp eq ptr %3169, null
   %or.cond.i.i.i14323 = or i1 %isnull.i.i.i.i14322, %cmp.not.i.i.i14321
   br i1 %or.cond.i.i.i14323, label %for.body.i.i.preheader.i14278, label %delete.notnull.i.i.i.i14324
@@ -18225,7 +18225,7 @@ invoke.cont17.i.i10967:                           ; preds = %for.cond.for.end_cr
   %3269 = load ptr, ptr %mpData.i.i10794, align 8
   %tobool.not.i.i10969 = icmp eq ptr %3269, null
   %3270 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10798, align 8
-  %cmp.not.i.i.i10971 = icmp eq ptr %3270, %3269
+  %cmp.not.i.i.i10971 = icmp eq ptr %3269, %3270
   %or.cond.i.i10972 = select i1 %tobool.not.i.i10969, i1 true, i1 %cmp.not.i.i.i10971
   br i1 %or.cond.i.i10972, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10974, label %delete.notnull.i.i.i.i10973
 
@@ -18279,7 +18279,7 @@ invoke.cont17.i.i10999:                           ; preds = %for.cond.for.end_cr
   %3274 = load ptr, ptr %mpData.i.i10716, align 8
   %tobool.not.i.i11001 = icmp eq ptr %3274, null
   %3275 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10720, align 8
-  %cmp.not.i.i.i11003 = icmp eq ptr %3275, %3274
+  %cmp.not.i.i.i11003 = icmp eq ptr %3274, %3275
   %or.cond.i.i11004 = select i1 %tobool.not.i.i11001, i1 true, i1 %cmp.not.i.i.i11003
   br i1 %or.cond.i.i11004, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit11006, label %delete.notnull.i.i.i.i11005
 
@@ -18405,7 +18405,7 @@ invoke.cont17.i.i11062:                           ; preds = %for.cond.for.end_cr
   %3287 = load ptr, ptr %mpData.i.i8542, align 8
   %tobool.not.i.i11064 = icmp eq ptr %3287, null
   %3288 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8546, align 8
-  %cmp.not.i.i.i11066 = icmp eq ptr %3288, %3287
+  %cmp.not.i.i.i11066 = icmp eq ptr %3287, %3288
   %or.cond.i.i11067 = select i1 %tobool.not.i.i11064, i1 true, i1 %cmp.not.i.i.i11066
   br i1 %or.cond.i.i11067, label %invoke.cont4672, label %delete.notnull.i.i.i.i11068
 
@@ -18484,7 +18484,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3298, ptr %3290, align 8, !noalias !523
   %3303 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !523
   %3304 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !523
-  %cmp.not.i.i.i.i14412 = icmp eq ptr %3304, %3303
+  %cmp.not.i.i.i.i14412 = icmp eq ptr %3303, %3304
   %isnull.i.i.i.i.i14413 = icmp eq ptr %3303, null
   %or.cond.i.i.i.i14414 = or i1 %isnull.i.i.i.i.i14413, %cmp.not.i.i.i.i14412
   br i1 %or.cond.i.i.i.i14414, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14416, label %delete.notnull.i.i.i.i.i14415
@@ -18554,7 +18554,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3311, ptr %3290, align 8, !noalias !526
   %3316 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !526
   %3317 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !526
-  %cmp.not.i.i.i.i14459 = icmp eq ptr %3317, %3316
+  %cmp.not.i.i.i.i14459 = icmp eq ptr %3316, %3317
   %isnull.i.i.i.i.i14460 = icmp eq ptr %3316, null
   %or.cond.i.i.i.i14461 = or i1 %isnull.i.i.i.i.i14460, %cmp.not.i.i.i.i14459
   br i1 %or.cond.i.i.i.i14461, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14463, label %delete.notnull.i.i.i.i.i14462
@@ -18624,7 +18624,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3324, ptr %3290, align 8, !noalias !529
   %3329 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !529
   %3330 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !529
-  %cmp.not.i.i.i.i14506 = icmp eq ptr %3330, %3329
+  %cmp.not.i.i.i.i14506 = icmp eq ptr %3329, %3330
   %isnull.i.i.i.i.i14507 = icmp eq ptr %3329, null
   %or.cond.i.i.i.i14508 = or i1 %isnull.i.i.i.i.i14507, %cmp.not.i.i.i.i14506
   br i1 %or.cond.i.i.i.i14508, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14510, label %delete.notnull.i.i.i.i.i14509
@@ -18800,7 +18800,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3362, ptr %3290, align 8, !noalias !532
   %3367 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !532
   %3368 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !532
-  %cmp.not.i.i.i.i14553 = icmp eq ptr %3368, %3367
+  %cmp.not.i.i.i.i14553 = icmp eq ptr %3367, %3368
   %isnull.i.i.i.i.i14554 = icmp eq ptr %3367, null
   %or.cond.i.i.i.i14555 = or i1 %isnull.i.i.i.i.i14554, %cmp.not.i.i.i.i14553
   br i1 %or.cond.i.i.i.i14555, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14557, label %delete.notnull.i.i.i.i.i14556
@@ -18962,7 +18962,7 @@ invoke.cont4740:                                  ; preds = %invoke.cont4736
   %3409 = load ptr, ptr %mpData.i.i11091, align 8
   %tobool.not.i.i11193 = icmp eq ptr %3409, null
   %3410 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11095, align 8
-  %cmp.not.i.i.i11195 = icmp eq ptr %3410, %3409
+  %cmp.not.i.i.i11195 = icmp eq ptr %3409, %3410
   %or.cond.i.i11196 = select i1 %tobool.not.i.i11193, i1 true, i1 %cmp.not.i.i.i11195
   br i1 %or.cond.i.i11196, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJifbEED2Ev.exit11198, label %delete.notnull.i.i.i.i11197
 
@@ -18974,7 +18974,7 @@ _ZN5eastl18fixed_tuple_vectorILm2ELb1EJifbEED2Ev.exit11198: ; preds = %invoke.co
   %3411 = load ptr, ptr %mpData.i.i11071, align 8
   %tobool.not.i.i11200 = icmp eq ptr %3411, null
   %3412 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8
-  %cmp.not.i.i.i11202 = icmp eq ptr %3412, %3411
+  %cmp.not.i.i.i11202 = icmp eq ptr %3411, %3412
   %or.cond.i.i11203 = select i1 %tobool.not.i.i11200, i1 true, i1 %cmp.not.i.i.i11202
   br i1 %or.cond.i.i11203, label %invoke.cont4748, label %delete.notnull.i.i.i.i11204
 
@@ -19053,7 +19053,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3422, ptr %3414, align 8, !noalias !538
   %3427 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !538
   %3428 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !538
-  %cmp.not.i.i.i.i14640 = icmp eq ptr %3428, %3427
+  %cmp.not.i.i.i.i14640 = icmp eq ptr %3427, %3428
   %isnull.i.i.i.i.i14641 = icmp eq ptr %3427, null
   %or.cond.i.i.i.i14642 = or i1 %isnull.i.i.i.i.i14641, %cmp.not.i.i.i.i14640
   br i1 %or.cond.i.i.i.i14642, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14644, label %delete.notnull.i.i.i.i.i14643
@@ -19123,7 +19123,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3435, ptr %3414, align 8, !noalias !541
   %3440 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !541
   %3441 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !541
-  %cmp.not.i.i.i.i14686 = icmp eq ptr %3441, %3440
+  %cmp.not.i.i.i.i14686 = icmp eq ptr %3440, %3441
   %isnull.i.i.i.i.i14687 = icmp eq ptr %3440, null
   %or.cond.i.i.i.i14688 = or i1 %isnull.i.i.i.i.i14687, %cmp.not.i.i.i.i14686
   br i1 %or.cond.i.i.i.i14688, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14690, label %delete.notnull.i.i.i.i.i14689
@@ -19193,7 +19193,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3448, ptr %3414, align 8, !noalias !544
   %3453 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !544
   %3454 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !544
-  %cmp.not.i.i.i.i14732 = icmp eq ptr %3454, %3453
+  %cmp.not.i.i.i.i14732 = icmp eq ptr %3453, %3454
   %isnull.i.i.i.i.i14733 = icmp eq ptr %3453, null
   %or.cond.i.i.i.i14734 = or i1 %isnull.i.i.i.i.i14733, %cmp.not.i.i.i.i14732
   br i1 %or.cond.i.i.i.i14734, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14736, label %delete.notnull.i.i.i.i.i14735
@@ -19263,7 +19263,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3461, ptr %3414, align 8, !noalias !547
   %3466 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !547
   %3467 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !547
-  %cmp.not.i.i.i.i14778 = icmp eq ptr %3467, %3466
+  %cmp.not.i.i.i.i14778 = icmp eq ptr %3466, %3467
   %isnull.i.i.i.i.i14779 = icmp eq ptr %3466, null
   %or.cond.i.i.i.i14780 = or i1 %isnull.i.i.i.i.i14779, %cmp.not.i.i.i.i14778
   br i1 %or.cond.i.i.i.i14780, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14782, label %delete.notnull.i.i.i.i.i14781
@@ -19765,7 +19765,7 @@ lpad4686:                                         ; preds = %cond.true.i.i.i.i.i
   %3541 = load ptr, ptr %mpData.i.i11091, align 8
   %tobool.not.i.i11752 = icmp eq ptr %3541, null
   %3542 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11095, align 8
-  %cmp.not.i.i.i11754 = icmp eq ptr %3542, %3541
+  %cmp.not.i.i.i11754 = icmp eq ptr %3541, %3542
   %or.cond.i.i11755 = select i1 %tobool.not.i.i11752, i1 true, i1 %cmp.not.i.i.i11754
   br i1 %or.cond.i.i11755, label %ehcleanup4743, label %delete.notnull.i.i.i.i11756
 
@@ -19778,7 +19778,7 @@ ehcleanup4743:                                    ; preds = %delete.notnull.i.i.
   %3543 = load ptr, ptr %mpData.i.i11071, align 8
   %tobool.not.i.i11759 = icmp eq ptr %3543, null
   %3544 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8
-  %cmp.not.i.i.i11761 = icmp eq ptr %3544, %3543
+  %cmp.not.i.i.i11761 = icmp eq ptr %3543, %3544
   %or.cond.i.i11762 = select i1 %tobool.not.i.i11759, i1 true, i1 %cmp.not.i.i.i11761
   br i1 %or.cond.i.i11762, label %eh.resume, label %delete.notnull.i.i.i.i11763
 
@@ -19792,7 +19792,7 @@ lpad4747:                                         ; preds = %cond.true.i.i.i.i.i
   %3546 = load ptr, ptr %mpData.i.i11207, align 8
   %tobool.not.i.i11766 = icmp eq ptr %3546, null
   %3547 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8
-  %cmp.not.i.i.i11768 = icmp eq ptr %3547, %3546
+  %cmp.not.i.i.i11768 = icmp eq ptr %3546, %3547
   %or.cond.i.i11769 = select i1 %tobool.not.i.i11766, i1 true, i1 %cmp.not.i.i.i11768
   br i1 %or.cond.i.i11769, label %eh.resume, label %delete.notnull.i.i.i.i11770
 
@@ -19859,7 +19859,7 @@ invoke.cont5084:                                  ; preds = %invoke.cont5081
   %3557 = load ptr, ptr %mpData.i.i11207, align 8
   %tobool.not.i.i11796 = icmp eq ptr %3557, null
   %3558 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8
-  %cmp.not.i.i.i11798 = icmp eq ptr %3558, %3557
+  %cmp.not.i.i.i11798 = icmp eq ptr %3557, %3558
   %or.cond.i.i11799 = select i1 %tobool.not.i.i11796, i1 true, i1 %cmp.not.i.i.i11798
   br i1 %or.cond.i.i11799, label %if.then.i.i11812, label %delete.notnull.i.i.i.i11800
 
@@ -20567,7 +20567,7 @@ invoke.cont17.i.i12113:                           ; preds = %for.cond.for.end_cr
   %3688 = load ptr, ptr %mpData.i.i11803, align 8
   %tobool.not.i.i12115 = icmp eq ptr %3688, null
   %3689 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11807, align 8
-  %cmp.not.i.i.i12117 = icmp eq ptr %3689, %3688
+  %cmp.not.i.i.i12117 = icmp eq ptr %3688, %3689
   %or.cond.i.i12118 = select i1 %tobool.not.i.i12115, i1 true, i1 %cmp.not.i.i.i12117
   br i1 %or.cond.i.i12118, label %if.then.i.i12139, label %delete.notnull.i.i.i.i12119
 
@@ -21300,7 +21300,7 @@ invoke.cont17.i.i12584:                           ; preds = %for.cond.for.end_cr
   %3853 = load ptr, ptr %mpData.i.i12130, align 8
   %tobool.not.i.i12586 = icmp eq ptr %3853, null
   %3854 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12134, align 8
-  %cmp.not.i.i.i12588 = icmp eq ptr %3854, %3853
+  %cmp.not.i.i.i12588 = icmp eq ptr %3853, %3854
   %or.cond.i.i12589 = select i1 %tobool.not.i.i12586, i1 true, i1 %cmp.not.i.i.i12588
   br i1 %or.cond.i.i12589, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit12591, label %delete.notnull.i.i.i.i12590
 
@@ -21354,7 +21354,7 @@ invoke.cont17.i.i12616:                           ; preds = %for.cond.for.end_cr
   %3858 = load ptr, ptr %mpData.i.i12122, align 8
   %tobool.not.i.i12618 = icmp eq ptr %3858, null
   %3859 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12126, align 8
-  %cmp.not.i.i.i12620 = icmp eq ptr %3859, %3858
+  %cmp.not.i.i.i12620 = icmp eq ptr %3858, %3859
   %or.cond.i.i12621 = select i1 %tobool.not.i.i12618, i1 true, i1 %cmp.not.i.i.i12620
   br i1 %or.cond.i.i12621, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit12623, label %delete.notnull.i.i.i.i12622
 
@@ -21665,7 +21665,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14826:                ; preds = %_ZN5eastl16TupleVec
   store ptr %3928, ptr %3923, align 8
   %3930 = load ptr, ptr %mpData.i.i12763, align 8
   %3931 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12767, align 8
-  %cmp.not.i.i.i14818 = icmp eq ptr %3931, %3930
+  %cmp.not.i.i.i14818 = icmp eq ptr %3930, %3931
   %isnull.i.i.i.i14819 = icmp eq ptr %3930, null
   %or.cond.i.i.i14820 = or i1 %isnull.i.i.i.i14819, %cmp.not.i.i.i14818
   br i1 %or.cond.i.i.i14820, label %for.body.i.preheader.i14794, label %delete.notnull.i.i.i.i14821
@@ -21753,7 +21753,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14865:                ; preds = %_ZN5eastl16TupleVec
   store ptr %3944, ptr %3939, align 8
   %3946 = load ptr, ptr %mpData.i.i12774, align 8
   %3947 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12778, align 8
-  %cmp.not.i.i.i14857 = icmp eq ptr %3947, %3946
+  %cmp.not.i.i.i14857 = icmp eq ptr %3946, %3947
   %isnull.i.i.i.i14858 = icmp eq ptr %3946, null
   %or.cond.i.i.i14859 = or i1 %isnull.i.i.i.i14858, %cmp.not.i.i.i14857
   br i1 %or.cond.i.i.i14859, label %for.body.i.preheader.i14833, label %delete.notnull.i.i.i.i14860
@@ -21841,7 +21841,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14904:                ; preds = %_ZN5eastl16TupleVec
   store ptr %3960, ptr %3955, align 8
   %3962 = load ptr, ptr %mpData.i.i12785, align 8
   %3963 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12789, align 8
-  %cmp.not.i.i.i14896 = icmp eq ptr %3963, %3962
+  %cmp.not.i.i.i14896 = icmp eq ptr %3962, %3963
   %isnull.i.i.i.i14897 = icmp eq ptr %3962, null
   %or.cond.i.i.i14898 = or i1 %isnull.i.i.i.i14897, %cmp.not.i.i.i14896
   br i1 %or.cond.i.i.i14898, label %for.body.i.preheader.i14872, label %delete.notnull.i.i.i.i14899
@@ -22513,7 +22513,7 @@ invoke.cont17.i.i13078:                           ; preds = %for.cond.for.end_cr
   %4095 = load ptr, ptr %mpData.i.i12785, align 8
   %tobool.not.i.i13080 = icmp eq ptr %4095, null
   %4096 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12789, align 8
-  %cmp.not.i.i.i13082 = icmp eq ptr %4096, %4095
+  %cmp.not.i.i.i13082 = icmp eq ptr %4095, %4096
   %or.cond.i.i13083 = select i1 %tobool.not.i.i13080, i1 true, i1 %cmp.not.i.i.i13082
   br i1 %or.cond.i.i13083, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit13085, label %delete.notnull.i.i.i.i13084
 
@@ -22567,7 +22567,7 @@ invoke.cont17.i.i13110:                           ; preds = %for.cond.for.end_cr
   %4100 = load ptr, ptr %mpData.i.i12774, align 8
   %tobool.not.i.i13112 = icmp eq ptr %4100, null
   %4101 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12778, align 8
-  %cmp.not.i.i.i13114 = icmp eq ptr %4101, %4100
+  %cmp.not.i.i.i13114 = icmp eq ptr %4100, %4101
   %or.cond.i.i13115 = select i1 %tobool.not.i.i13112, i1 true, i1 %cmp.not.i.i.i13114
   br i1 %or.cond.i.i13115, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit13117, label %delete.notnull.i.i.i.i13116
 
@@ -22621,7 +22621,7 @@ invoke.cont17.i.i13142:                           ; preds = %for.cond.for.end_cr
   %4105 = load ptr, ptr %mpData.i.i12763, align 8
   %tobool.not.i.i13144 = icmp eq ptr %4105, null
   %4106 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12767, align 8
-  %cmp.not.i.i.i13146 = icmp eq ptr %4106, %4105
+  %cmp.not.i.i.i13146 = icmp eq ptr %4105, %4106
   %or.cond.i.i13147 = select i1 %tobool.not.i.i13144, i1 true, i1 %cmp.not.i.i.i13146
   br i1 %or.cond.i.i13147, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit13149, label %delete.notnull.i.i.i.i13148
 
@@ -22675,7 +22675,7 @@ invoke.cont17.i.i13174:                           ; preds = %for.cond.for.end_cr
   %4110 = load ptr, ptr %mpData.i.i12639, align 8
   %tobool.not.i.i13176 = icmp eq ptr %4110, null
   %4111 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12643, align 8
-  %cmp.not.i.i.i13178 = icmp eq ptr %4111, %4110
+  %cmp.not.i.i.i13178 = icmp eq ptr %4110, %4111
   %or.cond.i.i13179 = select i1 %tobool.not.i.i13176, i1 true, i1 %cmp.not.i.i.i13178
   br i1 %or.cond.i.i13179, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit13181, label %delete.notnull.i.i.i.i13180
 
@@ -22729,7 +22729,7 @@ invoke.cont17.i.i13206:                           ; preds = %for.cond.for.end_cr
   %4115 = load ptr, ptr %mpData.i.i12631, align 8
   %tobool.not.i.i13208 = icmp eq ptr %4115, null
   %4116 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12635, align 8
-  %cmp.not.i.i.i13210 = icmp eq ptr %4116, %4115
+  %cmp.not.i.i.i13210 = icmp eq ptr %4115, %4116
   %or.cond.i.i13211 = select i1 %tobool.not.i.i13208, i1 true, i1 %cmp.not.i.i.i13210
   br i1 %or.cond.i.i13211, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev.exit13213, label %delete.notnull.i.i.i.i13212
 
@@ -23072,7 +23072,7 @@ invoke.cont25.i.i:                                ; preds = %for.cond.for.end_cr
   %4171 = load ptr, ptr %mpData.i.i13215, align 8
   %tobool.not.i.i13328 = icmp eq ptr %4171, null
   %4172 = load ptr, ptr %mpPoolBegin.i.i.i.i.i13219, align 8
-  %cmp.not.i.i.i13330 = icmp eq ptr %4172, %4171
+  %cmp.not.i.i.i13330 = icmp eq ptr %4171, %4172
   %or.cond.i.i13331 = select i1 %tobool.not.i.i13328, i1 true, i1 %cmp.not.i.i.i13330
   br i1 %or.cond.i.i13331, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectf12MoveOnlyTypeEED2Ev.exit, label %delete.notnull.i.i.i.i13332
 
@@ -23518,7 +23518,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EiE30DoUninitializedMoveAndDestruct
   store ptr %cond.i.i.i.i.i, ptr %singleElementVec, align 8
   %12 = load ptr, ptr %mpData.i.i, align 8
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i.i.i = icmp eq ptr %12, %13
   %isnull.i.i.i.i.i = icmp eq ptr %12, null
   %or.cond.i.i.i.i = or i1 %isnull.i.i.i.i.i, %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0EEEEJiEE12DoReallocateEmm.exit.i.i, label %delete.notnull.i.i.i.i.i
@@ -23567,7 +23567,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EiE30DoUninitializedMoveAndDestruct
   store ptr %cond.i.i.i.i.i.i, ptr %singleElementVec, align 8, !noalias !745
   %17 = load ptr, ptr %mpData.i.i, align 8, !noalias !745
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8, !noalias !745
-  %cmp.not.i.i.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i.i.i = icmp eq ptr %17, %18
   %isnull.i.i.i.i.i.i = icmp eq ptr %17, null
   %or.cond.i.i.i.i.i = or i1 %isnull.i.i.i.i.i.i, %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0EEEEJiEE12DoReallocateEmm.exit.i.i.i, label %delete.notnull.i.i.i.i.i.i
@@ -23709,7 +23709,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %42, ptr %34, align 8, !noalias !748
   %47 = load ptr, ptr %mpData.i.i532, align 8, !noalias !748
   %48 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8, !noalias !748
-  %cmp.not.i.i.i.i13374 = icmp eq ptr %48, %47
+  %cmp.not.i.i.i.i13374 = icmp eq ptr %47, %48
   %isnull.i.i.i.i.i13375 = icmp eq ptr %47, null
   %or.cond.i.i.i.i13376 = or i1 %isnull.i.i.i.i.i13375, %cmp.not.i.i.i.i13374
   br i1 %or.cond.i.i.i.i13376, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i13378, label %delete.notnull.i.i.i.i.i13377
@@ -23779,7 +23779,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %55, ptr %34, align 8, !noalias !751
   %60 = load ptr, ptr %mpData.i.i532, align 8, !noalias !751
   %61 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8, !noalias !751
-  %cmp.not.i.i.i.i13420 = icmp eq ptr %61, %60
+  %cmp.not.i.i.i.i13420 = icmp eq ptr %60, %61
   %isnull.i.i.i.i.i13421 = icmp eq ptr %60, null
   %or.cond.i.i.i.i13422 = or i1 %isnull.i.i.i.i.i13421, %cmp.not.i.i.i.i13420
   br i1 %or.cond.i.i.i.i13422, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i13424, label %delete.notnull.i.i.i.i.i13423
@@ -23849,7 +23849,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %68, ptr %34, align 8
   %73 = load ptr, ptr %mpData.i.i532, align 8
   %74 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i.i13463 = icmp eq ptr %74, %73
+  %cmp.not.i.i.i.i13463 = icmp eq ptr %73, %74
   %isnull.i.i.i.i.i13464 = icmp eq ptr %73, null
   %or.cond.i.i.i.i13465 = or i1 %isnull.i.i.i.i.i13464, %cmp.not.i.i.i.i13463
   br i1 %or.cond.i.i.i.i13465, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i13467, label %delete.notnull.i.i.i.i.i13466
@@ -23919,7 +23919,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %81, ptr %34, align 8, !noalias !754
   %86 = load ptr, ptr %mpData.i.i532, align 8, !noalias !754
   %87 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8, !noalias !754
-  %cmp.not.i.i.i.i611 = icmp eq ptr %87, %86
+  %cmp.not.i.i.i.i611 = icmp eq ptr %86, %87
   %isnull.i.i.i.i.i612 = icmp eq ptr %86, null
   %or.cond.i.i.i.i613 = or i1 %isnull.i.i.i.i.i612, %cmp.not.i.i.i.i611
   br i1 %or.cond.i.i.i.i613, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i615, label %delete.notnull.i.i.i.i.i614
@@ -24149,7 +24149,7 @@ invoke.cont215:                                   ; preds = %invoke.cont212
   %143 = load ptr, ptr %mpData.i.i532, align 8
   %tobool.not.i.i = icmp eq ptr %143, null
   %144 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i = icmp eq ptr %144, %143
+  %cmp.not.i.i.i = icmp eq ptr %143, %144
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJifbEED2Ev.exit, label %delete.notnull.i.i.i.i
 
@@ -24161,7 +24161,7 @@ _ZN5eastl18fixed_tuple_vectorILm16ELb1EJifbEED2Ev.exit: ; preds = %invoke.cont21
   %145 = load ptr, ptr %mpData.i.i, align 8
   %tobool.not.i.i702 = icmp eq ptr %145, null
   %146 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i704 = icmp eq ptr %146, %145
+  %cmp.not.i.i.i704 = icmp eq ptr %145, %146
   %or.cond.i.i705 = select i1 %tobool.not.i.i702, i1 true, i1 %cmp.not.i.i.i704
   br i1 %or.cond.i.i705, label %invoke.cont219, label %delete.notnull.i.i.i.i706
 
@@ -24270,7 +24270,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm1
   store ptr %159, ptr %149, align 8
   %166 = load ptr, ptr %mpData.i.i708, align 16
   %167 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13524 = icmp eq ptr %167, %166
+  %cmp.not.i.i13524 = icmp eq ptr %166, %167
   %isnull.i.i.i13525 = icmp eq ptr %166, null
   %or.cond.i.i13526 = or i1 %isnull.i.i.i13525, %cmp.not.i.i13524
   br i1 %or.cond.i.i13526, label %.noexc754, label %delete.notnull.i.i.i13527
@@ -24367,7 +24367,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm1
   store ptr %175, ptr %149, align 8
   %182 = load ptr, ptr %mpData.i.i708, align 16
   %183 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13568 = icmp eq ptr %183, %182
+  %cmp.not.i.i13568 = icmp eq ptr %182, %183
   %isnull.i.i.i13569 = icmp eq ptr %182, null
   %or.cond.i.i13570 = or i1 %isnull.i.i.i13569, %cmp.not.i.i13568
   br i1 %or.cond.i.i13570, label %.noexc779, label %delete.notnull.i.i.i13571
@@ -24464,7 +24464,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm1
   store ptr %191, ptr %149, align 8
   %198 = load ptr, ptr %mpData.i.i708, align 16
   %199 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13612 = icmp eq ptr %199, %198
+  %cmp.not.i.i13612 = icmp eq ptr %198, %199
   %isnull.i.i.i13613 = icmp eq ptr %198, null
   %or.cond.i.i13614 = or i1 %isnull.i.i.i13613, %cmp.not.i.i13612
   br i1 %or.cond.i.i13614, label %.noexc804, label %delete.notnull.i.i.i13615
@@ -24561,7 +24561,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ27TestFixedTupleVectorVariantILm1
   store ptr %207, ptr %149, align 8
   %214 = load ptr, ptr %mpData.i.i708, align 16
   %215 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i13656 = icmp eq ptr %215, %214
+  %cmp.not.i.i13656 = icmp eq ptr %214, %215
   %isnull.i.i.i13657 = icmp eq ptr %214, null
   %or.cond.i.i13658 = or i1 %isnull.i.i.i13657, %cmp.not.i.i13656
   br i1 %or.cond.i.i13658, label %.noexc829, label %delete.notnull.i.i.i13659
@@ -24618,7 +24618,7 @@ invoke.cont237:                                   ; preds = %invoke.cont231
   %224 = load ptr, ptr %mpData.i.i708, align 16
   %tobool.not.i.i833 = icmp eq ptr %224, null
   %225 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i.i835 = icmp eq ptr %225, %224
+  %cmp.not.i.i.i835 = icmp eq ptr %224, %225
   %or.cond.i.i836 = select i1 %tobool.not.i.i833, i1 true, i1 %cmp.not.i.i.i835
   br i1 %or.cond.i.i836, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE7reserveEm.exit, label %delete.notnull.i.i.i.i837
 
@@ -24733,7 +24733,7 @@ lpad39:                                           ; preds = %cond.true.i.i.i.i.i
   %245 = load ptr, ptr %mpData.i.i532, align 8
   %tobool.not.i.i864 = icmp eq ptr %245, null
   %246 = load ptr, ptr %mpPoolBegin.i.i.i.i.i536, align 8
-  %cmp.not.i.i.i866 = icmp eq ptr %246, %245
+  %cmp.not.i.i.i866 = icmp eq ptr %245, %246
   %or.cond.i.i867 = select i1 %tobool.not.i.i864, i1 true, i1 %cmp.not.i.i.i866
   br i1 %or.cond.i.i867, label %ehcleanup, label %delete.notnull.i.i.i.i868
 
@@ -24746,7 +24746,7 @@ ehcleanup:                                        ; preds = %delete.notnull.i.i.
   %247 = load ptr, ptr %mpData.i.i, align 8
   %tobool.not.i.i871 = icmp eq ptr %247, null
   %248 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i873 = icmp eq ptr %248, %247
+  %cmp.not.i.i.i873 = icmp eq ptr %247, %248
   %or.cond.i.i874 = select i1 %tobool.not.i.i871, i1 true, i1 %cmp.not.i.i.i873
   br i1 %or.cond.i.i874, label %eh.resume, label %delete.notnull.i.i.i.i875
 
@@ -24760,7 +24760,7 @@ lpad218:                                          ; preds = %cond.true.i.i.i.i.i
   %250 = load ptr, ptr %mpData.i.i708, align 16
   %tobool.not.i.i878 = icmp eq ptr %250, null
   %251 = load ptr, ptr %mpPoolBegin.i.i.i.i.i712, align 8
-  %cmp.not.i.i.i880 = icmp eq ptr %251, %250
+  %cmp.not.i.i.i880 = icmp eq ptr %250, %251
   %or.cond.i.i881 = select i1 %tobool.not.i.i878, i1 true, i1 %cmp.not.i.i.i880
   br i1 %or.cond.i.i881, label %eh.resume, label %delete.notnull.i.i.i.i882
 
@@ -25601,7 +25601,7 @@ invoke.cont17.i.i:                                ; preds = %for.cond.for.end_cr
   %416 = load ptr, ptr %mpData.i.i839, align 8
   %tobool.not.i.i1179 = icmp eq ptr %416, null
   %417 = load ptr, ptr %mpPoolBegin.i.i.i.i.i843, align 8
-  %cmp.not.i.i.i1181 = icmp eq ptr %417, %416
+  %cmp.not.i.i.i1181 = icmp eq ptr %416, %417
   %or.cond.i.i1182 = select i1 %tobool.not.i.i1179, i1 true, i1 %cmp.not.i.i.i1181
   br i1 %or.cond.i.i1182, label %_ZN10TestObjectD2Ev.exit1223, label %delete.notnull.i.i.i.i1183
 
@@ -26158,7 +26158,7 @@ invoke.cont17.i.i1524:                            ; preds = %for.cond.for.end_cr
   %526 = load ptr, ptr %mpData.i.i1185, align 8
   %tobool.not.i.i1526 = icmp eq ptr %526, null
   %527 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1189, align 8
-  %cmp.not.i.i.i1528 = icmp eq ptr %527, %526
+  %cmp.not.i.i.i1528 = icmp eq ptr %526, %527
   %or.cond.i.i1529 = select i1 %tobool.not.i.i1526, i1 true, i1 %cmp.not.i.i.i1528
   br i1 %or.cond.i.i1529, label %_ZN10TestObjectD2Ev.exit1574, label %delete.notnull.i.i.i.i1530
 
@@ -26730,7 +26730,7 @@ invoke.cont17.i.i1888:                            ; preds = %for.cond.for.end_cr
   %635 = load ptr, ptr %mpData.i.i1533, align 8
   %tobool.not.i.i1890 = icmp eq ptr %635, null
   %636 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1537, align 8
-  %cmp.not.i.i.i1892 = icmp eq ptr %636, %635
+  %cmp.not.i.i.i1892 = icmp eq ptr %635, %636
   %or.cond.i.i1893 = select i1 %tobool.not.i.i1890, i1 true, i1 %cmp.not.i.i.i1892
   br i1 %or.cond.i.i1893, label %invoke.cont836, label %delete.notnull.i.i.i.i1894
 
@@ -27327,7 +27327,7 @@ invoke.cont17.i.i2491:                            ; preds = %for.cond.for.end_cr
   %752 = load ptr, ptr %mpData.i.i1897, align 8
   %tobool.not.i.i2493 = icmp eq ptr %752, null
   %753 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1901, align 8
-  %cmp.not.i.i.i2495 = icmp eq ptr %753, %752
+  %cmp.not.i.i.i2495 = icmp eq ptr %752, %753
   %or.cond.i.i2496 = select i1 %tobool.not.i.i2493, i1 true, i1 %cmp.not.i.i.i2495
   br i1 %or.cond.i.i2496, label %invoke.cont1058, label %delete.notnull.i.i.i.i2497
 
@@ -27924,7 +27924,7 @@ invoke.cont17.i.i3099:                            ; preds = %for.cond.for.end_cr
   %867 = load ptr, ptr %mpData.i.i2500, align 8
   %tobool.not.i.i3101 = icmp eq ptr %867, null
   %868 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2504, align 8
-  %cmp.not.i.i.i3103 = icmp eq ptr %868, %867
+  %cmp.not.i.i.i3103 = icmp eq ptr %867, %868
   %or.cond.i.i3104 = select i1 %tobool.not.i.i3101, i1 true, i1 %cmp.not.i.i.i3103
   br i1 %or.cond.i.i3104, label %invoke.cont1294, label %delete.notnull.i.i.i.i3105
 
@@ -29049,7 +29049,7 @@ invoke.cont17.i.i4271:                            ; preds = %for.cond.for.end_cr
   %1027 = load ptr, ptr %mpData.i.i3108, align 8
   %tobool.not.i.i4273 = icmp eq ptr %1027, null
   %1028 = load ptr, ptr %mpPoolBegin.i.i.i.i.i3112, align 8
-  %cmp.not.i.i.i4275 = icmp eq ptr %1028, %1027
+  %cmp.not.i.i.i4275 = icmp eq ptr %1027, %1028
   %or.cond.i.i4276 = select i1 %tobool.not.i.i4273, i1 true, i1 %cmp.not.i.i.i4275
   br i1 %or.cond.i.i4276, label %invoke.cont1753, label %delete.notnull.i.i.i.i4277
 
@@ -29765,7 +29765,7 @@ invoke.cont17.i.i4610:                            ; preds = %for.cond.for.end_cr
   %1158 = load ptr, ptr %mpData.i.i4280, align 8
   %tobool.not.i.i4612 = icmp eq ptr %1158, null
   %1159 = load ptr, ptr %mpPoolBegin.i.i.i.i.i4284, align 8
-  %cmp.not.i.i.i4614 = icmp eq ptr %1159, %1158
+  %cmp.not.i.i.i4614 = icmp eq ptr %1158, %1159
   %or.cond.i.i4615 = select i1 %tobool.not.i.i4612, i1 true, i1 %cmp.not.i.i.i4614
   br i1 %or.cond.i.i4615, label %invoke.cont1928, label %delete.notnull.i.i.i.i4616
 
@@ -30475,7 +30475,7 @@ invoke.cont17.i.i4957:                            ; preds = %for.cond.for.end_cr
   %1287 = load ptr, ptr %mpData.i.i4618, align 8
   %tobool.not.i.i4959 = icmp eq ptr %1287, null
   %1288 = load ptr, ptr %mpPoolBegin.i.i.i.i.i4622, align 8
-  %cmp.not.i.i.i4961 = icmp eq ptr %1288, %1287
+  %cmp.not.i.i.i4961 = icmp eq ptr %1287, %1288
   %or.cond.i.i4962 = select i1 %tobool.not.i.i4959, i1 true, i1 %cmp.not.i.i.i4961
   br i1 %or.cond.i.i4962, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit4964, label %delete.notnull.i.i.i.i4963
 
@@ -31037,7 +31037,7 @@ invoke.cont17.i.i5401:                            ; preds = %for.cond.for.end_cr
   %1392 = load ptr, ptr %mpData.i.i5019, align 8
   %tobool.not.i.i5403 = icmp eq ptr %1392, null
   %1393 = load ptr, ptr %mpPoolBegin.i.i.i.i.i5023, align 8
-  %cmp.not.i.i.i5405 = icmp eq ptr %1393, %1392
+  %cmp.not.i.i.i5405 = icmp eq ptr %1392, %1393
   %or.cond.i.i5406 = select i1 %tobool.not.i.i5403, i1 true, i1 %cmp.not.i.i.i5405
   br i1 %or.cond.i.i5406, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit5408, label %delete.notnull.i.i.i.i5407
 
@@ -31091,7 +31091,7 @@ invoke.cont17.i.i5433:                            ; preds = %for.cond.for.end_cr
   %1397 = load ptr, ptr %mpData.i.i4966, align 8
   %tobool.not.i.i5435 = icmp eq ptr %1397, null
   %1398 = load ptr, ptr %mpPoolBegin.i.i.i.i.i4970, align 8
-  %cmp.not.i.i.i5437 = icmp eq ptr %1398, %1397
+  %cmp.not.i.i.i5437 = icmp eq ptr %1397, %1398
   %or.cond.i.i5438 = select i1 %tobool.not.i.i5435, i1 true, i1 %cmp.not.i.i.i5437
   br i1 %or.cond.i.i5438, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit5440, label %delete.notnull.i.i.i.i5439
 
@@ -31638,7 +31638,7 @@ invoke.cont17.i.i5734:                            ; preds = %for.cond.for.end_cr
   %1509 = load ptr, ptr %mpData.i.i5448, align 8
   %tobool.not.i.i5736 = icmp eq ptr %1509, null
   %1510 = load ptr, ptr %mpPoolBegin.i.i.i.i.i5452, align 8
-  %cmp.not.i.i.i5738 = icmp eq ptr %1510, %1509
+  %cmp.not.i.i.i5738 = icmp eq ptr %1509, %1510
   %or.cond.i.i5739 = select i1 %tobool.not.i.i5736, i1 true, i1 %cmp.not.i.i.i5738
   br i1 %or.cond.i.i5739, label %invoke.cont2464, label %delete.notnull.i.i.i.i5740
 
@@ -32028,7 +32028,7 @@ invoke.cont17.i.i6028:                            ; preds = %for.cond.for.end_cr
   %1592 = load ptr, ptr %mpData.i.i5749, align 8
   %tobool.not.i.i6030 = icmp eq ptr %1592, null
   %1593 = load ptr, ptr %mpPoolBegin.i.i.i.i.i5753, align 8
-  %cmp.not.i.i.i6032 = icmp eq ptr %1593, %1592
+  %cmp.not.i.i.i6032 = icmp eq ptr %1592, %1593
   %or.cond.i.i6033 = select i1 %tobool.not.i.i6030, i1 true, i1 %cmp.not.i.i.i6032
   br i1 %or.cond.i.i6033, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit6035, label %delete.notnull.i.i.i.i6034
 
@@ -32512,7 +32512,7 @@ invoke.cont17.i.i6289:                            ; preds = %for.cond.for.end_cr
   %1695 = load ptr, ptr %mpData.i.i6104, align 8
   %tobool.not.i.i6291 = icmp eq ptr %1695, null
   %1696 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6108, align 8
-  %cmp.not.i.i.i6293 = icmp eq ptr %1696, %1695
+  %cmp.not.i.i.i6293 = icmp eq ptr %1695, %1696
   %or.cond.i.i6294 = select i1 %tobool.not.i.i6291, i1 true, i1 %cmp.not.i.i.i6293
   br i1 %or.cond.i.i6294, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit6296, label %delete.notnull.i.i.i.i6295
 
@@ -32566,7 +32566,7 @@ invoke.cont17.i.i6321:                            ; preds = %for.cond.for.end_cr
   %1700 = load ptr, ptr %mpData.i.i6044, align 8
   %tobool.not.i.i6323 = icmp eq ptr %1700, null
   %1701 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6048, align 8
-  %cmp.not.i.i.i6325 = icmp eq ptr %1701, %1700
+  %cmp.not.i.i.i6325 = icmp eq ptr %1700, %1701
   %or.cond.i.i6326 = select i1 %tobool.not.i.i6323, i1 true, i1 %cmp.not.i.i.i6325
   br i1 %or.cond.i.i6326, label %invoke.cont2728, label %delete.notnull.i.i.i.i6327
 
@@ -33196,7 +33196,7 @@ invoke.cont17.i.i6806:                            ; preds = %for.cond.for.end_cr
   %1807 = load ptr, ptr %mpData.i.i6330, align 8
   %tobool.not.i.i6808 = icmp eq ptr %1807, null
   %1808 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6334, align 8
-  %cmp.not.i.i.i6810 = icmp eq ptr %1808, %1807
+  %cmp.not.i.i.i6810 = icmp eq ptr %1807, %1808
   %or.cond.i.i6811 = select i1 %tobool.not.i.i6808, i1 true, i1 %cmp.not.i.i.i6810
   br i1 %or.cond.i.i6811, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit6813, label %delete.notnull.i.i.i.i6812
 
@@ -34227,7 +34227,7 @@ invoke.cont17.i.i7562:                            ; preds = %for.cond.for.end_cr
   %2015 = load ptr, ptr %mpData.i.i6874, align 8
   %tobool.not.i.i7564 = icmp eq ptr %2015, null
   %2016 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6878, align 8
-  %cmp.not.i.i.i7566 = icmp eq ptr %2016, %2015
+  %cmp.not.i.i.i7566 = icmp eq ptr %2015, %2016
   %or.cond.i.i7567 = select i1 %tobool.not.i.i7564, i1 true, i1 %cmp.not.i.i.i7566
   br i1 %or.cond.i.i7567, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit7569, label %delete.notnull.i.i.i.i7568
 
@@ -34281,7 +34281,7 @@ invoke.cont17.i.i7594:                            ; preds = %for.cond.for.end_cr
   %2020 = load ptr, ptr %mpData.i.i6821, align 8
   %tobool.not.i.i7596 = icmp eq ptr %2020, null
   %2021 = load ptr, ptr %mpPoolBegin.i.i.i.i.i6825, align 8
-  %cmp.not.i.i.i7598 = icmp eq ptr %2021, %2020
+  %cmp.not.i.i.i7598 = icmp eq ptr %2020, %2021
   %or.cond.i.i7599 = select i1 %tobool.not.i.i7596, i1 true, i1 %cmp.not.i.i.i7598
   br i1 %or.cond.i.i7599, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit7601, label %delete.notnull.i.i.i.i7600
 
@@ -35233,7 +35233,7 @@ invoke.cont17.i.i8335:                            ; preds = %for.cond.for.end_cr
   %2226 = load ptr, ptr %mpData.i.i7656, align 8
   %tobool.not.i.i8337 = icmp eq ptr %2226, null
   %2227 = load ptr, ptr %mpPoolBegin.i.i.i.i.i7660, align 8
-  %cmp.not.i.i.i8339 = icmp eq ptr %2227, %2226
+  %cmp.not.i.i.i8339 = icmp eq ptr %2226, %2227
   %or.cond.i.i8340 = select i1 %tobool.not.i.i8337, i1 true, i1 %cmp.not.i.i.i8339
   br i1 %or.cond.i.i8340, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit8342, label %delete.notnull.i.i.i.i8341
 
@@ -35287,7 +35287,7 @@ invoke.cont17.i.i8367:                            ; preds = %for.cond.for.end_cr
   %2231 = load ptr, ptr %mpData.i.i7603, align 8
   %tobool.not.i.i8369 = icmp eq ptr %2231, null
   %2232 = load ptr, ptr %mpPoolBegin.i.i.i.i.i7607, align 8
-  %cmp.not.i.i.i8371 = icmp eq ptr %2232, %2231
+  %cmp.not.i.i.i8371 = icmp eq ptr %2231, %2232
   %or.cond.i.i8372 = select i1 %tobool.not.i.i8369, i1 true, i1 %cmp.not.i.i.i8371
   br i1 %or.cond.i.i8372, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit8374, label %delete.notnull.i.i.i.i8373
 
@@ -35587,7 +35587,7 @@ call.i.i.i.i.i.i.i.i.i.noexc13822:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2282, ptr %2273, align 8
   %2284 = load ptr, ptr %mpData.i.i8638, align 8
   %2285 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8642, align 8
-  %cmp.not.i.i.i13816 = icmp eq ptr %2285, %2284
+  %cmp.not.i.i.i13816 = icmp eq ptr %2284, %2285
   %isnull.i.i.i.i13817 = icmp eq ptr %2284, null
   %or.cond.i.i.i13818 = or i1 %isnull.i.i.i.i13817, %cmp.not.i.i.i13816
   br i1 %or.cond.i.i.i13818, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i13787.thread, label %delete.notnull.i.i.i.i13819
@@ -35828,7 +35828,7 @@ invoke.cont17.i.i8811:                            ; preds = %for.cond.for.end_cr
   %2327 = load ptr, ptr %mpData.i.i8638, align 8
   %tobool.not.i.i8813 = icmp eq ptr %2327, null
   %2328 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8642, align 8
-  %cmp.not.i.i.i8815 = icmp eq ptr %2328, %2327
+  %cmp.not.i.i.i8815 = icmp eq ptr %2327, %2328
   %or.cond.i.i8816 = select i1 %tobool.not.i.i8813, i1 true, i1 %cmp.not.i.i.i8815
   br i1 %or.cond.i.i8816, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit.i.i, label %delete.notnull.i.i.i.i8817
 
@@ -36044,7 +36044,7 @@ invoke.cont17.i.i8910:                            ; preds = %for.cond.for.end_cr
   %2366 = load ptr, ptr %mpData.i.i8820, align 8
   %tobool.not.i.i8912 = icmp eq ptr %2366, null
   %2367 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8824, align 8
-  %cmp.not.i.i.i8914 = icmp eq ptr %2367, %2366
+  %cmp.not.i.i.i8914 = icmp eq ptr %2366, %2367
   %or.cond.i.i8915 = select i1 %tobool.not.i.i8912, i1 true, i1 %cmp.not.i.i.i8914
   br i1 %or.cond.i.i8915, label %invoke.cont3778, label %delete.notnull.i.i.i.i8916
 
@@ -36443,7 +36443,7 @@ invoke.cont17.i.i9336:                            ; preds = %for.cond.for.end_cr
   %2430 = load ptr, ptr %mpData.i.i8919, align 8
   %tobool.not.i.i9338 = icmp eq ptr %2430, null
   %2431 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8923, align 8
-  %cmp.not.i.i.i9340 = icmp eq ptr %2431, %2430
+  %cmp.not.i.i.i9340 = icmp eq ptr %2430, %2431
   %or.cond.i.i9341 = select i1 %tobool.not.i.i9338, i1 true, i1 %cmp.not.i.i.i9340
   br i1 %or.cond.i.i9341, label %for.body.i.i.i.preheader.i13835, label %delete.notnull.i.i.i.i9342
 
@@ -36675,7 +36675,7 @@ invoke.cont17.i.i9446:                            ; preds = %for.cond.for.end_cr
   %2478 = load ptr, ptr %mpData.i.i9366, align 8
   %tobool.not.i.i9448 = icmp eq ptr %2478, null
   %2479 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9370, align 8
-  %cmp.not.i.i.i9450 = icmp eq ptr %2479, %2478
+  %cmp.not.i.i.i9450 = icmp eq ptr %2478, %2479
   %or.cond.i.i9451 = select i1 %tobool.not.i.i9448, i1 true, i1 %cmp.not.i.i.i9450
   br i1 %or.cond.i.i9451, label %for.body.i.preheader.i, label %delete.notnull.i.i.i.i9452
 
@@ -36888,7 +36888,7 @@ invoke.cont17.i.i9532:                            ; preds = %for.cond.for.end_cr
   %2516 = load ptr, ptr %mpData.i.i9455, align 8
   %tobool.not.i.i9534 = icmp eq ptr %2516, null
   %2517 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9459, align 8
-  %cmp.not.i.i.i9536 = icmp eq ptr %2517, %2516
+  %cmp.not.i.i.i9536 = icmp eq ptr %2516, %2517
   %or.cond.i.i9537 = select i1 %tobool.not.i.i9534, i1 true, i1 %cmp.not.i.i.i9536
   br i1 %or.cond.i.i9537, label %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i, label %delete.notnull.i.i.i.i9538
 
@@ -37124,7 +37124,7 @@ invoke.cont17.i.i9639:                            ; preds = %for.cond.for.end_cr
   %2558 = load ptr, ptr %mpData.i.i9547, align 8
   %tobool.not.i.i9641 = icmp eq ptr %2558, null
   %2559 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9551, align 8
-  %cmp.not.i.i.i9643 = icmp eq ptr %2559, %2558
+  %cmp.not.i.i.i9643 = icmp eq ptr %2558, %2559
   %or.cond.i.i9644 = select i1 %tobool.not.i.i9641, i1 true, i1 %cmp.not.i.i.i9643
   br i1 %or.cond.i.i9644, label %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i13951, label %delete.notnull.i.i.i.i9645
 
@@ -37360,7 +37360,7 @@ invoke.cont17.i.i9760:                            ; preds = %for.cond.for.end_cr
   %2600 = load ptr, ptr %mpData.i.i9674, align 8
   %tobool.not.i.i9762 = icmp eq ptr %2600, null
   %2601 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9678, align 8
-  %cmp.not.i.i.i9764 = icmp eq ptr %2601, %2600
+  %cmp.not.i.i.i9764 = icmp eq ptr %2600, %2601
   %or.cond.i.i9765 = select i1 %tobool.not.i.i9762, i1 true, i1 %cmp.not.i.i.i9764
   br i1 %or.cond.i.i9765, label %invoke.cont4082, label %delete.notnull.i.i.i.i9766
 
@@ -37601,7 +37601,7 @@ invoke.cont17.i.i9880:                            ; preds = %for.cond.for.end_cr
   %2654 = load ptr, ptr %mpData.i.i9784, align 8
   %tobool.not.i.i9882 = icmp eq ptr %2654, null
   %2655 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9788, align 8
-  %cmp.not.i.i.i9884 = icmp eq ptr %2655, %2654
+  %cmp.not.i.i.i9884 = icmp eq ptr %2654, %2655
   %or.cond.i.i9885 = select i1 %tobool.not.i.i9882, i1 true, i1 %cmp.not.i.i.i9884
   br i1 %or.cond.i.i9885, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit9887, label %delete.notnull.i.i.i.i9886
 
@@ -37655,7 +37655,7 @@ invoke.cont17.i.i9912:                            ; preds = %for.cond.for.end_cr
   %2659 = load ptr, ptr %mpData.i.i9776, align 8
   %tobool.not.i.i9914 = icmp eq ptr %2659, null
   %2660 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9780, align 8
-  %cmp.not.i.i.i9916 = icmp eq ptr %2660, %2659
+  %cmp.not.i.i.i9916 = icmp eq ptr %2659, %2660
   %or.cond.i.i9917 = select i1 %tobool.not.i.i9914, i1 true, i1 %cmp.not.i.i.i9916
   br i1 %or.cond.i.i9917, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit9919, label %delete.notnull.i.i.i.i9918
 
@@ -37713,7 +37713,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14048:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2671, ptr %2662, align 8
   %2673 = load ptr, ptr %mpData.i.i9923, align 8
   %2674 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9927, align 8
-  %cmp.not.i.i.i14042 = icmp eq ptr %2674, %2673
+  %cmp.not.i.i.i14042 = icmp eq ptr %2673, %2674
   %isnull.i.i.i.i14043 = icmp eq ptr %2673, null
   %or.cond.i.i.i14044 = or i1 %isnull.i.i.i.i14043, %cmp.not.i.i.i14042
   br i1 %or.cond.i.i.i14044, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i14000.thread, label %delete.notnull.i.i.i.i14045
@@ -37987,7 +37987,7 @@ invoke.cont17.i.i10030:                           ; preds = %for.cond.for.end_cr
   %2724 = load ptr, ptr %mpData.i.i9923, align 8
   %tobool.not.i.i10032 = icmp eq ptr %2724, null
   %2725 = load ptr, ptr %mpPoolBegin.i.i.i.i.i9927, align 8
-  %cmp.not.i.i.i10034 = icmp eq ptr %2725, %2724
+  %cmp.not.i.i.i10034 = icmp eq ptr %2724, %2725
   %or.cond.i.i10035 = select i1 %tobool.not.i.i10032, i1 true, i1 %cmp.not.i.i.i10034
   br i1 %or.cond.i.i10035, label %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i14055, label %delete.notnull.i.i.i.i10036
 
@@ -38223,7 +38223,7 @@ invoke.cont17.i.i10137:                           ; preds = %for.cond.for.end_cr
   %2766 = load ptr, ptr %mpData.i.i10045, align 8
   %tobool.not.i.i10139 = icmp eq ptr %2766, null
   %2767 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10049, align 8
-  %cmp.not.i.i.i10141 = icmp eq ptr %2767, %2766
+  %cmp.not.i.i.i10141 = icmp eq ptr %2766, %2767
   %or.cond.i.i10142 = select i1 %tobool.not.i.i10139, i1 true, i1 %cmp.not.i.i.i10141
   br i1 %or.cond.i.i10142, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit10144, label %delete.notnull.i.i.i.i10143
 
@@ -38377,7 +38377,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14130:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2799, ptr %2790, align 8
   %2801 = load ptr, ptr %mpData.i.i10197, align 8
   %2802 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10201, align 8
-  %cmp.not.i.i.i14125 = icmp eq ptr %2802, %2801
+  %cmp.not.i.i.i14125 = icmp eq ptr %2801, %2802
   %isnull.i.i.i.i14126 = icmp eq ptr %2801, null
   %or.cond.i.i.i14127 = or i1 %isnull.i.i.i.i14126, %cmp.not.i.i.i14125
   br i1 %or.cond.i.i.i14127, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i.thread, label %delete.notnull.i.i.i.i14128
@@ -38689,7 +38689,7 @@ invoke.cont17.i.i10317:                           ; preds = %for.cond.for.end_cr
   %2854 = load ptr, ptr %mpData.i.i10197, align 8
   %tobool.not.i.i10319 = icmp eq ptr %2854, null
   %2855 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10201, align 8
-  %cmp.not.i.i.i10321 = icmp eq ptr %2855, %2854
+  %cmp.not.i.i.i10321 = icmp eq ptr %2854, %2855
   %or.cond.i.i10322 = select i1 %tobool.not.i.i10319, i1 true, i1 %cmp.not.i.i.i10321
   br i1 %or.cond.i.i10322, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10324, label %delete.notnull.i.i.i.i10323
 
@@ -38743,7 +38743,7 @@ invoke.cont17.i.i10349:                           ; preds = %for.cond.for.end_cr
   %2859 = load ptr, ptr %mpData.i.i10146, align 8
   %tobool.not.i.i10351 = icmp eq ptr %2859, null
   %2860 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10150, align 8
-  %cmp.not.i.i.i10353 = icmp eq ptr %2860, %2859
+  %cmp.not.i.i.i10353 = icmp eq ptr %2859, %2860
   %or.cond.i.i10354 = select i1 %tobool.not.i.i10351, i1 true, i1 %cmp.not.i.i.i10353
   br i1 %or.cond.i.i10354, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10356, label %delete.notnull.i.i.i.i10355
 
@@ -38902,7 +38902,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14195:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2892, ptr %2883, align 8
   %2894 = load ptr, ptr %mpData.i.i10416, align 8
   %2895 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10420, align 8
-  %cmp.not.i.i.i14189 = icmp eq ptr %2895, %2894
+  %cmp.not.i.i.i14189 = icmp eq ptr %2894, %2895
   %isnull.i.i.i.i14190 = icmp eq ptr %2894, null
   %or.cond.i.i.i14191 = or i1 %isnull.i.i.i.i14190, %cmp.not.i.i.i14189
   br i1 %or.cond.i.i.i14191, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14143.thread, label %delete.notnull.i.i.i.i14192
@@ -39215,7 +39215,7 @@ call.i.i.i.i.i.i.i.i.i.noexc14261:                ; preds = %_ZN5eastl16TupleVec
   store ptr %2954, ptr %2945, align 8
   %2956 = load ptr, ptr %mpData.i.i10515, align 8
   %2957 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10519, align 8
-  %cmp.not.i.i.i14255 = icmp eq ptr %2957, %2956
+  %cmp.not.i.i.i14255 = icmp eq ptr %2956, %2957
   %isnull.i.i.i.i14256 = icmp eq ptr %2956, null
   %or.cond.i.i.i14257 = or i1 %isnull.i.i.i.i14256, %cmp.not.i.i.i14255
   br i1 %or.cond.i.i.i14257, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14209.thread, label %delete.notnull.i.i.i.i14258
@@ -39527,7 +39527,7 @@ invoke.cont17.i.i10643:                           ; preds = %for.cond.for.end_cr
   %3009 = load ptr, ptr %mpData.i.i10515, align 8
   %tobool.not.i.i10645 = icmp eq ptr %3009, null
   %3010 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10519, align 8
-  %cmp.not.i.i.i10647 = icmp eq ptr %3010, %3009
+  %cmp.not.i.i.i10647 = icmp eq ptr %3009, %3010
   %or.cond.i.i10648 = select i1 %tobool.not.i.i10645, i1 true, i1 %cmp.not.i.i.i10647
   br i1 %or.cond.i.i10648, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10650, label %delete.notnull.i.i.i.i10649
 
@@ -39581,7 +39581,7 @@ invoke.cont17.i.i10675:                           ; preds = %for.cond.for.end_cr
   %3014 = load ptr, ptr %mpData.i.i10416, align 8
   %tobool.not.i.i10677 = icmp eq ptr %3014, null
   %3015 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10420, align 8
-  %cmp.not.i.i.i10679 = icmp eq ptr %3015, %3014
+  %cmp.not.i.i.i10679 = icmp eq ptr %3014, %3015
   %or.cond.i.i10680 = select i1 %tobool.not.i.i10677, i1 true, i1 %cmp.not.i.i.i10679
   br i1 %or.cond.i.i10680, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10682, label %delete.notnull.i.i.i.i10681
 
@@ -39635,7 +39635,7 @@ invoke.cont17.i.i10707:                           ; preds = %for.cond.for.end_cr
   %3019 = load ptr, ptr %mpData.i.i10358, align 8
   %tobool.not.i.i10709 = icmp eq ptr %3019, null
   %3020 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10362, align 8
-  %cmp.not.i.i.i10711 = icmp eq ptr %3020, %3019
+  %cmp.not.i.i.i10711 = icmp eq ptr %3019, %3020
   %or.cond.i.i10712 = select i1 %tobool.not.i.i10709, i1 true, i1 %cmp.not.i.i.i10711
   br i1 %or.cond.i.i10712, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10714, label %delete.notnull.i.i.i.i10713
 
@@ -40205,7 +40205,7 @@ invoke.cont17.i.i10967:                           ; preds = %for.cond.for.end_cr
   %3146 = load ptr, ptr %mpData.i.i10794, align 8
   %tobool.not.i.i10969 = icmp eq ptr %3146, null
   %3147 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10798, align 8
-  %cmp.not.i.i.i10971 = icmp eq ptr %3147, %3146
+  %cmp.not.i.i.i10971 = icmp eq ptr %3146, %3147
   %or.cond.i.i10972 = select i1 %tobool.not.i.i10969, i1 true, i1 %cmp.not.i.i.i10971
   br i1 %or.cond.i.i10972, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit10974, label %delete.notnull.i.i.i.i10973
 
@@ -40259,7 +40259,7 @@ invoke.cont17.i.i10999:                           ; preds = %for.cond.for.end_cr
   %3151 = load ptr, ptr %mpData.i.i10716, align 8
   %tobool.not.i.i11001 = icmp eq ptr %3151, null
   %3152 = load ptr, ptr %mpPoolBegin.i.i.i.i.i10720, align 8
-  %cmp.not.i.i.i11003 = icmp eq ptr %3152, %3151
+  %cmp.not.i.i.i11003 = icmp eq ptr %3151, %3152
   %or.cond.i.i11004 = select i1 %tobool.not.i.i11001, i1 true, i1 %cmp.not.i.i.i11003
   br i1 %or.cond.i.i11004, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit11006, label %delete.notnull.i.i.i.i11005
 
@@ -40385,7 +40385,7 @@ invoke.cont17.i.i11062:                           ; preds = %for.cond.for.end_cr
   %3164 = load ptr, ptr %mpData.i.i8542, align 8
   %tobool.not.i.i11064 = icmp eq ptr %3164, null
   %3165 = load ptr, ptr %mpPoolBegin.i.i.i.i.i8546, align 8
-  %cmp.not.i.i.i11066 = icmp eq ptr %3165, %3164
+  %cmp.not.i.i.i11066 = icmp eq ptr %3164, %3165
   %or.cond.i.i11067 = select i1 %tobool.not.i.i11064, i1 true, i1 %cmp.not.i.i.i11066
   br i1 %or.cond.i.i11067, label %invoke.cont4591, label %delete.notnull.i.i.i.i11068
 
@@ -40464,7 +40464,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3175, ptr %3167, align 8, !noalias !1225
   %3180 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !1225
   %3181 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !1225
-  %cmp.not.i.i.i.i14412 = icmp eq ptr %3181, %3180
+  %cmp.not.i.i.i.i14412 = icmp eq ptr %3180, %3181
   %isnull.i.i.i.i.i14413 = icmp eq ptr %3180, null
   %or.cond.i.i.i.i14414 = or i1 %isnull.i.i.i.i.i14413, %cmp.not.i.i.i.i14412
   br i1 %or.cond.i.i.i.i14414, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14416, label %delete.notnull.i.i.i.i.i14415
@@ -40534,7 +40534,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3188, ptr %3167, align 8, !noalias !1228
   %3193 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !1228
   %3194 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !1228
-  %cmp.not.i.i.i.i14459 = icmp eq ptr %3194, %3193
+  %cmp.not.i.i.i.i14459 = icmp eq ptr %3193, %3194
   %isnull.i.i.i.i.i14460 = icmp eq ptr %3193, null
   %or.cond.i.i.i.i14461 = or i1 %isnull.i.i.i.i.i14460, %cmp.not.i.i.i.i14459
   br i1 %or.cond.i.i.i.i14461, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14463, label %delete.notnull.i.i.i.i.i14462
@@ -40604,7 +40604,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3201, ptr %3167, align 8, !noalias !1231
   %3206 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !1231
   %3207 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !1231
-  %cmp.not.i.i.i.i14506 = icmp eq ptr %3207, %3206
+  %cmp.not.i.i.i.i14506 = icmp eq ptr %3206, %3207
   %isnull.i.i.i.i.i14507 = icmp eq ptr %3206, null
   %or.cond.i.i.i.i14508 = or i1 %isnull.i.i.i.i.i14507, %cmp.not.i.i.i.i14506
   br i1 %or.cond.i.i.i.i14508, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14510, label %delete.notnull.i.i.i.i.i14509
@@ -40780,7 +40780,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EbE30DoUninitializedMoveAndDestruct
   store ptr %3239, ptr %3167, align 8, !noalias !1234
   %3244 = load ptr, ptr %mpData.i.i11071, align 8, !noalias !1234
   %3245 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8, !noalias !1234
-  %cmp.not.i.i.i.i14553 = icmp eq ptr %3245, %3244
+  %cmp.not.i.i.i.i14553 = icmp eq ptr %3244, %3245
   %isnull.i.i.i.i.i14554 = icmp eq ptr %3244, null
   %or.cond.i.i.i.i14555 = or i1 %isnull.i.i.i.i.i14554, %cmp.not.i.i.i.i14553
   br i1 %or.cond.i.i.i.i14555, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE12DoReallocateEmm.exit.i.i14557, label %delete.notnull.i.i.i.i.i14556
@@ -40942,7 +40942,7 @@ invoke.cont4659:                                  ; preds = %invoke.cont4655
   %3286 = load ptr, ptr %mpData.i.i11091, align 8
   %tobool.not.i.i11193 = icmp eq ptr %3286, null
   %3287 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11095, align 8
-  %cmp.not.i.i.i11195 = icmp eq ptr %3287, %3286
+  %cmp.not.i.i.i11195 = icmp eq ptr %3286, %3287
   %or.cond.i.i11196 = select i1 %tobool.not.i.i11193, i1 true, i1 %cmp.not.i.i.i11195
   br i1 %or.cond.i.i11196, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJifbEED2Ev.exit11198, label %delete.notnull.i.i.i.i11197
 
@@ -40954,7 +40954,7 @@ _ZN5eastl18fixed_tuple_vectorILm16ELb1EJifbEED2Ev.exit11198: ; preds = %invoke.c
   %3288 = load ptr, ptr %mpData.i.i11071, align 8
   %tobool.not.i.i11200 = icmp eq ptr %3288, null
   %3289 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8
-  %cmp.not.i.i.i11202 = icmp eq ptr %3289, %3288
+  %cmp.not.i.i.i11202 = icmp eq ptr %3288, %3289
   %or.cond.i.i11203 = select i1 %tobool.not.i.i11200, i1 true, i1 %cmp.not.i.i.i11202
   br i1 %or.cond.i.i11203, label %invoke.cont4667, label %delete.notnull.i.i.i.i11204
 
@@ -41033,7 +41033,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3299, ptr %3291, align 8, !noalias !1240
   %3304 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !1240
   %3305 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !1240
-  %cmp.not.i.i.i.i14640 = icmp eq ptr %3305, %3304
+  %cmp.not.i.i.i.i14640 = icmp eq ptr %3304, %3305
   %isnull.i.i.i.i.i14641 = icmp eq ptr %3304, null
   %or.cond.i.i.i.i14642 = or i1 %isnull.i.i.i.i.i14641, %cmp.not.i.i.i.i14640
   br i1 %or.cond.i.i.i.i14642, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm192ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14644, label %delete.notnull.i.i.i.i.i14643
@@ -41103,7 +41103,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3312, ptr %3291, align 8, !noalias !1243
   %3317 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !1243
   %3318 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !1243
-  %cmp.not.i.i.i.i14686 = icmp eq ptr %3318, %3317
+  %cmp.not.i.i.i.i14686 = icmp eq ptr %3317, %3318
   %isnull.i.i.i.i.i14687 = icmp eq ptr %3317, null
   %or.cond.i.i.i.i14688 = or i1 %isnull.i.i.i.i.i14687, %cmp.not.i.i.i.i14686
   br i1 %or.cond.i.i.i.i14688, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm192ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14690, label %delete.notnull.i.i.i.i.i14689
@@ -41173,7 +41173,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3325, ptr %3291, align 8, !noalias !1246
   %3330 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !1246
   %3331 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !1246
-  %cmp.not.i.i.i.i14732 = icmp eq ptr %3331, %3330
+  %cmp.not.i.i.i.i14732 = icmp eq ptr %3330, %3331
   %isnull.i.i.i.i.i14733 = icmp eq ptr %3330, null
   %or.cond.i.i.i.i14734 = or i1 %isnull.i.i.i.i.i14733, %cmp.not.i.i.i.i14732
   br i1 %or.cond.i.i.i.i14734, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm192ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14736, label %delete.notnull.i.i.i.i.i14735
@@ -41243,7 +41243,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EiE30DoUninitializedMoveAndDestruct
   store ptr %3338, ptr %3291, align 8, !noalias !1249
   %3343 = load ptr, ptr %mpData.i.i11207, align 8, !noalias !1249
   %3344 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8, !noalias !1249
-  %cmp.not.i.i.i.i14778 = icmp eq ptr %3344, %3343
+  %cmp.not.i.i.i.i14778 = icmp eq ptr %3343, %3344
   %isnull.i.i.i.i.i14779 = icmp eq ptr %3343, null
   %or.cond.i.i.i.i14780 = or i1 %isnull.i.i.i.i.i14779, %cmp.not.i.i.i.i14778
   br i1 %or.cond.i.i.i.i14780, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm192ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifiEE12DoReallocateEmm.exit.i.i14782, label %delete.notnull.i.i.i.i.i14781
@@ -41745,7 +41745,7 @@ lpad4605:                                         ; preds = %cond.true.i.i.i.i.i
   %3418 = load ptr, ptr %mpData.i.i11091, align 8
   %tobool.not.i.i11752 = icmp eq ptr %3418, null
   %3419 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11095, align 8
-  %cmp.not.i.i.i11754 = icmp eq ptr %3419, %3418
+  %cmp.not.i.i.i11754 = icmp eq ptr %3418, %3419
   %or.cond.i.i11755 = select i1 %tobool.not.i.i11752, i1 true, i1 %cmp.not.i.i.i11754
   br i1 %or.cond.i.i11755, label %ehcleanup4662, label %delete.notnull.i.i.i.i11756
 
@@ -41758,7 +41758,7 @@ ehcleanup4662:                                    ; preds = %delete.notnull.i.i.
   %3420 = load ptr, ptr %mpData.i.i11071, align 8
   %tobool.not.i.i11759 = icmp eq ptr %3420, null
   %3421 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11075, align 8
-  %cmp.not.i.i.i11761 = icmp eq ptr %3421, %3420
+  %cmp.not.i.i.i11761 = icmp eq ptr %3420, %3421
   %or.cond.i.i11762 = select i1 %tobool.not.i.i11759, i1 true, i1 %cmp.not.i.i.i11761
   br i1 %or.cond.i.i11762, label %eh.resume, label %delete.notnull.i.i.i.i11763
 
@@ -41772,7 +41772,7 @@ lpad4666:                                         ; preds = %cond.true.i.i.i.i.i
   %3423 = load ptr, ptr %mpData.i.i11207, align 8
   %tobool.not.i.i11766 = icmp eq ptr %3423, null
   %3424 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8
-  %cmp.not.i.i.i11768 = icmp eq ptr %3424, %3423
+  %cmp.not.i.i.i11768 = icmp eq ptr %3423, %3424
   %or.cond.i.i11769 = select i1 %tobool.not.i.i11766, i1 true, i1 %cmp.not.i.i.i11768
   br i1 %or.cond.i.i11769, label %eh.resume, label %delete.notnull.i.i.i.i11770
 
@@ -41839,7 +41839,7 @@ invoke.cont4976:                                  ; preds = %invoke.cont4973
   %3434 = load ptr, ptr %mpData.i.i11207, align 8
   %tobool.not.i.i11796 = icmp eq ptr %3434, null
   %3435 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11211, align 8
-  %cmp.not.i.i.i11798 = icmp eq ptr %3435, %3434
+  %cmp.not.i.i.i11798 = icmp eq ptr %3434, %3435
   %or.cond.i.i11799 = select i1 %tobool.not.i.i11796, i1 true, i1 %cmp.not.i.i.i11798
   br i1 %or.cond.i.i11799, label %invoke.cont4981, label %delete.notnull.i.i.i.i11800
 
@@ -42533,7 +42533,7 @@ invoke.cont17.i.i12113:                           ; preds = %for.cond.for.end_cr
   %3563 = load ptr, ptr %mpData.i.i11803, align 8
   %tobool.not.i.i12115 = icmp eq ptr %3563, null
   %3564 = load ptr, ptr %mpPoolBegin.i.i.i.i.i11807, align 8
-  %cmp.not.i.i.i12117 = icmp eq ptr %3564, %3563
+  %cmp.not.i.i.i12117 = icmp eq ptr %3563, %3564
   %or.cond.i.i12118 = select i1 %tobool.not.i.i12115, i1 true, i1 %cmp.not.i.i.i12117
   br i1 %or.cond.i.i12118, label %invoke.cont5168, label %delete.notnull.i.i.i.i12119
 
@@ -43229,7 +43229,7 @@ invoke.cont17.i.i12584:                           ; preds = %for.cond.for.end_cr
   %3719 = load ptr, ptr %mpData.i.i12130, align 8
   %tobool.not.i.i12586 = icmp eq ptr %3719, null
   %3720 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12134, align 8
-  %cmp.not.i.i.i12588 = icmp eq ptr %3720, %3719
+  %cmp.not.i.i.i12588 = icmp eq ptr %3719, %3720
   %or.cond.i.i12589 = select i1 %tobool.not.i.i12586, i1 true, i1 %cmp.not.i.i.i12588
   br i1 %or.cond.i.i12589, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit12591, label %delete.notnull.i.i.i.i12590
 
@@ -43283,7 +43283,7 @@ invoke.cont17.i.i12616:                           ; preds = %for.cond.for.end_cr
   %3724 = load ptr, ptr %mpData.i.i12122, align 8
   %tobool.not.i.i12618 = icmp eq ptr %3724, null
   %3725 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12126, align 8
-  %cmp.not.i.i.i12620 = icmp eq ptr %3725, %3724
+  %cmp.not.i.i.i12620 = icmp eq ptr %3724, %3725
   %or.cond.i.i12621 = select i1 %tobool.not.i.i12618, i1 true, i1 %cmp.not.i.i.i12620
   br i1 %or.cond.i.i12621, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit12623, label %delete.notnull.i.i.i.i12622
 
@@ -44331,7 +44331,7 @@ invoke.cont17.i.i13078:                           ; preds = %for.cond.for.end_cr
   %3940 = load ptr, ptr %mpData.i.i12785, align 8
   %tobool.not.i.i13080 = icmp eq ptr %3940, null
   %3941 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12789, align 8
-  %cmp.not.i.i.i13082 = icmp eq ptr %3941, %3940
+  %cmp.not.i.i.i13082 = icmp eq ptr %3940, %3941
   %or.cond.i.i13083 = select i1 %tobool.not.i.i13080, i1 true, i1 %cmp.not.i.i.i13082
   br i1 %or.cond.i.i13083, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit13085, label %delete.notnull.i.i.i.i13084
 
@@ -44385,7 +44385,7 @@ invoke.cont17.i.i13110:                           ; preds = %for.cond.for.end_cr
   %3945 = load ptr, ptr %mpData.i.i12774, align 8
   %tobool.not.i.i13112 = icmp eq ptr %3945, null
   %3946 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12778, align 8
-  %cmp.not.i.i.i13114 = icmp eq ptr %3946, %3945
+  %cmp.not.i.i.i13114 = icmp eq ptr %3945, %3946
   %or.cond.i.i13115 = select i1 %tobool.not.i.i13112, i1 true, i1 %cmp.not.i.i.i13114
   br i1 %or.cond.i.i13115, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit13117, label %delete.notnull.i.i.i.i13116
 
@@ -44439,7 +44439,7 @@ invoke.cont17.i.i13142:                           ; preds = %for.cond.for.end_cr
   %3950 = load ptr, ptr %mpData.i.i12763, align 8
   %tobool.not.i.i13144 = icmp eq ptr %3950, null
   %3951 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12767, align 8
-  %cmp.not.i.i.i13146 = icmp eq ptr %3951, %3950
+  %cmp.not.i.i.i13146 = icmp eq ptr %3950, %3951
   %or.cond.i.i13147 = select i1 %tobool.not.i.i13144, i1 true, i1 %cmp.not.i.i.i13146
   br i1 %or.cond.i.i13147, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit13149, label %delete.notnull.i.i.i.i13148
 
@@ -44493,7 +44493,7 @@ invoke.cont17.i.i13174:                           ; preds = %for.cond.for.end_cr
   %3955 = load ptr, ptr %mpData.i.i12639, align 8
   %tobool.not.i.i13176 = icmp eq ptr %3955, null
   %3956 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12643, align 8
-  %cmp.not.i.i.i13178 = icmp eq ptr %3956, %3955
+  %cmp.not.i.i.i13178 = icmp eq ptr %3955, %3956
   %or.cond.i.i13179 = select i1 %tobool.not.i.i13176, i1 true, i1 %cmp.not.i.i.i13178
   br i1 %or.cond.i.i13179, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit13181, label %delete.notnull.i.i.i.i13180
 
@@ -44547,7 +44547,7 @@ invoke.cont17.i.i13206:                           ; preds = %for.cond.for.end_cr
   %3960 = load ptr, ptr %mpData.i.i12631, align 8
   %tobool.not.i.i13208 = icmp eq ptr %3960, null
   %3961 = load ptr, ptr %mpPoolBegin.i.i.i.i.i12635, align 8
-  %cmp.not.i.i.i13210 = icmp eq ptr %3961, %3960
+  %cmp.not.i.i.i13210 = icmp eq ptr %3960, %3961
   %or.cond.i.i13211 = select i1 %tobool.not.i.i13208, i1 true, i1 %cmp.not.i.i.i13210
   br i1 %or.cond.i.i13211, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev.exit13213, label %delete.notnull.i.i.i.i13212
 
@@ -44882,7 +44882,7 @@ invoke.cont25.i.i:                                ; preds = %for.cond.for.end_cr
   %4016 = load ptr, ptr %mpData.i.i13215, align 8
   %tobool.not.i.i13328 = icmp eq ptr %4016, null
   %4017 = load ptr, ptr %mpPoolBegin.i.i.i.i.i13219, align 8
-  %cmp.not.i.i.i13330 = icmp eq ptr %4017, %4016
+  %cmp.not.i.i.i13330 = icmp eq ptr %4016, %4017
   %or.cond.i.i13331 = select i1 %tobool.not.i.i13328, i1 true, i1 %cmp.not.i.i.i13330
   br i1 %or.cond.i.i13331, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectf12MoveOnlyTypeEED2Ev.exit, label %delete.notnull.i.i.i.i13332
 
@@ -64863,11 +64863,11 @@ entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %mNumCapacity, align 8
   store i64 %n, ptr %mNumElements, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp3 = icmp ult i64 %1, %n
+  %cmp3 = icmp ugt i64 %n, %1
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
@@ -64928,7 +64928,7 @@ if.else:                                          ; preds = %entry
   %add.ptr24 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %add.ptr24, align 8
   %add.ptr29 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %0
-  %cmp.not7.i.i = icmp eq i64 %0, %n
+  %cmp.not7.i.i = icmp eq i64 %n, %0
   br i1 %cmp.not7.i.i, label %if.end38, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else
@@ -64979,11 +64979,11 @@ entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %mNumCapacity, align 8
   store i64 %n, ptr %mNumElements, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %1, %n
+  %cmp7 = icmp ugt i64 %n, %1
   br i1 %cmp7, label %if.then8, label %for.body.preheader.i.i.i.i
 
 if.then8:                                         ; preds = %if.then
@@ -65054,7 +65054,7 @@ if.else:                                          ; preds = %entry
   %add.ptr31 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %add.ptr31, align 8
   %add.ptr36 = getelementptr inbounds %struct.TestObject, ptr %13, i64 %0
-  %cmp.not7.i.i = icmp eq i64 %0, %n
+  %cmp.not7.i.i = icmp eq i64 %n, %0
   br i1 %cmp.not7.i.i, label %if.end45, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else
@@ -65224,7 +65224,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
   %tobool.not.i = icmp eq ptr %15, null
-  %cmp.not.i.i = icmp eq ptr %2, %15
+  %cmp.not.i.i = icmp eq ptr %15, %2
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -65288,7 +65288,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %tobool.not.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i = icmp eq ptr %3, %4
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -65580,7 +65580,7 @@ _ZN5eastl22uninitialized_fill_ptrIfEEvPT_S2_RKS1_.exit: ; preds = %for.body.i.i.
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %35 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i105 = icmp eq ptr %35, %34
+  %cmp.not.i105 = icmp eq ptr %34, %35
   %isnull.i.i = icmp eq ptr %34, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i105
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -65602,7 +65602,7 @@ if.else:                                          ; preds = %if.then
   %37 = load i8, ptr %args, align 1
   %frombool.i = and i8 %37, 1
   %sub.i109 = sub i64 %1, %0
-  %cmp.i = icmp ugt i64 %sub.i109, %n
+  %cmp.i = icmp ult i64 %n, %sub.i109
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
@@ -65635,7 +65635,7 @@ _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i: ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE15DoInsertAndFillEmmmRKb.exit, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %if.else
-  %cmp.not2.i.i.i.i.i = icmp eq i64 %sub.i109, %n
+  %cmp.not2.i.i.i.i.i = icmp eq i64 %n, %sub.i109
   br i1 %cmp.not2.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit.i, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.else.i
@@ -65950,7 +65950,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
   %tobool.not.i = icmp eq ptr %16, null
-  %cmp.not.i.i = icmp eq ptr %2, %16
+  %cmp.not.i.i = icmp eq ptr %16, %2
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -66014,7 +66014,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %tobool.not.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i = icmp eq ptr %3, %4
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -66308,7 +66308,7 @@ _ZN5eastl22uninitialized_copy_ptrIPfS1_S1_EET1_T_T0_S2_.exit: ; preds = %_ZN5eas
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %38 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i131 = icmp eq ptr %38, %37
+  %cmp.not.i131 = icmp eq ptr %37, %38
   %isnull.i.i = icmp eq ptr %37, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i131
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -66385,7 +66385,7 @@ if.end.i.i.i.i.i.i31.i:                           ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i, %_ZN5eastl18uninitialized_copyIPbS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr13.i, %add.ptr77
+  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr77, %add.ptr13.i
   br i1 %cmp.i.i.i.i36.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE13DoInsertRangeEPbS3_S3_m.exit, label %if.end.i.i.i.i37.i
 
 if.end.i.i.i.i37.i:                               ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
@@ -66472,7 +66472,7 @@ if.end.i.i.i.i.i.i31.i149:                        ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i149, %_ZN5eastl18uninitialized_copyIPfS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr14.i, %add.ptr94
+  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr94, %add.ptr14.i
   br i1 %cmp.i.i.i.i36.i151, label %if.end128, label %if.end.i.i.i.i37.i152
 
 if.end.i.i.i.i37.i152:                            ; preds = %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
@@ -66562,7 +66562,7 @@ entry:
   %temp = alloca %"class.eastl::TupleVecInternal::TupleVecImpl.47", align 8
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumCapacity, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %entry
@@ -66655,7 +66655,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %17 = phi ptr [ %.pre, %for.cond.for.end_crit_edge.i.i.i ], [ %8, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %17, null
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i = icmp eq ptr %17, %18
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end63, label %delete.notnull.i.i.i
 
@@ -66666,7 +66666,7 @@ delete.notnull.i.i.i:                             ; preds = %invoke.cont17.i
 if.else:                                          ; preds = %entry
   %mNumElements = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i64, ptr %mNumElements, align 8
-  %cmp6 = icmp ult i64 %19, %n
+  %cmp6 = icmp ugt i64 %n, %19
   br i1 %cmp6, label %if.then7, label %if.else42
 
 if.then7:                                         ; preds = %if.else
@@ -66696,7 +66696,7 @@ for.body.i.i:                                     ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i = phi ptr [ %22, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %_ZN10TestObjectaSERKS_.exit.i.i ]
   %inc.i.i.i = add nsw i64 %23, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i27 = icmp eq ptr %first.addr.04.i.i, %args1
+  %cmp.not.i.i.i27 = icmp eq ptr %args1, %first.addr.04.i.i
   br i1 %cmp.not.i.i.i27, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
@@ -66818,7 +66818,7 @@ for.body.i.i53:                                   ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i54 = phi ptr [ %43, %for.body.lr.ph.i.i49 ], [ %incdec.ptr.i.i63, %_ZN10TestObjectaSERKS_.exit.i.i62 ]
   %inc.i.i.i55 = add nsw i64 %44, 1
   store i64 %inc.i.i.i55, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i56 = icmp eq ptr %first.addr.04.i.i54, %args1
+  %cmp.not.i.i.i56 = icmp eq ptr %args1, %first.addr.04.i.i54
   br i1 %cmp.not.i.i.i56, label %_ZN10TestObjectaSERKS_.exit.i.i62, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %for.body.i.i53
@@ -66857,7 +66857,7 @@ for.body.i.i67:                                   ; preds = %_ZN5eastl4fillIP10T
 _ZN5eastl4fillIPffEEvT_S2_RKT0_.exit71:           ; preds = %for.body.i.i67, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65.thread, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65
   %add.ptr47121125 = phi ptr [ %add.ptr47119, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65.thread ], [ %add.ptr47, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65 ], [ %add.ptr47, %for.body.i.i67 ]
   %51 = load i64, ptr %mNumElements, align 8, !noalias !11
-  %cmp.not.i.i85.not = icmp eq i64 %51, %n
+  %cmp.not.i.i85.not = icmp eq i64 %n, %51
   br i1 %cmp.not.i.i85.not, label %if.end63, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastl4fillIPffEEvT_S2_RKT0_.exit71
@@ -67039,7 +67039,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
   %tobool.not.i = icmp eq ptr %14, null
-  %cmp.not.i.i = icmp eq ptr %3, %14
+  %cmp.not.i.i = icmp eq ptr %14, %3
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end96, label %delete.notnull.i.i.i
 
@@ -67856,7 +67856,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2E10TestObjectE30DoUninitializedMove
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %38 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i102 = icmp eq ptr %38, %37
+  %cmp.not.i102 = icmp eq ptr %37, %38
   %isnull.i.i = icmp eq ptr %37, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i102
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -68149,7 +68149,7 @@ invoke.cont25.i:                                  ; preds = %for.cond.for.end_cr
   %tobool.not.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i = icmp eq ptr %3, %4
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm72ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -68288,7 +68288,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EfE30DoUninitializedMoveAndDestruct
   %13 = load ptr, ptr %mpData15, align 8
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %14, %13
+  %cmp.not.i = icmp eq ptr %13, %14
   %isnull.i.i = icmp eq ptr %13, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -68358,7 +68358,7 @@ invoke.cont17:                                    ; preds = %invoke.cont, %for.c
   %tobool.not = icmp eq ptr %3, null
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %3
+  %cmp.not.i = icmp eq ptr %3, %4
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.not.i
   br i1 %or.cond, label %if.end, label %delete.notnull.i.i
 
@@ -68392,7 +68392,7 @@ entry:
   %inc6.i = add nsw i64 %6, 1
   store i64 %inc6.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %sub = sub i64 %numElements, %pos
-  %cmp = icmp ugt i64 %sub, %n
+  %cmp = icmp ult i64 %n, %sub
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -68872,7 +68872,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1EL
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %35 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i151 = icmp eq ptr %35, %34
+  %cmp.not.i151 = icmp eq ptr %34, %35
   %isnull.i.i = icmp eq ptr %34, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i151
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -69066,7 +69066,7 @@ while.body.i186:                                  ; preds = %_ZN5eastl13move_bac
   %65 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i187 = add nsw i64 %65, 1
   store i64 %inc.i.i.i.i.i187, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i188 = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i188 = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i188, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i189
 
 if.then.i.i.i.i.i189:                             ; preds = %while.body.i186
@@ -69165,7 +69165,7 @@ while.body.i251:                                  ; preds = %_ZN5eastl22uninitia
   %80 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i259 = add nsw i64 %80, 1
   store i64 %inc.i.i.i.i.i259, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i260 = icmp eq ptr %arrayidx6.i.i.i255, %add.ptr.i.i.i.i.i258
+  %cmp.not.i.i.i.i.i260 = icmp eq ptr %add.ptr.i.i.i.i.i258, %arrayidx6.i.i.i255
   br i1 %cmp.not.i.i.i.i.i260, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i267, label %if.then.i.i.i.i.i261
 
 if.then.i.i.i.i.i261:                             ; preds = %while.body.i251
@@ -69438,7 +69438,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2E10TestObjectE30DoUninitializedMove
   %14 = load ptr, ptr %mpData15, align 8
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %15, %14
+  %cmp.not.i = icmp eq ptr %14, %15
   %isnull.i.i = icmp eq ptr %14, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -69508,7 +69508,7 @@ invoke.cont17:                                    ; preds = %for.cond.for.end_cr
   %tobool.not = icmp eq ptr %3, null
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %3
+  %cmp.not.i = icmp eq ptr %3, %4
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.not.i
   br i1 %or.cond, label %if.end, label %delete.notnull.i.i
 
@@ -69556,7 +69556,7 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   %6 = load ptr, ptr %mpData15.i, align 8
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %7 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %7, %6
+  %cmp.not.i.i = icmp eq ptr %6, %7
   %isnull.i.i.i = icmp eq ptr %6, null
   %or.cond.i.i = or i1 %isnull.i.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE12DoReallocateEmm.exit, label %delete.notnull.i.i.i
@@ -69830,7 +69830,7 @@ for.body.i.i44:                                   ; preds = %if.else, %for.body.
   br i1 %cmp.not.i.i, label %_ZN5eastl18uninitialized_copyIP10TestObjectS2_EET0_T_S4_S3_.exit, label %for.body.i.i44, !llvm.loop !461
 
 _ZN5eastl18uninitialized_copyIP10TestObjectS2_EET0_T_S4_S3_.exit: ; preds = %for.body.i.i44, %if.else
-  %cmp.i.not6.i.i54 = icmp eq ptr %add.ptr, %pDestBegin
+  %cmp.i.not6.i.i54 = icmp eq ptr %pDestBegin, %add.ptr
   br i1 %cmp.i.not6.i.i54, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit71, label %for.body.i.i55.preheader
 
 for.body.i.i55.preheader:                         ; preds = %_ZN5eastl18uninitialized_copyIP10TestObjectS2_EET0_T_S4_S3_.exit
@@ -69923,7 +69923,7 @@ define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecImplINS
 entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumCapacity, align 8
-  %cmp.i = icmp ult i64 %0, %n
+  %cmp.i = icmp ugt i64 %n, %0
   br i1 %cmp.i, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit
 
 _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i: ; preds = %entry
@@ -69948,7 +69948,7 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   %4 = load ptr, ptr %mpData15.i, align 8
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, %4
+  %cmp.not.i.i = icmp eq ptr %4, %5
   %isnull.i.i.i = icmp eq ptr %4, null
   %or.cond.i.i = or i1 %isnull.i.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.thread, label %delete.notnull.i.i.i
@@ -70131,7 +70131,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %17 = phi ptr [ %.pre142, %for.cond.for.end_crit_edge.i.i.i ], [ %8, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %17, null
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i = icmp eq ptr %17, %18
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end20, label %delete.notnull.i.i.i
 
@@ -70167,7 +70167,7 @@ while.body.i:                                     ; preds = %if.then3, %_ZN5east
   %24 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i = add nsw i64 %24, 1
   store i64 %inc.i.i.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
@@ -70267,7 +70267,7 @@ while.body.i70:                                   ; preds = %if.else11, %_ZN5eas
   %41 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i78 = add nsw i64 %41, 1
   store i64 %inc.i.i.i.i.i78, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i79 = icmp eq ptr %arrayidx6.i.i.i74, %add.ptr.i.i.i.i.i77
+  %cmp.not.i.i.i.i.i79 = icmp eq ptr %add.ptr.i.i.i.i.i77, %arrayidx6.i.i.i74
   br i1 %cmp.not.i.i.i.i.i79, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i86, label %if.then.i.i.i.i.i80
 
 if.then.i.i.i.i.i80:                              ; preds = %while.body.i70
@@ -70379,7 +70379,7 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   %4 = load ptr, ptr %mpData15.i, align 8
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, %4
+  %cmp.not.i.i = icmp eq ptr %4, %5
   %isnull.i.i.i = icmp eq ptr %4, null
   %or.cond.i.i = or i1 %isnull.i.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE12DoReallocateEmm.exit, label %delete.notnull.i.i.i
@@ -70491,7 +70491,7 @@ call.i.i.i.i.i.i.i.i.i.i.i.noexc:                 ; preds = %_ZN5eastl16TupleVec
   %8 = load ptr, ptr %mpData15.i.i.i.i, align 8
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 64
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, %9
   %isnull.i.i.i.i.i.i = icmp eq ptr %8, null
   %or.cond.i.i.i.i.i = or i1 %isnull.i.i.i.i.i.i, %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE23DoConditionalReallocateEmmm.exit.i.thread.i, label %delete.notnull.i.i.i.i.i.i
@@ -70563,7 +70563,7 @@ call.i.i.i.i.i.i.i.i.i.i.i.noexc32:               ; preds = %_ZN5eastl16TupleVec
   %21 = load ptr, ptr %mpData15.i.i.i.i24, align 8
   %mpPoolBegin.i.i.i.i.i25 = getelementptr inbounds i8, ptr %b, i64 64
   %22 = load ptr, ptr %mpPoolBegin.i.i.i.i.i25, align 8
-  %cmp.not.i.i.i.i.i26 = icmp eq ptr %22, %21
+  %cmp.not.i.i.i.i.i26 = icmp eq ptr %21, %22
   %isnull.i.i.i.i.i.i27 = icmp eq ptr %21, null
   %or.cond.i.i.i.i.i28 = or i1 %isnull.i.i.i.i.i.i27, %cmp.not.i.i.i.i.i26
   br i1 %or.cond.i.i.i.i.i28, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE23DoConditionalReallocateEmmm.exit.i.thread.i30, label %delete.notnull.i.i.i.i.i.i29
@@ -70606,7 +70606,7 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i.i.i1
   %tobool.not.i.i = icmp eq ptr %26, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %27 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %27, %26
+  %cmp.not.i.i.i = icmp eq ptr %26, %27
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJifbEED2Ev.exit, label %delete.notnull.i.i.i.i
 
@@ -70625,7 +70625,7 @@ lpad:                                             ; preds = %_ZN5eastl16TupleVec
   %tobool.not.i.i36 = icmp eq ptr %29, null
   %mpPoolBegin.i.i.i37 = getelementptr inbounds i8, ptr %temp, i64 64
   %30 = load ptr, ptr %mpPoolBegin.i.i.i37, align 8
-  %cmp.not.i.i.i38 = icmp eq ptr %30, %29
+  %cmp.not.i.i.i38 = icmp eq ptr %29, %30
   %or.cond.i.i39 = select i1 %tobool.not.i.i36, i1 true, i1 %cmp.not.i.i.i38
   br i1 %or.cond.i.i39, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJifbEED2Ev.exit41, label %delete.notnull.i.i.i.i40
 
@@ -70689,7 +70689,7 @@ call.i.i.i.i.i.i.i.i.i.i.noexc:                   ; preds = %_ZN5eastl16TupleVec
   store ptr %10, ptr %1, align 8
   %12 = load ptr, ptr %mpData.i, align 8
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i.i.i = icmp eq ptr %12, %13
   %isnull.i.i.i.i.i = icmp eq ptr %12, null
   %or.cond.i.i.i.i = or i1 %isnull.i.i.i.i.i, %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE23DoConditionalReallocateEmmm.exit.i.thread, label %delete.notnull.i.i.i.i.i
@@ -70730,7 +70730,7 @@ lpad:                                             ; preds = %_ZN5eastl16TupleVec
   %18 = load ptr, ptr %mpData.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
   %19 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %19, %18
+  %cmp.not.i.i = icmp eq ptr %18, %19
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -70920,7 +70920,7 @@ invoke.cont17.i.i:                                ; preds = %for.cond.for.end_cr
   %tobool.not.i.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i.i = icmp eq ptr %3, %4
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit, label %delete.notnull.i.i.i.i
 
@@ -71406,7 +71406,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3E12MoveOnlyTypeE30DoUninitializedMo
   %16 = load ptr, ptr %mpData21, align 8
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 72
   %17 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %17, %16
+  %cmp.not.i = icmp eq ptr %16, %17
   %isnull.i.i = icmp eq ptr %16, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm72ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -71535,11 +71535,11 @@ entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %mNumCapacity, align 8
   store i64 %n, ptr %mNumElements, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp3 = icmp ult i64 %1, %n
+  %cmp3 = icmp ugt i64 %n, %1
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
@@ -71600,7 +71600,7 @@ if.else:                                          ; preds = %entry
   %add.ptr24 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %add.ptr24, align 8
   %add.ptr29 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %0
-  %cmp.not7.i.i = icmp eq i64 %0, %n
+  %cmp.not7.i.i = icmp eq i64 %n, %0
   br i1 %cmp.not7.i.i, label %if.end38, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else
@@ -71651,11 +71651,11 @@ entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %mNumCapacity, align 8
   store i64 %n, ptr %mNumElements, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %1, %n
+  %cmp7 = icmp ugt i64 %n, %1
   br i1 %cmp7, label %if.then8, label %for.body.preheader.i.i.i.i
 
 if.then8:                                         ; preds = %if.then
@@ -71726,7 +71726,7 @@ if.else:                                          ; preds = %entry
   %add.ptr31 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %add.ptr31, align 8
   %add.ptr36 = getelementptr inbounds %struct.TestObject, ptr %13, i64 %0
-  %cmp.not7.i.i = icmp eq i64 %0, %n
+  %cmp.not7.i.i = icmp eq i64 %n, %0
   br i1 %cmp.not7.i.i, label %if.end45, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else
@@ -71896,7 +71896,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
   %tobool.not.i = icmp eq ptr %15, null
-  %cmp.not.i.i = icmp eq ptr %2, %15
+  %cmp.not.i.i = icmp eq ptr %15, %2
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -71960,7 +71960,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %tobool.not.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i = icmp eq ptr %3, %4
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -72252,7 +72252,7 @@ _ZN5eastl22uninitialized_fill_ptrIfEEvPT_S2_RKS1_.exit: ; preds = %for.body.i.i.
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %35 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i105 = icmp eq ptr %35, %34
+  %cmp.not.i105 = icmp eq ptr %34, %35
   %isnull.i.i = icmp eq ptr %34, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i105
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -72274,7 +72274,7 @@ if.else:                                          ; preds = %if.then
   %37 = load i8, ptr %args, align 1
   %frombool.i = and i8 %37, 1
   %sub.i109 = sub i64 %1, %0
-  %cmp.i = icmp ugt i64 %sub.i109, %n
+  %cmp.i = icmp ult i64 %n, %sub.i109
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
@@ -72307,7 +72307,7 @@ _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i: ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE15DoInsertAndFillEmmmRKb.exit, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %if.else
-  %cmp.not2.i.i.i.i.i = icmp eq i64 %sub.i109, %n
+  %cmp.not2.i.i.i.i.i = icmp eq i64 %n, %sub.i109
   br i1 %cmp.not2.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit.i, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.else.i
@@ -72619,7 +72619,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
   %tobool.not.i = icmp eq ptr %16, null
-  %cmp.not.i.i = icmp eq ptr %2, %16
+  %cmp.not.i.i = icmp eq ptr %16, %2
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -72683,7 +72683,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %tobool.not.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i = icmp eq ptr %3, %4
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -72977,7 +72977,7 @@ _ZN5eastl22uninitialized_copy_ptrIPfS1_S1_EET1_T_T0_S2_.exit: ; preds = %_ZN5eas
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %38 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i131 = icmp eq ptr %38, %37
+  %cmp.not.i131 = icmp eq ptr %37, %38
   %isnull.i.i = icmp eq ptr %37, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i131
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -73054,7 +73054,7 @@ if.end.i.i.i.i.i.i31.i:                           ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i, %_ZN5eastl18uninitialized_copyIPbS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr13.i, %add.ptr77
+  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr77, %add.ptr13.i
   br i1 %cmp.i.i.i.i36.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE13DoInsertRangeEPbS3_S3_m.exit, label %if.end.i.i.i.i37.i
 
 if.end.i.i.i.i37.i:                               ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
@@ -73141,7 +73141,7 @@ if.end.i.i.i.i.i.i31.i149:                        ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i149, %_ZN5eastl18uninitialized_copyIPfS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr14.i, %add.ptr94
+  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr94, %add.ptr14.i
   br i1 %cmp.i.i.i.i36.i151, label %if.end128, label %if.end.i.i.i.i37.i152
 
 if.end.i.i.i.i37.i152:                            ; preds = %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
@@ -73231,7 +73231,7 @@ entry:
   %temp = alloca %"class.eastl::TupleVecInternal::TupleVecImpl.225", align 8
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumCapacity, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %entry
@@ -73324,7 +73324,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %17 = phi ptr [ %.pre, %for.cond.for.end_crit_edge.i.i.i ], [ %8, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %17, null
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i = icmp eq ptr %17, %18
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end63, label %delete.notnull.i.i.i
 
@@ -73335,7 +73335,7 @@ delete.notnull.i.i.i:                             ; preds = %invoke.cont17.i
 if.else:                                          ; preds = %entry
   %mNumElements = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i64, ptr %mNumElements, align 8
-  %cmp6 = icmp ult i64 %19, %n
+  %cmp6 = icmp ugt i64 %n, %19
   br i1 %cmp6, label %if.then7, label %if.else42
 
 if.then7:                                         ; preds = %if.else
@@ -73365,7 +73365,7 @@ for.body.i.i:                                     ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i = phi ptr [ %22, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %_ZN10TestObjectaSERKS_.exit.i.i ]
   %inc.i.i.i = add nsw i64 %23, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i27 = icmp eq ptr %first.addr.04.i.i, %args1
+  %cmp.not.i.i.i27 = icmp eq ptr %args1, %first.addr.04.i.i
   br i1 %cmp.not.i.i.i27, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
@@ -73487,7 +73487,7 @@ for.body.i.i53:                                   ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i54 = phi ptr [ %43, %for.body.lr.ph.i.i49 ], [ %incdec.ptr.i.i63, %_ZN10TestObjectaSERKS_.exit.i.i62 ]
   %inc.i.i.i55 = add nsw i64 %44, 1
   store i64 %inc.i.i.i55, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i56 = icmp eq ptr %first.addr.04.i.i54, %args1
+  %cmp.not.i.i.i56 = icmp eq ptr %args1, %first.addr.04.i.i54
   br i1 %cmp.not.i.i.i56, label %_ZN10TestObjectaSERKS_.exit.i.i62, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %for.body.i.i53
@@ -73526,7 +73526,7 @@ for.body.i.i67:                                   ; preds = %_ZN5eastl4fillIP10T
 _ZN5eastl4fillIPffEEvT_S2_RKT0_.exit71:           ; preds = %for.body.i.i67, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65.thread, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65
   %add.ptr47121125 = phi ptr [ %add.ptr47119, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65.thread ], [ %add.ptr47, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit65 ], [ %add.ptr47, %for.body.i.i67 ]
   %51 = load i64, ptr %mNumElements, align 8, !noalias !11
-  %cmp.not.i.i85.not = icmp eq i64 %51, %n
+  %cmp.not.i.i85.not = icmp eq i64 %n, %51
   br i1 %cmp.not.i.i85.not, label %if.end63, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastl4fillIPffEEvT_S2_RKT0_.exit71
@@ -73708,7 +73708,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
   %tobool.not.i = icmp eq ptr %14, null
-  %cmp.not.i.i = icmp eq ptr %3, %14
+  %cmp.not.i.i = icmp eq ptr %14, %3
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end96, label %delete.notnull.i.i.i
 
@@ -74525,7 +74525,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2E10TestObjectE30DoUninitializedMove
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %38 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i102 = icmp eq ptr %38, %37
+  %cmp.not.i102 = icmp eq ptr %37, %38
   %isnull.i.i = icmp eq ptr %37, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i102
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -74818,7 +74818,7 @@ invoke.cont25.i:                                  ; preds = %for.cond.for.end_cr
   %tobool.not.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i = icmp eq ptr %3, %4
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm528ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -74949,7 +74949,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2EfE30DoUninitializedMoveAndDestruct
   %13 = load ptr, ptr %mpData15, align 8
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %14, %13
+  %cmp.not.i = icmp eq ptr %13, %14
   %isnull.i.i = icmp eq ptr %13, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -75019,7 +75019,7 @@ invoke.cont17:                                    ; preds = %invoke.cont, %for.c
   %tobool.not = icmp eq ptr %3, null
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %3
+  %cmp.not.i = icmp eq ptr %3, %4
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.not.i
   br i1 %or.cond, label %if.end, label %delete.notnull.i.i
 
@@ -75295,7 +75295,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1E
   %mDataSizeAndAllocator.i = getelementptr inbounds i8, ptr %this, i64 48
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %35 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i151 = icmp eq ptr %35, %34
+  %cmp.not.i151 = icmp eq ptr %34, %35
   %isnull.i.i = icmp eq ptr %34, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i151
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -75489,7 +75489,7 @@ while.body.i186:                                  ; preds = %_ZN5eastl13move_bac
   %65 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i187 = add nsw i64 %65, 1
   store i64 %inc.i.i.i.i.i187, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i188 = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i188 = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i188, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i189
 
 if.then.i.i.i.i.i189:                             ; preds = %while.body.i186
@@ -75588,7 +75588,7 @@ while.body.i251:                                  ; preds = %_ZN5eastl22uninitia
   %80 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i259 = add nsw i64 %80, 1
   store i64 %inc.i.i.i.i.i259, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i260 = icmp eq ptr %arrayidx6.i.i.i255, %add.ptr.i.i.i.i.i258
+  %cmp.not.i.i.i.i.i260 = icmp eq ptr %add.ptr.i.i.i.i.i258, %arrayidx6.i.i.i255
   br i1 %cmp.not.i.i.i.i.i260, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i267, label %if.then.i.i.i.i.i261
 
 if.then.i.i.i.i.i261:                             ; preds = %while.body.i251
@@ -75861,7 +75861,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm2E10TestObjectE30DoUninitializedMove
   %14 = load ptr, ptr %mpData15, align 8
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %15, %14
+  %cmp.not.i = icmp eq ptr %14, %15
   %isnull.i.i = icmp eq ptr %14, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -75931,7 +75931,7 @@ invoke.cont17:                                    ; preds = %for.cond.for.end_cr
   %tobool.not = icmp eq ptr %3, null
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %3
+  %cmp.not.i = icmp eq ptr %3, %4
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.not.i
   br i1 %or.cond, label %if.end, label %delete.notnull.i.i
 
@@ -75979,7 +75979,7 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   %6 = load ptr, ptr %mpData15.i, align 8
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %7 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %7, %6
+  %cmp.not.i.i = icmp eq ptr %6, %7
   %isnull.i.i.i = icmp eq ptr %6, null
   %or.cond.i.i = or i1 %isnull.i.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE12DoReallocateEmm.exit, label %delete.notnull.i.i.i
@@ -76074,7 +76074,7 @@ define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecImplINS
 entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumCapacity, align 8
-  %cmp.i = icmp ult i64 %0, %n
+  %cmp.i = icmp ugt i64 %n, %0
   br i1 %cmp.i, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit
 
 _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i: ; preds = %entry
@@ -76099,7 +76099,7 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   %4 = load ptr, ptr %mpData15.i, align 8
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, %4
+  %cmp.not.i.i = icmp eq ptr %4, %5
   %isnull.i.i.i = icmp eq ptr %4, null
   %or.cond.i.i = or i1 %isnull.i.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.thread, label %delete.notnull.i.i.i
@@ -76282,7 +76282,7 @@ invoke.cont17.i:                                  ; preds = %for.cond.for.end_cr
   %17 = phi ptr [ %.pre142, %for.cond.for.end_crit_edge.i.i.i ], [ %8, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %17, null
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i = icmp eq ptr %17, %18
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end20, label %delete.notnull.i.i.i
 
@@ -76318,7 +76318,7 @@ while.body.i:                                     ; preds = %if.then3, %_ZN5east
   %24 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i = add nsw i64 %24, 1
   store i64 %inc.i.i.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
@@ -76418,7 +76418,7 @@ while.body.i70:                                   ; preds = %if.else11, %_ZN5eas
   %41 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i78 = add nsw i64 %41, 1
   store i64 %inc.i.i.i.i.i78, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i79 = icmp eq ptr %arrayidx6.i.i.i74, %add.ptr.i.i.i.i.i77
+  %cmp.not.i.i.i.i.i79 = icmp eq ptr %add.ptr.i.i.i.i.i77, %arrayidx6.i.i.i74
   br i1 %cmp.not.i.i.i.i.i79, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i86, label %if.then.i.i.i.i.i80
 
 if.then.i.i.i.i.i80:                              ; preds = %while.body.i70
@@ -76530,7 +76530,7 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   %4 = load ptr, ptr %mpData15.i, align 8
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, %4
+  %cmp.not.i.i = icmp eq ptr %4, %5
   %isnull.i.i.i = icmp eq ptr %4, null
   %or.cond.i.i = or i1 %isnull.i.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE12DoReallocateEmm.exit, label %delete.notnull.i.i.i
@@ -76642,7 +76642,7 @@ call.i.i.i.i.i.i.i.i.i.i.i.noexc:                 ; preds = %_ZN5eastl16TupleVec
   %8 = load ptr, ptr %mpData15.i.i.i.i, align 8
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 64
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, %8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, %9
   %isnull.i.i.i.i.i.i = icmp eq ptr %8, null
   %or.cond.i.i.i.i.i = or i1 %isnull.i.i.i.i.i.i, %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE23DoConditionalReallocateEmmm.exit.i.thread.i, label %delete.notnull.i.i.i.i.i.i
@@ -76714,7 +76714,7 @@ call.i.i.i.i.i.i.i.i.i.i.i.noexc32:               ; preds = %_ZN5eastl16TupleVec
   %21 = load ptr, ptr %mpData15.i.i.i.i24, align 8
   %mpPoolBegin.i.i.i.i.i25 = getelementptr inbounds i8, ptr %b, i64 64
   %22 = load ptr, ptr %mpPoolBegin.i.i.i.i.i25, align 8
-  %cmp.not.i.i.i.i.i26 = icmp eq ptr %22, %21
+  %cmp.not.i.i.i.i.i26 = icmp eq ptr %21, %22
   %isnull.i.i.i.i.i.i27 = icmp eq ptr %21, null
   %or.cond.i.i.i.i.i28 = or i1 %isnull.i.i.i.i.i.i27, %cmp.not.i.i.i.i.i26
   br i1 %or.cond.i.i.i.i.i28, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE23DoConditionalReallocateEmmm.exit.i.thread.i30, label %delete.notnull.i.i.i.i.i.i29
@@ -76757,7 +76757,7 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i.i.i1
   %tobool.not.i.i = icmp eq ptr %26, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %27 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %27, %26
+  %cmp.not.i.i.i = icmp eq ptr %26, %27
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJifbEED2Ev.exit, label %delete.notnull.i.i.i.i
 
@@ -76776,7 +76776,7 @@ lpad:                                             ; preds = %_ZN5eastl16TupleVec
   %tobool.not.i.i36 = icmp eq ptr %29, null
   %mpPoolBegin.i.i.i37 = getelementptr inbounds i8, ptr %temp, i64 64
   %30 = load ptr, ptr %mpPoolBegin.i.i.i37, align 8
-  %cmp.not.i.i.i38 = icmp eq ptr %30, %29
+  %cmp.not.i.i.i38 = icmp eq ptr %29, %30
   %or.cond.i.i39 = select i1 %tobool.not.i.i36, i1 true, i1 %cmp.not.i.i.i38
   br i1 %or.cond.i.i39, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJifbEED2Ev.exit41, label %delete.notnull.i.i.i.i40
 
@@ -76840,7 +76840,7 @@ call.i.i.i.i.i.i.i.i.i.i.noexc:                   ; preds = %_ZN5eastl16TupleVec
   store ptr %10, ptr %1, align 8
   %12 = load ptr, ptr %mpData.i, align 8
   %13 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %13, %12
+  %cmp.not.i.i.i.i = icmp eq ptr %12, %13
   %isnull.i.i.i.i.i = icmp eq ptr %12, null
   %or.cond.i.i.i.i = or i1 %isnull.i.i.i.i.i, %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE23DoConditionalReallocateEmmm.exit.i.thread, label %delete.notnull.i.i.i.i.i
@@ -76881,7 +76881,7 @@ lpad:                                             ; preds = %_ZN5eastl16TupleVec
   %18 = load ptr, ptr %mpData.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
   %19 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %19, %18
+  %cmp.not.i.i = icmp eq ptr %18, %19
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEED2Ev.exit, label %delete.notnull.i.i.i
 
@@ -76955,7 +76955,7 @@ invoke.cont17.i.i:                                ; preds = %for.cond.for.end_cr
   %tobool.not.i.i = icmp eq ptr %3, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %4 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, %3
+  %cmp.not.i.i.i = icmp eq ptr %3, %4
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev.exit, label %delete.notnull.i.i.i.i
 
@@ -77112,7 +77112,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3E12MoveOnlyTypeE30DoUninitializedMo
   %16 = load ptr, ptr %mpData21, align 8
   %mpPoolBegin.i = getelementptr inbounds i8, ptr %this, i64 72
   %17 = load ptr, ptr %mpPoolBegin.i, align 8
-  %cmp.not.i = icmp eq ptr %17, %16
+  %cmp.not.i = icmp eq ptr %16, %17
   %isnull.i.i = icmp eq ptr %16, null
   %or.cond.i = or i1 %isnull.i.i, %cmp.not.i
   br i1 %or.cond.i, label %_ZN5eastl22fixed_vector_allocatorILm528ELm1ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit, label %delete.notnull.i.i
@@ -77138,11 +77138,11 @@ entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %mNumCapacity, align 8
   store i64 %n, ptr %mNumElements, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %1, %n
+  %cmp7 = icmp ugt i64 %n, %1
   br i1 %cmp7, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE12DoReallocateEmm.exit, label %if.then.for.body.preheader.i.i.i.i_crit_edge
 
 if.then.for.body.preheader.i.i.i.i_crit_edge:     ; preds = %if.then
@@ -77237,7 +77237,7 @@ if.else:                                          ; preds = %entry
   %add.ptr31 = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load ptr, ptr %add.ptr31, align 8
   %add.ptr36 = getelementptr inbounds %struct.TestObject, ptr %15, i64 %0
-  %cmp.not7.i.i = icmp eq i64 %0, %n
+  %cmp.not7.i.i = icmp eq i64 %n, %0
   br i1 %cmp.not7.i.i, label %if.end45, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else
@@ -77522,7 +77522,7 @@ if.else:                                          ; preds = %if.then
   %23 = load i8, ptr %args, align 1
   %frombool.i = and i8 %23, 1
   %sub.i109 = sub i64 %1, %0
-  %cmp.i = icmp ugt i64 %sub.i109, %n
+  %cmp.i = icmp ult i64 %n, %sub.i109
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
@@ -77555,7 +77555,7 @@ _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit.i: ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE15DoInsertAndFillEmmmRKb.exit, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %if.else
-  %cmp.not2.i.i.i.i.i = icmp eq i64 %sub.i109, %n
+  %cmp.not2.i.i.i.i.i = icmp eq i64 %n, %sub.i109
   br i1 %cmp.not2.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit.i, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.else.i
@@ -78022,7 +78022,7 @@ if.end.i.i.i.i.i.i31.i:                           ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i, %_ZN5eastl18uninitialized_copyIPbS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr13.i, %add.ptr77
+  %cmp.i.i.i.i36.i = icmp eq ptr %add.ptr77, %add.ptr13.i
   br i1 %cmp.i.i.i.i36.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE13DoInsertRangeEPbS3_S3_m.exit, label %if.end.i.i.i.i37.i
 
 if.end.i.i.i.i37.i:                               ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit35.i
@@ -78109,7 +78109,7 @@ if.end.i.i.i.i.i.i31.i149:                        ; preds = %_ZN5eastl18uninitia
   br label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
 
 _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i: ; preds = %if.end.i.i.i.i.i.i31.i149, %_ZN5eastl18uninitialized_copyIPfS1_EET0_T_S3_S2_.exit.i
-  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr14.i, %add.ptr94
+  %cmp.i.i.i.i36.i151 = icmp eq ptr %add.ptr94, %add.ptr14.i
   br i1 %cmp.i.i.i.i36.i151, label %if.end128, label %if.end.i.i.i.i37.i152
 
 if.end.i.i.i.i37.i152:                            ; preds = %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit35.i
@@ -78198,7 +78198,7 @@ define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecImplINS
 entry:
   %mNumCapacity = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumCapacity, align 8
-  %cmp = icmp ult i64 %0, %n
+  %cmp = icmp ugt i64 %n, %0
   br i1 %cmp, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE14DoInitFillArgsEmRKbRKS7_RKf.exit.loopexit.i, label %if.else
 
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE14DoInitFillArgsEmRKbRKS7_RKf.exit.loopexit.i: ; preds = %entry
@@ -78208,7 +78208,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1
 if.else:                                          ; preds = %entry
   %mNumElements = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %mNumElements, align 8
-  %cmp6 = icmp ult i64 %1, %n
+  %cmp6 = icmp ugt i64 %n, %1
   br i1 %cmp6, label %if.then7, label %if.else42
 
 if.then7:                                         ; preds = %if.else
@@ -78238,7 +78238,7 @@ for.body.i.i:                                     ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i = phi ptr [ %4, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %_ZN10TestObjectaSERKS_.exit.i.i ]
   %inc.i.i.i = add nsw i64 %5, 1
   store i64 %inc.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i27 = icmp eq ptr %first.addr.04.i.i, %args1
+  %cmp.not.i.i.i27 = icmp eq ptr %args1, %first.addr.04.i.i
   br i1 %cmp.not.i.i.i27, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
@@ -78360,7 +78360,7 @@ for.body.i.i52:                                   ; preds = %_ZN10TestObjectaSER
   %first.addr.04.i.i53 = phi ptr [ %25, %for.body.lr.ph.i.i48 ], [ %incdec.ptr.i.i62, %_ZN10TestObjectaSERKS_.exit.i.i61 ]
   %inc.i.i.i54 = add nsw i64 %26, 1
   store i64 %inc.i.i.i54, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i55 = icmp eq ptr %first.addr.04.i.i53, %args1
+  %cmp.not.i.i.i55 = icmp eq ptr %args1, %first.addr.04.i.i53
   br i1 %cmp.not.i.i.i55, label %_ZN10TestObjectaSERKS_.exit.i.i61, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %for.body.i.i52
@@ -78399,7 +78399,7 @@ for.body.i.i66:                                   ; preds = %_ZN5eastl4fillIP10T
 _ZN5eastl4fillIPffEEvT_S2_RKT0_.exit70:           ; preds = %for.body.i.i66, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64.thread, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64
   %add.ptr47123127 = phi ptr [ %add.ptr47121, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64.thread ], [ %add.ptr47, %_ZN5eastl4fillIP10TestObjectS1_EEvT_S3_RKT0_.exit64 ], [ %add.ptr47, %for.body.i.i66 ]
   %33 = load i64, ptr %mNumElements, align 8, !noalias !11
-  %cmp.not.i.i84.not = icmp eq i64 %33, %n
+  %cmp.not.i.i84.not = icmp eq i64 %n, %33
   br i1 %cmp.not.i.i84.not, label %if.end63, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastl4fillIPffEEvT_S2_RKT0_.exit70
@@ -80188,7 +80188,7 @@ while.body.i186:                                  ; preds = %_ZN5eastl13move_bac
   %51 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i187 = add nsw i64 %51, 1
   store i64 %inc.i.i.i.i.i187, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i188 = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i188 = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i188, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i189
 
 if.then.i.i.i.i.i189:                             ; preds = %while.body.i186
@@ -80287,7 +80287,7 @@ while.body.i251:                                  ; preds = %_ZN5eastl22uninitia
   %66 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i259 = add nsw i64 %66, 1
   store i64 %inc.i.i.i.i.i259, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i260 = icmp eq ptr %arrayidx6.i.i.i255, %add.ptr.i.i.i.i.i258
+  %cmp.not.i.i.i.i.i260 = icmp eq ptr %add.ptr.i.i.i.i.i258, %arrayidx6.i.i.i255
   br i1 %cmp.not.i.i.i.i.i260, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i267, label %if.then.i.i.i.i.i261
 
 if.then.i.i.i.i.i261:                             ; preds = %while.body.i251
@@ -80583,7 +80583,7 @@ while.body.i:                                     ; preds = %if.then3, %_ZN5east
   %18 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i = add nsw i64 %18, 1
   store i64 %inc.i.i.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %arrayidx6.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i, %arrayidx6.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
@@ -80683,7 +80683,7 @@ while.body.i77:                                   ; preds = %if.else11, %_ZN5eas
   %35 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i.i.i.i85 = add nsw i64 %35, 1
   store i64 %inc.i.i.i.i.i85, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i.i.i.i.i86 = icmp eq ptr %arrayidx6.i.i.i81, %add.ptr.i.i.i.i.i84
+  %cmp.not.i.i.i.i.i86 = icmp eq ptr %add.ptr.i.i.i.i.i84, %arrayidx6.i.i.i81
   br i1 %cmp.not.i.i.i.i.i86, label %_ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Internal15TupleAssignableIS5_T_EE5valueEbE4typeELb0EEERS5_OSB_.exit.i93, label %if.then.i.i.i.i.i87
 
 if.then.i.i.i.i.i87:                              ; preds = %while.body.i77

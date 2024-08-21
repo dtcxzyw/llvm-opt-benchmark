@@ -39,7 +39,7 @@ define hidden noalias noundef ptr @GifMakeMapObject(i32 noundef %0, ptr noundef 
   br i1 %or.cond.i, label %3, label %GifBitSize.exit, !llvm.loop !6
 
 GifBitSize.exit:                                  ; preds = %3
-  %.not = icmp eq i32 %5, %0
+  %.not = icmp eq i32 %0, %5
   br i1 %.not, label %7, label %25
 
 7:                                                ; preds = %GifBitSize.exit
@@ -136,7 +136,7 @@ define hidden noalias noundef ptr @GifUnionColorMap(ptr nocapture noundef readon
   br i1 %or.cond.i.i, label %7, label %GifBitSize.exit.i, !llvm.loop !6
 
 GifBitSize.exit.i:                                ; preds = %7
-  %.not.i = icmp eq i32 %9, %6
+  %.not.i = icmp eq i32 %6, %9
   br i1 %.not.i, label %11, label %GifMakeMapObject.exit.thread
 
 11:                                               ; preds = %GifBitSize.exit.i
@@ -624,7 +624,7 @@ define hidden ptr @GifMakeSavedImage(ptr noundef %0, ptr noundef readonly %1) lo
   br i1 %or.cond.i.i, label %29, label %GifBitSize.exit.i, !llvm.loop !6
 
 GifBitSize.exit.i:                                ; preds = %29
-  %.not.i = icmp eq i32 %31, %26
+  %.not.i = icmp eq i32 %26, %31
   br i1 %.not.i, label %33, label %52
 
 33:                                               ; preds = %GifBitSize.exit.i

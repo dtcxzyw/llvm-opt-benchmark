@@ -393,7 +393,7 @@ define void @_ZN5ZXing9BitMatrix9rotate180Ev(ptr nocapture noundef nonnull reado
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %3, %5
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %5, i64 -1
-  %7 = icmp ugt ptr %.sroa.0.08.i.i, %3
+  %7 = icmp ult ptr %3, %.sroa.0.08.i.i
   %or.cond.i.i = select i1 %6, i1 %7, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEEvT_S7_.exit
 
@@ -1268,7 +1268,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowINS_10StrideIterIPKhEEEEvNS_5R
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 1
-  %18 = icmp ult i64 %17, %10
+  %18 = icmp ugt i64 %10, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %2
@@ -1280,7 +1280,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowINS_10StrideIterIPKhEEEEvNS_5R
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 21:                                               ; preds = %2
-  %22 = icmp ugt i64 %17, %10
+  %22 = icmp ult i64 %10, %17
   br i1 %22, label %23, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 23:                                               ; preds = %21
@@ -1362,7 +1362,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %60, %55
   %62 = ashr exact i64 %61, 1
-  %63 = icmp ult i64 %62, %58
+  %63 = icmp ugt i64 %58, %62
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %._crit_edge
@@ -1371,7 +1371,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit21
 
 66:                                               ; preds = %._crit_edge
-  %67 = icmp ugt i64 %62, %58
+  %67 = icmp ult i64 %58, %62
   br i1 %67, label %68, label %_ZNSt6vectorItSaItEE6resizeEm.exit21
 
 68:                                               ; preds = %66
@@ -1402,7 +1402,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIPKhEEvNS_5RangeIT_EERSt6vecto
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 1
-  %16 = icmp ult i64 %15, %8
+  %16 = icmp ugt i64 %8, %15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3
@@ -1414,7 +1414,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIPKhEEvNS_5RangeIT_EERSt6vecto
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 19:                                               ; preds = %3
-  %20 = icmp ugt i64 %15, %8
+  %20 = icmp ult i64 %8, %15
   br i1 %20, label %21, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 21:                                               ; preds = %19
@@ -1450,7 +1450,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %spec.select.idx = select i1 %.not, i64 0, i64 2
   %spec.select = getelementptr inbounds i8, ptr %31, i64 %spec.select.idx
   %33 = getelementptr inbounds i8, ptr %1, i64 -8
-  %34 = icmp ugt ptr %33, %0
+  %34 = icmp ult ptr %0, %33
   br i1 %34, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %49, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
@@ -1532,7 +1532,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %71, %66
   %73 = ashr exact i64 %72, 1
-  %74 = icmp ult i64 %73, %69
+  %74 = icmp ugt i64 %69, %73
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %._crit_edge
@@ -1541,7 +1541,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit44
 
 77:                                               ; preds = %._crit_edge
-  %78 = icmp ugt i64 %73, %69
+  %78 = icmp ult i64 %69, %73
   br i1 %78, label %79, label %_ZNSt6vectorItSaItEE6resizeEm.exit44
 
 79:                                               ; preds = %77
@@ -1564,9 +1564,9 @@ define void @_ZN5ZXing7InflateEONS_9BitMatrixEiii(ptr dead_on_unwind noalias wri
   %8 = load i32, ptr %7, align 4
   %9 = shl nsw i32 %4, 1
   %10 = add nsw i32 %6, %9
-  %.sroa.speculated62 = tail call i32 @llvm.smax.i32(i32 %10, i32 %2)
+  %.sroa.speculated62 = tail call i32 @llvm.smax.i32(i32 %2, i32 %10)
   %11 = add nsw i32 %8, %9
-  %.sroa.speculated58 = tail call i32 @llvm.smax.i32(i32 %11, i32 %3)
+  %.sroa.speculated58 = tail call i32 @llvm.smax.i32(i32 %3, i32 %11)
   %12 = icmp eq i32 %6, %.sroa.speculated62
   %13 = icmp eq i32 %8, %.sroa.speculated58
   %or.cond = select i1 %12, i1 %13, i1 false

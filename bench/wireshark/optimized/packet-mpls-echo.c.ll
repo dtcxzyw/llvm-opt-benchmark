@@ -1094,7 +1094,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_mpls_echo_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #3
-  %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 %4)
+  %8 = tail call i32 @llvm.smin.i32(i32 %4, i32 %7)
   %9 = icmp slt i32 %8, 4
   br i1 %9, label %10, label %12
 
@@ -2210,14 +2210,14 @@ define internal fastcc void @dissect_mpls_echo_tlv_ilso(ptr noundef %0, ptr noun
 48:                                               ; preds = %43, %40, %24
   %.sink88 = phi i32 [ 24, %43 ], [ 36, %40 ], [ 12, %24 ]
   %.sink = phi i32 [ -24, %43 ], [ -36, %40 ], [ -12, %24 ]
-  %49 = add nsw i32 %.sink, %4
+  %49 = add nsw i32 %4, %.sink
   %50 = icmp ne ptr %3, null
   %51 = icmp sgt i32 %49, 3
   %or.cond7 = select i1 %50, i1 %51, i1 false
   br i1 %or.cond7, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %48
-  %52 = add i32 %.sink88, %2
+  %52 = add i32 %2, %.sink88
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %69

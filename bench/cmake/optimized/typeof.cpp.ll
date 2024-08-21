@@ -1830,7 +1830,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
 68:                                               ; preds = %.body
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 48
-  %71 = icmp eq ptr %70, %69
+  %71 = icmp eq ptr %69, %70
   br i1 %71, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %72
 
 72:                                               ; preds = %68
@@ -1984,9 +1984,9 @@ define linkonce_odr dso_local void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11c
   store ptr %28, ptr %3, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %14
   %30 = getelementptr inbounds i8, ptr %29, i64 -1
-  %31 = icmp ule ptr %22, %30
+  %31 = icmp uge ptr %30, %22
   %32 = getelementptr inbounds i8, ptr %0, i64 88
-  %33 = icmp ugt ptr %32, %30
+  %33 = icmp ult ptr %30, %32
   %34 = select i1 %31, i1 %33, i1 false
   br i1 %34, label %_ZN3dap3any5allocEmm.exit.i, label %35
 
@@ -2091,7 +2091,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 48
-  %26 = icmp eq ptr %25, %24
+  %26 = icmp eq ptr %24, %25
   br i1 %26, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %27
 
 27:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3dap3anyEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit
@@ -2183,9 +2183,9 @@ define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_3anyEE13copyConst
   store ptr %27, ptr %1, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 %13
   %29 = getelementptr inbounds i8, ptr %28, i64 -1
-  %30 = icmp ule ptr %21, %29
+  %30 = icmp uge ptr %29, %21
   %31 = getelementptr inbounds i8, ptr %1, i64 56
-  %32 = icmp ugt ptr %31, %29
+  %32 = icmp ult ptr %29, %31
   %33 = select i1 %30, i1 %32, i1 false
   br i1 %33, label %_ZN3dap3any5allocEmm.exit.i, label %34
 

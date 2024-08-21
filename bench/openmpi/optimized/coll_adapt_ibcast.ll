@@ -342,13 +342,13 @@ opal_obj_new.exit226.i:                           ; preds = %.lr.ph.i.i223.i, %9
   %.val.i = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %2, i64 24
   %.val210.i = load i64, ptr %103, align 8
-  %.not.i = icmp ugt i64 %.val210.i, %14
+  %.not.i = icmp ult i64 %14, %.val210.i
   br i1 %.not.i, label %117, label %104
 
 104:                                              ; preds = %opal_obj_new.exit226.i
   %105 = sext i32 %1 to i64
   %106 = mul i64 %.val210.i, %105
-  %107 = icmp ugt i64 %106, %14
+  %107 = icmp ult i64 %14, %106
   br i1 %107, label %108, label %117
 
 108:                                              ; preds = %104

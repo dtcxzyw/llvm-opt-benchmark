@@ -274,7 +274,7 @@ _ZN22hb_serialize_context_tC2EPvj.exit.i:         ; preds = %39
   %61 = and i32 %60, 1
   %62 = getelementptr inbounds i8, ptr %4, i64 44
   %63 = load i32, ptr %62, align 4
-  %64 = or i32 %63, %61
+  %64 = or i32 %61, %63
   %brmerge.i.not.i.i = icmp eq i32 %64, 0
   br i1 %brmerge.i.not.i.i, label %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIj17face_table_info_tLb0EEEEbOT_.exit.thread.i, label %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIj17face_table_info_tLb0EEEEbOT_.exit.i
 
@@ -455,7 +455,7 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
   br i1 %134, label %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread6.i.i.i.i.i, label %135
 
 135:                                              ; preds = %133
-  %.not.i.i.i.i.i.i = icmp ult i32 %.sroa.0.1.i, %.pre.i
+  %.not.i.i.i.i.i.i = icmp ugt i32 %.pre.i, %.sroa.0.1.i
   br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EE5allocEjb.exit.thread.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %135, %.preheader.i.i.i.i.i.i
@@ -463,7 +463,7 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIj17face_table_info_tLb0EE6item_tEERS
   %136 = lshr i32 %.142.i.i.i.i.i.i, 1
   %137 = add i32 %.142.i.i.i.i.i.i, 8
   %138 = add i32 %137, %136
-  %139 = icmp ult i32 %138, %.pre.i
+  %139 = icmp ugt i32 %.pre.i, %138
   br i1 %139, label %.preheader.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i, !llvm.loop !33
 
 .thread.i.i.i.i.i.i:                              ; preds = %.preheader.i.i.i.i.i.i
@@ -1677,7 +1677,7 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_t5resetEv(ptr noundef
   br i1 %16, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread5.i, label %17
 
 17:                                               ; preds = %14
-  %.not.i.i = icmp ult i32 %13, %15
+  %.not.i.i = icmp ugt i32 %15, %13
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %17, %.preheader.i.i
@@ -1685,7 +1685,7 @@ define linkonce_odr hidden void @_ZN22hb_serialize_context_t5resetEv(ptr noundef
   %18 = lshr i32 %.142.i.i, 1
   %19 = add i32 %.142.i.i, 8
   %20 = add i32 %19, %18
-  %21 = icmp ult i32 %20, %15
+  %21 = icmp ugt i32 %15, %20
   br i1 %21, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !64
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -2111,7 +2111,7 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_pool_tIN22hb_serialize_context_t8
   br i1 %9, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread9, label %10
 
 10:                                               ; preds = %3
-  %.not.i = icmp ult i32 %8, %7
+  %.not.i = icmp ugt i32 %7, %8
   br i1 %.not.i, label %.preheader.i, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread
 
 .preheader.i:                                     ; preds = %10, %.preheader.i
@@ -2119,7 +2119,7 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_pool_tIN22hb_serialize_context_t8
   %11 = lshr i32 %.142.i, 1
   %12 = add i32 %.142.i, 8
   %13 = add i32 %12, %11
-  %14 = icmp ult i32 %13, %7
+  %14 = icmp ugt i32 %7, %13
   br i1 %14, label %.preheader.i, label %.thread.i, !llvm.loop !70
 
 .thread.i:                                        ; preds = %.preheader.i
@@ -2168,7 +2168,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   br i1 %29, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread6.i, label %30
 
 30:                                               ; preds = %27
-  %.not.i.i = icmp ult i32 %23, %28
+  %.not.i.i = icmp ugt i32 %28, %23
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %30, %.preheader.i.i
@@ -2176,7 +2176,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   %31 = lshr i32 %.142.i.i, 1
   %32 = add i32 %.142.i.i, 8
   %33 = add i32 %32, %31
-  %34 = icmp ult i32 %33, %28
+  %34 = icmp ugt i32 %28, %33
   br i1 %34, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !70
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -2845,7 +2845,7 @@ _ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj
 
 67:                                               ; preds = %61
   %.not.i.i.i7 = icmp ne ptr %55, %56
-  %or.cond.not.i.i = and i1 %.not.i.i.i7, %3
+  %or.cond.not.i.i = and i1 %3, %.not.i.i.i7
   br i1 %or.cond.not.i.i, label %68, label %_ZL9hb_memsetPvij.exit.i.i
 
 68:                                               ; preds = %67
@@ -3012,7 +3012,7 @@ _ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERK
 71:                                               ; preds = %_ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERKS3_j.exit
   %72 = getelementptr inbounds i8, ptr %0, i64 84
   %73 = load i32, ptr %72, align 4
-  %.not.i.i = icmp ugt i32 %73, %70
+  %.not.i.i = icmp ult i32 %70, %73
   br i1 %.not.i.i, label %76, label %74
 
 74:                                               ; preds = %71
@@ -3058,7 +3058,7 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i: ; preds =
   br i1 %96, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread6.i.i, label %97
 
 97:                                               ; preds = %94
-  %.not.i.i.i = icmp ult i32 %93, %95
+  %.not.i.i.i = icmp ugt i32 %95, %93
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %97, %.preheader.i.i.i
@@ -3066,7 +3066,7 @@ _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EEixEi.exit.i: ; preds =
   %98 = lshr i32 %.142.i.i.i, 1
   %99 = add i32 %.142.i.i.i, 8
   %100 = add i32 %99, %98
-  %101 = icmp ult i32 %100, %95
+  %101 = icmp ugt i32 %95, %100
   br i1 %101, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !130
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
@@ -3193,7 +3193,7 @@ _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN2
   br i1 %148, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread6.i, label %149
 
 149:                                              ; preds = %146
-  %.not.i.i21 = icmp ult i32 %145, %147
+  %.not.i.i21 = icmp ugt i32 %147, %145
   br i1 %.not.i.i21, label %.preheader.i.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %149, %.preheader.i.i
@@ -3201,7 +3201,7 @@ _ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN2
   %150 = lshr i32 %.142.i.i, 1
   %151 = add i32 %.142.i.i, 8
   %152 = add i32 %151, %150
-  %153 = icmp ult i32 %152, %147
+  %153 = icmp ugt i32 %147, %152
   br i1 %153, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !64
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -3318,7 +3318,7 @@ _ZN22hb_serialize_context_t8object_t4finiEv.exit27: ; preds = %_ZN11hb_vector_tI
   %196 = getelementptr inbounds i8, ptr %0, i64 112
   %197 = load i32, ptr %196, align 8
   %198 = and i32 %197, 1
-  %199 = or i32 %195, %198
+  %199 = or i32 %198, %195
   %brmerge.i.not.i = icmp eq i32 %199, 0
   br i1 %brmerge.i.not.i, label %200, label %_ZN22hb_serialize_context_t15propagate_errorIR12hb_hashmap_tIPKNS_8object_tEjLb0EEEEbOT_.exit
 
@@ -3384,7 +3384,7 @@ _ZNO9hb_iter_tI10hb_array_tIKPN22hb_serialize_context_t8object_tEERS4_EppEv.exit
   %21 = getelementptr inbounds i8, ptr %.04365, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %4, align 4
-  %.not.i = icmp ugt i32 %23, %22
+  %.not.i = icmp ult i32 %22, %23
   br i1 %.not.i, label %25, label %24
 
 24:                                               ; preds = %20

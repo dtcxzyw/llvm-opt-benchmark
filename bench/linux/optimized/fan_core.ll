@@ -778,7 +778,7 @@ define internal i32 @fan_set_cur_state(ptr nocapture noundef readonly %0, i64 no
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   %17 = sext i32 %16 to i64
-  %18 = icmp ult i64 %17, %1
+  %18 = icmp ugt i64 %1, %17
   br i1 %18, label %47, label %29
 
 .thread:                                          ; preds = %9
@@ -786,12 +786,12 @@ define internal i32 @fan_set_cur_state(ptr nocapture noundef readonly %0, i64 no
   %20 = load i8, ptr %19, align 1
   %21 = udiv i8 100, %20
   %22 = zext nneg i8 %21 to i64
-  %23 = icmp ult i64 %22, %1
+  %23 = icmp ugt i64 %1, %22
   br i1 %23, label %47, label %.thread1
 
 .thread1:                                         ; preds = %.thread
   %24 = zext i8 %20 to i64
-  %25 = mul nuw nsw i64 %24, %1
+  %25 = mul nuw nsw i64 %1, %24
   %26 = add nuw nsw i64 %25, %24
   %27 = icmp ugt i64 %26, 100
   %28 = select i1 %27, i64 100, i64 %25

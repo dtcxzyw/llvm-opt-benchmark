@@ -1806,7 +1806,7 @@ order_update.exit:                                ; preds = %.lr.ph.i, %252, %21
   store i32 %.028.lcssa.i, ptr %258, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %186, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %order_update.exit
@@ -1815,7 +1815,7 @@ order_update.exit:                                ; preds = %.lr.ph.i, %252, %21
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %166
   %259 = phi i32 [ %.pre174, %._crit_edge.loopexit ], [ %167, %166 ]
-  %. = tail call i32 @llvm.smax.i32(i32 %259, i32 %1)
+  %. = tail call i32 @llvm.smax.i32(i32 %1, i32 %259)
   store i32 %., ptr %0, align 8
   ret void
 }
@@ -3664,7 +3664,7 @@ order_update.exit:                                ; preds = %.lr.ph.i98, %116, %
   %155 = zext i1 %154 to i64
   %156 = getelementptr inbounds [2 x i32], ptr %131, i64 0, i64 %155
   %157 = load i32, ptr %156, align 4
-  %.not100 = icmp sgt i32 %157, %144
+  %.not100 = icmp slt i32 %144, %157
   br i1 %.not100, label %.sink.split, label %161
 
 .sink.split:                                      ; preds = %151, %146
@@ -5618,7 +5618,7 @@ var_set_tag.exit.i.i.i:                           ; preds = %veci_push.exit, %ve
 881:                                              ; preds = %810, %807
   %.val.i.i147.i.i = load ptr, ptr %51, align 8
   %.val910.i.i.i.i = load i32, ptr %50, align 4
-  %882 = icmp sgt i32 %.val910.i.i.i.i, %.val64.i.i.i
+  %882 = icmp slt i32 %.val64.i.i.i, %.val910.i.i.i.i
   br i1 %882, label %.lr.ph.i.i148.i.i, label %sat_solver3_lit_removable.exit.i.i
 
 .lr.ph.i.i148.i.i:                                ; preds = %881
@@ -5826,7 +5826,7 @@ var_set_tag.exit69.i.i.i:                         ; preds = %veci_push.exit.i, %
 992:                                              ; preds = %914, %910
   %.val.i70.i.i.i = load ptr, ptr %51, align 8
   %.val910.i71.i.i.i = load i32, ptr %50, align 4
-  %993 = icmp sgt i32 %.val910.i71.i.i.i, %.val64.i.i.i
+  %993 = icmp slt i32 %.val64.i.i.i, %.val910.i71.i.i.i
   br i1 %993, label %.lr.ph.i72.i.i.i, label %sat_solver3_lit_removable.exit.i.i
 
 .lr.ph.i72.i.i.i:                                 ; preds = %992
@@ -7527,7 +7527,7 @@ sat_solver3_set_literal_polarity.exit.thread:     ; preds = %3
   store i32 %58, ptr %56, align 4
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %59 = trunc nuw i64 %indvars.iv.next96 to i32
-  %60 = icmp slt i32 %59, %2
+  %60 = icmp sgt i32 %2, %59
   br i1 %60, label %.lr.ph83, label %._crit_edge84, !llvm.loop !71
 
 ._crit_edge84:                                    ; preds = %.lr.ph83
@@ -7538,7 +7538,7 @@ sat_solver3_set_literal_polarity.exit.thread:     ; preds = %3
   %62 = getelementptr inbounds i32, ptr %1, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = xor i32 %.063.lcssa, -1
-  %65 = add i32 %64, %2
+  %65 = add i32 %2, %64
   %66 = tail call i32 @sat_solver3_solve_lexsat(ptr noundef %0, ptr noundef nonnull %63, i32 noundef %65)
   br label %._crit_edge84.thread
 

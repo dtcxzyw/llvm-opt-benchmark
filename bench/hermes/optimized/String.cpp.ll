@@ -4410,7 +4410,7 @@ if.then127:                                       ; preds = %if.end123
   %54 = trunc i64 %conv.i118 to i32
   %conv132 = add i32 %54, 1
   %55 = load i32, ptr %argCount_.i, align 8
-  %cmp.i122 = icmp ugt i32 %55, %conv132
+  %cmp.i122 = icmp ult i32 %conv132, %55
   br i1 %cmp.i122, label %cond.true.i, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
 
 cond.true.i:                                      ; preds = %if.then127
@@ -10224,7 +10224,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp7 = icmp eq i32 %and.i7, %q
+  %cmp7 = icmp eq i32 %q, %and.i7
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
@@ -10239,7 +10239,7 @@ if.end9:                                          ; preds = %if.end
   %RStr.sroa.10.8.extract.shift = lshr i64 %6, 32
   %sub.i = sub i32 %SStr.sroa.4.8.extract.trunc, %q
   %retval.sroa.2.8.extract.trunc.i.i = trunc i64 %4 to i32
-  %add.i.i = add i32 %retval.sroa.2.8.extract.trunc.i.i, %q
+  %add.i.i = add i32 %q, %retval.sroa.2.8.extract.trunc.i.i
   %bf.value.i.i = and i32 %add.i.i, 1073741823
   %bf.clear3.i.i = and i32 %retval.sroa.2.8.extract.trunc.i.i, -1073741824
   %bf.set.i.i = or disjoint i32 %bf.value.i.i, %bf.clear3.i.i

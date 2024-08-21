@@ -156,7 +156,7 @@ define noundef double @_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGri
 
 17:                                               ; preds = %4
   %18 = fmul double %14, 5.000000e-01
-  %19 = fcmp ugt double %18, %15
+  %19 = fcmp ult double %15, %18
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %17
@@ -199,7 +199,7 @@ define noundef double @_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGri
 
 21:                                               ; preds = %4
   %22 = fmul double %18, 5.000000e-01
-  %23 = fcmp ugt double %22, %19
+  %23 = fcmp ult double %19, %22
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %21
@@ -329,7 +329,7 @@ define noundef zeroext i1 @_ZN3gmx21pointsAlongLambdaAxisERKNS_8BiasGridEii(ptr 
 
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i, %35, %41, %47, %.loopexit.split.loop.exit35.i.i.i.i.i.i, %.loopexit.split.loop.exit37.i.i.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %35 ], [ %.sroa.025.1.i.i.i.i.i.i, %41 ], [ %spec.select.i.i.i.i.i.i, %47 ], [ %51, %.loopexit.split.loop.exit35.i.i.i.i.i.i ], [ %52, %.loopexit.split.loop.exit37.i.i.i.i.i.i ], [ %53, %.loopexit.split.loop.exit39.i.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %7
+  %.not = icmp eq ptr %7, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not, label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread, label %54
 
 54:                                               ; preds = %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit
@@ -368,7 +368,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
 
 76:                                               ; preds = %75
   %77 = fmul double %72, 5.000000e-01
-  %78 = fcmp ugt double %77, %73
+  %78 = fcmp ult double %73, %77
   br i1 %78, label %81, label %79
 
 79:                                               ; preds = %76
@@ -394,7 +394,7 @@ _ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGridEiii.exit: ; preds = %
 
 88:                                               ; preds = %87
   %89 = fmul double %72, 5.000000e-01
-  %90 = fcmp ugt double %89, %73
+  %90 = fcmp ult double %73, %89
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %88
@@ -537,7 +537,7 @@ define noundef zeroext i1 @_ZN3gmx25pointsHaveDifferentLambdaERKNS_8BiasGridEii(
 
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i, %35, %41, %47, %.loopexit.split.loop.exit35.i.i.i.i.i.i, %.loopexit.split.loop.exit37.i.i.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %35 ], [ %.sroa.025.1.i.i.i.i.i.i, %41 ], [ %spec.select.i.i.i.i.i.i, %47 ], [ %51, %.loopexit.split.loop.exit35.i.i.i.i.i.i ], [ %52, %.loopexit.split.loop.exit37.i.i.i.i.i.i ], [ %53, %.loopexit.split.loop.exit39.i.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not19 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %7
+  %.not19 = icmp ne ptr %7, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   %54 = icmp ne i32 %1, %2
   %or.cond.not37 = and i1 %54, %.not19
   %55 = trunc i64 %11 to i32
@@ -574,7 +574,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
 
 75:                                               ; preds = %66
   %76 = fmul double %72, 5.000000e-01
-  %77 = fcmp ugt double %76, %73
+  %77 = fcmp ult double %73, %76
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %75
@@ -1135,7 +1135,7 @@ define noundef zeroext i1 @_ZNK3gmx8BiasGrid6coversEPKd(ptr nocapture noundef no
 
 28:                                               ; preds = %20
   %29 = fmul double %25, 5.000000e-01
-  %30 = fcmp ugt double %29, %26
+  %30 = fcmp ult double %26, %29
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %28
@@ -1306,7 +1306,7 @@ define noundef i32 @_ZNK3gmx8GridAxis12nearestIndexEd(ptr nocapture noundef nonn
 
 12:                                               ; preds = %6
   %13 = fmul double %9, 5.000000e-01
-  %14 = fcmp ugt double %13, %10
+  %14 = fcmp ult double %10, %13
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %12
@@ -1564,7 +1564,7 @@ define void @_ZN3gmx8BiasGrid10initPointsEv(ptr nocapture noundef nonnull readon
 
 52:                                               ; preds = %44
   %53 = fmul double %50, 5.000000e-01
-  %54 = fcmp ugt double %53, %46
+  %54 = fcmp ult double %46, %53
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %52
@@ -1691,7 +1691,7 @@ _ZN3gmx12_GLOBAL__N_125getIntervalLengthPeriodicEddd.exit: ; preds = %13
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %19
-  %22 = fmul double %.0.i, %4
+  %22 = fmul double %4, %.0.i
   %23 = tail call double @llvm.ceil.f64(double %22)
   %24 = fptosi double %23 to i32
   %25 = add nsw i32 %24, 1
@@ -2100,7 +2100,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRdS5_S5_S5_EEERS1_DpOT_.exit
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %119, %120
   %122 = sdiv exact i64 %121, 72
-  %123 = icmp ult i64 %122, %.035.lcssa195
+  %123 = icmp ugt i64 %.035.lcssa195, %122
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %._crit_edge.thread
@@ -2109,7 +2109,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRdS5_S5_S5_EEERS1_DpOT_.exit
           to label %_ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 126:                                              ; preds = %._crit_edge.thread
-  %127 = icmp ugt i64 %122, %.035.lcssa195
+  %127 = icmp ult i64 %.035.lcssa195, %122
   br i1 %127, label %128, label %_ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit
 
 128:                                              ; preds = %126
@@ -3032,7 +3032,7 @@ _ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRdS5_S5_S5_EEEvRS2_PT
 _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRdS5_S5_S5_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRdS5_S5_S5_EEEvRS2_PT_DpOT0_.exit ], [ %33, %.lr.ph.i.i.i ]
   %34 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 48
-  %.not10.i.i.i29 = icmp eq ptr %8, %1
+  %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i30
@@ -3169,7 +3169,7 @@ _ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRdS5_iRKibEEEvRS2_PT_
 _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRdS5_iRKibEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %27, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRdS5_iRKibEEEvRS2_PT_DpOT0_.exit ], [ %37, %.lr.ph.i.i.i ]
   %38 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 48
-  %.not10.i.i.i30 = icmp eq ptr %9, %1
+  %.not10.i.i.i30 = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i30, label %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i31
@@ -3455,7 +3455,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %44, %_ZNSt6vectorIi
   %55 = add nuw nsw i32 %.068, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %53
   %56 = trunc nuw i64 %indvars.iv.next to i32
-  %57 = icmp slt i32 %56, %2
+  %57 = icmp sgt i32 %2, %56
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %54
@@ -3766,7 +3766,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRKdS6_iRibEEERS1_DpOT_.exit:
 
 189:                                              ; preds = %181
   %190 = fmul double %186, 5.000000e-01
-  %191 = fcmp ugt double %190, %187
+  %191 = fcmp ult double %187, %190
   br i1 %191, label %194, label %192
 
 192:                                              ; preds = %189
@@ -3915,7 +3915,7 @@ _ZN3gmxL13valueIsInGridEPKdNS_8ArrayRefIKNS_8GridAxisEEE.exit: ; preds = %_ZN3gm
 
 243:                                              ; preds = %235
   %244 = fmul double %240, 5.000000e-01
-  %245 = fcmp ugt double %244, %241
+  %245 = fcmp ult double %241, %244
   br i1 %245, label %248, label %246
 
 246:                                              ; preds = %243
@@ -4205,7 +4205,7 @@ _ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRKdS6_iRibEEEvRS2_PT_
 _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRKdS6_iRibEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %27, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRKdS6_iRibEEEvRS2_PT_DpOT0_.exit ], [ %37, %.lr.ph.i.i.i ]
   %38 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 48
-  %.not10.i.i.i30 = icmp eq ptr %9, %1
+  %.not10.i.i.i30 = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i30, label %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i31
@@ -4331,7 +4331,7 @@ _ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRKdS6_dRibEEEvRS2_PT_
 _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRKdS6_dRibEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %27, %_ZNSt16allocator_traitsISaIN3gmx8GridAxisEEE9constructIS1_JRKdS6_dRibEEEvRS2_PT_DpOT0_.exit ], [ %36, %.lr.ph.i.i.i ]
   %37 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 48
-  %.not10.i.i.i30 = icmp eq ptr %9, %1
+  %.not10.i.i.i30 = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i30, label %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i31

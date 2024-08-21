@@ -332,7 +332,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
 33:                                               ; preds = %32, %25
   %34 = load i64, ptr %6, align 8, !alias.scope !19
   %35 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %34
-  %36 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i, %34
+  %36 = icmp ugt i64 %34, %.sroa.2.0.copyload.i.i.i.i
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33
@@ -462,7 +462,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 79:                                               ; preds = %78, %70
   %80 = load i64, ptr %6, align 8
   %81 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %80
-  %82 = icmp ult i64 %.sroa.2.0.copyload.i.i, %80
+  %82 = icmp ugt i64 %80, %.sroa.2.0.copyload.i.i
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %79
@@ -1969,7 +1969,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17

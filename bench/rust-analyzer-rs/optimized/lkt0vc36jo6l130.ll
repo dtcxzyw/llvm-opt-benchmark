@@ -8656,7 +8656,7 @@ define hidden noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock20try_lo
   %4 = and i64 %3, 8
   %5 = icmp eq i64 %4, 0
   %6 = icmp ugt i64 %3, 15
-  %or.cond.not = and i1 %6, %1
+  %or.cond.not = and i1 %1, %6
   %or.cond = or i1 %5, %or.cond.not
   br i1 %or.cond, label %7, label %10
 
@@ -9947,7 +9947,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.45305
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -11079,7 +11079,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %7
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !1636, !noalias !1641, !noundef !29
-  %switch.selectcmp.i.not.i.not.i = icmp ult i32 %4, %.val23.i
+  %switch.selectcmp.i.not.i.not.i = icmp ugt i32 %.val23.i, %4
   %10 = add nuw i64 %7, 1
   %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %10
   %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02024.i
@@ -11114,7 +11114,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %7
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !1642, !noalias !1647, !noundef !29
-  %switch.selectcmp.i.not.i.not.i = icmp ult i32 %4, %.val23.i
+  %switch.selectcmp.i.not.i.not.i = icmp ugt i32 %.val23.i, %4
   %10 = add nuw i64 %7, 1
   %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %10
   %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02024.i
@@ -11149,7 +11149,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %7
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !1648, !noalias !1653, !noundef !29
-  %switch.selectcmp.i.not.i.not.i = icmp ult i32 %4, %.val23.i
+  %switch.selectcmp.i.not.i.not.i = icmp ugt i32 %.val23.i, %4
   %10 = add nuw i64 %7, 1
   %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01925.i, i64 %10
   %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02024.i
@@ -11191,7 +11191,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %9
   %.val23 = load i32, ptr %11, align 4, !noundef !29
-  %switch.selectcmp.i.not.i.not = icmp ult i32 %4, %.val23
+  %switch.selectcmp.i.not.i.not = icmp ugt i32 %.val23, %4
   %12 = add nuw i64 %9, 1
   %.022 = select i1 %switch.selectcmp.i.not.i.not, i64 %.01925, i64 %12
   %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02024
@@ -11227,7 +11227,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %9
   %.val23 = load i32, ptr %11, align 4, !noundef !29
-  %switch.selectcmp.i.not.i.not = icmp ult i32 %4, %.val23
+  %switch.selectcmp.i.not.i.not = icmp ugt i32 %.val23, %4
   %12 = add nuw i64 %9, 1
   %.022 = select i1 %switch.selectcmp.i.not.i.not, i64 %.01925, i64 %12
   %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02024
@@ -11263,7 +11263,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %9
   %.val23 = load i32, ptr %11, align 4, !noundef !29
-  %switch.selectcmp.i.not.i.not = icmp ult i32 %4, %.val23
+  %switch.selectcmp.i.not.i.not = icmp ugt i32 %.val23, %4
   %12 = add nuw i64 %9, 1
   %.022 = select i1 %switch.selectcmp.i.not.i.not, i64 %.01925, i64 %12
   %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02024
@@ -17186,8 +17186,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 
 59:                                               ; preds = %89, %.noexc2
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc2 ], [ %90, %89 ]
-  %.pn.i.i.i = phi i64 [ %55, %.noexc2 ], [ %91, %89 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %55, %.noexc2 ], [ %91, %89 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %60 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %60, align 1, !noalias !2812
   %61 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -17404,8 +17404,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 
 41:                                               ; preds = %65, %16
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %16 ], [ %66, %65 ]
-  %.pn.i.i.i = phi i64 [ %37, %16 ], [ %67, %65 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %37, %16 ], [ %67, %65 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %42 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %42, align 1, !noalias !2870
   %43 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i

@@ -1497,7 +1497,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %0 = load ptr, ptr @default_config_file, align 8
-  %cmp3.not = icmp eq ptr %0, %configfile
+  %cmp3.not = icmp eq ptr %configfile, %0
   br i1 %cmp3.not, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end

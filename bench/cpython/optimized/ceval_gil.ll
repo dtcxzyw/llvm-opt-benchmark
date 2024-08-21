@@ -1261,7 +1261,7 @@ if.end45:                                         ; preds = %while.end
   %last_holder = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load atomic i64, ptr %last_holder monotonic, align 8
   %24 = inttoptr i64 %23 to ptr
-  %cmp48.not = icmp eq ptr %24, %tstate
+  %cmp48.not = icmp eq ptr %tstate, %24
   br i1 %cmp48.not, label %if.end52, label %if.then49
 
 if.then49:                                        ; preds = %if.end45
@@ -1371,7 +1371,7 @@ if.end5.i:                                        ; preds = %_Py_atomic_compare_
   %43 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %43
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i = icmp ne ptr %44, %1
+  %cmp.i1.i.i = icmp ne ptr %1, %44
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %if.end14.i, label %if.then8.i
 
@@ -1528,7 +1528,7 @@ if.end25:                                         ; preds = %if.then21
   %last_holder26 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load atomic i64, ptr %last_holder26 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
-  %cmp28 = icmp eq ptr %5, %tstate
+  %cmp28 = icmp eq ptr %tstate, %5
   br i1 %cmp28, label %if.then29, label %if.end36
 
 if.then29:                                        ; preds = %if.end25
@@ -1715,7 +1715,7 @@ entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i = icmp ne i64 %call.i.i, %0
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i = icmp ne ptr %1, %interp
+  %cmp.i1.i = icmp ne ptr %interp, %1
   %narrow.i.not = select i1 %cmp.i.not.i, i1 true, i1 %cmp.i1.i
   br i1 %narrow.i.not, label %if.end, label %if.then
 
@@ -1995,7 +1995,7 @@ if.end7:                                          ; preds = %UNSIGNAL_PENDING_CA
   %21 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not = icmp eq i64 %call.i, %21
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i19.not = icmp eq ptr %22, %interp
+  %cmp.i19.not = icmp eq ptr %interp, %22
   %or.cond = select i1 %cmp.i.not, i1 %cmp.i19.not, i1 false
   br i1 %or.cond, label %if.then12, label %if.end18
 
@@ -2054,7 +2054,7 @@ land.lhs.true:                                    ; preds = %entry
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %1 = load ptr, ptr %interp, align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i6.not = icmp eq ptr %2, %1
+  %cmp.i6.not = icmp eq ptr %1, %2
   br i1 %cmp.i6.not, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %land.lhs.true
@@ -2083,7 +2083,7 @@ _Py_set_eval_breaker_bit.exit.i:                  ; preds = %_Py_atomic_compare_
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %11
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i = icmp ne ptr %12, %10
+  %cmp.i1.i.i = icmp ne ptr %10, %12
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %if.end5, label %if.end.i
 
@@ -2140,7 +2140,7 @@ lor.lhs.false:                                    ; preds = %entry
   %interp = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %interp, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i2.not = icmp eq ptr %4, %3
+  %cmp.i2.not = icmp eq ptr %3, %4
   br i1 %cmp.i2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -2198,7 +2198,7 @@ _Py_set_eval_breaker_bit.exit.i:                  ; preds = %_Py_atomic_compare_
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
   %cmp.i.not.i.i = icmp ne i64 %call.i.i.i, %10
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i1.i.i = icmp ne ptr %11, %9
+  %cmp.i1.i.i = icmp ne ptr %9, %11
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
   br i1 %narrow.i.not.i, label %if.end4, label %if.end.i19
 

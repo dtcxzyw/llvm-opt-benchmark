@@ -1271,7 +1271,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %object.03.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %array.val17, %for.body.i.preheader ]
   %i.02.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %4 = load ptr, ptr %object.03.i, align 8
-  %cmp3.i = icmp eq ptr %4, %2
+  %cmp3.i = icmp eq ptr %2, %4
   br i1 %cmp3.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i

@@ -91,7 +91,7 @@ define internal range(i32 -1, -2147483648) i32 @memsistream_seek(ptr nocapture n
   %5 = getelementptr inbounds i8, ptr %0, i64 %.sink15
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = add nsw i32 %7, %1
+  %8 = add nsw i32 %1, %7
   br label %9
 
 9:                                                ; preds = %.sink.split, %3

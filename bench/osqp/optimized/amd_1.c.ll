@@ -168,7 +168,7 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
 ._crit_edge:                                      ; preds = %.loopexit, %10, %.preheader139, %.preheader
   %.0128.lcssa173175 = phi i64 [ %22, %.preheader ], [ %22, %.preheader139 ], [ 0, %10 ], [ %22, %.loopexit ]
   %.neg = mul i64 %0, -6
-  %88 = add i64 %.neg, %6
+  %88 = add i64 %6, %.neg
   tail call void @amd_l2(i64 noundef %0, ptr noundef %7, ptr noundef %16, ptr noundef %5, i64 noundef %88, i64 noundef %.0128.lcssa173175, ptr noundef %11, ptr noundef %4, ptr noundef %3, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %8, ptr noundef %9) #2
   ret void
 }

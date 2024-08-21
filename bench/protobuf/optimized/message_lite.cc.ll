@@ -504,7 +504,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call2.i.i to i64
   %sub.ptr.sub.neg.i.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %conv.neg.i.i = trunc i64 %sub.ptr.sub.neg.i.i to i32
-  %sub.i.i = add i32 %conv.neg.i.i, %input.coerce1
+  %sub.i.i = add i32 %input.coerce1, %conv.neg.i.i
   %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 %sub.i.i, ptr %limit_.i.i, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i, i32 0)
@@ -628,7 +628,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call2.i.i to i64
   %sub.ptr.sub.neg.i.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %conv.neg.i.i = trunc i64 %sub.ptr.sub.neg.i.i to i32
-  %sub.i.i = add i32 %conv.neg.i.i, %input.coerce1
+  %sub.i.i = add i32 %input.coerce1, %conv.neg.i.i
   %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 %sub.i.i, ptr %limit_.i.i, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i, i32 0)
@@ -1174,7 +1174,7 @@ invoke.cont16:                                    ; preds = %if.then8.i, %if.end
 
 while.end:                                        ; preds = %invoke.cont16
   %14 = load ptr, ptr %ctx, align 8
-  %cmp.i14 = icmp ult ptr %14, %call15
+  %cmp.i14 = icmp ugt ptr %call15, %14
   br i1 %cmp.i14, label %land.rhs.i, label %if.end26
 
 land.rhs.i:                                       ; preds = %while.end
@@ -2746,7 +2746,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 if.end:                                           ; preds = %entry
   %add = add i64 %call2, %call
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #21
-  %cmp.i = icmp ult i64 %call.i, %add
+  %cmp.i = icmp ugt i64 %add, %call.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
@@ -3925,7 +3925,7 @@ delete.notnull:                                   ; preds = %_ZN6google8protobuf
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %4, %5
   %__last.sroa.0.09.i.i.i = getelementptr inbounds i8, ptr %5, i64 -16
-  %cmp.i110.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i, %4
+  %cmp.i110.i.i.i = icmp ult ptr %4, %__last.sroa.0.09.i.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i110.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %invoke.cont.i
 
@@ -4103,7 +4103,7 @@ if.end.i:                                         ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %cmp2.not.i = icmp slt i32 %conv.i.i, %count
+  %cmp2.not.i = icmp sgt i32 %count, %conv.i.i
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i

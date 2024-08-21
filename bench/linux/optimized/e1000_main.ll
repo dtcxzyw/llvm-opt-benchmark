@@ -2991,7 +2991,7 @@ define dso_local noundef range(i32 -22, 1) i32 @e1000_set_spd_dplx(ptr nocapture
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %10
-  %19 = or disjoint i32 %8, %1
+  %19 = or disjoint i32 %1, %8
   switch i32 %19, label %32 [
     i32 10, label %20
     i32 11, label %22

@@ -1205,7 +1205,7 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i: ; preds = %_ZNSt12_Vector_bas
   %spec.select347 = select i1 %4, i32 %40, i32 %38
   %41 = sdiv i32 %spec.select, 2
   %.not146 = xor i1 %3, true
-  %brmerge = or i1 %.not146, %5
+  %brmerge = or i1 %5, %.not146
   %42 = icmp eq i32 %6, 1
   %43 = select i1 %42, i32 256, i32 512
   %44 = select i1 %brmerge, i32 32, i32 %43
@@ -1374,7 +1374,7 @@ _ZNSt6vectorItSaItEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %139 = load ptr, ptr %56, align 8
   %140 = icmp ne ptr %138, %139
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %139, i64 -2
-  %141 = icmp ugt ptr %.sroa.0.08.i.i, %138
+  %141 = icmp ult ptr %138, %.sroa.0.08.i.i
   %or.cond.i.i = select i1 %140, i1 %141, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit
 
@@ -1582,7 +1582,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit: ;
   %223 = call i32 @llvm.abs.i32(i32 %.sroa.2293.0.extract.trunc, i1 true)
   %224 = add nuw nsw i32 %223, %222
   %225 = icmp ugt i32 %221, %224
-  %226 = xor i1 %225, %4
+  %226 = xor i1 %4, %225
   br i1 %226, label %227, label %229
 
 227:                                              ; preds = %218, %204
@@ -3090,7 +3090,7 @@ define void @_ZNK5ZXing4OneD6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_unw
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 216
   %26 = trunc i64 %25 to i32
-  %27 = icmp slt i32 %26, %3
+  %27 = icmp sgt i32 %3, %26
   br i1 %27, label %28, label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev.exit
 
 28:                                               ; preds = %18, %4
@@ -3112,7 +3112,7 @@ define void @_ZNK5ZXing4OneD6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_unw
   %41 = sub i64 %39, %40
   %.neg = sdiv exact i64 %41, -216
   %.neg16 = trunc i64 %.neg to i32
-  %42 = add i32 %.neg16, %3
+  %42 = add i32 %3, %.neg16
   %43 = getelementptr inbounds i8, ptr %29, i64 4
   %44 = load i8, ptr %43, align 4
   %45 = zext i8 %44 to i32
@@ -3608,7 +3608,7 @@ _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
 _ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE11_M_allocateEm.exit ], [ %57, %.lr.ph.i.i.i ]
   %58 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 216
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
@@ -3761,7 +3761,7 @@ _ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKimEvRT_T0_.exit:                   ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit
@@ -3826,7 +3826,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit
@@ -4156,7 +4156,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_E
   %89 = load ptr, ptr %12, align 8
   %90 = getelementptr inbounds %"class.ZXing::Result", ptr %89, i64 %88
   store ptr %90, ptr %12, align 8
-  %.not11.i.i.i.i.i52 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i52 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPN5ZXing6ResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit58, label %.lr.ph.i.i.i.i.i53
 
 .lr.ph.i.i.i.i.i53:                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %.lr.ph.i.i.i.i.i53
@@ -4356,7 +4356,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5ZXing6ResultES2_SaIS1_EET0_T_S5_S4_R
           to label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit unwind label %246
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5ZXing6ResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.not11.i.i.i.i.i72 = icmp eq ptr %13, %1
+  %.not11.i.i.i.i.i72 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i72, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5ZXing6ResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit78, label %.lr.ph.i.i.i.i.i73
 
 .lr.ph.i.i.i.i.i73:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i73

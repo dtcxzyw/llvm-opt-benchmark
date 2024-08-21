@@ -1079,7 +1079,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %154 = sub i64 %152, %153
   %155 = sdiv exact i64 %154, 216
   %156 = trunc i64 %155 to i32
-  %157 = icmp eq i32 %156, %3
+  %157 = icmp eq i32 %3, %156
   br i1 %157, label %161, label %160
 
 158:                                              ; preds = %146
@@ -1268,7 +1268,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %247 = sub i64 %245, %246
   %248 = sdiv exact i64 %247, 216
   %249 = trunc i64 %248 to i32
-  %250 = icmp eq i32 %249, %3
+  %250 = icmp eq i32 %3, %249
   br i1 %250, label %381, label %251
 
 251:                                              ; preds = %241, %239
@@ -1370,7 +1370,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %313 = sub i64 %311, %312
   %314 = sdiv exact i64 %313, 216
   %315 = trunc i64 %314 to i32
-  %316 = icmp eq i32 %315, %3
+  %316 = icmp eq i32 %3, %315
   br i1 %316, label %324, label %323
 
 317:                                              ; preds = %284
@@ -1536,7 +1536,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %395 = sub i64 %393, %394
   %396 = sdiv exact i64 %395, 216
   %397 = trunc i64 %396 to i32
-  %398 = icmp eq i32 %397, %3
+  %398 = icmp eq i32 %3, %397
   br i1 %398, label %.loopexit, label %399
 
 399:                                              ; preds = %389, %387
@@ -1638,7 +1638,7 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead_on_u
   %461 = sub i64 %459, %460
   %462 = sdiv exact i64 %461, 216
   %463 = trunc i64 %462 to i32
-  %464 = icmp eq i32 %463, %3
+  %464 = icmp eq i32 %3, %463
   br i1 %464, label %472, label %471
 
 465:                                              ; preds = %432

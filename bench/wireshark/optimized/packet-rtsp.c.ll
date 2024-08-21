@@ -687,7 +687,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
   %222 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %198) #11
   %223 = trunc i64 %222 to i32
   %224 = call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %221, ptr noundef %0, i32 noundef %.0253387.i, i32 noundef %223, ptr noundef %198) #10
-  %225 = icmp ugt ptr %170, %168
+  %225 = icmp ult ptr %168, %170
   br i1 %225, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i.i, %231
@@ -771,7 +771,7 @@ process_rtsp_request.exit.i:                      ; preds = %231, %248, %.lr.ph7
   %269 = call ptr @proto_tree_add_string(ptr noundef nonnull %.0254.i, i32 noundef %265, ptr noundef %0, i32 noundef %.0253387.i, i32 noundef %266, ptr noundef %268) #10
   %270 = load i32, ptr @ett_rtsp_method, align 4
   %271 = call ptr @proto_item_add_subtree(ptr noundef %269, i32 noundef %270) #10
-  %272 = icmp ugt ptr %170, %168
+  %272 = icmp ult ptr %168, %170
   br i1 %272, label %.lr.ph.i303.i, label %.critedge.i299.i
 
 .lr.ph.i303.i:                                    ; preds = %263, %278
@@ -1818,7 +1818,7 @@ define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef
   %27 = getelementptr [11 x ptr], ptr @rtsp_methods, i64 0, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #11
-  %.not = icmp ugt i64 %29, %1
+  %.not = icmp ult i64 %1, %29
   br i1 %.not, label %48, label %30
 
 30:                                               ; preds = %26

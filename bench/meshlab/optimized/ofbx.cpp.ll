@@ -7474,7 +7474,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -7557,7 +7557,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -8237,7 +8237,7 @@ _ZNK4ofbx8DataView8toStringILi128EEEvRAT__c.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
   %302 = ptrtoint ptr %300 to i64
   %303 = sub i64 %301, %302
   %304 = sdiv exact i64 %303, 24
-  %305 = icmp ult i64 %304, %297
+  %305 = icmp ugt i64 %297, %304
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %290
@@ -8254,7 +8254,7 @@ _ZNK4ofbx8DataView8toStringILi128EEEvRAT__c.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
   br label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit.i
 
 308:                                              ; preds = %290
-  %309 = icmp ugt i64 %304, %297
+  %309 = icmp ult i64 %297, %304
   br i1 %309, label %310, label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit.i
 
 310:                                              ; preds = %308
@@ -8322,7 +8322,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit.i: ; preds = %312, %310, %308, %
   %335 = ptrtoint ptr %333 to i64
   %336 = sub i64 %334, %335
   %337 = ashr exact i64 %336, 4
-  %338 = icmp ult i64 %337, %330
+  %338 = icmp ugt i64 %330, %337
   br i1 %338, label %339, label %341
 
 339:                                              ; preds = %._crit_edge.i
@@ -8331,7 +8331,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit.i: ; preds = %312, %310, %308, %
           to label %_ZNSt6vectorIN4ofbx12GeometryImpl9NewVertexESaIS2_EE6resizeEm.exit.i unwind label %.loopexit.split-lp415.loopexit.split-lp.i
 
 341:                                              ; preds = %._crit_edge.i
-  %342 = icmp ugt i64 %337, %330
+  %342 = icmp ult i64 %330, %337
   br i1 %342, label %343, label %_ZNSt6vectorIN4ofbx12GeometryImpl9NewVertexESaIS2_EE6resizeEm.exit.i
 
 343:                                              ; preds = %341
@@ -9659,7 +9659,7 @@ _ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_.exit.i.i.i.i.i.i: ; preds = %.crite
   %840 = ptrtoint ptr %838 to i64
   %841 = sub i64 %839, %840
   %842 = ashr exact i64 %841, 4
-  %843 = icmp ult i64 %842, %836
+  %843 = icmp ugt i64 %836, %842
   br i1 %843, label %844, label %846
 
 844:                                              ; preds = %830
@@ -9677,7 +9677,7 @@ _ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_.exit.i.i.i.i.i.i: ; preds = %.crite
   br label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i
 
 846:                                              ; preds = %830
-  %847 = icmp ugt i64 %842, %836
+  %847 = icmp ult i64 %836, %842
   br i1 %847, label %848, label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i
 
 848:                                              ; preds = %846
@@ -9812,7 +9812,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit247.i:               ; preds = %863, %.body.i
   %887 = ptrtoint ptr %885 to i64
   %888 = sub i64 %886, %887
   %889 = ashr exact i64 %888, 4
-  %890 = icmp ult i64 %889, %882
+  %890 = icmp ugt i64 %882, %889
   br i1 %890, label %891, label %893
 
 891:                                              ; preds = %870
@@ -9821,7 +9821,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit247.i:               ; preds = %863, %.body.i
           to label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.i
 
 893:                                              ; preds = %870
-  %894 = icmp ugt i64 %889, %882
+  %894 = icmp ult i64 %882, %889
   br i1 %894, label %895, label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i
 
 895:                                              ; preds = %893
@@ -9858,7 +9858,7 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i: ; preds = %897, %895, %893, %
   %912 = ptrtoint ptr %910 to i64
   %913 = sub i64 %911, %912
   %914 = ashr exact i64 %913, 4
-  %915 = icmp ult i64 %914, %908
+  %915 = icmp ugt i64 %908, %914
   br i1 %915, label %916, label %918
 
 916:                                              ; preds = %902
@@ -9876,7 +9876,7 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i: ; preds = %897, %895, %893, %
   br label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i
 
 918:                                              ; preds = %902
-  %919 = icmp ugt i64 %914, %908
+  %919 = icmp ult i64 %908, %914
   br i1 %919, label %920, label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i
 
 920:                                              ; preds = %918
@@ -9906,7 +9906,7 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i: ; preds = %922, %920, %918,
   %933 = ptrtoint ptr %931 to i64
   %934 = sub i64 %932, %933
   %935 = ashr exact i64 %934, 4
-  %936 = icmp ult i64 %935, %929
+  %936 = icmp ugt i64 %929, %935
   br i1 %936, label %937, label %939
 
 937:                                              ; preds = %925
@@ -9923,7 +9923,7 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i: ; preds = %922, %920, %918,
   br label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit48.i.i
 
 939:                                              ; preds = %925
-  %940 = icmp ugt i64 %935, %929
+  %940 = icmp ult i64 %929, %935
   br i1 %940, label %941, label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit48.i.i
 
 941:                                              ; preds = %939
@@ -9994,7 +9994,7 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit48.i.i: ; preds = %943, %941, %93
   %978 = ptrtoint ptr %976 to i64
   %979 = sub i64 %977, %978
   %980 = ashr exact i64 %979, 4
-  %981 = icmp ult i64 %980, %974
+  %981 = icmp ugt i64 %974, %980
   br i1 %981, label %982, label %984
 
 982:                                              ; preds = %968
@@ -10011,7 +10011,7 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit48.i.i: ; preds = %943, %941, %93
   br label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit50.i.i
 
 984:                                              ; preds = %968
-  %985 = icmp ugt i64 %980, %974
+  %985 = icmp ult i64 %974, %980
   br i1 %985, label %986, label %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit50.i.i
 
 986:                                              ; preds = %984
@@ -13190,7 +13190,7 @@ _ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Sel
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %37 = load ptr, ptr %2, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 144
-  %39 = icmp eq ptr %38, %37
+  %39 = icmp eq ptr %37, %38
   br i1 %39, label %_ZNSt13unordered_mapIyN4ofbx5Scene10ObjectPairESt4hashIyESt8equal_toIyESaISt4pairIKyS2_EEED2Ev.exit, label %40
 
 40:                                               ; preds = %_ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Select1stESt8equal_toIyESt4hashIyENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -17137,7 +17137,7 @@ _ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Sel
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Select1stESt8equal_toIyESt4hashIyENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Select1stESt8equal_toIyESt4hashIyENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -17440,7 +17440,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %125, %128
   %141 = ptrtoint ptr %139 to i64
   %142 = sub i64 %140, %141
   %143 = sdiv exact i64 %142, 24
-  %144 = icmp ult i64 %143, %136
+  %144 = icmp ugt i64 %136, %143
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %129
@@ -17458,7 +17458,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %125, %128
   br label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit
 
 147:                                              ; preds = %129
-  %148 = icmp ugt i64 %143, %136
+  %148 = icmp ult i64 %136, %143
   br i1 %148, label %149, label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit
 
 149:                                              ; preds = %147
@@ -18851,7 +18851,7 @@ define internal fastcc void @_ZN4ofbxL5splatINS_4Vec3EEEvPSt6vectorIT_SaIS3_EENS
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 24
-  %26 = icmp ult i64 %25, %18
+  %26 = icmp ugt i64 %18, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %11
@@ -18861,7 +18861,7 @@ define internal fastcc void @_ZN4ofbxL5splatINS_4Vec3EEEvPSt6vectorIT_SaIS3_EENS
   br label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit
 
 29:                                               ; preds = %11
-  %30 = icmp ugt i64 %25, %18
+  %30 = icmp ult i64 %18, %25
   br i1 %30, label %31, label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit
 
 31:                                               ; preds = %29
@@ -18895,7 +18895,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit:  ; preds = %27, %29, %31, %33
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = sdiv exact i64 %50, 24
-  %52 = icmp ult i64 %51, %44
+  %52 = icmp ugt i64 %44, %51
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %40
@@ -18904,7 +18904,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit:  ; preds = %27, %29, %31, %33
   br label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit48
 
 55:                                               ; preds = %40
-  %56 = icmp ugt i64 %51, %44
+  %56 = icmp ult i64 %44, %51
   br i1 %56, label %57, label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit48
 
 57:                                               ; preds = %55
@@ -18982,7 +18982,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit48: ; preds = %53, %55, %57, %59
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   %104 = sdiv exact i64 %103, 24
-  %105 = icmp ult i64 %104, %97
+  %105 = icmp ugt i64 %97, %104
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %90
@@ -18991,7 +18991,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit48: ; preds = %53, %55, %57, %59
   br label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit50
 
 108:                                              ; preds = %90
-  %109 = icmp ugt i64 %104, %97
+  %109 = icmp ult i64 %97, %104
   br i1 %109, label %110, label %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EE6resizeEm.exit50
 
 110:                                              ; preds = %108
@@ -20064,7 +20064,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %302, %299
   %315 = ptrtoint ptr %313 to i64
   %316 = sub i64 %314, %315
   %317 = ashr exact i64 %316, 5
-  %318 = icmp ult i64 %317, %310
+  %318 = icmp ugt i64 %310, %317
   br i1 %318, label %319, label %321
 
 319:                                              ; preds = %303
@@ -20082,7 +20082,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %302, %299
   br label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit.i
 
 321:                                              ; preds = %303
-  %322 = icmp ugt i64 %317, %310
+  %322 = icmp ult i64 %310, %317
   br i1 %322, label %323, label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit.i
 
 323:                                              ; preds = %321
@@ -20171,7 +20171,7 @@ define internal fastcc void @_ZN4ofbxL5splatINS_4Vec4EEEvPSt6vectorIT_SaIS3_EENS
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 5
-  %26 = icmp ult i64 %25, %18
+  %26 = icmp ugt i64 %18, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %11
@@ -20181,7 +20181,7 @@ define internal fastcc void @_ZN4ofbxL5splatINS_4Vec4EEEvPSt6vectorIT_SaIS3_EENS
   br label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit
 
 29:                                               ; preds = %11
-  %30 = icmp ugt i64 %25, %18
+  %30 = icmp ult i64 %18, %25
   br i1 %30, label %31, label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit
 
 31:                                               ; preds = %29
@@ -20215,7 +20215,7 @@ _ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit:  ; preds = %27, %29, %31, %33
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 5
-  %52 = icmp ult i64 %51, %44
+  %52 = icmp ugt i64 %44, %51
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %40
@@ -20224,7 +20224,7 @@ _ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit:  ; preds = %27, %29, %31, %33
   br label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit48
 
 55:                                               ; preds = %40
-  %56 = icmp ugt i64 %51, %44
+  %56 = icmp ult i64 %44, %51
   br i1 %56, label %57, label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit48
 
 57:                                               ; preds = %55
@@ -20302,7 +20302,7 @@ _ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit48: ; preds = %53, %55, %57, %59
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   %104 = ashr exact i64 %103, 5
-  %105 = icmp ult i64 %104, %97
+  %105 = icmp ugt i64 %97, %104
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %90
@@ -20311,7 +20311,7 @@ _ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit48: ; preds = %53, %55, %57, %59
   br label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit50
 
 108:                                              ; preds = %90
-  %109 = icmp ugt i64 %104, %97
+  %109 = icmp ult i64 %97, %104
   br i1 %109, label %110, label %_ZNSt6vectorIN4ofbx4Vec4ESaIS1_EE6resizeEm.exit50
 
 110:                                              ; preds = %108
@@ -22228,7 +22228,7 @@ define linkonce_odr void @_ZNK4ofbx22AnimationCurveNodeImpl21getNodeLocalTransfo
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(176) %18)
   %23 = load i64, ptr %12, align 8
-  %spec.select.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %5)
+  %spec.select.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %23)
   %24 = sext i32 %22 to i64
   %25 = getelementptr i64, ptr %12, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
@@ -22304,7 +22304,7 @@ _ZZNK4ofbx22AnimationCurveNodeImpl21getNodeLocalTransformEdENKUlRKNS0_5CurveExE_
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(176) %65)
   %70 = load i64, ptr %59, align 8
-  %spec.select.i5 = tail call i64 @llvm.smax.i64(i64 %70, i64 %5)
+  %spec.select.i5 = tail call i64 @llvm.smax.i64(i64 %5, i64 %70)
   %71 = sext i32 %69 to i64
   %72 = getelementptr i64, ptr %59, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -8
@@ -22379,7 +22379,7 @@ _ZZNK4ofbx22AnimationCurveNodeImpl21getNodeLocalTransformEdENKUlRKNS0_5CurveExE_
   %114 = load ptr, ptr %113, align 8
   %115 = tail call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(176) %111)
   %116 = load i64, ptr %105, align 8
-  %spec.select.i19 = tail call i64 @llvm.smax.i64(i64 %116, i64 %5)
+  %spec.select.i19 = tail call i64 @llvm.smax.i64(i64 %5, i64 %116)
   %117 = sext i32 %115 to i64
   %118 = getelementptr i64, ptr %105, i64 %117
   %119 = getelementptr i8, ptr %118, i64 -8

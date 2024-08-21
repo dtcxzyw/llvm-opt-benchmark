@@ -669,7 +669,7 @@ define internal fastcc noundef float @_ZN2cvL6_applyERKNS_3MatES2_id(ptr nocaptu
 110:                                              ; preds = %._crit_edge49
   %111 = add nsw i32 %22, -1
   %112 = sitofp i32 %111 to double
-  %113 = fmul double %112, %3
+  %113 = fmul double %3, %112
   %114 = fptosi double %113 to i32
   %115 = getelementptr inbounds i8, ptr %14, i64 16
   %116 = load ptr, ptr %115, align 8

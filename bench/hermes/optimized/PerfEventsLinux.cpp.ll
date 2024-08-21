@@ -145,7 +145,7 @@ cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostre
   %sub.ptr.lhs.cast.i7.i6 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i7 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i9.i8 = sub i64 %sub.ptr.lhs.cast.i7.i6, %sub.ptr.rhs.cast.i8.i7
-  %cmp.i.i9 = icmp ult i64 %sub.ptr.sub.i9.i8, %call.i.i3
+  %cmp.i.i9 = icmp ugt i64 %call.i.i3, %sub.ptr.sub.i9.i8
   br i1 %cmp.i.i9, label %if.then.i.i15, label %if.end.i.i10
 
 if.then.i.i15:                                    ; preds = %cond.true.i.split.i

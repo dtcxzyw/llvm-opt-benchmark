@@ -194,7 +194,7 @@ _ZNSt3mapImP17abstract_device_tSt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.e
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -243,7 +243,7 @@ define noundef zeroext i1 @_ZN5bus_t4loadEmmPh(ptr noundef nonnull readonly alig
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %7, %4 ]
   %8 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   %.19.i.i.i = select i1 %10, ptr %.012.i.i.i, ptr %.0811.i.i.i
   %.1.in.v.i.i.i = select i1 %10, i64 16, i64 24
   %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
@@ -292,7 +292,7 @@ define noundef zeroext i1 @_ZN5bus_t5storeEmmPKh(ptr noundef nonnull readonly al
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %7, %4 ]
   %8 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   %.19.i.i.i = select i1 %10, ptr %.012.i.i.i, ptr %.0811.i.i.i
   %.1.in.v.i.i.i = select i1 %10, i64 16, i64 24
   %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
@@ -342,7 +342,7 @@ define { i64, ptr } @_ZN5bus_t11find_deviceEm(ptr noundef nonnull readonly align
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %5, %2 ]
   %6 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   %.19.i.i.i = select i1 %8, ptr %.012.i.i.i, ptr %.0811.i.i.i
   %.1.in.v.i.i.i = select i1 %8, i64 16, i64 24
   %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
@@ -688,7 +688,7 @@ _ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; preds = %.l
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -1014,7 +1014,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmP17abstract_device_tESt10_Se
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmP17abstract_device_tESt10_Select1stIS4_ESt4lessImESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -1238,7 +1238,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmPcESt10_Select1stIS3_ESt4lessImESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

@@ -2001,7 +2001,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %68 = getelementptr inbounds float, ptr %.val66.val, i64 %67
   %69 = load float, ptr %68, align 4
   %70 = fadd float %69, %57
-  %71 = fadd float %70, %2
+  %71 = fadd float %2, %70
   %72 = fcmp olt float %17, %71
   %73 = trunc nuw nsw i64 %indvars.iv90 to i32
   %74 = shl nuw i32 1, %73
@@ -2151,7 +2151,7 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %144 = getelementptr inbounds float, ptr %80, i64 %indvars.iv
   %145 = load float, ptr %144, align 4
   %146 = fadd float %143, %145
-  %147 = fadd float %146, %2
+  %147 = fadd float %2, %146
   %148 = fcmp olt float %17, %147
   %149 = shl nuw i32 1, %131
   %150 = select i1 %148, i32 %149, i32 0
@@ -4494,13 +4494,13 @@ Vec_IntFree.exit:                                 ; preds = %.critedge17, %372
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

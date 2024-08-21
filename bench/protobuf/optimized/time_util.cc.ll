@@ -257,7 +257,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   store i64 %seconds.addr.1.i, ptr %3, align 8, !alias.scope !19
   %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !19
-  %cmp.i = icmp eq ptr %ref.tmp, %timestamp
+  %cmp.i = icmp eq ptr %timestamp, %ref.tmp
   br i1 %cmp.i, label %_ZN6google8protobuf9TimestampaSEOS1_.exit, label %if.end.i2
 
 if.end.i2:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.exit
@@ -580,12 +580,12 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i, label %if.else, label %for.cond.i.i, !llvm.loop !37
 
 if.then10:                                        ; preds = %for.cond.i.i
-  %cmp.i.i = icmp ugt i64 %conv7, %value.coerce0
+  %cmp.i.i = icmp ult i64 %value.coerce0, %conv7
   br i1 %cmp.i.i, label %if.then.i.i26.invoke, label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then10
   %4 = xor i64 %conv7, -1
-  %sub14 = add i64 %4, %value.coerce0
+  %sub14 = add i64 %value.coerce0, %4
   %sub.i = sub nuw i64 %value.coerce0, %conv7
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub14)
   %add.ptr.i16 = getelementptr inbounds i8, ptr %value.coerce1, i64 %conv7
@@ -621,7 +621,7 @@ lpad17:                                           ; preds = %invoke.cont
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body.i.i
-  %cmp.i.i19 = icmp ugt i64 %conv7, %value.coerce0
+  %cmp.i.i19 = icmp ult i64 %value.coerce0, %conv7
   br i1 %cmp.i.i19, label %if.then.i.i26.invoke, label %invoke.cont25
 
 if.then.i.i26.invoke:                             ; preds = %if.then10, %if.else
@@ -654,7 +654,7 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #15
   %17 = xor i64 %__size.1.i.i, -1
-  %sub35 = add i64 %17, %value.coerce0
+  %sub35 = add i64 %value.coerce0, %17
   %sub.i37 = sub nuw i64 %value.coerce0, %__size.1.i.i
   %.sroa.speculated.i38 = call i64 @llvm.umin.i64(i64 %sub.i37, i64 %sub35)
   %add.ptr.i40 = getelementptr inbounds i8, ptr %value.coerce1, i64 %__size.1.i.i
@@ -1359,7 +1359,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !83
   %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !83
-  %cmp.i = icmp eq ptr %ref.tmp, %d1
+  %cmp.i = icmp eq ptr %d1, %ref.tmp
   br i1 %cmp.i, label %_ZN6google8protobuf8DurationaSEOS1_.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
@@ -1482,7 +1482,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !86
   %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !86
-  %cmp.i = icmp eq ptr %ref.tmp, %d1
+  %cmp.i = icmp eq ptr %d1, %ref.tmp
   br i1 %cmp.i, label %_ZN6google8protobuf8DurationaSEOS1_.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
@@ -1594,7 +1594,7 @@ entry:
   %2 = load i32, ptr %nanos_.i.i, align 8
   %conv2 = sitofp i32 %2 to double
   %3 = tail call double @llvm.fmuladd.f64(double %conv2, double 1.000000e-09, double %conv)
-  %mul = fmul double %3, %r
+  %mul = fmul double %r, %3
   %conv3 = fptosi double %mul to i64
   %conv4 = sitofp i64 %conv3 to double
   %sub = fsub double %mul, %conv4
@@ -1643,7 +1643,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
   store i64 %seconds.addr.1.i, ptr %5, align 8, !alias.scope !89
   %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !89
-  %cmp.i = icmp eq ptr %ref.tmp, %d
+  %cmp.i = icmp eq ptr %d, %ref.tmp
   br i1 %cmp.i, label %_ZN6google8protobuf8DurationaSEOS1_.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
@@ -1884,7 +1884,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !92
   %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !92
-  %cmp.i = icmp eq ptr %ref.tmp, %t
+  %cmp.i = icmp eq ptr %t, %ref.tmp
   br i1 %cmp.i, label %_ZN6google8protobuf9TimestampaSEOS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.exit
@@ -1986,7 +1986,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
   store i64 %seconds.addr.1.i, ptr %7, align 8, !alias.scope !95
   %nanos_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 %nanos.addr.1.i, ptr %nanos_.i.i.i, align 8, !alias.scope !95
-  %cmp.i = icmp eq ptr %ref.tmp, %t
+  %cmp.i = icmp eq ptr %t, %ref.tmp
   br i1 %cmp.i, label %_ZN6google8protobuf9TimestampaSEOS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.exit

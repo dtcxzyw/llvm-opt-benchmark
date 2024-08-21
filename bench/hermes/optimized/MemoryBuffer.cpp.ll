@@ -729,12 +729,12 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i: ; preds = %if.then.i.i.i.i.i, 
   %call.i.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22, !noalias !29
   %13 = add i32 %call.i.i.i.i, -1
   %conv.i.not.i.i.i = sext i32 %13 to i64
-  %sub.i.i.i = and i64 %conv.i.not.i.i.i, %Offset
+  %sub.i.i.i = and i64 %Offset, %conv.i.not.i.i.i
   %add.i.i.i = add i64 %sub.i.i.i, %MapSize.addr.0.i
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22, !noalias !29
   %not.i.i.i = sub i32 0, %call.i.i.i
   %conv.i.i.i = sext i32 %not.i.i.i to i64
-  %and.i.i.i = and i64 %conv.i.i.i, %Offset
+  %and.i.i.i = and i64 %Offset, %conv.i.i.i
   call void @_ZN4llvh3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i.i, i32 noundef %2, i32 noundef 2, i64 noundef %add.i.i.i, i64 noundef %and.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %EC19.i) #22, !noalias !29
   %14 = load i32, ptr %EC19.i, align 8, !noalias !29
   %cmp.i.not.i.i = icmp eq i32 %14, 0
@@ -745,7 +745,7 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt
   %call.i.i8.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22, !noalias !29
   %15 = add i32 %call.i.i8.i.i, -1
   %conv.i.not.i9.i.i = sext i32 %15 to i64
-  %sub.i10.i.i = and i64 %conv.i.not.i9.i.i, %Offset
+  %sub.i10.i.i = and i64 %Offset, %conv.i.not.i9.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i7.i.i, i64 %sub.i10.i.i
   %add.ptr.i21.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %MapSize.addr.0.i
   %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
@@ -1179,12 +1179,12 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefP
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %12 = add i32 %call.i.i.i, -1
   %conv.i.not.i.i = sext i32 %12 to i64
-  %sub.i.i = and i64 %conv.i.not.i.i, %Offset
+  %sub.i.i = and i64 %Offset, %conv.i.not.i.i
   %add.i.i = add i64 %sub.i.i, %MapSize.addr.0
   %call.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %not.i.i = sub i32 0, %call.i.i
   %conv.i.i = sext i32 %not.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %Offset
+  %and.i.i = and i64 %Offset, %conv.i.i
   call void @_ZN4llvh3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i, i32 noundef %11, i32 noundef 1, i64 noundef %add.i.i, i64 noundef %and.i.i, ptr noundef nonnull align 8 dereferenceable(16) %EC) #22
   %13 = load i32, ptr %EC, align 8
   %cmp.i.not.i = icmp eq i32 %13, 0
@@ -1195,7 +1195,7 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2Ebim
   %call.i.i8.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %14 = add i32 %call.i.i8.i, -1
   %conv.i.not.i9.i = sext i32 %14 to i64
-  %sub.i10.i = and i64 %conv.i.not.i9.i, %Offset
+  %sub.i10.i = and i64 %Offset, %conv.i.not.i9.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 %sub.i10.i
   %add.ptr.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %MapSize.addr.0
   %BufferStart.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
@@ -1355,7 +1355,7 @@ if.end.i:                                         ; preds = %if.end14
   %conv.i = zext i32 %8 to i64
   %cmp2.i = icmp uge i64 %MapSize.addr.0, %conv.i
   %or.cond.not6.i = and i1 %cmp.i20, %cmp2.i
-  %brmerge.not.i = and i1 %or.cond.not6.i, %RequiresNullTerminator
+  %brmerge.not.i = and i1 %RequiresNullTerminator, %or.cond.not6.i
   br i1 %brmerge.not.i, label %if.end7.i, label %_ZL13shouldUseMmapimmlbib.exit
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -1443,12 +1443,12 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefP
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %14 = add i32 %call.i.i.i, -1
   %conv.i.not.i.i = sext i32 %14 to i64
-  %sub.i.i = and i64 %conv.i.not.i.i, %Offset
+  %sub.i.i = and i64 %Offset, %conv.i.not.i.i
   %add.i.i = add i64 %sub.i.i, %MapSize.addr.0
   %call.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %not.i.i = sub i32 0, %call.i.i
   %conv.i.i = sext i32 %not.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %Offset
+  %and.i.i = and i64 %Offset, %conv.i.i
   call void @_ZN4llvh3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i, i32 noundef %FD, i32 noundef 0, i64 noundef %add.i.i, i64 noundef %and.i.i, ptr noundef nonnull align 8 dereferenceable(16) %EC19) #22
   %15 = load i32, ptr %EC19, align 8
   %cmp.i.not.i24 = icmp eq i32 %15, 0
@@ -1459,7 +1459,7 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_
   %call.i.i8.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %16 = add i32 %call.i.i8.i, -1
   %conv.i.not.i9.i = sext i32 %16 to i64
-  %sub.i10.i = and i64 %conv.i.not.i9.i, %Offset
+  %sub.i10.i = and i64 %Offset, %conv.i.not.i9.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 %sub.i10.i
   %add.ptr.i27 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %MapSize.addr.0
   %BufferStart.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8

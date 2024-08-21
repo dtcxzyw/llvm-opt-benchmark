@@ -159,7 +159,7 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
   %81 = fdiv double 5.000000e-01, %78
   %.0106 = select i1 %80, double %81, double %72
   %82 = load double, ptr %26, align 8
-  %83 = fcmp ogt double %82, %2
+  %83 = fcmp olt double %2, %82
   %84 = fneg double %.0106
   %.1 = select i1 %83, double %84, double %.0106
   %85 = getelementptr inbounds i8, ptr %0, i64 656

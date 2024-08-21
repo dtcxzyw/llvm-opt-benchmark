@@ -77,7 +77,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
 26:                                               ; preds = %24
   %27 = icmp slt i32 %4, 0
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
-  %29 = icmp slt i32 %28, %4
+  %29 = icmp sgt i32 %4, %28
   %or.cond49 = select i1 %27, i1 true, i1 %29
   br i1 %or.cond49, label %.thread, label %30
 
@@ -90,7 +90,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
-  %.not.i = icmp sle i32 %36, %3
+  %.not.i = icmp sge i32 %3, %36
   br label %ompi_comm_peer_invalid.exit
 
 ompi_comm_peer_invalid.exit:                      ; preds = %30, %32

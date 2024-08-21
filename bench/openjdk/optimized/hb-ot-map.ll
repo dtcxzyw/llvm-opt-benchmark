@@ -344,7 +344,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN19hb_ot_map_builder_t1
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %1
-  %.not.i.i = icmp slt i32 %6, %4
+  %.not.i.i = icmp sgt i32 %4, %6
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
@@ -352,7 +352,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN19hb_ot_map_builder_t1
   %9 = lshr i32 %.142.i.i, 1
   %10 = add i32 %.142.i.i, 8
   %11 = add i32 %10, %9
-  %12 = icmp ult i32 %11, %5
+  %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !10
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -506,7 +506,7 @@ define hidden void @_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbb
   br i1 %42, label %66, label %43
 
 43:                                               ; preds = %37
-  %.not.i.i.i = icmp slt i32 %41, %39
+  %.not.i.i.i = icmp sgt i32 %39, %41
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %43, %.preheader.i.i.i
@@ -514,7 +514,7 @@ define hidden void @_ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbb
   %44 = lshr i32 %.142.i.i.i, 1
   %45 = add i32 %.142.i.i.i, 8
   %46 = add i32 %45, %44
-  %47 = icmp ult i32 %46, %40
+  %47 = icmp ugt i32 %40, %46
   br i1 %47, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !12
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
@@ -651,7 +651,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN19hb_ot_map_builder_t1
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %1
-  %.not.i.i = icmp slt i32 %6, %4
+  %.not.i.i = icmp sgt i32 %4, %6
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
@@ -659,7 +659,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN19hb_ot_map_builder_t1
   %9 = lshr i32 %.142.i.i, 1
   %10 = add i32 %.142.i.i, 8
   %11 = add i32 %10, %9
-  %12 = icmp ult i32 %11, %5
+  %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !15
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -931,7 +931,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5qsortEPFiPKvS4_E.e
   br i1 %106, label %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE6shrinkEib.exit.preheader, label %107
 
 107:                                              ; preds = %104
-  %.not19.i.i = icmp slt i32 %105, %102
+  %.not19.i.i = icmp sgt i32 %102, %105
   %108 = lshr i32 %105, 2
   %.not20.i.i = icmp ult i32 %103, %108
   %or.cond22.i.i = or i1 %.not19.i.i, %.not20.i.i
@@ -1486,7 +1486,7 @@ _ZN19hb_ot_map_builder_t14add_gpos_pauseEPFbPK18hb_ot_shape_plan_tP9hb_font_tP11
   br i1 %359, label %383, label %360
 
 360:                                              ; preds = %354
-  %.not.i.i.i.i = icmp slt i32 %358, %356
+  %.not.i.i.i.i = icmp sgt i32 %356, %358
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %360, %.preheader.i.i.i.i
@@ -1494,7 +1494,7 @@ _ZN19hb_ot_map_builder_t14add_gpos_pauseEPFbPK18hb_ot_shape_plan_tP9hb_font_tP11
   %361 = lshr i32 %.142.i.i.i.i, 1
   %362 = add i32 %.142.i.i.i.i, 8
   %363 = add i32 %362, %361
-  %364 = icmp ult i32 %363, %357
+  %364 = icmp ugt i32 %357, %363
   br i1 %364, label %.preheader.i.i.i.i, label %.thread.i.i.i.i, !llvm.loop !12
 
 .thread.i.i.i.i:                                  ; preds = %.preheader.i.i.i.i
@@ -1666,7 +1666,7 @@ _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.
   br i1 %439, label %463, label %440
 
 440:                                              ; preds = %434
-  %.not.i.i.i.i309 = icmp slt i32 %438, %436
+  %.not.i.i.i.i309 = icmp sgt i32 %436, %438
   br i1 %.not.i.i.i.i309, label %.preheader.i.i.i.i315, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i310
 
 .preheader.i.i.i.i315:                            ; preds = %440, %.preheader.i.i.i.i315
@@ -1674,7 +1674,7 @@ _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.
   %441 = lshr i32 %.142.i.i.i.i316, 1
   %442 = add i32 %.142.i.i.i.i316, 8
   %443 = add i32 %442, %441
-  %444 = icmp ult i32 %443, %437
+  %444 = icmp ugt i32 %437, %443
   br i1 %444, label %.preheader.i.i.i.i315, label %.thread.i.i.i.i317, !llvm.loop !12
 
 .thread.i.i.i.i317:                               ; preds = %.preheader.i.i.i.i315
@@ -1887,7 +1887,7 @@ _ZN10hb_array_tIN11hb_ot_map_t12lookup_map_tEE5qsortEv.exit: ; preds = %._ZN10hb
   br i1 %533, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE6shrinkEib.exit, label %534
 
 534:                                              ; preds = %531
-  %.not19.i.i336 = icmp slt i32 %532, %.pre-phi
+  %.not19.i.i336 = icmp sgt i32 %.pre-phi, %532
   %535 = lshr i32 %532, 2
   %.not20.i.i337 = icmp ult i32 %530, %535
   %or.cond22.i.i338 = or i1 %.not19.i.i336, %.not20.i.i337
@@ -1959,7 +1959,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE6shrinkEib.exit: ; preds = %.
   br i1 %562, label %586, label %563
 
 563:                                              ; preds = %557
-  %.not.i.i.i = icmp slt i32 %561, %559
+  %.not.i.i.i = icmp sgt i32 %559, %561
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %563, %.preheader.i.i.i
@@ -1967,7 +1967,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE6shrinkEib.exit: ; preds = %.
   %564 = lshr i32 %.142.i.i.i, 1
   %565 = add i32 %.142.i.i.i, 8
   %566 = add i32 %565, %564
-  %567 = icmp ult i32 %566, %560
+  %567 = icmp ugt i32 %560, %566
   br i1 %567, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !24
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
@@ -2042,7 +2042,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4pushEv.exit: ; preds = %587, 
   %.0.i349 = phi ptr [ %591, %587 ], [ @_hb_CrapPool, %586 ]
   store i32 %548, ptr %.0.i349, align 8
   %592 = load i32, ptr %333, align 4
-  %.not.i351 = icmp ugt i32 %592, %.0243439
+  %.not.i351 = icmp ult i32 %.0243439, %592
   br i1 %.not.i351, label %594, label %593
 
 593:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4pushEv.exit
@@ -2228,7 +2228,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN11hb_ot_map_t13feature
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %1
-  %.not.i.i = icmp slt i32 %6, %4
+  %.not.i.i = icmp sgt i32 %4, %6
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
@@ -2236,7 +2236,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN11hb_ot_map_t13feature
   %9 = lshr i32 %.142.i.i, 1
   %10 = add i32 %.142.i.i, 8
   %11 = add i32 %10, %9
-  %12 = icmp ult i32 %11, %5
+  %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !27
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -2468,7 +2468,7 @@ define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef 
   %29 = shl nuw nsw i64 %28, 3
   %30 = getelementptr inbounds i8, ptr %17, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = icmp sgt i32 %31, %10
+  %32 = icmp slt i32 %10, %31
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -2476,7 +2476,7 @@ define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef 
   br label %38
 
 35:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not23.i.i.i.i.i.i = icmp eq i32 %31, %10
+  %.not23.i.i.i.i.i.i = icmp eq i32 %10, %31
   br i1 %.not23.i.i.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit.i.i, label %36
 
 36:                                               ; preds = %35
@@ -2605,7 +2605,7 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   %32 = shl nuw nsw i64 %31, 3
   %33 = getelementptr inbounds i8, ptr %12, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = icmp sgt i32 %34, %4
+  %35 = icmp slt i32 %4, %34
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %.lr.ph.i.i.i.i
@@ -2613,7 +2613,7 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   br label %41
 
 38:                                               ; preds = %.lr.ph.i.i.i.i
-  %.not23.i.i.i.i = icmp eq i32 %34, %4
+  %.not23.i.i.i.i = icmp eq i32 %4, %34
   br i1 %.not23.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %39
 
 39:                                               ; preds = %38
@@ -2653,7 +2653,7 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
 
 55:                                               ; preds = %54
   %56 = load i32, ptr %8, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %56, i32 %51)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %51, i32 %56)
   %.not19.i.i = icmp ugt i32 %.sroa.speculated.i.i, %52
   %57 = lshr i32 %52, 2
   %.not20.i.i = icmp ult i32 %.sroa.speculated.i.i, %57
@@ -2661,7 +2661,7 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   br i1 %or.cond22.i.i, label %.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
 
 58:                                               ; preds = %54
-  %.not.i.i = icmp slt i32 %52, %43
+  %.not.i.i = icmp sgt i32 %43, %52
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %58, %.preheader.i.i
@@ -2669,7 +2669,7 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   %59 = lshr i32 %.142.i.i, 1
   %60 = add i32 %.142.i.i, 8
   %61 = add i32 %60, %59
-  %62 = icmp ult i32 %61, %51
+  %62 = icmp ugt i32 %51, %61
   br i1 %62, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !33
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %55
@@ -2797,7 +2797,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tL
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %11, i32 %5)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %5, i32 %11)
   %.not19.i = icmp ugt i32 %.sroa.speculated.i, %6
   %12 = lshr i32 %6, 2
   %.not20.i = icmp ult i32 %.sroa.speculated.i, %12
@@ -2805,7 +2805,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tL
   br i1 %or.cond22.i, label %.thread.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
 
 13:                                               ; preds = %8
-  %.not.i = icmp slt i32 %6, %1
+  %.not.i = icmp sgt i32 %1, %6
   br i1 %.not.i, label %.preheader.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
 
 .preheader.i:                                     ; preds = %13, %.preheader.i
@@ -2813,7 +2813,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tL
   %14 = lshr i32 %.142.i, 1
   %15 = add i32 %.142.i, 8
   %16 = add i32 %15, %14
-  %17 = icmp ult i32 %16, %5
+  %17 = icmp ugt i32 %5, %16
   br i1 %17, label %.preheader.i, label %.thread.i, !llvm.loop !34
 
 .thread.i:                                        ; preds = %.preheader.i, %9

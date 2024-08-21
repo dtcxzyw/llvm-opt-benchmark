@@ -423,7 +423,7 @@ common.ret20:                                     ; preds = %11, %common.ret
   %12 = add nsw i32 %2, -1
   %13 = tail call i32 @Wlc_NtkMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3, i32 noundef %4)
   %14 = shl nuw i32 1, %12
-  %15 = add nsw i32 %14, %4
+  %15 = add nsw i32 %4, %14
   %16 = tail call i32 @Wlc_NtkMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3, i32 noundef %15)
   %17 = sext i32 %12 to i64
   %18 = getelementptr inbounds i32, ptr %1, i64 %17
@@ -1352,9 +1352,9 @@ define void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %9 = icmp eq i32 %3, 1
   %spec.select = or i1 %or.cond, %9
   %10 = zext i1 %spec.select to i32
-  %.054 = xor i32 %10, %3
-  %.053 = xor i32 %10, %2
-  %.0 = xor i32 %10, %1
+  %.054 = xor i32 %3, %10
+  %.053 = xor i32 %2, %10
+  %.0 = xor i32 %1, %10
   %11 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0, i32 noundef %.053) #21
   %12 = xor i32 %.0, 1
   %13 = xor i32 %.053, 1
@@ -6320,7 +6320,7 @@ define i32 @Wlc_BlastAddLevel(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 7:                                                ; preds = %4, %2
   %8 = getelementptr i8, ptr %0, i64 24
   %.val1217 = load i32, ptr %8, align 8
-  %9 = icmp sgt i32 %.val1217, %1
+  %9 = icmp slt i32 %1, %.val1217
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
@@ -6490,13 +6490,13 @@ define void @Wlc_IntSortCostReverse(ptr nocapture noundef readonly %0, ptr nocap
   %11 = add nsw i32 %10, 1
   %12 = getelementptr inbounds i8, ptr %.val25, i64 4
   %13 = load i32, ptr %12, align 4
-  %.not.i.not = icmp sgt i32 %13, %10
+  %.not.i.not = icmp slt i32 %10, %13
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load i32, ptr %.val25, align 8
   %16 = shl nsw i32 %15, 1
-  %.not = icmp sgt i32 %16, %10
+  %.not = icmp slt i32 %10, %16
   %.not.i.i.not = icmp sgt i32 %15, %10
   br i1 %.not, label %29, label %17
 
@@ -6595,13 +6595,13 @@ Vec_IntFillExtra.exit:                            ; preds = %.lr.ph, %._crit_edg
   %55 = ashr i32 %54, 1
   %56 = add nsw i32 %55, 1
   %57 = getelementptr inbounds i8, ptr %.val, i64 4
-  %.not.i27.not = icmp sgt i32 %47, %55
+  %.not.i27.not = icmp slt i32 %55, %47
   br i1 %.not.i27.not, label %Vec_IntFillExtra.exit40, label %58
 
 58:                                               ; preds = %Vec_IntFillExtra.exit
   %59 = load i32, ptr %.val, align 8
   %60 = shl nsw i32 %59, 1
-  %.not42 = icmp sgt i32 %60, %55
+  %.not42 = icmp slt i32 %55, %60
   %.not.i.i28.not = icmp sgt i32 %59, %55
   br i1 %.not42, label %73, label %61
 
@@ -6829,7 +6829,7 @@ Wlc_BlastFullAdder.exit:                          ; preds = %.preheader263, %Vec
 
 63:                                               ; preds = %61, %Wlc_BlastFullAdder.exit
   %.val1217.i = load i32, ptr %12, align 8
-  %64 = icmp sgt i32 %.val1217.i, %.1268
+  %64 = icmp slt i32 %.1268, %.val1217.i
   br i1 %64, label %.lr.ph.i, label %Wlc_BlastAddLevel.exit
 
 .lr.ph.i:                                         ; preds = %63
@@ -7199,13 +7199,13 @@ Wlc_BlastAddLevel.exit:                           ; preds = %213, %63
   %217 = add nsw i32 %216, 1
   %218 = getelementptr inbounds i8, ptr %.val13.i81, i64 4
   %219 = load i32, ptr %218, align 4
-  %.not.i185.not = icmp sgt i32 %219, %216
+  %.not.i185.not = icmp slt i32 %216, %219
   br i1 %.not.i185.not, label %Vec_IntFillExtra.exit198, label %220
 
 220:                                              ; preds = %Wlc_BlastAddLevel.exit
   %221 = load i32, ptr %.val13.i81, align 8
   %222 = shl nsw i32 %221, 1
-  %.not255 = icmp sgt i32 %222, %216
+  %.not255 = icmp slt i32 %216, %222
   %.not.i.i186.not = icmp sgt i32 %221, %216
   br i1 %.not255, label %235, label %223
 
@@ -7314,13 +7314,13 @@ Vec_IntFillExtra.exit198:                         ; preds = %Wlc_BlastAddLevel.e
   %266 = add nsw i32 %265, 1
   %267 = getelementptr inbounds i8, ptr %.val14.i84, i64 4
   %268 = load i32, ptr %267, align 4
-  %.not.i171.not = icmp sgt i32 %268, %265
+  %.not.i171.not = icmp slt i32 %265, %268
   br i1 %.not.i171.not, label %Vec_IntFillExtra.exit184, label %269
 
 269:                                              ; preds = %261
   %270 = load i32, ptr %.val14.i84, align 8
   %271 = shl nsw i32 %270, 1
-  %.not257 = icmp sgt i32 %271, %265
+  %.not257 = icmp slt i32 %265, %271
   %.not.i.i172.not = icmp sgt i32 %270, %265
   br i1 %.not257, label %284, label %272
 
@@ -7518,13 +7518,13 @@ Vec_IntInsert.exit:                               ; preds = %Vec_IntPush.exit.i,
   %353 = add nsw i32 %352, 1
   %354 = getelementptr inbounds i8, ptr %.val13.i85, i64 4
   %355 = load i32, ptr %354, align 4
-  %.not.i230.not = icmp sgt i32 %355, %352
+  %.not.i230.not = icmp slt i32 %352, %355
   br i1 %.not.i230.not, label %Vec_IntFillExtra.exit243, label %356
 
 356:                                              ; preds = %Vec_IntInsert.exit
   %357 = load i32, ptr %.val13.i85, align 8
   %358 = shl nsw i32 %357, 1
-  %.not259 = icmp sgt i32 %358, %352
+  %.not259 = icmp slt i32 %352, %358
   %.not.i.i231.not = icmp sgt i32 %357, %352
   br i1 %.not259, label %371, label %359
 
@@ -7635,13 +7635,13 @@ Vec_IntFillExtra.exit243:                         ; preds = %Vec_IntInsert.exit,
   %404 = add nsw i32 %403, 1
   %405 = getelementptr inbounds i8, ptr %.val14.i92, i64 4
   %406 = load i32, ptr %405, align 4
-  %.not.i216.not = icmp sgt i32 %406, %403
+  %.not.i216.not = icmp slt i32 %403, %406
   br i1 %.not.i216.not, label %Vec_IntFillExtra.exit229, label %407
 
 407:                                              ; preds = %399
   %408 = load i32, ptr %.val14.i92, align 8
   %409 = shl nsw i32 %408, 1
-  %.not261 = icmp sgt i32 %409, %403
+  %.not261 = icmp slt i32 %403, %409
   %.not.i.i217.not = icmp sgt i32 %408, %403
   br i1 %.not261, label %422, label %410
 
@@ -23877,13 +23877,13 @@ Wlc_ObjFanin1.exit:                               ; preds = %Wlc_ObjHasArray.exi
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 

@@ -113,7 +113,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br label %return
 
 return.loopexit:                                  ; preds = %for.body
-  %cmp.le = icmp uge i64 %indvars.iv.next, %srclen
+  %cmp.le = icmp ule i64 %srclen, %indvars.iv.next
   br label %return
 
 return:                                           ; preds = %return.loopexit, %for.body.preheader, %for.end
@@ -138,7 +138,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %endptr, align 8
-  %cmp3 = icmp eq ptr %1, %str
+  %cmp3 = icmp eq ptr %str, %1
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -198,7 +198,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %endptr, align 8
-  %cmp3 = icmp eq ptr %1, %str
+  %cmp3 = icmp eq ptr %str, %1
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -249,7 +249,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %endptr, align 8
-  %cmp3 = icmp eq ptr %1, %str
+  %cmp3 = icmp eq ptr %str, %1
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -292,7 +292,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %endptr, align 8
-  %cmp3 = icmp eq ptr %1, %str
+  %cmp3 = icmp eq ptr %str, %1
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -347,7 +347,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %endptr, align 8
-  %cmp3 = icmp eq ptr %1, %str
+  %cmp3 = icmp eq ptr %str, %1
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -390,7 +390,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %endptr, align 8
-  %cmp3 = icmp eq ptr %1, %str
+  %cmp3 = icmp eq ptr %str, %1
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false

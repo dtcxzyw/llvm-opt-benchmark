@@ -265,7 +265,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %div = sdiv i32 %local_window_size, 2
-  %cmp1 = icmp sle i32 %div, %recv_window_size
+  %cmp1 = icmp sge i32 %recv_window_size, %div
   %0 = zext i1 %cmp1 to i32
   br label %land.end
 

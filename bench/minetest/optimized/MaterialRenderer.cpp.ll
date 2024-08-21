@@ -211,7 +211,7 @@ if.end14:                                         ; preds = %if.then10, %if.end8
   %14 = load i32, ptr %Program, align 4, !tbaa !35
   tail call void %13(i32 noundef %14, i32 noundef 6, ptr noundef nonnull @.str.11) #19
   %call16 = tail call noundef zeroext i1 @_ZN3irr5video24COpenGL3MaterialRenderer11linkProgramEv(ptr noundef nonnull align 8 dereferenceable(76) %this)
-  %brmerge.demorgan = and i1 %call16, %addMaterial
+  %brmerge.demorgan = and i1 %addMaterial, %call16
   br i1 %brmerge.demorgan, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %if.end14

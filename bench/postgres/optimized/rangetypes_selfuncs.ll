@@ -638,7 +638,7 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef %1) #10
   %14 = icmp slt i32 %13, 0
   %15 = icmp eq i32 %13, 0
-  %or.cond.i = and i1 %15, %4
+  %or.cond.i = and i1 %4, %15
   %or.cond18.i = or i1 %14, %or.cond.i
   %16 = add nsw i32 %10, -1
   %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16

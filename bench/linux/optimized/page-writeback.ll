@@ -845,7 +845,7 @@ define dso_local range(i64 0, 18446744073710) i64 @wb_calc_thresh(ptr noundef %0
   %6 = load i32, ptr @bdi_min_ratio, align 4
   %7 = sub i32 1000000, %6
   %8 = zext i32 %7 to i64
-  %9 = mul i64 %8, %1
+  %9 = mul i64 %1, %8
   %10 = udiv i64 %9, 1000000
   %11 = load i64, ptr %3, align 8
   %12 = mul i64 %10, %11
@@ -858,10 +858,10 @@ define dso_local range(i64 0, 18446744073710) i64 @wb_calc_thresh(ptr noundef %0
   %19 = getelementptr inbounds i8, ptr %15, i64 76
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = mul i64 %18, %1
+  %22 = mul i64 %1, %18
   %23 = udiv i64 %22, 1000000
   %24 = add i64 %23, %14
-  %25 = mul i64 %21, %1
+  %25 = mul i64 %1, %21
   %26 = udiv i64 %25, 1000000
   %27 = call i64 @llvm.umin.i64(i64 %24, i64 %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
@@ -1834,7 +1834,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   %393 = getelementptr inbounds i8, ptr %351, i64 2556
   %394 = load i32, ptr %393, align 4
   %395 = sext i32 %394 to i64
-  %396 = icmp ugt i64 %395, %1
+  %396 = icmp ult i64 %1, %395
   br i1 %396, label %.thread, label %397
 
 397:                                              ; preds = %392

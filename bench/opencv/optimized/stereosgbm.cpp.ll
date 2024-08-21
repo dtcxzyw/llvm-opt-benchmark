@@ -623,7 +623,7 @@ define hidden void @_ZNK2cv16SGBM3WayMainLoop18getRawMatchingCostERKNS_14BufferS
   %18 = getelementptr inbounds i8, ptr %0, i64 44
   %19 = getelementptr inbounds i8, ptr %1, i64 24
   %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = icmp slt i32 %3, %2
+  %21 = icmp sgt i32 %2, %3
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   %23 = getelementptr inbounds i8, ptr %0, i64 60
   %24 = getelementptr inbounds i8, ptr %0, i64 8
@@ -711,7 +711,7 @@ define hidden void @_ZNK2cv16SGBM3WayMainLoop18getRawMatchingCostERKNS_14BufferS
 71:                                               ; preds = %._crit_edge212
   %72 = load i32, ptr %12, align 8
   %73 = xor i32 %72, -1
-  %74 = add i32 %73, %2
+  %74 = add i32 %2, %73
   %.sroa.speculated173 = tail call i32 @llvm.smax.i32(i32 %74, i32 %3)
   %75 = load ptr, ptr %19, align 8
   %76 = sext i32 %.sroa.speculated173 to i64
@@ -940,7 +940,7 @@ define hidden void @_ZNK2cv16SGBM3WayMainLoop18getRawMatchingCostERKNS_14BufferS
 216:                                              ; preds = %211
   %217 = load i32, ptr %12, align 8
   %218 = xor i32 %217, -1
-  %219 = add i32 %218, %2
+  %219 = add i32 %2, %218
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %219, i32 %3)
   %220 = sext i32 %.sroa.speculated to i64
   %221 = urem i64 %220, %37
@@ -1012,7 +1012,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %19 = add i32 %18, %12
   %20 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %21 = icmp eq i32 %9, -1
-  %22 = tail call i32 @llvm.smin.i32(i32 %19, i32 %9)
+  %22 = tail call i32 @llvm.smin.i32(i32 %9, i32 %19)
   %23 = select i1 %21, i32 %19, i32 %22
   %24 = add i32 %23, %.sroa.speculated465
   %25 = add nuw i32 %20, %.sroa.speculated465
@@ -1081,7 +1081,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = add nsw i32 %71, -1
-  %73 = icmp sgt i32 %72, %2
+  %73 = icmp slt i32 %2, %72
   %74 = select i1 %73, i32 %67, i32 0
   %75 = getelementptr inbounds i8, ptr %1, i64 80
   %76 = load i64, ptr %75, align 8
@@ -1091,7 +1091,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %80 = getelementptr inbounds i8, ptr %1, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = add nsw i32 %81, -1
-  %83 = icmp sgt i32 %82, %2
+  %83 = icmp slt i32 %2, %82
   %84 = select i1 %83, i32 %77, i32 0
   %.sroa.speculated449 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated440, i32 %25)
   %.sroa.speculated433 = tail call i32 @llvm.smax.i32(i32 %24, i32 %.sroa.speculated427)
@@ -3422,7 +3422,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %69 = getelementptr inbounds i8, ptr %64, i64 %indvars.iv
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
-  %.not.us = icmp eq i32 %71, %1
+  %.not.us = icmp eq i32 %1, %71
   br i1 %.not.us, label %171, label %72
 
 72:                                               ; preds = %68
@@ -3487,7 +3487,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %106 = getelementptr inbounds i8, ptr %94, i64 %55
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
-  %.not135.us = icmp eq i32 %108, %1
+  %.not135.us = icmp eq i32 %1, %108
   br i1 %.not135.us, label %115, label %109
 
 109:                                              ; preds = %105
@@ -3521,7 +3521,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %121 = getelementptr inbounds i8, ptr %94, i64 %58
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
-  %.not139.us = icmp eq i32 %123, %1
+  %.not139.us = icmp eq i32 %1, %123
   br i1 %.not139.us, label %130, label %124
 
 124:                                              ; preds = %120
@@ -3555,7 +3555,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %136 = getelementptr inbounds i8, ptr %94, i64 1
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i32
-  %.not142.us = icmp eq i32 %138, %1
+  %.not142.us = icmp eq i32 %1, %138
   br i1 %.not142.us, label %146, label %139
 
 139:                                              ; preds = %135
@@ -3589,7 +3589,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %152 = getelementptr inbounds i8, ptr %94, i64 -1
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
-  %.not145.us = icmp eq i32 %154, %1
+  %.not145.us = icmp eq i32 %1, %154
   br i1 %.not145.us, label %162, label %155
 
 155:                                              ; preds = %151
@@ -3750,7 +3750,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %70 = getelementptr inbounds i16, ptr %65, i64 %indvars.iv
   %71 = load i16, ptr %70, align 2
   %72 = sext i16 %71 to i32
-  %.not.us = icmp eq i32 %72, %1
+  %.not.us = icmp eq i32 %1, %72
   br i1 %.not.us, label %172, label %73
 
 73:                                               ; preds = %69
@@ -3815,7 +3815,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %107 = getelementptr inbounds i8, ptr %95, i64 %56
   %108 = load i16, ptr %107, align 2
   %109 = sext i16 %108 to i32
-  %.not135.us = icmp eq i32 %109, %1
+  %.not135.us = icmp eq i32 %1, %109
   br i1 %.not135.us, label %116, label %110
 
 110:                                              ; preds = %106
@@ -3849,7 +3849,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %122 = getelementptr inbounds i8, ptr %95, i64 %59
   %123 = load i16, ptr %122, align 2
   %124 = sext i16 %123 to i32
-  %.not139.us = icmp eq i32 %124, %1
+  %.not139.us = icmp eq i32 %1, %124
   br i1 %.not139.us, label %131, label %125
 
 125:                                              ; preds = %121
@@ -3883,7 +3883,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %137 = getelementptr inbounds i8, ptr %95, i64 2
   %138 = load i16, ptr %137, align 2
   %139 = sext i16 %138 to i32
-  %.not142.us = icmp eq i32 %139, %1
+  %.not142.us = icmp eq i32 %1, %139
   br i1 %.not142.us, label %147, label %140
 
 140:                                              ; preds = %136
@@ -3917,7 +3917,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
   %153 = getelementptr inbounds i8, ptr %95, i64 -2
   %154 = load i16, ptr %153, align 2
   %155 = sext i16 %154 to i32
-  %.not145.us = icmp eq i32 %155, %1
+  %.not145.us = icmp eq i32 %1, %155
   br i1 %.not145.us, label %163, label %156
 
 156:                                              ; preds = %152
@@ -9205,7 +9205,7 @@ define linkonce_odr hidden void @_ZN2cv14BufferSGBM3WayC2Eiiiiii(ptr noundef non
 
 36:                                               ; preds = %31
   %37 = add nsw i32 %1, 2
-  %38 = mul nsw i32 %37, %4
+  %38 = mul nsw i32 %4, %37
   %39 = sext i32 %38 to i64
   invoke void @_ZN2cv5utils10BufferArea8allocateIsEEvRPT_mt(ptr noundef nonnull align 8 dereferenceable(41) %17, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %39, i16 noundef zeroext 16)
           to label %40 unwind label %58

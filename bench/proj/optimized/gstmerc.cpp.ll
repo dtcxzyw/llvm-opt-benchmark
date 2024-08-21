@@ -111,8 +111,8 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_gstmercP8PJconsts(pt
   %60 = tail call double @sin(double noundef %59) #6
   %61 = load double, ptr %12, align 8
   %62 = tail call double @sin(double noundef %61) #6
-  %63 = fneg double %58
-  %64 = fmul double %60, %63
+  %63 = fneg double %60
+  %64 = fmul double %58, %63
   %65 = tail call double @llvm.fmuladd.f64(double %64, double %62, double 1.000000e+00)
   %66 = fdiv double %57, %65
   %67 = getelementptr inbounds i8, ptr %2, i64 32
@@ -233,7 +233,7 @@ define internal { double, double } @_ZL17gstmerc_s_forward5PJ_LPP8PJconsts(doubl
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %0
+  %8 = fmul double %0, %7
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fneg double %1

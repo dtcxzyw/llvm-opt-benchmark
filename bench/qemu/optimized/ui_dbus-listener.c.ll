@@ -120,14 +120,14 @@ trace_dbus_update.exit:                           ; preds = %if.end, %land.lhs.t
 land.lhs.true2:                                   ; preds = %trace_dbus_update.exit
   %.val = load ptr, ptr %.pre38, align 8
   %call.i = tail call i32 @pixman_image_get_width(ptr noundef %.val) #7
-  %cmp4 = icmp eq i32 %call.i, %w
+  %cmp4 = icmp eq i32 %w, %call.i
   %.pre37 = load ptr, ptr %ds, align 8
   br i1 %cmp4, label %land.lhs.true5, label %if.end28
 
 land.lhs.true5:                                   ; preds = %land.lhs.true2
   %.val22 = load ptr, ptr %.pre37, align 8
   %call.i29 = tail call i32 @pixman_image_get_height(ptr noundef %.val22) #7
-  %cmp8 = icmp eq i32 %call.i29, %h
+  %cmp8 = icmp eq i32 %h, %call.i29
   br i1 %cmp8, label %if.then9, label %land.lhs.true5.if.end28_crit_edge
 
 land.lhs.true5.if.end28_crit_edge:                ; preds = %land.lhs.true5

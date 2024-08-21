@@ -1396,7 +1396,7 @@ define hidden range(i32 0, 2) i32 @rectanglesEqual(i64 %0, i64 %1, i64 %2, i64 %
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
-  %4 = icmp slt i32 %3, %1
+  %4 = icmp sgt i32 %1, %3
   br i1 %4, label %6, label %.preheader
 
 .preheader:                                       ; preds = %2

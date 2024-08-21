@@ -10329,7 +10329,7 @@ while.body:                                       ; preds = %cleanup42, %while.b
 if.then23:                                        ; preds = %while.body
   %36 = load ptr, ptr %state, align 8, !tbaa !399
   %cmp26 = icmp ne i64 %cond.i, %remaining
-  %.not = or i1 %cmp26, %has_updates
+  %.not = or i1 %has_updates, %cmp26
   %function.i.i = getelementptr inbounds i8, ptr %36, i64 80
   %37 = load ptr, ptr %function.i.i, align 8, !tbaa !358
   br i1 %.not, label %if.else.i, label %if.then.i
@@ -39751,7 +39751,7 @@ sw.bb18:                                          ; preds = %_ZN6duckdb15Selecti
   %sel.val162 = load ptr, ptr %sel, align 8
   %new_sel.val163 = load ptr, ptr %new_sel, align 8
   %cmp1.not.i309 = icmp ne i64 %31, 0
-  %brmerge.not = and i1 %cmp1.not.i309, %predicate
+  %brmerge.not = and i1 %predicate, %cmp1.not.i309
   br i1 %tobool.not.i308, label %if.then21, label %if.else25
 
 if.then21:                                        ; preds = %sw.bb18
@@ -39931,7 +39931,7 @@ sw.bb30:                                          ; preds = %_ZN6duckdb15Selecti
   %sel.val167 = load ptr, ptr %sel, align 8
   %new_sel.val168 = load ptr, ptr %new_sel, align 8
   %cmp1.not.i379 = icmp eq i64 %45, 0
-  %brmerge732 = or i1 %cmp1.not.i379, %predicate
+  %brmerge732 = or i1 %predicate, %cmp1.not.i379
   br i1 %tobool.not.i378, label %if.then33, label %if.else37
 
 if.then33:                                        ; preds = %sw.bb30
@@ -89417,11 +89417,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.021.i
   %4 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %4 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL28MergeUpdateInfoRangeValidityEPNS_10UpdateInfoEmmmRNS_12ValidityMaskE.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89506,11 +89506,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %i.022.i
   %6 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %6 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIaEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89557,11 +89557,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.021.i
   %5 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %5 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIsEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89605,11 +89605,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.022.i
   %6 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %6 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIiEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89656,11 +89656,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.021.i
   %5 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %5 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIlEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89704,11 +89704,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %i.022.i
   %6 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %6 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIhEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89755,11 +89755,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.021.i
   %5 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %5 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeItEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89803,11 +89803,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.022.i
   %6 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %6 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIjEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89854,11 +89854,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.021.i
   %5 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %5 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeImEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89902,11 +89902,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %i.022.i
   %6 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %6 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeINS_9hugeint_tEEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -89952,11 +89952,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.021.i
   %5 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %5 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIfEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -90000,11 +90000,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %i.021.i
   %5 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %5 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeIdEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -90048,11 +90048,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %i.022.i
   %6 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %6 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeINS_10interval_tEEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -90098,11 +90098,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %i.022.i
   %6 = load i32, ptr %arrayidx.i, align 4, !tbaa !51
   %conv1.i = zext i32 %6 to i64
-  %cmp2.i = icmp ult i64 %conv1.i, %start
+  %cmp2.i = icmp ugt i64 %start, %conv1.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp4.not.i = icmp ult i64 %conv1.i, %end
+  %cmp4.not.i = icmp ugt i64 %end, %conv1.i
   br i1 %cmp4.not.i, label %if.end6.i, label %_ZN6duckdbL20MergeUpdateInfoRangeINS_8string_tEEEvPNS_10UpdateInfoEmmmPT_.exit
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -90169,7 +90169,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %i.020.i.i
   %5 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %5 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90208,7 +90208,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i.i.i: ; preds = %if.the
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp8.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp8.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.020.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp8.i.i, i1 %cmp.i.i, i1 false
@@ -90267,7 +90267,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90277,7 +90277,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90336,7 +90336,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90346,7 +90346,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90405,7 +90405,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90415,7 +90415,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90474,7 +90474,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90484,7 +90484,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90543,7 +90543,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90553,7 +90553,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90612,7 +90612,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90622,7 +90622,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90681,7 +90681,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90691,7 +90691,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90750,7 +90750,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90760,7 +90760,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90819,7 +90819,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90828,7 +90828,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90887,7 +90887,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90897,7 +90897,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -90956,7 +90956,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -90966,7 +90966,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -91025,7 +91025,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -91034,7 +91034,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false
@@ -91093,7 +91093,7 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %for.b
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %i.021.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4, !tbaa !51
   %conv2.i.i = zext i32 %6 to i64
-  %cmp3.i.i = icmp eq i64 %conv2.i.i, %row_idx
+  %cmp3.i.i = icmp eq i64 %row_idx, %conv2.i.i
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -91102,7 +91102,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp ule i64 %conv2.i.i, %row_idx
+  %cmp9.i.i = icmp uge i64 %row_idx, %conv2.i.i
   %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %cmp.i.i = icmp ult i64 %inc.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 %cmp.i.i, i1 false

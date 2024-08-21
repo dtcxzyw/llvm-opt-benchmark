@@ -333,9 +333,9 @@ define range(i32 -1, 1) i32 @H5Epush1(ptr nocapture noundef readonly %0, ptr noc
 
 40:                                               ; preds = %33
   %41 = load i64, ptr @H5E_first_maj_id_g, align 8
-  %42 = icmp sgt i64 %41, %3
+  %42 = icmp slt i64 %3, %41
   %43 = load i64, ptr @H5E_last_maj_id_g, align 8
-  %44 = icmp slt i64 %43, %3
+  %44 = icmp sgt i64 %3, %43
   %or.cond = select i1 %42, i1 true, i1 %44
   br i1 %or.cond, label %45, label %52
 
@@ -352,9 +352,9 @@ define range(i32 -1, 1) i32 @H5Epush1(ptr nocapture noundef readonly %0, ptr noc
 
 52:                                               ; preds = %40, %45
   %53 = load i64, ptr @H5E_first_min_id_g, align 8
-  %54 = icmp sgt i64 %53, %4
+  %54 = icmp slt i64 %4, %53
   %55 = load i64, ptr @H5E_last_min_id_g, align 8
-  %56 = icmp slt i64 %55, %4
+  %56 = icmp sgt i64 %4, %55
   %or.cond31 = select i1 %54, i1 true, i1 %56
   br i1 %or.cond31, label %57, label %64
 
@@ -718,7 +718,7 @@ define range(i32 -1, 1) i32 @H5Eset_auto1(ptr noundef %0, ptr noundef %1) local_
   store i32 1, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 24
   %32 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %32, %0
+  %.not = icmp eq ptr %0, %32
   %spec.select = zext i1 %.not to i8
   %33 = getelementptr inbounds i8, ptr %3, i64 4
   store i8 %spec.select, ptr %33, align 4

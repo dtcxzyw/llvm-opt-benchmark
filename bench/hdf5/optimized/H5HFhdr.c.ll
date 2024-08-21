@@ -1461,7 +1461,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
 
 181:                                              ; preds = %174
   %182 = load i64, ptr %68, align 8
-  %183 = icmp ult i64 %182, %1
+  %183 = icmp ugt i64 %1, %182
   br i1 %183, label %184, label %193
 
 184:                                              ; preds = %181

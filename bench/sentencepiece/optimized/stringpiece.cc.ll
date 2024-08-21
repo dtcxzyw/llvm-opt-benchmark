@@ -178,7 +178,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece4copyEPcmm(ptr nocapture no
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %3
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %9, i64 %.sroa.speculated, i1 false)
@@ -225,7 +225,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece4findES1_m(ptr nocapture no
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp slt i64 %6, 1
-  %8 = icmp ult i64 %6, %3
+  %8 = icmp ugt i64 %3, %6
   %or.cond15 = or i1 %7, %8
   br i1 %or.cond15, label %9, label %12
 
@@ -263,7 +263,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece4findEcm(ptr nocapture noun
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
-  %.not = icmp ugt i64 %5, %2
+  %.not = icmp ult i64 %2, %5
   %or.cond = and i1 %6, %.not
   br i1 %or.cond, label %7, label %17
 
@@ -305,13 +305,13 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece5rfindES1_m(ptr nocapture n
   br i1 %14, label %15, label %_ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit
 
 15:                                               ; preds = %13
-  %.sroa.speculated16 = tail call i64 @llvm.umin.i64(i64 %11, i64 %3)
+  %.sroa.speculated16 = tail call i64 @llvm.umin.i64(i64 %3, i64 %11)
   br label %29
 
 _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %13
   %16 = load ptr, ptr %0, align 8
   %17 = sub i64 %11, %2
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %17, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %3, i64 %17)
   %18 = getelementptr inbounds i8, ptr %16, i64 %.sroa.speculated
   %19 = getelementptr inbounds i8, ptr %18, i64 %2
   %20 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -393,7 +393,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece13find_first_ofES1_m(ptr no
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %10
-  %.not.i.i = icmp ugt i64 %7, %3
+  %.not.i.i = icmp ult i64 %3, %7
   br i1 %.not.i.i, label %13, label %_ZNK6google8protobuf11StringPiece13find_first_ofEcm.exit
 
 13:                                               ; preds = %12
@@ -426,7 +426,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece13find_first_ofES1_m(ptr no
   br i1 %exitcond.not.i, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !6
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i
-  %30 = icmp sgt i64 %7, %3
+  %30 = icmp slt i64 %3, %7
   br i1 %30, label %.lr.ph, label %_ZNK6google8protobuf11StringPiece13find_first_ofEcm.exit
 
 .lr.ph:                                           ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader
@@ -474,7 +474,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece17find_first_not_ofES1_m(pt
 
 13:                                               ; preds = %11
   %14 = load i8, ptr %1, align 1
-  %15 = icmp ugt i64 %7, %3
+  %15 = icmp ult i64 %3, %7
   br i1 %15, label %.lr.ph.i, label %_ZNK6google8protobuf11StringPiece17find_first_not_ofEcm.exit
 
 .lr.ph.i:                                         ; preds = %13
@@ -509,7 +509,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece17find_first_not_ofES1_m(pt
   br i1 %exitcond.not.i13, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i12, !llvm.loop !6
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i12
-  %28 = icmp sgt i64 %7, %3
+  %28 = icmp slt i64 %3, %7
   br i1 %28, label %.lr.ph, label %_ZNK6google8protobuf11StringPiece17find_first_not_ofEcm.exit
 
 .lr.ph:                                           ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader
@@ -541,7 +541,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece17find_first_not_ofEcm(ptr 
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
-  %7 = icmp ugt i64 %5, %2
+  %7 = icmp ult i64 %2, %5
   %or.cond = and i1 %6, %7
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
@@ -756,9 +756,9 @@ select.unfold:                                    ; preds = %9
 define { ptr, i64 } @_ZNK6google8protobuf11StringPiece6substrEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %5, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
   %6 = sub i64 %5, %spec.select
-  %.0 = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
+  %.0 = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %spec.select
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %8, 0

@@ -447,7 +447,7 @@ define range(i32 0, 2) i32 @jpeg_fill_bit_buffer(ptr nocapture noundef %0, i64 n
   %.154 = phi i64 [ %.05385, %48 ], [ %1, %4 ]
   %.551 = phi ptr [ %46, %48 ], [ %5, %4 ]
   %.5 = phi i64 [ %45, %48 ], [ %7, %4 ]
-  %55 = icmp slt i32 %.157, %3
+  %55 = icmp sgt i32 %3, %.157
   br i1 %55, label %56, label %.loopexit65
 
 56:                                               ; preds = %54

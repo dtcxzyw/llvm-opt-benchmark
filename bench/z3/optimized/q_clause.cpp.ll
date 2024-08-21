@@ -37,7 +37,7 @@ entry:
   %1 = load ptr, ptr %rhs, align 8
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %2 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %2, %1
+  %cmp.i = icmp eq ptr %1, %2
   br i1 %cmp.i, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
@@ -53,7 +53,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %land.lhs.true, %entry
   %m_false.i = getelementptr inbounds i8, ptr %0, i64 864
   %4 = load ptr, ptr %m_false.i, align 8
-  %cmp.i6 = icmp eq ptr %4, %1
+  %cmp.i6 = icmp eq ptr %1, %4
   br i1 %cmp.i6, label %land.lhs.true9, label %if.end17
 
 land.lhs.true9:                                   ; preds = %if.end

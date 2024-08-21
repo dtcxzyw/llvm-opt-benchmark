@@ -609,7 +609,7 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   %100 = trunc i32 %83 to i16
   %101 = add i16 %100, -7
   %102 = getelementptr i8, ptr %87, i64 %86
-  %103 = icmp ugt ptr %102, %87
+  %103 = icmp ult ptr %87, %102
   br i1 %103, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.i

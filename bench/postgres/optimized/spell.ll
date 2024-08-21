@@ -1452,7 +1452,7 @@ sub_2167.i:                                       ; preds = %sub_1166.i
   %481 = call i64 @strtol(ptr noundef nonnull %475, ptr noundef nonnull %6, i32 noundef 10) #15
   %482 = trunc i64 %481 to i32
   %483 = load ptr, ptr %6, align 8
-  %484 = icmp eq ptr %483, %475
+  %484 = icmp eq ptr %475, %483
   br i1 %484, label %489, label %485
 
 485:                                              ; preds = %480
@@ -2753,7 +2753,7 @@ MergeAffix.exit:                                  ; preds = %86, %104, %177
   %.3 = phi i32 [ %.1, %198 ], [ %.1, %189 ], [ %.1, %68 ], [ %.082120, %51 ]
   %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next126 to i32
-  %exitcond127.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond127.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond127.not, label %._crit_edge122, label %51, !llvm.loop !27
 
 common.ret142:                                    ; preds = %._crit_edge, %4, %._crit_edge122
@@ -3389,7 +3389,7 @@ compact_palloc0.exit137:                          ; preds = %112, %119
   %.4 = phi i32 [ %167, %166 ], [ %.1, %150 ], [ %.0105152, %83 ]
   %indvars.iv.next164 = add nsw i64 %indvars.iv163, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next164 to i32
-  %exitcond165.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond165.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond165.not, label %._crit_edge154, label %83, !llvm.loop !34
 
 ._crit_edge154:                                   ; preds = %170
@@ -4910,7 +4910,7 @@ CopyVar.exit:                                     ; preds = %.lr.ph.split.i, %19
   %66 = phi ptr [ %75, %74 ], [ %.0192231331, %.preheader.i ]
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
-  %69 = icmp slt i32 %68, %57
+  %69 = icmp sgt i32 %57, %68
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %.lr.ph44.i
@@ -4930,7 +4930,7 @@ CopyVar.exit:                                     ; preds = %.lr.ph.split.i, %19
   %78 = phi ptr [ %90, %89 ], [ %.0192231331, %.preheader34.i ]
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
-  %81 = icmp slt i32 %80, %57
+  %81 = icmp sgt i32 %57, %80
   br i1 %81, label %82, label %89
 
 82:                                               ; preds = %.lr.ph.i168
@@ -5168,7 +5168,7 @@ AddStem.exit:                                     ; preds = %._crit_edge.i, %141
 
 196:                                              ; preds = %192
   %197 = add i32 %.0137239, 1
-  %198 = icmp eq i32 %197, %4
+  %198 = icmp eq i32 %4, %197
   br i1 %198, label %199, label %.preheader
 
 199:                                              ; preds = %196
@@ -5330,7 +5330,7 @@ define internal fastcc void @setCompoundAffixFlagValue(ptr nocapture noundef %0,
   %10 = call i64 @strtol(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 10) #15
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, %2
+  %13 = icmp eq ptr %2, %12
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %9

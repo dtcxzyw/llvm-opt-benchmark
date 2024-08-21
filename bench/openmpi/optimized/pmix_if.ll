@@ -120,7 +120,7 @@ define range(i32 -1, 65536) i32 @pmix_ifindextokindex(i32 noundef %0) local_unna
   %.010 = phi ptr [ %15, %14 ], [ %2, %1 ]
   %3 = getelementptr inbounds i8, ptr %.010, i64 404
   %4 = load i32, ptr %3, align 4
-  %5 = icmp eq i32 %4, %0
+  %5 = icmp eq i32 %0, %4
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %.lr.ph
@@ -627,7 +627,7 @@ define range(i32 -1, 1) i32 @pmix_ifkindextoaddr(i32 noundef %0, ptr nocapture n
   %5 = getelementptr inbounds i8, ptr %.013, i64 408
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i32
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
@@ -885,7 +885,7 @@ define range(i32 -1, 1) i32 @pmix_ifkindextoname(i32 noundef %0, ptr nocapture n
   %6 = getelementptr inbounds i8, ptr %.014, i64 408
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
-  %9 = icmp eq i32 %8, %0
+  %9 = icmp eq i32 %0, %8
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %.lr.ph
@@ -1214,7 +1214,7 @@ define noundef i32 @pmix_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
   %6 = getelementptr inbounds i8, ptr %.013.i, i64 408
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
-  %9 = icmp eq i32 %8, %0
+  %9 = icmp eq i32 %0, %8
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %.lr.ph.i
@@ -1305,7 +1305,7 @@ pmix_ifnametokindex.exit:                         ; preds = %36
   %46 = load i16, ptr %45, align 8
   %47 = icmp sgt i16 %46, -1
   %48 = sext i16 %46 to i32
-  %49 = icmp eq i32 %48, %0
+  %49 = icmp eq i32 %0, %48
   %or.cond37 = and i1 %47, %49
   br i1 %or.cond37, label %pmix_ifkindextoaddr.exit.thread, label %pmix_ifnametokindex.exit.thread
 

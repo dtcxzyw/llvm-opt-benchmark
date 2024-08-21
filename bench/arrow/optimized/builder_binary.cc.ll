@@ -549,7 +549,7 @@ nrvo.skipdtor.thread:                             ; preds = %"_ZN5arrow21VisitNu
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %"_ZN5arrow21VisitNullBitmapInlineIZNS_17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllE3$_0ZNS1_16AppendArraySliceES4_llE3$_1EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT_E4typeEonclEEvEE5valueEvE4typeEPKhlllOS8_OT0_.exit"
   %mul.i.i = shl nsw i64 %15, 1
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i17)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i17, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %17 = load ptr, ptr %vfn5.i, align 8, !noalias !8
@@ -3076,7 +3076,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %current_remaining_bytes_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %current_remaining_bytes_, align 8
-  %cmp3 = icmp slt i64 %0, %num_bytes
+  %cmp3 = icmp sgt i64 %num_bytes, %0
   br i1 %cmp3, label %do.body, label %if.end43
 
 do.body:                                          ; preds = %if.end
@@ -3138,7 +3138,7 @@ do.end13:                                         ; preds = %if.then.i.i, %do.en
   store ptr null, ptr %agg.result, align 8, !alias.scope !79
   %blocksize_ = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i64, ptr %blocksize_, align 8
-  %num_bytes. = call i64 @llvm.smax.i64(i64 %14, i64 %num_bytes)
+  %num_bytes. = call i64 @llvm.smax.i64(i64 %num_bytes, i64 %14)
   store i64 %num_bytes., ptr %current_remaining_bytes_, align 8
   %alignment_ = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i64, ptr %alignment_, align 8
@@ -3831,7 +3831,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !92
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !92
@@ -3895,7 +3895,7 @@ _ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhl.exit: ; preds = %if.then.i45,
   %byte_width_ = getelementptr inbounds i8, ptr %this, i64 144
   %10 = load i32, ptr %byte_width_, align 8
   %conv = sext i32 %10 to i64
-  %mul = mul nsw i64 %conv, %length
+  %mul = mul nsw i64 %length, %conv
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i = getelementptr inbounds i8, ptr %this, i64 192
@@ -3909,7 +3909,7 @@ _ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhl.exit: ; preds = %if.then.i45,
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhl.exit
   %byte_builder_ = getelementptr inbounds i8, ptr %this, i64 152
   %mul.i.i49 = shl nsw i64 %12, 1
-  %.sroa.speculated.i.i50 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i49, i64 %add.i46)
+  %.sroa.speculated.i.i50 = call noundef i64 @llvm.smax.i64(i64 %add.i46, i64 %mul.i.i49)
   call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %byte_builder_, i64 noundef %.sroa.speculated.i.i50, i1 noundef zeroext false), !noalias !100
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %13 = load ptr, ptr %ref.tmp.i, align 8, !noalias !106
@@ -3964,7 +3964,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !110
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !110
@@ -4024,7 +4024,7 @@ _ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhll.exit: ; preds = %if.then.i45
   %byte_width_ = getelementptr inbounds i8, ptr %this, i64 144
   %9 = load i32, ptr %byte_width_, align 8
   %conv = sext i32 %9 to i64
-  %mul = mul nsw i64 %conv, %length
+  %mul = mul nsw i64 %length, %conv
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i = getelementptr inbounds i8, ptr %this, i64 192
@@ -4038,7 +4038,7 @@ _ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhll.exit: ; preds = %if.then.i45
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEPKhll.exit
   %byte_builder_ = getelementptr inbounds i8, ptr %this, i64 152
   %mul.i.i49 = shl nsw i64 %11, 1
-  %.sroa.speculated.i.i50 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i49, i64 %add.i46)
+  %.sroa.speculated.i.i50 = call noundef i64 @llvm.smax.i64(i64 %add.i46, i64 %mul.i.i49)
   call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %byte_builder_, i64 noundef %.sroa.speculated.i.i50, i1 noundef zeroext false), !noalias !118
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %12 = load ptr, ptr %ref.tmp.i, align 8, !noalias !124
@@ -4090,7 +4090,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !128
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !128
@@ -4172,7 +4172,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !139
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !139
@@ -4189,7 +4189,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %byte_width_ = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load i32, ptr %byte_width_, align 8
   %conv = sext i32 %3 to i64
-  %mul = mul nsw i64 %conv, %length
+  %mul = mul nsw i64 %length, %conv
   %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %data_.i, align 8
   %size_.i = getelementptr inbounds i8, ptr %this, i64 192
@@ -4226,7 +4226,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !150
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !150
@@ -4299,7 +4299,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !161
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !161
@@ -4316,7 +4316,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %byte_width_ = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load i32, ptr %byte_width_, align 8
   %conv = sext i32 %3 to i64
-  %mul = mul nsw i64 %conv, %length
+  %mul = mul nsw i64 %length, %conv
   %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %data_.i, align 8
   %size_.i = getelementptr inbounds i8, ptr %this, i64 192
@@ -4438,7 +4438,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %length_.i, align 8, !noalias !172
-  %cmp3.i = icmp sgt i64 %0, %capacity
+  %cmp3.i = icmp slt i64 %capacity, %0
   br i1 %cmp3.i, label %if.then6.i, label %nrvo.skipdtor.thread
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -4479,7 +4479,7 @@ _ZN5arrow6StatusD2Ev.exit80:                      ; preds = %_ZN5arrow6StatusD2E
   %byte_width_ = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load i32, ptr %byte_width_, align 8
   %conv = sext i32 %2 to i64
-  %mul = mul nsw i64 %conv, %capacity
+  %mul = mul nsw i64 %capacity, %conv
   call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(56) %byte_builder_, i64 noundef %mul, i1 noundef zeroext true)
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
   %3 = load ptr, ptr %ref.tmp11, align 8, !noalias !186
@@ -5980,7 +5980,7 @@ entry:
   %byte_width_ = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i32, ptr %byte_width_, align 8
   %conv = sext i32 %1 to i64
-  %mul = mul nsw i64 %conv, %i
+  %mul = mul nsw i64 %i, %conv
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %mul
   ret ptr %add.ptr
 }
@@ -5993,7 +5993,7 @@ entry:
   %byte_width_ = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i32, ptr %byte_width_, align 8
   %conv = sext i32 %1 to i64
-  %mul = mul nsw i64 %conv, %i
+  %mul = mul nsw i64 %i, %conv
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %mul
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %conv, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %add.ptr, 1
@@ -6432,7 +6432,7 @@ call7.i.noexc:                                    ; preds = %if.end.i
 
 if.end11.i:                                       ; preds = %call7.i.noexc
   %mul.i.i = shl nsw i64 %10, 1
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add8.i)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %add8.i, i64 %mul.i.i)
   %max_chunk_length_.i = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %max_chunk_length_.i, align 8, !noalias !237
   %cmp13.not.i = icmp sgt i64 %.sroa.speculated.i.i, %12
@@ -6567,7 +6567,7 @@ if.then10:                                        ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end
   %mul.i = shl nsw i64 %2, 1
-  %.sroa.speculated.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i, i64 %add8)
+  %.sroa.speculated.i = tail call noundef i64 @llvm.smax.i64(i64 %add8, i64 %mul.i)
   %max_chunk_length_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %max_chunk_length_, align 8
   %cmp13.not = icmp sgt i64 %.sroa.speculated.i, %4
@@ -7163,7 +7163,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %length_.i, align 8, !noalias !262
-  %cmp3.i = icmp sgt i64 %0, %capacity
+  %cmp3.i = icmp slt i64 %capacity, %0
   br i1 %cmp3.i, label %if.then6.i, label %nrvo.skipdtor.thread
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -7239,7 +7239,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !279
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !279
@@ -7318,7 +7318,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !290
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !290
@@ -7376,7 +7376,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !301
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !301
@@ -7446,7 +7446,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !312
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !312
@@ -9071,7 +9071,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -10015,7 +10015,7 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %length_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %length_.i, align 8, !noalias !354
-  %cmp3.i = icmp sgt i64 %0, %capacity
+  %cmp3.i = icmp slt i64 %capacity, %0
   br i1 %cmp3.i, label %if.then6.i, label %nrvo.skipdtor.thread
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -10256,7 +10256,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !371
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !371
@@ -10340,7 +10340,7 @@ _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %1, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !382
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %3 = load ptr, ptr %vfn5.i, align 8, !noalias !382
@@ -10405,7 +10405,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %add.i = add nsw i64 %call2.i, 1
   %mul.i.i = shl nsw i64 %0, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !394
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %2 = load ptr, ptr %vfn5.i, align 8, !noalias !394
@@ -10480,7 +10480,7 @@ _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %1, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !405
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %3 = load ptr, ptr %vfn5.i, align 8, !noalias !405
@@ -10562,7 +10562,7 @@ nrvo.skipdtor.thread:                             ; preds = %entry
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %mul.i.i = shl nsw i64 %7, 1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i, i64 %add.i)
+  %.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i, i64 %mul.i.i)
   %vtable4.i = load ptr, ptr %this, align 8, !noalias !417
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %9 = load ptr, ptr %vfn5.i, align 8, !noalias !417
@@ -10621,9 +10621,9 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool.i.not, label %if.else, label %if.then36
 
 if.then36:                                        ; preds = %lor.lhs.false, %for.body
-  %gep = getelementptr i32, ptr %4, i64 %i.0158
-  %16 = load i32, ptr %gep, align 4
-  %arrayidx41 = getelementptr i8, ptr %gep, i64 4
+  %arrayidx38 = getelementptr i32, ptr %4, i64 %i.0158
+  %16 = load i32, ptr %arrayidx38, align 4
+  %arrayidx41 = getelementptr i8, ptr %arrayidx38, i64 4
   %17 = load i32, ptr %arrayidx41, align 4
   %idx.ext = sext i32 %16 to i64
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
@@ -10736,7 +10736,7 @@ entry:
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %entry
   %offsets_builder_.i = getelementptr inbounds i8, ptr %this, i64 144
   %mul.i.i.i.i = shl nsw i64 %2, 1
-  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i.i, i64 %add.i.i.i)
+  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %add.i.i.i, i64 %mul.i.i.i.i)
   call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %offsets_builder_.i, i64 noundef %.sroa.speculated.i.i.i.i, i1 noundef zeroext false), !noalias !438
   %3 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !441
   %cmp.i.i.i.i = icmp eq ptr %3, null
@@ -11908,7 +11908,7 @@ if.then.i.i:                                      ; preds = %do.end6
 if.end.i.i:                                       ; preds = %do.end6
   %value_data_builder_ = getelementptr inbounds i8, ptr %this, i64 200
   %mul.i.i.i = shl nsw i64 %2, 1
-  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i, i64 %add.i.i.pre-phi)
+  %.sroa.speculated.i.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i.i.pre-phi, i64 %mul.i.i.i)
   call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %value_data_builder_, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false)
   br label %return
 
@@ -12782,7 +12782,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12

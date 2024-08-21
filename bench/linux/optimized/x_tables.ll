@@ -1304,7 +1304,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xt_check_match(ptr noundef %0, i
   %91 = load i16, ptr %90, align 4
   %92 = icmp ne i16 %91, 0
   %93 = icmp ne i16 %91, %2
-  %94 = or i1 %93, %3
+  %94 = or i1 %3, %93
   %95 = and i1 %92, %94
   br i1 %95, label %96, label %111
 
@@ -1496,7 +1496,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
   %16 = load i16, ptr %15, align 8
   %17 = icmp ult i16 %16, 32
   %18 = zext i16 %16 to i32
-  %19 = add i32 %18, %2
+  %19 = add i32 %2, %18
   %20 = icmp ugt i32 %19, %3
   %21 = or i1 %17, %20
   br i1 %21, label %.loopexit, label %22
@@ -1759,7 +1759,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xt_check_target(ptr noundef %0, 
   %89 = load i16, ptr %88, align 4
   %90 = icmp ne i16 %89, 0
   %91 = icmp ne i16 %89, %2
-  %92 = or i1 %91, %3
+  %92 = or i1 %3, %91
   %93 = and i1 %90, %92
   br i1 %93, label %94, label %109
 

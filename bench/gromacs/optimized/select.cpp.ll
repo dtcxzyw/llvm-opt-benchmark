@@ -7668,7 +7668,7 @@ define linkonce_odr void @_ZNSt3setIiSt4lessIiESaIiEE6insertIN3gmx12ArrayRefIter
 
 select.unfold:                                    ; preds = %24, %11, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %12, %11 ], [ %.019.lcssa29.i.i, %24 ]
-  %27 = icmp eq ptr %4, %.sroa.12.0.i.ph
+  %27 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %27, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %28
 
 28:                                               ; preds = %select.unfold

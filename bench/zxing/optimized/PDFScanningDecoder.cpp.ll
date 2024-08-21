@@ -1155,7 +1155,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i89.i.i.i: ; preds = 
   %.neg.i.i.i = mul i64 %406, -1073741824
   %408 = ashr i64 %.neg.i.i.i, 32
   %409 = add nsw i64 %408, %407
-  %.not.i.i.i.i58.i.i = icmp ugt i64 %407, %409
+  %.not.i.i.i.i58.i.i = icmp ult i64 %409, %407
   br i1 %.not.i.i.i.i58.i.i, label %410, label %.invoke
 
 410:                                              ; preds = %399
@@ -1227,7 +1227,7 @@ _ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit.i.i.i: ; preds = %410
   %.neg230.i.i.i = mul i64 %440, -1073741824
   %449 = ashr i64 %.neg230.i.i.i, 32
   %450 = add nsw i64 %449, %448
-  %.not.i.i.i100.i.i.i = icmp ugt i64 %448, %450
+  %.not.i.i.i100.i.i.i = icmp ult i64 %450, %448
   br i1 %.not.i.i.i100.i.i.i, label %453, label %.invoke
 
 .invoke:                                          ; preds = %399, %446, %437
@@ -2041,7 +2041,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.noexc1
   %sext.i.i.i = shl i64 %723, 32
   %724 = ashr exact i64 %sext.i.i.i, 32
   %725 = add nsw i64 %722, %724
-  %.not.i.i.i.i84.i.i = icmp ugt i64 %722, %725
+  %.not.i.i.i.i84.i.i = icmp ult i64 %725, %722
   br i1 %.not.i.i.i.i84.i.i, label %727, label %726
 
 726:                                              ; preds = %.lr.ph.i82.i.i
@@ -2601,7 +2601,7 @@ _ZN5ZXing6Pdf417L13CorrectErrorsERSt6vectorIiSaIiEERKS3_iRi.exit.thread: ; preds
   br i1 %.not.i, label %_ZN5ZXing6Pdf417L19VerifyCodewordCountERSt6vectorIiSaIiEEi.exit, label %947
 
 947:                                              ; preds = %945
-  %948 = icmp sgt i32 %943, %2
+  %948 = icmp slt i32 %2, %943
   br i1 %948, label %949, label %951
 
 949:                                              ; preds = %947
@@ -3351,7 +3351,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumnD2Ev.exit97: ; preds = %_ZN5ZXing8Nullabl
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   %.val.i = load i32, ptr %32, align 8
   %266 = add nsw i32 %.val.i, 1
-  %267 = icmp sge i32 %266, %262
+  %267 = icmp sle i32 %262, %266
   %268 = select i1 %263, i1 %267, i1 false
   %269 = load ptr, ptr %190, align 8
   br i1 %268, label %270, label %.thread.i
@@ -3396,7 +3396,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumnD2Ev.exit97: ; preds = %_ZN5ZXing8Nullabl
 284:                                              ; preds = %.noexc100
   %.val44.i = load i32, ptr %32, align 8
   %285 = add nsw i32 %.val44.i, 1
-  %286 = icmp sge i32 %285, %262
+  %286 = icmp sle i32 %262, %285
   %287 = select i1 %263, i1 %286, i1 false
   br i1 %287, label %288, label %291
 
@@ -3422,7 +3422,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumnD2Ev.exit97: ; preds = %_ZN5ZXing8Nullabl
 .preheader.i:                                     ; preds = %291
   %.val45.i = load i32, ptr %32, align 8
   %293 = add nsw i32 %.val45.i, 1
-  %294 = icmp sge i32 %293, %262
+  %294 = icmp sle i32 %262, %293
   %295 = select i1 %263, i1 %294, i1 false
   br i1 %295, label %.lr.ph91.i, label %._crit_edge92.i
 
@@ -3473,7 +3473,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumnD2Ev.exit97: ; preds = %_ZN5ZXing8Nullabl
   %319 = add nuw nsw i32 %.04390.i, 1
   %320 = sub nsw i32 %299, %222
   %321 = icmp sgt i32 %320, -1
-  %322 = icmp sge i32 %293, %320
+  %322 = icmp sle i32 %320, %293
   %323 = select i1 %321, i1 %322, i1 false
   br i1 %323, label %298, label %._crit_edge92.i, !llvm.loop !20
 
@@ -3549,7 +3549,7 @@ _ZN5ZXing8NullableINS_6Pdf41721DetectionResultColumnEED2Ev.exit103: ; preds = %3
   %356 = load i32, ptr %228, align 4
   %357 = load i32, ptr %227, align 4
   %358 = sub nsw i32 %356, %357
-  %.sroa.speculated8.i = call i32 @llvm.smin.i32(i32 %.2147195, i32 %358)
+  %.sroa.speculated8.i = call i32 @llvm.smin.i32(i32 %358, i32 %.2147195)
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.2196, i32 %358)
   br label %359
 
@@ -5336,7 +5336,7 @@ _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i
   %100 = add nsw i32 %7, -2
   %101 = icmp sle i32 %100, %90
   %102 = add nsw i32 %8, 2
-  %103 = icmp sge i32 %102, %90
+  %103 = icmp sle i32 %90, %102
   %104 = select i1 %101, i1 %103, i1 false
   br i1 %104, label %107, label %105
 
@@ -6672,7 +6672,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %41
   %.0.lcssa.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28

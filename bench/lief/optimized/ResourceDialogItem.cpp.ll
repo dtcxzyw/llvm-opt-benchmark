@@ -709,7 +709,7 @@ define void @_ZNK4LIEF2PE18ResourceDialogItem19extended_style_listEv(ptr dead_on
 
 17:                                               ; preds = %.noexc
   %.not.i.i.i.i.i.i = icmp ne ptr %15, null
-  %18 = icmp eq ptr %3, %16
+  %18 = icmp eq ptr %16, %3
   %or.cond.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i, %18
   br i1 %or.cond.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i, label %19
 
@@ -827,7 +827,7 @@ define void @_ZNK4LIEF2PE18ResourceDialogItem10style_listEv(ptr dead_on_unwind n
 
 17:                                               ; preds = %.noexc
   %.not.i.i.i.i.i.i = icmp ne ptr %15, null
-  %18 = icmp eq ptr %3, %16
+  %18 = icmp eq ptr %16, %3
   %or.cond.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i, %18
   br i1 %or.cond.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i.i, label %19
 
@@ -1607,7 +1607,7 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE4g
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 1
   %6 = add i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %2
@@ -1674,7 +1674,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE22EXTENDED_WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -1898,7 +1898,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4LIEF2PE13WINDOW_STYLESES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -2117,7 +2117,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load atomic i32, ptr %7 monotonic, align 8
-  %9 = icmp sle i32 %8, %1
+  %9 = icmp sge i32 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   %12 = load atomic i8, ptr %11 monotonic, align 8
@@ -2283,7 +2283,7 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i: ; preds = 
 
 26:                                               ; preds = %25, %24
   %27 = phi i64 [ %.pre.i.i.i, %25 ], [ %20, %24 ]
-  %28 = icmp ult i64 %27, %18
+  %28 = icmp ugt i64 %18, %27
   br i1 %28, label %29, label %_ZN6spdlog7details14log_msg_bufferaSEOS1_.exit
 
 29:                                               ; preds = %26
@@ -2305,7 +2305,7 @@ _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEE10deallocateEv.exit.i.i: ; preds = 
 
 _ZN6spdlog7details14log_msg_bufferaSEOS1_.exit:   ; preds = %26, %.noexc.i.i
   %35 = phi i64 [ %27, %26 ], [ %.pre.i.i.i.i.i, %.noexc.i.i ]
-  %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %35, i64 %18)
+  %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %35)
   %36 = getelementptr inbounds i8, ptr %9, i64 112
   store i64 %..i.i.i.i.i, ptr %36, align 8
   %37 = load ptr, ptr %11, align 8
@@ -2377,7 +2377,7 @@ define linkonce_odr hidden void @_ZN6spdlog7details14log_msg_bufferC2ERKNS0_7log
   %18 = sub i64 %13, %17
   %19 = add i64 %18, %16
   %20 = load i64, ptr %6, align 8
-  %21 = icmp ult i64 %20, %19
+  %21 = icmp ugt i64 %19, %20
   br i1 %21, label %22, label %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i
 
 22:                                               ; preds = %15
@@ -2436,7 +2436,7 @@ _ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit: ; preds = %_ZSt20uninitiali
   %44 = sub i64 %39, %43
   %45 = add i64 %44, %42
   %46 = load i64, ptr %6, align 8
-  %47 = icmp ult i64 %46, %45
+  %47 = icmp ugt i64 %45, %46
   br i1 %47, label %48, label %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i7
 
 48:                                               ; preds = %41

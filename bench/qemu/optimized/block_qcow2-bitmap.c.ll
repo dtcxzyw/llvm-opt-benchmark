@@ -3145,7 +3145,7 @@ if.end40:                                         ; preds = %land.lhs.true.i, %i
 
 for.end45:                                        ; preds = %if.end40, %for.cond22.preheader
   %add.ptr.i58 = getelementptr i8, ptr %call16, i64 %add
-  %cmp6.i = icmp ugt ptr %add.ptr.i58, %call16
+  %cmp6.i = icmp ult ptr %call16, %add.ptr.i58
   br i1 %cmp6.i, label %while.body.i, label %bitmap_directory_to_be.exit
 
 while.body.i:                                     ; preds = %for.end45, %while.body.i
@@ -3219,7 +3219,7 @@ fail:                                             ; preds = %lor.lhs.false3.i, %
   %dir_offset.1 = phi i64 [ %dir_offset.2, %if.end54 ], [ %dir_offset.2, %if.end61 ], [ %dir_offset.0, %check_dir_entry.exit ], [ %dir_offset.0, %if.end36.i ], [ %dir_offset.0, %land.lhs.true.i ], [ %dir_offset.0, %for.body24 ], [ %dir_offset.0, %lor.lhs.false3.i ]
   tail call void @g_free(ptr noundef nonnull %call16) #13
   %cmp71 = icmp slt i64 %dir_offset.1, 1
-  %or.cond1.not = or i1 %cmp71, %in_place
+  %or.cond1.not = or i1 %in_place, %cmp71
   br i1 %or.cond1.not, label %return, label %if.then73
 
 if.then73:                                        ; preds = %fail

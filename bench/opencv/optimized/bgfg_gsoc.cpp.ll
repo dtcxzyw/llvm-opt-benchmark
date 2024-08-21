@@ -581,8 +581,8 @@ define internal fastcc noundef float @_ZN2cv6bgsegm12_GLOBAL__N_18localSVDEfffff
   %53 = fmul float %50, %52
   %54 = tail call float @llvm.fmuladd.f32(float %49, float %51, float %53)
   %55 = fmul float %48, 2.000000e+00
-  %56 = fneg float %51
-  %57 = fmul float %47, %56
+  %56 = fneg float %47
+  %57 = fmul float %51, %56
   %58 = tail call float @llvm.fmuladd.f32(float %55, float %50, float %57)
   %59 = fmul float %47, %58
   %60 = tail call float @llvm.fmuladd.f32(float %46, float %54, float %59)
@@ -2502,7 +2502,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   %454 = ptrtoint ptr %452 to i64
   %455 = sub i64 %453, %454
   %456 = ashr exact i64 %455, 3
-  %457 = icmp ult i64 %456, %449
+  %457 = icmp ugt i64 %449, %456
   br i1 %457, label %458, label %483
 
 458:                                              ; preds = %._crit_edge254
@@ -2575,7 +2575,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %488
 
 483:                                              ; preds = %._crit_edge254
-  %484 = icmp ugt i64 %456, %449
+  %484 = icmp ult i64 %449, %456
   br i1 %484, label %485, label %488
 
 485:                                              ; preds = %483
@@ -3145,7 +3145,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119Backgroun
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 %.0.val1, ptr %7, align 8, !noalias !55
   %8 = getelementptr inbounds i8, ptr %2, i64 52
-  %9 = mul i32 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i, %.0.val1
+  %9 = mul i32 %.0.val1, %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i
   store i32 %9, ptr %8, align 4, !noalias !55
   %10 = mul i32 %9, %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i
   %11 = sext i32 %10 to i64
@@ -3672,7 +3672,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -3746,7 +3746,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -5563,7 +5563,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   %470 = ptrtoint ptr %468 to i64
   %471 = sub i64 %469, %470
   %472 = ashr exact i64 %471, 3
-  %473 = icmp ult i64 %472, %465
+  %473 = icmp ugt i64 %465, %472
   br i1 %473, label %474, label %499
 
 474:                                              ; preds = %._crit_edge215
@@ -5636,7 +5636,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %504
 
 499:                                              ; preds = %._crit_edge215
-  %500 = icmp ugt i64 %472, %465
+  %500 = icmp ult i64 %465, %472
   br i1 %500, label %501, label %504
 
 501:                                              ; preds = %499
@@ -5941,7 +5941,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119Backgroun
   %7 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 %.0.val1, ptr %7, align 8, !noalias !111
   %8 = getelementptr inbounds i8, ptr %2, i64 52
-  %9 = mul i32 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i, %.0.val1
+  %9 = mul i32 %.0.val1, %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i
   store i32 %9, ptr %8, align 4, !noalias !111
   %10 = mul i32 %9, %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i
   %11 = sext i32 %10 to i64
@@ -6770,8 +6770,8 @@ define internal void @_ZNK2cv6bgsegm12_GLOBAL__N_122ParallelLocalSVDValuesclERKN
   %93 = fmul float %90, %92
   %94 = tail call float @llvm.fmuladd.f32(float %89, float %91, float %93)
   %95 = fmul float %88, 2.000000e+00
-  %96 = fneg float %91
-  %97 = fmul float %87, %96
+  %96 = fneg float %87
+  %97 = fmul float %91, %96
   %98 = tail call float @llvm.fmuladd.f32(float %95, float %90, float %97)
   %99 = fmul float %87, %98
   %100 = tail call float @llvm.fmuladd.f32(float %86, float %94, float %99)

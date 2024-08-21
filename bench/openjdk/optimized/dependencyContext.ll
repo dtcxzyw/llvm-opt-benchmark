@@ -402,7 +402,7 @@ define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr 
 .lr.ph:                                           ; preds = %2, %6
   %.014 = phi ptr [ %7, %6 ], [ %3, %2 ]
   %4 = load ptr, ptr %.014, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %.lr.ph
@@ -815,7 +815,7 @@ define hidden noundef zeroext i1 @_ZN17DependencyContext20is_dependent_nmethodEP
 .lr.ph:                                           ; preds = %2, %6
   %.08 = phi ptr [ %7, %6 ], [ %3, %2 ]
   %4 = load ptr, ptr %.08, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph

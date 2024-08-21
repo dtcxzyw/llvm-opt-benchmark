@@ -196,7 +196,7 @@ if.end:                                           ; preds = %if.then
 if.end5:                                          ; preds = %if.end
   %max_dgram_size1.i = getelementptr inbounds i8, ptr %cc, i64 48
   %1 = load i64, ptr %max_dgram_size1.i, align 8
-  %cmp.i = icmp ugt i64 %1, %0
+  %cmp.i = icmp ult i64 %0, %1
   store i64 %0, ptr %max_dgram_size1.i, align 8
   %mul.i = shl i64 %0, 1
   %spec.store.select.i = call i64 @llvm.umax.i64(i64 %mul.i, i64 14720)
@@ -1084,7 +1084,7 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %tx_time_of_last_loss, align 8
   %2 = getelementptr i8, ptr %nr, i64 88
   %nr.val.i = load i64, ptr %2, align 8
-  %cmp.i.i.not.i = icmp ult i64 %nr.val.i, %1
+  %cmp.i.i.not.i = icmp ugt i64 %1, %nr.val.i
   br i1 %cmp.i.i.not.i, label %if.end.i, label %newreno_cong.exit
 
 if.end.i:                                         ; preds = %if.end

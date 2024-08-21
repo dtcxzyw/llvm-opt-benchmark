@@ -101,7 +101,7 @@ define hidden noundef ptr @_ZN12StubCodeDesc8desc_forEPh(ptr noundef readnone %0
   %.not.i = icmp ule ptr %5, %0
   %6 = getelementptr inbounds i8, ptr %.0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp ugt ptr %7, %0
+  %8 = icmp ult ptr %0, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   br i1 %9, label %.critedge, label %2, !llvm.loop !6
 
@@ -178,7 +178,7 @@ define hidden void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr nocapture nounde
   store ptr %4, ptr %5, align 8
   %6 = load i8, ptr @PrintStubCode, align 1
   %7 = trunc i8 %6 to i1
-  %8 = or i1 %7, %2
+  %8 = or i1 %2, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 8

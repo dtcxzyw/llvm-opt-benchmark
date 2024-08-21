@@ -679,7 +679,7 @@ define internal { double, double } @_ZL13aea_e_forward5PJ_LPP8PJconsts(double %0
   store double %36, ptr %28, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 8
   %38 = load double, ptr %37, align 8
-  %39 = fmul double %38, %0
+  %39 = fmul double %0, %38
   %40 = tail call double @sin(double noundef %39) #8
   %41 = fmul double %36, %40
   %42 = getelementptr inbounds i8, ptr %5, i64 40

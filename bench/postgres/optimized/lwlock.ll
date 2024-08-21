@@ -1775,7 +1775,7 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %9 = and i64 %indvars.iv.next, 2147483647
   %10 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 16
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   %indvars.iv.next30 = add i32 %indvars.iv29, -1
   br i1 %12, label %18, label %6, !llvm.loop !27
 
@@ -2143,7 +2143,7 @@ define dso_local zeroext i1 @LWLockHeldByMe(ptr noundef readnone %0) local_unnam
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @LWLockAnyHeldByMe(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %1 to i64
-  %5 = mul i64 %4, %2
+  %5 = mul i64 %2, %4
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = load i32, ptr @num_held_lwlocks, align 4
   %8 = icmp sgt i32 %7, 0

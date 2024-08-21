@@ -516,7 +516,7 @@ if.then19:                                        ; preds = %land.lhs.true.i.i.i
   %retval.sroa.0.0.copyload.i = load i32, ptr %m_bv.i, align 8
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %22 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i34 = icmp eq i32 %22, %retval.sroa.0.0.copyload.i
+  %cmp.i.i34 = icmp eq i32 %retval.sroa.0.0.copyload.i, %22
   br i1 %cmp.i.i34, label %if.then.i35, label %if.else.i
 
 if.then.i35:                                      ; preds = %if.then19
@@ -1840,7 +1840,7 @@ if.end:                                           ; preds = %land.lhs.true.i
   tail call void @_ZN5arith6solver19explain_assumptionsERKN2lp11explanationE(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_explanation)
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %4 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.not = icmp eq i32 %4, %lit.coerce
+  %cmp.i.not = icmp eq i32 %lit.coerce, %4
   br i1 %cmp.i.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -2683,7 +2683,7 @@ entry:
 _ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.i: ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %2, %call.i.i
+  %cmp.not.i.i = icmp ult i32 %call.i.i, %2
   br i1 %cmp.not.i.i, label %_ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.then.i, label %_ZNK3euf6solver10fid2solverEi.exit
 
 _ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.then.i: ; preds = %_ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.i
@@ -3114,7 +3114,7 @@ _ZN8rationalD2Ev.exit63:                          ; preds = %.noexc.i61
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i:     ; preds = %_ZN8rationalD2Ev.exit63
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 -4
   %72 = load i32, ptr %arrayidx.i.i.i.i, align 4, !noalias !24
-  %cmp.not.i.i.i = icmp ugt i32 %72, %shr.i.i
+  %cmp.not.i.i.i = icmp ult i32 %shr.i.i, %72
   br i1 %cmp.not.i.i.i, label %_ZNK3euf6solver13bool_var2exprEj.exit.i, label %entry.split.i
 
 _ZNK3euf6solver13bool_var2exprEj.exit.i:          ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i

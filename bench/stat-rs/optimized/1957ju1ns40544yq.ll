@@ -186,7 +186,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN107_$LT$statrs..distribution..dirac..Dirac$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17had96bb5765a45264E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #4 {
   %3 = load double, ptr %0, align 8, !noundef !4
-  %4 = fcmp ogt double %3, %1
+  %4 = fcmp olt double %1, %3
   %. = select i1 %4, double 0.000000e+00, double 1.000000e+00
   ret double %.
 }
@@ -194,7 +194,7 @@ define noundef double @"_ZN107_$LT$statrs..distribution..dirac..Dirac$u20$as$u20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN107_$LT$statrs..distribution..dirac..Dirac$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17h044f0e0f136ad4c4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #4 {
   %3 = load double, ptr %0, align 8, !noundef !4
-  %4 = fcmp ogt double %3, %1
+  %4 = fcmp olt double %1, %3
   %. = select i1 %4, double 1.000000e+00, double 0.000000e+00
   ret double %.
 }
@@ -391,7 +391,7 @@ define noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %33
-  %37 = fmul double %30, %1
+  %37 = fmul double %1, %30
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %7, double noundef %37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -476,7 +476,7 @@ define noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %33
-  %37 = fmul double %30, %1
+  %37 = fmul double %1, %30
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN6statrs8function5gamma16checked_gamma_ur17hdd57d034a2d8e7e3E(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %4, double noundef %7, double noundef %37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -753,7 +753,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load double, ptr %21, align 8, !noundef !4
   %23 = fneg double %22
-  %24 = fmul double %23, %1
+  %24 = fmul double %1, %23
   %25 = tail call double @llvm.exp.f64(double %24)
   %26 = fmul double %22, %25
   br label %66
@@ -785,7 +785,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load double, ptr %36, align 8, !alias.scope !24, !noundef !4
   %38 = tail call noundef double @llvm.log.f64(double %37)
-  %39 = fmul double %37, %1
+  %39 = fmul double %1, %37
   %40 = fsub double %38, %39
   br label %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit"
 
@@ -797,7 +797,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %46 = tail call noundef double @llvm.log.f64(double %1)
   %47 = fmul double %46, %6
   %48 = fadd double %47, %45
-  %49 = fmul double %43, %1
+  %49 = fmul double %1, %43
   %50 = fsub double %48, %49
   %51 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %5), !noalias !24
   %52 = fsub double %50, %51
@@ -815,7 +815,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %58 = tail call double @llvm.pow.f64(double %1, double %6)
   %59 = fmul double %58, %57
   %60 = fneg double %56
-  %61 = fmul double %60, %1
+  %61 = fmul double %1, %60
   %62 = tail call double @llvm.exp.f64(double %61)
   %63 = fmul double %59, %62
   %64 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %5)
@@ -868,7 +868,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load double, ptr %21, align 8, !noundef !4
   %23 = tail call noundef double @llvm.log.f64(double %22)
-  %24 = fmul double %22, %1
+  %24 = fmul double %1, %22
   %25 = fsub double %23, %24
   br label %38
 
@@ -880,7 +880,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %31 = tail call noundef double @llvm.log.f64(double %1)
   %32 = fmul double %31, %6
   %33 = fadd double %32, %30
-  %34 = fmul double %28, %1
+  %34 = fmul double %1, %28
   %35 = fsub double %33, %34
   %36 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %5)
   %37 = fsub double %35, %36
@@ -969,7 +969,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..laplace..Laplace$u20$as
   %9 = fdiv double %6, %8
   %10 = tail call double @llvm.exp.f64(double %9)
   %11 = fmul double %10, 5.000000e-01
-  %12 = fcmp ugt double %3, %1
+  %12 = fcmp ult double %1, %3
   %13 = fsub double 1.000000e+00, %11
   %.sroa.0.0 = select i1 %12, double %11, double %13
   ret double %.sroa.0.0
@@ -986,7 +986,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..laplace..Laplace$u20$as
   %9 = fdiv double %6, %8
   %10 = tail call double @llvm.exp.f64(double %9)
   %11 = fmul double %10, 5.000000e-01
-  %12 = fcmp ugt double %3, %1
+  %12 = fcmp ult double %1, %3
   %13 = fsub double 1.000000e+00, %11
   %.sroa.0.0 = select i1 %12, double %13, double %11
   ret double %.sroa.0.0
@@ -1428,7 +1428,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..log_normal..LogNormal$u
   %10 = fmul double %9, 5.000000e-01
   %11 = fmul double %9, %10
   %12 = fsub double 0xBFED67F1C864BEB5, %11
-  %13 = fmul double %8, %1
+  %13 = fmul double %1, %8
   %14 = tail call noundef double @llvm.log.f64(double %13)
   %15 = fsub double %12, %14
   br label %16

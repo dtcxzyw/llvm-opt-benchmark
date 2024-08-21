@@ -192,7 +192,7 @@ if.then5:                                         ; preds = %if.then3
   %arrayidx7 = getelementptr inbounds [87 x i8], ptr @_ZN8proxygenL11lengthtableE, i64 0, i64 %conv
   %9 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %9 to i64
-  %cmp9 = icmp eq i64 %conv8, %len
+  %cmp9 = icmp eq i64 %len, %conv8
   br i1 %cmp9, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.then5
@@ -311,7 +311,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   %arrayidx7.i = getelementptr inbounds [87 x i8], ptr @_ZN8proxygenL11lengthtableE, i64 0, i64 %conv.i
   %9 = load i8, ptr %arrayidx7.i, align 1
   %conv8.i = zext i8 %9 to i64
-  %cmp9.i = icmp eq i64 %conv8.i, %len
+  %cmp9.i = icmp eq i64 %len, %conv8.i
   br i1 %cmp9.i, label %if.then10.i, label %cond.end
 
 if.then10.i:                                      ; preds = %if.then5.i

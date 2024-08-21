@@ -969,7 +969,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %56, %
   %103 = add i32 %102, 1
   store i32 %103, ptr %32, align 8
   %104 = load i32, ptr %5, align 8
-  %.not.i.i179.i = icmp ugt i32 %104, %102
+  %.not.i.i179.i = icmp ult i32 %102, %104
   br i1 %.not.i.i179.i, label %_ZN10Block_List4pushEP5Block.exit.i, label %105
 
 105:                                              ; preds = %92
@@ -1377,7 +1377,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
   %331 = add i32 %330, 1
   store i32 %331, ptr %32, align 8
   %332 = load i32, ptr %5, align 8
-  %.not.i.i185.i = icmp ugt i32 %332, %330
+  %.not.i.i185.i = icmp ult i32 %330, %332
   br i1 %.not.i.i185.i, label %_ZN10Block_List4pushEP5Block.exit186.i, label %333
 
 333:                                              ; preds = %.lr.ph230.i
@@ -1511,7 +1511,7 @@ _ZNK5Block8get_nodeEj.exit188._crit_edge.i:       ; preds = %_ZNK5Block8get_node
   %390 = add i32 %389, 1
   store i32 %390, ptr %32, align 8
   %391 = load i32, ptr %5, align 8
-  %.not.i.i189.i = icmp ugt i32 %391, %389
+  %.not.i.i189.i = icmp ult i32 %389, %391
   br i1 %.not.i.i189.i, label %_ZN10Block_List4pushEP5Block.exit190.i, label %392
 
 392:                                              ; preds = %.lr.ph245.i
@@ -1678,7 +1678,7 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit:          ; preds = %_ZN5Arena7AmallocEm
   %481 = add i32 %480, 1
   store i32 %481, ptr %32, align 8
   %482 = load i32, ptr %5, align 8
-  %.not.i.i96 = icmp ugt i32 %482, %480
+  %.not.i.i96 = icmp ult i32 %480, %482
   br i1 %.not.i.i96, label %_ZN10Block_List4pushEP5Block.exit, label %483
 
 483:                                              ; preds = %476
@@ -1941,7 +1941,7 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow
   %605 = add i32 %604, 1
   store i32 %605, ptr %32, align 8
   %606 = load i32, ptr %5, align 8
-  %.not.i.i110 = icmp ugt i32 %606, %604
+  %.not.i.i110 = icmp ult i32 %604, %606
   br i1 %.not.i.i110, label %_ZN10Block_List4pushEP5Block.exit111, label %607
 
 607:                                              ; preds = %600

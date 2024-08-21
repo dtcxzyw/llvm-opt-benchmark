@@ -200,7 +200,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %1
+  %36 = icmp eq ptr %1, %35
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %33
@@ -209,7 +209,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   %40 = ptrtoint ptr %39 to i64
   %41 = xor i64 %40, 1
   %42 = inttoptr i64 %41 to ptr
-  %43 = icmp eq ptr %42, %1
+  %43 = icmp eq ptr %1, %42
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %37, %33
@@ -224,7 +224,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   %47 = getelementptr inbounds i8, ptr %11, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
-  %50 = icmp ne ptr %11, %1
+  %50 = icmp ne ptr %1, %11
   %51 = zext i1 %50 to i64
   %52 = xor i64 %49, %51
   %53 = inttoptr i64 %52 to ptr

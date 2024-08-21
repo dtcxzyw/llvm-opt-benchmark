@@ -3154,7 +3154,7 @@ define void @Dam_ManCollectSets_rec(ptr noundef %0, i32 noundef %1) local_unname
 
 tailrecurse:                                      ; preds = %28, %2
   %.tr81 = phi i32 [ %1, %2 ], [ %29, %28 ]
-  %6 = icmp sgt i32 %.val.i, %.tr81
+  %6 = icmp slt i32 %.tr81, %.val.i
   br i1 %6, label %7, label %Dam_ObjHand.exit
 
 7:                                                ; preds = %tailrecurse
@@ -4472,13 +4472,13 @@ Vec_IntPush.exit292:                              ; preds = %.Vec_IntGrow.exit10
 276:                                              ; preds = %Vec_IntPush.exit292
   %277 = mul nsw i32 %.val230, 3
   %278 = sdiv i32 %277, 2
-  %.not.i293 = icmp slt i32 %.val230, %278
+  %.not.i293 = icmp sgt i32 %278, %.val230
   br i1 %.not.i293, label %279, label %Vec_IntFillExtra.exit
 
 279:                                              ; preds = %276
   %280 = load i32, ptr %20, align 8
   %281 = shl nsw i32 %280, 1
-  %282 = icmp slt i32 %281, %278
+  %282 = icmp sgt i32 %278, %281
   %.not.i.i294 = icmp slt i32 %280, %278
   br i1 %282, label %283, label %292
 
@@ -5167,7 +5167,7 @@ Dam_DivHand.exit.i:                               ; preds = %591
   %.val6.i370 = load ptr, ptr %376, align 8
   %596 = getelementptr i8, ptr %.val6.i370, i64 4
   %.val.i.i371 = load i32, ptr %596, align 4
-  %597 = icmp sgt i32 %.val.i.i371, %594
+  %597 = icmp slt i32 %594, %.val.i.i371
   tail call void @llvm.assume(i1 %597)
   %598 = getelementptr i8, ptr %.val6.i370, i64 8
   %.val3.i.i373 = load ptr, ptr %598, align 8
@@ -5908,13 +5908,13 @@ Hash_Int2ManLookup.exit49:                        ; preds = %89, %Vec_IntPush.ex
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 
@@ -6020,7 +6020,7 @@ define internal fastcc void @Vec_QuePush(ptr nocapture noundef %0, i32 noundef %
 
 10:                                               ; preds = %6, %2
   %11 = phi i32 [ %.pre, %6 ], [ %5, %2 ]
-  %.not20 = icmp sgt i32 %11, %1
+  %.not20 = icmp slt i32 %1, %11
   br i1 %.not20, label %16, label %12
 
 12:                                               ; preds = %10
@@ -6826,7 +6826,7 @@ define range(i32 0, 2) i32 @Dam_ManUpdateNode(ptr nocapture noundef readonly %0,
   %.val6.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val6.i, i64 4
   %.val.i.i = load i32, ptr %8, align 4
-  %9 = icmp sgt i32 %.val.i.i, %1
+  %9 = icmp slt i32 %1, %.val.i.i
   br i1 %9, label %Dam_ObjHand.exit.i, label %Dam_ObjSet.exit
 
 Dam_ObjHand.exit.i:                               ; preds = %6
@@ -6970,8 +6970,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.091155 = phi i32 [ 1, %.lr.ph157 ], [ %.192, %Vec_IntUpdateEntry.exit ]
   %73 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv175
   %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, %2
-  %76 = icmp eq i32 %74, %3
+  %75 = icmp eq i32 %2, %74
+  %76 = icmp eq i32 %3, %74
   %or.cond = or i1 %75, %76
   br i1 %or.cond, label %Vec_IntUpdateEntry.exit, label %77
 
@@ -7090,7 +7090,7 @@ Hash_Int2ManLookup.exit:                          ; preds = %129, %106
   store float %143, ptr %141, align 4
   %144 = load ptr, ptr %68, align 8
   %145 = load i32, ptr %144, align 8
-  %146 = icmp sgt i32 %145, %.088.pr
+  %146 = icmp slt i32 %.088.pr, %145
   br i1 %146, label %Vec_QueIsMember.exit, label %Hash_Int2ManLookup.exit.thread
 
 Vec_QueIsMember.exit:                             ; preds = %137
@@ -7497,7 +7497,7 @@ define void @Dam_ManUpdate(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   %.val6.i = load ptr, ptr %17, align 8
   %18 = getelementptr i8, ptr %.val6.i, i64 4
   %.val.i.i122 = load i32, ptr %18, align 4
-  %19 = icmp sgt i32 %.val.i.i122, %1
+  %19 = icmp slt i32 %1, %.val.i.i122
   br i1 %19, label %Dam_DivHand.exit.i, label %Dam_DivSet.exit
 
 Dam_DivHand.exit.i:                               ; preds = %2
@@ -7836,13 +7836,13 @@ Gia_ManAppendAnd.exit:                            ; preds = %218, %215, %Gia_Man
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 4
   %246 = load i32, ptr %245, align 4
-  %.not.i126 = icmp slt i32 %246, %242
+  %.not.i126 = icmp sgt i32 %242, %246
   br i1 %.not.i126, label %247, label %Vec_FltFillExtra.exit
 
 247:                                              ; preds = %._crit_edge
   %248 = load i32, ptr %244, align 8
   %249 = shl nsw i32 %248, 1
-  %250 = icmp slt i32 %249, %242
+  %250 = icmp sgt i32 %242, %249
   %.not.i.i127 = icmp slt i32 %248, %242
   br i1 %250, label %251, label %263
 
@@ -8160,7 +8160,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Dam_DivSet.exit141:                               ; preds = %408
   %415 = getelementptr i8, ptr %409, i64 4
   %.val.i.i136 = load i32, ptr %415, align 4
-  %416 = icmp sgt i32 %.val.i.i136, %404
+  %416 = icmp slt i32 %404, %.val.i.i136
   %417 = icmp ne i32 %413, 0
   tail call void @llvm.assume(i1 %416)
   tail call void @llvm.assume(i1 %417)

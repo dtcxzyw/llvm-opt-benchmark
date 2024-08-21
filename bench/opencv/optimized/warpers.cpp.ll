@@ -7178,8 +7178,8 @@ define linkonce_odr void @_ZN2cv6detail18RotationWarperBaseINS0_26SphericalPortr
   %58 = tail call float @acosf(float noundef %57) #18
   %59 = fsub float 0x400921FB60000000, %58
   %60 = fmul float %53, %59
-  %61 = fneg float %51
-  %62 = fmul float %52, %61
+  %61 = fneg float %52
+  %62 = fmul float %51, %61
   %63 = fcmp olt float %62, %.0117119
   %.sroa.speculated90 = select i1 %63, float %62, float %.0117119
   %64 = fcmp olt float %60, %.0115120
@@ -7217,8 +7217,8 @@ define linkonce_odr void @_ZN2cv6detail18RotationWarperBaseINS0_26SphericalPortr
   %92 = tail call float @acosf(float noundef %91) #18
   %93 = fsub float 0x400921FB60000000, %92
   %94 = fmul float %87, %93
-  %95 = fneg float %85
-  %96 = fmul float %86, %95
+  %95 = fneg float %86
+  %96 = fmul float %85, %95
   %97 = fcmp olt float %96, %.sroa.speculated90
   %.sroa.speculated84 = select i1 %97, float %96, float %.sroa.speculated90
   %98 = fcmp olt float %94, %.sroa.speculated60
@@ -7267,8 +7267,8 @@ define linkonce_odr void @_ZN2cv6detail18RotationWarperBaseINS0_26SphericalPortr
   %130 = tail call float @acosf(float noundef %129) #18
   %131 = fsub float 0x400921FB60000000, %130
   %132 = fmul float %125, %131
-  %133 = fneg float %123
-  %134 = fmul float %124, %133
+  %133 = fneg float %124
+  %134 = fmul float %123, %133
   %135 = fcmp olt float %134, %.1118127
   %.sroa.speculated78 = select i1 %135, float %134, float %.1118127
   %136 = fcmp olt float %132, %.1116128
@@ -7306,8 +7306,8 @@ define linkonce_odr void @_ZN2cv6detail18RotationWarperBaseINS0_26SphericalPortr
   %164 = tail call float @acosf(float noundef %163) #18
   %165 = fsub float 0x400921FB60000000, %164
   %166 = fmul float %159, %165
-  %167 = fneg float %157
-  %168 = fmul float %158, %167
+  %167 = fneg float %158
+  %168 = fmul float %157, %167
   %169 = fcmp olt float %168, %.sroa.speculated78
   %.sroa.speculated72 = select i1 %169, float %168, float %.sroa.speculated78
   %170 = fcmp olt float %166, %.sroa.speculated48
@@ -9481,8 +9481,8 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_26Spheric
   %50 = call float @acosf(float noundef %49) #18
   %51 = fsub float 0x400921FB60000000, %50
   %52 = fmul float %45, %51
-  %53 = fneg float %43
-  %54 = fmul float %44, %53
+  %53 = fneg float %44
+  %54 = fmul float %43, %53
   %.sroa.0.0.vec.insert10 = insertelement <2 x float> poison, float %54, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert10, float %52, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
@@ -10115,8 +10115,8 @@ define linkonce_odr void @_ZN2cv6detail18RotationWarperBaseINS0_26SphericalPortr
   %102 = call float @acosf(float noundef %101) #18
   %103 = fsub float 0x400921FB60000000, %102
   %104 = fmul float %97, %103
-  %105 = fneg float %95
-  %106 = fmul float %96, %105
+  %105 = fneg float %96
+  %106 = fmul float %95, %105
   %107 = load i32, ptr %11, align 4
   %108 = sitofp i32 %107 to float
   %109 = fsub float %106, %108

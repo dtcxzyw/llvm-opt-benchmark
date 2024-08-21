@@ -1573,7 +1573,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.then8.i.i.i, %if.end.i.i.i
   %5 = load i64, ptr %__begin2, align 8, !alias.scope !12
-  %cmp.i.i.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i.i, %5
+  %cmp.i.i.i.i.i = icmp ugt i64 %5, %retval.sroa.0.0.copyload.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end10.i.i.i
@@ -1778,7 +1778,7 @@ if.then8.i:                                       ; preds = %if.end.i18
 
 if.end10.i19:                                     ; preds = %if.then8.i, %if.end.i18
   %27 = load i64, ptr %__begin2, align 8
-  %cmp.i.i.i20 = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %27
+  %cmp.i.i.i20 = icmp ugt i64 %27, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i20, label %if.then.i.i.i21, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i21:                                  ; preds = %if.end10.i19
@@ -3485,7 +3485,7 @@ if.then8.i:                                       ; preds = %_ZN4absl12lts_20230
 
 if.end10.i:                                       ; preds = %if.then8.i, %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
   %9 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %9
+  %cmp.i.i.i = icmp ugt i64 %9, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i
@@ -3615,7 +3615,7 @@ if.then8.i:                                       ; preds = %_ZN4absl12lts_20230
 
 if.end10.i:                                       ; preds = %if.then8.i, %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
   %7 = load i64, ptr %this, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %7
+  %cmp.i.i.i = icmp ugt i64 %7, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end10.i

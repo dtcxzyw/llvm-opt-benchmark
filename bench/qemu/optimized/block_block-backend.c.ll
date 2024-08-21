@@ -716,12 +716,12 @@ blk_get_aio_context.exit:                         ; preds = %if.end.i, %blk_bs.e
 
 land.lhs.true:                                    ; preds = %blk_get_aio_context.exit
   %call.i17 = tail call ptr @qemu_get_current_aio_context() #18
-  %cmp.i18 = icmp eq ptr %call.i17, %5
+  %cmp.i18 = icmp eq ptr %5, %call.i17
   br i1 %cmp.i18, label %while.cond.preheader, label %if.end.i19
 
 if.end.i19:                                       ; preds = %land.lhs.true
   %call1.i = tail call ptr @qemu_get_aio_context() #18
-  %cmp2.i = icmp eq ptr %call1.i, %5
+  %cmp2.i = icmp eq ptr %5, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else15
 
 if.then3.i:                                       ; preds = %if.end.i19
@@ -4736,7 +4736,7 @@ if.then10:                                        ; preds = %blk_bs.exit
   br label %return
 
 if.end11:                                         ; preds = %blk_bs.exit
-  %cmp12 = icmp ult i64 %call8, %offset
+  %cmp12 = icmp ugt i64 %offset, %call8
   %sub = sub nsw i64 %call8, %offset
   %cmp14 = icmp slt i64 %sub, %bytes
   %or.cond = select i1 %cmp12, i1 true, i1 %cmp14

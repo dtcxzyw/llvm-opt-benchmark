@@ -441,7 +441,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %type, align 4
   %cache_nr = getelementptr inbounds i8, ptr %istate, i64 12
   %4 = load i32, ptr %cache_nr, align 4
-  %cmp27 = icmp ugt i32 %4, %i
+  %cmp27 = icmp ult i32 %i, %4
   br i1 %cmp27, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %if.end
@@ -984,7 +984,7 @@ if.end4.i.i.i:                                    ; preds = %for.inc.i.i.i, %if.
   %variant.0.i.i.i = phi i32 [ %46, %for.end.i.i ], [ 0, %for.cond.preheader.i.i.i ], [ %50, %if.end4.loopexit.split.loop.exit14.i.i.i ], [ %47, %for.inc.i.i.i ]
   %inc.i.i.i.i = add nuw nsw i32 %variant.0.i.i.i, 1
   %51 = load i32, ptr %45, align 8
-  %cmp.not.i.i.i.i = icmp sgt i32 %51, %variant.0.i.i.i
+  %cmp.not.i.i.i.i = icmp slt i32 %variant.0.i.i.i, %51
   br i1 %cmp.not.i.i.i.i, label %do.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end4.i.i.i
@@ -2042,7 +2042,7 @@ if.then6.i:                                       ; preds = %is_rr_file.exit.i, 
   %variant.267.i = phi i32 [ 0, %is_rr_file.exit.thread63.i ], [ %conv7.i.i, %is_rr_file.exit.i ]
   %inc.i.i = add nsw i32 %variant.267.i, 1
   %6 = load i32, ptr %call4, align 8
-  %cmp.not.i8.i = icmp sgt i32 %6, %variant.267.i
+  %cmp.not.i8.i = icmp slt i32 %variant.267.i, %6
   %.pre88.pre.i = load ptr, ptr %status, align 8
   br i1 %cmp.not.i8.i, label %do.end.i.i, label %if.then.i9.i
 
@@ -2141,7 +2141,7 @@ if.then12.i:                                      ; preds = %is_rr_file.exit35.i
   %variant.375.i = phi i32 [ 0, %is_rr_file.exit35.thread71.i ], [ %conv7.i29.i, %is_rr_file.exit35.i ]
   %inc.i36.i = add nsw i32 %variant.375.i, 1
   %18 = load i32, ptr %call4, align 8
-  %cmp.not.i37.i = icmp sgt i32 %18, %variant.375.i
+  %cmp.not.i37.i = icmp slt i32 %variant.375.i, %18
   %.pre86.pre.i = load ptr, ptr %status, align 8
   br i1 %cmp.not.i37.i, label %do.end.i46.i, label %if.then.i38.i
 

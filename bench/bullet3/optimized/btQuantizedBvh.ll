@@ -111,7 +111,7 @@ entry:
   %mul = shl nsw i32 %0, 1
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 172
   %1 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %1, %mul
+  %cmp3.i = icmp sgt i32 %mul, %1
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %entry
@@ -607,7 +607,7 @@ _ZNK14btQuantizedBvh10getAabbMaxEi.exit:          ; preds = %if.then.i67, %if.en
   call void @_ZN14btQuantizedBvh21mergeInternalNodeAabbEiRK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(244) %this, i32 noundef %43, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp11)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %endIndex
+  %exitcond.not = icmp eq i32 %endIndex, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %_ZNK14btQuantizedBvh10getAabbMaxEi.exit, %_ZN14btQuantizedBvh22setInternalNodeAabbMaxEiRK9btVector3.exit
@@ -673,13 +673,13 @@ entry:
   %ref.tmp.sroa.2.0.m_bvhAabbMin.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.m_bvhAabbMin.sroa_idx, align 8
   %3 = load float, ptr %bvhAabbMax, align 4
-  %add.i = fadd float %3, %quantizationMargin
+  %add.i = fadd float %quantizationMargin, %3
   %arrayidx5.i3 = getelementptr inbounds i8, ptr %bvhAabbMax, i64 4
   %4 = load float, ptr %arrayidx5.i3, align 4
-  %add8.i = fadd float %4, %quantizationMargin
+  %add8.i = fadd float %quantizationMargin, %4
   %arrayidx11.i5 = getelementptr inbounds i8, ptr %bvhAabbMax, i64 8
   %5 = load float, ptr %arrayidx11.i5, align 4
-  %add14.i = fadd float %5, %quantizationMargin
+  %add14.i = fadd float %quantizationMargin, %5
   %retval.sroa.0.0.vec.insert.i7 = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i8 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i7, float %add8.i, i64 1
   %retval.sroa.3.12.vec.insert.i9 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
@@ -782,9 +782,9 @@ _ZN9btVector36setMinERKS_.exit:                   ; preds = %_Z8btSetMinIfEvRT_R
   %add.i.i116 = fadd float %9, %div.i106
   %add8.i.i118 = fadd float %10, %div7.i110
   %add13.i.i121 = fadd float %11, %div13.i114
-  %add.i125 = fadd float %add.i.i116, %quantizationMargin
-  %add8.i128 = fadd float %add8.i.i118, %quantizationMargin
-  %add14.i131 = fadd float %add13.i.i121, %quantizationMargin
+  %add.i125 = fadd float %quantizationMargin, %add.i.i116
+  %add8.i128 = fadd float %quantizationMargin, %add8.i.i118
+  %add14.i131 = fadd float %quantizationMargin, %add13.i.i121
   %cmp.i.i137 = fcmp olt float %add.i, %add.i125
   br i1 %cmp.i.i137, label %if.then.i.i150, label %_Z8btSetMaxIfEvRT_RKS0_.exit.i
 
@@ -1578,7 +1578,7 @@ for.end41:                                        ; preds = %for.inc39, %for.end
   %add = add nsw i32 %div42, %startIndex
   %cmp43.not = icmp sle i32 %splitIndex.0.lcssa, %add
   %53 = xor i32 %div42, -1
-  %sub45 = add i32 %53, %endIndex
+  %sub45 = add i32 %endIndex, %53
   %cmp46 = icmp sge i32 %splitIndex.0.lcssa, %sub45
   %54 = or i1 %cmp43.not, %cmp46
   %shr = ashr i32 %sub, 1
@@ -4456,7 +4456,7 @@ invoke.cont:                                      ; preds = %if.end7
   %m_capacity.i.i21.i = getelementptr inbounds i8, ptr %i_alignedDataBuffer, i64 216
   store i32 0, ptr %m_capacity.i.i21.i, align 8
   %cmp19331 = icmp sgt i32 %15, 0
-  %or.cond = and i1 %cmp19331, %i_swapEndian
+  %or.cond = and i1 %i_swapEndian, %cmp19331
   br i1 %tobool.i, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE20initializeFromBufferEPvii.exit
 
 _ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE20initializeFromBufferEPvii.exit: ; preds = %invoke.cont
@@ -4806,7 +4806,7 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit76: ; preds = %for.bo
   %5 = load i32, ptr %m_numContiguousLeafNodes, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 108
   %6 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %6, %5
+  %cmp3.i = icmp sgt i32 %5, %6
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit76
@@ -4956,7 +4956,7 @@ if.end:                                           ; preds = %_ZN9btVector316deSe
   %25 = load i32, ptr %m_numQuantizedContiguousNodes, align 4
   %m_size.i.i107 = getelementptr inbounds i8, ptr %this, i64 172
   %26 = load i32, ptr %m_size.i.i107, align 4
-  %cmp3.i110 = icmp slt i32 %26, %25
+  %cmp3.i110 = icmp sgt i32 %25, %26
   br i1 %cmp3.i110, label %if.then4.i111, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit
 
 if.then4.i111:                                    ; preds = %if.end
@@ -5098,7 +5098,7 @@ if.end71:                                         ; preds = %for.body30, %_ZN20b
   %50 = load i32, ptr %m_numSubtreeHeaders, align 4
   %m_size.i.i169 = getelementptr inbounds i8, ptr %this, i64 212
   %51 = load i32, ptr %m_size.i.i169, align 4
-  %cmp3.i172 = icmp slt i32 %51, %50
+  %cmp3.i172 = icmp sgt i32 %50, %51
   br i1 %cmp3.i172, label %if.then4.i173, label %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit
 
 if.then4.i173:                                    ; preds = %if.end71
@@ -5289,7 +5289,7 @@ _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit78: ; preds = %for.
   %5 = load i32, ptr %m_numContiguousLeafNodes, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 108
   %6 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %6, %5
+  %cmp3.i = icmp sgt i32 %5, %6
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit78
@@ -5441,7 +5441,7 @@ if.end:                                           ; preds = %_ZN9btVector317deSe
   %25 = load i32, ptr %m_numQuantizedContiguousNodes, align 4
   %m_size.i.i111 = getelementptr inbounds i8, ptr %this, i64 172
   %26 = load i32, ptr %m_size.i.i111, align 4
-  %cmp3.i114 = icmp slt i32 %26, %25
+  %cmp3.i114 = icmp sgt i32 %25, %26
   br i1 %cmp3.i114, label %if.then4.i115, label %_ZN20btAlignedObjectArrayI18btQuantizedBvhNodeE6resizeEiRKS0_.exit
 
 if.then4.i115:                                    ; preds = %if.end
@@ -5583,7 +5583,7 @@ if.end71:                                         ; preds = %for.body30, %_ZN20b
   %50 = load i32, ptr %m_numSubtreeHeaders, align 4
   %m_size.i.i173 = getelementptr inbounds i8, ptr %this, i64 212
   %51 = load i32, ptr %m_size.i.i173, align 4
-  %cmp3.i176 = icmp slt i32 %51, %50
+  %cmp3.i176 = icmp sgt i32 %50, %51
   br i1 %cmp3.i176, label %if.then4.i177, label %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE6resizeEiRKS0_.exit
 
 if.then4.i177:                                    ; preds = %if.end71

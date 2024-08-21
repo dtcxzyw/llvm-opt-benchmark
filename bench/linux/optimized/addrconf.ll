@@ -2563,7 +2563,7 @@ define internal fastcc void @manage_tempaddrs(ptr noundef %0, ptr noundef %1, i3
   %68 = icmp ne i32 %64, 0
   %69 = icmp ne i32 %63, 0
   %70 = select i1 %68, i1 true, i1 %69
-  %71 = or i1 %70, %4
+  %71 = or i1 %4, %70
   br i1 %71, label %73, label %78
 
 72:                                               ; preds = %.loopexit
@@ -13803,7 +13803,7 @@ define internal fastcc void @addrconf_dad_run(ptr noundef %0, i1 noundef zeroext
   %16 = getelementptr i8, ptr %8, i64 -160
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 1
-  %19 = or i1 %18, %1
+  %19 = or i1 %1, %18
   br i1 %19, label %21, label %79
 
 20:                                               ; preds = %.preheader
@@ -14903,7 +14903,7 @@ define internal fastcc i32 @rfc3315_s14_backoff_update(i32 noundef %0, i32 nound
   %13 = mul nsw i64 %11, %12
   %14 = udiv i64 %13, 1000000
   %15 = trunc i64 %14 to i32
-  %16 = icmp sgt i32 %15, %1
+  %16 = icmp slt i32 %1, %15
   br i1 %16, label %.preheader, label %28
 
 .preheader:                                       ; preds = %9, %.preheader

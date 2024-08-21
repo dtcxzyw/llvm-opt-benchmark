@@ -268,7 +268,7 @@ do.body5.i:                                       ; preds = %if.end29
 do.end6.i:                                        ; preds = %if.end29
   %capacity_.i.i = getelementptr inbounds i8, ptr %target, i64 8
   %3 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.i = icmp ult i64 %3, %add
+  %cmp.i = icmp ugt i64 %add, %3
   br i1 %cmp.i, label %if.then8.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
 
 if.then8.i:                                       ; preds = %do.end6.i
@@ -492,7 +492,7 @@ do.body5.i9:                                      ; preds = %if.then12
 
 do.end6.i:                                        ; preds = %if.then12
   %6 = load i64, ptr %capacity_.i, align 8
-  %cmp.i7 = icmp ult i64 %6, %add
+  %cmp.i7 = icmp ugt i64 %add, %6
   br i1 %cmp.i7, label %if.then8.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
 
 if.then8.i:                                       ; preds = %do.end6.i
@@ -527,7 +527,7 @@ do.body4.i:                                       ; preds = %_ZN4node16MaybeStac
   unreachable
 
 do.end5.i:                                        ; preds = %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
-  %cmp.not.i.i = icmp ult i64 %9, %call18
+  %cmp.not.i.i = icmp ugt i64 %call18, %9
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25SetLengthAndZeroTerminateEm.exit
 
 do.body4.i.i:                                     ; preds = %do.end5.i

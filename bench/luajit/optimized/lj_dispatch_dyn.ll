@@ -1022,7 +1022,7 @@ if.then31:                                        ; preds = %if.end26
   %conv39 = trunc i64 %sub.ptr.div38 to i32
   %sub40 = add i32 %conv39, -1
   %call41 = call i32 @lj_debug_line(ptr noundef nonnull %add.ptr2, i32 noundef %sub) #12
-  %cmp42.not = icmp ult ptr %10, %pc
+  %cmp42.not = icmp ugt ptr %pc, %10
   br i1 %cmp42.not, label %lor.lhs.false, label %if.then50
 
 lor.lhs.false:                                    ; preds = %if.then31

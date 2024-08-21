@@ -1736,7 +1736,7 @@ switch.lookup:                                    ; preds = %.critedge827
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
-  %74 = icmp eq ptr %73, %0
+  %74 = icmp eq ptr %0, %73
   br i1 %74, label %172, label %75
 
 75:                                               ; preds = %72
@@ -1757,7 +1757,7 @@ switch.lookup:                                    ; preds = %.critedge827
 
 84:                                               ; preds = %70
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 536), align 8
-  %86 = icmp eq ptr %85, %0
+  %86 = icmp eq ptr %0, %85
   br i1 %86, label %172, label %87
 
 87:                                               ; preds = %84

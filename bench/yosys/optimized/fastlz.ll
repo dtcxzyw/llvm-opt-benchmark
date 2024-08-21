@@ -40,7 +40,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %11 = add i8 %10, -1
   store i8 %11, ptr %2, align 1
   %12 = getelementptr inbounds i8, ptr %.ptr, i64 -1
-  %.not185213 = icmp ult ptr %12, %0
+  %.not185213 = icmp ugt ptr %0, %12
   br i1 %.not185213, label %._crit_edge218, label %.lr.ph217
 
 .lr.ph217:                                        ; preds = %9, %.lr.ph217
@@ -441,7 +441,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %11 = add i8 %10, -1
   store i8 %11, ptr %2, align 1
   %12 = getelementptr inbounds i8, ptr %.ptr, i64 -1
-  %.not222274 = icmp ult ptr %12, %0
+  %.not222274 = icmp ugt ptr %0, %12
   br i1 %.not222274, label %._crit_edge279, label %.lr.ph278
 
 .lr.ph278:                                        ; preds = %9, %.lr.ph278

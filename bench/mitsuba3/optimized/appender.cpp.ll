@@ -1392,8 +1392,8 @@ define linkonce_odr hidden ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_
   %24 = select i1 %.not.i.i, i64 %23, i64 %21
   %25 = getelementptr inbounds i8, ptr %12, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 1
-  %27 = icmp ule ptr %12, %2
-  %28 = icmp ugt ptr %26, %2
+  %27 = icmp uge ptr %2, %12
+  %28 = icmp ult ptr %2, %26
   %spec.select.i.i = and i1 %27, %28
   br i1 %spec.select.i.i, label %63, label %29
 

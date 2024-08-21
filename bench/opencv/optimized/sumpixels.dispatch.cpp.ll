@@ -189,7 +189,7 @@ define void @_ZN2cv3hal8integralEiiiPKhmPhmS3_mS3_miii(i32 noundef %0, i32 nound
   %56 = sext i32 %55 to i64
   %57 = shl nsw i64 %56, 2
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %57, i1 false)
-  %58 = add nsw i32 %49, %13
+  %58 = add nsw i32 %13, %49
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i32, ptr %5, i64 %59
   %.not.i = icmp eq ptr %7, null
@@ -198,7 +198,7 @@ define void @_ZN2cv3hal8integralEiiiPKhmPhmS3_mS3_miii(i32 noundef %0, i32 nound
 61:                                               ; preds = %45
   %62 = shl nsw i64 %56, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %62, i1 false)
-  %63 = add nsw i32 %53, %13
+  %63 = add nsw i32 %13, %53
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds double, ptr %7, i64 %64
   br label %66
@@ -210,7 +210,7 @@ define void @_ZN2cv3hal8integralEiiiPKhmPhmS3_mS3_miii(i32 noundef %0, i32 nound
 
 67:                                               ; preds = %66
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 0, i64 %57, i1 false)
-  %68 = add nsw i32 %51, %13
+  %68 = add nsw i32 %13, %51
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i32, ptr %9, i64 %69
   br label %71
@@ -613,8 +613,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc255, %163
   %238 = ashr exact i64 %.neg346.i, 32
   %239 = sext i32 %13 to i64
   %240 = sub nsw i32 %54, %13
-  %241 = icmp sgt i32 %240, %13
-  %242 = add i32 %51, %13
+  %241 = icmp slt i32 %13, %240
+  %242 = add i32 %13, %51
   %243 = icmp sgt i32 %54, %13
   br i1 %171, label %.lr.ph426.us.preheader.i, label %._crit_edge440.i
 
@@ -923,7 +923,7 @@ _ZN2cv3halL9integral_IhidEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %417 = sext i32 %416 to i64
   %418 = shl nsw i64 %417, 2
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %418, i1 false)
-  %419 = add nsw i32 %410, %13
+  %419 = add nsw i32 %13, %410
   %420 = sext i32 %419 to i64
   %421 = getelementptr inbounds i32, ptr %5, i64 %420
   %.not.i256 = icmp eq ptr %7, null
@@ -931,7 +931,7 @@ _ZN2cv3halL9integral_IhidEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
 
 422:                                              ; preds = %406
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %7, i8 0, i64 %418, i1 false)
-  %423 = add nsw i32 %414, %13
+  %423 = add nsw i32 %13, %414
   %424 = sext i32 %423 to i64
   %425 = getelementptr inbounds float, ptr %7, i64 %424
   br label %426
@@ -943,7 +943,7 @@ _ZN2cv3halL9integral_IhidEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
 
 427:                                              ; preds = %426
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 0, i64 %418, i1 false)
-  %428 = add nsw i32 %412, %13
+  %428 = add nsw i32 %13, %412
   %429 = sext i32 %428 to i64
   %430 = getelementptr inbounds i32, ptr %9, i64 %429
   br label %431
@@ -1346,8 +1346,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i262:        ; preds = %.noexc424, %523
   %598 = ashr exact i64 %.neg346.i275, 32
   %599 = sext i32 %13 to i64
   %600 = sub nsw i32 %415, %13
-  %601 = icmp sgt i32 %600, %13
-  %602 = add i32 %412, %13
+  %601 = icmp slt i32 %13, %600
+  %602 = add i32 %13, %412
   %603 = icmp sgt i32 %415, %13
   br i1 %531, label %.lr.ph426.us.preheader.i276, label %._crit_edge440.i269
 
@@ -1656,7 +1656,7 @@ _ZN2cv3halL9integral_IhifEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %777 = sext i32 %776 to i64
   %778 = shl nsw i64 %777, 2
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %778, i1 false)
-  %779 = add nsw i32 %770, %13
+  %779 = add nsw i32 %13, %770
   %780 = sext i32 %779 to i64
   %781 = getelementptr inbounds i32, ptr %5, i64 %780
   %.not.i425 = icmp eq ptr %7, null
@@ -1664,7 +1664,7 @@ _ZN2cv3halL9integral_IhifEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
 
 782:                                              ; preds = %766
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %7, i8 0, i64 %778, i1 false)
-  %783 = add nsw i32 %774, %13
+  %783 = add nsw i32 %13, %774
   %784 = sext i32 %783 to i64
   %785 = getelementptr inbounds i32, ptr %7, i64 %784
   br label %786
@@ -1676,7 +1676,7 @@ _ZN2cv3halL9integral_IhifEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
 
 787:                                              ; preds = %786
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 0, i64 %778, i1 false)
-  %788 = add nsw i32 %772, %13
+  %788 = add nsw i32 %13, %772
   %789 = sext i32 %788 to i64
   %790 = getelementptr inbounds i32, ptr %9, i64 %789
   br label %791
@@ -2079,8 +2079,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i431:        ; preds = %.noexc593, %883
   %958 = ashr exact i64 %.neg346.i444, 32
   %959 = sext i32 %13 to i64
   %960 = sub nsw i32 %775, %13
-  %961 = icmp sgt i32 %960, %13
-  %962 = add i32 %772, %13
+  %961 = icmp slt i32 %13, %960
+  %962 = add i32 %13, %772
   %963 = icmp sgt i32 %775, %13
   br i1 %891, label %.lr.ph426.us.preheader.i445, label %._crit_edge440.i438
 
@@ -2386,7 +2386,7 @@ _ZN2cv3halL9integral_IhiiEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
   %1133 = sext i32 %1132 to i64
   %1134 = shl nsw i64 %1133, 2
   call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %1134, i1 false)
-  %1135 = add nsw i32 %1126, %13
+  %1135 = add nsw i32 %13, %1126
   %1136 = sext i32 %1135 to i64
   %1137 = getelementptr inbounds float, ptr %5, i64 %1136
   %.not.i594 = icmp eq ptr %7, null
@@ -2395,7 +2395,7 @@ _ZN2cv3halL9integral_IhiiEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
 1138:                                             ; preds = %1122
   %1139 = shl nsw i64 %1133, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %1139, i1 false)
-  %1140 = add nsw i32 %1130, %13
+  %1140 = add nsw i32 %13, %1130
   %1141 = sext i32 %1140 to i64
   %1142 = getelementptr inbounds double, ptr %7, i64 %1141
   br label %1143
@@ -2407,7 +2407,7 @@ _ZN2cv3halL9integral_IhiiEEvPKT_mPT0_mPT1_mS6_miii.exit: ; preds = %._crit_edge4
 
 1144:                                             ; preds = %1143
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 0, i64 %1134, i1 false)
-  %1145 = add nsw i32 %1128, %13
+  %1145 = add nsw i32 %13, %1128
   %1146 = sext i32 %1145 to i64
   %1147 = getelementptr inbounds float, ptr %9, i64 %1146
   br label %1148
@@ -2810,8 +2810,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc761, %1240
   %1315 = ashr exact i64 %.neg346.i612, 32
   %1316 = sext i32 %13 to i64
   %1317 = sub nsw i32 %1131, %13
-  %1318 = icmp sgt i32 %1317, %13
-  %1319 = add i32 %1128, %13
+  %1318 = icmp slt i32 %13, %1317
+  %1319 = add i32 %13, %1128
   %1320 = icmp sgt i32 %1131, %13
   br i1 %1248, label %.lr.ph426.us.preheader.i613, label %._crit_edge440.i606
 
@@ -3251,7 +3251,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhffEEvPKT_mPT0_mPT1_mS6_miii(
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %24, i1 false)
-  %25 = add nsw i32 %16, %10
+  %25 = add nsw i32 %10, %16
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds float, ptr %2, i64 %26
   %.not = icmp eq ptr %4, null
@@ -3259,7 +3259,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhffEEvPKT_mPT0_mPT1_mS6_miii(
 
 28:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %4, i8 0, i64 %24, i1 false)
-  %29 = add nsw i32 %20, %10
+  %29 = add nsw i32 %10, %20
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds float, ptr %4, i64 %30
   br label %32
@@ -3271,7 +3271,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhffEEvPKT_mPT0_mPT1_mS6_miii(
 
 33:                                               ; preds = %32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %6, i8 0, i64 %24, i1 false)
-  %34 = add nsw i32 %18, %10
+  %34 = add nsw i32 %10, %18
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds float, ptr %6, i64 %35
   br label %37
@@ -3670,8 +3670,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %129, %132
   %203 = ashr exact i64 %.neg346, 32
   %204 = sext i32 %10 to i64
   %205 = sub nsw i32 %21, %10
-  %206 = icmp sgt i32 %205, %10
-  %207 = add i32 %18, %10
+  %206 = icmp slt i32 %10, %205
+  %207 = add i32 %10, %18
   %208 = icmp sgt i32 %21, %10
   br i1 %137, label %.lr.ph426.us.preheader, label %._crit_edge440
 
@@ -3972,7 +3972,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhddEEvPKT_mPT0_mPT1_mS6_miii(
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %24, i1 false)
-  %25 = add nsw i32 %16, %10
+  %25 = add nsw i32 %10, %16
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds double, ptr %2, i64 %26
   %.not = icmp eq ptr %4, null
@@ -3980,7 +3980,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhddEEvPKT_mPT0_mPT1_mS6_miii(
 
 28:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %24, i1 false)
-  %29 = add nsw i32 %20, %10
+  %29 = add nsw i32 %10, %20
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds double, ptr %4, i64 %30
   br label %32
@@ -3992,7 +3992,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IhddEEvPKT_mPT0_mPT1_mS6_miii(
 
 33:                                               ; preds = %32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %24, i1 false)
-  %34 = add nsw i32 %18, %10
+  %34 = add nsw i32 %10, %18
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds double, ptr %6, i64 %35
   br label %37
@@ -4391,8 +4391,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %129, %132
   %203 = ashr exact i64 %.neg346, 32
   %204 = sext i32 %10 to i64
   %205 = sub nsw i32 %21, %10
-  %206 = icmp sgt i32 %205, %10
-  %207 = add i32 %18, %10
+  %206 = icmp slt i32 %10, %205
+  %207 = add i32 %10, %18
   %208 = icmp sgt i32 %21, %10
   br i1 %137, label %.lr.ph426.us.preheader, label %._crit_edge440
 
@@ -4694,7 +4694,7 @@ define internal fastcc void @_ZN2cv3halL9integral_ItddEEvPKT_mPT0_mPT1_mS6_miii(
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %25, i1 false)
-  %26 = add nsw i32 %17, %10
+  %26 = add nsw i32 %10, %17
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds double, ptr %2, i64 %27
   %.not = icmp eq ptr %4, null
@@ -4702,7 +4702,7 @@ define internal fastcc void @_ZN2cv3halL9integral_ItddEEvPKT_mPT0_mPT1_mS6_miii(
 
 29:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %25, i1 false)
-  %30 = add nsw i32 %21, %10
+  %30 = add nsw i32 %10, %21
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds double, ptr %4, i64 %31
   br label %33
@@ -4714,7 +4714,7 @@ define internal fastcc void @_ZN2cv3halL9integral_ItddEEvPKT_mPT0_mPT1_mS6_miii(
 
 34:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %25, i1 false)
-  %35 = add nsw i32 %19, %10
+  %35 = add nsw i32 %10, %19
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds double, ptr %6, i64 %36
   br label %38
@@ -5103,8 +5103,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %130, %133
   %201 = ashr exact i64 %.neg346, 32
   %202 = sext i32 %10 to i64
   %203 = sub nsw i32 %22, %10
-  %204 = icmp sgt i32 %203, %10
-  %205 = add i32 %19, %10
+  %204 = icmp slt i32 %10, %203
+  %205 = add i32 %10, %19
   %206 = icmp sgt i32 %22, %10
   br i1 %138, label %.lr.ph426.us.preheader, label %._crit_edge440
 
@@ -5408,7 +5408,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IsddEEvPKT_mPT0_mPT1_mS6_miii(
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %25, i1 false)
-  %26 = add nsw i32 %17, %10
+  %26 = add nsw i32 %10, %17
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds double, ptr %2, i64 %27
   %.not = icmp eq ptr %4, null
@@ -5416,7 +5416,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IsddEEvPKT_mPT0_mPT1_mS6_miii(
 
 29:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %25, i1 false)
-  %30 = add nsw i32 %21, %10
+  %30 = add nsw i32 %10, %21
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds double, ptr %4, i64 %31
   br label %33
@@ -5428,7 +5428,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IsddEEvPKT_mPT0_mPT1_mS6_miii(
 
 34:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %25, i1 false)
-  %35 = add nsw i32 %19, %10
+  %35 = add nsw i32 %10, %19
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds double, ptr %6, i64 %36
   br label %38
@@ -5817,8 +5817,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %130, %133
   %201 = ashr exact i64 %.neg346, 32
   %202 = sext i32 %10 to i64
   %203 = sub nsw i32 %22, %10
-  %204 = icmp sgt i32 %203, %10
-  %205 = add i32 %19, %10
+  %204 = icmp slt i32 %10, %203
+  %205 = add i32 %10, %19
   %206 = icmp sgt i32 %22, %10
   br i1 %138, label %.lr.ph426.us.preheader, label %._crit_edge440
 
@@ -6122,7 +6122,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IffdEEvPKT_mPT0_mPT1_mS6_miii(
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %25, i1 false)
-  %26 = add nsw i32 %17, %10
+  %26 = add nsw i32 %10, %17
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds float, ptr %2, i64 %27
   %.not = icmp eq ptr %4, null
@@ -6131,7 +6131,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IffdEEvPKT_mPT0_mPT1_mS6_miii(
 29:                                               ; preds = %11
   %30 = shl nsw i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %30, i1 false)
-  %31 = add nsw i32 %21, %10
+  %31 = add nsw i32 %10, %21
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds double, ptr %4, i64 %32
   br label %34
@@ -6143,7 +6143,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IffdEEvPKT_mPT0_mPT1_mS6_miii(
 
 35:                                               ; preds = %34
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %6, i8 0, i64 %25, i1 false)
-  %36 = add nsw i32 %19, %10
+  %36 = add nsw i32 %10, %19
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds float, ptr %6, i64 %37
   br label %39
@@ -6530,8 +6530,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %130, %133
   %200 = ashr exact i64 %.neg346, 32
   %201 = sext i32 %10 to i64
   %202 = sub nsw i32 %22, %10
-  %203 = icmp sgt i32 %202, %10
-  %204 = add i32 %19, %10
+  %203 = icmp slt i32 %10, %202
+  %204 = add i32 %10, %19
   %205 = icmp sgt i32 %22, %10
   br i1 %138, label %.lr.ph426.us.preheader, label %._crit_edge440
 
@@ -6835,7 +6835,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfffEEvPKT_mPT0_mPT1_mS6_miii(
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %25, i1 false)
-  %26 = add nsw i32 %17, %10
+  %26 = add nsw i32 %10, %17
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds float, ptr %2, i64 %27
   %.not = icmp eq ptr %4, null
@@ -6843,7 +6843,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfffEEvPKT_mPT0_mPT1_mS6_miii(
 
 29:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %4, i8 0, i64 %25, i1 false)
-  %30 = add nsw i32 %21, %10
+  %30 = add nsw i32 %10, %21
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds float, ptr %4, i64 %31
   br label %33
@@ -6855,7 +6855,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfffEEvPKT_mPT0_mPT1_mS6_miii(
 
 34:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %6, i8 0, i64 %25, i1 false)
-  %35 = add nsw i32 %19, %10
+  %35 = add nsw i32 %10, %19
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds float, ptr %6, i64 %36
   br label %38
@@ -7240,8 +7240,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %128, %131
   %197 = ashr exact i64 %.neg346, 32
   %198 = sext i32 %10 to i64
   %199 = sub nsw i32 %22, %10
-  %200 = icmp sgt i32 %199, %10
-  %201 = add i32 %19, %10
+  %200 = icmp slt i32 %10, %199
+  %201 = add i32 %10, %19
   %202 = icmp sgt i32 %22, %10
   br i1 %136, label %.lr.ph426.us.preheader, label %._crit_edge440
 
@@ -7541,7 +7541,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfddEEvPKT_mPT0_mPT1_mS6_miii(
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %25, i1 false)
-  %26 = add nsw i32 %17, %10
+  %26 = add nsw i32 %10, %17
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds double, ptr %2, i64 %27
   %.not = icmp eq ptr %4, null
@@ -7549,7 +7549,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfddEEvPKT_mPT0_mPT1_mS6_miii(
 
 29:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %25, i1 false)
-  %30 = add nsw i32 %21, %10
+  %30 = add nsw i32 %10, %21
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds double, ptr %4, i64 %31
   br label %33
@@ -7561,7 +7561,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IfddEEvPKT_mPT0_mPT1_mS6_miii(
 
 34:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %25, i1 false)
-  %35 = add nsw i32 %19, %10
+  %35 = add nsw i32 %10, %19
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds double, ptr %6, i64 %36
   br label %38
@@ -7950,8 +7950,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %130, %133
   %201 = ashr exact i64 %.neg346, 32
   %202 = sext i32 %10 to i64
   %203 = sub nsw i32 %22, %10
-  %204 = icmp sgt i32 %203, %10
-  %205 = add i32 %19, %10
+  %204 = icmp slt i32 %10, %203
+  %205 = add i32 %10, %19
   %206 = icmp sgt i32 %22, %10
   br i1 %138, label %.lr.ph426.us.preheader, label %._crit_edge440
 
@@ -8255,7 +8255,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IdddEEvPKT_mPT0_mPT1_mS6_miii(
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %25, i1 false)
-  %26 = add nsw i32 %17, %10
+  %26 = add nsw i32 %10, %17
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds double, ptr %2, i64 %27
   %.not = icmp eq ptr %4, null
@@ -8263,7 +8263,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IdddEEvPKT_mPT0_mPT1_mS6_miii(
 
 29:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %25, i1 false)
-  %30 = add nsw i32 %21, %10
+  %30 = add nsw i32 %10, %21
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds double, ptr %4, i64 %31
   br label %33
@@ -8275,7 +8275,7 @@ define internal fastcc void @_ZN2cv3halL9integral_IdddEEvPKT_mPT0_mPT1_mS6_miii(
 
 34:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %25, i1 false)
-  %35 = add nsw i32 %19, %10
+  %35 = add nsw i32 %10, %19
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds double, ptr %6, i64 %36
   br label %38
@@ -8660,8 +8660,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %128, %131
   %197 = ashr exact i64 %.neg346, 32
   %198 = sext i32 %10 to i64
   %199 = sub nsw i32 %22, %10
-  %200 = icmp sgt i32 %199, %10
-  %201 = add i32 %19, %10
+  %200 = icmp slt i32 %10, %199
+  %201 = add i32 %10, %19
   %202 = icmp sgt i32 %22, %10
   br i1 %136, label %.lr.ph426.us.preheader, label %._crit_edge440
 

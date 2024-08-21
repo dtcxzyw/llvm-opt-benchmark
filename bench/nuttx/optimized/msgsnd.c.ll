@@ -30,7 +30,7 @@ define range(i32 -1, 1) i32 @msgsnd(i32 noundef %0, ptr noundef readonly %1, i64
   %12 = getelementptr inbounds i8, ptr %9, i64 64
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i64
-  %15 = icmp ult i64 %14, %2
+  %15 = icmp ugt i64 %2, %14
   br i1 %15, label %msgsnd_wait.exit.thread56, label %16
 
 16:                                               ; preds = %11

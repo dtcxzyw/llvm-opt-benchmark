@@ -5490,7 +5490,7 @@ if.end183:                                        ; preds = %for.body
   %conv195 = trunc i64 %call188 to i32
   %call196 = call { ptr, i64 } @uv_buf_init(ptr noundef %call194, i32 noundef %conv195) #19
   %69 = load i64, ptr %bufs, align 8
-  %cmp.not.i = icmp ugt i64 %69, %i.0122
+  %cmp.not.i = icmp ult i64 %i.0122, %69
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.end183
@@ -6560,7 +6560,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
 do.body:                                          ; preds = %if.else
   %28 = load ptr, ptr %bs, align 8
   %call66 = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %28) #19
-  %cmp67.not = icmp ult i64 %call66, %nread
+  %cmp67.not = icmp ugt i64 %nread, %call66
   br i1 %cmp67.not, label %do.body72, label %do.end75
 
 do.body72:                                        ; preds = %do.body

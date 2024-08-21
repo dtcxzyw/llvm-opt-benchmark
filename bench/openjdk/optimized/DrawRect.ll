@@ -121,7 +121,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   %69 = getelementptr inbounds i8, ptr %14, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %36, align 4
-  %72 = icmp eq i32 %71, %5
+  %72 = icmp eq i32 %5, %71
   %.neg110 = sext i1 %72 to i32
   %73 = zext i1 %72 to i32
   %74 = load i32, ptr %46, align 4
@@ -142,7 +142,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
 
 82:                                               ; preds = %81, %68
   %83 = phi i32 [ %.pre, %81 ], [ %77, %68 ]
-  %84 = icmp eq i32 %83, %4
+  %84 = icmp eq i32 %4, %83
   %85 = icmp sgt i32 %80, 0
   %or.cond3 = select i1 %84, i1 %85, i1 false
   br i1 %or.cond3, label %86, label %89
@@ -158,7 +158,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   %91 = icmp eq i32 %spec.store.select, %90
   %or.cond5 = select i1 %91, i1 %85, i1 false
   %92 = add nsw i32 %spec.store.select, -1
-  %.not100 = icmp ne i32 %92, %4
+  %.not100 = icmp ne i32 %4, %92
   %or.cond.not106 = select i1 %or.cond5, i1 %.not100, i1 false
   br i1 %or.cond.not106, label %93, label %96
 
@@ -170,7 +170,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
 
 96:                                               ; preds = %93, %89
   %97 = add nsw i32 %spec.store.select6, -1
-  %.not101 = icmp ne i32 %97, %5
+  %.not101 = icmp ne i32 %5, %97
   %or.cond105.not = select i1 %75, i1 %.not101, i1 false
   br i1 %or.cond105.not, label %98, label %102
 

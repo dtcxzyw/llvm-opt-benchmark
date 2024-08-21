@@ -2147,7 +2147,7 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @OSQPMatrix_get_nz(ptr noundef %30) #15
-  %32 = icmp slt i64 %27, %3
+  %32 = icmp sgt i64 %3, %27
   %33 = icmp slt i64 %3, 0
   %or.cond = or i1 %33, %32
   br i1 %or.cond, label %34, label %39
@@ -2164,7 +2164,7 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %40 = icmp ne ptr %2, null
   %41 = icmp eq i64 %3, 0
   %or.cond3.not94 = or i1 %40, %41
-  %.not78 = icmp eq i64 %27, %3
+  %.not78 = icmp eq i64 %3, %27
   %or.cond90 = select i1 %or.cond3.not94, i1 true, i1 %.not78
   br i1 %or.cond90, label %45, label %42
 
@@ -2175,7 +2175,7 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %116
 
 45:                                               ; preds = %39
-  %46 = icmp slt i64 %31, %6
+  %46 = icmp sgt i64 %6, %31
   %47 = icmp slt i64 %6, 0
   %or.cond5 = or i1 %47, %46
   br i1 %or.cond5, label %48, label %53
@@ -2192,7 +2192,7 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %54 = icmp ne ptr %5, null
   %55 = icmp eq i64 %6, 0
   %or.cond7.not97 = or i1 %54, %55
-  %.not79 = icmp eq i64 %31, %6
+  %.not79 = icmp eq i64 %6, %31
   %or.cond91 = select i1 %or.cond7.not97, i1 true, i1 %.not79
   br i1 %or.cond91, label %59, label %56
 

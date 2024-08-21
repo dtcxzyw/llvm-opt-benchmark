@@ -206,8 +206,8 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2)
   %12 = getelementptr inbounds i8, ptr %.1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  %.not.i = icmp ule ptr %11, %1
-  %15 = icmp ugt ptr %14, %1
+  %.not.i = icmp uge ptr %1, %11
+  %15 = icmp ult ptr %1, %14
   %or.cond.not19.not21.i = select i1 %.not.i, i1 %15, i1 false
   %.not16.i = icmp uge ptr %7, %11
   %or.cond17.not.i = select i1 %or.cond.not19.not21.i, i1 %.not16.i, i1 false
@@ -247,7 +247,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
   br label %29
 
 13:                                               ; preds = %9
-  %14 = icmp eq ptr %10, %1
+  %14 = icmp eq ptr %1, %10
   br i1 %14, label %15, label %.preheader
 
 15:                                               ; preds = %13
@@ -261,7 +261,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
   br i1 %.not31, label %22, label %18
 
 18:                                               ; preds = %.preheader
-  %19 = icmp eq ptr %17, %1
+  %19 = icmp eq ptr %1, %17
   br i1 %19, label %20, label %.preheader, !llvm.loop !9
 
 20:                                               ; preds = %18

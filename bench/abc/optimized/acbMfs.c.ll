@@ -2690,7 +2690,7 @@ define i64 @Acb_ComputeFunction(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
   %11 = shl nsw i32 %1, 1
-  %12 = add nsw i32 %11, %4
+  %12 = add nsw i32 %4, %11
   store i32 %12, ptr %6, align 4
   %13 = shl nsw i32 %2, 1
   %14 = getelementptr inbounds i8, ptr %6, i64 4
@@ -6924,7 +6924,7 @@ define i32 @Acb_NtkFindSupp3(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %23 = getelementptr i8, ptr %0, i64 184
   %24 = mul nsw i32 %3, 6
   %.phi.trans.insert.i = getelementptr i8, ptr %6, i64 8
-  %25 = add i32 %24, %4
+  %25 = add i32 %4, %24
   %26 = mul nsw i32 %3, -6
   br label %27
 
@@ -7408,7 +7408,7 @@ Acb_ObjIsAreaCritical.exit290.thread:             ; preds = %Vec_IntLits2Vars.ex
   %231 = getelementptr i8, ptr %0, i64 184
   %232 = mul nsw i32 %3, 6
   %.phi.trans.insert.i313 = getelementptr i8, ptr %6, i64 8
-  %233 = add i32 %232, %4
+  %233 = add i32 %4, %232
   %234 = mul nsw i32 %3, -6
   br label %235
 

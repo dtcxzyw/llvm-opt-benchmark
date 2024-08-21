@@ -1561,7 +1561,7 @@ define internal void @kyber_completed_request(ptr nocapture noundef readonly %0,
   %25 = lshr i64 %20, 2
   %26 = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   %27 = xor i64 %22, -1
-  %28 = add i64 %27, %1
+  %28 = add i64 %1, %27
   %29 = udiv i64 %28, %26
   %30 = trunc i64 %29 to i32
   %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 7)
@@ -1581,7 +1581,7 @@ define internal void @kyber_completed_request(ptr nocapture noundef readonly %0,
   %40 = lshr i64 %20, 2
   %41 = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
   %42 = xor i64 %37, -1
-  %43 = add i64 %42, %1
+  %43 = add i64 %1, %42
   %44 = udiv i64 %43, %41
   %45 = trunc i64 %44 to i32
   %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 7)

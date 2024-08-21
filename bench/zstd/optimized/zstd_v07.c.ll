@@ -383,7 +383,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp19, label %for.body, label %if.end49, !llvm.loop !9
 
 if.else37:                                        ; preds = %if.end
-  %cmp39.not = icmp ult i64 %conv, %srcSize
+  %cmp39.not = icmp ugt i64 %srcSize, %conv
   br i1 %cmp39.not, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.else37
@@ -3358,7 +3358,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %if.end.i.i, label %for.body.i.i, !llvm.loop !28
 
 if.end.i.i:                                       ; preds = %for.body.i.i, %if.then.i.i, %if.then.i
-  %cmp633.not.i.i = icmp eq i32 %17, %nextRankStart.0.lcssa
+  %cmp633.not.i.i = icmp eq i32 %nextRankStart.0.lcssa, %17
   br i1 %cmp633.not.i.i, label %HUFv07_fillDTableX4Level2.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %if.end.i.i
@@ -5316,7 +5316,7 @@ if.end11:                                         ; preds = %if.end
   %add7.i = add i64 %3, %2
   %add10.i = add i64 %add7.i, %add.i
   %add18.i = add i64 %add10.i, %land.ext.i
-  %cmp13 = icmp ugt i64 %add18.i, %srcSize
+  %cmp13 = icmp ult i64 %srcSize, %add18.i
   br i1 %cmp13, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
@@ -5460,7 +5460,7 @@ define i64 @ZSTDv07_decompressBlock(ptr noundef %dctx, ptr noundef %dst, i64 nou
 entry:
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv07_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -5846,7 +5846,7 @@ if.end3:                                          ; preds = %if.end280.i, %if.en
   %fseEntropy.i = getelementptr inbounds i8, ptr %dctx, i64 21612
   %26 = load i32, ptr %fseEntropy.i, align 4
   %add.ptr.i.i = getelementptr i8, ptr %src, i64 %srcSize
-  %cmp.i.i12 = icmp eq i64 %retval.0.i, %srcSize
+  %cmp.i.i12 = icmp eq i64 %srcSize, %retval.0.i
   br i1 %cmp.i.i12, label %ZSTDv07_decompressSequences.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end3
@@ -6383,7 +6383,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 
 for.end.i:                                        ; preds = %for.body.i
   %gepdiff.i = sub nsw i64 %sub, %sub.ptr.sub63.i.i
-  %cmp.i44.i = icmp eq i64 %sub.ptr.sub63.i.i, %sub
+  %cmp.i44.i = icmp eq i64 %sub, %sub.ptr.sub63.i.i
   br i1 %cmp.i44.i, label %ZSTDv07_decompressSequences.exit, label %if.end.i45.i
 
 if.end.i45.i:                                     ; preds = %for.end.i
@@ -7263,7 +7263,7 @@ define noundef i64 @ZSTDv07_insertBlock(ptr nocapture noundef %dctx, ptr noundef
 entry:
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %blockStart
+  %cmp.not.i = icmp eq ptr %blockStart, %0
   br i1 %cmp.not.i, label %ZSTDv07_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -7292,7 +7292,7 @@ entry:
   %call = tail call i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef %dctx, ptr noundef %dict, i64 noundef %dictSize)
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %0 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %dst
+  %cmp.not.i = icmp eq ptr %dst, %0
   br i1 %cmp.not.i, label %ZSTDv07_checkContinuity.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -7583,7 +7583,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %add = add nuw i64 %add18.i, 3
-  %cmp5 = icmp ugt i64 %add, %srcSize
+  %cmp5 = icmp ult i64 %srcSize, %add
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
@@ -7876,7 +7876,7 @@ if.then6:                                         ; preds = %if.end3
 
 if.end7:                                          ; preds = %if.end3
   %add = add nuw i64 %add18.i, 3
-  %cmp8 = icmp ugt i64 %add, %srcSize
+  %cmp8 = icmp ult i64 %srcSize, %add
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7
@@ -7978,7 +7978,7 @@ define i64 @ZSTDv07_decompressContinue(ptr noundef %dctx, ptr noundef %dst, i64 
 entry:
   %expected = getelementptr inbounds i8, ptr %dctx, i64 21552
   %0 = load i64, ptr %expected, align 8
-  %cmp.not = icmp eq i64 %0, %srcSize
+  %cmp.not = icmp eq i64 %srcSize, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -7988,7 +7988,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %1 = load ptr, ptr %previousDstEnd.i, align 8
-  %cmp.not.i = icmp eq ptr %1, %dst
+  %cmp.not.i = icmp eq ptr %dst, %1
   br i1 %cmp.not.i, label %if.end2, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then1
@@ -8357,7 +8357,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21766) %dctx, ptr noundef nonnull readonly align 8 dereferenceable(21766) %0, i64 21766, i1 false)
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %dctx, i64 21520
   %1 = load ptr, ptr %previousDstEnd.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %1, %dst
+  %cmp.not.i.i = icmp eq ptr %dst, %1
   br i1 %cmp.not.i.i, label %ZSTDv07_decompress_usingPreparedDCtx.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry

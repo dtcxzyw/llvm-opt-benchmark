@@ -2292,7 +2292,7 @@ entry:
   %Y = getelementptr inbounds i8, ptr %this, i64 340
   %0 = load i32, ptr %Y, align 4, !tbaa !112
   %conv = uitofp i32 %0 to float
-  %mul = fmul nsz float %conv, %scale
+  %mul = fmul nsz float %scale, %conv
   %m_desired_height = getelementptr inbounds i8, ptr %this, i64 360
   store float %mul, ptr %m_desired_height, align 8, !tbaa !113
   %m_screensize.i = getelementptr inbounds i8, ptr %this, i64 336

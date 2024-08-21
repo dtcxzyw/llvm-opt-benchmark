@@ -16644,7 +16644,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN4entt7type_idI4i
 _ZZN4entt11poly_vtableI7DeducedLm16ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm16ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENKUlRSB_dE_clESK_d.exit: ; preds = %_ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i
   %8 = load i32, ptr %call.i.i.i.i.i, align 4, !tbaa !203
   %conv.i.i = sitofp i32 %8 to double
-  %mul.i.i = fmul double %conv.i.i, %args
+  %mul.i.i = fmul double %args, %conv.i.i
   ret double %mul.i.i
 }
 
@@ -59271,7 +59271,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN4entt7type_idI4i
 _ZZN4entt11poly_vtableI7DeducedLm0ELm8EE17fill_vtable_entryI4implTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm0ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENKUlRSB_dE_clESK_d.exit: ; preds = %_ZN4entt7type_idI4implEERKNS_9type_infoEv.exit.i.i.i
   %8 = load i32, ptr %call.i.i.i.i.i, align 4, !tbaa !203
   %conv.i.i = sitofp i32 %8 to double
-  %mul.i.i = fmul double %conv.i.i, %args
+  %mul.i.i = fmul double %args, %conv.i.i
   ret double %mul.i.i
 }
 
@@ -63038,7 +63038,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN4entt7type_idI12
 _ZZN4entt11poly_vtableI7DeducedLm64ELm64EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm64EEEJdEEEvRPFT1_RT2_DpT3_EENKUlRSB_dE_clESK_d.exit: ; preds = %_ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i
   %8 = load i32, ptr %call.i.i.i.i.i, align 4, !tbaa !203
   %conv.i.i = sitofp i32 %8 to double
-  %mul.i.i = fmul double %conv.i.i, %args
+  %mul.i.i = fmul double %args, %conv.i.i
   ret double %mul.i.i
 }
 
@@ -67717,7 +67717,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN4entt7type_idI12
 _ZZN4entt11poly_vtableI7DeducedLm64ELm8EE17fill_vtable_entryI12over_alignedTnDaXadL_ZN14common_membersIS4_E3mulERKS4_dEEdKNS_9basic_anyILm64ELm8EEEJdEEEvRPFT1_RT2_DpT3_EENKUlRSB_dE_clESK_d.exit: ; preds = %_ZN4entt7type_idI12over_alignedEERKNS_9type_infoEv.exit.i.i.i
   %8 = load i32, ptr %call.i.i.i.i.i, align 4, !tbaa !203
   %conv.i.i = sitofp i32 %8 to double
-  %mul.i.i = fmul double %conv.i.i, %args
+  %mul.i.i = fmul double %args, %conv.i.i
   ret double %mul.i.i
 }
 

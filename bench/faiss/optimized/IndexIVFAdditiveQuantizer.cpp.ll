@@ -257,7 +257,7 @@ define void @_ZNK5faiss25IndexIVFAdditiveQuantizer14encode_vectorsElPKfPKlPhb(pt
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = mul nsw i64 %40, %1
+  %41 = mul nsw i64 %1, %40
   %42 = icmp ugt i64 %41, 2305843009213693951
   br i1 %42, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

@@ -2612,7 +2612,7 @@ define dso_local ptr @__rht_bucket_nested(ptr nocapture noundef readonly %0, i32
   %4 = load i32, ptr %3, align 4
   %5 = shl nsw i32 -1, %4
   %6 = xor i32 %5, -1
-  %7 = and i32 %6, %1
+  %7 = and i32 %1, %6
   %8 = load i32, ptr %0, align 64
   %9 = lshr i32 %8, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2657,7 +2657,7 @@ define dso_local nonnull ptr @rht_bucket_nested(ptr nocapture noundef readonly %
   %4 = load i32, ptr %3, align 4
   %5 = shl nsw i32 -1, %4
   %6 = xor i32 %5, -1
-  %7 = and i32 %6, %1
+  %7 = and i32 %1, %6
   %8 = load i32, ptr %0, align 64
   %9 = lshr i32 %8, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2704,7 +2704,7 @@ define dso_local ptr @rht_bucket_nested_insert(ptr nocapture readnone %0, ptr no
   %5 = load i32, ptr %4, align 4
   %6 = shl nsw i32 -1, %5
   %7 = xor i32 %6, -1
-  %8 = and i32 %7, %2
+  %8 = and i32 %2, %7
   %9 = load i32, ptr %1, align 64
   %10 = lshr i32 %9, %5
   %11 = getelementptr inbounds i8, ptr %1, i64 64

@@ -1421,7 +1421,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6264 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i6264, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i6264
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -1509,7 +1509,7 @@ if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph
   %dec.us = add nsw i64 %__parent.066.us, -1
   %add.ptr11.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i64, ptr %add.ptr11.us, align 4
-  %cmp23.i16.not.us = icmp slt i64 %div.i6264, %__parent.066.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.066.us, %div.i6264
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i49.us
 
 while.end.i17.us.thread:                          ; preds = %if.end8.split.us
@@ -1575,7 +1575,7 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   %dec = add nsw i64 %__parent.066, -1
   %add.ptr11 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 4
-  %cmp23.i16.not = icmp slt i64 %div.i6264, %__parent.066
+  %cmp23.i16.not = icmp sgt i64 %__parent.066, %div.i6264
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i49
 
 while.body.i49:                                   ; preds = %if.end8.split, %while.body.i49

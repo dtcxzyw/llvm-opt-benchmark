@@ -201,7 +201,7 @@ define void @PQdownheap(i32 noundef %0) local_unnamed_addr #5 {
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @PQcnt, align 4
   %8 = sdiv i32 %7, 2
-  %.not27 = icmp slt i32 %8, %0
+  %.not27 = icmp sgt i32 %0, %8
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %24

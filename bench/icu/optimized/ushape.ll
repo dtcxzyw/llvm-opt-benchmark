@@ -135,7 +135,7 @@ land.lhs.true84:                                  ; preds = %if.end82
   %cmp85.not = icmp ule ptr %source, %dest
   %idx.ext = zext nneg i32 %sourceLength.addr.0 to i64
   %add.ptr = getelementptr inbounds i16, ptr %source, i64 %idx.ext
-  %cmp87 = icmp ugt ptr %add.ptr, %dest
+  %cmp87 = icmp ult ptr %dest, %add.ptr
   %or.cond246 = select i1 %cmp85.not, i1 %cmp87, i1 false
   br i1 %or.cond246, label %if.then94, label %lor.lhs.false88
 
@@ -143,7 +143,7 @@ lor.lhs.false88:                                  ; preds = %land.lhs.true84
   %cmp89.not = icmp ule ptr %dest, %source
   %idx.ext91 = zext nneg i32 %destCapacity to i64
   %add.ptr92 = getelementptr inbounds i16, ptr %dest, i64 %idx.ext91
-  %cmp93 = icmp ugt ptr %add.ptr92, %source
+  %cmp93 = icmp ult ptr %source, %add.ptr92
   %or.cond247 = select i1 %cmp89.not, i1 %cmp93, i1 false
   br i1 %or.cond247, label %if.then94, label %if.end95
 
@@ -352,7 +352,7 @@ if.then224:                                       ; preds = %if.end221
   %14 = load i32, ptr %spacesCountr, align 4
   %15 = xor i32 %14, -1
   %sub1.i = add i32 %sourceLength.addr.1, %15
-  %cmp10.i = icmp sgt i32 %sub1.i, %13
+  %cmp10.i = icmp slt i32 %13, %sub1.i
   br i1 %cmp10.i, label %for.body.preheader.i, label %if.end233
 
 for.body.preheader.i:                             ; preds = %if.then224
@@ -488,7 +488,7 @@ if.then259:                                       ; preds = %sw.epilog
   %24 = load i32, ptr %spacesCountr, align 4
   %25 = xor i32 %24, -1
   %sub1.i254 = add i32 %destLength.0, %25
-  %cmp10.i255 = icmp sgt i32 %sub1.i254, %23
+  %cmp10.i255 = icmp slt i32 %23, %sub1.i254
   br i1 %cmp10.i255, label %for.body.preheader.i256, label %if.end260
 
 for.body.preheader.i256:                          ; preds = %if.then259
@@ -529,7 +529,7 @@ if.then268:                                       ; preds = %if.end266
   br label %return
 
 if.else270:                                       ; preds = %if.end95
-  %cmp271 = icmp ugt i32 %sourceLength.addr.0, %destCapacity
+  %cmp271 = icmp ult i32 %destCapacity, %sourceLength.addr.0
   br i1 %cmp271, label %if.then272, label %if.end273
 
 if.then272:                                       ; preds = %if.else270
@@ -856,7 +856,7 @@ while.body:                                       ; preds = %entry, %while.body
   %arrayidx = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv.next
   %2 = load i16, ptr %arrayidx, align 2
   %cmp = icmp eq i16 %2, 32
-  %cmp1 = icmp slt i32 %indvars, %size
+  %cmp1 = icmp sgt i32 %size, %indvars
   %3 = and i1 %cmp, %cmp1
   br i1 %3, label %while.body, label %while.end, !llvm.loop !12
 
@@ -3043,7 +3043,7 @@ while.body:                                       ; preds = %if.end, %while.body
 while.end:                                        ; preds = %while.body, %if.end
   %countr.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %while.body ]
   %3 = xor i32 %countr.0.lcssa, -1
-  %sub7 = add i32 %3, %sourceLength
+  %sub7 = add i32 %sourceLength, %3
   %cmp1054 = icmp sgt i32 %sub7, -1
   %cmp1155 = icmp sgt i32 %sourceLength, 0
   %4 = and i1 %cmp1054, %cmp1155

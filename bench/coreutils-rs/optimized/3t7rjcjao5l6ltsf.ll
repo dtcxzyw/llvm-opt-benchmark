@@ -1184,7 +1184,7 @@ define internal fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6db
 28:                                               ; preds = %25
   %29 = icmp ult i64 %27, %9
   tail call void @llvm.assume(i1 %29)
-  %30 = icmp ult i64 %9, %.0.i.i.i
+  %30 = icmp ugt i64 %.0.i.i.i, %9
   br i1 %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7a8406789308c251E.exit.i.i", label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %22, %28

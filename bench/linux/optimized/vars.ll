@@ -178,7 +178,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   ]
 
 23:                                               ; preds = %.preheader
-  %24 = icmp ult i64 %20, %3
+  %24 = icmp ugt i64 %3, %20
   br i1 %24, label %25, label %.thread4
 
 25:                                               ; preds = %23
@@ -189,7 +189,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   br i1 %28, label %.preheader, label %.thread4, !llvm.loop !5
 
 30:                                               ; preds = %.preheader
-  %31 = icmp eq i64 %20, %3
+  %31 = icmp eq i64 %3, %20
   br i1 %31, label %.thread2, label %.thread4
 
 .thread4:                                         ; preds = %25, %23, %30, %9
@@ -849,7 +849,7 @@ define internal noundef zeroext i1 @validate_ascii_string(ptr nocapture readnone
 6:                                                ; preds = %15
   %7 = add i32 %11, 1
   %8 = sext i32 %7 to i64
-  %9 = icmp ult i64 %8, %3
+  %9 = icmp ugt i64 %3, %8
   br i1 %9, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %4, %6

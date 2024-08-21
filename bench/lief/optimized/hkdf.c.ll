@@ -95,7 +95,7 @@ define hidden i32 @mbedtls_hkdf_expand(ptr noundef %0, ptr noundef %1, i64 nound
 12:                                               ; preds = %7
   %13 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %0) #5
   %14 = zext i8 %13 to i64
-  %15 = icmp ugt i64 %14, %2
+  %15 = icmp ult i64 %2, %14
   %16 = icmp eq i8 %13, 0
   %or.cond = or i1 %16, %15
   br i1 %or.cond, label %42, label %17

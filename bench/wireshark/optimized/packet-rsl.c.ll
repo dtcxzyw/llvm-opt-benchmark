@@ -3701,7 +3701,7 @@ define internal fastcc i32 @dissect_rsl_ie_cmd_ind(ptr noundef %0, ptr noundef %
   %. = select i1 %.not, i32 1, i32 2
   %.2 = select i1 %.not, i32 2, i32 3
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %12, ptr noundef %0, i32 noundef %8, i32 noundef %., i32 noundef 0) #5
-  %14 = add i32 %.2, %2
+  %14 = add i32 %2, %.2
   ret i32 %14
 }
 

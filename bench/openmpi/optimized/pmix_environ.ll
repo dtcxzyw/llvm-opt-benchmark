@@ -406,7 +406,7 @@ define ptr @pmix_home_directory(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = tail call i32 @geteuid() #14
-  %5 = icmp eq i32 %4, %0
+  %5 = icmp eq i32 %0, %4
   br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %1, %3

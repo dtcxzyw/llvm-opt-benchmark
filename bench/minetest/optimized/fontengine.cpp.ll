@@ -1261,7 +1261,7 @@ if.end24:                                         ; preds = %invoke.cont17, %_ZN
 
 invoke.cont26:                                    ; preds = %if.end24
   %tobool.not = icmp ne ptr %call27, null
-  %brmerge = or i1 %tobool.not, %may_fail
+  %brmerge = or i1 %may_fail, %tobool.not
   br i1 %brmerge, label %if.end34, label %if.then29
 
 if.then29:                                        ; preds = %invoke.cont26

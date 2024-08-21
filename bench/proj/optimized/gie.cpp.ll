@@ -849,7 +849,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 150:                                              ; preds = %144
   %151 = add nsw i32 %.6350, 1
-  %152 = icmp eq i32 %151, %0
+  %152 = icmp eq i32 %0, %151
   br i1 %152, label %158, label %153
 
 153:                                              ; preds = %150
@@ -922,7 +922,7 @@ _ZL14opt_raise_flagP7OPTARGSi.exit261:            ; preds = %177, %179
 
 185:                                              ; preds = %181
   %186 = add nsw i32 %.6350, 1
-  %187 = icmp eq i32 %186, %0
+  %187 = icmp eq i32 %0, %186
   br i1 %187, label %193, label %188
 
 188:                                              ; preds = %185
@@ -1023,7 +1023,7 @@ sub_2:                                            ; preds = %sub_1
   %229 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %228, ptr %229, align 8
   %.neg249 = xor i32 %225, -1
-  %230 = add nsw i32 %.neg249, %0
+  %230 = add nsw i32 %0, %.neg249
   %231 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 %230, ptr %231, align 4
   %.not250 = icmp eq i32 %230, 0
@@ -1059,7 +1059,7 @@ sub_2:                                            ; preds = %sub_1
   store i32 %246, ptr %207, align 8
   %indvars.iv.next410 = add nsw i64 %indvars.iv409, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next410 to i32
-  %exitcond412.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond412.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond412.not, label %._crit_edge359.thread, label %237, !llvm.loop !13
 
 ._crit_edge359.thread:                            ; preds = %244
@@ -1076,7 +1076,7 @@ sub_2:                                            ; preds = %sub_1
   %249 = sub nsw i32 %0, %.8.lcssa
   %250 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 %249, ptr %250, align 4
-  %.not248 = icmp eq i32 %.8.lcssa, %0
+  %.not248 = icmp eq i32 %0, %.8.lcssa
   br i1 %.not248, label %255, label %251
 
 251:                                              ; preds = %._crit_edge359
@@ -2503,7 +2503,7 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %623
   %692 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %.056.i.i.i.i
   %693 = getelementptr inbounds i8, ptr %692, i64 8
   %694 = load i32, ptr %693, align 8
-  %695 = icmp eq i32 %694, %651
+  %695 = icmp eq i32 %651, %694
   br i1 %695, label %696, label %689
 
 696:                                              ; preds = %691
@@ -2527,7 +2527,7 @@ _ZL20err_const_from_errnoi.exit.i.i.i:            ; preds = %689, %696
   %704 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %.056.i10.i.i.i
   %705 = getelementptr inbounds i8, ptr %704, i64 8
   %706 = load i32, ptr %705, align 8
-  %707 = icmp eq i32 %706, %.0.i21.i
+  %707 = icmp eq i32 %.0.i21.i, %706
   br i1 %707, label %708, label %701
 
 708:                                              ; preds = %703
@@ -2587,7 +2587,7 @@ _ZL20err_const_from_errnoi.exit13.i.i.i:          ; preds = %701, %708
   %737 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %.056.i.i.i
   %738 = getelementptr inbounds i8, ptr %737, i64 8
   %739 = load i32, ptr %738, align 8
-  %740 = icmp eq i32 %739, %733
+  %740 = icmp eq i32 %733, %739
   br i1 %740, label %741, label %734
 
 741:                                              ; preds = %736
@@ -2735,7 +2735,7 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i:      ; preds = %784, %783, %782
   %808 = getelementptr inbounds [16 x %struct.anon], ptr @_ZN12_GLOBAL__N_16lookupE, i64 0, i64 %.056.i108.i.i
   %809 = getelementptr inbounds i8, ptr %808, i64 8
   %810 = load i32, ptr %809, align 8
-  %811 = icmp eq i32 %810, %804
+  %811 = icmp eq i32 %804, %810
   br i1 %811, label %812, label %805
 
 812:                                              ; preds = %807
@@ -4530,7 +4530,7 @@ define internal fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %0) un
   %2 = alloca ptr, align 8
   %3 = call noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load ptr, ptr %2, align 8
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %68, label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %1, %.critedge.i

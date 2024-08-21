@@ -590,7 +590,7 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef %
   %5 = alloca %struct.cmsVEC3, align 8
   %6 = alloca %struct.cmsVEC3, align 8
   %7 = icmp slt i32 %0, 4
-  br i1 %7, label %59, label %.preheader.preheader
+  br i1 %7, label %60, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %3
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -633,7 +633,7 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef %
   call void @_cmsVEC3init(ptr noundef nonnull %5, double noundef %18, double noundef %19, double noundef %21) #7
   %26 = call i32 @_cmsMAT3solve(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %59, label %27
+  br i1 %.not, label %60, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %6, i64 16
@@ -648,7 +648,7 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef %
 35:                                               ; preds = %27
   %36 = call double @llvm.fabs.f64(double %31)
   %37 = fcmp olt double %36, 1.000000e-10
-  br i1 %37, label %59, label %38
+  br i1 %37, label %60, label %38
 
 38:                                               ; preds = %35
   %39 = fneg double %32
@@ -657,28 +657,29 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef %
   %42 = select i1 %41, double 5.000000e+01, double %40
   %43 = fcmp ogt double %42, 0.000000e+00
   %44 = select i1 %43, double 0.000000e+00, double %42
-  br label %59
+  br label %60
 
 45:                                               ; preds = %27
-  %46 = fmul double %29, -4.000000e+00
-  %47 = fmul double %46, %32
-  %48 = call double @llvm.fmuladd.f64(double %31, double %31, double %47)
-  %49 = fcmp ugt double %48, 0.000000e+00
-  br i1 %49, label %50, label %59
+  %46 = fmul double %29, 4.000000e+00
+  %47 = fneg double %32
+  %48 = fmul double %46, %47
+  %49 = call double @llvm.fmuladd.f64(double %31, double %31, double %48)
+  %50 = fcmp ugt double %49, 0.000000e+00
+  br i1 %50, label %51, label %60
 
-50:                                               ; preds = %45
-  %51 = call double @sqrt(double noundef %48) #7
-  %52 = fsub double %51, %31
-  %53 = fmul double %29, 2.000000e+00
-  %54 = fdiv double %52, %53
-  %55 = fcmp ogt double %54, 5.000000e+01
-  %56 = select i1 %55, double 5.000000e+01, double %54
-  %57 = fcmp olt double %56, 0.000000e+00
-  %58 = select i1 %57, double 0.000000e+00, double %56
-  br label %59
+51:                                               ; preds = %45
+  %52 = call double @sqrt(double noundef %49) #7
+  %53 = fsub double %52, %31
+  %54 = fmul double %29, 2.000000e+00
+  %55 = fdiv double %53, %54
+  %56 = fcmp ogt double %55, 5.000000e+01
+  %57 = select i1 %56, double 5.000000e+01, double %55
+  %58 = fcmp olt double %57, 0.000000e+00
+  %59 = select i1 %58, double 0.000000e+00, double %57
+  br label %60
 
-59:                                               ; preds = %45, %35, %22, %3, %50, %38
-  %.0 = phi double [ %44, %38 ], [ %58, %50 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %45 ]
+60:                                               ; preds = %45, %35, %22, %3, %51, %38
+  %.0 = phi double [ %44, %38 ], [ %59, %51 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %45 ]
   ret double %.0
 }
 

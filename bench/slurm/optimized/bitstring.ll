@@ -387,7 +387,7 @@ define void @bit_nclear(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2
 
 .critedge.preheader:                              ; preds = %.lr.ph, %3
   %.017.lcssa = phi i64 [ %1, %3 ], [ %6, %.lr.ph ]
-  %.not1825 = icmp sgt i64 %.017.lcssa, %2
+  %.not1825 = icmp slt i64 %2, %.017.lcssa
   br i1 %.not1825, label %.critedge2, label %.lr.ph27
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -456,7 +456,7 @@ define void @bit_nset(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) 
 
 .critedge.preheader:                              ; preds = %.lr.ph, %3
   %.017.lcssa = phi i64 [ %1, %3 ], [ %6, %.lr.ph ]
-  %.not1825 = icmp sgt i64 %.017.lcssa, %2
+  %.not1825 = icmp slt i64 %2, %.017.lcssa
   br i1 %.not1825, label %.critedge2, label %.lr.ph27
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -870,7 +870,7 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
   %10 = sext i32 %1 to i64
   %11 = add i32 %1, 63
   %12 = and i32 %11, -64
-  %13 = icmp sle i32 %12, %1
+  %13 = icmp sge i32 %1, %12
   %.not = icmp sgt i32 %12, %9
   %or.cond = select i1 %13, i1 true, i1 %.not
   br i1 %or.cond, label %24, label %14
@@ -1022,7 +1022,7 @@ define range(i32 -2147483646, -2147483648) i32 @bit_clear_count_range(ptr nocapt
   %13 = sext i32 %1 to i64
   %14 = add i32 %1, 63
   %15 = and i32 %14, -64
-  %16 = icmp sle i32 %15, %1
+  %16 = icmp sge i32 %1, %15
   %.not.i = icmp sgt i32 %15, %12
   %or.cond.i = select i1 %16, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %27, label %17
@@ -2192,7 +2192,7 @@ bit_fls.exit:                                     ; preds = %14, %20, %.outer.i.
 
 .critedge.preheader.i:                            ; preds = %.lr.ph.i5, %bit_fls.exit
   %.017.lcssa.i = phi i64 [ %9, %bit_fls.exit ], [ %34, %.lr.ph.i5 ]
-  %.not1825.i = icmp sgt i64 %.017.lcssa.i, %.0.i.i
+  %.not1825.i = icmp slt i64 %.0.i.i, %.017.lcssa.i
   br i1 %.not1825.i, label %.critedge2.i, label %.lr.ph27.i
 
 .lr.ph.i5:                                        ; preds = %bit_fls.exit, %.lr.ph.i5
@@ -2854,7 +2854,7 @@ define i64 @bit_ffs_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) 
   %.not = icmp ne i64 %3, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %4 = icmp sgt i64 %.pre, %1
+  %4 = icmp slt i64 %1, %.pre
   %or.cond = select i1 %.not, i1 %4, i1 false
   br i1 %or.cond, label %5, label %._crit_edge
 
@@ -3672,7 +3672,7 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %12
 
 .critedge.preheader.i:                            ; preds = %.lr.ph.i11, %26
   %.017.lcssa.i = phi i64 [ %24, %26 ], [ %30, %.lr.ph.i11 ]
-  %.not1825.i.not = icmp slt i64 %.017.lcssa.i, %3
+  %.not1825.i.not = icmp sgt i64 %3, %.017.lcssa.i
   br i1 %.not1825.i.not, label %.lr.ph27.i, label %.critedge2.i
 
 .lr.ph.i11:                                       ; preds = %26, %.lr.ph.i11

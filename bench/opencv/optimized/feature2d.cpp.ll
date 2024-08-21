@@ -298,7 +298,7 @@ define void @_ZN2cv9Feature2D6detectERKNS_11_InputArrayERSt6vectorIS4_INS_8KeyPo
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = sdiv exact i64 %40, 24
-  %42 = icmp ult i64 %41, %.pre-phi
+  %42 = icmp ugt i64 %.pre-phi, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %34
@@ -307,7 +307,7 @@ define void @_ZN2cv9Feature2D6detectERKNS_11_InputArrayERSt6vectorIS4_INS_8KeyPo
           to label %_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 45:                                               ; preds = %34
-  %46 = icmp ugt i64 %41, %.pre-phi
+  %46 = icmp ult i64 %.pre-phi, %41
   br i1 %46, label %47, label %_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE6resizeEm.exit
 
 47:                                               ; preds = %45
@@ -733,7 +733,7 @@ define void @_ZN2cv9Feature2D7computeERKNS_11_InputArrayERSt6vectorIS4_INS_8KeyP
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 96
-  %53 = icmp ult i64 %52, %28
+  %53 = icmp ugt i64 %28, %52
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %43
@@ -742,7 +742,7 @@ define void @_ZN2cv9Feature2D7computeERKNS_11_InputArrayERSt6vectorIS4_INS_8KeyP
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 56:                                               ; preds = %43
-  %57 = icmp ugt i64 %52, %28
+  %57 = icmp ult i64 %28, %52
   br i1 %57, label %58, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 58:                                               ; preds = %56
@@ -832,7 +832,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %54, %56, %58, %_ZSt
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = sdiv exact i64 %93, 80
-  %95 = icmp ult i64 %94, %28
+  %95 = icmp ugt i64 %28, %94
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %85
@@ -841,7 +841,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %54, %56, %58, %_ZSt
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 98:                                               ; preds = %85
-  %99 = icmp ugt i64 %94, %28
+  %99 = icmp ult i64 %28, %94
   br i1 %99, label %100, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
 100:                                              ; preds = %98
@@ -1517,7 +1517,7 @@ _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #19
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %27
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %27, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %33, %.lr.ph.i.i.i.i.i.i.i

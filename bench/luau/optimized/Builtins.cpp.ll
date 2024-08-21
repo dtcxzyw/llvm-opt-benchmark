@@ -1485,7 +1485,7 @@ define dso_local { ptr, ptr } @_ZN4Luau7Compile10getBuiltinEPNS_7AstExprERKNS_12
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i8, ptr %1, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %.sroa.03.0.copyload
+  %66 = icmp eq ptr %.sroa.03.0.copyload, %65
   br i1 %66, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread, label %67
 
 67:                                               ; preds = %63
@@ -1547,7 +1547,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
 99:                                               ; preds = %93
   %100 = getelementptr inbounds i8, ptr %1, i64 24
   %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %101, %.sroa.0.0.copyload
+  %102 = icmp eq ptr %.sroa.0.0.copyload, %101
   br i1 %102, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit41.thread, label %103
 
 103:                                              ; preds = %99

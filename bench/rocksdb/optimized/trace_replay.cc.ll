@@ -320,7 +320,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont14
-  %cmp.not.i = icmp eq ptr %ref.tmp17, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp17
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %_ZN7rocksdb6StatusaSEOS0_.exit.thread
 
 _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %invoke.cont19
@@ -401,7 +401,7 @@ if.end:                                           ; preds = %_ZN7rocksdb6StatusD
           to label %invoke.cont27 unwind label %lpad18
 
 invoke.cont27:                                    ; preds = %if.end
-  %cmp.not.i22 = icmp eq ptr %ref.tmp26, %agg.result
+  %cmp.not.i22 = icmp eq ptr %agg.result, %ref.tmp26
   br i1 %cmp.not.i22, label %_ZN7rocksdb6StatusaSEOS0_.exit40, label %if.then.i23
 
 if.then.i23:                                      ; preds = %invoke.cont27
@@ -741,7 +741,7 @@ if.end13:                                         ; preds = %_ZStneIcSt11char_tr
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i8 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i8 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i8, label %cleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end13
@@ -4289,7 +4289,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -4582,7 +4582,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
-  %cmp.i.i.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.i.i.not8.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.i.i.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i30

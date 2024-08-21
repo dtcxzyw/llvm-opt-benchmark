@@ -882,7 +882,7 @@ cond.end:                                         ; preds = %if.else.i.i15, %if.
   %33 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 -8
   %34 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %34, %31
+  %cmp.i.i.i = icmp eq ptr %31, %34
   br i1 %cmp.i.i.i, label %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %cond.end

@@ -130,12 +130,12 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end1
   %arrayidx.i = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i
   %type2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
   %10 = load i8, ptr %type2.i, align 1
-  %cmp4.i = icmp eq i8 %10, %type.0
+  %cmp4.i = icmp eq i8 %type.0, %10
   br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %11 = load i8, ptr %arrayidx.i, align 16
-  %cmp8.i = icmp eq i8 %11, %5
+  %cmp8.i = icmp eq i8 %5, %11
   br i1 %cmp8.i, label %mptsas_find_config_page.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -161,7 +161,7 @@ for.body.i52:                                     ; preds = %mptsas_find_config_
   %arrayidx.i54 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i53
   %type2.i55 = getelementptr inbounds i8, ptr %arrayidx.i54, i64 1
   %12 = load i8, ptr %type2.i55, align 1
-  %cmp4.i57 = icmp eq i8 %12, %type.0
+  %cmp4.i57 = icmp eq i8 %type.0, %12
   br i1 %cmp4.i57, label %land.lhs.true.i62, label %for.inc.i58
 
 land.lhs.true.i62:                                ; preds = %for.body.i52

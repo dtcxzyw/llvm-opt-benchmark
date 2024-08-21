@@ -277,7 +277,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i = icmp ugt ptr %2, %target
+  %cmp.not.i.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -319,7 +319,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 
 if.then6:                                         ; preds = %if.end
   %5 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i7 = icmp ugt ptr %5, %target.addr.0
+  %cmp.not.i.i7 = icmp ult ptr %target.addr.0, %5
   br i1 %cmp.not.i.i7, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i10, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %if.then6

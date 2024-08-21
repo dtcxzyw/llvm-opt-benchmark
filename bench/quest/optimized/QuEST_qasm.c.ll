@@ -2561,7 +2561,7 @@ getPhaseFuncSymbol.exit233.us279:                 ; preds = %.lr.ph274, %getPhas
   %199 = add nsw i32 %.13.us, %198
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 2
   %200 = trunc nuw i64 %indvars.iv.next307 to i32
-  %201 = icmp slt i32 %200, %3
+  %201 = icmp sgt i32 %3, %200
   br i1 %201, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -2593,7 +2593,7 @@ getPhaseFuncSymbol.exit241.us:                    ; preds = %.lr.ph.split, %getP
   %221 = add nsw i32 %.13.us262, %220
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 2
   %222 = trunc nuw i64 %indvars.iv.next304 to i32
-  %223 = icmp slt i32 %222, %3
+  %223 = icmp sgt i32 %3, %222
   br i1 %223, label %getPhaseFuncSymbol.exit241.us, label %.loopexit
 
 getPhaseFuncSymbol.exit241.us267:                 ; preds = %.lr.ph.split, %getPhaseFuncSymbol.exit241.us267
@@ -2622,7 +2622,7 @@ getPhaseFuncSymbol.exit241.us267:                 ; preds = %.lr.ph.split, %getP
   %243 = add nsw i32 %.13.us269, %242
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %244 = trunc nuw i64 %indvars.iv.next to i32
-  %245 = icmp slt i32 %244, %3
+  %245 = icmp sgt i32 %3, %244
   br i1 %245, label %getPhaseFuncSymbol.exit241.us267, label %.loopexit
 
 246:                                              ; preds = %168

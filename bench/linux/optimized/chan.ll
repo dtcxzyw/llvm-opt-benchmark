@@ -539,7 +539,7 @@ define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr nounde
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %40, %44
   %46 = icmp ult i32 %40, %44
-  %47 = xor i1 %46, %2
+  %47 = xor i1 %2, %46
   %48 = or i1 %45, %47
   br i1 %48, label %51, label %49
 

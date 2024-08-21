@@ -66,7 +66,7 @@ define noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %
 11:                                               ; preds = %.preheader.i
   %12 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, %0
+  %14 = icmp eq i32 %0, %13
   br i1 %14, label %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i, label %.preheader.i, !llvm.loop !5
 
 15:                                               ; preds = %9
@@ -83,11 +83,11 @@ define noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %
   %23 = load ptr, ptr %21, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, %0
+  %26 = icmp eq i32 %0, %25
   br i1 %26, label %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
 27:                                               ; preds = %30
-  %28 = icmp eq i32 %32, %0
+  %28 = icmp eq i32 %0, %32
   br i1 %28, label %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !7
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %27
@@ -169,7 +169,7 @@ _ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -112412,7 +112412,7 @@ _ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -112643,7 +112643,7 @@ _ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge

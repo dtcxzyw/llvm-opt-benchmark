@@ -206,7 +206,7 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb9StopWat
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread
 
 _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %invoke.cont
@@ -493,7 +493,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread
 
 _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %invoke.cont4
@@ -574,7 +574,7 @@ if.then9:                                         ; preds = %if.then
           to label %invoke.cont13 unwind label %lpad5
 
 invoke.cont13:                                    ; preds = %if.then9
-  %cmp.not.i = icmp eq ptr %ref.tmp10, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp10
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont13
@@ -1247,7 +1247,7 @@ invoke.cont3:                                     ; preds = %_ZN7rocksdb9StopWat
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread
 
 _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %invoke.cont3
@@ -1317,7 +1317,7 @@ if.then:                                          ; preds = %invoke.cont5.thread
           to label %invoke.cont10 unwind label %lpad4
 
 invoke.cont10:                                    ; preds = %if.then
-  %cmp.not.i = icmp eq ptr %ref.tmp7, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp7
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont10
@@ -1405,7 +1405,7 @@ if.then14:                                        ; preds = %invoke.cont12
           to label %invoke.cont18 unwind label %lpad4
 
 invoke.cont18:                                    ; preds = %if.then14
-  %cmp.not.i18 = icmp eq ptr %ref.tmp15, %agg.result
+  %cmp.not.i18 = icmp eq ptr %agg.result, %ref.tmp15
   br i1 %cmp.not.i18, label %_ZN7rocksdb6StatusaSEOS0_.exit36, label %if.then.i19
 
 if.then.i19:                                      ; preds = %invoke.cont18
@@ -1477,7 +1477,7 @@ if.then23:                                        ; preds = %if.end20
           to label %invoke.cont27 unwind label %lpad4
 
 invoke.cont27:                                    ; preds = %if.then23
-  %cmp.not.i42 = icmp eq ptr %ref.tmp24, %agg.result
+  %cmp.not.i42 = icmp eq ptr %agg.result, %ref.tmp24
   br i1 %cmp.not.i42, label %_ZN7rocksdb6StatusaSEOS0_.exit60, label %if.then.i43
 
 if.then.i43:                                      ; preds = %invoke.cont27

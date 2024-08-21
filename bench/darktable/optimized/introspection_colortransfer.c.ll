@@ -1597,7 +1597,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 %1, i
   %114 = fadd reassoc nsz arcp contract afn float %113, -1.000000e+00
   %115 = fmul reassoc nsz arcp contract afn float %114, %33
   %116 = fptosi float %115 to i32
-  %117 = mul nsw i32 %116, %1
+  %117 = mul nsw i32 %1, %116
   %118 = add nsw i32 %117, %108
   %119 = mul nsw i32 %118, 3
   %120 = sext i32 %119 to i64
@@ -1774,7 +1774,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 %1, i
   br i1 %248, label %.split32.us.split.us.us.us, label %241
 
 .split32.us.split.us.us.us:                       ; preds = %241
-  %249 = add i32 %.promoted.us.us, %3
+  %249 = add i32 %3, %.promoted.us.us
   store i32 %249, ptr %16, align 4, !tbaa !38
   store <2 x float> %245, ptr %14, align 4, !tbaa !37
   store <2 x float> %246, ptr %13, align 4, !tbaa !37

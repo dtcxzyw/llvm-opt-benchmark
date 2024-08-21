@@ -567,7 +567,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -635,7 +635,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -660,7 +660,7 @@ define linkonce_odr void @_ZNSt6vectorI12t_vcm_threadSaIS0_EE6resizeEm(ptr nound
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 76
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -731,7 +731,7 @@ _ZNSt12_Vector_baseI12t_vcm_threadSaIS0_EE13_M_deallocateEPS0_m.exit37.i: ; pred
   br label %_ZNSt6vectorI12t_vcm_threadSaIS0_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorI12t_vcm_threadSaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -1641,18 +1641,18 @@ define internal void @_Z12calc_vcm_grpRK9t_mdatomsN3gmx8ArrayRefIKNS2_11BasicVec
   %105 = load float, ptr %104, align 4
   %106 = getelementptr inbounds i8, ptr %99, i64 4
   %107 = load float, ptr %106, align 4
-  %108 = fneg float %105
-  %109 = fmul float %107, %108
+  %108 = fneg float %107
+  %109 = fmul float %105, %108
   %110 = call float @llvm.fmuladd.f32(float %101, float %103, float %109)
   store float %110, ptr %11, align 4
   %111 = load float, ptr %99, align 4
   %112 = load float, ptr %96, align 4
-  %113 = fneg float %112
-  %114 = fmul float %103, %113
+  %113 = fneg float %103
+  %114 = fmul float %112, %113
   %115 = call float @llvm.fmuladd.f32(float %105, float %111, float %114)
   store float %115, ptr %52, align 4
-  %116 = fneg float %101
-  %117 = fmul float %111, %116
+  %116 = fneg float %111
+  %117 = fmul float %101, %116
   %118 = call float @llvm.fmuladd.f32(float %112, float %107, float %117)
   store float %118, ptr %53, align 4
   %119 = getelementptr inbounds i8, ptr %75, i64 24
@@ -1929,18 +1929,18 @@ define void @_Z22process_and_stopcm_grpP8_IO_FILEP5t_vcmRK9t_mdatomsN3gmx8ArrayR
   %99 = load float, ptr %98, align 4
   %100 = getelementptr inbounds i8, ptr %93, i64 4
   %101 = load float, ptr %100, align 4
-  %102 = fneg float %99
-  %103 = fmul float %101, %102
+  %102 = fneg float %101
+  %103 = fmul float %99, %102
   %104 = call float @llvm.fmuladd.f32(float %95, float %97, float %103)
   store float %104, ptr %13, align 4
   %105 = load float, ptr %93, align 4
   %106 = load float, ptr %91, align 4
-  %107 = fneg float %106
-  %108 = fmul float %97, %107
+  %107 = fneg float %97
+  %108 = fmul float %106, %107
   %109 = call float @llvm.fmuladd.f32(float %99, float %105, float %108)
   store float %109, ptr %54, align 4
-  %110 = fneg float %95
-  %111 = fmul float %105, %110
+  %110 = fneg float %105
+  %111 = fmul float %95, %110
   %112 = call float @llvm.fmuladd.f32(float %106, float %101, float %111)
   store float %112, ptr %55, align 4
   %113 = fneg float %79
@@ -2335,24 +2335,24 @@ _ZL8get_minvPA3_fS0_.exit.i:                      ; preds = %227
   %369 = load float, ptr %368, align 4
   %370 = getelementptr inbounds i8, ptr %360, i64 20
   %371 = load float, ptr %370, align 4
-  %372 = fneg float %369
-  %373 = fmul float %371, %372
+  %372 = fneg float %371
+  %373 = fmul float %369, %372
   %374 = call float @llvm.fmuladd.f32(float %364, float %367, float %373)
   %375 = load float, ptr %362, align 4
   %376 = getelementptr inbounds i8, ptr %360, i64 4
   %377 = load float, ptr %376, align 4
   %378 = getelementptr inbounds i8, ptr %360, i64 8
   %379 = load float, ptr %378, align 4
-  %380 = fmul float %379, %372
-  %381 = call float @llvm.fmuladd.f32(float %377, float %367, float %380)
-  %382 = fneg float %375
-  %383 = fmul float %381, %382
-  %384 = call float @llvm.fmuladd.f32(float %361, float %374, float %383)
-  %385 = load float, ptr %365, align 4
-  %386 = fneg float %364
-  %387 = fmul float %379, %386
+  %380 = fneg float %379
+  %381 = fmul float %369, %380
+  %382 = call float @llvm.fmuladd.f32(float %377, float %367, float %381)
+  %383 = fneg float %382
+  %384 = fmul float %375, %383
+  %385 = call float @llvm.fmuladd.f32(float %361, float %374, float %384)
+  %386 = load float, ptr %365, align 4
+  %387 = fmul float %364, %380
   %388 = call float @llvm.fmuladd.f32(float %377, float %371, float %387)
-  %389 = call noundef float @llvm.fmuladd.f32(float %385, float %388, float %384)
+  %389 = call noundef float @llvm.fmuladd.f32(float %386, float %388, float %385)
   %390 = fpext float %389 to double
   %391 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef %356, double noundef %357, double noundef %358, double noundef %390) #16
   %392 = load ptr, ptr %279, align 8
@@ -3916,15 +3916,15 @@ _ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11
   %661 = load float, ptr %660, align 4
   %662 = getelementptr inbounds i8, ptr %659, i64 8
   %663 = load float, ptr %662, align 4
-  %664 = fneg float %663
-  %665 = fmul float %652, %664
+  %664 = fneg float %652
+  %665 = fmul float %663, %664
   %666 = call float @llvm.fmuladd.f32(float %661, float %657, float %665)
   %667 = load float, ptr %659, align 4
-  %668 = fneg float %667
-  %669 = fmul float %657, %668
+  %668 = fneg float %657
+  %669 = fmul float %667, %668
   %670 = call float @llvm.fmuladd.f32(float %663, float %647, float %669)
-  %671 = fneg float %661
-  %672 = fmul float %647, %671
+  %671 = fneg float %647
+  %672 = fmul float %661, %671
   %673 = call float @llvm.fmuladd.f32(float %667, float %652, float %672)
   %674 = load i64, ptr %5, align 8
   %675 = inttoptr i64 %674 to ptr

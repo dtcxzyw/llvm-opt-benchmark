@@ -267,7 +267,7 @@ define dso_local ptr @acpi_ev_low_get_gpe_info(i32 noundef %0, ptr noundef reado
   %5 = getelementptr inbounds i8, ptr %1, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
-  %8 = icmp ugt i32 %7, %0
+  %8 = icmp ult i32 %0, %7
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
@@ -313,7 +313,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
   %10 = getelementptr inbounds i8, ptr %7, i64 62
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  %13 = icmp ugt i32 %12, %1
+  %13 = icmp ult i32 %1, %12
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %9
@@ -348,7 +348,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
   %34 = getelementptr inbounds i8, ptr %31, i64 62
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
-  %37 = icmp ugt i32 %36, %1
+  %37 = icmp ult i32 %1, %36
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %33
@@ -514,7 +514,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   %17 = getelementptr inbounds i8, ptr %14, i64 62
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  %20 = icmp ugt i32 %19, %2
+  %20 = icmp ult i32 %2, %19
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %16
@@ -548,7 +548,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   %41 = getelementptr inbounds i8, ptr %38, i64 62
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
-  %44 = icmp ugt i32 %43, %2
+  %44 = icmp ult i32 %2, %43
   br i1 %44, label %.thread14, label %45
 
 45:                                               ; preds = %40

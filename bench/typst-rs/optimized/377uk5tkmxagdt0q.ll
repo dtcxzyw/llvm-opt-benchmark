@@ -101,7 +101,7 @@ define internal fastcc void @_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %5 = tail call i32 @llvm.fptosi.sat.i32.f32(float %0)
   %6 = sitofp i32 %5 to float
-  %7 = fcmp oeq float %6, %0
+  %7 = fcmp oeq float %0, %6
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %1
@@ -143,7 +143,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   %22 = load i64, ptr %21, align 8, !alias.scope !11, !noundef !14
   %23 = load i64, ptr %.0.val, align 8, !alias.scope !15, !noundef !14
   %24 = sub i64 %23, %22
-  %25 = icmp ult i64 %24, %.sroa.3.0.i.i.i
+  %25 = icmp ugt i64 %.sroa.3.0.i.i.i, %24
   br i1 %25, label %26, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i.i"
 
 26:                                               ; preds = %_ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i
@@ -262,7 +262,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   %81 = load i64, ptr %80, align 8, !alias.scope !26, !noundef !14
   %82 = load i64, ptr %.0.val, align 8, !alias.scope !29, !noundef !14
   %83 = sub i64 %82, %81
-  %84 = icmp ult i64 %83, %gepdiff.i.i
+  %84 = icmp ugt i64 %gepdiff.i.i, %83
   br i1 %84, label %85, label %"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.exit.i"
 
 85:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i"
@@ -486,7 +486,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
   %gepdiff.i.i.i = sub nsw i64 11, %.3.i.i.i.i
   %87 = load i64, ptr %9, align 8, !alias.scope !67, !noundef !14
   %88 = sub i64 %87, %41
-  %89 = icmp ult i64 %88, %gepdiff.i.i.i
+  %89 = icmp ugt i64 %gepdiff.i.i.i, %88
   br i1 %89, label %90, label %"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.exit.i.i"
 
 90:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i"
@@ -1405,7 +1405,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN10pdf
   %66 = load i64, ptr %65, align 8, !alias.scope !268, !noundef !14
   %67 = load i64, ptr %.pre, align 8, !alias.scope !271, !noundef !14
   %68 = sub i64 %67, %66
-  %69 = icmp ult i64 %68, %gepdiff.i.i.i
+  %69 = icmp ugt i64 %gepdiff.i.i.i, %68
   br i1 %69, label %70, label %_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.exit
 
 70:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i"
@@ -1655,7 +1655,7 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content
   %19 = load i64, ptr %18, align 8, !alias.scope !313, !noundef !14
   %20 = load i64, ptr %.pre.i, align 8, !alias.scope !320, !noalias !313, !noundef !14
   %21 = sub i64 %20, %15
-  %22 = icmp ult i64 %21, %19
+  %22 = icmp ugt i64 %19, %21
   br i1 %22, label %23, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i"
 
 23:                                               ; preds = %._crit_edge.i
@@ -3516,7 +3516,7 @@ _ZN9typst_pdf4page22write_global_resources17h159b5f3c5f39f4f9E.exit: ; preds = %
   %415 = add nuw i64 %.sroa.01.0108, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !696)
   %416 = load i64, ptr %384, align 8, !alias.scope !696, !noundef !14
-  %417 = icmp ugt i64 %416, %.sroa.01.0108
+  %417 = icmp ult i64 %.sroa.01.0108, %416
   br i1 %417, label %418, label %433, !prof !699
 
 418:                                              ; preds = %414
@@ -4125,8 +4125,8 @@ _ZN10pdf_writer6object4Dict4pair17h0650e90793458ca2E.exit: ; preds = %_ZN10pdf_w
 
 629:                                              ; preds = %657, %.noexc59.i
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc59.i ], [ %658, %657 ]
-  %.pn.i.i.i = phi i64 [ %623, %.noexc59.i ], [ %659, %657 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %623, %.noexc59.i ], [ %659, %657 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %630 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %630, align 1, !noalias !818
   %631 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -5862,7 +5862,7 @@ _ZN10pdf_writer7content7Content14set_line_width17h2dd8d2f502be0f7fE.exit: ; pred
   %147 = load i64, ptr %127, align 8, !alias.scope !1037, !noalias !1028, !noundef !14
   %148 = load i64, ptr %.pre.i.i.i, align 8, !alias.scope !1041, !noalias !1037, !noundef !14
   %149 = sub i64 %148, %145
-  %150 = icmp ult i64 %149, %147
+  %150 = icmp ugt i64 %147, %149
   br i1 %150, label %151, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i.i.i87"
 
 151:                                              ; preds = %._crit_edge.i.i.i86
@@ -5982,7 +5982,7 @@ _ZN10pdf_writer7content7Content14set_line_width17h2dd8d2f502be0f7fE.exit: ; pred
   %200 = load i64, ptr %180, align 8, !alias.scope !1059, !noalias !1050, !noundef !14
   %201 = load i64, ptr %.pre.i.i.i92, align 8, !alias.scope !1063, !noalias !1059, !noundef !14
   %202 = sub i64 %201, %198
-  %203 = icmp ult i64 %202, %200
+  %203 = icmp ugt i64 %200, %202
   br i1 %203, label %204, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i.i.i97"
 
 204:                                              ; preds = %._crit_edge.i.i.i96
@@ -6842,7 +6842,7 @@ switch.lookup:                                    ; preds = %2
   %27 = load i64, ptr %7, align 8, !alias.scope !1247, !noalias !1238, !noundef !14
   %28 = load i64, ptr %.pre.i.i.i, align 8, !alias.scope !1251, !noalias !1247, !noundef !14
   %29 = sub i64 %28, %25
-  %30 = icmp ult i64 %29, %27
+  %30 = icmp ugt i64 %27, %29
   br i1 %30, label %31, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit.i.i.i"
 
 31:                                               ; preds = %._crit_edge.i.i.i
@@ -8534,7 +8534,7 @@ _ZN10pdf_writer6object4Dict4pair17hcbfbbf2f57883d71E.exit.i: ; preds = %_ZN10pdf
   %626 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !1608, !noalias !1611, !noundef !14
   %627 = load i64, ptr %.pre.i.i, align 8, !alias.scope !1618, !noalias !1611, !noundef !14
   %628 = sub i64 %627, %626
-  %629 = icmp ult i64 %628, %.sroa.588.0.copyload.i
+  %629 = icmp ugt i64 %.sroa.588.0.copyload.i, %628
   br i1 %629, label %630, label %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.llvm.17057414408856058071.exit.i.i"
 
 630:                                              ; preds = %.noexc51.i
@@ -10000,7 +10000,7 @@ _ZN10pdf_writer6object5Array4item17ha1d8e8da069fabf5E.exit: ; preds = %_ZN10pdf_
   %423 = load i64, ptr %422, align 8, !alias.scope !1931, !noalias !1934, !noundef !14
   %424 = load i64, ptr %.sroa.0135.0.copyload, align 8, !alias.scope !1941, !noalias !1934, !noundef !14
   %425 = sub i64 %424, %423
-  %426 = icmp ult i64 %425, %.sroa.5137.0.copyload
+  %426 = icmp ugt i64 %.sroa.5137.0.copyload, %425
   br i1 %426, label %427, label %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.llvm.17057414408856058071.exit.i"
 
 427:                                              ; preds = %.noexc75
@@ -10408,12 +10408,12 @@ default.unreachable5:                             ; preds = %"_ZN91_$LT$core..sl
   %16 = load double, ptr %15, align 8, !noundef !14
   %17 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %16)
   %18 = fptrunc double %17 to float
-  %19 = fadd float %18, %1
+  %19 = fadd float %1, %18
   %20 = getelementptr inbounds i8, ptr %.sroa.0.04, i64 16
   %21 = load double, ptr %20, align 8, !noundef !14
   %22 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %21)
   %23 = fptrunc double %22 to float
-  %24 = fadd float %23, %2
+  %24 = fadd float %2, %23
   %25 = tail call fastcc noundef align 8 dereferenceable(24) ptr @_ZN10pdf_writer7content7Content7move_to17ha33205424871e974E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, float noundef %19, float noundef %24)
   br label %133
 
@@ -10422,12 +10422,12 @@ default.unreachable5:                             ; preds = %"_ZN91_$LT$core..sl
   %28 = load double, ptr %27, align 8, !noundef !14
   %29 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %28)
   %30 = fptrunc double %29 to float
-  %31 = fadd float %30, %1
+  %31 = fadd float %1, %30
   %32 = getelementptr inbounds i8, ptr %.sroa.0.04, i64 16
   %33 = load double, ptr %32, align 8, !noundef !14
   %34 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %33)
   %35 = fptrunc double %34 to float
-  %36 = fadd float %35, %2
+  %36 = fadd float %2, %35
   %37 = tail call fastcc noundef align 8 dereferenceable(24) ptr @_ZN10pdf_writer7content7Content7line_to17hff86edb6d2d960f1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, float noundef %31, float noundef %36)
   br label %133
 
@@ -10436,32 +10436,32 @@ default.unreachable5:                             ; preds = %"_ZN91_$LT$core..sl
   %40 = load double, ptr %39, align 8, !noundef !14
   %41 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %40)
   %42 = fptrunc double %41 to float
-  %43 = fadd float %42, %1
+  %43 = fadd float %1, %42
   %44 = getelementptr inbounds i8, ptr %.sroa.0.04, i64 16
   %45 = load double, ptr %44, align 8, !noundef !14
   %46 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %45)
   %47 = fptrunc double %46 to float
-  %48 = fadd float %47, %2
+  %48 = fadd float %2, %47
   %49 = getelementptr inbounds i8, ptr %.sroa.0.04, i64 24
   %50 = load double, ptr %49, align 8, !noundef !14
   %51 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %50)
   %52 = fptrunc double %51 to float
-  %53 = fadd float %52, %1
+  %53 = fadd float %1, %52
   %54 = getelementptr inbounds i8, ptr %.sroa.0.04, i64 32
   %55 = load double, ptr %54, align 8, !noundef !14
   %56 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %55)
   %57 = fptrunc double %56 to float
-  %58 = fadd float %57, %2
+  %58 = fadd float %2, %57
   %59 = getelementptr inbounds i8, ptr %.sroa.0.04, i64 40
   %60 = load double, ptr %59, align 8, !noundef !14
   %61 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %60)
   %62 = fptrunc double %61 to float
-  %63 = fadd float %62, %1
+  %63 = fadd float %1, %62
   %64 = getelementptr inbounds i8, ptr %.sroa.0.04, i64 48
   %65 = load double, ptr %64, align 8, !noundef !14
   %66 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %65)
   %67 = fptrunc double %66 to float
-  %68 = fadd float %67, %2
+  %68 = fadd float %2, %67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1996)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1996
   store ptr %0, ptr %5, align 8, !noalias !1996

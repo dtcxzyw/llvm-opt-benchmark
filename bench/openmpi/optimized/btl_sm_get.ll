@@ -15,7 +15,7 @@ define i32 @mca_btl_sm_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 n
   %13 = getelementptr i8, ptr %1, i64 104
   %.val = load i16, ptr %13, align 8
   %14 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
-  %15 = icmp eq i16 %14, %.val
+  %15 = icmp eq i16 %.val, %14
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %12

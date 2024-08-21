@@ -22,7 +22,7 @@ define noundef i8 @_ZN3mio8interest8Interest3add17h37d1058f5c2d8375E(i8 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i8 @_ZN3mio8interest8Interest6remove17hed07104590892115E(i8 noundef %0, i8 noundef %1) unnamed_addr #0 {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 

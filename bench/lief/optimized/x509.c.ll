@@ -566,7 +566,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
 19:                                               ; preds = %13
   %20 = load i64, ptr %4, align 8
   %21 = or disjoint i64 %.013, 8
-  %22 = icmp ugt i64 %21, %20
+  %22 = icmp ult i64 %20, %21
   br i1 %22, label %x509_parse_time.exit, label %23
 
 23:                                               ; preds = %19
@@ -1091,7 +1091,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
 
 14:                                               ; preds = %.lr.ph.split.us
   %15 = zext nneg i32 %12 to i64
-  %.not50.us = icmp ult i64 %15, %1
+  %.not50.us = icmp ugt i64 %1, %15
   br i1 %.not50.us, label %._crit_edge.loopexit, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
@@ -1195,7 +1195,7 @@ define hidden i32 @mbedtls_x509_sig_alg_gets(ptr nocapture noundef writeonly %0,
 
 16:                                               ; preds = %14
   %17 = zext nneg i32 %.035 to i64
-  %.not42 = icmp ult i64 %17, %1
+  %.not42 = icmp ugt i64 %1, %17
   br i1 %.not42, label %18, label %39
 
 18:                                               ; preds = %16
@@ -1261,7 +1261,7 @@ define hidden range(i32 -10624, 1) i32 @mbedtls_x509_key_size_helper(ptr nocaptu
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.14, ptr noundef %2) #12
   %5 = icmp sgt i32 %4, -1
   %6 = zext nneg i32 %4 to i64
-  %.not = icmp ult i64 %6, %1
+  %.not = icmp ugt i64 %1, %6
   %or.cond = select i1 %5, i1 %.not, i1 false
   %.0 = select i1 %or.cond, i32 0, i32 -10624
   ret i32 %.0

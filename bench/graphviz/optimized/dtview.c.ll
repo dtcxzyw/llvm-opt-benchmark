@@ -284,7 +284,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 92:                                               ; preds = %88, %85
   %93 = phi ptr [ %87, %85 ], [ %91, %88 ]
-  %.not136 = icmp eq ptr %93, %1
+  %.not136 = icmp eq ptr %1, %93
   br i1 %.not136, label %102, label %.lr.ph175.preheader
 
 .lr.ph175.preheader:                              ; preds = %72, %92
@@ -332,7 +332,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not140181, label %._crit_edge183, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %109
-  %110 = icmp eq ptr %.3107, %0
+  %110 = icmp eq ptr %0, %.3107
   %111 = getelementptr inbounds i8, ptr %.3107, i64 24
   br i1 %110, label %.loopexit, label %.preheader
 

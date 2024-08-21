@@ -355,11 +355,11 @@ define dso_local ptr @PageOutput(i32 noundef %0, ptr noundef readonly %1) local_
 23:                                               ; preds = %15
   %24 = load i16, ptr %3, align 2
   %25 = zext i16 %24 to i32
-  %.not27 = icmp sgt i32 %25, %0
+  %.not27 = icmp slt i32 %0, %25
   br i1 %.not27, label %29, label %26
 
 26:                                               ; preds = %23
-  %27 = icmp sle i32 %18, %0
+  %27 = icmp sge i32 %0, %18
   %28 = icmp ugt i16 %16, 1
   %or.cond = select i1 %27, i1 true, i1 %28
   br i1 %or.cond, label %30, label %48
@@ -441,7 +441,7 @@ declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture
 define dso_local void @ClosePager(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @stdout, align 8
-  %.not4 = icmp eq ptr %2, %0
+  %.not4 = icmp eq ptr %0, %2
   %or.cond = select i1 %.not, i1 true, i1 %.not4
   br i1 %or.cond, label %13, label %3
 
@@ -816,7 +816,7 @@ switch.early.test:                                ; preds = %10
 
 11:                                               ; preds = %switch.early.test
   %12 = load ptr, ptr @stdout, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %IsPagerNeeded.exit
 
 14:                                               ; preds = %11
@@ -1025,7 +1025,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
 96:                                               ; preds = %95
   %.not.i42 = icmp eq ptr %.066, null
   %97 = load ptr, ptr @stdout, align 8
-  %.not4.i = icmp eq ptr %97, %.066
+  %.not4.i = icmp eq ptr %.066, %97
   %or.cond.i = select i1 %.not.i42, i1 true, i1 %.not4.i
   br i1 %or.cond.i, label %ClosePager.exit, label %98
 
@@ -1355,14 +1355,14 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 147:                                              ; preds = %._crit_edge661
   %148 = load ptr, ptr @stdout, align 8
-  %149 = icmp eq ptr %148, %1
+  %149 = icmp eq ptr %1, %148
   br i1 %149, label %150, label %153
 
 150:                                              ; preds = %147
   %151 = call i32 @fileno(ptr noundef %148) #18
   %152 = call i32 @isatty(i32 noundef %151) #18
   %.not524 = icmp ne i32 %152, 0
-  %brmerge628 = or i1 %.not524, %2
+  %brmerge628 = or i1 %2, %.not524
   br i1 %brmerge628, label %._crit_edge784, label %167
 
 ._crit_edge784:                                   ; preds = %150
@@ -1498,7 +1498,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 211:                                              ; preds = %210
   %212 = load ptr, ptr @stdout, align 8
-  %213 = icmp eq ptr %212, %1
+  %213 = icmp eq ptr %1, %212
   %or.cond5 = select i1 %213, i1 %171, i1 false
   %214 = icmp ult i32 %.0467, %.2485
   %or.cond552 = select i1 %.not526, i1 true, i1 %214
@@ -1561,7 +1561,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 ._crit_edge679:                                   ; preds = %235
   %.pre786 = load ptr, ptr @stdout, align 8
-  %240 = icmp eq ptr %.pre786, %1
+  %240 = icmp eq ptr %1, %.pre786
   br i1 %240, label %._crit_edge679.thread, label %.thread
 
 ._crit_edge679.thread:                            ; preds = %218, %._crit_edge679
@@ -1950,7 +1950,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %430 = getelementptr i8, ptr %425, i64 %429
   %431 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %430) #19
   %432 = getelementptr i8, ptr %430, i64 %431
-  %433 = icmp ugt ptr %432, %430
+  %433 = icmp ult ptr %430, %432
   br i1 %433, label %.lr.ph.i563.us, label %strlen_max_width.exit.thread.us
 
 strlen_max_width.exit.thread.us:                  ; preds = %426
@@ -2283,7 +2283,7 @@ footers_with_default.exit:                        ; preds = %541, %545, %549
 576:                                              ; preds = %._crit_edge720
   %.not.i565 = icmp eq ptr %.0616845, null
   %577 = load ptr, ptr @stdout, align 8
-  %.not4.i = icmp eq ptr %577, %.0616845
+  %.not4.i = icmp eq ptr %.0616845, %577
   %or.cond.i566 = select i1 %.not.i565, i1 true, i1 %.not4.i
   br i1 %or.cond.i566, label %ClosePager.exit, label %578
 
@@ -2938,7 +2938,7 @@ footers_with_default.exit:                        ; preds = %38, %42, %46
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr @stdout, align 8
-  %66 = icmp eq ptr %65, %1
+  %66 = icmp eq ptr %1, %65
   br i1 %66, label %67, label %IsPagerNeeded.exit
 
 67:                                               ; preds = %64
@@ -3411,7 +3411,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %274 = load ptr, ptr %273, align 8
   %275 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #19
   %276 = getelementptr i8, ptr %274, i64 %275
-  %277 = icmp ugt ptr %276, %274
+  %277 = icmp ult ptr %274, %276
   br i1 %277, label %.lr.ph.i418, label %strlen_max_width.exit
 
 .lr.ph.i418:                                      ; preds = %271, %282
@@ -3515,7 +3515,7 @@ strlen_max_width.exit:                            ; preds = %strlen_max_width.ex
   %322 = getelementptr i8, ptr %320, i64 %321
   %323 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %322) #19
   %324 = getelementptr i8, ptr %322, i64 %323
-  %325 = icmp ugt ptr %324, %322
+  %325 = icmp ult ptr %322, %324
   br i1 %325, label %.lr.ph.i421, label %strlen_max_width.exit426
 
 .lr.ph.i421:                                      ; preds = %315, %330
@@ -3746,7 +3746,7 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
 417:                                              ; preds = %414
   %.not.i427 = icmp eq ptr %.0469, null
   %418 = load ptr, ptr @stdout, align 8
-  %.not4.i = icmp eq ptr %418, %.0469
+  %.not4.i = icmp eq ptr %.0469, %418
   %or.cond.i428 = select i1 %.not.i427, i1 true, i1 %.not4.i
   br i1 %or.cond.i428, label %ClosePager.exit, label %419
 
@@ -7298,7 +7298,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
   %reass.sub126 = sub i32 %.0104, %2
   %85 = add i32 %reass.sub126, -3
   %86 = tail call i32 @llvm.smax.i32(i32 %85, i32 0)
-  %.1102. = tail call i32 @llvm.umin.i32(i32 %86, i32 %3)
+  %.1102. = tail call i32 @llvm.umin.i32(i32 %3, i32 %86)
   br label %.thread120
 
 87:                                               ; preds = %82
@@ -7308,7 +7308,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
   %reass.sub = sub i32 %.0104, %2
   %89 = add i32 %reass.sub, -7
   %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
-  %.2103. = tail call i32 @llvm.umin.i32(i32 %90, i32 %3)
+  %.2103. = tail call i32 @llvm.umin.i32(i32 %3, i32 %90)
   br label %.thread120
 
 .thread120:                                       ; preds = %73, %84, %79, %88, %87
@@ -7321,7 +7321,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
 .thread120.thread:                                ; preds = %81
   %92 = sub i32 %.0104, %2
   %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
-  %. = tail call i32 @llvm.umin.i32(i32 %93, i32 %3)
+  %. = tail call i32 @llvm.umin.i32(i32 %3, i32 %93)
   %spec.store.select1147 = tail call i32 @llvm.smax.i32(i32 %.2, i32 0)
   %spec.select118148 = tail call i32 @llvm.umax.i32(i32 %., i32 %spec.store.select1147)
   %94 = icmp ugt i32 %., %spec.store.select1147

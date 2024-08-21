@@ -928,7 +928,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   %137 = load ptr, ptr %136, align 8
   %138 = call i32 @plugin_get_syms(ptr noundef %134, i32 noundef %118, ptr noundef %4, ptr noundef %137) #10
   %139 = sext i32 %138 to i64
-  %140 = icmp ult i64 %139, %5
+  %140 = icmp ugt i64 %5, %139
   br i1 %140, label %.thread95, label %._crit_edge122
 
 ._crit_edge122:                                   ; preds = %130

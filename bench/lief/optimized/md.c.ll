@@ -848,7 +848,7 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
   %14 = getelementptr inbounds i8, ptr %7, i64 13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %13

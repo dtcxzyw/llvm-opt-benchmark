@@ -161,7 +161,7 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
   %14 = load i64, ptr %13, align 8, !noalias !6
   %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !noalias !6
-  %.not.i = icmp ult ptr %16, %2
+  %.not.i = icmp ugt ptr %2, %16
   br i1 %.not.i, label %18, label %17
 
 17:                                               ; preds = %8
@@ -187,9 +187,9 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
   %28 = load ptr, ptr %27, align 8, !noalias !6
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !6
-  %31 = icmp ult ptr %28, %1
+  %31 = icmp ugt ptr %1, %28
   %32 = select i1 %31, ptr %1, ptr %28
-  %33 = icmp ugt ptr %30, %2
+  %33 = icmp ult ptr %2, %30
   %34 = select i1 %33, ptr %2, ptr %30
   %35 = icmp ult ptr %32, %34
   br i1 %35, label %36, label %45
@@ -206,7 +206,7 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
   br label %47
 
 45:                                               ; preds = %25
-  %.not11.i = icmp ult ptr %28, %2
+  %.not11.i = icmp ugt ptr %2, %28
   br i1 %.not11.i, label %47, label %46
 
 46:                                               ; preds = %45
@@ -328,9 +328,9 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %91
   %.val25.i = load i64, ptr %100, align 8
   %101 = sub i64 0, %.val25.i
   %102 = getelementptr inbounds i8, ptr %.val.i, i64 %101
-  %103 = icmp ult ptr %102, %1
+  %103 = icmp ugt ptr %1, %102
   %104 = select i1 %103, ptr %1, ptr %102
-  %105 = icmp ugt ptr %.val.i, %2
+  %105 = icmp ult ptr %2, %.val.i
   %106 = select i1 %105, ptr %2, ptr %.val.i
   %107 = icmp ult ptr %104, %106
   br i1 %107, label %108, label %91, !llvm.loop !11
@@ -362,9 +362,9 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   %.val27.i = load i64, ptr %121, align 8
   %122 = sub i64 0, %.val27.i
   %123 = getelementptr inbounds i8, ptr %.val26.i, i64 %122
-  %124 = icmp ult ptr %123, %1
+  %124 = icmp ugt ptr %1, %123
   %125 = select i1 %124, ptr %1, ptr %123
-  %126 = icmp ugt ptr %.val26.i, %2
+  %126 = icmp ult ptr %2, %.val26.i
   %127 = select i1 %126, ptr %2, ptr %.val26.i
   %128 = icmp ult ptr %125, %127
   br i1 %128, label %129, label %139
@@ -394,9 +394,9 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   %.val29.i = load i64, ptr %143, align 8
   %144 = sub i64 0, %.val29.i
   %145 = getelementptr inbounds i8, ptr %.val28.i, i64 %144
-  %146 = icmp ult ptr %145, %1
+  %146 = icmp ugt ptr %1, %145
   %147 = select i1 %146, ptr %1, ptr %145
-  %148 = icmp ugt ptr %.val28.i, %2
+  %148 = icmp ult ptr %2, %.val28.i
   %149 = select i1 %148, ptr %2, ptr %.val28.i
   %150 = icmp ult ptr %147, %149
   br i1 %150, label %151, label %161
@@ -427,9 +427,9 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   %.val31.i = load i64, ptr %166, align 8
   %167 = sub i64 0, %.val31.i
   %168 = getelementptr inbounds i8, ptr %.val30.i, i64 %167
-  %169 = icmp ult ptr %168, %1
+  %169 = icmp ugt ptr %1, %168
   %170 = select i1 %169, ptr %1, ptr %168
-  %171 = icmp ugt ptr %.val30.i, %2
+  %171 = icmp ult ptr %2, %.val30.i
   %172 = select i1 %171, ptr %2, ptr %.val30.i
   %173 = icmp ult ptr %170, %172
   br i1 %173, label %174, label %186
@@ -660,7 +660,7 @@ define linkonce_odr hidden void @_ZN15GCThreadClosure9do_threadEP6Thread(ptr nou
   %.val5 = load i64, ptr %13, align 8
   %14 = sub i64 0, %.val5
   %15 = getelementptr inbounds i8, ptr %.val, i64 %14
-  %16 = icmp ult ptr %15, %9
+  %16 = icmp ugt ptr %9, %15
   %17 = select i1 %16, ptr %9, ptr %15
   %18 = icmp ult ptr %11, %.val
   %19 = select i1 %18, ptr %11, ptr %.val
@@ -705,7 +705,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
   %14 = add i64 %10, -1
   %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %13, i64 %14, i32 1
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %3
+  %17 = icmp eq ptr %3, %16
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %11
@@ -713,7 +713,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %14
   %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %22, %8
+  %23 = icmp eq i8 %8, %22
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %18

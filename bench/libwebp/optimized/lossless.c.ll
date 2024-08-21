@@ -663,7 +663,7 @@ PredictorAdd2_C.exit._crit_edge.us.i:             ; preds = %PredictorAdd2_C.exi
 PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %PredictorAdd2_C.exit._crit_edge.us.i, %40
   %106 = getelementptr inbounds i8, ptr %0, i64 12
   %107 = load i32, ptr %106, align 4
-  %.not = icmp eq i32 %107, %2
+  %.not = icmp eq i32 %2, %107
   br i1 %.not, label %ColorIndexInverseTransform_C.exit, label %108
 
 108:                                              ; preds = %PredictorInverseTransform_C.exit
@@ -671,7 +671,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %110 = sub nsw i64 0, %109
   %111 = getelementptr inbounds i32, ptr %4, i64 %110
   %112 = xor i32 %1, -1
-  %113 = add i32 %112, %2
+  %113 = add i32 %2, %112
   %114 = mul nsw i32 %8, %113
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %4, i64 %115

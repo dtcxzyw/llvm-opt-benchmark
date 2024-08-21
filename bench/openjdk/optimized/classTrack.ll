@@ -40,7 +40,7 @@ define hidden void @cbTrackingObjectFree(ptr noundef readnone %0, i64 noundef %1
   %6 = load i8, ptr %5, align 1
   %.not1 = icmp eq i8 %6, 0
   %7 = load ptr, ptr @trackingEnv, align 8
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   %or.cond = select i1 %.not1, i1 true, i1 %8
   br i1 %or.cond, label %10, label %9
 
@@ -72,7 +72,7 @@ define hidden void @cbTrackingClassPrepare(ptr noundef readnone %0, ptr nocaptur
   %8 = load i8, ptr %7, align 1
   %.not3 = icmp eq i8 %8, 0
   %9 = load ptr, ptr @trackingEnv, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   %or.cond = select i1 %.not3, i1 true, i1 %10
   br i1 %or.cond, label %12, label %11
 

@@ -93,7 +93,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %cmp3 = icmp ugt ptr %call1, inttoptr (i64 16383 to ptr)
   %or.cond = and i1 %cmp2, %cmp3
   %3 = ptrtoint ptr %call1 to i64
-  %add = add i64 %3, %size
+  %add = add i64 %size, %3
   %cmp6 = icmp ult i64 %add, 140737488355328
   %or.cond19 = and i1 %or.cond, %cmp6
   br i1 %or.cond19, label %if.then, label %if.end
@@ -647,14 +647,14 @@ if.then3.i:                                       ; preds = %if.then.i
 for.cond.i.i:                                     ; preds = %if.end.i.i, %if.then3.i
   %sp.0.i.i = phi ptr [ %seg.i.i, %if.then3.i ], [ %31, %if.end.i.i ]
   %29 = load ptr, ptr %sp.0.i.i, align 8
-  %cmp.not.i.i = icmp ugt ptr %29, %27
+  %cmp.not.i.i = icmp ult ptr %27, %29
   br i1 %cmp.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.cond.i.i
   %size.i.i = getelementptr inbounds i8, ptr %sp.0.i.i, i64 8
   %30 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %29, i64 %30
-  %cmp2.i.i = icmp ugt ptr %add.ptr.i.i, %27
+  %cmp2.i.i = icmp ult ptr %27, %add.ptr.i.i
   br i1 %cmp2.i.i, label %segment_holding.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %for.cond.i.i
@@ -2568,14 +2568,14 @@ if.else68.i:                                      ; preds = %while.body57.i
 for.cond.i.i.i:                                   ; preds = %if.end.i.i.i, %if.else68.i
   %sp.0.i.i.i = phi ptr [ %seg.i, %if.else68.i ], [ %131, %if.end.i.i.i ]
   %129 = load ptr, ptr %sp.0.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt ptr %129, %128
+  %cmp.not.i.i.i = icmp ult ptr %128, %129
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.cond.i.i.i
   %size.i.i.i = getelementptr inbounds i8, ptr %sp.0.i.i.i, i64 8
   %130 = load i64, ptr %size.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %129, i64 %130
-  %cmp2.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %128
+  %cmp2.i.i.i = icmp ult ptr %128, %add.ptr.i.i.i
   br i1 %cmp2.i.i.i, label %segment_holding.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i.i, %for.cond.i.i.i
@@ -2790,7 +2790,7 @@ if.end129.sink.split.i.i:                         ; preds = %if.else117.i.i, %if
 
 if.end70.i:                                       ; preds = %if.end129.sink.split.i.i, %for.end.i.i, %if.then42.i
   %144 = load i64, ptr %topsize, align 8
-  %cmp72.i = icmp ugt i64 %144, %nb.0
+  %cmp72.i = icmp ult i64 %nb.0, %144
   br i1 %cmp72.i, label %if.then74.i, label %return
 
 if.then74.i:                                      ; preds = %if.end70.i

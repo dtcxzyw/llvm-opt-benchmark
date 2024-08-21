@@ -6660,7 +6660,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sess.010 = phi ptr [ %sess.08, %for.body.lr.ph ], [ %sess.0, %for.inc ]
   %idlen1 = getelementptr inbounds i8, ptr %sess.010, i64 8
   %0 = load i32, ptr %idlen1, align 8
-  %cmp = icmp eq i32 %0, %idlen
+  %cmp = icmp eq i32 %idlen, %0
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body

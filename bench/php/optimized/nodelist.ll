@@ -358,7 +358,7 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
   %51 = getelementptr inbounds i8, ptr %0, i64 72
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
-  %.not172 = icmp sgt i64 %53, %1
+  %.not172 = icmp slt i64 %1, %53
   br i1 %.not172, label %.critedge, label %54
 
 54:                                               ; preds = %49

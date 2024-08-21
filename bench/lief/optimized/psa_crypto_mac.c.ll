@@ -215,7 +215,7 @@ mac_init.exit:                                    ; preds = %12
 
 41:                                               ; preds = %.thread87.i, %.thread87.thread.i
   %42 = phi i64 [ %.ph103.i, %.thread87.thread.i ], [ %39, %.thread87.i ]
-  %43 = icmp ult i64 %42, %3
+  %43 = icmp ugt i64 %3, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41

@@ -223,7 +223,7 @@ define void @_ZN7xgboost10collective8cpu_impl13RingAllgatherERKNS0_4CommENS_6com
   %30 = load i32, ptr %29, align 4
   store i32 %4, ptr %16, align 4, !noalias !4
   store i32 %28, ptr %17, align 4, !noalias !4
-  %31 = icmp sgt i32 %28, %4
+  %31 = icmp slt i32 %4, %28
   br i1 %31, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %32
 
 32:                                               ; preds = %7
@@ -343,7 +343,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %66 = sub i32 %60, %storemerge108
   %67 = srem i32 %66, %28
   %68 = sext i32 %67 to i64
-  %69 = mul i64 %68, %3
+  %69 = mul i64 %3, %68
   %70 = icmp eq i32 %67, %61
   br i1 %70, label %71, label %._crit_edge.i.i
 
@@ -359,7 +359,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 76:                                               ; preds = %._crit_edge.i.i
   %77 = load i64, ptr %2, align 8, !noalias !20
-  %.not8.i.i.i = icmp ult i64 %77, %69
+  %.not8.i.i.i = icmp ugt i64 %69, %77
   br i1 %.not8.i.i.i, label %81, label %82
 
 78:                                               ; preds = %._crit_edge.i.i
@@ -519,7 +519,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %127 = add i32 %60, %126
   %128 = srem i32 %127, %28
   %129 = sext i32 %128 to i64
-  %130 = mul i64 %129, %3
+  %130 = mul i64 %3, %129
   %131 = icmp eq i32 %128, %61
   br i1 %131, label %132, label %._crit_edge.i.i29
 
@@ -535,7 +535,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 137:                                              ; preds = %._crit_edge.i.i29
   %138 = load i64, ptr %2, align 8, !noalias !29
-  %.not8.i.i.i44 = icmp ult i64 %138, %130
+  %.not8.i.i.i44 = icmp ugt i64 %130, %138
   br i1 %.not8.i.i.i44, label %142, label %143
 
 139:                                              ; preds = %._crit_edge.i.i29
@@ -1166,7 +1166,7 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit: ; preds = %15
 
 23:                                               ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit
   %24 = load i64, ptr %3, align 8, !noalias !48
-  %.not8.i = icmp ult i64 %24, %.01634
+  %.not8.i = icmp ugt i64 %.01634, %24
   br i1 %.not8.i, label %28, label %29
 
 25:                                               ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit
@@ -1350,7 +1350,7 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i: ; preds = %_Z
 
 53:                                               ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i
   %54 = load i64, ptr %4, align 8, !noalias !66
-  %.not8.i.i.i = icmp ult i64 %54, %45
+  %.not8.i.i.i = icmp ugt i64 %45, %54
   br i1 %.not8.i.i.i, label %58, label %59
 
 55:                                               ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i
@@ -1430,7 +1430,7 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i27: ; preds = %
 
 91:                                               ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i27
   %92 = load i64, ptr %4, align 8, !noalias !78
-  %.not8.i.i.i30 = icmp ult i64 %92, %83
+  %.not8.i.i.i30 = icmp ugt i64 %83, %92
   br i1 %.not8.i.i.i30, label %96, label %97
 
 93:                                               ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i27
@@ -2635,7 +2635,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit.thread:   ; preds = %_ZNSt10shared_ptrIN
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
   %101 = ashr exact i64 %100, 3
-  %102 = icmp ult i64 %101, %94
+  %102 = icmp ugt i64 %94, %101
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %93
@@ -2650,7 +2650,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit.thread:   ; preds = %_ZNSt10shared_ptrIN
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 105:                                              ; preds = %93
-  %106 = icmp ugt i64 %101, %94
+  %106 = icmp ult i64 %94, %101
   br i1 %106, label %107, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 107:                                              ; preds = %105
@@ -3139,7 +3139,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit.thread:   ; preds = %_ZNSt10shared_ptrIN
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
   %100 = ashr exact i64 %99, 3
-  %101 = icmp ult i64 %100, %93
+  %101 = icmp ugt i64 %93, %100
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %92
@@ -3154,7 +3154,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit.thread:   ; preds = %_ZNSt10shared_ptrIN
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 104:                                              ; preds = %92
-  %105 = icmp ugt i64 %100, %93
+  %105 = icmp ult i64 %93, %100
   br i1 %105, label %106, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 106:                                              ; preds = %104
@@ -3861,7 +3861,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -4782,7 +4782,7 @@ define linkonce_odr { ptr, i64 } @_ZSt11partial_sumIN7xgboost6common6detail12Spa
 
 10:                                               ; preds = %6
   %11 = load i64, ptr %0, align 8
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit, label %13
 
 13:                                               ; preds = %10
@@ -4792,7 +4792,7 @@ define linkonce_odr { ptr, i64 } @_ZSt11partial_sumIN7xgboost6common6detail12Spa
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit: ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i64, ptr %4, align 8
-  %16 = icmp ugt i64 %15, %5
+  %16 = icmp ult i64 %5, %15
   br i1 %16, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit, label %17
 
 17:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit
@@ -4808,7 +4808,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0
   %23 = getelementptr inbounds i64, ptr %22, i64 %5
   store i64 %20, ptr %23, align 8
   %24 = load i64, ptr %0, align 8
-  %.not.i39 = icmp eq i64 %24, %1
+  %.not.i39 = icmp eq i64 %1, %24
   br i1 %.not.i39, label %._crit_edge, label %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEppEv.exit.lr.ph
 
 _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEppEv.exit.lr.ph: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit
@@ -5028,7 +5028,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %23, %_ZSt22__uninit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEmEvRT_T0_.exit: ; preds = %16
   %27 = getelementptr inbounds i8, ptr %2, i64 %18
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %27, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %27
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEPccET0_T_SA_S9_RSaIT1_E.exit, label %28
 
 28:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEmEvRT_T0_.exit
@@ -5091,7 +5091,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %51 = phi ptr [ %50, %49 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %52 = ptrtoint ptr %1 to i64
   %53 = sub i64 %52, %40
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %39, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %39
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %55, label %54
 
 54:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -5286,7 +5286,7 @@ _ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
 _ZNSt6vectorIS_IcSaIcEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIS_IcSaIcEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIS_IcSaIcEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17

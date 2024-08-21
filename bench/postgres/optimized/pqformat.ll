@@ -578,7 +578,7 @@ define dso_local void @pq_copymsgbytes(ptr nocapture noundef %0, ptr nocapture n
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %7, %9
-  %11 = icmp slt i32 %10, %2
+  %11 = icmp sgt i32 %2, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %5, %3
@@ -712,7 +712,7 @@ define dso_local ptr @pq_getmsgbytes(ptr nocapture noundef %0, i32 noundef %1) l
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = sub i32 %6, %8
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %4, %2
@@ -746,7 +746,7 @@ define dso_local ptr @pq_getmsgtext(ptr nocapture noundef %0, i32 noundef %1, pt
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %7, %9
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %5, %3

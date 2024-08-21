@@ -3397,7 +3397,7 @@ define internal fastcc noundef zeroext i1 @xelpdp_tc_phy_wait_for_tcss_power(ptr
   %9 = icmp sle i64 %8, %6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !189
   %10 = tail call fastcc zeroext i1 @xelpdp_tc_phy_tcss_power_is_enabled(ptr noundef %0)
-  %11 = xor i1 %10, %1
+  %11 = xor i1 %1, %10
   %12 = select i1 %11, i1 %9, i1 false
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -3411,7 +3411,7 @@ define internal fastcc noundef zeroext i1 @xelpdp_tc_phy_wait_for_tcss_power(ptr
   %18 = icmp sle i64 %17, %6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !189
   %19 = tail call fastcc zeroext i1 @xelpdp_tc_phy_tcss_power_is_enabled(ptr noundef %0)
-  %20 = xor i1 %19, %1
+  %20 = xor i1 %1, %19
   %21 = select i1 %20, i1 %18, i1 false
   br i1 %21, label %.lr.ph, label %._crit_edge
 

@@ -415,7 +415,7 @@ define range(i32 -1, 1) i32 @H5PL__remove_path(i32 noundef %0) local_unnamed_add
   %15 = getelementptr inbounds ptr, ptr %14, i64 %3
   store ptr %13, ptr %15, align 8
   %16 = load i32, ptr @H5PL_num_paths_g, align 4
-  %17 = icmp ugt i32 %16, %0
+  %17 = icmp ult i32 %0, %16
   %wide.trip.count = zext i32 %16 to i64
   br i1 %17, label %.lr.ph, label %._crit_edge
 
@@ -442,7 +442,7 @@ define range(i32 -1, 1) i32 @H5PL__remove_path(i32 noundef %0) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define ptr @H5PL__get_path(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @H5PL_num_paths_g, align 4
-  %.not = icmp ugt i32 %2, %0
+  %.not = icmp ult i32 %0, %2
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1

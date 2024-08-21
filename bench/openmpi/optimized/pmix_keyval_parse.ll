@@ -292,7 +292,7 @@ save_param_name.exit.i:                           ; preds = %56
 
 .critedge.i.i:                                    ; preds = %84, %82
   store i8 0, ptr %.036.i.i, align 1
-  %.not46.i.i = icmp eq ptr %.1.i.i, %65
+  %.not46.i.i = icmp eq ptr %65, %.1.i.i
   br i1 %.not46.i.i, label %trim_name.exit.i, label %91
 
 91:                                               ; preds = %.critedge.i.i
@@ -342,7 +342,7 @@ trim_name.exit.i:                                 ; preds = %91, %.critedge.i.i
 
 .critedge.i34.i:                                  ; preds = %109, %107
   store i8 0, ptr %.036.i33.i, align 1
-  %.not46.i35.i = icmp eq ptr %.1.i31.i, %65
+  %.not46.i35.i = icmp eq ptr %65, %.1.i31.i
   br i1 %.not46.i35.i, label %trim_name.exit37.i, label %116
 
 116:                                              ; preds = %.critedge.i34.i
@@ -456,7 +456,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 .critedge.i44.i:                                  ; preds = %162, %160
   store i8 0, ptr %.036.i43.i, align 1
-  %.not46.i45.i = icmp eq ptr %.1.i41.i, %133
+  %.not46.i45.i = icmp eq ptr %133, %.1.i41.i
   br i1 %.not46.i45.i, label %trim_name.exit47.i, label %169
 
 169:                                              ; preds = %.critedge.i44.i
@@ -551,7 +551,7 @@ sub_263.i:                                        ; preds = %sub_162.i
 
 .critedge.i54.i:                                  ; preds = %209, %207
   store i8 0, ptr %.036.i53.i, align 1
-  %.not46.i55.i = icmp eq ptr %.1.i51.i, %180
+  %.not46.i55.i = icmp eq ptr %180, %.1.i51.i
   br i1 %.not46.i55.i, label %trim_name.exit57.i, label %216
 
 216:                                              ; preds = %.critedge.i54.i
@@ -743,7 +743,7 @@ define internal fastcc void @trim_name(ptr noundef %0, ptr noundef readonly %1, 
   br label %52
 
 52:                                               ; preds = %38, %51, %32, %.critedge
-  %.not46 = icmp eq ptr %.1, %0
+  %.not46 = icmp eq ptr %0, %.1
   br i1 %.not46, label %56, label %53
 
 53:                                               ; preds = %52

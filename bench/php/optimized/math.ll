@@ -76,7 +76,7 @@ php_intpow10.exit:                                ; preds = %9, %12
   %16 = tail call i32 @fegetround() #16
   %17 = fcmp ult double %0, 0.000000e+00
   %18 = icmp sgt i32 %1, 0
-  %19 = fmul double %.0.i, %0
+  %19 = fmul double %0, %.0.i
   %20 = fdiv double %0, %.0.i
   %21 = select i1 %18, double %19, double %20
   br i1 %17, label %25, label %22
@@ -2314,7 +2314,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
 78:                                               ; preds = %65, %71, %75
   %.085 = phi i8 [ %72, %71 ], [ %76, %75 ], [ %68, %65 ]
   %79 = zext nneg i8 %.085 to i32
-  %.not100 = icmp slt i32 %79, %1
+  %.not100 = icmp sgt i32 %1, %79
   br i1 %.not100, label %80, label %.backedge
 
 80:                                               ; preds = %78

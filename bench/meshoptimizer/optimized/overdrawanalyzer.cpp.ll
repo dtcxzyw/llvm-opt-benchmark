@@ -384,50 +384,49 @@ entry:
   %sub1.i = fsub float %v3y, %v1y
   %sub2.i = fsub float %v2y, %v1y
   %sub3.i = fsub float %v3x, %v1x
-  %0 = fneg float %sub2.i
-  %neg.i = fmul float %sub3.i, %0
+  %0 = fneg float %sub3.i
+  %neg.i = fmul float %sub2.i, %0
   %1 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub1.i, float %neg.i)
   %cmp.i = fcmp oeq float %1, 0.000000e+00
-  %div.i = fdiv float 1.000000e+00, %1
-  %cond.i = select i1 %cmp.i, float 0.000000e+00, float %div.i
   %sub5.i = fsub float %v2z, %v1z
   %sub8.i = fsub float %v3z, %v1z
-  %2 = fmul float %sub8.i, %0
-  %neg11.i = fmul float %2, %cond.i
+  %mul9.i = fmul float %sub2.i, %sub8.i
+  %div.neg.i = fdiv float -1.000000e+00, %1
+  %2 = select i1 %cmp.i, float -0.000000e+00, float %div.neg.i
+  %neg11.i = fmul float %mul9.i, %2
   %3 = tail call float @llvm.fmuladd.f32(float %sub5.i, float %sub1.i, float %neg11.i)
-  %4 = fneg float %sub5.i
-  %5 = fmul float %sub3.i, %4
-  %neg18.i = fmul float %5, %cond.i
-  %6 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub8.i, float %neg18.i)
+  %mul16.i = fmul float %sub5.i, %sub3.i
+  %neg18.i = fmul float %mul16.i, %2
+  %4 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub8.i, float %neg18.i)
   %cmp = fcmp ogt float %1, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %sub = fsub float 2.560000e+02, %v1z
   %fneg = fneg float %3
-  %fneg1 = fneg float %6
+  %fneg1 = fneg float %4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %DZx.0 = phi float [ %fneg, %if.then ], [ %3, %entry ]
-  %DZy.0 = phi float [ %fneg1, %if.then ], [ %6, %entry ]
+  %DZy.0 = phi float [ %fneg1, %if.then ], [ %4, %entry ]
   %v3y.addr.0 = phi float [ %v2y, %if.then ], [ %v3y, %entry ]
   %v3x.addr.0 = phi float [ %v2x, %if.then ], [ %v3x, %entry ]
   %v2y.addr.0 = phi float [ %v3y, %if.then ], [ %v2y, %entry ]
   %v2x.addr.0 = phi float [ %v3x, %if.then ], [ %v2x, %entry ]
   %v1z.addr.0 = phi float [ %sub, %if.then ], [ %v1z, %entry ]
-  %7 = tail call float @llvm.fmuladd.f32(float %v1x, float 1.600000e+01, float 5.000000e-01)
-  %conv2 = fptosi float %7 to i32
-  %8 = tail call float @llvm.fmuladd.f32(float %v2x.addr.0, float 1.600000e+01, float 5.000000e-01)
-  %conv3 = fptosi float %8 to i32
-  %9 = tail call float @llvm.fmuladd.f32(float %v3x.addr.0, float 1.600000e+01, float 5.000000e-01)
-  %conv4 = fptosi float %9 to i32
-  %10 = tail call float @llvm.fmuladd.f32(float %v1y, float 1.600000e+01, float 5.000000e-01)
-  %conv5 = fptosi float %10 to i32
-  %11 = tail call float @llvm.fmuladd.f32(float %v2y.addr.0, float 1.600000e+01, float 5.000000e-01)
-  %conv6 = fptosi float %11 to i32
-  %12 = tail call float @llvm.fmuladd.f32(float %v3y.addr.0, float 1.600000e+01, float 5.000000e-01)
-  %conv7 = fptosi float %12 to i32
+  %5 = tail call float @llvm.fmuladd.f32(float %v1x, float 1.600000e+01, float 5.000000e-01)
+  %conv2 = fptosi float %5 to i32
+  %6 = tail call float @llvm.fmuladd.f32(float %v2x.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv3 = fptosi float %6 to i32
+  %7 = tail call float @llvm.fmuladd.f32(float %v3x.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv4 = fptosi float %7 to i32
+  %8 = tail call float @llvm.fmuladd.f32(float %v1y, float 1.600000e+01, float 5.000000e-01)
+  %conv5 = fptosi float %8 to i32
+  %9 = tail call float @llvm.fmuladd.f32(float %v2y.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv6 = fptosi float %9 to i32
+  %10 = tail call float @llvm.fmuladd.f32(float %v3y.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv7 = fptosi float %10 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv4)
   %conv2.cond = tail call i32 @llvm.smin.i32(i32 %cond, i32 %conv2)
   %cmp19 = icmp sgt i32 %conv2.cond, 8
@@ -517,24 +516,24 @@ for.cond215.preheader.us.preheader:               ; preds = %for.cond215.prehead
   %conv208 = sitofp i32 %sub188 to float
   %conv211 = sitofp i32 %sub187 to float
   %mul212 = fmul float %DZy.0, %conv211
-  %13 = tail call float @llvm.fmuladd.f32(float %DZx.0, float %conv208, float %mul212)
-  %14 = tail call float @llvm.fmuladd.f32(float %13, float 6.250000e-02, float %v1z.addr.0)
-  %15 = sext i32 %cond40 to i64
-  %16 = sext i32 %cond118 to i64
+  %11 = tail call float @llvm.fmuladd.f32(float %DZx.0, float %conv208, float %mul212)
+  %12 = tail call float @llvm.fmuladd.f32(float %11, float 6.250000e-02, float %v1z.addr.0)
+  %13 = sext i32 %cond40 to i64
+  %14 = sext i32 %cond118 to i64
   %wide.trip.count180 = sext i32 %cond157 to i64
   %wide.trip.count = sext i32 %cond79 to i64
   br label %for.cond215.preheader.us
 
 for.cond215.preheader.us:                         ; preds = %for.cond215.preheader.us.preheader, %for.cond215.for.end_crit_edge.us
-  %indvars.iv177 = phi i64 [ %16, %for.cond215.preheader.us.preheader ], [ %indvars.iv.next178, %for.cond215.for.end_crit_edge.us ]
-  %ZY.0170.us = phi float [ %14, %for.cond215.preheader.us.preheader ], [ %add256.us, %for.cond215.for.end_crit_edge.us ]
+  %indvars.iv177 = phi i64 [ %14, %for.cond215.preheader.us.preheader ], [ %indvars.iv.next178, %for.cond215.for.end_crit_edge.us ]
+  %ZY.0170.us = phi float [ %12, %for.cond215.preheader.us.preheader ], [ %add256.us, %for.cond215.for.end_crit_edge.us ]
   %CY3.0169.us = phi i32 [ %sub206, %for.cond215.preheader.us.preheader ], [ %add255.us, %for.cond215.for.end_crit_edge.us ]
   %CY2.0168.us = phi i32 [ %sub199, %for.cond215.preheader.us.preheader ], [ %add253.us, %for.cond215.for.end_crit_edge.us ]
   %CY1.0167.us = phi i32 [ %sub192, %for.cond215.preheader.us.preheader ], [ %add251.us, %for.cond215.for.end_crit_edge.us ]
   br label %for.body217.us
 
 for.body217.us:                                   ; preds = %for.cond215.preheader.us, %if.end241.us
-  %indvars.iv = phi i64 [ %15, %for.cond215.preheader.us ], [ %indvars.iv.next, %if.end241.us ]
+  %indvars.iv = phi i64 [ %13, %for.cond215.preheader.us ], [ %indvars.iv.next, %if.end241.us ]
   %ZX.0164.us = phi float [ %ZY.0170.us, %for.cond215.preheader.us ], [ %add248.us, %if.end241.us ]
   %CX3.0163.us = phi i32 [ %CY3.0169.us, %for.cond215.preheader.us ], [ %sub247.us, %if.end241.us ]
   %CX2.0162.us = phi i32 [ %CY2.0168.us, %for.cond215.preheader.us ], [ %sub245.us, %if.end241.us ]
@@ -546,15 +545,15 @@ for.body217.us:                                   ; preds = %for.cond215.prehead
 
 if.then220.us:                                    ; preds = %for.body217.us
   %arrayidx224.us = getelementptr inbounds [256 x [256 x [2 x float]]], ptr %buffer, i64 0, i64 %indvars.iv177, i64 %indvars.iv, i64 %idxprom223
-  %17 = load float, ptr %arrayidx224.us, align 4
-  %cmp225.us = fcmp ult float %ZX.0164.us, %17
+  %15 = load float, ptr %arrayidx224.us, align 4
+  %cmp225.us = fcmp ult float %ZX.0164.us, %15
   br i1 %cmp225.us, label %if.end241.us, label %if.then226.us
 
 if.then226.us:                                    ; preds = %if.then220.us
   store float %ZX.0164.us, ptr %arrayidx224.us, align 4
   %arrayidx239.us = getelementptr inbounds [256 x [256 x [2 x i32]]], ptr %overdraw, i64 0, i64 %indvars.iv177, i64 %indvars.iv, i64 %idxprom223
-  %18 = load i32, ptr %arrayidx239.us, align 4
-  %inc.us = add i32 %18, 1
+  %16 = load i32, ptr %arrayidx239.us, align 4
+  %inc.us = add i32 %16, 1
   store i32 %inc.us, ptr %arrayidx239.us, align 4
   br label %if.end241.us
 

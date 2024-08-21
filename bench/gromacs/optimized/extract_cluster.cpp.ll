@@ -828,7 +828,7 @@ declare void @_ZN3gmx24TrajectoryAnalysisModule11startFramesERKNS_27AnalysisData
 define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_114ExtractCluster12analyzeFrameEiRK10t_trxframeP5t_pbcPNS_28TrajectoryAnalysisModuleDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i32 noundef %1, ptr noundef nonnull align 1 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 176
   %7 = load i32, ptr %6, align 8
-  %.not = icmp slt i32 %7, %1
+  %.not = icmp sgt i32 %1, %7
   br i1 %.not, label %32, label %8
 
 8:                                                ; preds = %5

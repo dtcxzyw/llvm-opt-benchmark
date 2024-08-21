@@ -897,7 +897,7 @@ if.end:                                           ; preds = %sz_size2index.exit,
   %add3 = add i64 %4, %size
   store i64 %add3, ptr %allocated, align 8
   %5 = ptrtoint ptr %addr to i64
-  %add4 = add i64 %5, %size
+  %add4 = add i64 %size, %5
   %add5 = add i64 %add4, 4095
   %and = and i64 %add5, -4096
   %sub6 = sub i64 %5, %gap_size

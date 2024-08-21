@@ -309,7 +309,7 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 14:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %4)
-  %15 = icmp sgt i32 %.val, %1
+  %15 = icmp slt i32 %1, %.val
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %14
@@ -350,7 +350,7 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
   br label %seek_pseudodir.exit
 
 33:                                               ; preds = %5
-  %34 = icmp sgt i32 %.val, %1
+  %34 = icmp slt i32 %1, %.val
   %spec.select = select i1 %34, ptr %8, ptr %7
   %spec.select22 = select i1 %34, i32 0, i32 %.val
   %.018.in.i = getelementptr inbounds i8, ptr %spec.select, i64 16

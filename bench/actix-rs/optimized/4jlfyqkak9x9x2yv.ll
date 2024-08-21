@@ -532,7 +532,7 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17hcf64cc6
 20:                                               ; preds = %._crit_edge.i
   %21 = getelementptr inbounds i8, ptr %.pre, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !94
-  %23 = icmp ugt i64 %22, %3
+  %23 = icmp ult i64 %3, %22
   br i1 %23, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i: ; preds = %20
@@ -557,7 +557,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i: ; preds = %31
   %34 = getelementptr inbounds i8, ptr %.pre, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = icmp ult i64 %35, %3
+  %36 = icmp ugt i64 %3, %35
   br i1 %36, label %.thread, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i, %31, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i, %._crit_edge.i
@@ -1059,7 +1059,7 @@ define void @_ZN12actix_router8resource11ResourceDef11root_prefix17he1cc6bc91261
   store i64 %22, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !148, !noalias !147
   %23 = load i64, ptr %4, align 8, !alias.scope !153, !noalias !160, !noundef !8
   %24 = sub i64 %23, %22
-  %25 = icmp ult i64 %24, %2
+  %25 = icmp ugt i64 %2, %24
   br i1 %25, label %26, label %_ZN12actix_router8resource12insert_slash17hde5c666f2a274041E.exit
 
 26:                                               ; preds = %17
@@ -1384,7 +1384,7 @@ default.unreachable37:                            ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
-  %.not.i.i.i = icmp ugt i64 %16, %2
+  %.not.i.i.i = icmp ult i64 %2, %16
   br i1 %.not.i.i.i, label %_ZN12actix_router8resource11ResourceDef12static_match17ha6df8f409b452456E.exit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h03190a190ac3b61dE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h03190a190ac3b61dE.exit.i.i": ; preds = %12
@@ -1398,7 +1398,7 @@ default.unreachable37:                            ; preds = %3
   %20 = getelementptr inbounds i8, ptr %0, i64 146
   %21 = load i8, ptr %20, align 2, !range !131, !alias.scope !182, !noalias !199, !noundef !8
   %22 = trunc nuw i8 %21 to i1
-  %23 = icmp eq i64 %16, %2
+  %23 = icmp eq i64 %2, %16
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %19
@@ -1694,7 +1694,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17he30cb5ecf68a2f4fE(p
   br label %86
 
 78:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %74, %2
+  %.not.i.i.i = icmp eq i64 %2, %74
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %78, %82
@@ -1923,7 +1923,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN4core3str21_$LT
           to label %.noexc244 unwind label %.loopexit.split-lp.loopexit
 
 152:                                              ; preds = %.lr.ph.split.split.i.i225
-  %.not.i.i.i237 = icmp eq i64 %148, %.sroa.8.0
+  %.not.i.i.i237 = icmp eq i64 %.sroa.8.0, %148
   br i1 %.not.i.i.i237, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i241, label %.lr.ph.i.i.i238
 
 .lr.ph.i.i.i238:                                  ; preds = %152, %156
@@ -2063,7 +2063,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i241: ; preds = %
   %195 = load i64, ptr %132, align 8, !alias.scope !250, !noalias !255, !noundef !8
   %196 = load i64, ptr %69, align 8, !alias.scope !257, !noalias !255, !noundef !8
   %197 = sub i64 %196, %195
-  %198 = icmp ult i64 %197, %194
+  %198 = icmp ugt i64 %194, %197
   br i1 %198, label %199, label %205
 
 199:                                              ; preds = %192
@@ -2292,7 +2292,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i241: ; preds = %
           to label %.noexc259 unwind label %.loopexit
 
 300:                                              ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i255 = icmp eq i64 %296, %293
+  %.not.i.i.i.i255 = icmp eq i64 %293, %296
   br i1 %.not.i.i.i.i255, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %300, %304
@@ -2502,7 +2502,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %3
   %363 = load i64, ptr %132, align 8, !alias.scope !347, !noalias !352, !noundef !8
   %364 = load i64, ptr %69, align 8, !alias.scope !354, !noalias !352, !noundef !8
   %365 = sub i64 %364, %363
-  %366 = icmp ult i64 %365, %362
+  %366 = icmp ugt i64 %362, %365
   br i1 %366, label %367, label %371
 
 367:                                              ; preds = %356
@@ -2886,7 +2886,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %504 = load i64, ptr %132, align 8, !alias.scope !375, !noalias !380, !noundef !8
   %505 = load i64, ptr %69, align 8, !alias.scope !382, !noalias !380, !noundef !8
   %506 = sub i64 %505, %504
-  %507 = icmp ult i64 %506, %503
+  %507 = icmp ugt i64 %503, %506
   br i1 %507, label %508, label %514
 
 508:                                              ; preds = %499

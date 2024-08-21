@@ -859,7 +859,7 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %2, i64 120
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %.lr.ph, label %16
 
 16:                                               ; preds = %13
@@ -904,7 +904,7 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
 32:                                               ; preds = %.lr.ph.split.us, %30
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %33 = trunc nuw i64 %indvars.iv39 to i32
-  %.not30.us.not = icmp slt i32 %33, %1
+  %.not30.us.not = icmp sgt i32 %1, %33
   br i1 %.not30.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %39
@@ -924,7 +924,7 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
   tail call void @bit_set(ptr noundef %40, i64 noundef %indvars.iv) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = trunc nuw i64 %indvars.iv to i32
-  %.not30.not = icmp slt i32 %41, %1
+  %.not30.not = icmp sgt i32 %1, %41
   br i1 %.not30.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %39, %32, %36, %21, %11, %7

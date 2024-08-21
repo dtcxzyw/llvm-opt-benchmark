@@ -304,7 +304,7 @@ define void @png_push_read_sig(ptr noalias noundef %0, ptr noalias noundef %1) l
   br i1 %.not.i, label %21, label %13
 
 13:                                               ; preds = %2
-  %..i = tail call i64 @llvm.umin.i64(i64 %12, i64 %spec.select)
+  %..i = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %12)
   %14 = getelementptr inbounds i8, ptr %0, i64 808
   %15 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %15, i64 %..i, i1 false)
@@ -1227,7 +1227,7 @@ define void @png_push_fill_buffer(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %.not, label %20, label %8
 
 8:                                                ; preds = %5
-  %. = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
   %9 = getelementptr inbounds i8, ptr %0, i64 808
   %10 = load ptr, ptr %9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %10, i64 %., i1 false)

@@ -1023,7 +1023,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = call ptr @__cxa_begin_catch(ptr %3) #13
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i36
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i36, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -7257,7 +7257,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = call ptr @__cxa_begin_catch(ptr %3) #13
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i36
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i36, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -9532,7 +9532,7 @@ invoke.cont7.i1467:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1469:                                    ; preds = %invoke.cont7.i1467
   %cmp.not.i.i.i1470 = icmp ne ptr %118, null
-  %cmp2.i.i.i1472 = icmp eq ptr %add.ptr.i.i.i.i852, %119
+  %cmp2.i.i.i1472 = icmp eq ptr %119, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1473 = select i1 %cmp.not.i.i.i1470, i1 true, i1 %cmp2.i.i.i1472
   br i1 %or.cond.i.i.i1473, label %cleanup.thread.i1480, label %lor.rhs.i.i.i1474
 
@@ -9698,7 +9698,7 @@ invoke.cont7.i1438:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1440:                                    ; preds = %invoke.cont7.i1438
   %cmp.not.i.i.i1441 = icmp ne ptr %133, null
-  %cmp2.i.i.i1443 = icmp eq ptr %add.ptr.i.i.i.i852, %134
+  %cmp2.i.i.i1443 = icmp eq ptr %134, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1444 = select i1 %cmp.not.i.i.i1441, i1 true, i1 %cmp2.i.i.i1443
   br i1 %or.cond.i.i.i1444, label %cleanup.thread.i1451, label %lor.rhs.i.i.i1445
 
@@ -10123,7 +10123,7 @@ invoke.cont7.i1409:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1411:                                    ; preds = %invoke.cont7.i1409
   %cmp.not.i.i.i1412 = icmp ne ptr %172, null
-  %cmp2.i.i.i1414 = icmp eq ptr %add.ptr.i.i.i.i852, %173
+  %cmp2.i.i.i1414 = icmp eq ptr %173, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1415 = select i1 %cmp.not.i.i.i1412, i1 true, i1 %cmp2.i.i.i1414
   br i1 %or.cond.i.i.i1415, label %cleanup.thread.i1422, label %lor.rhs.i.i.i1416
 
@@ -10289,7 +10289,7 @@ invoke.cont7.i1380:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1382:                                    ; preds = %invoke.cont7.i1380
   %cmp.not.i.i.i1383 = icmp ne ptr %187, null
-  %cmp2.i.i.i1385 = icmp eq ptr %add.ptr.i.i.i.i852, %188
+  %cmp2.i.i.i1385 = icmp eq ptr %188, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1386 = select i1 %cmp.not.i.i.i1383, i1 true, i1 %cmp2.i.i.i1385
   br i1 %or.cond.i.i.i1386, label %cleanup.thread.i1393, label %lor.rhs.i.i.i1387
 
@@ -10470,7 +10470,7 @@ invoke.cont7.i1351:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1353:                                    ; preds = %invoke.cont7.i1351
   %cmp.not.i.i.i1354 = icmp ne ptr %203, null
-  %cmp2.i.i.i1356 = icmp eq ptr %add.ptr.i.i.i.i852, %204
+  %cmp2.i.i.i1356 = icmp eq ptr %204, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1357 = select i1 %cmp.not.i.i.i1354, i1 true, i1 %cmp2.i.i.i1356
   br i1 %or.cond.i.i.i1357, label %cleanup.thread.i1364, label %lor.rhs.i.i.i1358
 
@@ -10636,7 +10636,7 @@ invoke.cont7.i1322:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1324:                                    ; preds = %invoke.cont7.i1322
   %cmp.not.i.i.i1325 = icmp ne ptr %218, null
-  %cmp2.i.i.i1327 = icmp eq ptr %add.ptr.i.i.i.i852, %219
+  %cmp2.i.i.i1327 = icmp eq ptr %219, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1328 = select i1 %cmp.not.i.i.i1325, i1 true, i1 %cmp2.i.i.i1327
   br i1 %or.cond.i.i.i1328, label %cleanup.thread.i1335, label %lor.rhs.i.i.i1329
 
@@ -10934,7 +10934,7 @@ invoke.cont7.i1293:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1295:                                    ; preds = %invoke.cont7.i1293
   %cmp.not.i.i.i1296 = icmp ne ptr %247, null
-  %cmp2.i.i.i1298 = icmp eq ptr %add.ptr.i.i.i.i852, %248
+  %cmp2.i.i.i1298 = icmp eq ptr %248, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1299 = select i1 %cmp.not.i.i.i1296, i1 true, i1 %cmp2.i.i.i1298
   br i1 %or.cond.i.i.i1299, label %cleanup.thread.i1306, label %lor.rhs.i.i.i1300
 
@@ -11100,7 +11100,7 @@ invoke.cont7.i1264:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1266:                                    ; preds = %invoke.cont7.i1264
   %cmp.not.i.i.i1267 = icmp ne ptr %262, null
-  %cmp2.i.i.i1269 = icmp eq ptr %add.ptr.i.i.i.i852, %263
+  %cmp2.i.i.i1269 = icmp eq ptr %263, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1270 = select i1 %cmp.not.i.i.i1267, i1 true, i1 %cmp2.i.i.i1269
   br i1 %or.cond.i.i.i1270, label %cleanup.thread.i1277, label %lor.rhs.i.i.i1271
 
@@ -11281,7 +11281,7 @@ invoke.cont7.i1235:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1237:                                    ; preds = %invoke.cont7.i1235
   %cmp.not.i.i.i1238 = icmp ne ptr %278, null
-  %cmp2.i.i.i1240 = icmp eq ptr %add.ptr.i.i.i.i852, %279
+  %cmp2.i.i.i1240 = icmp eq ptr %279, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1241 = select i1 %cmp.not.i.i.i1238, i1 true, i1 %cmp2.i.i.i1240
   br i1 %or.cond.i.i.i1241, label %cleanup.thread.i1248, label %lor.rhs.i.i.i1242
 
@@ -11447,7 +11447,7 @@ invoke.cont7.i1206:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1208:                                    ; preds = %invoke.cont7.i1206
   %cmp.not.i.i.i1209 = icmp ne ptr %293, null
-  %cmp2.i.i.i1211 = icmp eq ptr %add.ptr.i.i.i.i852, %294
+  %cmp2.i.i.i1211 = icmp eq ptr %294, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1212 = select i1 %cmp.not.i.i.i1209, i1 true, i1 %cmp2.i.i.i1211
   br i1 %or.cond.i.i.i1212, label %cleanup.thread.i1219, label %lor.rhs.i.i.i1213
 
@@ -11738,7 +11738,7 @@ invoke.cont7.i1177:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1179:                                    ; preds = %invoke.cont7.i1177
   %cmp.not.i.i.i1180 = icmp ne ptr %321, null
-  %cmp2.i.i.i1182 = icmp eq ptr %add.ptr.i.i.i.i852, %322
+  %cmp2.i.i.i1182 = icmp eq ptr %322, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1183 = select i1 %cmp.not.i.i.i1180, i1 true, i1 %cmp2.i.i.i1182
   br i1 %or.cond.i.i.i1183, label %cleanup.thread.i1190, label %lor.rhs.i.i.i1184
 
@@ -11904,7 +11904,7 @@ invoke.cont7.i1148:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1150:                                    ; preds = %invoke.cont7.i1148
   %cmp.not.i.i.i1151 = icmp ne ptr %336, null
-  %cmp2.i.i.i1153 = icmp eq ptr %add.ptr.i.i.i.i852, %337
+  %cmp2.i.i.i1153 = icmp eq ptr %337, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1154 = select i1 %cmp.not.i.i.i1151, i1 true, i1 %cmp2.i.i.i1153
   br i1 %or.cond.i.i.i1154, label %cleanup.thread.i1161, label %lor.rhs.i.i.i1155
 
@@ -12085,7 +12085,7 @@ invoke.cont7.i1119:                               ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1121:                                    ; preds = %invoke.cont7.i1119
   %cmp.not.i.i.i1122 = icmp ne ptr %352, null
-  %cmp2.i.i.i1124 = icmp eq ptr %add.ptr.i.i.i.i852, %353
+  %cmp2.i.i.i1124 = icmp eq ptr %353, %add.ptr.i.i.i.i852
   %or.cond.i.i.i1125 = select i1 %cmp.not.i.i.i1122, i1 true, i1 %cmp2.i.i.i1124
   br i1 %or.cond.i.i.i1125, label %cleanup.thread.i1132, label %lor.rhs.i.i.i1126
 
@@ -12251,7 +12251,7 @@ invoke.cont7.i:                                   ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i1107:                                    ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %367, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i852, %368
+  %cmp2.i.i.i = icmp eq ptr %368, %add.ptr.i.i.i.i852
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -13856,7 +13856,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = call ptr @__cxa_begin_catch(ptr %3) #13
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %call5.i.i.i.i36
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i.i36, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -15124,7 +15124,7 @@ invoke.cont7.i769:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i771:                                     ; preds = %invoke.cont7.i769
   %cmp.not.i.i.i772 = icmp ne ptr %42, null
-  %cmp2.i.i.i774 = icmp eq ptr %add.ptr.i.i.i.i359, %43
+  %cmp2.i.i.i774 = icmp eq ptr %43, %add.ptr.i.i.i.i359
   %or.cond.i.i.i775 = select i1 %cmp.not.i.i.i772, i1 true, i1 %cmp2.i.i.i774
   br i1 %or.cond.i.i.i775, label %cleanup.thread.i782, label %lor.rhs.i.i.i776
 
@@ -15470,7 +15470,7 @@ invoke.cont7.i740:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i742:                                     ; preds = %invoke.cont7.i740
   %cmp.not.i.i.i743 = icmp ne ptr %73, null
-  %cmp2.i.i.i745 = icmp eq ptr %add.ptr.i.i.i.i359, %74
+  %cmp2.i.i.i745 = icmp eq ptr %74, %add.ptr.i.i.i.i359
   %or.cond.i.i.i746 = select i1 %cmp.not.i.i.i743, i1 true, i1 %cmp2.i.i.i745
   br i1 %or.cond.i.i.i746, label %cleanup.thread.i753, label %lor.rhs.i.i.i747
 
@@ -15651,7 +15651,7 @@ invoke.cont7.i711:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i713:                                     ; preds = %invoke.cont7.i711
   %cmp.not.i.i.i714 = icmp ne ptr %89, null
-  %cmp2.i.i.i716 = icmp eq ptr %add.ptr.i.i.i.i359, %90
+  %cmp2.i.i.i716 = icmp eq ptr %90, %add.ptr.i.i.i.i359
   %or.cond.i.i.i717 = select i1 %cmp.not.i.i.i714, i1 true, i1 %cmp2.i.i.i716
   br i1 %or.cond.i.i.i717, label %cleanup.thread.i724, label %lor.rhs.i.i.i718
 
@@ -15840,7 +15840,7 @@ invoke.cont7.i682:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i684:                                     ; preds = %invoke.cont7.i682
   %cmp.not.i.i.i685 = icmp ne ptr %106, null
-  %cmp2.i.i.i687 = icmp eq ptr %add.ptr.i.i.i.i359, %107
+  %cmp2.i.i.i687 = icmp eq ptr %107, %add.ptr.i.i.i.i359
   %or.cond.i.i.i688 = select i1 %cmp.not.i.i.i685, i1 true, i1 %cmp2.i.i.i687
   br i1 %or.cond.i.i.i688, label %cleanup.thread.i695, label %lor.rhs.i.i.i689
 
@@ -16103,7 +16103,7 @@ invoke.cont7.i653:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i655:                                     ; preds = %invoke.cont7.i653
   %cmp.not.i.i.i656 = icmp ne ptr %131, null
-  %cmp2.i.i.i658 = icmp eq ptr %add.ptr.i.i.i.i359, %132
+  %cmp2.i.i.i658 = icmp eq ptr %132, %add.ptr.i.i.i.i359
   %or.cond.i.i.i659 = select i1 %cmp.not.i.i.i656, i1 true, i1 %cmp2.i.i.i658
   br i1 %or.cond.i.i.i659, label %cleanup.thread.i666, label %lor.rhs.i.i.i660
 
@@ -16284,7 +16284,7 @@ invoke.cont7.i624:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i626:                                     ; preds = %invoke.cont7.i624
   %cmp.not.i.i.i627 = icmp ne ptr %147, null
-  %cmp2.i.i.i629 = icmp eq ptr %add.ptr.i.i.i.i359, %148
+  %cmp2.i.i.i629 = icmp eq ptr %148, %add.ptr.i.i.i.i359
   %or.cond.i.i.i630 = select i1 %cmp.not.i.i.i627, i1 true, i1 %cmp2.i.i.i629
   br i1 %or.cond.i.i.i630, label %cleanup.thread.i637, label %lor.rhs.i.i.i631
 
@@ -16473,7 +16473,7 @@ invoke.cont7.i595:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i597:                                     ; preds = %invoke.cont7.i595
   %cmp.not.i.i.i598 = icmp ne ptr %164, null
-  %cmp2.i.i.i600 = icmp eq ptr %add.ptr.i.i.i.i359, %165
+  %cmp2.i.i.i600 = icmp eq ptr %165, %add.ptr.i.i.i.i359
   %or.cond.i.i.i601 = select i1 %cmp.not.i.i.i598, i1 true, i1 %cmp2.i.i.i600
   br i1 %or.cond.i.i.i601, label %cleanup.thread.i608, label %lor.rhs.i.i.i602
 
@@ -16729,7 +16729,7 @@ invoke.cont7.i566:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i568:                                     ; preds = %invoke.cont7.i566
   %cmp.not.i.i.i569 = icmp ne ptr %188, null
-  %cmp2.i.i.i571 = icmp eq ptr %add.ptr.i.i.i.i359, %189
+  %cmp2.i.i.i571 = icmp eq ptr %189, %add.ptr.i.i.i.i359
   %or.cond.i.i.i572 = select i1 %cmp.not.i.i.i569, i1 true, i1 %cmp2.i.i.i571
   br i1 %or.cond.i.i.i572, label %cleanup.thread.i579, label %lor.rhs.i.i.i573
 
@@ -16910,7 +16910,7 @@ invoke.cont7.i537:                                ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i539:                                     ; preds = %invoke.cont7.i537
   %cmp.not.i.i.i540 = icmp ne ptr %204, null
-  %cmp2.i.i.i542 = icmp eq ptr %add.ptr.i.i.i.i359, %205
+  %cmp2.i.i.i542 = icmp eq ptr %205, %add.ptr.i.i.i.i359
   %or.cond.i.i.i543 = select i1 %cmp.not.i.i.i540, i1 true, i1 %cmp2.i.i.i542
   br i1 %or.cond.i.i.i543, label %cleanup.thread.i550, label %lor.rhs.i.i.i544
 
@@ -17099,7 +17099,7 @@ invoke.cont7.i:                                   ; preds = %call5.i.i.i.i.i.i.n
 
 if.then.i525:                                     ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %221, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i359, %222
+  %cmp2.i.i.i = icmp eq ptr %222, %add.ptr.i.i.i.i359
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -21268,7 +21268,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -21320,7 +21320,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

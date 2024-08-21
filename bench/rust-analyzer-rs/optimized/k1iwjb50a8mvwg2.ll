@@ -1243,7 +1243,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   %34 = load ptr, ptr %33, align 8, !alias.scope !235, !noalias !240, !nonnull !9, !noundef !9
   %35 = getelementptr inbounds i8, ptr %1, i64 120
   %36 = load i64, ptr %35, align 8, !alias.scope !235, !noalias !240, !noundef !9
-  %.not.i.i = icmp eq i64 %36, %.val15
+  %.not.i.i = icmp eq i64 %.val15, %36
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.i": ; preds = %32

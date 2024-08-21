@@ -1316,7 +1316,7 @@ _.exit13:                                         ; preds = %if.then6, %if.end3.
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %cmp = icmp eq ptr %call4, %line
+  %cmp = icmp eq ptr %line, %call4
   br i1 %cmp, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
@@ -1647,7 +1647,7 @@ do.cond.i:                                        ; preds = %do.body.i
 if.end11:                                         ; preds = %do.body.i
   %8 = load i64, ptr %bundle_ref, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
-  %cmp.i5 = icmp ult i64 %spec.select.i, %0
+  %cmp.i5 = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i5, label %if.then.i6, label %if.end.i
 
 if.then.i6:                                       ; preds = %if.end11

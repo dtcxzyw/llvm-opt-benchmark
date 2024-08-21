@@ -640,7 +640,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %cl
   %call.i.i.i.us = call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %m_privatevars.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.us)
   %tobool.not.i.i.i.us = icmp ne ptr %call.i.i.i.us, null
   %call12.not.us = xor i1 %tobool.not.i.i.i.us, true
-  %brmerge.us = or i1 %call12.not.us, %disk
+  %brmerge.us = or i1 %disk, %call12.not.us
   br i1 %brmerge.us, label %if.end.us, label %cleanup.us
 
 if.end.us:                                        ; preds = %for.body.us

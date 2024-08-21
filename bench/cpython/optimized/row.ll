@@ -428,7 +428,7 @@ entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #3
   %RowType = getelementptr inbounds i8, ptr %call.i.i, i64 144
   %0 = load ptr, ptr %RowType, align 8
-  %cmp = icmp eq ptr %0, %type
+  %cmp = icmp eq ptr %type, %0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry

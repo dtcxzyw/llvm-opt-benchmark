@@ -83,7 +83,7 @@ entry:
   %conv. = tail call i64 @llvm.umax.i64(i64 %0, i64 %conv)
   %1 = load i64, ptr @reserved_va, align 8
   %tobool.not = icmp ne i64 %1, 0
-  %cmp4 = icmp ult i64 %1, %guest_hiaddr
+  %cmp4 = icmp ugt i64 %guest_hiaddr, %1
   %or.cond = and i1 %tobool.not, %cmp4
   br i1 %or.cond, label %if.then6, label %if.end11
 
@@ -118,7 +118,7 @@ if.end.i:                                         ; preds = %if.then13
   %cmp.i.i = icmp ne i64 %guest_loaddr, 0
   %or.cond.i.i = and i1 %cmp.i.i, %tobool.not.i
   %7 = load i64, ptr @mmap_min_addr, align 8
-  %cmp1.i.i = icmp ugt i64 %7, %guest_loaddr
+  %cmp1.i.i = icmp ult i64 %guest_loaddr, %7
   %or.cond27.i.i = select i1 %or.cond.i.i, i1 %cmp1.i.i, i1 false
   br i1 %or.cond27.i.i, label %if.then4.i, label %if.end3.i.i
 
@@ -182,7 +182,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %14 = load i64, ptr @reserved_va, align 8
   %tobool.i.i = icmp ne i64 %14, 0
   %15 = select i1 %13, i1 %tobool.i.i, i1 false
-  %cmp.not.i.i.i = icmp ult i64 %sub.i.i.i, %add.i.i
+  %cmp.not.i.i.i = icmp ugt i64 %add.i.i, %sub.i.i.i
   %cmp1.not.i.i.i = icmp ult i64 %add6.i.i, %3
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp1.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.end.i.i.i, label %if.then4.i
@@ -230,7 +230,7 @@ if.else.i:                                        ; preds = %if.else14
 if.end.i17:                                       ; preds = %if.else14
   %cmp.i.i18 = icmp ne i64 %guest_loaddr, 0
   %17 = load i64, ptr @mmap_min_addr, align 8
-  %cmp1.i.i19 = icmp ugt i64 %17, %guest_loaddr
+  %cmp1.i.i19 = icmp ult i64 %guest_loaddr, %17
   %or.cond27.i.i20 = select i1 %cmp.i.i18, i1 %cmp1.i.i19, i1 false
   br i1 %or.cond27.i.i20, label %if.end6.i, label %if.end3.i.i21
 
@@ -275,7 +275,7 @@ for.body.i.i29:                                   ; preds = %for.cond.i.i26
   %25 = load i64, ptr @reserved_va, align 8
   %tobool.i.i33 = icmp ne i64 %25, 0
   %26 = select i1 %24, i1 %tobool.i.i33, i1 false
-  %cmp.not.i.i.i34 = icmp ult i64 %sub.i.i.i25, %22
+  %cmp.not.i.i.i34 = icmp ugt i64 %22, %sub.i.i.i25
   %cmp1.not.i.i.i35 = icmp ult i64 %23, %19
   %or.cond.i.i.i36 = or i1 %cmp.not.i.i.i34, %cmp1.not.i.i.i35
   br i1 %or.cond.i.i.i36, label %if.end.i.i.i41, label %if.end6.loopexit.i
@@ -367,7 +367,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %35 = load i64, ptr @reserved_va, align 8
   %tobool.i.i.i = icmp ne i64 %35, 0
   %36 = select i1 %34, i1 %tobool.i.i.i, i1 false
-  %cmp.not.i.i.i.i = icmp ult i64 %sub.i.i.i37.i, %add.i.i.i
+  %cmp.not.i.i.i.i = icmp ugt i64 %add.i.i.i, %sub.i.i.i37.i
   %cmp1.not.i.i.i.i = icmp ult i64 %add6.i.i.i, %29
   %or.cond.i.i.i39.i = or i1 %cmp.not.i.i.i.i, %cmp1.not.i.i.i.i
   br i1 %or.cond.i.i.i39.i, label %if.end.i.i.i42.i, label %if.end.i.i
@@ -487,7 +487,7 @@ for.body.i16.i.i:                                 ; preds = %for.cond.i12.i.i
   %49 = load i64, ptr @reserved_va, align 8
   %tobool.i.i56.i = icmp ne i64 %49, 0
   %50 = select i1 %48, i1 %tobool.i.i56.i, i1 false
-  %cmp.not.i.i.i57.i = icmp ult i64 %sub.i, %add.i19.i.i
+  %cmp.not.i.i.i57.i = icmp ugt i64 %add.i19.i.i, %sub.i
   %cmp1.not.i.i.i58.i = icmp ult i64 %add6.i21.i.i, %29
   %or.cond.i.i.i59.i = or i1 %cmp.not.i.i.i57.i, %cmp1.not.i.i.i58.i
   br i1 %or.cond.i.i.i59.i, label %if.end.i.i.i61.i, label %pgb_find_itree.exit.i
@@ -1809,7 +1809,7 @@ if.end.i:                                         ; preds = %land.lhs.true208
   %and1.i = and i64 %sub.i155, -4096
   %sub3.i = add i64 %add191, 4095
   %and4.i = and i64 %sub3.i, -4096
-  %cmp.i156 = icmp ugt i64 %and1.i, %add189
+  %cmp.i156 = icmp ult i64 %add189, %and1.i
   br i1 %cmp.i156, label %if.then5.i, label %if.end17.i
 
 if.then5.i:                                       ; preds = %if.end.i

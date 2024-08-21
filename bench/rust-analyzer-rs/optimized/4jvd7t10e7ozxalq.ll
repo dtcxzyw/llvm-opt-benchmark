@@ -721,7 +721,7 @@ define noundef zeroext i1 @_ZN3vfs6loader5Entry13contains_file17hf43d5c8f153cf4f
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = getelementptr i8, ptr %36, i64 16
   %.val4.i.i = load i64, ptr %38, align 8, !noalias !93, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %spec.select.i, %.val4.i.i
+  %.not.i.i.i.i = icmp eq i64 %.val4.i.i, %spec.select.i
   br i1 %.not.i.i.i.i, label %39, label %"_ZN3vfs6loader11Directories13contains_file28_$u7b$$u7b$closure$u7d$$u7d$17h511ce3acbf86cd0eE.exit.backedge.i.i"
 
 39:                                               ; preds = %.lr.ph.i.i
@@ -780,7 +780,7 @@ define noundef zeroext i1 @_ZN3vfs6loader11Directories13contains_file17h041c30eb
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = getelementptr i8, ptr %14, i64 16
   %.val4.i = load i64, ptr %16, align 8, !noalias !102, !noundef !4
-  %.not.i.i.i = icmp eq i64 %spec.select, %.val4.i
+  %.not.i.i.i = icmp eq i64 %.val4.i, %spec.select
   br i1 %.not.i.i.i, label %17, label %"_ZN3vfs6loader11Directories13contains_file28_$u7b$$u7b$closure$u7d$$u7d$17h511ce3acbf86cd0eE.exit.backedge.i"
 
 17:                                               ; preds = %.lr.ph.i

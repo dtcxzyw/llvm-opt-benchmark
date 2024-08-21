@@ -345,7 +345,7 @@ define hidden void @KeccakP1600_OverwriteBytesInLane(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %6
   %7 = shl nuw nsw i32 %1, 3
-  %8 = add i32 %7, %3
+  %8 = add i32 %3, %7
   %wide.trip.count = zext i32 %4 to i64
   br label %9
 
@@ -538,7 +538,7 @@ KeccakP1600_OverwriteLanes.exit.thread:           ; preds = %6, %KeccakP1600_Ove
 
 .lr.ph.i40:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %39 = shl nuw nsw i32 %.02949, 3
-  %40 = or disjoint i32 %39, %.02850
+  %40 = or disjoint i32 %.02850, %39
   %wide.trip.count.i41 = zext nneg i32 %spec.select to i64
   br label %41
 
@@ -6566,7 +6566,7 @@ define hidden void @KeccakP1600_ExtractAndAddBytesInLane(ptr nocapture noundef r
   %14 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
   %16 = trunc nuw i64 %indvars.iv to i32
-  %17 = add i32 %16, %4
+  %17 = add i32 %4, %16
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %7, i64 %18
   %20 = load i8, ptr %19, align 1
@@ -6932,7 +6932,7 @@ define hidden i64 @KeccakF1600_FastLoop_Absorb(ptr nocapture noundef %0, i32 nou
   %53 = load i64, ptr %52, align 8
   %54 = shl i32 %1, 3
   %55 = zext i32 %54 to i64
-  %.not5969 = icmp ugt i64 %55, %3
+  %.not5969 = icmp ult i64 %3, %55
   br i1 %.not5969, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4

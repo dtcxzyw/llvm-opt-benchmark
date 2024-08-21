@@ -501,7 +501,7 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr nocapture noundef %0, 
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   %39 = load i64, ptr %38, align 8
   %.not40.i = icmp slt i64 %39, %37
-  %.not42.i = icmp sgt i64 %37, %1
+  %.not42.i = icmp slt i64 %1, %37
   %spec.select.i = or i1 %.not42.i, %.not40.i
   br i1 %spec.select.i, label %.critedge.i, label %53
 

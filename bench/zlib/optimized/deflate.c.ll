@@ -500,7 +500,7 @@ if.end14:                                         ; preds = %lor.lhs.false6.thre
   store i32 0, ptr %wrap1, align 8
   %w_size = getelementptr inbounds i8, ptr %2, i64 80
   %8 = load i32, ptr %w_size, align 8
-  %cmp16.not = icmp ugt i32 %8, %dictLength
+  %cmp16.not = icmp ult i32 %dictLength, %8
   br i1 %cmp16.not, label %if.end27, label %if.then17
 
 if.end14.thread:                                  ; preds = %lor.lhs.false6
@@ -511,7 +511,7 @@ if.end14.thread:                                  ; preds = %lor.lhs.false6
   store i32 0, ptr %wrap1, align 8
   %w_size79 = getelementptr inbounds i8, ptr %2, i64 80
   %10 = load i32, ptr %w_size79, align 8
-  %cmp16.not80 = icmp ugt i32 %10, %dictLength
+  %cmp16.not80 = icmp ult i32 %dictLength, %10
   br i1 %cmp16.not80, label %if.end27, label %if.end23
 
 if.then17:                                        ; preds = %if.end14
@@ -1420,7 +1420,7 @@ if.end10:                                         ; preds = %if.end
   %level11 = getelementptr inbounds i8, ptr %2, i64 196
   %strategy13 = getelementptr inbounds i8, ptr %2, i64 200
   %6 = load i32, ptr %strategy13, align 8
-  %cmp14.not = icmp eq i32 %6, %strategy
+  %cmp14.not = icmp eq i32 %strategy, %6
   br i1 %cmp14.not, label %lor.lhs.false15, label %land.lhs.true
 
 lor.lhs.false15:                                  ; preds = %if.end10

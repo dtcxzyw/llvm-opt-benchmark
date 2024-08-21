@@ -1635,7 +1635,7 @@ define internal fastcc noundef i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 no
   br label %42
 
 42:                                               ; preds = %.thread, %36, %35
-  %43 = add i32 %9, %1
+  %43 = add i32 %1, %9
   ret i32 %43
 }
 

@@ -311,7 +311,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 
 116:                                              ; preds = %144, %.lr.ph.i.i
   %.181.i.i = phi i32 [ %.045.i.i, %.lr.ph.i.i ], [ %146, %144 ]
-  %117 = icmp ult i32 %.val60.i.i, %.181.i.i
+  %117 = icmp ugt i32 %.181.i.i, %.val60.i.i
   %118 = sub nuw i32 %.val60.i.i, %.181.i.i
   %119 = icmp ult i32 %118, 4
   %or.cond.i.i.i = select i1 %117, i1 true, i1 %119
@@ -775,7 +775,7 @@ ns_hrtime2nsec.exit209:                           ; preds = %101, %111, %113, %1
 
 156:                                              ; preds = %.lr.ph
   %.val204 = load i32, ptr %14, align 4
-  %157 = icmp ult i32 %.val204, %.1268
+  %157 = icmp ugt i32 %.1268, %.val204
   %158 = sub nuw i32 %.val204, %.1268
   %159 = icmp ult i32 %158, 12
   %or.cond.i = select i1 %157, i1 true, i1 %159
@@ -813,7 +813,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %156
 
 173:                                              ; preds = %.lr.ph
   %.val205 = load i32, ptr %14, align 4
-  %174 = icmp ult i32 %.val205, %.1268
+  %174 = icmp ugt i32 %.1268, %.val205
   %175 = sub nuw i32 %.val205, %.1268
   %176 = icmp ult i32 %175, 12
   %or.cond.i211 = select i1 %174, i1 true, i1 %176
@@ -858,7 +858,7 @@ nstrace_ensure_buflen.exit213:                    ; preds = %173
 
 197:                                              ; preds = %.lr.ph
   %.val206 = load i32, ptr %14, align 4
-  %198 = icmp ult i32 %.val206, %.1268
+  %198 = icmp ugt i32 %.1268, %.val206
   %199 = sub nuw i32 %.val206, %.1268
   %200 = icmp ult i32 %199, 12
   %or.cond.i214 = select i1 %198, i1 true, i1 %200
@@ -3355,7 +3355,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1283:                                             ; preds = %.lr.ph
   %.val1084 = load i32, ptr %14, align 4
-  %1284 = icmp ult i32 %.val1084, %.11280
+  %1284 = icmp ugt i32 %.11280, %.val1084
   %1285 = sub nuw i32 %.val1084, %.11280
   %1286 = icmp ult i32 %1285, 8
   %or.cond.i = select i1 %1284, i1 true, i1 %1286
@@ -3406,7 +3406,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %1283
 nstrace_ensure_buflen.exit1108:                   ; preds = %1291, %1302
   %1309 = phi i32 [ %1308, %1302 ], [ %1290, %1291 ]
   %1310 = add i32 %1309, %.11280
-  %1311 = icmp ult i32 %.val1084, %1310
+  %1311 = icmp ugt i32 %1310, %.val1084
   %1312 = sub nuw i32 %.val1084, %1310
   %1313 = icmp ult i32 %1312, 8
   %or.cond.i1109 = select i1 %1311, i1 true, i1 %1313
@@ -3433,7 +3433,7 @@ nstrace_ensure_buflen.exit1111:                   ; preds = %nstrace_ensure_bufl
 
 1321:                                             ; preds = %.lr.ph
   %.val1087 = load i32, ptr %14, align 4
-  %1322 = icmp ult i32 %.val1087, %.11280
+  %1322 = icmp ugt i32 %.11280, %.val1087
   %1323 = sub nuw i32 %.val1087, %.11280
   %1324 = icmp ult i32 %1323, 8
   %or.cond.i1112 = select i1 %1322, i1 true, i1 %1324
@@ -3515,7 +3515,7 @@ nstrace_ensure_buflen.exit1117:                   ; preds = %1336
 
 1366:                                             ; preds = %.lr.ph
   %.val1089 = load i32, ptr %14, align 4
-  %1367 = icmp ult i32 %.val1089, %.11280
+  %1367 = icmp ugt i32 %.11280, %.val1089
   %1368 = sub nuw i32 %.val1089, %.11280
   %1369 = icmp ult i32 %1368, 8
   %or.cond.i1118 = select i1 %1367, i1 true, i1 %1369
@@ -4629,7 +4629,7 @@ define internal range(i32 0, 2) i32 @nstrace_read_v30(ptr nocapture noundef read
 
 45:                                               ; preds = %.lr.ph
   %.val383 = load i32, ptr %12, align 4
-  %46 = icmp ult i32 %.val383, %.1459
+  %46 = icmp ugt i32 %.1459, %.val383
   %47 = sub i32 %.val383, %.1459
   %48 = icmp ult i32 %47, 3
   %or.cond.i = or i1 %46, %48
@@ -5184,7 +5184,7 @@ select.unfold399:                                 ; preds = %._crit_edge
 310:                                              ; preds = %302, %303
   %311 = phi i32 [ %309, %303 ], [ %53, %302 ]
   %312 = add nuw nsw i32 %311, %.1459
-  %313 = icmp ult i32 %.val383, %312
+  %313 = icmp ugt i32 %312, %.val383
   %314 = sub nuw i32 %.val383, %312
   %315 = icmp ult i32 %314, 8
   %or.cond.i387 = select i1 %313, i1 true, i1 %315
@@ -5669,7 +5669,7 @@ define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocap
 
 15:                                               ; preds = %.lr.ph, %63
   %.183 = phi i32 [ %.051, %.lr.ph ], [ %64, %63 ]
-  %16 = icmp ult i32 %.val62, %.183
+  %16 = icmp ugt i32 %.183, %.val62
   %17 = sub nuw i32 %.val62, %.183
   %18 = icmp ult i32 %17, 3
   %or.cond.i = select i1 %16, i1 true, i1 %18

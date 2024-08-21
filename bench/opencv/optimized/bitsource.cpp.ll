@@ -68,7 +68,7 @@ define hidden noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr
   %22 = getelementptr inbounds i8, ptr %0, i64 44
   %23 = load i32, ptr %22, align 4
   %24 = sub nsw i32 %21, %23
-  %25 = icmp slt i32 %24, %1
+  %25 = icmp sgt i32 %1, %24
   br i1 %25, label %26, label %45
 
 26:                                               ; preds = %7, %3
@@ -134,7 +134,7 @@ define hidden noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr
 
 47:                                               ; preds = %45
   %48 = sub nsw i32 8, %23
-  %49 = tail call i32 @llvm.smin.i32(i32 %48, i32 %1)
+  %49 = tail call i32 @llvm.smin.i32(i32 %1, i32 %48)
   %50 = sub nsw i32 %48, %49
   %51 = sub nsw i32 8, %49
   %52 = lshr i32 255, %51

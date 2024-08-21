@@ -56,7 +56,7 @@ entry:
   %0 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL34s_iosBvPrintConstsAsIndexedSymbolsE, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %1 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %1, %0
+  %cmp.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -86,7 +86,7 @@ entry:
   %2 = load i8, ptr %1, align 1
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %3 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %3, %0
+  %cmp.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -125,7 +125,7 @@ entry:
   %0 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL14s_iosDagThreshE, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %1 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %1, %0
+  %cmp.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -155,7 +155,7 @@ entry:
   %2 = load i64, ptr %1, align 8
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %3 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %3, %0
+  %cmp.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -193,7 +193,7 @@ entry:
   %0 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL14s_iosNodeDepthE, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %1 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %1, %0
+  %cmp.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -223,7 +223,7 @@ entry:
   %2 = load i64, ptr %1, align 8
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %3 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %3, %0
+  %cmp.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -262,7 +262,7 @@ entry:
   %0 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL20s_iosFlattenHOChainsE, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %1 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %1, %0
+  %cmp.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -292,7 +292,7 @@ entry:
   %2 = load i8, ptr %1, align 1
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %3 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %3, %0
+  %cmp.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -331,7 +331,7 @@ entry:
   %0 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL23s_iosModelUninterpPrintE, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %1 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %1, %0
+  %cmp.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -362,7 +362,7 @@ entry:
   %2 = load i32, ptr %1, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %3 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %3, %0
+  %cmp.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -401,7 +401,7 @@ entry:
   %0 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL19s_iosOutputLanguageE, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %1 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %1, %0
+  %cmp.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -432,7 +432,7 @@ entry:
   %2 = load i32, ptr %1, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %3 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %3, %0
+  %cmp.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -467,7 +467,7 @@ entry:
   %2 = load i8, ptr %1, align 1
   %_M_word_size.i.i.i = getelementptr inbounds i8, ptr %ios, i64 192
   %3 = load i32, ptr %_M_word_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %3, %0
+  %cmp.i.i.i = icmp ult i32 %0, %3
   br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %entry
@@ -499,7 +499,7 @@ _ZN4cvc58internal7options7ioutils32getBvPrintConstsAsIndexedSymbolsERSt8ios_base
   %9 = load i64, ptr %8, align 8
   %_M_word_size.i.i.i1 = getelementptr inbounds i8, ptr %5, i64 192
   %10 = load i32, ptr %_M_word_size.i.i.i1, align 8
-  %cmp.i.i.i2 = icmp ugt i32 %10, %7
+  %cmp.i.i.i2 = icmp ult i32 %7, %10
   br i1 %cmp.i.i.i2, label %cond.true.i.i.i9, label %cond.false.i.i.i3
 
 cond.true.i.i.i9:                                 ; preds = %_ZN4cvc58internal7options7ioutils32getBvPrintConstsAsIndexedSymbolsERSt8ios_base.exit
@@ -529,7 +529,7 @@ _ZN4cvc58internal7options7ioutils12getDagThreshERSt8ios_base.exit: ; preds = %co
   %16 = load i64, ptr %15, align 8
   %_M_word_size.i.i.i13 = getelementptr inbounds i8, ptr %12, i64 192
   %17 = load i32, ptr %_M_word_size.i.i.i13, align 8
-  %cmp.i.i.i14 = icmp ugt i32 %17, %14
+  %cmp.i.i.i14 = icmp ult i32 %14, %17
   br i1 %cmp.i.i.i14, label %cond.true.i.i.i22, label %cond.false.i.i.i15
 
 cond.true.i.i.i22:                                ; preds = %_ZN4cvc58internal7options7ioutils12getDagThreshERSt8ios_base.exit
@@ -559,7 +559,7 @@ _ZN4cvc58internal7options7ioutils12getNodeDepthERSt8ios_base.exit: ; preds = %co
   %23 = load i8, ptr %22, align 1
   %_M_word_size.i.i.i26 = getelementptr inbounds i8, ptr %19, i64 192
   %24 = load i32, ptr %_M_word_size.i.i.i26, align 8
-  %cmp.i.i.i27 = icmp ugt i32 %24, %21
+  %cmp.i.i.i27 = icmp ult i32 %21, %24
   br i1 %cmp.i.i.i27, label %cond.true.i.i.i36, label %cond.false.i.i.i28
 
 cond.true.i.i.i36:                                ; preds = %_ZN4cvc58internal7options7ioutils12getNodeDepthERSt8ios_base.exit
@@ -591,7 +591,7 @@ _ZN4cvc58internal7options7ioutils18getFlattenHOChainsERSt8ios_base.exit: ; preds
   %30 = load i32, ptr %29, align 4
   %_M_word_size.i.i.i40 = getelementptr inbounds i8, ptr %26, i64 192
   %31 = load i32, ptr %_M_word_size.i.i.i40, align 8
-  %cmp.i.i.i41 = icmp ugt i32 %31, %28
+  %cmp.i.i.i41 = icmp ult i32 %28, %31
   br i1 %cmp.i.i.i41, label %cond.true.i.i.i48, label %cond.false.i.i.i42
 
 cond.true.i.i.i48:                                ; preds = %_ZN4cvc58internal7options7ioutils18getFlattenHOChainsERSt8ios_base.exit
@@ -621,7 +621,7 @@ _ZN4cvc58internal7options7ioutils21getModelUninterpPrintERSt8ios_base.exit: ; pr
   %38 = load i32, ptr %37, align 4
   %_M_word_size.i.i.i52 = getelementptr inbounds i8, ptr %33, i64 192
   %39 = load i32, ptr %_M_word_size.i.i.i52, align 8
-  %cmp.i.i.i53 = icmp ugt i32 %39, %36
+  %cmp.i.i.i53 = icmp ult i32 %36, %39
   br i1 %cmp.i.i.i53, label %cond.true.i.i.i61, label %cond.false.i.i.i54
 
 cond.true.i.i.i61:                                ; preds = %_ZN4cvc58internal7options7ioutils21getModelUninterpPrintERSt8ios_base.exit
@@ -658,7 +658,7 @@ entry:
   %2 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL34s_iosBvPrintConstsAsIndexedSymbolsE, align 4
   %_M_word_size.i.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load i32, ptr %_M_word_size.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %3, %2
+  %cmp.i.i.i = icmp ult i32 %2, %3
   br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %entry
@@ -683,7 +683,7 @@ invoke.cont:                                      ; preds = %cond.true.i.i.i, %c
   %7 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL14s_iosDagThreshE, align 4
   %_M_word_size.i.i.i2 = getelementptr inbounds i8, ptr %5, i64 192
   %8 = load i32, ptr %_M_word_size.i.i.i2, align 8
-  %cmp.i.i.i3 = icmp ugt i32 %8, %7
+  %cmp.i.i.i3 = icmp ult i32 %7, %8
   br i1 %cmp.i.i.i3, label %cond.true.i.i.i8, label %cond.false.i.i.i4
 
 cond.true.i.i.i8:                                 ; preds = %invoke.cont
@@ -708,7 +708,7 @@ invoke.cont3:                                     ; preds = %cond.true.i.i.i8, %
   %12 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL14s_iosNodeDepthE, align 4
   %_M_word_size.i.i.i14 = getelementptr inbounds i8, ptr %10, i64 192
   %13 = load i32, ptr %_M_word_size.i.i.i14, align 8
-  %cmp.i.i.i15 = icmp ugt i32 %13, %12
+  %cmp.i.i.i15 = icmp ult i32 %12, %13
   br i1 %cmp.i.i.i15, label %cond.true.i.i.i20, label %cond.false.i.i.i16
 
 cond.true.i.i.i20:                                ; preds = %invoke.cont3
@@ -734,7 +734,7 @@ invoke.cont5:                                     ; preds = %cond.true.i.i.i20, 
   %17 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL20s_iosFlattenHOChainsE, align 4
   %_M_word_size.i.i.i26 = getelementptr inbounds i8, ptr %15, i64 192
   %18 = load i32, ptr %_M_word_size.i.i.i26, align 8
-  %cmp.i.i.i27 = icmp ugt i32 %18, %17
+  %cmp.i.i.i27 = icmp ult i32 %17, %18
   br i1 %cmp.i.i.i27, label %cond.true.i.i.i32, label %cond.false.i.i.i28
 
 cond.true.i.i.i32:                                ; preds = %invoke.cont5
@@ -759,7 +759,7 @@ invoke.cont8:                                     ; preds = %cond.true.i.i.i32, 
   %22 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL23s_iosModelUninterpPrintE, align 4
   %_M_word_size.i.i.i38 = getelementptr inbounds i8, ptr %20, i64 192
   %23 = load i32, ptr %_M_word_size.i.i.i38, align 8
-  %cmp.i.i.i39 = icmp ugt i32 %23, %22
+  %cmp.i.i.i39 = icmp ult i32 %22, %23
   br i1 %cmp.i.i.i39, label %cond.true.i.i.i44, label %cond.false.i.i.i40
 
 cond.true.i.i.i44:                                ; preds = %invoke.cont8
@@ -785,7 +785,7 @@ invoke.cont10:                                    ; preds = %cond.true.i.i.i44, 
   %27 = load i32, ptr @_ZN4cvc58internal7options7ioutilsL19s_iosOutputLanguageE, align 4
   %_M_word_size.i.i.i50 = getelementptr inbounds i8, ptr %25, i64 192
   %28 = load i32, ptr %_M_word_size.i.i.i50, align 8
-  %cmp.i.i.i51 = icmp ugt i32 %28, %27
+  %cmp.i.i.i51 = icmp ult i32 %27, %28
   br i1 %cmp.i.i.i51, label %cond.true.i.i.i57, label %cond.false.i.i.i52
 
 cond.true.i.i.i57:                                ; preds = %invoke.cont10

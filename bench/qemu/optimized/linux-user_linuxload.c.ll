@@ -470,7 +470,7 @@ if.end4:                                          ; preds = %if.end
   %cache_size = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %cache_size, align 8
   %conv = zext i32 %1 to i64
-  %cmp5 = icmp ugt i64 %conv, %offset
+  %cmp5 = icmp ult i64 %offset, %conv
   br i1 %cmp5, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end4

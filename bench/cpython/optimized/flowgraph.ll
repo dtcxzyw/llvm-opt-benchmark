@@ -2994,7 +2994,7 @@ for.end.i.i68:                                    ; preds = %for.end.loopexit.i.
 
 if.end10.i:                                       ; preds = %for.end.i.i68
   store ptr %call.i19.i, ptr %sp.i, align 8
-  %cmp1128.i = icmp sgt i32 %nlocals.addr.0.i, %nparams
+  %cmp1128.i = icmp slt i32 %nparams, %nlocals.addr.0.i
   br i1 %cmp1128.i, label %for.body.i83, label %for.end.i71
 
 for.body.i83:                                     ; preds = %if.end10.i, %for.body.i83

@@ -315,13 +315,13 @@ define i32 @Gia_ManFindRemoved(ptr nocapture noundef readonly %0) local_unnamed_
   %.val101 = load i32, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
-  %.not.i = icmp slt i32 %10, %.val101
+  %.not.i = icmp sgt i32 %.val101, %10
   br i1 %.not.i, label %11, label %Vec_PtrFillExtra.exit
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %6, align 8
   %13 = shl nsw i32 %12, 1
-  %14 = icmp slt i32 %13, %.val101
+  %14 = icmp sgt i32 %.val101, %13
   %.not.i.i = icmp slt i32 %12, %.val101
   br i1 %14, label %15, label %27
 
@@ -900,7 +900,7 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   %76 = lshr i64 %.val.i, 61
   %77 = trunc nuw nsw i64 %76 to i32
   %78 = and i32 %77, 1
-  %79 = xor i32 %78, %73
+  %79 = xor i32 %73, %78
   %80 = tail call i32 @Gia_ManHashAnd(ptr noundef %57, i32 noundef %75, i32 noundef %79) #15
   %.val72 = load ptr, ptr %44, align 8
   %81 = getelementptr inbounds i32, ptr %.val72, i64 %59
@@ -925,13 +925,13 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -2922,13 +2922,13 @@ define range(i32 0, 2) i32 @Gia_Min2ManSimulate(ptr nocapture noundef %0) local_
   %.val54 = load i32, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
-  %.not.i = icmp slt i32 %10, %.val54
+  %.not.i = icmp sgt i32 %.val54, %10
   br i1 %.not.i, label %11, label %Vec_WrdFillExtra.exit
 
 11:                                               ; preds = %1
   %12 = load i32, ptr %6, align 8
   %13 = shl nsw i32 %12, 1
-  %14 = icmp slt i32 %13, %.val54
+  %14 = icmp sgt i32 %.val54, %13
   %.not.i.i = icmp slt i32 %12, %.val54
   br i1 %14, label %15, label %27
 

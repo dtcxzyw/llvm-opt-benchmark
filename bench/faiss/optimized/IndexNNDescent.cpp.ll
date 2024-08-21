@@ -449,7 +449,7 @@ define void @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE
 .lr.ph:                                           ; preds = %57, %.lr.ph
   %storemerge26 = phi i64 [ %68, %.lr.ph ], [ 0, %57 ]
   %66 = add nsw i64 %storemerge26, %64
-  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %66, i64 %1)
+  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %1, i64 %66)
   store i64 %.sroa.speculated, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @_ZNK5faiss14IndexNNDescent6searchElPKflPfPlPKNS_16SearchParametersE.omp_outlined, ptr nonnull %0, ptr nonnull %15, ptr nonnull %14, ptr nonnull %11, ptr nonnull %9, ptr nonnull %10, ptr nonnull %8)
   call void @_ZN5faiss17InterruptCallback5checkEv()

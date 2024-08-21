@@ -1402,7 +1402,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriang
 entry:
   %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   %sub.i = fsub float 1.000000e+00, %1
@@ -1437,7 +1437,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussi
 entry:
   %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit
@@ -1503,7 +1503,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpG
 entry:
   %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit
@@ -1569,7 +1569,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmul
 entry:
   %m_scale = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_scale, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %mul.i = fmul float %mul, %mul
   %mul1.i = fmul float %1, %mul.i
@@ -1628,7 +1628,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackm
 entry:
   %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
@@ -1731,7 +1731,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczo
 entry:
   %m_scale = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_scale, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 3.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit, label %if.end.i
@@ -1786,7 +1786,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitche
 entry:
   %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 1.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit, label %if.end.i
@@ -1846,7 +1846,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSplin
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_wscale, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ugt float %1, 1.000000e+00
   br i1 %cmp.i, label %if.else.i, label %if.then.i
@@ -1902,7 +1902,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic1
 entry:
   %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_rad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %m_a = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %m_a, align 4
   %2 = tail call float @llvm.fabs.f32(float %mul)
@@ -2136,14 +2136,14 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriang
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   %sub.i = fsub float 1.000000e+00, %1
   %cond.i = select i1 %cmp.i, float %sub.i, float 0.000000e+00
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load float, ptr %m_hrad_inv, align 4
-  %mul2 = fmul float %2, %y
+  %mul2 = fmul float %y, %2
   %3 = tail call float @llvm.fabs.f32(float %mul2)
   %cmp.i1 = fcmp olt float %3, 1.000000e+00
   %sub.i2 = fsub float 1.000000e+00, %3
@@ -2157,7 +2157,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriang
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   %sub.i = fsub float 1.000000e+00, %1
@@ -2170,7 +2170,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriang
 entry:
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   %sub.i = fsub float 1.000000e+00, %1
@@ -2211,7 +2211,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussi
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit
@@ -2249,7 +2249,7 @@ _ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit: ; preds = %entry, %con
   %cond.i = phi float [ %4, %cond.true.i ], [ 0.000000e+00, %entry ]
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hrad_inv, align 4
-  %mul2 = fmul float %5, %y
+  %mul2 = fmul float %y, %5
   %6 = tail call float @llvm.fabs.f32(float %mul2)
   %cmp.i1 = fcmp olt float %6, 1.000000e+00
   br i1 %cmp.i1, label %cond.true.i3, label %_ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit27
@@ -2294,7 +2294,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussi
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit
@@ -2338,7 +2338,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussi
 entry:
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit
@@ -2410,7 +2410,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpG
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit
@@ -2448,7 +2448,7 @@ _ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit: ; preds = %entry,
   %cond.i = phi float [ %4, %cond.true.i ], [ 0.000000e+00, %entry ]
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hrad_inv, align 4
-  %mul2 = fmul float %5, %y
+  %mul2 = fmul float %y, %5
   %6 = tail call float @llvm.fabs.f32(float %mul2)
   %cmp.i1 = fcmp olt float %6, 1.000000e+00
   br i1 %cmp.i1, label %cond.true.i3, label %_ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit27
@@ -2493,7 +2493,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpG
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit
@@ -2537,7 +2537,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpG
 entry:
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp olt float %1, 1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %_ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit
@@ -2609,7 +2609,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmul
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %mul.i = fmul float %mul, %mul
   %mul1.i = fmul float %1, %mul.i
@@ -2637,7 +2637,7 @@ _ZN18OpenImageIO_v2_6_018FilterCatmullRom1D8catrom1dEf.exit: ; preds = %entry, %
   %cond11.i = phi float [ 0.000000e+00, %entry ], [ %add.i, %cond.true3.i ], [ %add9.i, %cond.false6.i ]
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hscale, align 4
-  %mul2 = fmul float %5, %y
+  %mul2 = fmul float %y, %5
   %6 = tail call float @llvm.fabs.f32(float %mul2)
   %mul.i1 = fmul float %mul2, %mul2
   %mul1.i2 = fmul float %6, %mul.i1
@@ -2672,7 +2672,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmul
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %mul.i = fmul float %mul, %mul
   %mul1.i = fmul float %1, %mul.i
@@ -2706,7 +2706,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmul
 entry:
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %mul.i = fmul float %mul, %mul
   %mul1.i = fmul float %1, %mul.i
@@ -2768,7 +2768,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackm
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
@@ -2791,7 +2791,7 @@ _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %
   %retval.0.i = phi float [ %7, %if.end.i ], [ 0.000000e+00, %entry ]
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %8 = load float, ptr %m_hrad_inv, align 4
-  %mul2 = fmul float %8, %y
+  %mul2 = fmul float %y, %8
   %9 = tail call float @llvm.fabs.f32(float %mul2)
   %or.cond.i1 = fcmp ogt float %9, 1.000000e+00
   br i1 %or.cond.i1, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit9, label %if.end.i2
@@ -2821,7 +2821,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackm
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
@@ -2850,7 +2850,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackm
 entry:
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
@@ -3026,7 +3026,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczo
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 3.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit, label %if.end.i
@@ -3053,7 +3053,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %i
   %retval.0.i = phi float [ %mul11.i, %if.end3.i ], [ 0.000000e+00, %entry ], [ 1.000000e+00, %if.end.i ]
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %m_hscale, align 4
-  %mul2 = fmul float %4, %y
+  %mul2 = fmul float %y, %4
   %5 = tail call float @llvm.fabs.f32(float %mul2)
   %cmp.i1 = fcmp ogt float %5, 3.000000e+00
   br i1 %cmp.i1, label %_ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit15, label %if.end.i2
@@ -3087,7 +3087,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczo
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 3.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit, label %if.end.i
@@ -3120,7 +3120,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczo
 entry:
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 3.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit, label %if.end.i
@@ -3181,10 +3181,10 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_023FilterRadial
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %m_hscale, align 4
-  %mul2 = fmul float %1, %y
+  %mul2 = fmul float %y, %1
   %mul4 = fmul float %mul2, %mul2
   %2 = tail call float @llvm.fmuladd.f32(float %mul, float %mul, float %mul4)
   %3 = tail call float @llvm.sqrt.f32(float %2)
@@ -3220,7 +3220,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_023FilterRadial
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 3.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit, label %if.end.i
@@ -3253,7 +3253,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_023FilterRadial
 entry:
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 3.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit, label %if.end.i
@@ -3317,7 +3317,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitche
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 1.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit, label %if.end.i
@@ -3349,7 +3349,7 @@ _ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit: ; preds = %entry, 
   %retval.0.i = phi float [ %mul8.i, %if.then3.i ], [ %mul13.i, %if.else.i ], [ 0.000000e+00, %entry ]
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hrad_inv, align 4
-  %mul2 = fmul float %5, %y
+  %mul2 = fmul float %y, %5
   %6 = tail call float @llvm.fabs.f32(float %mul2)
   %cmp.i1 = fcmp ogt float %6, 1.000000e+00
   br i1 %cmp.i1, label %_ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit17, label %if.end.i2
@@ -3388,7 +3388,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitche
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 1.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit, label %if.end.i
@@ -3426,7 +3426,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitche
 entry:
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %1, 1.000000e+00
   br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit, label %if.end.i
@@ -3492,7 +3492,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSplin
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ugt float %1, 1.000000e+00
   br i1 %cmp.i, label %if.else.i, label %if.then.i
@@ -3520,7 +3520,7 @@ _ZN18OpenImageIO_v2_6_015FilterBSpline1D9bspline1dEf.exit: ; preds = %if.then.i,
   %retval.0.i = phi float [ %3, %if.then.i ], [ %div.i.i, %if.then2.i ], [ 0.000000e+00, %if.else.i ]
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %m_hscale, align 4
-  %mul2 = fmul float %4, %y
+  %mul2 = fmul float %y, %4
   %5 = tail call float @llvm.fabs.f32(float %mul2)
   %cmp.i1 = fcmp ugt float %5, 1.000000e+00
   br i1 %cmp.i1, label %if.else.i7, label %if.then.i2
@@ -3555,7 +3555,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSplin
 entry:
   %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ugt float %1, 1.000000e+00
   br i1 %cmp.i, label %if.else.i, label %if.then.i
@@ -3589,7 +3589,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSplin
 entry:
   %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %1 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ugt float %1, 1.000000e+00
   br i1 %cmp.i, label %if.else.i, label %if.then.i
@@ -3691,7 +3691,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic2
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_wrad_inv, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %m_a = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %m_a, align 8
   %2 = tail call float @llvm.fabs.f32(float %mul)
@@ -3723,7 +3723,7 @@ _ZN18OpenImageIO_v2_6_013FilterCubic1D5cubicEff.exit: ; preds = %entry, %if.then
   %retval.0.i = phi float [ %mul5.i, %if.then2.i ], [ %6, %if.else.i ], [ 0.000000e+00, %entry ]
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load float, ptr %m_hrad_inv, align 8
-  %mul2 = fmul float %7, %y
+  %mul2 = fmul float %y, %7
   %8 = tail call float @llvm.fabs.f32(float %mul2)
   %cmp.i1 = fcmp ogt float %8, 1.000000e+00
   br i1 %cmp.i1, label %_ZN18OpenImageIO_v2_6_013FilterCubic1D5cubicEff.exit14, label %if.end.i2
@@ -3760,7 +3760,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic2
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_wrad_inv, align 4
-  %mul = fmul float %0, %x
+  %mul = fmul float %x, %0
   %m_a = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %m_a, align 8
   %2 = tail call float @llvm.fabs.f32(float %mul)
@@ -3798,7 +3798,7 @@ define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic2
 entry:
   %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load float, ptr %m_hrad_inv, align 8
-  %mul = fmul float %0, %y
+  %mul = fmul float %y, %0
   %m_a = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %m_a, align 8
   %2 = tail call float @llvm.fabs.f32(float %mul)

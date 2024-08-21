@@ -154,7 +154,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
   %40 = ptrtoint ptr %.7 to i64
   %.neg = sub i64 %4, %40
   %41 = trunc i64 %.neg to i32
-  %42 = add i32 %41, %1
+  %42 = add i32 %1, %41
   %43 = and i64 %.1.in, 2147483648
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.lr.ph105.preheader, label %.critedge2

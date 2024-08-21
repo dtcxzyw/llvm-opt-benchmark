@@ -214,7 +214,7 @@ define dso_local i32 @_hash_getnewbuf(ptr noundef %0, i32 noundef %1, i32 nounde
   unreachable
 
 10:                                               ; preds = %3
-  %11 = icmp ult i32 %5, %1
+  %11 = icmp ugt i32 %1, %5
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %10
@@ -228,7 +228,7 @@ define dso_local i32 @_hash_getnewbuf(ptr noundef %0, i32 noundef %1, i32 nounde
   unreachable
 
 18:                                               ; preds = %10
-  %19 = icmp eq i32 %5, %1
+  %19 = icmp eq i32 %1, %5
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %18

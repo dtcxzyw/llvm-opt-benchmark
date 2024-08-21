@@ -1301,7 +1301,7 @@ if.end6.sink.split:                               ; preds = %if.else, %entry
   %call3.sink = phi i64 [ %call, %entry ], [ %call3, %if.else ]
   %val.sink169 = phi ptr [ %paramname, %entry ], [ %val, %if.else ]
   %4 = load i64, ptr %m_len.i.i24.sink171, align 8
-  %spec.select.i26 = call i64 @llvm.umin.i64(i64 %4, i64 %call3.sink)
+  %spec.select.i26 = call i64 @llvm.umin.i64(i64 %call3.sink, i64 %4)
   %5 = load ptr, ptr %val.sink169, align 8
   %add.ptr.i27 = getelementptr inbounds i8, ptr %5, i64 %spec.select.i26
   store ptr %add.ptr.i27, ptr %val.sink169, align 8
@@ -2013,7 +2013,7 @@ invoke.cont30:                                    ; preds = %if.then.i53.invoke.
   %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58.pre-phi
   %sub.ptr.div.i.i60 = ashr exact i64 %sub.ptr.sub.i.i59, 2
-  %cmp.i61 = icmp ult i64 %sub.ptr.div.i.i60, %sub.ptr.div.i
+  %cmp.i61 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i60
   br i1 %cmp.i61, label %if.then.i66, label %if.else.i62
 
 if.then.i66:                                      ; preds = %invoke.cont30
@@ -2022,7 +2022,7 @@ if.then.i66:                                      ; preds = %invoke.cont30
           to label %if.end33 unwind label %lpad.loopexit.split-lp
 
 if.else.i62:                                      ; preds = %invoke.cont30
-  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i60, %sub.ptr.div.i
+  %cmp6.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i60
   br i1 %cmp6.i, label %if.then7.i, label %if.end33
 
 if.then7.i:                                       ; preds = %if.else.i62
@@ -2068,7 +2068,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2151,7 +2151,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -2175,10 +2175,10 @@ define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09NullInput13seek_subima
 entry:
   %m_subimage.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load i32, ptr %m_subimage.i, align 8
-  %cmp = icmp eq i32 %0, %subimage
+  %cmp = icmp eq i32 %subimage, %0
   %m_miplevel.i = getelementptr inbounds i8, ptr %this, i64 220
   %1 = load i32, ptr %m_miplevel.i, align 4
-  %cmp3 = icmp eq i32 %1, %miplevel
+  %cmp3 = icmp eq i32 %miplevel, %1
   %or.cond18 = select i1 %cmp, i1 %cmp3, i1 false
   br i1 %or.cond18, label %return, label %if.end
 
@@ -3014,7 +3014,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #19
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %10
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %10, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -3120,7 +3120,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #19
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -3692,7 +3692,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !35
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -3776,7 +3776,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !35
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57

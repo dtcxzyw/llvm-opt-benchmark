@@ -967,7 +967,7 @@ define dso_local i32 @generic_buffers_fsync_noflush(ptr noundef %0, i64 noundef 
 18:                                               ; preds = %10
   %19 = and i64 %15, 2
   %20 = icmp eq i64 %19, 0
-  %21 = and i1 %20, %3
+  %21 = and i1 %3, %20
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %18
@@ -1019,7 +1019,7 @@ define dso_local i32 @generic_buffers_fsync(ptr noundef %0, i64 noundef %1, i64 
 18:                                               ; preds = %10
   %19 = and i64 %15, 2
   %20 = icmp eq i64 %19, 0
-  %21 = and i1 %20, %3
+  %21 = and i1 %3, %20
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %18
@@ -2452,7 +2452,7 @@ define dso_local ptr @__bread_gfp(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %9 = getelementptr inbounds i8, ptr %8, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, -32897
-  %12 = or i32 %11, %3
+  %12 = or i32 %3, %11
   %13 = or i32 %12, 32768
   %14 = tail call ptr @bdev_getblk(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %13)
   %15 = icmp eq ptr %14, null
@@ -4705,7 +4705,7 @@ define dso_local noundef i32 @generic_write_end(ptr nocapture readnone %0, ptr n
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 @block_write_end(ptr poison, ptr poison, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr poison)
   %12 = zext i32 %11 to i64
-  %13 = add i64 %12, %2
+  %13 = add i64 %2, %12
   %14 = load i64, ptr %9, align 8
   %15 = icmp sgt i64 %13, %14
   br i1 %15, label %16, label %17
@@ -4853,7 +4853,7 @@ define dso_local noundef zeroext i1 @block_is_partially_uptodate(ptr noundef %0,
   %45 = phi i32 [ %46, %57 ], [ 0, %.preheader ]
   %46 = add i32 %45, %10
   %47 = zext i32 %46 to i64
-  %48 = icmp ugt i64 %47, %1
+  %48 = icmp ult i64 %1, %47
   %49 = icmp ult i32 %45, %26
   %50 = select i1 %48, i1 %49, i1 false
   br i1 %50, label %51, label %57
@@ -5613,7 +5613,7 @@ define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 nound
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   %171 = zext i32 %3 to i64
-  %172 = add i64 %171, %2
+  %172 = add i64 %2, %171
   %173 = icmp sgt i64 %172, %170
   br i1 %173, label %174, label %182
 
@@ -6009,7 +6009,7 @@ define dso_local i32 @block_truncate_page(ptr noundef %0, i64 noundef %1, ptr no
   %8 = shl nuw i32 1, %7
   %9 = add i32 %8, -1
   %10 = zext nneg i32 %9 to i64
-  %11 = and i64 %10, %1
+  %11 = and i64 %1, %10
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %151, label %13
 

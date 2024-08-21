@@ -20,7 +20,7 @@ define range(i32 0, 2) i32 @Fraig_NodesAreEqual(ptr noundef %0, ptr noundef %1, 
   %8 = ptrtoint ptr %2 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %7
@@ -297,7 +297,7 @@ Abc_Clock.exit134:                                ; preds = %Abc_Clock.exit132, 
   %163 = call i32 @Msat_SolverAddClause(ptr noundef %161, ptr noundef %162) #10
   %164 = getelementptr inbounds i8, ptr %0, i64 24
   %165 = load ptr, ptr %164, align 8
-  %166 = icmp eq ptr %165, %1
+  %166 = icmp eq ptr %1, %165
   br i1 %166, label %279, label %201
 
 167:                                              ; preds = %Abc_Clock.exit134
@@ -336,7 +336,7 @@ Abc_Clock.exit136:                                ; preds = %174, %177
   store i64 %187, ptr %185, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 24
   %189 = load ptr, ptr %188, align 8
-  %.not128 = icmp eq ptr %189, %1
+  %.not128 = icmp eq ptr %1, %189
   br i1 %.not128, label %194, label %190
 
 190:                                              ; preds = %Abc_Clock.exit136

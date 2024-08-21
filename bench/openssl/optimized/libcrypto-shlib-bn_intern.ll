@@ -125,7 +125,7 @@ if.end72.us:                                      ; preds = %lor.rhs.us, %land.l
   store i8 %conv73.us, ptr %arrayidx74.us, align 1
   %shr75.us = ashr i32 %window_val.1.us, 1
   %6 = trunc i64 %inc.us to i32
-  %conv78.us = add i32 %6, %w
+  %conv78.us = add i32 %w, %6
   %call79.us = tail call i32 @BN_is_bit_set(ptr noundef nonnull %scalar, i32 noundef %conv78.us) #7
   %mul8052.us = shl nsw i32 %call79.us, %w
   %add81.us = add nsw i32 %mul8052.us, %shr75.us
@@ -193,7 +193,7 @@ if.end72:                                         ; preds = %lor.rhs, %if.end61,
   store i8 %conv73, ptr %arrayidx74, align 1
   %shr75 = ashr i32 %window_val.1, 1
   %8 = trunc i64 %inc to i32
-  %conv78 = add i32 %8, %w
+  %conv78 = add i32 %w, %8
   %call79 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %scalar, i32 noundef %conv78) #7
   %mul8052 = shl nsw i32 %call79, %w
   %add81 = add nsw i32 %mul8052, %shr75

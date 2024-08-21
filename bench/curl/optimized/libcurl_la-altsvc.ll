@@ -1101,13 +1101,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = load ptr, ptr %next, align 8
   %alpnid = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i32, ptr %alpnid, align 4
-  %cmp = icmp eq i32 %3, %srcalpnid
+  %cmp = icmp eq i32 %srcalpnid, %3
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %port = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i16, ptr %port, align 8
-  %cmp3 = icmp eq i16 %4, %srcport
+  %cmp3 = icmp eq i16 %srcport, %4
   br i1 %cmp3, label %land.lhs.true5, label %for.inc
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
@@ -1350,7 +1350,7 @@ land.lhs.true9:                                   ; preds = %hostcompare.exit
   %port = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i16, ptr %port, align 8
   %conv = zext i16 %12 to i32
-  %cmp11 = icmp eq i32 %conv, %srcport
+  %cmp11 = icmp eq i32 %srcport, %conv
   br i1 %cmp11, label %land.lhs.true13, label %for.inc
 
 land.lhs.true13:                                  ; preds = %land.lhs.true9

@@ -1256,7 +1256,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %84, %87
   %158 = ptrtoint ptr %156 to i64
   %159 = sub i64 %157, %158
   %160 = sdiv exact i64 %159, 28
-  %161 = icmp ult i64 %160, %136
+  %161 = icmp ugt i64 %136, %160
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %153
@@ -1270,7 +1270,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %84, %87
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 
 164:                                              ; preds = %153
-  %165 = icmp ugt i64 %160, %136
+  %165 = icmp ult i64 %136, %160
   br i1 %165, label %166, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 
 166:                                              ; preds = %164

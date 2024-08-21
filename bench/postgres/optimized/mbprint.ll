@@ -287,7 +287,7 @@ define dso_local void @pg_wcsformat(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 pg_get_utf8_id.exit:                              ; preds = %50, %53
   %55 = phi i32 [ %54, %53 ], [ %51, %50 ]
-  %56 = icmp eq i32 %55, %2
+  %56 = icmp eq i32 %2, %55
   br i1 %56, label %57, label %103
 
 57:                                               ; preds = %pg_get_utf8_id.exit
@@ -436,7 +436,7 @@ define dso_local noundef ptr @mbvalidate(ptr noundef returned %0, i32 noundef %1
 
 pg_get_utf8_id.exit:                              ; preds = %2, %5
   %7 = phi i32 [ %6, %5 ], [ %3, %2 ]
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   br i1 %8, label %9, label %mb_utf_validate.exit
 
 9:                                                ; preds = %pg_get_utf8_id.exit

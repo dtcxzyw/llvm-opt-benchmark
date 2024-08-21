@@ -258,7 +258,7 @@ define hidden void @"_ZN126_$LT$digest..core_api..wrapper..CoreWrapper$LT$hmac..
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i", label %11
 
 11:                                               ; preds = %3
@@ -268,7 +268,7 @@ define hidden void @"_ZN126_$LT$digest..core_api..wrapper..CoreWrapper$LT$hmac..
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i": ; preds = %3
   %13 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !32, !noalias !36
-  %14 = add nuw nsw i64 %7, %2
+  %14 = add nuw nsw i64 %2, %7
   br label %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17hf7d36ed7b905af22E.llvm.4054924361102640483.exit"
 
 15:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i", %11
@@ -467,7 +467,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit", label %11
 
 11:                                               ; preds = %4
@@ -477,7 +477,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit": ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !140, !noalias !144
-  %14 = add nuw nsw i64 %7, %2
+  %14 = add nuw nsw i64 %2, %7
   br label %33
 
 15:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43", %11
@@ -531,7 +531,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit", label %11
 
 11:                                               ; preds = %4
@@ -541,7 +541,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit": ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !181, !noalias !185
-  %14 = add nuw nsw i64 %7, %2
+  %14 = add nuw nsw i64 %2, %7
   br label %33
 
 15:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43", %11
@@ -1807,7 +1807,7 @@ define hidden noundef zeroext i1 @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$17expand_multi_inf
   %62 = icmp ult i8 %56, 64
   call void @llvm.assume(i1 %62)
   %63 = sub nuw nsw i64 64, %61
-  %64 = icmp ugt i64 %63, %60
+  %64 = icmp ult i64 %60, %63
   br i1 %64, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i32", label %65
 
 65:                                               ; preds = %.lr.ph
@@ -1902,7 +1902,7 @@ define hidden void @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$7extract17h35b7014a7ef2c23fE.llv
   %12 = icmp ult i8 %10, 64
   tail call void @llvm.assume(i1 %12)
   %13 = sub nuw nsw i64 64, %11
-  %14 = icmp ugt i64 %13, %4
+  %14 = icmp ult i64 %4, %13
   br i1 %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i", label %15
 
 15:                                               ; preds = %5
@@ -1912,7 +1912,7 @@ define hidden void @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$7extract17h35b7014a7ef2c23fE.llv
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i": ; preds = %5
   %17 = getelementptr inbounds i8, ptr %8, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !625, !noalias !629
-  %18 = add nuw nsw i64 %11, %4
+  %18 = add nuw nsw i64 %4, %11
   br label %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17hf7d36ed7b905af22E.llvm.4054924361102640483.exit"
 
 19:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i", %15
@@ -2227,7 +2227,7 @@ define hidden void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$10from_bytes17h2a72
   %14 = load i8, ptr %13, align 8, !range !485, !noundef !31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   %15 = tail call noundef i64 @_ZN4sec15point3Tag11message_len17h230a553fea613c7eE(i8 noundef %14, i64 noundef 32)
-  %.not42 = icmp eq i64 %15, %2
+  %.not42 = icmp eq i64 %2, %15
   br i1 %.not42, label %18, label %31
 
 .thread:                                          ; preds = %3, %9
@@ -5789,7 +5789,7 @@ define hidden void @"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
   %8 = icmp ult i8 %6, 64
   tail call void @llvm.assume(i1 %8)
   %9 = sub nuw nsw i64 64, %7
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i", label %11
 
 11:                                               ; preds = %3
@@ -5799,7 +5799,7 @@ define hidden void @"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i": ; preds = %3
   %13 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !1768, !noalias !1772
-  %14 = add nuw nsw i64 %7, %2
+  %14 = add nuw nsw i64 %2, %7
   br label %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h98ee1355d62851b8E.llvm.4054924361102640483.exit"
 
 15:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i", %11

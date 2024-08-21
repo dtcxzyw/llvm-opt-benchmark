@@ -5710,7 +5710,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_hyperslab(i64 noundef %0, i32 n
 
 ._crit_edge.thread:                               ; preds = %.preheader112
   %38 = load i64, ptr @H5TOOLS_BUFSIZE, align 8
-  %.not141 = icmp ult i64 %38, %3
+  %.not141 = icmp ugt i64 %3, %38
   br i1 %.not141, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %._crit_edge.thread, %._crit_edge

@@ -58,7 +58,7 @@ entry:
   %2 = load i64, ptr %payload_length, align 8
   %cmp.not = icmp eq i64 %2, -1
   %add = add i64 %2, 16
-  %cmp4.not = icmp eq i64 %add, %len
+  %cmp4.not = icmp eq i64 %len, %add
   %or.cond = or i1 %cmp.not, %cmp4.not
   br i1 %or.cond, label %if.end, label %return
 
@@ -160,7 +160,7 @@ if.else88:                                        ; preds = %if.end
   %cmp89 = icmp ugt i32 %sub1, %sub
   %rc4_off.1.v = select i1 %cmp89, i64 128, i64 64
   %rc4_off.1 = or disjoint i64 %rc4_off.1.v, %conv
-  %cmp96 = icmp ult i64 %rc4_off.1, %len
+  %cmp96 = icmp ugt i64 %len, %rc4_off.1
   br i1 %cmp96, label %land.lhs.true98, label %if.end143
 
 land.lhs.true98:                                  ; preds = %if.else88

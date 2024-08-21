@@ -3662,7 +3662,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -4895,7 +4895,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common6detail22Lexicographic
   %.sroa.07.0.copyload = load ptr, ptr %6, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8
-  %9 = icmp ne ptr %.sroa.07.0.copyload, %4
+  %9 = icmp ne ptr %4, %.sroa.07.0.copyload
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %.fr = freeze i1 %9
@@ -4911,7 +4911,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common6detail22Lexicographic
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %15 = icmp ugt i64 %12, %1
+  %15 = icmp ult i64 %1, %12
   br i1 %15, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph, label %.split56.us
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0EEdeEv.exit.us.us.lr.ph: ; preds = %.lr.ph.split.us.split.us
@@ -4978,7 +4978,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %.not83 = icmp eq i64 %.sroa.28.0.copyload, %5
+  %.not83 = icmp eq i64 %5, %.sroa.28.0.copyload
   br i1 %.not83, label %.critedge, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph.split.split.us
@@ -5066,7 +5066,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKcLm18446744073709551615EEELb0
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %73 = icmp ne ptr %.sroa.0.0.copyload, %4
+  %73 = icmp ne ptr %4, %.sroa.0.0.copyload
   %74 = icmp ne i64 %.sroa.6.0.lcssa, %.sroa.2.0.copyload
   %.not8.i23 = select i1 %73, i1 true, i1 %74
   br label %.loopexit

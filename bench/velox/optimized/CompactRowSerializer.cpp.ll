@@ -1617,7 +1617,7 @@ entry:
   br i1 %cmp.not, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp313 = icmp sgt i32 %0, %newCapacity
+  %cmp313 = icmp slt i32 %newCapacity, %0
   br i1 %cmp313, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
@@ -1659,7 +1659,7 @@ for.end.loopexit:                                 ; preds = %_ZSt10destroy_atIN8
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %8 = phi i32 [ %1, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
   %.lcssa = phi i32 [ %0, %for.cond.preheader ], [ %.pr, %for.end.loopexit ]
-  %cmp5 = icmp slt i32 %8, %newCapacity
+  %cmp5 = icmp sgt i32 %newCapacity, %8
   br i1 %cmp5, label %if.then6, label %if.end22
 
 if.then6:                                         ; preds = %for.end
@@ -1691,7 +1691,7 @@ if.end14:                                         ; preds = %if.then9, %if.then6
 
 if.end22:                                         ; preds = %if.end14, %for.end
   %9 = phi i32 [ %.pre19, %if.end14 ], [ %.lcssa, %for.end ]
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %9, i32 %newCapacity)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %newCapacity, i32 %9)
   store i32 %.sroa.speculated, ptr %fill_, align 8
   ret void
 }
@@ -2212,7 +2212,7 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   store ptr %call6.i41, ptr %buffer, align 8, !alias.scope !34
   %34 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !34
   %35 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !34
-  %cmp.not.i9.i = icmp ult i64 %35, %totalSize.1
+  %cmp.not.i9.i = icmp ugt i64 %totalSize.1, %35
   br i1 %cmp.not.i9.i, label %if.then.i12.i, label %if.then6.i.i
 
 if.then.i12.i:                                    ; preds = %call6.i.noexc
@@ -2862,7 +2862,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
-  %cmp.not = icmp ult i64 %1, %size
+  %cmp.not = icmp ugt i64 %size, %1
   br i1 %cmp.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -3044,7 +3044,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

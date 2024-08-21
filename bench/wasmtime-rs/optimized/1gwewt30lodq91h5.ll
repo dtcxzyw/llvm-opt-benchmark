@@ -474,7 +474,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h07
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
-  %14 = add i64 %13, %4
+  %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
   br i1 %15, label %17, label %21, !prof !7
 
@@ -516,7 +516,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hac
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
-  %14 = add i64 %13, %4
+  %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
   br i1 %15, label %17, label %23, !prof !7
 
@@ -561,7 +561,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hc3
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
-  %14 = add i64 %13, %4
+  %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
   br i1 %15, label %17, label %21, !prof !7
 
@@ -603,7 +603,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hc8
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
-  %14 = add i64 %13, %4
+  %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
   br i1 %15, label %17, label %21, !prof !7
 
@@ -645,7 +645,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hf5
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
-  %14 = add i64 %13, %4
+  %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
   br i1 %15, label %17, label %23, !prof !7
 

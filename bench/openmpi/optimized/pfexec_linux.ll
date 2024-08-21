@@ -1181,7 +1181,7 @@ define internal fastcc void @do_child(ptr nocapture noundef readonly %0, ptr nou
 
 45:                                               ; preds = %40
   %46 = icmp slt i32 %42, 3
-  %.not21.i = icmp eq i32 %42, %3
+  %.not21.i = icmp eq i32 %3, %42
   %or.cond.i = or i1 %46, %.not21.i
   %.not22.i = icmp eq i32 %27, %42
   %or.cond24.i = or i1 %.not22.i, %or.cond.i

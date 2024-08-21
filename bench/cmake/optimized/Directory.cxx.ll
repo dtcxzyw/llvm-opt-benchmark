@@ -881,7 +881,7 @@ _ZNSt16allocator_traitsISaIN5cmsys18DirectoryInternals8FileDataEEE9constructIS2_
 _ZNSt6vectorIN5cmsys18DirectoryInternals8FileDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN5cmsys18DirectoryInternals8FileDataEEE9constructIS2_JRA256_cEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5cmsys18DirectoryInternals8FileDataEEE9constructIS2_JRA256_cEEEvRS3_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN5cmsys18DirectoryInternals8FileDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN5cmsys18DirectoryInternals8FileDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i27

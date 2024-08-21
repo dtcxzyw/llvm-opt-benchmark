@@ -54988,7 +54988,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %0
+  %cmp3.not.i.i = icmp ult i64 %0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -55074,7 +55074,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %0
+  %cmp3.not.i.i = icmp ult i64 %0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -55157,7 +55157,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %0
+  %cmp3.not.i.i = icmp ult i64 %0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -55240,7 +55240,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %0
+  %cmp3.not.i.i = icmp ult i64 %0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -55323,7 +55323,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %0
+  %cmp3.not.i.i = icmp ult i64 %0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -55406,7 +55406,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %0
+  %cmp3.not.i.i = icmp ult i64 %0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i

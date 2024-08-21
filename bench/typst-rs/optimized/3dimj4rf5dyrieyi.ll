@@ -1964,7 +1964,7 @@ define internal fastcc void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$G
   %14 = load i64, ptr %13, align 8, !alias.scope !22, !noalias !5, !noundef !4
   %15 = load i64, ptr %12, align 8, !alias.scope !22, !noalias !5, !noundef !4
   %16 = sub nuw i64 %14, %15
-  %.not.i.i.i.i.i.i.i = icmp ult i64 %16, %6
+  %.not.i.i.i.i.i.i.i = icmp ugt i64 %6, %16
   %17 = add nuw i64 %15, %6
   %.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 %14, i64 %17
   store i64 %.0.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !22, !noalias !5
@@ -2033,7 +2033,7 @@ common.resume.i.i.i.i:                            ; preds = %28, %115, %common.r
 
 _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds = %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit.i.i.i.i.i.i.i.i", %10
   %37 = sub i64 %6, %18
-  %38 = icmp eq i64 %18, %6
+  %38 = icmp eq i64 %6, %18
   br i1 %38, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17haa5e0aac193aba9fE.exit.thread.i", label %39
 
 39:                                               ; preds = %_ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i
@@ -2197,7 +2197,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
   %101 = load i64, ptr %100, align 8, !alias.scope !100, !noalias !5, !noundef !4
   %102 = load i64, ptr %99, align 8, !alias.scope !100, !noalias !5, !noundef !4
   %103 = sub nuw i64 %101, %102
-  %.not.i.i.i46.i.i.i.i = icmp ult i64 %103, %.sroa.3.0.i6894.i.i.i.i
+  %.not.i.i.i46.i.i.i.i = icmp ugt i64 %.sroa.3.0.i6894.i.i.i.i, %103
   %104 = add nuw i64 %102, %.sroa.3.0.i6894.i.i.i.i
   %.0.i.i.i47.i.i.i.i = select i1 %.not.i.i.i46.i.i.i.i, i64 %101, i64 %104
   store i64 %.0.i.i.i47.i.i.i.i, ptr %99, align 8, !alias.scope !100, !noalias !5
@@ -2254,7 +2254,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
 
 _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit54.i.i.i.i: ; preds = %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit.i.i.i.i50.i.i.i.i", %97
   %124 = sub i64 %.sroa.3.0.i6894.i.i.i.i, %105
-  %125 = icmp eq i64 %105, %.sroa.3.0.i6894.i.i.i.i
+  %125 = icmp eq i64 %.sroa.3.0.i6894.i.i.i.i, %105
   br i1 %125, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17haa5e0aac193aba9fE.exit.thread.i", label %126
 
 126:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit54.i.i.i.i
@@ -2801,7 +2801,7 @@ default.unreachable1.i.i:                         ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
-  %37 = icmp ult i64 %21, %.sroa.7.0.i33.i
+  %37 = icmp ugt i64 %.sroa.7.0.i33.i, %21
   br i1 %37, label %58, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i37.i"
 
 .thread.i:                                        ; preds = %27
@@ -2985,7 +2985,7 @@ default.unreachable18:                            ; preds = %"_ZN40_$LT$T$u20$as
   %34 = getelementptr inbounds i8, ptr %3, i64 1
   %35 = load i64, ptr %.val, align 8, !alias.scope !322, !noalias !331, !noundef !4
   %36 = sub i64 %35, %30
-  %37 = icmp ult i64 %36, %.sroa.7.0.i
+  %37 = icmp ugt i64 %.sroa.7.0.i, %36
   br i1 %37, label %38, label %"_ZN40_$LT$T$u20$as$u20$ciborium_io..Write$GT$9write_all17h4c118c636fb301a0E.exit13"
 
 38:                                               ; preds = %"_ZN79_$LT$ciborium_ll..Minor$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17h9cf26b5fd8fcc8fdE.exit"
@@ -3132,7 +3132,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN11wasmi_arena
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   %8 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %4, i64 %1
   %.0 = select i1 %7, ptr %8, ptr null
   ret ptr %.0
@@ -11176,7 +11176,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.24560
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -11352,13 +11352,13 @@ define hidden noundef double @_ZN4core3ops8function2Fn4call17hcdc4e03e4dbfebecE.
 define hidden noundef double @_ZN4core3ops8function5FnMut8call_mut17h1c095964dd45e3c5E.llvm.2456044669961016091(ptr noalias nocapture noundef nonnull readnone align 1 %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #10 {
   %.0.i.inv.i.i.i.i.i.i.i = fcmp ord double %1, 0.000000e+00
   %.0.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i, double %1, double 0.000000e+00
-  %5 = fmul double %.0.i.i.i.i.i.i.i, %3
+  %5 = fmul double %3, %.0.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i = fcmp uno double %5, 0.000000e+00
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fcmp one double %6, 0x7FF0000000000000
   %.0.i.i.i.i.i = select i1 %7, double %5, double 0.000000e+00
   %.0.i.i = select i1 %.0.i.inv.i.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i.i
-  %8 = fadd double %.0.i.i, %2
+  %8 = fadd double %2, %.0.i.i
   %.0.i.inv.i.i.i.i = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %8, double 0.000000e+00
   ret double %.0.i.i.i.i
@@ -24089,7 +24089,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !4329, !noalias !4334, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !4336, !noalias !4334, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
@@ -24146,7 +24146,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !4342, !noalias !4347, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !4349, !noalias !4347, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit"
 
 9:                                                ; preds = %3
@@ -24317,7 +24317,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hac41aec62d05f696E(ptr noa
   %57 = zext nneg i8 %56 to i64
   %.sroa.3.0.i.i = select i1 %52, i64 %57, i64 %55
   %.sroa.0.0.i.i71 = select i1 %52, ptr %1, ptr %53
-  %58 = icmp ult i64 %46, %.sroa.3.0.i.i
+  %58 = icmp ugt i64 %.sroa.3.0.i.i, %46
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %44
@@ -24597,7 +24597,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hac41aec62d05f696E(ptr noa
   %166 = zext nneg i8 %165 to i64
   %.sroa.3.0.i.i.i.i.i173 = select i1 %161, i64 %166, i64 %164
   %.sroa.0.0.i.i.i.i.i174 = select i1 %161, ptr %.sroa.0247.0336, ptr %162
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %167, label %168
 
 167:                                              ; preds = %.lr.ph339
@@ -26778,7 +26778,7 @@ _ZN5wasmi5store10StoreInner13unwrap_stored17h49e25a505dbc8bc5E.llvm.245604466996
   store i64 %21, ptr %8, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 240
   %23 = load i64, ptr %22, align 8, !alias.scope !4982, !noundef !4
-  %.not = icmp ugt i64 %23, %21
+  %.not = icmp ult i64 %21, %23
   br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %_ZN5wasmi5store10StoreInner13unwrap_stored17h49e25a505dbc8bc5E.llvm.2456044669961016091.exit
@@ -32435,7 +32435,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !4
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -32516,8 +32516,8 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.017.i11
-  %86 = getelementptr i8, ptr %85, i64 %.1.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.1.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.017.i11
   %.0.copyload15.i16 = load i16, ptr %86, align 1, !alias.scope !5612
   %87 = zext i16 %.0.copyload15.i16 to i64
   %88 = shl nuw nsw i64 %.017.i11, 3
@@ -44360,7 +44360,7 @@ define hidden void @"_ZN89_$LT$$RF$mut$u20$ciborium..ser..Serializer$LT$W$GT$$u2
   %4 = alloca { i8, [23 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %.lobit = ashr i64 %2, 63
-  %spec.select = xor i64 %.lobit, %2
+  %spec.select = xor i64 %2, %.lobit
   %.lobit8 = lshr i64 %2, 63
   %spec.select7 = trunc nuw nsw i64 %.lobit8 to i8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -44388,7 +44388,7 @@ define hidden void @"_ZN89_$LT$$RF$mut$u20$ciborium..ser..Serializer$LT$W$GT$$u2
   %10 = load i64, ptr %9, align 8, !alias.scope !8050, !noalias !8057, !noundef !4
   %11 = load i64, ptr %.val, align 8, !alias.scope !8064, !noalias !8057, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %3
+  %13 = icmp ugt i64 %3, %12
   br i1 %13, label %14, label %"_ZN40_$LT$T$u20$as$u20$ciborium_io..Write$GT$9write_all17h4c118c636fb301a0E.exit"
 
 14:                                               ; preds = %4
@@ -44963,7 +44963,7 @@ default.unreachable1.i123:                        ; preds = %89
   call void @llvm.experimental.noalias.scope.decl(metadata !8128)
   call void @llvm.experimental.noalias.scope.decl(metadata !8129)
   call void @llvm.experimental.noalias.scope.decl(metadata !8130)
-  %147 = icmp ult i64 %146, %.0.sroa.speculated.i.i.us
+  %147 = icmp ugt i64 %.0.sroa.speculated.i.i.us, %146
   br i1 %147, label %.split.us, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i.us"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i.us": ; preds = %143
@@ -45938,7 +45938,7 @@ default.unreachable1.i.i:                         ; preds = %153
   call void @llvm.experimental.noalias.scope.decl(metadata !8243), !noalias !8217
   call void @llvm.experimental.noalias.scope.decl(metadata !8246), !noalias !8217
   %247 = load i64, ptr %223, align 8, !alias.scope !8248, !noalias !8249, !noundef !4
-  %248 = icmp ult i64 %247, %.0.sroa.speculated.i.i
+  %248 = icmp ugt i64 %.0.sroa.speculated.i.i, %247
   br i1 %248, label %.noexc259.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i": ; preds = %246
@@ -45967,7 +45967,7 @@ default.unreachable1.i.i:                         ; preds = %153
   %259 = load i64, ptr %213, align 8, !alias.scope !8259, !noalias !8264, !noundef !4
   %260 = load i64, ptr %60, align 8, !alias.scope !8266, !noalias !8264, !noundef !4
   %261 = sub i64 %260, %259
-  %262 = icmp ult i64 %261, %.0.sroa.speculated.i.i
+  %262 = icmp ugt i64 %.0.sroa.speculated.i.i, %261
   br i1 %262, label %263, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit"
 
 263:                                              ; preds = %255
@@ -46742,7 +46742,7 @@ default.unreachable1.i.i:                         ; preds = %153
   call void @llvm.experimental.noalias.scope.decl(metadata !8331), !noalias !8309
   call void @llvm.experimental.noalias.scope.decl(metadata !8334), !noalias !8309
   %442 = load i64, ptr %432, align 8, !alias.scope !8336, !noalias !8337, !noundef !4
-  %443 = icmp ult i64 %442, %.0.sroa.speculated.i.i265
+  %443 = icmp ugt i64 %.0.sroa.speculated.i.i265, %442
   br i1 %443, label %.loopexit1044, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i267"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i267": ; preds = %441
@@ -46771,7 +46771,7 @@ default.unreachable1.i.i:                         ; preds = %153
   %454 = load i64, ptr %414, align 8, !alias.scope !8347, !noalias !8352, !noundef !4
   %455 = load i64, ptr %38, align 8, !alias.scope !8354, !noalias !8352, !noundef !4
   %456 = sub i64 %455, %454
-  %457 = icmp ult i64 %456, %.0.sroa.speculated.i.i265
+  %457 = icmp ugt i64 %.0.sroa.speculated.i.i265, %456
   br i1 %457, label %458, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit264"
 
 458:                                              ; preds = %450
@@ -47041,7 +47041,7 @@ default.unreachable1.i.i708:                      ; preds = %486
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8389)
   %526 = getelementptr inbounds i8, ptr %1, i64 32
   %527 = load i64, ptr %526, align 8, !alias.scope !8391, !noalias !8392, !noundef !4
-  %528 = icmp ult i64 %527, %.sroa.627.0.copyload.i
+  %528 = icmp ugt i64 %.sroa.627.0.copyload.i, %527
   br i1 %528, label %"_ZN72_$LT$ciborium_ll..dec..Decoder$LT$R$GT$$u20$as$u20$ciborium_io..Read$GT$10read_exact17h27e0666610393f43E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i702"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i702": ; preds = %525
@@ -47512,7 +47512,7 @@ switch.lookup1149:                                ; preds = %609
   call void @llvm.experimental.noalias.scope.decl(metadata !8483)
   %647 = getelementptr inbounds i8, ptr %642, i64 8
   %648 = load i64, ptr %647, align 8, !alias.scope !8485, !noalias !8486, !noundef !4
-  %649 = icmp ult i64 %648, %640
+  %649 = icmp ugt i64 %640, %648
   br i1 %649, label %"_ZN11ciborium_ll3seg20Segment$LT$R$C$P$GT$4pull17h785747be28792acfE.exit.thread.thread.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i.i": ; preds = %646
@@ -47566,7 +47566,7 @@ switch.lookup1149:                                ; preds = %609
   %664 = load i64, ptr %.sroa.534.0..sroa_idx.i, align 8, !alias.scope !8503, !noalias !8508, !noundef !4
   %665 = load i64, ptr %28, align 8, !alias.scope !8510, !noalias !8508, !noundef !4
   %666 = sub i64 %665, %664
-  %667 = icmp ult i64 %666, %.sroa.gep93.val.i
+  %667 = icmp ugt i64 %.sroa.gep93.val.i, %666
   br i1 %667, label %668, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit.i"
 
 668:                                              ; preds = %663
@@ -47834,7 +47834,7 @@ default.unreachable1.i.i724:                      ; preds = %700
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8558)
   %737 = getelementptr inbounds i8, ptr %1, i64 32
   %738 = load i64, ptr %737, align 8, !alias.scope !8560, !noalias !8561, !noundef !4
-  %739 = icmp ult i64 %738, %.sroa.628.0.copyload.i
+  %739 = icmp ugt i64 %.sroa.628.0.copyload.i, %738
   br i1 %739, label %"_ZN72_$LT$ciborium_ll..dec..Decoder$LT$R$GT$$u20$as$u20$ciborium_io..Read$GT$10read_exact17h27e0666610393f43E.exit.i721", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i717"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i.i717": ; preds = %736
@@ -48080,7 +48080,7 @@ default.unreachable1.i:                           ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8595)
   %58 = getelementptr inbounds i8, ptr %1, i64 32
   %59 = load i64, ptr %58, align 8, !alias.scope !8597, !noalias !8598, !noundef !4
-  %60 = icmp ult i64 %59, %.sroa.628.0.copyload
+  %60 = icmp ugt i64 %.sroa.628.0.copyload, %59
   br i1 %60, label %"_ZN72_$LT$ciborium_ll..dec..Decoder$LT$R$GT$$u20$as$u20$ciborium_io..Read$GT$10read_exact17h27e0666610393f43E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h66ab2ee1bb03a29aE.exit.i.i.i": ; preds = %57
@@ -51075,7 +51075,7 @@ common.resume.i:                                  ; preds = %19
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit", label %26
 
 26:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb65cfbbcee3b2069E.llvm.2456044669961016091.exit"
-  %27 = icmp ult i64 %25, %6
+  %27 = icmp ugt i64 %6, %25
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7844bbad5321fc4dE.llvm.10579729455205085779.exit.i": ; preds = %26
@@ -103071,7 +103071,7 @@ define hidden noundef align 8 ptr @"_ZN74_$LT$typst..foundations..value..Value$u
   %110 = load i64, ptr %109, align 8, !alias.scope !18662, !noalias !18669, !noundef !4
   %111 = load i64, ptr %.val3, align 8, !alias.scope !18674, !noalias !18669, !noundef !4
   %112 = sub i64 %111, %110
-  %113 = icmp ult i64 %112, %107
+  %113 = icmp ugt i64 %107, %112
   br i1 %113, label %114, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h03cefb20dea782bbE.exit"
 
 114:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h86db7afdf91cb104E.exit.i.i"
@@ -103112,7 +103112,7 @@ define hidden noundef align 8 ptr @"_ZN74_$LT$typst..foundations..value..Value$u
   %133 = load i64, ptr %132, align 8, !alias.scope !18677, !noalias !18684, !noundef !4
   %134 = load i64, ptr %.val4, align 8, !alias.scope !18689, !noalias !18684, !noundef !4
   %135 = sub i64 %134, %133
-  %136 = icmp ult i64 %135, %130
+  %136 = icmp ugt i64 %130, %135
   br i1 %136, label %137, label %_ZN10serde_json3ser9Formatter9write_f6417h776d2db0fadd41baE.exit.i
 
 137:                                              ; preds = %129
@@ -104239,7 +104239,7 @@ define hidden noundef align 8 ptr @"_ZN74_$LT$typst..foundations..value..Value$u
   %110 = load i64, ptr %109, align 8, !alias.scope !19008, !noalias !19015, !noundef !4
   %111 = load i64, ptr %.val3, align 8, !alias.scope !19020, !noalias !19015, !noundef !4
   %112 = sub i64 %111, %110
-  %113 = icmp ult i64 %112, %107
+  %113 = icmp ugt i64 %107, %112
   br i1 %113, label %114, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h2056ffeb98498ef2E.exit"
 
 114:                                              ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h86db7afdf91cb104E.exit.i.i"
@@ -104280,7 +104280,7 @@ define hidden noundef align 8 ptr @"_ZN74_$LT$typst..foundations..value..Value$u
   %133 = load i64, ptr %132, align 8, !alias.scope !19023, !noalias !19030, !noundef !4
   %134 = load i64, ptr %.val4, align 8, !alias.scope !19035, !noalias !19030, !noundef !4
   %135 = sub i64 %134, %133
-  %136 = icmp ult i64 %135, %130
+  %136 = icmp ugt i64 %130, %135
   br i1 %136, label %137, label %_ZN10serde_json3ser9Formatter9write_f6417h8341babbdd948a22E.exit.i
 
 137:                                              ; preds = %129
@@ -105029,7 +105029,7 @@ _ZN5serde3ser10Serializer11collect_seq17h7b64503ace1bd3c0E.exit: ; preds = %"_ZN
   %83 = load i64, ptr %82, align 8, !alias.scope !19285, !noalias !19292, !noundef !4
   %84 = load i64, ptr %.val.i, align 8, !alias.scope !19299, !noalias !19292, !noundef !4
   %85 = sub i64 %84, %83
-  %86 = icmp ult i64 %85, %.sroa.3.0.i
+  %86 = icmp ugt i64 %.sroa.3.0.i, %85
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %.noexc3
@@ -108604,7 +108604,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h74476c29ed30
   %.sroa.415.0.copyload = load double, ptr %.sroa.415.0..sroa_idx, align 8
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i = fcmp ord double %.sroa.415.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i, double %.sroa.415.0.copyload, double 0.000000e+00
-  %6 = fmul double %.0.i.i.i.i.i.i.i.i.i.i, %2
+  %6 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i.i = fcmp uno double %6, 0.000000e+00
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp one double %7, 0x7FF0000000000000
@@ -108630,7 +108630,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h74476c29ed30
   %.sroa.422.0.copyload = load double, ptr %.sroa.422.0..sroa_idx, align 8
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i6 = fcmp ord double %.sroa.422.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i7 = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i6, double %.sroa.422.0.copyload, double 0.000000e+00
-  %12 = fmul double %.0.i.i.i.i.i.i.i.i.i.i7, %3
+  %12 = fmul double %3, %.0.i.i.i.i.i.i.i.i.i.i7
   %.0.i.inv.i.i.i.i.i.i.i.i8 = fcmp uno double %12, 0.000000e+00
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fcmp one double %13, 0x7FF0000000000000
@@ -108675,7 +108675,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h7454decaf601
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !19804
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i = fcmp ord double %.sroa.623.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i, double %.sroa.623.0.copyload, double 0.000000e+00
-  %10 = fmul double %.0.i.i.i.i.i.i.i.i.i.i, %2
+  %10 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i.i = fcmp uno double %10, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp one double %11, 0x7FF0000000000000
@@ -108707,7 +108707,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h7454decaf601
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !19817
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i11 = fcmp ord double %.sroa.632.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i12 = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i11, double %.sroa.632.0.copyload, double 0.000000e+00
-  %17 = fmul double %.0.i.i.i.i.i.i.i.i.i.i12, %3
+  %17 = fmul double %3, %.0.i.i.i.i.i.i.i.i.i.i12
   %.0.i.inv.i.i.i.i.i.i.i.i13 = fcmp uno double %17, 0.000000e+00
   %18 = tail call double @llvm.fabs.f64(double %17)
   %19 = fcmp one double %18, 0x7FF0000000000000
@@ -108738,7 +108738,7 @@ define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map1
   %6 = load double, ptr %5, align 8, !noundef !4
   %.0.i.inv.i.i.i.i.i.i.i.i = fcmp ord double %4, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i, double %4, double 0.000000e+00
-  %7 = fmul double %.0.i.i.i.i.i.i.i.i, %1
+  %7 = fmul double %1, %.0.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i = fcmp uno double %7, 0.000000e+00
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fcmp one double %8, 0x7FF0000000000000
@@ -108753,7 +108753,7 @@ define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map1
   %14 = load double, ptr %13, align 8, !noundef !4
   %.0.i.inv.i.i.i.i.i.i.i.i10 = fcmp ord double %12, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i11 = select i1 %.0.i.inv.i.i.i.i.i.i.i.i10, double %12, double 0.000000e+00
-  %15 = fmul double %.0.i.i.i.i.i.i.i.i11, %2
+  %15 = fmul double %2, %.0.i.i.i.i.i.i.i.i11
   %.0.i.inv.i.i.i.i.i.i12 = fcmp uno double %15, 0.000000e+00
   %16 = tail call double @llvm.fabs.f64(double %15)
   %17 = fcmp one double %16, 0x7FF0000000000000
@@ -108788,7 +108788,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h9b5eb248ca21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !19830
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i = fcmp ord double %.sroa.623.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i, double %.sroa.623.0.copyload, double 0.000000e+00
-  %10 = fmul double %.0.i.i.i.i.i.i.i.i.i.i, %2
+  %10 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i.i = fcmp uno double %10, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp one double %11, 0x7FF0000000000000
@@ -108820,7 +108820,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h9b5eb248ca21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !19843
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i11 = fcmp ord double %.sroa.632.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i12 = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i11, double %.sroa.632.0.copyload, double 0.000000e+00
-  %17 = fmul double %.0.i.i.i.i.i.i.i.i.i.i12, %3
+  %17 = fmul double %3, %.0.i.i.i.i.i.i.i.i.i.i12
   %.0.i.inv.i.i.i.i.i.i.i.i13 = fcmp uno double %17, 0.000000e+00
   %18 = tail call double @llvm.fabs.f64(double %17)
   %19 = fcmp one double %18, 0x7FF0000000000000
@@ -108848,7 +108848,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h9b5eb248ca21
 define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h9ff3b8531fb7ef64E"(double noundef %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.0.i.inv.i.i.i.i.i.i.i = fcmp ord double %2, 0.000000e+00
   %.0.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i, double %2, double 0.000000e+00
-  %5 = fmul double %.0.i.i.i.i.i.i.i, %0
+  %5 = fmul double %0, %.0.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i = fcmp uno double %5, 0.000000e+00
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fcmp one double %6, 0x7FF0000000000000
@@ -108856,7 +108856,7 @@ define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map1
   %.0.i.i = select i1 %.0.i.inv.i.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i10 = fcmp ord double %3, 0.000000e+00
   %.0.i.i.i.i.i.i.i11 = select i1 %.0.i.inv.i.i.i.i.i.i.i10, double %3, double 0.000000e+00
-  %8 = fmul double %.0.i.i.i.i.i.i.i11, %1
+  %8 = fmul double %1, %.0.i.i.i.i.i.i.i11
   %.0.i.inv.i.i.i.i.i12 = fcmp uno double %8, 0.000000e+00
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp one double %9, 0x7FF0000000000000
@@ -108872,7 +108872,7 @@ define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map1
   %4 = load double, ptr %2, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load double, ptr %5, align 8, !noundef !4
-  %7 = fadd double %6, %0
+  %7 = fadd double %0, %6
   %.0.i.inv.i.i.i.i = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %7, double 0.000000e+00
   %8 = fsub double 1.000000e+00, %4
@@ -108885,7 +108885,7 @@ define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map1
   %11 = load double, ptr %10, align 8, !noundef !4
   %12 = getelementptr inbounds i8, ptr %2, i64 24
   %13 = load double, ptr %12, align 8, !noundef !4
-  %14 = fadd double %13, %1
+  %14 = fadd double %1, %13
   %.0.i.inv.i.i.i.i10 = fcmp ord double %14, 0.000000e+00
   %.0.i.i.i.i11 = select i1 %.0.i.inv.i.i.i.i10, double %14, double 0.000000e+00
   %15 = fsub double 1.000000e+00, %11
@@ -108959,7 +108959,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17he0ef55b9c613
   %.sroa.415.0.copyload = load double, ptr %.sroa.415.0..sroa_idx, align 8
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i = fcmp ord double %.sroa.415.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i, double %.sroa.415.0.copyload, double 0.000000e+00
-  %6 = fmul double %.0.i.i.i.i.i.i.i.i.i.i, %2
+  %6 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i.i = fcmp uno double %6, 0.000000e+00
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp one double %7, 0x7FF0000000000000
@@ -108985,7 +108985,7 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17he0ef55b9c613
   %.sroa.422.0.copyload = load double, ptr %.sroa.422.0..sroa_idx, align 8
   %.0.i.inv.i.i.i.i.i.i.i.i.i.i6 = fcmp ord double %.sroa.422.0.copyload, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i.i7 = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i6, double %.sroa.422.0.copyload, double 0.000000e+00
-  %12 = fmul double %.0.i.i.i.i.i.i.i.i.i.i7, %3
+  %12 = fmul double %3, %.0.i.i.i.i.i.i.i.i.i.i7
   %.0.i.inv.i.i.i.i.i.i.i.i8 = fcmp uno double %12, 0.000000e+00
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fcmp one double %13, 0x7FF0000000000000
@@ -109469,7 +109469,7 @@ define hidden { double, double } @_ZN5typst6layout5point5Point3map17h0a46eceedbf
 define hidden noundef double @_ZN5typst6layout5ratio5Ratio2of17h01563bd6c24e0ab7E(double noundef %0, double noundef %1) unnamed_addr #6 {
   %.0.i.inv.i.i.i.i.i = fcmp ord double %0, 0.000000e+00
   %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %0, double 0.000000e+00
-  %3 = fmul double %.0.i.i.i.i.i, %1
+  %3 = fmul double %1, %.0.i.i.i.i.i
   %.0.i.inv.i.i.i = fcmp uno double %3, 0.000000e+00
   %4 = tail call double @llvm.fabs.f64(double %3)
   %5 = fcmp one double %4, 0x7FF0000000000000
@@ -109482,7 +109482,7 @@ define hidden noundef double @_ZN5typst6layout5ratio5Ratio2of17h01563bd6c24e0ab7
 define hidden noundef double @_ZN5typst6layout5ratio5Ratio2of17h09b8bba204c60514E(double noundef %0, double noundef %1) unnamed_addr #6 {
   %.0.i.inv.i.i.i.i.i = fcmp ord double %0, 0.000000e+00
   %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %0, double 0.000000e+00
-  %3 = fmul double %.0.i.i.i.i.i, %1
+  %3 = fmul double %1, %.0.i.i.i.i.i
   %.0.i.inv.i.i.i = fcmp uno double %3, 0.000000e+00
   %4 = tail call double @llvm.fabs.f64(double %3)
   %5 = fcmp one double %4, 0x7FF0000000000000
@@ -112109,7 +112109,7 @@ define hidden { i64, double } @"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$clo
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !20415
   %.0.i.inv.i.i.i.i.i.i.i.i.i = fcmp ord double %.sroa.3.0.copyload.i, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i, double %.sroa.3.0.copyload.i, double 0.000000e+00
-  %10 = fmul double %.0.i.i.i.i.i.i.i.i.i, %2
+  %10 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i = fcmp uno double %10, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp one double %11, 0x7FF0000000000000
@@ -124721,7 +124721,7 @@ define hidden { i64, double } @"_ZN5typst6layout9container94_$LT$impl$u20$typst.
   %9 = load double, ptr %8, align 8, !alias.scope !23819, !noalias !23822, !noundef !4
   %.0.i.inv.i.i.i.i.i.i.i.i.i = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i, double %7, double 0.000000e+00
-  %10 = fmul double %.0.i.i.i.i.i.i.i.i.i, %2
+  %10 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i = fcmp uno double %10, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp one double %11, 0x7FF0000000000000
@@ -133368,7 +133368,7 @@ define hidden { i64, double } @"_ZN5typst6layout9container138_$LT$impl$u20$typst
   %9 = load double, ptr %8, align 8, !alias.scope !26572, !noalias !26575, !noundef !4
   %.0.i.inv.i.i.i.i.i.i.i.i.i = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i, double %7, double 0.000000e+00
-  %10 = fmul double %.0.i.i.i.i.i.i.i.i.i, %2
+  %10 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i = fcmp uno double %10, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp one double %11, 0x7FF0000000000000
@@ -141437,7 +141437,7 @@ define internal noundef zeroext i1 @"_ZN72_$LT$typst..layout..transform..ScaleEl
 define hidden noundef double @"_ZN5typst6layout9transform136_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..transform..ScaleElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h05b74a6bd3670854E.llvm.2456044669961016091"(ptr noalias nocapture noundef nonnull readnone align 1 %0, double noundef %1, double noundef %2) unnamed_addr #10 {
   %.0.i.inv.i.i.i.i.i.i = fcmp ord double %2, 0.000000e+00
   %.0.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i, double %2, double 0.000000e+00
-  %4 = fmul double %.0.i.i.i.i.i.i, %1
+  %4 = fmul double %1, %.0.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i = fcmp uno double %4, 0.000000e+00
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp one double %5, 0x7FF0000000000000
@@ -148235,7 +148235,7 @@ define hidden { i64, double } @"_ZN5typst9visualize5image135_$LT$impl$u20$typst.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !29984
   %.0.i.inv.i.i.i.i.i.i.i.i.i = fcmp ord double %.sroa.3.0.copyload.i, 0.000000e+00
   %.0.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i, double %.sroa.3.0.copyload.i, double 0.000000e+00
-  %10 = fmul double %.0.i.i.i.i.i.i.i.i.i, %2
+  %10 = fmul double %2, %.0.i.i.i.i.i.i.i.i.i
   %.0.i.inv.i.i.i.i.i.i.i = fcmp uno double %10, 0.000000e+00
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp one double %11, 0x7FF0000000000000

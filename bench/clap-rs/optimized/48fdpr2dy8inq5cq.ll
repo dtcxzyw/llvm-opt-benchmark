@@ -230,7 +230,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !42, !noalias !47, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !49, !noalias !47, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 9:                                                ; preds = %3
@@ -370,7 +370,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !55, !noalias !60, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !62, !noalias !60, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48db17b41ef1d069E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
@@ -634,7 +634,7 @@ define hidden noundef align 8 dereferenceable_or_null(712) ptr @"_ZN91_$LT$core.
   store i32 %7, ptr %4, align 4, !noalias !148
   %15 = getelementptr inbounds i8, ptr %11, i64 696
   %16 = load i32, ptr %15, align 8, !range !149, !alias.scope !141, !noalias !144, !noundef !5
-  %17 = icmp eq i32 %16, %7
+  %17 = icmp eq i32 %7, %16
   br i1 %17, label %"_ZN12clap_builder7builder7command7Command17find_short_subcmd28_$u7b$$u7b$closure$u7d$$u7d$17h20b1cff28a190440E.llvm.5455346206542766164.exit.thread", label %"_ZN12clap_builder7builder7command7Command17find_short_subcmd28_$u7b$$u7b$closure$u7d$$u7d$17h20b1cff28a190440E.llvm.5455346206542766164.exit"
 
 "_ZN12clap_builder7builder7command7Command17find_short_subcmd28_$u7b$$u7b$closure$u7d$$u7d$17h20b1cff28a190440E.llvm.5455346206542766164.exit.thread": ; preds = %13
@@ -2828,7 +2828,7 @@ define hidden void @_ZN12clap_builder7builder7command7Command26get_subcommands_c
   %32 = getelementptr inbounds i8, ptr %31, i64 552
   %33 = getelementptr i8, ptr %31, i64 496
   %.val4.i = load i64, ptr %33, align 8, !alias.scope !603, !noalias !608, !noundef !5
-  %.not.i.i.i.i = icmp eq i64 %14, %.val4.i
+  %.not.i.i.i.i = icmp eq i64 %.val4.i, %14
   br i1 %.not.i.i.i.i, label %34, label %"_ZN12clap_builder7builder7command7Command26get_subcommands_containing28_$u7b$$u7b$closure$u7d$$u7d$17hbe00b2fdffde7904E.exit.backedge.i"
 
 34:                                               ; preds = %.lr.ph.i
@@ -2880,7 +2880,7 @@ define hidden void @_ZN12clap_builder7builder7command7Command26get_subcommands_c
   %51 = load i64, ptr %8, align 8, !alias.scope !627, !noalias !630, !noundef !5
   %52 = load i64, ptr %6, align 8, !alias.scope !632, !noalias !630, !noundef !5
   %53 = sub i64 %52, %51
-  %54 = icmp ult i64 %53, %50
+  %54 = icmp ugt i64 %50, %53
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %48
@@ -3479,7 +3479,7 @@ define internal fastcc void @_ZN12clap_builder7builder7command7Command20get_used
   store i64 %18, ptr %.fca.1.gep.i.i.i.i, align 8, !noalias !750
   %30 = getelementptr inbounds i8, ptr %26, i64 568
   %31 = load i64, ptr %30, align 8, !alias.scope !757, !noalias !762, !noundef !5
-  %.not.i.i.i.i.i = icmp eq i64 %31, %18
+  %.not.i.i.i.i.i = icmp eq i64 %18, %31
   br i1 %.not.i.i.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i.i.i.i", label %"_ZN12clap_builder7builder7command7Command15find_subcommand28_$u7b$$u7b$closure$u7d$$u7d$17heca9362ece443832E.exit.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i.i.i.i": ; preds = %28
@@ -5987,7 +5987,7 @@ _ZN12clap_builder7builder7command7Command22_propagate_global_args17heca209ebaa80
   %776 = load i64, ptr %775, align 8, !alias.scope !1281, !noundef !5
   %777 = load i64, ptr %774, align 8, !alias.scope !1281, !noundef !5
   %778 = sub i64 %777, %776
-  %779 = icmp ult i64 %778, %.pre180
+  %779 = icmp ugt i64 %.pre180, %778
   br i1 %779, label %780, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1178fd71d70cb67bE.exit.i"
 
 780:                                              ; preds = %._crit_edge166
@@ -6673,7 +6673,7 @@ define hidden noundef align 8 dereferenceable_or_null(712) ptr @_ZN12clap_builde
   %121 = load i64, ptr %.sroa.5184.0..sroa_idx, align 8, !alias.scope !1416, !noalias !1421, !noundef !5
   %122 = load i64, ptr %47, align 8, !alias.scope !1423, !noalias !1421, !noundef !5
   %123 = sub i64 %122, %121
-  %124 = icmp ult i64 %123, %120
+  %124 = icmp ugt i64 %120, %123
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %118
@@ -7669,7 +7669,7 @@ define hidden void @_ZN12clap_builder7builder7command7Command25_build_bin_names_
   %122 = load i64, ptr %.sroa.5203.0..sroa_idx, align 8, !alias.scope !1658, !noalias !1663, !noundef !5
   %123 = load i64, ptr %43, align 8, !alias.scope !1665, !noalias !1663, !noundef !5
   %124 = sub i64 %123, %122
-  %125 = icmp ult i64 %124, %121
+  %125 = icmp ugt i64 %121, %124
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %119
@@ -9133,7 +9133,7 @@ define hidden noundef zeroext i1 @_ZN12clap_builder7builder7command7Command21sho
   br i1 %9, label %20, label %.critedge
 
 10:                                               ; preds = %2
-  %11 = icmp eq i32 %7, %1
+  %11 = icmp eq i32 %1, %7
   br i1 %11, label %20, label %.critedge
 
 .critedge:                                        ; preds = %8, %10
@@ -9486,7 +9486,7 @@ define hidden void @_ZN12clap_builder7builder7command7Command14required_graph17h
   %65 = add i64 %62, 1
   store i64 %65, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2130, !noalias !2133
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !2129
-  %66 = icmp ugt i64 %65, %44
+  %66 = icmp ult i64 %44, %65
   br i1 %66, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hfb6803608f0b0d28E.llvm.12273313129313454071.exit.i", label %67, !prof !2136
 
 67:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5b784d44873e3e12E.llvm.12273313129313454071.exit.i"
@@ -9864,7 +9864,7 @@ define hidden { ptr, i64 } @_ZN12clap_builder7builder7command7Command17find_shor
   store i32 %1, ptr %4, align 4, !noalias !2260
   %16 = getelementptr inbounds i8, ptr %13, i64 696
   %17 = load i32, ptr %16, align 8, !range !149, !alias.scope !2250, !noalias !2253, !noundef !5
-  %18 = icmp eq i32 %17, %1
+  %18 = icmp eq i32 %1, %17
   br i1 %18, label %"_ZN12clap_builder7builder7command7Command17find_short_subcmd28_$u7b$$u7b$closure$u7d$$u7d$17h20b1cff28a190440E.llvm.5455346206542766164.exit.thread.i", label %"_ZN12clap_builder7builder7command7Command17find_short_subcmd28_$u7b$$u7b$closure$u7d$$u7d$17h20b1cff28a190440E.llvm.5455346206542766164.exit.i"
 
 "_ZN12clap_builder7builder7command7Command17find_short_subcmd28_$u7b$$u7b$closure$u7d$$u7d$17h20b1cff28a190440E.llvm.5455346206542766164.exit.thread.i": ; preds = %15
@@ -9913,7 +9913,7 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder7builder7command7Command17fi
   store i32 %7, ptr %4, align 4, !noalias !2267
   %8 = getelementptr inbounds i8, ptr %5, i64 696
   %9 = load i32, ptr %8, align 8, !range !149, !alias.scope !2267, !noundef !5
-  %10 = icmp eq i32 %9, %7
+  %10 = icmp eq i32 %7, %9
   br i1 %10, label %_ZN12clap_builder7builder7command7Command21short_flag_aliases_to17h14c32b4ce1fe1427E.llvm.5455346206542766164.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %2

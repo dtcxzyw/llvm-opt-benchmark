@@ -57,7 +57,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %9, i32 1
   %11 = load float, ptr %10, align 4
-  %12 = fcmp ugt float %11, %1
+  %12 = fcmp ult float %1, %11
   br i1 %12, label %.preheader, label %14
 
 .preheader:                                       ; preds = %7
@@ -81,7 +81,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
   %19 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %indvars.iv, i32 1
   %20 = load float, ptr %19, align 4
-  %21 = fcmp ult float %20, %1
+  %21 = fcmp ugt float %1, %20
   br i1 %21, label %22, label %._crit_edge.loopexit.split.loop.exit
 
 22:                                               ; preds = %.lr.ph
@@ -233,7 +233,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %46, i32 1
   %48 = load float, ptr %47, align 4
-  %49 = fcmp ugt float %48, %40
+  %49 = fcmp ult float %40, %48
   br i1 %49, label %.preheader.i, label %51
 
 .preheader.i:                                     ; preds = %44
@@ -257,7 +257,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %59 ]
   %56 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %indvars.iv.i, i32 1
   %57 = load float, ptr %56, align 4
-  %58 = fcmp ult float %57, %40
+  %58 = fcmp ugt float %40, %57
   br i1 %58, label %59, label %._crit_edge.loopexit.split.loop.exit.i
 
 59:                                               ; preds = %.lr.ph.i

@@ -690,7 +690,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call to i64
-  %cmp1.not = icmp eq i64 %conv, %prk_len
+  %cmp1.not = icmp eq i64 %prk_len, %conv
   br i1 %cmp1.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end

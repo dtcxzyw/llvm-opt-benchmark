@@ -1790,7 +1790,7 @@ define linkonce_odr hidden void @_ZN18ObjectMonitorsDump5visitEP14MonitorClosure
 16:                                               ; preds = %.lr.ph.i.i.i.i
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %2
+  %19 = icmp eq ptr %2, %18
   br i1 %19, label %_ZN18ObjectMonitorsDump8get_listEPv.exit, label %20
 
 20:                                               ; preds = %16, %.lr.ph.i.i.i.i
@@ -1849,7 +1849,7 @@ define linkonce_odr hidden void @_ZThn8_N18ObjectMonitorsDump5visitEP14MonitorCl
 16:                                               ; preds = %.lr.ph.i.i.i.i.i
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %2
+  %19 = icmp eq ptr %2, %18
   br i1 %19, label %_ZN18ObjectMonitorsDump8get_listEPv.exit.i, label %20
 
 20:                                               ; preds = %16, %.lr.ph.i.i.i.i.i
@@ -1919,7 +1919,7 @@ define linkonce_odr hidden void @_ZN18ObjectMonitorsDump3addEP13ObjectMonitor(pt
 19:                                               ; preds = %.lr.ph.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %6
+  %22 = icmp eq ptr %6, %21
   br i1 %22, label %_ZN18ObjectMonitorsDump8get_listEPv.exit, label %23
 
 23:                                               ; preds = %19, %.lr.ph.i.i.i.i
@@ -2194,7 +2194,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplIP13ObjectMonitorLN6A
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %2
+  %11 = icmp eq ptr %2, %10
   br i1 %11, label %12, label %.preheader
 
 12:                                               ; preds = %6

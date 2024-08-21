@@ -1015,7 +1015,7 @@ for.body:                                         ; preds = %for.cond.preheader,
           to label %invoke.cont38 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont38:                                    ; preds = %for.body
-  %cmp40 = icmp eq ptr %call39, %factory
+  %cmp40 = icmp eq ptr %factory, %call39
   %add = add nuw nsw i32 %i.0268, 1
   br i1 %cmp40, label %if.end46, label %for.inc
 

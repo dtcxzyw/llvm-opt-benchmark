@@ -5531,7 +5531,7 @@ define dso_local noundef i32 @ata_build_rw_tf(ptr noundef %0, i64 noundef %1, i3
 
 120:                                              ; preds = %115
   %121 = zext i32 %2 to i64
-  %122 = add i64 %121, %1
+  %122 = add i64 %1, %121
   %123 = icmp ult i64 %122, 268435455
   %124 = icmp ult i32 %2, 257
   %125 = and i1 %124, %123
@@ -5668,7 +5668,7 @@ define dso_local noundef i32 @ata_build_rw_tf(ptr noundef %0, i64 noundef %1, i3
 
 216:                                              ; preds = %85
   %217 = zext i32 %2 to i64
-  %218 = add i64 %217, %1
+  %218 = add i64 %1, %217
   %219 = icmp ult i64 %218, 268435455
   %220 = icmp ult i32 %2, 257
   %221 = and i1 %220, %219
@@ -10840,7 +10840,7 @@ define dso_local zeroext i8 @ata_timing_cycle2mode(i32 noundef %0, i32 noundef %
   %45 = getelementptr inbounds i8, ptr %19, i64 16
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
-  %48 = icmp slt i32 %47, %1
+  %48 = icmp sgt i32 %1, %47
   br i1 %48, label %.thread, label %49
 
 49:                                               ; preds = %44
@@ -10887,7 +10887,7 @@ define dso_local zeroext i8 @ata_timing_cycle2mode(i32 noundef %0, i32 noundef %
   %77 = getelementptr inbounds i8, ptr %52, i64 18
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i32
-  %80 = icmp slt i32 %79, %1
+  %80 = icmp sgt i32 %1, %79
   br i1 %80, label %.thread, label %81
 
 81:                                               ; preds = %76

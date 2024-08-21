@@ -672,7 +672,7 @@ entry:
 if.end:                                           ; preds = %entry
   %fCutoverJulianDay = getelementptr inbounds i8, ptr %this, i64 632
   %1 = load i32, ptr %fCutoverJulianDay, align 8
-  %cmp.not = icmp sgt i32 %1, %julianDay
+  %cmp.not = icmp slt i32 %julianDay, %1
   br i1 %cmp.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -727,7 +727,7 @@ if.end30:                                         ; preds = %if.else, %if.then2
   %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %8 = load i32, ptr %fGregorianCutoverYear, align 8
   %cmp31 = icmp ne i32 %eyear.0, %8
-  %cmp33.not = icmp sgt i32 %7, %julianDay
+  %cmp33.not = icmp slt i32 %julianDay, %7
   %or.cond = select i1 %cmp31, i1 true, i1 %cmp33.not
   br i1 %or.cond, label %if.end37, label %if.then34
 
@@ -816,7 +816,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517GregorianCalendar10isLeap
 entry:
   %fGregorianCutoverYear = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear, align 8
-  %cmp.not = icmp sgt i32 %0, %year
+  %cmp.not = icmp slt i32 %year, %0
   %and6 = and i32 %year, 3
   %cmp7 = icmp eq i32 %and6, 0
   %cmp7.not = xor i1 %cmp7, true
@@ -1056,7 +1056,7 @@ if.end:                                           ; preds = %entry, %if.then
   %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr = freeze i32 %0
-  %cmp.not.i = icmp sgt i32 %.fr, %extendedYear.addr.0
+  %cmp.not.i = icmp slt i32 %extendedYear.addr.0, %.fr
   %and6.i = and i32 %extendedYear.addr.0, 3
   %cmp7.i = icmp eq i32 %and6.i, 0
   %cmp7.not.i = xor i1 %cmp7.i, true
@@ -1108,7 +1108,7 @@ entry:
   %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr = freeze i32 %0
-  %cmp.not.i = icmp sgt i32 %.fr, %eyear
+  %cmp.not.i = icmp slt i32 %eyear, %.fr
   %and6.i = and i32 %eyear, 3
   %cmp7.i = icmp eq i32 %and6.i, 0
   %cmp7.not.i = xor i1 %cmp7.i, true
@@ -1153,7 +1153,7 @@ entry:
   %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr = freeze i32 %0
-  %cmp.not.i = icmp sgt i32 %.fr, %year
+  %cmp.not.i = icmp slt i32 %year, %.fr
   %and6.i = and i32 %year, 3
   %cmp7.i = icmp eq i32 %and6.i, 0
   %cmp7.not.i = xor i1 %cmp7.i, true
@@ -1205,7 +1205,7 @@ entry:
   %fGregorianCutoverYear.i = getelementptr inbounds i8, ptr %this, i64 648
   %1 = load i32, ptr %fGregorianCutoverYear.i, align 8
   %.fr4 = freeze i32 %1
-  %cmp.not.i = icmp sgt i32 %.fr4, %.fr
+  %cmp.not.i = icmp slt i32 %.fr, %.fr4
   %and6.i = and i32 %.fr, 3
   %cmp7.i = icmp eq i32 %and6.i, 0
   %cmp7.not.i = xor i1 %cmp7.i, true
@@ -1258,7 +1258,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true4
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %2)
-  %cmp.not.i = icmp sgt i32 %call.i, %3
+  %cmp.not.i = icmp slt i32 %3, %call.i
   br i1 %cmp.not.i, label %return, label %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit
 
 _ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds = %land.lhs.true5
@@ -1266,7 +1266,7 @@ _ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 128
   %5 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %2)
-  %cmp5.i.not = icmp slt i32 %call4.i, %3
+  %cmp5.i.not = icmp sgt i32 %3, %call4.i
   br i1 %cmp5.i.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true4, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit
@@ -1319,7 +1319,7 @@ lor.lhs.false30:                                  ; preds = %if.then27
   %fGregorianCutoverYear.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %12 = load i32, ptr %fGregorianCutoverYear.i.i, align 8
   %.fr4.i = freeze i32 %12
-  %cmp.not.i.i = icmp sgt i32 %.fr4.i, %.fr.i
+  %cmp.not.i.i = icmp slt i32 %.fr.i, %.fr4.i
   %and6.i.i = and i32 %.fr.i, 3
   %cmp7.i.i = icmp eq i32 %and6.i.i, 0
   %cmp7.not.i.i = xor i1 %cmp7.i.i, true
@@ -1370,7 +1370,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
-  %cmp.not = icmp sgt i32 %call, %value
+  %cmp.not = icmp slt i32 %value, %call
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
@@ -1378,7 +1378,7 @@ land.rhs:                                         ; preds = %entry
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 128
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field)
-  %cmp5 = icmp sge i32 %call4, %value
+  %cmp5 = icmp sle i32 %value, %call4
   %2 = zext i1 %cmp5 to i8
   br label %land.end
 

@@ -16,7 +16,7 @@ define void @_ZN3gmx17CheckpointHandlerC2ENS_6compat8not_nullIPNS_16SimulationSi
   store i32 1, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = fcmp oge float %6, 0.000000e+00
-  %14 = and i1 %13, %4
+  %14 = and i1 %4, %13
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 17

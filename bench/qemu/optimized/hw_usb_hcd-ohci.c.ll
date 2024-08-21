@@ -3761,7 +3761,7 @@ land.lhs.true30.us:                               ; preds = %for.cond.us
   %3 = and i32 %i.0.us, 15
   %tobool31.not.us = icmp eq i32 %3, 0
   %conv32.us = sext i32 %i.0.us to i64
-  %cmp.us = icmp eq i64 %conv32.us, %len
+  %cmp.us = icmp eq i64 %len, %conv32.us
   %or.cond13.us = or i1 %tobool31.not.us, %cmp.us
   br i1 %or.cond13.us, label %if.then34.us, label %if.end41.us
 
@@ -3805,7 +3805,7 @@ trace_usb_ohci_td_pkt_full.exit.us:               ; preds = %if.then8.i.i24.us, 
 if.end41.us:                                      ; preds = %for.cond.us, %trace_usb_ohci_td_pkt_full.exit.us, %land.lhs.true30.us
   %conv42.us.pre-phi = phi i64 [ %conv32.us, %trace_usb_ohci_td_pkt_full.exit.us ], [ %conv32.us, %land.lhs.true30.us ], [ 0, %for.cond.us ]
   %p.1.us = phi ptr [ %tmp, %trace_usb_ohci_td_pkt_full.exit.us ], [ %p.0.us, %land.lhs.true30.us ], [ %p.0.us, %for.cond.us ]
-  %cmp43.us = icmp eq i64 %conv42.us.pre-phi, %len
+  %cmp43.us = icmp eq i64 %len, %conv42.us.pre-phi
   br i1 %cmp43.us, label %for.end, label %if.end46.us
 
 if.end46.us:                                      ; preds = %if.end41.us
@@ -3828,7 +3828,7 @@ land.lhs.true30:                                  ; preds = %for.cond
   %11 = and i32 %i.0, 15
   %tobool31.not = icmp eq i32 %11, 0
   %conv32 = sext i32 %i.0 to i64
-  %cmp = icmp eq i64 %conv32, %len
+  %cmp = icmp eq i64 %len, %conv32
   %or.cond13 = or i1 %tobool31.not, %cmp
   br i1 %or.cond13, label %if.then36, label %if.end41
 
@@ -3871,7 +3871,7 @@ trace_usb_ohci_td_pkt_short.exit:                 ; preds = %if.then36, %land.lh
 
 if.end41:                                         ; preds = %for.cond, %land.lhs.true30
   %conv42.pre-phi = phi i64 [ %conv32, %land.lhs.true30 ], [ 0, %for.cond ]
-  %cmp43 = icmp eq i64 %conv42.pre-phi, %len
+  %cmp43 = icmp eq i64 %len, %conv42.pre-phi
   br i1 %cmp43, label %for.end, label %if.end46
 
 if.end46:                                         ; preds = %if.end41
@@ -4538,7 +4538,7 @@ land.lhs.true:                                    ; preds = %if.else
   %mul = shl i32 %6, 2
   %add = add i32 %mul, 84
   %conv3 = zext i32 %add to i64
-  %cmp4 = icmp ugt i64 %conv3, %addr
+  %cmp4 = icmp ult i64 %addr, %conv3
   br i1 %cmp4, label %if.then6, label %if.else13
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -4881,7 +4881,7 @@ land.lhs.true:                                    ; preds = %if.end
   %mul = shl i32 %6, 2
   %add = add i32 %mul, 84
   %conv2 = zext i32 %add to i64
-  %cmp3 = icmp ugt i64 %conv2, %addr
+  %cmp3 = icmp ult i64 %addr, %conv2
   br i1 %cmp3, label %if.then5, label %land.lhs.true.ohci_reg_name.exit_crit_edge
 
 land.lhs.true.ohci_reg_name.exit_crit_edge:       ; preds = %land.lhs.true

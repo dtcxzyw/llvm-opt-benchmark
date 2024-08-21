@@ -1194,7 +1194,7 @@ define internal i64 @obj_to_enum(i32 noundef %0, ptr noundef %1, i64 noundef %2)
   %.010.idx = select i1 %4, i64 8, i64 0
   %.010 = getelementptr i8, ptr %1, i64 %.010.idx
   %5 = sext i1 %4 to i32
-  %.09 = add nsw i32 %5, %0
+  %.09 = add nsw i32 %0, %5
   %.0.in = select i1 %4, ptr %1, ptr @sym_each
   %.0 = load i64, ptr %.0.in, align 8
   %6 = tail call i32 @rb_keyword_given_p() #17
@@ -2412,7 +2412,7 @@ define internal i64 @lazy_to_enum(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %.012 = getelementptr i8, ptr %1, i64 %.012.idx
   %.011.in = select i1 %4, ptr %1, ptr @sym_each
   %5 = sext i1 %4 to i32
-  %.0 = add nsw i32 %5, %0
+  %.0 = add nsw i32 %0, %5
   %.011 = load i64, ptr %.011.in, align 8
   %6 = load i64, ptr @lazy_use_super_method, align 8
   %7 = tail call i64 @rb_hash_aref(i64 noundef %6, i64 noundef %.011) #17

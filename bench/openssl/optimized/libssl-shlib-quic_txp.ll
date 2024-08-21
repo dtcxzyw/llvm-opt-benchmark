@@ -415,11 +415,11 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.not.i = icmp ule i64 %call.i, %token_len
+  %cmp1.not.i = icmp uge i64 %token_len, %call.i
   %cmp4.i = icmp ult i64 %call.i, 161
   %or.cond.i = or i1 %cmp1.not.i, %cmp4.i
   %sub.i = add i64 %call.i, -160
-  %cmp7.i.not = icmp ult i64 %sub.i, %token_len
+  %cmp7.i.not = icmp ugt i64 %token_len, %sub.i
   %or.cond = or i1 %or.cond.i, %cmp7.i.not
   br i1 %or.cond, label %return, label %if.end
 
@@ -1291,7 +1291,7 @@ if.end.i12.i:                                     ; preds = %if.end.i
   %arrayidx.i.i = getelementptr inbounds [4 x %struct.txp_el], ptr %el.i.i, i64 0, i64 %idxprom10353
   %scratch_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %54 = load i64, ptr %scratch_len.i.i, align 8
-  %cmp13.i.i = icmp ult i64 %54, %52
+  %cmp13.i.i = icmp ugt i64 %52, %54
   br i1 %cmp13.i.i, label %if.then14.i.i, label %if.end20
 
 if.then14.i.i:                                    ; preds = %if.end.i12.i
@@ -4458,7 +4458,7 @@ entry:
   %add.i = add i64 %base_hdr_len, 1
   store i64 %add.i, ptr %hdr_len, align 16
   %cmp1.i = icmp ne i64 %orig_len, 0
-  %cmp2.not.i = icmp ugt i64 %add.i, %space_left
+  %cmp2.not.i = icmp ult i64 %space_left, %add.i
   %or.cond.i = or i1 %cmp1.i, %cmp2.not.i
   br i1 %or.cond.i, label %if.end.i, label %try_len.exit
 
@@ -4481,7 +4481,7 @@ try_len.exit:                                     ; preds = %entry, %if.end.i
   %arrayidx4 = getelementptr inbounds i8, ptr %payload_len, i64 8
   %add.i16 = add i64 %base_hdr_len, 2
   store i64 %add.i16, ptr %arrayidx3, align 8
-  %cmp2.not.i18 = icmp ugt i64 %add.i16, %space_left
+  %cmp2.not.i18 = icmp ult i64 %space_left, %add.i16
   %or.cond.i19 = or i1 %cmp1.i, %cmp2.not.i18
   br i1 %or.cond.i19, label %if.end.i22, label %try_len.exit30
 
@@ -4505,7 +4505,7 @@ try_len.exit30:                                   ; preds = %try_len.exit, %if.e
   %arrayidx8 = getelementptr inbounds i8, ptr %payload_len, i64 16
   %add.i31 = add i64 %base_hdr_len, 4
   store i64 %add.i31, ptr %arrayidx7, align 16
-  %cmp2.not.i33 = icmp ugt i64 %add.i31, %space_left
+  %cmp2.not.i33 = icmp ult i64 %space_left, %add.i31
   %or.cond.i34 = or i1 %cmp1.i, %cmp2.not.i33
   br i1 %or.cond.i34, label %if.end.i37, label %try_len.exit45
 
@@ -4529,7 +4529,7 @@ try_len.exit45:                                   ; preds = %try_len.exit30, %if
   %arrayidx12 = getelementptr inbounds i8, ptr %payload_len, i64 24
   %add.i46 = add i64 %base_hdr_len, 8
   store i64 %add.i46, ptr %arrayidx11, align 8
-  %cmp2.not.i48 = icmp ugt i64 %add.i46, %space_left
+  %cmp2.not.i48 = icmp ult i64 %space_left, %add.i46
   %or.cond.i49 = or i1 %cmp1.i, %cmp2.not.i48
   br i1 %or.cond.i49, label %if.end.i52, label %try_len.exit60
 

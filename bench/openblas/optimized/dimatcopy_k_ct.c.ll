@@ -70,7 +70,7 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   %42 = mul nsw i64 %40, %4
   %43 = getelementptr inbounds double, ptr %41, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !3
-  %45 = fmul double %44, %2
+  %45 = fmul double %2, %44
   store double %45, ptr %43, align 8, !tbaa !3
   %46 = add nuw nsw i64 %40, 1
   %47 = icmp slt i64 %46, %0
@@ -83,9 +83,9 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   %51 = load double, ptr %50, align 8, !tbaa !3
   %52 = getelementptr inbounds double, ptr %39, i64 %48
   %53 = load double, ptr %52, align 8, !tbaa !3
-  %54 = fmul double %53, %2
+  %54 = fmul double %2, %53
   store double %54, ptr %50, align 8, !tbaa !3
-  %55 = fmul double %51, %2
+  %55 = fmul double %2, %51
   store double %55, ptr %52, align 8, !tbaa !3
   %56 = add nuw nsw i64 %48, 1
   %57 = icmp eq i64 %56, %0

@@ -204,7 +204,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %35 = phi i32 [ %.pre, %._crit_edge ], [ 0, %27 ]
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = load i32, ptr %36, align 8
-  %38 = add i32 %35, %1
+  %38 = add i32 %1, %35
   %39 = sub i32 %37, %38
   %40 = icmp sgt i32 %39, 19
   br i1 %40, label %46, label %41, !prof !9
@@ -238,7 +238,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %56 = lshr i16 %55, 2
   %57 = and i16 %56, 60
   %58 = zext nneg i16 %57 to i32
-  %59 = add i32 %58, %1
+  %59 = add i32 %1, %58
   %60 = icmp ult i32 %59, %52
   br i1 %60, label %61, label %.thread21
 
@@ -648,7 +648,7 @@ define internal i32 @try_rfc959(ptr nocapture noundef readonly %0, i64 noundef %
   %33 = add i32 %9, 1
   %34 = getelementptr i8, ptr %8, i64 1
   %35 = zext i32 %33 to i64
-  %36 = icmp ult i64 %35, %1
+  %36 = icmp ugt i64 %1, %35
   %37 = icmp ult i32 %32, 6
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %.preheader, label %.thread, !llvm.loop !17
@@ -845,7 +845,7 @@ select.unfold11:                                  ; preds = %84, %.thread
   %99 = add i32 %96, 4
   %100 = getelementptr inbounds i8, ptr %2, i64 16
   %101 = sext i32 %99 to i64
-  %102 = icmp ult i64 %101, %1
+  %102 = icmp ugt i64 %1, %101
   br i1 %102, label %.preheader, label %.thread12
 
 .preheader:                                       ; preds = %98, %118
@@ -879,7 +879,7 @@ select.unfold11:                                  ; preds = %84, %.thread
   %121 = add i16 %120, %108
   %122 = add i32 %105, 1
   %123 = sext i32 %122 to i64
-  %124 = icmp ult i64 %123, %1
+  %124 = icmp ugt i64 %1, %123
   br i1 %124, label %.preheader, label %.thread12, !llvm.loop !18
 
 .thread12:                                        ; preds = %118, %115, %84, %112, %110, %98, %select.unfold11, %27, %24, %17, %9, %5
@@ -906,7 +906,7 @@ define internal i32 @try_rfc1123(ptr nocapture noundef readonly %0, i64 noundef 
 15:                                               ; preds = %.preheader
   %16 = add i32 %9, 1
   %17 = sext i32 %16 to i64
-  %18 = icmp ult i64 %17, %1
+  %18 = icmp ugt i64 %1, %17
   br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %15, %.preheader, %5
@@ -1069,7 +1069,7 @@ define internal i32 @try_epsv_response(ptr nocapture noundef readonly %0, i64 no
   %44 = add i16 %43, %31
   %45 = add i32 %28, 1
   %46 = sext i32 %45 to i64
-  %47 = icmp ult i64 %46, %1
+  %47 = icmp ugt i64 %1, %46
   br i1 %47, label %25, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %41, %38, %35, %33, %19, %15, %7, %5

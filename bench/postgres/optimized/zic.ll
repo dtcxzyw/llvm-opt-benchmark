@@ -730,7 +730,7 @@ sub_1:                                            ; preds = %sub_0
 
 222:                                              ; preds = %220
   %223 = sub nsw i64 -9223372036854775808, %216
-  %224 = icmp sgt i64 %223, %.01121.i
+  %224 = icmp slt i64 %.01121.i, %223
   br i1 %224, label %225, label %232
 
 225:                                              ; preds = %222
@@ -846,7 +846,7 @@ adjleap.exit:                                     ; preds = %260, %258, %242, %2
   tail call fastcc void @infile(ptr noundef %266)
   %indvars.iv.next305 = add nsw i64 %indvars.iv304, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next305 to i32
-  %exitcond307.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond307.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond307.not, label %._crit_edge, label %.lr.ph194, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph194, %adjleap.exit
@@ -2065,7 +2065,7 @@ thread-pre-split.i77:                             ; preds = %795, %789, %788, %.
 
 840:                                              ; preds = %831
   %841 = sub nsw i64 -9223372036854775808, %838
-  %842 = icmp sgt i64 %841, %833
+  %842 = icmp slt i64 %833, %841
   br i1 %842, label %846, label %oadd.exit.i85
 
 843:                                              ; preds = %831
@@ -2339,7 +2339,7 @@ tadd.exit346.i:                                   ; preds = %942, %940, %935, %t
 
 968:                                              ; preds = %966
   %969 = sub nsw i64 -9223372036854775808, %962
-  %970 = icmp sgt i64 %969, %.2298.i
+  %970 = icmp slt i64 %.2298.i, %969
   br i1 %970, label %974, label %oadd.exit347.i
 
 971:                                              ; preds = %966
@@ -2461,7 +2461,7 @@ tadd.exit351.i:                                   ; preds = %987, %983
 
 1024:                                             ; preds = %1021
   %1025 = sub nsw i64 -9223372036854775808, %1022
-  %1026 = icmp sgt i64 %1025, %1015
+  %1026 = icmp slt i64 %1015, %1025
   br i1 %1026, label %1030, label %oadd.exit352.i
 
 1027:                                             ; preds = %1021
@@ -2627,7 +2627,7 @@ doabbr.exit.i:                                    ; preds = %1076, %1073, %abbro
 
 1108:                                             ; preds = %1105
   %1109 = sub nsw i64 -9223372036854775808, %1106
-  %1110 = icmp sgt i64 %1109, %1015
+  %1110 = icmp slt i64 %1015, %1109
   br i1 %1110, label %1114, label %oadd.exit357.i
 
 1111:                                             ; preds = %1105
@@ -2842,7 +2842,7 @@ doabbr.exit383.i:                                 ; preds = %1199, %1196, %abbro
 
 1207:                                             ; preds = %doabbr.exit383.i
   %1208 = sub nsw i64 -9223372036854775808, %1204
-  %1209 = icmp sgt i64 %1208, %1205
+  %1209 = icmp slt i64 %1205, %1208
   br i1 %1209, label %1213, label %oadd.exit384.i
 
 1210:                                             ; preds = %doabbr.exit383.i
@@ -2924,7 +2924,7 @@ oadd.exit384.i:                                   ; preds = %1210, %1207
   %1255 = load ptr, ptr @attypes, align 8
   %1256 = load i64, ptr @timecnt, align 8
   %1257 = load i64, ptr @timecnt_alloc, align 8
-  %1258 = icmp sgt i64 %1257, %1256
+  %1258 = icmp slt i64 %1256, %1257
   br i1 %1258, label %addtt.exit.i, label %1259
 
 1259:                                             ; preds = %1254
@@ -3476,7 +3476,7 @@ thread-pre-split828.i.i:                          ; preds = %1473, %1472
 
 1503:                                             ; preds = %1501
   %1504 = sub nsw i64 -9223372036854775808, %1494
-  %1505 = icmp sgt i64 %1504, %1498
+  %1505 = icmp slt i64 %1498, %1504
   br i1 %1505, label %1506, label %1512
 
 1506:                                             ; preds = %1503
@@ -5656,7 +5656,7 @@ ecpyalloc.exit11.i:                               ; preds = %ecpyalloc.exit.i
   %162 = load ptr, ptr @rules, align 8
   %163 = load i64, ptr @nrules, align 8
   %164 = load i64, ptr @nrules_alloc, align 8
-  %165 = icmp sgt i64 %164, %163
+  %165 = icmp slt i64 %163, %164
   br i1 %165, label %growalloc.exit.i, label %166
 
 166:                                              ; preds = %161
@@ -5837,7 +5837,7 @@ ecpyalloc.exit5.i:                                ; preds = %ecpyalloc.exit.i59
   %243 = load ptr, ptr @links, align 8
   %244 = load i64, ptr @nlinks, align 8
   %245 = load i64, ptr @nlinks_alloc, align 8
-  %246 = icmp sgt i64 %245, %244
+  %246 = icmp slt i64 %244, %245
   br i1 %246, label %growalloc.exit.i62, label %247
 
 247:                                              ; preds = %ecpyalloc.exit5.i
@@ -5956,7 +5956,7 @@ growalloc.exit.i62:                               ; preds = %size_product.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %290 ]
   %288 = getelementptr [50 x i64], ptr @trans, i64 0, i64 %indvars.iv.i.i
   %289 = load i64, ptr %288, align 8
-  %.not.i.i65 = icmp slt i64 %289, %267
+  %.not.i.i65 = icmp sgt i64 %267, %289
   br i1 %.not.i.i65, label %290, label %._crit_edge.loopexit.split.loop.exit.i.i
 
 290:                                              ; preds = %.lr.ph.i.i
@@ -7167,7 +7167,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
   br label %67
 
 67:                                               ; preds = %65, %59
-  %68 = icmp slt i32 %.051, %1
+  %68 = icmp sgt i32 %1, %.051
   br i1 %68, label %69, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67
@@ -7183,7 +7183,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
   %72 = zext nneg i32 %.051 to i64
   %73 = getelementptr ptr, ptr %0, i64 %72
   %74 = load ptr, ptr %73, align 8
-  %75 = icmp ult i32 %.050, %1
+  %75 = icmp ugt i32 %1, %.050
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %69
@@ -7194,7 +7194,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
 
 80:                                               ; preds = %69, %76
   %81 = phi ptr [ %79, %76 ], [ @.str.73, %69 ]
-  %82 = icmp ult i32 %.049, %1
+  %82 = icmp ugt i32 %1, %.049
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %80
@@ -7205,7 +7205,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
 
 87:                                               ; preds = %80, %83
   %88 = phi ptr [ %86, %83 ], [ @.str.74, %80 ]
-  %89 = icmp ult i32 %.048, %1
+  %89 = icmp ugt i32 %1, %.048
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %87
@@ -7247,7 +7247,7 @@ ecpyalloc.exit74:                                 ; preds = %ecpyalloc.exit73
   %108 = phi i64 [ %.pre77, %._crit_edge ], [ %98, %102 ], [ %98, %94 ]
   %109 = phi ptr [ %.pre75, %._crit_edge ], [ %.pre76, %102 ], [ %.pre76, %94 ]
   %110 = load i64, ptr @nzones_alloc, align 8
-  %111 = icmp sgt i64 %110, %108
+  %111 = icmp slt i64 %108, %110
   br i1 %111, label %growalloc.exit, label %112
 
 112:                                              ; preds = %107
@@ -8084,7 +8084,7 @@ oadd.exit111:                                     ; preds = %.lr.ph142.split
 
 189:                                              ; preds = %184
   %190 = sub nsw i64 -9223372036854775808, %185
-  %191 = icmp sgt i64 %190, %187
+  %191 = icmp slt i64 %187, %190
   br i1 %191, label %192, label %tadd.exit
 
 192:                                              ; preds = %189
@@ -8199,7 +8199,7 @@ define internal fastcc noundef i64 @tadd(i64 noundef %0, i64 noundef %1) unnamed
 
 4:                                                ; preds = %2
   %5 = sub nsw i64 -9223372036854775808, %0
-  %6 = icmp sgt i64 %5, %1
+  %6 = icmp slt i64 %1, %5
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %4
@@ -8809,8 +8809,8 @@ define internal fastcc i32 @addtype(i64 noundef %0, ptr noundef %1, i1 noundef z
 9:                                                ; preds = %5
   %10 = load i32, ptr @bloat, align 4
   %11 = icmp sgt i32 %10, -1
-  %spec.select = and i1 %11, %3
-  %spec.select39 = and i1 %11, %4
+  %spec.select = and i1 %3, %11
+  %spec.select39 = and i1 %4, %11
   %12 = load i32, ptr @charcnt, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.preheader, label %._crit_edge
@@ -8975,7 +8975,7 @@ newabbr.exit:                                     ; preds = %35
   %indvars.iv55 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next56, %70 ]
   %47 = getelementptr [256 x i64], ptr @utoffs, i64 0, i64 %indvars.iv55
   %48 = load i64, ptr %47, align 8
-  %49 = icmp eq i64 %48, %0
+  %49 = icmp eq i64 %0, %48
   br i1 %49, label %50, label %70
 
 50:                                               ; preds = %46
@@ -9057,7 +9057,7 @@ define internal fastcc void @addtt(i64 noundef %0, i32 noundef %1) unnamed_addr 
   %3 = load ptr, ptr @attypes, align 8
   %4 = load i64, ptr @timecnt, align 8
   %5 = load i64, ptr @timecnt_alloc, align 8
-  %6 = icmp sgt i64 %5, %4
+  %6 = icmp slt i64 %4, %5
   br i1 %6, label %growalloc.exit, label %7
 
 7:                                                ; preds = %2

@@ -1009,7 +1009,7 @@ define dso_local noundef range(i32 -95, 1) i32 @intel_pasid_setup_dirty_tracking
   %30 = load volatile i64, ptr %8, align 8
   %31 = and i64 %30, 512
   %32 = icmp ne i64 %31, 0
-  %33 = xor i1 %32, %3
+  %33 = xor i1 %3, %32
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %29

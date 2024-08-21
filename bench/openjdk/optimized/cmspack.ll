@@ -173,7 +173,7 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = xor i32 %17, -1
-  %19 = and i32 %18, %1
+  %19 = and i32 %1, %18
   %20 = load i32, ptr %15, align 16
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %_cmsGetStockInputFormatter.exit.sink.split, label %14
@@ -189,7 +189,7 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = getelementptr inbounds i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = xor i32 %25, -1
-  %27 = and i32 %26, %1
+  %27 = and i32 %1, %26
   %28 = load i32, ptr %23, align 16
   %29 = icmp eq i32 %27, %28
   br i1 %29, label %_cmsGetStockInputFormatter.exit.sink.split, label %22

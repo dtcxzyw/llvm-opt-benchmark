@@ -60,7 +60,7 @@ watcher_root_RB_MINMAX.exit.preheader:            ; preds = %10
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %18, align 8
-  %21 = icmp eq ptr %20, %.05774
+  %21 = icmp eq ptr %.05774, %20
   br i1 %21, label %watcher_root_RB_NEXT.exit, label %.preheader
 
 .preheader:                                       ; preds = %19, %16
@@ -149,11 +149,11 @@ watcher_root_RB_NEXT.exit:                        ; preds = %.preheader.i, %22, 
   %.094.i.i.i = phi ptr [ %.09.i.i.i, %64 ], [ %.val.i, %53 ]
   %59 = getelementptr i8, ptr %.094.i.i.i, i64 64
   %.09.val.i.i.i = load i32, ptr %59, align 8
-  %60 = icmp sgt i32 %.09.val.i.i.i, %57
+  %60 = icmp slt i32 %57, %.09.val.i.i.i
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %.lr.ph.i.i.i
-  %.not1.i.i.i = icmp slt i32 %.09.val.i.i.i, %57
+  %.not1.i.i.i = icmp sgt i32 %57, %.09.val.i.i.i
   br i1 %.not1.i.i.i, label %62, label %.loopexit.i
 
 62:                                               ; preds = %61
@@ -291,11 +291,11 @@ define dso_local noundef i32 @uv_fs_event_stop(ptr nocapture noundef %0) local_u
   %.094.i.i = phi ptr [ %.09.i.i, %16 ], [ %.val, %5 ]
   %11 = getelementptr i8, ptr %.094.i.i, i64 64
   %.09.val.i.i = load i32, ptr %11, align 8
-  %12 = icmp sgt i32 %.09.val.i.i, %9
+  %12 = icmp slt i32 %9, %.09.val.i.i
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i.i
-  %.not1.i.i = icmp slt i32 %.09.val.i.i, %9
+  %.not1.i.i = icmp sgt i32 %9, %.09.val.i.i
   br i1 %.not1.i.i, label %14, label %.loopexit
 
 14:                                               ; preds = %13
@@ -943,11 +943,11 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   %.094.i.i = phi ptr [ %.09.i.i, %38 ], [ %.val, %30 ]
   %33 = getelementptr i8, ptr %.094.i.i, i64 64
   %.09.val.i.i = load i32, ptr %33, align 8
-  %34 = icmp sgt i32 %.09.val.i.i, %24
+  %34 = icmp slt i32 %24, %.09.val.i.i
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %.lr.ph.i.i
-  %.not1.i.i = icmp slt i32 %.09.val.i.i, %24
+  %.not1.i.i = icmp sgt i32 %24, %.09.val.i.i
   br i1 %.not1.i.i, label %36, label %find_watcher.exit
 
 36:                                               ; preds = %35
@@ -1370,11 +1370,11 @@ define dso_local void @uv__fs_event_close(ptr nocapture noundef %0) local_unname
   %.094.i.i.i = phi ptr [ %.09.i.i.i, %16 ], [ %.val.i, %5 ]
   %11 = getelementptr i8, ptr %.094.i.i.i, i64 64
   %.09.val.i.i.i = load i32, ptr %11, align 8
-  %12 = icmp sgt i32 %.09.val.i.i.i, %9
+  %12 = icmp slt i32 %9, %.09.val.i.i.i
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i.i.i
-  %.not1.i.i.i = icmp slt i32 %.09.val.i.i.i, %9
+  %.not1.i.i.i = icmp sgt i32 %9, %.09.val.i.i.i
   br i1 %.not1.i.i.i, label %14, label %.loopexit.i
 
 14:                                               ; preds = %13
@@ -1484,11 +1484,11 @@ define internal void @uv__inotify_read(ptr nocapture noundef %0, ptr nocapture r
   %.094.i.i = phi ptr [ %.09.i.i, %31 ], [ %.val, %.lr.ph62.split ]
   %26 = getelementptr i8, ptr %.094.i.i, i64 64
   %.09.val.i.i = load i32, ptr %26, align 8
-  %27 = icmp sgt i32 %.09.val.i.i, %25
+  %27 = icmp slt i32 %25, %.09.val.i.i
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
-  %.not1.i.i = icmp slt i32 %.09.val.i.i, %25
+  %.not1.i.i = icmp sgt i32 %25, %.09.val.i.i
   br i1 %.not1.i.i, label %29, label %find_watcher.exit
 
 29:                                               ; preds = %28

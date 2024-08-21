@@ -193,9 +193,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store i64 %25, ptr %26, align 8, !noalias !35
   %27 = getelementptr inbounds i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8, !noundef !11
-  %.not.i = icmp ult i64 %28, %25
+  %.not.i = icmp ugt i64 %25, %28
   %29 = add i64 %25, 1
-  %.not4.i = icmp ult i64 %29, %20
+  %.not4.i = icmp ugt i64 %20, %29
   %or.cond.i = or i1 %.not4.i, %.not.i
   br i1 %or.cond.i, label %30, label %_ZN14regex_automata4util6search5Input8set_span17h92e7cb23660e5151E.exit
 
@@ -348,7 +348,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.75373
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -849,7 +849,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !11
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -930,8 +930,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !164
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -1287,7 +1287,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i: ; preds
   %54 = load i64, ptr %11, align 8, !alias.scope !179, !noalias !184, !noundef !11
   %55 = load i64, ptr %2, align 8, !alias.scope !186, !noalias !184, !noundef !11
   %56 = sub i64 %55, %54
-  %57 = icmp ult i64 %56, %53
+  %57 = icmp ugt i64 %53, %56
   br i1 %57, label %58, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h40c8483e9cbd89edE.exit.i.i.i.i"
 
 58:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i

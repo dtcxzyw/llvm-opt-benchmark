@@ -11060,7 +11060,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 71:                                               ; preds = %.noexc8.i
   %72 = getelementptr i8, ptr %68, i64 -8
   %.val.i.i = load i64, ptr %72, align 8, !alias.scope !1519, !noalias !1522, !noundef !9
-  %switch.selectcmp.i.not.i.i = icmp ult i64 %.val.i.i, %.fca.1.extract.i
+  %switch.selectcmp.i.not.i.i = icmp ugt i64 %.fca.1.extract.i, %.val.i.i
   br i1 %switch.selectcmp.i.not.i.i, label %73, label %75
 
 73:                                               ; preds = %.noexc9._crit_edge16.i, %71
@@ -11414,7 +11414,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   %101 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 48
   %102 = getelementptr i8, ptr %.sroa.0.06.i.i.i, i64 40
   %.val.i.i.i = load i64, ptr %102, align 8, !alias.scope !1582, !noalias !1585, !noundef !9
-  %switch.selectcmp.i.not.i.i.i = icmp ult i64 %.val.i.i.i, %63
+  %switch.selectcmp.i.not.i.i.i = icmp ugt i64 %63, %.val.i.i.i
   br i1 %switch.selectcmp.i.not.i.i.i, label %103, label %104
 
 103:                                              ; preds = %.noexc11.i.i, %.lr.ph.i.i.i

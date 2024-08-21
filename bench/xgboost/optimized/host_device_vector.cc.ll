@@ -2044,7 +2044,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ExtendERKS1_(ptr noundef 
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
   %19 = add nsw i64 %18, %10
-  %20 = icmp ult i64 %10, %19
+  %20 = icmp ugt i64 %19, %10
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -2052,7 +2052,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ExtendERKS1_(ptr noundef 
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %10, %19
+  %23 = icmp ult i64 %19, %10
   br i1 %23, label %24, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -2128,7 +2128,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ResizeEm(ptr noundef nonn
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -2137,7 +2137,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ResizeEm(ptr noundef nonn
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 17:                                               ; preds = %15
@@ -2165,7 +2165,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ResizeEmf(ptr noundef non
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -2174,7 +2174,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ResizeEmf(ptr noundef non
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i64 %12, %1
+  %17 = icmp ult i64 %1, %12
   br i1 %17, label %18, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 18:                                               ; preds = %16
@@ -3053,7 +3053,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ExtendERKS1_(ptr noundef 
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
   %19 = add nsw i64 %18, %10
-  %20 = icmp ult i64 %10, %19
+  %20 = icmp ugt i64 %19, %10
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -3061,7 +3061,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ExtendERKS1_(ptr noundef 
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %10, %19
+  %23 = icmp ult i64 %19, %10
   br i1 %23, label %24, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -3137,7 +3137,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ResizeEm(ptr noundef nonn
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -3146,7 +3146,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ResizeEm(ptr noundef nonn
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 17:                                               ; preds = %15
@@ -3174,7 +3174,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ResizeEmd(ptr noundef non
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -3183,7 +3183,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ResizeEmd(ptr noundef non
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i64 %12, %1
+  %17 = icmp ult i64 %1, %12
   br i1 %17, label %18, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 18:                                               ; preds = %16
@@ -4101,7 +4101,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfE
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %38
 
 11:                                               ; preds = %2
@@ -4176,7 +4176,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE13_M_deall
   br label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %2
-  %39 = icmp ugt i64 %9, %1
+  %39 = icmp ult i64 %1, %9
   br i1 %39, label %40, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
@@ -4234,7 +4234,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -4243,7 +4243,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   br label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE6resizeEmRKS3_.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE6resizeEmRKS3_.exit
 
 17:                                               ; preds = %15
@@ -4271,7 +4271,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -4280,7 +4280,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   br label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE6resizeEmRKS3_.exit
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i64 %12, %1
+  %17 = icmp ult i64 %1, %12
   br i1 %17, label %18, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE6resizeEmRKS3_.exit
 
 18:                                               ; preds = %16
@@ -5170,7 +5170,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
   %19 = add nsw i64 %18, %10
-  %20 = icmp ult i64 %10, %19
+  %20 = icmp ugt i64 %19, %10
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -5178,7 +5178,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   br label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %10, %19
+  %23 = icmp ult i64 %19, %10
   br i1 %23, label %24, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -5254,7 +5254,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -5263,7 +5263,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   br label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEmRKS3_.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEmRKS3_.exit
 
 17:                                               ; preds = %15
@@ -5293,7 +5293,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 4
-  %15 = icmp ult i64 %14, %1
+  %15 = icmp ugt i64 %1, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
@@ -5302,7 +5302,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   br label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEmRKS3_.exit
 
 18:                                               ; preds = %4
-  %19 = icmp ugt i64 %14, %1
+  %19 = icmp ult i64 %1, %14
   br i1 %19, label %20, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEmRKS3_.exit
 
 20:                                               ; preds = %18
@@ -6181,7 +6181,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ExtendERKS1_(ptr noundef 
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
   %19 = add nsw i64 %18, %10
-  %20 = icmp ult i64 %10, %19
+  %20 = icmp ugt i64 %19, %10
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -6189,7 +6189,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ExtendERKS1_(ptr noundef 
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %10, %19
+  %23 = icmp ult i64 %19, %10
   br i1 %23, label %24, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -6265,7 +6265,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ResizeEm(ptr noundef nonn
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -6274,7 +6274,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ResizeEm(ptr noundef nonn
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 17:                                               ; preds = %15
@@ -6302,7 +6302,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ResizeEmi(ptr noundef non
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -6311,7 +6311,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ResizeEmi(ptr noundef non
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i64 %12, %1
+  %17 = icmp ult i64 %1, %12
   br i1 %17, label %18, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 18:                                               ; preds = %16
@@ -7193,7 +7193,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
@@ -7277,7 +7277,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
-  %42 = icmp ugt i64 %8, %1
+  %42 = icmp ult i64 %1, %8
   br i1 %42, label %43, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 43:                                               ; preds = %41
@@ -7334,7 +7334,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ResizeEm(ptr noundef nonn
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
@@ -7343,7 +7343,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ResizeEm(ptr noundef nonn
   br label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
 
 14:                                               ; preds = %2
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
 
 16:                                               ; preds = %14
@@ -7370,7 +7370,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ResizeEmh(ptr noundef non
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %3
@@ -7379,7 +7379,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ResizeEmh(ptr noundef non
   br label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
 
 15:                                               ; preds = %3
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
 
 17:                                               ; preds = %15
@@ -8261,7 +8261,7 @@ define linkonce_odr void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
@@ -8345,7 +8345,7 @@ _ZNSt12_Vector_baseIaSaIaEE13_M_deallocateEPam.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIaSaIaEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
-  %42 = icmp ugt i64 %8, %1
+  %42 = icmp ult i64 %1, %8
   br i1 %42, label %43, label %_ZNSt6vectorIaSaIaEE17_M_default_appendEm.exit
 
 43:                                               ; preds = %41
@@ -8402,7 +8402,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ResizeEm(ptr noundef nonn
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
@@ -8411,7 +8411,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ResizeEm(ptr noundef nonn
   br label %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit
 
 14:                                               ; preds = %2
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit
 
 16:                                               ; preds = %14
@@ -8438,7 +8438,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ResizeEma(ptr noundef non
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %3
@@ -8447,7 +8447,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ResizeEma(ptr noundef non
   br label %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit
 
 15:                                               ; preds = %3
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit
 
 17:                                               ; preds = %15
@@ -9329,7 +9329,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEm(
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %39
 
 10:                                               ; preds = %2
@@ -9413,7 +9413,7 @@ _ZNSt12_Vector_baseIN7xgboost11FeatureTypeESaIS1_EE13_M_deallocateEPS1_m.exit35.
   br label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %2
-  %40 = icmp ugt i64 %8, %1
+  %40 = icmp ult i64 %1, %8
   br i1 %40, label %41, label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_M_default_appendEm.exit
 
 41:                                               ; preds = %39
@@ -9470,7 +9470,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ResizeEm(
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
@@ -9479,7 +9479,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ResizeEm(
   br label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
 
 14:                                               ; preds = %2
-  %15 = icmp ugt i64 %10, %1
+  %15 = icmp ult i64 %1, %10
   br i1 %15, label %16, label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
 
 16:                                               ; preds = %14
@@ -9506,7 +9506,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ResizeEmS
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %3
@@ -9515,7 +9515,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ResizeEmS
   br label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
 
 15:                                               ; preds = %3
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
 
 17:                                               ; preds = %15
@@ -10394,7 +10394,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ExtendERKS2_(ptr
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
   %19 = add nsw i64 %18, %10
-  %20 = icmp ult i64 %10, %19
+  %20 = icmp ugt i64 %19, %10
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -10402,7 +10402,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ExtendERKS2_(ptr
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %10, %19
+  %23 = icmp ult i64 %19, %10
   br i1 %23, label %24, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -10478,7 +10478,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ResizeEm(ptr nou
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -10487,7 +10487,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ResizeEm(ptr nou
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEmRKS1_.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEmRKS1_.exit
 
 17:                                               ; preds = %15
@@ -10515,7 +10515,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ResizeEmS1_(ptr 
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -10524,7 +10524,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ResizeEmS1_(ptr 
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEmRKS1_.exit
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i64 %12, %1
+  %17 = icmp ult i64 %1, %12
   br i1 %17, label %18, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEmRKS1_.exit
 
 18:                                               ; preds = %16
@@ -11403,7 +11403,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ExtendERKS1_(ptr noundef 
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
   %19 = add nsw i64 %18, %10
-  %20 = icmp ult i64 %10, %19
+  %20 = icmp ugt i64 %19, %10
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -11411,7 +11411,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ExtendERKS1_(ptr noundef 
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %10, %19
+  %23 = icmp ult i64 %19, %10
   br i1 %23, label %24, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -11487,7 +11487,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ResizeEm(ptr noundef nonn
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -11496,7 +11496,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ResizeEm(ptr noundef nonn
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 17:                                               ; preds = %15
@@ -11524,7 +11524,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ResizeEmm(ptr noundef non
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -11533,7 +11533,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ResizeEmm(ptr noundef non
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i64 %12, %1
+  %17 = icmp ult i64 %1, %12
   br i1 %17, label %18, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 18:                                               ; preds = %16
@@ -12412,7 +12412,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ExtendERKS1_(ptr noundef 
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
   %19 = add nsw i64 %18, %10
-  %20 = icmp ult i64 %10, %19
+  %20 = icmp ugt i64 %19, %10
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
@@ -12420,7 +12420,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ExtendERKS1_(ptr noundef 
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i64 %10, %19
+  %23 = icmp ult i64 %19, %10
   br i1 %23, label %24, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -12496,7 +12496,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ResizeEm(ptr noundef nonn
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  %12 = icmp ult i64 %11, %1
+  %12 = icmp ugt i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -12505,7 +12505,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ResizeEm(ptr noundef nonn
   br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %1
+  %16 = icmp ult i64 %1, %11
   br i1 %16, label %17, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 17:                                               ; preds = %15
@@ -12533,7 +12533,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ResizeEmj(ptr noundef non
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 2
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
@@ -12542,7 +12542,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ResizeEmj(ptr noundef non
   br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i64 %12, %1
+  %17 = icmp ult i64 %1, %12
   br i1 %17, label %18, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 18:                                               ; preds = %16
@@ -12820,7 +12820,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -13348,7 +13348,7 @@ _ZSt22__uninitialized_move_aIPN7xgboost11FeatureTypeES2_SaIS1_EET0_T_S5_S4_RT1_.
   br label %_ZSt4fillIPN7xgboost11FeatureTypeES1_EvT_S3_RKT0_.exit
 
 26:                                               ; preds = %13
-  %27 = icmp eq i64 %16, %2
+  %27 = icmp eq i64 %2, %16
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost11FeatureTypeEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %26
@@ -13408,7 +13408,7 @@ _ZNKSt6vectorIN7xgboost11FeatureTypeESaIS1_EE12_M_check_lenEmPKc.exit: ; preds =
   %51 = getelementptr inbounds i8, ptr %50, i64 %46
   %.pre.i.i.i.i.i.i.i75 = load i8, ptr %3, align 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %51, i8 %.pre.i.i.i.i.i.i.i75, i64 %2, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i78 = icmp eq ptr %35, %1
+  %.not.i.i.i.i.i.i.i.i.i78 = icmp eq ptr %1, %35
   br i1 %.not.i.i.i.i.i.i.i.i.i78, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost11FeatureTypeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %52
 
 52:                                               ; preds = %49
@@ -13660,7 +13660,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !4
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -13744,7 +13744,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !4
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -13937,7 +13937,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -14021,7 +14021,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !13
 
 _ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -14142,7 +14142,7 @@ _ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIfEES4_ET0_T_S6_S5_.e
 _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %35
   %39 = phi ptr [ %9, %35 ], [ %38, %.lr.ph.i.i.i.i ]
   store ptr %39, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit
@@ -14234,7 +14234,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ], [ %71, %.lr.ph.i.i.i.i.i89 ]
   %72 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -14443,7 +14443,7 @@ _ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIdEES4_ET0_T_S6_S5_.e
 _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %33
   %37 = phi ptr [ %9, %33 ], [ %36, %.lr.ph.i.i.i.i ]
   store ptr %37, ptr %8, align 8
-  %.not11.i.i.i.i.i69 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit
@@ -14534,7 +14534,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
   %67 = getelementptr %"class.xgboost::detail::GradientPairInternal.55", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
-  %.not11.i.i.i.i.i94 = icmp eq ptr %9, %1
+  %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %.lr.ph.i.i.i.i.i95
@@ -14725,7 +14725,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !44
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -14809,7 +14809,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !44
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -14892,7 +14892,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br label %_ZSt4fillIPhhEvT_S1_RKT0_.exit
 
 26:                                               ; preds = %13
-  %27 = icmp eq i64 %16, %2
+  %27 = icmp eq i64 %2, %16
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
@@ -14952,7 +14952,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit:    ; preds = %36
   %53 = getelementptr inbounds i8, ptr %52, i64 %48
   %54 = load i8, ptr %3, align 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %53, i8 %54, i64 %2, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %37, %1
+  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %1, %37
   br i1 %.not.i.i.i.i.i.i.i.i.i74, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit, label %55
 
 55:                                               ; preds = %51
@@ -15036,7 +15036,7 @@ _ZSt13move_backwardIPaS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br label %_ZSt4fillIPaaEvT_S1_RKT0_.exit
 
 26:                                               ; preds = %13
-  %27 = icmp eq i64 %16, %2
+  %27 = icmp eq i64 %2, %16
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPamaaET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
@@ -15096,7 +15096,7 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit:    ; preds = %36
   %53 = getelementptr inbounds i8, ptr %52, i64 %48
   %54 = load i8, ptr %3, align 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %53, i8 %54, i64 %2, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %37, %1
+  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %1, %37
   br i1 %.not.i.i.i.i.i.i.i.i.i74, label %_ZSt34__uninitialized_move_if_noexcept_aIPaS0_SaIaEET0_T_S3_S2_RT1_.exit, label %55
 
 55:                                               ; preds = %51
@@ -15301,7 +15301,7 @@ _ZSt13move_backwardIPN7xgboost5EntryES2_ET0_T_S4_S3_.exit: ; preds = %24, %_ZSt2
   br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost5EntryES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !69
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost5EntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -15385,7 +15385,7 @@ _ZNKSt6vectorIN7xgboost5EntryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost5EntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !69
 
 _ZSt24__uninitialized_fill_n_aIPN7xgboost5EntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost5EntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN7xgboost5EntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79
@@ -15578,7 +15578,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !76
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -15662,7 +15662,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !76
 
 _ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -15855,7 +15855,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !83
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -15939,7 +15939,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !83
 
 _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit79

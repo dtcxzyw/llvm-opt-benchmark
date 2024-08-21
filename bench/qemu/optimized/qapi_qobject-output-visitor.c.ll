@@ -401,7 +401,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 if.end:                                           ; preds = %land.lhs.true
   %result = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %result, align 8
-  %cmp1 = icmp eq ptr %2, %opaque
+  %cmp1 = icmp eq ptr %opaque, %2
   br i1 %cmp1, label %qobject_ref_impl.exit, label %if.else3
 
 if.else3:                                         ; preds = %if.end

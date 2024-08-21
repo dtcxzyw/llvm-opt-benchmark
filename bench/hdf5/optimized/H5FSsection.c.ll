@@ -454,7 +454,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_lock(ptr noundef %0, pt
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %1, i64 380
   %13 = load i32, ptr %12, align 4
-  %.not37 = icmp ne i32 %13, %2
+  %.not37 = icmp ne i32 %2, %13
   %14 = and i32 %2, -129
   %15 = icmp eq i32 %14, 0
   %or.cond = and i1 %15, %.not37
@@ -2167,7 +2167,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %64, %58, %52, %46, 
 71:                                               ; preds = %H5VM_log2_gen.exit.i
   %72 = getelementptr inbounds i8, ptr %1, i64 400
   %73 = load i64, ptr %72, align 8
-  %.not.i = icmp ugt i64 %73, %2
+  %.not.i = icmp ult i64 %2, %73
   br i1 %.not.i, label %.thread.i, label %77
 
 .thread.i:                                        ; preds = %71, %H5VM_log2_gen.exit.i

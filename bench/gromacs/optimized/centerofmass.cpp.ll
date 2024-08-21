@@ -134,13 +134,13 @@ define void @_Z12gmx_calc_comPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr nocap
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %.fr1.i.i.i = freeze i32 %31
-  %32 = icmp sgt i32 %.fr1.i.i.i, %18
+  %32 = icmp slt i32 %18, %.fr1.i.i.i
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %29, i64 8
   %35 = load i32, ptr %34, align 4
-  %.not.i.i.i = icmp sgt i32 %35, %18
+  %.not.i.i.i = icmp slt i32 %18, %35
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %36
 
 36:                                               ; preds = %33, %27
@@ -265,13 +265,13 @@ define void @_Z14gmx_calc_cog_fPK10gmx_mtop_tPA3_fiPKiPf(ptr noundef %0, ptr noc
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %.fr1.i.i.i = freeze i32 %31
-  %32 = icmp sgt i32 %.fr1.i.i.i, %18
+  %32 = icmp slt i32 %18, %.fr1.i.i.i
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %29, i64 8
   %35 = load i32, ptr %34, align 4
-  %.not.i.i.i = icmp sgt i32 %35, %18
+  %.not.i.i.i = icmp slt i32 %18, %35
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %36
 
 36:                                               ; preds = %33, %27
@@ -681,13 +681,13 @@ define void @_Z16gmx_calc_com_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr noundef %
   %33 = getelementptr inbounds i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %.fr1.i.i.i = freeze i32 %34
-  %35 = icmp sgt i32 %.fr1.i.i.i, %21
+  %35 = icmp slt i32 %21, %.fr1.i.i.i
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %32, i64 8
   %38 = load i32, ptr %37, align 4
-  %.not.i.i.i = icmp sgt i32 %38, %21
+  %.not.i.i.i = icmp slt i32 %21, %38
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %39
 
 39:                                               ; preds = %36, %30
@@ -793,13 +793,13 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %36
   %92 = getelementptr inbounds i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
   %.fr1.i.i.i63.us = freeze i32 %93
-  %94 = icmp sgt i32 %.fr1.i.i.i63.us, %80
+  %94 = icmp slt i32 %80, %.fr1.i.i.i63.us
   br i1 %94, label %136, label %95
 
 95:                                               ; preds = %89
   %96 = getelementptr inbounds i8, ptr %91, i64 8
   %97 = load i32, ptr %96, align 4
-  %.not.i.i.i64.us = icmp sgt i32 %97, %80
+  %.not.i.i.i64.us = icmp slt i32 %80, %97
   br i1 %.not.i.i.i64.us, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us, label %136
 
 _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us:  ; preds = %95
@@ -1040,13 +1040,13 @@ define void @_Z18gmx_calc_com_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nound
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %.fr1.i.i.i = freeze i32 %42
-  %43 = icmp sgt i32 %.fr1.i.i.i, %37
+  %43 = icmp slt i32 %37, %.fr1.i.i.i
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds i8, ptr %40, i64 8
   %46 = load i32, ptr %45, align 4
-  %.not.i.i.i = icmp sgt i32 %46, %37
+  %.not.i.i.i = icmp slt i32 %37, %46
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %47
 
 47:                                               ; preds = %44, %38
@@ -1192,13 +1192,13 @@ define void @_Z20gmx_calc_cog_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_(ptr nou
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %.fr1.i.i.i = freeze i32 %42
-  %43 = icmp sgt i32 %.fr1.i.i.i, %37
+  %43 = icmp slt i32 %37, %.fr1.i.i.i
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds i8, ptr %40, i64 8
   %46 = load i32, ptr %45, align 4
-  %.not.i.i.i = icmp sgt i32 %46, %37
+  %.not.i.i.i = icmp slt i32 %37, %46
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %47
 
 47:                                               ; preds = %44, %38

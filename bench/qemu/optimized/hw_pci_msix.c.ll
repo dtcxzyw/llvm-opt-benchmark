@@ -162,7 +162,7 @@ define dso_local void @msix_set_mask(ptr noundef %dev, i32 noundef %vector, i1 n
 entry:
   %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
-  %cmp = icmp sgt i32 %0, %vector
+  %cmp = icmp slt i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -275,7 +275,7 @@ if.then:                                          ; preds = %msix_is_masked.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %msix_is_masked.exit
-  %8 = xor i1 %retval.0.i.i, %was_masked
+  %8 = xor i1 %was_masked, %retval.0.i.i
   br i1 %8, label %if.end9, label %if.end15
 
 if.end9:                                          ; preds = %if.end
@@ -356,7 +356,7 @@ lor.lhs.false:                                    ; preds = %entry
   %cmp.not.i = icmp ult i64 %add, %conv1
   %add.i.i = add nsw i64 %conv1, -1
   %sub.i.i = add nsw i64 %add.i.i, %conv2
-  %cmp1.i = icmp ult i64 %sub.i.i, %add
+  %cmp1.i = icmp ugt i64 %add, %sub.i.i
   %narrow.i.not = or i1 %cmp.not.i, %cmp1.i
   br i1 %narrow.i.not, label %for.end, label %msix_enabled.exit
 
@@ -609,14 +609,14 @@ land.lhs.true:                                    ; preds = %if.end6
   br i1 %.not.i.not, label %lor.lhs.false20, label %if.then34
 
 lor.lhs.false20:                                  ; preds = %land.lhs.true, %if.end6
-  %add21 = add i32 %mul, %table_offset
+  %add21 = add i32 %table_offset, %mul
   %conv22 = zext i32 %add21 to i64
   %call23 = tail call i64 @memory_region_size(ptr noundef %table_bar) #14
   %cmp24 = icmp ult i64 %call23, %conv22
   br i1 %cmp24, label %if.then34, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false20
-  %add27 = add i32 %div1055, %pba_offset
+  %add27 = add i32 %pba_offset, %div1055
   %conv28 = zext i32 %add27 to i64
   %call29 = tail call i64 @memory_region_size(ptr noundef %pba_bar) #14
   %cmp30 = icmp ult i64 %call29, %conv28
@@ -657,10 +657,10 @@ if.end40:                                         ; preds = %if.end35
   %msix_function_masked = getelementptr inbounds i8, ptr %dev, i64 2152
   store i8 1, ptr %msix_function_masked, align 8
   %add.ptr49 = getelementptr i8, ptr %add.ptr, i64 4
-  %or51 = or i32 %conv11, %table_offset
+  %or51 = or i32 %table_offset, %conv11
   store i32 %or51, ptr %add.ptr49, align 1
   %add.ptr52 = getelementptr i8, ptr %add.ptr, i64 8
-  %or54 = or i32 %conv12, %pba_offset
+  %or54 = or i32 %pba_offset, %conv12
   store i32 %or54, ptr %add.ptr52, align 1
   %wmask = getelementptr inbounds i8, ptr %dev, i64 184
   %4 = load ptr, ptr %wmask, align 8
@@ -1061,7 +1061,7 @@ define dso_local void @msix_notify(ptr noundef %dev, i32 noundef %vector) local_
 entry:
   %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
-  %cmp = icmp ugt i32 %0, %vector
+  %cmp = icmp ult i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -1279,7 +1279,7 @@ define dso_local void @msix_vector_use(ptr nocapture noundef readonly %dev, i32 
 entry:
   %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
-  %cmp = icmp ugt i32 %0, %vector
+  %cmp = icmp ult i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -1302,7 +1302,7 @@ define dso_local void @msix_vector_unuse(ptr nocapture noundef readonly %dev, i3
 entry:
   %msix_entries_nr = getelementptr inbounds i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
-  %cmp = icmp ugt i32 %0, %vector
+  %cmp = icmp ult i32 %vector, %0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -1686,7 +1686,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #5
 define internal range(i64 0, 4294967296) i64 @msix_table_mmio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %conv = zext i32 %size to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %msix_entries_nr = getelementptr inbounds i8, ptr %opaque, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %mul = shl i32 %0, 4
@@ -1711,7 +1711,7 @@ if.end:                                           ; preds = %entry
 define internal void @msix_table_mmio_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
   %conv1 = zext i32 %size to i64
-  %add = add i64 %conv1, %addr
+  %add = add i64 %addr, %conv1
   %msix_entries_nr = getelementptr inbounds i8, ptr %opaque, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
   %mul = shl i32 %0, 4
@@ -1783,7 +1783,7 @@ if.then:                                          ; preds = %entry
   %conv = shl i32 %addr.tr, 3
   %mul1 = shl i32 %size, 3
   %conv2 = zext i32 %mul1 to i64
-  %add = add i64 %conv2, %addr
+  %add = add i64 %addr, %conv2
   %msix_entries_nr = getelementptr inbounds i8, ptr %opaque, i64 1268
   %1 = load i32, ptr %msix_entries_nr, align 4
   %conv3 = sext i32 %1 to i64

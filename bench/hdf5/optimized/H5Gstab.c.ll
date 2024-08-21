@@ -762,7 +762,7 @@ define i32 @H5G__stab_iterate(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
 
 42:                                               ; preds = %41
   %43 = load i64, ptr %3, align 8
-  %.not42 = icmp ugt i64 %43, %2
+  %.not42 = icmp ult i64 %2, %43
   br i1 %.not42, label %79, label %44
 
 44:                                               ; preds = %42
@@ -792,7 +792,7 @@ define i32 @H5G__stab_iterate(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
 59:                                               ; preds = %48
   %.not39 = icmp eq i64 %2, 0
   %60 = load i64, ptr %8, align 8
-  %.not40 = icmp ugt i64 %60, %2
+  %.not40 = icmp ult i64 %2, %60
   %or.cond = select i1 %.not39, i1 true, i1 %.not40
   br i1 %or.cond, label %65, label %61
 

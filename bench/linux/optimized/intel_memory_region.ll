@@ -79,7 +79,7 @@ define dso_local ptr @intel_memory_region_by_type(ptr nocapture noundef readonly
   %10 = getelementptr inbounds i8, ptr %7, i64 144
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9, %4

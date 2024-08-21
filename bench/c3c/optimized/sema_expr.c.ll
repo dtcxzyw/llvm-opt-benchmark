@@ -5654,7 +5654,7 @@ define dso_local zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 255
   %22 = icmp eq i16 %21, 26
-  %brmerge.not = and i1 %22, %3
+  %brmerge.not = and i1 %3, %22
   br i1 %brmerge.not, label %23, label %25
 
 23:                                               ; preds = %18
@@ -5868,7 +5868,7 @@ type_flatten.exit:                                ; preds = %.preheader
 119:                                              ; preds = %117, %115
   %.in = phi i1 [ %116, %115 ], [ %118, %117 ]
   %.in.not = xor i1 %.in, true
-  %brmerge154 = or i1 %.in.not, %3
+  %brmerge154 = or i1 %3, %.in.not
   br i1 %brmerge154, label %.critedge153, label %120
 
 .critedge151:                                     ; preds = %27
@@ -23383,7 +23383,7 @@ define internal fastcc noundef zeroext i1 @sema_slice_index_is_in_range(ptr noca
 
 53:                                               ; preds = %52
   %54 = icmp ne i32 %26, 0
-  %brmerge = or i1 %54, %2
+  %brmerge = or i1 %2, %54
   br i1 %brmerge, label %64, label %55
 
 55:                                               ; preds = %53
@@ -28444,7 +28444,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_swizzle(ptr noundef
   %.lhs.trunc = add nsw i16 %9, -116
   %10 = srem i16 %.lhs.trunc, 4
   %.sext = sext i16 %10 to i32
-  %.not = icmp ult i32 %.sext, %.64.val
+  %.not = icmp ugt i32 %.64.val, %.sext
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -30370,7 +30370,7 @@ define internal fastcc void @sema_create_const_membersof(ptr nocapture noundef %
   %29 = getelementptr inbounds i8, ptr %24, i64 48
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
-  %32 = add i32 %31, %3
+  %32 = add i32 %3, %31
   store i16 11, ptr %28, align 8
   %.sroa.73.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 32
   store i32 %32, ptr %.sroa.73.0..sroa_idx, align 8

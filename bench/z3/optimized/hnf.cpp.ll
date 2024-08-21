@@ -2077,7 +2077,7 @@ land.rhs.i16:                                     ; preds = %land.lhs.true
   %12 = load ptr, ptr %m_range.i.i.i, align 8
   %m_bool_sort.i.i.i = getelementptr inbounds i8, ptr %11, i64 840
   %13 = load ptr, ptr %m_bool_sort.i.i.i, align 8
-  %cmp.i.i.i17 = icmp eq ptr %13, %12
+  %cmp.i.i.i17 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i17, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i16
@@ -2150,7 +2150,7 @@ land.rhs.i33:                                     ; preds = %for.body
   %27 = load ptr, ptr %m_range.i.i.i35, align 8
   %m_bool_sort.i.i.i36 = getelementptr inbounds i8, ptr %26, i64 840
   %28 = load ptr, ptr %m_bool_sort.i.i.i36, align 8
-  %cmp.i.i.i37 = icmp eq ptr %28, %27
+  %cmp.i.i.i37 = icmp eq ptr %27, %28
   br i1 %cmp.i.i.i37, label %land.rhs.i.i38, label %land.lhs.true18
 
 land.rhs.i.i38:                                   ; preds = %land.rhs.i33
@@ -2239,13 +2239,13 @@ for.inc:                                          ; preds = %land.rhs.i.i38, %_Z
 land.rhs.i53:                                     ; preds = %land.rhs.i.i28
   %m_range.i.i.i55 = getelementptr inbounds i8, ptr %17, i64 40
   %45 = load ptr, ptr %m_range.i.i.i55, align 8
-  %cmp.i.i.i57 = icmp eq ptr %12, %45
+  %cmp.i.i.i57 = icmp eq ptr %45, %12
   br i1 %cmp.i.i.i57, label %if.end28, label %land.lhs.true24
 
 land.rhs.i53.thread:                              ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit
   %m_range.i.i.i5580 = getelementptr inbounds i8, ptr %17, i64 40
   %46 = load ptr, ptr %m_range.i.i.i5580, align 8
-  %cmp.i.i.i5781 = icmp eq ptr %12, %46
+  %cmp.i.i.i5781 = icmp eq ptr %46, %12
   br i1 %cmp.i.i.i5781, label %_ZNK3hnf3imp12is_predicateEP4expr.exit62, label %land.lhs.true24
 
 _ZNK3hnf3imp12is_predicateEP4expr.exit62:         ; preds = %land.rhs.i53.thread
@@ -4995,7 +4995,7 @@ land.rhs.i.i:                                     ; preds = %sw.bb44
   %35 = load ptr, ptr %m_range.i.i.i.i, align 8
   %m_bool_sort.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 840
   %36 = load ptr, ptr %m_bool_sort.i.i.i.i, align 8
-  %cmp.i.i.i.i122 = icmp eq ptr %36, %35
+  %cmp.i.i.i.i122 = icmp eq ptr %35, %36
   br i1 %cmp.i.i.i.i122, label %land.rhs.i.i.i, label %while.cond18.backedge
 
 land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i
@@ -5101,7 +5101,7 @@ land.rhs.i.i169:                                  ; preds = %while.end
   %47 = load ptr, ptr %m_range.i.i.i.i171, align 8
   %m_bool_sort.i.i.i.i172 = getelementptr inbounds i8, ptr %46, i64 840
   %48 = load ptr, ptr %m_bool_sort.i.i.i.i172, align 8
-  %cmp.i.i.i.i173 = icmp eq ptr %48, %47
+  %cmp.i.i.i.i173 = icmp eq ptr %47, %48
   br i1 %cmp.i.i.i.i173, label %land.rhs.i.i.i174, label %sw.epilog92
 
 land.rhs.i.i.i174:                                ; preds = %land.rhs.i.i169
@@ -5148,7 +5148,7 @@ while.body67:                                     ; preds = %while.cond64
 
 if.else.i:                                        ; preds = %while.body67
   %55 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %55, %54
+  %cmp3.not.i = icmp ugt i32 %54, %55
   %56 = xor i32 %55, -1
   %.sink392 = select i1 %cmp3.not.i, i32 %56, i32 -1
   %sub9.i = add i32 %54, %.sink392
@@ -8528,7 +8528,7 @@ land.rhs.i16:                                     ; preds = %if.then
   %19 = load ptr, ptr %m_range.i.i.i, align 8
   %m_bool_sort.i.i.i = getelementptr inbounds i8, ptr %18, i64 840
   %20 = load ptr, ptr %m_bool_sort.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %20, %19
+  %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %land.rhs.i.i, label %if.then9
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i16

@@ -182,7 +182,7 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
 52:                                               ; preds = %.preheader
   %53 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
   %54 = load i8, ptr %53, align 1
-  %55 = icmp eq i8 %54, %0
+  %55 = icmp eq i8 %0, %54
   br i1 %55, label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit, label %.preheader, !llvm.loop !8
 
 56:                                               ; preds = %50
@@ -199,11 +199,11 @@ define dso_local noundef signext i16 @_ZN13cmCursesColor8GetColorEcs(i8 noundef 
   %64 = load ptr, ptr %62, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load i8, ptr %65, align 1
-  %67 = icmp eq i8 %66, %0
+  %67 = icmp eq i8 %0, %66
   br i1 %67, label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit, label %.lr.ph.i.i.i.i
 
 68:                                               ; preds = %71
-  %69 = icmp eq i8 %73, %0
+  %69 = icmp eq i8 %0, %73
   br i1 %69, label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i:                                   ; preds = %63, %68
@@ -257,7 +257,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -615,7 +615,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge

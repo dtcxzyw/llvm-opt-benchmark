@@ -230,7 +230,7 @@ entry:
   %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i), !noalias !4
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
   %inc.i.i = zext i1 %cmp.i.i to i64
-  %spec.select.i.i = add i64 %inc.i.i, %i
+  %spec.select.i.i = add i64 %i, %inc.i.i
   %d_children.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %sext = shl i64 %spec.select.i.i, 32
   %idxprom.i.i = ashr exact i64 %sext, 32

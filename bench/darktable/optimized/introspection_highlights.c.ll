@@ -15394,7 +15394,7 @@ define internal fastcc float @_calc_refavg(ptr nocapture noundef readonly %0, pt
   %74 = mul nsw i64 %73, %58
   %75 = getelementptr float, ptr %0, i64 %74
   %76 = trunc nsw i64 %73 to i32
-  %77 = add i32 %76, %3
+  %77 = add i32 %3, %76
   %78 = shl i32 %77, 1
   %79 = and i32 %78, 14
   %80 = getelementptr float, ptr %75, i64 %60
@@ -15455,7 +15455,7 @@ define internal fastcc float @_calc_refavg(ptr nocapture noundef readonly %0, pt
   %126 = mul nsw i64 %125, %58
   %127 = getelementptr float, ptr %0, i64 %126
   %128 = trunc nsw i64 %125 to i32
-  %129 = add i32 %128, %3
+  %129 = add i32 %3, %128
   %130 = shl i32 %129, 1
   %131 = and i32 %130, 14
   %132 = getelementptr float, ptr %127, i64 %60
@@ -15593,7 +15593,7 @@ define internal fastcc float @_calc_refavg(ptr nocapture noundef readonly %0, pt
   %238 = phi i64 [ %61, %.split ], [ %257, %237 ]
   %239 = mul nsw i64 %238, %58
   %240 = trunc nsw i64 %238 to i32
-  %241 = add i32 %240, %3
+  %241 = add i32 %3, %240
   %242 = shl i32 %241, 1
   %243 = and i32 %242, 14
   %gep = getelementptr float, ptr %invariant.gep, i64 %239
@@ -15995,7 +15995,7 @@ define internal fastcc void @interpolate_bilinear(ptr noalias nocapture noundef 
   %37 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %36)
   %38 = fptoui float %37 to i64
   %39 = add i64 %38, 1
-  %40 = icmp ult i64 %38, %2
+  %40 = icmp ugt i64 %2, %38
   %41 = select i1 %40, i64 %38, i64 %11
   %42 = icmp ult i64 %39, %2
   %43 = select i1 %42, i64 %39, i64 %11
@@ -16158,7 +16158,7 @@ define internal fastcc void @interpolate_bilinear(ptr noalias nocapture noundef 
   %186 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %185)
   %187 = fptoui float %186 to i64
   %188 = add i64 %187, 1
-  %189 = icmp ult i64 %187, %1
+  %189 = icmp ugt i64 %1, %187
   %190 = select i1 %189, i64 %187, i64 %10
   %191 = icmp ult i64 %188, %1
   %192 = select i1 %191, i64 %188, i64 %10
@@ -16519,7 +16519,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   br i1 %271, label %.loopexit36, label %.preheader, !llvm.loop !530
 
 .loopexit36:                                      ; preds = %.preheader, %222, %195
-  %272 = mul i64 %117, %3
+  %272 = mul i64 %3, %117
   br label %275
 
 .loopexit35:                                      ; preds = %275, %115
@@ -16641,13 +16641,13 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %353 = sub i32 %352, %78
   %354 = call i32 @llvm.smax.i32(i32 %353, i32 0)
   %355 = zext nneg i32 %354 to i64
-  %356 = mul i64 %355, %3
+  %356 = mul i64 %3, %355
   %357 = sext i32 %352 to i64
-  %358 = mul i64 %357, %3
+  %358 = mul i64 %3, %357
   %359 = add i32 %352, %78
   %360 = call i32 @llvm.smin.i32(i32 %359, i32 %26)
   %361 = sext i32 %360 to i64
-  %362 = mul i64 %361, %3
+  %362 = mul i64 %3, %361
   br i1 %28, label %.loopexit, label %363
 
 363:                                              ; preds = %351
@@ -17280,12 +17280,12 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %913 = sub i32 %911, %78
   %914 = call i32 @llvm.smax.i32(i32 %913, i32 0)
   %915 = zext nneg i32 %914 to i64
-  %916 = mul i64 %915, %3
-  %917 = mul i64 %912, %3
+  %916 = mul i64 %3, %915
+  %917 = mul i64 %3, %912
   %918 = add i32 %911, %78
   %919 = call i32 @llvm.smin.i32(i32 %918, i32 %26)
   %920 = sext i32 %919 to i64
-  %921 = mul i64 %920, %3
+  %921 = mul i64 %3, %920
   br i1 %28, label %.loopexit34, label %922
 
 922:                                              ; preds = %910
@@ -17407,7 +17407,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %1030 = fadd reassoc nsz arcp contract afn float %1029, %993
   %1031 = fadd reassoc nsz arcp contract afn float %1030, %997
   %1032 = fmul reassoc nsz arcp contract afn float %1031, 2.500000e-01
-  %1033 = fmul reassoc nsz arcp contract afn float %944, %12
+  %1033 = fmul reassoc nsz arcp contract afn float %12, %944
   %1034 = fsub reassoc nsz arcp contract afn float %998, %1033
   %1035 = fadd reassoc nsz arcp contract afn float %1034, %1028
   %1036 = fadd reassoc nsz arcp contract afn float %1035, %1032

@@ -280,7 +280,7 @@ define internal i64 @archive_write_binary_data(ptr noundef %0, ptr noundef %1, i
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %7 = tail call i32 @__archive_write_output(ptr noundef %0, ptr noundef %1, i64 noundef %spec.select) #9
   %8 = load i64, ptr %5, align 8
   %9 = sub i64 %8, %spec.select

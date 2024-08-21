@@ -5251,7 +5251,7 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$itertools..groupbylazy..Chu
   %9 = getelementptr inbounds i8, ptr %3, i64 136
   %10 = load i64, ptr %9, align 8, !noalias !1874, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %20
 
@@ -5315,7 +5315,7 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$itertools..groupbylazy..Chu
   %9 = getelementptr inbounds i8, ptr %3, i64 136
   %10 = load i64, ptr %9, align 8, !noalias !1890, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %20
 
@@ -6890,7 +6890,7 @@ define hidden void @"_ZN4core3ptr256drop_in_place$LT$core..iter..adapters..enume
   %9 = getelementptr inbounds i8, ptr %3, i64 136
   %10 = load i64, ptr %9, align 8, !noalias !2431, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i.i = or i1 %11, %12
   br i1 %or.cond.i.i.i, label %14, label %20
 
@@ -6955,7 +6955,7 @@ define hidden void @"_ZN4core3ptr256drop_in_place$LT$core..iter..adapters..enume
   %9 = getelementptr inbounds i8, ptr %3, i64 136
   %10 = load i64, ptr %9, align 8, !noalias !2451, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i.i = or i1 %11, %12
   br i1 %or.cond.i.i.i, label %14, label %20
 
@@ -9123,7 +9123,7 @@ define hidden void @"_ZN4core3ptr435drop_in_place$LT$itertools..groupbylazy..Chu
   %9 = getelementptr inbounds i8, ptr %3, i64 176
   %10 = load i64, ptr %9, align 8, !noalias !3461, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %17
 
@@ -9264,7 +9264,7 @@ define hidden void @"_ZN4core3ptr442drop_in_place$LT$itertools..groupbylazy..Chu
   %9 = getelementptr inbounds i8, ptr %3, i64 160
   %10 = load i64, ptr %9, align 8, !noalias !3492, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %17
 
@@ -9453,7 +9453,7 @@ define hidden void @"_ZN4core3ptr450drop_in_place$LT$itertools..groupbylazy..Chu
   %9 = getelementptr inbounds i8, ptr %3, i64 224
   %10 = load i64, ptr %9, align 8, !noalias !3583, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %17
 
@@ -9571,7 +9571,7 @@ define hidden void @"_ZN4core3ptr452drop_in_place$LT$itertools..groupbylazy..Chu
   %9 = getelementptr inbounds i8, ptr %3, i64 208
   %10 = load i64, ptr %9, align 8, !noalias !3609, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i = or i1 %11, %12
   br i1 %or.cond.i.i, label %14, label %17
 
@@ -10269,7 +10269,7 @@ define hidden void @"_ZN4core3ptr485drop_in_place$LT$core..iter..adapters..enume
   %9 = getelementptr inbounds i8, ptr %3, i64 176
   %10 = load i64, ptr %9, align 8, !noalias !4034, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i.i = or i1 %11, %12
   br i1 %or.cond.i.i.i, label %14, label %"_ZN4core3ptr435drop_in_place$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedPlainTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$17hec411df019c3c2afE.exit"
 
@@ -10392,7 +10392,7 @@ define hidden void @"_ZN4core3ptr492drop_in_place$LT$core..iter..adapters..enume
   %9 = getelementptr inbounds i8, ptr %3, i64 160
   %10 = load i64, ptr %9, align 8, !noalias !4066, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i.i.i = or i1 %11, %12
   br i1 %or.cond.i.i.i, label %14, label %"_ZN4core3ptr442drop_in_place$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hef83bdc063831663E.exit"
 
@@ -24051,7 +24051,7 @@ define hidden void @"_ZN80_$LT$itertools..groupbylazy..Chunk$LT$I$GT$$u20$as$u20
   %9 = getelementptr inbounds i8, ptr %3, i64 136
   %10 = load i64, ptr %9, align 8, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy19IntoChunks$LT$I$GT$10drop_group17h5cd4a46f40afd532E.exit"
 
@@ -24082,7 +24082,7 @@ define hidden void @"_ZN80_$LT$itertools..groupbylazy..Chunk$LT$I$GT$$u20$as$u20
   %9 = getelementptr inbounds i8, ptr %3, i64 176
   %10 = load i64, ptr %9, align 8, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy19IntoChunks$LT$I$GT$10drop_group17h43dd0b74b794d489E.exit"
 
@@ -24113,7 +24113,7 @@ define hidden void @"_ZN80_$LT$itertools..groupbylazy..Chunk$LT$I$GT$$u20$as$u20
   %9 = getelementptr inbounds i8, ptr %3, i64 136
   %10 = load i64, ptr %9, align 8, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy19IntoChunks$LT$I$GT$10drop_group17h1c3f3c937825030bE.exit"
 
@@ -24144,7 +24144,7 @@ define hidden void @"_ZN80_$LT$itertools..groupbylazy..Chunk$LT$I$GT$$u20$as$u20
   %9 = getelementptr inbounds i8, ptr %3, i64 160
   %10 = load i64, ptr %9, align 8, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy19IntoChunks$LT$I$GT$10drop_group17h6b03e266d7147c60E.exit"
 
@@ -24175,7 +24175,7 @@ define hidden void @"_ZN80_$LT$itertools..groupbylazy..Chunk$LT$I$GT$$u20$as$u20
   %9 = getelementptr inbounds i8, ptr %3, i64 208
   %10 = load i64, ptr %9, align 8, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy19IntoChunks$LT$I$GT$10drop_group17h59665a174def68bdE.exit"
 
@@ -24206,7 +24206,7 @@ define hidden void @"_ZN80_$LT$itertools..groupbylazy..Chunk$LT$I$GT$$u20$as$u20
   %9 = getelementptr inbounds i8, ptr %3, i64 224
   %10 = load i64, ptr %9, align 8, !noundef !17
   %11 = icmp eq i64 %10, -1
-  %12 = icmp ult i64 %10, %5
+  %12 = icmp ugt i64 %5, %10
   %or.cond.i = or i1 %11, %12
   br i1 %or.cond.i, label %14, label %"_ZN9itertools11groupbylazy19IntoChunks$LT$I$GT$10drop_group17h75620e818bcc8f78E.exit"
 

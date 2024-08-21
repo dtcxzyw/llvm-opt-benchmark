@@ -202,7 +202,7 @@ define range(i32 -1, 1) i32 @H5FA__dblk_page_create(ptr noundef %0, i64 noundef 
   %13 = getelementptr inbounds i8, ptr %0, i64 256
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i64
-  %16 = mul i64 %15, %2
+  %16 = mul i64 %2, %15
   %17 = add i64 %16, 4
   %18 = getelementptr inbounds i8, ptr %4, i64 280
   store i64 %17, ptr %18, align 8

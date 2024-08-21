@@ -127,7 +127,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
 
 96:                                               ; preds = %95
   %97 = getelementptr inbounds i8, ptr %2, i64 -1
-  %98 = icmp ugt ptr %97, %0
+  %98 = icmp ult ptr %0, %97
   br i1 %98, label %99, label %.sink.split
 
 99:                                               ; preds = %96
@@ -150,7 +150,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
 
 105:                                              ; preds = %104
   %106 = getelementptr inbounds i8, ptr %2, i64 -1
-  %107 = icmp ugt ptr %106, %0
+  %107 = icmp ult ptr %0, %106
   br i1 %107, label %108, label %.sink.split
 
 108:                                              ; preds = %105

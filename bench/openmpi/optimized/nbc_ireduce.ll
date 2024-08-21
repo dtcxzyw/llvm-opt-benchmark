@@ -83,7 +83,7 @@ define internal fastcc i32 @nbc_reduce_init(ptr noundef %0, ptr noundef %1, i32 
   %26 = getelementptr i8, ptr %3, i64 24
   %.val183 = load i64, ptr %26, align 8
   %27 = icmp ne i32 %.val180.val, 1
-  %or.cond4.not = and i1 %.not168, %9
+  %or.cond4.not = and i1 %9, %.not168
   %or.cond176 = or i1 %or.cond4.not, %27
   br i1 %or.cond176, label %34, label %28
 
@@ -151,7 +151,7 @@ opal_datatype_span.exit:                          ; preds = %34, %38
   %56 = icmp eq i32 %55, 0
   %57 = icmp slt i32 %.val180.val, 3
   %or.cond6.not260 = or i1 %57, %56
-  %.not169 = icmp sgt i32 %51, %2
+  %.not169 = icmp slt i32 %2, %51
   %or.cond177 = select i1 %or.cond6.not260, i1 true, i1 %.not169
   br i1 %or.cond177, label %58, label %.thread
 
@@ -169,7 +169,7 @@ opal_datatype_span.exit:                          ; preds = %34, %38
   %65 = icmp eq i32 %64, 0
   %66 = icmp slt i32 %.val180.val, 3
   %or.cond8.not257 = or i1 %66, %65
-  %.not = icmp sgt i32 %51, %2
+  %.not = icmp slt i32 %2, %51
   %or.cond178 = select i1 %or.cond8.not257, i1 true, i1 %.not
   br i1 %or.cond178, label %.thread241, label %.thread
 
@@ -298,7 +298,7 @@ opal_datatype_span.exit.i:                        ; preds = %107, %104
 
 ceil_of_log2.exit.i:                              ; preds = %113
   %..i = select i1 %.not157.i, i32 0, i32 %5
-  %117 = icmp eq i32 %..i, %.val
+  %117 = icmp eq i32 %.val, %..i
   %.0137.i = select i1 %112, i32 %..i, i32 %.val
   %.1138.i = select i1 %117, i32 0, i32 %.0137.i
   %.not.i191 = icmp eq i32 %.val, %5
@@ -730,7 +730,7 @@ ceil_of_log2.exit.i:                              ; preds = %113
 290:                                              ; preds = %288, %282
   %291 = sub nsw i32 %.val180.val, %283
   %292 = shl nsw i32 %291, 1
-  %293 = icmp sgt i32 %292, %.val
+  %293 = icmp slt i32 %.val, %292
   br i1 %293, label %294, label %326
 
 294:                                              ; preds = %290
@@ -833,7 +833,7 @@ ceil_of_log2.exit.i:                              ; preds = %113
   %342 = shl nsw i32 %340, 1
   %343 = add nsw i32 %340, %291
   %344 = select i1 %341, i32 %342, i32 %343
-  %345 = icmp sgt i32 %344, %.val
+  %345 = icmp slt i32 %.val, %344
   %346 = sdiv i32 %.031167.i, 2
   %347 = sext i32 %.030768.i to i64
   %348 = sub nsw i32 %.031167.i, %346
@@ -908,7 +908,7 @@ ceil_of_log2.exit.i:                              ; preds = %113
   br i1 %386, label %.lr.ph.i206, label %.loopexit65.i, !llvm.loop !9
 
 .loopexit65.i:                                    ; preds = %384, %339
-  %387 = icmp sle i32 %292, %5
+  %387 = icmp sge i32 %5, %292
   br i1 %387, label %414, label %388
 
 388:                                              ; preds = %.loopexit65.i

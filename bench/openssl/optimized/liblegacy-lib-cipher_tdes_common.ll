@@ -144,7 +144,7 @@ if.end21:                                         ; preds = %land.lhs.true, %if.
 if.then23:                                        ; preds = %if.end21
   %keylen24 = getelementptr inbounds i8, ptr %vctx, i64 72
   %4 = load i64, ptr %keylen24, align 8
-  %cmp25.not = icmp eq i64 %4, %keylen
+  %cmp25.not = icmp eq i64 %keylen, %4
   br i1 %cmp25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.then23

@@ -212,7 +212,7 @@ Abc_Clock.exit94:                                 ; preds = %103, %106
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 48
   %.val90 = load ptr, ptr %128, align 8
-  %129 = icmp eq ptr %.val90, %1
+  %129 = icmp eq ptr %1, %.val90
   br i1 %129, label %164, label %168
 
 130:                                              ; preds = %Abc_Clock.exit92

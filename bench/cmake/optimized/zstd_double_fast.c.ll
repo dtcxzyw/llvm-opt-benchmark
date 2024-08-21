@@ -372,7 +372,7 @@ define dso_local i64 @ZSTD_compressBlock_doubleFast(ptr nocapture noundef readon
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %3 to i64
   %16 = ptrtoint ptr %14 to i64
-  %17 = add i64 %15, %4
+  %17 = add i64 %4, %15
   %18 = sub i64 %17, %16
   %19 = trunc i64 %18 to i32
   %20 = load i32, ptr %8, align 4
@@ -394,7 +394,7 @@ define dso_local i64 @ZSTD_compressBlock_doubleFast(ptr nocapture noundef readon
   %33 = load i32, ptr %2, align 4
   %34 = getelementptr inbounds i8, ptr %2, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = icmp eq ptr %30, %3
+  %36 = icmp eq ptr %3, %30
   %37 = zext i1 %36 to i64
   %38 = getelementptr inbounds i8, ptr %3, i64 %37
   %39 = ptrtoint ptr %38 to i64
@@ -562,7 +562,7 @@ define dso_local i64 @ZSTD_compressBlock_doubleFast(ptr nocapture noundef readon
 128:                                              ; preds = %.split.i
   %129 = getelementptr inbounds i8, ptr %.1576.i, i64 5
   %130 = getelementptr inbounds i8, ptr %129, i64 %79
-  %131 = icmp ugt ptr %60, %129
+  %131 = icmp ult ptr %129, %60
   br i1 %131, label %132, label %.loopexit.i.i
 
 132:                                              ; preds = %128
@@ -813,7 +813,7 @@ ZSTD_safecopyLiterals.exit.i:                     ; preds = %186, %.lr.ph.i.i, %
   %.us-phi887.i = phi i32 [ %88, %96 ], [ %121, %230 ]
   %232 = getelementptr inbounds i8, ptr %.us-phi883.i, i64 8
   %233 = getelementptr inbounds i8, ptr %.us-phi882.i, i64 8
-  %234 = icmp ugt ptr %60, %232
+  %234 = icmp ult ptr %232, %60
   br i1 %234, label %235, label %.loopexit.i668.i
 
 235:                                              ; preds = %.split880.us.i
@@ -991,7 +991,7 @@ ZSTD_count.exit694.i:                             ; preds = %269, %242, %236
 308:                                              ; preds = %306
   %309 = getelementptr inbounds i8, ptr %.us-phi896.i, i64 8
   %310 = getelementptr inbounds i8, ptr %.us-phi891.i, i64 8
-  %311 = icmp ugt ptr %60, %309
+  %311 = icmp ult ptr %309, %60
   br i1 %311, label %312, label %.loopexit.i695.i
 
 312:                                              ; preds = %308
@@ -1117,7 +1117,7 @@ ZSTD_count.exit721.i:                             ; preds = %346, %319, %313
 367:                                              ; preds = %306, %.split889.us.i
   %368 = getelementptr inbounds i8, ptr %.us-phi895.i, i64 4
   %369 = getelementptr inbounds i8, ptr %.us-phi900.i, i64 4
-  %370 = icmp ugt ptr %60, %368
+  %370 = icmp ult ptr %368, %60
   br i1 %370, label %371, label %.loopexit.i722.i
 
 371:                                              ; preds = %367
@@ -1480,7 +1480,7 @@ ZSTD_safecopyLiterals.exit766.i:                  ; preds = %450, %.lr.ph.i762.i
 533:                                              ; preds = %526
   %534 = getelementptr inbounds i8, ptr %.8931.i, i64 4
   %535 = getelementptr inbounds i8, ptr %534, i64 %529
-  %536 = icmp ugt ptr %60, %534
+  %536 = icmp ult ptr %534, %60
   br i1 %536, label %537, label %.loopexit.i767.i
 
 537:                                              ; preds = %533
@@ -1781,7 +1781,7 @@ ZSTD_safecopyLiterals.exit811.i:                  ; preds = %586, %ZSTD_count.ex
 681:                                              ; preds = %.split.i35
   %682 = getelementptr inbounds i8, ptr %.1576.i41, i64 5
   %683 = getelementptr inbounds i8, ptr %682, i64 %636
-  %684 = icmp ugt ptr %617, %682
+  %684 = icmp ult ptr %682, %617
   br i1 %684, label %685, label %.loopexit.i.i272
 
 685:                                              ; preds = %681
@@ -2031,7 +2031,7 @@ ZSTD_safecopyLiterals.exit.i293:                  ; preds = %739, %.lr.ph.i.i308
   %.us-phi887.i240 = phi i32 [ %643, %650 ], [ %674, %782 ]
   %784 = getelementptr inbounds i8, ptr %.us-phi883.i237, i64 8
   %785 = getelementptr inbounds i8, ptr %.us-phi882.i236, i64 8
-  %786 = icmp ugt ptr %617, %784
+  %786 = icmp ult ptr %784, %617
   br i1 %786, label %787, label %.loopexit.i668.i241
 
 787:                                              ; preds = %.split880.us.i233
@@ -2209,7 +2209,7 @@ ZSTD_count.exit694.i249:                          ; preds = %821, %794, %788
 860:                                              ; preds = %858
   %861 = getelementptr inbounds i8, ptr %.us-phi896.i66, i64 8
   %862 = getelementptr inbounds i8, ptr %.us-phi891.i61, i64 8
-  %863 = icmp ugt ptr %617, %861
+  %863 = icmp ult ptr %861, %617
   br i1 %863, label %864, label %.loopexit.i695.i200
 
 864:                                              ; preds = %860
@@ -2335,7 +2335,7 @@ ZSTD_count.exit721.i208:                          ; preds = %898, %871, %865
 919:                                              ; preds = %858, %.split889.us.i59
   %920 = getelementptr inbounds i8, ptr %.us-phi895.i65, i64 4
   %921 = getelementptr inbounds i8, ptr %.us-phi900.i69, i64 4
-  %922 = icmp ugt ptr %617, %920
+  %922 = icmp ult ptr %920, %617
   br i1 %922, label %923, label %.loopexit.i722.i70
 
 923:                                              ; preds = %919
@@ -2696,7 +2696,7 @@ ZSTD_safecopyLiterals.exit766.i159:               ; preds = %1002, %.lr.ph.i762.
 1083:                                             ; preds = %1076
   %1084 = getelementptr inbounds i8, ptr %.8931.i103, i64 4
   %1085 = getelementptr inbounds i8, ptr %1084, i64 %1079
-  %1086 = icmp ugt ptr %617, %1084
+  %1086 = icmp ult ptr %1084, %617
   br i1 %1086, label %1087, label %.loopexit.i767.i112
 
 1087:                                             ; preds = %1083
@@ -2997,7 +2997,7 @@ ZSTD_safecopyLiterals.exit811.i125:               ; preds = %1135, %ZSTD_count.e
 1230:                                             ; preds = %.split.i359
   %1231 = getelementptr inbounds i8, ptr %.1576.i366, i64 5
   %1232 = getelementptr inbounds i8, ptr %1231, i64 %1185
-  %1233 = icmp ugt ptr %1166, %1231
+  %1233 = icmp ult ptr %1231, %1166
   br i1 %1233, label %1234, label %.loopexit.i.i600
 
 1234:                                             ; preds = %1230
@@ -3247,7 +3247,7 @@ ZSTD_safecopyLiterals.exit.i621:                  ; preds = %1288, %.lr.ph.i.i63
   %.us-phi887.i568 = phi i32 [ %1192, %1199 ], [ %1223, %1331 ]
   %1333 = getelementptr inbounds i8, ptr %.us-phi883.i565, i64 8
   %1334 = getelementptr inbounds i8, ptr %.us-phi882.i564, i64 8
-  %1335 = icmp ugt ptr %1166, %1333
+  %1335 = icmp ult ptr %1333, %1166
   br i1 %1335, label %1336, label %.loopexit.i668.i569
 
 1336:                                             ; preds = %.split880.us.i561
@@ -3425,7 +3425,7 @@ ZSTD_count.exit694.i577:                          ; preds = %1370, %1343, %1337
 1409:                                             ; preds = %1407
   %1410 = getelementptr inbounds i8, ptr %.us-phi896.i391, i64 8
   %1411 = getelementptr inbounds i8, ptr %.us-phi891.i386, i64 8
-  %1412 = icmp ugt ptr %1166, %1410
+  %1412 = icmp ult ptr %1410, %1166
   br i1 %1412, label %1413, label %.loopexit.i695.i528
 
 1413:                                             ; preds = %1409
@@ -3551,7 +3551,7 @@ ZSTD_count.exit721.i536:                          ; preds = %1447, %1420, %1414
 1468:                                             ; preds = %1407, %.split889.us.i384
   %1469 = getelementptr inbounds i8, ptr %.us-phi895.i390, i64 4
   %1470 = getelementptr inbounds i8, ptr %.us-phi900.i394, i64 4
-  %1471 = icmp ugt ptr %1166, %1469
+  %1471 = icmp ult ptr %1469, %1166
   br i1 %1471, label %1472, label %.loopexit.i722.i395
 
 1472:                                             ; preds = %1468
@@ -3912,7 +3912,7 @@ ZSTD_safecopyLiterals.exit766.i487:               ; preds = %1551, %.lr.ph.i762.
 1632:                                             ; preds = %1625
   %1633 = getelementptr inbounds i8, ptr %.8931.i430, i64 4
   %1634 = getelementptr inbounds i8, ptr %1633, i64 %1628
-  %1635 = icmp ugt ptr %1166, %1633
+  %1635 = icmp ult ptr %1633, %1166
   br i1 %1635, label %1636, label %.loopexit.i767.i439
 
 1636:                                             ; preds = %1632
@@ -4213,7 +4213,7 @@ ZSTD_safecopyLiterals.exit811.i453:               ; preds = %1684, %ZSTD_count.e
 1779:                                             ; preds = %.split.i688
   %1780 = getelementptr inbounds i8, ptr %.1576.i695, i64 5
   %1781 = getelementptr inbounds i8, ptr %1780, i64 %1734
-  %1782 = icmp ugt ptr %1715, %1780
+  %1782 = icmp ult ptr %1780, %1715
   br i1 %1782, label %1783, label %.loopexit.i.i929
 
 1783:                                             ; preds = %1779
@@ -4463,7 +4463,7 @@ ZSTD_safecopyLiterals.exit.i950:                  ; preds = %1837, %.lr.ph.i.i96
   %.us-phi887.i897 = phi i32 [ %1741, %1748 ], [ %1772, %1880 ]
   %1882 = getelementptr inbounds i8, ptr %.us-phi883.i894, i64 8
   %1883 = getelementptr inbounds i8, ptr %.us-phi882.i893, i64 8
-  %1884 = icmp ugt ptr %1715, %1882
+  %1884 = icmp ult ptr %1882, %1715
   br i1 %1884, label %1885, label %.loopexit.i668.i898
 
 1885:                                             ; preds = %.split880.us.i890
@@ -4641,7 +4641,7 @@ ZSTD_count.exit694.i906:                          ; preds = %1919, %1892, %1886
 1958:                                             ; preds = %1956
   %1959 = getelementptr inbounds i8, ptr %.us-phi896.i720, i64 8
   %1960 = getelementptr inbounds i8, ptr %.us-phi891.i715, i64 8
-  %1961 = icmp ugt ptr %1715, %1959
+  %1961 = icmp ult ptr %1959, %1715
   br i1 %1961, label %1962, label %.loopexit.i695.i857
 
 1962:                                             ; preds = %1958
@@ -4767,7 +4767,7 @@ ZSTD_count.exit721.i865:                          ; preds = %1996, %1969, %1963
 2017:                                             ; preds = %1956, %.split889.us.i713
   %2018 = getelementptr inbounds i8, ptr %.us-phi895.i719, i64 4
   %2019 = getelementptr inbounds i8, ptr %.us-phi900.i723, i64 4
-  %2020 = icmp ugt ptr %1715, %2018
+  %2020 = icmp ult ptr %2018, %1715
   br i1 %2020, label %2021, label %.loopexit.i722.i724
 
 2021:                                             ; preds = %2017
@@ -5128,7 +5128,7 @@ ZSTD_safecopyLiterals.exit766.i816:               ; preds = %2100, %.lr.ph.i762.
 2181:                                             ; preds = %2174
   %2182 = getelementptr inbounds i8, ptr %.8931.i759, i64 4
   %2183 = getelementptr inbounds i8, ptr %2182, i64 %2177
-  %2184 = icmp ugt ptr %1715, %2182
+  %2184 = icmp ult ptr %2182, %1715
   br i1 %2184, label %2185, label %.loopexit.i767.i768
 
 2185:                                             ; preds = %2181
@@ -5325,7 +5325,7 @@ define dso_local i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr nocapture
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %3 to i64
   %20 = ptrtoint ptr %18 to i64
-  %21 = add i64 %19, %4
+  %21 = add i64 %4, %19
   %22 = sub i64 %21, %20
   %23 = trunc i64 %22 to i32
   %24 = load i32, ptr %8, align 4
@@ -5659,7 +5659,7 @@ ZSTD_safecopyLiterals.exit.i:                     ; preds = %170, %.lr.ph.i.i, %
 213:                                              ; preds = %211
   %214 = getelementptr inbounds i8, ptr %.07421026.i, i64 8
   %215 = getelementptr inbounds i8, ptr %132, i64 8
-  %216 = icmp ugt ptr %91, %214
+  %216 = icmp ult ptr %214, %91
   br i1 %216, label %217, label %.loopexit.i836.i
 
 217:                                              ; preds = %213
@@ -5892,7 +5892,7 @@ ZSTD_count.exit.i:                                ; preds = %251, %224, %218
 331:                                              ; preds = %329
   %332 = getelementptr inbounds i8, ptr %.07421026.i, i64 9
   %333 = getelementptr inbounds i8, ptr %327, i64 8
-  %334 = icmp ugt ptr %91, %332
+  %334 = icmp ult ptr %332, %91
   br i1 %334, label %335, label %.loopexit.i843.i
 
 335:                                              ; preds = %331
@@ -6096,7 +6096,7 @@ ZSTD_count.exit869.i:                             ; preds = %369, %342, %336
   br i1 %438, label %.lr.ph1066.i, label %.critedge.i, !llvm.loop !25
 
 439:                                              ; preds = %418
-  %440 = icmp ugt ptr %91, %420
+  %440 = icmp ult ptr %420, %91
   br i1 %440, label %441, label %.loopexit.i870.i
 
 441:                                              ; preds = %439
@@ -6456,7 +6456,7 @@ ZSTD_safecopyLiterals.exit914.i:                  ; preds = %511, %.lr.ph.i910.i
   %606 = icmp ult ptr %605, %35
   %..i.i = select i1 %606, ptr %605, ptr %35
   %607 = getelementptr inbounds i8, ptr %..i.i, i64 -7
-  %608 = icmp ugt ptr %607, %600
+  %608 = icmp ult ptr %600, %607
   br i1 %608, label %609, label %.loopexit.i.i.i
 
 609:                                              ; preds = %598
@@ -6560,7 +6560,7 @@ ZSTD_count.exit.i.i:                              ; preds = %645, %616, %610
 
 650:                                              ; preds = %ZSTD_count.exit.i.i
   %651 = getelementptr inbounds i8, ptr %600, i64 %.0.i.i.i
-  %652 = icmp ugt ptr %91, %651
+  %652 = icmp ult ptr %651, %91
   br i1 %652, label %653, label %.loopexit.i22.i.i
 
 653:                                              ; preds = %650
@@ -7002,7 +7002,7 @@ ZSTD_safecopyLiterals.exit.i311:                  ; preds = %824, %.lr.ph.i.i326
 867:                                              ; preds = %865
   %868 = getelementptr inbounds i8, ptr %.07421026.i46, i64 8
   %869 = getelementptr inbounds i8, ptr %786, i64 8
-  %870 = icmp ugt ptr %747, %868
+  %870 = icmp ult ptr %868, %747
   br i1 %870, label %871, label %.loopexit.i836.i267
 
 871:                                              ; preds = %867
@@ -7235,7 +7235,7 @@ ZSTD_count.exit.i275:                             ; preds = %905, %878, %872
 985:                                              ; preds = %983
   %986 = getelementptr inbounds i8, ptr %.07421026.i46, i64 9
   %987 = getelementptr inbounds i8, ptr %981, i64 8
-  %988 = icmp ugt ptr %747, %986
+  %988 = icmp ult ptr %986, %747
   br i1 %988, label %989, label %.loopexit.i843.i229
 
 989:                                              ; preds = %985
@@ -7439,7 +7439,7 @@ ZSTD_count.exit869.i237:                          ; preds = %1023, %996, %990
   br i1 %1092, label %.lr.ph1066.i219, label %.critedge.i68, !llvm.loop !25
 
 1093:                                             ; preds = %1072
-  %1094 = icmp ugt ptr %747, %1074
+  %1094 = icmp ult ptr %1074, %747
   br i1 %1094, label %1095, label %.loopexit.i870.i58
 
 1095:                                             ; preds = %1093
@@ -7797,7 +7797,7 @@ ZSTD_safecopyLiterals.exit914.i179:               ; preds = %1165, %.lr.ph.i910.
   %1258 = icmp ult ptr %1257, %35
   %..i.i102 = select i1 %1258, ptr %1257, ptr %35
   %1259 = getelementptr inbounds i8, ptr %..i.i102, i64 -7
-  %1260 = icmp ugt ptr %1259, %1252
+  %1260 = icmp ult ptr %1252, %1259
   br i1 %1260, label %1261, label %.loopexit.i.i.i103
 
 1261:                                             ; preds = %1250
@@ -7901,7 +7901,7 @@ ZSTD_count.exit.i.i111:                           ; preds = %1297, %1268, %1262
 
 1302:                                             ; preds = %ZSTD_count.exit.i.i111
   %1303 = getelementptr inbounds i8, ptr %1252, i64 %.0.i.i.i112
-  %1304 = icmp ugt ptr %747, %1303
+  %1304 = icmp ult ptr %1303, %747
   br i1 %1304, label %1305, label %.loopexit.i22.i.i122
 
 1305:                                             ; preds = %1302
@@ -8342,7 +8342,7 @@ ZSTD_safecopyLiterals.exit.i625:                  ; preds = %1475, %.lr.ph.i.i64
 1518:                                             ; preds = %1516
   %1519 = getelementptr inbounds i8, ptr %.07421026.i354, i64 8
   %1520 = getelementptr inbounds i8, ptr %1437, i64 8
-  %1521 = icmp ugt ptr %1398, %1519
+  %1521 = icmp ult ptr %1519, %1398
   br i1 %1521, label %1522, label %.loopexit.i836.i581
 
 1522:                                             ; preds = %1518
@@ -8575,7 +8575,7 @@ ZSTD_count.exit.i589:                             ; preds = %1556, %1529, %1523
 1636:                                             ; preds = %1634
   %1637 = getelementptr inbounds i8, ptr %.07421026.i354, i64 9
   %1638 = getelementptr inbounds i8, ptr %1632, i64 8
-  %1639 = icmp ugt ptr %1398, %1637
+  %1639 = icmp ult ptr %1637, %1398
   br i1 %1639, label %1640, label %.loopexit.i843.i540
 
 1640:                                             ; preds = %1636
@@ -8779,7 +8779,7 @@ ZSTD_count.exit869.i548:                          ; preds = %1674, %1647, %1641
   br i1 %1743, label %.lr.ph1066.i528, label %.critedge.i376, !llvm.loop !25
 
 1744:                                             ; preds = %1723
-  %1745 = icmp ugt ptr %1398, %1725
+  %1745 = icmp ult ptr %1725, %1398
   br i1 %1745, label %1746, label %.loopexit.i870.i366
 
 1746:                                             ; preds = %1744
@@ -9137,7 +9137,7 @@ ZSTD_safecopyLiterals.exit914.i488:               ; preds = %1816, %.lr.ph.i910.
   %1909 = icmp ult ptr %1908, %35
   %..i.i410 = select i1 %1909, ptr %1908, ptr %35
   %1910 = getelementptr inbounds i8, ptr %..i.i410, i64 -7
-  %1911 = icmp ugt ptr %1910, %1903
+  %1911 = icmp ult ptr %1903, %1910
   br i1 %1911, label %1912, label %.loopexit.i.i.i411
 
 1912:                                             ; preds = %1901
@@ -9241,7 +9241,7 @@ ZSTD_count.exit.i.i419:                           ; preds = %1948, %1919, %1913
 
 1953:                                             ; preds = %ZSTD_count.exit.i.i419
   %1954 = getelementptr inbounds i8, ptr %1903, i64 %.0.i.i.i420
-  %1955 = icmp ugt ptr %1398, %1954
+  %1955 = icmp ult ptr %1954, %1398
   br i1 %1955, label %1956, label %.loopexit.i22.i.i431
 
 1956:                                             ; preds = %1953
@@ -9682,7 +9682,7 @@ ZSTD_safecopyLiterals.exit.i939:                  ; preds = %2126, %.lr.ph.i.i95
 2169:                                             ; preds = %2167
   %2170 = getelementptr inbounds i8, ptr %.07421026.i668, i64 8
   %2171 = getelementptr inbounds i8, ptr %2088, i64 8
-  %2172 = icmp ugt ptr %2049, %2170
+  %2172 = icmp ult ptr %2170, %2049
   br i1 %2172, label %2173, label %.loopexit.i836.i895
 
 2173:                                             ; preds = %2169
@@ -9915,7 +9915,7 @@ ZSTD_count.exit.i903:                             ; preds = %2207, %2180, %2174
 2287:                                             ; preds = %2285
   %2288 = getelementptr inbounds i8, ptr %.07421026.i668, i64 9
   %2289 = getelementptr inbounds i8, ptr %2283, i64 8
-  %2290 = icmp ugt ptr %2049, %2288
+  %2290 = icmp ult ptr %2288, %2049
   br i1 %2290, label %2291, label %.loopexit.i843.i854
 
 2291:                                             ; preds = %2287
@@ -10119,7 +10119,7 @@ ZSTD_count.exit869.i862:                          ; preds = %2325, %2298, %2292
   br i1 %2394, label %.lr.ph1066.i842, label %.critedge.i690, !llvm.loop !25
 
 2395:                                             ; preds = %2374
-  %2396 = icmp ugt ptr %2049, %2376
+  %2396 = icmp ult ptr %2376, %2049
   br i1 %2396, label %2397, label %.loopexit.i870.i680
 
 2397:                                             ; preds = %2395
@@ -10477,7 +10477,7 @@ ZSTD_safecopyLiterals.exit914.i802:               ; preds = %2467, %.lr.ph.i910.
   %2560 = icmp ult ptr %2559, %35
   %..i.i724 = select i1 %2560, ptr %2559, ptr %35
   %2561 = getelementptr inbounds i8, ptr %..i.i724, i64 -7
-  %2562 = icmp ugt ptr %2561, %2554
+  %2562 = icmp ult ptr %2554, %2561
   br i1 %2562, label %2563, label %.loopexit.i.i.i725
 
 2563:                                             ; preds = %2552
@@ -10581,7 +10581,7 @@ ZSTD_count.exit.i.i733:                           ; preds = %2599, %2570, %2564
 
 2604:                                             ; preds = %ZSTD_count.exit.i.i733
   %2605 = getelementptr inbounds i8, ptr %2554, i64 %.0.i.i.i734
-  %2606 = icmp ugt ptr %2049, %2605
+  %2606 = icmp ult ptr %2605, %2049
   br i1 %2606, label %2607, label %.loopexit.i22.i.i745
 
 2607:                                             ; preds = %2604
@@ -10784,7 +10784,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
   %10 = icmp ult ptr %9, %2
   %. = select i1 %10, ptr %9, ptr %2
   %11 = getelementptr inbounds i8, ptr %., i64 -7
-  %12 = icmp ugt ptr %11, %0
+  %12 = icmp ult ptr %0, %11
   br i1 %12, label %13, label %.loopexit.i
 
 13:                                               ; preds = %5
@@ -10889,7 +10889,7 @@ ZSTD_count.exit:                                  ; preds = %14, %20, %49
 54:                                               ; preds = %ZSTD_count.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 %.0.i
   %56 = getelementptr inbounds i8, ptr %2, i64 -7
-  %57 = icmp ugt ptr %56, %55
+  %57 = icmp ult ptr %55, %56
   br i1 %57, label %58, label %.loopexit.i22
 
 58:                                               ; preds = %54
@@ -11012,7 +11012,7 @@ define internal fastcc i64 @ZSTD_compressBlock_doubleFast_extDict_generic(ptr no
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %3 to i64
   %21 = ptrtoint ptr %19 to i64
-  %22 = add i64 %20, %4
+  %22 = add i64 %4, %20
   %23 = sub i64 %22, %21
   %24 = trunc i64 %23 to i32
   %25 = load i32, ptr %7, align 4
@@ -11044,7 +11044,7 @@ define internal fastcc i64 @ZSTD_compressBlock_doubleFast_extDict_generic(ptr no
   br i1 %.not, label %.preheader, label %60
 
 .preheader:                                       ; preds = %6
-  %47 = icmp ugt ptr %17, %3
+  %47 = icmp ult ptr %3, %17
   br i1 %47, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader

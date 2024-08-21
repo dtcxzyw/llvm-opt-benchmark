@@ -375,7 +375,7 @@ define void @_ZN3gmx26FirstOrderPressureCoupling12scheduleTaskEldRKSt8functionIF
 
 _Z11do_per_stepll.exit:                           ; preds = %4
   %9 = sext i32 %8 to i64
-  %10 = add nsw i64 %9, %1
+  %10 = add nsw i64 %1, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
@@ -1082,7 +1082,7 @@ declare void @_Z10do_box_reliPA3_KfPA3_fS3_b(i32 noundef, ptr noundef, ptr nound
 define noundef float @_ZN3gmx26FirstOrderPressureCoupling27conservedEnergyContributionEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i64 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
-  %5 = icmp eq i64 %4, %1
+  %5 = icmp eq i64 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -1829,7 +1829,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -1890,7 +1890,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -2866,7 +2866,7 @@ _ZSt10_ConstructIN3gmx17KeyValueTreeValueEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #26
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17KeyValueTreeValueEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN3gmx17KeyValueTreeValueEEvPT_.exit.i.i.i.i.i.i
@@ -4389,7 +4389,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfldEZN3gmx26FirstOrder
   %.val3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %.val, i64 144
   %5 = load i64, ptr %4, align 8
-  %6 = icmp eq i64 %5, %.val3
+  %6 = icmp eq i64 %.val3, %5
   %7 = getelementptr inbounds i8, ptr %.val, i64 152
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0

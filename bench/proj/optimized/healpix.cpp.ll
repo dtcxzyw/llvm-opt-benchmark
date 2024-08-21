@@ -268,11 +268,11 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %8 = tail call double @cos(double noundef %7) #11
   %9 = tail call double @sin(double noundef %7) #11
   %10 = fneg double %9
-  %11 = fmul double %10, %1
+  %11 = fmul double %1, %10
   %12 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %11)
   %13 = tail call double @cos(double noundef %7) #11
   %14 = tail call double @sin(double noundef %7) #11
-  %15 = fmul double %14, %0
+  %15 = fmul double %0, %14
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
   br label %.lr.ph.i.i
 
@@ -280,13 +280,13 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
   %17 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16
-  %19 = fcmp oeq double %18, %12
+  %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8
-  %23 = fcmp oeq double %22, %16
+  %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
 
 24:                                               ; preds = %20, %.lr.ph.i.i
@@ -305,19 +305,19 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %28 = load double, ptr %27, align 8
   %29 = fcmp olt double %.sroa.7.056.i.i, %28
   %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
-  %31 = fcmp olt double %30, %16
+  %31 = fcmp ogt double %16, %30
   br i1 %31, label %32, label %53
 
 32:                                               ; preds = %.lr.ph60.i.i
   %33 = fcmp ogt double %.sroa.7.056.i.i, %28
   %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
-  %35 = fcmp ult double %34, %16
+  %35 = fcmp ugt double %16, %34
   br i1 %35, label %53, label %36
 
 36:                                               ; preds = %32
   %37 = fcmp ogt double %.sroa.09.057.i.i, %26
   %38 = select i1 %37, double %.sroa.09.057.i.i, double %26
-  %39 = fcmp oge double %38, %12
+  %39 = fcmp ole double %12, %38
   %40 = fcmp une double %.sroa.7.056.i.i, %28
   %or.cond.i.i = and i1 %40, %39
   br i1 %or.cond.i.i, label %41, label %53
@@ -333,7 +333,7 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %47 = fsub double %28, %.sroa.7.056.i.i
   %48 = fdiv double %46, %47
   %49 = fadd double %.sroa.09.057.i.i, %48
-  %50 = fcmp ult double %49, %12
+  %50 = fcmp ugt double %12, %49
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %43, %41
@@ -486,11 +486,11 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %8 = tail call double @cos(double noundef %7) #11
   %9 = tail call double @sin(double noundef %7) #11
   %10 = fneg double %9
-  %11 = fmul double %10, %1
+  %11 = fmul double %1, %10
   %12 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %11)
   %13 = tail call double @cos(double noundef %7) #11
   %14 = tail call double @sin(double noundef %7) #11
-  %15 = fmul double %14, %0
+  %15 = fmul double %0, %14
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
   br label %.lr.ph.i.i
 
@@ -498,13 +498,13 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
   %17 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16
-  %19 = fcmp oeq double %18, %12
+  %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8
-  %23 = fcmp oeq double %22, %16
+  %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
 
 24:                                               ; preds = %20, %.lr.ph.i.i
@@ -523,19 +523,19 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %28 = load double, ptr %27, align 8
   %29 = fcmp olt double %.sroa.7.056.i.i, %28
   %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
-  %31 = fcmp olt double %30, %16
+  %31 = fcmp ogt double %16, %30
   br i1 %31, label %32, label %53
 
 32:                                               ; preds = %.lr.ph60.i.i
   %33 = fcmp ogt double %.sroa.7.056.i.i, %28
   %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
-  %35 = fcmp ult double %34, %16
+  %35 = fcmp ugt double %16, %34
   br i1 %35, label %53, label %36
 
 36:                                               ; preds = %32
   %37 = fcmp ogt double %.sroa.09.057.i.i, %26
   %38 = select i1 %37, double %.sroa.09.057.i.i, double %26
-  %39 = fcmp oge double %38, %12
+  %39 = fcmp ole double %12, %38
   %40 = fcmp une double %.sroa.7.056.i.i, %28
   %or.cond.i.i = and i1 %40, %39
   br i1 %or.cond.i.i, label %41, label %53
@@ -551,7 +551,7 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %47 = fsub double %28, %.sroa.7.056.i.i
   %48 = fdiv double %46, %47
   %49 = fadd double %.sroa.09.057.i.i, %48
-  %50 = fcmp ult double %49, %12
+  %50 = fcmp ugt double %12, %49
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %43, %41
@@ -1378,13 +1378,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %5 ]
   %8 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i
   %9 = load double, ptr %8, align 16
-  %10 = fcmp oeq double %9, %0
+  %10 = fcmp oeq double %0, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load double, ptr %12, align 8
-  %14 = fcmp oeq double %13, %1
+  %14 = fcmp oeq double %1, %13
   br i1 %14, label %_ZL6pnpolyiPA2_ddd.exit, label %15
 
 15:                                               ; preds = %11, %.lr.ph.i
@@ -1403,19 +1403,19 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %19 = load double, ptr %18, align 8
   %20 = fcmp olt double %.sroa.7.056.i, %19
   %21 = select i1 %20, double %.sroa.7.056.i, double %19
-  %22 = fcmp olt double %21, %1
+  %22 = fcmp ogt double %1, %21
   br i1 %22, label %23, label %44
 
 23:                                               ; preds = %.lr.ph60.i
   %24 = fcmp ogt double %.sroa.7.056.i, %19
   %25 = select i1 %24, double %.sroa.7.056.i, double %19
-  %26 = fcmp ult double %25, %1
+  %26 = fcmp ugt double %1, %25
   br i1 %26, label %44, label %27
 
 27:                                               ; preds = %23
   %28 = fcmp ogt double %.sroa.09.057.i, %17
   %29 = select i1 %28, double %.sroa.09.057.i, double %17
-  %30 = fcmp oge double %29, %0
+  %30 = fcmp ole double %0, %29
   %31 = fcmp une double %.sroa.7.056.i, %19
   %or.cond.i = and i1 %31, %30
   br i1 %or.cond.i, label %32, label %44
@@ -1431,7 +1431,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %38 = fsub double %19, %.sroa.7.056.i
   %39 = fdiv double %37, %38
   %40 = fadd double %.sroa.09.057.i, %39
-  %41 = fcmp ult double %40, %0
+  %41 = fcmp ugt double %0, %40
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %34, %32
@@ -1514,13 +1514,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %indvars.iv.i14 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i15, %89 ]
   %82 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv.i14
   %83 = load double, ptr %82, align 16
-  %84 = fcmp oeq double %83, %0
+  %84 = fcmp oeq double %0, %83
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %.lr.ph.i13
   %86 = getelementptr inbounds i8, ptr %82, i64 8
   %87 = load double, ptr %86, align 8
-  %88 = fcmp oeq double %87, %1
+  %88 = fcmp oeq double %1, %87
   br i1 %88, label %_ZL6pnpolyiPA2_ddd.exit, label %89
 
 89:                                               ; preds = %85, %.lr.ph.i13
@@ -1539,19 +1539,19 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %93 = load double, ptr %92, align 8
   %94 = fcmp olt double %.sroa.7.056.i21, %93
   %95 = select i1 %94, double %.sroa.7.056.i21, double %93
-  %96 = fcmp olt double %95, %1
+  %96 = fcmp ogt double %1, %95
   br i1 %96, label %97, label %118
 
 97:                                               ; preds = %.lr.ph60.i18
   %98 = fcmp ogt double %.sroa.7.056.i21, %93
   %99 = select i1 %98, double %.sroa.7.056.i21, double %93
-  %100 = fcmp ult double %99, %1
+  %100 = fcmp ugt double %1, %99
   br i1 %100, label %118, label %101
 
 101:                                              ; preds = %97
   %102 = fcmp ogt double %.sroa.09.057.i20, %91
   %103 = select i1 %102, double %.sroa.09.057.i20, double %91
-  %104 = fcmp oge double %103, %0
+  %104 = fcmp ole double %0, %103
   %105 = fcmp une double %.sroa.7.056.i21, %93
   %or.cond.i28 = and i1 %105, %104
   br i1 %or.cond.i28, label %106, label %118
@@ -1567,7 +1567,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %112 = fsub double %93, %.sroa.7.056.i21
   %113 = fdiv double %111, %112
   %114 = fadd double %.sroa.09.057.i20, %113
-  %115 = fcmp ult double %114, %0
+  %115 = fcmp ugt double %0, %114
   br i1 %115, label %118, label %116
 
 116:                                              ; preds = %108, %106
@@ -1640,13 +1640,13 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
   %27 = tail call double @llvm.fmuladd.f64(double %26, double 0x3FF921FB54442D18, double %0)
   %28 = fsub double 0xBFE921FB54442D18, %27
   %29 = fadd double %28, -1.000000e-15
-  %30 = fcmp ugt double %29, %1
+  %30 = fcmp ult double %1, %29
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %23
   %32 = fadd double %27, 0x400F6A7A2955385E
   %33 = fadd double %32, -1.000000e-15
-  %34 = fcmp ogt double %33, %1
+  %34 = fcmp olt double %1, %33
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
@@ -1656,13 +1656,13 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
 
 38:                                               ; preds = %31, %23
   %39 = fadd double %28, 1.000000e-15
-  %40 = fcmp olt double %39, %1
+  %40 = fcmp ogt double %1, %39
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %38
   %42 = fadd double %27, 0x400F6A7A2955385E
   %43 = fadd double %42, -1.000000e-15
-  %44 = fcmp ugt double %43, %1
+  %44 = fcmp ult double %1, %43
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %41
@@ -1671,13 +1671,13 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
   br label %107
 
 48:                                               ; preds = %41, %38
-  %49 = fcmp ult double %39, %1
+  %49 = fcmp ugt double %1, %39
   br i1 %49, label %107, label %50
 
 50:                                               ; preds = %48
   %51 = fadd double %27, 0x400F6A7A2955385E
   %52 = fadd double %51, 1.000000e-15
-  %53 = fcmp olt double %52, %1
+  %53 = fcmp ogt double %1, %52
   br i1 %53, label %54, label %107
 
 54:                                               ; preds = %50
@@ -1692,13 +1692,13 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
   %61 = tail call double @llvm.fmuladd.f64(double %60, double 0x3FF921FB54442D18, double %0)
   %62 = fadd double %61, 0x3FE921FB54442D18
   %63 = fadd double %62, 1.000000e-15
-  %64 = fcmp ult double %63, %1
+  %64 = fcmp ugt double %1, %63
   br i1 %64, label %72, label %65
 
 65:                                               ; preds = %57
   %66 = fsub double 0xC00F6A7A2955385E, %61
   %67 = fadd double %66, 1.000000e-15
-  %68 = fcmp olt double %67, %1
+  %68 = fcmp ogt double %1, %67
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %65
@@ -1708,13 +1708,13 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
 
 72:                                               ; preds = %65, %57
   %73 = fadd double %62, -1.000000e-15
-  %74 = fcmp ogt double %73, %1
+  %74 = fcmp olt double %1, %73
   br i1 %74, label %75, label %82
 
 75:                                               ; preds = %72
   %76 = fsub double 0xC00F6A7A2955385E, %61
   %77 = fadd double %76, 1.000000e-15
-  %78 = fcmp ult double %77, %1
+  %78 = fcmp ugt double %1, %77
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %75
@@ -1723,13 +1723,13 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
   br label %114
 
 82:                                               ; preds = %75, %72
-  %83 = fcmp ugt double %73, %1
+  %83 = fcmp ult double %1, %73
   br i1 %83, label %114, label %84
 
 84:                                               ; preds = %82
   %85 = fsub double 0xC00F6A7A2955385E, %61
   %86 = fadd double %85, -1.000000e-15
-  %87 = fcmp ogt double %86, %1
+  %87 = fcmp olt double %1, %86
   br i1 %87, label %88, label %114
 
 88:                                               ; preds = %84

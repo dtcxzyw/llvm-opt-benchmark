@@ -1470,7 +1470,7 @@ usbll_is_data_from_host.exit.i:                   ; preds = %373, %372, %372, %3
 386:                                              ; preds = %383
   %387 = getelementptr inbounds i8, ptr %381, i64 10
   %388 = load i8, ptr %387, align 2
-  %389 = icmp eq i8 %388, %12
+  %389 = icmp eq i8 %12, %388
   br i1 %389, label %390, label %416
 
 390:                                              ; preds = %386
@@ -1637,7 +1637,7 @@ usbll_is_split_data_from_device.exit.i:           ; preds = %473, %454, %454, %4
 479:                                              ; preds = %usbll_is_data_from_host.exit.i, %usbll_is_data_from_host.exit.i
   %480 = getelementptr inbounds i8, ptr %381, i64 10
   %481 = load i8, ptr %480, align 2
-  %482 = icmp eq i8 %481, %12
+  %482 = icmp eq i8 %12, %481
   %483 = getelementptr inbounds i8, ptr %381, i64 16
   %484 = load i32, ptr %483, align 4
   %.not260.i = icmp eq i32 %484, 0
@@ -3527,7 +3527,7 @@ define internal fastcc range(i32 0, 2) i32 @packet_ends_transfer(ptr nocapture n
 .thread:                                          ; preds = %17, %18
   %21 = phi i16 [ %20, %18 ], [ %15, %17 ]
   %22 = zext i16 %21 to i32
-  %23 = icmp sgt i32 %22, %2
+  %23 = icmp slt i32 %2, %22
   br label %28
 
 24:                                               ; preds = %18

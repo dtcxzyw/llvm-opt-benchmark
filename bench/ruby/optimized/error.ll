@@ -639,7 +639,7 @@ define hidden void @rb_warning_category_update(i32 noundef %0, i32 noundef %1) l
   %4 = load i32, ptr @warning_disabled_categories, align 4
   %5 = and i32 %4, %3
   %6 = xor i32 %1, -1
-  %7 = and i32 %6, %0
+  %7 = and i32 %0, %6
   %8 = or disjoint i32 %5, %7
   store i32 %8, ptr @warning_disabled_categories, align 4
   ret void
@@ -1201,9 +1201,9 @@ define hidden void @rb_bug_without_die(ptr noundef %0, ptr noundef %1) local_unn
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %31 = load ptr, ptr @stdout, align 8
-  %.not.i.i = icmp eq ptr %31, %12
+  %.not.i.i = icmp eq ptr %12, %31
   %32 = load ptr, ptr @stderr, align 8
-  %.not5.i.i = icmp eq ptr %32, %12
+  %.not5.i.i = icmp eq ptr %12, %32
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not5.i.i
   br i1 %or.cond.i.i, label %35, label %33
 
@@ -1402,9 +1402,9 @@ define internal fastcc void @bug_report_end(ptr noundef %0, i32 noundef %1) unna
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %12 = load ptr, ptr @stdout, align 8
-  %.not.i = icmp eq ptr %12, %0
+  %.not.i = icmp eq ptr %0, %12
   %13 = load ptr, ptr @stderr, align 8
-  %.not5.i = icmp eq ptr %13, %0
+  %.not5.i = icmp eq ptr %0, %13
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not5.i
   br i1 %or.cond.i, label %16, label %14
 
@@ -1497,9 +1497,9 @@ define hidden void @rb_bug_for_fatal_signal(ptr noundef readonly %0, i32 noundef
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16
   %34 = load ptr, ptr @stdout, align 8
-  %.not.i.i = icmp eq ptr %34, %15
+  %.not.i.i = icmp eq ptr %15, %34
   %35 = load ptr, ptr @stderr, align 8
-  %.not5.i.i = icmp eq ptr %35, %15
+  %.not5.i.i = icmp eq ptr %15, %35
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not5.i.i
   br i1 %or.cond.i.i, label %38, label %36
 
@@ -2226,9 +2226,9 @@ RSTRING_PTR.exit:                                 ; preds = %4, %11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %31 = load ptr, ptr @stdout, align 8
-  %.not.i.i7 = icmp eq ptr %31, %12
+  %.not.i.i7 = icmp eq ptr %12, %31
   %32 = load ptr, ptr @stderr, align 8
-  %.not5.i.i = icmp eq ptr %32, %12
+  %.not5.i.i = icmp eq ptr %12, %32
   %or.cond.i.i = select i1 %.not.i.i7, i1 true, i1 %.not5.i.i
   br i1 %or.cond.i.i, label %35, label %33
 
@@ -3718,7 +3718,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 5:                                                ; preds = %rb_check_arity.exit
   %6 = load i64, ptr %1, align 8
-  %7 = icmp eq i64 %6, %2
+  %7 = icmp eq i64 %2, %6
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
@@ -5283,7 +5283,7 @@ define internal range(i64 0, 21) i64 @syserr_eqq(i64 noundef %0, i64 noundef %1)
 
 8:                                                ; preds = %2
   %9 = load i64, ptr @rb_eSystemCallError, align 8
-  %10 = icmp eq i64 %9, %0
+  %10 = icmp eq i64 %0, %9
   br i1 %10, label %30, label %11
 
 11:                                               ; preds = %8, %5
@@ -9830,7 +9830,7 @@ rb_warning_category_from_name.exit:               ; preds = %108
 114:                                              ; preds = %rb_warning_category_from_name.exit, %RBASIC_SET_CLASS.exit53
   %.0 = phi i64 [ 4, %RBASIC_SET_CLASS.exit53 ], [ %94, %rb_warning_category_from_name.exit ]
   %115 = load i64, ptr @rb_mWarning, align 8
-  %116 = icmp eq i64 %115, %1
+  %116 = icmp eq i64 %1, %115
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %114
@@ -9891,7 +9891,7 @@ define internal fastcc noundef ptr @expand_report_argument(ptr nocapture noundef
   %6 = alloca i64, align 8
   %7 = getelementptr i8, ptr %2, i64 %3
   %8 = getelementptr i8, ptr %7, i64 -1
-  %.not = icmp ugt ptr %8, %2
+  %.not = icmp ult ptr %2, %8
   br i1 %.not, label %9, label %217
 
 9:                                                ; preds = %5
@@ -10029,7 +10029,7 @@ RSTRING_PTR.exit.i:                               ; preds = %65, %59
   %66 = getelementptr inbounds i8, ptr %61, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr i8, ptr %.sroa.2.0.i.i, i64 %67
-  %69 = icmp ugt ptr %8, %.060
+  %69 = icmp ult ptr %.060, %8
   %70 = icmp ult ptr %.sroa.2.0.i.i, %68
   %or.cond59.i = select i1 %69, i1 %70, i1 false
   br i1 %or.cond59.i, label %.lr.ph62.i, label %append_pathname.exit
@@ -10205,7 +10205,7 @@ RSTRING_PTR.exit.i92:                             ; preds = %142, %134
   %143 = getelementptr inbounds i8, ptr %138, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr i8, ptr %.sroa.2.0.i.i93, i64 %144
-  %146 = icmp ugt ptr %8, %.060
+  %146 = icmp ult ptr %.060, %8
   %147 = icmp ult ptr %.sroa.2.0.i.i93, %145
   %or.cond59.i94 = select i1 %146, i1 %147, i1 false
   br i1 %or.cond59.i94, label %.lr.ph62.i96, label %append_pathname.exit

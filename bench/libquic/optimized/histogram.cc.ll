@@ -384,7 +384,7 @@ entry:
   %ref.tmp = alloca %"class.base::Histogram::Factory", align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %minimum, i32 1)
   %0 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp1.not.i = icmp sgt i32 %0, %maximum
+  %cmp1.not.i = icmp slt i32 %maximum, %0
   %sub.i = add nsw i32 %0, -1
   %maximum.addr.0 = select i1 %cmp1.not.i, i32 %maximum, i32 %sub.i
   %bucket_count.addr.1 = tail call i32 @llvm.umin.i32(i32 %bucket_count, i32 16383)
@@ -541,7 +541,7 @@ invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   %spec.select.i = call i32 @llvm.smax.i32(i32 %minimum, i32 1)
   %1 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp1.not.i.i = icmp sgt i32 %1, %maximum
+  %cmp1.not.i.i = icmp slt i32 %maximum, %1
   %sub.i.i = add nsw i32 %1, -1
   %maximum.addr.0.i = select i1 %cmp1.not.i.i, i32 %maximum, i32 %sub.i.i
   %bucket_count.addr.1.i = call i32 @llvm.umin.i32(i32 %bucket_count, i32 16383)
@@ -950,10 +950,10 @@ define dso_local noundef zeroext i1 @_ZNK4base9Histogram24HasConstructionArgumen
 entry:
   %declared_min_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %declared_min_, align 8
-  %cmp = icmp eq i32 %0, %expected_minimum
+  %cmp = icmp eq i32 %expected_minimum, %0
   %declared_max_ = getelementptr inbounds i8, ptr %this, i64 60
   %1 = load i32, ptr %declared_max_, align 4
-  %cmp2 = icmp eq i32 %1, %expected_maximum
+  %cmp2 = icmp eq i32 %expected_maximum, %1
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %land.rhs, label %land.end
 
@@ -962,7 +962,7 @@ land.rhs:                                         ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(81) %this)
-  %cmp3 = icmp eq i32 %call, %expected_bucket_count
+  %cmp3 = icmp eq i32 %expected_bucket_count, %call
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -988,7 +988,7 @@ if.end13:
 
 if.end22:                                         ; preds = %if.end13
   %0 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp.not = icmp sgt i32 %0, %value
+  %cmp.not = icmp slt i32 %value, %0
   %sub = add nsw i32 %0, -1
   %spec.select = select i1 %cmp.not, i32 %value, i32 %sub
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 0)
@@ -2270,7 +2270,7 @@ if.end:                                           ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   %spec.select.i = call i32 @llvm.smax.i32(i32 %1, i32 1)
   %5 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp1.not.i.i = icmp sgt i32 %5, %2
+  %cmp1.not.i.i = icmp slt i32 %2, %5
   %sub.i.i = add nsw i32 %5, -1
   %maximum.addr.0.i = select i1 %cmp1.not.i.i, i32 %2, i32 %sub.i.i
   %bucket_count.addr.1.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
@@ -2453,7 +2453,7 @@ declare void @_ZNK4base13HistogramBase21WriteAsciiBucketGraphEddPNSt7__cxx1112ba
 define dso_local void @_ZNK4base9Histogram23WriteAsciiBucketContextEliljPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(81) %this, i64 noundef %past, i32 noundef %current, i64 noundef %remaining, i32 noundef %i, ptr noundef %output) local_unnamed_addr #0 align 2 {
 entry:
   %conv = sext i32 %current to i64
-  %add = add nsw i64 %conv, %past
+  %add = add nsw i64 %past, %conv
   %add2 = add nsw i64 %add, %remaining
   %conv3 = sitofp i64 %add2 to double
   %div = fdiv double %conv3, 1.000000e+02
@@ -2875,7 +2875,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %minimum, i32 1)
   %0 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp1.not.i.i = icmp sgt i32 %0, %maximum
+  %cmp1.not.i.i = icmp slt i32 %maximum, %0
   %sub.i.i = add nsw i32 %0, -1
   %maximum.addr.0.i = select i1 %cmp1.not.i.i, i32 %maximum, i32 %sub.i.i
   %bucket_count.addr.1.i = tail call i32 @llvm.umin.i32(i32 %bucket_count, i32 16383)
@@ -2905,7 +2905,7 @@ entry:
   %ref.tmp = alloca %"class.base::LinearHistogram::Factory", align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %minimum, i32 1)
   %0 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp1.not.i = icmp sgt i32 %0, %maximum
+  %cmp1.not.i = icmp slt i32 %maximum, %0
   %sub.i = add nsw i32 %0, -1
   %maximum.addr.0 = select i1 %cmp1.not.i, i32 %maximum, i32 %sub.i
   %bucket_count.addr.1 = tail call i32 @llvm.umin.i32(i32 %bucket_count, i32 16383)
@@ -3008,7 +3008,7 @@ invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %minimum, i32 1)
   %1 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp1.not.i.i.i = icmp sgt i32 %1, %maximum
+  %cmp1.not.i.i.i = icmp slt i32 %maximum, %1
   %sub.i.i.i = add nsw i32 %1, -1
   %maximum.addr.0.i.i = select i1 %cmp1.not.i.i.i, i32 %maximum, i32 %sub.i.i.i
   %bucket_count.addr.1.i.i = call i32 @llvm.umin.i32(i32 %bucket_count, i32 16383)
@@ -3440,7 +3440,7 @@ if.end:                                           ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %1, i32 1)
   %5 = load i32, ptr @_ZN4base13HistogramBase15kSampleType_MAXE, align 4
-  %cmp1.not.i.i.i = icmp sgt i32 %5, %2
+  %cmp1.not.i.i.i = icmp slt i32 %2, %5
   %sub.i.i.i = add nsw i32 %5, -1
   %maximum.addr.0.i.i = select i1 %cmp1.not.i.i.i, i32 %2, i32 %sub.i.i.i
   %bucket_count.addr.1.i.i = call i32 @llvm.umin.i32(i32 %3, i32 16383)
@@ -4922,7 +4922,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -4962,7 +4962,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -5927,7 +5927,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %div1617, %if.end ]
   %phi.call.us = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.us
   %1 = load i32, ptr %phi.call.us, align 4
-  %cmp28.i.us = icmp sgt i64 %div.i2123, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2123
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -5979,7 +5979,7 @@ while.body:                                       ; preds = %while.body.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %div1617, %while.body.preheader ]
   %phi.call = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0
   %6 = load i32, ptr %phi.call, align 4
-  %cmp28.i = icmp sgt i64 %div.i2123, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2123
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i

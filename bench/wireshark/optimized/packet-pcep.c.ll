@@ -3863,8 +3863,8 @@ define internal void @dissect_pcep_association_obj(ptr noundef %0, ptr noundef %
   %.sink = phi i32 [ -28, %35 ], [ -16, %17 ]
   %40 = load i32, ptr %hf_pcep_association_source_ipv6.sink, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %40, ptr noundef %2, i32 noundef %34, i32 noundef %.sink66, i32 noundef 0) #2
-  %42 = add i32 %.sink64, %3
-  %43 = add i32 %.sink, %4
+  %42 = add i32 %3, %.sink64
+  %43 = add i32 %4, %.sink
   %44 = load i32, ptr @ett_pcep_obj_association, align 4
   tail call fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr noundef %2, i32 noundef %42, i32 noundef %43, i32 noundef %44, i16 noundef zeroext %30)
   br label %45
@@ -5136,7 +5136,7 @@ define internal fastcc void @dissect_subobj_srv6(ptr noundef %0, ptr noundef %1,
 66:                                               ; preds = %55
   %67 = load i32, ptr @hf_pcep_subobj_srv6_nai, align 4
   %68 = zext nneg i8 %.0 to i32
-  %69 = add i32 %68, %3
+  %69 = add i32 %3, %68
   %70 = add i32 %69, 8
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %67, ptr noundef %2, i32 noundef %70, i32 noundef 32, i32 noundef 0) #2
   %72 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %5) #2
@@ -5151,7 +5151,7 @@ define internal fastcc void @dissect_subobj_srv6(ptr noundef %0, ptr noundef %1,
 79:                                               ; preds = %55
   %80 = load i32, ptr @hf_pcep_subobj_srv6_nai, align 4
   %81 = zext nneg i8 %.0 to i32
-  %82 = add i32 %81, %3
+  %82 = add i32 %3, %81
   %83 = add i32 %82, 8
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %80, ptr noundef %2, i32 noundef %83, i32 noundef 40, i32 noundef 0) #2
   %85 = tail call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %5) #2
@@ -5183,7 +5183,7 @@ define internal fastcc void @dissect_subobj_srv6(ptr noundef %0, ptr noundef %1,
 103:                                              ; preds = %101
   %104 = load i32, ptr @hf_pcep_subobj_srv6_sid_struct, align 4
   %105 = zext nneg i8 %.1 to i32
-  %106 = add i32 %105, %3
+  %106 = add i32 %3, %105
   %107 = add i32 %106, 8
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %104, ptr noundef %2, i32 noundef %107, i32 noundef 8, i32 noundef 0) #2
   %109 = tail call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %5) #2

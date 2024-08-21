@@ -1700,7 +1700,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 ._crit_edge568:                                   ; preds = %.lr.ph567
   %indvars609.le = trunc i64 %indvars.iv607 to i32
-  %349 = icmp ult i32 %indvars609.le, %0
+  %349 = icmp ugt i32 %0, %indvars609.le
   br i1 %349, label %.lr.ph574.preheader, label %_create_it.exit
 
 .lr.ph574.preheader:                              ; preds = %._crit_edge568
@@ -1715,7 +1715,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   call void @scontrol_requeue(i32 noundef %351, ptr noundef %353) #17
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
   %lftr.wideiv617 = trunc i64 %indvars.iv.next615 to i32
-  %exitcond618.not = icmp eq i32 %lftr.wideiv617, %0
+  %exitcond618.not = icmp eq i32 %0, %lftr.wideiv617
   br i1 %exitcond618.not, label %_create_it.exit, label %.lr.ph574, !llvm.loop !15
 
 354:                                              ; preds = %336
@@ -1758,7 +1758,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 ._crit_edge558:                                   ; preds = %.lr.ph557
   %indvars598.le = trunc i64 %indvars.iv596 to i32
-  %367 = icmp ult i32 %indvars598.le, %0
+  %367 = icmp ugt i32 %0, %indvars598.le
   br i1 %367, label %.lr.ph563.preheader, label %_create_it.exit
 
 .lr.ph563.preheader:                              ; preds = %._crit_edge558
@@ -1773,7 +1773,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   call void @scontrol_requeue_hold(i32 noundef %369, ptr noundef %371) #17
   %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next604 to i32
-  %exitcond606.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond606.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond606.not, label %_create_it.exit, label %.lr.ph563, !llvm.loop !17
 
 372:                                              ; preds = %354

@@ -797,7 +797,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   br i1 %60, label %78, label %63
 
 63:                                               ; preds = %59
-  %64 = icmp ugt i64 %62, %0
+  %64 = icmp ult i64 %0, %62
   br i1 %64, label %65, label %78
 
 65:                                               ; preds = %63
@@ -1316,7 +1316,7 @@ define dso_local void @LogicalIncreaseXminForSlot(i64 noundef %0, i32 noundef %1
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 120
   %13 = load i64, ptr %12, align 8
-  %.not23 = icmp ult i64 %13, %0
+  %.not23 = icmp ugt i64 %0, %13
   br i1 %.not23, label %14, label %26
 
 14:                                               ; preds = %11
@@ -1516,13 +1516,13 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
 7:                                                ; preds = %2, %5
   %8 = getelementptr inbounds i8, ptr %3, i64 104
   %9 = load i64, ptr %8, align 8
-  %.not38 = icmp ult i64 %9, %1
+  %.not38 = icmp ugt i64 %1, %9
   br i1 %.not38, label %10, label %16
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %3, i64 120
   %12 = load i64, ptr %11, align 8
-  %.not39 = icmp ult i64 %12, %0
+  %.not39 = icmp ugt i64 %0, %12
   br i1 %.not39, label %16, label %13
 
 13:                                               ; preds = %10

@@ -765,7 +765,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %rank
+  %cmp.not = icmp ult i64 %rank, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1333,7 +1333,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp32 = icmp sgt i64 %div, %__holeIndex
+  %cmp32 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp32, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread30
@@ -1412,7 +1412,7 @@ land.rhs.i:                                       ; preds = %if.end35, %while.bo
   %__parent.022.i = sdiv i64 %__parent.022.in.i, 2
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.15", ptr %__first.coerce, i64 %__parent.022.i
   %9 = load double, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp ogt double %9, %__value.coerce0
+  %cmp.i.i.i.i.i = fcmp olt double %__value.coerce0, %9
   br i1 %cmp.i.i.i.i.i, label %land.rhs.while.body_crit_edge.i, label %lor.rhs.i.i.i.i.i
 
 land.rhs.while.body_crit_edge.i:                  ; preds = %land.rhs.i
@@ -1427,7 +1427,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i: ; preds = %lor.rhs.i.i.i.i.i
   %second5.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %10 = load i64, ptr %second5.i.i.i.i.i, align 8
-  %cmp6.i.i.i.i.i = icmp ugt i64 %10, %__value.coerce1
+  %cmp6.i.i.i.i.i = icmp ult i64 %__value.coerce1, %10
   br i1 %cmp6.i.i.i.i.i, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valISt7greaterIS3_EEEEvT_T0_SF_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i, %land.rhs.while.body_crit_edge.i

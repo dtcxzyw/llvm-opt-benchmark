@@ -73,19 +73,19 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   store ptr %8, ptr %37, align 8
   %38 = add nsw i64 %1, -1
   %39 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not = icmp slt i64 %39, %1
+  %.not = icmp sgt i64 %1, %39
   %. = select i1 %.not, i64 %39, i64 %38
   store i64 %., ptr %31, align 8
   %40 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not201 = icmp slt i64 %40, %1
+  %.not201 = icmp sgt i64 %1, %40
   %41 = select i1 %.not201, i64 %40, i64 %38
   %42 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %41, ptr %42, align 8
   %43 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %.not202 = icmp slt i64 %43, %1
+  %.not202 = icmp sgt i64 %1, %43
   %44 = select i1 %.not202, i64 %43, i64 %38
   %45 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %.not203 = icmp slt i64 %45, %1
+  %.not203 = icmp sgt i64 %1, %45
   %46 = select i1 %.not203, i64 %45, i64 %38
   %47 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %44, ptr %47, align 8
@@ -105,7 +105,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 54:                                               ; preds = %34
   %55 = add nsw i64 %46, %44
-  %.not204 = icmp slt i64 %55, %1
+  %.not204 = icmp sgt i64 %1, %55
   %.212 = select i1 %.not204, i64 %55, i64 %38
   %56 = getelementptr inbounds i8, ptr %31, i64 64
   store ptr null, ptr %56, align 8

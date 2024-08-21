@@ -21,7 +21,7 @@ define dso_local void @pstrcpy(ptr noundef writeonly %0, i32 noundef %1, ptr noc
   %7 = getelementptr i8, ptr %6, i64 -1
   %8 = load i8, ptr %2, align 1
   %9 = icmp ne i8 %8, 0
-  %.not12 = icmp ugt ptr %7, %0
+  %.not12 = icmp ult ptr %0, %7
   %or.cond13 = select i1 %9, i1 %.not12, i1 false
   br i1 %or.cond13, label %.lr.ph, label %._crit_edge
 
@@ -51,7 +51,7 @@ define dso_local void @pstrcpy(ptr noundef writeonly %0, i32 noundef %1, ptr noc
 define dso_local noundef ptr @pstrcat(ptr noundef returned %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %5 = trunc i64 %4 to i32
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   br i1 %6, label %7, label %pstrcpy.exit
 
 7:                                                ; preds = %3
@@ -68,7 +68,7 @@ define dso_local noundef ptr @pstrcat(ptr noundef returned %0, i32 noundef %1, p
   %14 = getelementptr i8, ptr %13, i64 -1
   %15 = load i8, ptr %2, align 1
   %16 = icmp ne i8 %15, 0
-  %.not12.i = icmp ugt ptr %14, %11
+  %.not12.i = icmp ult ptr %11, %14
   %or.cond13.i = select i1 %16, i1 %.not12.i, i1 false
   br i1 %or.cond13.i, label %.lr.ph.i, label %._crit_edge.i
 
@@ -188,7 +188,7 @@ define dso_local void @dbuf_init(ptr nocapture noundef writeonly %0) local_unnam
 define dso_local range(i32 -1, 1) i32 @dbuf_realloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %2
@@ -229,7 +229,7 @@ define dso_local range(i32 -1, 1) i32 @dbuf_write(ptr nocapture noundef %0, i64 
   %5 = add i64 %3, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ult i64 %7, %5
+  %8 = icmp ugt i64 %5, %7
   br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4
@@ -587,7 +587,7 @@ dbuf_realloc.exit.i:                              ; preds = %18
   %36 = add i64 %35, %9
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   %38 = load i64, ptr %37, align 8
-  %39 = icmp ult i64 %38, %36
+  %39 = icmp ugt i64 %36, %38
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %34
@@ -860,7 +860,7 @@ switch.lookup:                                    ; preds = %9
 define dso_local void @rqsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #7 {
   %6 = alloca [50 x %struct.anon], align 16
   %7 = ptrtoint ptr %0 to i64
-  %8 = or i64 %7, %2
+  %8 = or i64 %2, %7
   %9 = and i64 %8, 15
   switch i64 %9, label %16 [
     i64 0, label %exchange_func.exit.thread
@@ -980,7 +980,7 @@ exchange_func.exit215:                            ; preds = %exchange_func.exit.
 
 45:                                               ; preds = %.lr.ph257
   %46 = ptrtoint ptr %.0180253 to i64
-  %47 = or i64 %46, %2
+  %47 = or i64 %2, %46
   %48 = and i64 %47, 15
   switch i64 %48, label %52 [
     i64 0, label %exchange_func.exit.i
@@ -1064,7 +1064,7 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   %.199.i = phi i64 [ %79, %._crit_edge95.i ], [ %.pre.i, %.preheader.i ]
   %77 = getelementptr i8, ptr %.0180253, i64 %.199.i
   call void %.0.i.i(ptr noundef %.0180253, ptr noundef %77, i64 noundef %2) #17
-  %78 = icmp ugt i64 %.199.i, %2
+  %78 = icmp ult i64 %2, %.199.i
   %79 = sub i64 %.199.i, %2
   br i1 %78, label %.lr.ph94.i, label %._crit_edge95.i
 

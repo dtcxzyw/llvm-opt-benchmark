@@ -66,7 +66,7 @@ entry:
   store i64 %associated_data.coerce1, ptr %2, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
   %add = add i64 %call, 12
-  %cmp = icmp ule i64 %add, %max_output_length
+  %cmp = icmp uge i64 %max_output_length, %add
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

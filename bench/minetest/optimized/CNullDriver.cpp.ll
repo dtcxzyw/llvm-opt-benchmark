@@ -3521,7 +3521,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %n
+  %cmp = icmp ult i32 %n, %conv.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -3562,7 +3562,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %n
+  %cmp = icmp ult i32 %n, %conv.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -7618,7 +7618,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %vtable9.us = load ptr, ptr %mb, align 8, !tbaa !3
   %vfn10.us = getelementptr inbounds i8, ptr %vtable9.us, i64 104
   %6 = load ptr, ptr %vfn10.us, align 8
-  %mul3.i.us = fmul float %normalizedNormal.sroa.9.0.copyload.us, %length
+  %mul3.i.us = fmul float %length, %normalizedNormal.sroa.9.0.copyload.us
   %7 = load <2 x float>, ptr %call7.us, align 4, !tbaa !88
   %call11.us = call noundef nonnull align 4 dereferenceable(12) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %mb, i32 noundef %i.039.us) #24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp) #24
@@ -7683,7 +7683,7 @@ if.end:                                           ; preds = %if.end.i, %for.body
   %25 = load ptr, ptr %vfn10, align 8
   %call11 = call noundef nonnull align 4 dereferenceable(12) ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %mb, i32 noundef %i.039) #24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp) #24
-  %mul3.i = fmul float %.pre-phi, %length
+  %mul3.i = fmul float %length, %.pre-phi
   %26 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %27 = insertelement <2 x float> %26, float %normalizedNormal.sroa.0.1, i64 0
   %28 = fmul <2 x float> %4, %27
@@ -9465,7 +9465,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %idx
+  %cmp2.not = icmp ult i32 %idx, %conv.i
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -9580,8 +9580,8 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %idx1
-  %cmp4 = icmp ugt i32 %conv.i, %idx2
+  %cmp = icmp ult i32 %idx1, %conv.i
+  %cmp4 = icmp ult i32 %idx2, %conv.i
   %or.cond = and i1 %cmp, %cmp4
   br i1 %or.cond, label %if.then, label %if.end16
 
@@ -9677,7 +9677,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %idx
+  %cmp = icmp ult i32 %idx, %conv.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -9718,7 +9718,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ugt i32 %conv.i, %idx
+  %cmp = icmp ult i32 %idx, %conv.i
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -10061,7 +10061,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %material
+  %cmp2.not = icmp ult i32 %material, %conv.i
   br i1 %cmp2.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %lor.lhs.false

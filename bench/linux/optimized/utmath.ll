@@ -13,7 +13,7 @@ define dso_local noundef i32 @acpi_ut_short_multiply(i64 noundef %0, i32 noundef
 
 5:                                                ; preds = %3
   %6 = zext i32 %1 to i64
-  %7 = mul i64 %6, %0
+  %7 = mul i64 %0, %6
   store i64 %7, ptr %2, align 8
   br label %8
 

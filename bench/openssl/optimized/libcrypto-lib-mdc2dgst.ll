@@ -32,7 +32,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = zext i32 %0 to i64
   %sub = sub nsw i64 8, %conv
-  %cmp2 = icmp ugt i64 %sub, %len
+  %cmp2 = icmp ult i64 %len, %sub
   %data = getelementptr inbounds i8, ptr %c, i64 4
   %arrayidx = getelementptr inbounds [8 x i8], ptr %data, i64 0, i64 %conv
   br i1 %cmp2, label %if.then4, label %if.else

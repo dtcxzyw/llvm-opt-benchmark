@@ -63,7 +63,7 @@ define hidden zeroext i16 @inStream_skipBytes(ptr nocapture noundef %0, i32 noun
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
@@ -158,7 +158,7 @@ define hidden noundef ptr @inStream_readBytes(ptr nocapture noundef %0, i32 noun
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
@@ -1110,7 +1110,7 @@ inStream_readInt.exit:                            ; preds = %1, %8, %9
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = icmp slt i32 %20, %13
+  %21 = icmp sgt i32 %13, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18

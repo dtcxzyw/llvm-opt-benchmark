@@ -1747,14 +1747,14 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
 47:                                               ; preds = %45
   %48 = getelementptr inbounds i8, ptr %25, i64 8
   %49 = load double, ptr %48, align 8
-  %50 = fcmp ogt double %49, %24
+  %50 = fcmp olt double %24, %49
   br i1 %50, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %51
 
 51:                                               ; preds = %47
   %52 = add nsw i64 %30, -1
   %53 = getelementptr inbounds double, ptr %25, i64 %52
   %54 = load double, ptr %53, align 8
-  %55 = fcmp olt double %54, %24
+  %55 = fcmp ogt double %24, %54
   br i1 %55, label %56, label %.preheader52.i.outer
 
 56:                                               ; preds = %51
@@ -1767,7 +1767,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
   %59 = lshr i64 %58, 1
   %60 = getelementptr inbounds double, ptr %25, i64 %59
   %61 = load double, ptr %60, align 8
-  %62 = fcmp ogt double %61, %24
+  %62 = fcmp olt double %24, %61
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.preheader52.i
@@ -1792,7 +1792,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
   %69 = add nuw nsw i64 %.0.i, 1
   %70 = getelementptr inbounds double, ptr %25, i64 %69
   %71 = load double, ptr %70, align 8
-  %72 = fcmp ogt double %71, %24
+  %72 = fcmp olt double %24, %71
   br i1 %72, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %67, !llvm.loop !22
 
 _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %63, %65, %67, %68, %33, %45, %47, %56

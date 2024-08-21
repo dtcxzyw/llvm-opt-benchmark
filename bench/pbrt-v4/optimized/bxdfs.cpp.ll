@@ -3954,7 +3954,7 @@ if.then13:                                        ; preds = %_ZN4pbrt12FrDielect
 if.end14:                                         ; preds = %_ZN4pbrt12FrDielectricEff.exit
   %add = fadd float %spec.select, %pt.0
   %div = fdiv float %spec.select, %add
-  %cmp15 = fcmp ogt float %div, %uc
+  %cmp15 = fcmp olt float %uc, %div
   %wo.sroa.0.0.vec.extract = extractelement <2 x float> %wo.coerce0, i64 0
   br i1 %cmp15, label %if.then16, label %if.else
 
@@ -4143,13 +4143,13 @@ if.else53:                                        ; preds = %lor.lhs.false
   %call58.fca.1.extract = extractvalue { <2 x float>, float } %call58, 1
   %v.sroa.0.0.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 0
   %w.sroa.0.0.vec.extract.i = extractelement <2 x float> %call58.fca.0.extract, i64 0
-  %21 = fmul <2 x float> %call58.fca.0.extract, %wo.coerce0
+  %21 = fmul <2 x float> %wo.coerce0, %call58.fca.0.extract
   %mul.i103 = extractelement <2 x float> %21, i64 0
   %v.sroa.0.4.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 1
   %w.sroa.0.4.vec.extract.i = extractelement <2 x float> %call58.fca.0.extract, i64 1
   %mul4.i = fmul float %v.sroa.0.4.vec.extract.i, %w.sroa.0.4.vec.extract.i
   %add.i104 = fadd float %mul.i103, %mul4.i
-  %mul6.i = fmul float %call58.fca.1.extract, %wo.coerce1
+  %mul6.i = fmul float %wo.coerce1, %call58.fca.1.extract
   %add7.i = fadd float %mul6.i, %add.i104
   %22 = load float, ptr %this, align 4
   %cmp.i.i105 = fcmp olt float %add7.i, -1.000000e+00
@@ -4208,7 +4208,7 @@ if.then81:                                        ; preds = %_ZN4pbrt12FrDielect
 if.end82:                                         ; preds = %_ZN4pbrt12FrDielectricEff.exit137
   %add83 = fadd float %spec.select70, %pt69.0
   %div84 = fdiv float %spec.select70, %add83
-  %cmp85 = fcmp ogt float %div84, %uc
+  %cmp85 = fcmp olt float %uc, %div84
   br i1 %cmp85, label %if.then86, label %if.else130
 
 if.then86:                                        ; preds = %if.end82
@@ -4221,7 +4221,7 @@ if.then86:                                        ; preds = %if.end82
   %add6.i.i148 = fsub float %mul3.i.i.i146, %wo.coerce1
   %retval.sroa.0.0.vec.insert.i5.i = insertelement <2 x float> poison, float %add.i2.i, i64 0
   %retval.sroa.0.4.vec.insert.i6.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i5.i, float %add4.i.i147, i64 1
-  %mul.i149 = fmul float %add6.i.i148, %wo.coerce1
+  %mul.i149 = fmul float %wo.coerce1, %add6.i.i148
   %cmp.i150 = fcmp ogt float %mul.i149, 0.000000e+00
   br i1 %cmp.i150, label %if.end97, label %if.then96
 
@@ -4301,7 +4301,7 @@ _ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEE.exit: ; preds = %if.end
   %mul118 = fmul float %retval.0.i172, %call117
   %mul119 = fmul float %retval.0.i119, %mul118
   %mul122 = fmul float %add6.i.i148, 4.000000e+00
-  %mul125 = fmul float %mul122, %wo.coerce1
+  %mul125 = fmul float %wo.coerce1, %mul122
   %div126 = fdiv float %mul119, %mul125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %f, i8 0, i64 16, i1 false)
   br label %for.body.i.i173
@@ -4428,7 +4428,7 @@ lpad146:                                          ; preds = %init143
   br label %eh.resume
 
 do.end154:                                        ; preds = %init.end148
-  %mul.i238 = fmul float %wi132.sroa.10.0, %wo.coerce1
+  %mul.i238 = fmul float %wo.coerce1, %wi132.sroa.10.0
   %cmp.i239 = fcmp ogt float %mul.i238, 0.000000e+00
   %cmp160 = fcmp oeq float %wi132.sroa.10.0, 0.000000e+00
   %or.cond2 = or i1 %cmp160, %cmp.i239
@@ -5626,12 +5626,12 @@ if.end:                                           ; preds = %lor.lhs.false
   %mul.i = fmul float %wi.sroa.0.0.vec.extract, %etap.0
   %wi.sroa.0.4.vec.extract = extractelement <2 x float> %wi.coerce0, i64 1
   %mul2.i = fmul float %wi.sroa.0.4.vec.extract, %etap.0
-  %mul3.i = fmul float %etap.0, %wi.coerce1
+  %mul3.i = fmul float %wi.coerce1, %etap.0
   %c.sroa.0.0.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 0
   %add.i = fadd float %c.sroa.0.0.vec.extract.i, %mul.i
   %c.sroa.0.4.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 1
   %add4.i = fadd float %c.sroa.0.4.vec.extract.i, %mul2.i
-  %add6.i = fadd float %mul3.i, %wo.coerce1
+  %add6.i = fadd float %wo.coerce1, %mul3.i
   %4 = load atomic i8, ptr @_ZGVZNK4pbrt14DielectricBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsEE3reg acquire, align 8
   %guard.uninitialized = icmp eq i8 %4, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !28
@@ -5700,25 +5700,25 @@ if.end34:                                         ; preds = %do.end.thread
   %retval.sroa.0.4.vec.insert.i.i52 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i51, float %fneg2.i.i, i64 1
   %retval.sroa.0.0.i = select i1 %cmp.i50, <2 x float> %retval.sroa.0.4.vec.insert.i.i52, <2 x float> %retval.sroa.0.4.vec.insert.i.i
   %retval.sroa.3.0.i = select i1 %cmp.i50, float %fneg.i.i.i, float %div3.i.i
-  %14 = fmul <2 x float> %retval.sroa.0.0.i, %wi.coerce0
+  %14 = fmul <2 x float> %wi.coerce0, %retval.sroa.0.0.i
   %mul.i56 = extractelement <2 x float> %14, i64 0
   %v.sroa.0.4.vec.extract.i57 = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
   %mul4.i = fmul float %wi.sroa.0.4.vec.extract, %v.sroa.0.4.vec.extract.i57
   %add.i58 = fadd float %mul.i56, %mul4.i
-  %mul6.i = fmul float %retval.sroa.3.0.i, %wi.coerce1
+  %mul6.i = fmul float %wi.coerce1, %retval.sroa.3.0.i
   %add7.i = fadd float %mul6.i, %add.i58
-  %mul48 = fmul float %add7.i, %wi.coerce1
+  %mul48 = fmul float %wi.coerce1, %add7.i
   %cmp49 = fcmp olt float %mul48, 0.000000e+00
   br i1 %cmp49, label %return, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end34
-  %15 = fmul <2 x float> %retval.sroa.0.0.i, %wo.coerce0
+  %15 = fmul <2 x float> %wo.coerce0, %retval.sroa.0.0.i
   %mul.i61 = extractelement <2 x float> %15, i64 0
   %mul4.i64 = fmul float %c.sroa.0.4.vec.extract.i, %v.sroa.0.4.vec.extract.i57
   %add.i65 = fadd float %mul.i61, %mul4.i64
-  %mul6.i66 = fmul float %retval.sroa.3.0.i, %wo.coerce1
+  %mul6.i66 = fmul float %wo.coerce1, %retval.sroa.3.0.i
   %add7.i67 = fadd float %mul6.i66, %add.i65
-  %mul54 = fmul float %add7.i67, %wo.coerce1
+  %mul54 = fmul float %wo.coerce1, %add7.i67
   %cmp55 = fcmp olt float %mul54, 0.000000e+00
   br i1 %cmp55, label %return, label %if.end57
 
@@ -8927,12 +8927,12 @@ if.end22:                                         ; preds = %if.end19
   %wo.sroa.0.0.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 0
   %wo.sroa.0.4.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 1
   %w.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %call27.fca.0.extract, i64 0
-  %10 = fmul <2 x float> %call27.fca.0.extract, %wo.coerce0
+  %10 = fmul <2 x float> %wo.coerce0, %call27.fca.0.extract
   %mul.i.i = extractelement <2 x float> %10, i64 0
   %w.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %call27.fca.0.extract, i64 1
   %mul4.i.i = fmul float %wo.sroa.0.4.vec.extract.i, %w.sroa.0.4.vec.extract.i.i
   %add.i.i = fadd float %mul.i.i, %mul4.i.i
-  %mul6.i.i = fmul float %call27.fca.1.extract, %wo.coerce1
+  %mul6.i.i = fmul float %wo.coerce1, %call27.fca.1.extract
   %add7.i.i = fadd float %mul6.i.i, %add.i.i
   %mul.i = fmul float %add7.i.i, 2.000000e+00
   %mul.i.i.i = fmul float %w.sroa.0.0.vec.extract.i.i, %mul.i
@@ -8943,7 +8943,7 @@ if.end22:                                         ; preds = %if.end19
   %add6.i.i = fsub float %mul3.i.i.i, %wo.coerce1
   %retval.sroa.0.0.vec.insert.i5.i = insertelement <2 x float> poison, float %add.i2.i, i64 0
   %retval.sroa.0.4.vec.insert.i6.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i5.i, float %add4.i.i, i64 1
-  %mul.i24 = fmul float %add6.i.i, %wo.coerce1
+  %mul.i24 = fmul float %wo.coerce1, %add6.i.i
   %cmp.i25 = fcmp ogt float %mul.i24, 0.000000e+00
   br i1 %cmp.i25, label %if.end39, label %if.then38
 
@@ -10318,12 +10318,12 @@ if.end23:                                         ; preds = %init.end
   %retval.sroa.0.0.i = select i1 %cmp.i16, <2 x float> %retval.sroa.0.4.vec.insert.i.i18, <2 x float> %retval.sroa.0.4.vec.insert.i.i
   %retval.sroa.3.0.i = select i1 %cmp.i16, float %fneg.i.i.i, float %div3.i.i
   %call.i = tail call noundef float @_ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEES2_(ptr noundef nonnull align 4 dereferenceable(8) %this, <2 x float> %wo.coerce0, float %wo.coerce1, <2 x float> %retval.sroa.0.0.i, float %retval.sroa.3.0.i)
-  %16 = fmul <2 x float> %retval.sroa.0.0.i, %wo.coerce0
-  %17 = fmul <2 x float> %retval.sroa.0.0.i, %wo.coerce0
+  %16 = fmul <2 x float> %wo.coerce0, %retval.sroa.0.0.i
+  %17 = fmul <2 x float> %wo.coerce0, %retval.sroa.0.0.i
   %shift = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %18 = fadd <2 x float> %16, %shift
   %add.i.i = extractelement <2 x float> %18, i64 0
-  %mul6.i.i = fmul float %retval.sroa.3.0.i, %wo.coerce1
+  %mul6.i.i = fmul float %wo.coerce1, %retval.sroa.3.0.i
   %add7.i.i = fadd float %mul6.i.i, %add.i.i
   %19 = tail call noundef float @llvm.fabs.f32(float %add7.i.i)
   %mul = fmul float %19, 4.000000e+00
@@ -11078,12 +11078,12 @@ if.end:                                           ; preds = %lor.lhs.false
   %mul.i = fmul float %wi.sroa.0.0.vec.extract, %etap.0
   %wi.sroa.0.4.vec.extract = extractelement <2 x float> %wi.coerce0, i64 1
   %mul2.i = fmul float %wi.sroa.0.4.vec.extract, %etap.0
-  %mul3.i = fmul float %etap.0, %wi.coerce1
+  %mul3.i = fmul float %wi.coerce1, %etap.0
   %c.sroa.0.0.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 0
   %add.i = fadd float %c.sroa.0.0.vec.extract.i, %mul.i
   %c.sroa.0.4.vec.extract.i = extractelement <2 x float> %wo.coerce0, i64 1
   %add4.i = fadd float %c.sroa.0.4.vec.extract.i, %mul2.i
-  %add6.i = fadd float %mul3.i, %wo.coerce1
+  %add6.i = fadd float %wo.coerce1, %mul3.i
   %4 = load atomic i8, ptr @_ZGVZNK4pbrt14DielectricBxDF1fENS_7Vector3IfEES2_NS_13TransportModeEE3reg acquire, align 8
   %guard.uninitialized = icmp eq i8 %4, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !28
@@ -11152,25 +11152,25 @@ if.end34:                                         ; preds = %do.end.thread
   %retval.sroa.0.4.vec.insert.i.i50 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i49, float %fneg2.i.i, i64 1
   %retval.sroa.0.0.i = select i1 %cmp.i48, <2 x float> %retval.sroa.0.4.vec.insert.i.i50, <2 x float> %retval.sroa.0.4.vec.insert.i.i
   %retval.sroa.3.0.i = select i1 %cmp.i48, float %fneg.i.i.i, float %div3.i.i
-  %14 = fmul <2 x float> %retval.sroa.0.0.i, %wi.coerce0
+  %14 = fmul <2 x float> %wi.coerce0, %retval.sroa.0.0.i
   %mul.i54 = extractelement <2 x float> %14, i64 0
   %v.sroa.0.4.vec.extract.i55 = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
   %mul4.i = fmul float %wi.sroa.0.4.vec.extract, %v.sroa.0.4.vec.extract.i55
   %add.i56 = fadd float %mul.i54, %mul4.i
-  %mul6.i = fmul float %retval.sroa.3.0.i, %wi.coerce1
+  %mul6.i = fmul float %wi.coerce1, %retval.sroa.3.0.i
   %add7.i = fadd float %mul6.i, %add.i56
-  %mul48 = fmul float %add7.i, %wi.coerce1
+  %mul48 = fmul float %wi.coerce1, %add7.i
   %cmp49 = fcmp olt float %mul48, 0.000000e+00
   br i1 %cmp49, label %return.sink.split, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end34
-  %15 = fmul <2 x float> %retval.sroa.0.0.i, %wo.coerce0
+  %15 = fmul <2 x float> %wo.coerce0, %retval.sroa.0.0.i
   %mul.i59 = extractelement <2 x float> %15, i64 0
   %mul4.i62 = fmul float %c.sroa.0.4.vec.extract.i, %v.sroa.0.4.vec.extract.i55
   %add.i63 = fadd float %mul.i59, %mul4.i62
-  %mul6.i64 = fmul float %retval.sroa.3.0.i, %wo.coerce1
+  %mul6.i64 = fmul float %wo.coerce1, %retval.sroa.3.0.i
   %add7.i65 = fadd float %mul6.i64, %add.i63
-  %mul54 = fmul float %add7.i65, %wo.coerce1
+  %mul54 = fmul float %wo.coerce1, %add7.i65
   %cmp55 = fcmp olt float %mul54, 0.000000e+00
   br i1 %cmp55, label %return.sink.split, label %if.end57
 
@@ -11185,7 +11185,7 @@ if.then64:                                        ; preds = %if.end57
   %mul72 = fmul float %call67, %call71
   %mul73 = fmul float %call62, %mul72
   %mul74 = fmul float %wi.coerce1, 4.000000e+00
-  %mul75 = fmul float %mul74, %wo.coerce1
+  %mul75 = fmul float %wo.coerce1, %mul74
   %17 = tail call noundef float @llvm.fabs.f32(float %mul75)
   %div77 = fdiv float %mul73, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
@@ -11203,8 +11203,8 @@ if.else:                                          ; preds = %if.end57
   %div84 = fdiv float %add7.i65, %cond
   %add = fadd float %add7.i, %div84
   %mul.i99 = fmul float %add, %add
-  %mul86 = fmul float %mul.i99, %wi.coerce1
-  %mul87 = fmul float %mul86, %wo.coerce1
+  %mul86 = fmul float %wi.coerce1, %mul.i99
+  %mul87 = fmul float %wo.coerce1, %mul86
   %call90 = tail call noundef float @_ZNK4pbrt27TrowbridgeReitzDistribution1DENS_7Vector3IfEE(ptr noundef nonnull align 4 dereferenceable(8) %mfDistrib, <2 x float> %retval.sroa.0.0.i, float %retval.sroa.3.0.i)
   %sub = fsub float 1.000000e+00, %call62
   %mul91 = fmul float %sub, %call90
@@ -11348,7 +11348,7 @@ land.end18:                                       ; preds = %land.end12
   %mul20 = fmul float %mul.i, 0x3FE9FBE760000000
   %add = fadd float %mul, %mul20
   %mul.i.i.i = fmul float %mul.i, %mul.i
-  %mul2.i.i.i = fmul float %mul.i.i.i, %beta_m
+  %mul2.i.i.i = fmul float %beta_m, %mul.i.i.i
   %mul.i.i = fmul float %mul2.i.i.i, %mul2.i.i.i
   %mul.i24 = fmul float %mul.i.i, %mul.i.i
   %mul22 = fmul float %mul.i24, 0x400D9999A0000000
@@ -11369,9 +11369,9 @@ land.end18:                                       ; preds = %land.end12
   %mul43 = fmul float %mul.i26, 0x3FF31A9FC0000000
   %add44 = fadd float %mul41, %mul43
   %mul.i.i.i28 = fmul float %mul.i26, %mul.i26
-  %mul2.i.i.i29 = fmul float %mul.i.i.i28, %beta_n
+  %mul2.i.i.i29 = fmul float %beta_n, %mul.i.i.i28
   %mul.i.i30 = fmul float %mul2.i.i.i29, %mul2.i.i.i29
-  %mul2.i.i = fmul float %mul.i.i30, %beta_n
+  %mul2.i.i = fmul float %beta_n, %mul.i.i30
   %mul.i31 = fmul float %mul2.i.i, %mul2.i.i
   %mul46 = fmul float %mul.i31, 0x40157CEDA0000000
   %add47 = fadd float %add44, %mul46
@@ -11852,7 +11852,7 @@ entry:
   %cmp.i.i = fcmp ogt float %sub, 0.000000e+00
   %.sroa.speculated.i = select i1 %cmp.i.i, float %sub, float 0.000000e+00
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %mul = fmul float %sqrt.i, %cosTheta_o
+  %mul = fmul float %cosTheta_o, %sqrt.i
   %cmp.i.i9 = fcmp olt float %mul, -1.000000e+00
   %cmp3.i.i = fcmp ogt float %mul, 1.000000e+00
   %conv2.val.i.i = select i1 %cmp3.i.i, float 1.000000e+00, float %mul
@@ -12306,7 +12306,7 @@ _ZN4pbrt2I0Ef.exit:                               ; preds = %for.body.i
   %div13 = fdiv float 1.000000e+00, %v
   %call.i33 = tail call noundef float @sinhf(float noundef %div13) #24
   %mul15 = fmul float %call.i33, 2.000000e+00
-  %mul16 = fmul float %mul15, %v
+  %mul16 = fmul float %v, %mul15
   %div17 = fdiv float %mul12, %mul16
   br label %cond.end
 
@@ -12320,7 +12320,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt8HairBxDF2NpEfifff(float no
 entry:
   %mul.i = shl nsw i32 %p, 1
   %conv.i = sitofp i32 %mul.i to float
-  %mul1.i = fmul float %conv.i, %gamma_t
+  %mul1.i = fmul float %gamma_t, %conv.i
   %mul2.i = fmul float %gamma_o, 2.000000e+00
   %sub.i = fsub float %mul1.i, %mul2.i
   %conv3.i = sitofp i32 %p to float
@@ -12356,7 +12356,7 @@ while.end5:                                       ; preds = %while.body4, %while
   %call.i5.i.i = tail call noundef float @expf(float noundef %div.i.i) #24
   %add.i.i = fadd float %call.i5.i.i, 1.000000e+00
   %mul.i.i.i = fmul float %add.i.i, %add.i.i
-  %mul.i.i = fmul float %mul.i.i.i, %s
+  %mul.i.i = fmul float %s, %mul.i.i.i
   %div6.i.i = fdiv float %call.i.i.i, %mul.i.i
   %div.i4.i = fdiv float 0xC00921FB60000000, %s
   %call.i.i5.i = tail call noundef float @expf(float noundef %div.i4.i) #24
@@ -12587,7 +12587,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i
-  %mul.i66 = fmul float %add.i, %uc
+  %mul.i66 = fmul float %uc, %add.i
   %cmp5.i = fcmp oeq float %mul.i66, %add.i
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
@@ -13076,13 +13076,13 @@ entry:
   %mul.i = fmul float %beta_n, %beta_n
   %mul3 = fmul float %mul.i, 0x4004418940000000
   %add = fadd float %sub, %mul3
-  %mul2.i = fmul float %mul.i, %beta_n
+  %mul2.i = fmul float %beta_n, %mul.i
   %mul5 = fmul float %mul2.i, 0x402575C280000000
   %sub6 = fsub float %add, %mul5
   %mul.i9 = fmul float %mul.i, %mul.i
   %mul8 = fmul float %mul.i9, 0x40164BC6A0000000
   %add9 = fadd float %mul8, %sub6
-  %mul2.i12 = fmul float %mul.i9, %beta_n
+  %mul2.i12 = fmul float %beta_n, %mul.i9
   %mul11 = fmul float %mul2.i12, 0x3FCF5C2900000000
   %add12 = fadd float %mul11, %add9
   br label %for.body
@@ -13752,7 +13752,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %6
+  %cmp.i.i.i.i = icmp eq ptr %6, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -15332,7 +15332,7 @@ entry:
   %ptr.i102 = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i102, i8 0, i64 24, i1 false)
   %build_cdf.not = xor i1 %build_cdf, true
-  %brmerge = or i1 %build_cdf.not, %normalize
+  %brmerge = or i1 %normalize, %build_cdf.not
   br i1 %brmerge, label %for.end75, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -16112,7 +16112,7 @@ entry:
   %ptr.i102 = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i102, i8 0, i64 24, i1 false)
   %build_cdf.not = xor i1 %build_cdf, true
-  %brmerge = or i1 %build_cdf.not, %normalize
+  %brmerge = or i1 %normalize, %build_cdf.not
   br i1 %brmerge, label %for.cond.preheader, label %if.then33.invoke
 
 for.cond.preheader:                               ; preds = %entry
@@ -17077,7 +17077,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorIfNS_3pmr21polymorphic_alloca
 entry:
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %nStored.i, align 8
-  %cmp = icmp ugt i64 %0, %n
+  %cmp = icmp ult i64 %n, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -17106,7 +17106,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit: ; preds
   br label %if.end24
 
 if.else:                                          ; preds = %entry
-  %cmp11 = icmp ult i64 %0, %n
+  %cmp11 = icmp ugt i64 %n, %0
   br i1 %cmp11, label %if.then12, label %if.end24
 
 if.then12:                                        ; preds = %if.else
@@ -17240,7 +17240,7 @@ entry:
   %ptr.i102 = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i102, i8 0, i64 24, i1 false)
   %build_cdf.not = xor i1 %build_cdf, true
-  %brmerge = or i1 %build_cdf.not, %normalize
+  %brmerge = or i1 %normalize, %build_cdf.not
   br i1 %brmerge, label %for.cond.preheader, label %if.then32.invoke
 
 for.cond.preheader:                               ; preds = %entry
@@ -18251,7 +18251,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %6
+  %cmp.i.i.i.i.i = icmp eq ptr %6, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6Tensor5FieldESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -21227,7 +21227,7 @@ _ZN4pstd4sqrtIfEENS_7complexIT_EERKS3_.exit:      ; preds = %entry, %if.then6.i,
   %mul18.i = fmul float %add4.i, %sub.i25
   %sub.i56 = fsub float %mul15.i, %mul18.i
   %mul19.i = fmul float %sub.i56, %div.i53
-  %4 = fmul <2 x float> %retval.sroa.0.0.i, %eta.coerce
+  %4 = fmul <2 x float> %eta.coerce, %retval.sroa.0.0.i
   %mul.i60 = extractelement <2 x float> %4, i64 0
   %mul4.i63 = fmul float %v.sroa.0.4.vec.extract.i, %z.sroa.0.4.vec.extract.i27
   %sub.i64 = fsub float %mul.i60, %mul4.i63
@@ -22523,7 +22523,7 @@ if.then9:                                         ; preds = %_ZNK4pbrt15SampledS
 if.end10:                                         ; preds = %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit27
   %add = fadd float %spec.select, %pt.0
   %div = fdiv float %spec.select, %add
-  %cmp11 = fcmp ogt float %div, %uc
+  %cmp11 = fcmp olt float %uc, %div
   %t.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %u.coerce, i64 0
   %mul.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i, 2.000000e+00
   %t.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %u.coerce, i64 1
@@ -22583,7 +22583,7 @@ _ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit: ; preds = %if.then12, %if.
   %mul.i = fmul float %sqrt.i.i, 0x3FD45F3060000000
   %mul23 = fmul float %spec.select, %mul.i
   %div25 = fdiv float %mul23, %add
-  %mul.i.i30 = fmul float %wi.sroa.4.0, %wo.coerce1
+  %mul.i.i30 = fmul float %wo.coerce1, %wi.sroa.4.0
   %cmp.i.i31 = fcmp ogt float %mul.i.i30, 0.000000e+00
   br i1 %cmp.i.i31, label %cond.true.i, label %cond.false.i
 
@@ -22701,7 +22701,7 @@ _ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit72: ; preds = %if.else, %if.
   %mul.i73 = fmul float %sqrt.i.i66, 0x3FD45F3060000000
   %mul49 = fmul float %pt.0, %mul.i73
   %div51 = fdiv float %mul49, %add
-  %mul.i.i76 = fmul float %wi33.sroa.4.0, %wo.coerce1
+  %mul.i.i76 = fmul float %wo.coerce1, %wi33.sroa.4.0
   %cmp.i.i77 = fcmp ogt float %mul.i.i76, 0.000000e+00
   br i1 %cmp.i.i77, label %cond.true.i94, label %cond.false.i78
 
@@ -22843,7 +22843,7 @@ if.then16:                                        ; preds = %if.end
 if.end17:                                         ; preds = %if.end
   %add18 = fadd float %pt.0, %spec.select
   %div19 = fdiv float %spec.select, %add18
-  %cmp20 = fcmp ogt float %div19, %uc
+  %cmp20 = fcmp olt float %uc, %div19
   %wo.sroa.0.0.vec.extract = extractelement <2 x float> %wo.coerce0, i64 0
   %fneg = fneg float %wo.sroa.0.0.vec.extract
   br i1 %cmp20, label %if.then21, label %if.else
@@ -26488,7 +26488,7 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
   %__prev_p.0 = phi ptr [ %1, %if.end ], [ %__p.0, %lor.lhs.false ]
   %__p.0 = phi ptr [ %2, %if.end ], [ %5, %lor.lhs.false ]
   %add.ptr = getelementptr inbounds i8, ptr %__p.0, i64 8
-  %cmp.i.i = icmp eq i64 %3, %__code
+  %cmp.i.i = icmp eq i64 %__code, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.end3
 
 land.rhs.i:                                       ; preds = %for.cond
@@ -26622,7 +26622,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6Tensor5FieldEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -27740,7 +27740,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %8, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %9
+  %cmp2.i.i = icmp eq ptr %9, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -27789,7 +27789,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4pbrt16MeasuredBxDFDataEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -29502,7 +29502,7 @@ if.end20:                                         ; preds = %if.end13
   %mul.i.i12 = fmul float %c.sroa.0.0.vec.extract.i, %div.i.i
   %mul4.i.i = fmul float %c.sroa.0.4.vec.extract.i, %div2.i.i
   %add.i.i = fadd float %mul.i.i12, %mul4.i.i
-  %mul6.i.i = fmul float %div3.i.i, %wo.coerce1
+  %mul6.i.i = fmul float %wo.coerce1, %div3.i.i
   %add7.i.i = fadd float %mul6.i.i, %add.i.i
   %8 = tail call noundef float @llvm.fabs.f32(float %add7.i.i)
   %eta = getelementptr inbounds i8, ptr %this, i64 8

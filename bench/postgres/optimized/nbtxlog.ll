@@ -1997,7 +1997,7 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   %5 = alloca [408 x i16], align 16
   %6 = sext i32 %2 to i64
   %7 = getelementptr i8, ptr %1, i64 %6
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   br i1 %8, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %3

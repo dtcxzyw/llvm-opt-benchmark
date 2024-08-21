@@ -302,7 +302,7 @@ define dso_local noundef i64 @_ZN11StringUtils13find_any_charERKNSt7__cxx1112bas
 
 .preheader:                                       ; preds = %5
   %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %12
@@ -433,7 +433,7 @@ _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .preheader.i:                                     ; preds = %11
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  %14 = icmp ugt i64 %13, %.2
+  %14 = icmp ult i64 %.2, %13
   br i1 %14, label %.lr.ph.i, label %_ZN11StringUtils13find_any_charERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS7_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %18
@@ -528,7 +528,7 @@ _ZN11StringUtils13ignore_spacesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 .preheader.i:                                     ; preds = %11
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  %14 = icmp ugt i64 %13, %.2
+  %14 = icmp ult i64 %.2, %13
   br i1 %14, label %.lr.ph.i, label %_ZN11StringUtils13find_any_charERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS7_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %18
@@ -1235,7 +1235,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27

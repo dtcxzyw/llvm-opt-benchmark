@@ -1000,7 +1000,7 @@ define range(i32 -1, 1) i32 @H5VLunregister_connector(i64 noundef %0) local_unna
   br label %.thread51
 
 36:                                               ; preds = %29
-  %37 = icmp eq i64 %30, %0
+  %37 = icmp eq i64 %0, %30
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %36

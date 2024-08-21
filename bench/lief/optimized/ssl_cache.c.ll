@@ -33,7 +33,7 @@ define hidden i32 @mbedtls_ssl_cache_get(ptr nocapture noundef readonly %0, ptr 
   %.024.us.i = phi ptr [ %.0.us.i, %12 ], [ %.022.i, %.lr.ph.i ]
   %8 = getelementptr inbounds i8, ptr %.024.us.i, i64 40
   %9 = load i64, ptr %8, align 8
-  %.not19.us.i = icmp eq i64 %9, %2
+  %.not19.us.i = icmp eq i64 %2, %9
   br i1 %.not19.us.i, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.split.us.i
@@ -59,7 +59,7 @@ define hidden i32 @mbedtls_ssl_cache_get(ptr nocapture noundef readonly %0, ptr 
 18:                                               ; preds = %.lr.ph.split.i
   %19 = getelementptr inbounds i8, ptr %.024.i, i64 40
   %20 = load i64, ptr %19, align 8
-  %.not19.i = icmp eq i64 %20, %2
+  %.not19.i = icmp eq i64 %2, %20
   br i1 %.not19.i, label %21, label %23
 
 21:                                               ; preds = %18
@@ -125,7 +125,7 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr nocapture noundef %0, ptr nocapture
   %12 = add nuw nsw i32 %.04364.i, 1
   %13 = getelementptr inbounds i8, ptr %.04265.i, i64 40
   %14 = load i64, ptr %13, align 8
-  %15 = icmp eq i64 %14, %2
+  %15 = icmp eq i64 %2, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %.lr.ph.i

@@ -747,7 +747,7 @@ if.end11:                                         ; preds = %if.end7
   %position14 = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %position14, align 4
   %sub = sub nsw i32 %5, %7
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %sub, i32 %size)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %size, i32 %sub)
   %add = add nsw i32 %.sroa.speculated, %7
   store i32 %add, ptr %position14, align 4
   %8 = load ptr, ptr %current_, align 8
@@ -778,7 +778,7 @@ entry:
   %.sroa.speculated8 = tail call i32 @llvm.smin.i32(i32 %size, i32 %sub7)
   %add9 = add nsw i32 %.sroa.speculated8, %2
   store i32 %add9, ptr %position6, align 4
-  %tobool.not.not10 = icmp slt i32 %sub7, %size
+  %tobool.not.not10 = icmp sgt i32 %size, %sub7
   br i1 %tobool.not.not10, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end, %entry
@@ -1095,7 +1095,7 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exi
   %allocatedBytes_.i = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load i64, ptr %allocatedBytes_.i, align 8
   %17 = trunc i64 %16 to i32
-  %conv2.i = add i32 %17, %bytes
+  %conv2.i = add i32 %bytes, %17
   %cmp.i = icmp slt i32 %conv2.i, 128
   br i1 %cmp.i, label %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit, label %if.end.i
 
@@ -2011,7 +2011,7 @@ entry:
   %allocatedBytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %allocatedBytes_, align 8
   %1 = trunc i64 %0 to i32
-  %conv2 = add i32 %1, %bytes
+  %conv2 = add i32 %bytes, %1
   %cmp = icmp slt i32 %conv2, 128
   br i1 %cmp, label %return, label %if.end
 
@@ -3062,7 +3062,7 @@ if.else.i:                                        ; preds = %if.then3
   br label %if.end23
 
 if.end8:                                          ; preds = %if.end
-  %cmp9.not = icmp eq i32 %mul.i, %begin
+  %cmp9.not = icmp eq i32 %begin, %mul.i
   br i1 %cmp9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
@@ -3117,7 +3117,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %if.end14
-  %cmp18.not = icmp eq i32 %1, %end
+  %cmp18.not = icmp eq i32 %end, %1
   br i1 %cmp18.not, label %if.end23, label %if.then19
 
 if.then19:                                        ; preds = %for.end

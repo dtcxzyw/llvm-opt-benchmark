@@ -750,7 +750,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 
 .loopexit229:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit229.loopexit.split.loop.exit, %.loopexit229.loopexit.split.loop.exit295, %.loopexit229.loopexit.split.loop.exit297, %221, %218, %215
   %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %215 ], [ %.1.i.i.i.i.i, %218 ], [ %.2.i.i.i.i.i, %221 ], [ %222, %.loopexit229.loopexit.split.loop.exit ], [ %223, %.loopexit229.loopexit.split.loop.exit295 ], [ %224, %.loopexit229.loopexit.split.loop.exit297 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.not218 = icmp eq ptr %.028.i.i.i.i.i, %200
+  %.not218 = icmp eq ptr %200, %.028.i.i.i.i.i
   br i1 %.not218, label %.thread, label %225
 
 225:                                              ; preds = %.loopexit229

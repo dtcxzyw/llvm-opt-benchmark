@@ -315,7 +315,7 @@ define noundef i32 @strsm_oltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 220:                                              ; preds = %214
   %221 = and i64 %1, -4
-  %222 = add i64 %221, %4
+  %222 = add i64 %4, %221
   br label %223
 
 223:                                              ; preds = %220, %6

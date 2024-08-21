@@ -9732,7 +9732,7 @@ Abc_TtOr.exit83.thread:                           ; preds = %68, %60
   %.val60 = load ptr, ptr %20, align 8
   %73 = getelementptr inbounds i32, ptr %.val60, i64 %indvars.iv109
   %74 = trunc i64 %indvars.iv104 to i32
-  %.tr = add i32 %74, %1
+  %.tr = add i32 %1, %74
   %75 = shl i32 %.tr, 1
   %76 = or disjoint i32 %75, 1
   store i32 %76, ptr %73, align 4
@@ -13441,7 +13441,7 @@ Abc_UtilStrsav.exit:                              ; preds = %32, %43
   %54 = load i32, ptr %53, align 4
   %.val44 = load i32, ptr %7, align 4
   %55 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %56 = add i32 %55, %3
+  %56 = add i32 %3, %55
   %57 = add i32 %56, %.val44
   %.val59 = load ptr, ptr %30, align 8
   %58 = sext i32 %57 to i64

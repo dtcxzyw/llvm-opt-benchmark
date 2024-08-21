@@ -936,7 +936,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_end(ptr nocapture nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #8 {
-  %.not14.not = icmp ult i64 %1, %3
+  %.not14.not = icmp ugt i64 %3, %1
   br i1 %.not14.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %4
@@ -953,7 +953,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr nocapture
 lexbor_str_data_ncasecmp.exit.thread22:           ; preds = %.lr.ph.i.preheader, %lexbor_str_data_ncasecmp.exit
   %10 = add i64 %.015, 1
   %11 = sub i64 %1, %10
-  %.not.not = icmp ult i64 %11, %3
+  %.not.not = icmp ugt i64 %3, %11
   br i1 %.not.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph17.split, %lexbor_str_data_ncasecmp.exit.thread22
@@ -1183,13 +1183,13 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncmp_end(ptr nocapture noundef
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @lexbor_str_data_ncmp_contain(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #9 {
-  %.not10.not = icmp ult i64 %1, %3
+  %.not10.not = icmp ugt i64 %3, %1
   br i1 %.not10.not, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
   %6 = add i64 %.011, 1
   %7 = sub i64 %1, %6
-  %.not.not = icmp ult i64 %7, %3
+  %.not.not = icmp ugt i64 %3, %7
   br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %5
@@ -1402,7 +1402,7 @@ define hidden ptr @lexbor_str_length_set_noi(ptr nocapture noundef %0, ptr nound
   %.val.i = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %.val.i, i64 -8
   %.val.val.i = load i64, ptr %4, align 8
-  %.not.i = icmp ugt i64 %.val.val.i, %2
+  %.not.i = icmp ult i64 %2, %.val.val.i
   br i1 %.not.i, label %9, label %5
 
 5:                                                ; preds = %3

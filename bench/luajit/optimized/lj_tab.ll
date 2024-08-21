@@ -520,7 +520,7 @@ entry:
   %2 = load i32, ptr %asize1, align 8
   %hmask = getelementptr inbounds i8, ptr %t, i64 52
   %3 = load i32, ptr %hmask, align 4
-  %cmp = icmp ult i32 %2, %asize
+  %cmp = icmp ugt i32 %asize, %2
   br i1 %cmp, label %if.then, label %if.end38
 
 if.then:                                          ; preds = %entry
@@ -582,7 +582,7 @@ for.body32.preheader:                             ; preds = %for.body, %if.else,
   %13 = shl nuw nsw i64 %12, 3
   %scevgep = getelementptr i8, ptr %array.0, i64 %13
   %14 = xor i32 %2, -1
-  %15 = add i32 %14, %asize
+  %15 = add i32 %asize, %14
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 3
   %18 = add nuw nsw i64 %17, 8
@@ -638,7 +638,7 @@ if.else40:                                        ; preds = %if.end38
   br label %if.end47
 
 if.end47:                                         ; preds = %for.body.i, %if.else40
-  %cmp48 = icmp ugt i32 %2, %asize
+  %cmp48 = icmp ult i32 %asize, %2
   br i1 %cmp48, label %if.then50, label %if.end85
 
 if.then50:                                        ; preds = %if.end47
@@ -875,7 +875,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.then
   %cmp.i = icmp eq i64 %shr.mask.i, -703687441776640
   %and.i = and i64 %7, 140737488355327
   %8 = inttoptr i64 %and.i to ptr
-  %cmp4.i = icmp eq ptr %8, %2
+  %cmp4.i = icmp eq ptr %2, %8
   %or.cond.i = and i1 %cmp.i, %cmp4.i
   br i1 %or.cond.i, label %lj_tab_setstr.exit, label %do.cond.i
 
@@ -1381,7 +1381,7 @@ do.body:                                          ; preds = %do.cond, %entry
   %cmp = icmp eq i64 %shr.mask, -703687441776640
   %and = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and to ptr
-  %cmp4 = icmp eq ptr %5, %key
+  %cmp4 = icmp eq ptr %key, %5
   %or.cond = and i1 %cmp, %cmp4
   br i1 %or.cond, label %return, label %do.cond
 
@@ -1429,7 +1429,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.then
   %cmp.i = icmp eq i64 %shr.mask.i, -703687441776640
   %and.i = and i64 %7, 140737488355327
   %8 = inttoptr i64 %and.i to ptr
-  %cmp4.i = icmp eq ptr %8, %2
+  %cmp4.i = icmp eq ptr %2, %8
   %or.cond.i = and i1 %cmp.i, %cmp4.i
   br i1 %or.cond.i, label %return, label %do.cond.i
 
@@ -2031,7 +2031,7 @@ do.body:                                          ; preds = %do.cond, %entry
   %cmp = icmp eq i64 %shr.mask, -703687441776640
   %and = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and to ptr
-  %cmp4 = icmp eq ptr %5, %key
+  %cmp4 = icmp eq ptr %key, %5
   %or.cond = and i1 %cmp, %cmp4
   br i1 %or.cond, label %return, label %do.cond
 

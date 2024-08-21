@@ -773,7 +773,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %29 = getelementptr inbounds [64 x ptr], ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 448), i64 0, i64 %28
   store ptr %spec.store.select, ptr %29, align 8
   %30 = load i32, ptr @GC_n_mark_procs, align 4
-  %.not11 = icmp ugt i32 %30, %0
+  %.not11 = icmp ult i32 %0, %30
   br i1 %.not11, label %33, label %31
 
 31:                                               ; preds = %27
@@ -2014,7 +2014,7 @@ GC_stop_init.exit:                                ; preds = %403
 
 424:                                              ; preds = %419
   %425 = load ptr, ptr %4, align 8
-  %426 = icmp ne ptr %425, %420
+  %426 = icmp ne ptr %420, %425
   %.not.i.i124 = icmp ult i64 %421, 4294967296
   %or.cond.i.i125 = and i1 %.not.i.i124, %426
   br i1 %or.cond.i.i125, label %427, label %.thread.i
@@ -2509,7 +2509,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %24 = load i32, ptr @GC_all_interior_pointers, align 4
   %25 = sext i32 %24 to i64
   %26 = sub nsw i64 2048, %25
-  %.not24 = icmp ult i64 %26, %0
+  %.not24 = icmp ugt i64 %0, %26
   br i1 %.not24, label %.thread, label %28
 
 .thread:                                          ; preds = %23
@@ -2547,7 +2547,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %43 = load i32, ptr @GC_all_interior_pointers, align 4
   %44 = sext i32 %43 to i64
   %45 = sub nsw i64 2048, %44
-  %.not.i26 = icmp ult i64 %45, %0
+  %.not.i26 = icmp ugt i64 %0, %45
   br i1 %.not.i26, label %49, label %46
 
 46:                                               ; preds = %41, %39
@@ -2711,14 +2711,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %22 = load i32, ptr @GC_all_interior_pointers, align 4
   %23 = sext i32 %22 to i64
   %24 = add nsw i64 %23, -41
-  %25 = icmp ugt i64 %24, %0
+  %25 = icmp ult i64 %0, %24
   %reass.sub = add i64 %0, 40
   %26 = sub i64 %reass.sub, %23
   %27 = select i1 %25, i64 %26, i64 -1
   %28 = load i32, ptr @GC_gcj_debug_kind, align 4
   %29 = icmp ugt i64 %27, 2047
   %30 = sub nsw i64 2048, %23
-  %.not.i23 = icmp ult i64 %30, %27
+  %.not.i23 = icmp ugt i64 %27, %30
   %or.cond = select i1 %29, i1 %.not.i23, i1 false
   br i1 %or.cond, label %31, label %GC_generic_malloc_inner.exit
 
@@ -3283,10 +3283,10 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
   %62 = getelementptr inbounds i8, ptr %.0.i55, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %46, i64 %63
-  %.not45 = icmp ule ptr %64, %0
-  %.not46 = icmp ule ptr %64, %1
+  %.not45 = icmp uge ptr %0, %64
+  %.not46 = icmp uge ptr %1, %64
   %or.cond.not56 = or i1 %.not45, %.not46
-  %65 = icmp ugt ptr %46, %1
+  %65 = icmp ult ptr %1, %46
   %or.cond49 = or i1 %65, %or.cond.not56
   br i1 %or.cond49, label %87, label %89
 
@@ -3300,7 +3300,7 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i8, ptr %71, i64 %68
-  %.not43 = icmp ugt ptr %73, %0
+  %.not43 = icmp ult ptr %0, %73
   br i1 %.not43, label %._crit_edge, label %87
 
 ._crit_edge:                                      ; preds = %72
@@ -3330,7 +3330,7 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %75, %78 ]
   %.038 = phi ptr [ %73, %._crit_edge ], [ %83, %78 ]
   %.037 = phi i64 [ %70, %._crit_edge ], [ %84, %78 ]
-  %.not44 = icmp ule ptr %.038, %1
+  %.not44 = icmp uge ptr %1, %.038
   %86 = icmp ugt i64 %.037, %.pre-phi
   %or.cond51 = select i1 %.not44, i1 true, i1 %86
   br i1 %or.cond51, label %87, label %89
@@ -3633,7 +3633,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %70 = icmp ugt ptr %68, %69
   %71 = icmp ult i64 %63, 4097
   %or.cond.not35.i.not14 = and i1 %71, %70
-  %.not30.i = icmp ule ptr %68, %0
+  %.not30.i = icmp uge ptr %0, %68
   %or.cond31.i.not11 = or i1 %.not30.i, %or.cond.not35.i.not14
   %72 = icmp eq i64 %60, 0
   %or.cond = or i1 %72, %or.cond31.i.not11
@@ -3742,7 +3742,7 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
   %58 = icmp ule ptr %56, %57
   %59 = icmp ugt i64 %51, 4096
   %or.cond.not35 = or i1 %59, %58
-  %.not30 = icmp ugt ptr %56, %0
+  %.not30 = icmp ult ptr %0, %56
   %or.cond31 = and i1 %.not30, %or.cond.not35
   %spec.select = select i1 %or.cond31, ptr %55, ptr null
   br label %60
@@ -6764,7 +6764,7 @@ define noalias ptr @GC_debug_malloc(i64 noundef %0, ptr noundef %1, i32 noundef 
   %4 = load i32, ptr @GC_all_interior_pointers, align 4
   %5 = sext i32 %4 to i64
   %6 = add nsw i64 %5, -41
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   %reass.sub = add i64 %0, 40
   %8 = sub i64 %reass.sub, %5
   %9 = select i1 %7, i64 %8, i64 -1
@@ -6915,7 +6915,7 @@ define noalias ptr @GC_debug_malloc_ignore_off_page(i64 noundef %0, ptr noundef 
   %4 = load i32, ptr @GC_all_interior_pointers, align 4
   %5 = sext i32 %4 to i64
   %6 = add nsw i64 %5, -41
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   %reass.sub = add i64 %0, 40
   %8 = sub i64 %reass.sub, %5
   %9 = select i1 %7, i64 %8, i64 -1
@@ -6935,7 +6935,7 @@ define noalias ptr @GC_debug_malloc_atomic_ignore_off_page(i64 noundef %0, ptr n
   %4 = load i32, ptr @GC_all_interior_pointers, align 4
   %5 = sext i32 %4 to i64
   %6 = add nsw i64 %5, -41
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   %reass.sub = add i64 %0, 40
   %8 = sub i64 %reass.sub, %5
   %9 = select i1 %7, i64 %8, i64 -1
@@ -6955,7 +6955,7 @@ define noalias ptr @GC_debug_malloc_stubborn(i64 noundef %0, ptr noundef %1, i32
   %4 = load i32, ptr @GC_all_interior_pointers, align 4
   %5 = sext i32 %4 to i64
   %6 = add nsw i64 %5, -41
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   %reass.sub.i = add i64 %0, 40
   %8 = sub i64 %reass.sub.i, %5
   %9 = select i1 %7, i64 %8, i64 -1
@@ -7063,7 +7063,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %58 = icmp ugt ptr %56, %57
   %59 = icmp ult i64 %51, 4097
   %or.cond.not35.i.not8 = and i1 %59, %58
-  %.not30.i = icmp ule ptr %56, %0
+  %.not30.i = icmp uge ptr %0, %56
   %or.cond31.i.not6 = or i1 %.not30.i, %or.cond.not35.i.not8
   %60 = icmp eq i64 %48, 0
   %or.cond = or i1 %60, %or.cond31.i.not6
@@ -7130,7 +7130,7 @@ define noalias ptr @GC_debug_malloc_atomic(i64 noundef %0, ptr noundef %1, i32 n
   %4 = load i32, ptr @GC_all_interior_pointers, align 4
   %5 = sext i32 %4 to i64
   %6 = add nsw i64 %5, -41
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   %reass.sub = add i64 %0, 40
   %8 = sub i64 %reass.sub, %5
   %9 = select i1 %7, i64 %8, i64 -1
@@ -7165,7 +7165,7 @@ define noalias ptr @GC_debug_strdup(ptr noundef readonly %0, ptr noundef %1, i32
   %11 = load i32, ptr @GC_all_interior_pointers, align 4
   %12 = sext i32 %11 to i64
   %13 = add nsw i64 %12, -41
-  %14 = icmp ugt i64 %13, %10
+  %14 = icmp ult i64 %10, %13
   %reass.sub.i = add i64 %9, 41
   %15 = sub i64 %reass.sub.i, %12
   %16 = select i1 %14, i64 %15, i64 -1
@@ -7205,7 +7205,7 @@ define noalias ptr @GC_debug_strndup(ptr nocapture noundef nonnull readonly %0, 
   %7 = load i32, ptr @GC_all_interior_pointers, align 4
   %8 = sext i32 %7 to i64
   %9 = add nsw i64 %8, -41
-  %10 = icmp ugt i64 %9, %6
+  %10 = icmp ult i64 %6, %9
   %reass.sub.i = add i64 %spec.select, 41
   %11 = sub i64 %reass.sub.i, %8
   %12 = select i1 %10, i64 %11, i64 -1
@@ -7244,7 +7244,7 @@ define noalias ptr @GC_debug_wcsdup(ptr nocapture noundef nonnull readonly %0, p
   %7 = load i32, ptr @GC_all_interior_pointers, align 4
   %8 = sext i32 %7 to i64
   %9 = add nsw i64 %8, -41
-  %10 = icmp ugt i64 %9, %6
+  %10 = icmp ult i64 %6, %9
   %reass.sub.i = add i64 %5, 44
   %11 = sub i64 %reass.sub.i, %8
   %12 = select i1 %10, i64 %11, i64 -1
@@ -7395,7 +7395,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %60 = icmp ugt ptr %58, %59
   %61 = icmp ult i64 %53, 4097
   %or.cond.not35.i.not57 = and i1 %61, %60
-  %.not30.i = icmp ule ptr %58, %0
+  %.not30.i = icmp uge ptr %0, %58
   %or.cond31.i.not54 = or i1 %.not30.i, %or.cond.not35.i.not57
   %62 = icmp eq i64 %50, 0
   %or.cond52 = or i1 %62, %or.cond31.i.not54
@@ -7771,7 +7771,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %60 = icmp ule ptr %58, %59
   %61 = icmp ugt i64 %53, 4096
   %or.cond.not35.i = or i1 %61, %60
-  %.not30.i = icmp ugt ptr %58, %1
+  %.not30.i = icmp ult ptr %1, %58
   %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
   %spec.select.i = select i1 %or.cond31.i, ptr %57, ptr null
   br label %GC_base.exit
@@ -7779,7 +7779,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
 GC_base.exit:                                     ; preds = %3, %17, %GC_find_starting_hblk.exit.i, %48
   %.0.i = phi ptr [ null, %3 ], [ null, %17 ], [ null, %GC_find_starting_hblk.exit.i ], [ %spec.select.i, %48 ]
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %.not = icmp ult ptr %62, %2
+  %.not = icmp ugt ptr %2, %62
   br i1 %.not, label %63, label %66
 
 63:                                               ; preds = %GC_base.exit
@@ -8005,7 +8005,7 @@ define ptr @GC_debug_realloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   %7 = load i32, ptr @GC_all_interior_pointers, align 4
   %8 = sext i32 %7 to i64
   %9 = add nsw i64 %8, -41
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   %reass.sub.i = add i64 %1, 40
   %11 = sub i64 %reass.sub.i, %8
   %12 = select i1 %10, i64 %11, i64 -1
@@ -8114,7 +8114,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %75 = icmp ugt ptr %73, %74
   %76 = icmp ult i64 %68, 4097
   %or.cond.not35.i.not42 = and i1 %76, %75
-  %.not30.i = icmp ule ptr %73, %0
+  %.not30.i = icmp uge ptr %0, %73
   %or.cond31.i.not39 = or i1 %.not30.i, %or.cond.not35.i.not42
   %77 = icmp eq i64 %65, 0
   %or.cond = or i1 %77, %or.cond31.i.not39
@@ -8288,7 +8288,7 @@ GC_find_header.exit:                              ; preds = %15
 
 60:                                               ; preds = %57
   %61 = lshr i64 %.051, 1
-  %.not61 = icmp ugt i64 %61, %1
+  %.not61 = icmp ult i64 %1, %61
   br i1 %.not61, label %67, label %62
 
 62:                                               ; preds = %60
@@ -8350,7 +8350,7 @@ define noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %0, i32 nound
   %6 = load i32, ptr @GC_all_interior_pointers, align 4
   %7 = sext i32 %6 to i64
   %8 = add nsw i64 %7, -41
-  %9 = icmp ugt i64 %8, %0
+  %9 = icmp ult i64 %0, %8
   %reass.sub.i = add i64 %0, 40
   %10 = sub i64 %reass.sub.i, %7
   %11 = select i1 %9, i64 %10, i64 -1
@@ -8362,7 +8362,7 @@ define noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %0, i32 nound
   %15 = load i32, ptr @GC_all_interior_pointers, align 4
   %16 = sext i32 %15 to i64
   %17 = add nsw i64 %16, -41
-  %18 = icmp ugt i64 %17, %0
+  %18 = icmp ult i64 %0, %17
   %reass.sub.i17 = add i64 %0, 40
   %19 = sub i64 %reass.sub.i17, %16
   %20 = select i1 %18, i64 %19, i64 -1
@@ -8386,7 +8386,7 @@ define noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %0, i32 nound
   %32 = load i32, ptr @GC_all_interior_pointers, align 4
   %33 = sext i32 %32 to i64
   %34 = add nsw i64 %33, -41
-  %35 = icmp ugt i64 %34, %0
+  %35 = icmp ult i64 %0, %34
   %reass.sub.i18 = add i64 %0, 40
   %36 = sub i64 %reass.sub.i18, %33
   %37 = select i1 %35, i64 %36, i64 -1
@@ -8497,7 +8497,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %64 = icmp ugt ptr %62, %63
   %65 = icmp ult i64 %57, 4097
   %or.cond.not35.i.not30 = and i1 %65, %64
-  %.not30.i = icmp ule ptr %62, %0
+  %.not30.i = icmp uge ptr %0, %62
   %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
   %66 = icmp eq i64 %54, 0
   %or.cond = or i1 %66, %or.cond31.i.not27
@@ -8719,7 +8719,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %64 = icmp ugt ptr %62, %63
   %65 = icmp ult i64 %57, 4097
   %or.cond.not35.i.not30 = and i1 %65, %64
-  %.not30.i = icmp ule ptr %62, %0
+  %.not30.i = icmp uge ptr %0, %62
   %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
   %66 = icmp eq i64 %54, 0
   %or.cond = or i1 %66, %or.cond31.i.not27
@@ -8931,7 +8931,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %64 = icmp ugt ptr %62, %63
   %65 = icmp ult i64 %57, 4097
   %or.cond.not35.i.not30 = and i1 %65, %64
-  %.not30.i = icmp ule ptr %62, %0
+  %.not30.i = icmp uge ptr %0, %62
   %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
   %66 = icmp eq i64 %54, 0
   %or.cond = or i1 %66, %or.cond31.i.not27
@@ -9143,7 +9143,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %64 = icmp ugt ptr %62, %63
   %65 = icmp ult i64 %57, 4097
   %or.cond.not35.i.not30 = and i1 %65, %64
-  %.not30.i = icmp ule ptr %62, %0
+  %.not30.i = icmp uge ptr %0, %62
   %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
   %66 = icmp eq i64 %54, 0
   %or.cond = or i1 %66, %or.cond31.i.not27
@@ -9351,7 +9351,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %59 = icmp ule ptr %57, %58
   %60 = icmp ugt i64 %52, 4096
   %or.cond.not35.i = or i1 %60, %59
-  %.not30.i = icmp ugt ptr %57, %0
+  %.not30.i = icmp ult ptr %0, %57
   %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
   %spec.select.i = select i1 %or.cond31.i, ptr %56, ptr null
   br label %GC_base.exit
@@ -9466,7 +9466,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %40 = load i32, ptr @GC_all_interior_pointers, align 4
   %41 = sext i32 %40 to i64
   %42 = sub nsw i64 2048, %41
-  %.not.i.i = icmp ult i64 %42, %37
+  %.not.i.i = icmp ugt i64 %37, %42
   br i1 %.not.i.i, label %43, label %GC_generic_malloc_inner.exit.i
 
 43:                                               ; preds = %39
@@ -9660,7 +9660,7 @@ define noalias ptr @GC_debug_malloc_replacement(i64 noundef %0) local_unnamed_ad
   %2 = load i32, ptr @GC_all_interior_pointers, align 4
   %3 = sext i32 %2 to i64
   %4 = add nsw i64 %3, -41
-  %5 = icmp ugt i64 %4, %0
+  %5 = icmp ult i64 %0, %4
   %reass.sub.i = add i64 %0, 40
   %6 = sub i64 %reass.sub.i, %3
   %7 = select i1 %5, i64 %6, i64 -1
@@ -10232,7 +10232,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %58 = icmp ugt ptr %56, %57
   %59 = icmp ult i64 %51, 4097
   %or.cond.not35.i.not8 = and i1 %59, %58
-  %.not30.i = icmp ule ptr %56, %0
+  %.not30.i = icmp uge ptr %0, %56
   %or.cond31.i.not6 = or i1 %.not30.i, %or.cond.not35.i.not8
   %60 = icmp eq i64 %48, 0
   %or.cond = or i1 %60, %or.cond31.i.not6
@@ -12124,7 +12124,7 @@ GC_find_header.exit:                              ; preds = %7
   %. = select i1 %23, i64 %19, i64 %21
   %24 = getelementptr inbounds i8, ptr %0, i64 %.
   %.020 = getelementptr inbounds i8, ptr %24, i64 -8
-  %.not29 = icmp ult ptr %.020, %0
+  %.not29 = icmp ugt ptr %0, %.020
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %GC_find_header.exit
@@ -13338,7 +13338,7 @@ define noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef %1) local_unnamed
   %13 = load i32, ptr @GC_all_interior_pointers, align 4
   %14 = sext i32 %13 to i64
   %15 = sub nsw i64 -16, %14
-  %16 = icmp ugt i64 %15, %0
+  %16 = icmp ult i64 %0, %15
   %17 = add i64 %0, 15
   %18 = add i64 %17, %14
   %19 = lshr i64 %18, 4
@@ -13453,7 +13453,7 @@ define internal fastcc ptr @GC_generic_malloc_aligned(i64 noundef %0, i32 nounde
   %10 = load i32, ptr @GC_all_interior_pointers, align 4
   %11 = sext i32 %10 to i64
   %12 = sub nsw i64 2048, %11
-  %.not58 = icmp uge i64 %12, %0
+  %.not58 = icmp ule i64 %0, %12
   %13 = icmp ult i64 %3, 16
   %or.cond62 = and i1 %13, %.not58
   br i1 %or.cond62, label %15, label %36
@@ -13684,7 +13684,7 @@ define internal fastcc ptr @GC_malloc_kind_aligned_global(i64 noundef %0, i32 no
   %7 = load i32, ptr @GC_all_interior_pointers, align 4
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 2048, %8
-  %.not = icmp uge i64 %9, %0
+  %.not = icmp ule i64 %0, %9
   %10 = icmp ult i64 %2, 2048
   %or.cond = and i1 %10, %.not
   br i1 %or.cond, label %12, label %55
@@ -13751,7 +13751,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ult i64 %2, 16
   %38 = ptrtoint ptr %36 to i64
-  %39 = and i64 %38, %2
+  %39 = and i64 %2, %38
   %.not3033 = icmp eq i64 %39, 0
   %or.cond38 = select i1 %37, i1 true, i1 %.not3033
   br i1 %or.cond38, label %.loopexit, label %.lr.ph
@@ -13760,7 +13760,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %.12434 = phi ptr [ %40, %.lr.ph ], [ %36, %GC_lock.exit ]
   %40 = load ptr, ptr %.12434, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = and i64 %41, %2
+  %42 = and i64 %2, %41
   %.not30 = icmp eq i64 %42, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
@@ -14320,7 +14320,7 @@ GC_generic_lock.exit.sink.split.i:                ; preds = %31, %23, %20
   %38 = sext i32 %37 to i64
   %39 = add nsw i64 %38, 15
   %40 = sub nsw i64 -16, %38
-  %41 = icmp ugt i64 %40, %0
+  %41 = icmp ult i64 %0, %40
   %42 = add i64 %39, %0
   %43 = lshr i64 %42, 4
   %44 = select i1 %41, i64 %43, i64 1152921504606846975
@@ -16026,7 +16026,7 @@ GC_build_fl4.exit.i163:                           ; preds = %433
   %451 = sub nsw i64 %0, %450
   %452 = icmp ugt i64 %451, 2047
   %453 = sub nsw i64 2048, %450
-  %.not.i186 = icmp ult i64 %453, %451
+  %.not.i186 = icmp ugt i64 %451, %453
   %or.cond196 = select i1 %452, i1 %.not.i186, i1 false
   br i1 %or.cond196, label %454, label %GC_generic_malloc_inner.exit
 
@@ -16150,7 +16150,7 @@ define internal fastcc ptr @GC_reclaim_generic(ptr noundef %0, ptr noundef %1, i
   %20 = getelementptr inbounds i8, ptr %0, i64 4096
   %21 = sub i64 0, %2
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  %.not33.i = icmp ult ptr %22, %0
+  %.not33.i = icmp ugt ptr %0, %22
   br i1 %.not33.i, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
@@ -16267,7 +16267,7 @@ GC_clear_block.exit.i:                            ; preds = %49
   %62 = getelementptr inbounds i8, ptr %0, i64 4096
   %63 = sub i64 0, %2
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  %.not21.i = icmp ult ptr %64, %0
+  %.not21.i = icmp ugt ptr %0, %64
   br i1 %or.cond, label %65, label %90
 
 65:                                               ; preds = %60
@@ -16707,7 +16707,7 @@ define noalias ptr @GC_pvalloc(i64 noundef %0) local_unnamed_addr #5 {
   %4 = load i64, ptr @GC_page_size, align 8
   %5 = add i64 %4, -1
   %6 = sub i64 0, %4
-  %7 = icmp ugt i64 %6, %0
+  %7 = icmp ult i64 %0, %6
   %8 = add i64 %5, %0
   %9 = select i1 %7, i64 %8, i64 -1
   %10 = and i64 %9, %6
@@ -17767,7 +17767,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %73 = icmp ule ptr %71, %72
   %74 = icmp ugt i64 %66, 4096
   %or.cond.not35.i = or i1 %74, %73
-  %.not30.i = icmp ugt ptr %71, %0
+  %.not30.i = icmp ult ptr %0, %71
   %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
   %75 = ptrtoint ptr %70 to i64
   %76 = select i1 %or.cond31.i, i64 %75, i64 0
@@ -18833,13 +18833,13 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %23 = sext i32 %19 to i64
   %24 = getelementptr inbounds [2048 x %struct.roots], ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 92672), i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %.not19 = icmp ugt ptr %25, %0
+  %.not19 = icmp ult ptr %0, %25
   br i1 %.not19, label %33, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp ugt ptr %28, %0
+  %29 = icmp ult ptr %0, %28
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
@@ -18859,13 +18859,13 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
   %35 = getelementptr inbounds [2048 x %struct.roots], ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 92672), i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
-  %.not20 = icmp ugt ptr %36, %0
+  %.not20 = icmp ult ptr %0, %36
   br i1 %.not20, label %45, label %37
 
 37:                                               ; preds = %.lr.ph
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp ugt ptr %39, %0
+  %40 = icmp ult ptr %0, %39
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %37
@@ -20955,7 +20955,7 @@ define hidden noundef ptr @GC_clear_stack_inner(ptr noundef returned %0, ptr nou
   %.0..0..0..0..0..0..i = load volatile i64, ptr %3, align 8
   %7 = inttoptr i64 %.0..0..0..0..0..0..i to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %2
@@ -21757,7 +21757,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %2, align 8
-  %53 = icmp ne ptr %52, %47
+  %53 = icmp ne ptr %47, %52
   %.not.i.i.i.i = icmp ult i64 %48, 4294967296
   %or.cond.i.i.i.i = and i1 %.not.i.i.i.i, %53
   br i1 %or.cond.i.i.i.i, label %54, label %ensure_min_linux_ver.exit.thread19.i.i
@@ -26162,7 +26162,7 @@ GC_get_maps_len.exit.thread.i:                    ; preds = %GC_get_maps_len.exi
   %.not.i.i = icmp eq i64 %25, 0
   %26 = sub i64 %23, %25
   %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 %26
-  %27 = icmp ult i64 %spec.select.i.i, %17
+  %27 = icmp ugt i64 %17, %spec.select.i.i
   %28 = sub nuw i64 %17, %spec.select.i.i
   %29 = sub i64 0, %23
   %30 = and i64 %28, %29
@@ -26680,7 +26680,7 @@ define noalias ptr @GC_gcj_malloc(i64 noundef %0, ptr noundef %1) local_unnamed_
   %7 = load i32, ptr @GC_all_interior_pointers, align 4
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 -16, %8
-  %10 = icmp ugt i64 %9, %0
+  %10 = icmp ult i64 %0, %9
   %11 = add i64 %0, 15
   %12 = add i64 %11, %8
   %13 = lshr i64 %12, 4
@@ -27022,7 +27022,7 @@ GC_lookup_thread.exit:                            ; preds = %27
 
 49:                                               ; preds = %41
   %50 = tail call i64 @pthread_self() #47
-  %51 = icmp eq i64 %50, %0
+  %51 = icmp eq i64 %0, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %49
@@ -31030,7 +31030,7 @@ GC_block_was_dirty.exit.thread.i:                 ; preds = %GC_block_was_dirty.
   %168 = inttoptr i64 %167 to ptr
   %169 = select i1 %164, ptr %.1.i, ptr %168
   %170 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
-  %.not19.i.i = icmp ult ptr %169, %.1.i
+  %.not19.i.i = icmp ugt ptr %.1.i, %169
   br i1 %.not19.i.i, label %GC_push_unconditionally.exit.sink.split.i, label %.lr.ph.i31.i
 
 .lr.ph.i31.i:                                     ; preds = %161, %GC_push_obj.exit.i.i
@@ -31110,7 +31110,7 @@ GC_push_obj.exit.i.i:                             ; preds = %GC_custom_push_proc
   %199 = inttoptr i64 %198 to ptr
   %200 = select i1 %195, ptr %.1.i, ptr %199
   %201 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
-  %.not2426.i.i = icmp ult ptr %200, %.1.i
+  %.not2426.i.i = icmp ugt ptr %.1.i, %200
   br i1 %.not2426.i.i, label %GC_push_unconditionally.exit.sink.split.i, label %.lr.ph.i36.i
 
 .lr.ph.i36.i:                                     ; preds = %191
@@ -31427,7 +31427,7 @@ GC_find_header.exit25.i:                          ; preds = %317
   %349 = inttoptr i64 %348 to ptr
   %350 = select i1 %345, ptr %.119.i, ptr %349
   %351 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
-  %.not2426.i.i48 = icmp ult ptr %350, %.119.i
+  %.not2426.i.i48 = icmp ugt ptr %.119.i, %350
   br i1 %.not2426.i.i48, label %GC_push_marked.exit.sink.split.i, label %.lr.ph.i27.i
 
 .lr.ph.i27.i:                                     ; preds = %341
@@ -31519,7 +31519,7 @@ GC_push_obj.exit.i.i59:                           ; preds = %GC_custom_push_proc
   %389 = inttoptr i64 %388 to ptr
   %390 = select i1 %385, ptr %.119.i, ptr %389
   %391 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
-  %.not19.i.i44 = icmp ult ptr %390, %.119.i
+  %.not19.i.i44 = icmp ugt ptr %.119.i, %390
   br i1 %.not19.i.i44, label %GC_push_marked.exit.sink.split.i, label %.lr.ph.i30.i
 
 .lr.ph.i30.i:                                     ; preds = %382, %GC_push_obj.exit.i38.i
@@ -32055,7 +32055,7 @@ GC_find_header.exit17.i:                          ; preds = %600
   %628 = inttoptr i64 %627 to ptr
   %629 = select i1 %624, ptr %.011.i, ptr %628
   %630 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
-  %.not2426.i.i87 = icmp ult ptr %629, %.011.i
+  %.not2426.i.i87 = icmp ugt ptr %.011.i, %629
   br i1 %.not2426.i.i87, label %._crit_edge.i.i, label %.lr.ph.i19.i
 
 .lr.ph.i19.i:                                     ; preds = %620
@@ -35463,7 +35463,7 @@ GC_find_starting_hblk.exit.i.i.us:                ; preds = %GC_find_header.exit
   %114 = icmp ugt ptr %112, %113
   %115 = icmp ult i64 %107, 4097
   %or.cond.not35.i.not36.i.us = and i1 %115, %114
-  %.not30.i.i.us = icmp ule ptr %112, %59
+  %.not30.i.i.us = icmp uge ptr %59, %112
   %or.cond31.i.not33.i.us = or i1 %.not30.i.i.us, %or.cond.not35.i.not36.i.us
   %.not17.i.us = icmp eq i64 %104, 0
   %or.cond32.i.us = or i1 %.not17.i.us, %or.cond31.i.not33.i.us
@@ -35979,7 +35979,7 @@ define internal fastcc void @alloc_mark_stack(i64 noundef %0) unnamed_addr #1 {
   %.not.i = icmp eq i64 %13, 0
   %14 = sub i64 %11, %13
   %spec.select.i = select i1 %.not.i, i64 0, i64 %14
-  %15 = icmp ult i64 %spec.select.i, %9
+  %15 = icmp ugt i64 %9, %spec.select.i
   %16 = sub nuw i64 %9, %spec.select.i
   %17 = sub i64 0, %11
   %18 = and i64 %16, %17
@@ -37330,7 +37330,7 @@ GC_handle_protected_regions_limit.exit:           ; preds = %70, %75, %GC_unprot
   %.not.i = icmp eq i64 %117, 0
   %118 = sub i64 %115, %117
   %spec.select.i = select i1 %.not.i, i64 0, i64 %118
-  %119 = icmp ult i64 %spec.select.i, %111
+  %119 = icmp ugt i64 %111, %spec.select.i
   %120 = sub nuw i64 %111, %spec.select.i
   %121 = sub i64 0, %115
   %122 = and i64 %120, %121
@@ -40341,7 +40341,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %58 = icmp ule ptr %56, %57
   %59 = icmp ugt i64 %51, 4096
   %or.cond.not35.i = or i1 %59, %58
-  %.not30.i = icmp ugt ptr %56, %6
+  %.not30.i = icmp ult ptr %6, %56
   %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
   %spec.select.i = select i1 %or.cond31.i, ptr %55, ptr null
   %60 = getelementptr inbounds i8, ptr %spec.select.i, i64 32
@@ -40504,7 +40504,7 @@ GC_find_starting_hblk.exit.i.i:                   ; preds = %GC_find_header.exit
   %87 = icmp ule ptr %85, %86
   %88 = icmp ugt i64 %80, 4096
   %or.cond.not35.i.i = or i1 %88, %87
-  %.not30.i.i = icmp ugt ptr %85, %0
+  %.not30.i.i = icmp ult ptr %0, %85
   %or.cond31.i.i = and i1 %.not30.i.i, %or.cond.not35.i.i
   %spec.select.i.i = select i1 %or.cond31.i.i, ptr %84, ptr null
   br label %GC_base.exit.i
@@ -40719,7 +40719,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %57 = icmp ule ptr %55, %56
   %58 = icmp ugt i64 %50, 4096
   %or.cond.not35.i = or i1 %58, %57
-  %.not30.i = icmp ugt ptr %55, %0
+  %.not30.i = icmp ult ptr %0, %55
   %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
   %spec.select.i = select i1 %or.cond31.i, ptr %54, ptr null
   br label %GC_base.exit
@@ -40813,7 +40813,7 @@ define internal fastcc void @GC_grow_table(ptr nocapture noundef %0, ptr nocaptu
   %27 = load i32, ptr @GC_all_interior_pointers, align 4
   %28 = sext i32 %27 to i64
   %29 = sub nsw i64 2048, %28
-  %.not.i = icmp ult i64 %29, %24
+  %.not.i = icmp ugt i64 %24, %29
   br i1 %.not.i, label %30, label %GC_generic_malloc_inner.exit
 
 30:                                               ; preds = %26
@@ -42022,7 +42022,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 32
   %70 = load i64, ptr %69, align 8
-  %.not.i = icmp ult i64 %70, %43
+  %.not.i = icmp ugt i64 %43, %70
   br i1 %.not.i, label %71, label %next_hblk_fits_better.exit.thread
 
 71:                                               ; preds = %64
@@ -44185,7 +44185,7 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
 28:                                               ; preds = %16
   %29 = load i64, ptr @pagemap_buf_len, align 8
   %30 = add nsw i64 %29, %17
-  %31 = icmp sgt i64 %30, %21
+  %31 = icmp slt i64 %21, %30
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
@@ -44229,7 +44229,7 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
 
 53:                                               ; preds = %45, %42
   %54 = sub nsw i64 %21, %.032.i
-  %55 = icmp slt i64 %.032.i, %12
+  %55 = icmp sgt i64 %12, %.032.i
   %56 = sub nsw i64 %12, %.032.i
   %57 = icmp slt i64 %56, 16384
   %or.cond.i = select i1 %55, i1 %57, i1 false
@@ -44968,7 +44968,7 @@ define internal void @GC_suspend_sigaction(i32 noundef %0, ptr nocapture readnon
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = load i32, ptr @GC_sig_suspend, align 4
-  %.not = icmp eq i32 %6, %0
+  %.not = icmp eq i32 %0, %6
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %3
@@ -45102,7 +45102,7 @@ GC_suspend_handler_inner.exit:                    ; preds = %9, %.sink.split.i
 ; Function Attrs: nounwind uwtable
 define internal void @GC_restart_handler(i32 noundef %0) #1 {
   %2 = load i32, ptr @GC_sig_thr_restart, align 4
-  %.not = icmp eq i32 %2, %0
+  %.not = icmp eq i32 %0, %2
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1

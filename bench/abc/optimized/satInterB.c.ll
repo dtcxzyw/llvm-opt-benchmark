@@ -711,7 +711,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
-  %14 = icmp sgt i32 %13, %1
+  %14 = icmp slt i32 %1, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit
@@ -2560,7 +2560,7 @@ define ptr @Intb_ManDeriveClauses(ptr nocapture noundef readonly %0, ptr nocaptu
 
 13:                                               ; preds = %9
   %14 = and i32 %11, 1
-  %.not40 = icmp eq i32 %14, %2
+  %.not40 = icmp eq i32 %2, %14
   br i1 %.not40, label %15, label %51
 
 15:                                               ; preds = %13

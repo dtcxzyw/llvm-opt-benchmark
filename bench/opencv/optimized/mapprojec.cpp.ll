@@ -631,11 +631,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN2cv3reg9MapProjec5scaleEd(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, double noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load double, ptr %3, align 8
-  %5 = fmul double %4, %1
+  %5 = fmul double %1, %4
   store double %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %1
+  %8 = fmul double %1, %7
   store double %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load double, ptr %9, align 8
@@ -685,8 +685,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv8internal14Matx_FastInvOpI
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load double, ptr %12, align 8
-  %14 = fneg double %11
-  %15 = fmul double %13, %14
+  %14 = fneg double %13
+  %15 = fmul double %11, %14
   %16 = tail call double @llvm.fmuladd.f64(double %7, double %9, double %15)
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load double, ptr %17, align 8
@@ -694,43 +694,43 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv8internal14Matx_FastInvOpI
   %20 = load double, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 48
   %22 = load double, ptr %21, align 8
-  %23 = fneg double %22
-  %24 = fmul double %13, %23
-  %25 = tail call double @llvm.fmuladd.f64(double %20, double %9, double %24)
-  %26 = fneg double %18
-  %27 = fmul double %25, %26
-  %28 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %27)
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load double, ptr %29, align 8
-  %31 = fmul double %7, %23
+  %23 = fmul double %22, %14
+  %24 = tail call double @llvm.fmuladd.f64(double %20, double %9, double %23)
+  %25 = fneg double %24
+  %26 = fmul double %18, %25
+  %27 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %26)
+  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = load double, ptr %28, align 8
+  %30 = fneg double %7
+  %31 = fmul double %22, %30
   %32 = tail call double @llvm.fmuladd.f64(double %20, double %11, double %31)
-  %33 = tail call noundef double @llvm.fmuladd.f64(double %30, double %32, double %28)
+  %33 = tail call noundef double @llvm.fmuladd.f64(double %29, double %32, double %27)
   %34 = fcmp une double %33, 0.000000e+00
   br i1 %34, label %35, label %113
 
 35:                                               ; preds = %4
   %36 = fdiv double 1.000000e+00, %33
-  %37 = fneg double %13
-  %38 = fmul double %11, %37
+  %37 = fneg double %11
+  %38 = fmul double %13, %37
   %39 = tail call double @llvm.fmuladd.f64(double %7, double %9, double %38)
   %40 = fmul double %39, %36
   store double %40, ptr %2, align 8
-  %41 = load double, ptr %29, align 8
+  %41 = load double, ptr %28, align 8
   %42 = load double, ptr %10, align 8
   %43 = load double, ptr %17, align 8
   %44 = load double, ptr %8, align 8
-  %45 = fneg double %43
-  %46 = fmul double %44, %45
+  %45 = fneg double %44
+  %46 = fmul double %43, %45
   %47 = tail call double @llvm.fmuladd.f64(double %41, double %42, double %46)
   %48 = fmul double %36, %47
   %49 = getelementptr inbounds i8, ptr %2, i64 8
   store double %48, ptr %49, align 8
   %50 = load double, ptr %17, align 8
   %51 = load double, ptr %12, align 8
-  %52 = load double, ptr %29, align 8
+  %52 = load double, ptr %28, align 8
   %53 = load double, ptr %6, align 8
-  %54 = fneg double %52
-  %55 = fmul double %53, %54
+  %54 = fneg double %53
+  %55 = fmul double %52, %54
   %56 = tail call double @llvm.fmuladd.f64(double %50, double %51, double %55)
   %57 = fmul double %36, %56
   %58 = getelementptr inbounds i8, ptr %2, i64 16
@@ -739,28 +739,28 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv8internal14Matx_FastInvOpI
   %60 = load double, ptr %21, align 8
   %61 = load double, ptr %19, align 8
   %62 = load double, ptr %8, align 8
-  %63 = fneg double %61
-  %64 = fmul double %62, %63
+  %63 = fneg double %62
+  %64 = fmul double %61, %63
   %65 = tail call double @llvm.fmuladd.f64(double %59, double %60, double %64)
   %66 = fmul double %36, %65
   %67 = getelementptr inbounds i8, ptr %2, i64 24
   store double %66, ptr %67, align 8
   %68 = load double, ptr %1, align 8
   %69 = load double, ptr %8, align 8
-  %70 = load double, ptr %29, align 8
+  %70 = load double, ptr %28, align 8
   %71 = load double, ptr %21, align 8
-  %72 = fneg double %70
-  %73 = fmul double %71, %72
+  %72 = fneg double %71
+  %73 = fmul double %70, %72
   %74 = tail call double @llvm.fmuladd.f64(double %68, double %69, double %73)
   %75 = fmul double %36, %74
   %76 = getelementptr inbounds i8, ptr %2, i64 32
   store double %75, ptr %76, align 8
-  %77 = load double, ptr %29, align 8
+  %77 = load double, ptr %28, align 8
   %78 = load double, ptr %19, align 8
   %79 = load double, ptr %1, align 8
   %80 = load double, ptr %12, align 8
-  %81 = fneg double %79
-  %82 = fmul double %80, %81
+  %81 = fneg double %80
+  %82 = fmul double %79, %81
   %83 = tail call double @llvm.fmuladd.f64(double %77, double %78, double %82)
   %84 = fmul double %36, %83
   %85 = getelementptr inbounds i8, ptr %2, i64 40
@@ -769,8 +769,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv8internal14Matx_FastInvOpI
   %87 = load double, ptr %10, align 8
   %88 = load double, ptr %6, align 8
   %89 = load double, ptr %21, align 8
-  %90 = fneg double %88
-  %91 = fmul double %89, %90
+  %90 = fneg double %89
+  %91 = fmul double %88, %90
   %92 = tail call double @llvm.fmuladd.f64(double %86, double %87, double %91)
   %93 = fmul double %36, %92
   %94 = getelementptr inbounds i8, ptr %2, i64 48
@@ -779,8 +779,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv8internal14Matx_FastInvOpI
   %96 = load double, ptr %21, align 8
   %97 = load double, ptr %1, align 8
   %98 = load double, ptr %10, align 8
-  %99 = fneg double %97
-  %100 = fmul double %98, %99
+  %99 = fneg double %98
+  %100 = fmul double %97, %99
   %101 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %100)
   %102 = fmul double %36, %101
   %103 = getelementptr inbounds i8, ptr %2, i64 56
@@ -789,8 +789,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv8internal14Matx_FastInvOpI
   %105 = load double, ptr %6, align 8
   %106 = load double, ptr %17, align 8
   %107 = load double, ptr %19, align 8
-  %108 = fneg double %106
-  %109 = fmul double %107, %108
+  %108 = fneg double %107
+  %109 = fmul double %106, %108
   %110 = tail call double @llvm.fmuladd.f64(double %104, double %105, double %109)
   %111 = fmul double %36, %110
   %112 = getelementptr inbounds i8, ptr %2, i64 64

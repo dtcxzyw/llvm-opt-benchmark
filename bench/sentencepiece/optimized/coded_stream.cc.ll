@@ -179,10 +179,10 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noc
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %1, -1
   %16 = sub nsw i32 2147483647, %12
-  %.not = icmp uge i32 %16, %1
+  %.not = icmp ule i32 %1, %16
   %or.cond.not11 = select i1 %15, i1 %.not, i1 false
   %17 = sub nsw i32 %14, %12
-  %18 = icmp sgt i32 %17, %1
+  %18 = icmp slt i32 %1, %17
   %or.cond9 = select i1 %or.cond.not11, i1 %18, i1 false
   br i1 %or.cond9, label %19, label %.critedge
 
@@ -269,10 +269,10 @@ define i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAnd
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %1, -1
   %16 = sub nsw i32 2147483647, %12
-  %.not.i = icmp uge i32 %16, %1
+  %.not.i = icmp ule i32 %1, %16
   %or.cond.not11.i = select i1 %15, i1 %.not.i, i1 false
   %17 = sub nsw i32 %14, %12
-  %18 = icmp sgt i32 %17, %1
+  %18 = icmp slt i32 %1, %17
   %or.cond9.i = select i1 %or.cond.not11.i, i1 %18, i1 false
   br i1 %or.cond9.i, label %19, label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit
 
@@ -336,10 +336,10 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream22ReadLengthAndPushL
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %5, -1
   %19 = sub nsw i32 2147483647, %15
-  %.not.i = icmp uge i32 %19, %5
+  %.not.i = icmp ule i32 %5, %19
   %or.cond.not11.i = select i1 %18, i1 %.not.i, i1 false
   %20 = sub nsw i32 %17, %15
-  %21 = icmp sgt i32 %20, %5
+  %21 = icmp slt i32 %5, %20
   %or.cond9.i = select i1 %or.cond.not11.i, i1 %21, i1 false
   br i1 %or.cond9.i, label %22, label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit
 
@@ -1033,7 +1033,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream10ReadStringE
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = trunc i64 %11 to i32
-  %.not = icmp slt i32 %12, %2
+  %.not = icmp sgt i32 %2, %12
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %5
@@ -1092,7 +1092,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream18ReadStringF
   %23 = icmp slt i32 %22, 1
   %24 = icmp slt i32 %2, 1
   %or.cond.not35 = or i1 %24, %23
-  %.not29 = icmp slt i32 %22, %2
+  %.not29 = icmp sgt i32 %2, %22
   %or.cond31 = or i1 %.not29, %or.cond.not35
   br i1 %or.cond31, label %27, label %25
 
@@ -3428,7 +3428,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbac
   %10 = ptrtoint ptr %3 to i64
   %11 = sub i64 %9, %10
   %.022 = trunc i64 %11 to i32
-  %12 = icmp slt i32 %.022, %2
+  %12 = icmp sgt i32 %2, %.022
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -3625,7 +3625,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8Wri
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %9
   %.022.i = trunc i64 %16 to i32
-  %17 = icmp slt i32 %.022.i, %2
+  %17 = icmp sgt i32 %2, %.022.i
   br i1 %17, label %.lr.ph.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh.exit
 
 .lr.ph.i:                                         ; preds = %13
@@ -3784,7 +3784,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMayb
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8
-  %.not.i = icmp ugt ptr %7, %3
+  %.not.i = icmp ult ptr %3, %7
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %8
 
 8:                                                ; preds = %4
@@ -4017,7 +4017,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutl
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8
-  %.not.i = icmp ugt ptr %7, %3
+  %.not.i = icmp ult ptr %3, %7
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %8
 
 8:                                                ; preds = %4

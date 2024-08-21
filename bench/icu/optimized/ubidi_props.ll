@@ -311,7 +311,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 
 if.then.i:                                        ; preds = %cond.end39
   %shr.i = sext i16 %6 to i32
-  %add.i = add nsw i32 %shr.i, %c
+  %add.i = add nsw i32 %c, %shr.i
   br label %_ZL9getMirrorit.exit
 
 for.body.i:                                       ; preds = %cond.end39, %if.else9.i
@@ -319,7 +319,7 @@ for.body.i:                                       ; preds = %cond.end39, %if.els
   %arrayidx2.i = getelementptr inbounds i32, ptr @_ZL19ubidi_props_mirrors, i64 %indvars.iv.i
   %7 = load i32, ptr %arrayidx2.i, align 4
   %and.i = and i32 %7, 2097151
-  %cmp3.i = icmp eq i32 %and.i, %c
+  %cmp3.i = icmp eq i32 %c, %and.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else9.i
 
 if.then4.i:                                       ; preds = %for.body.i
@@ -331,7 +331,7 @@ if.then4.i:                                       ; preds = %for.body.i
   br label %_ZL9getMirrorit.exit
 
 if.else9.i:                                       ; preds = %for.body.i
-  %cmp10.i = icmp sgt i32 %and.i, %c
+  %cmp10.i = icmp slt i32 %c, %and.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
   %or.cond.i = select i1 %cmp10.i, i1 true, i1 %exitcond.not.i
@@ -669,7 +669,7 @@ if.else:                                          ; preds = %cond.end39
 
 if.then.i:                                        ; preds = %if.else
   %shr.i = sext i16 %7 to i32
-  %add.i = add nsw i32 %shr.i, %c
+  %add.i = add nsw i32 %c, %shr.i
   br label %return
 
 for.body.i:                                       ; preds = %if.else, %if.else9.i
@@ -677,7 +677,7 @@ for.body.i:                                       ; preds = %if.else, %if.else9.
   %arrayidx2.i = getelementptr inbounds i32, ptr @_ZL19ubidi_props_mirrors, i64 %indvars.iv.i
   %8 = load i32, ptr %arrayidx2.i, align 4
   %and.i = and i32 %8, 2097151
-  %cmp3.i = icmp eq i32 %and.i, %c
+  %cmp3.i = icmp eq i32 %c, %and.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else9.i
 
 if.then4.i:                                       ; preds = %for.body.i
@@ -689,7 +689,7 @@ if.then4.i:                                       ; preds = %for.body.i
   br label %return
 
 if.else9.i:                                       ; preds = %for.body.i
-  %cmp10.i = icmp sgt i32 %and.i, %c
+  %cmp10.i = icmp slt i32 %c, %and.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
   %or.cond.i = select i1 %cmp10.i, i1 true, i1 %exitcond.not.i
@@ -876,7 +876,7 @@ cond.end39.i:                                     ; preds = %cond.end39.sink.spl
 
 if.then.i.i:                                      ; preds = %cond.end39.i
   %shr.i.i = sext i16 %6 to i32
-  %add.i.i = add nsw i32 %shr.i.i, %c
+  %add.i.i = add nsw i32 %c, %shr.i.i
   br label %ubidi_getMirror_75.exit
 
 for.body.i.i:                                     ; preds = %cond.end39.i, %if.else9.i.i
@@ -884,7 +884,7 @@ for.body.i.i:                                     ; preds = %cond.end39.i, %if.e
   %arrayidx2.i.i = getelementptr inbounds i32, ptr @_ZL19ubidi_props_mirrors, i64 %indvars.iv.i.i
   %7 = load i32, ptr %arrayidx2.i.i, align 4
   %and.i.i = and i32 %7, 2097151
-  %cmp3.i.i = icmp eq i32 %and.i.i, %c
+  %cmp3.i.i = icmp eq i32 %c, %and.i.i
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else9.i.i
 
 if.then4.i.i:                                     ; preds = %for.body.i.i
@@ -896,7 +896,7 @@ if.then4.i.i:                                     ; preds = %for.body.i.i
   br label %ubidi_getMirror_75.exit
 
 if.else9.i.i:                                     ; preds = %for.body.i.i
-  %cmp10.i.i = icmp sgt i32 %and.i.i, %c
+  %cmp10.i.i = icmp slt i32 %c, %and.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 40
   %or.cond.i.i = select i1 %cmp10.i.i, i1 true, i1 %exitcond.not.i.i
@@ -971,7 +971,7 @@ if.else.i:                                        ; preds = %cond.end39.i
 
 if.then.i.i:                                      ; preds = %if.else.i
   %shr.i.i = sext i16 %7 to i32
-  %add.i.i = add nsw i32 %shr.i.i, %c
+  %add.i.i = add nsw i32 %c, %shr.i.i
   br label %ubidi_getPairedBracket_75.exit
 
 for.body.i.i:                                     ; preds = %if.else.i, %if.else9.i.i
@@ -979,7 +979,7 @@ for.body.i.i:                                     ; preds = %if.else.i, %if.else
   %arrayidx2.i.i = getelementptr inbounds i32, ptr @_ZL19ubidi_props_mirrors, i64 %indvars.iv.i.i
   %8 = load i32, ptr %arrayidx2.i.i, align 4
   %and.i.i = and i32 %8, 2097151
-  %cmp3.i.i = icmp eq i32 %and.i.i, %c
+  %cmp3.i.i = icmp eq i32 %c, %and.i.i
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else9.i.i
 
 if.then4.i.i:                                     ; preds = %for.body.i.i
@@ -991,7 +991,7 @@ if.then4.i.i:                                     ; preds = %for.body.i.i
   br label %ubidi_getPairedBracket_75.exit
 
 if.else9.i.i:                                     ; preds = %for.body.i.i
-  %cmp10.i.i = icmp sgt i32 %and.i.i, %c
+  %cmp10.i.i = icmp slt i32 %c, %and.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 40
   %or.cond.i.i = select i1 %cmp10.i.i, i1 true, i1 %exitcond.not.i.i

@@ -528,7 +528,7 @@ addToArray.exit.thread:                           ; preds = %.thread.i
 ._crit_edge.i:                                    ; preds = %201, %.loopexit
   %.053.lcssa.i = phi i32 [ 0, %.loopexit ], [ %.1.i, %201 ]
   %202 = load i32, ptr %3, align 4
-  %.not60.i = icmp sgt i32 %202, %.052.ph129
+  %.not60.i = icmp slt i32 %.052.ph129, %202
   br i1 %.not60.i, label %209, label %203
 
 203:                                              ; preds = %._crit_edge.i

@@ -5883,7 +5883,7 @@ Wlc_PrsSkipSpaces.exit1376:                       ; preds = %Wlc_PrsFindSymbol.e
 
 920:                                              ; preds = %910
   %921 = or disjoint i32 %850, 1
-  %.not.i1377.not = icmp sgt i32 %.val1071, %850
+  %.not.i1377.not = icmp slt i32 %850, %.val1071
   br i1 %.not.i1377.not, label %Vec_IntFillExtra.exit, label %922
 
 922:                                              ; preds = %920
@@ -5893,7 +5893,7 @@ Wlc_PrsSkipSpaces.exit1376:                       ; preds = %Wlc_PrsFindSymbol.e
 
 Vec_IntGrow.exit.sink.split.i:                    ; preds = %922
   %924 = shl nsw i32 %923, 1
-  %.not1911 = icmp sgt i32 %924, %850
+  %.not1911 = icmp slt i32 %850, %924
   %.3293 = select i1 %.not1911, i32 %924, i32 %921
   %925 = sext i32 %.3293 to i64
   %926 = shl nsw i64 %925, 2

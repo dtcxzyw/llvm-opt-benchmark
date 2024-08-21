@@ -2202,7 +2202,7 @@ fileset_extract_prefix_suffix.exit.thread:        ; preds = %741
   br i1 %.not13.i, label %886, label %selected.exit.thread
 
 884:                                              ; preds = %.lr.ph.i568
-  %885 = icmp eq i32 %879, %.03381117
+  %885 = icmp eq i32 %.03381117, %879
   br i1 %885, label %selected.exit.thread, label %886
 
 886:                                              ; preds = %884, %881, %880
@@ -3701,7 +3701,7 @@ define internal fastcc range(i32 0, 2) i32 @selected(i32 noundef %0) unnamed_add
   br i1 %.not13, label %13, label %._crit_edge
 
 11:                                               ; preds = %.lr.ph
-  %12 = icmp eq i32 %6, %0
+  %12 = icmp eq i32 %0, %6
   br i1 %12, label %._crit_edge, label %13
 
 13:                                               ; preds = %8, %7, %11
@@ -3963,7 +3963,7 @@ sll_set_unused_info.exit:                         ; preds = %19, %15, %10, %2, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @is_duplicate(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ignored_bytes, align 4
-  %.not = icmp ult i32 %3, %1
+  %.not = icmp ugt i32 %1, %3
   %spec.store.select = select i1 %.not, i32 %3, i32 0
   %.b = load i1, ptr @skip_radiotap, align 4
   br i1 %.b, label %4, label %11
@@ -3977,7 +3977,7 @@ define internal fastcc range(i32 0, 2) i32 @is_duplicate(ptr noundef %0, i32 nou
   %8 = shl nuw nsw i32 %7, 8
   %9 = zext i8 %.val to i32
   %10 = or disjoint i32 %8, %9
-  %.not22 = icmp ult i32 %10, %1
+  %.not22 = icmp ugt i32 %1, %10
   %spec.store.select1 = select i1 %.not22, i32 %10, i32 0
   br label %11
 
@@ -4041,7 +4041,7 @@ define internal fastcc range(i32 0, 2) i32 @is_duplicate(ptr noundef %0, i32 nou
 define internal fastcc range(i32 0, 2) i32 @is_duplicate_rel_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @ignored_bytes, align 4
-  %.not = icmp ult i32 %5, %1
+  %.not = icmp ugt i32 %1, %5
   %spec.store.select = select i1 %.not, i32 %5, i32 0
   %6 = zext i32 %spec.store.select to i64
   %7 = getelementptr i8, ptr %0, i64 %6

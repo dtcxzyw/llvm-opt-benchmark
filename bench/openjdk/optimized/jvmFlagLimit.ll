@@ -430,7 +430,7 @@ declare noundef i32 @_ZN13JVMFlagAccess11check_rangeEPK7JVMFlagb(ptr noundef, i1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN12JVMFlagLimit21check_all_constraintsE22JVMFlagConstraintPhase(i8 noundef signext %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr @_ZN12JVMFlagLimit17_validating_phaseE, align 1
-  %3 = icmp slt i8 %2, %0
+  %3 = icmp sgt i8 %0, %2
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1

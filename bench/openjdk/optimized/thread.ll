@@ -572,7 +572,7 @@ _ZN13GrowableArrayIP8MetadataED2Ev.exit:          ; preds = %28, %32
 37:                                               ; preds = %36, %33
   %38 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %0
+  %40 = icmp eq ptr %0, %39
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37
@@ -891,7 +891,7 @@ define hidden void @_ZNK6Thread8print_onEP12outputStreamb(ptr noundef nonnull al
   %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(888) %0) #12
   %27 = load i8, ptr @PrintExtendedThreadInfo, align 1
   %28 = trunc i8 %27 to i1
-  %brmerge = or i1 %28, %2
+  %brmerge = or i1 %2, %28
   %or.cond = select i1 %26, i1 %brmerge, i1 false
   br i1 %or.cond, label %29, label %55
 

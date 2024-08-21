@@ -234,11 +234,11 @@ declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @cmsIT8SetTable(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
-  %.not = icmp ugt i32 %3, %1
+  %.not = icmp ult i32 %1, %3
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp eq i32 %3, %1
+  %5 = icmp eq i32 %1, %3
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
@@ -1480,7 +1480,7 @@ GetTable.exit.i:                                  ; preds = %9, %7
 17:                                               ; preds = %15, %GetTable.exit.i
   %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 1024
   %19 = load i32, ptr %18, align 8
-  %20 = icmp slt i32 %19, %1
+  %20 = icmp sgt i32 %1, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
@@ -4219,7 +4219,7 @@ GetTable.exit.i:                                  ; preds = %48, %47
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 1028
   %54 = load i32, ptr %53, align 4
-  %55 = icmp sgt i32 %54, %.04468
+  %55 = icmp slt i32 %.04468, %54
   %56 = sext i32 %52 to i64
   %.not.i = icmp slt i64 %indvars.iv84, %56
   %or.cond20.i = select i1 %55, i1 %.not.i, i1 false
@@ -4318,7 +4318,7 @@ GetTable.exit.i55:                                ; preds = %85, %84
 .thread.i:                                        ; preds = %92, %GetTable.exit.i55
   %93 = getelementptr inbounds i8, ptr %.0.i.i56, i64 1028
   %94 = load i32, ptr %93, align 4
-  %95 = icmp slt i32 %94, %.04468
+  %95 = icmp sgt i32 %.04468, %94
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %.thread.i
@@ -5157,10 +5157,10 @@ GetTable.exit.i:                                  ; preds = %9, %7
 16:                                               ; preds = %GetTable.exit.i
   %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 1028
   %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, %1
+  %19 = icmp slt i32 %1, %18
   %20 = icmp sgt i32 %2, -1
   %or.cond.not23.i = and i1 %20, %19
-  %.not.i = icmp sgt i32 %14, %2
+  %.not.i = icmp slt i32 %2, %14
   %or.cond20.i = select i1 %or.cond.not23.i, i1 %.not.i, i1 false
   br i1 %or.cond20.i, label %21, label %GetData.exit
 
@@ -5212,10 +5212,10 @@ GetTable.exit.i.i:                                ; preds = %9, %7
 16:                                               ; preds = %GetTable.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1028
   %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, %1
+  %19 = icmp slt i32 %1, %18
   %20 = icmp sgt i32 %2, -1
   %or.cond.not23.i.i = and i1 %20, %19
-  %.not.i.i = icmp sgt i32 %14, %2
+  %.not.i.i = icmp slt i32 %2, %14
   %or.cond20.i.i = select i1 %or.cond.not23.i.i, i1 %.not.i.i, i1 false
   br i1 %or.cond20.i.i, label %21, label %cmsIT8GetDataRowCol.exit.thread
 
@@ -5288,7 +5288,7 @@ GetTable.exit:                                    ; preds = %8, %10
 .thread:                                          ; preds = %GetTable.exit, %18
   %19 = getelementptr inbounds i8, ptr %.0.i, i64 1028
   %20 = load i32, ptr %19, align 4
-  %21 = icmp slt i32 %20, %1
+  %21 = icmp sgt i32 %1, %20
   %22 = icmp slt i32 %1, 0
   %or.cond = or i1 %22, %21
   br i1 %or.cond, label %23, label %24
@@ -5300,7 +5300,7 @@ GetTable.exit:                                    ; preds = %8, %10
 24:                                               ; preds = %.thread
   %25 = getelementptr inbounds i8, ptr %.0.i, i64 1024
   %26 = load i32, ptr %25, align 8
-  %27 = icmp slt i32 %26, %2
+  %27 = icmp sgt i32 %2, %26
   %28 = icmp slt i32 %2, 0
   %or.cond3 = or i1 %28, %27
   br i1 %or.cond3, label %29, label %30
@@ -5432,7 +5432,7 @@ LocateSample.exit:                                ; preds = %28
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %.0.i.i14, i64 1028
   %48 = load i32, ptr %47, align 4
-  %49 = icmp sgt i32 %48, %35
+  %49 = icmp slt i32 %35, %48
   %.not.i15 = icmp sgt i32 %46, %34
   %or.cond20.i = select i1 %49, i1 %.not.i15, i1 false
   br i1 %or.cond20.i, label %50, label %GetData.exit
@@ -5510,10 +5510,10 @@ GetTable.exit.i:                                  ; preds = %22, %21
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 1028
   %28 = load i32, ptr %27, align 4
-  %29 = icmp sgt i32 %28, %.01117
+  %29 = icmp slt i32 %.01117, %28
   %30 = icmp sgt i32 %18, -1
   %or.cond.not23.i = and i1 %30, %29
-  %.not.i13 = icmp sgt i32 %26, %18
+  %.not.i13 = icmp slt i32 %18, %26
   %or.cond20.i = select i1 %or.cond.not23.i, i1 %.not.i13, i1 false
   br i1 %or.cond20.i, label %31, label %GetData.exit.thread
 
@@ -5710,7 +5710,7 @@ GetTable.exit.i31:                                ; preds = %59, %58
   %73 = load i32, ptr %72, align 8
   %.fr.i = freeze i32 %73
   %74 = icmp sgt i32 %.fr22.i, -1
-  %.not.i10.us.i = icmp sgt i32 %.fr.i, %.fr22.i
+  %.not.i10.us.i = icmp slt i32 %.fr22.i, %.fr.i
   %75 = getelementptr inbounds i8, ptr %71, i64 1056
   %76 = and i1 %74, %.not.i10.us.i
   br i1 %76, label %GetTable.exit.i.us.preheader.i, label %LocateEmptyPatch.exit.thread
@@ -5771,10 +5771,10 @@ GetTable.exit.i.i36:                              ; preds = %94, %93
   %98 = load i32, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %.0.i.i.i37, i64 1028
   %100 = load i32, ptr %99, align 4
-  %101 = icmp sgt i32 %100, %.0913.i
+  %101 = icmp slt i32 %.0913.i, %100
   %102 = icmp sgt i32 %90, -1
   %or.cond.not23.i.i = and i1 %102, %101
-  %.not.i10.i = icmp sgt i32 %98, %90
+  %.not.i10.i = icmp slt i32 %90, %98
   %or.cond20.i.i = select i1 %or.cond.not23.i.i, i1 %.not.i10.i, i1 false
   br i1 %or.cond20.i.i, label %103, label %LocateEmptyPatch.exit.thread
 
@@ -6276,10 +6276,10 @@ GetTable.exit.i:                                  ; preds = %19, %17
 26:                                               ; preds = %GetTable.exit.i
   %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 1028
   %28 = load i32, ptr %27, align 4
-  %29 = icmp sgt i32 %28, %1
+  %29 = icmp slt i32 %1, %28
   %30 = icmp sgt i32 %16, -1
   %or.cond.not23.i = and i1 %30, %29
-  %.not.i15 = icmp sgt i32 %24, %16
+  %.not.i15 = icmp slt i32 %16, %24
   %or.cond20.i = select i1 %or.cond.not23.i, i1 %.not.i15, i1 false
   br i1 %or.cond20.i, label %31, label %GetData.exit.thread
 
@@ -6369,11 +6369,11 @@ define hidden i32 @cmsIT8SetTableByLabel(ptr nocapture noundef %0, ptr noundef %
 .thread:                                          ; preds = %17, %16, %20
   %22 = load i32, ptr %7, align 4
   %23 = load i32, ptr %0, align 8
-  %.not.i = icmp ugt i32 %23, %22
+  %.not.i = icmp ult i32 %22, %23
   br i1 %.not.i, label %32, label %24
 
 24:                                               ; preds = %.thread
-  %25 = icmp eq i32 %23, %22
+  %25 = icmp eq i32 %22, %23
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24

@@ -344,7 +344,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %5, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
   %cmp9.i = icmp eq i32 %tag.sroa.0.028, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.028
+  %cmp.i.i15.i = icmp ult i32 %tag.sroa.0.028, %cond.i14.i
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
   br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
 
@@ -497,7 +497,7 @@ land.lhs.true:                                    ; preds = %if.end5
   %cond.i14 = select i1 %cmp.i.i11, i32 %7, i32 %shr.i.i12
   %sub = add nsw i32 %cond.i14, -1
   %cmp9 = icmp eq i32 %0, %sub
-  %cmp.i.i15 = icmp ugt i32 %cond.i14, %0
+  %cmp.i.i15 = icmp ult i32 %0, %cond.i14
   %or.cond = and i1 %cmp.i.i15, %cmp9
   br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %if.else15.thread
 
@@ -817,7 +817,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %5, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
   %cmp9.i = icmp eq i32 %tag.sroa.0.016, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.016
+  %cmp.i.i15.i = icmp ult i32 %tag.sroa.0.016, %cond.i14.i
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
   br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
 
@@ -959,7 +959,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %8, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
   %cmp9.i = icmp eq i32 %tag.sroa.0.0, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.0
+  %cmp.i.i15.i = icmp ult i32 %tag.sroa.0.0, %cond.i14.i
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
   br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
 
@@ -1003,7 +1003,7 @@ if.end5:                                          ; preds = %while.body
   %17 = extractvalue { i64, i64 } %call2, 0
   %tag.sroa.0.0.extract.trunc = trunc i64 %17 to i32
   %tag.sroa.4.0.extract.shift = and i64 %17, -4294967296
-  %cmp7 = icmp eq i32 %tag.sroa.8.8.extract.trunc, %type
+  %cmp7 = icmp eq i32 %type, %tag.sroa.8.8.extract.trunc
   br i1 %cmp7, label %return, label %while.cond, !llvm.loop !11
 
 return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %while.cond, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %if.end5, %while.body, %entry
@@ -1063,7 +1063,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %8, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
   %cmp9.i = icmp eq i32 %tag.sroa.0.015, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.015
+  %cmp.i.i15.i = icmp ult i32 %tag.sroa.0.015, %cond.i14.i
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
   br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
 
@@ -1198,7 +1198,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %9, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
   %cmp9.i = icmp eq i32 %tag.sroa.0.017, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.017
+  %cmp.i.i15.i = icmp ult i32 %tag.sroa.0.017, %cond.i14.i
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
   br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
 
@@ -1245,7 +1245,7 @@ invoke.cont4:                                     ; preds = %while.body
 
 if.end9:                                          ; preds = %invoke.cont4
   %tag.sroa.9.8.extract.trunc = trunc nuw i64 %tag.sroa.9.8.extract.shift to i32
-  %cmp11 = icmp eq i32 %tag.sroa.9.8.extract.trunc, %type
+  %cmp11 = icmp eq i32 %type, %tag.sroa.9.8.extract.trunc
   br i1 %cmp11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.end9
@@ -1321,7 +1321,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %8, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
   %cmp9.i = icmp eq i32 %tag.sroa.0.013, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.013
+  %cmp.i.i15.i = icmp ult i32 %tag.sroa.0.013, %cond.i14.i
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
   br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
 
@@ -1440,7 +1440,7 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %8, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
   %cmp9.i = icmp eq i32 %tag.sroa.0.0, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.0
+  %cmp.i.i15.i = icmp ult i32 %tag.sroa.0.0, %cond.i14.i
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
   br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
 

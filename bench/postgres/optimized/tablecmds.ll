@@ -6633,7 +6633,7 @@ define dso_local void @SetRelationHasSubclass(i32 noundef %0, i1 noundef zeroext
   %17 = getelementptr inbounds i8, ptr %16, i64 122
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
-  %20 = xor i1 %19, %1
+  %20 = xor i1 %1, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %10
@@ -6666,12 +6666,12 @@ define dso_local noundef zeroext i1 @CheckRelationTableSpaceMove(ptr nocapture n
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 92
   %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %43, label %8
 
 8:                                                ; preds = %2
   %9 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   %11 = icmp eq i32 %6, 0
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %43, label %12
@@ -6765,7 +6765,7 @@ define dso_local void @SetRelationTableSpace(ptr nocapture noundef readonly %0, 
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = select i1 %20, i32 0, i32 %1
   %22 = getelementptr inbounds i8, ptr %18, i64 92
   store i32 %21, ptr %22, align 4
@@ -7038,7 +7038,7 @@ define internal fastcc signext i16 @renameatt_internal(i32 noundef %0, ptr nound
   %93 = getelementptr inbounds i8, ptr %83, i64 98
   %94 = load i16, ptr %93, align 2
   %95 = sext i16 %94 to i32
-  %96 = icmp sgt i32 %95, %5
+  %96 = icmp slt i32 %5, %95
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %92
@@ -7302,7 +7302,7 @@ define internal fastcc i64 @rename_constraint_internal(i32 noundef %0, i32 nound
   %75 = getelementptr inbounds i8, ptr %27, i64 100
   %76 = load i16, ptr %75, align 4
   %77 = sext i16 %76 to i32
-  %78 = icmp sgt i32 %77, %5
+  %78 = icmp slt i32 %5, %77
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %.thread
@@ -10812,7 +10812,7 @@ define internal fastcc void @renameatt_check(i32 noundef %0, ptr noundef %1, i1 
   %6 = getelementptr inbounds i8, ptr %1, i64 76
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %12, label %8
 
 8:                                                ; preds = %3
@@ -14386,7 +14386,7 @@ ATExecClusterOn.exit:                             ; preds = %1526
   %1569 = zext i8 %1568 to i64
   %1570 = getelementptr i8, ptr %1566, i64 %1569
   %1571 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %1572 = icmp eq i32 %1571, %1548
+  %1572 = icmp eq i32 %1548, %1571
   %1573 = select i1 %1572, i32 0, i32 %1548
   %1574 = getelementptr inbounds i8, ptr %1570, i64 92
   store i32 %1573, ptr %1574, align 4
@@ -18113,7 +18113,7 @@ define internal fastcc void @ATPrepAddColumn(ptr nocapture noundef %0, ptr nocap
   %11 = getelementptr inbounds i8, ptr %10, i64 76
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %17, label %13
 
 13:                                               ; preds = %8
@@ -18164,7 +18164,7 @@ define internal fastcc void @ATPrepAddColumn(ptr nocapture noundef %0, ptr nocap
 
 ATTypedTableRecursion.exit:                       ; preds = %.lr.ph17, %21, %.lr.ph, %17
   %.not10 = xor i1 %2, true
-  %brmerge11 = or i1 %.not10, %4
+  %brmerge11 = or i1 %4, %.not10
   br i1 %brmerge11, label %41, label %39
 
 39:                                               ; preds = %ATTypedTableRecursion.exit
@@ -18304,7 +18304,7 @@ define internal fastcc void @ATPrepDropColumn(ptr nocapture noundef %0, ptr noca
   %10 = getelementptr inbounds i8, ptr %9, i64 76
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %16, label %12
 
 12:                                               ; preds = %7
@@ -18608,7 +18608,7 @@ define internal fastcc void @ATPrepAlterColumnType(ptr nocapture noundef %0, ptr
   %25 = getelementptr inbounds i8, ptr %24, i64 76
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, 0
-  %brmerge = or i1 %.not, %4
+  %brmerge = or i1 %4, %.not
   br i1 %brmerge, label %31, label %27
 
 27:                                               ; preds = %8
@@ -18661,7 +18661,7 @@ define internal fastcc void @ATPrepAlterColumnType(ptr nocapture noundef %0, ptr
   %57 = getelementptr inbounds i8, ptr %47, i64 98
   %58 = load i16, ptr %57, align 2
   %59 = icmp slt i16 %58, 1
-  %brmerge150 = or i1 %59, %4
+  %brmerge150 = or i1 %4, %59
   br i1 %brmerge150, label %64, label %60
 
 60:                                               ; preds = %56
@@ -19745,7 +19745,7 @@ define internal fastcc { i64, i32 } @ATExecAddColumn(ptr nocapture noundef %0, p
 
 111:                                              ; preds = %106
   %.not210 = icmp eq ptr %8, null
-  %brmerge227 = or i1 %.not210, %5
+  %brmerge227 = or i1 %5, %.not210
   br i1 %brmerge227, label %117, label %112
 
 112:                                              ; preds = %111
@@ -19761,7 +19761,7 @@ define internal fastcc { i64, i32 } @ATExecAddColumn(ptr nocapture noundef %0, p
   %118 = getelementptr inbounds i8, ptr %.0, i64 64
   %119 = load i8, ptr %118, align 8
   %.not211 = icmp ne i8 %119, 0
-  %brmerge229.not = and i1 %.not211, %4
+  %brmerge229.not = and i1 %4, %.not211
   br i1 %brmerge229.not, label %120, label %130
 
 120:                                              ; preds = %117
@@ -20063,7 +20063,7 @@ add_column_collation_dependency.exit:             ; preds = %274, %274, %281
   %286 = load i32, ptr %18, align 8
   %287 = call ptr @find_inheritance_children(i32 noundef %286, i32 noundef %6) #13
   %.not221 = icmp eq ptr %287, null
-  %brmerge230 = or i1 %.not221, %4
+  %brmerge230 = or i1 %4, %.not221
   br i1 %brmerge230, label %292, label %288
 
 288:                                              ; preds = %add_column_collation_dependency.exit
@@ -20197,7 +20197,7 @@ define internal fastcc { i64, i32 } @ATExecAddIdentity(ptr nocapture noundef rea
   %9 = getelementptr inbounds i8, ptr %8, i64 115
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 112
-  %brmerge = or i1 %11, %4
+  %brmerge = or i1 %4, %11
   br i1 %brmerge, label %17, label %12
 
 12:                                               ; preds = %6
@@ -20214,7 +20214,7 @@ define internal fastcc { i64, i32 } @ATExecAddIdentity(ptr nocapture noundef rea
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   %.not66 = xor i1 %20, true
-  %brmerge67 = or i1 %.not66, %5
+  %brmerge67 = or i1 %5, %.not66
   br i1 %brmerge67, label %25, label %21
 
 21:                                               ; preds = %17
@@ -20380,7 +20380,7 @@ define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr nocapture noundef rea
   %9 = getelementptr inbounds i8, ptr %8, i64 115
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 112
-  %brmerge = or i1 %11, %4
+  %brmerge = or i1 %4, %11
   br i1 %brmerge, label %17, label %12
 
 12:                                               ; preds = %6
@@ -20397,7 +20397,7 @@ define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr nocapture noundef rea
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   %.not80 = xor i1 %20, true
-  %brmerge81 = or i1 %.not80, %5
+  %brmerge81 = or i1 %5, %.not80
   br i1 %brmerge81, label %.preheader, label %26
 
 .preheader:                                       ; preds = %17
@@ -20605,7 +20605,7 @@ define internal fastcc { i64, i32 } @ATExecDropIdentity(ptr nocapture noundef re
   %10 = getelementptr inbounds i8, ptr %9, i64 115
   %11 = load i8, ptr %10, align 1
   %12 = icmp ne i8 %11, 112
-  %brmerge = or i1 %12, %4
+  %brmerge = or i1 %4, %12
   br i1 %brmerge, label %18, label %13
 
 13:                                               ; preds = %6
@@ -20622,7 +20622,7 @@ define internal fastcc { i64, i32 } @ATExecDropIdentity(ptr nocapture noundef re
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   %.not69 = xor i1 %21, true
-  %brmerge70 = or i1 %.not69, %5
+  %brmerge70 = or i1 %5, %.not69
   br i1 %brmerge70, label %26, label %22
 
 22:                                               ; preds = %18
@@ -21235,7 +21235,7 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
   %48 = getelementptr inbounds i8, ptr %38, i64 98
   %49 = load i16, ptr %48, align 2
   %50 = icmp slt i16 %49, 1
-  %brmerge = or i1 %50, %4
+  %brmerge = or i1 %4, %50
   br i1 %brmerge, label %55, label %51
 
 51:                                               ; preds = %47
@@ -21276,7 +21276,7 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
   %72 = getelementptr inbounds i8, ptr %71, i64 115
   %73 = load i8, ptr %72, align 1
   %74 = icmp ne i8 %73, 112
-  %brmerge93 = or i1 %74, %3
+  %brmerge93 = or i1 %3, %74
   br i1 %brmerge93, label %80, label %75
 
 75:                                               ; preds = %69
@@ -23092,7 +23092,7 @@ define internal fastcc void @dropconstraint_internal(ptr noundef %0, ptr noundef
   %30 = getelementptr inbounds i8, ptr %28, i64 100
   %31 = load i16, ptr %30, align 4
   %32 = icmp slt i16 %31, 1
-  %brmerge = or i1 %32, %4
+  %brmerge = or i1 %4, %32
   br i1 %brmerge, label %40, label %33
 
 33:                                               ; preds = %21
@@ -23386,7 +23386,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %77, %45, %
   %184 = icmp ne i8 %183, 112
   %185 = icmp eq ptr %179, null
   %or.cond3.not286 = select i1 %184, i1 true, i1 %185
-  %brmerge266 = or i1 %or.cond3.not286, %3
+  %brmerge266 = or i1 %3, %or.cond3.not286
   br i1 %brmerge266, label %191, label %186
 
 186:                                              ; preds = %177
@@ -23724,7 +23724,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
@@ -27142,7 +27142,7 @@ define internal fastcc void @drop_parent_dependency(i32 noundef %0, i32 noundef 
   %31 = getelementptr inbounds i8, ptr %18, i64 24
   %32 = load i8, ptr %31, align 4
   %33 = sext i8 %32 to i32
-  %34 = icmp eq i32 %33, %3
+  %34 = icmp eq i32 %3, %33
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %30
@@ -28472,7 +28472,7 @@ TryReuseIndex.exit142:                            ; preds = %165, %138, %134
   %175 = getelementptr inbounds i8, ptr %173, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = icmp ne i32 %176, 9
-  %brmerge = or i1 %177, %5
+  %brmerge = or i1 %5, %177
   br i1 %brmerge, label %212, label %178
 
 178:                                              ; preds = %171

@@ -1988,7 +1988,7 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   %16 = getelementptr inbounds i8, ptr %11, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
-  %.not = icmp ugt i32 %18, %2
+  %.not = icmp ult i32 %2, %18
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %4
@@ -2436,7 +2436,7 @@ define internal noundef i32 @Get_Kerning(ptr nocapture noundef readonly %0, i32 
   %15 = zext i32 %.val7 to i64
   %16 = getelementptr inbounds %struct.AFM_KernPairRec_, ptr %.val, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -16
-  %.not1.i = icmp ult ptr %17, %.val
+  %.not1.i = icmp ugt ptr %.val, %17
   br i1 %.not1.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %39
@@ -2777,7 +2777,7 @@ define internal i32 @T1_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef
 46:                                               ; preds = %.lr.ph38, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %67 ]
   %47 = trunc nuw i64 %indvars.iv to i32
-  %48 = add i32 %47, %1
+  %48 = add i32 %1, %47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %49 = call fastcc i32 @T1_Parse_Glyph_And_Get_Char_String(ptr noundef nonnull %8, i32 noundef %48, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -3125,7 +3125,7 @@ switch.lookup505:                                 ; preds = %21
 48:                                               ; preds = %5
   %49 = getelementptr inbounds i8, ptr %0, i64 640
   %50 = load i32, ptr %49, align 8
-  %51 = icmp ugt i32 %50, %2
+  %51 = icmp ult i32 %2, %50
   br i1 %51, label %52, label %.thread499
 
 52:                                               ; preds = %48
@@ -3148,7 +3148,7 @@ switch.lookup505:                                 ; preds = %21
 61:                                               ; preds = %5
   %62 = getelementptr inbounds i8, ptr %0, i64 640
   %63 = load i32, ptr %62, align 8
-  %64 = icmp ugt i32 %63, %2
+  %64 = icmp ult i32 %2, %63
   br i1 %64, label %65, label %.thread499
 
 65:                                               ; preds = %61
@@ -3196,7 +3196,7 @@ switch.lookup505:                                 ; preds = %21
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %0, i64 552
   %91 = load i32, ptr %90, align 8
-  %92 = icmp ugt i32 %91, %2
+  %92 = icmp ult i32 %2, %91
   br i1 %92, label %93, label %.thread499
 
 93:                                               ; preds = %89
@@ -3247,7 +3247,7 @@ switch.lookup505:                                 ; preds = %21
 114:                                              ; preds = %107
   %115 = getelementptr inbounds i8, ptr %0, i64 608
   %116 = load i32, ptr %115, align 8
-  %.not503 = icmp ugt i32 %116, %2
+  %.not503 = icmp ult i32 %2, %116
   br i1 %.not503, label %117, label %.thread499
 
 117:                                              ; preds = %.thread491, %114
@@ -3319,7 +3319,7 @@ switch.lookup505:                                 ; preds = %21
   %148 = getelementptr inbounds i8, ptr %0, i64 320
   %149 = load i8, ptr %148, align 8
   %150 = zext i8 %149 to i32
-  %151 = icmp ugt i32 %150, %2
+  %151 = icmp ult i32 %2, %150
   br i1 %151, label %152, label %.thread499
 
 152:                                              ; preds = %147
@@ -3388,7 +3388,7 @@ switch.lookup505:                                 ; preds = %21
   %179 = getelementptr inbounds i8, ptr %0, i64 321
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i32
-  %182 = icmp ugt i32 %181, %2
+  %182 = icmp ult i32 %2, %181
   br i1 %182, label %183, label %.thread499
 
 183:                                              ; preds = %178
@@ -3421,7 +3421,7 @@ switch.lookup505:                                 ; preds = %21
   %195 = getelementptr inbounds i8, ptr %0, i64 322
   %196 = load i8, ptr %195, align 2
   %197 = zext i8 %196 to i32
-  %198 = icmp ugt i32 %197, %2
+  %198 = icmp ult i32 %2, %197
   br i1 %198, label %199, label %.thread499
 
 199:                                              ; preds = %194
@@ -3454,7 +3454,7 @@ switch.lookup505:                                 ; preds = %21
   %211 = getelementptr inbounds i8, ptr %0, i64 323
   %212 = load i8, ptr %211, align 1
   %213 = zext i8 %212 to i32
-  %214 = icmp ugt i32 %213, %2
+  %214 = icmp ult i32 %2, %213
   br i1 %214, label %215, label %.thread499
 
 215:                                              ; preds = %210
@@ -3487,7 +3487,7 @@ switch.lookup505:                                 ; preds = %21
   %227 = getelementptr inbounds i8, ptr %0, i64 444
   %228 = load i8, ptr %227, align 4
   %229 = zext i8 %228 to i32
-  %230 = icmp ugt i32 %229, %2
+  %230 = icmp ult i32 %2, %229
   br i1 %230, label %231, label %.thread499
 
 231:                                              ; preds = %226
@@ -3520,7 +3520,7 @@ switch.lookup505:                                 ; preds = %21
   %243 = getelementptr inbounds i8, ptr %0, i64 445
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i32
-  %246 = icmp ugt i32 %245, %2
+  %246 = icmp ult i32 %2, %245
   br i1 %246, label %247, label %.thread499
 
 247:                                              ; preds = %242
@@ -3819,7 +3819,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Track_Kerning(ptr nocapture noundef 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = icmp sgt i64 %16, %1
+  %17 = icmp slt i64 %1, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
@@ -3830,7 +3830,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Track_Kerning(ptr nocapture noundef 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %12, i64 24
   %23 = load i64, ptr %22, align 8
-  %24 = icmp slt i64 %23, %1
+  %24 = icmp sgt i64 %1, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %21
@@ -3940,7 +3940,7 @@ define internal i32 @T1_Set_MM_Design(ptr nocapture noundef readonly %0, i32 nou
   br i1 %.not88, label %._crit_edge.thread, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %7
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %9, i32 %1)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %9)
   %10 = getelementptr inbounds i8, ptr %6, i64 168
   %11 = zext i32 %spec.select to i64
   br label %12
@@ -4067,7 +4067,7 @@ define internal i32 @T1_Set_MM_Design(ptr nocapture noundef readonly %0, i32 nou
 
 .preheader.lr.ph.i:                               ; preds = %._crit_edge.thread
   %74 = load i32, ptr %72, align 4
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %74, i32 %.lcssa81107)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.lcssa81107, i32 %74)
   %75 = getelementptr inbounds i8, ptr %.val106, i64 264
   %76 = zext i32 %spec.select.i to i64
   br label %.preheader.i
@@ -4176,7 +4176,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
 
 .preheader.lr.ph.i:                               ; preds = %5
   %8 = load i32, ptr %6, align 4
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %8, i32 %1)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %8)
   %9 = getelementptr inbounds i8, ptr %.val, i64 264
   %10 = zext i32 %spec.select.i to i64
   br label %.preheader.i
@@ -4284,7 +4284,7 @@ define internal range(i32 0, 7) i32 @T1_Get_MM_Blend(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4
   call fastcc void @mm_weights_unmap(ptr noundef %9, ptr noundef nonnull %4, i32 noundef %11)
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %11, i32 %1)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %11)
   %.not28 = icmp eq i32 %spec.select, 0
   br i1 %.not28, label %.preheader, label %.lr.ph.preheader
 
@@ -4309,7 +4309,7 @@ define internal range(i32 0, 7) i32 @T1_Get_MM_Blend(ptr nocapture noundef reado
   store i64 32768, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph27, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph27, %.preheader, %3
@@ -4485,7 +4485,7 @@ define internal i32 @T1_Get_MM_Var(ptr nocapture noundef readonly %0, ptr nocapt
   %96 = getelementptr inbounds i8, ptr %93, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = load i64, ptr %97, align 8
-  %.not.i68 = icmp slt i64 %98, %95
+  %.not.i68 = icmp sgt i64 %95, %98
   br i1 %.not.i68, label %.preheader.i, label %101
 
 .preheader.i:                                     ; preds = %92
@@ -4504,7 +4504,7 @@ define internal i32 @T1_Get_MM_Var(ptr nocapture noundef readonly %0, ptr nocapt
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %123 ], [ 1, %.preheader.i ]
   %105 = getelementptr inbounds i64, ptr %97, i64 %indvars.iv.i70
   %106 = load i64, ptr %105, align 8
-  %.not28.i = icmp slt i64 %106, %95
+  %.not28.i = icmp sgt i64 %95, %106
   br i1 %.not28.i, label %123, label %107
 
 107:                                              ; preds = %.lr.ph.i69
@@ -4601,7 +4601,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Var_Design(ptr nocapture noundef rea
   %10 = getelementptr inbounds i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4
   call fastcc void @mm_weights_unmap(ptr noundef %9, ptr noundef nonnull %4, i32 noundef %11)
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %11, i32 %1)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %11)
   %.not32 = icmp eq i32 %spec.select, 0
   br i1 %.not32, label %.preheader, label %.lr.ph
 
@@ -4619,7 +4619,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Var_Design(ptr nocapture noundef rea
   %15 = shl nuw nsw i64 %14, 3
   %scevgep = getelementptr i8, ptr %2, i64 %15
   %16 = xor i32 %spec.select, -1
-  %17 = add i32 %16, %1
+  %17 = add i32 %1, %16
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = add nuw nsw i64 %19, 8
@@ -4634,7 +4634,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Var_Design(ptr nocapture noundef rea
   %25 = getelementptr inbounds i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr %26, align 8
-  %.not.i = icmp slt i64 %27, %24
+  %.not.i = icmp sgt i64 %24, %27
   br i1 %.not.i, label %.preheader.i, label %30
 
 .preheader.i:                                     ; preds = %21
@@ -4653,7 +4653,7 @@ define internal range(i32 0, 7) i32 @T1_Get_Var_Design(ptr nocapture noundef rea
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 1, %.preheader.i ]
   %34 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8
-  %.not28.i = icmp slt i64 %35, %24
+  %.not28.i = icmp sgt i64 %24, %35
   br i1 %.not28.i, label %52, label %36
 
 36:                                               ; preds = %.lr.ph.i
@@ -4812,7 +4812,7 @@ define internal range(i32 0, 7) i32 @T1_Set_MM_WeightVector(ptr nocapture nounde
 
 22:                                               ; preds = %21
   %23 = load i32, ptr %5, align 8
-  %. = tail call i32 @llvm.umin.i32(i32 %23, i32 %1)
+  %. = tail call i32 @llvm.umin.i32(i32 %1, i32 %23)
   %.not43 = icmp eq i32 %., 0
   br i1 %.not43, label %.preheader, label %.lr.ph39
 

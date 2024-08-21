@@ -744,7 +744,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
   %23 = load i32, ptr %22, align 4
   %24 = lshr i32 %21, %23
   %25 = zext nneg i32 %24 to i64
-  %26 = icmp ugt i64 %25, %1
+  %26 = icmp ult i64 %1, %25
   br i1 %26, label %27, label %.thread4
 
 27:                                               ; preds = %18

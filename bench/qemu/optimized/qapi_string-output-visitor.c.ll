@@ -140,7 +140,7 @@ if.end:                                           ; preds = %if.else11
   %upb2.i.i69 = getelementptr inbounds i8, ptr %call.i68, i64 8
   store i64 %2, ptr %upb2.i.i69, align 8
   %cmp.not.i.i.i.i = icmp ule i64 %4, %2
-  %cmp3.i.i.i.i = icmp eq i64 %add, %4
+  %cmp3.i.i.i.i = icmp eq i64 %4, %add
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp3.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %range_is_empty.exit.i.i, label %if.else.i.i.i.i
 
@@ -197,7 +197,7 @@ if.end35:                                         ; preds = %if.then27
   store i64 %add25, ptr %upb2.i.i73, align 8
   %cmp.not.i.i.i.i74 = icmp ule i64 %9, %add25
   %add.i.i.i.i75 = add i64 %7, 2
-  %cmp3.i.i.i.i76 = icmp eq i64 %add.i.i.i.i75, %9
+  %cmp3.i.i.i.i76 = icmp eq i64 %9, %add.i.i.i.i75
   %or.cond.i.i.i.i77 = or i1 %cmp.not.i.i.i.i74, %cmp3.i.i.i.i76
   br i1 %or.cond.i.i.i.i77, label %range_is_empty.exit.i.i79, label %if.else.i.i.i.i78
 
@@ -240,7 +240,7 @@ if.end50:                                         ; preds = %if.else44
   %upb2.i.i90 = getelementptr inbounds i8, ptr %call.i89, i64 8
   store i64 %7, ptr %upb2.i.i90, align 8
   %cmp.not.i.i.i.i91 = icmp ule i64 %10, %7
-  %cmp3.i.i.i.i93 = icmp eq i64 %add25, %10
+  %cmp3.i.i.i.i93 = icmp eq i64 %10, %add25
   %or.cond.i.i.i.i94 = or i1 %cmp.not.i.i.i.i91, %cmp3.i.i.i.i93
   br i1 %or.cond.i.i.i.i94, label %range_is_empty.exit.i.i96, label %if.else.i.i.i.i95
 
@@ -301,7 +301,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %.val61 = load i64, ptr %16, align 8
   %cmp.not.i.i.i.i106 = icmp ule i64 %.val, %.val61
   %add.i.i.i.i107 = add i64 %.val61, 1
-  %cmp3.i.i.i.i108 = icmp eq i64 %add.i.i.i.i107, %.val
+  %cmp3.i.i.i.i108 = icmp eq i64 %.val, %add.i.i.i.i107
   %or.cond.i.i.i.i109 = or i1 %cmp.not.i.i.i.i106, %cmp3.i.i.i.i108
   br i1 %or.cond.i.i.i.i109, label %range_is_empty.exit.i.i111, label %if.else.i.i.i.i110
 
@@ -368,7 +368,7 @@ while.body63:                                     ; preds = %if.then58, %format_
   %.val63 = load i64, ptr %24, align 8
   %cmp.not.i.i.i.i114 = icmp ule i64 %.val62, %.val63
   %add.i.i.i.i115 = add i64 %.val63, 1
-  %cmp3.i.i.i.i116 = icmp eq i64 %add.i.i.i.i115, %.val62
+  %cmp3.i.i.i.i116 = icmp eq i64 %.val62, %add.i.i.i.i115
   %or.cond.i.i.i.i117 = or i1 %cmp.not.i.i.i.i114, %cmp3.i.i.i.i116
   br i1 %or.cond.i.i.i.i117, label %range_is_empty.exit.i.i119, label %if.else.i.i.i.i118
 
@@ -615,7 +615,7 @@ define internal void @string_output_complete(ptr nocapture noundef %v, ptr nound
 entry:
   %result = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %result, align 8
-  %cmp = icmp eq ptr %0, %opaque
+  %cmp = icmp eq ptr %opaque, %0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry

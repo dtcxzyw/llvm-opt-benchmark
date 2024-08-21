@@ -5778,7 +5778,7 @@ _ZN4core4sync6atomic11atomic_load17h6946be770aabdec3E.llvm.16910215836284360165.
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit": ; preds = %32
   %36 = load i32, ptr %28, align 4, !noalias !866, !noundef !4
-  %.not.i.i.not = icmp ult i32 %36, %34
+  %.not.i.i.not = icmp ugt i32 %34, %36
   br i1 %.not.i.i.not, label %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.thread", label %37
 
 37:                                               ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit"
@@ -9555,7 +9555,7 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_incremen
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i": ; preds = %14
   %18 = load i32, ptr %10, align 4, !noalias !1447, !noundef !4
-  %.not.i.i.not.i = icmp ult i32 %18, %16
+  %.not.i.i.not.i = icmp ugt i32 %16, %18
   br i1 %.not.i.i.not.i, label %25, label %19
 
 19:                                               ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h5fa8ba7cdf8d6d81E.exit.i"

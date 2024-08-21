@@ -163,7 +163,7 @@ _ZNK9grpc_core13HistogramView5CountEv.exit:       ; preds = %for.body.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK9grpc_core13HistogramView5CountEv.exit
-  %mul = fmul double %add.i, %p
+  %mul = fmul double %p, %add.i
   %div = fdiv double %mul, 1.000000e+02
   br label %for.body.i6
 

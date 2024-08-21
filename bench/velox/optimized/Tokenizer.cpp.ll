@@ -547,25 +547,25 @@ entry:
   %0 = load ptr, ptr %separators_, align 8
   %closeBracket.i = getelementptr inbounds i8, ptr %0, i64 1
   %1 = load i8, ptr %closeBracket.i, align 1
-  %cmp.i = icmp eq i8 %1, %expected
+  %cmp.i = icmp eq i8 %expected, %1
   %dot.i = getelementptr inbounds i8, ptr %0, i64 2
   %2 = load i8, ptr %dot.i, align 1
-  %cmp5.i = icmp eq i8 %2, %expected
+  %cmp5.i = icmp eq i8 %expected, %2
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp5.i
   %openBracket.i = getelementptr inbounds i8, ptr %0, i64 3
   %3 = load i8, ptr %openBracket.i, align 1
-  %cmp9.i = icmp eq i8 %3, %expected
+  %cmp9.i = icmp eq i8 %expected, %3
   %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
   %quote.i = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i8, ptr %quote.i, align 1
-  %cmp13.i = icmp eq i8 %4, %expected
+  %cmp13.i = icmp eq i8 %expected, %4
   %or.cond6.i = select i1 %or.cond5.i, i1 true, i1 %cmp13.i
   br i1 %or.cond6.i, label %land.rhs, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
 
 _ZNK8facebook5velox6common10Separators11isSeparatorEc.exit: ; preds = %entry
   %wildCard.i = getelementptr inbounds i8, ptr %0, i64 5
   %5 = load i8, ptr %wildCard.i, align 1
-  %cmp16.i = icmp eq i8 %5, %expected
+  %cmp16.i = icmp eq i8 %expected, %5
   br i1 %cmp16.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry, %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
@@ -618,25 +618,25 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   %3 = load i8, ptr %call.i4, align 1
   %closeBracket.i = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %closeBracket.i, align 1
-  %cmp.i5 = icmp eq i8 %4, %3
+  %cmp.i5 = icmp eq i8 %3, %4
   %dot.i = getelementptr inbounds i8, ptr %1, i64 2
   %5 = load i8, ptr %dot.i, align 1
-  %cmp5.i = icmp eq i8 %5, %3
+  %cmp5.i = icmp eq i8 %3, %5
   %or.cond.i = select i1 %cmp.i5, i1 true, i1 %cmp5.i
   %openBracket.i = getelementptr inbounds i8, ptr %1, i64 3
   %6 = load i8, ptr %openBracket.i, align 1
-  %cmp9.i = icmp eq i8 %6, %3
+  %cmp9.i = icmp eq i8 %3, %6
   %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
   %quote.i = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i8, ptr %quote.i, align 1
-  %cmp13.i = icmp eq i8 %7, %3
+  %cmp13.i = icmp eq i8 %3, %7
   %or.cond6.i = select i1 %or.cond5.i, i1 true, i1 %cmp13.i
   br i1 %or.cond6.i, label %while.end, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
 
 _ZNK8facebook5velox6common10Separators11isSeparatorEc.exit: ; preds = %land.lhs.true
   %wildCard.i = getelementptr inbounds i8, ptr %1, i64 5
   %8 = load i8, ptr %wildCard.i, align 1
-  %cmp16.i = icmp eq i8 %8, %3
+  %cmp16.i = icmp eq i8 %3, %8
   br i1 %cmp16.i, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit

@@ -4687,7 +4687,7 @@ define internal fastcc void @kill_engines(ptr noundef readonly %0, i1 noundef ze
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = xor i1 %2, true
-  %9 = or i1 %8, %1
+  %9 = or i1 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   br i1 %5, label %.loopexit, label %.lr.ph, !prof !15
 

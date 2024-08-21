@@ -127,7 +127,7 @@ define internal ptr @wmem_block_fast_realloc(ptr nocapture noundef %0, ptr nound
 
 18:                                               ; preds = %3
   %19 = zext i32 %5 to i64
-  %20 = icmp ult i64 %19, %2
+  %20 = icmp ugt i64 %2, %19
   br i1 %20, label %21, label %60
 
 21:                                               ; preds = %18

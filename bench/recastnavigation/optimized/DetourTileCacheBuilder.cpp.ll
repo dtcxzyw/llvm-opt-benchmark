@@ -1285,7 +1285,7 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   %187 = getelementptr inbounds i8, ptr %39, i64 %186
   %188 = getelementptr inbounds i8, ptr %187, i64 3
   %189 = load i8, ptr %188, align 1
-  %190 = icmp eq i8 %189, %.0.i92.i.us
+  %190 = icmp eq i8 %.0.i92.i.us, %189
   br i1 %190, label %191, label %205
 
 191:                                              ; preds = %180
@@ -4598,7 +4598,7 @@ _ZL10mergePolysPtS_ii.exit:                       ; preds = %463, %.preheader.i
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyP16dtTileCacheAllocPtiPKtiRK21dtTileCacheContourSet(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = mul nsw i32 %2, 6
-  %8 = add nsw i32 %7, %4
+  %8 = add nsw i32 %4, %7
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 1
   %11 = load ptr, ptr %0, align 8
@@ -5158,9 +5158,9 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr noc
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load float, ptr %13, align 4
   %15 = fsub float %14, %5
-  %16 = fadd float %9, %5
-  %17 = fadd float %12, %6
-  %18 = fadd float %14, %5
+  %16 = fadd float %5, %9
+  %17 = fadd float %6, %12
+  %18 = fadd float %5, %14
   %19 = fdiv float %5, %2
   %20 = fadd float %19, 5.000000e-01
   %21 = fmul float %20, %20
@@ -5547,8 +5547,8 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noca
   br i1 %or.cond, label %113, label %96
 
 96:                                               ; preds = %85
-  %97 = fneg float %91
-  %98 = fmul float %89, %97
+  %97 = fneg float %89
+  %98 = fmul float %91, %97
   %99 = tail call float @llvm.fmuladd.f32(float %90, float %83, float %98)
   %100 = fcmp ogt float %99, %69
   %101 = fcmp olt float %99, %72
@@ -6308,13 +6308,13 @@ _ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread:    ; preds = %177
   %.val33.i.i1618 = phi i8 [ %.val33.i.i, %199 ], [ %.val33.i.i12, %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread ]
   %200 = phi i32 [ %182, %199 ], [ %194, %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread ]
   %201 = phi i32 [ %184, %199 ], [ %196, %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread ]
-  %.not31.i57.i.i = icmp ult i8 %130, %39
+  %.not31.i57.i.i = icmp ugt i8 %39, %130
   %.not32.i58.i.i = icmp ugt i8 %130, %60
   %or.cond.i59.i.i = or i1 %.not31.i57.i.i, %.not32.i58.i.i
   br i1 %or.cond.i59.i.i, label %202, label %_ZL10diagonalieiiiPKhPKt.exit
 
 202:                                              ; preds = %.thread
-  %.not33.i60.i.i = icmp ule i8 %130, %39
+  %.not33.i60.i.i = icmp uge i8 %39, %130
   %203 = icmp uge i8 %130, %60
   %spec.select.i61.i.i = and i1 %.not33.i60.i.i, %203
   br i1 %spec.select.i61.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit67.thread16.i.i
@@ -6323,13 +6323,13 @@ _ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread:    ; preds = %177
   %.val33.i.i1625 = phi i8 [ %.val33.i.i, %199 ], [ %.val33.i.i20, %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread19 ]
   %204 = phi i32 [ %182, %199 ], [ %188, %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread19 ]
   %205 = phi i32 [ %184, %199 ], [ %190, %_ZL7betweenPKhS0_S0_.exit.thread13.i.i.thread19 ]
-  %.not28.i62.i.i = icmp ult i8 %.val33.i.i1625, %56
+  %.not28.i62.i.i = icmp ugt i8 %56, %.val33.i.i1625
   %.not29.i63.i.i = icmp ugt i8 %.val33.i.i1625, %.val46.pre.i
   %or.cond9.i64.i.i = or i1 %.not28.i62.i.i, %.not29.i63.i.i
   br i1 %or.cond9.i64.i.i, label %_ZL7betweenPKhS0_S0_.exit67.i.i, label %_ZL10diagonalieiiiPKhPKt.exit
 
 _ZL7betweenPKhS0_S0_.exit67.i.i:                  ; preds = %.thread23
-  %.not30.i65.i.i = icmp ule i8 %.val33.i.i1625, %56
+  %.not30.i65.i.i = icmp uge i8 %56, %.val33.i.i1625
   %206 = icmp uge i8 %.val33.i.i1625, %.val46.pre.i
   %spec.select10.i66.i.i = and i1 %.not30.i65.i.i, %206
   br i1 %spec.select10.i66.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit67.thread16.i.i
@@ -6348,30 +6348,30 @@ _ZL7betweenPKhS0_S0_.exit67.thread16.i.i:         ; preds = %_ZL7betweenPKhS0_S0
   br i1 %211, label %212, label %_ZL7betweenPKhS0_S0_.exit84.thread19.i.i
 
 212:                                              ; preds = %_ZL7betweenPKhS0_S0_.exit67.thread16.i.i
-  %.not.i73.i.i = icmp eq i8 %130, %121
+  %.not.i73.i.i = icmp eq i8 %121, %130
   br i1 %.not.i73.i.i, label %216, label %213
 
 213:                                              ; preds = %212
   %.not31.i74.i.i = icmp ugt i8 %121, %39
-  %.not32.i75.i.i = icmp ult i8 %130, %39
+  %.not32.i75.i.i = icmp ugt i8 %39, %130
   %or.cond.i76.i.i = or i1 %.not31.i74.i.i, %.not32.i75.i.i
   br i1 %or.cond.i76.i.i, label %214, label %_ZL10diagonalieiiiPKhPKt.exit
 
 214:                                              ; preds = %213
   %.not33.i77.i.i = icmp uge i8 %121, %39
-  %215 = icmp ule i8 %130, %39
+  %215 = icmp uge i8 %39, %130
   %spec.select.i78.i.i = and i1 %.not33.i77.i.i, %215
   br i1 %spec.select.i78.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit84.thread19.i.i
 
 216:                                              ; preds = %212
   %.not28.i79.i.i = icmp ugt i8 %.val48.i, %56
-  %.not29.i80.i.i = icmp ult i8 %.val33.i.i15, %56
+  %.not29.i80.i.i = icmp ugt i8 %56, %.val33.i.i15
   %or.cond9.i81.i.i = or i1 %.not28.i79.i.i, %.not29.i80.i.i
   br i1 %or.cond9.i81.i.i, label %_ZL7betweenPKhS0_S0_.exit84.i.i, label %_ZL10diagonalieiiiPKhPKt.exit
 
 _ZL7betweenPKhS0_S0_.exit84.i.i:                  ; preds = %216
   %.not30.i82.i.i = icmp uge i8 %.val48.i, %56
-  %217 = icmp ule i8 %.val33.i.i15, %56
+  %217 = icmp uge i8 %56, %.val33.i.i15
   %spec.select10.i83.i.i = and i1 %.not30.i82.i.i, %217
   br i1 %spec.select10.i83.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL7betweenPKhS0_S0_.exit84.thread19.i.i
 
@@ -6384,30 +6384,30 @@ _ZL7betweenPKhS0_S0_.exit84.thread19.i.i:         ; preds = %_ZL7betweenPKhS0_S0
   br i1 %220, label %221, label %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i
 
 221:                                              ; preds = %_ZL7betweenPKhS0_S0_.exit84.thread19.i.i
-  %.not.i90.i.i = icmp eq i8 %130, %121
+  %.not.i90.i.i = icmp eq i8 %121, %130
   br i1 %.not.i90.i.i, label %225, label %222
 
 222:                                              ; preds = %221
   %.not31.i91.i.i = icmp ugt i8 %121, %60
-  %.not32.i92.i.i = icmp ult i8 %130, %60
+  %.not32.i92.i.i = icmp ugt i8 %60, %130
   %or.cond.i93.i.i = or i1 %.not31.i91.i.i, %.not32.i92.i.i
   br i1 %or.cond.i93.i.i, label %223, label %_ZL10diagonalieiiiPKhPKt.exit
 
 223:                                              ; preds = %222
   %.not33.i94.i.i = icmp uge i8 %121, %60
-  %224 = icmp ule i8 %130, %60
+  %224 = icmp uge i8 %60, %130
   %spec.select.i95.i.i = and i1 %.not33.i94.i.i, %224
   br i1 %spec.select.i95.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i
 
 225:                                              ; preds = %221
   %.not28.i96.i.i = icmp ugt i8 %.val48.i, %.val46.pre.i
-  %.not29.i97.i.i = icmp ult i8 %.val33.i.i15, %.val46.pre.i
+  %.not29.i97.i.i = icmp ugt i8 %.val46.pre.i, %.val33.i.i15
   %or.cond9.i98.i.i = or i1 %.not28.i96.i.i, %.not29.i97.i.i
   br i1 %or.cond9.i98.i.i, label %_ZL9intersectPKhS0_S0_S0_.exit.i, label %_ZL10diagonalieiiiPKhPKt.exit
 
 _ZL9intersectPKhS0_S0_S0_.exit.i:                 ; preds = %225
   %.not30.i99.i.i = icmp uge i8 %.val48.i, %.val46.pre.i
-  %226 = icmp ule i8 %.val33.i.i15, %.val46.pre.i
+  %226 = icmp uge i8 %.val46.pre.i, %.val33.i.i15
   %spec.select10.i100.i.i = and i1 %.not30.i99.i.i, %226
   br i1 %spec.select10.i100.i.i, label %_ZL10diagonalieiiiPKhPKt.exit, label %_ZL9intersectPKhS0_S0_S0_.exit.thread53.i
 

@@ -65,7 +65,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %.val = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %.val, i64 16
   %19 = tail call noundef i64 @_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %18, i32 noundef %7)
-  %.not.i = icmp ugt i64 %19, %2
+  %.not.i = icmp ult i64 %2, %19
   br i1 %.not.i, label %20, label %46
 
 20:                                               ; preds = %16
@@ -973,7 +973,7 @@ define void @"_ZN79_$LT$regex..regex..bytes..NoExpand$u20$as$u20$regex..regex..b
   %8 = load i64, ptr %7, align 8, !alias.scope !115, !noalias !120, !noundef !5
   %9 = load i64, ptr %2, align 8, !alias.scope !122, !noalias !120, !noundef !5
   %10 = sub i64 %9, %8
-  %11 = icmp ult i64 %10, %6
+  %11 = icmp ugt i64 %6, %10
   br i1 %11, label %12, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h34461450d19cd157E.exit"
 
 12:                                               ; preds = %3

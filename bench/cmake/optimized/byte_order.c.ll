@@ -36,7 +36,7 @@ define dso_local void @rhash_swap_copy_str_to_u32(ptr noundef %0, i32 noundef %1
   br i1 %21, label %.lr.ph31, label %.loopexit, !llvm.loop !5
 
 22:                                               ; preds = %4
-  %23 = add i64 %7, %3
+  %23 = add i64 %3, %7
   %24 = icmp ugt i64 %23, %7
   br i1 %24, label %.lr.ph, label %.loopexit
 
@@ -94,7 +94,7 @@ define dso_local void @rhash_swap_copy_str_to_u64(ptr noundef %0, i32 noundef %1
   br i1 %21, label %.lr.ph29, label %.loopexit, !llvm.loop !8
 
 22:                                               ; preds = %4
-  %23 = add i64 %7, %3
+  %23 = add i64 %3, %7
   %24 = icmp ugt i64 %23, %7
   br i1 %24, label %.lr.ph, label %.loopexit
 

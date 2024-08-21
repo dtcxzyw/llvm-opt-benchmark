@@ -670,7 +670,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cm6String5
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %3
@@ -749,7 +749,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZNK2cm6String6substrEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cm::String") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %6, %2
+  %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
@@ -835,7 +835,7 @@ _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 define dso_local noundef i64 @_ZNK2cm6String4copyEPcmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %6, %3
+  %7 = icmp ugt i64 %3, %6
   br i1 %7, label %8, label %_ZSt10__sv_checkmmPKc.exit.i
 
 8:                                                ; preds = %4

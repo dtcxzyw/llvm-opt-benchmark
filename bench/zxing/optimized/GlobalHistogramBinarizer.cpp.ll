@@ -490,7 +490,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIN9__gnu_cxx17__normal_iterato
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 1
-  %16 = icmp ult i64 %15, %8
+  %16 = icmp ugt i64 %8, %15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3
@@ -502,7 +502,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIN9__gnu_cxx17__normal_iterato
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 19:                                               ; preds = %3
-  %20 = icmp ugt i64 %15, %8
+  %20 = icmp ult i64 %8, %15
   br i1 %20, label %21, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 21:                                               ; preds = %19
@@ -577,7 +577,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %53 = ptrtoint ptr %52 to i64
   %54 = sub i64 %53, %48
   %55 = ashr exact i64 %54, 1
-  %56 = icmp ult i64 %55, %51
+  %56 = icmp ugt i64 %51, %55
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %._crit_edge
@@ -586,7 +586,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit17
 
 59:                                               ; preds = %._crit_edge
-  %60 = icmp ugt i64 %55, %51
+  %60 = icmp ult i64 %51, %55
   br i1 %60, label %61, label %_ZNSt6vectorItSaItEE6resizeEm.exit17
 
 61:                                               ; preds = %59
@@ -913,7 +913,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -996,7 +996,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40

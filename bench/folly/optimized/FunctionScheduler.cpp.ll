@@ -9327,7 +9327,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17F
   %22 = phi ptr [ %17, %if.end9 ], [ %.pre139, %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit ]
   %notmask.i63 = shl nsw i64 -1, %sh_prom.i62.pre-phi
   %sub.i64 = xor i64 %notmask.i63, -1
-  %and.i65 = and i64 %sub.i64, %hp.coerce0
+  %and.i65 = and i64 %hp.coerce0, %sub.i64
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %and.i65
   %23 = load <16 x i8>, ptr %add.ptr, align 16, !tbaa !38
   %24 = icmp slt <16 x i8> %23, zeroinitializer

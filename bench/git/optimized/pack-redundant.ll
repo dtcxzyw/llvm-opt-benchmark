@@ -2364,7 +2364,7 @@ if.then.i13:                                      ; preds = %llist_item_get.exit
   store ptr %new_item.0.i.i, ptr %prev.026, align 8
   %back.i = getelementptr inbounds i8, ptr %list, i64 8
   %12 = load ptr, ptr %back.i, align 8
-  %cmp.i = icmp eq ptr %12, %prev.026
+  %cmp.i = icmp eq ptr %prev.026, %12
   br i1 %cmp.i, label %if.end14.sink.split.i, label %return.sink.split
 
 if.else.i14:                                      ; preds = %llist_item_get.exit.i
@@ -2449,7 +2449,7 @@ if.then.i.i18:                                    ; preds = %llist_item_get.exit
   store ptr %23, ptr %new_item.0.i.i.i, align 8
   store ptr %new_item.0.i.i.i, ptr %16, align 8
   %24 = load ptr, ptr %back.i16, align 8
-  %cmp.i.i19 = icmp eq ptr %24, %16
+  %cmp.i.i19 = icmp eq ptr %16, %24
   br i1 %cmp.i.i19, label %if.end14.sink.split.i.i, label %return.sink.split
 
 if.else.i.i20:                                    ; preds = %llist_item_get.exit.i.i
@@ -2650,7 +2650,7 @@ if.then.i.i:                                      ; preds = %llist_item_get.exit
   store ptr %13, ptr %new_item.0.i.i.i, align 8
   store ptr %new_item.0.i.i.i, ptr %7, align 8
   %14 = load ptr, ptr %back.i, align 8
-  %cmp.i.i = icmp eq ptr %14, %7
+  %cmp.i.i = icmp eq ptr %7, %14
   br i1 %cmp.i.i, label %if.end14.sink.split.i.i, label %llist_insert_back.exit
 
 if.else.i.i:                                      ; preds = %llist_item_get.exit.i.i

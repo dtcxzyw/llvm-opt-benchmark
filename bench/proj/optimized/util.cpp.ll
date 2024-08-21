@@ -6526,7 +6526,7 @@ _ZSt19__relocate_object_aIN5osgeo4proj4util15BaseObjectNNPtrES3_SaIS3_EEvPT_PT0_
 _ZNSt6vectorIN5osgeo4proj4util15BaseObjectNNPtrESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %_ZSt19__relocate_object_aIN5osgeo4proj4util15BaseObjectNNPtrES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIN5osgeo4proj4util15BaseObjectNNPtrEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5osgeo4proj4util15BaseObjectNNPtrEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %50, %_ZSt19__relocate_object_aIN5osgeo4proj4util15BaseObjectNNPtrES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i ]
   %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN5osgeo4proj4util15BaseObjectNNPtrESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN5osgeo4proj4util15BaseObjectNNPtrESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %_ZSt19__relocate_object_aIN5osgeo4proj4util15BaseObjectNNPtrES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i22

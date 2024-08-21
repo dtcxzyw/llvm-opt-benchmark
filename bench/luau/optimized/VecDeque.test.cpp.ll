@@ -11380,7 +11380,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = call ptr @__cxa_begin_catch(ptr %95) #20
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %91
+  %.not4.i.i.i.i.i.i = icmp eq ptr %91, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %93, %.lr.ph.i.i.i.i.i.i
@@ -27796,7 +27796,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeINSt7__cxx1112basic_stringI
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %12, label %53
 
 12:                                               ; preds = %9
@@ -27968,7 +27968,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #20
-  %.not4.i.i.i.i.i = icmp eq ptr %.016.i.i.i, %26
+  %.not4.i.i.i.i.i = icmp eq ptr %26, %.016.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %29, %.lr.ph.i.i.i.i.i
@@ -28029,7 +28029,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %48) #20
-  %.not4.i.i.i.i.i29 = icmp eq ptr %.016.i.i.i27, %43
+  %.not4.i.i.i.i.i29 = icmp eq ptr %43, %.016.i.i.i27
   br i1 %.not4.i.i.i.i.i29, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i33, label %.lr.ph.i.i.i.i.i30
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %46, %.lr.ph.i.i.i.i.i30
@@ -28187,7 +28187,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = tail call ptr @__cxa_begin_catch(ptr %59) #20
-  %.not4.i.i.i.i.i = icmp eq ptr %.016.i.i.i, %54
+  %.not4.i.i.i.i.i = icmp eq ptr %54, %.016.i.i.i
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %57, %.lr.ph.i.i.i.i.i
@@ -28249,7 +28249,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
   %78 = tail call ptr @__cxa_begin_catch(ptr %77) #20
-  %.not4.i.i.i.i.i30 = icmp eq ptr %.016.i.i.i28, %72
+  %.not4.i.i.i.i.i30 = icmp eq ptr %72, %.016.i.i.i28
   br i1 %.not4.i.i.i.i.i30, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i34, label %.lr.ph.i.i.i.i.i31
 
 .lr.ph.i.i.i.i.i31:                               ; preds = %75, %.lr.ph.i.i.i.i.i31
@@ -28683,7 +28683,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt10shared_ptrI10TestStruc
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %12, label %45
 
 12:                                               ; preds = %9

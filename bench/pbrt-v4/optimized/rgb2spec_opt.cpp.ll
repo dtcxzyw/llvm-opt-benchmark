@@ -402,7 +402,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   store double %sub37, ptr %arrayidx36, align 8
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %12 = trunc nuw i64 %indvars.iv.next50 to i32
-  %cmp26 = icmp slt i32 %12, %N
+  %cmp26 = icmp sgt i32 %N, %12
   br i1 %cmp26, label %for.body27, label %for.end40, !llvm.loop !13
 
 for.end40:                                        ; preds = %for.body27, %for.cond25.preheader.for.end40_crit_edge

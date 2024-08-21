@@ -2135,7 +2135,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %72, %72, 
 
 75:                                               ; preds = %72, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread, %69
   %76 = phi i1 [ true, %69 ], [ %spec.select, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread ], [ false, %72 ]
-  %77 = and i1 %76, %6
+  %77 = and i1 %6, %76
   br label %78
 
 78:                                               ; preds = %68, %56, %42, %22, %75
@@ -2694,7 +2694,7 @@ define noundef zeroext i1 @_ZN3gmx28decideWhetherToUseGpuForHaloEbbbbbbRKNS_8MDL
   %9 = alloca %"class.gmx::LogEntryWriter", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %brmerge.demorgan = and i1 %0, %2
-  %brmerge17.demorgan = and i1 %brmerge.demorgan, %1
+  %brmerge17.demorgan = and i1 %1, %brmerge.demorgan
   br i1 %brmerge17.demorgan, label %11, label %40
 
 11:                                               ; preds = %7

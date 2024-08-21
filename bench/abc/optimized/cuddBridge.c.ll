@@ -734,7 +734,7 @@ define internal ptr @ddBddToAddRecur(ptr noundef %0, ptr noundef %1) #0 {
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %67, label %12
 
 12:                                               ; preds = %8
@@ -870,7 +870,7 @@ define ptr @cuddAddBddDoPattern(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   %12 = zext i1 %11 to i64
   %13 = xor i64 %12, %8
   %14 = inttoptr i64 %13 to ptr

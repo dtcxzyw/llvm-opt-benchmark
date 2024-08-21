@@ -535,7 +535,7 @@ for.end:                                          ; preds = %while.end, %entry
 land.lhs.true39:                                  ; preds = %for.end
   %score40 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load double, ptr %score40, align 8
-  %cmp41 = fcmp oeq double %12, %score
+  %cmp41 = fcmp oeq double %score, %12
   br i1 %cmp41, label %land.rhs42, label %cond.false49
 
 land.rhs42:                                       ; preds = %land.lhs.true39

@@ -3515,7 +3515,7 @@ common.resume:                                    ; preds = %47, %20
 
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
-  %.not.i.i = icmp ugt i64 %28, %31
+  %.not.i.i = icmp ult i64 %31, %28
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hc5fa80b935b33ac0E.exit.i", label %40
 
 40:                                               ; preds = %39
@@ -3978,7 +3978,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17h891d80907ed7870fE.exit.i.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !607)
   %87 = load i64, ptr %35, align 8, !alias.scope !610, !noalias !611, !noundef !4
-  %.not.i.i = icmp ugt i64 %87, %.015.i.i
+  %.not.i.i = icmp ult i64 %.015.i.i, %87
   br i1 %.not.i.i, label %_ZN17crossbeam_channel5waker5Waker10try_select17h9b7e001cc0091ca7E.exit, label %88
 
 88:                                               ; preds = %.noexc3
@@ -10657,7 +10657,7 @@ _ZN13mini_lsm_mvcc5block7builder15compute_overlap17hcb2d47a177c1871aE.exit: ; pr
   %82 = getelementptr inbounds i8, ptr %.sroa.034.0.copyload, i64 %.0.lcssa.i
   %83 = load i64, ptr %28, align 8, !noalias !4, !noundef !4
   %84 = sub i64 %83, %77
-  %85 = icmp ult i64 %84, %66
+  %85 = icmp ugt i64 %66, %84
   br i1 %85, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i": ; preds = %81
@@ -10674,7 +10674,7 @@ _ZN13mini_lsm_mvcc5block7builder15compute_overlap17hcb2d47a177c1871aE.exit: ; pr
 .lr.ph.split.us.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i"
   %.pre-phi = phi i64 [ %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i" ], [ %.pre60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i" ]
   %86 = phi i64 [ %77, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i" ], [ %.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i" ]
-  %87 = icmp ult i64 %.pre-phi, %66
+  %87 = icmp ugt i64 %66, %.pre-phi
   br i1 %87, label %88, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.4120737428893778768.exit.us.i"
 
 88:                                               ; preds = %.lr.ph.split.us.i
@@ -10737,7 +10737,7 @@ _ZN13mini_lsm_mvcc5block7builder15compute_overlap17hcb2d47a177c1871aE.exit: ; pr
   store i64 %114, ptr %17, align 8, !alias.scope !1476, !noalias !1474
   %115 = load i64, ptr %28, align 8, !alias.scope !1477, !noalias !1480, !noundef !4
   %116 = sub i64 %115, %114
-  %117 = icmp ult i64 %116, %3
+  %117 = icmp ugt i64 %3, %116
   br i1 %117, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i31", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i26"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i31": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h88edf91ee652f5c7E.exit25"
@@ -10754,7 +10754,7 @@ _ZN13mini_lsm_mvcc5block7builder15compute_overlap17hcb2d47a177c1871aE.exit: ; pr
 .lr.ph.split.us.i28:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i26", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i31"
   %.pre-phi64 = phi i64 [ %116, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i26" ], [ %.pre63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i31" ]
   %118 = phi i64 [ %114, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.i26" ], [ %.pre58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc72ea64796e10adeE.exit.thread.i31" ]
-  %119 = icmp ult i64 %.pre-phi64, %3
+  %119 = icmp ugt i64 %3, %.pre-phi64
   br i1 %119, label %120, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.4120737428893778768.exit.us.i29"
 
 120:                                              ; preds = %.lr.ph.split.us.i28

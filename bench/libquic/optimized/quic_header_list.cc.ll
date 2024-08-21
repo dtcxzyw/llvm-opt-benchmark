@@ -1096,7 +1096,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #15
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -1596,7 +1596,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %add12.i.i.i
+  %cmp.i = icmp ugt i64 %add12.i.i.i, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -1740,7 +1740,7 @@ if.then19:                                        ; preds = %if.else
   %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
   %sub.ptr.div.i38 = ashr exact i64 %sub.ptr.sub.i37, 6
   %sub.i39 = add nsw i64 %sub.ptr.div.i38, -1
-  %cmp.i40 = icmp ult i64 %sub.i39, %add12.i.i.i
+  %cmp.i40 = icmp ugt i64 %add12.i.i.i, %sub.i39
   br i1 %cmp.i40, label %if.then.i51, label %if.end.i41
 
 if.then.i51:                                      ; preds = %if.then19
@@ -2416,7 +2416,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i20
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i21, 6
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %__n
+  %cmp.i = icmp ugt i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -2915,7 +2915,7 @@ if.else51:                                        ; preds = %entry
   %sub.ptr.sub.i269 = sub i64 %sub.ptr.lhs.cast.i267, %sub.ptr.lhs.cast3.i.i
   %sub.ptr.div.i270 = ashr exact i64 %sub.ptr.sub.i269, 6
   %sub.i271 = add nsw i64 %sub.ptr.div.i270, -1
-  %cmp.i272 = icmp ult i64 %sub.i271, %__n
+  %cmp.i272 = icmp ugt i64 %__n, %sub.i271
   br i1 %cmp.i272, label %if.then.i299, label %if.end.i273
 
 if.then.i299:                                     ; preds = %if.else51
@@ -3491,7 +3491,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %div9
+  %cmp.i = icmp ugt i64 %div9, %sub.ptr.div.i
   br i1 %cmp.i, label %if.then.i, label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE23_M_reserve_map_at_frontEm.exit
 
 if.then.i:                                        ; preds = %if.end

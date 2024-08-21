@@ -329,8 +329,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %19 = or disjoint i64 %8, 1
   %20 = getelementptr inbounds double, ptr %2, i64 %19
   %21 = load double, ptr %20, align 8
-  %22 = fneg double %21
-  %23 = fmul double %16, %22
+  %22 = fneg double %16
+  %23 = fmul double %21, %22
   %24 = tail call double @llvm.fmuladd.f64(double %18, double %12, double %23)
   store double %24, ptr %11, align 8
   %25 = fmul double %16, %18
@@ -391,8 +391,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %61 = or disjoint i64 %29, 1
   %62 = getelementptr inbounds double, ptr %2, i64 %61
   store double %.0146, ptr %62, align 8
-  %63 = fneg double %.0146
-  %64 = fmul double %37, %63
+  %63 = fneg double %37
+  %64 = fmul double %.0146, %63
   %65 = tail call double @llvm.fmuladd.f64(double %.0141, double %33, double %64)
   %66 = load ptr, ptr %30, align 8
   %67 = getelementptr inbounds double, ptr %66, i64 %indvars.iv174
@@ -435,8 +435,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %86 = or disjoint i64 %75, 1
   %87 = getelementptr inbounds double, ptr %2, i64 %86
   %88 = load double, ptr %87, align 8
-  %89 = fneg double %88
-  %90 = fmul double %83, %89
+  %89 = fneg double %83
+  %90 = fmul double %88, %89
   %91 = tail call double @llvm.fmuladd.f64(double %85, double %79, double %90)
   store double %91, ptr %78, align 8
   %92 = fmul double %83, %85
@@ -500,8 +500,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds double, ptr %2, i64 %131
   store double %.1147, ptr %132, align 8
-  %133 = fneg double %.1147
-  %134 = fmul double %104, %133
+  %133 = fneg double %104
+  %134 = fmul double %.1147, %133
   %135 = tail call double @llvm.fmuladd.f64(double %.1142, double %99, double %134)
   %136 = load ptr, ptr %96, align 8
   %137 = getelementptr inbounds double, ptr %136, i64 %.pre-phi
@@ -552,8 +552,8 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr nocapture nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next
   %18 = load double, ptr %17, align 8
-  %19 = fneg double %15
-  %20 = fmul double %18, %19
+  %19 = fneg double %18
+  %20 = fmul double %15, %19
   %21 = tail call double @llvm.fmuladd.f64(double %12, double %9, double %20)
   store double %21, ptr %16, align 8
   %22 = fmul double %12, %18

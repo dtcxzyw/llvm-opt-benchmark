@@ -699,7 +699,7 @@ define dso_local zeroext i1 @strtodouble(ptr noundef %0, i1 noundef zeroext %1, 
 12:                                               ; preds = %9
   %13 = load i8, ptr %10, align 1
   %.not9 = icmp eq i8 %13, 0
-  %brmerge = or i1 %.not9, %1
+  %brmerge = or i1 %1, %.not9
   br i1 %brmerge, label %14, label %.sink.split
 
 .critedge:                                        ; preds = %9
@@ -1817,7 +1817,7 @@ postprocess_sql_command.exit:                     ; preds = %326, %parseQuery.ex
   %432 = fmul double %431, %430
   store double %432, ptr @throttle_delay, align 8
   %433 = load i32, ptr @optind, align 4
-  %434 = icmp slt i32 %433, %0
+  %434 = icmp sgt i32 %0, %433
   br i1 %434, label %435, label %440
 
 435:                                              ; preds = %428
@@ -6485,7 +6485,7 @@ pg_time_now_lazy.exit226.i:                       ; preds = %1036, %1033
 
 1060:                                             ; preds = %pg_time_now_lazy.exit226.i
   %1061 = load double, ptr %1059, align 8
-  %1062 = fcmp ogt double %1061, %1056
+  %1062 = fcmp olt double %1056, %1061
   br i1 %1062, label %1063, label %.thread.i.i
 
 1063:                                             ; preds = %1060
@@ -6495,7 +6495,7 @@ pg_time_now_lazy.exit226.i:                       ; preds = %1036, %1033
 .thread.i.i:                                      ; preds = %1063, %1060
   %1064 = getelementptr inbounds i8, ptr %1051, i64 2136
   %1065 = load double, ptr %1064, align 8
-  %1066 = fcmp olt double %1065, %1056
+  %1066 = fcmp ogt double %1056, %1065
   br i1 %1066, label %1067, label %addToSimpleStats.exit.i
 
 1067:                                             ; preds = %.thread.i.i, %.thread16.i.i
@@ -8343,7 +8343,7 @@ define internal fastcc void @initPopulateTable(ptr noundef %0, ptr noundef %1, i
   %9 = alloca [256 x i8], align 16
   %10 = load i32, ptr @scale, align 4
   %11 = sext i32 %10 to i64
-  %12 = mul i64 %11, %2
+  %12 = mul i64 %2, %11
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i32 @fileno(ptr noundef %13) #25
   %15 = tail call i32 @isatty(i32 noundef %14) #25
@@ -8889,7 +8889,7 @@ define internal fastcc void @processXactStats(ptr noundef %0, ptr nocapture noun
   %17 = load i8, ptr @per_script_stats, align 1
   %18 = trunc i8 %17 to i1
   %.not33 = xor i1 %18, true
-  %brmerge = or i1 %.not33, %3
+  %brmerge = or i1 %3, %.not33
   br i1 %brmerge, label %43, label %19
 
 .critedge:                                        ; preds = %5, %13
@@ -9145,7 +9145,7 @@ define internal fastcc void @accumStats(ptr nocapture noundef %0, i1 noundef zer
 
 30:                                               ; preds = %22
   %31 = load double, ptr %29, align 8
-  %32 = fcmp ogt double %31, %2
+  %32 = fcmp olt double %2, %31
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %30
@@ -9155,7 +9155,7 @@ define internal fastcc void @accumStats(ptr nocapture noundef %0, i1 noundef zer
 .thread.i:                                        ; preds = %33, %30
   %34 = getelementptr inbounds i8, ptr %0, i64 72
   %35 = load double, ptr %34, align 8
-  %36 = fcmp olt double %35, %2
+  %36 = fcmp ogt double %2, %35
   br i1 %36, label %37, label %addToSimpleStats.exit
 
 37:                                               ; preds = %.thread.i, %.thread16.i
@@ -9168,7 +9168,7 @@ addToSimpleStats.exit:                            ; preds = %.thread.i, %37
   store i64 %39, ptr %26, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 80
   %41 = load double, ptr %40, align 8
-  %42 = fadd double %41, %2
+  %42 = fadd double %2, %41
   store double %42, ptr %40, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 88
   %44 = load double, ptr %43, align 8
@@ -9191,7 +9191,7 @@ addToSimpleStats.exit:                            ; preds = %.thread.i, %37
 
 53:                                               ; preds = %48
   %54 = load double, ptr %52, align 8
-  %55 = fcmp ogt double %54, %3
+  %55 = fcmp olt double %3, %54
   br i1 %55, label %56, label %.thread.i14
 
 56:                                               ; preds = %53
@@ -9201,7 +9201,7 @@ addToSimpleStats.exit:                            ; preds = %.thread.i, %37
 .thread.i14:                                      ; preds = %56, %53
   %57 = getelementptr inbounds i8, ptr %0, i64 112
   %58 = load double, ptr %57, align 8
-  %59 = fcmp olt double %58, %3
+  %59 = fcmp ogt double %3, %58
   br i1 %59, label %60, label %addToSimpleStats.exit16
 
 60:                                               ; preds = %.thread.i14, %.thread16.i15
@@ -9214,7 +9214,7 @@ addToSimpleStats.exit16:                          ; preds = %.thread.i14, %60
   store i64 %62, ptr %49, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 120
   %64 = load double, ptr %63, align 8
-  %65 = fadd double %64, %3
+  %65 = fadd double %3, %64
   store double %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 128
   %67 = load double, ptr %66, align 8
@@ -11430,7 +11430,7 @@ define internal fastcc i64 @getGaussianRand(ptr noundef %0, i64 noundef %1, i64 
   br i1 %10, label %6, label %11, !llvm.loop !76
 
 11:                                               ; preds = %6
-  %12 = fadd double %7, %3
+  %12 = fadd double %3, %7
   %13 = fmul double %3, 2.000000e+00
   %14 = fdiv double %12, %13
   %reass.sub = sub i64 %2, %1
@@ -11438,7 +11438,7 @@ define internal fastcc i64 @getGaussianRand(ptr noundef %0, i64 noundef %1, i64 
   %16 = sitofp i64 %15 to double
   %17 = fmul double %14, %16
   %18 = fptosi double %17 to i64
-  %19 = add i64 %18, %1
+  %19 = add i64 %1, %18
   ret i64 %19
 }
 
@@ -11502,7 +11502,7 @@ define internal fastcc i64 @getExponentialRand(ptr noundef %0, i64 noundef %1, i
   %15 = sitofp i64 %14 to double
   %16 = fmul double %13, %15
   %17 = fptosi double %16 to i64
-  %18 = add i64 %17, %1
+  %18 = add i64 %1, %17
   ret i64 %18
 }
 

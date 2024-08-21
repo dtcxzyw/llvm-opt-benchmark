@@ -4601,14 +4601,14 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 504
   %7 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
   %cmp.not = icmp ne ptr %7, null
-  %brmerge.not = and i1 %cmp.not, %subtract_from_self
+  %brmerge.not = and i1 %subtract_from_self, %cmp.not
   br i1 %brmerge.not, label %if.then.i.i.i.i14, label %if.end9
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
   %incdec.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %2, i64 -8
   %8 = load ptr, ptr %incdec.ptr.i.i.i.i34, align 8
   %cmp.not35 = icmp ne ptr %8, null
-  %brmerge.not36 = and i1 %cmp.not35, %subtract_from_self
+  %brmerge.not36 = and i1 %subtract_from_self, %cmp.not35
   br i1 %brmerge.not36, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
@@ -5462,7 +5462,7 @@ if.then.i11:                                      ; preds = %_ZN4node14StreamLis
   %this.val1.val.i = load ptr, ptr %20, align 8
   %parser_buffer.i.i = getelementptr inbounds i8, ptr %this.val1.val.i, i64 32
   %21 = load ptr, ptr %parser_buffer.i.i, align 8
-  %cmp.i.i12 = icmp eq ptr %21, %this.val.val.i
+  %cmp.i.i12 = icmp eq ptr %this.val.val.i, %21
   br i1 %cmp.i.i12, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i11
@@ -5552,7 +5552,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5635,7 +5635,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %if.then.i28.i,
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -6168,7 +6168,7 @@ _ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit.i.i: ; preds 
   br i1 %cmp4.i.i.i, label %if.end19.i.i, label %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit32.i.i
 
 _ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit32.i.i: ; preds = %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit.i.i
-  %cmp4.i30.i.i = icmp ugt ptr %5, %__x.0.val
+  %cmp4.i30.i.i = icmp ult ptr %__x.0.val, %5
   br i1 %cmp4.i30.i.i, label %if.end19.i.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.us.i.i, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit32.i.i
@@ -6232,7 +6232,7 @@ while.body.us.i45.i.i:                            ; preds = %while.body.lr.ph.i3
   %last_message_start_2.i.us.i.i.i = getelementptr inbounds i8, ptr %14, i64 1824
   %15 = load i64, ptr %last_message_start_2.i.us.i.i.i, align 8
   %cmp3.i.us.i.i.i = icmp ne i64 %15, 0
-  %cmp4.i.us.i.i.i = icmp ugt ptr %14, %__x.0.val
+  %cmp4.i.us.i.i.i = icmp ult ptr %__x.0.val, %14
   %spec.select1.i.us.i.i.i = or i1 %cmp4.i.us.i.i.i, %cmp3.i.us.i.i.i
   %__y.addr.1.us.i49.i.i = select i1 %spec.select1.i.us.i.i.i, ptr %__x.addr.03.us.i46.i.i, ptr %__y.addr.02.us.i47.i.i
   %__x.addr.1.in.us.v.i50.i.i = select i1 %spec.select1.i.us.i.i.i, i64 16, i64 24
@@ -6270,8 +6270,8 @@ _ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComp
   %19 = getelementptr inbounds i8, ptr %this, i64 40
   %20 = getelementptr inbounds i8, ptr %this, i64 24
   %this.val.i.i = load ptr, ptr %20, align 8
-  %cmp.i.i2.i = icmp eq ptr %this.val.i.i, %retval.sroa.0.0.i.i
-  %cmp.i3.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.3.0.i.i
+  %cmp.i.i2.i = icmp eq ptr %retval.sroa.0.0.i.i, %this.val.i.i
+  %cmp.i3.i.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i.i.i
   %or.cond.i = select i1 %cmp.i.i2.i, i1 %cmp.i3.i.i, i1 false
   br i1 %or.cond.i, label %if.then.i.i, label %if.else.i.i
 
@@ -8104,7 +8104,7 @@ while.body.us.i.i:                                ; preds = %while.body.lr.ph.i.
   %last_message_start_2.i.us.i.i = getelementptr inbounds i8, ptr %2, i64 1824
   %3 = load i64, ptr %last_message_start_2.i.us.i.i, align 8
   %cmp3.i.us.i.i = icmp ne i64 %3, 0
-  %cmp4.i.us.i.i = icmp ugt ptr %2, %__x.0.val
+  %cmp4.i.us.i.i = icmp ult ptr %__x.0.val, %2
   %spec.select1.i.us.i.i = or i1 %cmp4.i.us.i.i, %cmp3.i.us.i.i
   %..i.i = select i1 %spec.select1.i.us.i.i, i64 16, i64 24
   %4 = getelementptr i8, ptr %__x.013.us.i.i, i64 %..i.i
@@ -8166,7 +8166,7 @@ _ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit17.i.i: ; pred
 
 if.then.i:                                        ; preds = %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit17.i.i, %if.else8.i10.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa19.i.i, %_ZNK4node12_GLOBAL__N_116ParserComparatorclEPKNS0_6ParserES4_.exit17.i.i ], [ %__y.0.lcssa19.i.i, %if.else8.i10.i.i ], [ %__y.0.lcssa20.i.i, %if.then.i.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE10_M_insert_IRKS3_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i
@@ -8181,7 +8181,7 @@ lor.rhs.i.i:                                      ; preds = %if.then.i
 
 land.lhs.true.i.i.i:                              ; preds = %lor.rhs.i.i
   %cmp3.i.i.i = icmp ne i64 %13, 0
-  %cmp4.i.i.i = icmp ugt ptr %11, %__x.0.val
+  %cmp4.i.i.i = icmp ult ptr %__x.0.val, %11
   %spec.select1.i.i.i = or i1 %cmp4.i.i.i, %cmp3.i.i.i
   br label %_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE10_M_insert_IRKS3_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i
 

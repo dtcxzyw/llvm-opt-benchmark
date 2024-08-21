@@ -147,7 +147,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
 
 13:                                               ; preds = %4
   %14 = load i64, ptr %5, align 8
-  %15 = icmp eq i64 %14, %2
+  %15 = icmp eq i64 %2, %14
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %27, %13
@@ -159,7 +159,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
 .lr.ph:                                           ; preds = %13, %27
   %17 = phi i64 [ %28, %27 ], [ %14, %13 ]
   %.04152 = phi ptr [ %.2, %27 ], [ %5, %13 ]
-  %18 = icmp ugt i64 %17, %2
+  %18 = icmp ult i64 %2, %17
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %.lr.ph
@@ -177,7 +177,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
 27:                                               ; preds = %23, %19
   %.2 = phi ptr [ %21, %19 ], [ %25, %23 ]
   %28 = load i64, ptr %.2, align 8
-  %29 = icmp eq i64 %28, %2
+  %29 = icmp eq i64 %2, %28
   br i1 %29, label %._crit_edge, label %.lr.ph
 
 .lr.ph56.preheader:                               ; preds = %23, %19
@@ -938,7 +938,7 @@ define hidden ptr @lexbor_avl_remove(ptr nocapture noundef %0, ptr nocapture nou
 .lr.ph:                                           ; preds = %3, %17
   %.023 = phi ptr [ %.0, %17 ], [ %.021, %3 ]
   %4 = load i64, ptr %.023, align 8
-  %5 = icmp eq i64 %4, %2
+  %5 = icmp eq i64 %2, %4
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %.lr.ph
@@ -966,7 +966,7 @@ lexbor_avl_find_min.exit:                         ; preds = %.preheader.i, %6
   br label %.loopexit
 
 17:                                               ; preds = %.lr.ph
-  %18 = icmp ugt i64 %4, %2
+  %18 = icmp ult i64 %2, %4
   %.1.in.v = select i1 %18, i64 24, i64 32
   %.1.in = getelementptr inbounds i8, ptr %.023, i64 %.1.in.v
   %.0 = load ptr, ptr %.1.in, align 8
@@ -1151,11 +1151,11 @@ define hidden noundef ptr @lexbor_avl_search(ptr nocapture noundef readnone %0, 
 .lr.ph:                                           ; preds = %3, %6
   %.0812 = phi ptr [ %.1, %6 ], [ %1, %3 ]
   %4 = load i64, ptr %.0812, align 8
-  %5 = icmp eq i64 %4, %2
+  %5 = icmp eq i64 %2, %4
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = icmp ugt i64 %4, %2
+  %7 = icmp ult i64 %2, %4
   %.1.in.v = select i1 %7, i64 24, i64 32
   %.1.in = getelementptr inbounds i8, ptr %.0812, i64 %.1.in.v
   %.1 = load ptr, ptr %.1.in, align 8

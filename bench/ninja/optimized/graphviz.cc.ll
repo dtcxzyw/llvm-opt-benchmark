@@ -51,7 +51,7 @@ _ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPS
 _ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i
   %12 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ugt ptr %13, %1
+  %14 = icmp ult ptr %1, %13
   br i1 %14, label %_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread, label %174
 
 _ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread: ; preds = %2, %_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit
@@ -87,7 +87,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i12 ], [ %.02022.i.i.i, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit ]
   %24 = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp ugt ptr %25, %1
+  %26 = icmp ult ptr %1, %25
   %.in.v.i.i.i = select i1 %26, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8
@@ -118,13 +118,13 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %7, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %7
   br i1 %35, label %_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
   %37 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp ugt ptr %38, %1
+  %39 = icmp ult ptr %1, %38
   br label %_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %36, %select.unfold.i.i
@@ -242,7 +242,7 @@ _ZNSt3setIP4Edge7EdgeCmpSaIS1_EE4findERKS1_.exit: ; preds = %_ZNSt8_Rb_treeIP4Ed
 
 select.unfold.i.i41:                              ; preds = %77, %._crit_edge.thread.i.i.i43
   %.sroa.4.0.i.ph.i.i42 = phi ptr [ %.019.lcssa28.i.i.i44, %._crit_edge.thread.i.i.i43 ], [ %.019.lcssa29.i.i.i35, %77 ]
-  %81 = icmp eq ptr %52, %.sroa.4.0.i.ph.i.i42
+  %81 = icmp eq ptr %.sroa.4.0.i.ph.i.i42, %52
   br i1 %81, label %_ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_E7EdgeCmpSaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %82
 
 82:                                               ; preds = %select.unfold.i.i41
@@ -381,7 +381,7 @@ _ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_E7EdgeCmpSaIS1_EE10_M_insert_IRKS1_NS6_1
   %161 = load i32, ptr %150, align 4
   %162 = sext i32 %161 to i64
   %163 = sub nsw i64 %160, %162
-  %.not93 = icmp ugt i64 %163, %157
+  %.not93 = icmp ult i64 %157, %163
   %spec.select = select i1 %.not93, ptr @.str.5, ptr @.str.6
   %164 = load ptr, ptr %.sroa.053.0103, align 8
   %165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %164, ptr noundef nonnull %48, ptr noundef nonnull %spec.select)

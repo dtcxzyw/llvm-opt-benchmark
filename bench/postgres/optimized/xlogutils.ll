@@ -377,7 +377,7 @@ define dso_local i32 @XLogReadBufferExtended(i64 %0, i32 %1, i32 noundef %2, i32
   %13 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #7
   tail call void @smgrcreate(ptr noundef %13, i32 noundef %2, i1 noundef zeroext true) #7
   %14 = tail call i32 @smgrnblocks(ptr noundef %13, i32 noundef %2) #7
-  %15 = icmp ugt i32 %14, %3
+  %15 = icmp ult i32 %3, %14
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %12
@@ -804,10 +804,10 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
 
 19:                                               ; preds = %16
   %20 = zext i32 %18 to i64
-  %21 = add i64 %20, %1
+  %21 = add i64 %1, %20
   %22 = tail call i32 @llvm.umin.i32(i32 %2, i32 8191)
   %23 = zext nneg i32 %22 to i64
-  %24 = add i64 %23, %1
+  %24 = add i64 %1, %23
   %.not42 = icmp ult i64 %21, %24
   br i1 %.not42, label %25, label %58
 
@@ -815,7 +815,7 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
   %26 = getelementptr inbounds i8, ptr %0, i64 1264
   %27 = load i32, ptr %26, align 8
   %28 = icmp ne i32 %27, %3
-  %.not43 = icmp ugt i64 %14, %1
+  %.not43 = icmp ult i64 %1, %14
   %or.cond = or i1 %.not43, %28
   br i1 %or.cond, label %29, label %58
 
@@ -833,7 +833,7 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
 
 33:                                               ; preds = %32
   %34 = zext i32 %2 to i64
-  %35 = add i64 %34, %1
+  %35 = add i64 %1, %34
   %36 = udiv i64 %35, %9
   %37 = udiv i64 %31, %9
   %38 = icmp ult i64 %36, %37
@@ -951,7 +951,7 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
   %6 = alloca %struct.WALReadError, align 8
   %7 = alloca i32, align 4
   %8 = sext i32 %2 to i64
-  %9 = add i64 %8, %1
+  %9 = add i64 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 1264
   br i1 %4, label %.split.us, label %.split
 

@@ -1213,7 +1213,7 @@ define dso_local noundef range(i32 0, 2) i32 @ll_back_merge_fn(ptr noundef %0, p
   %90 = getelementptr inbounds i8, ptr %0, i64 122
   %91 = load i16, ptr %90, align 2
   %92 = zext i16 %91 to i32
-  %93 = add i32 %92, %2
+  %93 = add i32 %2, %92
   %94 = getelementptr inbounds i8, ptr %4, i64 220
   %95 = load i16, ptr %94, align 4
   %96 = zext i16 %95 to i32
@@ -1778,7 +1778,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @blk_attempt_bio_merge(ptr no
 .thread:                                          ; preds = %65
   %83 = and i32 %17, 512
   %84 = icmp ne i32 %83, 0
-  %or.cond.not = and i1 %84, %4
+  %or.cond.not = and i1 %4, %84
   br i1 %or.cond.not, label %85, label %94
 
 85:                                               ; preds = %.thread
@@ -1801,7 +1801,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @blk_attempt_bio_merge(ptr no
 96:                                               ; preds = %76
   %97 = and i32 %17, 512
   %98 = icmp ne i32 %97, 0
-  %or.cond7.not = and i1 %98, %4
+  %or.cond7.not = and i1 %4, %98
   br i1 %or.cond7.not, label %99, label %108
 
 99:                                               ; preds = %96
@@ -2355,7 +2355,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr 
   %92 = getelementptr inbounds i8, ptr %0, i64 122
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
-  %95 = add i32 %94, %2
+  %95 = add i32 %2, %94
   %96 = getelementptr inbounds i8, ptr %10, i64 220
   %97 = load i16, ptr %96, align 4
   %98 = zext i16 %97 to i32

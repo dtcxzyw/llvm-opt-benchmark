@@ -357,7 +357,7 @@ define linkonce_odr dso_local void @_ZN16btPointCollector15addContactPointERK9bt
 entry:
   %m_distance = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load float, ptr %m_distance, align 8
-  %cmp = fcmp ogt float %0, %depth
+  %cmp = fcmp olt float %depth, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

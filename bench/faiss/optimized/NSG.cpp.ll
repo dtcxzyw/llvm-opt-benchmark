@@ -839,7 +839,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
   store i8 %82, ptr %84, align 1
   %lftr.wideiv = trunc i64 %indvars.iv.next156 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %5
+  %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader, label %.critedge.outer.split, !llvm.loop !8
 
 .critedge.outer.split:                            ; preds = %.critedge.outer.split.preheader, %.critedge.outer
@@ -1692,7 +1692,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5
   %.sroa.05.0.copyload.i = load i64, ptr %phi.call.i, align 4
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 8
   %.sroa.26.0.copyload.i = load i8, ptr %.sroa.26.0..sroa_idx.i, align 4
-  %19 = icmp sgt i64 %12, %.0.i
+  %19 = icmp slt i64 %.0.i, %12
   br i1 %19, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
@@ -3273,7 +3273,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
   store i8 %83, ptr %85, align 1
   %lftr.wideiv = trunc i64 %indvars.iv.next156 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %5
+  %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader, label %.critedge.outer.split, !llvm.loop !42
 
 .critedge.outer.split:                            ; preds = %.critedge.outer.split.preheader, %.critedge.outer
@@ -4003,7 +4003,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   store i8 %83, ptr %85, align 1
   %lftr.wideiv = trunc i64 %indvars.iv.next181 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %5
+  %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader, label %.critedge.outer.split, !llvm.loop !50
 
 .critedge.outer.split:                            ; preds = %.critedge.outer.split.preheader, %.critedge.outer
@@ -4999,7 +4999,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %19
   br label %_ZNSt6vectorIN5faiss4NodeESaIS1_EED2Ev.exit
 
 38:                                               ; preds = %.lr.ph
-  %39 = icmp eq i32 %36, %1
+  %39 = icmp eq i32 %1, %36
   br i1 %39, label %70, label %40
 
 40:                                               ; preds = %38
@@ -6135,7 +6135,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5fa
   %.0.us = phi i64 [ %44, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds %"struct.faiss::Node", ptr %0, i64 %.0.us
   %.sroa.02.0.copyload.us = load i64, ptr %phi.call.us, align 4
-  %19 = icmp sgt i64 %12, %.0.us
+  %19 = icmp slt i64 %.0.us, %12
   br i1 %19, label %.lr.ph.i.us, label %._crit_edge.i.us.thread
 
 ._crit_edge.i.us.thread:                          ; preds = %.split.split.us
@@ -6201,7 +6201,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_Sa
   %.0 = phi i64 [ %74, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss4NodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds %"struct.faiss::Node", ptr %0, i64 %.0
   %.sroa.02.0.copyload = load i64, ptr %phi.call, align 4
-  %45 = icmp sgt i64 %12, %.0
+  %45 = icmp slt i64 %.0, %12
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -6323,7 +6323,7 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %._ZNSt5stackIiSt5de
   %23 = load i8, ptr %22, align 8
   %24 = icmp ne i8 %21, %23
   %25 = zext i1 %24 to i32
-  %spec.select = add nsw i32 %25, %3
+  %spec.select = add nsw i32 %3, %25
   store i8 %23, ptr %20, align 1
   %26 = getelementptr inbounds i8, ptr %7, i64 16
   %27 = load ptr, ptr %8, align 8
@@ -6887,7 +6887,7 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #15
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIiSaIiEE16_M_destroy_nodesEPPiS3_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -7366,7 +7366,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   store i8 %82, ptr %84, align 1
   %lftr.wideiv = trunc i64 %indvars.iv.next181 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %5
+  %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader, label %.critedge.outer.split, !llvm.loop !90
 
 .critedge.outer.split:                            ; preds = %.critedge.outer.split.preheader, %.critedge.outer

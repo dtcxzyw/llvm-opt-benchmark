@@ -348,7 +348,7 @@ fmap_readn.exit.thread:                           ; preds = %21, %18, %fmap_read
   %.0195419 = phi i32 [ 0, %.lr.ph ], [ %.1196, %.thread453 ]
   %.0199418 = phi i32 [ 0, %.lr.ph ], [ %347, %.thread453 ]
   %95 = load i64, ptr %19, align 8
-  %or.cond353.not = icmp ugt i64 %95, %.1422
+  %or.cond353.not = icmp ult i64 %.1422, %95
   br i1 %or.cond353.not, label %96, label %fmap_readn.exit238.thread
 
 96:                                               ; preds = %94
@@ -398,7 +398,7 @@ fmap_readn.exit238.thread:                        ; preds = %96, %94, %fmap_read
 
 115:                                              ; preds = %109
   %116 = load i64, ptr %19, align 8
-  %or.cond354.not = icmp ugt i64 %116, %110
+  %or.cond354.not = icmp ult i64 %110, %116
   br i1 %36, label %117, label %134
 
 117:                                              ; preds = %115
@@ -546,7 +546,7 @@ fmap_readn.exit248.thread:                        ; preds = %135, %134, %fmap_re
   %.4416 = phi i64 [ %.5, %.preheader.backedge ], [ %.2, %171 ]
   %.2197415 = phi i32 [ %.2197415.be, %.preheader.backedge ], [ %.0195419, %171 ]
   %177 = load i64, ptr %19, align 8
-  %or.cond356.not = icmp ugt i64 %177, %.4416
+  %or.cond356.not = icmp ult i64 %.4416, %177
   br i1 %36, label %178, label %212
 
 178:                                              ; preds = %.preheader
@@ -762,7 +762,7 @@ fmap_readn.exit258.thread:                        ; preds = %213, %212, %fmap_re
 284:                                              ; preds = %282
   %285 = add i64 %.1422, 16
   %286 = load i64, ptr %19, align 8
-  %or.cond358.not = icmp ugt i64 %286, %285
+  %or.cond358.not = icmp ult i64 %285, %286
   switch i32 %.0190327, label %default.unreachable [
     i32 1, label %287
     i32 2, label %303
@@ -1098,7 +1098,7 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
 
 28:                                               ; preds = %27
   %29 = load i64, ptr %6, align 8
-  %or.cond.not = icmp ugt i64 %29, %.0
+  %or.cond.not = icmp ult i64 %.0, %29
   br i1 %or.cond.not, label %30, label %fmap_readn.exit39.thread
 
 30:                                               ; preds = %28

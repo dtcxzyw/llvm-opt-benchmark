@@ -486,7 +486,7 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
   %10 = fdiv float %9, 9.000000e+01
   %11 = tail call float @llvm.ceil.f32(float %10)
   %12 = fptosi float %11 to i32
-  %13 = icmp sgt i32 %12, %4
+  %13 = icmp slt i32 %4, %12
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %6
@@ -685,7 +685,7 @@ define void @DrawCircleSectorLines(<2 x float> %0, float noundef %1, float nound
   %10 = fdiv float %9, 9.000000e+01
   %11 = tail call float @llvm.ceil.f32(float %10)
   %12 = fptosi float %11 to i32
-  %13 = icmp sgt i32 %12, %4
+  %13 = icmp slt i32 %4, %12
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %6
@@ -999,7 +999,7 @@ define void @DrawRing(<2 x float> %0, float noundef %1, float noundef %2, float 
   %17 = fdiv float %16, 9.000000e+01
   %18 = tail call float @llvm.ceil.f32(float %17)
   %19 = fptosi float %18 to i32
-  %20 = icmp sgt i32 %19, %5
+  %20 = icmp slt i32 %5, %19
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %14
@@ -1149,7 +1149,7 @@ define void @DrawRingLines(<2 x float> %0, float noundef %1, float noundef %2, f
   %17 = fdiv float %16, 9.000000e+01
   %18 = tail call float @llvm.ceil.f32(float %17)
   %19 = fptosi float %18 to i32
-  %20 = icmp sgt i32 %19, %5
+  %20 = icmp slt i32 %5, %19
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %14
@@ -1278,9 +1278,9 @@ define void @DrawRectanglePro(<2 x float> %0, <2 x float> %1, <2 x float> %2, fl
   %9 = extractelement <2 x float> %8, i64 0
   %10 = fsub <2 x float> %0, %2
   %11 = extractelement <2 x float> %10, i64 1
-  %12 = fadd <2 x float> %8, %1
+  %12 = fadd <2 x float> %1, %8
   %13 = extractelement <2 x float> %12, i64 0
-  %14 = fadd <2 x float> %10, %1
+  %14 = fadd <2 x float> %1, %10
   %15 = extractelement <2 x float> %14, i64 1
   br label %39
 
@@ -1535,9 +1535,9 @@ define void @DrawRectangleLines(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 ; Function Attrs: nounwind uwtable
 define void @DrawRectangleLinesEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3) local_unnamed_addr #4 {
   %.sroa.9.8.vec.extract = extractelement <2 x float> %1, i64 0
-  %5 = fcmp olt float %.sroa.9.8.vec.extract, %2
+  %5 = fcmp ogt float %2, %.sroa.9.8.vec.extract
   %.sroa.9.12.vec.extract = extractelement <2 x float> %1, i64 1
-  %6 = fcmp olt float %.sroa.9.12.vec.extract, %2
+  %6 = fcmp ogt float %2, %.sroa.9.12.vec.extract
   %or.cond = select i1 %5, i1 true, i1 %6
   br i1 %or.cond, label %7, label %15
 
@@ -2004,8 +2004,8 @@ define void @DrawRectangleRoundedLines(<2 x float> %0, <2 x float> %1, float nou
   %.sroa.3204.8.vec.insert = insertelement <2 x float> poison, float %14, i64 0
   %.sroa.43.12.vec.extract = extractelement <2 x float> %1, i64 1
   %15 = tail call float @llvm.fmuladd.f32(float %.0392, float 2.000000e+00, float %.sroa.43.12.vec.extract)
-  %16 = fcmp olt float %14, %.0392
-  %17 = fcmp olt float %15, %.0392
+  %16 = fcmp ogt float %.0392, %14
+  %17 = fcmp ogt float %.0392, %15
   %or.cond.i = select i1 %16, i1 true, i1 %17
   br i1 %or.cond.i, label %18, label %DrawRectangleLinesEx.exit
 
@@ -4045,23 +4045,23 @@ define <2 x float> @GetSplinePointBasis(<2 x float> %0, <2 x float> %1, <2 x flo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define <2 x float> @GetSplinePointCatmullRom(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #10 {
   %6 = fneg float %4
-  %7 = fmul float %6, %4
+  %7 = fmul float %4, %6
   %8 = fmul float %4, 2.000000e+00
-  %9 = fmul float %8, %4
+  %9 = fmul float %4, %8
   %10 = tail call float @llvm.fmuladd.f32(float %7, float %4, float %9)
   %11 = fsub float %10, %4
   %12 = fmul float %4, 3.000000e+00
-  %13 = fmul float %12, %4
+  %13 = fmul float %4, %12
   %14 = fmul float %4, -5.000000e+00
-  %15 = fmul float %14, %4
+  %15 = fmul float %4, %14
   %16 = tail call float @llvm.fmuladd.f32(float %13, float %4, float %15)
   %17 = fadd float %16, 2.000000e+00
   %18 = fmul float %4, -3.000000e+00
-  %19 = fmul float %18, %4
+  %19 = fmul float %4, %18
   %20 = fmul float %4, 4.000000e+00
-  %21 = fmul float %20, %4
+  %21 = fmul float %4, %20
   %22 = tail call float @llvm.fmuladd.f32(float %19, float %4, float %21)
-  %23 = fadd float %22, %4
+  %23 = fadd float %4, %22
   %24 = fmul float %4, %4
   %25 = fneg float %24
   %26 = tail call float @llvm.fmuladd.f32(float %24, float %4, float %25)
@@ -4093,7 +4093,7 @@ define <2 x float> @GetSplinePointBezierQuad(<2 x float> %0, <2 x float> %1, <2 
   %5 = fsub float 1.000000e+00, %3
   %square = fmul float %5, %5
   %6 = fmul float %5, 2.000000e+00
-  %7 = fmul float %6, %3
+  %7 = fmul float %3, %6
   %square14 = fmul float %3, %3
   %.sroa.011.4.vec.extract = extractelement <2 x float> %0, i64 1
   %.sroa.010.4.vec.extract = extractelement <2 x float> %1, i64 1
@@ -4118,7 +4118,7 @@ define <2 x float> @GetSplinePointBezierCubic(<2 x float> %0, <2 x float> %1, <2
   %7 = tail call float @powf(float noundef %6, float noundef 3.000000e+00) #16
   %square = fmul float %6, %6
   %8 = fmul float %square, 3.000000e+00
-  %9 = fmul float %8, %4
+  %9 = fmul float %4, %8
   %10 = fmul float %6, 3.000000e+00
   %square19 = fmul float %4, %4
   %11 = fmul float %square19, %10
@@ -4302,7 +4302,7 @@ define zeroext i1 @CheckCollisionRecs(<2 x float> %0, <2 x float> %1, <2 x float
 11:                                               ; preds = %4
   %.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
   %12 = fadd <2 x float> %2, %3
-  %13 = fcmp ogt <2 x float> %12, %0
+  %13 = fcmp olt <2 x float> %0, %12
   %14 = extractelement <2 x i1> %13, i64 1
   %15 = fadd <2 x float> %0, %1
   %16 = extractelement <2 x float> %15, i64 1
@@ -4331,9 +4331,9 @@ define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 
   %.sroa.031.4.vec.extract = extractelement <2 x float> %0, i64 1
   %11 = fsub float %.sroa.031.4.vec.extract, %8
   %12 = tail call float @llvm.fabs.f32(float %11)
-  %13 = fadd float %5, %1
+  %13 = fadd float %1, %5
   %14 = fcmp ogt float %10, %13
-  %15 = fadd float %7, %1
+  %15 = fadd float %1, %7
   %16 = fcmp ogt float %12, %15
   %or.cond = select i1 %14, i1 true, i1 %16
   br i1 %or.cond, label %27, label %17
@@ -4377,8 +4377,8 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
   %.sroa.067.4.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.092.4.vec.extract = extractelement <2 x float> %0, i64 1
   %11 = fsub float %.sroa.067.4.vec.extract, %.sroa.092.4.vec.extract
-  %12 = fneg float %10
-  %13 = fmul float %11, %12
+  %12 = fneg float %11
+  %13 = fmul float %10, %12
   %14 = tail call float @llvm.fmuladd.f32(float %6, float %8, float %13)
   %15 = tail call float @llvm.fabs.f32(float %14)
   %16 = fcmp ult float %15, 0x3E80000000000000
@@ -4387,87 +4387,86 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
 17:                                               ; preds = %5
   %18 = fsub <2 x float> %2, %3
   %19 = extractelement <2 x float> %18, i64 0
-  %20 = fneg float %.sroa.092.4.vec.extract
-  %21 = fmul float %.sroa.067.0.vec.extract, %20
+  %20 = fneg float %.sroa.067.0.vec.extract
+  %21 = fmul float %.sroa.092.4.vec.extract, %20
   %22 = tail call float @llvm.fmuladd.f32(float %.sroa.092.0.vec.extract, float %.sroa.067.4.vec.extract, float %21)
   %23 = fsub <2 x float> %0, %1
   %24 = extractelement <2 x float> %23, i64 0
-  %25 = fneg float %.sroa.042.4.vec.extract
-  %26 = fmul float %.sroa.0.0.vec.extract, %25
+  %25 = fneg float %.sroa.0.0.vec.extract
+  %26 = fmul float %.sroa.042.4.vec.extract, %25
   %27 = tail call float @llvm.fmuladd.f32(float %.sroa.042.0.vec.extract, float %.sroa.0.4.vec.extract, float %26)
-  %28 = fneg float %24
-  %29 = fmul float %27, %28
+  %28 = fneg float %27
+  %29 = fmul float %24, %28
   %30 = tail call float @llvm.fmuladd.f32(float %19, float %22, float %29)
   %31 = fdiv float %30, %14
   %32 = fsub float %.sroa.042.4.vec.extract, %.sroa.0.4.vec.extract
   %33 = fsub float %.sroa.092.4.vec.extract, %.sroa.067.4.vec.extract
-  %34 = fneg float %33
-  %35 = fmul float %27, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %32, float %22, float %35)
-  %37 = fdiv float %36, %14
-  %38 = tail call float @llvm.fabs.f32(float %24)
-  %39 = fcmp ogt float %38, 0x3E80000000000000
-  br i1 %39, label %40, label %45
+  %34 = fmul float %33, %28
+  %35 = tail call float @llvm.fmuladd.f32(float %32, float %22, float %34)
+  %36 = fdiv float %35, %14
+  %37 = tail call float @llvm.fabs.f32(float %24)
+  %38 = fcmp ogt float %37, 0x3E80000000000000
+  br i1 %38, label %39, label %44
 
-40:                                               ; preds = %17
-  %41 = tail call float @llvm.minnum.f32(float %.sroa.092.0.vec.extract, float %.sroa.067.0.vec.extract)
-  %42 = fcmp olt float %31, %41
-  %43 = tail call float @llvm.maxnum.f32(float %.sroa.092.0.vec.extract, float %.sroa.067.0.vec.extract)
-  %44 = fcmp ogt float %31, %43
-  %or.cond123 = select i1 %42, i1 true, i1 %44
-  br i1 %or.cond123, label %.thread, label %45
+39:                                               ; preds = %17
+  %40 = tail call float @llvm.minnum.f32(float %.sroa.092.0.vec.extract, float %.sroa.067.0.vec.extract)
+  %41 = fcmp olt float %31, %40
+  %42 = tail call float @llvm.maxnum.f32(float %.sroa.092.0.vec.extract, float %.sroa.067.0.vec.extract)
+  %43 = fcmp ogt float %31, %42
+  %or.cond123 = select i1 %41, i1 true, i1 %43
+  br i1 %or.cond123, label %.thread, label %44
 
-45:                                               ; preds = %40, %17
-  %46 = tail call float @llvm.fabs.f32(float %19)
-  %47 = fcmp ogt float %46, 0x3E80000000000000
-  br i1 %47, label %48, label %53
+44:                                               ; preds = %39, %17
+  %45 = tail call float @llvm.fabs.f32(float %19)
+  %46 = fcmp ogt float %45, 0x3E80000000000000
+  br i1 %46, label %47, label %52
 
-48:                                               ; preds = %45
-  %49 = tail call float @llvm.minnum.f32(float %.sroa.042.0.vec.extract, float %.sroa.0.0.vec.extract)
-  %50 = fcmp olt float %31, %49
-  %51 = tail call float @llvm.maxnum.f32(float %.sroa.042.0.vec.extract, float %.sroa.0.0.vec.extract)
-  %52 = fcmp ogt float %31, %51
-  %or.cond125 = select i1 %50, i1 true, i1 %52
-  br i1 %or.cond125, label %.thread, label %53
+47:                                               ; preds = %44
+  %48 = tail call float @llvm.minnum.f32(float %.sroa.042.0.vec.extract, float %.sroa.0.0.vec.extract)
+  %49 = fcmp olt float %31, %48
+  %50 = tail call float @llvm.maxnum.f32(float %.sroa.042.0.vec.extract, float %.sroa.0.0.vec.extract)
+  %51 = fcmp ogt float %31, %50
+  %or.cond125 = select i1 %49, i1 true, i1 %51
+  br i1 %or.cond125, label %.thread, label %52
 
-53:                                               ; preds = %48, %45
-  %54 = tail call float @llvm.fabs.f32(float %33)
-  %55 = fcmp ogt float %54, 0x3E80000000000000
-  br i1 %55, label %56, label %61
+52:                                               ; preds = %47, %44
+  %53 = tail call float @llvm.fabs.f32(float %33)
+  %54 = fcmp ogt float %53, 0x3E80000000000000
+  br i1 %54, label %55, label %60
 
-56:                                               ; preds = %53
-  %57 = tail call float @llvm.minnum.f32(float %.sroa.092.4.vec.extract, float %.sroa.067.4.vec.extract)
-  %58 = fcmp olt float %37, %57
-  %59 = tail call float @llvm.maxnum.f32(float %.sroa.092.4.vec.extract, float %.sroa.067.4.vec.extract)
-  %60 = fcmp ogt float %37, %59
-  %or.cond127 = select i1 %58, i1 true, i1 %60
-  br i1 %or.cond127, label %.thread, label %61
+55:                                               ; preds = %52
+  %56 = tail call float @llvm.minnum.f32(float %.sroa.092.4.vec.extract, float %.sroa.067.4.vec.extract)
+  %57 = fcmp olt float %36, %56
+  %58 = tail call float @llvm.maxnum.f32(float %.sroa.092.4.vec.extract, float %.sroa.067.4.vec.extract)
+  %59 = fcmp ogt float %36, %58
+  %or.cond127 = select i1 %57, i1 true, i1 %59
+  br i1 %or.cond127, label %.thread, label %60
 
-61:                                               ; preds = %56, %53
-  %62 = tail call float @llvm.fabs.f32(float %32)
-  %63 = fcmp ogt float %62, 0x3E80000000000000
-  br i1 %63, label %64, label %69
+60:                                               ; preds = %55, %52
+  %61 = tail call float @llvm.fabs.f32(float %32)
+  %62 = fcmp ogt float %61, 0x3E80000000000000
+  br i1 %62, label %63, label %68
 
-64:                                               ; preds = %61
-  %65 = tail call float @llvm.minnum.f32(float %.sroa.042.4.vec.extract, float %.sroa.0.4.vec.extract)
-  %66 = fcmp olt float %37, %65
-  %67 = tail call float @llvm.maxnum.f32(float %.sroa.042.4.vec.extract, float %.sroa.0.4.vec.extract)
-  %68 = fcmp ogt float %37, %67
-  %or.cond129 = select i1 %66, i1 true, i1 %68
-  br i1 %or.cond129, label %.thread, label %69
+63:                                               ; preds = %60
+  %64 = tail call float @llvm.minnum.f32(float %.sroa.042.4.vec.extract, float %.sroa.0.4.vec.extract)
+  %65 = fcmp olt float %36, %64
+  %66 = tail call float @llvm.maxnum.f32(float %.sroa.042.4.vec.extract, float %.sroa.0.4.vec.extract)
+  %67 = fcmp ogt float %36, %66
+  %or.cond129 = select i1 %65, i1 true, i1 %67
+  br i1 %or.cond129, label %.thread, label %68
 
-69:                                               ; preds = %64, %61
+68:                                               ; preds = %63, %60
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread, label %70
+  br i1 %.not, label %.thread, label %69
 
-70:                                               ; preds = %69
+69:                                               ; preds = %68
   store float %31, ptr %4, align 4
-  %71 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %37, ptr %71, align 4
+  %70 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %36, ptr %70, align 4
   br label %.thread
 
-.thread:                                          ; preds = %64, %56, %48, %40, %69, %70, %5
-  %.0 = phi i1 [ true, %70 ], [ true, %69 ], [ false, %5 ], [ false, %40 ], [ false, %48 ], [ false, %56 ], [ false, %64 ]
+.thread:                                          ; preds = %63, %55, %47, %39, %68, %69, %5
+  %.0 = phi i1 [ true, %69 ], [ true, %68 ], [ false, %5 ], [ false, %39 ], [ false, %47 ], [ false, %55 ], [ false, %63 ]
   ret i1 %.0
 }
 
@@ -4491,8 +4490,8 @@ define zeroext i1 @CheckCollisionPointLine(<2 x float> %0, <2 x float> %1, <2 x 
   %9 = extractelement <2 x float> %8, i64 0
   %.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
   %10 = fsub float %.sroa.0.4.vec.extract, %.sroa.020.4.vec.extract
-  %11 = fneg float %7
-  %12 = fmul float %9, %11
+  %11 = fneg float %9
+  %12 = fmul float %7, %11
   %13 = tail call float @llvm.fmuladd.f32(float %6, float %10, float %12)
   %14 = tail call float @llvm.fabs.f32(float %13)
   %15 = sitofp i32 %3 to float

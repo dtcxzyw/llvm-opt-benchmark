@@ -244,7 +244,7 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
   %59 = phi float [ %55, %57 ], [ %32, %52 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %2
+  %exitcond.not.i = icmp eq i32 %2, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
@@ -346,7 +346,7 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
   %110 = phi float [ %106, %108 ], [ %83, %103 ]
   %indvars.iv.next.i90 = add nsw i64 %indvars.iv.i89, 1
   %lftr.wideiv.i91 = trunc i64 %indvars.iv.next.i90 to i32
-  %exitcond.not.i92 = icmp eq i32 %lftr.wideiv.i91, %2
+  %exitcond.not.i92 = icmp eq i32 %2, %lftr.wideiv.i91
   br i1 %exitcond.not.i92, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93, label %.lr.ph.i88, !llvm.loop !9
 
 common.ret10:                                     ; preds = %10, %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit, %.lr.ph, %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93

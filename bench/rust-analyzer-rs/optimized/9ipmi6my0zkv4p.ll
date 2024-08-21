@@ -972,7 +972,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.15402
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -3941,7 +3941,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1186, !noalias !1191, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !1193, !noalias !1191, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h099f3f6f22e5cfd4E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -3998,7 +3998,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !1199, !noalias !1204, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !1206, !noalias !1204, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h099f3f6f22e5cfd4E.exit"
 
 9:                                                ; preds = %3
@@ -11909,7 +11909,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %724 = load i64, ptr %723, align 8, !noalias !2840, !noundef !4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %27), !noalias !2841
   call void @llvm.experimental.noalias.scope.decl(metadata !2842)
-  %.not.i.i.i.i403.i = icmp ugt i64 %721, %724
+  %.not.i.i.i.i403.i = icmp ult i64 %724, %721
   br i1 %.not.i.i.i.i403.i, label %"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h49a1dfaabd618593E.exit.i.i.i", label %725
 
 725:                                              ; preds = %720
@@ -12047,7 +12047,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %761 = load i64, ptr %760, align 8, !noalias !2877, !noundef !4
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %24), !noalias !2878
   call void @llvm.experimental.noalias.scope.decl(metadata !2879)
-  %.not.i.i.i.i420.i = icmp ugt i64 %758, %761
+  %.not.i.i.i.i420.i = icmp ult i64 %761, %758
   br i1 %.not.i.i.i.i420.i, label %"_ZN13project_model7sysroot7Sysroot4load28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h71d8e308cdcc4de1E.exit.i.i.i", label %762
 
 762:                                              ; preds = %757

@@ -649,7 +649,7 @@ while.end:                                        ; preds = %dtls1_is_next_messa
   %msg_len = getelementptr inbounds i8, ptr %46, i64 4
   %47 = load i32, ptr %msg_len, align 4
   %conv22 = zext i32 %47 to i64
-  %cmp23 = icmp ugt i64 %conv22, %max
+  %cmp23 = icmp ult i64 %max, %conv22
   br i1 %cmp23, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %while.end
@@ -1446,7 +1446,7 @@ entry:
   %cmp = icmp eq ptr %1, null
   %cmp3 = icmp ugt i64 %start, %end
   %or.cond = or i1 %cmp3, %cmp
-  %cmp6 = icmp ult i64 %conv, %end
+  %cmp6 = icmp ugt i64 %end, %conv
   %or.cond35 = select i1 %or.cond, i1 true, i1 %cmp6
   br i1 %or.cond35, label %return, label %if.end
 

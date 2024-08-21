@@ -404,7 +404,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %_ZN5ZXing11PatternV
 
 _ZN5ZXing11PatternView10skipSingleEi.exit:        ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i
   %107 = load i16, ptr %102, align 2
-  %.not101 = icmp ugt i16 %107, %98
+  %.not101 = icmp ult i16 %98, %107
   br i1 %.not101, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %125
 
 _ZN5ZXing11PatternView10skipSymbolEv.exit.thread: ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i, %.preheader, %_ZN5ZXing11PatternView10skipSingleEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit
@@ -1267,7 +1267,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
   %17 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2
   %19 = load i16, ptr %15, align 2
-  %.sroa.speculated8.i.i = tail call i16 @llvm.umin.i16(i16 %19, i16 %18)
+  %.sroa.speculated8.i.i = tail call i16 @llvm.umin.i16(i16 %18, i16 %19)
   store i16 %.sroa.speculated8.i.i, ptr %15, align 2
   %20 = load i16, ptr %16, align 2
   %.sroa.speculated.i.i = tail call i16 @llvm.umax.i16(i16 %20, i16 %18)

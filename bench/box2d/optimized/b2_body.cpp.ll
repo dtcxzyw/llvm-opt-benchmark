@@ -463,8 +463,8 @@ if.end37:                                         ; preds = %if.else, %if.then28
   %c.i = getelementptr inbounds i8, ptr %this, i64 24
   %24 = load float, ptr %c.i, align 8
   %25 = load float, ptr %q.i, align 4
-  %26 = fneg float %25
-  %neg.i = fmul float %localCenter10.sroa.8.249, %26
+  %26 = fneg float %localCenter10.sroa.8.249
+  %neg.i = fmul float %25, %26
   %27 = call float @llvm.fmuladd.f32(float %24, float %localCenter10.sroa.0.247, float %neg.i)
   %28 = load float, ptr %m_xf43, align 4
   %add.i11 = fadd float %28, %27
@@ -525,8 +525,8 @@ if.then:                                          ; preds = %entry
   %4 = load float, ptr %m_sweep, align 4
   %y.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load float, ptr %y.i, align 8
-  %6 = fneg float %call.i
-  %neg.i = fmul float %5, %6
+  %6 = fneg float %5
+  %neg.i = fmul float %call.i, %6
   %7 = tail call float @llvm.fmuladd.f32(float %call2.i, float %4, float %neg.i)
   %mul6.i = fmul float %call2.i, %5
   %8 = tail call float @llvm.fmuladd.f32(float %call.i, float %4, float %mul6.i)
@@ -737,8 +737,8 @@ while.body11:                                     ; preds = %while.end, %if.end1
   %10 = load ptr, ptr %m_fixtureA.i, align 8
   %m_fixtureB.i = getelementptr inbounds i8, ptr %8, i64 104
   %11 = load ptr, ptr %m_fixtureB.i, align 8
-  %cmp14 = icmp eq ptr %10, %fixture
-  %cmp15 = icmp eq ptr %11, %fixture
+  %cmp14 = icmp eq ptr %fixture, %10
+  %cmp15 = icmp eq ptr %fixture, %11
   %or.cond = or i1 %cmp14, %cmp15
   br i1 %or.cond, label %if.then16, label %if.end18
 
@@ -866,8 +866,8 @@ if.end24:                                         ; preds = %if.then15, %land.lh
   %18 = lshr i64 %13, 32
   %19 = trunc nuw i64 %18 to i32
   %20 = bitcast i32 %19 to float
-  %21 = fneg float %17
-  %neg.i = fmul float %20, %21
+  %21 = fneg float %20
+  %neg.i = fmul float %17, %21
   %22 = tail call float @llvm.fmuladd.f32(float %14, float %16, float %neg.i)
   %23 = load float, ptr %m_xf, align 4
   %add.i = fadd float %23, %22
@@ -970,8 +970,8 @@ if.end:                                           ; preds = %entry
   %4 = load float, ptr %q, align 4
   %y.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load float, ptr %y.i, align 8
-  %6 = fneg float %4
-  %neg.i = fmul float %5, %6
+  %6 = fneg float %5
+  %neg.i = fmul float %4, %6
   %7 = tail call float @llvm.fmuladd.f32(float %call2.i, float %3, float %neg.i)
   %8 = trunc i64 %2 to i32
   %9 = bitcast i32 %8 to float
@@ -1030,7 +1030,7 @@ entry:
   %0 = load i16, ptr %m_flags.i, align 4
   %1 = and i16 %0, 32
   %cmp.i = icmp ne i16 %1, 0
-  %2 = xor i1 %cmp.i, %flag
+  %2 = xor i1 %flag, %cmp.i
   br i1 %2, label %if.end, label %if.end28
 
 if.end:                                           ; preds = %entry
@@ -1119,7 +1119,7 @@ entry:
   %0 = load i16, ptr %m_flags, align 4
   %1 = and i16 %0, 16
   %2 = icmp eq i16 %1, 0
-  %cmp6 = xor i1 %2, %flag
+  %cmp6 = xor i1 %flag, %2
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

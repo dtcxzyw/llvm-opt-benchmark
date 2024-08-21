@@ -1068,7 +1068,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
   %148 = ptrtoint ptr %.pre83 to i64
   %149 = sub i64 %147, %148
   %150 = ashr exact i64 %149, 2
-  %151 = icmp ult i64 %150, %145
+  %151 = icmp ugt i64 %145, %150
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %._crit_edge
@@ -1078,7 +1078,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
           to label %_ZNSt6vectorI5egColSaIS0_EE6resizeEm.exit unwind label %132
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ugt i64 %150, %145
+  %156 = icmp ult i64 %145, %150
   br i1 %156, label %157, label %_ZNSt6vectorI5egColSaIS0_EE6resizeEm.exit
 
 157:                                              ; preds = %155
@@ -1530,7 +1530,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -1598,7 +1598,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIiEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -1943,7 +1943,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   %74 = phi ptr [ %73, %71 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
   %75 = ptrtoint ptr %1 to i64
   %76 = sub i64 %75, %61
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %60, %1
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %60
   br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit69, label %77
 
 77:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit
@@ -2653,7 +2653,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %139, %_ZN3gmx11List
   %155 = ptrtoint ptr %.pre83.i to i64
   %156 = sub i64 %154, %155
   %157 = ashr exact i64 %156, 2
-  %158 = icmp ult i64 %157, %153
+  %158 = icmp ugt i64 %153, %157
   br i1 %158, label %159, label %191
 
 159:                                              ; preds = %._crit_edge.i
@@ -2746,7 +2746,7 @@ _ZNSt12_Vector_baseI5egColSaIS0_EE13_M_deallocateEPS0_m.exit35.i: ; preds = %188
   br label %_ZNSt6vectorI5egColSaIS0_EE6resizeEm.exit.i
 
 191:                                              ; preds = %._crit_edge.i
-  %192 = icmp ugt i64 %157, %153
+  %192 = icmp ult i64 %153, %157
   br i1 %192, label %193, label %_ZNSt6vectorI5egColSaIS0_EE6resizeEm.exit.i
 
 193:                                              ; preds = %191

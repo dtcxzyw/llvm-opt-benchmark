@@ -66,7 +66,7 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %arrayidx.i = getelementptr inbounds [31 x i32], ptr %this, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %conv.i = trunc i32 %1 to i8
-  %cmp7.not = icmp ugt i8 %conv.i, %cc
+  %cmp7.not = icmp ult i8 %cc, %conv.i
   br i1 %cmp7.not, label %while.cond.preheader, label %if.end
 
 while.cond.preheader:                             ; preds = %lor.lhs.false3
@@ -105,7 +105,7 @@ land.rhs:                                         ; preds = %while.cond
   %arrayidx.i16 = getelementptr inbounds [31 x i32], ptr %this, i64 0, i64 %indvars.iv.next
   %7 = load i32, ptr %arrayidx.i16, align 4
   %conv.i17 = trunc i32 %7 to i8
-  %cmp22 = icmp ugt i8 %conv.i17, %cc
+  %cmp22 = icmp ult i8 %cc, %conv.i17
   br i1 %cmp22, label %while.cond, label %while.end.split.loop.exit25, !llvm.loop !5
 
 while.end.split.loop.exit25:                      ; preds = %land.rhs
@@ -202,7 +202,7 @@ for.body:                                         ; preds = %if.end, %for.body.p
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
   %arrayidx = getelementptr inbounds %"struct.icu_75::CompositionPair", ptr %2, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
-  %cmp3 = icmp eq i32 %3, %trail
+  %cmp3 = icmp eq i32 %trail, %3
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -211,7 +211,7 @@ if.then:                                          ; preds = %for.body
   br label %return
 
 if.end:                                           ; preds = %for.body
-  %cmp9 = icmp sgt i32 %3, %trail
+  %cmp9 = icmp slt i32 %trail, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %cmp9, i1 true, i1 %exitcond.not
@@ -765,9 +765,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom.i.i = zext i32 %call.i.i to i64
   %cc.i = getelementptr inbounds %"struct.icu_75::Norm", ptr %4, i64 %idxprom.i.i, i32 6
   %6 = load i8, ptr %cc.i, align 8
-  %cmp6 = icmp ugt i8 %6, %lowCC
+  %cmp6 = icmp ult i8 %lowCC, %6
   %conv5 = zext i8 %6 to i32
-  %cmp8 = icmp slt i32 %conv5, %highCC
+  %cmp8 = icmp sgt i32 %highCC, %conv5
   %or.cond = and i1 %cmp6, %cmp8
   br i1 %or.cond, label %return, label %for.cond
 
@@ -1121,7 +1121,7 @@ if.then13:                                        ; preds = %land.lhs.true
 do.end:                                           ; preds = %while.body, %if.then13, %land.lhs.true
   %c.0 = phi i32 [ %sub, %if.then13 ], [ %conv, %land.lhs.true ], [ %conv, %while.body ]
   %i.1 = phi i32 [ %inc14, %if.then13 ], [ %inc, %land.lhs.true ], [ %inc, %while.body ]
-  %cmp18.not = icmp slt i32 %c.0, %start
+  %cmp18.not = icmp sgt i32 %start, %c.0
   %cmp20.not = icmp sgt i32 %c.0, %end
   %or.cond58 = or i1 %cmp18.not, %cmp20.not
   br i1 %or.cond58, label %if.end24, label %if.then21

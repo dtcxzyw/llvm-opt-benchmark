@@ -966,7 +966,7 @@ define internal fastcc void @_ZN14regex_automata3dfa7onepass3DFA16try_search_slo
   %26 = getelementptr inbounds i8, ptr %25, i64 32
   %27 = load i64, ptr %26, align 8, !alias.scope !174, !noundef !4
   %28 = shl i64 %27, 1
-  %.not = icmp ugt i64 %28, %5
+  %.not = icmp ult i64 %5, %28
   br i1 %.not, label %30, label %34
 
 29:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit29", %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit", %65, %34, %.critedge
@@ -1086,7 +1086,7 @@ common.resume:                                    ; preds = %66, %49
   br i1 %trunc, label %79, label %76
 
 76:                                               ; preds = %68
-  %77 = icmp ult i64 %56, %5
+  %77 = icmp ugt i64 %5, %56
   br i1 %77, label %78, label %87
 
 78:                                               ; preds = %76
@@ -1300,7 +1300,7 @@ _ZN14regex_automata6hybrid5regex5Regex11is_anchored17h8a112f2f69c3ee5dE.exit: ; 
   store i64 %.pre-phi, ptr %.fca.1.gep.i, align 8, !noalias !226
   %.not.i = icmp ult i64 %62, %.pre-phi
   %63 = add i64 %.pre-phi, 1
-  %.not3.i = icmp ult i64 %63, %48
+  %.not3.i = icmp ugt i64 %48, %63
   %or.cond.i = or i1 %.not3.i, %.not.i
   br i1 %or.cond.i, label %64, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -3080,7 +3080,7 @@ common.resume:                                    ; preds = %.body, %215, %.body
   %515 = ptrtoint ptr %.sroa.0.057.i.i to i64
   %516 = sub nuw i64 %509, %515
   %517 = lshr exact i64 %516, 5
-  %.not.i.i48.not.i.i = icmp ugt i64 %517, %.sroa.10.0.i.i
+  %.not.i.i48.not.i.i = icmp ult i64 %.sroa.10.0.i.i, %517
   %518 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %.sroa.0.057.i.i, i64 %.sroa.10.0.i.i
   br i1 %.not.i.i48.not.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f907779186d7323E.exit.thread61.i.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f907779186d7323E.exit.thread.i.i"
 
@@ -4859,7 +4859,7 @@ define noundef zeroext i1 @_ZN14regex_automata4meta8strategy4Core24is_capture_se
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8, !alias.scope !1053, !noundef !4
   %9 = shl i64 %8, 1
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   ret i1 %10
 }
 
@@ -5136,7 +5136,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %40 = tail call noundef i64 @llvm.usub.sat.i64(i64 %37, i64 %39)
   %41 = getelementptr inbounds i8, ptr %1, i64 1384
   %42 = load i64, ptr %41, align 8, !alias.scope !1143, !noalias !1129, !noundef !4
-  %43 = icmp ult i64 %42, %40
+  %43 = icmp ugt i64 %40, %42
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %25
@@ -5852,7 +5852,7 @@ define internal { i32, i32 } @"_ZN97_$LT$regex_automata..meta..strategy..Core$u2
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   %25 = load i64, ptr %24, align 8, !alias.scope !1359, !noalias !1356, !noundef !4
   %26 = shl i64 %25, 1
-  %27 = icmp ult i64 %26, %4
+  %27 = icmp ugt i64 %4, %26
   br i1 %27, label %64, label %28
 
 28:                                               ; preds = %5
@@ -6159,9 +6159,9 @@ _ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.e
   store i64 %.sroa.581.0.copyload, ptr %9, align 8, !noalias !1477
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %.sroa.782.0.copyload, ptr %.fca.1.gep.i, align 8, !noalias !1477
-  %.not.i72 = icmp ult i64 %131, %.sroa.782.0.copyload
+  %.not.i72 = icmp ugt i64 %.sroa.782.0.copyload, %131
   %134 = add i64 %.sroa.782.0.copyload, 1
-  %.not3.i73 = icmp ult i64 %134, %.sroa.581.0.copyload
+  %.not3.i73 = icmp ugt i64 %.sroa.581.0.copyload, %134
   %or.cond.i = or i1 %.not3.i73, %.not.i72
   br i1 %or.cond.i, label %135, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -6534,7 +6534,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %40 = tail call noundef i64 @llvm.usub.sat.i64(i64 %37, i64 %39)
   %41 = getelementptr inbounds i8, ptr %1, i64 1384
   %42 = load i64, ptr %41, align 8, !alias.scope !1596, !noalias !1582, !noundef !4
-  %43 = icmp ult i64 %42, %40
+  %43 = icmp ugt i64 %40, %42
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %25
@@ -8020,7 +8020,7 @@ common.resume:                                    ; preds = %181, %127, %84
   %105 = getelementptr inbounds i8, ptr %104, i64 32
   %106 = load i64, ptr %105, align 8, !alias.scope !2107, !noalias !2106, !noundef !4
   %107 = shl i64 %106, 1
-  %108 = icmp ult i64 %107, %4
+  %108 = icmp ugt i64 %4, %107
   br i1 %108, label %145, label %109
 
 109:                                              ; preds = %100
@@ -8298,9 +8298,9 @@ _ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.e
   store i64 %.sroa.5108.0.copyload, ptr %15, align 8, !noalias !2229
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %.sroa.7109.0.copyload, ptr %.fca.1.gep.i, align 8, !noalias !2229
-  %.not.i74 = icmp ult i64 %201, %.sroa.7109.0.copyload
+  %.not.i74 = icmp ugt i64 %.sroa.7109.0.copyload, %201
   %204 = add i64 %.sroa.7109.0.copyload, 1
-  %.not3.i = icmp ult i64 %204, %.sroa.5108.0.copyload
+  %.not3.i = icmp ugt i64 %.sroa.5108.0.copyload, %204
   %or.cond.i = or i1 %.not3.i, %.not.i74
   br i1 %or.cond.i, label %205, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -8368,7 +8368,7 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit: ; preds
   %221 = getelementptr inbounds i8, ptr %220, i64 32
   %222 = load i64, ptr %221, align 8, !alias.scope !2241, !noalias !2238, !noundef !4
   %223 = shl i64 %222, 1
-  %224 = icmp ult i64 %223, %4
+  %224 = icmp ugt i64 %4, %223
   br i1 %224, label %241, label %225
 
 225:                                              ; preds = %216
@@ -8418,9 +8418,9 @@ _ZN14regex_automata4util6search5Match3new17hddca06fb22a4a48cE.exit: ; preds = %2
   store i64 %.sroa.6.0.copyload159, ptr %10, align 8, !noalias !2252
   %.fca.1.gep.i76 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %43, ptr %.fca.1.gep.i76, align 8, !noalias !2252
-  %.not.i77 = icmp ult i64 %39, %43
+  %.not.i77 = icmp ugt i64 %43, %39
   %242 = add i64 %43, 1
-  %.not3.i78 = icmp ult i64 %242, %.sroa.6.0.copyload159
+  %.not3.i78 = icmp ugt i64 %.sroa.6.0.copyload159, %242
   %or.cond.i79 = or i1 %.not.i77, %.not3.i78
   br i1 %or.cond.i79, label %243, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit80
 
@@ -8792,7 +8792,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %40 = tail call noundef i64 @llvm.usub.sat.i64(i64 %37, i64 %39)
   %41 = getelementptr inbounds i8, ptr %1, i64 1384
   %42 = load i64, ptr %41, align 8, !alias.scope !2375, !noalias !2361, !noundef !4
-  %43 = icmp ult i64 %42, %40
+  %43 = icmp ugt i64 %40, %42
   br i1 %43, label %45, label %44
 
 44:                                               ; preds = %25
@@ -8970,9 +8970,9 @@ define internal void @"_ZN106_$LT$regex_automata..meta..strategy..ReverseSuffix$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !2406
   store i64 %37, ptr %24, align 8, !noalias !2406
   store i64 %67, ptr %.fca.1.gep.i, align 8, !noalias !2406
-  %.not.i61.us = icmp ult i64 %43, %67
+  %.not.i61.us = icmp ugt i64 %67, %43
   %68 = add i64 %67, 1
-  %.not3.i62.us = icmp ult i64 %68, %37
+  %.not3.i62.us = icmp ugt i64 %37, %68
   %or.cond.i.us = or i1 %.not.i61.us, %.not3.i62.us
   br i1 %or.cond.i.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us
 
@@ -9003,9 +9003,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us: ; pr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !2406
   store i64 %37, ptr %24, align 8, !noalias !2406
   store i64 %72, ptr %.fca.1.gep.i, align 8, !noalias !2406
-  %.not.i61.us166 = icmp ult i64 %43, %72
+  %.not.i61.us166 = icmp ugt i64 %72, %43
   %73 = add i64 %72, 1
-  %.not3.i62.us167 = icmp ult i64 %73, %37
+  %.not3.i62.us167 = icmp ugt i64 %37, %73
   %or.cond.i.us168 = or i1 %.not.i61.us166, %.not3.i62.us167
   br i1 %or.cond.i.us168, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us169
 
@@ -9049,9 +9049,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !2406
   store i64 %37, ptr %24, align 8, !noalias !2406
   store i64 %79, ptr %.fca.1.gep.i, align 8, !noalias !2406
-  %.not.i61 = icmp ult i64 %43, %79
+  %.not.i61 = icmp ugt i64 %79, %43
   %80 = add i64 %79, 1
-  %.not3.i62 = icmp ult i64 %80, %37
+  %.not3.i62 = icmp ugt i64 %37, %80
   %or.cond.i = or i1 %.not.i61, %.not3.i62
   br i1 %or.cond.i, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -9267,9 +9267,9 @@ common.resume:                                    ; preds = %216, %176, %121
   store i64 %92, ptr %17, align 8, !noalias !2490
   %.fca.1.gep.i63 = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %39, ptr %.fca.1.gep.i63, align 8, !noalias !2490
-  %.not.i64 = icmp ult i64 %43, %39
+  %.not.i64 = icmp ugt i64 %39, %43
   %142 = add i64 %39, 1
-  %.not3.i65 = icmp ult i64 %142, %92
+  %.not3.i65 = icmp ugt i64 %92, %142
   %or.cond.i66 = or i1 %.not.i64, %.not3.i65
   br i1 %or.cond.i66, label %143, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit67
 
@@ -9704,9 +9704,9 @@ define internal void @"_ZN106_$LT$regex_automata..meta..strategy..ReverseSuffix$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !2618
   store i64 %43, ptr %30, align 8, !noalias !2618
   store i64 %73, ptr %.fca.1.gep.i, align 8, !noalias !2618
-  %.not.i54.us = icmp ult i64 %49, %73
+  %.not.i54.us = icmp ugt i64 %73, %49
   %74 = add i64 %73, 1
-  %.not3.i55.us = icmp ult i64 %74, %43
+  %.not3.i55.us = icmp ugt i64 %43, %74
   %or.cond.i.us = or i1 %.not.i54.us, %.not3.i55.us
   br i1 %or.cond.i.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us
 
@@ -9737,9 +9737,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us: ; pr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !2618
   store i64 %43, ptr %30, align 8, !noalias !2618
   store i64 %78, ptr %.fca.1.gep.i, align 8, !noalias !2618
-  %.not.i54.us219 = icmp ult i64 %49, %78
+  %.not.i54.us219 = icmp ugt i64 %78, %49
   %79 = add i64 %78, 1
-  %.not3.i55.us220 = icmp ult i64 %79, %43
+  %.not3.i55.us220 = icmp ugt i64 %43, %79
   %or.cond.i.us221 = or i1 %.not.i54.us219, %.not3.i55.us220
   br i1 %or.cond.i.us221, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us222
 
@@ -9783,9 +9783,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !2618
   store i64 %43, ptr %30, align 8, !noalias !2618
   store i64 %85, ptr %.fca.1.gep.i, align 8, !noalias !2618
-  %.not.i54 = icmp ult i64 %49, %85
+  %.not.i54 = icmp ugt i64 %85, %49
   %86 = add i64 %85, 1
-  %.not3.i55 = icmp ult i64 %86, %43
+  %.not3.i55 = icmp ugt i64 %43, %86
   %or.cond.i = or i1 %.not.i54, %.not3.i55
   br i1 %or.cond.i, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -10089,9 +10089,9 @@ _ZN14regex_automata4meta8strategy4Core18search_half_nofail17he9858233f77b6918E.e
   store i64 %98, ptr %20, align 8, !noalias !2729
   %.fca.1.gep.i66 = getelementptr inbounds i8, ptr %20, i64 8
   store i64 %45, ptr %.fca.1.gep.i66, align 8, !noalias !2729
-  %.not.i67 = icmp ult i64 %49, %45
+  %.not.i67 = icmp ugt i64 %45, %49
   %171 = add i64 %45, 1
-  %.not3.i68 = icmp ult i64 %171, %98
+  %.not3.i68 = icmp ugt i64 %98, %171
   %or.cond.i69 = or i1 %.not.i67, %.not3.i68
   br i1 %or.cond.i69, label %172, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit70
 
@@ -10585,9 +10585,9 @@ define internal noundef zeroext i1 @"_ZN106_$LT$regex_automata..meta..strategy..
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2888
   store i64 %21, ptr %12, align 8, !noalias !2888
   store i64 %49, ptr %.fca.1.gep.i, align 8, !noalias !2888
-  %.not.i23.us = icmp ult i64 %27, %49
+  %.not.i23.us = icmp ugt i64 %49, %27
   %50 = add i64 %49, 1
-  %.not3.i24.us = icmp ult i64 %50, %21
+  %.not3.i24.us = icmp ugt i64 %21, %50
   %or.cond.i.us = or i1 %.not.i23.us, %.not3.i24.us
   br i1 %or.cond.i.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us
 
@@ -10612,9 +10612,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us: ; pr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2888
   store i64 %21, ptr %12, align 8, !noalias !2888
   store i64 %54, ptr %.fca.1.gep.i, align 8, !noalias !2888
-  %.not.i23.us62 = icmp ult i64 %27, %54
+  %.not.i23.us62 = icmp ugt i64 %54, %27
   %55 = add i64 %54, 1
-  %.not3.i24.us63 = icmp ult i64 %55, %21
+  %.not3.i24.us63 = icmp ugt i64 %21, %55
   %or.cond.i.us64 = or i1 %.not.i23.us62, %.not3.i24.us63
   br i1 %or.cond.i.us64, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us65
 
@@ -10652,9 +10652,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2888
   store i64 %21, ptr %12, align 8, !noalias !2888
   store i64 %61, ptr %.fca.1.gep.i, align 8, !noalias !2888
-  %.not.i23 = icmp ult i64 %27, %61
+  %.not.i23 = icmp ugt i64 %61, %27
   %62 = add i64 %61, 1
-  %.not3.i24 = icmp ult i64 %62, %21
+  %.not3.i24 = icmp ugt i64 %21, %62
   %or.cond.i = or i1 %.not.i23, %.not3.i24
   br i1 %or.cond.i, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -10969,7 +10969,7 @@ define internal { i32, i32 } @"_ZN106_$LT$regex_automata..meta..strategy..Revers
   %71 = getelementptr inbounds i8, ptr %70, i64 32
   %72 = load i64, ptr %71, align 8, !alias.scope !2977, !noalias !2974, !noundef !4
   %73 = shl i64 %72, 1
-  %74 = icmp ult i64 %73, %4
+  %74 = icmp ugt i64 %4, %73
   br i1 %74, label %337, label %191
 
 75:                                               ; preds = %5
@@ -10982,7 +10982,7 @@ define internal { i32, i32 } @"_ZN106_$LT$regex_automata..meta..strategy..Revers
   %80 = getelementptr inbounds i8, ptr %79, i64 32
   %81 = load i64, ptr %80, align 8, !alias.scope !2990, !noalias !2989, !noundef !4
   %82 = shl i64 %81, 1
-  %83 = icmp ult i64 %82, %4
+  %83 = icmp ugt i64 %4, %82
   br i1 %83, label %120, label %84
 
 84:                                               ; preds = %75
@@ -11264,9 +11264,9 @@ _ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.e
   store i64 %.sroa.5289.0.copyload, ptr %31, align 8, !noalias !3112
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %.sroa.7290.0.copyload, ptr %.fca.1.gep.i, align 8, !noalias !3112
-  %.not.i221 = icmp ult i64 %176, %.sroa.7290.0.copyload
+  %.not.i221 = icmp ugt i64 %.sroa.7290.0.copyload, %176
   %179 = add i64 %.sroa.7290.0.copyload, 1
-  %.not3.i222 = icmp ult i64 %179, %.sroa.5289.0.copyload
+  %.not3.i222 = icmp ugt i64 %.sroa.5289.0.copyload, %179
   %or.cond.i = or i1 %.not3.i222, %.not.i221
   br i1 %or.cond.i, label %180, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -11385,9 +11385,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !3143
   store i64 %193, ptr %27, align 8, !noalias !3143
   store i64 %223, ptr %.fca.1.gep.i223, align 8, !noalias !3143
-  %.not.i224.us = icmp ult i64 %199, %223
+  %.not.i224.us = icmp ugt i64 %223, %199
   %224 = add i64 %223, 1
-  %.not3.i225.us = icmp ult i64 %224, %193
+  %.not3.i225.us = icmp ugt i64 %193, %224
   %or.cond.i226.us = or i1 %.not.i224.us, %.not3.i225.us
   br i1 %or.cond.i226.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit227.us
 
@@ -11418,9 +11418,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit227.us: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !3143
   store i64 %193, ptr %27, align 8, !noalias !3143
   store i64 %228, ptr %.fca.1.gep.i223, align 8, !noalias !3143
-  %.not.i224.us476 = icmp ult i64 %199, %228
+  %.not.i224.us476 = icmp ugt i64 %228, %199
   %229 = add i64 %228, 1
-  %.not3.i225.us477 = icmp ult i64 %229, %193
+  %.not3.i225.us477 = icmp ugt i64 %193, %229
   %or.cond.i226.us478 = or i1 %.not.i224.us476, %.not3.i225.us477
   br i1 %or.cond.i226.us478, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit227.us479
 
@@ -11464,9 +11464,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !3143
   store i64 %193, ptr %27, align 8, !noalias !3143
   store i64 %235, ptr %.fca.1.gep.i223, align 8, !noalias !3143
-  %.not.i224 = icmp ult i64 %199, %235
+  %.not.i224 = icmp ugt i64 %235, %199
   %236 = add i64 %235, 1
-  %.not3.i225 = icmp ult i64 %236, %193
+  %.not3.i225 = icmp ugt i64 %193, %236
   %or.cond.i226 = or i1 %.not.i224, %.not3.i225
   br i1 %or.cond.i226, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit227
 
@@ -11568,9 +11568,9 @@ _ZN14regex_automata4meta8wrappers12HybridEngine27try_search_half_rev_limited17he
   store i64 %248, ptr %23, align 8, !noalias !3175
   %.fca.1.gep.i234 = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %195, ptr %.fca.1.gep.i234, align 8, !noalias !3175
-  %.not.i235 = icmp ult i64 %199, %195
+  %.not.i235 = icmp ugt i64 %195, %199
   %262 = add i64 %195, 1
-  %.not3.i236 = icmp ult i64 %262, %248
+  %.not3.i236 = icmp ugt i64 %248, %262
   %or.cond.i237 = or i1 %.not.i235, %.not3.i236
   br i1 %or.cond.i237, label %263, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit238
 
@@ -11906,9 +11906,9 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !3274
   store i64 %339, ptr %14, align 8, !noalias !3274
   store i64 %369, ptr %.fca.1.gep.i246, align 8, !noalias !3274
-  %.not.i247.us = icmp ult i64 %345, %369
+  %.not.i247.us = icmp ugt i64 %369, %345
   %370 = add i64 %369, 1
-  %.not3.i248.us = icmp ult i64 %370, %339
+  %.not3.i248.us = icmp ugt i64 %339, %370
   %or.cond.i249.us = or i1 %.not.i247.us, %.not3.i248.us
   br i1 %or.cond.i249.us, label %.split491.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit250.us
 
@@ -11939,9 +11939,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit250.us: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !3274
   store i64 %339, ptr %14, align 8, !noalias !3274
   store i64 %374, ptr %.fca.1.gep.i246, align 8, !noalias !3274
-  %.not.i247.us497 = icmp ult i64 %345, %374
+  %.not.i247.us497 = icmp ugt i64 %374, %345
   %375 = add i64 %374, 1
-  %.not3.i248.us498 = icmp ult i64 %375, %339
+  %.not3.i248.us498 = icmp ugt i64 %339, %375
   %or.cond.i249.us499 = or i1 %.not.i247.us497, %.not3.i248.us498
   br i1 %or.cond.i249.us499, label %.split491.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit250.us500
 
@@ -11982,9 +11982,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit250.us500
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !3274
   store i64 %339, ptr %14, align 8, !noalias !3274
   store i64 %381, ptr %.fca.1.gep.i246, align 8, !noalias !3274
-  %.not.i247 = icmp ult i64 %345, %381
+  %.not.i247 = icmp ugt i64 %381, %345
   %382 = add i64 %381, 1
-  %.not3.i248 = icmp ult i64 %382, %339
+  %.not3.i248 = icmp ugt i64 %339, %382
   %or.cond.i249 = or i1 %.not.i247, %.not3.i248
   br i1 %or.cond.i249, label %.split491.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit250
 
@@ -12122,9 +12122,9 @@ _ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit1
   store i64 %394, ptr %10, align 8, !noalias !3309
   %.fca.1.gep.i251 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %341, ptr %.fca.1.gep.i251, align 8, !noalias !3309
-  %.not.i252 = icmp ult i64 %345, %341
+  %.not.i252 = icmp ugt i64 %341, %345
   %422 = add i64 %341, 1
-  %.not3.i253 = icmp ult i64 %422, %394
+  %.not3.i253 = icmp ugt i64 %394, %422
   %or.cond.i254 = or i1 %.not.i252, %.not3.i253
   br i1 %or.cond.i254, label %423, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit255
 
@@ -12180,7 +12180,7 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit255: ; pr
   %434 = getelementptr inbounds i8, ptr %433, i64 32
   %435 = load i64, ptr %434, align 8, !alias.scope !3326, !noalias !3321, !noundef !4
   %436 = shl i64 %435, 1
-  %437 = icmp ult i64 %436, %4
+  %437 = icmp ugt i64 %4, %436
   br i1 %437, label %449, label %438
 
 438:                                              ; preds = %432
@@ -12759,7 +12759,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %41 = tail call noundef i64 @llvm.usub.sat.i64(i64 %38, i64 %40)
   %42 = getelementptr inbounds i8, ptr %1, i64 1384
   %43 = load i64, ptr %42, align 8, !alias.scope !3509, !noalias !3495, !noundef !4
-  %44 = icmp ult i64 %43, %41
+  %44 = icmp ugt i64 %41, %43
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %26
@@ -12997,7 +12997,7 @@ define internal void @"_ZN105_$LT$regex_automata..meta..strategy..ReverseInner$u
   %63 = getelementptr inbounds i8, ptr %27, i64 8
   %64 = getelementptr inbounds i8, ptr %27, i64 16
   %.fca.1.gep.i46 = getelementptr inbounds i8, ptr %16, i64 8
-  %.not.i47 = icmp ult i64 %39, %35
+  %.not.i47 = icmp ugt i64 %35, %39
   %65 = add i64 %35, 1
   %.sroa.480.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
   %.sroa.581.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
@@ -13021,9 +13021,9 @@ define internal void @"_ZN105_$LT$regex_automata..meta..strategy..ReverseInner$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !3553
   store i64 %33, ptr %20, align 8, !noalias !3553
   store i64 %73, ptr %.fca.1.gep.i, align 8, !noalias !3553
-  %.not.i44.us = icmp ult i64 %39, %73
+  %.not.i44.us = icmp ugt i64 %73, %39
   %74 = add i64 %73, 1
-  %.not3.i45.us = icmp ult i64 %74, %33
+  %.not3.i45.us = icmp ugt i64 %33, %74
   %or.cond.i.us = or i1 %.not.i44.us, %.not3.i45.us
   br i1 %or.cond.i.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us
 
@@ -13050,9 +13050,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us: ; pr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !3553
   store i64 %33, ptr %20, align 8, !noalias !3553
   store i64 %76, ptr %.fca.1.gep.i, align 8, !noalias !3553
-  %.not.i44.us171 = icmp ult i64 %39, %76
+  %.not.i44.us171 = icmp ugt i64 %76, %39
   %77 = add i64 %76, 1
-  %.not3.i45.us172 = icmp ult i64 %77, %33
+  %.not3.i45.us172 = icmp ugt i64 %33, %77
   %or.cond.i.us173 = or i1 %.not.i44.us171, %.not3.i45.us172
   br i1 %or.cond.i.us173, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us174
 
@@ -13101,9 +13101,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !3553
   store i64 %33, ptr %20, align 8, !noalias !3553
   store i64 %82, ptr %.fca.1.gep.i, align 8, !noalias !3553
-  %.not.i44 = icmp ult i64 %39, %82
+  %.not.i44 = icmp ugt i64 %82, %39
   %86 = add i64 %82, 1
-  %.not3.i45 = icmp ult i64 %86, %33
+  %.not3.i45 = icmp ugt i64 %33, %86
   %or.cond.i = or i1 %.not.i44, %.not3.i45
   br i1 %or.cond.i, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -13178,7 +13178,7 @@ _ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !3582
   store i64 %99, ptr %16, align 8, !noalias !3582
   store i64 %35, ptr %.fca.1.gep.i46, align 8, !noalias !3582
-  %.not3.i48 = icmp ult i64 %65, %99
+  %.not3.i48 = icmp ugt i64 %99, %65
   %or.cond.i49 = or i1 %.not.i47, %.not3.i48
   br i1 %or.cond.i49, label %105, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit50
 
@@ -13659,7 +13659,7 @@ define internal void @"_ZN105_$LT$regex_automata..meta..strategy..ReverseInner$u
   %70 = getelementptr inbounds i8, ptr %34, i64 8
   %71 = getelementptr inbounds i8, ptr %34, i64 16
   %.fca.1.gep.i51 = getelementptr inbounds i8, ptr %23, i64 8
-  %.not.i52 = icmp ult i64 %46, %42
+  %.not.i52 = icmp ugt i64 %42, %46
   %72 = add i64 %42, 1
   %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 4
   %.sroa.5129.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
@@ -13683,9 +13683,9 @@ define internal void @"_ZN105_$LT$regex_automata..meta..strategy..ReverseInner$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !3728
   store i64 %40, ptr %27, align 8, !noalias !3728
   store i64 %80, ptr %.fca.1.gep.i, align 8, !noalias !3728
-  %.not.i49.us = icmp ult i64 %46, %80
+  %.not.i49.us = icmp ugt i64 %80, %46
   %81 = add i64 %80, 1
-  %.not3.i50.us = icmp ult i64 %81, %40
+  %.not3.i50.us = icmp ugt i64 %40, %81
   %or.cond.i.us = or i1 %.not.i49.us, %.not3.i50.us
   br i1 %or.cond.i.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us
 
@@ -13712,9 +13712,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us: ; pr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !3728
   store i64 %40, ptr %27, align 8, !noalias !3728
   store i64 %83, ptr %.fca.1.gep.i, align 8, !noalias !3728
-  %.not.i49.us218 = icmp ult i64 %46, %83
+  %.not.i49.us218 = icmp ugt i64 %83, %46
   %84 = add i64 %83, 1
-  %.not3.i50.us219 = icmp ult i64 %84, %40
+  %.not3.i50.us219 = icmp ugt i64 %40, %84
   %or.cond.i.us220 = or i1 %.not.i49.us218, %.not3.i50.us219
   br i1 %or.cond.i.us220, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us221
 
@@ -13763,9 +13763,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27), !noalias !3728
   store i64 %40, ptr %27, align 8, !noalias !3728
   store i64 %89, ptr %.fca.1.gep.i, align 8, !noalias !3728
-  %.not.i49 = icmp ult i64 %46, %89
+  %.not.i49 = icmp ugt i64 %89, %46
   %93 = add i64 %89, 1
-  %.not3.i50 = icmp ult i64 %93, %40
+  %.not3.i50 = icmp ugt i64 %40, %93
   %or.cond.i = or i1 %.not.i49, %.not3.i50
   br i1 %or.cond.i, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -13835,7 +13835,7 @@ _ZN14regex_automata4meta8wrappers19ReverseHybridEngine27try_search_half_rev_limi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !3757
   store i64 %106, ptr %23, align 8, !noalias !3757
   store i64 %42, ptr %.fca.1.gep.i51, align 8, !noalias !3757
-  %.not3.i53 = icmp ult i64 %72, %106
+  %.not3.i53 = icmp ugt i64 %106, %72
   %or.cond.i54 = or i1 %.not.i52, %.not3.i53
   br i1 %or.cond.i54, label %111, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit55
 
@@ -14504,7 +14504,7 @@ define internal noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..
   %59 = getelementptr inbounds i8, ptr %23, i64 8
   %60 = getelementptr inbounds i8, ptr %23, i64 16
   %.fca.1.gep.i36 = getelementptr inbounds i8, ptr %13, i64 8
-  %.not.i37 = icmp ult i64 %35, %31
+  %.not.i37 = icmp ugt i64 %31, %35
   %61 = add i64 %31, 1
   %.sroa.456.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 4
   %.sroa.557.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
@@ -14528,9 +14528,9 @@ define internal noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !3965
   store i64 %29, ptr %17, align 8, !noalias !3965
   store i64 %69, ptr %.fca.1.gep.i, align 8, !noalias !3965
-  %.not.i34.us = icmp ult i64 %35, %69
+  %.not.i34.us = icmp ugt i64 %69, %35
   %70 = add i64 %69, 1
-  %.not3.i35.us = icmp ult i64 %70, %29
+  %.not3.i35.us = icmp ugt i64 %29, %70
   %or.cond.i.us = or i1 %.not.i34.us, %.not3.i35.us
   br i1 %or.cond.i.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us
 
@@ -14551,9 +14551,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us: ; pr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !3965
   store i64 %29, ptr %17, align 8, !noalias !3965
   store i64 %72, ptr %.fca.1.gep.i, align 8, !noalias !3965
-  %.not.i34.us122 = icmp ult i64 %35, %72
+  %.not.i34.us122 = icmp ugt i64 %72, %35
   %73 = add i64 %72, 1
-  %.not3.i35.us123 = icmp ult i64 %73, %29
+  %.not3.i35.us123 = icmp ugt i64 %29, %73
   %or.cond.i.us124 = or i1 %.not.i34.us122, %.not3.i35.us123
   br i1 %or.cond.i.us124, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit.us125
 
@@ -14596,9 +14596,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !3965
   store i64 %29, ptr %17, align 8, !noalias !3965
   store i64 %78, ptr %.fca.1.gep.i, align 8, !noalias !3965
-  %.not.i34 = icmp ult i64 %35, %78
+  %.not.i34 = icmp ugt i64 %78, %35
   %82 = add i64 %78, 1
-  %.not3.i35 = icmp ult i64 %82, %29
+  %.not3.i35 = icmp ugt i64 %29, %82
   %or.cond.i = or i1 %.not.i34, %.not3.i35
   br i1 %or.cond.i, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -14673,7 +14673,7 @@ _ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !3994
   store i64 %95, ptr %13, align 8, !noalias !3994
   store i64 %31, ptr %.fca.1.gep.i36, align 8, !noalias !3994
-  %.not3.i38 = icmp ult i64 %61, %95
+  %.not3.i38 = icmp ugt i64 %95, %61
   %or.cond.i39 = or i1 %.not.i37, %.not3.i38
   br i1 %or.cond.i39, label %101, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit40
 
@@ -15056,7 +15056,7 @@ define internal { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Revers
   %75 = getelementptr inbounds i8, ptr %74, i64 32
   %76 = load i64, ptr %75, align 8, !alias.scope !4086, !noalias !4083, !noundef !4
   %77 = shl i64 %76, 1
-  %78 = icmp ult i64 %77, %4
+  %78 = icmp ugt i64 %4, %77
   br i1 %78, label %321, label %195
 
 79:                                               ; preds = %5
@@ -15069,7 +15069,7 @@ define internal { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Revers
   %84 = getelementptr inbounds i8, ptr %83, i64 32
   %85 = load i64, ptr %84, align 8, !alias.scope !4099, !noalias !4098, !noundef !4
   %86 = shl i64 %85, 1
-  %87 = icmp ult i64 %86, %4
+  %87 = icmp ugt i64 %4, %86
   br i1 %87, label %124, label %88
 
 88:                                               ; preds = %79
@@ -15351,9 +15351,9 @@ _ZN14regex_automata4meta8strategy4Core18try_search_mayfail17h81ff6bddf816fb2eE.e
   store i64 %.sroa.5307.0.copyload, ptr %32, align 8, !noalias !4221
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %32, i64 8
   store i64 %.sroa.7308.0.copyload, ptr %.fca.1.gep.i, align 8, !noalias !4221
-  %.not.i233 = icmp ult i64 %180, %.sroa.7308.0.copyload
+  %.not.i233 = icmp ugt i64 %.sroa.7308.0.copyload, %180
   %183 = add i64 %.sroa.7308.0.copyload, 1
-  %.not3.i234 = icmp ult i64 %183, %.sroa.5307.0.copyload
+  %.not3.i234 = icmp ugt i64 %.sroa.5307.0.copyload, %183
   %or.cond.i = or i1 %.not3.i234, %.not.i233
   br i1 %or.cond.i, label %184, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit
 
@@ -15466,7 +15466,7 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit: ; preds
   %227 = getelementptr inbounds i8, ptr %48, i64 8
   %228 = getelementptr inbounds i8, ptr %48, i64 16
   %.fca.1.gep.i240 = getelementptr inbounds i8, ptr %24, i64 8
-  %.not.i241 = icmp ult i64 %203, %199
+  %.not.i241 = icmp ugt i64 %199, %203
   %229 = add i64 %199, 1
   %.sroa.4361.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 4
   %.sroa.5362.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 8
@@ -15490,9 +15490,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !4250
   store i64 %197, ptr %28, align 8, !noalias !4250
   store i64 %237, ptr %.fca.1.gep.i235, align 8, !noalias !4250
-  %.not.i236.us = icmp ult i64 %203, %237
+  %.not.i236.us = icmp ugt i64 %237, %203
   %238 = add i64 %237, 1
-  %.not3.i237.us = icmp ult i64 %238, %197
+  %.not3.i237.us = icmp ugt i64 %197, %238
   %or.cond.i238.us = or i1 %.not.i236.us, %.not3.i237.us
   br i1 %or.cond.i238.us, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit239.us
 
@@ -15519,9 +15519,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit239.us: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !4250
   store i64 %197, ptr %28, align 8, !noalias !4250
   store i64 %240, ptr %.fca.1.gep.i235, align 8, !noalias !4250
-  %.not.i236.us581 = icmp ult i64 %203, %240
+  %.not.i236.us581 = icmp ugt i64 %240, %203
   %241 = add i64 %240, 1
-  %.not3.i237.us582 = icmp ult i64 %241, %197
+  %.not3.i237.us582 = icmp ugt i64 %197, %241
   %or.cond.i238.us583 = or i1 %.not.i236.us581, %.not3.i237.us582
   br i1 %or.cond.i238.us583, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit239.us584
 
@@ -15570,9 +15570,9 @@ default.unreachable:                              ; preds = %_ZN14regex_automata
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !4250
   store i64 %197, ptr %28, align 8, !noalias !4250
   store i64 %246, ptr %.fca.1.gep.i235, align 8, !noalias !4250
-  %.not.i236 = icmp ult i64 %203, %246
+  %.not.i236 = icmp ugt i64 %246, %203
   %250 = add i64 %246, 1
-  %.not3.i237 = icmp ult i64 %250, %197
+  %.not3.i237 = icmp ugt i64 %197, %250
   %or.cond.i238 = or i1 %.not.i236, %.not3.i237
   br i1 %or.cond.i238, label %.split.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit239
 
@@ -15647,7 +15647,7 @@ _ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !4280
   store i64 %263, ptr %24, align 8, !noalias !4280
   store i64 %199, ptr %.fca.1.gep.i240, align 8, !noalias !4280
-  %.not3.i242 = icmp ult i64 %229, %263
+  %.not3.i242 = icmp ugt i64 %263, %229
   %or.cond.i243 = or i1 %.not.i241, %.not3.i242
   br i1 %or.cond.i243, label %269, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit244
 
@@ -15917,7 +15917,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   %353 = getelementptr inbounds i8, ptr %56, i64 8
   %354 = getelementptr inbounds i8, ptr %56, i64 16
   %.fca.1.gep.i257 = getelementptr inbounds i8, ptr %15, i64 8
-  %.not.i258 = icmp ult i64 %329, %325
+  %.not.i258 = icmp ugt i64 %325, %329
   %355 = add i64 %325, 1
   %.sroa.4326.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 4
   %.sroa.5327.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 8
@@ -15941,9 +15941,9 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !4341
   store i64 %323, ptr %19, align 8, !noalias !4341
   store i64 %363, ptr %.fca.1.gep.i252, align 8, !noalias !4341
-  %.not.i253.us = icmp ult i64 %329, %363
+  %.not.i253.us = icmp ugt i64 %363, %329
   %364 = add i64 %363, 1
-  %.not3.i254.us = icmp ult i64 %364, %323
+  %.not3.i254.us = icmp ugt i64 %323, %364
   %or.cond.i255.us = or i1 %.not.i253.us, %.not3.i254.us
   br i1 %or.cond.i255.us, label %.split600.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit256.us
 
@@ -15970,9 +15970,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit256.us: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !4341
   store i64 %323, ptr %19, align 8, !noalias !4341
   store i64 %366, ptr %.fca.1.gep.i252, align 8, !noalias !4341
-  %.not.i253.us608 = icmp ult i64 %329, %366
+  %.not.i253.us608 = icmp ugt i64 %366, %329
   %367 = add i64 %366, 1
-  %.not3.i254.us609 = icmp ult i64 %367, %323
+  %.not3.i254.us609 = icmp ugt i64 %323, %367
   %or.cond.i255.us610 = or i1 %.not.i253.us608, %.not3.i254.us609
   br i1 %or.cond.i255.us610, label %.split600.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit256.us611
 
@@ -16018,9 +16018,9 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit256.us611
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !4341
   store i64 %323, ptr %19, align 8, !noalias !4341
   store i64 %372, ptr %.fca.1.gep.i252, align 8, !noalias !4341
-  %.not.i253 = icmp ult i64 %329, %372
+  %.not.i253 = icmp ugt i64 %372, %329
   %376 = add i64 %372, 1
-  %.not3.i254 = icmp ult i64 %376, %323
+  %.not3.i254 = icmp ugt i64 %323, %376
   %or.cond.i255 = or i1 %.not.i253, %.not3.i254
   br i1 %or.cond.i255, label %.split600.us, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit256
 
@@ -16090,7 +16090,7 @@ _ZN14regex_automata4meta8wrappers19ReverseHybridEngine27try_search_half_rev_limi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !4370
   store i64 %389, ptr %15, align 8, !noalias !4370
   store i64 %325, ptr %.fca.1.gep.i257, align 8, !noalias !4370
-  %.not3.i259 = icmp ult i64 %355, %389
+  %.not3.i259 = icmp ugt i64 %389, %355
   %or.cond.i260 = or i1 %.not.i258, %.not3.i259
   br i1 %or.cond.i260, label %394, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit261
 
@@ -16287,9 +16287,9 @@ _ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit1
   store i64 %389, ptr %10, align 8, !noalias !4408
   %.fca.1.gep.i264 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %413, ptr %.fca.1.gep.i264, align 8, !noalias !4408
-  %.not.i265 = icmp ult i64 %329, %413
+  %.not.i265 = icmp ugt i64 %413, %329
   %449 = add i64 %413, 1
-  %.not3.i266 = icmp ult i64 %449, %389
+  %.not3.i266 = icmp ugt i64 %389, %449
   %or.cond.i267 = or i1 %.not.i265, %.not3.i266
   br i1 %or.cond.i267, label %450, label %_ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit268
 
@@ -16344,7 +16344,7 @@ _ZN14regex_automata4util6search5Input8set_span17haa3f6d23015e3897E.exit268: ; pr
   %460 = getelementptr inbounds i8, ptr %459, i64 32
   %461 = load i64, ptr %460, align 8, !alias.scope !4425, !noalias !4420, !noundef !4
   %462 = shl i64 %461, 1
-  %463 = icmp ult i64 %462, %4
+  %463 = icmp ugt i64 %4, %462
   br i1 %463, label %478, label %464
 
 464:                                              ; preds = %.thread445
@@ -16871,7 +16871,7 @@ define internal fastcc void @_ZN14regex_automata3nfa8thompson9backtrack18Bounded
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = load i64, ptr %32, align 8, !alias.scope !4554, !noundef !4
   %34 = shl i64 %33, 1
-  %.not = icmp ugt i64 %34, %5
+  %.not = icmp ult i64 %5, %34
   br i1 %.not, label %42, label %46
 
 default.unreachable106:                           ; preds = %46, %.thread
@@ -17024,7 +17024,7 @@ common.resume:                                    ; preds = %80, %63
   br i1 %84, label %91, label %88
 
 88:                                               ; preds = %82
-  %89 = icmp ult i64 %70, %5
+  %89 = icmp ugt i64 %5, %70
   br i1 %89, label %90, label %99
 
 90:                                               ; preds = %88
@@ -17277,7 +17277,7 @@ define internal fastcc { i32, i32 } @_ZN14regex_automata3nfa8thompson6pikevm6Pik
   %28 = getelementptr inbounds i8, ptr %27, i64 32
   %29 = load i64, ptr %28, align 8, !alias.scope !4604, !noundef !4
   %30 = shl i64 %29, 1
-  %.not = icmp ugt i64 %30, %4
+  %.not = icmp ult i64 %4, %30
   br i1 %.not, label %34, label %38
 
 31:                                               ; preds = %38, %.thread, %"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h4180c3a3ae479f2aE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit"
@@ -17374,7 +17374,7 @@ common.resume:                                    ; preds = %63, %55
           to label %common.resume unwind label %79
 
 65:                                               ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hf7cc145518668d14E.exit"
-  %66 = icmp ult i64 %62, %4
+  %66 = icmp ugt i64 %4, %62
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %65
@@ -17430,9 +17430,9 @@ define internal fastcc void @_ZN14regex_automata4util6search5Input8set_span17haa
   store i64 %2, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %.not = icmp ult i64 %9, %2
+  %.not = icmp ugt i64 %2, %9
   %10 = add i64 %2, 1
-  %.not3 = icmp ult i64 %10, %1
+  %.not3 = icmp ugt i64 %1, %10
   %or.cond = or i1 %.not3, %.not
   br i1 %or.cond, label %11, label %19
 

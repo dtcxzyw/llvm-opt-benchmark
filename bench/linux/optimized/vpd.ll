@@ -268,7 +268,7 @@ define internal fastcc noundef zeroext i1 @pci_vpd_available(ptr noundef %0, i1 
   %8 = getelementptr inbounds i8, ptr %0, i64 2000
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  %11 = and i1 %10, %1
+  %11 = and i1 %1, %10
   br i1 %11, label %12, label %98
 
 12:                                               ; preds = %7
@@ -1261,7 +1261,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_vpd_wait(ptr noundef %
   %12 = phi i64 [ %23, %20 ], [ 16, %2 ]
   %13 = load i16, ptr %3, align 2
   %14 = icmp sgt i16 %13, -1
-  %15 = xor i1 %14, %1
+  %15 = xor i1 %1, %14
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %.preheader

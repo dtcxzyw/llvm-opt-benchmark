@@ -220,7 +220,7 @@ define hidden noundef i32 @zend_jit_leave_nested_func_helper(i32 noundef %0, ptr
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %95, i64 32
-  %99 = icmp eq ptr %98, %1
+  %99 = icmp eq ptr %1, %98
   tail call void @llvm.assume(i1 %99)
   %100 = load ptr, ptr %97, align 8
   store ptr %100, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
@@ -645,7 +645,7 @@ define hidden noundef zeroext i1 @zend_jit_deprecated_helper(ptr noundef %0) loc
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %56, i64 32
-  %60 = icmp eq ptr %59, %0
+  %60 = icmp eq ptr %0, %59
   tail call void @llvm.assume(i1 %60)
   %61 = load ptr, ptr %58, align 8
   store ptr %61, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
@@ -2581,7 +2581,7 @@ zend_jit_trace_bad_stop_event.exit841:            ; preds = %646
   %675 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i842
   %676 = load i8, ptr %675, align 1
   %677 = zext i8 %676 to i32
-  %.not.i846 = icmp slt i32 %677, %668
+  %.not.i846 = icmp sgt i32 %668, %677
   br i1 %.not.i846, label %zend_jit_trace_bad_stop_event.exit847.thread, label %zend_jit_trace_bad_stop_event.exit847
 
 zend_jit_trace_bad_stop_event.exit847:            ; preds = %674
@@ -2611,7 +2611,7 @@ zend_jit_trace_bad_stop_event.exit847.thread:     ; preds = %669, %674, %zend_ji
   %685 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i848
   %686 = load i8, ptr %685, align 1
   %687 = zext i8 %686 to i32
-  %.not.i852 = icmp slt i32 %687, %668
+  %.not.i852 = icmp sgt i32 %668, %687
   br i1 %.not.i852, label %zend_jit_trace_bad_stop_event.exit.thread, label %zend_jit_trace_bad_stop_event.exit853
 
 zend_jit_trace_bad_stop_event.exit853:            ; preds = %684
@@ -2718,7 +2718,7 @@ zend_jit_trace_bad_stop_event.exit.thread:        ; preds = %176, %188, %196, %3
   %732 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 704), i64 %indvars.iv.i854
   %733 = load i8, ptr %732, align 1
   %734 = zext i8 %733 to i32
-  %.not.i858 = icmp slt i32 %734, %725
+  %.not.i858 = icmp sgt i32 %725, %734
   br i1 %.not.i858, label %.critedge, label %zend_jit_trace_bad_stop_event.exit859
 
 zend_jit_trace_bad_stop_event.exit859:            ; preds = %731

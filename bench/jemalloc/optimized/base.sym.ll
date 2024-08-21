@@ -946,7 +946,7 @@ if.then2:                                         ; preds = %if.end
   %add = add i64 %5, %size
   store i64 %add, ptr %allocated, align 8
   %6 = ptrtoint ptr %addr to i64
-  %add3 = add i64 %6, %size
+  %add3 = add i64 %size, %6
   %add4 = add i64 %add3, 4095
   %and = and i64 %add4, -4096
   %sub = sub i64 %6, %gap_size

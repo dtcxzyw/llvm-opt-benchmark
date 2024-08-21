@@ -326,8 +326,8 @@ define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i
   %20 = and i64 %19, %17
   %21 = inttoptr i64 %20 to ptr
   store ptr %21, ptr %12, align 8
-  %22 = add i64 %2, -1
-  %23 = add i64 %22, %17
+  %22 = add i64 %17, -1
+  %23 = add i64 %22, %2
   %24 = add i64 %23, %18
   %25 = and i64 %24, %19
   %26 = inttoptr i64 %25 to ptr
@@ -697,8 +697,8 @@ define internal i32 @mca_rcache_grdma_find(ptr nocapture noundef %0, ptr noundef
   %8 = sub nsw i64 0, %6
   %9 = and i64 %8, %7
   %10 = inttoptr i64 %9 to ptr
-  %11 = add i64 %2, -2
-  %12 = add i64 %11, %7
+  %11 = add i64 %7, -2
+  %12 = add i64 %11, %2
   %13 = add i64 %12, %6
   %14 = and i64 %13, %8
   %15 = inttoptr i64 %14 to ptr

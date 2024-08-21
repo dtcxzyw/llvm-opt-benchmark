@@ -286,7 +286,7 @@ define internal range(i32 0, 2) i32 @MemorySeek(ptr nocapture noundef readonly %
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = icmp ult i32 %5, %1
+  %6 = icmp ugt i32 %1, %5
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
@@ -538,13 +538,13 @@ define internal noundef i32 @FileRead(ptr nocapture noundef readonly %0, ptr noc
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef %5, i64 noundef %6, ptr noundef %7)
   %9 = trunc i64 %8 to i32
-  %.not = icmp eq i32 %9, %3
+  %.not = icmp eq i32 %3, %9
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = mul i32 %9, %2
+  %13 = mul i32 %2, %9
   %14 = mul i32 %3, %2
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @.str.25, i32 noundef %13, i32 noundef %14) #19
   br label %15
@@ -779,7 +779,7 @@ define hidden i32 @cmsGetTagCount(ptr noundef readonly %0) local_unnamed_addr #1
 define hidden i32 @cmsGetTagSignature(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
-  %5 = icmp ult i32 %4, %1
+  %5 = icmp ugt i32 %1, %4
   %6 = icmp ugt i32 %1, 99
   %or.cond = or i1 %6, %5
   br i1 %or.cond, label %12, label %7
@@ -814,7 +814,7 @@ define hidden range(i32 -1, -2147483648) i32 @_cmsSearchTag(ptr nocapture nounde
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %12 ], [ 0, %.split ]
   %9 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %indvars.iv.i.us
   %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %SearchOneTag.exit.thread.loopexit16.split.loop.exit, label %12
 
 12:                                               ; preds = %.lr.ph.i.us
@@ -830,7 +830,7 @@ define hidden range(i32 -1, -2147483648) i32 @_cmsSearchTag(ptr nocapture nounde
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %13 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %14, %.011
+  %15 = icmp eq i32 %.011, %14
   br i1 %15, label %SearchOneTag.exit, label %16
 
 16:                                               ; preds = %.lr.ph.i
@@ -871,7 +871,7 @@ define hidden range(i32 0, 2) i32 @cmsIsTag(ptr nocapture noundef readonly %0, i
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %10 ], [ 0, %2 ]
   %7 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %indvars.iv.i.us.i
   %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   br i1 %9, label %_cmsSearchTag.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i.us.i
@@ -2253,7 +2253,7 @@ cmsGetProfileContextID.exit:                      ; preds = %2
   %indvars.iv.i.us.i.us.i = phi i64 [ %indvars.iv.next.i.us.i.us.i, %45 ], [ 0, %.lr.ph.split.us.i ]
   %42 = getelementptr inbounds [100 x i32], ptr %36, i64 0, i64 %indvars.iv.i.us.i.us.i
   %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, %41
+  %44 = icmp eq i32 %41, %43
   br i1 %44, label %_cmsSearchTag.exit.us.i, label %45
 
 45:                                               ; preds = %.lr.ph.i.us.i.us.i
@@ -2731,7 +2731,7 @@ define hidden ptr @cmsReadTag(ptr nocapture noundef %0, i32 noundef %1) local_un
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %23 ]
   %20 = getelementptr inbounds [100 x i32], ptr %15, i64 0, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %.011.i
+  %22 = icmp eq i32 %.011.i, %21
   br i1 %22, label %SearchOneTag.exit.i, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
@@ -2798,7 +2798,7 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %48 ]
   %49 = getelementptr inbounds [20 x i32], ptr %47, i64 0, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, %38
+  %51 = icmp eq i32 %38, %50
   br i1 %51, label %IsTypeSupported.exit, label %48
 
 IsTypeSupported.exit:                             ; preds = %.lr.ph.i
@@ -2880,7 +2880,7 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.preheader.i93 ], [ %indvars.iv.next.i98, %89 ]
   %90 = getelementptr inbounds [20 x i32], ptr %88, i64 0, i64 %indvars.iv.i97
   %91 = load i32, ptr %90, align 4
-  %92 = icmp eq i32 %91, %83
+  %92 = icmp eq i32 %83, %91
   br i1 %92, label %IsTypeSupported.exit101, label %89
 
 IsTypeSupported.exit101:                          ; preds = %.lr.ph.i96
@@ -3008,7 +3008,7 @@ define hidden i32 @_cmsGetTagTrueType(ptr nocapture noundef readonly %0, i32 nou
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %11 ]
   %8 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
   %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %.011.i
+  %10 = icmp eq i32 %.011.i, %9
   br i1 %10, label %SearchOneTag.exit.i, label %11
 
 11:                                               ; preds = %.lr.ph.i.i
@@ -3067,7 +3067,7 @@ define hidden range(i32 0, 2) i32 @cmsWriteTag(ptr nocapture noundef %0, i32 nou
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %25 ], [ 0, %21 ]
   %22 = getelementptr inbounds [100 x i32], ptr %17, i64 0, i64 %indvars.iv.i.us.i
   %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   br i1 %24, label %_cmsSearchTag.exit, label %25
 
 25:                                               ; preds = %.lr.ph.i.us.i
@@ -3131,7 +3131,7 @@ _cmsDeleteTagByPos.exit:                          ; preds = %_cmsSearchTag.exit,
   %indvars.iv.i.us.i.i = phi i64 [ %indvars.iv.next.i.us.i.i, %53 ], [ 0, %49 ]
   %50 = getelementptr inbounds [100 x i32], ptr %17, i64 0, i64 %indvars.iv.i.us.i.i
   %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, %1
+  %52 = icmp eq i32 %1, %51
   br i1 %52, label %_cmsSearchTag.exit.i, label %53
 
 53:                                               ; preds = %.lr.ph.i.us.i.i
@@ -3299,7 +3299,7 @@ cmsGetProfileVersion.exit:                        ; preds = %92, %BaseToBase.exi
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %120 ]
   %121 = getelementptr inbounds [20 x i32], ptr %119, i64 0, i64 %indvars.iv.i
   %122 = load i32, ptr %121, align 4
-  %123 = icmp eq i32 %122, %.056
+  %123 = icmp eq i32 %.056, %122
   br i1 %123, label %IsTypeSupported.exit, label %120
 
 .loopexit:                                        ; preds = %120, %116
@@ -3404,7 +3404,7 @@ define hidden i32 @cmsReadRawTag(ptr nocapture noundef %0, i32 noundef %1, ptr n
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %23 ]
   %20 = getelementptr inbounds [100 x i32], ptr %15, i64 0, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %.011.i
+  %22 = icmp eq i32 %.011.i, %21
   br i1 %22, label %SearchOneTag.exit.i, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
@@ -3436,7 +3436,7 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %36 = getelementptr inbounds [100 x i32], ptr %35, i64 0, i64 %24
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %33, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %38, i32 %3)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %3, i32 %38)
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 288
   %41 = load ptr, ptr %40, align 8
@@ -3479,7 +3479,7 @@ _cmsSearchTag.exit:                               ; preds = %SearchOneTag.exit.i
   %61 = getelementptr inbounds i8, ptr %0, i64 944
   %62 = getelementptr inbounds [100 x i32], ptr %61, i64 0, i64 %24
   %63 = load i32, ptr %62, align 4
-  %spec.select108 = tail call i32 @llvm.umin.i32(i32 %63, i32 %3)
+  %spec.select108 = tail call i32 @llvm.umin.i32(i32 %3, i32 %63)
   %64 = zext i32 %spec.select108 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %29, i64 %64, i1 false)
   %65 = load ptr, ptr %9, align 8
@@ -3630,7 +3630,7 @@ define hidden range(i32 0, 2) i32 @cmsWriteRawTag(ptr nocapture noundef %0, i32 
   %indvars.iv.i.us.i.i = phi i64 [ %indvars.iv.next.i.us.i.i, %19 ], [ 0, %11 ]
   %16 = getelementptr inbounds [100 x i32], ptr %12, i64 0, i64 %indvars.iv.i.us.i.i
   %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, %1
+  %18 = icmp eq i32 %1, %17
   br i1 %18, label %_cmsSearchTag.exit.i, label %19
 
 19:                                               ; preds = %.lr.ph.i.us.i.i
@@ -3763,7 +3763,7 @@ define hidden range(i32 0, 2) i32 @cmsLinkTag(ptr nocapture noundef %0, i32 noun
   %indvars.iv.i.us.i.i = phi i64 [ %indvars.iv.next.i.us.i.i, %18 ], [ 0, %10 ]
   %15 = getelementptr inbounds [100 x i32], ptr %11, i64 0, i64 %indvars.iv.i.us.i.i
   %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %_cmsSearchTag.exit.i, label %18
 
 18:                                               ; preds = %.lr.ph.i.us.i.i
@@ -3879,7 +3879,7 @@ define hidden i32 @cmsTagLinkedTo(ptr nocapture noundef readonly %0, i32 noundef
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %10 ], [ 0, %2 ]
   %7 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %indvars.iv.i.us.i
   %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   br i1 %9, label %_cmsSearchTag.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i.us.i

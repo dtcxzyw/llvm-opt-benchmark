@@ -1477,7 +1477,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -1586,7 +1586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57
@@ -2090,7 +2090,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail9parse_impINS1_2
   %6 = alloca %"struct.msgpack::v2::detail::parse_helper", align 8
   %7 = load i64, ptr %2, align 8
   store i64 %7, ptr %5, align 8
-  %.not = icmp ult i64 %7, %1
+  %.not = icmp ugt i64 %1, %7
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %4
@@ -11018,7 +11018,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v14type13basic_variantINSt7__cxx
 10:                                               ; preds = %7
   %11 = fptoui double %1 to i64
   %12 = uitofp i64 %11 to double
-  %13 = fcmp oeq double %12, %1
+  %13 = fcmp oeq double %1, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %10
@@ -11069,7 +11069,7 @@ _ZN5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11ch
 24:                                               ; preds = %21
   %25 = fptosi double %1 to i64
   %26 = sitofp i64 %25 to double
-  %27 = fcmp oeq double %26, %1
+  %27 = fcmp oeq double %1, %26
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %24
@@ -11234,7 +11234,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef no
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
@@ -11318,7 +11318,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
-  %42 = icmp ugt i64 %8, %1
+  %42 = icmp ult i64 %1, %8
   br i1 %42, label %43, label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 43:                                               ; preds = %41
@@ -11589,7 +11589,7 @@ _ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKcmEvRT_T0_.exit:                   ; preds = %16
   %27 = getelementptr inbounds i8, ptr %2, i64 %18
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %27, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %27
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKcPccET0_T_S4_S3_RSaIT1_E.exit, label %28
 
 28:                                               ; preds = %_ZSt7advanceIPKcmEvRT_T0_.exit
@@ -11652,7 +11652,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
   %51 = phi ptr [ %50, %49 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
   %52 = ptrtoint ptr %1 to i64
   %53 = sub i64 %52, %40
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %39, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %39
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %55, label %54
 
 54:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
@@ -12072,7 +12072,7 @@ _ZSt10_ConstructIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt1
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #25
-  %.not.i2.i.i = icmp eq ptr %.013.i, %14
+  %.not.i2.i.i = icmp eq ptr %14, %.013.i
   br i1 %.not.i2.i.i, label %_ZSt8_DestroyIPN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEEvT_SF_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
@@ -12355,7 +12355,7 @@ _ZSt10_ConstructIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt1
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #25
-  %.not.i2.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not.i2.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not.i2.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEEvT_SF_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27, %.lr.ph.i.i.i.i.i.i
@@ -12393,7 +12393,7 @@ _ZSt8_DestroyIPN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11c
 _ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESE_SaISD_EET0_T_SH_SG_RT1_.exit: ; preds = %_ZSt10_ConstructIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEJRKSD_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEEE9constructISD_JSD_EEEvRSE_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEEE9constructISD_JSD_EEEvRSE_PT_DpOT0_.exit ], [ %26, %_ZSt10_ConstructIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEJRKSD_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESE_SaISD_EET0_T_SH_SG_RT1_.exit43, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESE_SaISD_EET0_T_SH_SG_RT1_.exit, %_ZSt10_ConstructIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEJRKSD_EEvPT_DpOT0_.exit.i.i.i.i.i37
@@ -12955,7 +12955,7 @@ _ZNKSt4lessIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char
   %22 = phi ptr [ %0, %3 ], [ %.pre, %.loopexit9.loopexit ]
   %.0.lcssa.i = phi ptr [ %11, %3 ], [ %.0710.i, %.loopexit9.loopexit ]
   %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = icmp eq ptr %23, %.0.lcssa.i
+  %24 = icmp eq ptr %.0.lcssa.i, %23
   br i1 %24, label %_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev.exit, label %25
 
 25:                                               ; preds = %.loopexit9
@@ -13182,7 +13182,7 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8compa
   %.sroa.22.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
-  %.sroa.speculated.i.i.i.i.i.i.i73 = tail call i64 @llvm.umin.i64(i64 %.sroa.22.0.copyload.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i)
+  %.sroa.speculated.i.i.i.i.i.i.i73 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i.i)
   %51 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i73, 0
   br i1 %51, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i76, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i74
 

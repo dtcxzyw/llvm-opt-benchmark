@@ -1200,7 +1200,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN3mbe7tt_iter1
   %7 = ptrtoint ptr %3 to i64
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 6
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   %11 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3, i64 %1
   %.0 = select i1 %10, ptr %11, ptr null
   ret ptr %.0

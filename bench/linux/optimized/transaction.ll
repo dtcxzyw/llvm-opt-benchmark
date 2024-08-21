@@ -3784,7 +3784,7 @@ define dso_local noundef i32 @jbd2_journal_invalidate_folio(ptr noundef %0, ptr 
 
 62:                                               ; preds = %51
   %63 = zext i32 %53 to i64
-  %64 = icmp ult i64 %63, %2
+  %64 = icmp ugt i64 %2, %63
   br i1 %64, label %147, label %65
 
 65:                                               ; preds = %62

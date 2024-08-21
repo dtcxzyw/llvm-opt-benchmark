@@ -2013,13 +2013,13 @@ _verify_node_state.exit:                          ; preds = %279
 
 289:                                              ; preds = %286
   %290 = call i32 @bit_set_count(ptr noundef %1) #9
-  %spec.select = call i32 @llvm.umin.i32(i32 %290, i32 %3)
+  %spec.select = call i32 @llvm.umin.i32(i32 %3, i32 %290)
   %291 = load ptr, ptr %287, align 8
   %292 = zext i32 %spec.select to i64
   %293 = call i64 @bit_fls_from_bit(ptr noundef %291, i64 noundef %292) #9
   %294 = trunc i64 %293 to i32
   %295 = icmp slt i32 %294, 0
-  %296 = icmp ult i32 %294, %2
+  %296 = icmp ugt i32 %2, %294
   %or.cond768 = or i1 %295, %296
   br i1 %or.cond768, label %.loopexit, label %297
 
@@ -2406,7 +2406,7 @@ _build_gres_mc_data.exit:                         ; preds = %472, %476, %479
   %491 = call i64 @bit_fls_from_bit(ptr noundef nonnull %487, i64 noundef %490) #9
   %492 = trunc i64 %491 to i32
   %493 = icmp slt i32 %492, 1
-  %.not649 = icmp ult i32 %492, %2
+  %.not649 = icmp ugt i32 %2, %492
   %or.cond774 = or i1 %493, %.not649
   %spec.select786 = select i1 %or.cond774, i32 0, i32 %492
   br label %494
@@ -4491,7 +4491,7 @@ _is_preemptable.exit.thread:                      ; preds = %25, %_is_preemptabl
   br label %49
 
 30:                                               ; preds = %_is_preemptable.exit
-  %31 = icmp eq ptr %.030, %0
+  %31 = icmp eq ptr %0, %.030
   br i1 %31, label %32, label %49
 
 32:                                               ; preds = %30
@@ -4608,7 +4608,7 @@ define internal fastcc i64 @_guess_job_end(ptr nocapture noundef readonly %0, i6
 20:                                               ; preds = %17
   %21 = mul i32 %19, 60
   %22 = zext i32 %21 to i64
-  %23 = add nsw i64 %22, %1
+  %23 = add nsw i64 %1, %22
   br label %35
 
 24:                                               ; preds = %17, %17, %17
@@ -4823,8 +4823,8 @@ _socks_per_node.exit.i:                           ; preds = %75, %70, %56, %55
   %108 = load i64, ptr %90, align 8
   %109 = and i64 %108, 8
   %110 = icmp ne i64 %109, 0
-  %111 = or i1 %110, %9
-  %brmerge197.i.i = or i1 %111, %8
+  %111 = or i1 %9, %110
+  %brmerge197.i.i = or i1 %8, %111
   br i1 %brmerge197.i.i, label %116, label %112
 
 112:                                              ; preds = %102

@@ -11,7 +11,7 @@ define range(i32 -1, 1) i32 @mkdir(ptr noundef %0, i32 noundef %1) local_unnamed
   %4 = alloca ptr, align 8
   %5 = tail call i32 @getumask() #4
   %6 = xor i32 %5, -1
-  %7 = and i32 %6, %1
+  %7 = and i32 %1, %6
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = getelementptr inbounds i8, ptr %3, i64 40

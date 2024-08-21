@@ -1164,7 +1164,7 @@ define internal fastcc i32 @ole2_walk_property_tree(ptr noundef %0, ptr noundef 
   %21 = getelementptr inbounds i8, ptr %20, i64 80
   %22 = load i32, ptr %21, align 8
   %.not = icmp ne i32 %22, 0
-  %23 = icmp ult i32 %22, %4
+  %23 = icmp ugt i32 %4, %22
   %or.cond = and i1 %.not, %23
   br i1 %or.cond, label %24, label %25
 
@@ -4406,7 +4406,7 @@ define internal fastcc noundef zeroext i1 @ole2_read_block(ptr nocapture noundef
   %spec.select = tail call i32 @llvm.smax.i32(i32 %19, i32 512)
   %20 = add nsw i32 %spec.select, %18
   %21 = sext i32 %20 to i64
-  %22 = add nsw i64 %21, %2
+  %22 = add nsw i64 %2, %21
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %39, label %24
 
@@ -5138,11 +5138,11 @@ fmap_readn.exit.thread:                           ; preds = %35, %32, %fmap_read
 43:                                               ; preds = %40
   store ptr %7, ptr %4, align 8
   %44 = load i64, ptr %33, align 8
-  %.not.i71 = icmp eq i64 %44, %.045
+  %.not.i71 = icmp eq i64 %.045, %44
   br i1 %.not.i71, label %.thread, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp ult i64 %44, %.045
+  %46 = icmp ugt i64 %.045, %44
   br i1 %46, label %fmap_readn.exit75.thread, label %47
 
 47:                                               ; preds = %45

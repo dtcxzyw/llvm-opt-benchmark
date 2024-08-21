@@ -200,7 +200,7 @@ define void @_ZN3gmx20PmeLoadBalanceHelper3runEld(ptr noundef nonnull align 8 de
   %5 = alloca %"class.gmx::ArrayRefWithPadding.263", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %.not = icmp eq i64 %7, %1
+  %.not = icmp eq i64 %1, %7
   br i1 %.not, label %8, label %55
 
 8:                                                ; preds = %3
@@ -208,7 +208,7 @@ define void @_ZN3gmx20PmeLoadBalanceHelper3runEld(ptr noundef nonnull align 8 de
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, %1
+  %13 = icmp eq i64 %1, %12
   br i1 %13, label %55, label %14
 
 14:                                               ; preds = %8

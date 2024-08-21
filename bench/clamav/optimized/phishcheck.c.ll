@@ -2253,7 +2253,7 @@ tld_hash.exit.i:                                  ; preds = %77, %76
   %102 = getelementptr inbounds [988 x i8], ptr @in_tld_set.lengthtable, i64 0, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
-  %105 = icmp eq i32 %104, %74
+  %105 = icmp eq i32 %74, %104
   br i1 %105, label %106, label %in_tld_set.exit.thread
 
 106:                                              ; preds = %100
@@ -2400,7 +2400,7 @@ tld_hash.exit.i119:                               ; preds = %148, %147
   %173 = getelementptr inbounds [988 x i8], ptr @in_tld_set.lengthtable, i64 0, i64 %172
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
-  %176 = icmp eq i32 %175, %145
+  %176 = icmp eq i32 %145, %175
   br i1 %176, label %177, label %186
 
 177:                                              ; preds = %171
@@ -2495,7 +2495,7 @@ tld_hash.exit.i127:                               ; preds = %206, %205
   %231 = getelementptr inbounds [988 x i8], ptr @in_tld_set.lengthtable, i64 0, i64 %230
   %232 = load i8, ptr %231, align 1
   %233 = zext i8 %232 to i32
-  %234 = icmp eq i32 %233, %203
+  %234 = icmp eq i32 %203, %233
   br i1 %234, label %235, label %in_tld_set.exit131
 
 235:                                              ; preds = %229
@@ -3412,7 +3412,7 @@ select.unfold.preheader:                          ; preds = %7
   %11 = ptrtoint ptr %6 to i64
   %12 = ptrtoint ptr %.0.lcssa to i64
   %13 = sub i64 %11, %12
-  %.not70 = icmp ult i64 %13, %3
+  %.not70 = icmp ugt i64 %3, %13
   br i1 %.not70, label %.critedge2, label %14
 
 14:                                               ; preds = %.critedge
@@ -3733,7 +3733,7 @@ tld_hash.exit.i:                                  ; preds = %38, %37
   %63 = getelementptr inbounds [988 x i8], ptr @in_tld_set.lengthtable, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = icmp eq i32 %65, %35
+  %66 = icmp eq i32 %35, %65
   br i1 %66, label %67, label %.thread
 
 67:                                               ; preds = %61

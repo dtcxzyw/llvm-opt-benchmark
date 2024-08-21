@@ -280,7 +280,7 @@ define dso_local i64 @__scsi_format_command(ptr noundef %0, i64 noundef %1, ptr 
 21:                                               ; preds = %15, %10
   %22 = phi i32 [ %14, %10 ], [ %20, %15 ]
   %23 = zext nneg i32 %22 to i64
-  %24 = icmp ugt i64 %23, %3
+  %24 = icmp ult i64 %3, %23
   %25 = trunc i64 %3 to i32
   %26 = select i1 %24, i32 %25, i32 %22
   %27 = add i64 %1, -3
@@ -377,7 +377,7 @@ define internal fastcc i64 @scsi_format_opcode_name(ptr noundef %0, i64 noundef 
 40:                                               ; preds = %34
   %41 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.20, i32 noundef %7) #8
   %42 = sext i32 %41 to i64
-  %43 = icmp ult i64 %42, %1
+  %43 = icmp ugt i64 %1, %42
   br i1 %43, label %45, label %44, !prof !18
 
 44:                                               ; preds = %40

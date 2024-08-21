@@ -126,7 +126,7 @@ define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readon
   %8 = getelementptr inbounds i8, ptr %6, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = add nsw i64 %10, %1
+  %11 = add nsw i64 %1, %10
   br label %12
 
 12:                                               ; preds = %7, %.thread

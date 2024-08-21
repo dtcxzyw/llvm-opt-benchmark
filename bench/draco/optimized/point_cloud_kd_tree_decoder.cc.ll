@@ -94,7 +94,7 @@ define noundef zeroext i1 @_ZN5draco23PointCloudKdTreeDecoder23CreateAttributesD
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 3
   %15 = trunc i64 %14 to i32
-  %.not.i = icmp sgt i32 %15, %1
+  %.not.i = icmp slt i32 %1, %15
   br i1 %.not.i, label %19, label %16
 
 16:                                               ; preds = %6
@@ -298,7 +298,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoder
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -373,7 +373,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14defau
   br label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37

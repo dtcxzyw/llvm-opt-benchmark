@@ -1679,7 +1679,7 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
-  %24 = icmp eq i32 %23, %2
+  %24 = icmp eq i32 %2, %23
   br i1 %24, label %25, label %17
 
 ._crit_edge:                                      ; preds = %17, %12
@@ -2401,7 +2401,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 18:                                               ; preds = %16
   %19 = icmp sgt i32 %2, -1
   %20 = load i32, ptr @awt_numScreens, align 4
-  %21 = icmp sgt i32 %20, %2
+  %21 = icmp slt i32 %2, %20
   %or.cond112 = select i1 %19, i1 %21, i1 false
   %22 = load ptr, ptr %0, align 8
   br i1 %or.cond112, label %23, label %81
@@ -2513,7 +2513,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   br label %.thread
 
 90:                                               ; preds = %77
-  %.not104 = icmp ugt i32 %79, %2
+  %.not104 = icmp ult i32 %2, %79
   %spec.store.select = select i1 %.not104, i32 %2, i32 0
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 224
@@ -3798,7 +3798,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
   %29 = load ptr, ptr @awt_display, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 228
   %31 = load i32, ptr %30, align 4
-  %32 = icmp sgt i32 %31, %2
+  %32 = icmp slt i32 %2, %31
   br i1 %32, label %33, label %73
 
 33:                                               ; preds = %28
@@ -4238,7 +4238,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %59 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv84
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i32
-  %62 = icmp eq i32 %61, %5
+  %62 = icmp eq i32 %5, %61
   br i1 %62, label %64, label %58
 
 63:                                               ; preds = %.lr.ph, %50

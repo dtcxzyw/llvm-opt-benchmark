@@ -25,7 +25,7 @@ define range(i32 0, 73) i32 @PMPI_T_enum_get_item(ptr noundef %0, i32 noundef %1
 
 13:                                               ; preds = %9
   %14 = load i32, ptr %7, align 4
-  %.not16 = icmp sgt i32 %14, %1
+  %.not16 = icmp slt i32 %1, %14
   br i1 %.not16, label %15, label %mpit_copy_string.exit
 
 15:                                               ; preds = %13

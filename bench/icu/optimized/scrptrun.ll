@@ -56,7 +56,7 @@ entry:
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds [34 x i32], ptr @_ZN6icu_759ScriptRun11pairedCharsE, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
-  %cmp.not = icmp sgt i32 %2, %ch
+  %cmp.not = icmp slt i32 %ch, %2
   %spec.select = select i1 %cmp.not, i32 0, i32 %1
   %cmp110 = icmp sgt i32 %0, 1
   br i1 %cmp110, label %while.body, label %while.end
@@ -69,7 +69,7 @@ while.body:                                       ; preds = %entry, %while.body
   %idxprom2 = sext i32 %add to i64
   %arrayidx3 = getelementptr inbounds [34 x i32], ptr @_ZN6icu_759ScriptRun11pairedCharsE, i64 0, i64 %idxprom2
   %3 = load i32, ptr %arrayidx3, align 4
-  %cmp4.not = icmp sgt i32 %3, %ch
+  %cmp4.not = icmp slt i32 %ch, %3
   %spec.select9 = select i1 %cmp4.not, i32 %index.112, i32 %add
   %cmp1 = icmp ugt i32 %probe.011, 3
   br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !5
@@ -160,7 +160,7 @@ if.end35:                                         ; preds = %if.then15, %if.then
   %idxprom.i = sext i32 %11 to i64
   %arrayidx.i = getelementptr inbounds [34 x i32], ptr @_ZN6icu_759ScriptRun11pairedCharsE, i64 0, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not.i = icmp sgt i32 %12, %ch.0
+  %cmp.not.i = icmp slt i32 %ch.0, %12
   %spec.select.i = select i1 %cmp.not.i, i32 0, i32 %11
   %cmp110.i = icmp sgt i32 %10, 1
   br i1 %cmp110.i, label %while.body.i, label %_ZN6icu_759ScriptRun12getPairIndexEi.exit
@@ -173,7 +173,7 @@ while.body.i:                                     ; preds = %if.end35, %while.bo
   %idxprom2.i = sext i32 %add.i to i64
   %arrayidx3.i = getelementptr inbounds [34 x i32], ptr @_ZN6icu_759ScriptRun11pairedCharsE, i64 0, i64 %idxprom2.i
   %13 = load i32, ptr %arrayidx3.i, align 4
-  %cmp4.not.i = icmp sgt i32 %13, %ch.0
+  %cmp4.not.i = icmp slt i32 %ch.0, %13
   %spec.select9.i = select i1 %cmp4.not.i, i32 %index.112.i, i32 %add.i
   %cmp1.i = icmp ugt i32 %probe.011.i, 3
   br i1 %cmp1.i, label %while.body.i, label %_ZN6icu_759ScriptRun12getPairIndexEi.exit, !llvm.loop !5

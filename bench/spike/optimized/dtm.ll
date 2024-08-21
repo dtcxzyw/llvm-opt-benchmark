@@ -311,7 +311,7 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr nocapture noundef nonnull align 8 d
   %9 = icmp eq i32 %4, 64
   %10 = select i1 %9, i32 3276800, i32 2228224
   %11 = select i1 %8, i32 4325376, i32 %10
-  %12 = or i32 %11, %1
+  %12 = or i32 %1, %11
   %13 = or i32 %12, 4096
   %14 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef %6)
   %.not = icmp eq i32 %14, 0
@@ -516,7 +516,7 @@ define void @_ZN5dtm_t11restore_regEjm(ptr nocapture noundef nonnull align 8 der
   %17 = icmp eq i32 %5, 64
   %18 = select i1 %17, i32 3342336, i32 2293760
   %19 = select i1 %16, i32 4390912, i32 %18
-  %20 = or i32 %19, %1
+  %20 = or i32 %1, %19
   %21 = or i32 %20, 4096
   %22 = call noundef i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %21, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8, i64 noundef %7)
   %.not = icmp eq i32 %22, 0

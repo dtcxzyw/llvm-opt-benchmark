@@ -176,7 +176,7 @@ define dso_local zeroext i1 @sysbus_has_mmio(ptr nocapture noundef readonly %dev
 entry:
   %num_mmio = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio, align 8
-  %cmp = icmp ugt i32 %0, %n
+  %cmp = icmp ult i32 %n, %0
   ret i1 %cmp
 }
 
@@ -189,7 +189,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %num_mmio = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio, align 8
-  %cmp1 = icmp sgt i32 %0, %n
+  %cmp1 = icmp slt i32 %n, %0
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -232,7 +232,7 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %num_mmio.i = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio.i, align 8
-  %cmp1.i = icmp sgt i32 %0, %n
+  %cmp1.i = icmp slt i32 %n, %0
   br i1 %cmp1.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %entry
@@ -279,7 +279,7 @@ entry:
 land.lhs.true.i:                                  ; preds = %entry
   %num_mmio.i = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio.i, align 8
-  %cmp1.i = icmp sgt i32 %0, %n
+  %cmp1.i = icmp slt i32 %n, %0
   br i1 %cmp1.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %entry

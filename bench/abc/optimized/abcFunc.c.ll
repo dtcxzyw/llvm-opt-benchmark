@@ -640,7 +640,7 @@ define ptr @Abc_ConvertBddToSop(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.094 = phi ptr [ %31, %30 ], [ %34, %32 ]
   store i8 32, ptr %.094, align 1
   %36 = tail call ptr @Cudd_ReadOne(ptr noundef %1) #15
-  %37 = icmp eq ptr %36, %2
+  %37 = icmp eq ptr %2, %36
   %38 = select i1 %37, i8 49, i8 48
   %39 = getelementptr inbounds i8, ptr %.094, i64 1
   store i8 %38, ptr %39, align 1
@@ -1397,13 +1397,13 @@ define void @Abc_ConvertZddToSop_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %43, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %14
@@ -1661,13 +1661,13 @@ define void @Abc_CountZddCubes_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   %14 = load i32, ptr %2, align 4
   br i1 %13, label %15, label %17
 

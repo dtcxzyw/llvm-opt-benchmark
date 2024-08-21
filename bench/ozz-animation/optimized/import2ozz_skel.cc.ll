@@ -1022,7 +1022,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIPKcS1_St9_IdentityIS1_
 
 select.unfold:                                    ; preds = %16, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %16 ]
-  %21 = icmp eq ptr %4, %.sroa.4.0.i.ph
+  %21 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %select.unfold

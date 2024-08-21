@@ -3928,7 +3928,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S
   %325 = ptrtoint ptr %323 to i64
   %326 = sub i64 %324, %325
   %327 = ashr exact i64 %326, 3
-  %328 = icmp ult i64 %327, %320
+  %328 = icmp ugt i64 %320, %327
   br i1 %328, label %329, label %355
 
 329:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
@@ -4008,7 +4008,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
 355:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
-  %356 = icmp ugt i64 %327, %320
+  %356 = icmp ult i64 %320, %327
   br i1 %356, label %357, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
 357:                                              ; preds = %355
@@ -4191,7 +4191,7 @@ _ZNK2cv11_InputArray6getMatEi.exit202:            ; preds = %374, %377
   %442 = ptrtoint ptr %440 to i64
   %443 = sub i64 %441, %442
   %444 = ashr exact i64 %443, 3
-  %445 = icmp ult i64 %444, %437
+  %445 = icmp ugt i64 %437, %444
   br i1 %445, label %446, label %471
 
 446:                                              ; preds = %431
@@ -4264,7 +4264,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i220: 
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit223
 
 471:                                              ; preds = %431
-  %472 = icmp ugt i64 %444, %437
+  %472 = icmp ult i64 %437, %444
   br i1 %472, label %473, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit223
 
 473:                                              ; preds = %471
@@ -4290,7 +4290,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit223: ; preds = %475, %473, %47
   %486 = ptrtoint ptr %484 to i64
   %487 = sub i64 %485, %486
   %488 = ashr exact i64 %487, 3
-  %489 = icmp ult i64 %488, %481
+  %489 = icmp ugt i64 %481, %488
   br i1 %489, label %490, label %515
 
 490:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit223
@@ -4370,7 +4370,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i237: 
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240
 
 515:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit223
-  %516 = icmp ugt i64 %488, %481
+  %516 = icmp ult i64 %481, %488
   br i1 %516, label %517, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240
 
 517:                                              ; preds = %515

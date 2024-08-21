@@ -305,7 +305,7 @@ if.end13:                                         ; preds = %if.end, %_ZN6hermes
   %add.i.i.i.i.i = add i64 %.pre, %conv.i.i.i.i.i
   %13 = inttoptr i64 %add.i.i.i.i.i to ptr
   %cond.i.i.i.i = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %13
-  %cmp = icmp eq ptr %cond.i.i.i.i, %entry1
+  %cmp = icmp eq ptr %entry1, %cond.i.i.i.i
   br i1 %cmp, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %if.end13

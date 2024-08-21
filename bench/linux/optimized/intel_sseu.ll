@@ -2539,7 +2539,7 @@ define internal fastcc void @gen11_compute_sseu_info(ptr noundef %0, i32 noundef
   %11 = load i8, ptr %0, align 8
   %12 = or i8 %11, 1
   store i8 %12, ptr %0, align 8
-  %13 = and i32 %10, %1
+  %13 = and i32 %1, %10
   %14 = trunc i32 %13 to i8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %14, ptr %15, align 8

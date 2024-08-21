@@ -1234,7 +1234,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %size
+  %cmp.i = icmp ugt i64 %size, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -1243,7 +1243,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i, %size
+  %cmp6.i = icmp ult i64 %size, %sub.ptr.div.i.i
   br i1 %cmp6.i, label %if.then7.i, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1269,7 +1269,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1343,7 +1343,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EE13_M_dea
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -1372,7 +1372,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp.not = icmp ult i64 %index, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2675,8 +2675,8 @@ if.then.i68:                                      ; preds = %while.body.i
   %sub13.i = fsub float %73, %72
   %add.ptr.i57.i = getelementptr inbounds float, ptr %70, i64 %i.069.i
   %77 = load float, ptr %add.ptr.i57.i, align 4
-  %78 = fneg float %sub13.i
-  %neg.i72 = fmul float %77, %78
+  %78 = fneg float %77
+  %neg.i72 = fmul float %sub13.i, %78
   %79 = tail call float @llvm.fmuladd.f32(float %sub.i71, float 2.000000e+00, float %neg.i72)
   %sub16.i = fsub float %74, %73
   %add.ptr.i58.i = getelementptr inbounds float, ptr %70, i64 %add.i69
@@ -5416,7 +5416,7 @@ if.end:                                           ; preds = %entry
   %9 = getelementptr float, ptr %6, i64 %8
   %add.ptr.i49 = getelementptr i8, ptr %9, i64 -4
   %10 = load float, ptr %add.ptr.i49, align 4
-  %cmp20 = fcmp ult float %7, %x
+  %cmp20 = fcmp ugt float %x, %7
   br i1 %cmp20, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %if.end
@@ -5436,7 +5436,7 @@ if.then21:                                        ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp32 = fcmp ugt float %10, %x
+  %cmp32 = fcmp ult float %x, %10
   br i1 %cmp32, label %for.cond.preheader, label %if.then33
 
 for.cond.preheader:                               ; preds = %if.else
@@ -5485,7 +5485,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %gep69 = getelementptr float, ptr %invariant.gep68, i64 %indvars.iv
   %30 = load float, ptr %gep69, align 4
-  %cmp73 = fcmp ogt float %30, %x
+  %cmp73 = fcmp olt float %x, %30
   br i1 %cmp73, label %for.end.loopexit.split.loop.exit, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -5579,7 +5579,7 @@ if.end:                                           ; preds = %entry
   %14 = load float, ptr %add.ptr.i67, align 4
   %add.ptr.i68 = getelementptr i8, ptr %add.ptr.i66, i64 -4
   %15 = load float, ptr %add.ptr.i68, align 4
-  %cmp49 = fcmp ult float %11, %y
+  %cmp49 = fcmp ugt float %y, %11
   br i1 %cmp49, label %if.else, label %if.then50
 
 if.then50:                                        ; preds = %if.end
@@ -5607,7 +5607,7 @@ if.else:                                          ; preds = %if.end
   %sub46 = fsub float %9, %22
   %23 = tail call float @llvm.fmuladd.f32(float %14, float %sub46, float %15)
   %24 = tail call float @llvm.fmuladd.f32(float %23, float %sub46, float %21)
-  %cmp67 = fcmp ugt float %24, %y
+  %cmp67 = fcmp ult float %y, %24
   br i1 %cmp67, label %for.cond.preheader, label %if.then68
 
 for.cond.preheader:                               ; preds = %if.else
@@ -5638,7 +5638,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %gep90 = getelementptr float, ptr %invariant.gep89, i64 %indvars.iv
   %27 = load float, ptr %gep90, align 4
-  %cmp120 = fcmp ogt float %27, %y
+  %cmp120 = fcmp olt float %y, %27
   br i1 %cmp120, label %for.end.loopexit.split.loop.exit, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -5669,8 +5669,9 @@ for.end:                                          ; preds = %for.inc, %for.end.l
   %add.ptr.i81 = getelementptr inbounds float, ptr %6, i64 %conv144
   %32 = load float, ptr %add.ptr.i81, align 4
   %sub146 = fsub float %31, %y
-  %33 = fmul float %29, -4.000000e+00
-  %neg = fmul float %33, %sub146
+  %mul148 = fmul float %29, 4.000000e+00
+  %33 = fneg float %sub146
+  %neg = fmul float %mul148, %33
   %34 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %neg)
   %sqrtf = tail call float @sqrtf(float noundef %34) #14
   %mul153 = fmul float %sub146, 2.000000e+00
@@ -6276,7 +6277,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !33
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -6360,7 +6361,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !33
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57
@@ -6449,7 +6450,7 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last.coerce, %incdec.ptr.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES2_fET0_T_S8_S7_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit
@@ -6514,7 +6515,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIfSaIf
   %cond.i47 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit ]
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i48, %sub.ptr.rhs.cast.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %4, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %__position.coerce, %4
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i51, label %invoke.cont83, label %if.then.i.i.i.i.i.i.i.i.i52
 
 if.then.i.i.i.i.i.i.i.i.i52:                      ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit

@@ -124,15 +124,15 @@ define dso_local void @_ZN15rcMeshLoaderObj9addVertexEfffRi(ptr nocapture nounde
   %31 = getelementptr inbounds float, ptr %28, i64 %30
   %32 = getelementptr inbounds i8, ptr %0, i64 32
   %33 = load float, ptr %32, align 8
-  %34 = fmul float %33, %1
+  %34 = fmul float %1, %33
   %35 = getelementptr inbounds i8, ptr %31, i64 4
   store float %34, ptr %31, align 4
   %36 = load float, ptr %32, align 8
-  %37 = fmul float %36, %2
+  %37 = fmul float %2, %36
   %38 = getelementptr inbounds i8, ptr %31, i64 8
   store float %37, ptr %35, align 4
   %39 = load float, ptr %32, align 8
-  %40 = fmul float %39, %3
+  %40 = fmul float %3, %39
   store float %40, ptr %38, align 4
   %41 = load i32, ptr %6, align 8
   %42 = add nsw i32 %41, 1
@@ -660,19 +660,19 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %195 = load float, ptr %159, align 4
   %196 = load float, ptr %160, align 4
   %197 = load float, ptr %161, align 4
-  %198 = fneg float %196
-  %199 = fmul float %197, %198
+  %198 = fneg float %197
+  %199 = fmul float %196, %198
   %200 = call float @llvm.fmuladd.f32(float %194, float %195, float %199)
   store float %200, ptr %193, align 4
   %201 = load float, ptr %9, align 4
   %202 = load float, ptr %8, align 4
-  %203 = fneg float %202
-  %204 = fmul float %195, %203
+  %203 = fneg float %195
+  %204 = fmul float %202, %203
   %205 = call float @llvm.fmuladd.f32(float %196, float %201, float %204)
   %206 = getelementptr inbounds i8, ptr %193, i64 4
   store float %205, ptr %206, align 4
-  %207 = fneg float %194
-  %208 = fmul float %201, %207
+  %207 = fneg float %201
+  %208 = fmul float %194, %207
   %209 = call float @llvm.fmuladd.f32(float %202, float %197, float %208)
   %210 = getelementptr inbounds i8, ptr %193, i64 8
   store float %209, ptr %210, align 4

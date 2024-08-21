@@ -236,7 +236,7 @@ entry:
 if.end:                                           ; preds = %entry
   %async_handles = getelementptr inbounds i8, ptr %loop, i64 432
   %1 = load ptr, ptr %async_handles, align 8
-  %cmp.i.not.i = icmp eq ptr %1, %async_handles
+  %cmp.i.not.i = icmp eq ptr %async_handles, %1
   br i1 %cmp.i.not.i, label %uv__queue_move.exit.thread, label %uv__queue_move.exit
 
 uv__queue_move.exit.thread:                       ; preds = %if.end
@@ -258,7 +258,7 @@ uv__queue_move.exit:                              ; preds = %if.end
   store ptr %async_handles, ptr %3, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i.not16 = icmp eq ptr %.pre, %queue
+  %cmp.i.not16 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not16, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -267,7 +267,7 @@ while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
 
 while.cond.loopexit:                              ; preds = %for.body.i
   %4 = load ptr, ptr %queue, align 8
-  %cmp.i.not = icmp eq ptr %4, %queue
+  %cmp.i.not = icmp eq ptr %queue, %4
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
@@ -356,7 +356,7 @@ entry:
 if.end:                                           ; preds = %entry
   %async_handles = getelementptr inbounds i8, ptr %loop, i64 432
   %1 = load ptr, ptr %async_handles, align 8
-  %cmp.i.not.i = icmp eq ptr %1, %async_handles
+  %cmp.i.not.i = icmp eq ptr %async_handles, %1
   br i1 %cmp.i.not.i, label %uv__queue_move.exit.thread, label %uv__queue_move.exit
 
 uv__queue_move.exit.thread:                       ; preds = %if.end
@@ -378,7 +378,7 @@ uv__queue_move.exit:                              ; preds = %if.end
   store ptr %async_handles, ptr %3, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i.not17 = icmp eq ptr %.pre, %queue
+  %cmp.i.not17 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not17, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -404,7 +404,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %u = getelementptr inbounds i8, ptr %4, i64 -56
   store i32 0, ptr %u, align 8
   %9 = load ptr, ptr %queue, align 8
-  %cmp.i.not = icmp eq ptr %9, %queue
+  %cmp.i.not = icmp eq ptr %queue, %9
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %uv__queue_move.exit.thread, %uv__queue_move.exit
@@ -503,7 +503,7 @@ if.end13:                                         ; preds = %if.end3
 for.end:                                          ; preds = %if.end3, %for.cond
   %async_handles = getelementptr inbounds i8, ptr %loop, i64 432
   %2 = load ptr, ptr %async_handles, align 8
-  %cmp.i.not.i = icmp eq ptr %2, %async_handles
+  %cmp.i.not.i = icmp eq ptr %async_handles, %2
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %for.end
@@ -519,7 +519,7 @@ uv__queue_move.exit:                              ; preds = %for.end
   store ptr %async_handles, ptr %4, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i.not10 = icmp eq ptr %.pre, %queue
+  %cmp.i.not10 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i.not10, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -558,7 +558,7 @@ if.end23:                                         ; preds = %if.end20
 
 while.cond.backedge:                              ; preds = %if.end23, %while.body, %if.end20
   %12 = load ptr, ptr %queue, align 8
-  %cmp.i.not = icmp eq ptr %12, %queue
+  %cmp.i.not = icmp eq ptr %queue, %12
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.cond.backedge, %for.end, %uv__queue_move.exit

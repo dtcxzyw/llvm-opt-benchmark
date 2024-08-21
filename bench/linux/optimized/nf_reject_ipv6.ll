@@ -340,7 +340,7 @@ define dso_local void @nf_reject_ip6_tcphdr_put(ptr noundef %0, ptr nocapture re
   %40 = lshr i16 %24, 2
   %41 = and i16 %40, 60
   %42 = zext nneg i16 %41 to i32
-  %43 = add i32 %36, %3
+  %43 = add i32 %3, %36
   %44 = add i32 %43, %39
   %45 = sub i32 %44, %42
   %46 = add i32 %45, %33

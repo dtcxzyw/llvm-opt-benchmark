@@ -2125,7 +2125,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_pre_serialize(ptr nounde
 43:                                               ; preds = %34, %7
   %.025 = phi i64 [ %16, %34 ], [ %2, %7 ]
   %.not = icmp ne i64 %2, -1
-  %44 = icmp eq i64 %.025, %2
+  %44 = icmp eq i64 %2, %.025
   %or.cond = and i1 %.not, %44
   br i1 %or.cond, label %46, label %45
 

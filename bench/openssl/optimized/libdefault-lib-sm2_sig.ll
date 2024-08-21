@@ -113,14 +113,14 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i64 %conv, %sigsize
+  %cmp2 = icmp ult i64 %sigsize, %conv
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %mdsize = getelementptr inbounds i8, ptr %vpsm2ctx, i64 368
   %1 = load i64, ptr %mdsize, align 8
   %cmp6.not = icmp eq i64 %1, 0
-  %cmp9.not = icmp eq i64 %1, %tbslen
+  %cmp9.not = icmp eq i64 %tbslen, %1
   %or.cond = or i1 %cmp6.not, %cmp9.not
   br i1 %or.cond, label %if.end12, label %return
 
@@ -152,7 +152,7 @@ entry:
   %mdsize = getelementptr inbounds i8, ptr %vpsm2ctx, i64 368
   %0 = load i64, ptr %mdsize, align 8
   %cmp.not = icmp eq i64 %0, 0
-  %cmp2.not = icmp eq i64 %0, %tbslen
+  %cmp2.not = icmp eq i64 %tbslen, %0
   %or.cond = or i1 %cmp.not, %cmp2.not
   br i1 %or.cond, label %if.end, label %return
 
@@ -319,7 +319,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %4 = load ptr, ptr %ec.i10, align 8
   %call.i11 = call i32 @ECDSA_size(ptr noundef %4) #7
   %conv.i12 = sext i32 %call.i11 to i64
-  %cmp2.i = icmp ugt i64 %conv.i12, %sigsize
+  %cmp2.i = icmp ult i64 %sigsize, %conv.i12
   br i1 %cmp2.i, label %sm2sig_sign.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i

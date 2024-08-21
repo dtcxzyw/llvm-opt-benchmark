@@ -1571,7 +1571,7 @@ define void @Bmc_CexPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
 ._crit_edge.us:                                   ; preds = %28
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %36)
   %41 = load i32, ptr %10, align 4
-  %42 = icmp sgt i32 %41, %1
+  %42 = icmp slt i32 %1, %41
   br i1 %42, label %.lr.ph40.us, label %._crit_edge41.us
 
 .lr.ph47.split:                                   ; preds = %.lr.ph47, %._crit_edge41

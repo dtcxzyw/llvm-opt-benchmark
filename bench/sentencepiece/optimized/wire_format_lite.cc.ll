@@ -364,7 +364,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %11, %
   %26 = getelementptr inbounds i8, ptr %2, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %28, %27
+  %.not.i.i = icmp ult ptr %27, %28
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %29
 
 29:                                               ; preds = %25
@@ -421,7 +421,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %33, 
   %.0.i1.i = phi ptr [ %34, %33 ], [ %42, %39 ], [ %53, %51 ]
   store ptr %.0.i1.i, ptr %26, align 8
   %54 = load ptr, ptr %2, align 8
-  %.not.i.i30 = icmp ugt ptr %54, %.0.i1.i
+  %.not.i.i30 = icmp ult ptr %.0.i1.i, %54
   br i1 %.not.i.i30, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i31, label %55
 
 55:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -505,7 +505,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit: ; preds = 
   %93 = getelementptr inbounds i8, ptr %2, i64 64
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %2, align 8
-  %.not.i.i37 = icmp ugt ptr %95, %94
+  %.not.i.i37 = icmp ult ptr %94, %95
   br i1 %.not.i.i37, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i38, label %96
 
 96:                                               ; preds = %92
@@ -563,7 +563,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit43: ; preds = %10
   store ptr %.0.i1.i42, ptr %93, align 8
   %121 = load i64, ptr %4, align 8
   %122 = load ptr, ptr %2, align 8
-  %.not.i.i44 = icmp ugt ptr %122, %.0.i1.i42
+  %.not.i.i44 = icmp ult ptr %.0.i1.i42, %122
   br i1 %.not.i.i44, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %123
 
 123:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit43
@@ -607,7 +607,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %126, 
   %140 = getelementptr inbounds i8, ptr %2, i64 64
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %2, align 8
-  %.not.i.i48 = icmp ugt ptr %142, %141
+  %.not.i.i48 = icmp ult ptr %141, %142
   br i1 %.not.i.i48, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i49, label %143
 
 143:                                              ; preds = %139
@@ -664,7 +664,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit54: ; preds = %14
   %.0.i1.i53 = phi ptr [ %148, %147 ], [ %156, %153 ], [ %167, %165 ]
   store ptr %.0.i1.i53, ptr %140, align 8
   %168 = load ptr, ptr %2, align 8
-  %.not.i.i55 = icmp ugt ptr %168, %.0.i1.i53
+  %.not.i.i55 = icmp ult ptr %.0.i1.i53, %168
   br i1 %.not.i.i55, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i56, label %169
 
 169:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit54
@@ -769,7 +769,7 @@ _ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stri
   %215 = getelementptr inbounds i8, ptr %2, i64 64
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %2, align 8
-  %.not.i.i62 = icmp ugt ptr %217, %216
+  %.not.i.i62 = icmp ult ptr %216, %217
   br i1 %.not.i.i62, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i63, label %218
 
 218:                                              ; preds = %214
@@ -873,7 +873,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit68: ; preds = %22
 266:                                              ; preds = %263
   %267 = load ptr, ptr %215, align 8
   %268 = load ptr, ptr %2, align 8
-  %.not.i.i81 = icmp ugt ptr %268, %267
+  %.not.i.i81 = icmp ult ptr %267, %268
   br i1 %.not.i.i81, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i82, label %269
 
 269:                                              ; preds = %266
@@ -979,7 +979,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit: ; preds = 
   %318 = getelementptr inbounds i8, ptr %2, i64 64
   %319 = load ptr, ptr %318, align 8
   %320 = load ptr, ptr %2, align 8
-  %.not.i.i71 = icmp ugt ptr %320, %319
+  %.not.i.i71 = icmp ult ptr %319, %320
   br i1 %.not.i.i71, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i72, label %321
 
 321:                                              ; preds = %317
@@ -1037,7 +1037,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit77: ; preds = %32
   store ptr %.0.i1.i76, ptr %318, align 8
   %346 = load i32, ptr %6, align 4
   %347 = load ptr, ptr %2, align 8
-  %.not.i.i78 = icmp ugt ptr %347, %.0.i1.i76
+  %.not.i.i78 = icmp ult ptr %.0.i1.i76, %347
   br i1 %.not.i.i78, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %348
 
 348:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit77
@@ -1109,7 +1109,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite11SkipMes
   %23 = getelementptr inbounds i8, ptr %1, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %1, align 8
-  %.not.i.i = icmp ugt ptr %25, %24
+  %.not.i.i = icmp ult ptr %24, %25
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %26
 
 26:                                               ; preds = %22
@@ -1255,7 +1255,7 @@ define void @_ZN6google8protobuf8internal29CodedOutputStreamFieldSkipper15SkipUn
   %6 = getelementptr inbounds i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  %.not.i.i = icmp ugt ptr %8, %7
+  %.not.i.i = icmp ult ptr %7, %8
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %9
 
 9:                                                ; preds = %3
@@ -1316,7 +1316,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %13, 
   %36 = getelementptr inbounds i8, ptr %34, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %34, align 8
-  %.not.i.i2 = icmp ugt ptr %38, %37
+  %.not.i.i2 = icmp ult ptr %37, %38
   br i1 %.not.i.i2, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i3, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -1490,7 +1490,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit20: ; preds = %.lr
 60:                                               ; preds = %57
   %61 = load ptr, ptr %25, align 8
   %62 = load ptr, ptr %3, align 8
-  %.not.i.i = icmp ugt ptr %62, %61
+  %.not.i.i = icmp ult ptr %61, %62
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %63
 
 63:                                               ; preds = %60
@@ -1537,7 +1537,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %66, 
   store ptr %.0.i1.i, ptr %25, align 8
   %78 = load i32, ptr %6, align 4
   %79 = load ptr, ptr %3, align 8
-  %.not.i.i21 = icmp ugt ptr %79, %.0.i1.i
+  %.not.i.i21 = icmp ult ptr %.0.i1.i, %79
   br i1 %.not.i.i21, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i22, label %80
 
 80:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -1818,7 +1818,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -1876,7 +1876,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   store ptr %.0.i1.i.i, ptr %5, align 8
   %33 = sext i32 %1 to i64
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i.i8 = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i.i8 = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i.i8, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i9, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -1941,7 +1941,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -1998,7 +1998,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   %.0.i1.i.i = phi ptr [ %13, %12 ], [ %21, %18 ], [ %32, %30 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %33 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %33, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %33
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2063,7 +2063,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt32EijPNS0_2i
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2120,7 +2120,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   %.0.i1.i.i = phi ptr [ %13, %12 ], [ %21, %18 ], [ %32, %30 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %33 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %33, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %33
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2185,7 +2185,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt64EimPNS0_2i
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2242,7 +2242,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   %.0.i1.i.i = phi ptr [ %13, %12 ], [ %21, %18 ], [ %32, %30 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %33 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %33, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %33
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2307,7 +2307,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt32EiiPNS0_2i
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2367,7 +2367,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   %34 = ashr i32 %1, 31
   %35 = xor i32 %33, %34
   %36 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %36, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %36
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %37
 
 37:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2432,7 +2432,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt64EilPNS0_2i
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2492,7 +2492,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   %34 = ashr i64 %1, 63
   %35 = xor i64 %33, %34
   %36 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %36, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %36
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %37
 
 37:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2557,7 +2557,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed32EijPNS0_2
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2615,7 +2615,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %.0.i1.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2636,7 +2636,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed64EimPNS0_2
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2694,7 +2694,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %.0.i1.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2715,7 +2715,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite13WriteSFixed32EiiPNS0_
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2773,7 +2773,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %.0.i1.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2794,7 +2794,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite13WriteSFixed64EilPNS0_
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2852,7 +2852,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %.0.i1.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2873,7 +2873,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite10WriteFloatEifPNS0_2io
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -2931,7 +2931,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %.0.i1.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2952,7 +2952,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite11WriteDoubleEidPNS0_2i
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -3010,7 +3010,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %.0.i1.i.i = phi ptr [ %14, %12 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -3031,7 +3031,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite9WriteBoolEibPNS0_2io17
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -3088,7 +3088,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   %.0.i1.i.i = phi ptr [ %13, %12 ], [ %21, %18 ], [ %32, %30 ]
   store ptr %.0.i1.i.i, ptr %5, align 8
   %33 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %33, %.0.i1.i.i
+  %.not.i.i = icmp ult ptr %.0.i1.i.i, %33
   br i1 %.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -3110,7 +3110,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite9WriteEnumEiiPNS0_2io17
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -3168,7 +3168,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %18, %
   store ptr %.0.i1.i.i, ptr %5, align 8
   %33 = sext i32 %1 to i64
   %34 = load ptr, ptr %2, align 8
-  %.not.i.i.i8 = icmp ugt ptr %34, %.0.i1.i.i
+  %.not.i.i.i8 = icmp ult ptr %.0.i1.i.i, %34
   br i1 %.not.i.i.i8, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i9, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -3235,7 +3235,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite11WriteStringEiRKNSt7__
   %7 = getelementptr inbounds i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %9, %8
+  %.not.i.i.i = icmp ult ptr %8, %9
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %10
 
 10:                                               ; preds = %3
@@ -3314,7 +3314,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %14, %21, %
   %43 = trunc i64 %42 to i32
   %44 = load ptr, ptr %7, align 8
   %45 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %45, %44
+  %.not.i.i = icmp ult ptr %44, %45
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %46
 
 46:                                               ; preds = %.critedge
@@ -3424,7 +3424,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite23WriteStringMaybeAlias
   %7 = getelementptr inbounds i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %9, %8
+  %.not.i.i.i = icmp ult ptr %8, %9
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %10
 
 10:                                               ; preds = %3
@@ -3503,7 +3503,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %14, %21, %
   %43 = trunc i64 %42 to i32
   %44 = load ptr, ptr %7, align 8
   %45 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %45, %44
+  %.not.i.i = icmp ult ptr %44, %45
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %46
 
 46:                                               ; preds = %.critedge
@@ -3614,7 +3614,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite10WriteBytesEiRKNSt7__c
   %7 = getelementptr inbounds i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %9, %8
+  %.not.i.i.i = icmp ult ptr %8, %9
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %10
 
 10:                                               ; preds = %3
@@ -3693,7 +3693,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %14, %21, %
   %43 = trunc i64 %42 to i32
   %44 = load ptr, ptr %7, align 8
   %45 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %45, %44
+  %.not.i.i = icmp ult ptr %44, %45
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %46
 
 46:                                               ; preds = %.critedge
@@ -3791,7 +3791,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite22WriteBytesMaybeAliase
   %7 = getelementptr inbounds i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %9, %8
+  %.not.i.i.i = icmp ult ptr %8, %9
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %10
 
 10:                                               ; preds = %3
@@ -3870,7 +3870,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %14, %21, %
   %43 = trunc i64 %42 to i32
   %44 = load ptr, ptr %7, align 8
   %45 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %45, %44
+  %.not.i.i = icmp ult ptr %44, %45
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %46
 
 46:                                               ; preds = %.critedge
@@ -3976,7 +3976,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite10WriteGroupEiRKNS0_11M
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -4039,7 +4039,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.0.i1.i.i, ptr noundef nonnull %2)
   store ptr %37, ptr %5, align 8
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i11 = icmp ugt ptr %38, %37
+  %.not.i.i.i11 = icmp ult ptr %37, %38
   br i1 %.not.i.i.i11, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i12, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -4103,7 +4103,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite12WriteMessageEiRKNS0_1
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -4166,7 +4166,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %38 = load ptr, ptr %5, align 8
   %39 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %39, %38
+  %.not.i.i = icmp ult ptr %38, %39
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %40
 
 40:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -4248,7 +4248,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite22WriteGroupMaybeToArra
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -4316,7 +4316,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %42 = tail call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %38, ptr noundef nonnull %2)
   store ptr %42, ptr %5, align 8
   %43 = load ptr, ptr %2, align 8
-  %.not.i.i.i13 = icmp ugt ptr %43, %42
+  %.not.i.i.i13 = icmp ult ptr %42, %43
   br i1 %.not.i.i.i13, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i14, label %44
 
 44:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -4380,7 +4380,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite24WriteMessageMaybeToAr
   %5 = getelementptr inbounds i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp ugt ptr %7, %6
+  %.not.i.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %8
 
 8:                                                ; preds = %3
@@ -4443,7 +4443,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %12, %19, %
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %38 = load ptr, ptr %5, align 8
   %39 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp ugt ptr %39, %38
+  %.not.i.i = icmp ult ptr %38, %39
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %40
 
 40:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit

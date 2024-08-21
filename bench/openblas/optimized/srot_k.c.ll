@@ -153,10 +153,10 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %110 = load float, ptr %109, align 4, !tbaa !3
   %111 = getelementptr inbounds float, ptr %3, i64 %107
   %112 = load float, ptr %111, align 4, !tbaa !3
-  %113 = fmul float %112, %6
+  %113 = fmul float %6, %112
   %114 = tail call float @llvm.fmuladd.f32(float %5, float %110, float %113)
   %115 = fneg float %110
-  %116 = fmul float %115, %6
+  %116 = fmul float %6, %115
   %117 = tail call float @llvm.fmuladd.f32(float %5, float %112, float %116)
   store float %117, ptr %111, align 4, !tbaa !3
   store float %114, ptr %109, align 4, !tbaa !3

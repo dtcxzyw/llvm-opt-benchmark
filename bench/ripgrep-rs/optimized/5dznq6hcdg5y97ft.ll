@@ -216,7 +216,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias nocapture
 "_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.i": ; preds = %.lr.ph.i100
   %88 = getelementptr inbounds i8, ptr %85, i64 1
   %89 = load i8, ptr %88, align 1, !noalias !18, !noundef !5
-  %.not.i102 = icmp ult i8 %89, %2
+  %.not.i102 = icmp ugt i8 %2, %89
   br i1 %.not.i102, label %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h632ac1e74296db55E.exit"
 
 "_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.thread.i": ; preds = %"_ZN10grep_regex3ban5check28_$u7b$$u7b$closure$u7d$$u7d$17h664bf93879adf909E.exit.i", %.lr.ph.i100

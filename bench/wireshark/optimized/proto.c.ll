@@ -2029,7 +2029,7 @@ define range(i32 0, 2) i32 @proto_field_is_referenced(ptr noundef readonly %0, i
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -2046,7 +2046,7 @@ define range(i32 0, 2) i32 @proto_field_is_referenced(ptr noundef readonly %0, i
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %1, 0
-  %19 = icmp ugt i32 %11, %1
+  %19 = icmp ult i32 %1, %11
   %or.cond22 = and i1 %18, %19
   br i1 %or.cond22, label %20, label %.thread
 
@@ -2127,7 +2127,7 @@ define ptr @proto_registrar_get_nth(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -2143,7 +2143,7 @@ define ptr @proto_registrar_get_nth(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 10:                                               ; preds = %3
-  %11 = icmp ugt i32 %4, %0
+  %11 = icmp ult i32 %0, %4
   br i1 %11, label %12, label %.thread
 
 .thread:                                          ; preds = %8, %10
@@ -2564,7 +2564,7 @@ ptvcursor_new_subtree_levels.exit:                ; preds = %11
 31:                                               ; preds = %20
   %32 = icmp sgt i32 %2, -1
   %33 = load i32, ptr @num_tree_types, align 4
-  %34 = icmp sgt i32 %33, %2
+  %34 = icmp slt i32 %2, %33
   %or.cond.i.i = select i1 %32, i1 %34, i1 false
   br i1 %or.cond.i.i, label %36, label %35
 
@@ -2596,7 +2596,7 @@ define noundef ptr @ptvcursor_set_subtree(ptr nocapture noundef writeonly %0, pt
 4:                                                ; preds = %3
   %5 = icmp sgt i32 %2, -1
   %6 = load i32, ptr @num_tree_types, align 4
-  %7 = icmp sgt i32 %6, %2
+  %7 = icmp slt i32 %2, %6
   %or.cond.i = select i1 %5, i1 %7, i1 false
   br i1 %or.cond.i, label %9, label %8
 
@@ -2728,7 +2728,7 @@ define noundef ptr @proto_item_add_subtree(ptr noundef readonly returned %0, i32
 3:                                                ; preds = %2
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr @num_tree_types, align 4
-  %6 = icmp sgt i32 %5, %1
+  %6 = icmp slt i32 %1, %5
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %8, label %7
 
@@ -3456,7 +3456,7 @@ define noundef ptr @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1
 12:                                               ; preds = %11
   %13 = icmp sgt i32 %4, -1
   %14 = load i32, ptr @num_tree_types, align 4
-  %15 = icmp sgt i32 %14, %4
+  %15 = icmp slt i32 %4, %14
   %or.cond.i = select i1 %13, i1 %15, i1 false
   br i1 %or.cond.i, label %17, label %16
 
@@ -3998,7 +3998,7 @@ define noundef ptr @proto_tree_add_item_ret_int(ptr noundef %0, i32 noundef %1, 
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond = select i1 %11, i1 %13, i1 false
@@ -4015,7 +4015,7 @@ define noundef ptr @proto_tree_add_item_ret_int(ptr noundef %0, i32 noundef %1, 
 
 16:                                               ; preds = %9
   %17 = icmp sgt i32 %1, 0
-  %18 = icmp ugt i32 %10, %1
+  %18 = icmp ult i32 %1, %10
   %or.cond98 = and i1 %17, %18
   br i1 %or.cond98, label %19, label %.thread
 
@@ -4471,7 +4471,7 @@ define internal fastcc void @proto_tree_set_int(ptr nocapture noundef %0, i32 no
 
 6:                                                ; preds = %2
   %7 = trunc i64 %5 to i32
-  %8 = and i32 %7, %1
+  %8 = and i32 %1, %7
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   %10 = trunc nuw nsw i64 %9 to i32
   %11 = lshr i32 %8, %10
@@ -4752,7 +4752,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -4769,7 +4769,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %1, 0
-  %19 = icmp ugt i32 %11, %1
+  %19 = icmp ult i32 %1, %11
   %or.cond103 = and i1 %18, %19
   br i1 %or.cond103, label %20, label %.thread
 
@@ -5122,7 +5122,7 @@ define internal fastcc void @proto_tree_set_uint(ptr nocapture noundef %0, i32 n
 
 6:                                                ; preds = %2
   %7 = trunc i64 %5 to i32
-  %8 = and i32 %7, %1
+  %8 = and i32 %1, %7
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   %10 = trunc nuw nsw i64 %9 to i32
   %11 = lshr i32 %8, %10
@@ -5232,7 +5232,7 @@ define ptr @ptvcursor_add_ret_uint(ptr nocapture noundef %0, i32 noundef %1, i32
 
 11:                                               ; preds = %5
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -5249,7 +5249,7 @@ define ptr @ptvcursor_add_ret_uint(ptr nocapture noundef %0, i32 noundef %1, i32
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond90 = and i1 %19, %20
   br i1 %or.cond90, label %21, label %.thread
 
@@ -5386,7 +5386,7 @@ test_length.exit:                                 ; preds = %33, %49
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 8
   %77 = load i32, ptr @gpa_hfinfo.0, align 8
-  %78 = icmp ult i32 %77, %1
+  %78 = icmp ugt i32 %1, %77
   %79 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %80 = icmp ne i32 %79, 0
   %or.cond4 = select i1 %78, i1 %80, i1 false
@@ -5397,7 +5397,7 @@ test_length.exit:                                 ; preds = %33, %49
   unreachable
 
 82:                                               ; preds = %71
-  %83 = icmp ugt i32 %77, %1
+  %83 = icmp ult i32 %1, %77
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %82
@@ -6625,7 +6625,7 @@ define ptr @ptvcursor_add_ret_int(ptr nocapture noundef %0, i32 noundef %1, i32 
 
 11:                                               ; preds = %5
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -6642,7 +6642,7 @@ define ptr @ptvcursor_add_ret_int(ptr nocapture noundef %0, i32 noundef %1, i32 
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond94 = and i1 %19, %20
   br i1 %or.cond94, label %21, label %.thread
 
@@ -6804,7 +6804,7 @@ ws_sign_ext32.exit:                               ; preds = %65, %71
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 8
   %90 = load i32, ptr @gpa_hfinfo.0, align 8
-  %91 = icmp ult i32 %90, %1
+  %91 = icmp ugt i32 %1, %90
   %92 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %93 = icmp ne i32 %92, 0
   %or.cond4 = select i1 %91, i1 %93, i1 false
@@ -6815,7 +6815,7 @@ ws_sign_ext32.exit:                               ; preds = %65, %71
   unreachable
 
 95:                                               ; preds = %84
-  %96 = icmp ugt i32 %90, %1
+  %96 = icmp ult i32 %1, %90
   br i1 %96, label %98, label %97
 
 97:                                               ; preds = %95
@@ -6931,7 +6931,7 @@ define ptr @ptvcursor_add_ret_string(ptr nocapture noundef %0, i32 noundef %1, i
 
 11:                                               ; preds = %6
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -6948,7 +6948,7 @@ define ptr @ptvcursor_add_ret_string(ptr nocapture noundef %0, i32 noundef %1, i
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond98 = and i1 %19, %20
   br i1 %or.cond98, label %21, label %.thread
 
@@ -7247,7 +7247,7 @@ define ptr @ptvcursor_add_ret_boolean(ptr nocapture noundef %0, i32 noundef %1, 
 
 11:                                               ; preds = %5
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -7264,7 +7264,7 @@ define ptr @ptvcursor_add_ret_boolean(ptr nocapture noundef %0, i32 noundef %1, 
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond101 = and i1 %19, %20
   br i1 %or.cond101, label %21, label %.thread
 
@@ -7700,7 +7700,7 @@ define noundef ptr @proto_tree_add_item_ret_uint64(ptr noundef %0, i32 noundef %
 
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -7717,7 +7717,7 @@ define noundef ptr @proto_tree_add_item_ret_uint64(ptr noundef %0, i32 noundef %
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %1, 0
-  %19 = icmp ugt i32 %11, %1
+  %19 = icmp ult i32 %1, %11
   %or.cond100 = and i1 %18, %19
   br i1 %or.cond100, label %20, label %.thread
 
@@ -8070,7 +8070,7 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -8087,7 +8087,7 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %1, 0
-  %19 = icmp ugt i32 %11, %1
+  %19 = icmp ult i32 %1, %11
   %or.cond93 = and i1 %18, %19
   br i1 %or.cond93, label %20, label %.thread
 
@@ -8507,7 +8507,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 
 11:                                               ; preds = %8
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -8524,7 +8524,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond111 = and i1 %19, %20
   br i1 %or.cond111, label %21, label %.thread
 
@@ -8778,7 +8778,7 @@ define noundef ptr @proto_tree_add_item_ret_boolean(ptr noundef %0, i32 noundef 
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond = select i1 %11, i1 %13, i1 false
@@ -8795,7 +8795,7 @@ define noundef ptr @proto_tree_add_item_ret_boolean(ptr noundef %0, i32 noundef 
 
 16:                                               ; preds = %9
   %17 = icmp sgt i32 %1, 0
-  %18 = icmp ugt i32 %10, %1
+  %18 = icmp ult i32 %1, %10
   %or.cond94 = and i1 %17, %18
   br i1 %or.cond94, label %19, label %.thread
 
@@ -9016,7 +9016,7 @@ define noundef ptr @proto_tree_add_item_ret_float(ptr noundef %0, i32 noundef %1
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond.i = select i1 %11, i1 %13, i1 false
@@ -9032,7 +9032,7 @@ define noundef ptr @proto_tree_add_item_ret_float(ptr noundef %0, i32 noundef %1
   unreachable
 
 16:                                               ; preds = %9
-  %17 = icmp ugt i32 %10, %1
+  %17 = icmp ult i32 %1, %10
   br i1 %17, label %18, label %.thread.i
 
 .thread.i:                                        ; preds = %16, %14
@@ -9269,7 +9269,7 @@ define noundef ptr @proto_tree_add_item_ret_double(ptr noundef %0, i32 noundef %
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond.i = select i1 %11, i1 %13, i1 false
@@ -9285,7 +9285,7 @@ define noundef ptr @proto_tree_add_item_ret_double(ptr noundef %0, i32 noundef %
   unreachable
 
 16:                                               ; preds = %9
-  %17 = icmp ugt i32 %10, %1
+  %17 = icmp ult i32 %1, %10
   br i1 %17, label %18, label %.thread.i
 
 .thread.i:                                        ; preds = %16, %14
@@ -9507,7 +9507,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -9524,7 +9524,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %1, 0
-  %19 = icmp ugt i32 %11, %1
+  %19 = icmp ult i32 %1, %11
   %or.cond84 = and i1 %18, %19
   br i1 %or.cond84, label %20, label %.thread
 
@@ -9742,7 +9742,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv6(ptr noundef %0, i32 noundef %1,
 
 10:                                               ; preds = %7
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond.i = select i1 %12, i1 %14, i1 false
@@ -9758,7 +9758,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv6(ptr noundef %0, i32 noundef %1,
   unreachable
 
 17:                                               ; preds = %10
-  %18 = icmp ugt i32 %11, %1
+  %18 = icmp ult i32 %1, %11
   br i1 %18, label %19, label %.thread.i
 
 .thread.i:                                        ; preds = %17, %15
@@ -9967,7 +9967,7 @@ define noundef ptr @proto_tree_add_item_ret_ether(ptr noundef %0, i32 noundef %1
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond.i = select i1 %11, i1 %13, i1 false
@@ -9983,7 +9983,7 @@ define noundef ptr @proto_tree_add_item_ret_ether(ptr noundef %0, i32 noundef %1
   unreachable
 
 16:                                               ; preds = %9
-  %17 = icmp ugt i32 %10, %1
+  %17 = icmp ult i32 %1, %10
   br i1 %17, label %18, label %.thread.i
 
 .thread.i:                                        ; preds = %16, %14
@@ -10180,7 +10180,7 @@ define noundef ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %0, i3
 
 12:                                               ; preds = %9
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
-  %14 = icmp ult i32 %13, %1
+  %14 = icmp ugt i32 %1, %13
   %15 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %14, i1 %16, i1 false
@@ -10197,7 +10197,7 @@ define noundef ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %0, i3
 
 19:                                               ; preds = %12
   %20 = icmp sgt i32 %1, 0
-  %21 = icmp ugt i32 %13, %1
+  %21 = icmp ult i32 %1, %13
   %or.cond109 = and i1 %20, %21
   br i1 %or.cond109, label %22, label %.thread
 
@@ -10490,7 +10490,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %118, %124, %proto_i
 148:                                              ; preds = %146, %146
   %149 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #39
   %150 = trunc i64 %149 to i32
-  %151 = icmp slt i32 %150, %4
+  %151 = icmp sgt i32 %4, %150
   br i1 %151, label %.lr.ph.preheader.i, label %detect_trailing_stray_characters.exit
 
 .lr.ph.preheader.i:                               ; preds = %148
@@ -10501,7 +10501,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %118, %124, %proto_i
 153:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %4
+  %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %153, %.lr.ph.preheader.i
@@ -10540,7 +10540,7 @@ define noundef ptr @proto_tree_add_item_ret_display_string_and_length(ptr nounde
 
 12:                                               ; preds = %9
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
-  %14 = icmp ult i32 %13, %1
+  %14 = icmp ugt i32 %1, %13
   %15 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %14, i1 %16, i1 false
@@ -10557,7 +10557,7 @@ define noundef ptr @proto_tree_add_item_ret_display_string_and_length(ptr nounde
 
 19:                                               ; preds = %12
   %20 = icmp sgt i32 %1, 0
-  %21 = icmp ugt i32 %13, %1
+  %21 = icmp ult i32 %1, %13
   %or.cond171 = and i1 %20, %21
   br i1 %or.cond171, label %22, label %.thread
 
@@ -10976,7 +10976,7 @@ proto_tree_set_bytes.exit194:                     ; preds = %181
 199:                                              ; preds = %197, %197
   %200 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0149) #39
   %201 = trunc i64 %200 to i32
-  %202 = icmp slt i32 %201, %4
+  %202 = icmp sgt i32 %4, %201
   br i1 %202, label %.lr.ph.preheader.i, label %detect_trailing_stray_characters.exit
 
 .lr.ph.preheader.i:                               ; preds = %199
@@ -10987,7 +10987,7 @@ proto_tree_set_bytes.exit194:                     ; preds = %181
 204:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %4
+  %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %detect_trailing_stray_characters.exit, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %204, %.lr.ph.preheader.i
@@ -11030,7 +11030,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 
 11:                                               ; preds = %8
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -11047,7 +11047,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond80 = and i1 %19, %20
   br i1 %or.cond80, label %21, label %.thread
 
@@ -12151,7 +12151,7 @@ define ptr @ptvcursor_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef 
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -12168,7 +12168,7 @@ define ptr @ptvcursor_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef 
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %1, 0
-  %19 = icmp ugt i32 %11, %1
+  %19 = icmp ult i32 %1, %11
   %or.cond72 = and i1 %18, %19
   br i1 %or.cond72, label %20, label %.thread
 
@@ -12268,7 +12268,7 @@ test_length.exit:                                 ; preds = %26, %43
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 8
   %57 = load i32, ptr @gpa_hfinfo.0, align 8
-  %58 = icmp ult i32 %57, %1
+  %58 = icmp ugt i32 %1, %57
   %59 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %60 = icmp ne i32 %59, 0
   %or.cond4 = select i1 %58, i1 %60, i1 false
@@ -12279,7 +12279,7 @@ test_length.exit:                                 ; preds = %26, %43
   unreachable
 
 62:                                               ; preds = %51
-  %63 = icmp ugt i32 %57, %1
+  %63 = icmp ult i32 %1, %57
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %62
@@ -12597,7 +12597,7 @@ define noundef ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noun
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @gpa_hfinfo.0, align 8
-  %10 = icmp ult i32 %9, %1
+  %10 = icmp ugt i32 %1, %9
   %11 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %12 = icmp ne i32 %11, 0
   %or.cond = select i1 %10, i1 %12, i1 false
@@ -12614,7 +12614,7 @@ define noundef ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noun
 
 15:                                               ; preds = %8
   %16 = icmp sgt i32 %1, 0
-  %17 = icmp ugt i32 %9, %1
+  %17 = icmp ult i32 %1, %9
   %or.cond16 = and i1 %16, %17
   br i1 %or.cond16, label %18, label %.thread
 
@@ -12871,7 +12871,7 @@ define noundef ptr @proto_tree_add_item_ret_length(ptr noundef %0, i32 noundef %
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @gpa_hfinfo.0, align 8
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond = select i1 %11, i1 %13, i1 false
@@ -12888,7 +12888,7 @@ define noundef ptr @proto_tree_add_item_ret_length(ptr noundef %0, i32 noundef %
 
 16:                                               ; preds = %9
   %17 = icmp sgt i32 %1, 0
-  %18 = icmp ugt i32 %10, %1
+  %18 = icmp ult i32 %1, %10
   %or.cond17 = and i1 %17, %18
   br i1 %or.cond17, label %19, label %.thread
 
@@ -12923,7 +12923,7 @@ define noundef ptr @proto_tree_add_bytes_item(ptr noundef %0, i32 noundef %1, pt
 
 13:                                               ; preds = %9
   %14 = load i32, ptr @gpa_hfinfo.0, align 8
-  %15 = icmp ult i32 %14, %1
+  %15 = icmp ugt i32 %1, %14
   %16 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %15, i1 %17, i1 false
@@ -12940,7 +12940,7 @@ define noundef ptr @proto_tree_add_bytes_item(ptr noundef %0, i32 noundef %1, pt
 
 20:                                               ; preds = %13
   %21 = icmp sgt i32 %1, 0
-  %22 = icmp ugt i32 %14, %1
+  %22 = icmp ult i32 %1, %14
   %or.cond180 = and i1 %21, %22
   br i1 %or.cond180, label %23, label %.thread
 
@@ -13351,7 +13351,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 
 12:                                               ; preds = %9
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
-  %14 = icmp ult i32 %13, %1
+  %14 = icmp ugt i32 %1, %13
   %15 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %14, i1 %16, i1 false
@@ -13368,7 +13368,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 
 19:                                               ; preds = %12
   %20 = icmp sgt i32 %1, 0
-  %21 = icmp ugt i32 %13, %1
+  %21 = icmp ult i32 %1, %13
   %or.cond122 = and i1 %20, %21
   br i1 %or.cond122, label %22, label %.thread
 
@@ -13658,7 +13658,7 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
 
 17:                                               ; preds = %10
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   %20 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %21 = icmp ne i32 %20, 0
   %or.cond = select i1 %19, i1 %21, i1 false
@@ -13675,7 +13675,7 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
 
 24:                                               ; preds = %17
   %25 = icmp sgt i32 %1, 0
-  %26 = icmp ugt i32 %18, %1
+  %26 = icmp ult i32 %1, %18
   %or.cond51 = and i1 %25, %26
   br i1 %or.cond51, label %27, label %.thread
 
@@ -13847,7 +13847,7 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %22 = icmp ne i32 %21, 0
   %or.cond = select i1 %20, i1 %22, i1 false
@@ -13864,7 +13864,7 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
 
 25:                                               ; preds = %18
   %26 = icmp sgt i32 %1, 0
-  %27 = icmp ugt i32 %19, %1
+  %27 = icmp ult i32 %1, %19
   %or.cond63 = and i1 %26, %27
   br i1 %or.cond63, label %28, label %.thread
 
@@ -14048,7 +14048,7 @@ define noundef ptr @proto_tree_add_bytes(ptr noundef %0, i32 noundef %1, ptr nou
 
 11:                                               ; preds = %6
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -14065,7 +14065,7 @@ define noundef ptr @proto_tree_add_bytes(ptr noundef %0, i32 noundef %1, ptr nou
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond64 = and i1 %19, %20
   br i1 %or.cond64, label %21, label %.thread
 
@@ -14113,7 +14113,7 @@ test_length.exit:                                 ; preds = %27, %28
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8
   %39 = load i32, ptr @gpa_hfinfo.0, align 8
-  %40 = icmp ult i32 %39, %1
+  %40 = icmp ugt i32 %1, %39
   %41 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %42 = icmp ne i32 %41, 0
   %or.cond4 = select i1 %40, i1 %42, i1 false
@@ -14124,7 +14124,7 @@ test_length.exit:                                 ; preds = %27, %28
   unreachable
 
 44:                                               ; preds = %33
-  %45 = icmp ugt i32 %39, %1
+  %45 = icmp ult i32 %1, %39
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %44
@@ -14275,7 +14275,7 @@ define noundef ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef
 
 12:                                               ; preds = %7
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
-  %14 = icmp ult i32 %13, %1
+  %14 = icmp ugt i32 %1, %13
   %15 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %14, i1 %16, i1 false
@@ -14292,7 +14292,7 @@ define noundef ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef
 
 19:                                               ; preds = %12
   %20 = icmp sgt i32 %1, 0
-  %21 = icmp ugt i32 %13, %1
+  %21 = icmp ult i32 %1, %13
   %or.cond65 = and i1 %20, %21
   br i1 %or.cond65, label %22, label %.thread
 
@@ -14340,7 +14340,7 @@ test_length.exit:                                 ; preds = %28, %29
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 8
   %40 = load i32, ptr @gpa_hfinfo.0, align 8
-  %41 = icmp ult i32 %40, %1
+  %41 = icmp ugt i32 %1, %40
   %42 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %43 = icmp ne i32 %42, 0
   %or.cond4 = select i1 %41, i1 %43, i1 false
@@ -14351,7 +14351,7 @@ test_length.exit:                                 ; preds = %28, %29
   unreachable
 
 45:                                               ; preds = %34
-  %46 = icmp ugt i32 %40, %1
+  %46 = icmp ult i32 %1, %40
   br i1 %46, label %48, label %47
 
 47:                                               ; preds = %45
@@ -14844,7 +14844,7 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -14861,7 +14861,7 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond48 = and i1 %24, %25
   br i1 %or.cond48, label %26, label %.thread
 
@@ -15067,7 +15067,7 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -15084,7 +15084,7 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -15282,7 +15282,7 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
 
 17:                                               ; preds = %10
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   %20 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %21 = icmp ne i32 %20, 0
   %or.cond = select i1 %19, i1 %21, i1 false
@@ -15299,7 +15299,7 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
 
 24:                                               ; preds = %17
   %25 = icmp sgt i32 %1, 0
-  %26 = icmp ugt i32 %18, %1
+  %26 = icmp ult i32 %1, %18
   %or.cond46 = and i1 %25, %26
   br i1 %or.cond46, label %27, label %.thread
 
@@ -15500,7 +15500,7 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
 
 17:                                               ; preds = %10
   %18 = load i32, ptr @gpa_hfinfo.0, align 8
-  %19 = icmp ult i32 %18, %1
+  %19 = icmp ugt i32 %1, %18
   %20 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %21 = icmp ne i32 %20, 0
   %or.cond = select i1 %19, i1 %21, i1 false
@@ -15517,7 +15517,7 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
 
 24:                                               ; preds = %17
   %25 = icmp sgt i32 %1, 0
-  %26 = icmp ugt i32 %18, %1
+  %26 = icmp ult i32 %1, %18
   %or.cond46 = and i1 %25, %26
   br i1 %or.cond46, label %27, label %.thread
 
@@ -15727,7 +15727,7 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -15744,7 +15744,7 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -15949,7 +15949,7 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -15966,7 +15966,7 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -16174,7 +16174,7 @@ define noundef ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr no
 
 11:                                               ; preds = %6
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -16191,7 +16191,7 @@ define noundef ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr no
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond71 = and i1 %19, %20
   br i1 %or.cond71, label %21, label %.thread
 
@@ -16241,7 +16241,7 @@ test_length.exit:                                 ; preds = %29, %27
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8
   %39 = load i32, ptr @gpa_hfinfo.0, align 8
-  %40 = icmp ult i32 %39, %1
+  %40 = icmp ugt i32 %1, %39
   %41 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %42 = icmp ne i32 %41, 0
   %or.cond4 = select i1 %40, i1 %42, i1 false
@@ -16252,7 +16252,7 @@ test_length.exit:                                 ; preds = %29, %27
   unreachable
 
 44:                                               ; preds = %33
-  %45 = icmp ugt i32 %39, %1
+  %45 = icmp ult i32 %1, %39
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %44
@@ -16463,7 +16463,7 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -16480,7 +16480,7 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -16677,7 +16677,7 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -16694,7 +16694,7 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -16889,7 +16889,7 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -16906,7 +16906,7 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -17104,7 +17104,7 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -17121,7 +17121,7 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -17318,7 +17318,7 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -17335,7 +17335,7 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -17536,7 +17536,7 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -17553,7 +17553,7 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -17753,7 +17753,7 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -17770,7 +17770,7 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -17966,7 +17966,7 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -17983,7 +17983,7 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -18179,7 +18179,7 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
 
 16:                                               ; preds = %9
   %17 = load i32, ptr @gpa_hfinfo.0, align 8
-  %18 = icmp ult i32 %17, %1
+  %18 = icmp ugt i32 %1, %17
   %19 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %20 = icmp ne i32 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -18196,7 +18196,7 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %1, 0
-  %25 = icmp ugt i32 %17, %1
+  %25 = icmp ult i32 %1, %17
   %or.cond46 = and i1 %24, %25
   br i1 %or.cond46, label %26, label %.thread
 
@@ -18447,7 +18447,7 @@ define noundef ptr @proto_tree_add_mac48_detail(ptr noundef readonly %0, ptr nou
 
 38:                                               ; preds = %37
   %39 = load i32, ptr @num_tree_types, align 4
-  %40 = icmp sgt i32 %39, %2
+  %40 = icmp slt i32 %2, %39
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %38
@@ -19065,8 +19065,8 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
 136:                                              ; preds = %119
   %.pre = load i32, ptr %11, align 8
   %.not237 = icmp eq i32 %.pre, 35
-  %or.cond373 = select i1 %.not240, i1 true, i1 %.not237
-  br i1 %or.cond373, label %170, label %137
+  %or.cond375 = select i1 %.not240, i1 true, i1 %.not237
+  br i1 %or.cond375, label %170, label %137
 
 137:                                              ; preds = %136
   %138 = and i32 %122, 4096
@@ -19076,27 +19076,28 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
 139:                                              ; preds = %137
   %140 = call fastcc ptr @hfinfo_numeric_value_format(ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %120)
   %141 = icmp eq i32 %2, 0
-  br i1 %141, label %protoo_strlcpy.exit283, label %142
+  br i1 %141, label %protoo_strlcpy.exit283.thread, label %protoo_strlcpy.exit283
 
-142:                                              ; preds = %139
+protoo_strlcpy.exit283.thread:                    ; preds = %139
+  %142 = call fastcc ptr @hf_try_val_to_str(i32 noundef %120, ptr noundef nonnull %10)
+  br label %protoo_strlcpy.exit287
+
+protoo_strlcpy.exit283:                           ; preds = %139
   %143 = sext i32 %2 to i64
   %144 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %140, i64 noundef %143) #33
   %.not.i280 = icmp ult i64 %144, %143
   %145 = add nsw i64 %143, 4294967295
   %spec.select.i281 = select i1 %.not.i280, i64 %144, i64 %145
   %146 = trunc i64 %spec.select.i281 to i32
-  br label %protoo_strlcpy.exit283
-
-protoo_strlcpy.exit283:                           ; preds = %139, %142
-  %.08.i282 = phi i32 [ %146, %142 ], [ 0, %139 ]
   %147 = call fastcc ptr @hf_try_val_to_str(i32 noundef %120, ptr noundef nonnull %10)
-  %148 = icmp eq i32 %.08.i282, %2
+  %148 = icmp eq i32 %2, %146
   br i1 %148, label %protoo_strlcpy.exit287, label %149
 
 149:                                              ; preds = %protoo_strlcpy.exit283
-  %150 = sub i32 %2, %.08.i282
+  %150 = sub i32 %2, %146
   %151 = sext i32 %150 to i64
-  %152 = sext i32 %.08.i282 to i64
+  %sext = shl i64 %spec.select.i281, 32
+  %152 = ashr exact i64 %sext, 32
   %153 = getelementptr i8, ptr %1, i64 %152
   %154 = call i64 @g_strlcpy(ptr noundef %153, ptr noundef %147, i64 noundef %151) #33
   %.not.i284 = icmp ult i64 %154, %151
@@ -19105,9 +19106,10 @@ protoo_strlcpy.exit283:                           ; preds = %139, %142
   %156 = trunc i64 %spec.select.i285 to i32
   br label %protoo_strlcpy.exit287
 
-protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit283, %149
-  %.08.i286 = phi i32 [ %156, %149 ], [ 0, %protoo_strlcpy.exit283 ]
-  %157 = add i32 %.08.i286, %.08.i282
+protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit283.thread, %protoo_strlcpy.exit283, %149
+  %.08.i282374 = phi i32 [ %146, %149 ], [ %146, %protoo_strlcpy.exit283 ], [ 0, %protoo_strlcpy.exit283.thread ]
+  %.08.i286 = phi i32 [ %156, %149 ], [ 0, %protoo_strlcpy.exit283 ], [ 0, %protoo_strlcpy.exit283.thread ]
+  %157 = add i32 %.08.i286, %.08.i282374
   br label %protoo_strlcpy.exit
 
 158:                                              ; preds = %137
@@ -19288,7 +19290,7 @@ protoo_strlcpy.exit304:                           ; preds = %hfinfo_numeric_valu
 
 hf_try_val64_to_str.exit:                         ; preds = %223, %225, %229, %234
   %.0.i306 = phi ptr [ %224, %223 ], [ %226, %225 ], [ %231, %229 ], [ %236, %234 ]
-  %240 = icmp eq i32 %.08.i303, %2
+  %240 = icmp eq i32 %2, %.08.i303
   br i1 %240, label %protoo_strlcpy.exit310, label %241
 
 241:                                              ; preds = %hf_try_val64_to_str.exit
@@ -19668,7 +19670,7 @@ protoo_strlcpy.exit364:                           ; preds = %406, %415
   %..i = zext i1 %.not.i365 to i32
   %430 = tail call i64 @ws_label_strcpy(ptr noundef %1, i64 noundef %427, i64 noundef 0, ptr noundef %426, i32 noundef %..i) #33
   %431 = trunc i64 %430 to i32
-  %.not = icmp slt i32 %431, %2
+  %.not = icmp sgt i32 %2, %431
   br i1 %.not, label %protoo_strlcpy.exit, label %432
 
 432:                                              ; preds = %423
@@ -19748,7 +19750,7 @@ define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nocap
 .preheader:                                       ; preds = %14
   %16 = zext i32 %3 to i64
   %17 = getelementptr i8, ptr %2, i64 %16
-  %18 = icmp ugt ptr %17, %2
+  %18 = icmp ult ptr %2, %17
   br i1 %18, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -20763,7 +20765,7 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
 
 56:                                               ; preds = %52, %50, %49
   %.2249 = phi i32 [ %53, %52 ], [ %.1248507, %50 ], [ 0, %49 ]
-  %57 = icmp eq i32 %.2255, %5
+  %57 = icmp eq i32 %5, %.2255
   br i1 %57, label %protoo_strlcpy.exit, label %58
 
 58:                                               ; preds = %56
@@ -20781,7 +20783,7 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
 protoo_strlcpy.exit:                              ; preds = %56, %58
   %.08.i = phi i32 [ %65, %58 ], [ 0, %56 ]
   %66 = add i32 %.08.i, %.2255
-  %67 = icmp eq i32 %.2249, %5
+  %67 = icmp eq i32 %5, %.2249
   br i1 %67, label %protoo_strlcpy.exit317, label %68
 
 68:                                               ; preds = %protoo_strlcpy.exit
@@ -20856,7 +20858,7 @@ protoo_strlcpy.exit317:                           ; preds = %protoo_strlcpy.exit
   br i1 %96, label %97, label %108
 
 97:                                               ; preds = %94
-  %98 = icmp eq i32 %.4257, %5
+  %98 = icmp eq i32 %5, %.4257
   br i1 %98, label %protoo_strlcpy.exit321, label %99
 
 99:                                               ; preds = %97
@@ -20890,7 +20892,7 @@ protoo_strlcpy.exit321:                           ; preds = %97, %99
   br i1 %114, label %115, label %126
 
 115:                                              ; preds = %112
-  %116 = icmp eq i32 %.4251, %5
+  %116 = icmp eq i32 %5, %.4251
   br i1 %116, label %protoo_strlcpy.exit325, label %117
 
 117:                                              ; preds = %115
@@ -21102,13 +21104,13 @@ proto_get_finfo_ptr_array.exit.thread.us543:      ; preds = %194, %.lr.ph527.spl
   ]
 
 189:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread.us543
-  %190 = icmp ult i32 %184, %.2244.val.us
+  %190 = icmp ugt i32 %.2244.val.us, %184
   %or.cond.i.us = select i1 %190, i1 %186, i1 false
   br i1 %or.cond.i.us, label %.loopexit361, label %191
 
 191:                                              ; preds = %189
   %192 = icmp sgt i32 %.2244.val.us, 0
-  %193 = icmp ugt i32 %184, %.2244.val.us
+  %193 = icmp ult i32 %.2244.val.us, %184
   %or.cond16.i.us = and i1 %192, %193
   br i1 %or.cond16.i.us, label %194, label %.thread.i
 
@@ -21142,13 +21144,13 @@ proto_get_finfo_ptr_array.exit.thread.us609:      ; preds = %211, %.lr.ph527.spl
   ]
 
 206:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread.us609
-  %207 = icmp ult i32 %201, %.2244.val.us610
+  %207 = icmp ugt i32 %.2244.val.us610, %201
   %or.cond.i.us611 = select i1 %207, i1 %203, i1 false
   br i1 %or.cond.i.us611, label %.loopexit361, label %208
 
 208:                                              ; preds = %206
   %209 = icmp sgt i32 %.2244.val.us610, 0
-  %210 = icmp ugt i32 %201, %.2244.val.us610
+  %210 = icmp ult i32 %.2244.val.us610, %201
   %or.cond16.i.us612 = and i1 %209, %210
   br i1 %or.cond16.i.us612, label %211, label %.thread.i
 
@@ -21191,7 +21193,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph527.split.spl
 
 226:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread
   %227 = load i32, ptr @gpa_hfinfo.0, align 8
-  %228 = icmp ult i32 %227, %.2244.val
+  %228 = icmp ugt i32 %.2244.val, %227
   %229 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %230 = icmp ne i32 %229, 0
   %or.cond.i = select i1 %228, i1 %230, i1 false
@@ -21209,7 +21211,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph527.split.spl
 
 231:                                              ; preds = %226
   %232 = icmp sgt i32 %.2244.val, 0
-  %233 = icmp ugt i32 %227, %.2244.val
+  %233 = icmp ult i32 %.2244.val, %227
   %or.cond16.i = and i1 %232, %233
   br i1 %or.cond16.i, label %234, label %.thread.i
 
@@ -21261,7 +21263,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph527.split.spl
 
 251:                                              ; preds = %249
   %252 = load i32, ptr @gpa_hfinfo.0, align 8
-  %253 = icmp ult i32 %252, %.2244.val312
+  %253 = icmp ugt i32 %.2244.val312, %252
   %254 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %255 = icmp ne i32 %254, 0
   %or.cond.i333 = select i1 %253, i1 %255, i1 false
@@ -21278,7 +21280,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph527.split.spl
 
 257:                                              ; preds = %251
   %258 = icmp sgt i32 %.2244.val312, 0
-  %259 = icmp ugt i32 %252, %.2244.val312
+  %259 = icmp ult i32 %.2244.val312, %252
   %or.cond16.i334 = and i1 %258, %259
   br i1 %or.cond16.i334, label %260, label %.thread.i331
 
@@ -21316,7 +21318,7 @@ hfinfo_same_name_get_prev.exit336:                ; preds = %260, %246
 
 271:                                              ; preds = %270
   %272 = xor i32 %.0239.ph364809, -1
-  %273 = add i32 %272, %2
+  %273 = add i32 %2, %272
   br label %.thread1109
 
 .thread1109:                                      ; preds = %268, %271
@@ -21680,7 +21682,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %404, %406, %410, %4
   %452 = getelementptr inbounds i8, ptr %451, i64 20
   %453 = load i32, ptr %452, align 4
   %454 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %450, i32 noundef 0, i32 noundef %453) #33
-  %455 = icmp eq i32 %.7, %5
+  %455 = icmp eq i32 %5, %.7
   br i1 %455, label %protoo_strlcpy.exit343, label %456
 
 456:                                              ; preds = %.thread356
@@ -21827,7 +21829,7 @@ define internal fastcc ptr @hfinfo_same_name_get_prev(i32 %.60.val) unnamed_addr
 
 1:                                                ; preds = %0
   %2 = load i32, ptr @gpa_hfinfo.0, align 8
-  %3 = icmp ult i32 %2, %.60.val
+  %3 = icmp ugt i32 %.60.val, %2
   %4 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %5 = icmp ne i32 %4, 0
   %or.cond = select i1 %3, i1 %5, i1 false
@@ -21844,7 +21846,7 @@ define internal fastcc ptr @hfinfo_same_name_get_prev(i32 %.60.val) unnamed_addr
 
 8:                                                ; preds = %1
   %9 = icmp sgt i32 %.60.val, 0
-  %10 = icmp ugt i32 %2, %.60.val
+  %10 = icmp ult i32 %.60.val, %2
   %or.cond16 = and i1 %9, %10
   br i1 %or.cond16, label %11, label %.thread
 
@@ -22238,7 +22240,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %107, %.lr.ph.split,
 
 118:                                              ; preds = %proto_get_finfo_ptr_array.exit.thread
   %119 = load i32, ptr @gpa_hfinfo.0, align 8
-  %120 = icmp ult i32 %119, %.2120.val156
+  %120 = icmp ugt i32 %.2120.val156, %119
   %121 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %122 = icmp ne i32 %121, 0
   %or.cond.i = select i1 %120, i1 %122, i1 false
@@ -22255,7 +22257,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %107, %.lr.ph.split,
 
 124:                                              ; preds = %118
   %125 = icmp sgt i32 %.2120.val156, 0
-  %126 = icmp ugt i32 %119, %.2120.val156
+  %126 = icmp ult i32 %.2120.val156, %119
   %or.cond16.i = and i1 %125, %126
   br i1 %or.cond16.i, label %127, label %.thread.i
 
@@ -22307,7 +22309,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %107, %.lr.ph.split,
 
 145:                                              ; preds = %143
   %146 = load i32, ptr @gpa_hfinfo.0, align 8
-  %147 = icmp ult i32 %146, %.2120.val155
+  %147 = icmp ugt i32 %.2120.val155, %146
   %148 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %149 = icmp ne i32 %148, 0
   %or.cond.i163 = select i1 %147, i1 %149, i1 false
@@ -22324,7 +22326,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %107, %.lr.ph.split,
 
 151:                                              ; preds = %145
   %152 = icmp sgt i32 %.2120.val155, 0
-  %153 = icmp ugt i32 %146, %.2120.val155
+  %153 = icmp ult i32 %.2120.val155, %146
   %or.cond16.i164 = and i1 %152, %153
   br i1 %or.cond16.i164, label %154, label %.thread.i161
 
@@ -22362,7 +22364,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %107, %.lr.ph.split,
 
 164:                                              ; preds = %163
   %165 = xor i32 %.0113.ph257, -1
-  %166 = add i32 %165, %2
+  %166 = add i32 %2, %165
   br label %.lr.ph255.preheader
 
 167:                                              ; preds = %163
@@ -23134,7 +23136,7 @@ define internal fastcc void @finfo_set_len(ptr nocapture noundef %0, i32 noundef
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %13) #33
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %14, i32 %1)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %14)
   %15 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %spec.select, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 48
@@ -23349,7 +23351,7 @@ define hidden void @proto_tree_prime_with_hfid(ptr nocapture noundef readnone %0
 
 4:                                                ; preds = %2
   %5 = load i32, ptr @gpa_hfinfo.0, align 8
-  %6 = icmp ult i32 %5, %1
+  %6 = icmp ugt i32 %1, %5
   %7 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
@@ -23366,7 +23368,7 @@ define hidden void @proto_tree_prime_with_hfid(ptr nocapture noundef readnone %0
 
 11:                                               ; preds = %4
   %12 = icmp sgt i32 %1, 0
-  %13 = icmp ugt i32 %5, %1
+  %13 = icmp ult i32 %1, %5
   %or.cond31 = and i1 %12, %13
   br i1 %or.cond31, label %14, label %.thread
 
@@ -23459,7 +23461,7 @@ define hidden void @proto_tree_prime_with_hfid_print(ptr nocapture noundef readn
 
 4:                                                ; preds = %2
   %5 = load i32, ptr @gpa_hfinfo.0, align 8
-  %6 = icmp ult i32 %5, %1
+  %6 = icmp ugt i32 %1, %5
   %7 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
@@ -23476,7 +23478,7 @@ define hidden void @proto_tree_prime_with_hfid_print(ptr nocapture noundef readn
 
 11:                                               ; preds = %4
   %12 = icmp sgt i32 %1, 0
-  %13 = icmp ugt i32 %5, %1
+  %13 = icmp ult i32 %1, %5
   %or.cond29 = and i1 %12, %13
   br i1 %or.cond29, label %14, label %.thread
 
@@ -24209,7 +24211,7 @@ define ptr @find_protocol_by_id(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -24220,7 +24222,7 @@ define ptr @find_protocol_by_id(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i32 %4, %0
+  %10 = icmp ult i32 %0, %4
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %9
@@ -26978,7 +26980,7 @@ define ptr @proto_registrar_get_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -26995,7 +26997,7 @@ define ptr @proto_registrar_get_name(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %3
   %11 = icmp sgt i32 %0, 0
-  %12 = icmp ugt i32 %4, %0
+  %12 = icmp ult i32 %0, %4
   %or.cond11 = and i1 %11, %12
   br i1 %or.cond11, label %13, label %.thread
 
@@ -27027,7 +27029,7 @@ define ptr @proto_registrar_get_abbrev(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -27044,7 +27046,7 @@ define ptr @proto_registrar_get_abbrev(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %3
   %11 = icmp sgt i32 %0, 0
-  %12 = icmp ugt i32 %4, %0
+  %12 = icmp ult i32 %0, %4
   %or.cond11 = and i1 %11, %12
   br i1 %or.cond11, label %13, label %.thread
 
@@ -27077,7 +27079,7 @@ define i32 @proto_registrar_get_ftype(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -27094,7 +27096,7 @@ define i32 @proto_registrar_get_ftype(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %3
   %11 = icmp sgt i32 %0, 0
-  %12 = icmp ugt i32 %4, %0
+  %12 = icmp ult i32 %0, %4
   %or.cond11 = and i1 %11, %12
   br i1 %or.cond11, label %13, label %.thread
 
@@ -27127,7 +27129,7 @@ define i32 @proto_registrar_get_parent(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -27144,7 +27146,7 @@ define i32 @proto_registrar_get_parent(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %3
   %11 = icmp sgt i32 %0, 0
-  %12 = icmp ugt i32 %4, %0
+  %12 = icmp ult i32 %0, %4
   %or.cond11 = and i1 %11, %12
   br i1 %or.cond11, label %13, label %.thread
 
@@ -27177,7 +27179,7 @@ define range(i32 0, 2) i32 @proto_registrar_is_protocol(i32 noundef %0) local_un
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -27194,7 +27196,7 @@ define range(i32 0, 2) i32 @proto_registrar_is_protocol(i32 noundef %0) local_un
 
 10:                                               ; preds = %3
   %11 = icmp sgt i32 %0, 0
-  %12 = icmp ugt i32 %4, %0
+  %12 = icmp ult i32 %0, %4
   %or.cond13 = and i1 %11, %12
   br i1 %or.cond13, label %13, label %.thread
 
@@ -27240,7 +27242,7 @@ define hidden i32 @proto_registrar_get_length(i32 noundef %0) local_unnamed_addr
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @gpa_hfinfo.0, align 8
-  %5 = icmp ult i32 %4, %0
+  %5 = icmp ugt i32 %0, %4
   %6 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -27257,7 +27259,7 @@ define hidden i32 @proto_registrar_get_length(i32 noundef %0) local_unnamed_addr
 
 10:                                               ; preds = %3
   %11 = icmp sgt i32 %0, 0
-  %12 = icmp ugt i32 %4, %0
+  %12 = icmp ult i32 %0, %4
   %or.cond11 = and i1 %11, %12
   br i1 %or.cond11, label %13, label %.thread
 
@@ -27667,7 +27669,7 @@ tailrecurse.i.us:                                 ; preds = %tailrecurse.i.prehe
   %14 = phi i32 [ %31, %find_protocol_by_id.exit.us ], [ %13, %tailrecurse.i.preheader ]
   %15 = icmp ne i32 %14, 0
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ugt i32 %.pre, %14
+  %16 = icmp ult i32 %14, %.pre
   br i1 %16, label %17, label %.split.us
 
 17:                                               ; preds = %tailrecurse.i.us
@@ -27709,7 +27711,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   %35 = phi i32 [ %55, %find_protocol_by_id.exit ], [ %13, %tailrecurse.i.preheader ]
   %36 = icmp ne i32 %35, 0
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp ult i32 %.pre, %35
+  %37 = icmp ugt i32 %35, %.pre
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %tailrecurse.i
@@ -27717,7 +27719,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   unreachable
 
 39:                                               ; preds = %tailrecurse.i
-  %40 = icmp ugt i32 %.pre, %35
+  %40 = icmp ult i32 %35, %.pre
   br i1 %40, label %41, label %.split.us
 
 .split.us:                                        ; preds = %39, %tailrecurse.i.us
@@ -27795,7 +27797,7 @@ tailrecurse.i10.us:                               ; preds = %.lr.ph.i.us
   br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %tailrecurse.i10.us
-  %68 = icmp ugt i32 %.pre, %65
+  %68 = icmp ult i32 %65, %.pre
   br i1 %68, label %69, label %.split61.us
 
 69:                                               ; preds = %67
@@ -27836,7 +27838,7 @@ tailrecurse.i10:                                  ; preds = %.lr.ph.i
   br i1 %85, label %.loopexit, label %86
 
 86:                                               ; preds = %tailrecurse.i10
-  %87 = icmp ult i32 %.pre, %84
+  %87 = icmp ugt i32 %84, %.pre
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %86
@@ -27844,7 +27846,7 @@ tailrecurse.i10:                                  ; preds = %.lr.ph.i
   unreachable
 
 89:                                               ; preds = %86
-  %90 = icmp ugt i32 %.pre, %84
+  %90 = icmp ult i32 %84, %.pre
   br i1 %90, label %91, label %.split61.us
 
 .split61.us:                                      ; preds = %89, %67
@@ -27924,7 +27926,7 @@ tailrecurse.i12.us:                               ; preds = %tailrecurse.i12.us.
   %.tr.i.us = phi i32 [ %136, %find_protocol_by_id.exit27.us ], [ %117, %tailrecurse.i12.us.preheader ]
   %120 = icmp ne i32 %.tr.i.us, 0
   tail call void @llvm.assume(i1 %120)
-  %121 = icmp ugt i32 %.pre, %.tr.i.us
+  %121 = icmp ult i32 %.tr.i.us, %.pre
   br i1 %121, label %122, label %.split69.us
 
 122:                                              ; preds = %tailrecurse.i12.us
@@ -27959,7 +27961,7 @@ tailrecurse.i12:                                  ; preds = %tailrecurse.i12.pre
   %.tr.i = phi i32 [ %156, %find_protocol_by_id.exit27 ], [ %114, %tailrecurse.i12.preheader ]
   %137 = icmp ne i32 %.tr.i, 0
   tail call void @llvm.assume(i1 %137)
-  %138 = icmp ult i32 %.pre, %.tr.i
+  %138 = icmp ugt i32 %.tr.i, %.pre
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %tailrecurse.i12
@@ -27967,7 +27969,7 @@ tailrecurse.i12:                                  ; preds = %tailrecurse.i12.pre
   unreachable
 
 140:                                              ; preds = %tailrecurse.i12
-  %141 = icmp ugt i32 %.pre, %.tr.i
+  %141 = icmp ult i32 %.tr.i, %.pre
   br i1 %141, label %142, label %.split69.us
 
 .split69.us:                                      ; preds = %140, %tailrecurse.i12.us
@@ -29327,7 +29329,7 @@ define noundef ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %0,
 
 11:                                               ; preds = %9
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %3
+  %13 = icmp ugt i32 %3, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -29344,7 +29346,7 @@ define noundef ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %0,
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %3, 0
-  %20 = icmp ugt i32 %12, %3
+  %20 = icmp ult i32 %3, %12
   %or.cond64 = and i1 %19, %20
   br i1 %or.cond64, label %21, label %.thread
 
@@ -29439,7 +29441,7 @@ define noundef ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr nounde
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %3
+  %12 = icmp ugt i32 %3, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -29456,7 +29458,7 @@ define noundef ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %3, 0
-  %19 = icmp ugt i32 %11, %3
+  %19 = icmp ult i32 %3, %11
   %or.cond55 = and i1 %18, %19
   br i1 %or.cond55, label %20, label %.thread
 
@@ -29566,7 +29568,7 @@ define internal fastcc range(i32 0, 2) i32 @proto_item_add_bitmask_tree(ptr noun
 33:                                               ; preds = %32
   %34 = icmp sgt i32 %4, -1
   %35 = load i32, ptr @num_tree_types, align 4
-  %36 = icmp sgt i32 %35, %4
+  %36 = icmp slt i32 %4, %35
   %or.cond.i = select i1 %34, i1 %36, i1 false
   br i1 %or.cond.i, label %38, label %37
 
@@ -30459,7 +30461,7 @@ define noundef ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %0, ptr 
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %3
+  %12 = icmp ugt i32 %3, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -30476,7 +30478,7 @@ define noundef ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %0, ptr 
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %3, 0
-  %19 = icmp ugt i32 %11, %3
+  %19 = icmp ult i32 %3, %11
   %or.cond61 = and i1 %18, %19
   br i1 %or.cond61, label %20, label %.thread
 
@@ -30620,7 +30622,7 @@ define noundef ptr @proto_tree_add_bitmask_len(ptr noundef %0, ptr noundef %1, i
 
 11:                                               ; preds = %9
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %4
+  %13 = icmp ugt i32 %4, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
@@ -30637,7 +30639,7 @@ define noundef ptr @proto_tree_add_bitmask_len(ptr noundef %0, ptr noundef %1, i
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %4, 0
-  %20 = icmp ugt i32 %12, %4
+  %20 = icmp ult i32 %4, %12
   %or.cond78 = and i1 %19, %20
   br i1 %or.cond78, label %21, label %.thread
 
@@ -30689,7 +30691,7 @@ define noundef ptr @proto_tree_add_bitmask_len(ptr noundef %0, ptr noundef %1, i
 
 33:                                               ; preds = %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27
   %34 = tail call i32 @ftype_wire_size(i32 noundef %29) #33
-  %35 = icmp ugt i32 %34, %3
+  %35 = icmp ult i32 %3, %34
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %33
@@ -30767,7 +30769,7 @@ define noundef ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %1, ptr
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @gpa_hfinfo.0, align 8
-  %10 = icmp ult i32 %9, %1
+  %10 = icmp ugt i32 %1, %9
   %11 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %12 = icmp ne i32 %11, 0
   %or.cond = select i1 %10, i1 %12, i1 false
@@ -30784,7 +30786,7 @@ define noundef ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %1, ptr
 
 15:                                               ; preds = %8
   %16 = icmp sgt i32 %1, 0
-  %17 = icmp ugt i32 %9, %1
+  %17 = icmp ult i32 %1, %9
   %or.cond64 = and i1 %16, %17
   br i1 %or.cond64, label %18, label %.thread
 
@@ -30881,7 +30883,7 @@ test_length.exit:                                 ; preds = %27, %43
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
   %50 = load i32, ptr @gpa_hfinfo.0, align 8
-  %51 = icmp ult i32 %50, %1
+  %51 = icmp ugt i32 %1, %50
   %52 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %53 = icmp ne i32 %52, 0
   %or.cond4 = select i1 %51, i1 %53, i1 false
@@ -30892,7 +30894,7 @@ test_length.exit:                                 ; preds = %27, %43
   unreachable
 
 55:                                               ; preds = %44
-  %56 = icmp ugt i32 %50, %1
+  %56 = icmp ult i32 %1, %50
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %55
@@ -31002,7 +31004,7 @@ define noundef ptr @proto_tree_add_bits_ret_val(ptr noundef %0, i32 noundef %1, 
 
 11:                                               ; preds = %7
   %12 = load i32, ptr @gpa_hfinfo.0, align 8
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   %14 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond.i = select i1 %13, i1 %15, i1 false
@@ -31019,7 +31021,7 @@ define noundef ptr @proto_tree_add_bits_ret_val(ptr noundef %0, i32 noundef %1, 
 
 18:                                               ; preds = %11
   %19 = icmp sgt i32 %1, 0
-  %20 = icmp ugt i32 %12, %1
+  %20 = icmp ult i32 %1, %12
   %or.cond151.i = and i1 %19, %20
   br i1 %or.cond151.i, label %21, label %.thread.i
 
@@ -31141,7 +31143,7 @@ _proto_tree_add_bits_ret_val.exit.thread23:       ; preds = %69
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 8
   %76 = load i32, ptr @gpa_hfinfo.0, align 8
-  %77 = icmp ult i32 %76, %1
+  %77 = icmp ugt i32 %1, %76
   %78 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %79 = icmp ne i32 %78, 0
   %or.cond4.i = select i1 %77, i1 %79, i1 false
@@ -31152,7 +31154,7 @@ _proto_tree_add_bits_ret_val.exit.thread23:       ; preds = %69
   unreachable
 
 81:                                               ; preds = %70
-  %82 = icmp ugt i32 %76, %1
+  %82 = icmp ult i32 %1, %76
   br i1 %82, label %84, label %83
 
 83:                                               ; preds = %81
@@ -31401,7 +31403,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @gpa_hfinfo.0, align 8
-  %12 = icmp ult i32 %11, %1
+  %12 = icmp ugt i32 %1, %11
   %13 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
@@ -31418,7 +31420,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
 
 17:                                               ; preds = %10
   %18 = icmp sgt i32 %1, 0
-  %19 = icmp ugt i32 %11, %1
+  %19 = icmp ult i32 %1, %11
   %or.cond177 = and i1 %18, %19
   br i1 %or.cond177, label %20, label %.thread
 
@@ -31571,7 +31573,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %81, %._crit_ed
   %96 = add i32 %95, 1
   store i32 %96, ptr %94, align 8
   %97 = load i32, ptr @gpa_hfinfo.0, align 8
-  %98 = icmp ult i32 %97, %1
+  %98 = icmp ugt i32 %1, %97
   %99 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %100 = icmp ne i32 %99, 0
   %or.cond4 = select i1 %98, i1 %100, i1 false
@@ -31582,7 +31584,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %81, %._crit_ed
   unreachable
 
 102:                                              ; preds = %91
-  %103 = icmp ugt i32 %97, %1
+  %103 = icmp ult i32 %1, %97
   br i1 %103, label %105, label %104
 
 104:                                              ; preds = %102
@@ -31865,7 +31867,7 @@ define hidden void @proto_tree_add_split_bits_crumb(ptr noundef %0, i32 noundef 
 
 26:                                               ; preds = %24
   %27 = load i32, ptr @gpa_hfinfo.0, align 8
-  %28 = icmp ult i32 %27, %1
+  %28 = icmp ugt i32 %1, %27
   %29 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %30 = icmp ne i32 %29, 0
   %or.cond = select i1 %28, i1 %30, i1 false
@@ -31882,7 +31884,7 @@ define hidden void @proto_tree_add_split_bits_crumb(ptr noundef %0, i32 noundef 
 
 33:                                               ; preds = %26
   %34 = icmp sgt i32 %1, 0
-  %35 = icmp ugt i32 %27, %1
+  %35 = icmp ult i32 %1, %27
   %or.cond41 = and i1 %34, %35
   br i1 %or.cond41, label %36, label %.thread
 
@@ -31947,7 +31949,7 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %22 = icmp ne i32 %21, 0
   %or.cond = select i1 %20, i1 %22, i1 false
@@ -31964,7 +31966,7 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
 
 25:                                               ; preds = %18
   %26 = icmp sgt i32 %1, 0
-  %27 = icmp ugt i32 %19, %1
+  %27 = icmp ult i32 %1, %19
   %or.cond48 = and i1 %26, %27
   br i1 %or.cond48, label %28, label %.thread
 
@@ -32094,7 +32096,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
   %14 = load i32, ptr @gpa_hfinfo.0, align 8
-  %15 = icmp ult i32 %14, %1
+  %15 = icmp ugt i32 %1, %14
   %16 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %17 = icmp ne i32 %16, 0
   %or.cond.i = select i1 %15, i1 %17, i1 false
@@ -32105,7 +32107,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
   unreachable
 
 19:                                               ; preds = %8
-  %20 = icmp ugt i32 %14, %1
+  %20 = icmp ult i32 %1, %14
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
@@ -32376,7 +32378,7 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %22 = icmp ne i32 %21, 0
   %or.cond = select i1 %20, i1 %22, i1 false
@@ -32393,7 +32395,7 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
 
 25:                                               ; preds = %18
   %26 = icmp sgt i32 %1, 0
-  %27 = icmp ugt i32 %19, %1
+  %27 = icmp ult i32 %1, %19
   %or.cond48 = and i1 %26, %27
   br i1 %or.cond48, label %28, label %.thread
 
@@ -32534,7 +32536,7 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %22 = icmp ne i32 %21, 0
   %or.cond = select i1 %20, i1 %22, i1 false
@@ -32551,7 +32553,7 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
 
 25:                                               ; preds = %18
   %26 = icmp sgt i32 %1, 0
-  %27 = icmp ugt i32 %19, %1
+  %27 = icmp ult i32 %1, %19
   %or.cond48 = and i1 %26, %27
   br i1 %or.cond48, label %28, label %.thread
 
@@ -32691,7 +32693,7 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %22 = icmp ne i32 %21, 0
   %or.cond = select i1 %20, i1 %22, i1 false
@@ -32708,7 +32710,7 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
 
 25:                                               ; preds = %18
   %26 = icmp sgt i32 %1, 0
-  %27 = icmp ugt i32 %19, %1
+  %27 = icmp ult i32 %1, %19
   %or.cond48 = and i1 %26, %27
   br i1 %or.cond48, label %28, label %.thread
 
@@ -32849,7 +32851,7 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %22 = icmp ne i32 %21, 0
   %or.cond = select i1 %20, i1 %22, i1 false
@@ -32866,7 +32868,7 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
 
 25:                                               ; preds = %18
   %26 = icmp sgt i32 %1, 0
-  %27 = icmp ugt i32 %19, %1
+  %27 = icmp ult i32 %1, %19
   %or.cond48 = and i1 %26, %27
   br i1 %or.cond48, label %28, label %.thread
 
@@ -33007,7 +33009,7 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
 
 18:                                               ; preds = %11
   %19 = load i32, ptr @gpa_hfinfo.0, align 8
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %22 = icmp ne i32 %21, 0
   %or.cond = select i1 %20, i1 %22, i1 false
@@ -33024,7 +33026,7 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
 
 25:                                               ; preds = %18
   %26 = icmp sgt i32 %1, 0
-  %27 = icmp ugt i32 %19, %1
+  %27 = icmp ult i32 %1, %19
   %or.cond48 = and i1 %26, %27
   br i1 %or.cond48, label %28, label %.thread
 
@@ -33163,7 +33165,7 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
 
 15:                                               ; preds = %8
   %16 = load i32, ptr @gpa_hfinfo.0, align 8
-  %17 = icmp ult i32 %16, %1
+  %17 = icmp ugt i32 %1, %16
   %18 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %19 = icmp ne i32 %18, 0
   %or.cond = select i1 %17, i1 %19, i1 false
@@ -33180,7 +33182,7 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
 
 22:                                               ; preds = %15
   %23 = icmp sgt i32 %1, 0
-  %24 = icmp ugt i32 %16, %1
+  %24 = icmp ult i32 %1, %16
   %or.cond53 = and i1 %23, %24
   br i1 %or.cond53, label %25, label %.thread
 
@@ -33346,7 +33348,7 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %8
   %16 = load i32, ptr @gpa_hfinfo.0, align 8
-  %17 = icmp ult i32 %16, %1
+  %17 = icmp ugt i32 %1, %16
   %18 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %19 = icmp ne i32 %18, 0
   %or.cond = select i1 %17, i1 %19, i1 false
@@ -33363,7 +33365,7 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
 
 22:                                               ; preds = %15
   %23 = icmp sgt i32 %1, 0
-  %24 = icmp ugt i32 %16, %1
+  %24 = icmp ult i32 %1, %16
   %or.cond53 = and i1 %23, %24
   br i1 %or.cond53, label %25, label %.thread
 
@@ -33518,7 +33520,7 @@ define noundef ptr @proto_tree_add_checksum(ptr noundef %0, ptr noundef %1, i32 
 
 13:                                               ; preds = %10
   %14 = load i32, ptr @gpa_hfinfo.0, align 8
-  %15 = icmp ult i32 %14, %3
+  %15 = icmp ugt i32 %3, %14
   %16 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %15, i1 %17, i1 false
@@ -33535,7 +33537,7 @@ define noundef ptr @proto_tree_add_checksum(ptr noundef %0, ptr noundef %1, i32 
 
 20:                                               ; preds = %13
   %21 = icmp sgt i32 %3, 0
-  %22 = icmp ugt i32 %14, %3
+  %22 = icmp ult i32 %3, %14
   %or.cond121 = and i1 %21, %22
   br i1 %or.cond121, label %23, label %.thread
 
@@ -33804,7 +33806,7 @@ define noundef ptr @proto_tree_add_checksum_bytes(ptr noundef %0, ptr noundef %1
 
 12:                                               ; preds = %10
   %13 = load i32, ptr @gpa_hfinfo.0, align 8
-  %14 = icmp ult i32 %13, %3
+  %14 = icmp ugt i32 %3, %13
   %15 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %14, i1 %16, i1 false
@@ -33821,7 +33823,7 @@ define noundef ptr @proto_tree_add_checksum_bytes(ptr noundef %0, ptr noundef %1
 
 19:                                               ; preds = %12
   %20 = icmp sgt i32 %3, 0
-  %21 = icmp ugt i32 %13, %3
+  %21 = icmp ult i32 %3, %13
   %or.cond135 = and i1 %20, %21
   br i1 %or.cond135, label %22, label %.thread
 

@@ -176,7 +176,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -376,7 +376,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -553,7 +553,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -755,7 +755,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -940,7 +940,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp eq i32 %and, 4
@@ -1297,7 +1297,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp eq i32 %and, 4
@@ -1820,7 +1820,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -1865,7 +1865,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -2017,7 +2017,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -2062,7 +2062,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -2204,7 +2204,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 15
   %cmp3 = icmp eq i32 %and, 4
@@ -2277,7 +2277,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 15
   %cmp3 = icmp eq i32 %and, 4
@@ -2348,7 +2348,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -2585,7 +2585,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -2850,7 +2850,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -2957,7 +2957,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -3066,7 +3066,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -3173,7 +3173,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -3282,7 +3282,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -3389,7 +3389,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -3498,7 +3498,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -3605,7 +3605,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -3714,7 +3714,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -3821,7 +3821,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -3930,7 +3930,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -4037,7 +4037,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -4146,7 +4146,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -4253,7 +4253,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -4362,7 +4362,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -4467,7 +4467,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -4574,7 +4574,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -4679,7 +4679,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -4786,7 +4786,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -4891,7 +4891,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -4998,7 +4998,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -5103,7 +5103,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -5210,7 +5210,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -5315,7 +5315,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -5422,7 +5422,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -5527,7 +5527,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -5634,7 +5634,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -5739,7 +5739,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -5846,7 +5846,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -5951,7 +5951,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
@@ -6058,7 +6058,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp ult i32 %and, 3
@@ -6163,7 +6163,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
-  %cmp = icmp eq i32 %2, %addr_type
+  %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0

@@ -1599,7 +1599,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZNK5boost6system6detail21system_err
 4:                                                ; preds = %.lr.ph.i
   %5 = getelementptr inbounds [79 x i32], ptr @_ZZN5boost6system6detail16is_generic_valueEiE3gen, i64 0, i64 %indvars.iv.next.i.i
   %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %_ZN5boost6system6detail16is_generic_valueEi.exit.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 _ZN5boost6system6detail16is_generic_valueEi.exit.loopexit.i: ; preds = %4
@@ -4312,7 +4312,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK5boost6system14error_categ
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
-  %9 = icmp eq ptr %5, %0
+  %9 = icmp eq ptr %0, %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, %7
@@ -4764,7 +4764,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -4873,7 +4873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57
@@ -14859,7 +14859,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail9scheduler25post_immedi
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  %brmerge = or i1 %7, %2
+  %brmerge = or i1 %2, %7
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5boost4asio6detail15keyword_tss_ptrINS1_10call_stackINS1_14thread_contextENS1_16thread_info_baseEE7contextEE6value_E)
   %.08.i = load ptr, ptr %8, align 8
   %.not9.i = icmp ne ptr %.08.i, null
@@ -29405,7 +29405,7 @@ _ZN5boost4asio6detail10socket_ops5recv1EiPvmiRNS_6system10error_codeE.exit: ; pr
   store i8 %.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   store ptr %11, ptr %.sroa.34.0..sroa_idx.i.i, align 8
   %20 = icmp eq i64 %8, 0
-  %or.cond = and i1 %20, %4
+  %or.cond = and i1 %4, %20
   br i1 %or.cond, label %21, label %28
 
 21:                                               ; preds = %_ZN5boost4asio6detail10socket_ops5recv1EiPvmiRNS_6system10error_codeE.exit
@@ -32234,7 +32234,7 @@ _ZNSt16allocator_traitsISaIN5boost4asio2ip20basic_resolver_entryINS2_3tcpEEEEE9c
 _ZNSt6vectorIN5boost4asio2ip20basic_resolver_entryINS2_3tcpEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN5boost4asio2ip20basic_resolver_entryINS2_3tcpEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5boost4asio2ip20basic_resolver_entryINS2_3tcpEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ], [ %56, %.lr.ph.i.i.i ]
   %57 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 96
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN5boost4asio2ip20basic_resolver_entryINS2_3tcpEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN5boost4asio2ip20basic_resolver_entryINS2_3tcpEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17

@@ -781,12 +781,12 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %123 = load ptr, ptr %115, align 8, !noalias !34, !nonnull !5, !noundef !5
   %124 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %123, i64 0, i64 %119
   %.sroa.626.1.copyload = load i8, ptr %124, align 1, !noalias !38
-  %.not.i = icmp ult i8 %.sroa.626.1.copyload, %68
+  %.not.i = icmp ugt i8 %68, %.sroa.626.1.copyload
   br i1 %.not.i, label %116, label %125
 
 125:                                              ; preds = %122
   %.sroa.827.1..sroa_idx = getelementptr inbounds i8, ptr %124, i64 1
-  %126 = icmp eq i8 %.sroa.626.1.copyload, %68
+  %126 = icmp eq i8 %68, %.sroa.626.1.copyload
   br i1 %126, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread
 
 127:                                              ; preds = %101
@@ -1101,7 +1101,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Optio
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hc035b8223185c9b0E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !66, !noundef !5
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u5d$$GT$$u20$for$u20$$u5b$A$u5d$$GT$2eq17h5f3d082cec0a83e1E.exit"
 
 6:                                                ; preds = %3

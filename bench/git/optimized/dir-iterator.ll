@@ -156,7 +156,7 @@ if.end10:                                         ; preds = %if.end28.i, %if.end
   %27 = load i64, ptr %prefix_len44, align 8
   %28 = load i64, ptr %dir_iterator, align 8
   %spec.select.i45 = tail call i64 @llvm.usub.sat.i64(i64 %28, i64 1)
-  %cmp.i1746 = icmp ult i64 %spec.select.i45, %27
+  %cmp.i1746 = icmp ugt i64 %27, %spec.select.i45
   br i1 %cmp.i1746, label %if.then.i20, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %if.end10
@@ -243,7 +243,7 @@ while.body.backedge:                              ; preds = %land.rhs.i, %if.the
   %45 = load i64, ptr %prefix_len, align 8
   %46 = load i64, ptr %dir_iterator, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %46, i64 1)
-  %cmp.i17 = icmp ult i64 %spec.select.i, %45
+  %cmp.i17 = icmp ugt i64 %45, %spec.select.i
   br i1 %cmp.i17, label %if.then.i20, label %if.end.i
 
 if.end33:                                         ; preds = %strbuf_setlen.exit
@@ -358,7 +358,7 @@ if.then:                                          ; preds = %land.lhs.true
   %6 = load i64, ptr %prefix_len, align 8
   %7 = load i64, ptr %dir_iterator, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %6
+  %cmp.i = icmp ugt i64 %6, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then

@@ -5072,7 +5072,7 @@ define { i64, i64 } @"_ZN106_$LT$diesel..mysql..connection..stmt..iterator..Mysq
   %8 = tail call noundef ptr @mysql_fetch_fields(ptr noundef nonnull %6), !noalias !750
   %9 = icmp ne ptr %8, null
   %10 = zext i32 %7 to i64
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   %12 = and i1 %9, %11
   %. = zext i1 %12 to i64
   %13 = insertvalue { i64, i64 } poison, i64 %., 0
@@ -5228,7 +5228,7 @@ define noundef zeroext i1 @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator
   tail call void @llvm.experimental.noalias.scope.decl(metadata !797)
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i64, ptr %5, align 8, !alias.scope !800, !noalias !801, !noundef !10
-  %7 = icmp ugt i64 %6, %4
+  %7 = icmp ult i64 %4, %6
   br i1 %7, label %"_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit", label %8, !prof !786
 
 8:                                                ; preds = %1
@@ -5253,7 +5253,7 @@ define void @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator..MysqlField$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !813)
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !816, !noalias !817, !noundef !10
-  %8 = icmp ugt i64 %7, %5
+  %8 = icmp ult i64 %5, %7
   br i1 %8, label %"_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit", label %9, !prof !786
 
 9:                                                ; preds = %2
@@ -7449,7 +7449,7 @@ define void @_ZN6diesel6sqlite10connection4stmt14BoundStatement12bind_buffers17h
   %15 = load i64, ptr %14, align 8, !alias.scope !1021, !noundef !10
   %16 = load i64, ptr %7, align 8, !alias.scope !1021, !noundef !10
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17h62617600f3ae685cE.exit"

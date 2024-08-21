@@ -128,7 +128,7 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %max_inflight_pings_, align 4
   %cmp3 = icmp sgt i32 %2, 0
   %conv = zext nneg i32 %2 to i64
-  %cmp6 = icmp ult i64 %conv, %inflight_pings
+  %cmp6 = icmp ugt i64 %inflight_pings, %conv
   %or.cond2 = select i1 %cmp3, i1 %cmp6, i1 false
   br i1 %or.cond2, label %return, label %if.end9
 
@@ -152,12 +152,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %agg.tmp.sroa.0.0.copyload
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %next_allowed_ping_interval.coerce
+  %cmp1.i.i.i = icmp sgt i64 %next_allowed_ping_interval.coerce, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %agg.tmp.sroa.0.0.copyload
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %next_allowed_ping_interval.coerce
+  %cmp4.i.i.i = icmp slt i64 %next_allowed_ping_interval.coerce, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i

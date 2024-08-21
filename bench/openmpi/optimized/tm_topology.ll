@@ -1932,7 +1932,7 @@ define hidden void @tm_enable_oversubscribing(ptr nocapture noundef %0, i32 noun
   %28 = getelementptr inbounds i64, ptr %23, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
-  %31 = mul i32 %30, %1
+  %31 = mul i32 %1, %30
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i32, ptr %32, i64 %27
   store i32 %1, ptr %33, align 4

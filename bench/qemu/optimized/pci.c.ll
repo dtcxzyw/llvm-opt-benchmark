@@ -115,7 +115,7 @@ if.end.us.us:                                     ; preds = %qpci_device_set.exi
   %4 = load i32, ptr %devfn2.i.i.us.us, align 8
   %call.i17.us.us = tail call zeroext i16 %3(ptr noundef %2, i32 noundef %4, i8 noundef zeroext 2) #11
   %conv14.us.us = zext i16 %call.i17.us.us to i32
-  %cmp15.not.us.us = icmp eq i32 %conv14.us.us, %device_id
+  %cmp15.not.us.us = icmp eq i32 %device_id, %conv14.us.us
   br i1 %cmp15.not.us.us, label %if.end18.us.us, label %if.then17.us.us
 
 if.then17.us.us:                                  ; preds = %if.end.us.us
@@ -176,7 +176,7 @@ if.end:                                           ; preds = %qpci_device_set.exi
   %8 = load i32, ptr %devfn2.i.i, align 8
   %call.i14 = tail call zeroext i16 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext 0) #11
   %conv = zext i16 %call.i14 to i32
-  %cmp6.not = icmp eq i32 %conv, %vendor_id
+  %cmp6.not = icmp eq i32 %vendor_id, %conv
   br i1 %cmp6.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end
@@ -193,7 +193,7 @@ land.lhs.true12:                                  ; preds = %if.end9
   %11 = load i32, ptr %devfn2.i.i, align 8
   %call.i17 = tail call zeroext i16 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext 2) #11
   %conv14 = zext i16 %call.i17 to i32
-  %cmp15.not = icmp eq i32 %conv14, %device_id
+  %cmp15.not = icmp eq i32 %device_id, %conv14
   br i1 %cmp15.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true12
@@ -453,7 +453,7 @@ if.end24:                                         ; preds = %if.end18
   %16 = load i32, ptr %devfn2.i.i59, align 8
   %call.i71 = tail call zeroext i8 %15(ptr noundef %14, i32 noundef %16, i8 noundef zeroext 24) #11
   %conv26 = zext i8 %call.i71 to i32
-  %cmp27.not = icmp eq i32 %conv26, %bus
+  %cmp27.not = icmp eq i32 %bus, %conv26
   br i1 %cmp27.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end24

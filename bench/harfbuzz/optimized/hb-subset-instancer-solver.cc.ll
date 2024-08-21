@@ -24,7 +24,7 @@ entry:
   br i1 %extrapolate, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i = fcmp oge float %2, %v
+  %cmp.i = fcmp ole float %v, %2
   %.sroa.speculated29 = select i1 %cmp.i, float %v, float %2
   %cmp.i22 = fcmp oge float %.sroa.speculated29, %0
   %.sroa.speculated = select i1 %cmp.i22, float %.sroa.speculated29, float %0
@@ -181,7 +181,7 @@ land.lhs.true.i18:                                ; preds = %if.then5
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i18
-  %cmp9.not.i.i = icmp ult i32 %new_allocated.028.sink.i.ph.i556365, %.pre79
+  %cmp9.not.i.i = icmp ugt i32 %.pre79, %new_allocated.028.sink.i.ph.i556365
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -189,7 +189,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %.pre79
+  %cmp13.i.i = icmp ugt i32 %.pre79, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !5
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -244,7 +244,7 @@ land.lhs.true.i26:                                ; preds = %if.end7
   br i1 %cmp.i.i.i28, label %if.then.i56, label %if.end.i.i29
 
 if.end.i.i29:                                     ; preds = %land.lhs.true.i26
-  %cmp9.not.i.i30 = icmp ult i32 %new_allocated.028.sink.i.ph.i556365, %.pre80
+  %cmp9.not.i.i30 = icmp ugt i32 %.pre80, %new_allocated.028.sink.i.ph.i556365
   br i1 %cmp9.not.i.i30, label %while.body.i.i38, label %if.end.i31
 
 while.body.i.i38:                                 ; preds = %if.end.i.i29, %while.body.i.i38
@@ -252,7 +252,7 @@ while.body.i.i38:                                 ; preds = %if.end.i.i29, %whil
   %shr14.i.i40 = lshr i32 %new_allocated.133.i.i39, 1
   %add.i.i41 = add i32 %new_allocated.133.i.i39, 8
   %add15.i.i42 = add i32 %add.i.i41, %shr14.i.i40
-  %cmp13.i.i43 = icmp ult i32 %add15.i.i42, %.pre80
+  %cmp13.i.i43 = icmp ugt i32 %.pre80, %add15.i.i42
   br i1 %cmp13.i.i43, label %while.body.i.i38, label %lor.rhs.i.i44, !llvm.loop !5
 
 lor.rhs.i.i44:                                    ; preds = %while.body.i.i38
@@ -400,8 +400,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp10.not, label %return, label %for.body
 
 if.end:                                           ; preds = %entry
-  %cmp16 = fcmp oge float %tent.sroa.0.0.vec.extract, %axisLimit.coerce1
-  %cmp17 = fcmp ogt float %tent.sroa.0.4.vec.extract, %axisLimit.coerce1
+  %cmp16 = fcmp ole float %axisLimit.coerce1, %tent.sroa.0.0.vec.extract
+  %cmp17 = fcmp olt float %axisLimit.coerce1, %tent.sroa.0.4.vec.extract
   %or.cond = and i1 %cmp16, %cmp17
   br i1 %or.cond, label %if.then18, label %if.end19
 
@@ -428,12 +428,12 @@ if.end.i:                                         ; preds = %if.then21
 
 if.end7.i:                                        ; preds = %if.end.i
   %cmp8.i = fcmp oeq float %tent.sroa.0.4.vec.extract, 0.000000e+00
-  %cmp10.i = fcmp oeq float %tent.sroa.0.4.vec.extract, %axisLimit.coerce1
+  %cmp10.i = fcmp oeq float %axisLimit.coerce1, %tent.sroa.0.4.vec.extract
   %or.cond27.i = or i1 %cmp8.i, %cmp10.i
   br i1 %or.cond27.i, label %_ZL13supportScalarfRK6Triple.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = fcmp ult float %tent.sroa.0.0.vec.extract, %axisLimit.coerce1
+  %cmp13.i = fcmp ugt float %axisLimit.coerce1, %tent.sroa.0.0.vec.extract
   %cmp15.i = fcmp ugt float %tent.coerce1, %axisLimit.coerce1
   %or.cond28.i = select i1 %cmp13.i, i1 %cmp15.i, i1 false
   br i1 %or.cond28.i, label %if.then19.i, label %_ZL13supportScalarfRK6Triple.exit
@@ -498,18 +498,18 @@ if.end.i112:                                      ; preds = %if.end49
 
 if.end7.i118:                                     ; preds = %if.end.i112
   %cmp8.i119 = fcmp oeq float %tent.sroa.0.4.vec.extract, 0.000000e+00
-  %cmp10.i120 = fcmp oeq float %tent.sroa.0.4.vec.extract, %axisLimit.sroa.0.4.vec.extract
+  %cmp10.i120 = fcmp oeq float %axisLimit.sroa.0.4.vec.extract, %tent.sroa.0.4.vec.extract
   %or.cond27.i121 = or i1 %cmp8.i119, %cmp10.i120
   br i1 %or.cond27.i121, label %_ZL13supportScalarfRK6Triple.exit137, label %if.end12.i122
 
 if.end12.i122:                                    ; preds = %if.end7.i118
-  %cmp13.i123 = fcmp ult float %tent.sroa.0.0.vec.extract, %axisLimit.sroa.0.4.vec.extract
-  %cmp15.i124 = fcmp ult float %axisLimit.sroa.0.4.vec.extract, %tent.coerce1
+  %cmp13.i123 = fcmp ugt float %axisLimit.sroa.0.4.vec.extract, %tent.sroa.0.0.vec.extract
+  %cmp15.i124 = fcmp ugt float %tent.coerce1, %axisLimit.sroa.0.4.vec.extract
   %or.cond28.i125 = select i1 %cmp13.i123, i1 %cmp15.i124, i1 false
   br i1 %or.cond28.i125, label %if.end17.i127, label %_ZL13supportScalarfRK6Triple.exit137
 
 if.end17.i127:                                    ; preds = %if.end12.i122
-  %cmp18.i128 = fcmp ogt float %tent.sroa.0.4.vec.extract, %axisLimit.sroa.0.4.vec.extract
+  %cmp18.i128 = fcmp olt float %axisLimit.sroa.0.4.vec.extract, %tent.sroa.0.4.vec.extract
   br i1 %cmp18.i128, label %if.then19.i133, label %if.else.i129
 
 if.then19.i133:                                   ; preds = %if.end17.i127
@@ -573,12 +573,12 @@ if.end.i159:                                      ; preds = %_ZN11hb_vector_tI9h
 
 if.end7.i165:                                     ; preds = %if.end.i159
   %cmp8.i166 = fcmp oeq float %tent.sroa.0.4.vec.extract, 0.000000e+00
-  %cmp10.i167 = fcmp oeq float %tent.sroa.0.4.vec.extract, %axisLimit.coerce1
+  %cmp10.i167 = fcmp oeq float %axisLimit.coerce1, %tent.sroa.0.4.vec.extract
   %or.cond27.i168 = or i1 %cmp8.i166, %cmp10.i167
   br i1 %or.cond27.i168, label %_ZL13supportScalarfRK6Triple.exit184, label %if.end12.i169
 
 if.end12.i169:                                    ; preds = %if.end7.i165
-  %cmp13.i170 = fcmp ult float %tent.sroa.0.0.vec.extract, %axisLimit.coerce1
+  %cmp13.i170 = fcmp ugt float %axisLimit.coerce1, %tent.sroa.0.0.vec.extract
   %cmp15.i171 = fcmp ugt float %tent.coerce1, %axisLimit.coerce1
   %or.cond28.i172 = select i1 %cmp13.i170, i1 %cmp15.i171, i1 false
   br i1 %or.cond28.i172, label %if.else.i176, label %_ZL13supportScalarfRK6Triple.exit184
@@ -608,7 +608,7 @@ land.lhs.true.i:                                  ; preds = %if.then59
   br i1 %tobool27.not.i.i.not, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %cmp9.not.i.i.not.not = icmp eq i32 %11, %12
+  %cmp9.not.i.i.not.not = icmp eq i32 %12, %11
   br i1 %cmp9.not.i.i.not.not, label %lor.rhs.i.i, label %if.end.i192
 
 lor.rhs.i.i:                                      ; preds = %if.end.i.i
@@ -675,7 +675,7 @@ land.lhs.true.i206:                               ; preds = %if.then69
   br i1 %cmp.i.i.i208, label %if.then.i244, label %if.end.i.i209
 
 if.end.i.i209:                                    ; preds = %land.lhs.true.i206
-  %cmp9.not.i.i210 = icmp ult i32 %18, %add.i207
+  %cmp9.not.i.i210 = icmp ugt i32 %add.i207, %18
   br i1 %cmp9.not.i.i210, label %while.body.i.i226, label %if.end.i211
 
 while.body.i.i226:                                ; preds = %if.end.i.i209, %while.body.i.i226
@@ -683,7 +683,7 @@ while.body.i.i226:                                ; preds = %if.end.i.i209, %whi
   %shr14.i.i228 = lshr i32 %new_allocated.133.i.i227, 1
   %add.i.i229 = add i32 %new_allocated.133.i.i227, 8
   %add15.i.i230 = add i32 %add.i.i229, %shr14.i.i228
-  %cmp13.i.i231 = icmp ult i32 %add15.i.i230, %add.i207
+  %cmp13.i.i231 = icmp ugt i32 %add.i207, %add15.i.i230
   br i1 %cmp13.i.i231, label %while.body.i.i226, label %lor.rhs.i.i232, !llvm.loop !5
 
 lor.rhs.i.i232:                                   ; preds = %while.body.i.i226
@@ -741,7 +741,7 @@ if.end.i211:                                      ; preds = %_ZN11hb_vector_tI9h
   br label %if.end116
 
 if.else:                                          ; preds = %_ZN11hb_vector_tI9hb_pair_tIf6TripleELb0EE4pushIJS0_IfRS1_EEEEPS2_DpOT_.exit
-  %cmp77 = fcmp oeq float %axisLimit.sroa.0.4.vec.extract, %tent.coerce1
+  %cmp77 = fcmp oeq float %tent.coerce1, %axisLimit.sroa.0.4.vec.extract
   %add = fadd float %tent.coerce1, 0x3F10000000000000
   %upper.0 = select i1 %cmp77, float %add, float %tent.coerce1
   %loc1.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %13, i64 0
@@ -760,7 +760,7 @@ land.lhs.true.i255:                               ; preds = %if.else
   br i1 %cmp.i.i.i257, label %if.then.i293, label %if.end.i.i258
 
 if.end.i.i258:                                    ; preds = %land.lhs.true.i255
-  %cmp9.not.i.i259 = icmp ult i32 %27, %add.i256
+  %cmp9.not.i.i259 = icmp ugt i32 %add.i256, %27
   br i1 %cmp9.not.i.i259, label %while.body.i.i275, label %if.end.i260
 
 while.body.i.i275:                                ; preds = %if.end.i.i258, %while.body.i.i275
@@ -768,7 +768,7 @@ while.body.i.i275:                                ; preds = %if.end.i.i258, %whi
   %shr14.i.i277 = lshr i32 %new_allocated.133.i.i276, 1
   %add.i.i278 = add i32 %new_allocated.133.i.i276, 8
   %add15.i.i279 = add i32 %add.i.i278, %shr14.i.i277
-  %cmp13.i.i280 = icmp ult i32 %add15.i.i279, %add.i256
+  %cmp13.i.i280 = icmp ugt i32 %add.i256, %add15.i.i279
   br i1 %cmp13.i.i280, label %while.body.i.i275, label %lor.rhs.i.i281, !llvm.loop !5
 
 lor.rhs.i.i281:                                   ; preds = %while.body.i.i275
@@ -839,7 +839,7 @@ land.lhs.true.i300:                               ; preds = %_ZN11hb_vector_tI9h
   br i1 %cmp.i.i.i302, label %if.then.i338, label %if.end.i.i303
 
 if.end.i.i303:                                    ; preds = %land.lhs.true.i300
-  %cmp9.not.i.i304 = icmp ult i32 %36, %add.i301
+  %cmp9.not.i.i304 = icmp ugt i32 %add.i301, %36
   br i1 %cmp9.not.i.i304, label %while.body.i.i320, label %if.end.i305
 
 while.body.i.i320:                                ; preds = %if.end.i.i303, %while.body.i.i320
@@ -847,7 +847,7 @@ while.body.i.i320:                                ; preds = %if.end.i.i303, %whi
   %shr14.i.i322 = lshr i32 %new_allocated.133.i.i321, 1
   %add.i.i323 = add i32 %new_allocated.133.i.i321, 8
   %add15.i.i324 = add i32 %add.i.i323, %shr14.i.i322
-  %cmp13.i.i325 = icmp ult i32 %add15.i.i324, %add.i301
+  %cmp13.i.i325 = icmp ugt i32 %add.i301, %add15.i.i324
   br i1 %cmp13.i.i325, label %while.body.i.i320, label %lor.rhs.i.i326, !llvm.loop !5
 
 lor.rhs.i.i326:                                   ; preds = %while.body.i.i320
@@ -917,7 +917,7 @@ land.lhs.true.i351:                               ; preds = %if.else91
   br i1 %tobool27.not.i.i.not, label %if.then.i389, label %if.end.i.i354
 
 if.end.i.i354:                                    ; preds = %land.lhs.true.i351
-  %cmp9.not.i.i355.not.not = icmp eq i32 %11, %12
+  %cmp9.not.i.i355.not.not = icmp eq i32 %12, %11
   br i1 %cmp9.not.i.i355.not.not, label %lor.rhs.i.i377, label %if.end.i356
 
 lor.rhs.i.i377:                                   ; preds = %if.end.i.i354
@@ -982,7 +982,7 @@ land.lhs.true.i396:                               ; preds = %if.then109
   br i1 %cmp.i.i.i398, label %if.then.i434, label %if.end.i.i399
 
 if.end.i.i399:                                    ; preds = %land.lhs.true.i396
-  %cmp9.not.i.i400 = icmp ult i32 %49, %add.i397
+  %cmp9.not.i.i400 = icmp ugt i32 %add.i397, %49
   br i1 %cmp9.not.i.i400, label %while.body.i.i416, label %if.end.i401
 
 while.body.i.i416:                                ; preds = %if.end.i.i399, %while.body.i.i416
@@ -990,7 +990,7 @@ while.body.i.i416:                                ; preds = %if.end.i.i399, %whi
   %shr14.i.i418 = lshr i32 %new_allocated.133.i.i417, 1
   %add.i.i419 = add i32 %new_allocated.133.i.i417, 8
   %add15.i.i420 = add i32 %add.i.i419, %shr14.i.i418
-  %cmp13.i.i421 = icmp ult i32 %add15.i.i420, %add.i397
+  %cmp13.i.i421 = icmp ugt i32 %add.i397, %add15.i.i420
   br i1 %cmp13.i.i421, label %while.body.i.i416, label %lor.rhs.i.i422, !llvm.loop !5
 
 lor.rhs.i.i422:                                   ; preds = %while.body.i.i416
@@ -1065,18 +1065,18 @@ if.end.i443:                                      ; preds = %if.then118
 
 if.end7.i449:                                     ; preds = %if.end.i443
   %cmp8.i450 = fcmp oeq float %tent.sroa.0.4.vec.extract, 0.000000e+00
-  %cmp10.i451 = fcmp oeq float %tent.sroa.0.4.vec.extract, %axisLimit.sroa.0.0.vec.extract
+  %cmp10.i451 = fcmp oeq float %axisLimit.sroa.0.0.vec.extract, %tent.sroa.0.4.vec.extract
   %or.cond27.i452 = or i1 %cmp8.i450, %cmp10.i451
   br i1 %or.cond27.i452, label %_ZL13supportScalarfRK6Triple.exit468, label %if.end12.i453
 
 if.end12.i453:                                    ; preds = %if.end7.i449
-  %cmp13.i454 = fcmp ult float %tent.sroa.0.0.vec.extract, %axisLimit.sroa.0.0.vec.extract
-  %cmp15.i455 = fcmp ult float %axisLimit.sroa.0.0.vec.extract, %tent.coerce1
+  %cmp13.i454 = fcmp ugt float %axisLimit.sroa.0.0.vec.extract, %tent.sroa.0.0.vec.extract
+  %cmp15.i455 = fcmp ugt float %tent.coerce1, %axisLimit.sroa.0.0.vec.extract
   %or.cond28.i456 = select i1 %cmp13.i454, i1 %cmp15.i455, i1 false
   br i1 %or.cond28.i456, label %if.end17.i458, label %_ZL13supportScalarfRK6Triple.exit468
 
 if.end17.i458:                                    ; preds = %if.end12.i453
-  %cmp18.i459 = fcmp ogt float %tent.sroa.0.4.vec.extract, %axisLimit.sroa.0.0.vec.extract
+  %cmp18.i459 = fcmp olt float %axisLimit.sroa.0.0.vec.extract, %tent.sroa.0.4.vec.extract
   br i1 %cmp18.i459, label %if.then19.i464, label %if.else.i460
 
 if.then19.i464:                                   ; preds = %if.end17.i458
@@ -1106,7 +1106,7 @@ land.lhs.true.i474:                               ; preds = %_ZL13supportScalarf
   br i1 %cmp.i.i.i476, label %if.then.i512, label %if.end.i.i477
 
 if.end.i.i477:                                    ; preds = %land.lhs.true.i474
-  %cmp9.not.i.i478 = icmp ult i32 %59, %add.i475
+  %cmp9.not.i.i478 = icmp ugt i32 %add.i475, %59
   br i1 %cmp9.not.i.i478, label %while.body.i.i494, label %if.end.i479
 
 while.body.i.i494:                                ; preds = %if.end.i.i477, %while.body.i.i494
@@ -1114,7 +1114,7 @@ while.body.i.i494:                                ; preds = %if.end.i.i477, %whi
   %shr14.i.i496 = lshr i32 %new_allocated.133.i.i495, 1
   %add.i.i497 = add i32 %new_allocated.133.i.i495, 8
   %add15.i.i498 = add i32 %add.i.i497, %shr14.i.i496
-  %cmp13.i.i499 = icmp ult i32 %add15.i.i498, %add.i475
+  %cmp13.i.i499 = icmp ugt i32 %add.i475, %add15.i.i498
   br i1 %cmp13.i.i499, label %while.body.i.i494, label %lor.rhs.i.i500, !llvm.loop !5
 
 lor.rhs.i.i500:                                   ; preds = %while.body.i.i494
@@ -1189,7 +1189,7 @@ land.lhs.true.i523:                               ; preds = %if.else127
   br i1 %cmp.i.i.i525, label %if.then.i561, label %if.end.i.i526
 
 if.end.i.i526:                                    ; preds = %land.lhs.true.i523
-  %cmp9.not.i.i527 = icmp ult i32 %68, %add.i524
+  %cmp9.not.i.i527 = icmp ugt i32 %add.i524, %68
   br i1 %cmp9.not.i.i527, label %while.body.i.i543, label %if.end.i528
 
 while.body.i.i543:                                ; preds = %if.end.i.i526, %while.body.i.i543
@@ -1197,7 +1197,7 @@ while.body.i.i543:                                ; preds = %if.end.i.i526, %whi
   %shr14.i.i545 = lshr i32 %new_allocated.133.i.i544, 1
   %add.i.i546 = add i32 %new_allocated.133.i.i544, 8
   %add15.i.i547 = add i32 %add.i.i546, %shr14.i.i545
-  %cmp13.i.i548 = icmp ult i32 %add15.i.i547, %add.i524
+  %cmp13.i.i548 = icmp ugt i32 %add.i524, %add15.i.i547
   br i1 %cmp13.i.i548, label %while.body.i.i543, label %lor.rhs.i.i549, !llvm.loop !5
 
 lor.rhs.i.i549:                                   ; preds = %while.body.i.i543
@@ -1268,7 +1268,7 @@ land.lhs.true.i568:                               ; preds = %_ZN11hb_vector_tI9h
   br i1 %cmp.i.i.i570, label %if.then.i606, label %if.end.i.i571
 
 if.end.i.i571:                                    ; preds = %land.lhs.true.i568
-  %cmp9.not.i.i572 = icmp ult i32 %77, %add.i569
+  %cmp9.not.i.i572 = icmp ugt i32 %add.i569, %77
   br i1 %cmp9.not.i.i572, label %while.body.i.i588, label %if.end.i573
 
 while.body.i.i588:                                ; preds = %if.end.i.i571, %while.body.i.i588
@@ -1276,7 +1276,7 @@ while.body.i.i588:                                ; preds = %if.end.i.i571, %whi
   %shr14.i.i590 = lshr i32 %new_allocated.133.i.i589, 1
   %add.i.i591 = add i32 %new_allocated.133.i.i589, 8
   %add15.i.i592 = add i32 %add.i.i591, %shr14.i.i590
-  %cmp13.i.i593 = icmp ult i32 %add15.i.i592, %add.i569
+  %cmp13.i.i593 = icmp ugt i32 %add.i569, %add15.i.i592
   br i1 %cmp13.i.i593, label %while.body.i.i588, label %lor.rhs.i.i594, !llvm.loop !5
 
 lor.rhs.i.i594:                                   ; preds = %while.body.i.i588

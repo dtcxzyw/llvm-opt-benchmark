@@ -347,7 +347,7 @@ define dso_local ptr @AllocSetAlloc(ptr noundef %0, i64 noundef %1, i32 noundef 
   %4 = getelementptr inbounds i8, ptr %0, i64 188
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %45
 
 8:                                                ; preds = %3

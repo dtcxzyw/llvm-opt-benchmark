@@ -37,7 +37,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %packets = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %packets, align 8
-  %cmp4 = icmp eq ptr %3, %p
+  %cmp4 = icmp eq ptr %p, %3
   br i1 %cmp4, label %land.rhs.lr.ph, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
@@ -419,7 +419,7 @@ if.then24.i:                                      ; preds = %if.end.i
   br label %usb_combined_packet_remove.exit
 
 usb_combined_packet_remove.exit:                  ; preds = %if.end.i, %if.then24.i
-  %cmp4 = icmp eq ptr %1, %p
+  %cmp4 = icmp eq ptr %p, %1
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %usb_combined_packet_remove.exit

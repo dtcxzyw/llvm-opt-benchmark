@@ -4326,7 +4326,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
 
 744:                                              ; preds = %741
   %745 = zext i8 %664 to i64
-  %746 = icmp ugt i64 %745, %2
+  %746 = icmp ult i64 %2, %745
   br i1 %746, label %.thread94, label %747
 
 747:                                              ; preds = %744
@@ -4868,7 +4868,7 @@ define internal i32 @packet_recvmsg(ptr nocapture noundef readonly %0, ptr nound
   %36 = getelementptr inbounds i8, ptr %5, i64 10
   store i16 0, ptr %36, align 2
   %37 = zext i8 %11 to i64
-  %38 = icmp ugt i64 %37, %2
+  %38 = icmp ult i64 %2, %37
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %35
@@ -10795,7 +10795,7 @@ define internal i32 @packet_sendmsg_spkt(ptr nocapture noundef readonly %0, ptr 
   %56 = add i32 %55, %51
   %57 = add i32 %56, %54
   %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %58, %2
+  %59 = icmp ugt i64 %2, %58
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %48
@@ -10818,7 +10818,7 @@ define internal i32 @packet_sendmsg_spkt(ptr nocapture noundef readonly %0, ptr 
   %75 = select i1 %74, i32 0, i32 %54
   tail call void @__rcu_read_unlock() #19
   %76 = zext i16 %71 to i64
-  %77 = add nuw nsw i64 %76, %2
+  %77 = add nuw nsw i64 %2, %76
   %78 = add nuw nsw i64 %77, %69
   %79 = tail call ptr @sock_wmalloc(ptr noundef %6, i64 noundef %78, i32 noundef 0, i32 noundef 3264) #19
   %80 = icmp eq ptr %79, null
@@ -10851,7 +10851,7 @@ define internal i32 @packet_sendmsg_spkt(ptr nocapture noundef readonly %0, ptr 
   store ptr %99, ptr %82, align 8
   %100 = sub i32 %87, %75
   store i32 %100, ptr %85, align 8
-  %101 = icmp ugt i64 %97, %2
+  %101 = icmp ult i64 %2, %97
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %96
@@ -10942,7 +10942,7 @@ define internal i32 @packet_sendmsg_spkt(ptr nocapture noundef readonly %0, ptr 
   %152 = add i32 %149, %49
   %153 = add i32 %152, %151
   %154 = zext i32 %153 to i64
-  %155 = icmp ult i64 %154, %2
+  %155 = icmp ugt i64 %2, %154
   br i1 %155, label %156, label %174
 
 156:                                              ; preds = %148

@@ -2276,7 +2276,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   %conv2 = fptrunc double %div to float
   %m_time_conversion_skew = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load float, ptr %m_time_conversion_skew, align 8, !tbaa !17
-  %add = fadd nsz float %2, %dtime
+  %add = fadd nsz float %dtime, %2
   store float %add, ptr %m_time_conversion_skew, align 8, !tbaa !17
   %mul4 = fmul nsz float %add, %conv2
   %conv5 = fptoui float %mul4 to i32

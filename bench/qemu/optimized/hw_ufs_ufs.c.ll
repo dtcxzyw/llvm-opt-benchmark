@@ -2734,7 +2734,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = zext i32 %size to i64
   %sub = sub nsw i64 260, %conv
-  %cmp = icmp ult i64 %sub, %addr
+  %cmp = icmp ugt i64 %addr, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2835,7 +2835,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = zext i32 %size to i64
   %sub = sub nsw i64 260, %conv
-  %cmp = icmp ult i64 %sub, %addr
+  %cmp = icmp ugt i64 %addr, %sub
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

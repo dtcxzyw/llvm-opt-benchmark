@@ -762,7 +762,7 @@ entry:
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !55
   %conv.i = trunc i64 %0 to i32
-  %cmp = icmp ule i32 %conv.i, %max
+  %cmp = icmp uge i32 %max, %conv.i
   %cmp4.not = icmp eq i32 %max, 0
   %or.cond = or i1 %cmp4.not, %cmp
   br i1 %or.cond, label %if.end, label %if.then
@@ -838,7 +838,7 @@ lor.lhs.false:                                    ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !55
   %conv.i = trunc i64 %0 to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %begin
+  %cmp2.not = icmp ult i32 %begin, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry

@@ -188,7 +188,7 @@ thread-pre-split.i:                               ; preds = %17, %15
 
 ._crit_edge.i:                                    ; preds = %32, %.preheader.i
   %34 = load i32, ptr @H5_optind, align 4
-  %.not9.i = icmp slt i32 %34, %0
+  %.not9.i = icmp sgt i32 %0, %34
   br i1 %.not9.i, label %37, label %35
 
 35:                                               ; preds = %._crit_edge.i

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @Cudd_MakeTreeNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
-  %7 = icmp ugt i32 %6, %1
+  %7 = icmp ult i32 %1, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
@@ -470,7 +470,7 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   %.0 = phi i32 [ %124, %123 ], [ %122, %121 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ 0, %78 ], [ %68, %67 ], [ %66, %65 ], [ %54, %53 ], [ %52, %51 ], [ 1, %39 ], [ %59, %55 ], [ %97, %96 ], [ %115, %111 ]
   %125 = getelementptr inbounds i8, ptr %0, i64 520
   %126 = load ptr, ptr %125, align 8
-  %.not.i63 = icmp eq ptr %126, %1
+  %.not.i63 = icmp eq ptr %1, %126
   br i1 %.not.i63, label %137, label %.preheader.i64
 
 .preheader.i64:                                   ; preds = %.loopexit
@@ -910,7 +910,7 @@ ddCreateGroup.exit:                               ; preds = %129
 
 195:                                              ; preds = %.loopexit
   %196 = load i32, ptr %6, align 8
-  %197 = icmp sle i32 %196, %70
+  %197 = icmp sge i32 %70, %196
   %198 = icmp slt i32 %70, 0
   %or.cond.i = or i1 %198, %197
   br i1 %or.cond.i, label %ddSetVarHandled.exit, label %199
@@ -1234,7 +1234,7 @@ define internal range(i32 0, 2) i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 136
   %18 = load i32, ptr %17, align 8
-  %19 = icmp sle i32 %18, %8
+  %19 = icmp sge i32 %8, %18
   %20 = icmp slt i32 %8, 0
   %or.cond.i = or i1 %20, %19
   br i1 %or.cond.i, label %ddIsVarHandled.exit.thread, label %ddIsVarHandled.exit
@@ -1254,7 +1254,7 @@ ddIsVarHandled.exit:                              ; preds = %16
   br i1 %.not20, label %31, label %ddIsVarHandled.exit.thread
 
 31:                                               ; preds = %ddIsVarHandled.exit
-  %32 = icmp sle i32 %18, %11
+  %32 = icmp sge i32 %11, %18
   %33 = icmp slt i32 %11, 0
   %or.cond.i25 = or i1 %33, %32
   br i1 %or.cond.i25, label %ddIsVarHandled.exit.thread, label %ddIsVarHandled.exit27
@@ -1333,7 +1333,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i3
   %15 = sext i32 %1 to i64
   %16 = getelementptr inbounds %struct.DdSubtable, ptr %14, i64 %15, i32 6
   %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, %1
+  %18 = icmp eq i32 %1, %17
   br i1 %18, label %.preheader158, label %.loopexit157
 
 .preheader158:                                    ; preds = %6
@@ -1665,7 +1665,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   %28 = getelementptr inbounds i8, ptr %0, i64 304
   %29 = load i32, ptr %28, align 8
   %30 = sub i32 %27, %29
-  %31 = icmp slt i32 %25, %2
+  %31 = icmp sgt i32 %2, %25
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge219
@@ -2333,7 +2333,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
 
 .preheader:                                       ; preds = %17
   %22 = sub i32 %12, %14
-  %.not.not178 = icmp sgt i32 %.0151, %2
+  %.not.not178 = icmp slt i32 %2, %.0151
   br i1 %.not.not178, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader

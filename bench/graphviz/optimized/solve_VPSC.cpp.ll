@@ -605,7 +605,7 @@ _ZN7IncVPSC10moveBlocksEv.exit:                   ; preds = %_ZN7IncVPSC10moveBl
 
 select.unfold.i.i:                                ; preds = %59, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %59 ]
-  %62 = icmp eq ptr %6, %.sroa.4.0.i.ph.i.i
+  %62 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %6
   br i1 %62, label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %63
 
 63:                                               ; preds = %select.unfold.i.i
@@ -667,7 +667,7 @@ _ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %59, %_ZNSt8_
 
 select.unfold.i.i26:                              ; preds = %79, %._crit_edge.thread.i.i.i29
   %.sroa.4.0.i.ph.i.i27 = phi ptr [ %.019.lcssa28.i.i.i30, %._crit_edge.thread.i.i.i29 ], [ %.019.lcssa29.i.i.i20, %79 ]
-  %82 = icmp eq ptr %6, %.sroa.4.0.i.ph.i.i27
+  %82 = icmp eq ptr %.sroa.4.0.i.ph.i.i27, %6
   br i1 %82, label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i28, label %83
 
 83:                                               ; preds = %select.unfold.i.i26
@@ -1020,7 +1020,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit: ; preds = %84, %_ZNSt6ve
 
 select.unfold.i.i:                                ; preds = %119, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %119 ]
-  %122 = icmp eq ptr %12, %.sroa.4.0.i.ph.i.i
+  %122 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %12
   br i1 %122, label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %123
 
 123:                                              ; preds = %select.unfold.i.i
@@ -1544,7 +1544,7 @@ _ZNSt3mapIP8VariableP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.ex
 
 85:                                               ; preds = %82
   %.not.i.i.i4.i = icmp ne ptr %83, null
-  %86 = icmp eq ptr %6, %84
+  %86 = icmp eq ptr %84, %6
   %or.cond.i.i.i.i = or i1 %.not.i.i.i4.i, %86
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %87
 
@@ -1626,7 +1626,7 @@ _ZNSt3mapIP8VariableP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.ex
 
 115:                                              ; preds = %112
   %.not.i.i.i4.i52 = icmp ne ptr %113, null
-  %116 = icmp eq ptr %6, %114
+  %116 = icmp eq ptr %114, %6
   %or.cond.i.i.i.i53 = or i1 %.not.i.i.i4.i52, %116
   br i1 %or.cond.i.i.i.i53, label %.thread.i.i54, label %117
 
@@ -1700,7 +1700,7 @@ _ZNSt8_Rb_treeIP8VariableSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6
 
 select.unfold.i.i:                                ; preds = %139, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %139 ]
-  %142 = icmp eq ptr %130, %.sroa.4.0.i.ph.i.i
+  %142 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %130
   br i1 %142, label %_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %143
 
 143:                                              ; preds = %select.unfold.i.i
@@ -1797,7 +1797,7 @@ _ZNSt3mapIP8VariableP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.ex
 
 178:                                              ; preds = %175
   %.not.i.i.i4.i77 = icmp ne ptr %176, null
-  %179 = icmp eq ptr %6, %177
+  %179 = icmp eq ptr %177, %6
   %or.cond.i.i.i.i78 = or i1 %.not.i.i.i4.i77, %179
   br i1 %or.cond.i.i.i.i78, label %.thread.i.i79, label %180
 
@@ -1879,7 +1879,7 @@ _ZNSt3mapIP8VariableP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.ex
 
 208:                                              ; preds = %205
   %.not.i.i.i4.i100 = icmp ne ptr %206, null
-  %209 = icmp eq ptr %6, %207
+  %209 = icmp eq ptr %207, %6
   %or.cond.i.i.i.i101 = or i1 %.not.i.i.i4.i100, %209
   br i1 %or.cond.i.i.i.i101, label %.thread.i.i102, label %210
 
@@ -1953,7 +1953,7 @@ _ZNSt8_Rb_treeIP8VariableSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6
 
 select.unfold.i.i123:                             ; preds = %232, %._crit_edge.thread.i.i.i126
   %.sroa.4.0.i.ph.i.i124 = phi ptr [ %.019.lcssa28.i.i.i127, %._crit_edge.thread.i.i.i126 ], [ %.019.lcssa29.i.i.i117, %232 ]
-  %235 = icmp eq ptr %223, %.sroa.4.0.i.ph.i.i124
+  %235 = icmp eq ptr %.sroa.4.0.i.ph.i.i124, %223
   br i1 %235, label %_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i125, label %236
 
 236:                                              ; preds = %select.unfold.i.i123
@@ -2105,8 +2105,8 @@ _ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_
   %292 = getelementptr inbounds i8, ptr %271, i64 40
   %293 = getelementptr inbounds i8, ptr %271, i64 24
   %294 = load ptr, ptr %293, align 8
-  %295 = icmp eq ptr %294, %.sroa.037.0.i.i
-  %296 = icmp eq ptr %273, %.sroa.3.0.i.i136
+  %295 = icmp eq ptr %.sroa.037.0.i.i, %294
+  %296 = icmp eq ptr %.sroa.3.0.i.i136, %273
   %or.cond.i = select i1 %295, i1 %296, i1 false
   br i1 %or.cond.i, label %297, label %.critedge.i.i
 
@@ -2220,7 +2220,7 @@ _ZNSt3mapIP8VariableP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.ex
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -2610,7 +2610,7 @@ _ZNSt3mapIP5BlockP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.
 
 90:                                               ; preds = %87
   %.not.i.i.i4.i = icmp ne ptr %88, null
-  %91 = icmp eq ptr %5, %89
+  %91 = icmp eq ptr %89, %5
   %or.cond.i.i.i.i = or i1 %.not.i.i.i4.i, %91
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %92
 
@@ -2692,7 +2692,7 @@ _ZNSt3mapIP5BlockP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.
 
 120:                                              ; preds = %117
   %.not.i.i.i4.i38 = icmp ne ptr %118, null
-  %121 = icmp eq ptr %5, %119
+  %121 = icmp eq ptr %119, %5
   %or.cond.i.i.i.i39 = or i1 %.not.i.i.i4.i38, %121
   br i1 %or.cond.i.i.i.i39, label %.thread.i.i40, label %122
 
@@ -2766,7 +2766,7 @@ _ZNSt8_Rb_treeIP5BlockSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE
 
 select.unfold.i.i:                                ; preds = %144, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %144 ]
-  %147 = icmp eq ptr %135, %.sroa.4.0.i.ph.i.i
+  %147 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %135
   br i1 %147, label %_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %148
 
 148:                                              ; preds = %select.unfold.i.i
@@ -2865,7 +2865,7 @@ _ZNSt3mapIP5BlockP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.
 
 184:                                              ; preds = %181
   %.not.i.i.i4.i63 = icmp ne ptr %182, null
-  %185 = icmp eq ptr %5, %183
+  %185 = icmp eq ptr %183, %5
   %or.cond.i.i.i.i64 = or i1 %.not.i.i.i4.i63, %185
   br i1 %or.cond.i.i.i.i64, label %.thread.i.i65, label %186
 
@@ -2947,7 +2947,7 @@ _ZNSt3mapIP5BlockP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.
 
 214:                                              ; preds = %211
   %.not.i.i.i4.i86 = icmp ne ptr %212, null
-  %215 = icmp eq ptr %5, %213
+  %215 = icmp eq ptr %213, %5
   %or.cond.i.i.i.i87 = or i1 %.not.i.i.i4.i86, %215
   br i1 %or.cond.i.i.i.i87, label %.thread.i.i88, label %216
 
@@ -3021,7 +3021,7 @@ _ZNSt8_Rb_treeIP5BlockSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE
 
 select.unfold.i.i109:                             ; preds = %238, %._crit_edge.thread.i.i.i112
   %.sroa.4.0.i.ph.i.i110 = phi ptr [ %.019.lcssa28.i.i.i113, %._crit_edge.thread.i.i.i112 ], [ %.019.lcssa29.i.i.i103, %238 ]
-  %241 = icmp eq ptr %229, %.sroa.4.0.i.ph.i.i110
+  %241 = icmp eq ptr %.sroa.4.0.i.ph.i.i110, %229
   br i1 %241, label %_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i111, label %242
 
 242:                                              ; preds = %select.unfold.i.i109
@@ -3176,8 +3176,8 @@ _ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_rangeERKS1_
   %301 = getelementptr inbounds i8, ptr %280, i64 40
   %302 = getelementptr inbounds i8, ptr %280, i64 24
   %303 = load ptr, ptr %302, align 8
-  %304 = icmp eq ptr %303, %.sroa.037.0.i.i
-  %305 = icmp eq ptr %282, %.sroa.3.0.i.i122
+  %304 = icmp eq ptr %.sroa.037.0.i.i, %303
+  %305 = icmp eq ptr %.sroa.3.0.i.i122, %282
   %or.cond.i = select i1 %304, i1 %305, i1 false
   br i1 %or.cond.i, label %306, label %.critedge.i.i
 
@@ -3288,7 +3288,7 @@ _ZNSt3mapIP5BlockP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit:
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -3552,7 +3552,7 @@ _ZSt7advanceIPP10ConstraintmEvRT_T0_.exit:        ; preds = %22
 _ZSt4copyIPP10ConstraintS2_ET0_T_S4_S3_.exit18:   ; preds = %_ZSt7advanceIPP10ConstraintmEvRT_T0_.exit, %34
   %35 = phi ptr [ %24, %_ZSt7advanceIPP10ConstraintmEvRT_T0_.exit ], [ %.pre26, %34 ]
   %36 = sub i64 %4, %33
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, %2
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, %32
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPP10ConstraintS2_S1_ET0_T_S4_S3_RSaIT1_E.exit, label %37
 
 37:                                               ; preds = %_ZSt4copyIPP10ConstraintS2_ET0_T_S4_S3_.exit18
@@ -3704,7 +3704,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ES
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP8VariableSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -4035,7 +4035,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP5BlockSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

@@ -9365,7 +9365,7 @@ if.end:                                           ; preds = %if.then, %entry
   %4 = load ptr, ptr %ty4, align 8
   %array_len11 = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load i32, ptr %array_len11, align 8
-  %cmp12 = icmp sgt i32 %5, %i
+  %cmp12 = icmp slt i32 %i, %5
   br i1 %cmp12, label %land.rhs.lr.ph, label %return
 
 land.rhs.lr.ph:                                   ; preds = %if.end

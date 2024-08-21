@@ -1174,7 +1174,7 @@ define void @phpdbg_set_breakpoint_symbol(ptr noundef %0, i64 noundef %1) local_
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 92
   %7 = sext i1 %6 to i64
-  %.065 = add i64 %7, %1
+  %.065 = add i64 %1, %7
   %.0.idx = zext i1 %6 to i64
   %.0 = getelementptr inbounds i8, ptr %0, i64 %.0.idx
   %8 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %.0, i64 noundef %.065) #14
@@ -3288,7 +3288,7 @@ define void @phpdbg_delete_breakpoint(i64 noundef %0) local_unnamed_addr #1 {
   %17 = load ptr, ptr %.03853.i.us, align 8
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = icmp eq i64 %19, %0
+  %20 = icmp eq i64 %0, %19
   br i1 %20, label %phpdbg_find_breakbase_ex.exit.split.us, label %21
 
 21:                                               ; preds = %16, %.lr.ph.i.us
@@ -3318,7 +3318,7 @@ phpdbg_find_breakbase_ex.exit.split.us:           ; preds = %16
   %33 = load ptr, ptr %.03853.i, align 8
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
-  %36 = icmp eq i64 %35, %0
+  %36 = icmp eq i64 %0, %35
   br i1 %36, label %phpdbg_find_breakbase_ex.exit.split, label %37
 
 37:                                               ; preds = %32, %.lr.ph.i
@@ -3517,7 +3517,7 @@ define noundef ptr @phpdbg_find_breakbase_ex(i64 noundef %0, ptr nocapture nound
   %30 = load ptr, ptr %.03853, align 8
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
-  %33 = icmp eq i64 %32, %0
+  %33 = icmp eq i64 %0, %32
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %29, %25
@@ -3786,7 +3786,7 @@ define void @phpdbg_enable_breakpoint(i64 noundef %0) local_unnamed_addr #1 {
   %17 = load ptr, ptr %.03853.i.us.i, align 8
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = icmp eq i64 %19, %0
+  %20 = icmp eq i64 %0, %19
   br i1 %20, label %phpdbg_find_breakbase.exit, label %21
 
 21:                                               ; preds = %16, %.lr.ph.i.us.i
@@ -3807,7 +3807,7 @@ define void @phpdbg_enable_breakpoint(i64 noundef %0) local_unnamed_addr #1 {
   %28 = load ptr, ptr %.03853.i.i, align 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = icmp eq i64 %30, %0
+  %31 = icmp eq i64 %0, %30
   br i1 %31, label %phpdbg_find_breakbase.exit, label %32
 
 32:                                               ; preds = %27, %.lr.ph.i.i
@@ -3861,7 +3861,7 @@ define noundef ptr @phpdbg_find_breakbase(i64 noundef %0) local_unnamed_addr #1 
   %17 = load ptr, ptr %.03853.i.us, align 8
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = icmp eq i64 %19, %0
+  %20 = icmp eq i64 %0, %19
   br i1 %20, label %phpdbg_find_breakbase_ex.exit, label %21
 
 21:                                               ; preds = %.lr.ph.i.us, %16
@@ -3882,7 +3882,7 @@ define noundef ptr @phpdbg_find_breakbase(i64 noundef %0) local_unnamed_addr #1 
   %28 = load ptr, ptr %.03853.i, align 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = icmp eq i64 %30, %0
+  %31 = icmp eq i64 %0, %30
   br i1 %31, label %phpdbg_find_breakbase_ex.exit, label %32
 
 32:                                               ; preds = %27, %.lr.ph.i
@@ -3931,7 +3931,7 @@ define void @phpdbg_disable_breakpoint(i64 noundef %0) local_unnamed_addr #1 {
   %17 = load ptr, ptr %.03853.i.us.i, align 8
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = icmp eq i64 %19, %0
+  %20 = icmp eq i64 %0, %19
   br i1 %20, label %phpdbg_find_breakbase.exit, label %21
 
 21:                                               ; preds = %16, %.lr.ph.i.us.i
@@ -3952,7 +3952,7 @@ define void @phpdbg_disable_breakpoint(i64 noundef %0) local_unnamed_addr #1 {
   %28 = load ptr, ptr %.03853.i.i, align 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = icmp eq i64 %30, %0
+  %31 = icmp eq i64 %0, %30
   br i1 %31, label %phpdbg_find_breakbase.exit, label %32
 
 32:                                               ; preds = %27, %.lr.ph.i.i

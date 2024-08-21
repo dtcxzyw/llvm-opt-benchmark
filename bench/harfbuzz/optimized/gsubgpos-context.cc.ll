@@ -180,10 +180,10 @@ _ZN5graph5GSTAR12find_lookupsERNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE.ex
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %16, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.not.i.i.i.not.i, ptr @_hb_NullPool, ptr %arrayidx.i.i.i.i
   %17 = load ptr, ptr %retval.0.i.i.i.i, align 8
-  %cmp.i.i13 = icmp ule ptr %17, %14
+  %cmp.i.i13 = icmp uge ptr %14, %17
   %tail.i.i14 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   %18 = load ptr, ptr %tail.i.i14, align 8
-  %cmp2.not.i.i = icmp ugt ptr %18, %14
+  %cmp2.not.i.i = icmp ult ptr %14, %18
   %or.cond.i.i = select i1 %cmp.i.i13, i1 %cmp2.not.i.i, i1 false
   br i1 %or.cond.i.i, label %if.end.i.i15, label %_ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit
 
@@ -211,7 +211,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %21 = load i32, ptr %position.i.i, align 4
   %idx.ext.i.i = zext i32 %21 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %idx.ext.i.i
-  %cmp6.not.i.i = icmp eq ptr %add.ptr.i.i, %14
+  %cmp6.not.i.i = icmp eq ptr %14, %add.ptr.i.i
   br i1 %cmp6.not.i.i, label %if.end8.i.i, label %for.cond.i.i
 
 if.end8.i.i:                                      ; preds = %for.body.i.i
@@ -252,7 +252,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.end
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %cmp9.not.i.i.i.i = icmp ult i32 %2, %add.i.i.i
+  %cmp9.not.i.i.i.i = icmp ugt i32 %add.i.i.i, %2
   br i1 %cmp9.not.i.i.i.i, label %while.body.i.i.i.i, label %if.end.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %while.body.i.i.i.i
@@ -260,7 +260,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %wh
   %shr14.i.i.i.i = lshr i32 %new_allocated.133.i.i.i.i, 1
   %add.i.i.i.i = add i32 %new_allocated.133.i.i.i.i, 8
   %add15.i.i.i.i = add i32 %add.i.i.i.i, %shr14.i.i.i.i
-  %cmp13.i.i.i.i = icmp ult i32 %add15.i.i.i.i, %add.i.i.i
+  %cmp13.i.i.i.i = icmp ugt i32 %add.i.i.i, %add15.i.i.i.i
   br i1 %cmp13.i.i.i.i, label %while.body.i.i.i.i, label %lor.rhs.i.i.i.i, !llvm.loop !8
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -456,7 +456,7 @@ for.body:                                         ; preds = %for.cond
   %objidx = getelementptr inbounds i8, ptr %retval.0.i.i14, i64 8
   %14 = load i32, ptr %objidx, align 4
   %15 = load i32, ptr %length.i, align 4
-  %cmp.not.i16 = icmp ugt i32 %15, %14
+  %cmp.not.i16 = icmp ult i32 %14, %15
   br i1 %cmp.not.i16, label %if.end.i19, label %if.then.i17
 
 if.then.i17:                                      ; preds = %for.body
@@ -645,10 +645,10 @@ entry:
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %3, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.not.i.i.i.not.i, ptr @_hb_NullPool, ptr %arrayidx.i.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i.i, align 8
-  %cmp.i.i = icmp ule ptr %4, %spec.select.i.i
+  %cmp.i.i = icmp uge ptr %spec.select.i.i, %4
   %tail.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   %5 = load ptr, ptr %tail.i.i, align 8
-  %cmp2.not.i.i = icmp ugt ptr %5, %spec.select.i.i
+  %cmp2.not.i.i = icmp ult ptr %spec.select.i.i, %5
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp2.not.i.i, i1 false
   br i1 %or.cond.i.i, label %if.end.i.i, label %_ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit
 
@@ -676,7 +676,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %8 = load i32, ptr %position.i.i, align 4
   %idx.ext.i.i = zext i32 %8 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i
-  %cmp6.not.i.i = icmp eq ptr %add.ptr.i.i, %spec.select.i.i
+  %cmp6.not.i.i = icmp eq ptr %spec.select.i.i, %add.ptr.i.i
   br i1 %cmp6.not.i.i, label %if.end8.i.i, label %for.cond.i.i
 
 if.end8.i.i:                                      ; preds = %for.body.i.i
@@ -686,7 +686,7 @@ if.end8.i.i:                                      ; preds = %for.body.i.i
 
 _ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit: ; preds = %for.cond.i.i, %entry, %if.end.i.i, %if.end8.i.i
   %retval.0.i.i = phi i32 [ %9, %if.end8.i.i ], [ -1, %entry ], [ -1, %if.end.i.i ], [ -1, %for.cond.i.i ]
-  %cmp.not.i.i = icmp ugt i32 %0, %retval.0.i.i
+  %cmp.not.i.i = icmp ult i32 %retval.0.i.i, %0
   %idxprom.i.i = zext i32 %retval.0.i.i to i64
   %arrayidx.i.i16 = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %3, i64 %idxprom.i.i
   %retval.0.i.i17 = select i1 %cmp.not.i.i, ptr %arrayidx.i.i16, ptr @_hb_NullPool
@@ -741,15 +741,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [1 x %"struct.OT::OffsetTo.20"], ptr %arrayZ, i64 0, i64 %indvars.iv
   %17 = load i32, ptr %length.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %17, %retval.0.i.i
+  %cmp.not.i.i.i = icmp ult i32 %retval.0.i.i, %17
   %18 = load ptr, ptr %arrayZ.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %18, i64 %idxprom.i.i
   %retval.0.i.i.i = select i1 %cmp.not.i.i.i, ptr %arrayidx.i.i.i, ptr @_hb_NullPool
   %19 = load ptr, ptr %retval.0.i.i.i, align 8
-  %cmp.i20 = icmp ule ptr %19, %arrayidx
+  %cmp.i20 = icmp uge ptr %arrayidx, %19
   %tail.i21 = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %20 = load ptr, ptr %tail.i21, align 8
-  %cmp2.not.i = icmp ugt ptr %20, %arrayidx
+  %cmp2.not.i = icmp ult ptr %arrayidx, %20
   %or.cond.i = select i1 %cmp.i20, i1 %cmp2.not.i, i1 false
   br i1 %or.cond.i, label %if.end.i23, label %_ZNK5graph7graph_t16index_for_offsetEjPKv.exit
 
@@ -777,7 +777,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %23 = load i32, ptr %position.i, align 4
   %idx.ext.i = zext i32 %23 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %idx.ext.i
-  %cmp6.not.i = icmp eq ptr %add.ptr.i, %arrayidx
+  %cmp6.not.i = icmp eq ptr %arrayidx, %add.ptr.i
   br i1 %cmp6.not.i, label %if.end8.i, label %for.cond.i
 
 if.end8.i:                                        ; preds = %for.body.i
@@ -788,7 +788,7 @@ if.end8.i:                                        ; preds = %for.body.i
 _ZNK5graph7graph_t16index_for_offsetEjPKv.exit:   ; preds = %for.cond.i, %for.body, %if.end.i23, %if.end8.i
   %retval.0.i22 = phi i32 [ %24, %if.end8.i ], [ -1, %for.body ], [ -1, %if.end.i23 ], [ -1, %for.cond.i ]
   store i32 %retval.0.i22, ptr %lookup_idx, align 4
-  %cmp.not.i.i28 = icmp ugt i32 %17, %retval.0.i22
+  %cmp.not.i.i28 = icmp ult i32 %retval.0.i22, %17
   %idxprom.i.i30 = zext i32 %retval.0.i22 to i64
   %arrayidx.i.i31 = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %18, i64 %idxprom.i.i30
   %retval.0.i.i32 = select i1 %cmp.not.i.i28, ptr %arrayidx.i.i31, ptr @_hb_NullPool
@@ -1506,7 +1506,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -1514,7 +1514,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -1522,7 +1522,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.129.i, 1
   %add.i = add i32 %new_allocated.129.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !42
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -1595,7 +1595,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp ult i32 %cond, %4
-  %brmerge.not = and i1 %cmp9, %initialize
+  %brmerge.not = and i1 %initialize, %cmp9
   br i1 %brmerge.not, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else

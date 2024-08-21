@@ -102,7 +102,7 @@ cond.end51.i:                                     ; preds = %cond.false48.i, %fo
   %inc65.i = add i32 %i.0129.i, 1
   %add31.reass.i = add i32 %i.0129.i, 8
   %conv32.i = zext i32 %add31.reass.i to i64
-  %cmp33.i = icmp ult i64 %conv32.i, %source_size
+  %cmp33.i = icmp ugt i64 %source_size, %conv32.i
   br i1 %cmp33.i, label %for.body.i, label %for.body69.i.preheader, !llvm.loop !6
 
 for.body69.i.preheader:                           ; preds = %cond.end51.i, %cond.end.i

@@ -190,7 +190,7 @@ do.end:                                           ; preds = %entry
   %msix_table_off = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i64, ptr %msix_table_off, align 8
   %call = tail call zeroext i16 @qpci_msix_table_size(ptr noundef nonnull %0) #7
-  %cmp19 = icmp ugt i16 %call, %entry1
+  %cmp19 = icmp ult i16 %entry1, %call
   br i1 %cmp19, label %do.end26, label %if.else22
 
 if.else22:                                        ; preds = %do.end
@@ -285,7 +285,7 @@ do.end:                                           ; preds = %entry
   %msix_table_off = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i64, ptr %msix_table_off, align 8
   %call = tail call zeroext i16 @qpci_msix_table_size(ptr noundef nonnull %0) #7
-  %cmp19 = icmp ugt i16 %call, %entry1
+  %cmp19 = icmp ult i16 %entry1, %call
   br i1 %cmp19, label %do.end26, label %if.else22
 
 if.else22:                                        ; preds = %do.end

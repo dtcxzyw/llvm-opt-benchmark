@@ -2314,7 +2314,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h83f2ad7b60052a71E.llvm.15772558698018558306"(i8 noundef %0, i64 noundef %1) unnamed_addr #6 {
   %3 = trunc i64 %1 to i8
-  %4 = add nuw i8 %3, %0
+  %4 = add nuw i8 %0, %3
   ret i8 %4
 }
 
@@ -2516,7 +2516,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.15772
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -2981,7 +2981,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br i1 %190, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.thread6.i.i.i.i", label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit19.i.i.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit19.i.i.i.i.i.i": ; preds = %187
-  %191 = icmp ne ptr %188, %183
+  %191 = icmp ne ptr %183, %188
   call void @llvm.assume(i1 %191)
   %192 = getelementptr inbounds i8, ptr %185, i64 -2
   %193 = load i8, ptr %192, align 1, !alias.scope !548, !noalias !551, !noundef !4
@@ -2995,7 +2995,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit21.i.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit19.i.i.i.i.i.i"
-  %198 = icmp ne ptr %192, %183
+  %198 = icmp ne ptr %183, %192
   call void @llvm.assume(i1 %198)
   %199 = getelementptr inbounds i8, ptr %185, i64 -3
   %200 = load i8, ptr %199, align 1, !alias.scope !548, !noalias !551, !noundef !4
@@ -3005,7 +3005,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br i1 %203, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit23.i.i.i.i.i.i", label %213
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit23.i.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit21.i.i.i.i.i.i"
-  %204 = icmp ne ptr %199, %183
+  %204 = icmp ne ptr %183, %199
   call void @llvm.assume(i1 %204)
   %205 = getelementptr inbounds i8, ptr %185, i64 -4
   %206 = load i8, ptr %205, align 1, !alias.scope !548, !noalias !551, !noundef !4
@@ -4011,7 +4011,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !667, !noalias !672, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !674, !noalias !672, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h1d113d77ccf98194E.exit"
 
 9:                                                ; preds = %3
@@ -4133,7 +4133,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !680, !noalias !685, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !687, !noalias !685, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h1d113d77ccf98194E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
@@ -6566,7 +6566,7 @@ define noundef float @"_ZN56_$LT$f32$u20$as$u20$typst_pdf..color..QuantizedColor
   unreachable
 
 "_ZN4core3f3221_$LT$impl$u20$f32$GT$5clamp17h2c6d90765320cd41E.llvm.15772558698018558306.exit": ; preds = %2
-  %18 = fcmp ogt float %7, %0
+  %18 = fcmp olt float %0, %7
   %.0.i = select i1 %18, float %7, float %0
   %19 = fcmp ogt float %.0.i, %8
   %.1.i = select i1 %19, float %8, float %.0.i

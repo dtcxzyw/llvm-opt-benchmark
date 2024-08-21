@@ -162,7 +162,7 @@ trace_pci_cfg_write.exit:                         ; preds = %if.end10, %land.lhs
   %config_write = getelementptr inbounds i8, ptr %pci_dev, i64 1224
   %12 = load ptr, ptr %config_write, align 8
   %sub = sub i32 %limit.addr.0, %addr
-  %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %len)
+  %cond = tail call i32 @llvm.umin.i32(i32 %len, i32 %sub)
   tail call void %12(ptr noundef nonnull %pci_dev, i32 noundef %addr, i32 noundef %val, i32 noundef %cond) #8
   br label %return
 
@@ -239,7 +239,7 @@ if.end10:                                         ; preds = %land.lhs.true.i18, 
   %config_read = getelementptr inbounds i8, ptr %pci_dev, i64 1216
   %5 = load ptr, ptr %config_read, align 16
   %sub = sub i32 %limit.addr.0, %addr
-  %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %len)
+  %cond = tail call i32 @llvm.umin.i32(i32 %len, i32 %sub)
   %call12 = tail call i32 %5(ptr noundef nonnull %pci_dev, i32 noundef %addr, i32 noundef %cond) #8
   %name = getelementptr inbounds i8, ptr %pci_dev, i64 232
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8

@@ -332,7 +332,7 @@ if.end2:                                          ; preds = %if.end
   %1 = ptrtoint ptr %call4 to i64
   %conv5 = trunc i64 %1 to i32
   %tobool6.not = icmp ne i32 %conv5, 0
-  %cmp9 = icmp eq i32 %conv5, %target_ctr
+  %cmp9 = icmp eq i32 %target_ctr, %conv5
   %spec.select = and i1 %tobool6.not, %cmp9
   br label %return
 
@@ -357,7 +357,7 @@ if.end2:                                          ; preds = %if.end
   %call4 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %1 = ptrtoint ptr %call4 to i64
   %conv5 = trunc i64 %1 to i32
-  %cmp9 = icmp eq i32 %conv5, %target_ctr
+  %cmp9 = icmp eq i32 %target_ctr, %conv5
   br label %return
 
 return:                                           ; preds = %if.end2, %if.end, %entry
@@ -572,7 +572,7 @@ riscv_pmu_ctr_monitor_cycles.exit:                ; preds = %if.end.i
   %call4.i = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   %4 = ptrtoint ptr %call4.i to i64
   %conv5.i = trunc i64 %4 to i32
-  %cmp9.i = icmp eq i32 %conv5.i, %ctr_idx
+  %cmp9.i = icmp eq i32 %ctr_idx, %conv5.i
   br i1 %cmp9.i, label %if.then11, label %if.end.i19
 
 if.end.i19:                                       ; preds = %riscv_pmu_ctr_monitor_cycles.exit
@@ -585,7 +585,7 @@ riscv_pmu_ctr_monitor_instructions.exit:          ; preds = %if.end.i19
   %5 = ptrtoint ptr %call4.i23 to i64
   %conv5.i24 = trunc i64 %5 to i32
   %tobool6.not.i = icmp ne i32 %conv5.i24, 0
-  %cmp9.i25 = icmp eq i32 %conv5.i24, %ctr_idx
+  %cmp9.i25 = icmp eq i32 %ctr_idx, %conv5.i24
   %spec.select.i = and i1 %tobool6.not.i, %cmp9.i25
   br i1 %spec.select.i, label %if.then11, label %return
 

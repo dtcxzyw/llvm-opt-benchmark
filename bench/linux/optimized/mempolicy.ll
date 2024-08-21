@@ -650,7 +650,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_set_memp
   store i32 1, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 60
   %16 = and i64 %0, 4095
-  %17 = or i64 %16, %3
+  %17 = or i64 %3, %16
   %18 = icmp ne i64 %17, 0
   %19 = icmp ugt i64 %2, 63
   %20 = or i1 %19, %18
@@ -1566,7 +1566,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   %11 = icmp eq i64 %1, 0
   %12 = load i32, ptr @nr_node_ids, align 4
   %13 = zext i32 %12 to i64
-  %14 = icmp ule i64 %13, %2
+  %14 = icmp uge i64 %2, %13
   %15 = select i1 %11, i1 true, i1 %14
   br i1 %15, label %16, label %.thread22
 

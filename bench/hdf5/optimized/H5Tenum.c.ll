@@ -569,7 +569,7 @@ define range(i32 -1, 1) i32 @H5Tget_member_value(i64 noundef %0, i32 noundef %1,
 40:                                               ; preds = %31
   %41 = getelementptr inbounds i8, ptr %33, i64 52
   %42 = load i32, ptr %41, align 4
-  %.not22 = icmp ugt i32 %42, %1
+  %.not22 = icmp ult i32 %1, %42
   br i1 %.not22, label %47, label %43
 
 43:                                               ; preds = %40

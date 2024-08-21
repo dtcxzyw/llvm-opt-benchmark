@@ -865,7 +865,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
 .critedge:                                        ; preds = %Aig_ManObj.exit, %6
   %30 = getelementptr inbounds i8, ptr %1, i64 4
   %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, %4
+  %32 = icmp eq i32 %4, %31
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %.critedge

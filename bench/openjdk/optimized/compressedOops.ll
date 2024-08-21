@@ -313,10 +313,10 @@ define hidden void @_ZN14CompressedOops28set_use_implicit_null_checksEb(i1 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef readnone %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
-  %.not.i = icmp ule ptr %2, %0
+  %.not.i = icmp uge ptr %0, %2
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
   %4 = getelementptr inbounds ptr, ptr %2, i64 %3
-  %5 = icmp ugt ptr %4, %0
+  %5 = icmp ult ptr %0, %4
   %6 = select i1 %.not.i, i1 %5, i1 false
   ret i1 %6
 }

@@ -401,7 +401,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -483,7 +483,7 @@ if.end12.i.i.i43:                                 ; preds = %if.else.i.i.i65, %w
 
 if.then.i.i51:                                    ; preds = %if.end12.i.i.i43, %if.then.i.i.i61
   %retval.sroa.4.0.i.ph.i.i52 = phi ptr [ %__y.0.lcssa25.i.i.i62, %if.then.i.i.i61 ], [ %__y.0.lcssa26.i.i.i44, %if.end12.i.i.i43 ]
-  %cmp2.i.i.i53 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i52
+  %cmp2.i.i.i53 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i52, %0
   br i1 %cmp2.i.i.i53, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i57, label %lor.rhs.i.i.i54
 
 lor.rhs.i.i.i54:                                  ; preds = %if.then.i.i51
@@ -565,7 +565,7 @@ if.end12.i.i.i95:                                 ; preds = %if.else.i.i.i117, %
 
 if.then.i.i103:                                   ; preds = %if.end12.i.i.i95, %if.then.i.i.i113
   %retval.sroa.4.0.i.ph.i.i104 = phi ptr [ %__y.0.lcssa25.i.i.i114, %if.then.i.i.i113 ], [ %__y.0.lcssa26.i.i.i96, %if.end12.i.i.i95 ]
-  %cmp2.i.i.i105 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i104
+  %cmp2.i.i.i105 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i104, %0
   br i1 %cmp2.i.i.i105, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i109, label %lor.rhs.i.i.i106
 
 lor.rhs.i.i.i106:                                 ; preds = %if.then.i.i103
@@ -654,7 +654,7 @@ if.end12.i.i.i143:                                ; preds = %if.else.i.i.i165, %
 
 if.then.i.i151:                                   ; preds = %if.end12.i.i.i143, %if.then.i.i.i161
   %retval.sroa.4.0.i.ph.i.i152 = phi ptr [ %__y.0.lcssa25.i.i.i162, %if.then.i.i.i161 ], [ %__y.0.lcssa26.i.i.i144, %if.end12.i.i.i143 ]
-  %cmp2.i.i.i153 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i152
+  %cmp2.i.i.i153 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i152, %0
   br i1 %cmp2.i.i.i153, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i157, label %lor.rhs.i.i.i154
 
 lor.rhs.i.i.i154:                                 ; preds = %if.then.i.i151
@@ -744,7 +744,7 @@ if.end12.i.i.i194:                                ; preds = %if.else.i.i.i216, %
 
 if.then.i.i202:                                   ; preds = %if.end12.i.i.i194, %if.then.i.i.i212
   %retval.sroa.4.0.i.ph.i.i203 = phi ptr [ %__y.0.lcssa25.i.i.i213, %if.then.i.i.i212 ], [ %__y.0.lcssa26.i.i.i195, %if.end12.i.i.i194 ]
-  %cmp2.i.i.i204 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i203
+  %cmp2.i.i.i204 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i203, %0
   br i1 %cmp2.i.i.i204, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i208, label %lor.rhs.i.i.i205
 
 lor.rhs.i.i.i205:                                 ; preds = %if.then.i.i202
@@ -827,7 +827,7 @@ if.end12.i.i.i244:                                ; preds = %if.else.i.i.i266, %
 
 if.then.i.i252:                                   ; preds = %if.end12.i.i.i244, %if.then.i.i.i262
   %retval.sroa.4.0.i.ph.i.i253 = phi ptr [ %__y.0.lcssa25.i.i.i263, %if.then.i.i.i262 ], [ %__y.0.lcssa26.i.i.i245, %if.end12.i.i.i244 ]
-  %cmp2.i.i.i254 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i253
+  %cmp2.i.i.i254 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i253, %0
   br i1 %cmp2.i.i.i254, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i258, label %lor.rhs.i.i.i255
 
 lor.rhs.i.i.i255:                                 ; preds = %if.then.i.i252
@@ -909,7 +909,7 @@ if.end12.i.i.i295:                                ; preds = %if.else.i.i.i317, %
 
 if.then.i.i303:                                   ; preds = %if.end12.i.i.i295, %if.then.i.i.i313
   %retval.sroa.4.0.i.ph.i.i304 = phi ptr [ %__y.0.lcssa25.i.i.i314, %if.then.i.i.i313 ], [ %__y.0.lcssa26.i.i.i296, %if.end12.i.i.i295 ]
-  %cmp2.i.i.i305 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i304
+  %cmp2.i.i.i305 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i304, %0
   br i1 %cmp2.i.i.i305, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i309, label %lor.rhs.i.i.i306
 
 lor.rhs.i.i.i306:                                 ; preds = %if.then.i.i303
@@ -991,7 +991,7 @@ if.end12.i.i.i347:                                ; preds = %if.else.i.i.i369, %
 
 if.then.i.i355:                                   ; preds = %if.end12.i.i.i347, %if.then.i.i.i365
   %retval.sroa.4.0.i.ph.i.i356 = phi ptr [ %__y.0.lcssa25.i.i.i366, %if.then.i.i.i365 ], [ %__y.0.lcssa26.i.i.i348, %if.end12.i.i.i347 ]
-  %cmp2.i.i.i357 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i356
+  %cmp2.i.i.i357 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i356, %0
   br i1 %cmp2.i.i.i357, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i361, label %lor.rhs.i.i.i358
 
 lor.rhs.i.i.i358:                                 ; preds = %if.then.i.i355
@@ -1073,7 +1073,7 @@ if.end12.i.i.i397:                                ; preds = %if.else.i.i.i419, %
 
 if.then.i.i405:                                   ; preds = %if.end12.i.i.i397, %if.then.i.i.i415
   %retval.sroa.4.0.i.ph.i.i406 = phi ptr [ %__y.0.lcssa25.i.i.i416, %if.then.i.i.i415 ], [ %__y.0.lcssa26.i.i.i398, %if.end12.i.i.i397 ]
-  %cmp2.i.i.i407 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i406
+  %cmp2.i.i.i407 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i406, %0
   br i1 %cmp2.i.i.i407, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i411, label %lor.rhs.i.i.i408
 
 lor.rhs.i.i.i408:                                 ; preds = %if.then.i.i405
@@ -1155,7 +1155,7 @@ if.end12.i.i.i448:                                ; preds = %if.else.i.i.i470, %
 
 if.then.i.i456:                                   ; preds = %if.end12.i.i.i448, %if.then.i.i.i466
   %retval.sroa.4.0.i.ph.i.i457 = phi ptr [ %__y.0.lcssa25.i.i.i467, %if.then.i.i.i466 ], [ %__y.0.lcssa26.i.i.i449, %if.end12.i.i.i448 ]
-  %cmp2.i.i.i458 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i457
+  %cmp2.i.i.i458 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i457, %0
   br i1 %cmp2.i.i.i458, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i462, label %lor.rhs.i.i.i459
 
 lor.rhs.i.i.i459:                                 ; preds = %if.then.i.i456
@@ -1276,7 +1276,7 @@ if.end12.i.i.i499:                                ; preds = %if.else.i.i.i521, %
 
 if.then.i.i507:                                   ; preds = %if.end12.i.i.i499, %if.then.i.i.i517
   %retval.sroa.4.0.i.ph.i.i508 = phi ptr [ %__y.0.lcssa25.i.i.i518, %if.then.i.i.i517 ], [ %__y.0.lcssa26.i.i.i500, %if.end12.i.i.i499 ]
-  %cmp2.i.i.i509 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i508
+  %cmp2.i.i.i509 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i508, %0
   br i1 %cmp2.i.i.i509, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i513, label %lor.rhs.i.i.i510
 
 lor.rhs.i.i.i510:                                 ; preds = %if.then.i.i507
@@ -1416,7 +1416,7 @@ if.end12.i.i.i570:                                ; preds = %if.else.i.i.i592, %
 
 if.then.i.i578:                                   ; preds = %if.end12.i.i.i570, %if.then.i.i.i588
   %retval.sroa.4.0.i.ph.i.i579 = phi ptr [ %__y.0.lcssa25.i.i.i589, %if.then.i.i.i588 ], [ %__y.0.lcssa26.i.i.i571, %if.end12.i.i.i570 ]
-  %cmp2.i.i.i580 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i579
+  %cmp2.i.i.i580 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i579, %0
   br i1 %cmp2.i.i.i580, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i584, label %lor.rhs.i.i.i581
 
 lor.rhs.i.i.i581:                                 ; preds = %if.then.i.i578
@@ -1517,7 +1517,7 @@ if.end12.i.i.i619:                                ; preds = %if.else.i.i.i641, %
 
 if.then.i.i627:                                   ; preds = %if.end12.i.i.i619, %if.then.i.i.i637
   %retval.sroa.4.0.i.ph.i.i628 = phi ptr [ %__y.0.lcssa25.i.i.i638, %if.then.i.i.i637 ], [ %__y.0.lcssa26.i.i.i620, %if.end12.i.i.i619 ]
-  %cmp2.i.i.i629 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i628
+  %cmp2.i.i.i629 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i628, %0
   br i1 %cmp2.i.i.i629, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i633, label %lor.rhs.i.i.i630
 
 lor.rhs.i.i.i630:                                 ; preds = %if.then.i.i627
@@ -1633,7 +1633,7 @@ if.end12.i.i.i676:                                ; preds = %if.else.i.i.i698, %
 
 if.then.i.i684:                                   ; preds = %if.end12.i.i.i676, %if.then.i.i.i694
   %retval.sroa.4.0.i.ph.i.i685 = phi ptr [ %__y.0.lcssa25.i.i.i695, %if.then.i.i.i694 ], [ %__y.0.lcssa26.i.i.i677, %if.end12.i.i.i676 ]
-  %cmp2.i.i.i686 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i685
+  %cmp2.i.i.i686 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i685, %0
   br i1 %cmp2.i.i.i686, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i690, label %lor.rhs.i.i.i687
 
 lor.rhs.i.i.i687:                                 ; preds = %if.then.i.i684
@@ -1765,7 +1765,7 @@ if.end12.i.i.i732:                                ; preds = %if.else.i.i.i754, %
 
 if.then.i.i740:                                   ; preds = %if.end12.i.i.i732, %if.then.i.i.i750
   %retval.sroa.4.0.i.ph.i.i741 = phi ptr [ %__y.0.lcssa25.i.i.i751, %if.then.i.i.i750 ], [ %__y.0.lcssa26.i.i.i733, %if.end12.i.i.i732 ]
-  %cmp2.i.i.i742 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i741
+  %cmp2.i.i.i742 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i741, %0
   br i1 %cmp2.i.i.i742, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i746, label %lor.rhs.i.i.i743
 
 lor.rhs.i.i.i743:                                 ; preds = %if.then.i.i740
@@ -1862,7 +1862,7 @@ if.end12.i.i.i788:                                ; preds = %if.else.i.i.i810, %
 
 if.then.i.i796:                                   ; preds = %if.end12.i.i.i788, %if.then.i.i.i806
   %retval.sroa.4.0.i.ph.i.i797 = phi ptr [ %__y.0.lcssa25.i.i.i807, %if.then.i.i.i806 ], [ %__y.0.lcssa26.i.i.i789, %if.end12.i.i.i788 ]
-  %cmp2.i.i.i798 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i797
+  %cmp2.i.i.i798 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i797, %0
   br i1 %cmp2.i.i.i798, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i802, label %lor.rhs.i.i.i799
 
 lor.rhs.i.i.i799:                                 ; preds = %if.then.i.i796
@@ -1961,7 +1961,7 @@ if.end12.i.i.i853:                                ; preds = %if.else.i.i.i875, %
 
 if.then.i.i861:                                   ; preds = %if.end12.i.i.i853, %if.then.i.i.i871
   %retval.sroa.4.0.i.ph.i.i862 = phi ptr [ %__y.0.lcssa25.i.i.i872, %if.then.i.i.i871 ], [ %__y.0.lcssa26.i.i.i854, %if.end12.i.i.i853 ]
-  %cmp2.i.i.i863 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i862
+  %cmp2.i.i.i863 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i862, %0
   br i1 %cmp2.i.i.i863, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i867, label %lor.rhs.i.i.i864
 
 lor.rhs.i.i.i864:                                 ; preds = %if.then.i.i861
@@ -2080,7 +2080,7 @@ if.end12.i.i.i918:                                ; preds = %if.else.i.i.i940, %
 
 if.then.i.i926:                                   ; preds = %if.end12.i.i.i918, %if.then.i.i.i936
   %retval.sroa.4.0.i.ph.i.i927 = phi ptr [ %__y.0.lcssa25.i.i.i937, %if.then.i.i.i936 ], [ %__y.0.lcssa26.i.i.i919, %if.end12.i.i.i918 ]
-  %cmp2.i.i.i928 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i927
+  %cmp2.i.i.i928 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i927, %0
   br i1 %cmp2.i.i.i928, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i932, label %lor.rhs.i.i.i929
 
 lor.rhs.i.i.i929:                                 ; preds = %if.then.i.i926
@@ -2199,7 +2199,7 @@ if.end12.i.i.i994:                                ; preds = %if.else.i.i.i1016, 
 
 if.then.i.i1002:                                  ; preds = %if.end12.i.i.i994, %if.then.i.i.i1012
   %retval.sroa.4.0.i.ph.i.i1003 = phi ptr [ %__y.0.lcssa25.i.i.i1013, %if.then.i.i.i1012 ], [ %__y.0.lcssa26.i.i.i995, %if.end12.i.i.i994 ]
-  %cmp2.i.i.i1004 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i1003
+  %cmp2.i.i.i1004 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i1003, %0
   br i1 %cmp2.i.i.i1004, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i1008, label %lor.rhs.i.i.i1005
 
 lor.rhs.i.i.i1005:                                ; preds = %if.then.i.i1002
@@ -2318,7 +2318,7 @@ if.end12.i.i.i1070:                               ; preds = %if.else.i.i.i1092, 
 
 if.then.i.i1078:                                  ; preds = %if.end12.i.i.i1070, %if.then.i.i.i1088
   %retval.sroa.4.0.i.ph.i.i1079 = phi ptr [ %__y.0.lcssa25.i.i.i1089, %if.then.i.i.i1088 ], [ %__y.0.lcssa26.i.i.i1071, %if.end12.i.i.i1070 ]
-  %cmp2.i.i.i1080 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i1079
+  %cmp2.i.i.i1080 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i1079, %0
   br i1 %cmp2.i.i.i1080, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i1084, label %lor.rhs.i.i.i1081
 
 lor.rhs.i.i.i1081:                                ; preds = %if.then.i.i1078
@@ -2399,7 +2399,7 @@ if.end12.i.i.i1123:                               ; preds = %if.else.i.i.i1145, 
 
 if.then.i.i1131:                                  ; preds = %if.end12.i.i.i1123, %if.then.i.i.i1141
   %retval.sroa.4.0.i.ph.i.i1132 = phi ptr [ %__y.0.lcssa25.i.i.i1142, %if.then.i.i.i1141 ], [ %__y.0.lcssa26.i.i.i1124, %if.end12.i.i.i1123 ]
-  %cmp2.i.i.i1133 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i1132
+  %cmp2.i.i.i1133 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i1132, %0
   br i1 %cmp2.i.i.i1133, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i1137, label %lor.rhs.i.i.i1134
 
 lor.rhs.i.i.i1134:                                ; preds = %if.then.i.i1131
@@ -2763,7 +2763,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -2845,7 +2845,7 @@ if.end12.i.i.i43:                                 ; preds = %if.else.i.i.i65, %w
 
 if.then.i.i51:                                    ; preds = %if.end12.i.i.i43, %if.then.i.i.i61
   %retval.sroa.4.0.i.ph.i.i52 = phi ptr [ %__y.0.lcssa25.i.i.i62, %if.then.i.i.i61 ], [ %__y.0.lcssa26.i.i.i44, %if.end12.i.i.i43 ]
-  %cmp2.i.i.i53 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i52
+  %cmp2.i.i.i53 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i52, %0
   br i1 %cmp2.i.i.i53, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i57, label %lor.rhs.i.i.i54
 
 lor.rhs.i.i.i54:                                  ; preds = %if.then.i.i51
@@ -2927,7 +2927,7 @@ if.end12.i.i.i95:                                 ; preds = %if.else.i.i.i117, %
 
 if.then.i.i103:                                   ; preds = %if.end12.i.i.i95, %if.then.i.i.i113
   %retval.sroa.4.0.i.ph.i.i104 = phi ptr [ %__y.0.lcssa25.i.i.i114, %if.then.i.i.i113 ], [ %__y.0.lcssa26.i.i.i96, %if.end12.i.i.i95 ]
-  %cmp2.i.i.i105 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i104
+  %cmp2.i.i.i105 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i104, %0
   br i1 %cmp2.i.i.i105, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i109, label %lor.rhs.i.i.i106
 
 lor.rhs.i.i.i106:                                 ; preds = %if.then.i.i103
@@ -3016,7 +3016,7 @@ if.end12.i.i.i143:                                ; preds = %if.else.i.i.i165, %
 
 if.then.i.i151:                                   ; preds = %if.end12.i.i.i143, %if.then.i.i.i161
   %retval.sroa.4.0.i.ph.i.i152 = phi ptr [ %__y.0.lcssa25.i.i.i162, %if.then.i.i.i161 ], [ %__y.0.lcssa26.i.i.i144, %if.end12.i.i.i143 ]
-  %cmp2.i.i.i153 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i152
+  %cmp2.i.i.i153 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i152, %0
   br i1 %cmp2.i.i.i153, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i157, label %lor.rhs.i.i.i154
 
 lor.rhs.i.i.i154:                                 ; preds = %if.then.i.i151
@@ -3106,7 +3106,7 @@ if.end12.i.i.i194:                                ; preds = %if.else.i.i.i216, %
 
 if.then.i.i202:                                   ; preds = %if.end12.i.i.i194, %if.then.i.i.i212
   %retval.sroa.4.0.i.ph.i.i203 = phi ptr [ %__y.0.lcssa25.i.i.i213, %if.then.i.i.i212 ], [ %__y.0.lcssa26.i.i.i195, %if.end12.i.i.i194 ]
-  %cmp2.i.i.i204 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i203
+  %cmp2.i.i.i204 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i203, %0
   br i1 %cmp2.i.i.i204, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i208, label %lor.rhs.i.i.i205
 
 lor.rhs.i.i.i205:                                 ; preds = %if.then.i.i202
@@ -3189,7 +3189,7 @@ if.end12.i.i.i244:                                ; preds = %if.else.i.i.i266, %
 
 if.then.i.i252:                                   ; preds = %if.end12.i.i.i244, %if.then.i.i.i262
   %retval.sroa.4.0.i.ph.i.i253 = phi ptr [ %__y.0.lcssa25.i.i.i263, %if.then.i.i.i262 ], [ %__y.0.lcssa26.i.i.i245, %if.end12.i.i.i244 ]
-  %cmp2.i.i.i254 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i253
+  %cmp2.i.i.i254 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i253, %0
   br i1 %cmp2.i.i.i254, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i258, label %lor.rhs.i.i.i255
 
 lor.rhs.i.i.i255:                                 ; preds = %if.then.i.i252
@@ -3271,7 +3271,7 @@ if.end12.i.i.i295:                                ; preds = %if.else.i.i.i317, %
 
 if.then.i.i303:                                   ; preds = %if.end12.i.i.i295, %if.then.i.i.i313
   %retval.sroa.4.0.i.ph.i.i304 = phi ptr [ %__y.0.lcssa25.i.i.i314, %if.then.i.i.i313 ], [ %__y.0.lcssa26.i.i.i296, %if.end12.i.i.i295 ]
-  %cmp2.i.i.i305 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i304
+  %cmp2.i.i.i305 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i304, %0
   br i1 %cmp2.i.i.i305, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i309, label %lor.rhs.i.i.i306
 
 lor.rhs.i.i.i306:                                 ; preds = %if.then.i.i303
@@ -3353,7 +3353,7 @@ if.end12.i.i.i347:                                ; preds = %if.else.i.i.i369, %
 
 if.then.i.i355:                                   ; preds = %if.end12.i.i.i347, %if.then.i.i.i365
   %retval.sroa.4.0.i.ph.i.i356 = phi ptr [ %__y.0.lcssa25.i.i.i366, %if.then.i.i.i365 ], [ %__y.0.lcssa26.i.i.i348, %if.end12.i.i.i347 ]
-  %cmp2.i.i.i357 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i356
+  %cmp2.i.i.i357 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i356, %0
   br i1 %cmp2.i.i.i357, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i361, label %lor.rhs.i.i.i358
 
 lor.rhs.i.i.i358:                                 ; preds = %if.then.i.i355
@@ -3435,7 +3435,7 @@ if.end12.i.i.i397:                                ; preds = %if.else.i.i.i419, %
 
 if.then.i.i405:                                   ; preds = %if.end12.i.i.i397, %if.then.i.i.i415
   %retval.sroa.4.0.i.ph.i.i406 = phi ptr [ %__y.0.lcssa25.i.i.i416, %if.then.i.i.i415 ], [ %__y.0.lcssa26.i.i.i398, %if.end12.i.i.i397 ]
-  %cmp2.i.i.i407 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i406
+  %cmp2.i.i.i407 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i406, %0
   br i1 %cmp2.i.i.i407, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i411, label %lor.rhs.i.i.i408
 
 lor.rhs.i.i.i408:                                 ; preds = %if.then.i.i405
@@ -3517,7 +3517,7 @@ if.end12.i.i.i448:                                ; preds = %if.else.i.i.i470, %
 
 if.then.i.i456:                                   ; preds = %if.end12.i.i.i448, %if.then.i.i.i466
   %retval.sroa.4.0.i.ph.i.i457 = phi ptr [ %__y.0.lcssa25.i.i.i467, %if.then.i.i.i466 ], [ %__y.0.lcssa26.i.i.i449, %if.end12.i.i.i448 ]
-  %cmp2.i.i.i458 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i457
+  %cmp2.i.i.i458 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i457, %0
   br i1 %cmp2.i.i.i458, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i462, label %lor.rhs.i.i.i459
 
 lor.rhs.i.i.i459:                                 ; preds = %if.then.i.i456
@@ -3638,7 +3638,7 @@ if.end12.i.i.i499:                                ; preds = %if.else.i.i.i521, %
 
 if.then.i.i507:                                   ; preds = %if.end12.i.i.i499, %if.then.i.i.i517
   %retval.sroa.4.0.i.ph.i.i508 = phi ptr [ %__y.0.lcssa25.i.i.i518, %if.then.i.i.i517 ], [ %__y.0.lcssa26.i.i.i500, %if.end12.i.i.i499 ]
-  %cmp2.i.i.i509 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i508
+  %cmp2.i.i.i509 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i508, %0
   br i1 %cmp2.i.i.i509, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i513, label %lor.rhs.i.i.i510
 
 lor.rhs.i.i.i510:                                 ; preds = %if.then.i.i507
@@ -3778,7 +3778,7 @@ if.end12.i.i.i570:                                ; preds = %if.else.i.i.i592, %
 
 if.then.i.i578:                                   ; preds = %if.end12.i.i.i570, %if.then.i.i.i588
   %retval.sroa.4.0.i.ph.i.i579 = phi ptr [ %__y.0.lcssa25.i.i.i589, %if.then.i.i.i588 ], [ %__y.0.lcssa26.i.i.i571, %if.end12.i.i.i570 ]
-  %cmp2.i.i.i580 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i579
+  %cmp2.i.i.i580 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i579, %0
   br i1 %cmp2.i.i.i580, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i584, label %lor.rhs.i.i.i581
 
 lor.rhs.i.i.i581:                                 ; preds = %if.then.i.i578
@@ -3879,7 +3879,7 @@ if.end12.i.i.i619:                                ; preds = %if.else.i.i.i641, %
 
 if.then.i.i627:                                   ; preds = %if.end12.i.i.i619, %if.then.i.i.i637
   %retval.sroa.4.0.i.ph.i.i628 = phi ptr [ %__y.0.lcssa25.i.i.i638, %if.then.i.i.i637 ], [ %__y.0.lcssa26.i.i.i620, %if.end12.i.i.i619 ]
-  %cmp2.i.i.i629 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i628
+  %cmp2.i.i.i629 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i628, %0
   br i1 %cmp2.i.i.i629, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i633, label %lor.rhs.i.i.i630
 
 lor.rhs.i.i.i630:                                 ; preds = %if.then.i.i627
@@ -3995,7 +3995,7 @@ if.end12.i.i.i676:                                ; preds = %if.else.i.i.i698, %
 
 if.then.i.i684:                                   ; preds = %if.end12.i.i.i676, %if.then.i.i.i694
   %retval.sroa.4.0.i.ph.i.i685 = phi ptr [ %__y.0.lcssa25.i.i.i695, %if.then.i.i.i694 ], [ %__y.0.lcssa26.i.i.i677, %if.end12.i.i.i676 ]
-  %cmp2.i.i.i686 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i685
+  %cmp2.i.i.i686 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i685, %0
   br i1 %cmp2.i.i.i686, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i690, label %lor.rhs.i.i.i687
 
 lor.rhs.i.i.i687:                                 ; preds = %if.then.i.i684
@@ -4127,7 +4127,7 @@ if.end12.i.i.i732:                                ; preds = %if.else.i.i.i754, %
 
 if.then.i.i740:                                   ; preds = %if.end12.i.i.i732, %if.then.i.i.i750
   %retval.sroa.4.0.i.ph.i.i741 = phi ptr [ %__y.0.lcssa25.i.i.i751, %if.then.i.i.i750 ], [ %__y.0.lcssa26.i.i.i733, %if.end12.i.i.i732 ]
-  %cmp2.i.i.i742 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i741
+  %cmp2.i.i.i742 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i741, %0
   br i1 %cmp2.i.i.i742, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i746, label %lor.rhs.i.i.i743
 
 lor.rhs.i.i.i743:                                 ; preds = %if.then.i.i740
@@ -4224,7 +4224,7 @@ if.end12.i.i.i788:                                ; preds = %if.else.i.i.i810, %
 
 if.then.i.i796:                                   ; preds = %if.end12.i.i.i788, %if.then.i.i.i806
   %retval.sroa.4.0.i.ph.i.i797 = phi ptr [ %__y.0.lcssa25.i.i.i807, %if.then.i.i.i806 ], [ %__y.0.lcssa26.i.i.i789, %if.end12.i.i.i788 ]
-  %cmp2.i.i.i798 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i797
+  %cmp2.i.i.i798 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i797, %0
   br i1 %cmp2.i.i.i798, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i802, label %lor.rhs.i.i.i799
 
 lor.rhs.i.i.i799:                                 ; preds = %if.then.i.i796
@@ -4323,7 +4323,7 @@ if.end12.i.i.i853:                                ; preds = %if.else.i.i.i875, %
 
 if.then.i.i861:                                   ; preds = %if.end12.i.i.i853, %if.then.i.i.i871
   %retval.sroa.4.0.i.ph.i.i862 = phi ptr [ %__y.0.lcssa25.i.i.i872, %if.then.i.i.i871 ], [ %__y.0.lcssa26.i.i.i854, %if.end12.i.i.i853 ]
-  %cmp2.i.i.i863 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i862
+  %cmp2.i.i.i863 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i862, %0
   br i1 %cmp2.i.i.i863, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i867, label %lor.rhs.i.i.i864
 
 lor.rhs.i.i.i864:                                 ; preds = %if.then.i.i861
@@ -4442,7 +4442,7 @@ if.end12.i.i.i918:                                ; preds = %if.else.i.i.i940, %
 
 if.then.i.i926:                                   ; preds = %if.end12.i.i.i918, %if.then.i.i.i936
   %retval.sroa.4.0.i.ph.i.i927 = phi ptr [ %__y.0.lcssa25.i.i.i937, %if.then.i.i.i936 ], [ %__y.0.lcssa26.i.i.i919, %if.end12.i.i.i918 ]
-  %cmp2.i.i.i928 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i927
+  %cmp2.i.i.i928 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i927, %0
   br i1 %cmp2.i.i.i928, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i932, label %lor.rhs.i.i.i929
 
 lor.rhs.i.i.i929:                                 ; preds = %if.then.i.i926
@@ -4561,7 +4561,7 @@ if.end12.i.i.i994:                                ; preds = %if.else.i.i.i1016, 
 
 if.then.i.i1002:                                  ; preds = %if.end12.i.i.i994, %if.then.i.i.i1012
   %retval.sroa.4.0.i.ph.i.i1003 = phi ptr [ %__y.0.lcssa25.i.i.i1013, %if.then.i.i.i1012 ], [ %__y.0.lcssa26.i.i.i995, %if.end12.i.i.i994 ]
-  %cmp2.i.i.i1004 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i1003
+  %cmp2.i.i.i1004 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i1003, %0
   br i1 %cmp2.i.i.i1004, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i1008, label %lor.rhs.i.i.i1005
 
 lor.rhs.i.i.i1005:                                ; preds = %if.then.i.i1002
@@ -4680,7 +4680,7 @@ if.end12.i.i.i1070:                               ; preds = %if.else.i.i.i1092, 
 
 if.then.i.i1078:                                  ; preds = %if.end12.i.i.i1070, %if.then.i.i.i1088
   %retval.sroa.4.0.i.ph.i.i1079 = phi ptr [ %__y.0.lcssa25.i.i.i1089, %if.then.i.i.i1088 ], [ %__y.0.lcssa26.i.i.i1071, %if.end12.i.i.i1070 ]
-  %cmp2.i.i.i1080 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i1079
+  %cmp2.i.i.i1080 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i1079, %0
   br i1 %cmp2.i.i.i1080, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i1084, label %lor.rhs.i.i.i1081
 
 lor.rhs.i.i.i1081:                                ; preds = %if.then.i.i1078
@@ -4761,7 +4761,7 @@ if.end12.i.i.i1123:                               ; preds = %if.else.i.i.i1145, 
 
 if.then.i.i1131:                                  ; preds = %if.end12.i.i.i1123, %if.then.i.i.i1141
   %retval.sroa.4.0.i.ph.i.i1132 = phi ptr [ %__y.0.lcssa25.i.i.i1142, %if.then.i.i.i1141 ], [ %__y.0.lcssa26.i.i.i1124, %if.end12.i.i.i1123 ]
-  %cmp2.i.i.i1133 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i1132
+  %cmp2.i.i.i1133 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i1132, %0
   br i1 %cmp2.i.i.i1133, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i1137, label %lor.rhs.i.i.i1134
 
 lor.rhs.i.i.i1134:                                ; preds = %if.then.i.i1131
@@ -8087,7 +8087,7 @@ entry:
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %cmp.i = icmp eq ptr %call.i.i.i9, %add.ptr.i
+  %cmp.i = icmp eq ptr %add.ptr.i, %call.i.i.i9
   br i1 %type_deduction, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
@@ -9284,7 +9284,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa30.i, %if.then.i ], [ %__y.0.lcssa31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -12001,7 +12001,7 @@ entry:
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %cmp.i = icmp eq ptr %call.i.i.i9, %add.ptr.i
+  %cmp.i = icmp eq ptr %add.ptr.i, %call.i.i.i9
   br i1 %type_deduction, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %invoke.cont

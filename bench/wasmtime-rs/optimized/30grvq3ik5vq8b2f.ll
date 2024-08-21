@@ -37,7 +37,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.2.0.i.i = phi ptr [ %1, %3 ], [ %8, %7 ]
   %5 = icmp ne ptr %.sroa.2.0.i.i, null
   call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %.sroa.2.0.i.i, %0
+  %6 = icmp eq ptr %0, %.sroa.2.0.i.i
   br i1 %6, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he4b8f7b02bc34a9fE.exit", label %7
 
 7:                                                ; preds = %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5f3cf8f357612e77E.llvm.12584902720330826042.exit.i.i"
@@ -636,7 +636,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reser
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %24 = icmp ult i64 %5, 5
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23

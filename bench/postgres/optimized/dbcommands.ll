@@ -2479,7 +2479,7 @@ define dso_local i32 @get_database_oid(ptr noundef %0, i1 noundef zeroext %1) lo
   call void @systable_endscan(ptr noundef %6) #15
   call void @table_close(ptr noundef %4, i32 noundef 1) #15
   %.not12 = icmp ne i32 %.0, 0
-  %brmerge = or i1 %.not12, %1
+  %brmerge = or i1 %1, %.not12
   br i1 %brmerge, label %21, label %17
 
 17:                                               ; preds = %16
@@ -4055,7 +4055,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp slt i32 %10, %1
+  %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
@@ -4688,7 +4688,7 @@ define internal fastcc void @CreateDirAndVersionFile(ptr noundef %0, i32 noundef
   %12 = tail call ptr @__errno_location() #18
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 17
-  %brmerge.not = and i1 %.not, %3
+  %brmerge.not = and i1 %3, %.not
   br i1 %brmerge.not, label %18, label %14
 
 14:                                               ; preds = %11
@@ -4709,7 +4709,7 @@ define internal fastcc void @CreateDirAndVersionFile(ptr noundef %0, i32 noundef
   %23 = tail call ptr @__errno_location() #18
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 17
-  %brmerge21.not = and i1 %25, %3
+  %brmerge21.not = and i1 %3, %25
   br i1 %brmerge21.not, label %26, label %.thread
 
 26:                                               ; preds = %22

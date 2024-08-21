@@ -773,7 +773,7 @@ SearchColorNoIdx.exit.i.i:                        ; preds = %.lr.ph.i76.i.i, %20
 .lr.ph.preheader.i.i21:                           ; preds = %273
   store i8 %spec.select153.i, ptr %8, align 16
   %277 = zext i8 %spec.select153.i to i32
-  %278 = mul i32 %277, %3
+  %278 = mul i32 %3, %277
   br label %.lr.ph.i116.i
 
 .lr.ph.i116.i:                                    ; preds = %.lr.ph.i116.i, %.lr.ph.preheader.i.i21
@@ -830,7 +830,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
   %302 = zext i32 %.088133.i to i64
   %303 = getelementptr inbounds [256 x %struct.Sum], ptr %9, i64 0, i64 %302
   store i8 %301, ptr %303, align 8
-  %304 = mul i32 %300, %3
+  %304 = mul i32 %3, %300
   %305 = add i32 %304, %277
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds i32, ptr %108, i64 %306
@@ -875,9 +875,9 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
 .lr.ph138.i:                                      ; preds = %320
   %324 = trunc nuw i64 %indvars.iv to i32
   %325 = xor i32 %324, -1
-  %326 = add i32 %325, %3
+  %326 = add i32 %3, %325
   %327 = zext i8 %321 to i32
-  %328 = mul i32 %327, %3
+  %328 = mul i32 %3, %327
   %invariant.op.i = add i32 %.198146.i, 1
   br label %329
 
@@ -929,7 +929,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %.lr.ph.i116.i
 
 .lr.ph144.i:                                      ; preds = %._crit_edge.thread.i
   %354 = zext i8 %321 to i32
-  %355 = mul i32 %354, %3
+  %355 = mul i32 %3, %354
   br label %356
 
 356:                                              ; preds = %356, %.lr.ph144.i

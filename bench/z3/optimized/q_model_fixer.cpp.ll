@@ -534,7 +534,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i:       ; preds = %for.body
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %7, %shr.i
+  %cmp.not.i.i = icmp ult i32 %shr.i, %7
   br i1 %cmp.not.i.i, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.then.i, label %invoke.cont8
 
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.then.i:  ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i
@@ -7468,7 +7468,7 @@ if.then:                                          ; preds = %while.body
   %0 = load ptr, ptr %add.ptr9.i.i.i, align 8
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i6466.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %cmp24.i.i.i.i = icmp ugt i64 %div.i6466.i.i.i, %div13.i.i.i
+  %cmp24.i.i.i.i = icmp ult i64 %div13.i.i.i, %div.i6466.i.i.i
   br i1 %cmp24.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
@@ -7552,7 +7552,7 @@ if.end8.split.i.i.i:                              ; preds = %_ZSt13__adjust_heap
   %dec.i.i.i = add nsw i64 %__parent.068.i.i.i, -1
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
   %7 = load ptr, ptr %add.ptr11.i.i.i, align 8
-  %cmp24.i16.not.i.i.i = icmp slt i64 %div.i6466.i.i.i, %__parent.068.i.i.i
+  %cmp24.i16.not.i.i.i = icmp sgt i64 %__parent.068.i.i.i, %div.i6466.i.i.i
   br i1 %cmp24.i16.not.i.i.i, label %while.end.i17.i.i.i, label %while.body.i47.i.i.i
 
 while.body.i47.i.i.i:                             ; preds = %if.end8.split.i.i.i, %while.body.i47.i.i.i

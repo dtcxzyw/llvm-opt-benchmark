@@ -689,7 +689,7 @@ entry:
   %res = alloca %class.__gmp_expr, align 8
   call void @__gmpz_init_set(ptr noundef nonnull %res, ptr noundef nonnull %this)
   %add = add i32 %amount, %size
-  %cmp8 = icmp ugt i32 %add, %size
+  %cmp8 = icmp ult i32 %size, %add
   br i1 %cmp8, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry

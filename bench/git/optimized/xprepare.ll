@@ -347,7 +347,7 @@ land.lhs.true.i.i:                                ; preds = %for.body68.i.i
   %cmp3.i.i.i = icmp sgt i64 %sub2.i.i.i, 100
   %add.i.i.i = add nsw i64 %i.2172.i.i, 100
   %e.addr.0.i.i.i = select i1 %cmp3.i.i.i, i64 %add.i.i.i, i64 %57
-  %cmp7.not33.not.i.i.i = icmp slt i64 %spec.select.i.i.i, %i.2172.i.i
+  %cmp7.not33.not.i.i.i = icmp sgt i64 %i.2172.i.i, %spec.select.i.i.i
   br i1 %cmp7.not33.not.i.i.i, label %for.body.preheader.i.i.i, label %if.then81.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %land.lhs.true.i.i
@@ -386,7 +386,7 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %for
   %rdis0.0.lcssa.i.i.i = phi i64 [ %rdis0.1.i.i.i, %for.inc.i.i.i ], [ %rdis0.035.i.i.i, %for.body.i.i.i ]
   %rpdis0.0.lcssa.i.i.i = phi i64 [ %rpdis0.1.i.i.i, %for.inc.i.i.i ], [ %rpdis0.036.i.i.i, %for.body.i.i.i ]
   %cmp20.i.i.i = icmp ne i64 %rdis0.0.lcssa.i.i.i, 0
-  %cmp26.not42.not.i.i.i = icmp sgt i64 %e.addr.0.i.i.i, %i.2172.i.i
+  %cmp26.not42.not.i.i.i = icmp slt i64 %i.2172.i.i, %e.addr.0.i.i.i
   %or.cond.i.i.i = select i1 %cmp20.i.i.i, i1 %cmp26.not42.not.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %for.body28.lr.ph.i.i.i, label %if.then81.i.i
 
@@ -506,7 +506,7 @@ land.lhs.true112.i.i:                             ; preds = %for.body102.i.i
   %cmp3.i90.i.i = icmp sgt i64 %sub2.i89.i.i, 100
   %add.i91.i.i = add nsw i64 %i.3177.i.i, 100
   %e.addr.0.i92.i.i = select i1 %cmp3.i90.i.i, i64 %add.i91.i.i, i64 %71
-  %cmp7.not33.not.i93.i.i = icmp slt i64 %spec.select.i88.i.i, %i.3177.i.i
+  %cmp7.not33.not.i93.i.i = icmp sgt i64 %i.3177.i.i, %spec.select.i88.i.i
   br i1 %cmp7.not33.not.i93.i.i, label %for.body.preheader.i95.i.i, label %if.then117.i.i
 
 for.body.preheader.i95.i.i:                       ; preds = %land.lhs.true112.i.i
@@ -545,7 +545,7 @@ for.end.i111.i.i:                                 ; preds = %for.inc.i105.i.i, %
   %rdis0.0.lcssa.i112.i.i = phi i64 [ %rdis0.1.i106.i.i, %for.inc.i105.i.i ], [ %rdis0.035.i100.i.i, %for.body.i97.i.i ]
   %rpdis0.0.lcssa.i113.i.i = phi i64 [ %rpdis0.1.i107.i.i, %for.inc.i105.i.i ], [ %rpdis0.036.i99.i.i, %for.body.i97.i.i ]
   %cmp20.i114.i.i = icmp ne i64 %rdis0.0.lcssa.i112.i.i, 0
-  %cmp26.not42.not.i115.i.i = icmp sgt i64 %e.addr.0.i92.i.i, %i.3177.i.i
+  %cmp26.not42.not.i115.i.i = icmp slt i64 %i.3177.i.i, %e.addr.0.i92.i.i
   %or.cond.i116.i.i = select i1 %cmp20.i114.i.i, i1 %cmp26.not42.not.i115.i.i, i1 false
   br i1 %or.cond.i116.i.i, label %for.body28.lr.ph.i117.i.i, label %if.then117.i.i
 

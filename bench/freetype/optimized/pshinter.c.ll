@@ -1538,13 +1538,13 @@ declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 define internal void @psh_globals_set_scale(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 400
   %7 = load i64, ptr %6, align 8
-  %.not = icmp eq i64 %7, %1
+  %.not = icmp eq i64 %1, %7
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = load i64, ptr %9, align 8
-  %.not22 = icmp eq i64 %10, %3
+  %.not22 = icmp eq i64 %3, %10
   br i1 %.not22, label %psh_globals_scale_widths.exit, label %11
 
 11:                                               ; preds = %8, %5
@@ -1612,13 +1612,13 @@ define internal void @psh_globals_set_scale(ptr noundef %0, i64 noundef %1, i64 
 psh_globals_scale_widths.exit:                    ; preds = %.lr.ph.i, %15, %11, %8
   %47 = getelementptr inbounds i8, ptr %0, i64 808
   %48 = load i64, ptr %47, align 8
-  %.not23 = icmp eq i64 %48, %2
+  %.not23 = icmp eq i64 %2, %48
   br i1 %.not23, label %49, label %52
 
 49:                                               ; preds = %psh_globals_scale_widths.exit
   %50 = getelementptr inbounds i8, ptr %0, i64 816
   %51 = load i64, ptr %50, align 8
-  %.not24 = icmp eq i64 %51, %4
+  %.not24 = icmp eq i64 %4, %51
   br i1 %.not24, label %psh_blues_scale_zones.exit, label %52
 
 52:                                               ; preds = %49, %psh_globals_scale_widths.exit
@@ -1693,7 +1693,7 @@ psh_globals_scale_widths.exit37:                  ; preds = %.lr.ph.i30, %52, %5
   %92 = load i64, ptr %91, align 8
   %93 = shl nsw i64 %92, 3
   %94 = sdiv i64 %93, 125
-  %95 = icmp sgt i64 %94, %2
+  %95 = icmp slt i64 %2, %94
   br label %102
 
 96:                                               ; preds = %psh_globals_scale_widths.exit37
@@ -3101,7 +3101,7 @@ define internal fastcc void @psh_hint_align(ptr nocapture noundef %0, ptr nocapt
   %71 = getelementptr inbounds i8, ptr %.056.i, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = add nsw i32 %72, %61
-  %.not44.i = icmp slt i32 %73, %54
+  %.not44.i = icmp sgt i32 %54, %73
   br i1 %.not44.i, label %82, label %74
 
 74:                                               ; preds = %70
@@ -3165,7 +3165,7 @@ define internal fastcc void @psh_hint_align(ptr nocapture noundef %0, ptr nocapt
   %104 = getelementptr inbounds i8, ptr %.pn61.i, i64 -36
   %105 = load i32, ptr %104, align 4
   %106 = sub nsw i32 %105, %92
-  %.not48.i = icmp sgt i32 %106, %16
+  %.not48.i = icmp slt i32 %16, %106
   br i1 %.not48.i, label %95, label %107
 
 107:                                              ; preds = %103
@@ -4446,7 +4446,7 @@ define internal void @ps_hints_t1stem3(ptr nocapture noundef %0, i32 noundef %1,
   %.072.i = phi i32 [ %40, %.lr.ph.i ], [ %75, %ps_mask_test_bit.exit34.thread.i ]
   %storemerge71.i = phi ptr [ %42, %.lr.ph.i ], [ %76, %ps_mask_test_bit.exit34.thread.i ]
   %56 = load i32, ptr %storemerge71.i, align 8
-  %.not.i.i = icmp ugt i32 %56, %34
+  %.not.i.i = icmp ult i32 %34, %56
   br i1 %.not.i.i, label %ps_mask_test_bit.exit.i, label %ps_mask_test_bit.exit.thread.i
 
 ps_mask_test_bit.exit.i:                          ; preds = %55
@@ -4460,7 +4460,7 @@ ps_mask_test_bit.exit.i:                          ; preds = %55
   br i1 %.not23.i, label %ps_mask_test_bit.exit.thread.i, label %.loopexit.i
 
 ps_mask_test_bit.exit.thread.i:                   ; preds = %ps_mask_test_bit.exit.i, %55
-  %.not.i29.i = icmp ugt i32 %56, %36
+  %.not.i29.i = icmp ult i32 %36, %56
   br i1 %.not.i29.i, label %ps_mask_test_bit.exit31.i, label %ps_mask_test_bit.exit31.thread.i
 
 ps_mask_test_bit.exit31.i:                        ; preds = %ps_mask_test_bit.exit.thread.i
@@ -4474,7 +4474,7 @@ ps_mask_test_bit.exit31.i:                        ; preds = %ps_mask_test_bit.ex
   br i1 %.not24.i, label %ps_mask_test_bit.exit31.thread.i, label %.loopexit.i
 
 ps_mask_test_bit.exit31.thread.i:                 ; preds = %ps_mask_test_bit.exit31.i, %ps_mask_test_bit.exit.thread.i
-  %.not.i32.i = icmp ugt i32 %56, %38
+  %.not.i32.i = icmp ult i32 %38, %56
   br i1 %.not.i32.i, label %ps_mask_test_bit.exit34.i, label %ps_mask_test_bit.exit34.thread.i
 
 ps_mask_test_bit.exit34.i:                        ; preds = %ps_mask_test_bit.exit31.thread.i
@@ -4558,7 +4558,7 @@ ps_mask_table_alloc.exit.i:                       ; preds = %81
 .loopexit.i:                                      ; preds = %ps_mask_test_bit.exit34.i, %ps_mask_test_bit.exit31.i, %ps_mask_test_bit.exit.i, %ps_mask_table_alloc.exit.thread.i
   %103 = phi i32 [ %.pre.i, %ps_mask_table_alloc.exit.thread.i ], [ %56, %ps_mask_test_bit.exit.i ], [ %56, %ps_mask_test_bit.exit31.i ], [ %56, %ps_mask_test_bit.exit34.i ]
   %.055.i = phi ptr [ %94, %ps_mask_table_alloc.exit.thread.i ], [ %storemerge71.i, %ps_mask_test_bit.exit.i ], [ %storemerge71.i, %ps_mask_test_bit.exit31.i ], [ %storemerge71.i, %ps_mask_test_bit.exit34.i ]
-  %.not.i36.i = icmp ugt i32 %103, %34
+  %.not.i36.i = icmp ult i32 %34, %103
   br i1 %.not.i36.i, label %124, label %104
 
 104:                                              ; preds = %.loopexit.i
@@ -4613,7 +4613,7 @@ ps_mask_set_bit.exit.i:                           ; preds = %112
   %134 = or i8 %130, %133
   store i8 %134, ptr %129, align 1
   %135 = load i32, ptr %.055.i, align 8
-  %.not.i39.i = icmp ugt i32 %135, %36
+  %.not.i39.i = icmp ult i32 %36, %135
   br i1 %.not.i39.i, label %155, label %136
 
 136:                                              ; preds = %124
@@ -4666,7 +4666,7 @@ ps_mask_set_bit.exit43.i:                         ; preds = %144
   %164 = or i8 %160, %163
   store i8 %164, ptr %159, align 1
   %165 = load i32, ptr %.055.i, align 8
-  %.not.i44.i = icmp ugt i32 %165, %38
+  %.not.i44.i = icmp ult i32 %38, %165
   br i1 %.not.i44.i, label %ps_dimension_add_counter.exit, label %166
 
 166:                                              ; preds = %155
@@ -5310,7 +5310,7 @@ ps_mask_table_last.exit:                          ; preds = %49
 71:                                               ; preds = %65, %64
   %.08.i.ph = phi ptr [ %55, %64 ], [ %70, %65 ]
   %72 = load i32, ptr %.08.i.ph, align 8
-  %.not.i = icmp ugt i32 %72, %.03164
+  %.not.i = icmp ult i32 %.03164, %72
   br i1 %.not.i, label %ps_mask_set_bit.exit, label %73
 
 73:                                               ; preds = %71
@@ -5525,7 +5525,7 @@ define internal void @ps_hints_t2mask(ptr nocapture noundef %0, i32 noundef %1, 
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %10
-  %.not25 = icmp eq i32 %13, %2
+  %.not25 = icmp eq i32 %2, %13
   br i1 %.not25, label %14, label %19
 
 14:                                               ; preds = %7
@@ -5561,7 +5561,7 @@ define internal void @ps_hints_t2counter(ptr nocapture noundef %0, i32 noundef %
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, %9
-  %.not23 = icmp eq i32 %12, %1
+  %.not23 = icmp eq i32 %1, %12
   br i1 %.not23, label %13, label %18
 
 13:                                               ; preds = %6

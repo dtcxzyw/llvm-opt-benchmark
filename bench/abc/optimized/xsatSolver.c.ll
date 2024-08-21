@@ -1045,7 +1045,7 @@ define void @xSAT_SolverCancelUntil(ptr nocapture noundef %0, i32 noundef %1) lo
   %.val40 = load ptr, ptr %41, align 8
   %42 = getelementptr i8, ptr %.val40, i64 4
   %.val.i = load i32, ptr %42, align 4
-  %43 = icmp sgt i32 %.val.i, %23
+  %43 = icmp slt i32 %23, %.val.i
   br i1 %43, label %xSAT_HeapInHeap.exit, label %48
 
 xSAT_HeapInHeap.exit:                             ; preds = %18
@@ -1060,7 +1060,7 @@ xSAT_HeapInHeap.exit:                             ; preds = %18
   %49 = add nsw i32 %23, 1
   %50 = load i32, ptr %.val40, align 8
   %51 = shl nsw i32 %50, 1
-  %.not.i = icmp sgt i32 %51, %23
+  %.not.i = icmp slt i32 %23, %51
   %.not.i.i.not.i = icmp sgt i32 %50, %23
   br i1 %.not.i, label %64, label %52
 
@@ -3324,7 +3324,7 @@ xSAT_SolverVarActRescale.exit.i.i:                ; preds = %.lr.ph.i.i.i, %286
   %.val11.i.i = load ptr, ptr %303, align 8
   %304 = getelementptr i8, ptr %.val11.i.i, i64 4
   %.val.i12.i.i = load i32, ptr %304, align 4
-  %305 = icmp sgt i32 %.val.i12.i.i, %266
+  %305 = icmp slt i32 %266, %.val.i12.i.i
   br i1 %305, label %xSAT_HeapInHeap.exit.i.i, label %xSAT_SolverVarActBump.exit.i
 
 xSAT_HeapInHeap.exit.i.i:                         ; preds = %301
@@ -4534,7 +4534,7 @@ xSAT_SolverVarActRescale.exit.i228.i:             ; preds = %.lr.ph.i.i256.i, %8
   %.val11.i229.i = load ptr, ptr %895, align 8
   %896 = getelementptr i8, ptr %.val11.i229.i, i64 4
   %.val.i12.i230.i = load i32, ptr %896, align 4
-  %897 = icmp sgt i32 %.val.i12.i230.i, %858
+  %897 = icmp slt i32 %858, %.val.i12.i230.i
   br i1 %897, label %xSAT_HeapInHeap.exit.i231.i, label %xSAT_SolverVarActBump.exit260.i
 
 xSAT_HeapInHeap.exit.i231.i:                      ; preds = %893

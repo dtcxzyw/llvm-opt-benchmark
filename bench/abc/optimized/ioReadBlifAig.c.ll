@@ -811,7 +811,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %351 ]
   %348 = getelementptr inbounds ptr, ptr %.val9.i.i, i64 %indvars.iv.i.i
   %349 = load ptr, ptr %348, align 8
-  %350 = icmp ugt ptr %349, %.172.i
+  %350 = icmp ult ptr %.172.i, %349
   br i1 %350, label %.critedge.loopexit.split.loop.exit14.i.i, label %351
 
 351:                                              ; preds = %347
@@ -976,7 +976,7 @@ Io_BlifSplitIntoTokens.exit.i.i:                  ; preds = %396, %Io_BlifReadPr
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i ], [ %indvars.iv.next.i.i.i, %413 ]
   %410 = getelementptr inbounds ptr, ptr %.val9.i.i.i, i64 %indvars.iv.i.i.i
   %411 = load ptr, ptr %410, align 8
-  %412 = icmp ugt ptr %411, %401
+  %412 = icmp ult ptr %401, %411
   br i1 %412, label %.critedge.loopexit.split.loop.exit14.i.i.i, label %413
 
 413:                                              ; preds = %409
@@ -1165,7 +1165,7 @@ Io_BlifHashFindOrAdd.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i, %Io
   %indvars.iv.i.i65.i = phi i64 [ 0, %.lr.ph.i23.i.i ], [ %indvars.iv.next.i.i66.i, %492 ]
   %489 = getelementptr inbounds ptr, ptr %.val9.i24.i.i, i64 %indvars.iv.i.i65.i
   %490 = load ptr, ptr %489, align 8
-  %491 = icmp ugt ptr %490, %444
+  %491 = icmp ult ptr %444, %490
   br i1 %491, label %.critedge.loopexit.split.loop.exit14.i.i68.i, label %492
 
 492:                                              ; preds = %488
@@ -1427,7 +1427,7 @@ Io_BlifHashFindOrAdd.exit.i93.i:                  ; preds = %.lr.ph.i.i.i91.i, %
   %indvars.iv.i.i106.i = phi i64 [ 0, %.lr.ph.i20.i.i ], [ %indvars.iv.next.i.i107.i, %607 ]
   %604 = getelementptr inbounds ptr, ptr %.val9.i21.i.i, i64 %indvars.iv.i.i106.i
   %605 = load ptr, ptr %604, align 8
-  %606 = icmp ugt ptr %605, %559
+  %606 = icmp ult ptr %559, %605
   br i1 %606, label %.critedge.loopexit.split.loop.exit14.i.i109.i, label %607
 
 607:                                              ; preds = %603
@@ -1607,7 +1607,7 @@ Io_BlifSplitIntoTokens.exit.i119.i:               ; preds = %666, %658
   %indvars.iv.i.i151.i = phi i64 [ 0, %.lr.ph.i54.i.i ], [ %indvars.iv.next.i.i152.i, %684 ]
   %681 = getelementptr inbounds ptr, ptr %.val9.i.i149.i, i64 %indvars.iv.i.i151.i
   %682 = load ptr, ptr %681, align 8
-  %683 = icmp ugt ptr %682, %671
+  %683 = icmp ult ptr %671, %682
   br i1 %683, label %.critedge.loopexit.split.loop.exit14.i.i154.i, label %684
 
 684:                                              ; preds = %680
@@ -1654,7 +1654,7 @@ Io_BlifGetLine.exit.i147.i:                       ; preds = %684, %.critedge.loo
   %indvars.iv.i60.i.i = phi i64 [ 0, %.lr.ph.i57.i.i ], [ %indvars.iv.next.i61.i.i, %702 ]
   %699 = getelementptr inbounds ptr, ptr %.val9.i58.i.i, i64 %indvars.iv.i60.i.i
   %700 = load ptr, ptr %699, align 8
-  %701 = icmp ugt ptr %700, %671
+  %701 = icmp ult ptr %671, %700
   br i1 %701, label %.critedge.loopexit.split.loop.exit14.i63.i.i, label %702
 
 702:                                              ; preds = %698
@@ -1934,7 +1934,7 @@ Io_BlifHashFindOrAdd.exit89.i.i:                  ; preds = %.lr.ph.i.i83.i.i, %
   %indvars.iv.i95.i.i = phi i64 [ 0, %.lr.ph.i92.i.i ], [ %indvars.iv.next.i96.i.i, %832 ]
   %829 = getelementptr inbounds ptr, ptr %.val9.i93.i.i, i64 %indvars.iv.i95.i.i
   %830 = load ptr, ptr %829, align 8
-  %831 = icmp ugt ptr %830, %671
+  %831 = icmp ult ptr %671, %830
   br i1 %831, label %.critedge.loopexit.split.loop.exit14.i98.i.i, label %832
 
 832:                                              ; preds = %828
@@ -1979,7 +1979,7 @@ Io_BlifGetLine.exit99.i.i:                        ; preds = %832, %.critedge.loo
   %indvars.iv.i105.i.i = phi i64 [ 0, %.lr.ph.i102.i.i ], [ %indvars.iv.next.i106.i.i, %851 ]
   %848 = getelementptr inbounds ptr, ptr %.val9.i103.i.i, i64 %indvars.iv.i105.i.i
   %849 = load ptr, ptr %848, align 8
-  %850 = icmp ugt ptr %849, %671
+  %850 = icmp ult ptr %671, %849
   br i1 %850, label %.critedge.loopexit.split.loop.exit14.i108.i.i, label %851
 
 851:                                              ; preds = %847
@@ -2225,7 +2225,7 @@ Io_BlifHashFindOrAdd.exit.i177.i:                 ; preds = %.lr.ph.i.i.i175.i, 
   %indvars.iv.i.i183.i = phi i64 [ 0, %.lr.ph.i32.i.i ], [ %indvars.iv.next.i.i184.i, %964 ]
   %961 = getelementptr inbounds ptr, ptr %.val9.i33.i.i, i64 %indvars.iv.i.i183.i
   %962 = load ptr, ptr %961, align 8
-  %963 = icmp ugt ptr %962, %916
+  %963 = icmp ult ptr %916, %962
   br i1 %963, label %.critedge.loopexit.split.loop.exit14.i.i186.i, label %964
 
 964:                                              ; preds = %960
@@ -2265,7 +2265,7 @@ Io_BlifGetLine.exit.i179.i:                       ; preds = %964, %.critedge.loo
   %indvars.iv.i39.i.i = phi i64 [ 0, %.lr.ph.i36.i.i ], [ %indvars.iv.next.i40.i.i, %979 ]
   %976 = getelementptr inbounds ptr, ptr %.val9.i37.i.i, i64 %indvars.iv.i39.i.i
   %977 = load ptr, ptr %976, align 8
-  %978 = icmp ugt ptr %977, %916
+  %978 = icmp ult ptr %916, %977
   br i1 %978, label %.critedge.loopexit.split.loop.exit14.i42.i.i, label %979
 
 979:                                              ; preds = %975
@@ -2305,7 +2305,7 @@ Io_BlifGetLine.exit43.i.i:                        ; preds = %979, %.critedge.loo
   %indvars.iv.i49.i.i = phi i64 [ 0, %.lr.ph.i46.i.i ], [ %indvars.iv.next.i50.i.i, %994 ]
   %991 = getelementptr inbounds ptr, ptr %.val9.i47.i.i, i64 %indvars.iv.i49.i.i
   %992 = load ptr, ptr %991, align 8
-  %993 = icmp ugt ptr %992, %916
+  %993 = icmp ult ptr %916, %992
   br i1 %993, label %.critedge.loopexit.split.loop.exit14.i52.i.i, label %994
 
 994:                                              ; preds = %990
@@ -3091,7 +3091,7 @@ Io_BlifHashLookup.exit.thread:                    ; preds = %.lr.ph, %Io_BlifHas
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i, %42 ]
   %39 = getelementptr inbounds ptr, ptr %.val9.i, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp ugt ptr %40, %1
+  %41 = icmp ult ptr %1, %40
   br i1 %41, label %.critedge.loopexit.split.loop.exit14.i, label %42
 
 42:                                               ; preds = %38
@@ -3135,7 +3135,7 @@ Io_BlifHashLookup.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i55, %59 ]
   %56 = getelementptr inbounds ptr, ptr %.val9.i52, i64 %indvars.iv.i54
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp ugt ptr %57, %1
+  %58 = icmp ult ptr %1, %57
   br i1 %58, label %.critedge.loopexit.split.loop.exit14.i57, label %59
 
 59:                                               ; preds = %55
@@ -3291,7 +3291,7 @@ Io_BlifSplitIntoTokens.exit.i:                    ; preds = %93, %.critedge
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i108.i ], [ %indvars.iv.next.i.i, %125 ]
   %122 = getelementptr inbounds ptr, ptr %.val9.i.i, i64 %indvars.iv.i.i
   %123 = load ptr, ptr %122, align 8
-  %124 = icmp ugt ptr %123, %107
+  %124 = icmp ult ptr %107, %123
   br i1 %124, label %.critedge.loopexit.split.loop.exit14.i.i, label %125
 
 125:                                              ; preds = %121
@@ -3347,7 +3347,7 @@ Io_BlifGetLine.exit.i:                            ; preds = %125, %.critedge.loo
   %indvars.iv.i114.i = phi i64 [ 0, %.lr.ph.i111.i ], [ %indvars.iv.next.i115.i, %154 ]
   %151 = getelementptr inbounds ptr, ptr %.val9.i112.i, i64 %indvars.iv.i114.i
   %152 = load ptr, ptr %151, align 8
-  %153 = icmp ugt ptr %152, %140
+  %153 = icmp ult ptr %140, %152
   br i1 %153, label %.critedge.loopexit.split.loop.exit14.i117.i, label %154
 
 154:                                              ; preds = %150
@@ -3418,7 +3418,7 @@ Io_BlifGetLine.exit118.i:                         ; preds = %154, %.critedge.loo
   %indvars.iv.i124.i = phi i64 [ 0, %.lr.ph.i121.i ], [ %indvars.iv.next.i125.i, %189 ]
   %186 = getelementptr inbounds ptr, ptr %.val9.i122.i, i64 %indvars.iv.i124.i
   %187 = load ptr, ptr %186, align 8
-  %188 = icmp ugt ptr %187, %172
+  %188 = icmp ult ptr %172, %187
   br i1 %188, label %.critedge.loopexit.split.loop.exit14.i127.i, label %189
 
 189:                                              ; preds = %185
@@ -3468,7 +3468,7 @@ Io_BlifGetLine.exit128.i:                         ; preds = %189, %.critedge.loo
   %indvars.iv.i134.i = phi i64 [ 0, %.lr.ph.i131.i ], [ %indvars.iv.next.i135.i, %211 ]
   %208 = getelementptr inbounds ptr, ptr %.val9.i132.i, i64 %indvars.iv.i134.i
   %209 = load ptr, ptr %208, align 8
-  %210 = icmp ugt ptr %209, %172
+  %210 = icmp ult ptr %172, %209
   br i1 %210, label %.critedge.loopexit.split.loop.exit14.i137.i, label %211
 
 211:                                              ; preds = %207
@@ -3512,7 +3512,7 @@ Io_BlifGetLine.exit138.i:                         ; preds = %211, %.critedge.loo
   %indvars.iv.i144.i = phi i64 [ 0, %.lr.ph.i141.i ], [ %indvars.iv.next.i145.i, %228 ]
   %225 = getelementptr inbounds ptr, ptr %.val9.i142.i, i64 %indvars.iv.i144.i
   %226 = load ptr, ptr %225, align 8
-  %227 = icmp ugt ptr %226, %172
+  %227 = icmp ult ptr %172, %226
   br i1 %227, label %.critedge.loopexit.split.loop.exit14.i147.i, label %228
 
 228:                                              ; preds = %224
@@ -3589,7 +3589,7 @@ Io_BlifGetLine.exit148.i:                         ; preds = %228, %.critedge.loo
   %indvars.iv.i154.i = phi i64 [ 0, %.lr.ph.i151.i ], [ %indvars.iv.next.i155.i, %265 ]
   %262 = getelementptr inbounds ptr, ptr %.val9.i152.i, i64 %indvars.iv.i154.i
   %263 = load ptr, ptr %262, align 8
-  %264 = icmp ugt ptr %263, %172
+  %264 = icmp ult ptr %172, %263
   br i1 %264, label %.critedge.loopexit.split.loop.exit14.i157.i, label %265
 
 265:                                              ; preds = %261

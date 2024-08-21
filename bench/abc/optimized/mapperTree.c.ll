@@ -311,7 +311,7 @@ define range(i32 0, 2) i32 @Vec_StrGets(ptr nocapture noundef writeonly %0, i32 
 
 34:                                               ; preds = %32
   %35 = load i32, ptr %3, align 4
-  %36 = add i32 %35, %1
+  %36 = add i32 %1, %35
   store i32 %36, ptr %3, align 4
   store i8 0, ptr %20, align 1
   br label %.loopexit

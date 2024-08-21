@@ -1468,13 +1468,13 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit20:              ; preds = %_ZNSt6vectorIfSaIfE
   %48 = getelementptr inbounds i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %.fr1.i.i = freeze i32 %49
-  %50 = icmp sgt i32 %.fr1.i.i, %44
+  %50 = icmp slt i32 %44, %.fr1.i.i
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %47, i64 8
   %53 = load i32, ptr %52, align 4
-  %.not.i.i21 = icmp sgt i32 %53, %44
+  %.not.i.i21 = icmp slt i32 %44, %53
   br i1 %.not.i.i21, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit, label %54
 
 54:                                               ; preds = %51, %45
@@ -1720,7 +1720,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -1804,7 +1804,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !10
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79

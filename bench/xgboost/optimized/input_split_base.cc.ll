@@ -6845,7 +6845,7 @@ define linkonce_odr void @_ZN4dmlc10StackTraceB5cxx11Emm(ptr dead_on_unwind noal
 
 25:                                               ; preds = %20
   %26 = sext i32 %24 to i64
-  %27 = icmp ugt i64 %26, %1
+  %27 = icmp ult i64 %1, %26
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %25
@@ -36083,7 +36083,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
   %260 = load i64, ptr %258, align 8, !tbaa !52
   store i64 %260, ptr %259, align 8, !tbaa !52
   %261 = inttoptr i64 %260 to ptr
-  %262 = icmp ne ptr %261, %0
+  %262 = icmp ne ptr %0, %261
   %263 = getelementptr i8, ptr %239, i64 -32
   %264 = zext i1 %262 to i8
   store i8 %264, ptr %263, align 8, !tbaa !94
@@ -36094,7 +36094,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
   %268 = getelementptr i8, ptr %239, i64 -16
   store ptr %1, ptr %268, align 8, !tbaa !52
   %269 = inttoptr i64 %267 to ptr
-  %270 = icmp ne ptr %269, %1
+  %270 = icmp ne ptr %1, %269
   %271 = getelementptr i8, ptr %239, i64 -8
   %272 = zext i1 %270 to i8
   store i8 %272, ptr %271, align 8, !tbaa !94

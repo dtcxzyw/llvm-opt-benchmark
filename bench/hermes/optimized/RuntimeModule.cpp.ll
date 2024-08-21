@@ -2601,7 +2601,7 @@ for.body.i.i.i.i:                                 ; preds = %if.else, %for.body.
 _ZSt24__uninitialized_fill_n_aIPN6hermes2vm12RootSymbolIDEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit: ; preds = %for.body.i.i.i.i, %if.else
   %5 = phi ptr [ %1, %if.else ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
   store ptr %5, ptr %_M_finish, align 8
-  %cmp.i.i.not5.i.i.i.i.i38 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not5.i.i.i.i.i38 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not5.i.i.i.i.i38, label %_ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46.thread, label %for.body.i.i.i.i.i39
 
 _ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN6hermes2vm12RootSymbolIDEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit
@@ -2693,7 +2693,7 @@ for.body.i.i.i.i.i68:                             ; preds = %_ZSt24__uninitializ
 _ZSt34__uninitialized_move_if_noexcept_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.body.i.i.i.i.i68, %_ZSt24__uninitialized_fill_n_aIPN6hermes2vm12RootSymbolIDEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit66
   %__cur.0.lcssa.i.i.i.i.i74 = phi ptr [ %cond.i55, %_ZSt24__uninitialized_fill_n_aIPN6hermes2vm12RootSymbolIDEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit66 ], [ %incdec.ptr.i.i.i.i.i72, %for.body.i.i.i.i.i68 ]
   %add.ptr54 = getelementptr %"class.hermes::vm::RootSymbolID", ptr %__cur.0.lcssa.i.i.i.i.i74, i64 %__n
-  %cmp.i.i.not5.i.i.i.i.i75 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not5.i.i.i.i.i75 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not5.i.i.i.i.i75, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit83, label %for.body.i.i.i.i.i76
 
 for.body.i.i.i.i.i76:                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %for.body.i.i.i.i.i76

@@ -306,7 +306,7 @@ define dso_local noundef range(i32 -95, 1) i32 @__blkdev_issue_zeroout(ptr nound
   br i1 %49, label %.split.split.us.i, label %.split.split.i
 
 .split.split.us.i:                                ; preds = %.split.i
-  %54 = icmp ult i64 %50, %2
+  %54 = icmp ugt i64 %2, %50
   br i1 %54, label %.lr.ph12.i, label %.thread6.i
 
 .lr.ph12.i:                                       ; preds = %.split.split.us.i, %.lr.ph12.i
@@ -329,7 +329,7 @@ define dso_local noundef range(i32 -95, 1) i32 @__blkdev_issue_zeroout(ptr nound
   %66 = load i32, ptr %65, align 8
   %67 = or i32 %66, 134217728
   store i32 %67, ptr %65, align 8
-  %68 = icmp ult i64 %50, %2
+  %68 = icmp ugt i64 %2, %50
   br i1 %68, label %.lr.ph.i, label %.thread6.i
 
 .thread6.i:                                       ; preds = %.lr.ph.i, %.lr.ph12.i, %.split.split.i, %.split.split.us.i
@@ -706,7 +706,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %34, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
-  %115 = icmp ult i64 %111, %2
+  %115 = icmp ugt i64 %2, %111
   br i1 %115, label %.lr.ph22, label %.thread12
 
 .lr.ph22:                                         ; preds = %.split.split.us, %.lr.ph22
@@ -729,7 +729,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   %127 = load i32, ptr %126, align 8
   %128 = or i32 %127, 134217728
   store i32 %128, ptr %126, align 8
-  %129 = icmp ult i64 %111, %2
+  %129 = icmp ugt i64 %2, %111
   br i1 %129, label %.lr.ph, label %.thread12
 
 .thread12:                                        ; preds = %.lr.ph, %.lr.ph22, %.split.split, %.split.split.us

@@ -341,7 +341,7 @@ if.end26:                                         ; preds = %lor.lhs.false23
   %outlen27 = getelementptr inbounds i8, ptr %vctx, i64 8
   %8 = load i32, ptr %outlen27, align 8
   %conv = zext i32 %8 to i64
-  %cmp28.not = icmp eq i64 %conv, %outlen
+  %cmp28.not = icmp eq i64 %outlen, %conv
   br i1 %cmp28.not, label %if.end41, label %if.then30
 
 if.then30:                                        ; preds = %if.end26

@@ -775,7 +775,7 @@ define linkonce_odr hidden noundef i32 @_ZNK19FlagAccessImpl_bool22typed_check_c
 define linkonce_odr hidden noundef i32 @_ZNK19TypedFlagAccessImplIb23EventBooleanFlagChangedE24check_constraint_and_setEP7JVMFlagPv13JVMFlagOriginb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.EventBooleanFlagChanged, align 8
   %7 = icmp eq i32 %3, 5
-  %8 = or i1 %7, %4
+  %8 = or i1 %4, %7
   %9 = load i8, ptr %2, align 1
   %10 = trunc i8 %9 to i1
   %11 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
@@ -2789,7 +2789,7 @@ define linkonce_odr hidden void @_ZNK18FlagAccessImpl_int16print_range_implEP12o
 define linkonce_odr hidden noundef i32 @_ZNK19TypedFlagAccessImplIi19EventIntFlagChangedE24check_constraint_and_setEP7JVMFlagPv13JVMFlagOriginb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.EventIntFlagChanged, align 8
   %7 = icmp eq i32 %3, 5
-  %8 = or i1 %7, %4
+  %8 = or i1 %4, %7
   %9 = load i32, ptr %2, align 4
   %10 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %11 = ptrtoint ptr %1 to i64
@@ -3275,7 +3275,7 @@ define linkonce_odr hidden void @_ZNK19FlagAccessImpl_uint16print_range_implEP12
 define linkonce_odr hidden noundef i32 @_ZNK19TypedFlagAccessImplIj27EventUnsignedIntFlagChangedE24check_constraint_and_setEP7JVMFlagPv13JVMFlagOriginb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.EventUnsignedIntFlagChanged, align 8
   %7 = icmp eq i32 %3, 5
-  %8 = or i1 %7, %4
+  %8 = or i1 %4, %7
   %9 = load i32, ptr %2, align 4
   %10 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %11 = ptrtoint ptr %1 to i64
@@ -3759,7 +3759,7 @@ define linkonce_odr hidden void @_ZNK19FlagAccessImpl_intx16print_range_implEP12
 define linkonce_odr hidden noundef i32 @_ZNK19TypedFlagAccessImplIl20EventLongFlagChangedE24check_constraint_and_setEP7JVMFlagPv13JVMFlagOriginb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.EventLongFlagChanged, align 8
   %7 = icmp eq i32 %3, 5
-  %8 = or i1 %7, %4
+  %8 = or i1 %4, %7
   %9 = load i64, ptr %2, align 8
   %10 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %11 = ptrtoint ptr %1 to i64
@@ -4243,7 +4243,7 @@ define linkonce_odr hidden void @_ZNK20FlagAccessImpl_uintx16print_range_implEP1
 define linkonce_odr hidden noundef i32 @_ZNK19TypedFlagAccessImplIm28EventUnsignedLongFlagChangedE24check_constraint_and_setEP7JVMFlagPv13JVMFlagOriginb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.EventUnsignedLongFlagChanged, align 8
   %7 = icmp eq i32 %3, 5
-  %8 = or i1 %7, %4
+  %8 = or i1 %4, %7
   %9 = load i64, ptr %2, align 8
   %10 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %11 = ptrtoint ptr %1 to i64
@@ -4775,7 +4775,7 @@ define linkonce_odr hidden void @_ZNK21FlagAccessImpl_double16print_range_implEP
 define linkonce_odr hidden noundef i32 @_ZNK19TypedFlagAccessImplId22EventDoubleFlagChangedE24check_constraint_and_setEP7JVMFlagPv13JVMFlagOriginb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca %class.EventDoubleFlagChanged, align 8
   %7 = icmp eq i32 %3, 5
-  %8 = or i1 %7, %4
+  %8 = or i1 %4, %7
   %9 = load double, ptr %2, align 8
   %10 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %11 = ptrtoint ptr %1 to i64

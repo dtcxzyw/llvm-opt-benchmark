@@ -118,9 +118,9 @@ for.body:                                         ; preds = %invoke.cont2, %if.e
 
 if.then8:                                         ; preds = %for.body
   %conv = zext i32 %next_vertex.031 to i64
-  %mul9 = mul i64 %conv, %vertex_size
+  %mul9 = mul i64 %vertex_size, %conv
   %add.ptr = getelementptr inbounds i8, ptr %destination, i64 %mul9
-  %mul11 = mul i64 %idxprom, %vertex_size
+  %mul11 = mul i64 %vertex_size, %idxprom
   %add.ptr12 = getelementptr inbounds i8, ptr %vertices.addr.0, i64 %mul11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr12, i64 %vertex_size, i1 false)
   %inc = add i32 %next_vertex.031, 1

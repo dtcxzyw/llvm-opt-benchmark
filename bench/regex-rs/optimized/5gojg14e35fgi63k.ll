@@ -4967,7 +4967,7 @@ _ZN14regex_automata4meta13reverse_inner10top_concat17h24b77c9a94e08cdfE.exit: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !669)
   call void @llvm.experimental.noalias.scope.decl(metadata !672)
   %154 = load i64, ptr %117, align 8, !alias.scope !672, !noalias !669, !noundef !7
-  %155 = icmp ult i64 %154, %.sroa.01.050
+  %155 = icmp ugt i64 %.sroa.01.050, %154
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %153

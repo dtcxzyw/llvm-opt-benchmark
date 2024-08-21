@@ -3852,7 +3852,7 @@ entry:
   %parent_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %parent_, align 8, !tbaa !15
   %tobool.not = icmp ne ptr %0, null
-  %spec.select = and i1 %tobool.not, %inherit
+  %spec.select = and i1 %inherit, %tobool.not
   %or = or i32 %.sroa.speculated22, -2147483648
   %newValue.0 = select i1 %spec.select, i32 %or, i32 %.sroa.speculated22
   %level_ = getelementptr inbounds i8, ptr %this, i64 8

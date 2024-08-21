@@ -531,7 +531,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
 57:                                               ; preds = %55
   %58 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
   %59 = icmp eq i32 %58, 5
-  %brmerge.not = and i1 %59, %1
+  %brmerge.not = and i1 %1, %59
   br i1 %brmerge.not, label %62, label %60
 
 60:                                               ; preds = %57

@@ -100,7 +100,7 @@ define noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_c
   br i1 %42, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %33
-  %.not101 = icmp eq ptr %spec.select, %1
+  %.not101 = icmp eq ptr %1, %spec.select
   %43 = sext i32 %2 to i64
   %44 = getelementptr inbounds i8, ptr %6, i64 184
   br label %45

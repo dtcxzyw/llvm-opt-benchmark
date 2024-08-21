@@ -769,7 +769,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %11 = getelementptr i8, ptr %10, i64 78928
   %call10.i.val = load i32, ptr %11, align 8
   %12 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i156 = icmp ugt i32 %12, %call10.i.val
+  %cmp.i156 = icmp ult i32 %call10.i.val, %12
   br i1 %cmp.i156, label %if.end24.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %while.body.i
@@ -845,7 +845,7 @@ if.end59.i:                                       ; preds = %if.then58.i, %for.b
 land.lhs.true63.i:                                ; preds = %if.end59.i
   %call10.i.val150 = load i32, ptr %11, align 8
   %21 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i161 = icmp ugt i32 %21, %call10.i.val150
+  %cmp.i161 = icmp ult i32 %call10.i.val150, %21
   br i1 %cmp.i161, label %if.end70.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %land.lhs.true63.i
@@ -1104,7 +1104,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   %19 = getelementptr i8, ptr %13, i64 78928
   %call10.i.val = load i32, ptr %19, align 8
   %20 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i187 = icmp ugt i32 %20, %call10.i.val
+  %cmp.i187 = icmp ult i32 %call10.i.val, %20
   br i1 %cmp.i187, label %if.end24.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %land.lhs.true.i
@@ -1208,7 +1208,7 @@ land.lhs.true63.i:                                ; preds = %if.end59.i
   %32 = getelementptr i8, ptr %13, i64 78928
   %call10.i.val168 = load i32, ptr %32, align 8
   %33 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i207 = icmp ugt i32 %33, %call10.i.val168
+  %cmp.i207 = icmp ult i32 %call10.i.val168, %33
   br i1 %cmp.i207, label %if.end70.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %land.lhs.true63.i
@@ -3432,7 +3432,7 @@ if.end43:                                         ; preds = %if.end43.sink.split
   %ret.0 = phi ptr [ %call23, %do.end33 ], [ %call23, %if.then21 ], [ %cond, %if.end8 ], [ %call23, %if.end43.sink.split ]
   %5 = load i32, ptr @opt_percpu_arena, align 4
   %cmp44 = icmp ult i32 %5, 3
-  %brmerge = or i1 %cmp44, %internal
+  %brmerge = or i1 %internal, %cmp44
   br i1 %brmerge, label %return, label %land.lhs.true47
 
 land.lhs.true47:                                  ; preds = %if.end43

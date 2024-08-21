@@ -420,7 +420,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   %.sink = phi i32 [ 8, %23 ], [ 16, %26 ]
   %.0153 = phi i64 [ %8, %23 ], [ %30, %26 ]
   %.0152 = phi ptr [ null, %23 ], [ %32, %26 ]
-  %34 = add i32 %.sink, %2
+  %34 = add i32 %2, %.sink
   %35 = icmp ugt i64 %.0153, 2147483647
   br i1 %35, label %36, label %38
 
@@ -1274,12 +1274,12 @@ define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %
   %hf_mp4_sidx_earliest_presentation_time.val = load i32, ptr @hf_mp4_sidx_earliest_presentation_time, align 4
   %19 = select i1 %18, i32 %hf_mp4_sidx_earliest_presentation_time_v0.val, i32 %hf_mp4_sidx_earliest_presentation_time.val
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef %., i32 noundef 0) #5
-  %21 = add i32 %.14, %1
+  %21 = add i32 %1, %.14
   %hf_mp4_sidx_first_offset_v0.val = load i32, ptr @hf_mp4_sidx_first_offset_v0, align 4
   %hf_mp4_sidx_first_offset.val = load i32, ptr @hf_mp4_sidx_first_offset, align 4
   %22 = select i1 %18, i32 %hf_mp4_sidx_first_offset_v0.val, i32 %hf_mp4_sidx_first_offset.val
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef %., i32 noundef 0) #5
-  %24 = add i32 %.16, %1
+  %24 = add i32 %1, %.16
   %25 = load i32, ptr @hf_mp4_sidx_reserved, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef 0) #5
   %27 = add i32 %24, 2

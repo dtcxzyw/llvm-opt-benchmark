@@ -1009,7 +1009,7 @@ define void @_Z33getDeviceCompatibilityDescriptionB5cxx11N3gmx8ArrayRefIKSt10uni
   %8 = sub i64 %6, %7
   %9 = lshr exact i64 %8, 3
   %10 = trunc i64 %9 to i32
-  %.not = icmp sgt i32 %10, %3
+  %.not = icmp slt i32 %3, %10
   br i1 %.not, label %11, label %18
 
 11:                                               ; preds = %4

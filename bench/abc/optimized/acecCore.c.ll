@@ -2423,7 +2423,7 @@ define void @Acec_MoveDuplicates(ptr nocapture noundef readonly %0, ptr nocaptur
   %27 = load i32, ptr %18, align 4
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %18, align 4
-  %29 = icmp sgt i32 %28, %.03785
+  %29 = icmp slt i32 %.03785, %28
   br i1 %29, label %.lr.ph.i, label %Vec_IntDrop.exit
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
@@ -2444,7 +2444,7 @@ Vec_IntDrop.exit:                                 ; preds = %.lr.ph.i, %24
   %38 = load i32, ptr %14, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %14, align 4
-  %40 = icmp sgt i32 %39, %.03785
+  %40 = icmp slt i32 %.03785, %39
   br i1 %40, label %.lr.ph.i51, label %Vec_IntDrop.exit54
 
 .lr.ph.i51:                                       ; preds = %Vec_IntDrop.exit, %.lr.ph.i51
@@ -2464,7 +2464,7 @@ Vec_IntDrop.exit54:                               ; preds = %.lr.ph.i51, %Vec_In
   %48 = load i32, ptr %18, align 4
   %49 = add nsw i32 %48, -1
   store i32 %49, ptr %18, align 4
-  %50 = icmp sgt i32 %48, %.03785
+  %50 = icmp slt i32 %.03785, %48
   br i1 %50, label %.lr.ph.i55, label %Vec_IntDrop.exit58
 
 .lr.ph.i55:                                       ; preds = %Vec_IntDrop.exit54
@@ -2489,7 +2489,7 @@ Vec_IntDrop.exit58:                               ; preds = %52, %Vec_IntDrop.ex
   %61 = load i32, ptr %14, align 4
   %62 = add nsw i32 %61, -1
   store i32 %62, ptr %14, align 4
-  %63 = icmp sgt i32 %61, %.03785
+  %63 = icmp slt i32 %.03785, %61
   br i1 %63, label %.lr.ph.i59, label %Vec_IntDrop.exit62
 
 .lr.ph.i59:                                       ; preds = %Vec_IntDrop.exit58

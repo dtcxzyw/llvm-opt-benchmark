@@ -946,7 +946,7 @@ free_3array.exit:                                 ; preds = %free_array.exit9, %
 ; Function Attrs: nounwind uwtable
 define void @jitter_d(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr @Ndim, align 4
-  %5 = icmp sgt i32 %4, %2
+  %5 = icmp slt i32 %2, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -1741,8 +1741,8 @@ choose_node.exit:                                 ; preds = %39, %43, %50
   %162 = load double, ptr %161, align 8
   %163 = fneg double %156
   %164 = tail call double @llvm.fmuladd.f64(double %163, double %156, double %.070.lcssa.i.i)
-  %165 = fneg double %162
-  %166 = fmul double %164, %165
+  %165 = fneg double %164
+  %166 = fmul double %162, %165
   %167 = tail call double @llvm.fmuladd.f64(double %166, double %128, double 1.000000e+00)
   %.27375.i.i = add i32 %155, 1
   %168 = mul i32 %.27375.i.i, %.pre-phi.i.i

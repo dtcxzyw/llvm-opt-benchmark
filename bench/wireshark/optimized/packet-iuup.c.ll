@@ -3429,7 +3429,7 @@ define internal fastcc void @dissect_iuup_payload(ptr noundef %0, ptr noundef %1
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %8 = add i32 %7, -1
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %10 = icmp eq i32 %9, %4
+  %10 = icmp eq i32 %4, %9
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %6

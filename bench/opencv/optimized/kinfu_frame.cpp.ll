@@ -3717,14 +3717,14 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu33ComputePointsNormalsColorsInvoke
   %163 = fsub float %156, %90
   %164 = fsub float %159, %97
   %165 = fsub float %143, %81
-  %166 = fneg float %162
-  %167 = fmul float %164, %166
+  %166 = fneg float %164
+  %167 = fmul float %162, %166
   %168 = tail call float @llvm.fmuladd.f32(float %161, float %165, float %167)
-  %169 = fneg float %160
-  %170 = fmul float %165, %169
+  %169 = fneg float %165
+  %170 = fmul float %160, %169
   %171 = tail call float @llvm.fmuladd.f32(float %162, float %163, float %170)
-  %172 = fneg float %161
-  %173 = fmul float %163, %172
+  %172 = fneg float %163
+  %173 = fmul float %161, %172
   %174 = tail call float @llvm.fmuladd.f32(float %160, float %164, float %173)
   store float %168, ptr %3, align 4, !alias.scope !77
   store float %171, ptr %18, align 4, !alias.scope !77
@@ -4562,14 +4562,14 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu27ComputePointsNormalsInvokerclERK
   %126 = fsub float %119, %79
   %127 = fsub float %122, %86
   %128 = fsub float %106, %70
-  %129 = fneg float %125
-  %130 = fmul float %127, %129
+  %129 = fneg float %127
+  %130 = fmul float %125, %129
   %131 = tail call float @llvm.fmuladd.f32(float %124, float %128, float %130)
-  %132 = fneg float %123
-  %133 = fmul float %128, %132
+  %132 = fneg float %128
+  %133 = fmul float %123, %132
   %134 = tail call float @llvm.fmuladd.f32(float %125, float %126, float %133)
-  %135 = fneg float %124
-  %136 = fmul float %126, %135
+  %135 = fneg float %126
+  %136 = fmul float %124, %135
   %137 = tail call float @llvm.fmuladd.f32(float %123, float %127, float %136)
   store float %131, ptr %3, align 4, !alias.scope !154
   store float %134, ptr %15, align 4, !alias.scope !154

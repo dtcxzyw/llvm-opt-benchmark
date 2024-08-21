@@ -118,7 +118,7 @@ define weak_odr noundef float @_ZNK7mitsuba20ReconstructionFilterIfN5drjit6Matri
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load float, ptr %7, align 8
-  %9 = fmul contract float %8, %1
+  %9 = fmul contract float %1, %8
   %10 = tail call contract noundef float @llvm.fabs.f32(float %9)
   %11 = fptoui float %10 to i32
   %..i = tail call noundef i32 @llvm.umin.i32(i32 %11, i32 31)

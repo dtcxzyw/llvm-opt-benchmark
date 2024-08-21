@@ -76,7 +76,7 @@ define void @Java_com_sun_media_sound_MidiOutDevice_nSendLongMessage(ptr noundef
   %14 = icmp sgt i32 %4, 1
   %or.cond = and i1 %14, %13
   %15 = sext i1 %or.cond to i32
-  %.017 = add nsw i32 %15, %4
+  %.017 = add nsw i32 %4, %15
   %.0.idx = zext i1 %or.cond to i64
   %.0 = getelementptr inbounds i8, ptr %10, i64 %.0.idx
   %16 = inttoptr i64 %2 to ptr

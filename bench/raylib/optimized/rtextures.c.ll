@@ -1406,7 +1406,7 @@ define internal fastcc noalias noundef ptr @stbi__loadf_main(ptr noundef %0, ptr
 
 stbi__mul2sizes_valid.exit.i.i.i:                 ; preds = %15
   %17 = udiv i32 2147483647, %9
-  %.not34.i.i.i = icmp slt i32 %17, %8
+  %.not34.i.i.i = icmp sgt i32 %8, %17
   br i1 %.not34.i.i.i, label %stbi__malloc_mad4.exit.thread.i, label %stbi__mul2sizes_valid.exit.thread24.i.i.i
 
 stbi__mul2sizes_valid.exit.thread24.i.i.i:        ; preds = %stbi__mul2sizes_valid.exit.i.i.i, %15
@@ -1421,7 +1421,7 @@ stbi__mul2sizes_valid.exit.thread24.i.i.i:        ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit18.i.i.i:               ; preds = %20
   %22 = udiv i32 2147483647, %13
-  %.not.i.i.i = icmp slt i32 %22, %18
+  %.not.i.i.i = icmp sgt i32 %18, %22
   %23 = mul nsw i32 %13, %18
   %24 = icmp ugt i32 %23, 536870911
   %or.cond.i.i = select i1 %.not.i.i.i, i1 true, i1 %24
@@ -4872,7 +4872,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %0, 
   %8 = or i1 %6, %7
   %9 = zext i1 %8 to i32
   %10 = sext i1 %8 to i32
-  %11 = add nsw i32 %10, %3
+  %11 = add nsw i32 %3, %10
   %12 = icmp slt i32 %11, 2
   %13 = select i1 %12, i32 3, i32 2
   %14 = or i32 %2, %1
@@ -5394,7 +5394,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_hdr_core(ptr nocapture no
   %45 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %.not.us.us = icmp eq i32 %45, 0
   %46 = xor i32 %.02837.us.us, -1
-  %47 = add nsw i32 %46, %2
+  %47 = add nsw i32 %2, %46
   %48 = select i1 %.not.us.us, i32 %.02837.us.us, i32 %47
   %49 = mul nsw i32 %28, %48
   %50 = sext i32 %49 to i64
@@ -5466,7 +5466,7 @@ stbiw__write_hdr_scanline.exit.loopexit.us.split.us.us: ; preds = %stbiw__linear
   %82 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %.not.us = icmp eq i32 %82, 0
   %83 = xor i32 %.02837.us, -1
-  %84 = add nsw i32 %83, %2
+  %84 = add nsw i32 %2, %83
   %85 = select i1 %.not.us, i32 %.02837.us, i32 %84
   %86 = mul nsw i32 %28, %85
   %87 = sext i32 %86 to i64
@@ -5524,7 +5524,7 @@ stbiw__write_hdr_scanline.exit.loopexit.us.split: ; preds = %stbiw__linear_to_rg
   %108 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %.not = icmp eq i32 %108, 0
   %109 = xor i32 %.02837, -1
-  %110 = add nsw i32 %109, %2
+  %110 = add nsw i32 %2, %109
   %111 = select i1 %.not, i32 %.02837, i32 %110
   %112 = mul nsw i32 %28, %111
   %113 = sext i32 %112 to i64
@@ -7899,7 +7899,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
   %13 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %.not136 = icmp eq i32 %13, 0
   %14 = xor i32 %4, -1
-  %15 = add i32 %14, %3
+  %15 = add i32 %3, %14
   %16 = select i1 %.not136, i32 %4, i32 %15
   %17 = mul nsw i32 %16, %1
   %18 = sext i32 %17 to i64
@@ -8001,7 +8001,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
 
 .preheader158:                                    ; preds = %._crit_edge
   %61 = mul nsw i32 %5, %2
-  %62 = icmp sgt i32 %61, %5
+  %62 = icmp slt i32 %5, %61
   br i1 %62, label %.lr.ph163.preheader, label %.loopexit
 
 .lr.ph163.preheader:                              ; preds = %.preheader158
@@ -8011,7 +8011,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
 
 .preheader156:                                    ; preds = %._crit_edge
   %64 = mul nsw i32 %5, %2
-  %65 = icmp sgt i32 %64, %5
+  %65 = icmp slt i32 %5, %64
   br i1 %65, label %.lr.ph165.preheader, label %.loopexit
 
 .lr.ph165.preheader:                              ; preds = %.preheader156
@@ -8021,7 +8021,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
 
 .preheader154:                                    ; preds = %._crit_edge
   %67 = mul nsw i32 %5, %2
-  %68 = icmp sgt i32 %67, %5
+  %68 = icmp slt i32 %5, %67
   br i1 %68, label %.lr.ph167.preheader, label %.loopexit
 
 .lr.ph167.preheader:                              ; preds = %.preheader154
@@ -8032,7 +8032,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
 
 .preheader152:                                    ; preds = %._crit_edge
   %71 = mul nsw i32 %5, %2
-  %72 = icmp sgt i32 %71, %5
+  %72 = icmp slt i32 %5, %71
   br i1 %72, label %.lr.ph169.preheader, label %.loopexit
 
 .lr.ph169.preheader:                              ; preds = %.preheader152
@@ -8043,7 +8043,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
 
 .preheader150:                                    ; preds = %._crit_edge
   %75 = mul nsw i32 %5, %2
-  %76 = icmp sgt i32 %75, %5
+  %76 = icmp slt i32 %5, %75
   br i1 %76, label %.lr.ph171.preheader, label %.loopexit
 
 .lr.ph171.preheader:                              ; preds = %.preheader150
@@ -8054,7 +8054,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
 
 .preheader:                                       ; preds = %._crit_edge
   %79 = mul nsw i32 %5, %2
-  %80 = icmp sgt i32 %79, %5
+  %80 = icmp slt i32 %5, %79
   br i1 %80, label %.lr.ph173.preheader, label %.loopexit
 
 .lr.ph173.preheader:                              ; preds = %.preheader
@@ -8908,17 +8908,17 @@ define hidden noundef float @stb_perlin_noise3_internal(float noundef %0, float 
   %13 = and i32 %12, 255
   %14 = fptosi float %0 to i32
   %15 = sitofp i32 %14 to float
-  %16 = fcmp ogt float %15, %0
+  %16 = fcmp olt float %0, %15
   %17 = sext i1 %16 to i32
   %18 = add nsw i32 %17, %14
   %19 = fptosi float %1 to i32
   %20 = sitofp i32 %19 to float
-  %21 = fcmp ogt float %20, %1
+  %21 = fcmp olt float %1, %20
   %22 = sext i1 %21 to i32
   %23 = add nsw i32 %22, %19
   %24 = fptosi float %2 to i32
   %25 = sitofp i32 %24 to float
-  %26 = fcmp ogt float %25, %2
+  %26 = fcmp olt float %2, %25
   %27 = sext i1 %26 to i32
   %28 = add nsw i32 %27, %24
   %29 = and i32 %18, %9
@@ -9141,9 +9141,9 @@ define hidden float @stb_perlin_ridge_noise3(float noundef %0, float noundef %1,
   %.02429 = phi float [ %20, %.lr.ph ], [ 5.000000e-01, %7 ]
   %.02528 = phi float [ %16, %.lr.ph ], [ 1.000000e+00, %7 ]
   %.02627 = phi float [ %19, %.lr.ph ], [ 1.000000e+00, %7 ]
-  %9 = fmul float %.02627, %0
-  %10 = fmul float %.02627, %1
-  %11 = fmul float %.02627, %2
+  %9 = fmul float %0, %.02627
+  %10 = fmul float %1, %.02627
+  %11 = fmul float %2, %.02627
   %12 = trunc i32 %.031 to i8
   %13 = tail call float @stb_perlin_noise3_internal(float noundef %9, float noundef %10, float noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0, i8 noundef zeroext %12)
   %14 = tail call float @llvm.fabs.f32(float %13)
@@ -9151,8 +9151,8 @@ define hidden float @stb_perlin_ridge_noise3(float noundef %0, float noundef %1,
   %16 = fmul float %15, %15
   %17 = fmul float %.02429, %16
   %18 = tail call float @llvm.fmuladd.f32(float %17, float %.02528, float %.02330)
-  %19 = fmul float %.02627, %3
-  %20 = fmul float %.02429, %4
+  %19 = fmul float %3, %.02627
+  %20 = fmul float %4, %.02429
   %21 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %21, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -9172,14 +9172,14 @@ define hidden float @stb_perlin_fbm_noise3(float noundef %0, float noundef %1, f
   %.01621 = phi float [ %15, %.lr.ph ], [ 1.000000e+00, %6 ]
   %.01720 = phi float [ %14, %.lr.ph ], [ 1.000000e+00, %6 ]
   %.01819 = phi i32 [ %16, %.lr.ph ], [ 0, %6 ]
-  %8 = fmul float %.01720, %0
-  %9 = fmul float %.01720, %1
-  %10 = fmul float %.01720, %2
+  %8 = fmul float %0, %.01720
+  %9 = fmul float %1, %.01720
+  %10 = fmul float %2, %.01720
   %11 = trunc i32 %.01819 to i8
   %12 = tail call float @stb_perlin_noise3_internal(float noundef %8, float noundef %9, float noundef %10, i32 noundef 0, i32 noundef 0, i32 noundef 0, i8 noundef zeroext %11)
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %.01621, float %.022)
-  %14 = fmul float %.01720, %3
-  %15 = fmul float %.01621, %4
+  %14 = fmul float %3, %.01720
+  %15 = fmul float %4, %.01621
   %16 = add nuw nsw i32 %.01819, 1
   %exitcond.not = icmp eq i32 %16, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -9199,16 +9199,16 @@ define hidden float @stb_perlin_turbulence_noise3(float noundef %0, float nounde
   %.01722 = phi float [ %15, %.lr.ph ], [ 0.000000e+00, %6 ]
   %.01821 = phi float [ %17, %.lr.ph ], [ 1.000000e+00, %6 ]
   %.01920 = phi float [ %16, %.lr.ph ], [ 1.000000e+00, %6 ]
-  %8 = fmul float %.01920, %0
-  %9 = fmul float %.01920, %1
-  %10 = fmul float %.01920, %2
+  %8 = fmul float %0, %.01920
+  %9 = fmul float %1, %.01920
+  %10 = fmul float %2, %.01920
   %11 = trunc i32 %.023 to i8
   %12 = tail call float @stb_perlin_noise3_internal(float noundef %8, float noundef %9, float noundef %10, i32 noundef 0, i32 noundef 0, i32 noundef 0, i8 noundef zeroext %11)
   %13 = fmul float %.01821, %12
   %14 = tail call float @llvm.fabs.f32(float %13)
   %15 = fadd float %.01722, %14
-  %16 = fmul float %.01920, %3
-  %17 = fmul float %.01821, %4
+  %16 = fmul float %3, %.01920
+  %17 = fmul float %4, %.01821
   %18 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %18, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -9222,17 +9222,17 @@ define hidden float @stb_perlin_turbulence_noise3(float noundef %0, float nounde
 define hidden noundef float @stb_perlin_noise3_wrap_nonpow2(float noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #6 {
   %8 = fptosi float %0 to i32
   %9 = sitofp i32 %8 to float
-  %10 = fcmp ogt float %9, %0
+  %10 = fcmp olt float %0, %9
   %11 = sext i1 %10 to i32
   %12 = add nsw i32 %11, %8
   %13 = fptosi float %1 to i32
   %14 = sitofp i32 %13 to float
-  %15 = fcmp ogt float %14, %1
+  %15 = fcmp olt float %1, %14
   %16 = sext i1 %15 to i32
   %17 = add nsw i32 %16, %13
   %18 = fptosi float %2 to i32
   %19 = sitofp i32 %18 to float
-  %20 = fcmp ogt float %19, %2
+  %20 = fcmp olt float %2, %19
   %21 = sext i1 %20 to i32
   %22 = add nsw i32 %21, %18
   %.not = icmp eq i32 %3, 0
@@ -9654,7 +9654,7 @@ define hidden range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr nocapture 
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %.not = icmp sle i32 %12, %1
+  %.not = icmp sge i32 %1, %12
   %13 = add nsw i32 %3, %1
   %14 = icmp slt i32 %13, 1
   %or.cond26 = select i1 %.not, i1 true, i1 %14
@@ -9663,7 +9663,7 @@ define hidden range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr nocapture 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %0, i64 76
   %17 = load i32, ptr %16, align 4
-  %.not24 = icmp sgt i32 %17, %2
+  %.not24 = icmp slt i32 %2, %17
   br i1 %.not24, label %18, label %23
 
 18:                                               ; preds = %15
@@ -9717,10 +9717,10 @@ define hidden range(i32 0, 2) i32 @stbir_set_pixel_subrect(ptr nocapture noundef
   store i32 %4, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 1, ptr %30, align 8
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   %31 = icmp sgt i32 %16, 0
   %or.cond41.not44 = select i1 %.not, i1 %31, i1 false
-  %.not40 = icmp sgt i32 %13, %2
+  %.not40 = icmp slt i32 %2, %13
   %or.cond42 = select i1 %or.cond41.not44, i1 %.not40, i1 false
   br i1 %or.cond42, label %32, label %36
 
@@ -10441,7 +10441,7 @@ define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef %
   %105 = load i32, ptr %44, align 8
   %106 = load i32, ptr %45, align 8
   %107 = icmp sgt i32 %76, -2
-  %108 = icmp sgt i32 %106, %78
+  %108 = icmp slt i32 %78, %106
   %or.cond.i.i.i = and i1 %107, %108
   br i1 %or.cond.i.i.i, label %stbir__edge_wrap.exit.i.i, label %109
 
@@ -10605,7 +10605,7 @@ stbir__decode_scanline.exit.i:                    ; preds = %190, %164, %162
   %201 = load i32, ptr %44, align 8
   %202 = load i32, ptr %45, align 8
   %203 = icmp sgt i32 %76, -2
-  %204 = icmp sgt i32 %202, %78
+  %204 = icmp slt i32 %78, %202
   %or.cond.i.i56.i = and i1 %203, %204
   br i1 %or.cond.i.i56.i, label %stbir__edge_wrap.exit.i57.i, label %205
 
@@ -11144,7 +11144,7 @@ stbir__resample_vertical_gather.exit.i:           ; preds = %403, %399
   %513 = load i32, ptr %454, align 8
   %514 = load i32, ptr %455, align 8
   %515 = icmp sgt i32 %.1126149.i, -1
-  %516 = icmp sgt i32 %514, %.1126149.i
+  %516 = icmp slt i32 %.1126149.i, %514
   %or.cond.i.i.i15 = and i1 %515, %516
   br i1 %or.cond.i.i.i15, label %stbir__edge_wrap.exit.i.i16, label %517
 
@@ -11482,7 +11482,7 @@ define hidden range(i32 0, 2) i32 @stbir_resize_extended_split(ptr nocapture nou
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, %2
+  %7 = icmp eq i32 %2, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3, %4
@@ -11504,7 +11504,7 @@ define hidden range(i32 0, 2) i32 @stbir_resize_extended_split(ptr nocapture nou
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 112
   %19 = load i32, ptr %18, align 8
-  %20 = icmp sle i32 %19, %1
+  %20 = icmp sge i32 %1, %19
   %21 = icmp slt i32 %1, 0
   %or.cond = or i1 %21, %20
   br i1 %or.cond, label %28, label %22
@@ -11537,7 +11537,7 @@ define hidden ptr @stbir_resize_uint8_linear(ptr noundef %0, i32 noundef %1, i32
   %15 = getelementptr inbounds [17 x i8], ptr @stbir__pixel_channels, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = mul nsw i32 %17, %5
+  %18 = mul nsw i32 %5, %17
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %stbir__check_output_stuff.exit.thread, label %20
 
@@ -11645,7 +11645,7 @@ define hidden ptr @stbir_resize_uint8_srgb(ptr noundef %0, i32 noundef %1, i32 n
   %15 = getelementptr inbounds [17 x i8], ptr @stbir__pixel_channels, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = mul nsw i32 %17, %5
+  %18 = mul nsw i32 %5, %17
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %stbir__check_output_stuff.exit.thread, label %20
 
@@ -11862,7 +11862,7 @@ define hidden ptr @stbir_resize(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %18 = zext i32 %8 to i64
   %19 = getelementptr inbounds [17 x i32], ptr @stbir__pixel_layout_convert_public_to_internal, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = mul nsw i32 %17, %5
+  %21 = mul nsw i32 %5, %17
   %22 = zext i32 %20 to i64
   %23 = getelementptr inbounds [17 x i8], ptr @stbir__pixel_channels, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
@@ -13618,7 +13618,7 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias nocapture writabl
   %.sroa.252.0.extract.trunc = trunc i32 %.sroa.252.0.extract.shift to i8
   %.sroa.051.0.extract.trunc = trunc i32 %4 to i8
   %17 = icmp sgt i32 %1, 0
-  %18 = fmul float %16, %3
+  %18 = fmul float %3, %16
   %19 = fsub float 1.000000e+00, %3
   %20 = fmul float %19, %16
   %21 = uitofp i8 %.sroa.0.0.extract.trunc to float
@@ -13984,7 +13984,7 @@ define void @GenImagePerlinNoise(ptr dead_on_unwind noalias nocapture writable w
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv42 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next43, %._crit_edge.us ]
   %18 = trunc i64 %indvars.iv42 to i32
-  %19 = add i32 %18, %4
+  %19 = add i32 %4, %18
   %20 = sitofp i32 %19 to float
   %21 = fmul float %16, %20
   %22 = mul nuw nsw i64 %indvars.iv42, %17
@@ -13994,7 +13994,7 @@ define void @GenImagePerlinNoise(ptr dead_on_unwind noalias nocapture writable w
 23:                                               ; preds = %.preheader.us, %stb_perlin_fbm_noise3.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %stb_perlin_fbm_noise3.exit.us ]
   %24 = trunc i64 %indvars.iv to i32
-  %25 = add i32 %24, %3
+  %25 = add i32 %3, %24
   %26 = sitofp i32 %25 to float
   %27 = fmul float %14, %26
   br label %.lr.ph.i.us
@@ -16856,7 +16856,7 @@ GenImageColor.exit:
   %65 = load ptr, ptr %21, align 8
   %66 = getelementptr inbounds %struct.Rectangle, ptr %65, i64 %60, i32 2
   %67 = load float, ptr %66, align 4
-  %68 = fadd float %67, %4
+  %68 = fadd float %4, %67
   %69 = fptosi float %68 to i32
   %70 = add nsw i32 %.073, %69
   br label %74
@@ -17062,13 +17062,13 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 69:                                               ; preds = %66
   %70 = fsub <2 x float> %.sroa.0101.2, %4
   %.sroa.0101.0.vec.insert113 = shufflevector <2 x float> %70, <2 x float> %.sroa.0101.2, <2 x i32> <i32 0, i32 3>
-  %71 = fadd <2 x float> %.sroa.20.4, %4
+  %71 = fadd <2 x float> %4, %.sroa.20.4
   %.sroa.20.8.vec.insert144 = shufflevector <2 x float> %71, <2 x float> %.sroa.20.4, <2 x i32> <i32 0, i32 3>
   %.sroa.074.0.vec.insert = insertelement <2 x float> %4, float 0.000000e+00, i64 0
   br label %80
 
 72:                                               ; preds = %66
-  %73 = fadd <2 x float> %.sroa.20.4, %4
+  %73 = fadd <2 x float> %4, %.sroa.20.4
   %74 = extractelement <2 x float> %73, i64 0
   %75 = load i32, ptr %13, align 8
   %76 = sitofp i32 %75 to float
@@ -17552,9 +17552,9 @@ define void @ImageResizeCanvas(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %10, align 8
-  %.not = icmp eq i32 %28, %1
+  %.not = icmp eq i32 %1, %28
   %.pre = load i32, ptr %14, align 4
-  %.not96 = icmp eq i32 %.pre, %2
+  %.not96 = icmp eq i32 %2, %.pre
   %or.cond = select i1 %.not, i1 %.not96, i1 false
   br i1 %or.cond, label %118, label %29
 
@@ -17728,7 +17728,7 @@ GetPixelDataSize.exit:                            ; preds = %75, %.thread
 
 .lr.ph107:                                        ; preds = %._crit_edge
   %98 = fptosi float %.sroa.3.0 to i32
-  %99 = mul i32 %98, %1
+  %99 = mul i32 %1, %98
   %100 = fptosi float %.sroa.0.0 to i32
   %101 = add i32 %99, %100
   %102 = mul i32 %.016.i, %101
@@ -18723,7 +18723,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %358 = select i1 %351, i32 %357, i32 0
   %359 = or i32 %349, %358
   %360 = bitcast i32 %359 to float
-  %361 = fcmp ugt float %360, %2
+  %361 = fcmp ult float %2, %360
   br i1 %361, label %372, label %362
 
 362:                                              ; preds = %332
@@ -19186,7 +19186,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %.0320.lcssa.us = phi float [ 0.000000e+00, %.preheader347.us ], [ %107, %96 ]
   %.pre-phi446 = trunc i64 %47 to i32
   %108 = add i32 %.pre-phi446, %26
-  %109 = add i32 %.pre-phi446, %1
+  %109 = add i32 %1, %.pre-phi446
   br label %48
 
 .lr.ph357.us:                                     ; preds = %.preheader347.us
@@ -21686,12 +21686,12 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   %9 = icmp sgt i32 %2, -1
   %or.cond = and i1 %9, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %11, %2
+  %12 = icmp slt i32 %2, %11
   %or.cond89 = select i1 %or.cond, i1 %12, i1 false
   br i1 %or.cond89, label %13, label %317
 
@@ -22211,7 +22211,7 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = icmp sle i32 %10, %1
+  %11 = icmp sge i32 %1, %10
   %12 = icmp slt i32 %2, 0
   %or.cond3 = or i1 %12, %11
   br i1 %or.cond3, label %383, label %13
@@ -22219,7 +22219,7 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
-  %.not = icmp sgt i32 %15, %2
+  %.not = icmp slt i32 %2, %15
   br i1 %.not, label %16, label %383
 
 16:                                               ; preds = %13
@@ -24527,9 +24527,9 @@ define void @DrawTextureEx(ptr nocapture noundef readonly byval(%struct.Texture)
   %10 = load i32, ptr %9, align 8
   %11 = sitofp i32 %10 to float
   %.sroa.36.12.vec.insert = insertelement <2 x float> %.sroa.36.8.vec.insert, float %11, i64 1
-  %12 = fmul float %8, %3
+  %12 = fmul float %3, %8
   %.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %12, i64 0
-  %13 = fmul float %11, %3
+  %13 = fmul float %3, %11
   %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %13, i64 1
   tail call void @DrawTexturePro(ptr noundef nonnull byval(%struct.Texture) align 8 %0, <2 x float> zeroinitializer, <2 x float> %.sroa.36.12.vec.insert, <2 x float> %1, <2 x float> %.sroa.3.12.vec.insert, <2 x float> zeroinitializer, float noundef %2, i32 %4)
   ret void
@@ -24587,9 +24587,9 @@ define void @DrawTexturePro(ptr nocapture noundef readonly byval(%struct.Texture
   %24 = extractelement <2 x float> %23, i64 0
   %25 = fsub <2 x float> %3, %5
   %26 = extractelement <2 x float> %25, i64 1
-  %27 = fadd <2 x float> %23, %4
+  %27 = fadd <2 x float> %4, %23
   %28 = extractelement <2 x float> %27, i64 0
-  %29 = fadd <2 x float> %25, %4
+  %29 = fadd <2 x float> %4, %25
   %30 = extractelement <2 x float> %29, i64 1
   br label %60
 
@@ -25677,7 +25677,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %.pre75.i.i, i64 12
   %73 = load i32, ptr %72, align 4
-  %.not49.i.i = icmp eq i32 %73, %4
+  %.not49.i.i = icmp eq i32 %4, %73
   br i1 %.not49.i.i, label %stbi__convert_format16.exit._crit_edge.i.i, label %74
 
 74:                                               ; preds = %71
@@ -27784,7 +27784,7 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
   store ptr null, ptr %10, align 8
   %556 = load i32, ptr %57, align 8
   %557 = add nsw i32 %556, 1
-  %558 = icmp eq i32 %557, %2
+  %558 = icmp eq i32 %2, %557
   %559 = icmp ne i32 %2, 3
   %or.cond3.not233.not238 = and i1 %559, %558
   %560 = icmp eq i8 %.0200, 0
@@ -27979,12 +27979,12 @@ define internal fastcc noundef ptr @stbi__convert_format(ptr noundef %0, i32 nou
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %9
   %11 = udiv i32 2147483647, %3
-  %.not23.i.i = icmp slt i32 %11, %2
+  %.not23.i.i = icmp sgt i32 %2, %11
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %9
   %12 = mul nsw i32 %3, %2
-  %13 = or i32 %12, %4
+  %13 = or i32 %4, %12
   %or.cond.not.i10.i.i = icmp sgt i32 %13, -1
   br i1 %or.cond.not.i10.i.i, label %14, label %stbi__malloc_mad3.exit.thread
 
@@ -27994,7 +27994,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %14
   %16 = udiv i32 2147483647, %4
-  %.not.i.i = icmp slt i32 %16, %12
+  %.not.i.i = icmp sgt i32 %12, %16
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2sizes_valid.exit12.i.i
@@ -28040,7 +28040,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 25:                                               ; preds = %.lr.ph254.split, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph254.split ], [ %indvars.iv.next, %.loopexit ]
   %26 = trunc nuw nsw i64 %indvars.iv to i32
-  %27 = mul i32 %26, %3
+  %27 = mul i32 %3, %26
   %28 = mul i32 %27, %1
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
@@ -28534,7 +28534,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image(ptr nocapture
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %19
   %21 = udiv i32 2147483647, %14
-  %.not23.i.i = icmp slt i32 %21, %12
+  %.not23.i.i = icmp sgt i32 %12, %21
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %19
@@ -28549,7 +28549,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
   %26 = udiv i32 2147483647, %10
-  %.not.i.i = icmp slt i32 %26, %22
+  %.not.i.i = icmp sgt i32 %22, %26
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2sizes_valid.exit12.i.i
@@ -28952,7 +28952,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette(ptr nocaptu
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %12
   %14 = udiv i32 2147483647, %2
-  %.not10.i.i = icmp slt i32 %14, %8
+  %.not10.i.i = icmp sgt i32 %8, %14
   br i1 %.not10.i.i, label %stbi__malloc_mad2.exit.thread, label %stbi__malloc_mad2.exit
 
 stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit.i.i
@@ -29078,7 +29078,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr nocap
 
 stbi__mul2sizes_valid.exit.i.i:                   ; preds = %19
   %21 = udiv i32 2147483647, %5
-  %.not23.i.i = icmp slt i32 %21, %4
+  %.not23.i.i = icmp sgt i32 %4, %21
   br i1 %.not23.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__mul2sizes_valid.exit.thread15.i.i
 
 stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_valid.exit.i.i, %19
@@ -29093,7 +29093,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
   %26 = udiv i32 2147483647, %16
-  %.not.i.i = icmp slt i32 %26, %22
+  %.not.i.i = icmp sgt i32 %22, %26
   br i1 %.not.i.i, label %stbi__malloc_mad3.exit.thread, label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit12.i.i, %stbi__mul2sizes_valid.exit.i.i, %8, %stbi__mul2sizes_valid.exit.thread15.i.i
@@ -29121,7 +29121,7 @@ stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2size
 
 stbi__mul2sizes_valid.exit.i:                     ; preds = %34
   %36 = udiv i32 2147483647, %4
-  %.not23.i = icmp slt i32 %36, %15
+  %.not23.i = icmp sgt i32 %15, %36
   br i1 %.not23.i, label %.loopexit710.sink.split, label %stbi__mul2sizes_valid.exit.thread15.i
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_valid.exit.i, %34
@@ -29136,7 +29136,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %39
   %41 = udiv i32 2147483647, %6
-  %.not.i = icmp slt i32 %41, %37
+  %.not.i = icmp sgt i32 %37, %41
   %42 = mul i32 %37, %6
   %43 = icmp sgt i32 %42, 2147483640
   %or.cond702 = or i1 %.not.i, %43
@@ -29148,7 +29148,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %45 = lshr i32 %44, 3
   %46 = add nuw nsw i32 %45, 1
   %47 = mul i32 %46, %5
-  %48 = icmp ugt i32 %47, %2
+  %48 = icmp ult i32 %2, %47
   br i1 %48, label %.loopexit710.sink.split, label %.preheader746
 
 .preheader746:                                    ; preds = %stbi__mad3sizes_valid.exit._crit_edge
@@ -30281,7 +30281,7 @@ stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %9
 
 stbi__mul2sizes_valid.exit12.i:                   ; preds = %14
   %16 = udiv i32 2147483647, %12
-  %.not.i = icmp ult i32 %16, %13
+  %.not.i = icmp ugt i32 %13, %16
   br i1 %.not.i, label %stbi__process_gif_raster.exit.thread.sink.split, label %stbi__mad3sizes_valid.exit
 
 stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_valid.exit12.i, %14
@@ -31004,7 +31004,7 @@ stbi__get8.exit122.i:                             ; preds = %stbi__refill_buffer
   %375 = ptrtoint ptr %.pre.i126.i to i64
   %376 = sub i64 %374, %375
   %377 = trunc i64 %376 to i32
-  %378 = icmp slt i32 %377, %371
+  %378 = icmp sgt i32 %371, %377
   br i1 %378, label %379, label %._crit_edge.i124.i
 
 379:                                              ; preds = %373
@@ -31448,7 +31448,7 @@ stbi__skip.exit:                                  ; preds = %577, %581
   %591 = ptrtoint ptr %496 to i64
   %592 = sub i64 %590, %591
   %593 = trunc i64 %592 to i32
-  %594 = icmp slt i32 %593, %585
+  %594 = icmp sgt i32 %585, %593
   br i1 %594, label %595, label %._crit_edge.i214
 
 595:                                              ; preds = %589
@@ -31535,7 +31535,7 @@ stbi__get8.exit223:                               ; preds = %604, %stbi__refill_
   %634 = ptrtoint ptr %.pre.i227 to i64
   %635 = sub i64 %633, %634
   %636 = trunc i64 %635 to i32
-  %637 = icmp slt i32 %636, %630
+  %637 = icmp sgt i32 %630, %636
   br i1 %637, label %638, label %._crit_edge.i225
 
 638:                                              ; preds = %632
@@ -34236,7 +34236,7 @@ define internal fastcc range(i32 0, 2) i32 @stbir__calculate_region_transform(pt
 40:                                               ; preds = %35, %20
   %.058 = phi double [ %39, %35 ], [ %5, %20 ]
   %41 = phi i32 [ 0, %35 ], [ %33, %20 ]
-  %42 = add i32 %41, %3
+  %42 = add i32 %3, %41
   %43 = sub i32 %1, %42
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %stbir__clip.exit
@@ -34246,7 +34246,7 @@ define internal fastcc range(i32 0, 2) i32 @stbir__calculate_region_transform(pt
   %47 = fdiv double %46, %23
   %48 = fsub double %6, %.058
   %49 = fmul double %48, %47
-  %50 = fadd double %49, %6
+  %50 = fadd double %6, %49
   %51 = sub nsw i32 %1, %41
   br label %stbir__clip.exit
 
@@ -37382,11 +37382,11 @@ stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %185, %.loop
   br label %stbir__insert_coeff.exit
 
 261:                                              ; preds = %247
-  %.not.i159 = icmp slt i32 %250, %.0189
+  %.not.i159 = icmp sgt i32 %.0189, %250
   br i1 %.not.i159, label %280, label %262
 
 262:                                              ; preds = %261
-  %263 = icmp sgt i32 %248, %.0189
+  %263 = icmp slt i32 %.0189, %248
   br i1 %263, label %264, label %274
 
 264:                                              ; preds = %262
@@ -37751,12 +37751,12 @@ stbir_overlapping_memcpy.exit:                    ; preds = %74, %72, %._crit_ed
   %114 = getelementptr inbounds float, ptr %.1198353, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = load i32, ptr %104, align 4
-  %.not.i = icmp slt i32 %116, %112
+  %.not.i = icmp sgt i32 %112, %116
   %117 = load i32, ptr %.1201352, align 4
   br i1 %.not.i, label %136, label %118
 
 118:                                              ; preds = %110
-  %119 = icmp sgt i32 %117, %112
+  %119 = icmp slt i32 %112, %117
   br i1 %119, label %120, label %130
 
 120:                                              ; preds = %118
@@ -37868,12 +37868,12 @@ stbir__insert_coeff.exit:                         ; preds = %._crit_edge.i, %130
   %157 = getelementptr inbounds i8, ptr %.0177337, i64 -4
   %158 = load float, ptr %.0177337, align 4
   %159 = load i32, ptr %104, align 4
-  %.not.i231 = icmp slt i32 %159, %156
+  %.not.i231 = icmp sgt i32 %156, %159
   %160 = load i32, ptr %.1201352, align 4
   br i1 %.not.i231, label %179, label %161
 
 161:                                              ; preds = %155
-  %162 = icmp sgt i32 %160, %156
+  %162 = icmp slt i32 %156, %160
   br i1 %162, label %163, label %173
 
 163:                                              ; preds = %161
@@ -37988,12 +37988,12 @@ stbir__insert_coeff.exit249:                      ; preds = %._crit_edge.i233, %
   %204 = load ptr, ptr %82, align 8
   %205 = tail call i32 %204(i32 noundef %.lcssa278, i32 noundef %8) #50
   %206 = load i32, ptr %104, align 4
-  %.not.i250 = icmp slt i32 %206, %205
+  %.not.i250 = icmp sgt i32 %205, %206
   %207 = load i32, ptr %.1201352, align 4
   br i1 %.not.i250, label %226, label %208
 
 208:                                              ; preds = %._crit_edge347
-  %209 = icmp sgt i32 %207, %205
+  %209 = icmp slt i32 %205, %207
   br i1 %209, label %210, label %220
 
 210:                                              ; preds = %208
@@ -38129,7 +38129,7 @@ stbir__insert_coeff.exit268:                      ; preds = %.preheader, %._crit
   %259 = shl nsw i64 %258, 2
   %scevgep = getelementptr i8, ptr %.1198353, i64 %259
   %260 = xor i32 %.0375, -1
-  %261 = add i32 %260, %6
+  %261 = add i32 %6, %260
   %262 = zext i32 %261 to i64
   %263 = shl nuw nsw i64 %262, 2
   %264 = add nuw nsw i64 %263, 4
@@ -38175,7 +38175,7 @@ define internal i32 @stbir__edge_reflect_full(i32 noundef %0, i32 noundef %1) #6
 
 4:                                                ; preds = %2
   %5 = sub nsw i32 0, %1
-  %6 = icmp slt i32 %5, %0
+  %6 = icmp sgt i32 %0, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
@@ -38192,7 +38192,7 @@ define internal i32 @stbir__edge_reflect_full(i32 noundef %0, i32 noundef %1) #6
 
 12:                                               ; preds = %11
   %13 = shl nsw i32 %1, 1
-  %.not17 = icmp sgt i32 %13, %0
+  %.not17 = icmp slt i32 %0, %13
   br i1 %.not17, label %14, label %17
 
 14:                                               ; preds = %12

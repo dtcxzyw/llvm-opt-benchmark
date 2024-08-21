@@ -880,7 +880,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %195 = getelementptr inbounds i32, ptr %168, i64 %194
   %196 = load i32, ptr %195, align 4, !noalias !11
   %.not.i.us.us.i.i.i = icmp sle i32 %.02392.i, %196
-  %197 = icmp sgt i32 %137, %196
+  %197 = icmp slt i32 %196, %137
   %198 = select i1 %.not.i.us.us.i.i.i, i1 %197, i1 false
   br i1 %198, label %199, label %210
 
@@ -1001,7 +1001,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %262 = getelementptr inbounds i32, ptr %168, i64 %261
   %263 = load i32, ptr %262, align 4, !noalias !11
   %.not.i.us.i.i.i = icmp sle i32 %.02392.i, %263
-  %264 = icmp sgt i32 %137, %263
+  %264 = icmp slt i32 %263, %137
   %265 = select i1 %.not.i.us.i.i.i, i1 %264, i1 false
   br i1 %265, label %266, label %277
 
@@ -1133,7 +1133,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %335 = getelementptr inbounds i32, ptr %168, i64 %334
   %336 = load i32, ptr %335, align 4, !noalias !11
   %.not.i.us22.i.i.i = icmp sle i32 %.02392.i, %336
-  %337 = icmp sgt i32 %137, %336
+  %337 = icmp slt i32 %336, %137
   %338 = select i1 %.not.i.us22.i.i.i, i1 %337, i1 false
   br i1 %338, label %339, label %349
 
@@ -1226,7 +1226,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %388 = getelementptr inbounds i32, ptr %168, i64 %387
   %389 = load i32, ptr %388, align 4, !noalias !11
   %.not.i.i.i.i = icmp sle i32 %.02392.i, %389
-  %390 = icmp sgt i32 %137, %389
+  %390 = icmp slt i32 %389, %137
   %391 = select i1 %.not.i.i.i.i, i1 %390, i1 false
   br i1 %391, label %392, label %441
 
@@ -2132,7 +2132,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %2
 _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %2, %_ZL25havePPDomainDecompositionPK9t_commrec.exit
   %15 = getelementptr inbounds i8, ptr %4, i64 88
   %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, %1
+  %17 = icmp eq i32 %1, %16
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread

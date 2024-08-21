@@ -142,7 +142,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
   %80 = getelementptr inbounds i8, ptr %75, i64 18
   %81 = load i8, ptr %80, align 2
   %82 = zext i8 %81 to i32
-  %83 = icmp eq i32 %82, %4
+  %83 = icmp eq i32 %4, %82
   br i1 %83, label %84, label %.critedge2
 
 84:                                               ; preds = %79

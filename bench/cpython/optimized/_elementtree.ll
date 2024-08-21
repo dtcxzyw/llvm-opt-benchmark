@@ -5532,7 +5532,7 @@ entry:
 lor.lhs.false1:                                   ; preds = %entry
   %length = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %length, align 8
-  %cmp3.not = icmp sgt i64 %1, %index
+  %cmp3.not = icmp slt i64 %index, %1
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false1, %entry
@@ -5572,7 +5572,7 @@ entry:
 lor.lhs.false1:                                   ; preds = %entry
   %length = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %length, align 8
-  %cmp3.not = icmp sgt i64 %1, %index
+  %cmp3.not = icmp slt i64 %index, %1
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false1, %entry
@@ -5637,7 +5637,7 @@ if.else:                                          ; preds = %if.end
   %13 = load ptr, ptr %extra, align 8
   %length1925 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %length1925, align 8
-  %cmp2026 = icmp sgt i64 %14, %index
+  %cmp2026 = icmp slt i64 %index, %14
   br i1 %cmp2026, label %for.body, label %if.end27
 
 for.body:                                         ; preds = %if.else, %for.body
@@ -5758,7 +5758,7 @@ if.end10:                                         ; preds = %if.end.if.end10_cri
 lor.lhs.false1.i:                                 ; preds = %if.end10
   %length.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %length.i, align 8
-  %cmp3.not.i = icmp sgt i64 %4, %i.0
+  %cmp3.not.i = icmp slt i64 %i.0, %4
   br i1 %cmp3.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true6, %lor.lhs.false1.i, %if.end10
@@ -7930,8 +7930,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1822 = phi i64 [ %cond17, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1822, %add
+  %add = sub i64 0, %cond1822
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end

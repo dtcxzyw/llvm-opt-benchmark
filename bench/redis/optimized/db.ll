@@ -528,7 +528,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp2.not = icmp ult i64 %1, %target
+  %cmp2.not = icmp ugt i64 %target, %1
   br i1 %cmp2.not, label %cond.false, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
@@ -783,7 +783,7 @@ land.lhs.true24:                                  ; preds = %land.lhs.true20
   %18 = load ptr, ptr %proc, align 8
   %cmp.not = icmp ne ptr %18, @touchCommand
   %or26 = zext i1 %cmp.not to i32
-  %spec.select17 = or i32 %or26, %flags
+  %spec.select17 = or i32 %flags, %or26
   br label %if.end27
 
 if.end27:                                         ; preds = %land.lhs.true24, %land.lhs.true20, %if.then18
@@ -3072,7 +3072,7 @@ entry:
   store i32 %dbnum, ptr %dbnum5, align 4
   %cmp = icmp sgt i32 %dbnum, -2
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp6.not = icmp sgt i32 %0, %dbnum
+  %cmp6.not = icmp slt i32 %dbnum, %0
   %or.cond = select i1 %cmp, i1 %cmp6.not, i1 false
   br i1 %or.cond, label %if.end, label %if.then
 
@@ -3391,7 +3391,7 @@ define dso_local range(i32 -1, 1) i32 @selectDb(ptr nocapture noundef writeonly 
 entry:
   %cmp = icmp sgt i32 %id, -1
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1.not = icmp sgt i32 %0, %id
+  %cmp1.not = icmp slt i32 %id, %0
   %or.cond = select i1 %cmp, i1 %cmp1.not, i1 false
   br i1 %or.cond, label %if.end, label %return
 
@@ -4104,7 +4104,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %cmp.i = icmp sgt i32 %3, -1
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1.not.i = icmp sgt i32 %4, %3
+  %cmp1.not.i = icmp slt i32 %3, %4
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.not.i, i1 false
   br i1 %or.cond.i, label %if.else, label %if.then6
 
@@ -4544,7 +4544,7 @@ if.end:                                           ; preds = %entry
 
 return:                                           ; preds = %if.end, %if.then
   %conv.pn = phi i64 [ %conv, %if.then ], [ %sub, %if.end ]
-  %retval.0.in = icmp eq i64 %conv.pn, %target
+  %retval.0.in = icmp eq i64 %target, %conv.pn
   %retval.0 = zext i1 %retval.0.in to i32
   ret i32 %retval.0
 }
@@ -5443,7 +5443,7 @@ if.end.i:                                         ; preds = %lor.lhs.false290
 
 objectTypeCompare.exit:                           ; preds = %if.then.i, %if.end.i
   %conv.pn.i = phi i64 [ %conv.i158, %if.then.i ], [ %sub.i161, %if.end.i ]
-  %retval.0.in.i.not = icmp eq i64 %conv.pn.i, %type.0.lcssa
+  %retval.0.in.i.not = icmp eq i64 %type.0.lcssa, %conv.pn.i
   br i1 %retval.0.in.i.not, label %if.end294, label %if.then293
 
 if.then293:                                       ; preds = %objectTypeCompare.exit, %while.body274
@@ -6987,7 +6987,7 @@ if.end3:                                          ; preds = %if.end
   %5 = load i32, ptr %dbid, align 4
   %cmp.i = icmp sgt i32 %5, -1
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1.not.i = icmp sgt i32 %6, %5
+  %cmp1.not.i = icmp slt i32 %5, %6
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.not.i, i1 false
   br i1 %or.cond.i, label %if.end7, label %if.then6
 
@@ -7002,7 +7002,7 @@ if.end7:                                          ; preds = %if.end3
   store ptr %arrayidx.i, ptr %db, align 8
   %cmp.i40 = icmp sgt i32 %2, -1
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1.not.i41 = icmp sgt i32 %8, %2
+  %cmp1.not.i41 = icmp slt i32 %2, %8
   %or.cond.i42 = select i1 %cmp.i40, i1 %cmp1.not.i41, i1 false
   br i1 %or.cond.i42, label %if.end.i44, label %selectDb.exit48
 
@@ -7166,7 +7166,7 @@ if.end.us:                                        ; preds = %if.then14.us
   %10 = load i32, ptr %dbid, align 4
   %cmp.i.us = icmp sgt i32 %10, -1
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1.not.i.us = icmp sgt i32 %11, %10
+  %cmp1.not.i.us = icmp slt i32 %10, %11
   %or.cond.i.us = select i1 %cmp.i.us, i1 %cmp1.not.i.us, i1 false
   br i1 %or.cond.i.us, label %if.end24.us, label %if.then23
 
@@ -7226,7 +7226,7 @@ if.end:                                           ; preds = %if.then14
   %23 = load i32, ptr %dbid, align 4
   %cmp.i = icmp sgt i32 %23, -1
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1.not.i = icmp sgt i32 %24, %23
+  %cmp1.not.i = icmp slt i32 %23, %24
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.not.i, i1 false
   br i1 %or.cond.i, label %if.end24, label %if.then23
 
@@ -7240,7 +7240,7 @@ if.end24:                                         ; preds = %if.end
   %arrayidx.i = getelementptr inbounds %struct.redisDb, ptr %25, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %db, align 8
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1.not.i65 = icmp sgt i32 %26, %.fr
+  %cmp1.not.i65 = icmp slt i32 %.fr, %26
   br i1 %cmp1.not.i65, label %if.end.i68, label %for.inc
 
 if.end.i68:                                       ; preds = %if.end24
@@ -7562,10 +7562,10 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp1 = icmp sgt i32 %0, %id1
+  %cmp1 = icmp slt i32 %id1, %0
   %cmp3 = icmp sgt i32 %id2, -1
   %or.cond.not69 = and i1 %cmp3, %cmp1
-  %cmp5.not = icmp sgt i32 %0, %id2
+  %cmp5.not = icmp slt i32 %id2, %0
   %or.cond68 = and i1 %cmp5.not, %or.cond.not69
   br i1 %or.cond68, label %if.end, label %return
 
@@ -8187,7 +8187,7 @@ if.end:                                           ; preds = %cond.end, %entry
   %2 = phi ptr [ %result, %cond.end ], [ %0, %entry ]
   %size = getelementptr inbounds i8, ptr %result, i64 2060
   %3 = load i32, ptr %size, align 4
-  %cmp = icmp slt i32 %3, %numkeys
+  %cmp = icmp sgt i32 %numkeys, %3
   br i1 %cmp, label %if.then8, label %if.end34
 
 if.then8:                                         ; preds = %if.end
@@ -8528,7 +8528,7 @@ cond.end.i:                                       ; preds = %if.then.i
 if.end.i:                                         ; preds = %cond.end.i, %if.end147
   %27 = phi ptr [ %result, %cond.end.i ], [ %26, %if.end147 ]
   %28 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %28, %add151
+  %cmp.i = icmp sgt i32 %add151, %28
   br i1 %cmp.i, label %if.then8.i, label %getKeysPrepareResult.exit
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -8890,7 +8890,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   %7 = phi ptr [ %result, %cond.end.i ], [ %5, %if.then3 ]
   %size.i = getelementptr inbounds i8, ptr %result, i64 2060
   %8 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %8, %sub
+  %cmp.i = icmp sgt i32 %sub, %8
   br i1 %cmp.i, label %if.then8.i, label %getKeysPrepareResult.exit
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -9007,7 +9007,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.end
   %6 = phi ptr [ %result, %cond.end.i ], [ %4, %if.end ]
   %size.i = getelementptr inbounds i8, ptr %result, i64 2060
   %7 = load i32, ptr %size.i, align 4
-  %cmp.i.not = icmp sgt i32 %7, %sub
+  %cmp.i.not = icmp slt i32 %sub, %7
   br i1 %cmp.i.not, label %getKeysPrepareResult.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -9195,7 +9195,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.end
   %4 = phi ptr [ %result, %cond.end.i ], [ %2, %if.end ]
   %size.i = getelementptr inbounds i8, ptr %result, i64 2060
   %5 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %5, %cond
+  %cmp.i = icmp sgt i32 %cond, %5
   br i1 %cmp.i, label %if.then8.i, label %for.body.preheader
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -9239,7 +9239,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx8 = getelementptr inbounds %struct.keyReference, ptr %8, i64 %indvars.iv
   %9 = trunc i64 %indvars.iv to i32
-  %10 = mul i32 %9, %keyStep
+  %10 = mul i32 %keyStep, %9
   %11 = add i32 %10, %firstKeyOfs
   store i32 %11, ptr %arrayidx8, align 4
   %flags = getelementptr inbounds i8, ptr %arrayidx8, i64 4
@@ -9704,7 +9704,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.end
   %14 = phi ptr [ %result, %cond.end.i ], [ %12, %if.end30 ]
   %size.i = getelementptr inbounds i8, ptr %result, i64 2060
   %15 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %15, %num.0
+  %cmp.i = icmp sgt i32 %num.0, %15
   br i1 %cmp.i, label %if.then8.i, label %getKeysPrepareResult.exit
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -9829,7 +9829,7 @@ if.end.i:                                         ; preds = %cond.end.i, %for.en
   %4 = phi ptr [ %result, %cond.end.i ], [ %2, %for.end ]
   %size.i = getelementptr inbounds i8, ptr %result, i64 2060
   %5 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %5, %add7
+  %cmp.i = icmp sgt i32 %add7, %5
   br i1 %cmp.i, label %if.then8.i, label %getKeysPrepareResult.exit
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -9940,7 +9940,7 @@ for.inc:                                          ; preds = %if.then, %if.then8,
 for.end:                                          ; preds = %if.else13
   %cmp22.not = icmp eq i32 %i.046, -1
   %2 = xor i32 %i.046, -1
-  %sub24 = add i32 %2, %argc
+  %sub24 = add i32 %argc, %2
   br i1 %cmp22.not, label %return, label %3
 
 3:                                                ; preds = %for.end
@@ -9976,7 +9976,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.end
   %7 = phi ptr [ %result, %cond.end.i ], [ %5, %if.end31 ]
   %size.i = getelementptr inbounds i8, ptr %result, i64 2060
   %8 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %8, %div
+  %cmp.i = icmp sgt i32 %div, %8
   br i1 %cmp.i, label %if.then8.i, label %getKeysPrepareResult.exit
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -10227,7 +10227,7 @@ getKeysPrepareResult.exit:                        ; preds = %if.end.i, %if.end32
 for.body:                                         ; preds = %getKeysPrepareResult.exit, %for.inc
   %i.021 = phi i32 [ %inc, %for.inc ], [ 2, %getKeysPrepareResult.exit ]
   %7 = xor i32 %i.021, -1
-  %sub1 = add i32 %7, %argc
+  %sub1 = add i32 %argc, %7
   %idxprom = sext i32 %i.021 to i64
   %arrayidx2 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %8 = load ptr, ptr %arrayidx2, align 8
@@ -10372,7 +10372,7 @@ while.end:                                        ; preds = %if.end10, %dbIterat
   %call11 = tail call i64 @dictGetStatsMsg(ptr noundef %buf, i64 noundef %bufsize, ptr noundef %mainHtStats.0.lcssa, i32 noundef %full) #17
   tail call void @dictFreeStats(ptr noundef %mainHtStats.0.lcssa) #17
   %tobool12 = icmp ne ptr %rehashHtStats.0.lcssa, null
-  %cmp13 = icmp ne i64 %call11, %bufsize
+  %cmp13 = icmp ne i64 %bufsize, %call11
   %or.cond = select i1 %tobool12, i1 %cmp13, i1 false
   br i1 %or.cond, label %if.then14, label %if.end16
 

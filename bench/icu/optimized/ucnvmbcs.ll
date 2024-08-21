@@ -1712,7 +1712,7 @@ while.body.i262:                                  ; preds = %if.then.i, %while.b
   %idxprom.i264 = zext nneg i32 %div12.i to i64
   %arrayidx.i = getelementptr inbounds %struct._MBCSToUFallback, ptr %210, i64 %idxprom.i264
   %211 = load i32, ptr %arrayidx.i, align 4
-  %cmp4.i = icmp ugt i32 %211, %add211
+  %cmp4.i = icmp ult i32 %add211, %211
   %start.0.div12.i = select i1 %cmp4.i, i32 %start.015.i, i32 %div12.i
   %div12.limit.0.i = select i1 %cmp4.i, i32 %div12.i, i32 %limit.016.i
   %sub.i265 = add i32 %div12.limit.0.i, -1
@@ -1727,7 +1727,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %start.0.lcssa.i = phi i64 [ 0, %if.then.i ], [ %212, %while.end.loopexit.i266 ]
   %arrayidx7.i = getelementptr inbounds %struct._MBCSToUFallback, ptr %210, i64 %start.0.lcssa.i
   %213 = load i32, ptr %arrayidx7.i, align 4
-  %cmp9.i = icmp eq i32 %213, %add211
+  %cmp9.i = icmp eq i32 %add211, %213
   br i1 %cmp9.i, label %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit, label %if.end395
 
 _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit: ; preds = %while.end.i
@@ -2218,7 +2218,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %idxprom = zext nneg i32 %div12 to i64
   %arrayidx = getelementptr inbounds %struct._MBCSToUFallback, ptr %1, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
-  %cmp4 = icmp ugt i32 %2, %offset
+  %cmp4 = icmp ult i32 %offset, %2
   %start.0.div12 = select i1 %cmp4, i32 %start.015, i32 %div12
   %div12.limit.0 = select i1 %cmp4, i32 %div12, i32 %limit.016
   %sub = add i32 %div12.limit.0, -1
@@ -2233,7 +2233,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %start.0.lcssa = phi i64 [ 0, %if.then ], [ %3, %while.end.loopexit ]
   %arrayidx7 = getelementptr inbounds %struct._MBCSToUFallback, ptr %1, i64 %start.0.lcssa
   %4 = load i32, ptr %arrayidx7, align 4
-  %cmp9 = icmp eq i32 %4, %offset
+  %cmp9 = icmp eq i32 %offset, %4
   br i1 %cmp9, label %if.then10, label %return
 
 if.then10:                                        ; preds = %while.end
@@ -2378,7 +2378,7 @@ if.then94:                                        ; preds = %if.else
 
 for.end:                                          ; preds = %if.else, %if.else71, %if.then41, %if.then67, %if.then54, %if.else29, %if.then20, %if.then94, %if.then88, %if.then82, %if.then35
   %c.0 = phi i32 [ %conv26, %if.then20 ], [ %call, %if.else29 ], [ %conv37, %if.then35 ], [ %conv48, %if.then41 ], [ %add60, %if.then54 ], [ %conv70, %if.then67 ], [ %add84, %if.then82 ], [ %conv90, %if.then88 ], [ %add96, %if.then94 ], [ 65534, %if.else71 ], [ 65534, %if.else ]
-  %cmp109.not = icmp eq i32 %6, %length
+  %cmp109.not = icmp eq i32 %length, %6
   br i1 %cmp109.not, label %if.end111, label %return
 
 if.end111:                                        ; preds = %for.end
@@ -4473,7 +4473,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 land.lhs.true5:                                   ; preds = %for.body
   %arrayidx6 = getelementptr inbounds i8, ptr %range.028, i64 4
   %3 = load i32, ptr %arrayidx6, align 4
-  %cmp7.not = icmp ult i32 %3, %cp
+  %cmp7.not = icmp ugt i32 %cp, %3
   br i1 %cmp7.not, label %for.inc, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true5

@@ -568,7 +568,7 @@ if.end47:                                         ; preds = %if.then42
 sw.bb51:                                          ; preds = %entry
   %14 = load i32, ptr %0, align 8
   %conv52 = sext i32 %14 to i64
-  %cmp53 = icmp slt i64 %conv52, %num
+  %cmp53 = icmp sgt i64 %num, %conv52
   br i1 %cmp53, label %if.then55, label %sw.bb51.if.end67_crit_edge
 
 sw.bb51.if.end67_crit_edge:                       ; preds = %sw.bb51
@@ -810,7 +810,7 @@ sw.bb205:                                         ; preds = %entry
   %ibuf_len207 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = load i32, ptr %ibuf_len207, align 8
   %conv208 = sext i32 %42 to i64
-  %spec.select144 = call i64 @llvm.smin.i64(i64 %conv208, i64 %num)
+  %spec.select144 = call i64 @llvm.smin.i64(i64 %num, i64 %conv208)
   %ibuf215 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = load ptr, ptr %ibuf215, align 8
   %ibuf_off216 = getelementptr inbounds i8, ptr %0, i64 20

@@ -477,7 +477,7 @@ if.end:                                           ; preds = %entry
 
 if.then9:                                         ; preds = %if.end
   %sub = sub nsw i64 0, %4
-  %cmp10.not = icmp eq i64 %sub, %numBytes
+  %cmp10.not = icmp eq i64 %numBytes, %sub
   br i1 %cmp10.not, label %if.end37, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
@@ -996,7 +996,7 @@ if.end:                                           ; preds = %entry
 
 if.then9:                                         ; preds = %if.end
   %sub = sub nsw i64 0, %4
-  %cmp10.not = icmp eq i64 %sub, %numBytes
+  %cmp10.not = icmp eq i64 %numBytes, %sub
   br i1 %cmp10.not, label %if.end37, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
@@ -1098,7 +1098,7 @@ invoke.cont53:                                    ; preds = %if.else49
 
 invoke.cont56:                                    ; preds = %invoke.cont53
   %conv = sext i32 %call57 to i64
-  %cmp61.not = icmp eq i64 %conv, %numBytes
+  %cmp61.not = icmp eq i64 %numBytes, %conv
   br i1 %cmp61.not, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %if.then62
 
 lpad52:                                           ; preds = %invoke.cont53, %if.else49

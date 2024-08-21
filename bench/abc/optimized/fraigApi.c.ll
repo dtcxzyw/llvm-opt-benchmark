@@ -464,7 +464,7 @@ define ptr @Fraig_ManReadIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %.preheader

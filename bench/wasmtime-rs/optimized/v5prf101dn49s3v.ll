@@ -7918,7 +7918,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !5
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -7999,8 +7999,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !1748
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -8282,7 +8282,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1754)
   %14 = getelementptr inbounds i8, ptr %1, i64 424
   %15 = load i64, ptr %14, align 8, !range !1118, !alias.scope !1754, !noundef !5
-  %16 = icmp eq i64 %15, %11
+  %16 = icmp eq i64 %11, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %3
@@ -8292,7 +8292,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 18:                                               ; preds = %17, %3
   %19 = getelementptr inbounds i8, ptr %1, i64 392
   %20 = load i64, ptr %19, align 8, !alias.scope !1754, !noundef !5
-  %21 = icmp ugt i64 %20, %13
+  %21 = icmp ult i64 %13, %20
   br i1 %21, label %"_ZN140_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..Index$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$5index17h5b9ef6d1df3305dbE.exit", label %22, !prof !1757
 
 22:                                               ; preds = %18
@@ -8314,7 +8314,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
   %.val20 = load i64, ptr %29, align 8, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1758)
   %30 = load i64, ptr %14, align 8, !range !1118, !alias.scope !1758, !noundef !5
-  %31 = icmp eq i64 %30, %.val
+  %31 = icmp eq i64 %.val, %30
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %27
@@ -8324,7 +8324,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 33:                                               ; preds = %32, %27
   %34 = getelementptr inbounds i8, ptr %1, i64 416
   %35 = load i64, ptr %34, align 8, !alias.scope !1758, !noundef !5
-  %36 = icmp ugt i64 %35, %.val20
+  %36 = icmp ult i64 %.val20, %35
   br i1 %36, label %"_ZN140_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..Index$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$5index17hc1f240b1da8fa603E.exit.i", label %37, !prof !1757
 
 37:                                               ; preds = %33
@@ -21454,7 +21454,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wa
   store i64 %110, ptr %7, align 8, !noalias !3816
   %118 = getelementptr inbounds i8, ptr %8, i64 16
   %119 = load i64, ptr %118, align 8, !noalias !3809, !noundef !5
-  %.not.i.i = icmp ult i64 %119, %110
+  %.not.i.i = icmp ugt i64 %110, %119
   br i1 %.not.i.i, label %120, label %136
 
 120:                                              ; preds = %.noexc28

@@ -223,7 +223,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
 
 27:                                               ; preds = %26
   %28 = zext i32 %.pre to i64
-  %.not79 = icmp ult i64 %28, %2
+  %.not79 = icmp ugt i64 %2, %28
   br i1 %.not79, label %29, label %.loopexit
 
 29:                                               ; preds = %27
@@ -258,13 +258,13 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   %.not83.ph = phi i1 [ true, %3 ], [ %.not83.ph.be, %.outer.outer.backedge ]
   %.056.ph.ph = phi i32 [ 0, %3 ], [ %.056.ph.ph.be, %.outer.outer.backedge ]
   %41 = zext i32 %.058.ph.ph to i64
-  %.not82 = icmp ult i64 %41, %2
+  %.not82 = icmp ugt i64 %2, %41
   %42 = getelementptr inbounds i8, ptr %1, i64 %41
   br label %.outer
 
 43:                                               ; preds = %40
   %44 = zext i32 %.pre137 to i64
-  %.not77 = icmp ult i64 %44, %2
+  %.not77 = icmp ugt i64 %2, %44
   br i1 %.not77, label %45, label %.loopexit
 
 45:                                               ; preds = %43
@@ -288,7 +288,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
 
 57:                                               ; preds = %56
   %58 = zext i32 %.058.ph.ph to i64
-  %.not75 = icmp ult i64 %58, %2
+  %.not75 = icmp ugt i64 %2, %58
   br i1 %.not75, label %59, label %.loopexit
 
 59:                                               ; preds = %57

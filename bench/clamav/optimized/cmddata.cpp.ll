@@ -607,7 +607,7 @@ define noundef zeroext i1 @_ZN11CommandData9SizeCheckEl(ptr nocapture noundef no
   %5 = getelementptr inbounds i8, ptr %0, i64 58600
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 9223372034707292159
-  %.not7 = icmp sgt i64 %6, %1
+  %.not7 = icmp slt i64 %1, %6
   %or.cond = or i1 %.not, %.not7
   br i1 %or.cond, label %7, label %10
 
@@ -615,7 +615,7 @@ define noundef zeroext i1 @_ZN11CommandData9SizeCheckEl(ptr nocapture noundef no
   %8 = getelementptr inbounds i8, ptr %0, i64 58608
   %9 = load i64, ptr %8, align 8
   %.not8 = icmp ne i64 %9, 9223372034707292159
-  %.not9 = icmp sge i64 %9, %1
+  %.not9 = icmp sle i64 %1, %9
   %or.cond10.not = and i1 %.not8, %.not9
   br label %10
 
@@ -842,7 +842,7 @@ _ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread44: ; preds = %83, %79, %6
   %121 = getelementptr inbounds i8, ptr %0, i64 58600
   %122 = load i64, ptr %121, align 8
   %.not.i37 = icmp eq i64 %122, 9223372034707292159
-  %.not7.i = icmp sgt i64 %122, %118
+  %.not7.i = icmp slt i64 %118, %122
   %or.cond.i = or i1 %.not.i37, %.not7.i
   br i1 %or.cond.i, label %_ZN11CommandData9SizeCheckEl.exit, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread
 
@@ -850,7 +850,7 @@ _ZN11CommandData9SizeCheckEl.exit:                ; preds = %120
   %123 = getelementptr inbounds i8, ptr %0, i64 58608
   %124 = load i64, ptr %123, align 8
   %.not8.i = icmp ne i64 %124, 9223372034707292159
-  %.not9.i = icmp sge i64 %124, %118
+  %.not9.i = icmp sle i64 %118, %124
   %or.cond10.not.i = and i1 %.not8.i, %.not9.i
   br i1 %or.cond10.not.i, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread, label %_ZN11CommandData9SizeCheckEl.exit.thread49
 
@@ -1217,7 +1217,7 @@ define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %11 = add i64 %10, 1
-  %12 = icmp ult i64 %.sroa.11.025.us, %11
+  %12 = icmp ugt i64 %11, %.sroa.11.025.us
   br i1 %12, label %13, label %_ZN5ArrayIwE5AllocEm.exit.us
 
 13:                                               ; preds = %.lr.ph.split.us
@@ -1264,7 +1264,7 @@ _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.sp
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #16
   %28 = add i64 %27, 1
-  %29 = icmp ult i64 %.sroa.11.025, %28
+  %29 = icmp ugt i64 %28, %.sroa.11.025
   br i1 %29, label %30, label %_ZN5ArrayIwE5AllocEm.exit
 
 30:                                               ; preds = %.lr.ph.split

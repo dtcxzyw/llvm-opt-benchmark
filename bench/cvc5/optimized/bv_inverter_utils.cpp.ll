@@ -51190,12 +51190,12 @@ terminate.lpad.i543:                              ; preds = %if.then13.i.i542
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit544: ; preds = %invoke.cont74, %if.then.i.i536, %if.then13.i.i542
   %sub78 = add nsw i32 %cond.i.i, -1
-  %cmp79.not = icmp eq i32 %sub78, %idx
+  %cmp79.not = icmp eq i32 %idx, %sub78
   br i1 %cmp79.not, label %if.end133, label %if.then80
 
 if.then80:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit544
   %sub81 = add nsw i32 %cond.i.i, -2
-  %cmp82 = icmp eq i32 %sub81, %idx
+  %cmp82 = icmp eq i32 %idx, %sub81
   br i1 %cmp82, label %if.then83, label %for.cond93.preheader
 
 for.cond93.preheader:                             ; preds = %if.then80

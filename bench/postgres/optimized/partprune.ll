@@ -1359,7 +1359,7 @@ get_matching_list_bounds.exit.i:                  ; preds = %.thread.i.i, %263, 
   br label %get_matching_range_bounds.exit.i
 
 305:                                              ; preds = %293
-  %306 = icmp sle i32 %279, %.069.lcssa.i
+  %306 = icmp sge i32 %.069.lcssa.i, %279
   br i1 %306, label %312, label %307
 
 307:                                              ; preds = %305
@@ -1390,7 +1390,7 @@ get_matching_list_bounds.exit.i:                  ; preds = %.thread.i.i, %263, 
   br i1 %318, label %319, label %363
 
 319:                                              ; preds = %316
-  %320 = icmp eq i32 %279, %.069.lcssa.i
+  %320 = icmp eq i32 %.069.lcssa.i, %279
   br i1 %320, label %324, label %.preheader.i81.i
 
 .preheader.i81.i:                                 ; preds = %319

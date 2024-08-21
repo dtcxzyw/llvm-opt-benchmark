@@ -400,7 +400,7 @@ define dso_local i32 @tcp_skb_shift(ptr noundef %0, ptr noundef %1, i32 noundef 
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %13 = add i32 %12, %2
+  %13 = add i32 %2, %12
   %14 = icmp sgt i32 %13, 65535
   br i1 %14, label %17, label %15, !prof !16
 
@@ -15340,7 +15340,7 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
 
 81:                                               ; preds = %76, %80
   %.pn = phi i1 [ %79, %76 ], [ %39, %80 ]
-  %82 = or i1 %.pn, %6
+  %82 = or i1 %6, %.pn
   br i1 %82, label %88, label %83
 
 83:                                               ; preds = %.thread23, %.thread, %81
@@ -16087,7 +16087,7 @@ define internal fastcc noundef zeroext i1 @tcp_shifted_skb(ptr noundef %0, ptr n
   %41 = getelementptr inbounds i8, ptr %2, i64 48
   %42 = load i16, ptr %41, align 8
   %43 = zext i16 %42 to i32
-  %44 = icmp ult i32 %43, %4
+  %44 = icmp ugt i32 %4, %43
   br i1 %44, label %45, label %46, !prof !16
 
 45:                                               ; preds = %31

@@ -106,7 +106,7 @@ define hidden i32 @hb_ot_name_get_utf8(ptr noundef %0, i32 noundef %1, ptr nound
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
-  %.not.i.i.i.i = icmp ugt i32 %29, %12
+  %.not.i.i.i.i = icmp ult i32 %12, %29
   %30 = zext i32 %12 to i64
   %31 = getelementptr inbounds %"struct.OT::NameRecord", ptr %21, i64 %30
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %31, ptr @_hb_NullPool
@@ -316,7 +316,7 @@ define hidden i32 @hb_ot_name_get_utf16(ptr noundef %0, i32 noundef %1, ptr noun
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
-  %.not.i.i.i.i = icmp ugt i32 %29, %12
+  %.not.i.i.i.i = icmp ult i32 %12, %29
   %30 = zext i32 %12 to i64
   %31 = getelementptr inbounds %"struct.OT::NameRecord", ptr %21, i64 %30
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %31, ptr @_hb_NullPool
@@ -487,7 +487,7 @@ define hidden i32 @hb_ot_name_get_utf32(ptr noundef %0, i32 noundef %1, ptr noun
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
-  %.not.i.i.i.i = icmp ugt i32 %29, %12
+  %.not.i.i.i.i = icmp ult i32 %12, %29
   %30 = zext i32 %12 to i64
   %31 = getelementptr inbounds %"struct.OT::NameRecord", ptr %21, i64 %30
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %31, ptr @_hb_NullPool
@@ -815,7 +815,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %18
 65:                                               ; preds = %22
   %66 = getelementptr inbounds i8, ptr %0, i64 28
   %67 = load i32, ptr %66, align 4
-  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %67, i32 %62)
+  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %62, i32 %67)
   %.not19.i = icmp ugt i32 %.sroa.speculated.i, %63
   %68 = lshr i32 %63, 2
   %.not20.i = icmp ult i32 %.sroa.speculated.i, %68
@@ -1131,7 +1131,7 @@ _ZN11hb_vector_tI18hb_ot_name_entry_tLb0EEixEi.exit66: ; preds = %180, %179
 
 _ZN11hb_vector_tI18hb_ot_name_entry_tLb0EEixEi.exit69: ; preds = %188, %187
   %.0.i68 = phi ptr [ @_hb_CrapPool, %187 ], [ %190, %188 ]
-  %.not.i70 = icmp ugt i32 %144, %.02682
+  %.not.i70 = icmp ult i32 %.02682, %144
   br i1 %.not.i70, label %192, label %191
 
 191:                                              ; preds = %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EEixEi.exit69
@@ -1168,7 +1168,7 @@ _ZN11hb_vector_tI18hb_ot_name_entry_tLb0EEixEi.exit72: ; preds = %192, %191
   br i1 %202, label %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE6resizeEibb.exit, label %203
 
 203:                                              ; preds = %._crit_edge86
-  %.not.i.i73 = icmp slt i32 %201, %.026.lcssa
+  %.not.i.i73 = icmp sgt i32 %.026.lcssa, %201
   br i1 %.not.i.i73, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %203, %.preheader.i.i
@@ -1176,7 +1176,7 @@ _ZN11hb_vector_tI18hb_ot_name_entry_tLb0EEixEi.exit72: ; preds = %192, %191
   %204 = lshr i32 %.142.i.i, 1
   %205 = add i32 %.142.i.i, 8
   %206 = add i32 %205, %204
-  %207 = icmp ult i32 %206, %200
+  %207 = icmp ugt i32 %200, %206
   br i1 %207, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1304,7 +1304,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tI18hb_ot_name_entry_tLb0
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %1
-  %.not.i.i = icmp slt i32 %6, %4
+  %.not.i.i = icmp sgt i32 %4, %6
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
@@ -1312,7 +1312,7 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tI18hb_ot_name_entry_tLb0
   %9 = lshr i32 %.142.i.i, 1
   %10 = add i32 %.142.i.i, 8
   %11 = add i32 %10, %9
-  %12 = icmp ult i32 %11, %5
+  %12 = icmp ugt i32 %5, %11
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
@@ -1463,7 +1463,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT10NameRecord8languageEP9hb_face_t
 
 38:                                               ; preds = %37
   %39 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i.i = icmp eq ptr %39, %.1.i.i.i
+  %.not3.i.i.i.i = icmp eq ptr %.1.i.i.i, %39
   br i1 %.not3.i.i.i.i, label %_ZN16hb_lazy_loader_tIN3AAT4ltagE22hb_table_lazy_loader_tIS1_Lj33ELb0EE9hb_face_tLj33E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i, label %40
 
 40:                                               ; preds = %38
@@ -1506,7 +1506,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4ltagE22hb_table_lazy_loader_tIS1_Lj33ELb0EE9hb_face
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = or disjoint i32 %61, %64
-  %.not.i.i = icmp ugt i32 %65, %16
+  %.not.i.i = icmp ult i32 %16, %65
   br i1 %.not.i.i, label %66, label %_ZNK3AAT4ltag12get_languageEj.exit
 
 66:                                               ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4ltagE22hb_table_lazy_loader_tIS1_Lj33ELb0EE9hb_face_tLj33E9hb_blob_tEptEv.exit
@@ -2762,7 +2762,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4name13accelerator_t9get_indexEjP
   %13 = shl nuw nsw i64 %12, 4
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
   %15 = load i32, ptr %14, align 8
-  %.not24.i.us.i.i.us = icmp eq i32 %15, %1
+  %.not24.i.us.i.i.us = icmp eq i32 %1, %15
   br i1 %.not24.i.us.i.i.us, label %18, label %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.us.i.i.us
 
 _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.us.i.i.us: ; preds = %.lr.ph.split.us.i.i.us
@@ -2799,7 +2799,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.us.i.i.us: ; preds = %18
   %28 = shl nuw nsw i64 %27, 4
   %29 = getelementptr inbounds i8, ptr %6, i64 %28
   %30 = load i32, ptr %29, align 8
-  %.not24.i.us.i.i = icmp eq i32 %30, %1
+  %.not24.i.us.i.i = icmp eq i32 %1, %30
   br i1 %.not24.i.us.i.i, label %33, label %31
 
 31:                                               ; preds = %.lr.ph.split.us.i.i
@@ -2809,7 +2809,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.us.i.i.us: ; preds = %18
 33:                                               ; preds = %.lr.ph.split.us.i.i
   %34 = getelementptr inbounds i8, ptr %29, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %2
+  %36 = icmp eq ptr %2, %35
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %33
@@ -2870,7 +2870,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.us.i.i: ; preds = %_ZN2O
   %52 = shl nuw nsw i64 %51, 4
   %53 = getelementptr inbounds i8, ptr %47, i64 %52
   %54 = load i32, ptr %53, align 8
-  %.not24.i.i.i.us = icmp eq i32 %54, %1
+  %.not24.i.i.i.us = icmp eq i32 %1, %54
   br i1 %.not24.i.i.i.us, label %57, label %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.i.i.us
 
 _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.i.i.us: ; preds = %.lr.ph.split.i.i.us
@@ -2907,7 +2907,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i.i.us: ; preds = %57, %
   %67 = shl nuw nsw i64 %66, 4
   %68 = getelementptr inbounds i8, ptr %47, i64 %67
   %69 = load i32, ptr %68, align 8
-  %.not24.i.i.i = icmp eq i32 %69, %1
+  %.not24.i.i.i = icmp eq i32 %1, %69
   br i1 %.not24.i.i.i, label %72, label %70
 
 70:                                               ; preds = %.lr.ph.split.i.i
@@ -2917,7 +2917,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread3.i.i.us: ; preds = %57, %
 72:                                               ; preds = %.lr.ph.split.i.i
   %73 = getelementptr inbounds i8, ptr %68, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, %2
+  %75 = icmp eq ptr %2, %74
   br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %72

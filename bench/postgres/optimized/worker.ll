@@ -6281,7 +6281,7 @@ define internal fastcc void @send_feedback(i64 noundef %0, i1 noundef zeroext %1
 
 7:                                                ; preds = %3
   %8 = load i64, ptr @send_feedback.last_recvpos, align 8
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 %0)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %0, i64 %8)
   %9 = tail call i64 @GetFlushRecPtr(ptr noundef null) #17
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
   %.not.i = icmp eq ptr %10, null

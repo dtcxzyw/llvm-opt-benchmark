@@ -275,7 +275,7 @@ define noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef %0, i32 noundef %1, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
 
 9:                                                ; preds = %.lr.ph
@@ -307,7 +307,7 @@ define { ptr, ptr } @_Z7ftp2fnsB5cxx11iiPK8t_filenm(i32 noundef %0, i32 noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
 
 9:                                                ; preds = %.lr.ph
@@ -346,7 +346,7 @@ define noundef zeroext i1 @_Z8ftp2bSetiiPK8t_filenm(i32 noundef %0, i32 noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
 
 9:                                                ; preds = %.lr.ph
@@ -445,7 +445,7 @@ define noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef %0, i32 noundef %1,
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
 
 9:                                                ; preds = %.lr.ph

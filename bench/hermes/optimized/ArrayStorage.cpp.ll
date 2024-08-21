@@ -446,7 +446,7 @@ if.end:                                           ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %size_.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load atomic i32, ptr %size_.i.i.i monotonic, align 4
-  %cmp.i.i = icmp ult i32 %3, %size
+  %cmp.i.i = icmp ugt i32 %size, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -465,7 +465,7 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %i
   br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit, label %for.body5.i.i.i, !llvm.loop !49
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp7.i.i = icmp ugt i32 %3, %size
+  %cmp7.i.i = icmp ult i32 %size, %3
   br i1 %cmp7.i.i, label %if.then8.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -506,7 +506,7 @@ entry:
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %size_.i.i = getelementptr inbounds i8, ptr %self, i64 4
   %0 = load atomic i32, ptr %size_.i.i monotonic, align 4
-  %cmp.i = icmp ult i32 %0, %newSize
+  %cmp.i = icmp ugt i32 %newSize, %0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -525,7 +525,7 @@ for.body5.i.i:                                    ; preds = %for.body5.i.i, %if.
   br i1 %cmp4.not.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE20resizeWithinCapacityEPS3_RNS0_7HadesGCEj.exit, label %for.body5.i.i, !llvm.loop !49
 
 if.else.i:                                        ; preds = %entry
-  %cmp7.i = icmp ugt i32 %0, %newSize
+  %cmp7.i = icmp ult i32 %newSize, %0
   br i1 %cmp7.i, label %if.then8.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE20resizeWithinCapacityEPS3_RNS0_7HadesGCEj.exit
 
 if.then8.i:                                       ; preds = %if.else.i
@@ -778,7 +778,7 @@ entry:
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 16777208
   %sub.i.i = add nsw i32 %bf.clear.i.i.i, -8
   %2 = lshr exact i32 %sub.i.i, 3
-  %cmp.not = icmp ult i32 %2, %capacity
+  %cmp.not = icmp ugt i32 %capacity, %2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -997,7 +997,7 @@ entry:
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 16777208
   %sub.i.i.i = add nsw i32 %bf.clear.i.i.i.i, -8
   %2 = lshr exact i32 %sub.i.i.i, 3
-  %cmp.not.i = icmp ult i32 %2, %newSize
+  %cmp.not.i = icmp ugt i32 %newSize, %2
   br i1 %cmp.not.i, label %if.end73.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -1024,7 +1024,7 @@ for.body5.i72.i:                                  ; preds = %if.then46.i, %for.b
 
 if.end60.i:                                       ; preds = %for.body5.i72.i, %if.then.i
   %4 = load atomic i32, ptr %size_.i.i monotonic, align 4
-  %cmp62.i = icmp ugt i32 %4, %newSize
+  %cmp62.i = icmp ult i32 %newSize, %4
   br i1 %cmp62.i, label %if.then63.i, label %if.end72.i
 
 if.then63.i:                                      ; preds = %if.end60.i
@@ -1160,7 +1160,7 @@ entry:
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 16777208
   %sub.i.i = add nsw i32 %bf.clear.i.i.i, -8
   %2 = lshr exact i32 %sub.i.i, 3
-  %cmp.not = icmp ult i32 %2, %toLast
+  %cmp.not = icmp ugt i32 %toLast, %2
   br i1 %cmp.not, label %if.end73, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1259,7 +1259,7 @@ if.then.i.i.i62:                                  ; preds = %while.body.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i63: ; preds = %if.then.i.i.i62, %while.body.i
   store i64 %agg.tmp.sroa.0.0.copyload.i59, ptr %incdec.ptr.i57, align 8
-  %cmp.not.i64 = icmp eq ptr %incdec.ptr1.i58, %add.ptr24
+  %cmp.not.i64 = icmp eq ptr %add.ptr24, %incdec.ptr1.i58
   br i1 %cmp.not.i64, label %if.end37, label %while.body.i, !llvm.loop !52
 
 if.end37:                                         ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i63, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %if.then8, %if.else
@@ -1331,7 +1331,7 @@ for.body5.i72:                                    ; preds = %if.then46, %for.bod
 
 if.end60:                                         ; preds = %for.body5.i72, %if.then46, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillIPS3_EEvT_S6_S2_RNS0_7HadesGCE.exit
   %17 = load atomic i32, ptr %size_.i monotonic, align 4
-  %cmp62 = icmp ugt i32 %17, %toLast
+  %cmp62 = icmp ult i32 %toLast, %17
   br i1 %cmp62, label %if.then63, label %if.end72
 
 if.then63:                                        ; preds = %if.end60
@@ -1394,7 +1394,7 @@ define weak_odr hidden void @_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE
 entry:
   %size_.i = getelementptr inbounds i8, ptr %self, i64 4
   %0 = load atomic i32, ptr %size_.i monotonic, align 4
-  %cmp = icmp ult i32 %0, %newSize
+  %cmp = icmp ugt i32 %newSize, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1413,7 +1413,7 @@ for.body5.i:                                      ; preds = %if.then, %for.body5
   br i1 %cmp4.not.i, label %if.end15, label %for.body5.i, !llvm.loop !49
 
 if.else:                                          ; preds = %entry
-  %cmp7 = icmp ugt i32 %0, %newSize
+  %cmp7 = icmp ult i32 %newSize, %0
   br i1 %cmp7, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %if.else
@@ -1764,7 +1764,7 @@ if.end:                                           ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %size_.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load atomic i32, ptr %size_.i.i.i monotonic, align 4
-  %cmp.i.i = icmp ult i32 %3, %size
+  %cmp.i.i = icmp ugt i32 %size, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -1783,7 +1783,7 @@ for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %i
   br i1 %cmp4.not.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit, label %for.body5.i.i.i, !llvm.loop !99
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp7.i.i = icmp ugt i32 %3, %size
+  %cmp7.i.i = icmp ult i32 %size, %3
   br i1 %cmp7.i.i, label %if.then8.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
@@ -1824,7 +1824,7 @@ entry:
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %size_.i.i = getelementptr inbounds i8, ptr %self, i64 4
   %0 = load atomic i32, ptr %size_.i.i monotonic, align 4
-  %cmp.i = icmp ult i32 %0, %newSize
+  %cmp.i = icmp ugt i32 %newSize, %0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -1843,7 +1843,7 @@ for.body5.i.i:                                    ; preds = %for.body5.i.i, %if.
   br i1 %cmp4.not.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7HadesGCEj.exit, label %for.body5.i.i, !llvm.loop !99
 
 if.else.i:                                        ; preds = %entry
-  %cmp7.i = icmp ugt i32 %0, %newSize
+  %cmp7.i = icmp ult i32 %newSize, %0
   br i1 %cmp7.i, label %if.then8.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7HadesGCEj.exit
 
 if.then8.i:                                       ; preds = %if.else.i
@@ -2268,7 +2268,7 @@ entry:
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 16777212
   %sub.i.i = add nsw i32 %bf.clear.i.i.i, -8
   %2 = lshr exact i32 %sub.i.i, 2
-  %cmp.not = icmp ult i32 %2, %capacity
+  %cmp.not = icmp ugt i32 %capacity, %2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2487,7 +2487,7 @@ entry:
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 16777212
   %sub.i.i.i = add nsw i32 %bf.clear.i.i.i.i, -8
   %2 = lshr exact i32 %sub.i.i.i, 2
-  %cmp.not.i = icmp ult i32 %2, %newSize
+  %cmp.not.i = icmp ugt i32 %newSize, %2
   br i1 %cmp.not.i, label %if.end73.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -2514,7 +2514,7 @@ for.body5.i72.i:                                  ; preds = %if.then46.i, %for.b
 
 if.end60.i:                                       ; preds = %for.body5.i72.i, %if.then.i
   %4 = load atomic i32, ptr %size_.i.i monotonic, align 4
-  %cmp62.i = icmp ugt i32 %4, %newSize
+  %cmp62.i = icmp ult i32 %newSize, %4
   br i1 %cmp62.i, label %if.then63.i, label %if.end72.i
 
 if.then63.i:                                      ; preds = %if.end60.i
@@ -2650,7 +2650,7 @@ entry:
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 16777212
   %sub.i.i = add nsw i32 %bf.clear.i.i.i, -8
   %2 = lshr exact i32 %sub.i.i, 2
-  %cmp.not = icmp ult i32 %2, %toLast
+  %cmp.not = icmp ugt i32 %toLast, %2
   br i1 %cmp.not, label %if.end73, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2749,7 +2749,7 @@ if.then.i.i.i62:                                  ; preds = %while.body.i
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i63: ; preds = %if.then.i.i.i62, %while.body.i
   store i32 %agg.tmp.sroa.0.0.copyload.i59, ptr %incdec.ptr.i57, align 4
-  %cmp.not.i64 = icmp eq ptr %incdec.ptr1.i58, %add.ptr24
+  %cmp.not.i64 = icmp eq ptr %add.ptr24, %incdec.ptr1.i58
   br i1 %cmp.not.i64, label %if.end37, label %while.body.i, !llvm.loop !101
 
 if.end37:                                         ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i63, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %if.then8, %if.else
@@ -2820,7 +2820,7 @@ for.body5.i72:                                    ; preds = %if.then46, %for.bod
 
 if.end60:                                         ; preds = %for.body5.i72, %if.then46, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillIPS3_EEvT_S6_S2_RNS0_7HadesGCE.exit
   %16 = load atomic i32, ptr %size_.i monotonic, align 4
-  %cmp62 = icmp ugt i32 %16, %toLast
+  %cmp62 = icmp ult i32 %toLast, %16
   br i1 %cmp62, label %if.then63, label %if.end72
 
 if.then63:                                        ; preds = %if.end60
@@ -2883,7 +2883,7 @@ define weak_odr hidden void @_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32
 entry:
   %size_.i = getelementptr inbounds i8, ptr %self, i64 4
   %0 = load atomic i32, ptr %size_.i monotonic, align 4
-  %cmp = icmp ult i32 %0, %newSize
+  %cmp = icmp ugt i32 %newSize, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2902,7 +2902,7 @@ for.body5.i:                                      ; preds = %if.then, %for.body5
   br i1 %cmp4.not.i, label %if.end15, label %for.body5.i, !llvm.loop !99
 
 if.else:                                          ; preds = %entry
-  %cmp7 = icmp ugt i32 %0, %newSize
+  %cmp7 = icmp ult i32 %newSize, %0
   br i1 %cmp7, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %if.else

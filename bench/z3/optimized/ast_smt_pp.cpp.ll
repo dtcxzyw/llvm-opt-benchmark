@@ -1014,7 +1014,7 @@ if.then:                                          ; preds = %land.lhs.true.i.i.i
   %sb.sroa.6.0.m_value.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %sb.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %sb.sroa.6.0.m_value.i.sroa_idx, i64 7, i1 false)
   %10 = trunc i8 %sb.sroa.4.0.copyload to i1
-  %11 = xor i1 %10, %is_skolem
+  %11 = xor i1 %is_skolem, %10
   br i1 %11, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
@@ -1129,7 +1129,7 @@ land.rhs:                                         ; preds = %land.lhs.true.i.i.i
   %m_value.i46 = getelementptr inbounds i8, ptr %retval.0.i.i.i45, i64 16
   %23 = load i64, ptr %m_value.i46, align 8
   %24 = inttoptr i64 %23 to ptr
-  %cmp.i53.not = icmp eq ptr %24, %s0.coerce
+  %cmp.i53.not = icmp eq ptr %s0.coerce, %24
   br i1 %cmp.i53.not, label %do.end, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %land.rhs, %do.body
@@ -1882,13 +1882,13 @@ land.lhs.true.i:                                  ; preds = %if.else
   %call.i.i = call noundef zeroext i1 @_ZN11smt_printer8is_smallEP4exprRj(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(4) %sz.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sz.i.i)
   %21 = load ptr, ptr %m_top, align 8
-  %cmp3.i17 = icmp eq ptr %21, %17
+  %cmp3.i17 = icmp eq ptr %17, %21
   %or.cond.i = select i1 %call.i.i, i1 true, i1 %cmp3.i17
   br i1 %or.cond.i, label %if.then15, label %if.end5.i
 
 if.end.i:                                         ; preds = %if.else
   %.old.i = load ptr, ptr %m_top, align 8
-  %cmp3.old.i = icmp eq ptr %.old.i, %17
+  %cmp3.old.i = icmp eq ptr %17, %.old.i
   br i1 %cmp3.old.i, label %if.then15, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i, %land.lhs.true.i
@@ -3293,7 +3293,7 @@ invoke.cont242:                                   ; preds = %invoke.cont240
 if.then244:                                       ; preds = %invoke.cont242
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %72 = load ptr, ptr %m_true.i, align 8
-  %cmp.i179 = icmp eq ptr %72, %n
+  %cmp.i179 = icmp eq ptr %n, %72
   br i1 %cmp.i179, label %invoke.cont261.invoke, label %if.then247
 
 if.then247:                                       ; preds = %if.then244
@@ -3998,13 +3998,13 @@ land.lhs.true.i:                                  ; preds = %for.body
   %call.i.i = call noundef zeroext i1 @_ZN11smt_printer8is_smallEP4exprRj(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %sz.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sz.i.i)
   %5 = load ptr, ptr %m_top.old.i, align 8
-  %cmp3.i = icmp eq ptr %5, %3
+  %cmp3.i = icmp eq ptr %3, %5
   %or.cond.i = select i1 %call.i.i, i1 true, i1 %cmp3.i
   br i1 %or.cond.i, label %for.inc, label %if.end5.i
 
 if.end.i7:                                        ; preds = %for.body
   %.old.i = load ptr, ptr %m_top.old.i, align 8
-  %cmp3.old.i = icmp eq ptr %.old.i, %3
+  %cmp3.old.i = icmp eq ptr %3, %.old.i
   br i1 %cmp3.old.i, label %for.inc, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i7, %land.lhs.true.i
@@ -6314,7 +6314,7 @@ _ZNK4decl13get_family_idEv.exit.i:                ; preds = %entry
   %1 = load ptr, ptr %m_manager91, align 8
   %m_bool_sort.i92 = getelementptr inbounds i8, ptr %1, i64 840
   %2 = load ptr, ptr %m_bool_sort.i92, align 8
-  %cmp.i3093 = icmp eq ptr %2, %s
+  %cmp.i3093 = icmp eq ptr %s, %2
   br i1 %cmp.i3093, label %if.then7, label %if.else48
 
 _ZNK4decl13get_family_idEv.exit.thread.i:         ; preds = %entry
@@ -6359,7 +6359,7 @@ if.else5.thread125:                               ; preds = %_ZNK4decl13get_fami
   %10 = load ptr, ptr %m_manager127, align 8
   %m_bool_sort.i128 = getelementptr inbounds i8, ptr %10, i64 840
   %11 = load ptr, ptr %m_bool_sort.i128, align 8
-  %cmp.i30129 = icmp eq ptr %11, %s
+  %cmp.i30129 = icmp eq ptr %s, %11
   br i1 %cmp.i30129, label %if.then7, label %_ZNK4decl13get_family_idEv.exit.thread.i46
 
 if.else5.thread:                                  ; preds = %_ZNK4sort10is_sort_ofEii.exit29
@@ -6367,7 +6367,7 @@ if.else5.thread:                                  ; preds = %_ZNK4sort10is_sort_
   %12 = load ptr, ptr %m_manager87, align 8
   %m_bool_sort.i88 = getelementptr inbounds i8, ptr %12, i64 840
   %13 = load ptr, ptr %m_bool_sort.i88, align 8
-  %cmp.i3089 = icmp eq ptr %13, %s
+  %cmp.i3089 = icmp eq ptr %s, %13
   br i1 %cmp.i3089, label %if.then7, label %_ZNK4sort10is_sort_ofEii.exit42
 
 if.then7:                                         ; preds = %_ZNK4decl13get_family_idEv.exit.i, %if.else5.thread125, %if.else5.thread

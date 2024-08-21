@@ -214,7 +214,7 @@ define hidden noundef ptr @_ZN23ShenandoahCollectionSet10claim_nextEv(ptr nounde
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 544
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ugt i64 %22, %.01319
+  %23 = icmp ult i64 %.01319, %22
   br i1 %23, label %24, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 24:                                               ; preds = %19
@@ -267,7 +267,7 @@ define hidden noundef ptr @_ZN23ShenandoahCollectionSet4nextEv(ptr noundef nonnu
 16:                                               ; preds = %11
   store volatile i64 %15, ptr %6, align 8
   %17 = load i64, ptr %4, align 8
-  %18 = icmp ugt i64 %17, %.09
+  %18 = icmp ult i64 %.09, %17
   br i1 %18, label %19, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 19:                                               ; preds = %16

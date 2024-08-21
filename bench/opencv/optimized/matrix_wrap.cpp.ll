@@ -598,7 +598,7 @@ define void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind noalias writable 
   %146 = sub i64 %144, %145
   %147 = sdiv exact i64 %146, 24
   %148 = trunc i64 %147 to i32
-  %149 = icmp sgt i32 %148, %2
+  %149 = icmp slt i32 %2, %148
   br i1 %149, label %158, label %150
 
 150:                                              ; preds = %138, %135
@@ -663,7 +663,7 @@ define void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind noalias writable 
   %179 = sub i64 %177, %178
   %180 = sdiv exact i64 %179, 96
   %181 = trunc i64 %180 to i32
-  %182 = icmp sgt i32 %181, %2
+  %182 = icmp slt i32 %2, %181
   br i1 %182, label %191, label %183
 
 183:                                              ; preds = %171, %169
@@ -704,7 +704,7 @@ define void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind noalias writable 
   %195 = icmp sgt i32 %2, -1
   %196 = getelementptr inbounds i8, ptr %1, i64 20
   %197 = load i32, ptr %196, align 4
-  %198 = icmp sgt i32 %197, %2
+  %198 = icmp slt i32 %2, %197
   %or.cond = select i1 %195, i1 %198, i1 false
   br i1 %or.cond, label %207, label %199
 
@@ -759,7 +759,7 @@ define void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind noalias writable 
   %222 = sub i64 %220, %221
   %223 = sdiv exact i64 %222, 80
   %224 = trunc i64 %223 to i32
-  %225 = icmp sgt i32 %224, %2
+  %225 = icmp slt i32 %2, %224
   br i1 %225, label %234, label %226
 
 226:                                              ; preds = %214, %212
@@ -1329,7 +1329,7 @@ define i64 @_ZNK2cv11_InputArray4sizeEi(ptr nocapture noundef nonnull readonly a
   %156 = sub i64 %154, %155
   %157 = sdiv exact i64 %156, 24
   %158 = trunc i64 %157 to i32
-  %159 = icmp sgt i32 %158, %1
+  %159 = icmp slt i32 %1, %158
   br i1 %159, label %167, label %160
 
 160:                                              ; preds = %150
@@ -1416,7 +1416,7 @@ define i64 @_ZNK2cv11_InputArray4sizeEi(ptr nocapture noundef nonnull readonly a
   %213 = sub i64 %211, %212
   %214 = sdiv exact i64 %213, 96
   %215 = trunc i64 %214 to i32
-  %216 = icmp sgt i32 %215, %1
+  %216 = icmp slt i32 %1, %215
   br i1 %216, label %224, label %217
 
 217:                                              ; preds = %207
@@ -1465,7 +1465,7 @@ define i64 @_ZNK2cv11_InputArray4sizeEi(ptr nocapture noundef nonnull readonly a
   br label %356
 
 239:                                              ; preds = %231
-  %240 = icmp sgt i32 %236, %1
+  %240 = icmp slt i32 %1, %236
   br i1 %240, label %248, label %241
 
 241:                                              ; preds = %239
@@ -1553,7 +1553,7 @@ define i64 @_ZNK2cv11_InputArray4sizeEi(ptr nocapture noundef nonnull readonly a
   %283 = sub i64 %281, %282
   %284 = sdiv exact i64 %283, 80
   %285 = trunc i64 %284 to i32
-  %286 = icmp sgt i32 %285, %1
+  %286 = icmp slt i32 %1, %285
   br i1 %286, label %294, label %287
 
 287:                                              ; preds = %277
@@ -1842,7 +1842,7 @@ define noundef i32 @_ZNK2cv11_InputArray4typeEi(ptr nocapture noundef nonnull re
   %53 = sub i64 %51, %52
   %54 = sdiv exact i64 %53, 80
   %55 = trunc i64 %54 to i32
-  %56 = icmp sgt i32 %55, %1
+  %56 = icmp slt i32 %1, %55
   br i1 %56, label %64, label %57
 
 57:                                               ; preds = %50
@@ -1922,7 +1922,7 @@ define noundef i32 @_ZNK2cv11_InputArray4typeEi(ptr nocapture noundef nonnull re
   %90 = sub i64 %88, %89
   %91 = sdiv exact i64 %90, 96
   %92 = trunc i64 %91 to i32
-  %93 = icmp sgt i32 %92, %1
+  %93 = icmp slt i32 %1, %92
   br i1 %93, label %101, label %94
 
 94:                                               ; preds = %87
@@ -1996,7 +1996,7 @@ define noundef i32 @_ZNK2cv11_InputArray4typeEi(ptr nocapture noundef nonnull re
   br label %167
 
 123:                                              ; preds = %107
-  %124 = icmp sgt i32 %111, %1
+  %124 = icmp slt i32 %1, %111
   br i1 %124, label %132, label %125
 
 125:                                              ; preds = %123
@@ -2165,7 +2165,7 @@ define void @_ZNK2cv11_InputArray7getUMatEi(ptr dead_on_unwind noalias writable 
   %32 = sub i64 %30, %31
   %33 = sdiv exact i64 %32, 80
   %34 = trunc i64 %33 to i32
-  %35 = icmp sgt i32 %34, %2
+  %35 = icmp slt i32 %2, %34
   br i1 %35, label %44, label %36
 
 36:                                               ; preds = %24, %22
@@ -2515,7 +2515,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit116:  ; preds = %93, %95, %97, %_ZSt
   %136 = ptrtoint ptr %134 to i64
   %137 = sub i64 %135, %136
   %138 = sdiv exact i64 %137, 96
-  %139 = icmp ult i64 %138, %121
+  %139 = icmp ugt i64 %121, %138
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %117
@@ -2524,7 +2524,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit116:  ; preds = %93, %95, %97, %_ZSt
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122
 
 142:                                              ; preds = %117
-  %143 = icmp ugt i64 %138, %121
+  %143 = icmp ult i64 %121, %138
   br i1 %143, label %144, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122
 
 144:                                              ; preds = %142
@@ -2613,7 +2613,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i127: ; preds = %.lr.ph.i.i.i.
   %179 = ptrtoint ptr %177 to i64
   %180 = sub i64 %178, %179
   %181 = sdiv exact i64 %180, 96
-  %182 = icmp ult i64 %181, %174
+  %182 = icmp ugt i64 %174, %181
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %162
@@ -2622,7 +2622,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i127: ; preds = %.lr.ph.i.i.i.
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit133
 
 185:                                              ; preds = %162
-  %186 = icmp ugt i64 %181, %174
+  %186 = icmp ult i64 %174, %181
   br i1 %186, label %187, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit133
 
 187:                                              ; preds = %185
@@ -2691,7 +2691,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit133:  ; preds = %183, %185, %187, %_
   %216 = ptrtoint ptr %214 to i64
   %217 = sub i64 %215, %216
   %218 = sdiv exact i64 %217, 96
-  %219 = icmp ult i64 %218, %211
+  %219 = icmp ugt i64 %211, %218
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %202
@@ -2700,7 +2700,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit133:  ; preds = %183, %185, %187, %_
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139
 
 222:                                              ; preds = %202
-  %223 = icmp ugt i64 %218, %211
+  %223 = icmp ult i64 %211, %218
   br i1 %223, label %224, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139
 
 224:                                              ; preds = %222
@@ -2810,7 +2810,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit145:  ; preds = %247, %249, %251, %_
   %273 = ptrtoint ptr %271 to i64
   %274 = sub i64 %272, %273
   %275 = sdiv exact i64 %274, 96
-  %276 = icmp ult i64 %275, %268
+  %276 = icmp ugt i64 %268, %275
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %259
@@ -2819,7 +2819,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit145:  ; preds = %247, %249, %251, %_
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151
 
 279:                                              ; preds = %259
-  %280 = icmp ugt i64 %275, %268
+  %280 = icmp ult i64 %268, %275
   br i1 %280, label %281, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151
 
 281:                                              ; preds = %279
@@ -2913,7 +2913,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm(ptr nou
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 96
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -2922,7 +2922,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm(ptr nou
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3MatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
@@ -3007,7 +3007,7 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = sdiv exact i64 %30, 80
-  %32 = icmp ult i64 %31, %24
+  %32 = icmp ugt i64 %24, %31
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %15
@@ -3016,7 +3016,7 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
 35:                                               ; preds = %15
-  %36 = icmp ugt i64 %31, %24
+  %36 = icmp ult i64 %24, %31
   br i1 %36, label %37, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
 37:                                               ; preds = %35
@@ -3148,7 +3148,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit67:  ; preds = %63, %65, %67, %_ZSt
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = sdiv exact i64 %93, 80
-  %95 = icmp ult i64 %94, %87
+  %95 = icmp ugt i64 %87, %94
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %78
@@ -3157,7 +3157,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit67:  ; preds = %63, %65, %67, %_ZSt
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit73
 
 98:                                               ; preds = %78
-  %99 = icmp ugt i64 %94, %87
+  %99 = icmp ult i64 %87, %94
   br i1 %99, label %100, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit73
 
 100:                                              ; preds = %98
@@ -3337,7 +3337,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm(ptr no
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 80
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -3346,7 +3346,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm(ptr no
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
@@ -3670,7 +3670,7 @@ define noundef i32 @_ZNK2cv11_InputArray6sizendEPii(ptr nocapture noundef nonnul
   %68 = sub i64 %66, %67
   %69 = sdiv exact i64 %68, 96
   %70 = trunc i64 %69 to i32
-  %71 = icmp sgt i32 %70, %2
+  %71 = icmp slt i32 %2, %70
   br i1 %71, label %79, label %72
 
 72:                                               ; preds = %60
@@ -3730,7 +3730,7 @@ define noundef i32 @_ZNK2cv11_InputArray6sizendEPii(ptr nocapture noundef nonnul
 93:                                               ; preds = %91
   %94 = getelementptr inbounds i8, ptr %0, i64 20
   %95 = load i32, ptr %94, align 4
-  %96 = icmp sgt i32 %95, %2
+  %96 = icmp slt i32 %2, %95
   br i1 %96, label %104, label %97
 
 97:                                               ; preds = %93
@@ -3800,7 +3800,7 @@ define noundef i32 @_ZNK2cv11_InputArray6sizendEPii(ptr nocapture noundef nonnul
   %128 = sub i64 %126, %127
   %129 = sdiv exact i64 %128, 80
   %130 = trunc i64 %129 to i32
-  %131 = icmp sgt i32 %130, %2
+  %131 = icmp slt i32 %2, %130
   br i1 %131, label %139, label %132
 
 132:                                              ; preds = %120
@@ -4067,7 +4067,7 @@ define noundef i32 @_ZNK2cv11_InputArray4dimsEi(ptr nocapture noundef nonnull re
   %83 = sub i64 %81, %82
   %84 = sdiv exact i64 %83, 24
   %85 = trunc i64 %84 to i32
-  %86 = icmp sgt i32 %85, %1
+  %86 = icmp slt i32 %1, %85
   br i1 %86, label %195, label %87
 
 87:                                               ; preds = %75
@@ -4108,7 +4108,7 @@ define noundef i32 @_ZNK2cv11_InputArray4dimsEi(ptr nocapture noundef nonnull re
   %104 = sub i64 %102, %103
   %105 = sdiv exact i64 %104, 96
   %106 = trunc i64 %105 to i32
-  %107 = icmp sgt i32 %106, %1
+  %107 = icmp slt i32 %1, %106
   br i1 %107, label %115, label %108
 
 108:                                              ; preds = %96
@@ -4148,7 +4148,7 @@ define noundef i32 @_ZNK2cv11_InputArray4dimsEi(ptr nocapture noundef nonnull re
 122:                                              ; preds = %118
   %123 = getelementptr inbounds i8, ptr %0, i64 20
   %124 = load i32, ptr %123, align 4
-  %125 = icmp sgt i32 %124, %1
+  %125 = icmp slt i32 %1, %124
   br i1 %125, label %133, label %126
 
 126:                                              ; preds = %122
@@ -4194,7 +4194,7 @@ define noundef i32 @_ZNK2cv11_InputArray4dimsEi(ptr nocapture noundef nonnull re
   %146 = sub i64 %144, %145
   %147 = sdiv exact i64 %146, 80
   %148 = trunc i64 %147 to i32
-  %149 = icmp sgt i32 %148, %1
+  %149 = icmp slt i32 %1, %148
   br i1 %149, label %157, label %150
 
 150:                                              ; preds = %138
@@ -4570,7 +4570,7 @@ define noundef i64 @_ZNK2cv11_InputArray5totalEi(ptr nocapture noundef nonnull r
 
 51:                                               ; preds = %40
   %52 = trunc i64 %50 to i32
-  %53 = icmp sgt i32 %52, %1
+  %53 = icmp slt i32 %1, %52
   br i1 %53, label %61, label %54
 
 54:                                               ; preds = %51
@@ -4615,7 +4615,7 @@ define noundef i64 @_ZNK2cv11_InputArray5totalEi(ptr nocapture noundef nonnull r
   br label %115
 
 73:                                               ; preds = %65
-  %74 = icmp sgt i32 %70, %1
+  %74 = icmp slt i32 %1, %70
   br i1 %74, label %82, label %75
 
 75:                                               ; preds = %73
@@ -4662,7 +4662,7 @@ define noundef i64 @_ZNK2cv11_InputArray5totalEi(ptr nocapture noundef nonnull r
 
 97:                                               ; preds = %86
   %98 = trunc i64 %96 to i32
-  %99 = icmp sgt i32 %98, %1
+  %99 = icmp slt i32 %1, %98
   br i1 %99, label %107, label %100
 
 100:                                              ; preds = %97
@@ -4995,7 +4995,7 @@ define noundef zeroext i1 @_ZNK2cv11_InputArray12isContinuousEi(ptr nocapture no
   %47 = icmp sgt i32 %1, -1
   %48 = getelementptr inbounds i8, ptr %0, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = icmp sgt i32 %49, %1
+  %50 = icmp slt i32 %1, %49
   %or.cond = select i1 %47, i1 %50, i1 false
   br i1 %or.cond, label %58, label %51
 
@@ -5217,7 +5217,7 @@ define noundef zeroext i1 @_ZNK2cv11_InputArray11isSubmatrixEi(ptr nocapture nou
   %47 = icmp sgt i32 %1, -1
   %48 = getelementptr inbounds i8, ptr %0, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = icmp sgt i32 %49, %1
+  %50 = icmp slt i32 %1, %49
   %or.cond = select i1 %47, i1 %50, i1 false
   br i1 %or.cond, label %58, label %51
 
@@ -5461,7 +5461,7 @@ define noundef i64 @_ZNK2cv11_InputArray6offsetEi(ptr nocapture noundef nonnull 
   %64 = sub i64 %62, %63
   %65 = sdiv exact i64 %64, 96
   %66 = trunc i64 %65 to i32
-  %67 = icmp sgt i32 %66, %1
+  %67 = icmp slt i32 %1, %66
   br i1 %67, label %75, label %68
 
 68:                                               ; preds = %56, %54
@@ -5503,7 +5503,7 @@ define noundef i64 @_ZNK2cv11_InputArray6offsetEi(ptr nocapture noundef nonnull 
   %86 = icmp sgt i32 %1, -1
   %87 = getelementptr inbounds i8, ptr %0, i64 20
   %88 = load i32, ptr %87, align 4
-  %89 = icmp sgt i32 %88, %1
+  %89 = icmp slt i32 %1, %88
   %or.cond = select i1 %86, i1 %89, i1 false
   br i1 %or.cond, label %97, label %90
 
@@ -5832,7 +5832,7 @@ define noundef i64 @_ZNK2cv11_InputArray4stepEi(ptr nocapture noundef nonnull re
   %57 = sub i64 %55, %56
   %58 = sdiv exact i64 %57, 96
   %59 = trunc i64 %58 to i32
-  %60 = icmp sgt i32 %59, %1
+  %60 = icmp slt i32 %1, %59
   br i1 %60, label %68, label %61
 
 61:                                               ; preds = %49, %47
@@ -5867,7 +5867,7 @@ define noundef i64 @_ZNK2cv11_InputArray4stepEi(ptr nocapture noundef nonnull re
   %72 = icmp sgt i32 %1, -1
   %73 = getelementptr inbounds i8, ptr %0, i64 20
   %74 = load i32, ptr %73, align 4
-  %75 = icmp sgt i32 %74, %1
+  %75 = icmp slt i32 %1, %74
   %or.cond = select i1 %72, i1 %75, i1 false
   br i1 %or.cond, label %83, label %76
 
@@ -6576,7 +6576,7 @@ define void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr no
   %or.cond = and i1 %36, %35
   %or.cond.not = xor i1 %or.cond, true
   %37 = icmp ne i32 %5, 0
-  %or.cond3.not = or i1 %37, %4
+  %or.cond3.not = or i1 %4, %37
   %or.cond98 = or i1 %or.cond3.not, %or.cond.not
   br i1 %or.cond98, label %72, label %38
 
@@ -7866,7 +7866,7 @@ thread-pre-split798:                              ; preds = %194, %197, %201, %2
   %369 = sub i64 %367, %368
   %370 = sdiv exact i64 %369, 24
   %371 = trunc i64 %370 to i32
-  %372 = icmp sgt i32 %371, %4
+  %372 = icmp slt i32 %4, %371
   br i1 %372, label %381, label %373
 
 373:                                              ; preds = %363
@@ -8371,7 +8371,7 @@ thread-pre-split798:                              ; preds = %194, %197, %201, %2
   %552 = sub i64 %550, %551
   %553 = sdiv exact i64 %552, 96
   %554 = trunc i64 %553 to i32
-  %555 = icmp sgt i32 %554, %4
+  %555 = icmp slt i32 %4, %554
   br i1 %555, label %564, label %556
 
 556:                                              ; preds = %546
@@ -8730,7 +8730,7 @@ thread-pre-split798:                              ; preds = %194, %197, %201, %2
 693:                                              ; preds = %657
   %694 = getelementptr inbounds i8, ptr %0, i64 20
   %695 = load i32, ptr %694, align 4
-  %696 = icmp sgt i32 %695, %4
+  %696 = icmp slt i32 %4, %695
   br i1 %696, label %705, label %697
 
 697:                                              ; preds = %693
@@ -9174,7 +9174,7 @@ thread-pre-split798:                              ; preds = %194, %197, %201, %2
   %877 = sub i64 %875, %876
   %878 = sdiv exact i64 %877, 80
   %879 = trunc i64 %878 to i32
-  %880 = icmp sgt i32 %879, %4
+  %880 = icmp slt i32 %4, %879
   br i1 %880, label %889, label %881
 
 881:                                              ; preds = %871
@@ -9508,7 +9508,7 @@ define void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr nocapture nou
   %or.cond = and i1 %37, %36
   %or.cond.not = xor i1 %or.cond, true
   %38 = icmp ne i32 %6, 0
-  %or.cond3.not = or i1 %38, %5
+  %or.cond3.not = or i1 %5, %38
   %or.cond113 = or i1 %or.cond3.not, %or.cond.not
   br i1 %or.cond113, label %73, label %39
 
@@ -10037,7 +10037,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm(ptr no
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10046,7 +10046,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm(ptr no
   br label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
@@ -10085,7 +10085,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -10168,7 +10168,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -10193,7 +10193,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIhLi2EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 1
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %40
 
 11:                                               ; preds = %2
@@ -10269,7 +10269,7 @@ _ZNSt12_Vector_baseIN2cv3VecIhLi2EEESaIS2_EE13_M_deallocateEPS2_m.exit46.i: ; pr
   br label %_ZNSt6vectorIN2cv3VecIhLi2EEESaIS2_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %9, %1
+  %41 = icmp ult i64 %1, %9
   br i1 %41, label %42, label %_ZNSt6vectorIN2cv3VecIhLi2EEESaIS2_EE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -10294,7 +10294,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10303,7 +10303,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10328,7 +10328,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnu
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10337,7 +10337,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnu
   br label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit
 
 15:                                               ; preds = %13
@@ -10362,7 +10362,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIsLi3EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 6
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10371,7 +10371,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIsLi3EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIsLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIsLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10396,7 +10396,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %40
 
 11:                                               ; preds = %2
@@ -10472,7 +10472,7 @@ _ZNSt12_Vector_baseIN2cv3VecIiLi2EEESaIS2_EE13_M_deallocateEPS2_m.exit46.i: ; pr
   br label %_ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %9, %1
+  %41 = icmp ult i64 %1, %9
   br i1 %41, label %42, label %_ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -10497,7 +10497,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10506,7 +10506,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10531,7 +10531,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10540,7 +10540,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10565,7 +10565,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi5EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 20
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10574,7 +10574,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi5EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIiLi5EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi5EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10599,7 +10599,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi6EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10608,7 +10608,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi6EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIiLi6EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi6EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10633,7 +10633,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi7EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 28
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10642,7 +10642,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi7EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIiLi7EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi7EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10667,7 +10667,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi8EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 5
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10676,7 +10676,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi8EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIiLi8EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi8EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10701,7 +10701,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi9EEESaIS2_EE6resizeEm(
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 36
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10710,7 +10710,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi9EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN2cv3VecIiLi9EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi9EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10735,7 +10735,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi10EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 40
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10744,7 +10744,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi10EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi10EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi10EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10769,7 +10769,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi11EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 44
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10778,7 +10778,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi11EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi11EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi11EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10803,7 +10803,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi12EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 48
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10812,7 +10812,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi12EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi12EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi12EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10837,7 +10837,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi13EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 52
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10846,7 +10846,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi13EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi13EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi13EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10871,7 +10871,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi14EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 56
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10880,7 +10880,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi14EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi14EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi14EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10905,7 +10905,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi15EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 60
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10914,7 +10914,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi15EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi15EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi15EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10939,7 +10939,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi16EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 6
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10948,7 +10948,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi16EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi16EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi16EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -10973,7 +10973,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi32EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 7
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -10982,7 +10982,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi32EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi32EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi32EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -11007,7 +11007,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi64EEESaIS2_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 8
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -11016,7 +11016,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi64EEESaIS2_EE6resizeEm
   br label %_ZNSt6vectorIN2cv3VecIiLi64EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi64EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -11041,7 +11041,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi128EEESaIS2_EE6resizeE
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 9
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -11050,7 +11050,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi128EEESaIS2_EE6resizeE
   br label %_ZNSt6vectorIN2cv3VecIiLi128EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv3VecIiLi128EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
@@ -11233,7 +11233,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK2cv12_OutputArray9ge
   %41 = sub i64 %39, %40
   %42 = sdiv exact i64 %41, 96
   %43 = trunc i64 %42 to i32
-  %44 = icmp sgt i32 %43, %1
+  %44 = icmp slt i32 %1, %43
   br i1 %44, label %52, label %45
 
 45:                                               ; preds = %33
@@ -11267,7 +11267,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZNK2cv12_OutputArray9ge
 55:                                               ; preds = %25
   %56 = getelementptr inbounds i8, ptr %0, i64 20
   %57 = load i32, ptr %56, align 4
-  %58 = icmp sgt i32 %57, %1
+  %58 = icmp slt i32 %1, %57
   br i1 %58, label %66, label %59
 
 59:                                               ; preds = %55
@@ -11394,7 +11394,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK2cv12_OutputArray10g
   %40 = sub i64 %38, %39
   %41 = sdiv exact i64 %40, 80
   %42 = trunc i64 %41 to i32
-  %43 = icmp sgt i32 %42, %1
+  %43 = icmp slt i32 %1, %42
   br i1 %43, label %51, label %44
 
 44:                                               ; preds = %32
@@ -12773,7 +12773,7 @@ _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #18
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %27
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %27, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %33, %.lr.ph.i.i.i.i.i.i.i

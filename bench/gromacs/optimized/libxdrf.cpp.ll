@@ -374,7 +374,7 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   %.067.i = phi i32 [ %198, %.lr.ph.i ], [ 1, %195 ]
   %197 = add nuw nsw i32 %.08.i, 1
   %198 = shl i32 %.067.i, 1
-  %199 = icmp sle i32 %198, %185
+  %199 = icmp sge i32 %185, %198
   %200 = icmp ult i32 %.08.i, 31
   %201 = select i1 %199, i1 %200, i1 false
   br i1 %201, label %.lr.ph.i, label %_ZL9sizeofinti.exit, !llvm.loop !7
@@ -389,7 +389,7 @@ _ZL9sizeofinti.exit:                              ; preds = %.lr.ph.i, %195
   %.067.i467 = phi i32 [ %204, %.lr.ph.i465 ], [ 1, %_ZL9sizeofinti.exit ]
   %203 = add nuw nsw i32 %.08.i466, 1
   %204 = shl i32 %.067.i467, 1
-  %205 = icmp sle i32 %204, %187
+  %205 = icmp sge i32 %187, %204
   %206 = icmp ult i32 %.08.i466, 31
   %207 = select i1 %205, i1 %206, i1 false
   br i1 %207, label %.lr.ph.i465, label %_ZL9sizeofinti.exit468, !llvm.loop !7
@@ -404,7 +404,7 @@ _ZL9sizeofinti.exit468:                           ; preds = %.lr.ph.i465, %_ZL9s
   %.067.i472 = phi i32 [ %210, %.lr.ph.i470 ], [ 1, %_ZL9sizeofinti.exit468 ]
   %209 = add nuw nsw i32 %.08.i471, 1
   %210 = shl i32 %.067.i472, 1
-  %211 = icmp sle i32 %210, %190
+  %211 = icmp sge i32 %190, %210
   %212 = icmp ult i32 %.08.i471, 31
   %213 = select i1 %211, i1 %212, i1 false
   br i1 %213, label %.lr.ph.i470, label %_ZL9sizeofinti.exit473, !llvm.loop !7
@@ -1318,7 +1318,7 @@ thread-pre-split:                                 ; preds = %625, %629
   %.067.i517 = phi i32 [ %710, %.lr.ph.i515 ], [ 1, %707 ]
   %709 = add nuw nsw i32 %.08.i516, 1
   %710 = shl i32 %.067.i517, 1
-  %711 = icmp sle i32 %710, %693
+  %711 = icmp sge i32 %693, %710
   %712 = icmp ult i32 %.08.i516, 31
   %713 = select i1 %711, i1 %712, i1 false
   br i1 %713, label %.lr.ph.i515, label %_ZL9sizeofinti.exit518, !llvm.loop !7
@@ -1333,7 +1333,7 @@ _ZL9sizeofinti.exit518:                           ; preds = %.lr.ph.i515, %707
   %.067.i523 = phi i32 [ %716, %.lr.ph.i521 ], [ 1, %_ZL9sizeofinti.exit518 ]
   %715 = add nuw nsw i32 %.08.i522, 1
   %716 = shl i32 %.067.i523, 1
-  %717 = icmp sle i32 %716, %697
+  %717 = icmp sge i32 %697, %716
   %718 = icmp ult i32 %.08.i522, 31
   %719 = select i1 %717, i1 %718, i1 false
   br i1 %719, label %.lr.ph.i521, label %_ZL9sizeofinti.exit524, !llvm.loop !7
@@ -1348,7 +1348,7 @@ _ZL9sizeofinti.exit524:                           ; preds = %.lr.ph.i521, %_ZL9s
   %.067.i529 = phi i32 [ %722, %.lr.ph.i527 ], [ 1, %_ZL9sizeofinti.exit524 ]
   %721 = add nuw nsw i32 %.08.i528, 1
   %722 = shl i32 %.067.i529, 1
-  %723 = icmp sle i32 %722, %702
+  %723 = icmp sge i32 %702, %722
   %724 = icmp ult i32 %.08.i528, 31
   %725 = select i1 %723, i1 %724, i1 false
   br i1 %725, label %.lr.ph.i527, label %_ZL9sizeofinti.exit530, !llvm.loop !7
@@ -1918,7 +1918,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr nocapture noun
 
 31:                                               ; preds = %._crit_edge
   %32 = shl nsw i32 %.152.lcssa, 3
-  %.not65 = icmp sgt i32 %32, %1
+  %.not65 = icmp slt i32 %1, %32
   br i1 %.not65, label %.preheader, label %.preheader94
 
 .preheader94:                                     ; preds = %31

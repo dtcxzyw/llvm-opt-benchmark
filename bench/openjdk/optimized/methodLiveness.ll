@@ -362,9 +362,9 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %100, %93
 _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %90, %_ZN8ciMethod4codeEv.exit.i.i
   %110 = phi i32 [ %87, %90 ], [ %.pre, %_ZN8ciMethod4codeEv.exit.i.i ]
   %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %.lr.ph345, label %._crit_edge346
+  br i1 %111, label %.lr.ph359, label %._crit_edge360
 
-.lr.ph345:                                        ; preds = %_ZN16ciBytecodeStreamC2EP8ciMethod.exit
+.lr.ph359:                                        ; preds = %_ZN16ciBytecodeStreamC2EP8ciMethod.exit
   %112 = getelementptr inbounds i8, ptr %7, i64 16
   %113 = getelementptr inbounds i8, ptr %2, i64 56
   %114 = getelementptr inbounds i8, ptr %2, i64 16
@@ -375,20 +375,20 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %90, %_ZN8ciMethod4c
   %119 = getelementptr inbounds i8, ptr %3, i64 8
   br label %120
 
-120:                                              ; preds = %.lr.ph345, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
-  %indvars.iv385 = phi i64 [ 0, %.lr.ph345 ], [ %indvars.iv.next386, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit ]
+120:                                              ; preds = %.lr.ph359, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
+  %indvars.iv399 = phi i64 [ 0, %.lr.ph359 ], [ %indvars.iv.next400, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit ]
   %121 = load ptr, ptr %37, align 8
-  %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv385
+  %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv399
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %112, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds ptr, ptr %126, i64 %indvars.iv385
+  %127 = getelementptr inbounds ptr, ptr %126, i64 %indvars.iv399
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %130, -1
-  br i1 %131, label %132, label %173
+  br i1 %131, label %132, label %171
 
 132:                                              ; preds = %120
   %133 = getelementptr inbounds i8, ptr %123, i64 12
@@ -442,1542 +442,1526 @@ _ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thr
 160:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i
   %161 = add nsw i32 %145, 1
   %162 = icmp sgt i32 %145, -1
-  %163 = xor i32 %145, -2147483648
-  %164 = and i32 %163, %161
-  %165 = icmp eq i32 %164, 0
-  %166 = and i1 %162, %165
-  %167 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %161, i1 true)
-  %168 = sub nuw nsw i32 32, %167
-  %169 = shl nuw i32 1, %168
-  %.0.i.i.i.i.i.i = select i1 %166, i32 %161, i32 %169
+  %163 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %161)
+  %164 = icmp ult i32 %163, 2
+  %or.cond.i.i.i.i.i.i = select i1 %162, i1 %164, i1 false
+  %165 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %161, i1 true)
+  %166 = sub nuw nsw i32 32, %165
+  %167 = shl nuw i32 1, %166
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %161, i32 %167
   call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %144, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i104 = load i32, ptr %144, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
 
 _ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i: ; preds = %160, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i
-  %170 = phi i32 [ %.pre.i.i.i104, %160 ], [ %145, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i ]
-  %171 = add nsw i32 %170, 1
-  store i32 %171, ptr %144, align 8
-  %172 = getelementptr inbounds i8, ptr %144, i64 8
+  %168 = phi i32 [ %.pre.i.i.i104, %160 ], [ %145, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i ]
+  %169 = add nsw i32 %168, 1
+  store i32 %169, ptr %144, align 8
+  %170 = getelementptr inbounds i8, ptr %144, i64 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split
 
-173:                                              ; preds = %120
+171:                                              ; preds = %120
   call void @_ZN16ciBytecodeStream12reset_to_bciEi(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %130) #12
-  %174 = load ptr, ptr %113, align 8
-  store ptr %174, ptr %114, align 8
-  %175 = load ptr, ptr %115, align 8
-  %.not.i = icmp ult ptr %174, %175
-  br i1 %.not.i, label %176, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
+  %172 = load ptr, ptr %113, align 8
+  store ptr %172, ptr %114, align 8
+  %173 = load ptr, ptr %115, align 8
+  %.not.i = icmp ult ptr %172, %173
+  br i1 %.not.i, label %174, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
 
-176:                                              ; preds = %173
-  %177 = load i8, ptr %174, align 1
-  %178 = zext i8 %177 to i32
-  store i32 %178, ptr %116, align 4
-  %179 = zext i8 %177 to i64
-  %180 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %179
-  %181 = load i32, ptr %180, align 4
-  store i32 %181, ptr %117, align 8
-  %182 = icmp ult i32 %181, 239
-  br i1 %182, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i
+174:                                              ; preds = %171
+  %175 = load i8, ptr %172, align 1
+  %176 = zext i8 %175 to i32
+  store i32 %176, ptr %116, align 4
+  %177 = zext i8 %175 to i64
+  %178 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %177
+  %179 = load i32, ptr %178, align 4
+  store i32 %179, ptr %117, align 8
+  %180 = icmp ult i32 %179, 239
+  br i1 %180, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i
 
-_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %176
-  %183 = getelementptr inbounds i8, ptr %174, i64 -1
-  store ptr %183, ptr %113, align 8
+_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %174
+  %181 = getelementptr inbounds i8, ptr %172, i64 -1
+  store ptr %181, ptr %113, align 8
   br label %_ZN16ciBytecodeStream4nextEv.exit
 
-_ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %176
-  %184 = zext nneg i32 %181 to i64
-  %185 = getelementptr inbounds [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %184
-  %186 = load i8, ptr %185, align 1
-  %187 = and i8 %186, 15
-  %188 = zext nneg i8 %187 to i64
-  %189 = getelementptr inbounds i8, ptr %174, i64 %188
-  store ptr %189, ptr %113, align 8
-  %190 = icmp eq i8 %187, 0
-  br i1 %190, label %191, label %_ZN16ciBytecodeStream4nextEv.exit
+_ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %174
+  %182 = zext nneg i32 %179 to i64
+  %183 = getelementptr inbounds [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %182
+  %184 = load i8, ptr %183, align 1
+  %185 = and i8 %184, 15
+  %186 = zext nneg i8 %185 to i64
+  %187 = getelementptr inbounds i8, ptr %172, i64 %186
+  store ptr %187, ptr %113, align 8
+  %188 = icmp eq i8 %185, 0
+  br i1 %188, label %189, label %_ZN16ciBytecodeStream4nextEv.exit
 
-191:                                              ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
-  %192 = call noundef i32 @_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %181) #12
-  store i32 %192, ptr %117, align 8
+189:                                              ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i
+  %190 = call noundef i32 @_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %179) #12
+  store i32 %190, ptr %117, align 8
   br label %_ZN16ciBytecodeStream4nextEv.exit
 
-_ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, %191
-  %.0.i = phi i32 [ %181, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ], [ %192, %191 ], [ %181, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ]
+_ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, %189
+  %.0.i = phi i32 [ %179, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ], [ %190, %189 ], [ %179, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ]
   switch i32 %.0.i, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit [
-    i32 153, label %193
-    i32 154, label %193
-    i32 155, label %193
-    i32 156, label %193
-    i32 157, label %193
-    i32 158, label %193
-    i32 159, label %193
-    i32 160, label %193
-    i32 161, label %193
-    i32 162, label %193
-    i32 163, label %193
-    i32 164, label %193
-    i32 165, label %193
-    i32 166, label %193
-    i32 198, label %193
-    i32 199, label %193
-    i32 167, label %288
-    i32 200, label %337
-    i32 170, label %386
-    i32 171, label %498
-    i32 168, label %609
-    i32 201, label %684
-    i32 169, label %759
+    i32 153, label %191
+    i32 154, label %191
+    i32 155, label %191
+    i32 156, label %191
+    i32 157, label %191
+    i32 158, label %191
+    i32 159, label %191
+    i32 160, label %191
+    i32 161, label %191
+    i32 162, label %191
+    i32 163, label %191
+    i32 164, label %191
+    i32 165, label %191
+    i32 166, label %191
+    i32 198, label %191
+    i32 199, label %191
+    i32 167, label %282
+    i32 200, label %329
+    i32 170, label %376
+    i32 171, label %484
+    i32 168, label %591
+    i32 201, label %662
+    i32 169, label %733
   ]
 
-193:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit
-  %194 = load ptr, ptr %113, align 8
-  %195 = load ptr, ptr %118, align 8
-  %196 = ptrtoint ptr %194 to i64
-  %197 = ptrtoint ptr %195 to i64
-  %198 = sub i64 %196, %197
-  %199 = trunc i64 %198 to i32
-  %200 = icmp sgt i32 %6, %199
-  %.pre399 = load ptr, ptr %19, align 8
-  br i1 %200, label %201, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit116
+191:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16ciBytecodeStream4nextEv.exit
+  %192 = load ptr, ptr %113, align 8
+  %193 = load ptr, ptr %118, align 8
+  %194 = ptrtoint ptr %192 to i64
+  %195 = ptrtoint ptr %193 to i64
+  %196 = sub i64 %194, %195
+  %197 = trunc i64 %196 to i32
+  %198 = icmp sgt i32 %6, %197
+  %.pre413 = load ptr, ptr %19, align 8
+  br i1 %198, label %199, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit117
 
-201:                                              ; preds = %193
-  %202 = getelementptr inbounds i8, ptr %.pre399, i64 8
-  %203 = load ptr, ptr %202, align 8
-  %sext319 = shl i64 %198, 32
-  %204 = ashr exact i64 %sext319, 29
-  %205 = getelementptr inbounds i8, ptr %203, i64 %204
+199:                                              ; preds = %191
+  %200 = getelementptr inbounds i8, ptr %.pre413, i64 8
+  %201 = load ptr, ptr %200, align 8
+  %sext333 = shl i64 %196, 32
+  %202 = ashr exact i64 %sext333, 29
+  %203 = getelementptr inbounds i8, ptr %201, i64 %202
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 144
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 144
-  %208 = load ptr, ptr %207, align 8
-  %209 = load i32, ptr %208, align 8
-  %210 = icmp sgt i32 %209, 0
-  br i1 %210, label %.lr.ph.i.i.i110, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
+  %207 = load i32, ptr %206, align 8
+  %208 = icmp sgt i32 %207, 0
+  br i1 %208, label %.lr.ph.i.i.i111, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
 
-.lr.ph.i.i.i110:                                  ; preds = %201
-  %211 = getelementptr inbounds i8, ptr %208, i64 8
-  %212 = load ptr, ptr %211, align 8
-  %213 = zext nneg i32 %209 to i64
-  %214 = load ptr, ptr %212, align 8
-  %215 = icmp eq ptr %214, %123
-  br i1 %215, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit116, label %.lr.ph.i.i111
+.lr.ph.i.i.i111:                                  ; preds = %199
+  %209 = getelementptr inbounds i8, ptr %206, i64 8
+  %210 = load ptr, ptr %209, align 8
+  %211 = zext nneg i32 %207 to i64
+  %212 = load ptr, ptr %210, align 8
+  %213 = icmp eq ptr %212, %123
+  br i1 %213, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit117, label %.lr.ph.i.i112
 
-.lr.ph.i.i111:                                    ; preds = %.lr.ph.i.i.i110, %216
-  %indvars.iv.i7.i.i112 = phi i64 [ %indvars.iv.next.i.i.i113, %216 ], [ 0, %.lr.ph.i.i.i110 ]
-  %indvars.iv.next.i.i.i113 = add nuw nsw i64 %indvars.iv.i7.i.i112, 1
-  %exitcond.not.i.i.i114 = icmp eq i64 %indvars.iv.next.i.i.i113, %213
-  br i1 %exitcond.not.i.i.i114, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106, label %216, !llvm.loop !11
+.lr.ph.i.i112:                                    ; preds = %.lr.ph.i.i.i111, %214
+  %indvars.iv.i7.i.i113 = phi i64 [ %indvars.iv.next.i.i.i114, %214 ], [ 0, %.lr.ph.i.i.i111 ]
+  %indvars.iv.next.i.i.i114 = add nuw nsw i64 %indvars.iv.i7.i.i113, 1
+  %exitcond.not.i.i.i115 = icmp eq i64 %indvars.iv.next.i.i.i114, %211
+  br i1 %exitcond.not.i.i.i115, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106, label %214, !llvm.loop !11
 
-216:                                              ; preds = %.lr.ph.i.i111
-  %217 = getelementptr inbounds ptr, ptr %212, i64 %indvars.iv.next.i.i.i113
-  %218 = load ptr, ptr %217, align 8
-  %219 = icmp eq ptr %218, %123
-  br i1 %219, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i115, label %.lr.ph.i.i111, !llvm.loop !11
+214:                                              ; preds = %.lr.ph.i.i112
+  %215 = getelementptr inbounds ptr, ptr %210, i64 %indvars.iv.next.i.i.i114
+  %216 = load ptr, ptr %215, align 8
+  %217 = icmp eq ptr %216, %123
+  br i1 %217, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i116, label %.lr.ph.i.i112, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i115: ; preds = %216
-  %220 = icmp ult i64 %indvars.iv.next.i.i.i113, %213
-  br i1 %220, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit116, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i116: ; preds = %214
+  %218 = icmp ult i64 %indvars.iv.next.i.i.i114, %211
+  br i1 %218, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit117, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106: ; preds = %.lr.ph.i.i111, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i115, %201
-  %221 = getelementptr inbounds i8, ptr %208, i64 4
-  %222 = load i32, ptr %221, align 4
-  %223 = icmp eq i32 %209, %222
-  br i1 %223, label %224, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106: ; preds = %.lr.ph.i.i112, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i116, %199
+  %219 = getelementptr inbounds i8, ptr %206, i64 4
+  %220 = load i32, ptr %219, align 4
+  %221 = icmp eq i32 %207, %220
+  br i1 %221, label %222, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107
 
-224:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
-  %225 = add nsw i32 %209, 1
-  %226 = icmp sgt i32 %209, -1
-  %227 = xor i32 %209, -2147483648
-  %228 = and i32 %227, %225
-  %229 = icmp eq i32 %228, 0
-  %230 = and i1 %226, %229
-  %231 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %225, i1 true)
-  %232 = sub nuw nsw i32 32, %231
-  %233 = shl nuw i32 1, %232
-  %.0.i.i.i.i.i.i108 = select i1 %230, i32 %225, i32 %233
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %208, i32 noundef %.0.i.i.i.i.i.i108)
-  %.pre.i.i.i109 = load i32, ptr %208, align 8
+222:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
+  %223 = add nsw i32 %207, 1
+  %224 = icmp sgt i32 %207, -1
+  %225 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %223)
+  %226 = icmp ult i32 %225, 2
+  %or.cond.i.i.i.i.i.i108 = select i1 %224, i1 %226, i1 false
+  %227 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %223, i1 true)
+  %228 = sub nuw nsw i32 32, %227
+  %229 = shl nuw i32 1, %228
+  %.0.i.i.i.i.i.i109 = select i1 %or.cond.i.i.i.i.i.i108, i32 %223, i32 %229
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %206, i32 noundef %.0.i.i.i.i.i.i109)
+  %.pre.i.i.i110 = load i32, ptr %206, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107: ; preds = %224, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
-  %234 = phi i32 [ %.pre.i.i.i109, %224 ], [ %209, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106 ]
-  %235 = add nsw i32 %234, 1
-  store i32 %235, ptr %208, align 8
-  %236 = getelementptr inbounds i8, ptr %208, i64 8
-  %237 = load ptr, ptr %236, align 8
-  %238 = sext i32 %234 to i64
-  %239 = getelementptr inbounds ptr, ptr %237, i64 %238
-  store ptr %123, ptr %239, align 8
-  %.pre398 = load ptr, ptr %19, align 8
-  %.pre400 = load ptr, ptr %118, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit116
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107: ; preds = %222, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106
+  %230 = phi i32 [ %.pre.i.i.i110, %222 ], [ %207, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i106 ]
+  %231 = add nsw i32 %230, 1
+  store i32 %231, ptr %206, align 8
+  %232 = getelementptr inbounds i8, ptr %206, i64 8
+  %233 = load ptr, ptr %232, align 8
+  %234 = sext i32 %230 to i64
+  %235 = getelementptr inbounds ptr, ptr %233, i64 %234
+  store ptr %123, ptr %235, align 8
+  %.pre412 = load ptr, ptr %19, align 8
+  %.pre414 = load ptr, ptr %118, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit117
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit116: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i115, %.lr.ph.i.i.i110, %193
-  %240 = phi ptr [ %.pre400, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107 ], [ %195, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i115 ], [ %195, %.lr.ph.i.i.i110 ], [ %195, %193 ]
-  %241 = phi ptr [ %.pre398, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107 ], [ %.pre399, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i115 ], [ %.pre399, %.lr.ph.i.i.i110 ], [ %.pre399, %193 ]
-  %242 = load ptr, ptr %114, align 8
-  %243 = load i8, ptr %242, align 1
-  %.not.i.i.i.i = icmp eq i8 %243, -54
-  br i1 %.not.i.i.i.i, label %244, label %_ZNK16ciBytecodeStream8get_destEv.exit
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit117: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i116, %.lr.ph.i.i.i111, %191
+  %236 = phi ptr [ %.pre414, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107 ], [ %193, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i116 ], [ %193, %.lr.ph.i.i.i111 ], [ %193, %191 ]
+  %237 = phi ptr [ %.pre412, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i107 ], [ %.pre413, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i116 ], [ %.pre413, %.lr.ph.i.i.i111 ], [ %.pre413, %191 ]
+  %238 = load ptr, ptr %114, align 8
+  %239 = load i8, ptr %238, align 1
+  %.not.i.i.i.i = icmp eq i8 %239, -54
+  br i1 %.not.i.i.i.i, label %240, label %_ZNK16ciBytecodeStream8get_destEv.exit
 
-244:                                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit116
-  %245 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %242) #12
+240:                                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit117
+  %241 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %238) #12
   br label %_ZNK16ciBytecodeStream8get_destEv.exit
 
-_ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit116, %244
-  %246 = ptrtoint ptr %242 to i64
-  %247 = ptrtoint ptr %240 to i64
-  %248 = sub i64 %246, %247
-  %249 = getelementptr inbounds i8, ptr %242, i64 1
-  %.0.i.i.i.i.i = load i16, ptr %249, align 1
-  %250 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
-  %251 = sext i16 %250 to i64
-  %252 = add i64 %248, %251
-  %253 = getelementptr inbounds i8, ptr %241, i64 8
-  %254 = load ptr, ptr %253, align 8
-  %sext320 = shl i64 %252, 32
-  %255 = ashr exact i64 %sext320, 29
-  %256 = getelementptr inbounds i8, ptr %254, i64 %255
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 144
+_ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit117, %240
+  %242 = ptrtoint ptr %238 to i64
+  %243 = ptrtoint ptr %236 to i64
+  %244 = sub i64 %242, %243
+  %245 = getelementptr inbounds i8, ptr %238, i64 1
+  %.0.i.i.i.i.i = load i16, ptr %245, align 1
+  %246 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
+  %247 = sext i16 %246 to i64
+  %248 = add i64 %244, %247
+  %249 = getelementptr inbounds i8, ptr %237, i64 8
+  %250 = load ptr, ptr %249, align 8
+  %sext334 = shl i64 %248, 32
+  %251 = ashr exact i64 %sext334, 29
+  %252 = getelementptr inbounds i8, ptr %250, i64 %251
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 144
+  %255 = load ptr, ptr %254, align 8
+  %256 = load i32, ptr %255, align 8
+  %257 = icmp sgt i32 %256, 0
+  br i1 %257, label %.lr.ph.i.i.i123, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i118
+
+.lr.ph.i.i.i123:                                  ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit
+  %258 = getelementptr inbounds i8, ptr %255, i64 8
   %259 = load ptr, ptr %258, align 8
-  %260 = load i32, ptr %259, align 8
-  %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %.lr.ph.i.i.i121, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i117
+  %260 = zext nneg i32 %256 to i64
+  %261 = load ptr, ptr %259, align 8
+  %262 = icmp eq ptr %261, %123
+  br i1 %262, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %.lr.ph.i.i124
 
-.lr.ph.i.i.i121:                                  ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit
-  %262 = getelementptr inbounds i8, ptr %259, i64 8
-  %263 = load ptr, ptr %262, align 8
-  %264 = zext nneg i32 %260 to i64
-  %265 = load ptr, ptr %263, align 8
+.lr.ph.i.i124:                                    ; preds = %.lr.ph.i.i.i123, %263
+  %indvars.iv.i7.i.i125 = phi i64 [ %indvars.iv.next.i.i.i126, %263 ], [ 0, %.lr.ph.i.i.i123 ]
+  %indvars.iv.next.i.i.i126 = add nuw nsw i64 %indvars.iv.i7.i.i125, 1
+  %exitcond.not.i.i.i127 = icmp eq i64 %indvars.iv.next.i.i.i126, %260
+  br i1 %exitcond.not.i.i.i127, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i118, label %263, !llvm.loop !11
+
+263:                                              ; preds = %.lr.ph.i.i124
+  %264 = getelementptr inbounds ptr, ptr %259, i64 %indvars.iv.next.i.i.i126
+  %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, %123
-  br i1 %266, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %.lr.ph.i.i122
+  br i1 %266, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i128, label %.lr.ph.i.i124, !llvm.loop !11
 
-.lr.ph.i.i122:                                    ; preds = %.lr.ph.i.i.i121, %267
-  %indvars.iv.i7.i.i123 = phi i64 [ %indvars.iv.next.i.i.i124, %267 ], [ 0, %.lr.ph.i.i.i121 ]
-  %indvars.iv.next.i.i.i124 = add nuw nsw i64 %indvars.iv.i7.i.i123, 1
-  %exitcond.not.i.i.i125 = icmp eq i64 %indvars.iv.next.i.i.i124, %264
-  br i1 %exitcond.not.i.i.i125, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i117, label %267, !llvm.loop !11
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i128: ; preds = %263
+  %267 = icmp ult i64 %indvars.iv.next.i.i.i126, %260
+  br i1 %267, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i118
 
-267:                                              ; preds = %.lr.ph.i.i122
-  %268 = getelementptr inbounds ptr, ptr %263, i64 %indvars.iv.next.i.i.i124
-  %269 = load ptr, ptr %268, align 8
-  %270 = icmp eq ptr %269, %123
-  br i1 %270, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i126, label %.lr.ph.i.i122, !llvm.loop !11
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i118: ; preds = %.lr.ph.i.i124, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i128, %_ZNK16ciBytecodeStream8get_destEv.exit
+  %268 = getelementptr inbounds i8, ptr %255, i64 4
+  %269 = load i32, ptr %268, align 4
+  %270 = icmp eq i32 %256, %269
+  br i1 %270, label %271, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i119
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i126: ; preds = %267
-  %271 = icmp ult i64 %indvars.iv.next.i.i.i124, %264
-  br i1 %271, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i117
+271:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i118
+  %272 = add nsw i32 %256, 1
+  %273 = icmp sgt i32 %256, -1
+  %274 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %272)
+  %275 = icmp ult i32 %274, 2
+  %or.cond.i.i.i.i.i.i120 = select i1 %273, i1 %275, i1 false
+  %276 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %272, i1 true)
+  %277 = sub nuw nsw i32 32, %276
+  %278 = shl nuw i32 1, %277
+  %.0.i.i.i.i.i.i121 = select i1 %or.cond.i.i.i.i.i.i120, i32 %272, i32 %278
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %255, i32 noundef %.0.i.i.i.i.i.i121)
+  %.pre.i.i.i122 = load i32, ptr %255, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i119
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i117: ; preds = %.lr.ph.i.i122, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i126, %_ZNK16ciBytecodeStream8get_destEv.exit
-  %272 = getelementptr inbounds i8, ptr %259, i64 4
-  %273 = load i32, ptr %272, align 4
-  %274 = icmp eq i32 %260, %273
-  br i1 %274, label %275, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i118
-
-275:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i117
-  %276 = add nsw i32 %260, 1
-  %277 = icmp sgt i32 %260, -1
-  %278 = xor i32 %260, -2147483648
-  %279 = and i32 %278, %276
-  %280 = icmp eq i32 %279, 0
-  %281 = and i1 %277, %280
-  %282 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %276, i1 true)
-  %283 = sub nuw nsw i32 32, %282
-  %284 = shl nuw i32 1, %283
-  %.0.i.i.i.i.i.i119 = select i1 %281, i32 %276, i32 %284
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %259, i32 noundef %.0.i.i.i.i.i.i119)
-  %.pre.i.i.i120 = load i32, ptr %259, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i118
-
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i118: ; preds = %275, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i117
-  %285 = phi i32 [ %.pre.i.i.i120, %275 ], [ %260, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i117 ]
-  %286 = add nsw i32 %285, 1
-  store i32 %286, ptr %259, align 8
-  %287 = getelementptr inbounds i8, ptr %259, i64 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i119: ; preds = %271, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i118
+  %279 = phi i32 [ %.pre.i.i.i122, %271 ], [ %256, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i118 ]
+  %280 = add nsw i32 %279, 1
+  store i32 %280, ptr %255, align 8
+  %281 = getelementptr inbounds i8, ptr %255, i64 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split
 
-288:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
-  %289 = load ptr, ptr %19, align 8
-  %290 = load ptr, ptr %114, align 8
-  %291 = load ptr, ptr %118, align 8
-  %292 = load i8, ptr %290, align 1
-  %.not.i.i.i.i128 = icmp eq i8 %292, -54
-  br i1 %.not.i.i.i.i128, label %293, label %_ZNK16ciBytecodeStream8get_destEv.exit130
+282:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
+  %283 = load ptr, ptr %19, align 8
+  %284 = load ptr, ptr %114, align 8
+  %285 = load ptr, ptr %118, align 8
+  %286 = load i8, ptr %284, align 1
+  %.not.i.i.i.i130 = icmp eq i8 %286, -54
+  br i1 %.not.i.i.i.i130, label %287, label %_ZNK16ciBytecodeStream8get_destEv.exit132
 
-293:                                              ; preds = %288
-  %294 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %290) #12
-  br label %_ZNK16ciBytecodeStream8get_destEv.exit130
+287:                                              ; preds = %282
+  %288 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %284) #12
+  br label %_ZNK16ciBytecodeStream8get_destEv.exit132
 
-_ZNK16ciBytecodeStream8get_destEv.exit130:        ; preds = %288, %293
-  %295 = ptrtoint ptr %290 to i64
-  %296 = ptrtoint ptr %291 to i64
-  %297 = sub i64 %295, %296
-  %298 = getelementptr inbounds i8, ptr %290, i64 1
-  %.0.i.i.i.i.i129 = load i16, ptr %298, align 1
-  %299 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i129)
-  %300 = sext i16 %299 to i64
-  %301 = add i64 %297, %300
-  %302 = getelementptr inbounds i8, ptr %289, i64 8
-  %303 = load ptr, ptr %302, align 8
-  %sext318 = shl i64 %301, 32
-  %304 = ashr exact i64 %sext318, 29
-  %305 = getelementptr inbounds i8, ptr %303, i64 %304
+_ZNK16ciBytecodeStream8get_destEv.exit132:        ; preds = %282, %287
+  %289 = ptrtoint ptr %284 to i64
+  %290 = ptrtoint ptr %285 to i64
+  %291 = sub i64 %289, %290
+  %292 = getelementptr inbounds i8, ptr %284, i64 1
+  %.0.i.i.i.i.i131 = load i16, ptr %292, align 1
+  %293 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i131)
+  %294 = sext i16 %293 to i64
+  %295 = add i64 %291, %294
+  %296 = getelementptr inbounds i8, ptr %283, i64 8
+  %297 = load ptr, ptr %296, align 8
+  %sext332 = shl i64 %295, 32
+  %298 = ashr exact i64 %sext332, 29
+  %299 = getelementptr inbounds i8, ptr %297, i64 %298
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds i8, ptr %300, i64 144
+  %302 = load ptr, ptr %301, align 8
+  %303 = load i32, ptr %302, align 8
+  %304 = icmp sgt i32 %303, 0
+  br i1 %304, label %.lr.ph.i.i.i138, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i133
+
+.lr.ph.i.i.i138:                                  ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit132
+  %305 = getelementptr inbounds i8, ptr %302, i64 8
   %306 = load ptr, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 144
-  %308 = load ptr, ptr %307, align 8
-  %309 = load i32, ptr %308, align 8
-  %310 = icmp sgt i32 %309, 0
-  br i1 %310, label %.lr.ph.i.i.i135, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i131
+  %307 = zext nneg i32 %303 to i64
+  %308 = load ptr, ptr %306, align 8
+  %309 = icmp eq ptr %308, %123
+  br i1 %309, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %.lr.ph.i.i139
 
-.lr.ph.i.i.i135:                                  ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit130
-  %311 = getelementptr inbounds i8, ptr %308, i64 8
+.lr.ph.i.i139:                                    ; preds = %.lr.ph.i.i.i138, %310
+  %indvars.iv.i7.i.i140 = phi i64 [ %indvars.iv.next.i.i.i141, %310 ], [ 0, %.lr.ph.i.i.i138 ]
+  %indvars.iv.next.i.i.i141 = add nuw nsw i64 %indvars.iv.i7.i.i140, 1
+  %exitcond.not.i.i.i142 = icmp eq i64 %indvars.iv.next.i.i.i141, %307
+  br i1 %exitcond.not.i.i.i142, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i133, label %310, !llvm.loop !11
+
+310:                                              ; preds = %.lr.ph.i.i139
+  %311 = getelementptr inbounds ptr, ptr %306, i64 %indvars.iv.next.i.i.i141
   %312 = load ptr, ptr %311, align 8
-  %313 = zext nneg i32 %309 to i64
-  %314 = load ptr, ptr %312, align 8
-  %315 = icmp eq ptr %314, %123
-  br i1 %315, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %.lr.ph.i.i136
+  %313 = icmp eq ptr %312, %123
+  br i1 %313, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i143, label %.lr.ph.i.i139, !llvm.loop !11
 
-.lr.ph.i.i136:                                    ; preds = %.lr.ph.i.i.i135, %316
-  %indvars.iv.i7.i.i137 = phi i64 [ %indvars.iv.next.i.i.i138, %316 ], [ 0, %.lr.ph.i.i.i135 ]
-  %indvars.iv.next.i.i.i138 = add nuw nsw i64 %indvars.iv.i7.i.i137, 1
-  %exitcond.not.i.i.i139 = icmp eq i64 %indvars.iv.next.i.i.i138, %313
-  br i1 %exitcond.not.i.i.i139, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i131, label %316, !llvm.loop !11
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i143: ; preds = %310
+  %314 = icmp ult i64 %indvars.iv.next.i.i.i141, %307
+  br i1 %314, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i133
 
-316:                                              ; preds = %.lr.ph.i.i136
-  %317 = getelementptr inbounds ptr, ptr %312, i64 %indvars.iv.next.i.i.i138
-  %318 = load ptr, ptr %317, align 8
-  %319 = icmp eq ptr %318, %123
-  br i1 %319, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i140, label %.lr.ph.i.i136, !llvm.loop !11
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i133: ; preds = %.lr.ph.i.i139, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i143, %_ZNK16ciBytecodeStream8get_destEv.exit132
+  %315 = getelementptr inbounds i8, ptr %302, i64 4
+  %316 = load i32, ptr %315, align 4
+  %317 = icmp eq i32 %303, %316
+  br i1 %317, label %318, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i134
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i140: ; preds = %316
-  %320 = icmp ult i64 %indvars.iv.next.i.i.i138, %313
-  br i1 %320, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i131
+318:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i133
+  %319 = add nsw i32 %303, 1
+  %320 = icmp sgt i32 %303, -1
+  %321 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %319)
+  %322 = icmp ult i32 %321, 2
+  %or.cond.i.i.i.i.i.i135 = select i1 %320, i1 %322, i1 false
+  %323 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %319, i1 true)
+  %324 = sub nuw nsw i32 32, %323
+  %325 = shl nuw i32 1, %324
+  %.0.i.i.i.i.i.i136 = select i1 %or.cond.i.i.i.i.i.i135, i32 %319, i32 %325
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %302, i32 noundef %.0.i.i.i.i.i.i136)
+  %.pre.i.i.i137 = load i32, ptr %302, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i134
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i131: ; preds = %.lr.ph.i.i136, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i140, %_ZNK16ciBytecodeStream8get_destEv.exit130
-  %321 = getelementptr inbounds i8, ptr %308, i64 4
-  %322 = load i32, ptr %321, align 4
-  %323 = icmp eq i32 %309, %322
-  br i1 %323, label %324, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i132
-
-324:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i131
-  %325 = add nsw i32 %309, 1
-  %326 = icmp sgt i32 %309, -1
-  %327 = xor i32 %309, -2147483648
-  %328 = and i32 %327, %325
-  %329 = icmp eq i32 %328, 0
-  %330 = and i1 %326, %329
-  %331 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %325, i1 true)
-  %332 = sub nuw nsw i32 32, %331
-  %333 = shl nuw i32 1, %332
-  %.0.i.i.i.i.i.i133 = select i1 %330, i32 %325, i32 %333
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %308, i32 noundef %.0.i.i.i.i.i.i133)
-  %.pre.i.i.i134 = load i32, ptr %308, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i132
-
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i132: ; preds = %324, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i131
-  %334 = phi i32 [ %.pre.i.i.i134, %324 ], [ %309, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i131 ]
-  %335 = add nsw i32 %334, 1
-  store i32 %335, ptr %308, align 8
-  %336 = getelementptr inbounds i8, ptr %308, i64 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i134: ; preds = %318, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i133
+  %326 = phi i32 [ %.pre.i.i.i137, %318 ], [ %303, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i133 ]
+  %327 = add nsw i32 %326, 1
+  store i32 %327, ptr %302, align 8
+  %328 = getelementptr inbounds i8, ptr %302, i64 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split
 
-337:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
-  %338 = load ptr, ptr %19, align 8
-  %339 = load ptr, ptr %114, align 8
-  %340 = load ptr, ptr %118, align 8
-  %341 = load i8, ptr %339, align 1
-  %.not.i.i.i.i142 = icmp eq i8 %341, -54
-  br i1 %.not.i.i.i.i142, label %342, label %_ZNK16ciBytecodeStream12get_far_destEv.exit
+329:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
+  %330 = load ptr, ptr %19, align 8
+  %331 = load ptr, ptr %114, align 8
+  %332 = load ptr, ptr %118, align 8
+  %333 = load i8, ptr %331, align 1
+  %.not.i.i.i.i145 = icmp eq i8 %333, -54
+  br i1 %.not.i.i.i.i145, label %334, label %_ZNK16ciBytecodeStream12get_far_destEv.exit
 
-342:                                              ; preds = %337
-  %343 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %339) #12
+334:                                              ; preds = %329
+  %335 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %331) #12
   br label %_ZNK16ciBytecodeStream12get_far_destEv.exit
 
-_ZNK16ciBytecodeStream12get_far_destEv.exit:      ; preds = %337, %342
-  %344 = ptrtoint ptr %339 to i64
-  %345 = ptrtoint ptr %340 to i64
-  %346 = sub i64 %344, %345
-  %347 = trunc i64 %346 to i32
-  %348 = getelementptr inbounds i8, ptr %339, i64 1
-  %.0.i.i.i.i.i143 = load i32, ptr %348, align 1
-  %349 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i143)
-  %350 = add nsw i32 %349, %347
-  %351 = getelementptr inbounds i8, ptr %338, i64 8
-  %352 = load ptr, ptr %351, align 8
-  %353 = sext i32 %350 to i64
-  %354 = getelementptr inbounds ptr, ptr %352, i64 %353
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 144
-  %357 = load ptr, ptr %356, align 8
-  %358 = load i32, ptr %357, align 8
-  %359 = icmp sgt i32 %358, 0
-  br i1 %359, label %.lr.ph.i.i.i148, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i144
+_ZNK16ciBytecodeStream12get_far_destEv.exit:      ; preds = %329, %334
+  %336 = ptrtoint ptr %331 to i64
+  %337 = ptrtoint ptr %332 to i64
+  %338 = sub i64 %336, %337
+  %339 = trunc i64 %338 to i32
+  %340 = getelementptr inbounds i8, ptr %331, i64 1
+  %.0.i.i.i.i.i146 = load i32, ptr %340, align 1
+  %341 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i146)
+  %342 = add nsw i32 %341, %339
+  %343 = getelementptr inbounds i8, ptr %330, i64 8
+  %344 = load ptr, ptr %343, align 8
+  %345 = sext i32 %342 to i64
+  %346 = getelementptr inbounds ptr, ptr %344, i64 %345
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds i8, ptr %347, i64 144
+  %349 = load ptr, ptr %348, align 8
+  %350 = load i32, ptr %349, align 8
+  %351 = icmp sgt i32 %350, 0
+  br i1 %351, label %.lr.ph.i.i.i152, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i147
 
-.lr.ph.i.i.i148:                                  ; preds = %_ZNK16ciBytecodeStream12get_far_destEv.exit
-  %360 = getelementptr inbounds i8, ptr %357, i64 8
-  %361 = load ptr, ptr %360, align 8
-  %362 = zext nneg i32 %358 to i64
-  %363 = load ptr, ptr %361, align 8
-  %364 = icmp eq ptr %363, %123
-  br i1 %364, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %.lr.ph.i.i149
+.lr.ph.i.i.i152:                                  ; preds = %_ZNK16ciBytecodeStream12get_far_destEv.exit
+  %352 = getelementptr inbounds i8, ptr %349, i64 8
+  %353 = load ptr, ptr %352, align 8
+  %354 = zext nneg i32 %350 to i64
+  %355 = load ptr, ptr %353, align 8
+  %356 = icmp eq ptr %355, %123
+  br i1 %356, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %.lr.ph.i.i153
 
-.lr.ph.i.i149:                                    ; preds = %.lr.ph.i.i.i148, %365
-  %indvars.iv.i7.i.i150 = phi i64 [ %indvars.iv.next.i.i.i151, %365 ], [ 0, %.lr.ph.i.i.i148 ]
-  %indvars.iv.next.i.i.i151 = add nuw nsw i64 %indvars.iv.i7.i.i150, 1
-  %exitcond.not.i.i.i152 = icmp eq i64 %indvars.iv.next.i.i.i151, %362
-  br i1 %exitcond.not.i.i.i152, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i144, label %365, !llvm.loop !11
+.lr.ph.i.i153:                                    ; preds = %.lr.ph.i.i.i152, %357
+  %indvars.iv.i7.i.i154 = phi i64 [ %indvars.iv.next.i.i.i155, %357 ], [ 0, %.lr.ph.i.i.i152 ]
+  %indvars.iv.next.i.i.i155 = add nuw nsw i64 %indvars.iv.i7.i.i154, 1
+  %exitcond.not.i.i.i156 = icmp eq i64 %indvars.iv.next.i.i.i155, %354
+  br i1 %exitcond.not.i.i.i156, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i147, label %357, !llvm.loop !11
 
-365:                                              ; preds = %.lr.ph.i.i149
-  %366 = getelementptr inbounds ptr, ptr %361, i64 %indvars.iv.next.i.i.i151
-  %367 = load ptr, ptr %366, align 8
-  %368 = icmp eq ptr %367, %123
-  br i1 %368, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i153, label %.lr.ph.i.i149, !llvm.loop !11
+357:                                              ; preds = %.lr.ph.i.i153
+  %358 = getelementptr inbounds ptr, ptr %353, i64 %indvars.iv.next.i.i.i155
+  %359 = load ptr, ptr %358, align 8
+  %360 = icmp eq ptr %359, %123
+  br i1 %360, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i157, label %.lr.ph.i.i153, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i153: ; preds = %365
-  %369 = icmp ult i64 %indvars.iv.next.i.i.i151, %362
-  br i1 %369, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i144
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i157: ; preds = %357
+  %361 = icmp ult i64 %indvars.iv.next.i.i.i155, %354
+  br i1 %361, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i147
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i144: ; preds = %.lr.ph.i.i149, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i153, %_ZNK16ciBytecodeStream12get_far_destEv.exit
-  %370 = getelementptr inbounds i8, ptr %357, i64 4
-  %371 = load i32, ptr %370, align 4
-  %372 = icmp eq i32 %358, %371
-  br i1 %372, label %373, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i145
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i147: ; preds = %.lr.ph.i.i153, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i157, %_ZNK16ciBytecodeStream12get_far_destEv.exit
+  %362 = getelementptr inbounds i8, ptr %349, i64 4
+  %363 = load i32, ptr %362, align 4
+  %364 = icmp eq i32 %350, %363
+  br i1 %364, label %365, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i148
 
-373:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i144
-  %374 = add nsw i32 %358, 1
-  %375 = icmp sgt i32 %358, -1
-  %376 = xor i32 %358, -2147483648
-  %377 = and i32 %376, %374
-  %378 = icmp eq i32 %377, 0
-  %379 = and i1 %375, %378
-  %380 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %374, i1 true)
-  %381 = sub nuw nsw i32 32, %380
-  %382 = shl nuw i32 1, %381
-  %.0.i.i.i.i.i.i146 = select i1 %379, i32 %374, i32 %382
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %357, i32 noundef %.0.i.i.i.i.i.i146)
-  %.pre.i.i.i147 = load i32, ptr %357, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i145
+365:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i147
+  %366 = add nsw i32 %350, 1
+  %367 = icmp sgt i32 %350, -1
+  %368 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %366)
+  %369 = icmp ult i32 %368, 2
+  %or.cond.i.i.i.i.i.i149 = select i1 %367, i1 %369, i1 false
+  %370 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %366, i1 true)
+  %371 = sub nuw nsw i32 32, %370
+  %372 = shl nuw i32 1, %371
+  %.0.i.i.i.i.i.i150 = select i1 %or.cond.i.i.i.i.i.i149, i32 %366, i32 %372
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %349, i32 noundef %.0.i.i.i.i.i.i150)
+  %.pre.i.i.i151 = load i32, ptr %349, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i148
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i145: ; preds = %373, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i144
-  %383 = phi i32 [ %.pre.i.i.i147, %373 ], [ %358, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i144 ]
-  %384 = add nsw i32 %383, 1
-  store i32 %384, ptr %357, align 8
-  %385 = getelementptr inbounds i8, ptr %357, i64 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i148: ; preds = %365, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i147
+  %373 = phi i32 [ %.pre.i.i.i151, %365 ], [ %350, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i147 ]
+  %374 = add nsw i32 %373, 1
+  store i32 %374, ptr %349, align 8
+  %375 = getelementptr inbounds i8, ptr %349, i64 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split
 
-386:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
-  %387 = load ptr, ptr %114, align 8
-  store ptr %387, ptr %3, align 8
-  %388 = load i8, ptr %387, align 1
-  %389 = zext i8 %388 to i32
-  %.not.i.i.i = icmp eq i8 %388, -54
-  br i1 %.not.i.i.i, label %390, label %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
+376:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
+  %377 = load ptr, ptr %114, align 8
+  store ptr %377, ptr %3, align 8
+  %378 = load i8, ptr %377, align 1
+  %379 = zext i8 %378 to i32
+  %.not.i.i.i = icmp eq i8 %378, -54
+  br i1 %.not.i.i.i, label %380, label %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
 
-390:                                              ; preds = %386
-  %391 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %387) #12
-  %.pre397 = load ptr, ptr %3, align 8
+380:                                              ; preds = %376
+  %381 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %377) #12
+  %.pre411 = load ptr, ptr %3, align 8
   br label %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
 
-_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit: ; preds = %386, %390
-  %392 = phi ptr [ %.pre397, %390 ], [ %387, %386 ]
-  %393 = phi i32 [ %391, %390 ], [ %389, %386 ]
-  store i32 %393, ptr %119, align 8
-  %394 = getelementptr inbounds i8, ptr %392, i64 9
-  %395 = ptrtoint ptr %394 to i64
-  %396 = add i64 %395, 3
-  %397 = and i64 %396, -4
-  %398 = inttoptr i64 %397 to ptr
-  %.0.i.i.i.i.i.i155 = load i32, ptr %398, align 4
-  %399 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i.i155)
-  %400 = getelementptr inbounds i8, ptr %392, i64 5
-  %401 = ptrtoint ptr %400 to i64
-  %402 = add i64 %401, 3
-  %403 = and i64 %402, -4
-  %404 = inttoptr i64 %403 to ptr
-  %.0.i.i.i.i.i1.i = load i32, ptr %404, align 4
-  %405 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i1.i)
-  %406 = add i32 %399, 1
-  %407 = sub i32 %406, %405
-  %408 = load ptr, ptr %19, align 8
-  %409 = getelementptr inbounds i8, ptr %392, i64 1
-  %410 = ptrtoint ptr %409 to i64
-  %411 = add i64 %410, 3
-  %412 = and i64 %411, -4
-  %413 = inttoptr i64 %412 to ptr
-  %.0.i.i.i.i.i156 = load i32, ptr %413, align 4
-  %414 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i156)
-  %415 = add nsw i32 %414, %130
-  %416 = getelementptr inbounds i8, ptr %408, i64 8
-  %417 = load ptr, ptr %416, align 8
-  %418 = sext i32 %415 to i64
-  %419 = getelementptr inbounds ptr, ptr %417, i64 %418
-  %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 144
+_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit: ; preds = %376, %380
+  %382 = phi ptr [ %.pre411, %380 ], [ %377, %376 ]
+  %383 = phi i32 [ %381, %380 ], [ %379, %376 ]
+  store i32 %383, ptr %119, align 8
+  %384 = getelementptr inbounds i8, ptr %382, i64 9
+  %385 = ptrtoint ptr %384 to i64
+  %386 = add i64 %385, 3
+  %387 = and i64 %386, -4
+  %388 = inttoptr i64 %387 to ptr
+  %.0.i.i.i.i.i.i159 = load i32, ptr %388, align 4
+  %389 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i.i159)
+  %390 = getelementptr inbounds i8, ptr %382, i64 5
+  %391 = ptrtoint ptr %390 to i64
+  %392 = add i64 %391, 3
+  %393 = and i64 %392, -4
+  %394 = inttoptr i64 %393 to ptr
+  %.0.i.i.i.i.i1.i = load i32, ptr %394, align 4
+  %395 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i1.i)
+  %396 = add i32 %389, 1
+  %397 = sub i32 %396, %395
+  %398 = load ptr, ptr %19, align 8
+  %399 = getelementptr inbounds i8, ptr %382, i64 1
+  %400 = ptrtoint ptr %399 to i64
+  %401 = add i64 %400, 3
+  %402 = and i64 %401, -4
+  %403 = inttoptr i64 %402 to ptr
+  %.0.i.i.i.i.i160 = load i32, ptr %403, align 4
+  %404 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i160)
+  %405 = add nsw i32 %404, %130
+  %406 = getelementptr inbounds i8, ptr %398, i64 8
+  %407 = load ptr, ptr %406, align 8
+  %408 = sext i32 %405 to i64
+  %409 = getelementptr inbounds ptr, ptr %407, i64 %408
+  %410 = load ptr, ptr %409, align 8
+  %411 = getelementptr inbounds i8, ptr %410, i64 144
+  %412 = load ptr, ptr %411, align 8
+  %413 = load i32, ptr %412, align 8
+  %414 = icmp sgt i32 %413, 0
+  br i1 %414, label %.lr.ph.i.i.i166, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i161
+
+.lr.ph.i.i.i166:                                  ; preds = %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
+  %415 = getelementptr inbounds i8, ptr %412, i64 8
+  %416 = load ptr, ptr %415, align 8
+  %417 = zext nneg i32 %413 to i64
+  %418 = load ptr, ptr %416, align 8
+  %419 = icmp eq ptr %418, %123
+  br i1 %419, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit172, label %.lr.ph.i.i167
+
+.lr.ph.i.i167:                                    ; preds = %.lr.ph.i.i.i166, %420
+  %indvars.iv.i7.i.i168 = phi i64 [ %indvars.iv.next.i.i.i169, %420 ], [ 0, %.lr.ph.i.i.i166 ]
+  %indvars.iv.next.i.i.i169 = add nuw nsw i64 %indvars.iv.i7.i.i168, 1
+  %exitcond.not.i.i.i170 = icmp eq i64 %indvars.iv.next.i.i.i169, %417
+  br i1 %exitcond.not.i.i.i170, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i161, label %420, !llvm.loop !11
+
+420:                                              ; preds = %.lr.ph.i.i167
+  %421 = getelementptr inbounds ptr, ptr %416, i64 %indvars.iv.next.i.i.i169
   %422 = load ptr, ptr %421, align 8
-  %423 = load i32, ptr %422, align 8
-  %424 = icmp sgt i32 %423, 0
-  br i1 %424, label %.lr.ph.i.i.i161, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i157
+  %423 = icmp eq ptr %422, %123
+  br i1 %423, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i171, label %.lr.ph.i.i167, !llvm.loop !11
 
-.lr.ph.i.i.i161:                                  ; preds = %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
-  %425 = getelementptr inbounds i8, ptr %422, i64 8
-  %426 = load ptr, ptr %425, align 8
-  %427 = zext nneg i32 %423 to i64
-  %428 = load ptr, ptr %426, align 8
-  %429 = icmp eq ptr %428, %123
-  br i1 %429, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit167, label %.lr.ph.i.i162
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i171: ; preds = %420
+  %424 = icmp ult i64 %indvars.iv.next.i.i.i169, %417
+  br i1 %424, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit172, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i161
 
-.lr.ph.i.i162:                                    ; preds = %.lr.ph.i.i.i161, %430
-  %indvars.iv.i7.i.i163 = phi i64 [ %indvars.iv.next.i.i.i164, %430 ], [ 0, %.lr.ph.i.i.i161 ]
-  %indvars.iv.next.i.i.i164 = add nuw nsw i64 %indvars.iv.i7.i.i163, 1
-  %exitcond.not.i.i.i165 = icmp eq i64 %indvars.iv.next.i.i.i164, %427
-  br i1 %exitcond.not.i.i.i165, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i157, label %430, !llvm.loop !11
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i161: ; preds = %.lr.ph.i.i167, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i171, %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
+  %425 = getelementptr inbounds i8, ptr %412, i64 4
+  %426 = load i32, ptr %425, align 4
+  %427 = icmp eq i32 %413, %426
+  br i1 %427, label %428, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i162
 
-430:                                              ; preds = %.lr.ph.i.i162
-  %431 = getelementptr inbounds ptr, ptr %426, i64 %indvars.iv.next.i.i.i164
-  %432 = load ptr, ptr %431, align 8
-  %433 = icmp eq ptr %432, %123
-  br i1 %433, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i166, label %.lr.ph.i.i162, !llvm.loop !11
+428:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i161
+  %429 = add nsw i32 %413, 1
+  %430 = icmp sgt i32 %413, -1
+  %431 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %429)
+  %432 = icmp ult i32 %431, 2
+  %or.cond.i.i.i.i.i.i163 = select i1 %430, i1 %432, i1 false
+  %433 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %429, i1 true)
+  %434 = sub nuw nsw i32 32, %433
+  %435 = shl nuw i32 1, %434
+  %.0.i.i.i.i.i.i164 = select i1 %or.cond.i.i.i.i.i.i163, i32 %429, i32 %435
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %412, i32 noundef %.0.i.i.i.i.i.i164)
+  %.pre.i.i.i165 = load i32, ptr %412, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i162
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i166: ; preds = %430
-  %434 = icmp ult i64 %indvars.iv.next.i.i.i164, %427
-  br i1 %434, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit167, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i157
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i162: ; preds = %428, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i161
+  %436 = phi i32 [ %.pre.i.i.i165, %428 ], [ %413, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i161 ]
+  %437 = add nsw i32 %436, 1
+  store i32 %437, ptr %412, align 8
+  %438 = getelementptr inbounds i8, ptr %412, i64 8
+  %439 = load ptr, ptr %438, align 8
+  %440 = sext i32 %436 to i64
+  %441 = getelementptr inbounds ptr, ptr %439, i64 %440
+  store ptr %123, ptr %441, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit172
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i157: ; preds = %.lr.ph.i.i162, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i166, %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
-  %435 = getelementptr inbounds i8, ptr %422, i64 4
-  %436 = load i32, ptr %435, align 4
-  %437 = icmp eq i32 %423, %436
-  br i1 %437, label %438, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i158
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit172: ; preds = %.lr.ph.i.i.i166, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i171, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i162
+  %442 = icmp sgt i32 %397, 0
+  br i1 %442, label %.lr.ph357, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
 
-438:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i157
-  %439 = add nsw i32 %423, 1
-  %440 = icmp sgt i32 %423, -1
-  %441 = xor i32 %423, -2147483648
-  %442 = and i32 %441, %439
-  %443 = icmp eq i32 %442, 0
-  %444 = and i1 %440, %443
-  %445 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %439, i1 true)
-  %446 = sub nuw nsw i32 32, %445
-  %447 = shl nuw i32 1, %446
-  %.0.i.i.i.i.i.i159 = select i1 %444, i32 %439, i32 %447
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %422, i32 noundef %.0.i.i.i.i.i.i159)
-  %.pre.i.i.i160 = load i32, ptr %422, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i158
-
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i158: ; preds = %438, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i157
-  %448 = phi i32 [ %.pre.i.i.i160, %438 ], [ %423, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i157 ]
-  %449 = add nsw i32 %448, 1
-  store i32 %449, ptr %422, align 8
-  %450 = getelementptr inbounds i8, ptr %422, i64 8
+.lr.ph357:                                        ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit172, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit184
+  %.086356 = phi i32 [ %443, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit184 ], [ %397, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit172 ]
+  %443 = add nsw i32 %.086356, -1
+  %444 = load ptr, ptr %19, align 8
+  %445 = call noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %443) #12
+  %446 = add nsw i32 %445, %130
+  %447 = getelementptr inbounds i8, ptr %444, i64 8
+  %448 = load ptr, ptr %447, align 8
+  %449 = sext i32 %446 to i64
+  %450 = getelementptr inbounds ptr, ptr %448, i64 %449
   %451 = load ptr, ptr %450, align 8
-  %452 = sext i32 %448 to i64
-  %453 = getelementptr inbounds ptr, ptr %451, i64 %452
-  store ptr %123, ptr %453, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit167
+  %452 = getelementptr inbounds i8, ptr %451, i64 144
+  %453 = load ptr, ptr %452, align 8
+  %454 = load i32, ptr %453, align 8
+  %455 = icmp sgt i32 %454, 0
+  br i1 %455, label %.lr.ph.i.i.i178, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i173
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit167: ; preds = %.lr.ph.i.i.i161, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i166, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i158
-  %454 = icmp sgt i32 %407, 0
-  br i1 %454, label %.lr.ph343, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
+.lr.ph.i.i.i178:                                  ; preds = %.lr.ph357
+  %456 = getelementptr inbounds i8, ptr %453, i64 8
+  %457 = load ptr, ptr %456, align 8
+  %458 = zext nneg i32 %454 to i64
+  %459 = load ptr, ptr %457, align 8
+  %460 = icmp eq ptr %459, %123
+  br i1 %460, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit184, label %.lr.ph.i.i179
 
-.lr.ph343:                                        ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit167, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit178
-  %.086342 = phi i32 [ %455, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit178 ], [ %407, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit167 ]
-  %455 = add nsw i32 %.086342, -1
-  %456 = load ptr, ptr %19, align 8
-  %457 = call noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %455) #12
-  %458 = add nsw i32 %457, %130
-  %459 = getelementptr inbounds i8, ptr %456, i64 8
-  %460 = load ptr, ptr %459, align 8
-  %461 = sext i32 %458 to i64
-  %462 = getelementptr inbounds ptr, ptr %460, i64 %461
+.lr.ph.i.i179:                                    ; preds = %.lr.ph.i.i.i178, %461
+  %indvars.iv.i7.i.i180 = phi i64 [ %indvars.iv.next.i.i.i181, %461 ], [ 0, %.lr.ph.i.i.i178 ]
+  %indvars.iv.next.i.i.i181 = add nuw nsw i64 %indvars.iv.i7.i.i180, 1
+  %exitcond.not.i.i.i182 = icmp eq i64 %indvars.iv.next.i.i.i181, %458
+  br i1 %exitcond.not.i.i.i182, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i173, label %461, !llvm.loop !11
+
+461:                                              ; preds = %.lr.ph.i.i179
+  %462 = getelementptr inbounds ptr, ptr %457, i64 %indvars.iv.next.i.i.i181
   %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 144
-  %465 = load ptr, ptr %464, align 8
-  %466 = load i32, ptr %465, align 8
-  %467 = icmp sgt i32 %466, 0
-  br i1 %467, label %.lr.ph.i.i.i172, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i168
+  %464 = icmp eq ptr %463, %123
+  br i1 %464, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i183, label %.lr.ph.i.i179, !llvm.loop !11
 
-.lr.ph.i.i.i172:                                  ; preds = %.lr.ph343
-  %468 = getelementptr inbounds i8, ptr %465, i64 8
-  %469 = load ptr, ptr %468, align 8
-  %470 = zext nneg i32 %466 to i64
-  %471 = load ptr, ptr %469, align 8
-  %472 = icmp eq ptr %471, %123
-  br i1 %472, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit178, label %.lr.ph.i.i173
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i183: ; preds = %461
+  %465 = icmp ult i64 %indvars.iv.next.i.i.i181, %458
+  br i1 %465, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit184, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i173
 
-.lr.ph.i.i173:                                    ; preds = %.lr.ph.i.i.i172, %473
-  %indvars.iv.i7.i.i174 = phi i64 [ %indvars.iv.next.i.i.i175, %473 ], [ 0, %.lr.ph.i.i.i172 ]
-  %indvars.iv.next.i.i.i175 = add nuw nsw i64 %indvars.iv.i7.i.i174, 1
-  %exitcond.not.i.i.i176 = icmp eq i64 %indvars.iv.next.i.i.i175, %470
-  br i1 %exitcond.not.i.i.i176, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i168, label %473, !llvm.loop !11
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i173: ; preds = %.lr.ph.i.i179, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i183, %.lr.ph357
+  %466 = getelementptr inbounds i8, ptr %453, i64 4
+  %467 = load i32, ptr %466, align 4
+  %468 = icmp eq i32 %454, %467
+  br i1 %468, label %469, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i174
 
-473:                                              ; preds = %.lr.ph.i.i173
-  %474 = getelementptr inbounds ptr, ptr %469, i64 %indvars.iv.next.i.i.i175
-  %475 = load ptr, ptr %474, align 8
-  %476 = icmp eq ptr %475, %123
-  br i1 %476, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i177, label %.lr.ph.i.i173, !llvm.loop !11
+469:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i173
+  %470 = add nsw i32 %454, 1
+  %471 = icmp sgt i32 %454, -1
+  %472 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %470)
+  %473 = icmp ult i32 %472, 2
+  %or.cond.i.i.i.i.i.i175 = select i1 %471, i1 %473, i1 false
+  %474 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %470, i1 true)
+  %475 = sub nuw nsw i32 32, %474
+  %476 = shl nuw i32 1, %475
+  %.0.i.i.i.i.i.i176 = select i1 %or.cond.i.i.i.i.i.i175, i32 %470, i32 %476
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %453, i32 noundef %.0.i.i.i.i.i.i176)
+  %.pre.i.i.i177 = load i32, ptr %453, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i174
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i177: ; preds = %473
-  %477 = icmp ult i64 %indvars.iv.next.i.i.i175, %470
-  br i1 %477, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit178, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i168
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i174: ; preds = %469, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i173
+  %477 = phi i32 [ %.pre.i.i.i177, %469 ], [ %454, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i173 ]
+  %478 = add nsw i32 %477, 1
+  store i32 %478, ptr %453, align 8
+  %479 = getelementptr inbounds i8, ptr %453, i64 8
+  %480 = load ptr, ptr %479, align 8
+  %481 = sext i32 %477 to i64
+  %482 = getelementptr inbounds ptr, ptr %480, i64 %481
+  store ptr %123, ptr %482, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit184
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i168: ; preds = %.lr.ph.i.i173, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i177, %.lr.ph343
-  %478 = getelementptr inbounds i8, ptr %465, i64 4
-  %479 = load i32, ptr %478, align 4
-  %480 = icmp eq i32 %466, %479
-  br i1 %480, label %481, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i169
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit184: ; preds = %.lr.ph.i.i.i178, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i183, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i174
+  %483 = icmp sgt i32 %.086356, 1
+  br i1 %483, label %.lr.ph357, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, !llvm.loop !12
 
-481:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i168
-  %482 = add nsw i32 %466, 1
-  %483 = icmp sgt i32 %466, -1
-  %484 = xor i32 %466, -2147483648
-  %485 = and i32 %484, %482
-  %486 = icmp eq i32 %485, 0
-  %487 = and i1 %483, %486
-  %488 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %482, i1 true)
-  %489 = sub nuw nsw i32 32, %488
-  %490 = shl nuw i32 1, %489
-  %.0.i.i.i.i.i.i170 = select i1 %487, i32 %482, i32 %490
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %465, i32 noundef %.0.i.i.i.i.i.i170)
-  %.pre.i.i.i171 = load i32, ptr %465, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i169
+484:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
+  %485 = load ptr, ptr %114, align 8
+  %486 = load i8, ptr %485, align 1
+  %.not.i.i.i185 = icmp eq i8 %486, -54
+  br i1 %.not.i.i.i185, label %487, label %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i169: ; preds = %481, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i168
-  %491 = phi i32 [ %.pre.i.i.i171, %481 ], [ %466, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i168 ]
-  %492 = add nsw i32 %491, 1
-  store i32 %492, ptr %465, align 8
-  %493 = getelementptr inbounds i8, ptr %465, i64 8
-  %494 = load ptr, ptr %493, align 8
-  %495 = sext i32 %491 to i64
-  %496 = getelementptr inbounds ptr, ptr %494, i64 %495
-  store ptr %123, ptr %496, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit178
-
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit178: ; preds = %.lr.ph.i.i.i172, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i177, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i169
-  %497 = icmp sgt i32 %.086342, 1
-  br i1 %497, label %.lr.ph343, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, !llvm.loop !12
-
-498:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
-  %499 = load ptr, ptr %114, align 8
-  %500 = load i8, ptr %499, align 1
-  %.not.i.i.i179 = icmp eq i8 %500, -54
-  br i1 %.not.i.i.i179, label %501, label %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
-
-501:                                              ; preds = %498
-  %502 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %499) #12
+487:                                              ; preds = %484
+  %488 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %485) #12
   br label %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
 
-_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit: ; preds = %498, %501
-  %503 = getelementptr inbounds i8, ptr %499, i64 5
-  %504 = ptrtoint ptr %503 to i64
-  %505 = add i64 %504, 3
-  %506 = and i64 %505, -4
-  %507 = inttoptr i64 %506 to ptr
-  %.0.i.i.i.i.i180 = load i32, ptr %507, align 4
-  %508 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i180)
-  %509 = load ptr, ptr %19, align 8
-  %510 = getelementptr inbounds i8, ptr %499, i64 1
-  %511 = ptrtoint ptr %510 to i64
-  %512 = add i64 %511, 3
-  %513 = and i64 %512, -4
-  %514 = inttoptr i64 %513 to ptr
-  %.0.i.i.i.i.i181 = load i32, ptr %514, align 4
-  %515 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i181)
-  %516 = add nsw i32 %515, %130
-  %517 = getelementptr inbounds i8, ptr %509, i64 8
-  %518 = load ptr, ptr %517, align 8
-  %519 = sext i32 %516 to i64
-  %520 = getelementptr inbounds ptr, ptr %518, i64 %519
-  %521 = load ptr, ptr %520, align 8
-  %522 = getelementptr inbounds i8, ptr %521, i64 144
-  %523 = load ptr, ptr %522, align 8
-  %524 = load i32, ptr %523, align 8
-  %525 = icmp sgt i32 %524, 0
-  br i1 %525, label %.lr.ph.i.i.i186, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i182
+_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit: ; preds = %484, %487
+  %489 = getelementptr inbounds i8, ptr %485, i64 5
+  %490 = ptrtoint ptr %489 to i64
+  %491 = add i64 %490, 3
+  %492 = and i64 %491, -4
+  %493 = inttoptr i64 %492 to ptr
+  %.0.i.i.i.i.i186 = load i32, ptr %493, align 4
+  %494 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i186)
+  %495 = load ptr, ptr %19, align 8
+  %496 = getelementptr inbounds i8, ptr %485, i64 1
+  %497 = ptrtoint ptr %496 to i64
+  %498 = add i64 %497, 3
+  %499 = and i64 %498, -4
+  %500 = inttoptr i64 %499 to ptr
+  %.0.i.i.i.i.i187 = load i32, ptr %500, align 4
+  %501 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i187)
+  %502 = add nsw i32 %501, %130
+  %503 = getelementptr inbounds i8, ptr %495, i64 8
+  %504 = load ptr, ptr %503, align 8
+  %505 = sext i32 %502 to i64
+  %506 = getelementptr inbounds ptr, ptr %504, i64 %505
+  %507 = load ptr, ptr %506, align 8
+  %508 = getelementptr inbounds i8, ptr %507, i64 144
+  %509 = load ptr, ptr %508, align 8
+  %510 = load i32, ptr %509, align 8
+  %511 = icmp sgt i32 %510, 0
+  br i1 %511, label %.lr.ph.i.i.i193, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i188
 
-.lr.ph.i.i.i186:                                  ; preds = %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
-  %526 = getelementptr inbounds i8, ptr %523, i64 8
-  %527 = load ptr, ptr %526, align 8
-  %528 = zext nneg i32 %524 to i64
-  %529 = load ptr, ptr %527, align 8
-  %530 = icmp eq ptr %529, %123
-  br i1 %530, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit192, label %.lr.ph.i.i187
+.lr.ph.i.i.i193:                                  ; preds = %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
+  %512 = getelementptr inbounds i8, ptr %509, i64 8
+  %513 = load ptr, ptr %512, align 8
+  %514 = zext nneg i32 %510 to i64
+  %515 = load ptr, ptr %513, align 8
+  %516 = icmp eq ptr %515, %123
+  br i1 %516, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit199, label %.lr.ph.i.i194
 
-.lr.ph.i.i187:                                    ; preds = %.lr.ph.i.i.i186, %531
-  %indvars.iv.i7.i.i188 = phi i64 [ %indvars.iv.next.i.i.i189, %531 ], [ 0, %.lr.ph.i.i.i186 ]
-  %indvars.iv.next.i.i.i189 = add nuw nsw i64 %indvars.iv.i7.i.i188, 1
-  %exitcond.not.i.i.i190 = icmp eq i64 %indvars.iv.next.i.i.i189, %528
-  br i1 %exitcond.not.i.i.i190, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i182, label %531, !llvm.loop !11
+.lr.ph.i.i194:                                    ; preds = %.lr.ph.i.i.i193, %517
+  %indvars.iv.i7.i.i195 = phi i64 [ %indvars.iv.next.i.i.i196, %517 ], [ 0, %.lr.ph.i.i.i193 ]
+  %indvars.iv.next.i.i.i196 = add nuw nsw i64 %indvars.iv.i7.i.i195, 1
+  %exitcond.not.i.i.i197 = icmp eq i64 %indvars.iv.next.i.i.i196, %514
+  br i1 %exitcond.not.i.i.i197, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i188, label %517, !llvm.loop !11
 
-531:                                              ; preds = %.lr.ph.i.i187
-  %532 = getelementptr inbounds ptr, ptr %527, i64 %indvars.iv.next.i.i.i189
-  %533 = load ptr, ptr %532, align 8
-  %534 = icmp eq ptr %533, %123
-  br i1 %534, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i191, label %.lr.ph.i.i187, !llvm.loop !11
+517:                                              ; preds = %.lr.ph.i.i194
+  %518 = getelementptr inbounds ptr, ptr %513, i64 %indvars.iv.next.i.i.i196
+  %519 = load ptr, ptr %518, align 8
+  %520 = icmp eq ptr %519, %123
+  br i1 %520, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i198, label %.lr.ph.i.i194, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i191: ; preds = %531
-  %535 = icmp ult i64 %indvars.iv.next.i.i.i189, %528
-  br i1 %535, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit192, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i182
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i198: ; preds = %517
+  %521 = icmp ult i64 %indvars.iv.next.i.i.i196, %514
+  br i1 %521, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit199, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i188
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i182: ; preds = %.lr.ph.i.i187, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i191, %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
-  %536 = getelementptr inbounds i8, ptr %523, i64 4
-  %537 = load i32, ptr %536, align 4
-  %538 = icmp eq i32 %524, %537
-  br i1 %538, label %539, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i183
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i188: ; preds = %.lr.ph.i.i194, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i198, %_ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit
+  %522 = getelementptr inbounds i8, ptr %509, i64 4
+  %523 = load i32, ptr %522, align 4
+  %524 = icmp eq i32 %510, %523
+  br i1 %524, label %525, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i189
 
-539:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i182
-  %540 = add nsw i32 %524, 1
-  %541 = icmp sgt i32 %524, -1
-  %542 = xor i32 %524, -2147483648
-  %543 = and i32 %542, %540
-  %544 = icmp eq i32 %543, 0
-  %545 = and i1 %541, %544
-  %546 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %540, i1 true)
-  %547 = sub nuw nsw i32 32, %546
-  %548 = shl nuw i32 1, %547
-  %.0.i.i.i.i.i.i184 = select i1 %545, i32 %540, i32 %548
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %523, i32 noundef %.0.i.i.i.i.i.i184)
-  %.pre.i.i.i185 = load i32, ptr %523, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i183
+525:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i188
+  %526 = add nsw i32 %510, 1
+  %527 = icmp sgt i32 %510, -1
+  %528 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %526)
+  %529 = icmp ult i32 %528, 2
+  %or.cond.i.i.i.i.i.i190 = select i1 %527, i1 %529, i1 false
+  %530 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %526, i1 true)
+  %531 = sub nuw nsw i32 32, %530
+  %532 = shl nuw i32 1, %531
+  %.0.i.i.i.i.i.i191 = select i1 %or.cond.i.i.i.i.i.i190, i32 %526, i32 %532
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %509, i32 noundef %.0.i.i.i.i.i.i191)
+  %.pre.i.i.i192 = load i32, ptr %509, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i189
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i183: ; preds = %539, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i182
-  %549 = phi i32 [ %.pre.i.i.i185, %539 ], [ %524, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i182 ]
-  %550 = add nsw i32 %549, 1
-  store i32 %550, ptr %523, align 8
-  %551 = getelementptr inbounds i8, ptr %523, i64 8
-  %552 = load ptr, ptr %551, align 8
-  %553 = sext i32 %549 to i64
-  %554 = getelementptr inbounds ptr, ptr %552, i64 %553
-  store ptr %123, ptr %554, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit192
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i189: ; preds = %525, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i188
+  %533 = phi i32 [ %.pre.i.i.i192, %525 ], [ %510, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i188 ]
+  %534 = add nsw i32 %533, 1
+  store i32 %534, ptr %509, align 8
+  %535 = getelementptr inbounds i8, ptr %509, i64 8
+  %536 = load ptr, ptr %535, align 8
+  %537 = sext i32 %533 to i64
+  %538 = getelementptr inbounds ptr, ptr %536, i64 %537
+  store ptr %123, ptr %538, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit199
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit192: ; preds = %.lr.ph.i.i.i186, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i191, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i183
-  %555 = icmp sgt i32 %508, 0
-  br i1 %555, label %.lr.ph341.preheader, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit199: ; preds = %.lr.ph.i.i.i193, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i198, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i189
+  %539 = icmp sgt i32 %494, 0
+  br i1 %539, label %.lr.ph355.preheader, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
 
-.lr.ph341.preheader:                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit192
-  %556 = zext nneg i32 %508 to i64
-  br label %.lr.ph341
+.lr.ph355.preheader:                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit199
+  %540 = zext nneg i32 %494 to i64
+  br label %.lr.ph355
 
-.lr.ph341:                                        ; preds = %.lr.ph341.preheader, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit204
-  %indvars.iv382 = phi i64 [ %556, %.lr.ph341.preheader ], [ %indvars.iv.next383, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit204 ]
-  %indvars.iv.next383 = add nsw i64 %indvars.iv382, -1
-  %557 = trunc nuw nsw i64 %indvars.iv.next383 to i32
-  %558 = shl i32 %557, 3
-  %559 = add i32 %558, 9
-  %560 = sext i32 %559 to i64
-  %561 = getelementptr inbounds i8, ptr %499, i64 %560
-  %562 = ptrtoint ptr %561 to i64
-  %563 = add i64 %562, 3
-  %564 = and i64 %563, -4
-  %565 = inttoptr i64 %564 to ptr
-  %566 = load ptr, ptr %19, align 8
-  %567 = getelementptr inbounds i8, ptr %565, i64 4
-  %.0.i.i.i.i.i193 = load i32, ptr %567, align 4
-  %568 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i193)
-  %569 = add nsw i32 %568, %130
-  %570 = getelementptr inbounds i8, ptr %566, i64 8
-  %571 = load ptr, ptr %570, align 8
-  %572 = sext i32 %569 to i64
-  %573 = getelementptr inbounds ptr, ptr %571, i64 %572
-  %574 = load ptr, ptr %573, align 8
-  %575 = getelementptr inbounds i8, ptr %574, i64 144
-  %576 = load ptr, ptr %575, align 8
-  %577 = load i32, ptr %576, align 8
-  %578 = icmp sgt i32 %577, 0
-  br i1 %578, label %.lr.ph.i.i.i198, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i194
+.lr.ph355:                                        ; preds = %.lr.ph355.preheader, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit212
+  %indvars.iv396 = phi i64 [ %540, %.lr.ph355.preheader ], [ %indvars.iv.next397, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit212 ]
+  %indvars.iv.next397 = add nsw i64 %indvars.iv396, -1
+  %541 = trunc nuw nsw i64 %indvars.iv.next397 to i32
+  %542 = shl i32 %541, 3
+  %543 = add i32 %542, 9
+  %544 = sext i32 %543 to i64
+  %545 = getelementptr inbounds i8, ptr %485, i64 %544
+  %546 = ptrtoint ptr %545 to i64
+  %547 = add i64 %546, 3
+  %548 = and i64 %547, -4
+  %549 = inttoptr i64 %548 to ptr
+  %550 = load ptr, ptr %19, align 8
+  %551 = getelementptr inbounds i8, ptr %549, i64 4
+  %.0.i.i.i.i.i200 = load i32, ptr %551, align 4
+  %552 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i200)
+  %553 = add nsw i32 %552, %130
+  %554 = getelementptr inbounds i8, ptr %550, i64 8
+  %555 = load ptr, ptr %554, align 8
+  %556 = sext i32 %553 to i64
+  %557 = getelementptr inbounds ptr, ptr %555, i64 %556
+  %558 = load ptr, ptr %557, align 8
+  %559 = getelementptr inbounds i8, ptr %558, i64 144
+  %560 = load ptr, ptr %559, align 8
+  %561 = load i32, ptr %560, align 8
+  %562 = icmp sgt i32 %561, 0
+  br i1 %562, label %.lr.ph.i.i.i206, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i201
 
-.lr.ph.i.i.i198:                                  ; preds = %.lr.ph341
-  %579 = getelementptr inbounds i8, ptr %576, i64 8
-  %580 = load ptr, ptr %579, align 8
-  %581 = zext nneg i32 %577 to i64
-  %582 = load ptr, ptr %580, align 8
-  %583 = icmp eq ptr %582, %123
-  br i1 %583, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit204, label %.lr.ph.i.i199
+.lr.ph.i.i.i206:                                  ; preds = %.lr.ph355
+  %563 = getelementptr inbounds i8, ptr %560, i64 8
+  %564 = load ptr, ptr %563, align 8
+  %565 = zext nneg i32 %561 to i64
+  %566 = load ptr, ptr %564, align 8
+  %567 = icmp eq ptr %566, %123
+  br i1 %567, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit212, label %.lr.ph.i.i207
 
-.lr.ph.i.i199:                                    ; preds = %.lr.ph.i.i.i198, %584
-  %indvars.iv.i7.i.i200 = phi i64 [ %indvars.iv.next.i.i.i201, %584 ], [ 0, %.lr.ph.i.i.i198 ]
-  %indvars.iv.next.i.i.i201 = add nuw nsw i64 %indvars.iv.i7.i.i200, 1
-  %exitcond.not.i.i.i202 = icmp eq i64 %indvars.iv.next.i.i.i201, %581
-  br i1 %exitcond.not.i.i.i202, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i194, label %584, !llvm.loop !11
+.lr.ph.i.i207:                                    ; preds = %.lr.ph.i.i.i206, %568
+  %indvars.iv.i7.i.i208 = phi i64 [ %indvars.iv.next.i.i.i209, %568 ], [ 0, %.lr.ph.i.i.i206 ]
+  %indvars.iv.next.i.i.i209 = add nuw nsw i64 %indvars.iv.i7.i.i208, 1
+  %exitcond.not.i.i.i210 = icmp eq i64 %indvars.iv.next.i.i.i209, %565
+  br i1 %exitcond.not.i.i.i210, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i201, label %568, !llvm.loop !11
 
-584:                                              ; preds = %.lr.ph.i.i199
-  %585 = getelementptr inbounds ptr, ptr %580, i64 %indvars.iv.next.i.i.i201
-  %586 = load ptr, ptr %585, align 8
-  %587 = icmp eq ptr %586, %123
-  br i1 %587, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i203, label %.lr.ph.i.i199, !llvm.loop !11
+568:                                              ; preds = %.lr.ph.i.i207
+  %569 = getelementptr inbounds ptr, ptr %564, i64 %indvars.iv.next.i.i.i209
+  %570 = load ptr, ptr %569, align 8
+  %571 = icmp eq ptr %570, %123
+  br i1 %571, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i211, label %.lr.ph.i.i207, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i203: ; preds = %584
-  %588 = icmp ult i64 %indvars.iv.next.i.i.i201, %581
-  br i1 %588, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit204, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i194
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i211: ; preds = %568
+  %572 = icmp ult i64 %indvars.iv.next.i.i.i209, %565
+  br i1 %572, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit212, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i201
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i194: ; preds = %.lr.ph.i.i199, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i203, %.lr.ph341
-  %589 = getelementptr inbounds i8, ptr %576, i64 4
-  %590 = load i32, ptr %589, align 4
-  %591 = icmp eq i32 %577, %590
-  br i1 %591, label %592, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i195
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i201: ; preds = %.lr.ph.i.i207, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i211, %.lr.ph355
+  %573 = getelementptr inbounds i8, ptr %560, i64 4
+  %574 = load i32, ptr %573, align 4
+  %575 = icmp eq i32 %561, %574
+  br i1 %575, label %576, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i202
 
-592:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i194
-  %593 = add nsw i32 %577, 1
-  %594 = icmp sgt i32 %577, -1
-  %595 = xor i32 %577, -2147483648
-  %596 = and i32 %595, %593
-  %597 = icmp eq i32 %596, 0
-  %598 = and i1 %594, %597
-  %599 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %593, i1 true)
-  %600 = sub nuw nsw i32 32, %599
-  %601 = shl nuw i32 1, %600
-  %.0.i.i.i.i.i.i196 = select i1 %598, i32 %593, i32 %601
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %576, i32 noundef %.0.i.i.i.i.i.i196)
-  %.pre.i.i.i197 = load i32, ptr %576, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i195
+576:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i201
+  %577 = add nsw i32 %561, 1
+  %578 = icmp sgt i32 %561, -1
+  %579 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %577)
+  %580 = icmp ult i32 %579, 2
+  %or.cond.i.i.i.i.i.i203 = select i1 %578, i1 %580, i1 false
+  %581 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %577, i1 true)
+  %582 = sub nuw nsw i32 32, %581
+  %583 = shl nuw i32 1, %582
+  %.0.i.i.i.i.i.i204 = select i1 %or.cond.i.i.i.i.i.i203, i32 %577, i32 %583
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %560, i32 noundef %.0.i.i.i.i.i.i204)
+  %.pre.i.i.i205 = load i32, ptr %560, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i202
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i195: ; preds = %592, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i194
-  %602 = phi i32 [ %.pre.i.i.i197, %592 ], [ %577, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i194 ]
-  %603 = add nsw i32 %602, 1
-  store i32 %603, ptr %576, align 8
-  %604 = getelementptr inbounds i8, ptr %576, i64 8
-  %605 = load ptr, ptr %604, align 8
-  %606 = sext i32 %602 to i64
-  %607 = getelementptr inbounds ptr, ptr %605, i64 %606
-  store ptr %123, ptr %607, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit204
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i202: ; preds = %576, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i201
+  %584 = phi i32 [ %.pre.i.i.i205, %576 ], [ %561, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i201 ]
+  %585 = add nsw i32 %584, 1
+  store i32 %585, ptr %560, align 8
+  %586 = getelementptr inbounds i8, ptr %560, i64 8
+  %587 = load ptr, ptr %586, align 8
+  %588 = sext i32 %584 to i64
+  %589 = getelementptr inbounds ptr, ptr %587, i64 %588
+  store ptr %123, ptr %589, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit212
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit204: ; preds = %.lr.ph.i.i.i198, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i203, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i195
-  %608 = icmp sgt i64 %indvars.iv382, 1
-  br i1 %608, label %.lr.ph341, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, !llvm.loop !13
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit212: ; preds = %.lr.ph.i.i.i206, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i211, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i202
+  %590 = icmp sgt i64 %indvars.iv396, 1
+  br i1 %590, label %.lr.ph355, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, !llvm.loop !13
 
-609:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
-  %610 = load ptr, ptr %19, align 8
-  %611 = load ptr, ptr %114, align 8
-  %612 = load ptr, ptr %118, align 8
-  %613 = load i8, ptr %611, align 1
-  %.not.i.i.i.i205 = icmp eq i8 %613, -54
-  br i1 %.not.i.i.i.i205, label %614, label %_ZNK16ciBytecodeStream8get_destEv.exit207
+591:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
+  %592 = load ptr, ptr %19, align 8
+  %593 = load ptr, ptr %114, align 8
+  %594 = load ptr, ptr %118, align 8
+  %595 = load i8, ptr %593, align 1
+  %.not.i.i.i.i213 = icmp eq i8 %595, -54
+  br i1 %.not.i.i.i.i213, label %596, label %_ZNK16ciBytecodeStream8get_destEv.exit215
 
-614:                                              ; preds = %609
-  %615 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %611) #12
-  br label %_ZNK16ciBytecodeStream8get_destEv.exit207
+596:                                              ; preds = %591
+  %597 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %593) #12
+  br label %_ZNK16ciBytecodeStream8get_destEv.exit215
 
-_ZNK16ciBytecodeStream8get_destEv.exit207:        ; preds = %609, %614
-  %616 = ptrtoint ptr %611 to i64
-  %617 = ptrtoint ptr %612 to i64
-  %618 = sub i64 %616, %617
-  %619 = getelementptr inbounds i8, ptr %611, i64 1
-  %.0.i.i.i.i.i206 = load i16, ptr %619, align 1
-  %620 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i206)
-  %621 = sext i16 %620 to i64
-  %622 = add i64 %618, %621
-  %623 = getelementptr inbounds i8, ptr %610, i64 8
-  %624 = load ptr, ptr %623, align 8
-  %sext = shl i64 %622, 32
-  %625 = ashr exact i64 %sext, 29
-  %626 = getelementptr inbounds i8, ptr %624, i64 %625
-  %627 = load ptr, ptr %626, align 8
-  %628 = getelementptr inbounds i8, ptr %627, i64 144
-  %629 = load ptr, ptr %628, align 8
-  %630 = load i32, ptr %629, align 8
-  %631 = icmp sgt i32 %630, 0
-  br i1 %631, label %.lr.ph.i.i.i212, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i208
+_ZNK16ciBytecodeStream8get_destEv.exit215:        ; preds = %591, %596
+  %598 = ptrtoint ptr %593 to i64
+  %599 = ptrtoint ptr %594 to i64
+  %600 = sub i64 %598, %599
+  %601 = getelementptr inbounds i8, ptr %593, i64 1
+  %.0.i.i.i.i.i214 = load i16, ptr %601, align 1
+  %602 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i214)
+  %603 = sext i16 %602 to i64
+  %604 = add i64 %600, %603
+  %605 = getelementptr inbounds i8, ptr %592, i64 8
+  %606 = load ptr, ptr %605, align 8
+  %sext = shl i64 %604, 32
+  %607 = ashr exact i64 %sext, 29
+  %608 = getelementptr inbounds i8, ptr %606, i64 %607
+  %609 = load ptr, ptr %608, align 8
+  %610 = getelementptr inbounds i8, ptr %609, i64 144
+  %611 = load ptr, ptr %610, align 8
+  %612 = load i32, ptr %611, align 8
+  %613 = icmp sgt i32 %612, 0
+  br i1 %613, label %.lr.ph.i.i.i221, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i216
 
-.lr.ph.i.i.i212:                                  ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit207
-  %632 = getelementptr inbounds i8, ptr %629, i64 8
-  %633 = load ptr, ptr %632, align 8
-  %634 = zext nneg i32 %630 to i64
-  %635 = load ptr, ptr %633, align 8
-  %636 = icmp eq ptr %635, %123
-  br i1 %636, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit218, label %.lr.ph.i.i213
+.lr.ph.i.i.i221:                                  ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit215
+  %614 = getelementptr inbounds i8, ptr %611, i64 8
+  %615 = load ptr, ptr %614, align 8
+  %616 = zext nneg i32 %612 to i64
+  %617 = load ptr, ptr %615, align 8
+  %618 = icmp eq ptr %617, %123
+  br i1 %618, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit227, label %.lr.ph.i.i222
 
-.lr.ph.i.i213:                                    ; preds = %.lr.ph.i.i.i212, %637
-  %indvars.iv.i7.i.i214 = phi i64 [ %indvars.iv.next.i.i.i215, %637 ], [ 0, %.lr.ph.i.i.i212 ]
-  %indvars.iv.next.i.i.i215 = add nuw nsw i64 %indvars.iv.i7.i.i214, 1
-  %exitcond.not.i.i.i216 = icmp eq i64 %indvars.iv.next.i.i.i215, %634
-  br i1 %exitcond.not.i.i.i216, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i208, label %637, !llvm.loop !11
+.lr.ph.i.i222:                                    ; preds = %.lr.ph.i.i.i221, %619
+  %indvars.iv.i7.i.i223 = phi i64 [ %indvars.iv.next.i.i.i224, %619 ], [ 0, %.lr.ph.i.i.i221 ]
+  %indvars.iv.next.i.i.i224 = add nuw nsw i64 %indvars.iv.i7.i.i223, 1
+  %exitcond.not.i.i.i225 = icmp eq i64 %indvars.iv.next.i.i.i224, %616
+  br i1 %exitcond.not.i.i.i225, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i216, label %619, !llvm.loop !11
 
-637:                                              ; preds = %.lr.ph.i.i213
-  %638 = getelementptr inbounds ptr, ptr %633, i64 %indvars.iv.next.i.i.i215
-  %639 = load ptr, ptr %638, align 8
-  %640 = icmp eq ptr %639, %123
-  br i1 %640, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i217, label %.lr.ph.i.i213, !llvm.loop !11
+619:                                              ; preds = %.lr.ph.i.i222
+  %620 = getelementptr inbounds ptr, ptr %615, i64 %indvars.iv.next.i.i.i224
+  %621 = load ptr, ptr %620, align 8
+  %622 = icmp eq ptr %621, %123
+  br i1 %622, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i226, label %.lr.ph.i.i222, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i217: ; preds = %637
-  %641 = icmp ult i64 %indvars.iv.next.i.i.i215, %634
-  br i1 %641, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit218, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i208
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i226: ; preds = %619
+  %623 = icmp ult i64 %indvars.iv.next.i.i.i224, %616
+  br i1 %623, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit227, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i216
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i208: ; preds = %.lr.ph.i.i213, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i217, %_ZNK16ciBytecodeStream8get_destEv.exit207
-  %642 = getelementptr inbounds i8, ptr %629, i64 4
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i216: ; preds = %.lr.ph.i.i222, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i226, %_ZNK16ciBytecodeStream8get_destEv.exit215
+  %624 = getelementptr inbounds i8, ptr %611, i64 4
+  %625 = load i32, ptr %624, align 4
+  %626 = icmp eq i32 %612, %625
+  br i1 %626, label %627, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i217
+
+627:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i216
+  %628 = add nsw i32 %612, 1
+  %629 = icmp sgt i32 %612, -1
+  %630 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %628)
+  %631 = icmp ult i32 %630, 2
+  %or.cond.i.i.i.i.i.i218 = select i1 %629, i1 %631, i1 false
+  %632 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %628, i1 true)
+  %633 = sub nuw nsw i32 32, %632
+  %634 = shl nuw i32 1, %633
+  %.0.i.i.i.i.i.i219 = select i1 %or.cond.i.i.i.i.i.i218, i32 %628, i32 %634
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %611, i32 noundef %.0.i.i.i.i.i.i219)
+  %.pre.i.i.i220 = load i32, ptr %611, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i217
+
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i217: ; preds = %627, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i216
+  %635 = phi i32 [ %.pre.i.i.i220, %627 ], [ %612, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i216 ]
+  %636 = add nsw i32 %635, 1
+  store i32 %636, ptr %611, align 8
+  %637 = getelementptr inbounds i8, ptr %611, i64 8
+  %638 = load ptr, ptr %637, align 8
+  %639 = sext i32 %635 to i64
+  %640 = getelementptr inbounds ptr, ptr %638, i64 %639
+  store ptr %123, ptr %640, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit227
+
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit227: ; preds = %.lr.ph.i.i.i221, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i226, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i217
+  %641 = load ptr, ptr %19, align 8
+  %642 = getelementptr inbounds i8, ptr %123, i64 12
   %643 = load i32, ptr %642, align 4
-  %644 = icmp eq i32 %630, %643
-  br i1 %644, label %645, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i209
+  %644 = getelementptr inbounds i8, ptr %641, i64 8
+  %645 = load ptr, ptr %644, align 8
+  %646 = sext i32 %643 to i64
+  %647 = getelementptr inbounds ptr, ptr %645, i64 %646
+  %648 = load ptr, ptr %647, align 8
+  %649 = load i32, ptr %38, align 8
+  %650 = load i32, ptr %40, align 4
+  %651 = icmp eq i32 %649, %650
+  br i1 %651, label %652, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit
 
-645:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i208
-  %646 = add nsw i32 %630, 1
-  %647 = icmp sgt i32 %630, -1
-  %648 = xor i32 %630, -2147483648
-  %649 = and i32 %648, %646
-  %650 = icmp eq i32 %649, 0
-  %651 = and i1 %647, %650
-  %652 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %646, i1 true)
-  %653 = sub nuw nsw i32 32, %652
-  %654 = shl nuw i32 1, %653
-  %.0.i.i.i.i.i.i210 = select i1 %651, i32 %646, i32 %654
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %629, i32 noundef %.0.i.i.i.i.i.i210)
-  %.pre.i.i.i211 = load i32, ptr %629, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i209
-
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i209: ; preds = %645, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i208
-  %655 = phi i32 [ %.pre.i.i.i211, %645 ], [ %630, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i208 ]
-  %656 = add nsw i32 %655, 1
-  store i32 %656, ptr %629, align 8
-  %657 = getelementptr inbounds i8, ptr %629, i64 8
-  %658 = load ptr, ptr %657, align 8
-  %659 = sext i32 %655 to i64
-  %660 = getelementptr inbounds ptr, ptr %658, i64 %659
-  store ptr %123, ptr %660, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit218
-
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit218: ; preds = %.lr.ph.i.i.i212, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i217, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i209
-  %661 = load ptr, ptr %19, align 8
-  %662 = getelementptr inbounds i8, ptr %123, i64 12
-  %663 = load i32, ptr %662, align 4
-  %664 = getelementptr inbounds i8, ptr %661, i64 8
-  %665 = load ptr, ptr %664, align 8
-  %666 = sext i32 %663 to i64
-  %667 = getelementptr inbounds ptr, ptr %665, i64 %666
-  %668 = load ptr, ptr %667, align 8
-  %669 = load i32, ptr %38, align 8
-  %670 = load i32, ptr %40, align 4
-  %671 = icmp eq i32 %669, %670
-  br i1 %671, label %672, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit
-
-672:                                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit218
-  %673 = add nsw i32 %669, 1
-  %674 = icmp sgt i32 %669, -1
-  %675 = xor i32 %669, -2147483648
-  %676 = and i32 %675, %673
-  %677 = icmp eq i32 %676, 0
-  %678 = and i1 %674, %677
-  %679 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %673, i1 true)
-  %680 = sub nuw nsw i32 32, %679
-  %681 = shl nuw i32 1, %680
-  %.0.i.i.i.i = select i1 %678, i32 %673, i32 %681
+652:                                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit227
+  %653 = add nsw i32 %649, 1
+  %654 = icmp sgt i32 %649, -1
+  %655 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %653)
+  %656 = icmp ult i32 %655, 2
+  %or.cond.i.i.i.i = select i1 %654, i1 %656, i1 false
+  %657 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %653, i1 true)
+  %658 = sub nuw nsw i32 32, %657
+  %659 = shl nuw i32 1, %658
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %653, i32 %659
   call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %38, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit: ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit218, %672
-  %682 = phi i32 [ %.pre.i, %672 ], [ %669, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit218 ]
-  %683 = add nsw i32 %682, 1
-  store i32 %683, ptr %38, align 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit: ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit227, %652
+  %660 = phi i32 [ %.pre.i, %652 ], [ %649, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit227 ]
+  %661 = add nsw i32 %660, 1
+  store i32 %661, ptr %38, align 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split
 
-684:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
-  %685 = load ptr, ptr %19, align 8
-  %686 = load ptr, ptr %114, align 8
-  %687 = load ptr, ptr %118, align 8
-  %688 = load i8, ptr %686, align 1
-  %.not.i.i.i.i219 = icmp eq i8 %688, -54
-  br i1 %.not.i.i.i.i219, label %689, label %_ZNK16ciBytecodeStream12get_far_destEv.exit221
+662:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
+  %663 = load ptr, ptr %19, align 8
+  %664 = load ptr, ptr %114, align 8
+  %665 = load ptr, ptr %118, align 8
+  %666 = load i8, ptr %664, align 1
+  %.not.i.i.i.i228 = icmp eq i8 %666, -54
+  br i1 %.not.i.i.i.i228, label %667, label %_ZNK16ciBytecodeStream12get_far_destEv.exit230
 
-689:                                              ; preds = %684
-  %690 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %686) #12
-  br label %_ZNK16ciBytecodeStream12get_far_destEv.exit221
+667:                                              ; preds = %662
+  %668 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %664) #12
+  br label %_ZNK16ciBytecodeStream12get_far_destEv.exit230
 
-_ZNK16ciBytecodeStream12get_far_destEv.exit221:   ; preds = %684, %689
-  %691 = ptrtoint ptr %686 to i64
-  %692 = ptrtoint ptr %687 to i64
-  %693 = sub i64 %691, %692
-  %694 = trunc i64 %693 to i32
-  %695 = getelementptr inbounds i8, ptr %686, i64 1
-  %.0.i.i.i.i.i220 = load i32, ptr %695, align 1
-  %696 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i220)
-  %697 = add nsw i32 %696, %694
-  %698 = getelementptr inbounds i8, ptr %685, i64 8
-  %699 = load ptr, ptr %698, align 8
-  %700 = sext i32 %697 to i64
-  %701 = getelementptr inbounds ptr, ptr %699, i64 %700
-  %702 = load ptr, ptr %701, align 8
-  %703 = getelementptr inbounds i8, ptr %702, i64 144
-  %704 = load ptr, ptr %703, align 8
-  %705 = load i32, ptr %704, align 8
-  %706 = icmp sgt i32 %705, 0
-  br i1 %706, label %.lr.ph.i.i.i226, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i222
+_ZNK16ciBytecodeStream12get_far_destEv.exit230:   ; preds = %662, %667
+  %669 = ptrtoint ptr %664 to i64
+  %670 = ptrtoint ptr %665 to i64
+  %671 = sub i64 %669, %670
+  %672 = trunc i64 %671 to i32
+  %673 = getelementptr inbounds i8, ptr %664, i64 1
+  %.0.i.i.i.i.i229 = load i32, ptr %673, align 1
+  %674 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i229)
+  %675 = add nsw i32 %674, %672
+  %676 = getelementptr inbounds i8, ptr %663, i64 8
+  %677 = load ptr, ptr %676, align 8
+  %678 = sext i32 %675 to i64
+  %679 = getelementptr inbounds ptr, ptr %677, i64 %678
+  %680 = load ptr, ptr %679, align 8
+  %681 = getelementptr inbounds i8, ptr %680, i64 144
+  %682 = load ptr, ptr %681, align 8
+  %683 = load i32, ptr %682, align 8
+  %684 = icmp sgt i32 %683, 0
+  br i1 %684, label %.lr.ph.i.i.i236, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i231
 
-.lr.ph.i.i.i226:                                  ; preds = %_ZNK16ciBytecodeStream12get_far_destEv.exit221
-  %707 = getelementptr inbounds i8, ptr %704, i64 8
-  %708 = load ptr, ptr %707, align 8
-  %709 = zext nneg i32 %705 to i64
-  %710 = load ptr, ptr %708, align 8
-  %711 = icmp eq ptr %710, %123
-  br i1 %711, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit232, label %.lr.ph.i.i227
+.lr.ph.i.i.i236:                                  ; preds = %_ZNK16ciBytecodeStream12get_far_destEv.exit230
+  %685 = getelementptr inbounds i8, ptr %682, i64 8
+  %686 = load ptr, ptr %685, align 8
+  %687 = zext nneg i32 %683 to i64
+  %688 = load ptr, ptr %686, align 8
+  %689 = icmp eq ptr %688, %123
+  br i1 %689, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit242, label %.lr.ph.i.i237
 
-.lr.ph.i.i227:                                    ; preds = %.lr.ph.i.i.i226, %712
-  %indvars.iv.i7.i.i228 = phi i64 [ %indvars.iv.next.i.i.i229, %712 ], [ 0, %.lr.ph.i.i.i226 ]
-  %indvars.iv.next.i.i.i229 = add nuw nsw i64 %indvars.iv.i7.i.i228, 1
-  %exitcond.not.i.i.i230 = icmp eq i64 %indvars.iv.next.i.i.i229, %709
-  br i1 %exitcond.not.i.i.i230, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i222, label %712, !llvm.loop !11
+.lr.ph.i.i237:                                    ; preds = %.lr.ph.i.i.i236, %690
+  %indvars.iv.i7.i.i238 = phi i64 [ %indvars.iv.next.i.i.i239, %690 ], [ 0, %.lr.ph.i.i.i236 ]
+  %indvars.iv.next.i.i.i239 = add nuw nsw i64 %indvars.iv.i7.i.i238, 1
+  %exitcond.not.i.i.i240 = icmp eq i64 %indvars.iv.next.i.i.i239, %687
+  br i1 %exitcond.not.i.i.i240, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i231, label %690, !llvm.loop !11
 
-712:                                              ; preds = %.lr.ph.i.i227
-  %713 = getelementptr inbounds ptr, ptr %708, i64 %indvars.iv.next.i.i.i229
-  %714 = load ptr, ptr %713, align 8
-  %715 = icmp eq ptr %714, %123
-  br i1 %715, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i231, label %.lr.ph.i.i227, !llvm.loop !11
+690:                                              ; preds = %.lr.ph.i.i237
+  %691 = getelementptr inbounds ptr, ptr %686, i64 %indvars.iv.next.i.i.i239
+  %692 = load ptr, ptr %691, align 8
+  %693 = icmp eq ptr %692, %123
+  br i1 %693, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i241, label %.lr.ph.i.i237, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i231: ; preds = %712
-  %716 = icmp ult i64 %indvars.iv.next.i.i.i229, %709
-  br i1 %716, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit232, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i222
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i241: ; preds = %690
+  %694 = icmp ult i64 %indvars.iv.next.i.i.i239, %687
+  br i1 %694, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit242, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i231
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i222: ; preds = %.lr.ph.i.i227, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i231, %_ZNK16ciBytecodeStream12get_far_destEv.exit221
-  %717 = getelementptr inbounds i8, ptr %704, i64 4
-  %718 = load i32, ptr %717, align 4
-  %719 = icmp eq i32 %705, %718
-  br i1 %719, label %720, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i223
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i231: ; preds = %.lr.ph.i.i237, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i241, %_ZNK16ciBytecodeStream12get_far_destEv.exit230
+  %695 = getelementptr inbounds i8, ptr %682, i64 4
+  %696 = load i32, ptr %695, align 4
+  %697 = icmp eq i32 %683, %696
+  br i1 %697, label %698, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i232
 
-720:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i222
-  %721 = add nsw i32 %705, 1
-  %722 = icmp sgt i32 %705, -1
-  %723 = xor i32 %705, -2147483648
-  %724 = and i32 %723, %721
-  %725 = icmp eq i32 %724, 0
-  %726 = and i1 %722, %725
-  %727 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %721, i1 true)
-  %728 = sub nuw nsw i32 32, %727
-  %729 = shl nuw i32 1, %728
-  %.0.i.i.i.i.i.i224 = select i1 %726, i32 %721, i32 %729
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %704, i32 noundef %.0.i.i.i.i.i.i224)
-  %.pre.i.i.i225 = load i32, ptr %704, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i223
+698:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i231
+  %699 = add nsw i32 %683, 1
+  %700 = icmp sgt i32 %683, -1
+  %701 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %699)
+  %702 = icmp ult i32 %701, 2
+  %or.cond.i.i.i.i.i.i233 = select i1 %700, i1 %702, i1 false
+  %703 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %699, i1 true)
+  %704 = sub nuw nsw i32 32, %703
+  %705 = shl nuw i32 1, %704
+  %.0.i.i.i.i.i.i234 = select i1 %or.cond.i.i.i.i.i.i233, i32 %699, i32 %705
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %682, i32 noundef %.0.i.i.i.i.i.i234)
+  %.pre.i.i.i235 = load i32, ptr %682, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i232
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i223: ; preds = %720, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i222
-  %730 = phi i32 [ %.pre.i.i.i225, %720 ], [ %705, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i222 ]
-  %731 = add nsw i32 %730, 1
-  store i32 %731, ptr %704, align 8
-  %732 = getelementptr inbounds i8, ptr %704, i64 8
-  %733 = load ptr, ptr %732, align 8
-  %734 = sext i32 %730 to i64
-  %735 = getelementptr inbounds ptr, ptr %733, i64 %734
-  store ptr %123, ptr %735, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit232
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i232: ; preds = %698, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i231
+  %706 = phi i32 [ %.pre.i.i.i235, %698 ], [ %683, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i231 ]
+  %707 = add nsw i32 %706, 1
+  store i32 %707, ptr %682, align 8
+  %708 = getelementptr inbounds i8, ptr %682, i64 8
+  %709 = load ptr, ptr %708, align 8
+  %710 = sext i32 %706 to i64
+  %711 = getelementptr inbounds ptr, ptr %709, i64 %710
+  store ptr %123, ptr %711, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit242
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit232: ; preds = %.lr.ph.i.i.i226, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i231, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i223
-  %736 = load ptr, ptr %19, align 8
-  %737 = getelementptr inbounds i8, ptr %123, i64 12
-  %738 = load i32, ptr %737, align 4
-  %739 = getelementptr inbounds i8, ptr %736, i64 8
-  %740 = load ptr, ptr %739, align 8
-  %741 = sext i32 %738 to i64
-  %742 = getelementptr inbounds ptr, ptr %740, i64 %741
-  %743 = load ptr, ptr %742, align 8
-  %744 = load i32, ptr %38, align 8
-  %745 = load i32, ptr %40, align 4
-  %746 = icmp eq i32 %744, %745
-  br i1 %746, label %747, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit235
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit242: ; preds = %.lr.ph.i.i.i236, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i241, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i232
+  %712 = load ptr, ptr %19, align 8
+  %713 = getelementptr inbounds i8, ptr %123, i64 12
+  %714 = load i32, ptr %713, align 4
+  %715 = getelementptr inbounds i8, ptr %712, i64 8
+  %716 = load ptr, ptr %715, align 8
+  %717 = sext i32 %714 to i64
+  %718 = getelementptr inbounds ptr, ptr %716, i64 %717
+  %719 = load ptr, ptr %718, align 8
+  %720 = load i32, ptr %38, align 8
+  %721 = load i32, ptr %40, align 4
+  %722 = icmp eq i32 %720, %721
+  br i1 %722, label %723, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit246
 
-747:                                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit232
-  %748 = add nsw i32 %744, 1
-  %749 = icmp sgt i32 %744, -1
-  %750 = xor i32 %744, -2147483648
-  %751 = and i32 %750, %748
-  %752 = icmp eq i32 %751, 0
-  %753 = and i1 %749, %752
-  %754 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %748, i1 true)
-  %755 = sub nuw nsw i32 32, %754
-  %756 = shl nuw i32 1, %755
-  %.0.i.i.i.i233 = select i1 %753, i32 %748, i32 %756
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %.0.i.i.i.i233)
-  %.pre.i234 = load i32, ptr %38, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit235
+723:                                              ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit242
+  %724 = add nsw i32 %720, 1
+  %725 = icmp sgt i32 %720, -1
+  %726 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %724)
+  %727 = icmp ult i32 %726, 2
+  %or.cond.i.i.i.i243 = select i1 %725, i1 %727, i1 false
+  %728 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %724, i1 true)
+  %729 = sub nuw nsw i32 32, %728
+  %730 = shl nuw i32 1, %729
+  %.0.i.i.i.i244 = select i1 %or.cond.i.i.i.i243, i32 %724, i32 %730
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %.0.i.i.i.i244)
+  %.pre.i245 = load i32, ptr %38, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit246
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit235: ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit232, %747
-  %757 = phi i32 [ %.pre.i234, %747 ], [ %744, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit232 ]
-  %758 = add nsw i32 %757, 1
-  store i32 %758, ptr %38, align 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit246: ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit242, %723
+  %731 = phi i32 [ %.pre.i245, %723 ], [ %720, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit242 ]
+  %732 = add nsw i32 %731, 1
+  store i32 %732, ptr %38, align 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split
 
-759:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
-  %760 = load i32, ptr %43, align 8
-  %761 = load i32, ptr %45, align 4
-  %762 = icmp eq i32 %760, %761
-  br i1 %762, label %763, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit238
+733:                                              ; preds = %_ZN16ciBytecodeStream4nextEv.exit
+  %734 = load i32, ptr %43, align 8
+  %735 = load i32, ptr %45, align 4
+  %736 = icmp eq i32 %734, %735
+  br i1 %736, label %737, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit250
 
-763:                                              ; preds = %759
-  %764 = add nsw i32 %760, 1
-  %765 = icmp sgt i32 %760, -1
-  %766 = xor i32 %760, -2147483648
-  %767 = and i32 %766, %764
-  %768 = icmp eq i32 %767, 0
-  %769 = and i1 %765, %768
-  %770 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %764, i1 true)
-  %771 = sub nuw nsw i32 32, %770
-  %772 = shl nuw i32 1, %771
-  %.0.i.i.i.i236 = select i1 %769, i32 %764, i32 %772
-  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef %.0.i.i.i.i236)
-  %.pre.i237 = load i32, ptr %43, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit238
+737:                                              ; preds = %733
+  %738 = add nsw i32 %734, 1
+  %739 = icmp sgt i32 %734, -1
+  %740 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %738)
+  %741 = icmp ult i32 %740, 2
+  %or.cond.i.i.i.i247 = select i1 %739, i1 %741, i1 false
+  %742 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %738, i1 true)
+  %743 = sub nuw nsw i32 32, %742
+  %744 = shl nuw i32 1, %743
+  %.0.i.i.i.i248 = select i1 %or.cond.i.i.i.i247, i32 %738, i32 %744
+  call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef %.0.i.i.i.i248)
+  %.pre.i249 = load i32, ptr %43, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit250
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit238: ; preds = %759, %763
-  %773 = phi i32 [ %.pre.i237, %763 ], [ %760, %759 ]
-  %774 = add nsw i32 %773, 1
-  store i32 %774, ptr %43, align 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit250: ; preds = %733, %737
+  %745 = phi i32 [ %.pre.i249, %737 ], [ %734, %733 ]
+  %746 = add nsw i32 %745, 1
+  store i32 %746, ptr %43, align 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit238, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit235, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i118, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i132, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i145
-  %.sink425 = phi ptr [ %385, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i145 ], [ %336, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i132 ], [ %287, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i118 ], [ %172, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %41, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ %41, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit235 ], [ %46, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit238 ]
-  %.sink424 = phi i32 [ %383, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i145 ], [ %334, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i132 ], [ %285, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i118 ], [ %170, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %682, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ %757, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit235 ], [ %773, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit238 ]
-  %.sink = phi ptr [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i145 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i132 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i118 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %668, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ %743, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit235 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit238 ]
-  %775 = load ptr, ptr %.sink425, align 8
-  %776 = sext i32 %.sink424 to i64
-  %777 = getelementptr inbounds ptr, ptr %775, i64 %776
-  store ptr %.sink, ptr %777, align 8
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit250, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit246, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i119, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i134, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i148
+  %.sink439 = phi ptr [ %375, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i148 ], [ %328, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i134 ], [ %281, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i119 ], [ %170, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %41, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ %41, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit246 ], [ %46, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit250 ]
+  %.sink438 = phi i32 [ %373, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i148 ], [ %326, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i134 ], [ %279, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i119 ], [ %168, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %660, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ %731, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit246 ], [ %745, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit250 ]
+  %.sink = phi ptr [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i148 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i134 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i119 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %648, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit ], [ %719, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit246 ], [ %123, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit250 ]
+  %747 = load ptr, ptr %.sink439, align 8
+  %748 = sext i32 %.sink438 to i64
+  %749 = getelementptr inbounds ptr, ptr %747, i64 %748
+  store ptr %.sink, ptr %749, align 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit: ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit204, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit178, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit192, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit167, %173, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i153, %.lr.ph.i.i.i148, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i140, %.lr.ph.i.i.i135, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i126, %.lr.ph.i.i.i121, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i, %.lr.ph.i.i.i, %_ZN16ciBytecodeStream4nextEv.exit, %132
-  %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
-  %778 = load i32, ptr %22, align 8
-  %779 = sext i32 %778 to i64
-  %780 = icmp slt i64 %indvars.iv.next386, %779
-  br i1 %780, label %120, label %._crit_edge346, !llvm.loop !14
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit: ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit212, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit184, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit.sink.split, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit199, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit172, %171, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i157, %.lr.ph.i.i.i152, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i143, %.lr.ph.i.i.i138, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i128, %.lr.ph.i.i.i123, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i, %.lr.ph.i.i.i, %_ZN16ciBytecodeStream4nextEv.exit, %132
+  %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
+  %750 = load i32, ptr %22, align 8
+  %751 = sext i32 %750 to i64
+  %752 = icmp slt i64 %indvars.iv.next400, %751
+  br i1 %752, label %120, label %._crit_edge360, !llvm.loop !14
 
-._crit_edge346:                                   ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit
-  %781 = phi i32 [ %110, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit ], [ %778, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit ]
-  %782 = load i32, ptr %43, align 4
-  %783 = load i32, ptr %38, align 4
-  %784 = icmp sgt i32 %782, 0
-  %785 = icmp sgt i32 %783, 0
-  %or.cond = and i1 %784, %785
-  br i1 %or.cond, label %.preheader, label %.loopexit324
+._crit_edge360:                                   ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit
+  %753 = phi i32 [ %110, %_ZN16ciBytecodeStreamC2EP8ciMethod.exit ], [ %750, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit ]
+  %754 = load i32, ptr %43, align 4
+  %755 = load i32, ptr %38, align 4
+  %756 = icmp sgt i32 %754, 0
+  %757 = icmp sgt i32 %755, 0
+  %or.cond = and i1 %756, %757
+  br i1 %or.cond, label %.preheader, label %.loopexit338
 
-.preheader:                                       ; preds = %._crit_edge346
-  %786 = zext nneg i32 %782 to i64
-  %787 = zext nneg i32 %783 to i64
-  br label %.lr.ph349.us
+.preheader:                                       ; preds = %._crit_edge360
+  %758 = zext nneg i32 %754 to i64
+  %759 = zext nneg i32 %755 to i64
+  br label %.lr.ph363.us
 
-.lr.ph349.us:                                     ; preds = %..loopexit_crit_edge.us, %.preheader
-  %indvars.iv391 = phi i64 [ %indvars.iv.next392, %..loopexit_crit_edge.us ], [ %787, %.preheader ]
-  %indvars.iv.next392 = add nsw i64 %indvars.iv391, -1
-  %788 = load ptr, ptr %41, align 8
-  %789 = getelementptr inbounds ptr, ptr %788, i64 %indvars.iv.next392
-  %790 = load ptr, ptr %789, align 8
-  %791 = getelementptr inbounds i8, ptr %790, i64 144
-  br label %792
+.lr.ph363.us:                                     ; preds = %..loopexit_crit_edge.us, %.preheader
+  %indvars.iv405 = phi i64 [ %indvars.iv.next406, %..loopexit_crit_edge.us ], [ %759, %.preheader ]
+  %indvars.iv.next406 = add nsw i64 %indvars.iv405, -1
+  %760 = load ptr, ptr %41, align 8
+  %761 = getelementptr inbounds ptr, ptr %760, i64 %indvars.iv.next406
+  %762 = load ptr, ptr %761, align 8
+  %763 = getelementptr inbounds i8, ptr %762, i64 144
+  br label %764
 
-792:                                              ; preds = %.lr.ph349.us, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit249.us
-  %indvars.iv388 = phi i64 [ %786, %.lr.ph349.us ], [ %indvars.iv.next389, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit249.us ]
-  %indvars.iv.next389 = add nsw i64 %indvars.iv388, -1
-  %793 = load ptr, ptr %46, align 8
-  %794 = getelementptr inbounds ptr, ptr %793, i64 %indvars.iv.next389
-  %795 = load ptr, ptr %794, align 8
-  %796 = load ptr, ptr %791, align 8
-  %797 = load i32, ptr %796, align 8
-  %798 = icmp sgt i32 %797, 0
-  br i1 %798, label %.lr.ph.i.i.i243.us, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us
+764:                                              ; preds = %.lr.ph363.us, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit262.us
+  %indvars.iv402 = phi i64 [ %758, %.lr.ph363.us ], [ %indvars.iv.next403, %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit262.us ]
+  %indvars.iv.next403 = add nsw i64 %indvars.iv402, -1
+  %765 = load ptr, ptr %46, align 8
+  %766 = getelementptr inbounds ptr, ptr %765, i64 %indvars.iv.next403
+  %767 = load ptr, ptr %766, align 8
+  %768 = load ptr, ptr %763, align 8
+  %769 = load i32, ptr %768, align 8
+  %770 = icmp sgt i32 %769, 0
+  br i1 %770, label %.lr.ph.i.i.i256.us, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us
 
-.lr.ph.i.i.i243.us:                               ; preds = %792
-  %799 = getelementptr inbounds i8, ptr %796, i64 8
-  %800 = load ptr, ptr %799, align 8
-  %801 = zext nneg i32 %797 to i64
-  %802 = load ptr, ptr %800, align 8
-  %803 = icmp eq ptr %802, %795
-  br i1 %803, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit249.us, label %.lr.ph.i.i244.us
+.lr.ph.i.i.i256.us:                               ; preds = %764
+  %771 = getelementptr inbounds i8, ptr %768, i64 8
+  %772 = load ptr, ptr %771, align 8
+  %773 = zext nneg i32 %769 to i64
+  %774 = load ptr, ptr %772, align 8
+  %775 = icmp eq ptr %774, %767
+  br i1 %775, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit262.us, label %.lr.ph.i.i257.us
 
-.lr.ph.i.i244.us:                                 ; preds = %.lr.ph.i.i.i243.us, %804
-  %indvars.iv.i7.i.i245.us = phi i64 [ %indvars.iv.next.i.i.i246.us, %804 ], [ 0, %.lr.ph.i.i.i243.us ]
-  %indvars.iv.next.i.i.i246.us = add nuw nsw i64 %indvars.iv.i7.i.i245.us, 1
-  %exitcond.not.i.i.i247.us = icmp eq i64 %indvars.iv.next.i.i.i246.us, %801
-  br i1 %exitcond.not.i.i.i247.us, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us, label %804, !llvm.loop !11
+.lr.ph.i.i257.us:                                 ; preds = %.lr.ph.i.i.i256.us, %776
+  %indvars.iv.i7.i.i258.us = phi i64 [ %indvars.iv.next.i.i.i259.us, %776 ], [ 0, %.lr.ph.i.i.i256.us ]
+  %indvars.iv.next.i.i.i259.us = add nuw nsw i64 %indvars.iv.i7.i.i258.us, 1
+  %exitcond.not.i.i.i260.us = icmp eq i64 %indvars.iv.next.i.i.i259.us, %773
+  br i1 %exitcond.not.i.i.i260.us, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us, label %776, !llvm.loop !11
 
-804:                                              ; preds = %.lr.ph.i.i244.us
-  %805 = getelementptr inbounds ptr, ptr %800, i64 %indvars.iv.next.i.i.i246.us
-  %806 = load ptr, ptr %805, align 8
-  %807 = icmp eq ptr %806, %795
-  br i1 %807, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i248.us, label %.lr.ph.i.i244.us, !llvm.loop !11
+776:                                              ; preds = %.lr.ph.i.i257.us
+  %777 = getelementptr inbounds ptr, ptr %772, i64 %indvars.iv.next.i.i.i259.us
+  %778 = load ptr, ptr %777, align 8
+  %779 = icmp eq ptr %778, %767
+  br i1 %779, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i261.us, label %.lr.ph.i.i257.us, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i248.us: ; preds = %804
-  %808 = icmp ult i64 %indvars.iv.next.i.i.i246.us, %801
-  br i1 %808, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit249.us, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i261.us: ; preds = %776
+  %780 = icmp ult i64 %indvars.iv.next.i.i.i259.us, %773
+  br i1 %780, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit262.us, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us: ; preds = %.lr.ph.i.i244.us, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i248.us, %792
-  %809 = getelementptr inbounds i8, ptr %796, i64 4
-  %810 = load i32, ptr %809, align 4
-  %811 = icmp eq i32 %797, %810
-  br i1 %811, label %812, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us_crit_edge
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us: ; preds = %.lr.ph.i.i257.us, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i261.us, %764
+  %781 = getelementptr inbounds i8, ptr %768, i64 4
+  %782 = load i32, ptr %781, align 4
+  %783 = icmp eq i32 %769, %782
+  br i1 %783, label %784, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us_crit_edge
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us_crit_edge: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %796, i64 8
-  %.pre401 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us_crit_edge: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %768, i64 8
+  %.pre415 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us
 
-812:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us
-  %813 = add nsw i32 %797, 1
-  %814 = icmp sgt i32 %797, -1
-  %815 = xor i32 %797, -2147483648
-  %816 = and i32 %815, %813
-  %817 = icmp eq i32 %816, 0
-  %818 = and i1 %814, %817
-  %819 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %813, i1 true)
-  %820 = sub nuw nsw i32 32, %819
-  %821 = shl nuw i32 1, %820
-  %.0.i.i.i.i.i.i241.us = select i1 %818, i32 %813, i32 %821
-  store i32 %.0.i.i.i.i.i.i241.us, ptr %809, align 4
-  %822 = getelementptr inbounds i8, ptr %796, i64 16
-  %823 = load i64, ptr %822, align 8
-  %824 = icmp eq i64 %823, 0
-  br i1 %824, label %834, label %825
+784:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us
+  %785 = add nsw i32 %769, 1
+  %786 = icmp sgt i32 %769, -1
+  %787 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %785)
+  %788 = icmp ult i32 %787, 2
+  %or.cond.i.i.i.i.i.i253.us = select i1 %786, i1 %788, i1 false
+  %789 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %785, i1 true)
+  %790 = sub nuw nsw i32 32, %789
+  %791 = shl nuw i32 1, %790
+  %.0.i.i.i.i.i.i254.us = select i1 %or.cond.i.i.i.i.i.i253.us, i32 %785, i32 %791
+  store i32 %.0.i.i.i.i.i.i254.us, ptr %781, align 4
+  %792 = getelementptr inbounds i8, ptr %768, i64 16
+  %793 = load i64, ptr %792, align 8
+  %794 = icmp eq i64 %793, 0
+  br i1 %794, label %804, label %795
 
-825:                                              ; preds = %812
-  %826 = and i64 %823, 1
-  %.not.i.i263.us = icmp eq i64 %826, 0
-  br i1 %.not.i.i263.us, label %831, label %827
+795:                                              ; preds = %784
+  %796 = and i64 %793, 1
+  %.not.i.i277.us = icmp eq i64 %796, 0
+  br i1 %.not.i.i277.us, label %801, label %797
 
-827:                                              ; preds = %825
-  %828 = lshr i64 %823, 1
-  %829 = trunc i64 %828 to i8
-  %830 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i.i241.us, i32 noundef 8, i8 noundef zeroext %829) #12
+797:                                              ; preds = %795
+  %798 = lshr i64 %793, 1
+  %799 = trunc i64 %798 to i8
+  %800 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i.i254.us, i32 noundef 8, i8 noundef zeroext %799) #12
   br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us
 
-831:                                              ; preds = %825
-  %832 = inttoptr i64 %823 to ptr
-  %833 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i.i241.us, i32 noundef 8, ptr noundef nonnull %832) #12
+801:                                              ; preds = %795
+  %802 = inttoptr i64 %793 to ptr
+  %803 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i.i254.us, i32 noundef 8, ptr noundef nonnull %802) #12
   br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us
 
-834:                                              ; preds = %812
-  %835 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i.i241.us, i32 noundef 8) #12
+804:                                              ; preds = %784
+  %805 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i.i254.us, i32 noundef 8) #12
   br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us
 
-_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us: ; preds = %834, %831, %827
-  %.0.i.i264.us = phi ptr [ %835, %834 ], [ %830, %827 ], [ %833, %831 ]
-  %836 = load i32, ptr %796, align 8
-  %837 = icmp sgt i32 %836, 0
-  br i1 %837, label %.lr.ph.i267.us, label %.preheader16.i.us
+_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us: ; preds = %804, %801, %797
+  %.0.i.i278.us = phi ptr [ %805, %804 ], [ %800, %797 ], [ %803, %801 ]
+  %806 = load i32, ptr %768, align 8
+  %807 = icmp sgt i32 %806, 0
+  br i1 %807, label %.lr.ph.i281.us, label %.preheader16.i.us
 
-.lr.ph.i267.us:                                   ; preds = %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us
-  %838 = getelementptr inbounds i8, ptr %796, i64 8
-  br label %839
+.lr.ph.i281.us:                                   ; preds = %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us
+  %808 = getelementptr inbounds i8, ptr %768, i64 8
+  br label %809
 
-839:                                              ; preds = %839, %.lr.ph.i267.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i267.us ], [ %indvars.iv.next.i.us, %839 ]
-  %840 = getelementptr inbounds ptr, ptr %.0.i.i264.us, i64 %indvars.iv.i.us
-  %841 = load ptr, ptr %838, align 8
-  %842 = getelementptr inbounds ptr, ptr %841, i64 %indvars.iv.i.us
-  %843 = load ptr, ptr %842, align 8
-  store ptr %843, ptr %840, align 8
+809:                                              ; preds = %809, %.lr.ph.i281.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i281.us ], [ %indvars.iv.next.i.us, %809 ]
+  %810 = getelementptr inbounds ptr, ptr %.0.i.i278.us, i64 %indvars.iv.i.us
+  %811 = load ptr, ptr %808, align 8
+  %812 = getelementptr inbounds ptr, ptr %811, i64 %indvars.iv.i.us
+  %813 = load ptr, ptr %812, align 8
+  store ptr %813, ptr %810, align 8
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %844 = load i32, ptr %796, align 8
-  %845 = sext i32 %844 to i64
-  %846 = icmp slt i64 %indvars.iv.next.i.us, %845
-  br i1 %846, label %839, label %.preheader16.loopexit.i.us, !llvm.loop !15
+  %814 = load i32, ptr %768, align 8
+  %815 = sext i32 %814 to i64
+  %816 = icmp slt i64 %indvars.iv.next.i.us, %815
+  br i1 %816, label %809, label %.preheader16.loopexit.i.us, !llvm.loop !15
 
-.preheader16.loopexit.i.us:                       ; preds = %839
-  %847 = trunc nuw nsw i64 %indvars.iv.next.i.us to i32
+.preheader16.loopexit.i.us:                       ; preds = %809
+  %817 = trunc nuw nsw i64 %indvars.iv.next.i.us to i32
   br label %.preheader16.i.us
 
 .preheader16.i.us:                                ; preds = %.preheader16.loopexit.i.us, %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us
-  %.0.lcssa.i.us = phi i32 [ 0, %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us ], [ %847, %.preheader16.loopexit.i.us ]
-  %848 = load i32, ptr %809, align 4
-  %849 = icmp slt i32 %.0.lcssa.i.us, %848
-  br i1 %849, label %.lr.ph19.preheader.i.us, label %.preheader.i265.us
+  %.0.lcssa.i.us = phi i32 [ 0, %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i.us ], [ %817, %.preheader16.loopexit.i.us ]
+  %818 = load i32, ptr %781, align 4
+  %819 = icmp slt i32 %.0.lcssa.i.us, %818
+  br i1 %819, label %.lr.ph19.preheader.i.us, label %.preheader.i279.us
 
 .lr.ph19.preheader.i.us:                          ; preds = %.preheader16.i.us
-  %850 = zext nneg i32 %.0.lcssa.i.us to i64
+  %820 = zext nneg i32 %.0.lcssa.i.us to i64
   br label %.lr.ph19.i.us
 
 .lr.ph19.i.us:                                    ; preds = %.lr.ph19.i.us, %.lr.ph19.preheader.i.us
-  %indvars.iv21.i.us = phi i64 [ %850, %.lr.ph19.preheader.i.us ], [ %indvars.iv.next22.i.us, %.lr.ph19.i.us ]
-  %851 = getelementptr inbounds ptr, ptr %.0.i.i264.us, i64 %indvars.iv21.i.us
-  store ptr null, ptr %851, align 8
+  %indvars.iv21.i.us = phi i64 [ %820, %.lr.ph19.preheader.i.us ], [ %indvars.iv.next22.i.us, %.lr.ph19.i.us ]
+  %821 = getelementptr inbounds ptr, ptr %.0.i.i278.us, i64 %indvars.iv21.i.us
+  store ptr null, ptr %821, align 8
   %indvars.iv.next22.i.us = add nuw nsw i64 %indvars.iv21.i.us, 1
-  %852 = load i32, ptr %809, align 4
-  %853 = trunc nuw i64 %indvars.iv.next22.i.us to i32
-  %854 = icmp sgt i32 %852, %853
-  br i1 %854, label %.lr.ph19.i.us, label %.preheader.i265.us, !llvm.loop !16
+  %822 = load i32, ptr %781, align 4
+  %823 = trunc nuw i64 %indvars.iv.next22.i.us to i32
+  %824 = icmp sgt i32 %822, %823
+  br i1 %824, label %.lr.ph19.i.us, label %.preheader.i279.us, !llvm.loop !16
 
-.preheader.i265.us:                               ; preds = %.lr.ph19.i.us, %.preheader16.i.us
-  %855 = getelementptr inbounds i8, ptr %796, i64 8
-  %856 = load ptr, ptr %855, align 8
-  %.not.i266.us = icmp eq ptr %856, null
-  br i1 %.not.i266.us, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us, label %857
+.preheader.i279.us:                               ; preds = %.lr.ph19.i.us, %.preheader16.i.us
+  %825 = getelementptr inbounds i8, ptr %768, i64 8
+  %826 = load ptr, ptr %825, align 8
+  %.not.i280.us = icmp eq ptr %826, null
+  br i1 %.not.i280.us, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us, label %827
 
-857:                                              ; preds = %.preheader.i265.us
-  %858 = load i64, ptr %822, align 8
-  %859 = and i64 %858, 1
-  %.not.i15.i.us = icmp eq i64 %859, 0
-  br i1 %.not.i15.i.us, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us, label %860
+827:                                              ; preds = %.preheader.i279.us
+  %828 = load i64, ptr %792, align 8
+  %829 = and i64 %828, 1
+  %.not.i15.i.us = icmp eq i64 %829, 0
+  br i1 %.not.i15.i.us, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us, label %830
 
-860:                                              ; preds = %857
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %856) #12
+830:                                              ; preds = %827
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %826) #12
   br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us: ; preds = %860, %857, %.preheader.i265.us
-  store ptr %.0.i.i264.us, ptr %855, align 8
-  %.pre.i.i.i242.us = load i32, ptr %796, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us: ; preds = %830, %827, %.preheader.i279.us
+  store ptr %.0.i.i278.us, ptr %825, align 8
+  %.pre.i.i.i255.us = load i32, ptr %768, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us_crit_edge, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us
-  %861 = phi ptr [ %.0.i.i264.us, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us ], [ %.pre401, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us_crit_edge ]
-  %862 = phi i32 [ %.pre.i.i.i242.us, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us ], [ %797, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i239.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us_crit_edge ]
-  %863 = add nsw i32 %862, 1
-  store i32 %863, ptr %796, align 8
-  %864 = sext i32 %862 to i64
-  %865 = getelementptr inbounds ptr, ptr %861, i64 %864
-  store ptr %795, ptr %865, align 8
-  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit249.us
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us_crit_edge, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us
+  %831 = phi ptr [ %.0.i.i278.us, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us ], [ %.pre415, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us_crit_edge ]
+  %832 = phi i32 [ %.pre.i.i.i255.us, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit.us ], [ %769, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251.us._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us_crit_edge ]
+  %833 = add nsw i32 %832, 1
+  store i32 %833, ptr %768, align 8
+  %834 = sext i32 %832 to i64
+  %835 = getelementptr inbounds ptr, ptr %831, i64 %834
+  store ptr %767, ptr %835, align 8
+  br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit262.us
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit249.us: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i240.us, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i248.us, %.lr.ph.i.i.i243.us
-  %866 = icmp sgt i64 %indvars.iv388, 1
-  br i1 %866, label %792, label %..loopexit_crit_edge.us, !llvm.loop !17
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit262.us: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252.us, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i261.us, %.lr.ph.i.i.i256.us
+  %836 = icmp sgt i64 %indvars.iv402, 1
+  br i1 %836, label %764, label %..loopexit_crit_edge.us, !llvm.loop !17
 
-..loopexit_crit_edge.us:                          ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit249.us
-  %867 = icmp sgt i64 %indvars.iv391, 1
-  br i1 %867, label %.lr.ph349.us, label %.loopexit324.loopexit, !llvm.loop !18
+..loopexit_crit_edge.us:                          ; preds = %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit262.us
+  %837 = icmp sgt i64 %indvars.iv405, 1
+  br i1 %837, label %.lr.ph363.us, label %.loopexit338.loopexit, !llvm.loop !18
 
-.loopexit324.loopexit:                            ; preds = %..loopexit_crit_edge.us
-  %.pre402 = load i32, ptr %22, align 8
-  br label %.loopexit324
+.loopexit338.loopexit:                            ; preds = %..loopexit_crit_edge.us
+  %.pre416 = load i32, ptr %22, align 8
+  br label %.loopexit338
 
-.loopexit324:                                     ; preds = %.loopexit324.loopexit, %._crit_edge346
-  %868 = phi i32 [ %.pre402, %.loopexit324.loopexit ], [ %781, %._crit_edge346 ]
-  %869 = icmp sgt i32 %868, 0
-  br i1 %869, label %.lr.ph359.preheader, label %._crit_edge360
+.loopexit338:                                     ; preds = %.loopexit338.loopexit, %._crit_edge360
+  %838 = phi i32 [ %.pre416, %.loopexit338.loopexit ], [ %753, %._crit_edge360 ]
+  %839 = icmp sgt i32 %838, 0
+  br i1 %839, label %.lr.ph373.preheader, label %._crit_edge374
 
-.lr.ph359.preheader:                              ; preds = %.loopexit324
-  %870 = zext nneg i32 %868 to i64
-  br label %.lr.ph359
+.lr.ph373.preheader:                              ; preds = %.loopexit338
+  %840 = zext nneg i32 %838 to i64
+  br label %.lr.ph373
 
-.lr.ph359:                                        ; preds = %.lr.ph359.preheader, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge
-  %indvars.iv394 = phi i64 [ %870, %.lr.ph359.preheader ], [ %indvars.iv.next395, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge ]
-  %indvars.iv.next395 = add nsw i64 %indvars.iv394, -1
-  %871 = load ptr, ptr %37, align 8
-  %872 = getelementptr inbounds ptr, ptr %871, i64 %indvars.iv.next395
-  %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr inbounds i8, ptr %873, i64 8
-  %875 = load i32, ptr %874, align 8
-  %876 = getelementptr inbounds i8, ptr %873, i64 12
-  %877 = load i32, ptr %876, align 4
-  %878 = load ptr, ptr %0, align 8
-  %879 = getelementptr inbounds i8, ptr %878, i64 120
-  %880 = load ptr, ptr %879, align 8
-  %881 = icmp eq ptr %880, null
-  br i1 %881, label %882, label %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit
+.lr.ph373:                                        ; preds = %.lr.ph373.preheader, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge
+  %indvars.iv408 = phi i64 [ %840, %.lr.ph373.preheader ], [ %indvars.iv.next409, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge ]
+  %indvars.iv.next409 = add nsw i64 %indvars.iv408, -1
+  %841 = load ptr, ptr %37, align 8
+  %842 = getelementptr inbounds ptr, ptr %841, i64 %indvars.iv.next409
+  %843 = load ptr, ptr %842, align 8
+  %844 = getelementptr inbounds i8, ptr %843, i64 8
+  %845 = load i32, ptr %844, align 8
+  %846 = getelementptr inbounds i8, ptr %843, i64 12
+  %847 = load i32, ptr %846, align 4
+  %848 = load ptr, ptr %0, align 8
+  %849 = getelementptr inbounds i8, ptr %848, i64 120
+  %850 = load ptr, ptr %849, align 8
+  %851 = icmp eq ptr %850, null
+  br i1 %851, label %852, label %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit
 
-882:                                              ; preds = %.lr.ph359
-  call void @_ZN8ciMethod9load_codeEv(ptr noundef nonnull align 8 dereferenceable(160) %878) #12
+852:                                              ; preds = %.lr.ph373
+  call void @_ZN8ciMethod9load_codeEv(ptr noundef nonnull align 8 dereferenceable(160) %848) #12
   br label %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit
 
-_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit:  ; preds = %.lr.ph359, %882
-  %883 = getelementptr inbounds i8, ptr %878, i64 88
-  %884 = load i32, ptr %883, align 8
-  %.not352 = icmp sgt i32 %884, 0
-  br i1 %.not352, label %.lr.ph354, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge
+_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit:  ; preds = %.lr.ph373, %852
+  %853 = getelementptr inbounds i8, ptr %848, i64 88
+  %854 = load i32, ptr %853, align 8
+  %.not366 = icmp sgt i32 %854, 0
+  br i1 %.not366, label %.lr.ph368, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge
 
-.lr.ph354:                                        ; preds = %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit
-  %885 = getelementptr inbounds i8, ptr %878, i64 128
+.lr.ph368:                                        ; preds = %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit
+  %855 = getelementptr inbounds i8, ptr %848, i64 128
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph354
-  %.sroa.4.0353 = phi i32 [ 0, %.lr.ph354 ], [ %.sroa.4.0353.be, %.backedge.backedge ]
-  %886 = load ptr, ptr %885, align 8
-  %887 = zext nneg i32 %.sroa.4.0353 to i64
-  %888 = getelementptr inbounds ptr, ptr %886, i64 %887
-  %889 = load ptr, ptr %888, align 8
-  %890 = getelementptr inbounds i8, ptr %889, i64 8
-  %891 = load i32, ptr %890, align 8
-  %892 = getelementptr inbounds i8, ptr %889, i64 12
-  %893 = load i32, ptr %892, align 4
-  %894 = call noundef i32 @llvm.smax.i32(i32 %875, i32 %891)
-  %895 = call noundef i32 @llvm.smin.i32(i32 %877, i32 %893)
-  %896 = icmp slt i32 %894, %895
-  br i1 %896, label %897, label %_ZN24ciExceptionHandlerStream4nextEv.exit
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph368
+  %.sroa.4.0367 = phi i32 [ 0, %.lr.ph368 ], [ %.sroa.4.0367.be, %.backedge.backedge ]
+  %856 = load ptr, ptr %855, align 8
+  %857 = zext nneg i32 %.sroa.4.0367 to i64
+  %858 = getelementptr inbounds ptr, ptr %856, i64 %857
+  %859 = load ptr, ptr %858, align 8
+  %860 = getelementptr inbounds i8, ptr %859, i64 8
+  %861 = load i32, ptr %860, align 8
+  %862 = getelementptr inbounds i8, ptr %859, i64 12
+  %863 = load i32, ptr %862, align 4
+  %864 = call noundef i32 @llvm.smax.i32(i32 %845, i32 %861)
+  %865 = call noundef i32 @llvm.smin.i32(i32 %847, i32 %863)
+  %866 = icmp slt i32 %864, %865
+  br i1 %866, label %867, label %_ZN24ciExceptionHandlerStream4nextEv.exit
 
-897:                                              ; preds = %.backedge
-  %898 = getelementptr inbounds i8, ptr %889, i64 16
-  %899 = load i32, ptr %898, align 8
-  %900 = load ptr, ptr %19, align 8
-  %901 = getelementptr inbounds i8, ptr %900, i64 8
-  %902 = load ptr, ptr %901, align 8
-  %903 = sext i32 %899 to i64
-  %904 = getelementptr inbounds ptr, ptr %902, i64 %903
-  %905 = load ptr, ptr %904, align 8
-  %906 = getelementptr inbounds i8, ptr %905, i64 152
-  %907 = load ptr, ptr %906, align 8
-  %908 = load i32, ptr %907, align 8
-  %909 = icmp sgt i32 %908, 0
-  br i1 %909, label %.lr.ph.i.i.i255, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251
+867:                                              ; preds = %.backedge
+  %868 = getelementptr inbounds i8, ptr %859, i64 16
+  %869 = load i32, ptr %868, align 8
+  %870 = load ptr, ptr %19, align 8
+  %871 = getelementptr inbounds i8, ptr %870, i64 8
+  %872 = load ptr, ptr %871, align 8
+  %873 = sext i32 %869 to i64
+  %874 = getelementptr inbounds ptr, ptr %872, i64 %873
+  %875 = load ptr, ptr %874, align 8
+  %876 = getelementptr inbounds i8, ptr %875, i64 152
+  %877 = load ptr, ptr %876, align 8
+  %878 = load i32, ptr %877, align 8
+  %879 = icmp sgt i32 %878, 0
+  br i1 %879, label %.lr.ph.i.i.i269, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264
 
-.lr.ph.i.i.i255:                                  ; preds = %897
-  %910 = getelementptr inbounds i8, ptr %907, i64 8
-  %911 = load ptr, ptr %910, align 8
-  %912 = zext nneg i32 %908 to i64
-  %913 = load ptr, ptr %911, align 8
-  %914 = icmp eq ptr %913, %873
-  br i1 %914, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit, label %.lr.ph.i.i256
+.lr.ph.i.i.i269:                                  ; preds = %867
+  %880 = getelementptr inbounds i8, ptr %877, i64 8
+  %881 = load ptr, ptr %880, align 8
+  %882 = zext nneg i32 %878 to i64
+  %883 = load ptr, ptr %881, align 8
+  %884 = icmp eq ptr %883, %843
+  br i1 %884, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit, label %.lr.ph.i.i270
 
-.lr.ph.i.i256:                                    ; preds = %.lr.ph.i.i.i255, %915
-  %indvars.iv.i7.i.i257 = phi i64 [ %indvars.iv.next.i.i.i258, %915 ], [ 0, %.lr.ph.i.i.i255 ]
-  %indvars.iv.next.i.i.i258 = add nuw nsw i64 %indvars.iv.i7.i.i257, 1
-  %exitcond.not.i.i.i259 = icmp eq i64 %indvars.iv.next.i.i.i258, %912
-  br i1 %exitcond.not.i.i.i259, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251, label %915, !llvm.loop !11
+.lr.ph.i.i270:                                    ; preds = %.lr.ph.i.i.i269, %885
+  %indvars.iv.i7.i.i271 = phi i64 [ %indvars.iv.next.i.i.i272, %885 ], [ 0, %.lr.ph.i.i.i269 ]
+  %indvars.iv.next.i.i.i272 = add nuw nsw i64 %indvars.iv.i7.i.i271, 1
+  %exitcond.not.i.i.i273 = icmp eq i64 %indvars.iv.next.i.i.i272, %882
+  br i1 %exitcond.not.i.i.i273, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264, label %885, !llvm.loop !11
 
-915:                                              ; preds = %.lr.ph.i.i256
-  %916 = getelementptr inbounds ptr, ptr %911, i64 %indvars.iv.next.i.i.i258
-  %917 = load ptr, ptr %916, align 8
-  %918 = icmp eq ptr %917, %873
-  br i1 %918, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i260, label %.lr.ph.i.i256, !llvm.loop !11
+885:                                              ; preds = %.lr.ph.i.i270
+  %886 = getelementptr inbounds ptr, ptr %881, i64 %indvars.iv.next.i.i.i272
+  %887 = load ptr, ptr %886, align 8
+  %888 = icmp eq ptr %887, %843
+  br i1 %888, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i274, label %.lr.ph.i.i270, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i260: ; preds = %915
-  %919 = icmp ult i64 %indvars.iv.next.i.i.i258, %912
-  br i1 %919, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i274: ; preds = %885
+  %889 = icmp ult i64 %indvars.iv.next.i.i.i272, %882
+  br i1 %889, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251: ; preds = %.lr.ph.i.i256, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i260, %897
-  %920 = getelementptr inbounds i8, ptr %907, i64 4
-  %921 = load i32, ptr %920, align 4
-  %922 = icmp eq i32 %908, %921
-  br i1 %922, label %923, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252_crit_edge
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264: ; preds = %.lr.ph.i.i270, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i274, %867
+  %890 = getelementptr inbounds i8, ptr %877, i64 4
+  %891 = load i32, ptr %890, align 4
+  %892 = icmp eq i32 %878, %891
+  br i1 %892, label %893, label %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265_crit_edge
 
-_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252_crit_edge: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251
-  %.phi.trans.insert403 = getelementptr inbounds i8, ptr %907, i64 8
-  %.pre404 = load ptr, ptr %.phi.trans.insert403, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252
+_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265_crit_edge: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264
+  %.phi.trans.insert417 = getelementptr inbounds i8, ptr %877, i64 8
+  %.pre418 = load ptr, ptr %.phi.trans.insert417, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265
 
-923:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251
-  %924 = add nsw i32 %908, 1
-  %925 = icmp sgt i32 %908, -1
-  %926 = xor i32 %908, -2147483648
-  %927 = and i32 %926, %924
-  %928 = icmp eq i32 %927, 0
-  %929 = and i1 %925, %928
-  %930 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %924, i1 true)
-  %931 = sub nuw nsw i32 32, %930
-  %932 = shl nuw i32 1, %931
-  %.0.i.i.i.i.i.i253 = select i1 %929, i32 %924, i32 %932
-  store i32 %.0.i.i.i.i.i.i253, ptr %920, align 4
-  %933 = getelementptr inbounds i8, ptr %907, i64 16
-  %934 = load i64, ptr %933, align 8
-  %935 = icmp eq i64 %934, 0
-  br i1 %935, label %936, label %938
+893:                                              ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264
+  %894 = add nsw i32 %878, 1
+  %895 = icmp sgt i32 %878, -1
+  %896 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %894)
+  %897 = icmp ult i32 %896, 2
+  %or.cond.i.i.i.i.i.i266 = select i1 %895, i1 %897, i1 false
+  %898 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %894, i1 true)
+  %899 = sub nuw nsw i32 32, %898
+  %900 = shl nuw i32 1, %899
+  %.0.i.i.i.i.i.i267 = select i1 %or.cond.i.i.i.i.i.i266, i32 %894, i32 %900
+  store i32 %.0.i.i.i.i.i.i267, ptr %890, align 4
+  %901 = getelementptr inbounds i8, ptr %877, i64 16
+  %902 = load i64, ptr %901, align 8
+  %903 = icmp eq i64 %902, 0
+  br i1 %903, label %904, label %906
 
-936:                                              ; preds = %923
-  %937 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i.i253, i32 noundef 8) #12
-  br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i269
+904:                                              ; preds = %893
+  %905 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i.i267, i32 noundef 8) #12
+  br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i283
 
-938:                                              ; preds = %923
-  %939 = and i64 %934, 1
-  %.not.i.i268 = icmp eq i64 %939, 0
-  br i1 %.not.i.i268, label %944, label %940
+906:                                              ; preds = %893
+  %907 = and i64 %902, 1
+  %.not.i.i282 = icmp eq i64 %907, 0
+  br i1 %.not.i.i282, label %912, label %908
 
-940:                                              ; preds = %938
-  %941 = lshr i64 %934, 1
-  %942 = trunc i64 %941 to i8
-  %943 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i.i253, i32 noundef 8, i8 noundef zeroext %942) #12
-  br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i269
+908:                                              ; preds = %906
+  %909 = lshr i64 %902, 1
+  %910 = trunc i64 %909 to i8
+  %911 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i.i267, i32 noundef 8, i8 noundef zeroext %910) #12
+  br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i283
 
-944:                                              ; preds = %938
-  %945 = inttoptr i64 %934 to ptr
-  %946 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i.i253, i32 noundef 8, ptr noundef nonnull %945) #12
-  br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i269
+912:                                              ; preds = %906
+  %913 = inttoptr i64 %902 to ptr
+  %914 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i.i267, i32 noundef 8, ptr noundef nonnull %913) #12
+  br label %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i283
 
-_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i269: ; preds = %944, %940, %936
-  %.0.i.i270 = phi ptr [ %937, %936 ], [ %943, %940 ], [ %946, %944 ]
-  %947 = load i32, ptr %907, align 8
-  %948 = icmp sgt i32 %947, 0
-  br i1 %948, label %.lr.ph.i280, label %.preheader16.i271
+_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i283: ; preds = %912, %908, %904
+  %.0.i.i284 = phi ptr [ %905, %904 ], [ %911, %908 ], [ %914, %912 ]
+  %915 = load i32, ptr %877, align 8
+  %916 = icmp sgt i32 %915, 0
+  br i1 %916, label %.lr.ph.i294, label %.preheader16.i285
 
-.lr.ph.i280:                                      ; preds = %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i269
-  %949 = getelementptr inbounds i8, ptr %907, i64 8
-  br label %954
+.lr.ph.i294:                                      ; preds = %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i283
+  %917 = getelementptr inbounds i8, ptr %877, i64 8
+  br label %922
 
-.preheader16.loopexit.i283:                       ; preds = %954
-  %950 = trunc nuw nsw i64 %indvars.iv.next.i282 to i32
-  br label %.preheader16.i271
+.preheader16.loopexit.i297:                       ; preds = %922
+  %918 = trunc nuw nsw i64 %indvars.iv.next.i296 to i32
+  br label %.preheader16.i285
 
-.preheader16.i271:                                ; preds = %.preheader16.loopexit.i283, %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i269
-  %.0.lcssa.i272 = phi i32 [ 0, %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i269 ], [ %950, %.preheader16.loopexit.i283 ]
-  %951 = load i32, ptr %920, align 4
-  %952 = icmp slt i32 %.0.lcssa.i272, %951
-  br i1 %952, label %.lr.ph19.preheader.i276, label %.preheader.i273
+.preheader16.i285:                                ; preds = %.preheader16.loopexit.i297, %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i283
+  %.0.lcssa.i286 = phi i32 [ 0, %_ZN13GrowableArrayIPN14MethodLiveness10BasicBlockEE8allocateEv.exit.i283 ], [ %918, %.preheader16.loopexit.i297 ]
+  %919 = load i32, ptr %890, align 4
+  %920 = icmp slt i32 %.0.lcssa.i286, %919
+  br i1 %920, label %.lr.ph19.preheader.i290, label %.preheader.i287
 
-.lr.ph19.preheader.i276:                          ; preds = %.preheader16.i271
-  %953 = zext nneg i32 %.0.lcssa.i272 to i64
-  br label %.lr.ph19.i277
+.lr.ph19.preheader.i290:                          ; preds = %.preheader16.i285
+  %921 = zext nneg i32 %.0.lcssa.i286 to i64
+  br label %.lr.ph19.i291
 
-954:                                              ; preds = %954, %.lr.ph.i280
-  %indvars.iv.i281 = phi i64 [ 0, %.lr.ph.i280 ], [ %indvars.iv.next.i282, %954 ]
-  %955 = getelementptr inbounds ptr, ptr %.0.i.i270, i64 %indvars.iv.i281
-  %956 = load ptr, ptr %949, align 8
-  %957 = getelementptr inbounds ptr, ptr %956, i64 %indvars.iv.i281
-  %958 = load ptr, ptr %957, align 8
-  store ptr %958, ptr %955, align 8
-  %indvars.iv.next.i282 = add nuw nsw i64 %indvars.iv.i281, 1
-  %959 = load i32, ptr %907, align 8
-  %960 = sext i32 %959 to i64
-  %961 = icmp slt i64 %indvars.iv.next.i282, %960
-  br i1 %961, label %954, label %.preheader16.loopexit.i283, !llvm.loop !15
+922:                                              ; preds = %922, %.lr.ph.i294
+  %indvars.iv.i295 = phi i64 [ 0, %.lr.ph.i294 ], [ %indvars.iv.next.i296, %922 ]
+  %923 = getelementptr inbounds ptr, ptr %.0.i.i284, i64 %indvars.iv.i295
+  %924 = load ptr, ptr %917, align 8
+  %925 = getelementptr inbounds ptr, ptr %924, i64 %indvars.iv.i295
+  %926 = load ptr, ptr %925, align 8
+  store ptr %926, ptr %923, align 8
+  %indvars.iv.next.i296 = add nuw nsw i64 %indvars.iv.i295, 1
+  %927 = load i32, ptr %877, align 8
+  %928 = sext i32 %927 to i64
+  %929 = icmp slt i64 %indvars.iv.next.i296, %928
+  br i1 %929, label %922, label %.preheader16.loopexit.i297, !llvm.loop !15
 
-.preheader.i273:                                  ; preds = %.lr.ph19.i277, %.preheader16.i271
-  %962 = getelementptr inbounds i8, ptr %907, i64 8
-  %963 = load ptr, ptr %962, align 8
-  %.not.i274 = icmp eq ptr %963, null
-  br i1 %.not.i274, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit284, label %968
+.preheader.i287:                                  ; preds = %.lr.ph19.i291, %.preheader16.i285
+  %930 = getelementptr inbounds i8, ptr %877, i64 8
+  %931 = load ptr, ptr %930, align 8
+  %.not.i288 = icmp eq ptr %931, null
+  br i1 %.not.i288, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit298, label %936
 
-.lr.ph19.i277:                                    ; preds = %.lr.ph19.i277, %.lr.ph19.preheader.i276
-  %indvars.iv21.i278 = phi i64 [ %953, %.lr.ph19.preheader.i276 ], [ %indvars.iv.next22.i279, %.lr.ph19.i277 ]
-  %964 = getelementptr inbounds ptr, ptr %.0.i.i270, i64 %indvars.iv21.i278
-  store ptr null, ptr %964, align 8
-  %indvars.iv.next22.i279 = add nuw nsw i64 %indvars.iv21.i278, 1
-  %965 = load i32, ptr %920, align 4
-  %966 = trunc nuw i64 %indvars.iv.next22.i279 to i32
-  %967 = icmp sgt i32 %965, %966
-  br i1 %967, label %.lr.ph19.i277, label %.preheader.i273, !llvm.loop !16
+.lr.ph19.i291:                                    ; preds = %.lr.ph19.i291, %.lr.ph19.preheader.i290
+  %indvars.iv21.i292 = phi i64 [ %921, %.lr.ph19.preheader.i290 ], [ %indvars.iv.next22.i293, %.lr.ph19.i291 ]
+  %932 = getelementptr inbounds ptr, ptr %.0.i.i284, i64 %indvars.iv21.i292
+  store ptr null, ptr %932, align 8
+  %indvars.iv.next22.i293 = add nuw nsw i64 %indvars.iv21.i292, 1
+  %933 = load i32, ptr %890, align 4
+  %934 = trunc nuw i64 %indvars.iv.next22.i293 to i32
+  %935 = icmp sgt i32 %933, %934
+  br i1 %935, label %.lr.ph19.i291, label %.preheader.i287, !llvm.loop !16
 
-968:                                              ; preds = %.preheader.i273
-  %969 = load i64, ptr %933, align 8
-  %970 = and i64 %969, 1
-  %.not.i15.i275 = icmp eq i64 %970, 0
-  br i1 %.not.i15.i275, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit284, label %971
+936:                                              ; preds = %.preheader.i287
+  %937 = load i64, ptr %901, align 8
+  %938 = and i64 %937, 1
+  %.not.i15.i289 = icmp eq i64 %938, 0
+  br i1 %.not.i15.i289, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit298, label %939
 
-971:                                              ; preds = %968
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %963) #12
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit284
+939:                                              ; preds = %936
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %931) #12
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit298
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit284: ; preds = %.preheader.i273, %968, %971
-  store ptr %.0.i.i270, ptr %962, align 8
-  %.pre.i.i.i254 = load i32, ptr %907, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit298: ; preds = %.preheader.i287, %936, %939
+  store ptr %.0.i.i284, ptr %930, align 8
+  %.pre.i.i.i268 = load i32, ptr %877, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252_crit_edge, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit284
-  %972 = phi ptr [ %.0.i.i270, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit284 ], [ %.pre404, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252_crit_edge ]
-  %973 = phi i32 [ %.pre.i.i.i254, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit284 ], [ %908, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i251._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252_crit_edge ]
-  %974 = add nsw i32 %973, 1
-  store i32 %974, ptr %907, align 8
-  %975 = sext i32 %973 to i64
-  %976 = getelementptr inbounds ptr, ptr %972, i64 %975
-  store ptr %873, ptr %976, align 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265: ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265_crit_edge, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit298
+  %940 = phi ptr [ %.0.i.i284, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit298 ], [ %.pre418, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265_crit_edge ]
+  %941 = phi i32 [ %.pre.i.i.i268, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi.exit298 ], [ %878, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i264._ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265_crit_edge ]
+  %942 = add nsw i32 %941, 1
+  store i32 %942, ptr %877, align 8
+  %943 = sext i32 %941 to i64
+  %944 = getelementptr inbounds ptr, ptr %940, i64 %943
+  store ptr %843, ptr %944, align 8
   br label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit
 
-_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit: ; preds = %.lr.ph.i.i.i255, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i260, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i252
-  %977 = getelementptr inbounds i8, ptr %889, i64 20
-  %978 = load i32, ptr %977, align 4
-  %979 = icmp ne i32 %978, 0
-  %980 = icmp slt i32 %875, %891
-  %or.cond100.not366 = or i1 %980, %979
-  %981 = icmp sgt i32 %877, %893
-  %or.cond101.not363 = or i1 %981, %or.cond100.not366
-  %982 = add nuw nsw i32 %.sroa.4.0353, 1
-  %.not = icmp slt i32 %982, %884
-  %or.cond361 = select i1 %or.cond101.not363, i1 %.not, i1 false
-  br i1 %or.cond361, label %.backedge.backedge, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge
+_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit: ; preds = %.lr.ph.i.i.i269, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i274, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i265
+  %945 = getelementptr inbounds i8, ptr %859, i64 20
+  %946 = load i32, ptr %945, align 4
+  %947 = icmp ne i32 %946, 0
+  %948 = icmp slt i32 %845, %861
+  %or.cond100.not380 = or i1 %948, %947
+  %949 = icmp sgt i32 %847, %863
+  %or.cond101.not377 = or i1 %949, %or.cond100.not380
+  %950 = add nuw nsw i32 %.sroa.4.0367, 1
+  %.not = icmp slt i32 %950, %854
+  %or.cond375 = select i1 %or.cond101.not377, i1 %.not, i1 false
+  br i1 %or.cond375, label %.backedge.backedge, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge
 
 _ZN24ciExceptionHandlerStream4nextEv.exit:        ; preds = %.backedge
-  %.old = add nuw nsw i32 %.sroa.4.0353, 1
-  %.not.old = icmp slt i32 %.old, %884
+  %.old = add nuw nsw i32 %.sroa.4.0367, 1
+  %.not.old = icmp slt i32 %.old, %854
   br i1 %.not.old, label %.backedge.backedge, label %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge
 
 .backedge.backedge:                               ; preds = %_ZN24ciExceptionHandlerStream4nextEv.exit, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit
-  %.sroa.4.0353.be = phi i32 [ %.old, %_ZN24ciExceptionHandlerStream4nextEv.exit ], [ %982, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit ]
+  %.sroa.4.0367.be = phi i32 [ %.old, %_ZN24ciExceptionHandlerStream4nextEv.exit ], [ %950, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit ]
   br label %.backedge, !llvm.loop !19
 
 _ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge: ; preds = %_ZN24ciExceptionHandlerStream4nextEv.exit, %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit, %_ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit
-  %983 = icmp sgt i64 %indvars.iv394, 1
-  br i1 %983, label %.lr.ph359, label %._crit_edge360, !llvm.loop !20
+  %951 = icmp sgt i64 %indvars.iv408, 1
+  br i1 %951, label %.lr.ph373, label %._crit_edge374, !llvm.loop !20
 
-._crit_edge360:                                   ; preds = %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge, %.loopexit324
+._crit_edge374:                                   ; preds = %_ZN14MethodLiveness10BasicBlock25add_exception_predecessorEPS0_.exit._crit_edge, %.loopexit338
   ret void
 }
 
@@ -2394,7 +2378,7 @@ define hidden void @_ZN14MethodLiveness10BasicBlock15get_liveness_atEP8ciMethodi
   store i8 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %3
+  %13 = icmp eq i32 %3, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
@@ -2609,27 +2593,26 @@ _ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thr
 30:                                               ; preds = %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i
   %31 = add nsw i32 %15, 1
   %32 = icmp sgt i32 %15, -1
-  %33 = xor i32 %15, -2147483648
-  %34 = and i32 %33, %31
-  %35 = icmp eq i32 %34, 0
-  %36 = and i1 %32, %35
-  %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
-  %38 = sub nuw nsw i32 32, %37
-  %39 = shl nuw i32 1, %38
-  %.0.i.i.i.i.i.i = select i1 %36, i32 %31, i32 %39
+  %33 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %31)
+  %34 = icmp ult i32 %33, 2
+  %or.cond.i.i.i.i.i.i = select i1 %32, i1 %34, i1 false
+  %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
+  %36 = sub nuw nsw i32 32, %35
+  %37 = shl nuw i32 1, %36
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %31, i32 %37
   tail call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %14, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
 
 _ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i: ; preds = %30, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i
-  %40 = phi i32 [ %.pre.i.i.i, %30 ], [ %15, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i ]
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %14, align 8
-  %42 = getelementptr inbounds i8, ptr %14, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %40 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  store ptr %10, ptr %45, align 8
+  %38 = phi i32 [ %.pre.i.i.i, %30 ], [ %15, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.thread.i.i ]
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %14, align 8
+  %40 = getelementptr inbounds i8, ptr %14, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = sext i32 %38 to i64
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  store ptr %10, ptr %43, align 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
 
 _ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit: ; preds = %.lr.ph.i.i.i, %_ZNK17GrowableArrayViewIPN14MethodLiveness10BasicBlockEE8containsERKS2_.exit.i.i, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
@@ -3543,6 +3526,9 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10

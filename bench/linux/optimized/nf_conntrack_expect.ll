@@ -725,7 +725,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %16, %20
   %152 = load i32, ptr %121, align 8
   %153 = and i32 %152, 1
   %154 = icmp eq i32 %153, 0
-  %155 = and i1 %154, %3
+  %155 = and i1 %3, %154
   br i1 %155, label %166, label %156
 
 156:                                              ; preds = %151

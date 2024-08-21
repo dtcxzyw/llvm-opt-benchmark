@@ -3775,13 +3775,13 @@ Vec_PtrPush.exit.i:                               ; preds = %118, %Vec_PtrGrow.e
   %191 = add nsw i32 %.val3.i.i, 1
   %192 = getelementptr inbounds i8, ptr %.val2.i.i, i64 228
   %193 = load i32, ptr %192, align 4
-  %.not.i154.not.i = icmp sgt i32 %193, %.val3.i.i
+  %.not.i154.not.i = icmp slt i32 %.val3.i.i, %193
   br i1 %.not.i154.not.i, label %Vec_IntFillExtra.exit.i, label %194
 
 194:                                              ; preds = %181
   %195 = load i32, ptr %190, align 8
   %196 = shl nsw i32 %195, 1
-  %.not157.i = icmp sgt i32 %196, %.val3.i.i
+  %.not157.i = icmp slt i32 %.val3.i.i, %196
   %.not.i.i.not.i = icmp sgt i32 %195, %.val3.i.i
   br i1 %.not157.i, label %209, label %197
 
@@ -20967,13 +20967,13 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

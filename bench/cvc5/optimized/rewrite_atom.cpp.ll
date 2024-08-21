@@ -611,7 +611,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = trunc i16 %call to i1
-  %cmp = xor i1 %3, %negate
+  %cmp = xor i1 %negate, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.addr.i)
   %frombool.i = zext i1 %cmp to i8
   store i8 %frombool.i, ptr %value.addr.i, align 1, !noalias !4
@@ -3461,7 +3461,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   %call2.i = call i32 @__gmpz_cmp_ui(ptr noundef nonnull %_mp_den.i.i, i64 noundef 1) #14
   %cmp.i = icmp eq i32 %call2.i, 0
   %cmp12.v = select i1 %call5, i32 73, i32 72
-  %cmp12 = icmp eq i32 %cmp12.v, %k
+  %cmp12 = icmp eq i32 %k, %cmp12.v
   %or.cond = and i1 %cmp12, %cmp.i
   br i1 %or.cond, label %if.then13, label %if.else
 
@@ -3819,7 +3819,7 @@ invoke.cont:                                      ; preds = %if.then
 
 if.then4:                                         ; preds = %invoke.cont
   %second = getelementptr inbounds i8, ptr %4, i64 40
-  %cmp.i.i4 = icmp eq ptr %second, %agg.result
+  %cmp.i.i4 = icmp eq ptr %agg.result, %second
   br i1 %cmp.i.i4, label %invoke.cont6, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then4

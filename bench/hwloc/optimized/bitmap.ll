@@ -327,7 +327,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias nocaptu
 
 .preheader104:                                    ; preds = %8
   %11 = zext nneg i32 %9 to i64
-  %.not92 = icmp slt i64 %11, %1
+  %.not92 = icmp sgt i64 %1, %11
   %12 = icmp sgt i64 %1, 0
   %13 = trunc i64 %1 to i32
   %14 = add nsw i32 %13, -1
@@ -1570,7 +1570,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i3
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 8
   %10 = shl i32 %9, 6
-  %.not54 = icmp ugt i32 %10, %1
+  %.not54 = icmp ult i32 %1, %10
   br i1 %.not54, label %.thread, label %.loopexit
 
 11:                                               ; preds = %5
@@ -1625,7 +1625,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i3
   br label %.loopexit
 
 38:                                               ; preds = %.thread
-  %.not56 = icmp ugt i32 %10, %2
+  %.not56 = icmp ult i32 %2, %10
   %39 = add i32 %10, -1
   %spec.select = select i1 %.not56, i32 %2, i32 %39
   br label %40
@@ -1720,7 +1720,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set(ptr nocapture noundef %0, i32 noun
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 8
   %8 = shl i32 %7, 6
-  %.not9 = icmp ugt i32 %8, %1
+  %.not9 = icmp ult i32 %1, %8
   br i1 %.not9, label %9, label %23
 
 9:                                                ; preds = %6, %2
@@ -1769,7 +1769,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
 
 .preheader88:                                     ; preds = %8
   %11 = zext nneg i32 %9 to i64
-  %.not79 = icmp slt i64 %11, %1
+  %.not79 = icmp sgt i64 %1, %11
   %12 = icmp sgt i64 %1, 0
   %13 = trunc i64 %1 to i32
   %14 = add nsw i32 %13, -1
@@ -2434,7 +2434,7 @@ define i64 @hwloc_bitmap_to_ulong(ptr nocapture noundef readonly %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @hwloc_bitmap_to_ith_ulong(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
-  %4 = icmp ugt i32 %3, %1
+  %4 = icmp ult i32 %1, %3
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
@@ -2824,7 +2824,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %22, %hwloc_bitmap__
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @hwloc_bitmap_realloc_by_ulongs(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
-  %.not = icmp ult i32 %3, %1
+  %.not = icmp ugt i32 %1, %3
   br i1 %.not, label %4, label %hwloc_bitmap_enlarge_by_ulongs.exit
 
 4:                                                ; preds = %2
@@ -2946,7 +2946,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr(ptr nocapture noundef %0, i32 noun
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 8
   %8 = shl i32 %7, 6
-  %.not9 = icmp ugt i32 %8, %1
+  %.not9 = icmp ult i32 %1, %8
   br i1 %.not9, label %9, label %24
 
 9:                                                ; preds = %6, %2
@@ -2988,7 +2988,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i3
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 8
   %10 = shl i32 %9, 6
-  %.not54 = icmp ugt i32 %10, %1
+  %.not54 = icmp ult i32 %1, %10
   br i1 %.not54, label %11, label %.loopexit
 
 11:                                               ; preds = %8
@@ -3044,7 +3044,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i3
   br label %.loopexit
 
 39:                                               ; preds = %11
-  %.not56 = icmp ugt i32 %10, %2
+  %.not56 = icmp ult i32 %2, %10
   %40 = add i32 %10, -1
   %spec.select = select i1 %.not56, i32 %2, i32 %40
   br label %.thread57

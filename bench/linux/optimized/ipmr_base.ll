@@ -163,7 +163,7 @@ define dso_local ptr @mr_mfc_find_parent(ptr noundef %0, ptr noundef %1, i32 nou
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
-  %15 = icmp eq i32 %14, %2
+  %15 = icmp eq i32 %2, %14
   br i1 %15, label %.loopexit.split, label %16
 
 16:                                               ; preds = %.split

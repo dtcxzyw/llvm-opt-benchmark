@@ -978,7 +978,7 @@ if.end:                                           ; preds = %_ZN4node6crypto7Nod
   %conv = sext i32 %size to i64
   %call2 = tail call noundef i64 @_ZN4node6crypto7NodeBIO7IndexOfEcm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i, i8 noundef signext 10, i64 noundef %conv)
   %conv3 = trunc i64 %call2 to i32
-  %cmp4 = icmp slt i32 %conv3, %size
+  %cmp4 = icmp sgt i32 %size, %conv3
   %cmp5 = icmp sgt i32 %conv3, -1
   %or.cond = and i1 %cmp4, %cmp5
   br i1 %or.cond, label %land.lhs.true6, label %if.end11
@@ -993,7 +993,7 @@ land.lhs.true6:                                   ; preds = %if.end
 
 if.end11:                                         ; preds = %land.lhs.true6, %if.end
   %i.0 = phi i32 [ %conv3, %if.end ], [ %spec.select, %land.lhs.true6 ]
-  %cmp12 = icmp eq i32 %i.0, %size
+  %cmp12 = icmp eq i32 %size, %i.0
   %dec = sext i1 %cmp12 to i32
   %spec.select15 = add nsw i32 %i.0, %dec
   %conv15 = sext i32 %spec.select15 to i64

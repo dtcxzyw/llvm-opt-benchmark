@@ -219,7 +219,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5ZXing18ReedSolomonEn
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %_ZN5ZXing13GenericGFPolyD2Ev.exit37, label %9
 
 9:                                                ; preds = %2
@@ -518,7 +518,7 @@ define void @_ZN5ZXing18ReedSolomonEncoder6encodeERSt6vectorIiSaIiEEi(ptr nounde
   %13 = sub i64 %11, %12
   %14 = lshr exact i64 %13, 2
   %15 = trunc i64 %14 to i32
-  %.not = icmp sgt i32 %15, %2
+  %.not = icmp slt i32 %2, %15
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %7, %3

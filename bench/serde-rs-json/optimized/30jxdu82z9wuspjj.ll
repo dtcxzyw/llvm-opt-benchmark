@@ -297,7 +297,7 @@ _ZN10serde_json4read5error17hc755879bd00ae68aE.exit: ; preds = %35
   %58 = load i64, ptr %19, align 8, !alias.scope !44, !noalias !49, !noundef !7
   %59 = load i64, ptr %2, align 8, !alias.scope !51, !noalias !49, !noundef !7
   %60 = sub i64 %59, %58
-  %61 = icmp ult i64 %60, %56
+  %61 = icmp ugt i64 %56, %60
   br i1 %61, label %62, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5fe2c8355ca1cc6bE.exit"
 
 62:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.exit"
@@ -397,7 +397,7 @@ _ZN10serde_json4read5error17hc755879bd00ae68aE.exit: ; preds = %35
   %97 = getelementptr inbounds i8, ptr %22, i64 %.0.ph71
   %98 = load i64, ptr %2, align 8, !alias.scope !84, !noalias !91, !noundef !7
   %99 = sub i64 %98, %50
-  %100 = icmp ult i64 %99, %96
+  %100 = icmp ugt i64 %96, %99
   br i1 %100, label %101, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5fe2c8355ca1cc6bE.exit27"
 
 101:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.exit25"
@@ -642,7 +642,7 @@ _ZN10serde_json4read5error17hc755879bd00ae68aE.exit: ; preds = %29
   %52 = load i64, ptr %13, align 8, !alias.scope !138, !noalias !143, !noundef !7
   %53 = load i64, ptr %2, align 8, !alias.scope !145, !noalias !143, !noundef !7
   %54 = sub i64 %53, %52
-  %55 = icmp ult i64 %54, %50
+  %55 = icmp ugt i64 %50, %54
   br i1 %55, label %56, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5fe2c8355ca1cc6bE.exit"
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.exit"
@@ -696,7 +696,7 @@ _ZN10serde_json4read5error17hc755879bd00ae68aE.exit: ; preds = %29
   %75 = getelementptr inbounds i8, ptr %16, i64 %.0.ph62
   %76 = load i64, ptr %2, align 8, !alias.scope !159, !noalias !166, !noundef !7
   %77 = sub i64 %76, %44
-  %78 = icmp ult i64 %77, %74
+  %78 = icmp ugt i64 %74, %77
   br i1 %78, label %79, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h86229636295ce1c9E.exit"
 
 79:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.exit25"
@@ -895,7 +895,7 @@ _ZN10serde_json4read5error17hb964b459c1e82902E.exit: ; preds = %29
   %52 = load i64, ptr %13, align 8, !alias.scope !195, !noalias !200, !noundef !7
   %53 = load i64, ptr %2, align 8, !alias.scope !202, !noalias !200, !noundef !7
   %54 = sub i64 %53, %52
-  %55 = icmp ult i64 %54, %50
+  %55 = icmp ugt i64 %50, %54
   br i1 %55, label %56, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5fe2c8355ca1cc6bE.exit"
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.exit"
@@ -949,7 +949,7 @@ _ZN10serde_json4read5error17hb964b459c1e82902E.exit: ; preds = %29
   %75 = getelementptr inbounds i8, ptr %16, i64 %.0.ph62
   %76 = load i64, ptr %2, align 8, !alias.scope !216, !noalias !223, !noundef !7
   %77 = sub i64 %76, %44
-  %78 = icmp ult i64 %77, %74
+  %78 = icmp ugt i64 %74, %77
   br i1 %78, label %79, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he25d4e54d3e36b2dE.exit"
 
 79:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.exit25"

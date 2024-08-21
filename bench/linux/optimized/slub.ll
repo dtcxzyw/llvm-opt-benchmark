@@ -1454,7 +1454,7 @@ define dso_local noalias ptr @kmem_cache_alloc_node(ptr noundef %0, i32 noundef 
   %55 = load i64, ptr %50, align 16
   %56 = lshr i64 %55, 58
   %57 = trunc nuw nsw i64 %56 to i32
-  %58 = icmp eq i32 %57, %2
+  %58 = icmp eq i32 %2, %57
   br i1 %58, label %59, label %.split9.us
 
 59:                                               ; preds = %54
@@ -1994,7 +1994,7 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   %91 = load i64, ptr %86, align 16
   %92 = lshr i64 %91, 58
   %93 = trunc nuw nsw i64 %92 to i32
-  %94 = icmp eq i32 %93, %2
+  %94 = icmp eq i32 %2, %93
   br i1 %94, label %95, label %.split11.us
 
 95:                                               ; preds = %90
@@ -2589,7 +2589,7 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   %90 = load i64, ptr %85, align 16
   %91 = lshr i64 %90, 58
   %92 = trunc nuw nsw i64 %91 to i32
-  %93 = icmp eq i32 %92, %2
+  %93 = icmp eq i32 %2, %92
   br i1 %93, label %94, label %.split11.us
 
 94:                                               ; preds = %89
@@ -3075,7 +3075,7 @@ define dso_local noalias ptr @kmalloc_node_trace(ptr noundef %0, i32 noundef %1,
   %54 = load i64, ptr %49, align 16
   %55 = lshr i64 %54, 58
   %56 = trunc nuw nsw i64 %55 to i32
-  %57 = icmp eq i32 %56, %2
+  %57 = icmp eq i32 %2, %56
   br i1 %57, label %58, label %.split9.us
 
 58:                                               ; preds = %53
@@ -4373,7 +4373,7 @@ define dso_local i32 @kmem_cache_alloc_bulk(ptr noundef %0, i32 noundef %1, i64 
   %.ph17 = phi ptr [ %31, %89 ], [ %31, %85 ], [ %31, %73 ], [ %31, %82 ], [ %56, %68 ]
   %94 = add i32 %33, 1
   %95 = sext i32 %94 to i64
-  %96 = icmp ult i64 %95, %2
+  %96 = icmp ugt i64 %2, %95
   br i1 %96, label %29, label %97, !llvm.loop !80
 
 97:                                               ; preds = %93
@@ -10192,7 +10192,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @check_bytes_and_report(ptr n
   %21 = getelementptr i8, ptr %18, i64 -1
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
-  %24 = icmp eq i32 %23, %5
+  %24 = icmp eq i32 %5, %23
   br i1 %24, label %17, label %25, !llvm.loop !207
 
 25:                                               ; preds = %20, %17

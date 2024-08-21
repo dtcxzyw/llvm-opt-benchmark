@@ -2858,8 +2858,8 @@ entry:
   %1 = load i64, ptr %depth, align 8
   %add = add i64 %1, 1
   store i64 %add, ptr %depth, align 8
-  %cmp = icmp ult i64 %0, %min_sp
-  %cmp1 = icmp ugt i64 %0, %max_sp
+  %cmp = icmp ugt i64 %min_sp, %0
+  %cmp1 = icmp ult i64 %max_sp, %0
   %or.cond = or i1 %cmp, %cmp1
   br i1 %or.cond, label %return, label %if.end
 

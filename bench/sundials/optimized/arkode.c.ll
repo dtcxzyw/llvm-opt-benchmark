@@ -392,7 +392,7 @@ define i32 @arkResize(ptr noundef %0, ptr noundef %1, double noundef %2, double 
   br i1 %.not, label %47, label %31
 
 31:                                               ; preds = %24
-  %32 = fadd double %28, %3
+  %32 = fadd double %3, %28
   %33 = getelementptr inbounds i8, ptr %0, i64 360
   %34 = load double, ptr %33, align 8
   %35 = fsub double %32, %34
@@ -4942,11 +4942,11 @@ define range(i32 0, 2) i32 @arkAllocVecArray(i32 noundef %0, ptr noundef %1, ptr
 
 13:                                               ; preds = %10
   %14 = sext i32 %0 to i64
-  %15 = mul nsw i64 %14, %3
+  %15 = mul nsw i64 %3, %14
   %16 = load i64, ptr %4, align 8
   %17 = add nsw i64 %16, %15
   store i64 %17, ptr %4, align 8
-  %18 = mul nsw i64 %14, %5
+  %18 = mul nsw i64 %5, %14
   %19 = load i64, ptr %6, align 8
   %20 = add nsw i64 %19, %18
   store i64 %20, ptr %6, align 8
@@ -4998,11 +4998,11 @@ define void @arkFreeVecArray(i32 noundef %0, ptr nocapture noundef %1, i64 nound
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %7, i32 noundef %0) #16
   store ptr null, ptr %1, align 8
   %9 = sext i32 %0 to i64
-  %10 = mul nsw i64 %9, %2
+  %10 = mul nsw i64 %2, %9
   %11 = load i64, ptr %3, align 8
   %12 = sub nsw i64 %11, %10
   store i64 %12, ptr %3, align 8
-  %13 = mul nsw i64 %9, %4
+  %13 = mul nsw i64 %4, %9
   %14 = load i64, ptr %5, align 8
   %15 = sub nsw i64 %14, %13
   store i64 %15, ptr %5, align 8
@@ -5103,11 +5103,11 @@ define range(i32 0, 2) i32 @arkResizeVecArray(ptr noundef readonly %0, ptr nound
 
 .loopexit:                                        ; preds = %17, %.preheader, %14
   %22 = sext i32 %2 to i64
-  %23 = mul nsw i64 %22, %5
+  %23 = mul nsw i64 %5, %22
   %24 = load i64, ptr %6, align 8
   %25 = add nsw i64 %24, %23
   store i64 %25, ptr %6, align 8
-  %26 = mul nsw i64 %22, %7
+  %26 = mul nsw i64 %7, %22
   %27 = load i64, ptr %8, align 8
   %28 = add nsw i64 %27, %26
   store i64 %28, ptr %8, align 8
@@ -5405,7 +5405,7 @@ define range(i32 -21, 1) i32 @arkYddNorm(ptr noundef %0, double noundef %1, ptr 
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 424
   %18 = load double, ptr %17, align 8
-  %19 = fadd double %18, %1
+  %19 = fadd double %1, %18
   %20 = load ptr, ptr %13, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 296
   %22 = load ptr, ptr %21, align 8

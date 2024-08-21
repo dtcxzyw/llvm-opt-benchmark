@@ -169,7 +169,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.0.i = phi i64 [ %11, %10 ], [ %15, %12 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !13, !noalias !16, !noundef !9
-  %19 = icmp ult i64 %18, %.0.i
+  %19 = icmp ugt i64 %.0.i, %18
   br i1 %19, label %20, label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha278790f767fddf8E.exit"
 
 20:                                               ; preds = %16
@@ -3642,7 +3642,7 @@ default.unreachable11.i210:                       ; preds = %.noexc215
   %1268 = phi i64 [ %.pre.i.i.i.i.i.i, %1265 ], [ 8, %1263 ]
   %.sink3.i.i.i.i.i.i.i = phi ptr [ %1267, %1265 ], [ %138, %1263 ]
   %1269 = icmp ult i64 %1242, 9
-  %.not.i.i.i.i.i.i = icmp ugt i64 %1268, %1261
+  %.not.i.i.i.i.i.i = icmp ult i64 %1261, %1268
   br i1 %.not.i.i.i.i.i.i, label %.invoke.i.i.i, label %1273
 
 .invoke.i.i.i:                                    ; preds = %1282, %1277, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.i.i.i.i.i.i", %1254, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.i.i.i.i.i"
@@ -3660,7 +3660,7 @@ default.unreachable11.i210:                       ; preds = %.noexc215
   br i1 %1274, label %1276, label %1275
 
 1275:                                             ; preds = %1273
-  %.not77.i.i.i.i.i.i = icmp eq i64 %1242, %1261
+  %.not77.i.i.i.i.i.i = icmp eq i64 %1261, %1242
   br i1 %.not77.i.i.i.i.i.i, label %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i, label %1277
 
 1276:                                             ; preds = %1273
@@ -11336,7 +11336,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !9
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -11417,8 +11417,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload14.i18 = load i16, ptr %86, align 1, !alias.scope !2709
   %87 = zext i16 %.0.copyload14.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -12010,7 +12010,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2f7d50db021
   %34 = phi i64 [ %.pre.i.i, %30 ], [ 4, %28 ]
   %.sink3.i.i.i = phi ptr [ %32, %30 ], [ %8, %28 ]
   %35 = icmp ult i64 %5, 5
-  %.not.i.i = icmp ugt i64 %34, %26
+  %.not.i.i = icmp ult i64 %26, %34
   br i1 %.not.i.i, label %36, label %37
 
 36:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h573f12f4007e8a48E.llvm.885679253126787145.exit.i.i"
@@ -12022,7 +12022,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h2f7d50db021
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %37
-  %.not77.i.i = icmp eq i64 %5, %26
+  %.not77.i.i = icmp eq i64 %26, %5
   br i1 %.not77.i.i, label %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit, label %41
 
 40:                                               ; preds = %37

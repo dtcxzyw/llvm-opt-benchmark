@@ -170,7 +170,7 @@ entry:
   %tmp.i = alloca i32, align 4
   %m_y_next = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i32, ptr %m_y_next, align 8
-  %cmp = icmp sgt i32 %0, %y
+  %cmp = icmp slt i32 %y, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -227,7 +227,7 @@ if.then9:                                         ; preds = %for.body
   %call = call noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec14scanline_bytesEb(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, i1 noundef zeroext false) #20
   %mul16 = mul i64 %call, %conv
   %9 = load i64, ptr %m_len.i.i, align 8, !noalias !4
-  %cmp.not.i = icmp ugt i64 %9, %mul16
+  %cmp.not.i = icmp ult i64 %mul16, %9
   %10 = load ptr, ptr %m_after_header17, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %mul16
   %ref.tmp.sroa.0.2 = select i1 %cmp.not.i, ptr %add.ptr.i, ptr null
@@ -369,7 +369,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %buf.sroa.10.2 = phi ptr [ %add.ptr.i149, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ %buf.sroa.10.0171, %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i ], [ %buf.sroa.0.0170, %if.then25.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %buf.sroa.16.2 = phi ptr [ %add.ptr.i149, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ %buf.sroa.16.0172, %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i ], [ %buf.sroa.16.0172, %if.then25.i ], [ %buf.sroa.16.0172, %for.body.i.i.i.i.i.i.i.i.i ], [ %buf.sroa.16.0172, %for.body.i.i.i.i.i.i ]
   %20 = load i64, ptr %ref.tmp.sroa.3.0.m_remaining18.sroa_idx, align 8
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %20, i64 %conv54)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %conv54, i64 %20)
   %21 = load ptr, ptr %m_remaining18, align 8
   %add.ptr.i29 = getelementptr inbounds i8, ptr %21, i64 %spec.select.i
   store ptr %add.ptr.i29, ptr %m_remaining18, align 8
@@ -1401,7 +1401,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1484,7 +1484,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -1533,7 +1533,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %cmp.i = icmp eq i32 %call.i1, %subimage
+  %cmp.i = icmp eq i32 %subimage, %call.i1
   br i1 %cmp.i, label %land.rhs.i, label %cleanup
 
 land.rhs.i:                                       ; preds = %call.i.noexc
@@ -1544,7 +1544,7 @@ land.rhs.i:                                       ; preds = %call.i.noexc
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %land.rhs.i
-  %cmp5.i = icmp eq i32 %call4.i2, %miplevel
+  %cmp5.i = icmp eq i32 %miplevel, %call4.i2
   %tobool.not = icmp eq i32 %z, 0
   %or.cond = and i1 %tobool.not, %cmp5.i
   br i1 %or.cond, label %if.end3, label %cleanup
@@ -1592,7 +1592,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %cmp = icmp eq i32 %call, %subimage
+  %cmp = icmp eq i32 %subimage, %call
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
@@ -1600,7 +1600,7 @@ land.rhs:                                         ; preds = %entry
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 112
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %cmp5 = icmp eq i32 %call4, %miplevel
+  %cmp5 = icmp eq i32 %miplevel, %call4
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -2184,7 +2184,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #20
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %10
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %10, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -2290,7 +2290,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #20
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i

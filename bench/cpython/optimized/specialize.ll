@@ -2203,7 +2203,7 @@ if.end4.i:                                        ; preds = %sw.bb.i
   %6 = load ptr, ptr %interp.i.i, align 8
   %len.i = getelementptr inbounds i8, ptr %6, i64 414896
   %7 = load ptr, ptr %len.i, align 8
-  %cmp6.i = icmp eq ptr %7, %callable
+  %cmp6.i = icmp eq ptr %callable, %7
   %..i = select i1 %cmp6.i, i8 -87, i8 -89
   br label %return.sink.split.i
 
@@ -2218,7 +2218,7 @@ if.then12.i:                                      ; preds = %sw.bb10.i
   %10 = load ptr, ptr %interp.i10.i, align 8
   %callable_cache15.i = getelementptr inbounds i8, ptr %10, i64 414888
   %11 = load ptr, ptr %callable_cache15.i, align 8
-  %cmp16.i = icmp eq ptr %11, %callable
+  %cmp16.i = icmp eq ptr %callable, %11
   br i1 %cmp16.i, label %return.sink.split.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then12.i, %sw.bb10.i
@@ -2279,9 +2279,9 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
   %cond.i = phi i32 [ %conv.i32, %cond.false.i ], [ 0, %if.end3.i ]
   %sub.i = sub i32 %20, %cond.i
   %cmp7.i = icmp slt i32 %sub.i, 0
-  %cmp9.i = icmp slt i32 %20, %nargs
+  %cmp9.i = icmp sgt i32 %nargs, %20
   %or.cond.i = or i1 %cmp9.i, %cmp7.i
-  %cmp12.i = icmp sgt i32 %sub.i, %nargs
+  %cmp12.i = icmp slt i32 %nargs, %sub.i
   %or.cond15.i = or i1 %cmp12.i, %or.cond.i
   br i1 %or.cond15.i, label %if.then32, label %if.end15.i
 
@@ -2439,7 +2439,7 @@ if.end4.i53:                                      ; preds = %sw.bb1.i
   %44 = load ptr, ptr %list_append5.i, align 8
   %arg.i55 = getelementptr inbounds i8, ptr %instr, i64 1
   %45 = load i8, ptr %arg.i55, align 1
-  %cmp10.i = icmp eq ptr %44, %callable
+  %cmp10.i = icmp eq ptr %callable, %44
   %cmp12.i56 = icmp eq i8 %45, 1
   %or.cond.i57 = select i1 %cmp10.i, i1 %cmp12.i56, i1 false
   br i1 %or.cond.i57, label %land.lhs.true14.i, label %if.end18.i
@@ -2547,9 +2547,9 @@ cond.end:                                         ; preds = %if.end3, %cond.fals
   %cond = phi i32 [ %conv, %cond.false ], [ 0, %if.end3 ]
   %sub = sub i32 %8, %cond
   %cmp7 = icmp slt i32 %sub, 0
-  %cmp9 = icmp slt i32 %8, %nargs
+  %cmp9 = icmp sgt i32 %nargs, %8
   %or.cond = or i1 %cmp9, %cmp7
-  %cmp12 = icmp sgt i32 %sub, %nargs
+  %cmp12 = icmp slt i32 %nargs, %sub
   %or.cond15 = or i1 %cmp12, %or.cond
   br i1 %or.cond15, label %return, label %if.end15
 

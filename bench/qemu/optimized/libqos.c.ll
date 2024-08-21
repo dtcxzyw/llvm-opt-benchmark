@@ -539,7 +539,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %p.1 = phi i8 [ %conv12, %if.then ], [ %inc, %for.body ]
   %inc13 = add i32 %i.016, 1
   %conv1 = sext i32 %inc13 to i64
-  %cmp = icmp ult i64 %conv1, %len
+  %cmp = icmp ugt i64 %len, %conv1
   br i1 %cmp, label %for.body, label %for.cond14.preheader, !llvm.loop !5
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.inc29

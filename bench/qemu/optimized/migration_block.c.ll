@@ -1805,7 +1805,7 @@ for.body.i:                                       ; preds = %if.end46.i, %for.bo
   %4 = inttoptr i64 %3 to ptr
   tail call void %4(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 112) #13
   %5 = load i64, ptr %total_sectors1.i, align 8
-  %cmp.i.i = icmp sgt i64 %5, %sector.062.i
+  %cmp.i.i = icmp slt i64 %sector.062.i, %5
   br i1 %cmp.i.i, label %bmds_aio_inflight.exit.i, label %if.else.i
 
 bmds_aio_inflight.exit.i:                         ; preds = %for.body.i

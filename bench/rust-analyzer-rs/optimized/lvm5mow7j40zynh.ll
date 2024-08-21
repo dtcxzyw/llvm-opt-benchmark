@@ -32479,8 +32479,8 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$hir_expand..attrs..RawAttrs$u20$as$
   %9 = load i64, ptr %8, align 8, !noalias !4766, !noundef !118
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !4766, !noundef !118
-  %12 = icmp eq ptr %5, %3
-  %13 = icmp eq i64 %11, %9
+  %12 = icmp eq ptr %3, %5
+  %13 = icmp eq i64 %9, %11
   %14 = and i1 %12, %13
   %.not.i = xor i1 %13, true
   %brmerge.i = or i1 %12, %.not.i
@@ -32732,7 +32732,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN80_$LT$smallv
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !4835, !noalias !4838
   %.sink4.i = select i1 %5, i64 %7, i64 %4
-  %8 = icmp ugt i64 %.sink4.i, %1
+  %8 = icmp ult i64 %1, %.sink4.i
   br i1 %8, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7fbe1744771b025bE.llvm.8225647753450622592.exit", label %9, !prof !4829
 
 9:                                                ; preds = %3
@@ -32845,8 +32845,8 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$triomphe..thin_arc..ThinArc$LT$H$C$
   %6 = load ptr, ptr %1, align 8, !nonnull !118, !noundef !118
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !118
-  %9 = icmp eq ptr %6, %3
-  %10 = icmp eq i64 %8, %5
+  %9 = icmp eq ptr %3, %6
+  %10 = icmp eq i64 %5, %8
   %11 = and i1 %9, %10
   %.not = xor i1 %10, true
   %brmerge = or i1 %9, %.not
@@ -33021,7 +33021,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN83_$LT$smallve
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load i64, ptr %7, align 8
   %8 = select i1 %6, i64 %.val, i64 %5
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h29ed98610c6f5ee4E.llvm.8225647753450622592.exit", label %10, !prof !4829
 
 10:                                               ; preds = %3
@@ -37704,7 +37704,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h88
   %.sink2.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink2.idx.i.i
   %.sink.i.i = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
   %22 = load i64, ptr %.sink2.i.i, align 8, !alias.scope !5108, !noundef !118
-  %.not.i = icmp ugt i64 %22, %19
+  %.not.i = icmp ult i64 %19, %22
   br i1 %.not.i, label %23, label %24
 
 23:                                               ; preds = %20
@@ -37833,7 +37833,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unche
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5116)
   %21 = icmp ult i64 %4, 2
   %.sink.i.i = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
-  %.not.i = icmp ugt i64 %.sink4.i, %19
+  %.not.i = icmp ult i64 %19, %.sink4.i
   br i1 %.not.i, label %22, label %23
 
 22:                                               ; preds = %20
@@ -38186,7 +38186,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h0cca6b0d
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -38290,7 +38290,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h30110eb1
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -38394,7 +38394,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h33538e9d
   %.sink2.i = getelementptr inbounds i8, ptr %0, i64 %.sink2.idx.i
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
   %9 = load i64, ptr %.sink2.i, align 8, !noundef !118
-  %.not = icmp ugt i64 %9, %1
+  %.not = icmp ult i64 %1, %9
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %2
@@ -38502,7 +38502,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h3e84d52d
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -38606,7 +38606,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h6f054bd1
   %.sink2.i = getelementptr inbounds i8, ptr %0, i64 %.sink2.idx.i
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
   %9 = load i64, ptr %.sink2.i, align 8, !noundef !118
-  %.not = icmp ugt i64 %9, %1
+  %.not = icmp ult i64 %1, %9
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %2
@@ -38714,7 +38714,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h7ce20e50
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -38818,7 +38818,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %5, i64 2)
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %7, i64 %.val, i64 %5
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %2
@@ -39830,8 +39830,8 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$salsa..derived..AlwaysMemoizeValue$
   %9 = load i64, ptr %8, align 8, !noalias !5488, !noundef !118
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !5488, !noundef !118
-  %12 = icmp eq ptr %5, %3
-  %13 = icmp eq i64 %11, %9
+  %12 = icmp eq ptr %3, %5
+  %13 = icmp eq i64 %9, %11
   %14 = and i1 %12, %13
   %.not.i.i.i = xor i1 %13, true
   %brmerge.i.i.i = or i1 %12, %.not.i.i.i
@@ -41730,7 +41730,7 @@ define hidden void @_ZN7hir_def4body5scope10ExprScopes13shrink_to_fit17h059d3ae6
   %34 = add i64 %33, 1
   %spec.select.i.i = select i1 %switch.i.i, i64 0, i64 %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !6045
-  %35 = icmp ult i64 %28, %spec.select.i.i
+  %35 = icmp ugt i64 %spec.select.i.i, %28
   br i1 %35, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hfeabf69859bd25e7E.llvm.14212318151792154407.exit.i", label %36
 
 36:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h4a7e55d23de6bf4dE.exit"
@@ -47772,7 +47772,7 @@ define noundef i64 @_ZN7hir_def8resolver8Resolver21update_to_inner_scope17h62f47
   %77 = load i32, ptr %76, align 8, !range !5936, !noalias !7677, !noundef !118
   %78 = getelementptr inbounds i8, ptr %76, i64 4
   %79 = load i32, ptr %78, align 4, !noalias !7677
-  %.not.i49 = icmp eq i32 %37, %.sroa.6.0136
+  %.not.i49 = icmp eq i32 %.sroa.6.0136, %37
   %.pre.pre185 = load ptr, ptr %12, align 8
   br i1 %.not.i49, label %._crit_edge, label %86
 
@@ -48181,7 +48181,7 @@ define void @_ZN7hir_def8resolver8Resolver14reset_to_guard17hcd3982a672ac31d9E(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7768)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !7768, !noundef !118
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8645c1ce297161c7E.exit", label %6
 
 6:                                                ; preds = %2
@@ -48422,7 +48422,7 @@ define internal fastcc void @_ZN7hir_def8resolver19resolver_for_scope_17h1dc7e61
   %28 = load i64, ptr %27, align 8, !alias.scope !7790, !noundef !118
   %29 = load i64, ptr %6, align 8, !alias.scope !7790, !noundef !118
   %30 = sub i64 %29, %28
-  %31 = icmp ult i64 %30, %26
+  %31 = icmp ugt i64 %26, %30
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h685d1edc08502183E.exit"
@@ -51461,7 +51461,7 @@ define void @"_ZN75_$LT$hir_def..EnumId$u20$as$u20$hir_def..child_by_source..Chi
   call void %19(ptr noalias nocapture noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %16, ptr noundef nonnull align 1 %1, i32 noundef %17), !noalias !8866
   %20 = getelementptr inbounds i8, ptr %16, i64 12
   %21 = load i32, ptr %20, align 4, !noundef !118
-  %.not = icmp eq i32 %21, %4
+  %.not = icmp eq i32 %4, %21
   br i1 %.not, label %22, label %146
 
 22:                                               ; preds = %5
@@ -59033,8 +59033,8 @@ define hidden noundef zeroext i1 @"_ZN61_$LT$hir_def..attr..Attrs$u20$as$u20$cor
   %9 = load i64, ptr %8, align 8, !noalias !11887, !noundef !118
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !11887, !noundef !118
-  %12 = icmp eq ptr %5, %3
-  %13 = icmp eq i64 %11, %9
+  %12 = icmp eq ptr %3, %5
+  %13 = icmp eq i64 %9, %11
   %14 = and i1 %12, %13
   %.not.i.i = xor i1 %13, true
   %brmerge.i.i = or i1 %12, %.not.i.i

@@ -4823,8 +4823,8 @@ _ZL13inprod_matrixPKciiPiPPA3_fiPKiS4_biS6_.exit: ; preds = %1763
   %.084.lcssa.i = phi double [ %.086.lcssa224.i, %.preheader132.i ], [ %1818, %.lr.ph147.i ]
   %1819 = load ptr, ptr @stdout, align 8
   %1820 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1819, ptr noundef nonnull @.str.240, double noundef %.087.lcssa.i, double noundef %.086.lcssa224.i) #19
-  %.not96.i = icmp eq i32 %.sroa.speculated.i, %.0196
-  %.not97.i = icmp eq i32 %.sroa.speculated.i, %.1195
+  %.not96.i = icmp eq i32 %.0196, %.sroa.speculated.i
+  %.not97.i = icmp eq i32 %.1195, %.sroa.speculated.i
   %or.cond.i434 = and i1 %.not96.i, %.not97.i
   br i1 %or.cond.i434, label %1832, label %1821
 
@@ -5495,7 +5495,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %19, %22
   %71 = load float, ptr %gep, align 4
   %72 = load float, ptr %8, align 4
   %73 = fsub float %71, %72
-  %74 = fmul float %73, %11
+  %74 = fmul float %11, %73
   %75 = fcmp ugt float %74, 0.000000e+00
   br i1 %75, label %76, label %_ZL12tick_spacingfi.exit
 
@@ -5582,11 +5582,11 @@ _ZL12tick_spacingfi.exit185:                      ; preds = %.lr.ph.i183, %_ZL12
 
 123:                                              ; preds = %122
   %124 = load float, ptr %8, align 4
-  %125 = fmul float %124, %11
+  %125 = fmul float %11, %124
   %126 = fpext float %125 to double
   %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.160, double noundef %126) #19
   %128 = load float, ptr %gep, align 4
-  %129 = fmul float %128, %11
+  %129 = fmul float %11, %128
   %130 = fpext float %129 to double
   %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.161, double noundef %130) #19
   %132 = fpext float %.6 to double
@@ -5669,7 +5669,7 @@ _ZL12tick_spacingfi.exit185:                      ; preds = %.lr.ph.i183, %_ZL12
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %.lr.ph206.split.us.split.us ], [ 0, %.lr.ph206.split.us ]
   %186 = getelementptr inbounds float, ptr %8, i64 %indvars.iv235
   %187 = load float, ptr %186, align 4
-  %188 = fmul float %187, %11
+  %188 = fmul float %11, %187
   %189 = fpext float %188 to double
   %190 = load ptr, ptr %185, align 8
   %191 = getelementptr inbounds ptr, ptr %190, i64 %indvars.iv245
@@ -5686,7 +5686,7 @@ _ZL12tick_spacingfi.exit185:                      ; preds = %.lr.ph.i183, %_ZL12
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %.lr.ph206.split.us.split ], [ 0, %.lr.ph206.split.us ]
   %195 = getelementptr inbounds float, ptr %8, i64 %indvars.iv230
   %196 = load float, ptr %195, align 4
-  %197 = fmul float %196, %11
+  %197 = fmul float %11, %196
   %198 = fpext float %197 to double
   %.pn.us = load ptr, ptr %184, align 8
   %.in.us = getelementptr inbounds float, ptr %.pn.us, i64 %indvars.iv230
@@ -5719,7 +5719,7 @@ _ZL12tick_spacingfi.exit185:                      ; preds = %.lr.ph.i183, %_ZL12
 212:                                              ; preds = %208, %202, %.lr.ph206.split
   %213 = getelementptr inbounds float, ptr %8, i64 %indvars.iv240
   %214 = load float, ptr %213, align 4
-  %215 = fmul float %214, %11
+  %215 = fmul float %11, %214
   %216 = fpext float %215 to double
   br i1 %.not, label %217, label %220
 

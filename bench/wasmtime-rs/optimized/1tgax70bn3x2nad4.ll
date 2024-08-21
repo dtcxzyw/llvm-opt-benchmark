@@ -184,7 +184,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %38 = load i64, ptr %10, align 8, !alias.scope !31, !noalias !38, !noundef !11
   %39 = load i64, ptr %.val19, align 8, !alias.scope !43, !noalias !38, !noundef !11
   %40 = sub i64 %39, %38
-  %41 = icmp ult i64 %40, %16
+  %41 = icmp ugt i64 %16, %40
   br i1 %41, label %42, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17ha9130044b5659256E.exit"
 
 42:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8538abc37489a419E.exit21"

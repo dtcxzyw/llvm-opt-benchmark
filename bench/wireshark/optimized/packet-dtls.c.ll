@@ -3117,7 +3117,7 @@ define internal fastcc void @dissect_dtls_alert(ptr noundef %0, ptr nocapture no
 define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i8 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = add i32 %4, %3
-  %13 = icmp ugt i32 %12, %3
+  %13 = icmp ult i32 %3, %12
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10

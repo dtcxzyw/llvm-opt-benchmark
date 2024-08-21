@@ -1204,7 +1204,7 @@ invoke.cont7.i:                                   ; preds = %.noexc435
 
 if.then.i424:                                     ; preds = %invoke.cont7.i
   %cmp.not.i.i.i425 = icmp ne ptr %35, null
-  %cmp2.i.i.i = icmp eq ptr %0, %36
+  %cmp2.i.i.i = icmp eq ptr %36, %0
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i425, %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -1406,7 +1406,7 @@ invoke.cont7.i441:                                ; preds = %.noexc462
 
 if.then.i443:                                     ; preds = %invoke.cont7.i441
   %cmp.not.i.i.i444 = icmp ne ptr %57, null
-  %cmp2.i.i.i446 = icmp eq ptr %1, %58
+  %cmp2.i.i.i446 = icmp eq ptr %58, %1
   %or.cond.i.i.i447 = or i1 %cmp.not.i.i.i444, %cmp2.i.i.i446
   br i1 %or.cond.i.i.i447, label %cleanup.thread.i455, label %lor.rhs.i.i.i448
 
@@ -1769,7 +1769,7 @@ invoke.cont7.i470:                                ; preds = %.noexc491
 
 if.then.i472:                                     ; preds = %invoke.cont7.i470
   %cmp.not.i.i.i473 = icmp ne ptr %95, null
-  %cmp2.i.i.i475 = icmp eq ptr %1, %96
+  %cmp2.i.i.i475 = icmp eq ptr %96, %1
   %or.cond.i.i.i476 = or i1 %cmp.not.i.i.i473, %cmp2.i.i.i475
   br i1 %or.cond.i.i.i476, label %cleanup.thread.i484, label %lor.rhs.i.i.i477
 
@@ -2001,7 +2001,7 @@ invoke.cont7.i499:                                ; preds = %.noexc520
 
 if.then.i501:                                     ; preds = %invoke.cont7.i499
   %cmp.not.i.i.i502 = icmp ne ptr %119, null
-  %cmp2.i.i.i504 = icmp eq ptr %1, %120
+  %cmp2.i.i.i504 = icmp eq ptr %120, %1
   %or.cond.i.i.i505 = or i1 %cmp.not.i.i.i502, %cmp2.i.i.i504
   br i1 %or.cond.i.i.i505, label %cleanup.thread.i513, label %lor.rhs.i.i.i506
 
@@ -2151,7 +2151,7 @@ if.then.i524:                                     ; preds = %for.body146
   %add.ptr.i387.le = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %138, i64 %k.0680
   %add.ptr.i391 = getelementptr inbounds i8, ptr %add.ptr.i387.le, i64 8
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %add.ptr.i391 to i64
-  %cmp.i1.not.i = icmp eq ptr %137, %add.ptr.i391
+  %cmp.i1.not.i = icmp eq ptr %add.ptr.i391, %137
   br i1 %cmp.i1.not.i, label %if.end.i525, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i524
@@ -3741,7 +3741,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %1
+  %cmp2.i.i = icmp eq ptr %1, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -3785,7 +3785,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIS3_SaIS
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIS3_SaIS3_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4123,7 +4123,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4480,7 +4480,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i1.not = icmp eq ptr %0, %__last.coerce
+  %cmp.i1.not = icmp eq ptr %__last.coerce, %0
   br i1 %cmp.i1.not, label %if.then.if.end_crit_edge, label %if.then6
 
 if.then.if.end_crit_edge:                         ; preds = %if.then

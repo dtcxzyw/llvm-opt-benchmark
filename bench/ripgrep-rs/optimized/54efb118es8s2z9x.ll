@@ -401,7 +401,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
 
 46:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i50", %39
   %47 = getelementptr inbounds i8, ptr %1, i64 %.1.i.i
-  %48 = icmp eq i64 %.1.i.i, %2
+  %48 = icmp eq i64 %2, %.1.i.i
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46

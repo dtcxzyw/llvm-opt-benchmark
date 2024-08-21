@@ -59,7 +59,7 @@ define linkonce_odr hidden void @_ZN17XSafeDeleteNoLockIA_18XNMethodTableEntryED
   br i1 %.not.i.i.i.i, label %8, label %.loopexit.thread.i.i.i.i
 
 .loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %7) #13
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %7) #14
   br label %8
 
 8:                                                ; preds = %.loopexit.thread.i.i.i.i, %.loopexit.i.i.i.i
@@ -141,7 +141,7 @@ define hidden noundef zeroext i1 @_ZN13XNMethodTable14register_entryEP18XNMethod
 28:                                               ; preds = %22
   %29 = and i64 %24, -4
   %30 = inttoptr i64 %29 to ptr
-  %31 = icmp eq ptr %30, %2
+  %31 = icmp eq ptr %2, %30
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26, %28
@@ -182,7 +182,7 @@ define hidden void @_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP
   %24 = icmp ne i64 %23, 0
   %25 = and i64 %22, -4
   %26 = inttoptr i64 %25 to ptr
-  %27 = icmp eq ptr %26, %2
+  %27 = icmp eq ptr %2, %26
   %or.cond12 = and i1 %24, %27
   br i1 %or.cond12, label %._crit_edge, label %.lr.ph
 
@@ -206,7 +206,7 @@ define hidden void @_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP
   %36 = icmp ne i64 %35, 0
   %37 = and i64 %34, -4
   %38 = inttoptr i64 %37 to ptr
-  %39 = icmp eq ptr %38, %2
+  %39 = icmp eq ptr %2, %38
   %or.cond = and i1 %36, %39
   br i1 %or.cond, label %._crit_edge, label %30, !llvm.loop !8
 }
@@ -244,7 +244,7 @@ define hidden void @_ZN13XNMethodTable7rebuildEm(i64 noundef %0) local_unnamed_a
   %22 = icmp ugt i64 %0, 2305843009213693951
   %23 = shl i64 %0, 3
   %24 = select i1 %22, i64 -1, i64 %23
-  %25 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %24, i8 noundef zeroext 5, i32 noundef 0) #13
+  %25 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %24, i8 noundef zeroext 5, i32 noundef 0) #14
   %26 = icmp eq i64 %0, 0
   br i1 %26, label %.loopexit, label %.loopexit.loopexit
 
@@ -309,7 +309,7 @@ define hidden void @_ZN13XNMethodTable7rebuildEm(i64 noundef %0) local_unnamed_a
 60:                                               ; preds = %54
   %61 = and i64 %56, -4
   %62 = inttoptr i64 %61 to ptr
-  %63 = icmp eq ptr %62, %38
+  %63 = icmp eq ptr %38, %62
   br i1 %63, label %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit, label %64
 
 64:                                               ; preds = %60, %58
@@ -341,7 +341,7 @@ _ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds
   br i1 %.not.i.i.i, label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i, label %76
 
 76:                                               ; preds = %._crit_edge
-  %77 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %75) #13
+  %77 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %75) #14
   br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
 
 _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %76, %._crit_edge
@@ -357,7 +357,7 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %76, %._crit_edge
   br i1 %.not.i.i.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i, label %82
 
 82:                                               ; preds = %81
-  %83 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %75) #13
+  %83 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %75) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i: ; preds = %82, %81
@@ -367,7 +367,7 @@ _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i: ; pre
   br i1 %or.cond.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit, label %85
 
 85:                                               ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %74) #13
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %74) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit: ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i, %85
@@ -381,7 +381,7 @@ _ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit: ; preds = %_ZN15XSafeD
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #1 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #13
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #14
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -524,7 +524,7 @@ _ZN13XNMethodTable17rebuild_if_neededEv.exit:     ; preds = %17, %.sink.split.i
 50:                                               ; preds = %44
   %51 = and i64 %46, -4
   %52 = inttoptr i64 %51 to ptr
-  %53 = icmp eq ptr %52, %0
+  %53 = icmp eq ptr %0, %52
   br i1 %53, label %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit, label %54
 
 54:                                               ; preds = %50, %48
@@ -555,13 +555,13 @@ _ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13XNMethodTable25wait_until_iteration_doneEv() local_unnamed_addr #1 align 2 {
-  %1 = tail call noundef zeroext i1 @_ZNK22XNMethodTableIteration11in_progressEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #13
+  %1 = tail call noundef zeroext i1 @_ZNK22XNMethodTableIteration11in_progressEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #14
   br i1 %1, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %2 = load ptr, ptr @CodeCache_lock, align 8
-  %3 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #13
-  %4 = tail call noundef zeroext i1 @_ZNK22XNMethodTableIteration11in_progressEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #13
+  %3 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #14
+  %4 = tail call noundef zeroext i1 @_ZNK22XNMethodTableIteration11in_progressEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #14
   br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
@@ -599,7 +599,7 @@ define hidden void @_ZN13XNMethodTable18unregister_nmethodEP7nmethod(ptr noundef
   %24 = icmp ne i64 %23, 0
   %25 = and i64 %22, -4
   %26 = inttoptr i64 %25 to ptr
-  %27 = icmp eq ptr %26, %0
+  %27 = icmp eq ptr %0, %26
   %or.cond12.i = and i1 %24, %27
   br i1 %or.cond12.i, label %_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP7nmethod.exit, label %.lr.ph.i
 
@@ -617,7 +617,7 @@ define hidden void @_ZN13XNMethodTable18unregister_nmethodEP7nmethod(ptr noundef
   %35 = icmp ne i64 %34, 0
   %36 = and i64 %33, -4
   %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %0
+  %38 = icmp eq ptr %0, %37
   %or.cond.i = and i1 %35, %38
   br i1 %or.cond.i, label %_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP7nmethod.exit, label %29, !llvm.loop !8
 
@@ -641,7 +641,7 @@ define hidden void @_ZN13XNMethodTable17nmethods_do_beginEv() local_unnamed_addr
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %2
 
 2:                                                ; preds = %0
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #13
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #14
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %2
@@ -656,21 +656,21 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.thread.i:         ; preds = %_ZN11MutexLockerC2E
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit
 
 6:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #14
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %9 = add i64 %8, 1
   store i64 %9, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit: ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.thread.i, %6
   %11 = load ptr, ptr @_ZN13XNMethodTable6_tableE, align 8
   %12 = load i64, ptr @_ZN13XNMethodTable5_sizeE, align 8
-  tail call void @_ZN22XNMethodTableIteration17nmethods_do_beginEP18XNMethodTableEntrym(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE, ptr noundef %11, i64 noundef %12) #13
+  tail call void @_ZN22XNMethodTableIteration17nmethods_do_beginEP18XNMethodTableEntrym(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE, ptr noundef %11, i64 noundef %12) #14
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %13
 
 13:                                               ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #13
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #14
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit, %13
@@ -686,17 +686,17 @@ define hidden void @_ZN13XNMethodTable15nmethods_do_endEv() local_unnamed_addr #
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %2
 
 2:                                                ; preds = %0
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #13
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #14
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %2
-  tail call void @_ZN22XNMethodTableIteration15nmethods_do_endEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #13
+  tail call void @_ZN22XNMethodTableIteration15nmethods_do_endEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #14
   %3 = load ptr, ptr @_ZN13XNMethodTable12_safe_deleteE, align 8
   %.not.i.i1 = icmp eq ptr %3, null
   br i1 %.not.i.i1, label %_ZN7XLockerI5XLockEC2EPS0_.exit.i, label %4
 
 4:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #14
   br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i
 
 _ZN7XLockerI5XLockEC2EPS0_.exit.i:                ; preds = %4, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
@@ -723,7 +723,7 @@ _ZN7XLockerI5XLockEC2EPS0_.exit.i:                ; preds = %4, %_ZN11MutexLocke
   br i1 %.not.i.i1, label %_ZN7XLockerI5XLockED2Ev.exit.i, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #13
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #14
   br label %_ZN7XLockerI5XLockED2Ev.exit.i
 
 _ZN7XLockerI5XLockED2Ev.exit.i:                   ; preds = %15, %14
@@ -741,7 +741,7 @@ _ZN7XLockerI5XLockED2Ev.exit.i:                   ; preds = %15, %14
   br i1 %22, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i, label %23
 
 23:                                               ; preds = %.lr.ph.i
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %20) #13
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %20) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i: ; preds = %23, %.lr.ph.i
@@ -754,16 +754,16 @@ _ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i: ; preds = %
   br i1 %or.cond.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit, label %.loopexit.thread.i.i.i.i
 
 .loopexit.thread.i.i.i.i:                         ; preds = %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.9.0.i) #13
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.9.0.i) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit: ; preds = %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i, %.loopexit.thread.i.i.i.i
   %24 = load ptr, ptr @CodeCache_lock, align 8
-  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #13
+  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #14
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %25
 
 25:                                               ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #13
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #14
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit, %25
@@ -776,7 +776,7 @@ declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13XNMethodTable11nmethods_doEP14NMethodClosure(ptr noundef %0) local_unnamed_addr #1 align 2 {
-  tail call void @_ZN22XNMethodTableIteration11nmethods_doEP14NMethodClosure(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE, ptr noundef %0) #13
+  tail call void @_ZN22XNMethodTableIteration11nmethods_doEP14NMethodClosure(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE, ptr noundef %0) #14
   ret void
 }
 
@@ -790,7 +790,7 @@ define internal void @__cxx_global_var_init.6() #7 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 94, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 94, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -799,7 +799,7 @@ define internal void @__cxx_global_var_init.6() #7 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #13
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #14
   ret i64 %3
 }
 
@@ -836,91 +836,90 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMet
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %40
+  br label %38
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %3, 1
   %9 = icmp sgt i32 %3, -1
-  %10 = xor i32 %3, -2147483648
-  %11 = and i32 %10, %8
-  %12 = icmp eq i32 %11, 0
-  %13 = and i1 %9, %12
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
-  %15 = sub nuw nsw i32 32, %14
-  %16 = shl nuw i32 1, %15
-  %.0.i.i.i = select i1 %13, i32 %8, i32 %16
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %11 = icmp ult i32 %10, 2
+  %or.cond.i.i.i = select i1 %9, i1 %11, i1 false
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
+  %13 = sub nuw nsw i32 32, %12
+  %14 = shl nuw i32 1, %13
+  %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %8, i32 %14
   store i32 %.0.i.i.i, ptr %4, align 4
-  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #13
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph.i.i, label %.preheader15.i.i
+  %15 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #14
+  %16 = load i32, ptr %0, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %25
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %23
 
-.preheader15.loopexit.i.i:                        ; preds = %25
-  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+.preheader15.loopexit.i.i:                        ; preds = %23
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader15.i.i
 
 .preheader15.i.i:                                 ; preds = %.preheader15.loopexit.i.i, %7
-  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %21, %.preheader15.loopexit.i.i ]
-  %22 = load i32, ptr %4, align 4
-  %23 = icmp slt i32 %.0.lcssa.i.i, %22
-  br i1 %23, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %7 ], [ %19, %.preheader15.loopexit.i.i ]
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp slt i32 %.0.lcssa.i.i, %20
+  br i1 %21, label %.lr.ph18.preheader.i.i, label %.preheader.i.i
 
 .lr.ph18.preheader.i.i:                           ; preds = %.preheader15.i.i
-  %24 = zext nneg i32 %.0.lcssa.i.i to i64
+  %22 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph18.i.i
 
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i.i
-  %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i.i
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %26, align 8
+23:                                               ; preds = %23, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
+  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = load i32, ptr %0, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next.i.i, %31
-  br i1 %32, label %25, label %.preheader15.loopexit.i.i, !llvm.loop !12
+  %28 = load i32, ptr %0, align 8
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next.i.i, %29
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit, label %39
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
-  %indvars.iv20.i.i = phi i64 [ %24, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %35 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv20.i.i
-  store ptr null, ptr %35, align 8
+  %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
+  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %36 = load i32, ptr %4, align 4
-  %37 = trunc nuw i64 %indvars.iv.next21.i.i to i32
-  %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
+  %34 = load i32, ptr %4, align 4
+  %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
+  %36 = icmp sgt i32 %34, %35
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
-39:                                               ; preds = %.preheader.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #13
+37:                                               ; preds = %.preheader.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #14
   br label %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit
 
-_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %39
-  store ptr %17, ptr %33, align 8
+_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit: ; preds = %.preheader.i.i, %37
+  store ptr %15, ptr %31, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %40
+  br label %38
 
-40:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit
-  %41 = phi ptr [ %17, %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
-  %42 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %3, %._crit_edge ]
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %0, align 8
-  %44 = load ptr, ptr %1, align 8
-  %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds ptr, ptr %41, i64 %45
-  store ptr %44, ptr %46, align 8
-  ret i32 %42
+38:                                               ; preds = %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit
+  %39 = phi ptr [ %15, %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %.pre3, %._crit_edge ]
+  %40 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit ], [ %3, %._crit_edge ]
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %0, align 8
+  %42 = load ptr, ptr %1, align 8
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  store ptr %42, ptr %44, align 8
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind
@@ -936,20 +935,23 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_xNMethodTable.cpp() #7 section ".text.startup" {
-  tail call void @_ZN22XNMethodTableIterationC1Ev(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #13
+  tail call void @_ZN22XNMethodTableIterationC1Ev(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN13XNMethodTable12_safe_deleteE, i8 0, i64 32, i1 false)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17XSafeDeleteNoLockIA_18XNMethodTableEntryED2Ev, ptr nonnull @_ZN13XNMethodTable12_safe_deleteE, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17XSafeDeleteNoLockIA_18XNMethodTableEntryED2Ev, ptr nonnull @_ZN13XNMethodTable12_safe_deleteE, ptr nonnull @__dso_handle) #14
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -962,9 +964,10 @@ attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

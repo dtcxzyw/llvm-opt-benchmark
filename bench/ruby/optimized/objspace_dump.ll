@@ -1000,7 +1000,7 @@ buffer_append.exit35.i:                           ; preds = %dump_flush.exit.i.i
 223:                                              ; preds = %217, %212
   %224 = getelementptr inbounds i8, ptr %1, i64 16
   %225 = load i64, ptr %224, align 8
-  %226 = icmp eq i64 %225, %0
+  %226 = icmp eq i64 %0, %225
   br i1 %226, label %dump_append_special_const.exit, label %227
 
 227:                                              ; preds = %223
@@ -4709,7 +4709,7 @@ define internal void @root_obj_i(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  %.not21 = icmp eq ptr %5, %0
+  %.not21 = icmp eq ptr %0, %5
   %or.cond = or i1 %.not, %.not21
   br i1 %or.cond, label %36, label %6
 
@@ -4776,7 +4776,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
 36:                                               ; preds = %buffer_append.exit, %3
   %37 = phi ptr [ %.pre, %buffer_append.exit ], [ %5, %3 ]
   %38 = icmp ne ptr %37, null
-  %.not22 = icmp eq ptr %37, %0
+  %.not22 = icmp eq ptr %0, %37
   %or.cond23 = and i1 %38, %.not22
   %39 = getelementptr inbounds i8, ptr %2, i64 88
   %40 = load i64, ptr %39, align 8

@@ -56,7 +56,7 @@ define i32 @Bdc_SpfdAdjCost(i64 noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, -1
-  %6 = and i64 %5, %0
+  %6 = and i64 %0, %5
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = shl nuw nsw i32 1, %7
   %9 = zext nneg i32 %8 to i64
@@ -299,7 +299,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
   %70 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8
-  %72 = icmp eq i64 %71, %0
+  %72 = icmp eq i64 %0, %71
   %73 = xor i64 %71, %0
   %74 = icmp eq i64 %73, -1
   %or.cond475 = or i1 %72, %74
@@ -647,7 +647,7 @@ Vec_IntPush.exit503:                              ; preds = %.Vec_IntGrow.exit10
   %235 = and i64 %231, 4503599627370495
   %236 = or disjoint i64 %234, %235
   store i64 %236, ptr %227, align 8
-  %237 = icmp eq i64 %229, %0
+  %237 = icmp eq i64 %0, %229
   %238 = xor i64 %229, %0
   %239 = icmp eq i64 %238, -1
   %or.cond477 = or i1 %237, %239
@@ -1083,7 +1083,7 @@ Vec_IntPush.exit514:                              ; preds = %.Vec_IntGrow.exit10
   %479 = getelementptr inbounds i32, ptr %476, i64 %478
   store i32 %452, ptr %479, align 4
   %480 = load i64, ptr %429, align 8
-  %481 = icmp eq i64 %480, %0
+  %481 = icmp eq i64 %0, %480
   %482 = xor i64 %480, %0
   %483 = icmp eq i64 %482, -1
   %or.cond479 = or i1 %481, %483
@@ -1430,7 +1430,7 @@ define internal fastcc i32 @Bdc_CountSpfd(i64 noundef %0, i64 noundef %1) unname
   %26 = lshr i64 %25, 32
   %27 = add nuw nsw i64 %26, %25
   %28 = trunc i64 %27 to i32
-  %29 = and i64 %4, %0
+  %29 = and i64 %0, %4
   %30 = and i64 %29, 6148914691236517205
   %31 = lshr i64 %29, 1
   %32 = and i64 %31, 6148914691236517205
@@ -1454,7 +1454,7 @@ define internal fastcc i32 @Bdc_CountSpfd(i64 noundef %0, i64 noundef %1) unname
   %50 = lshr i64 %49, 32
   %51 = add nuw nsw i64 %50, %49
   %52 = trunc i64 %51 to i32
-  %53 = and i64 %3, %1
+  %53 = and i64 %1, %3
   %54 = and i64 %53, 6148914691236517205
   %55 = lshr i64 %53, 1
   %56 = and i64 %55, 6148914691236517205
@@ -2833,9 +2833,9 @@ Bdc_SpfdComputeCost.exit69:                       ; preds = %53, %78
   %.256 = phi i32 [ %.0.i68, %86 ], [ %.155, %Bdc_SpfdComputeCost.exit69 ], [ %.155, %._crit_edge80 ]
   %.2 = phi i32 [ %87, %86 ], [ %.1, %Bdc_SpfdComputeCost.exit69 ], [ %.1, %._crit_edge80 ]
   %89 = xor i64 %13, -1
-  %90 = and i64 %89, %2
+  %90 = and i64 %2, %89
   %91 = icmp eq i64 %90, 0
-  %92 = and i64 %89, %3
+  %92 = and i64 %3, %89
   br i1 %91, label %93, label %._crit_edge
 
 93:                                               ; preds = %88

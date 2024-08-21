@@ -977,7 +977,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !140, !noalias !145, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !147, !noalias !145, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h916957df3495dcf1E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -1034,7 +1034,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !153, !noalias !158, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !160, !noalias !158, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h916957df3495dcf1E.exit"
 
 9:                                                ; preds = %3
@@ -1886,7 +1886,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   %150 = load ptr, ptr %26, align 8, !nonnull !9, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
-  %151 = icmp ult i64 %144, %146
+  %151 = icmp ugt i64 %146, %144
   br i1 %151, label %"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17hb007ce819496219bE.exit257", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i254"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i254": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd70bf697fcc29649E.exit253"
@@ -2093,7 +2093,7 @@ define hidden void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std.
   %221 = load ptr, ptr %31, align 8, !nonnull !9, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
-  %222 = icmp ult i64 %214, %216
+  %222 = icmp ugt i64 %216, %214
   br i1 %222, label %"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$10read_exact17hb007ce819496219bE.exit268", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i265"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit.i265": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd70bf697fcc29649E.exit264"

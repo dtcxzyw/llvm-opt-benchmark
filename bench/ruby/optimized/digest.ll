@@ -769,7 +769,7 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal i64 @rb_digest_base_alloc(i64 noundef %0) #0 {
   %2 = load i64, ptr @rb_cDigest_Base, align 8
-  %3 = icmp eq i64 %2, %0
+  %3 = icmp eq i64 %0, %2
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1

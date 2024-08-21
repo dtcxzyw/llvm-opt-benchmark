@@ -1058,7 +1058,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %3 = getelementptr i8, ptr %op, i64 16
   %op.val = load i64, ptr %3, align 8
-  %cmp3.not = icmp sgt i64 %op.val, %i
+  %cmp3.not = icmp slt i64 %i, %op.val
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
@@ -1126,7 +1126,7 @@ if.end:                                           ; preds = %lor.lhs.false
 lor.lhs.false4:                                   ; preds = %if.end
   %5 = getelementptr i8, ptr %op, i64 16
   %op.val = load i64, ptr %5, align 8
-  %cmp6.not = icmp sgt i64 %op.val, %i
+  %cmp6.not = icmp slt i64 %i, %op.val
   br i1 %cmp6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false4, %if.end
@@ -1662,7 +1662,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %i, i64 0)
   %3 = getelementptr i8, ptr %op, i64 16
   %a.val15.i = load i64, ptr %3, align 8
-  %spec.select17.i = tail call i64 @llvm.smin.i64(i64 %a.val15.i, i64 %j)
+  %spec.select17.i = tail call i64 @llvm.smin.i64(i64 %j, i64 %a.val15.i)
   %spec.select.i = tail call i64 @llvm.smax.i64(i64 %spec.select17.i, i64 %spec.store.select.i)
   %cmp8.i = icmp slt i64 %i, 1
   %cmp10.i = icmp eq i64 %spec.select.i, %a.val15.i
@@ -2433,7 +2433,7 @@ if.then21:                                        ; preds = %if.end18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %if.end18
-  %cmp2357 = icmp sgt i64 %.val45, %newsize
+  %cmp2357 = icmp slt i64 %newsize, %.val45
   br i1 %cmp2357, label %do.body.lr.ph, label %for.end
 
 do.body.lr.ph:                                    ; preds = %if.end22
@@ -2481,7 +2481,7 @@ if.then29:                                        ; preds = %for.end
 
 if.end30:                                         ; preds = %for.end
   tail call void @_Py_NewReferenceNoTotal(ptr noundef nonnull %call27) #8
-  %cmp31 = icmp slt i64 %.val45, %newsize
+  %cmp31 = icmp sgt i64 %newsize, %.val45
   br i1 %cmp31, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %if.end30
@@ -3208,7 +3208,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %a, i64 16
   %a.val = load i64, ptr %0, align 8
-  %cmp1.not = icmp sgt i64 %a.val, %i
+  %cmp1.not = icmp slt i64 %i, %a.val
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -3316,7 +3316,7 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
 lor.lhs.false.i:                                  ; preds = %if.end.lor.lhs.false.i_crit_edge, %if.end8
   %a.val.i = phi i64 [ %self.val, %if.end8 ], [ %a.val.i.pre, %if.end.lor.lhs.false.i_crit_edge ]
   %i.044 = phi i64 [ %add, %if.end8 ], [ %call1, %if.end.lor.lhs.false.i_crit_edge ]
-  %cmp1.not.i = icmp sgt i64 %a.val.i, %i.044
+  %cmp1.not.i = icmp slt i64 %i.044, %a.val.i
   br i1 %cmp1.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end8
@@ -3594,7 +3594,7 @@ skip_optional:                                    ; preds = %if.end12.skip_optio
   %start.addr.0.i = select i1 %cmp.i, i64 %spec.store.select.i, i64 %5
   %cmp4.i = icmp slt i64 %4, 0
   %add7.i = add i64 %self.val17.i, %4
-  %spec.select.i = call i64 @llvm.smin.i64(i64 %self.val17.i, i64 %4)
+  %spec.select.i = call i64 @llvm.smin.i64(i64 %4, i64 %self.val17.i)
   %stop.addr.0.i = select i1 %cmp4.i, i64 %add7.i, i64 %spec.select.i
   %cmp1420.i = icmp slt i64 %start.addr.0.i, %stop.addr.0.i
   br i1 %cmp1420.i, label %for.body.lr.ph.i, label %for.end.i

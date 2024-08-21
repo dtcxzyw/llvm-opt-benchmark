@@ -256,7 +256,7 @@ define hidden noundef i32 @_ZN5ceres8internal20InnerProductComputer15ComputeNonz
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %20 = icmp ult i64 %19, %12
+  %20 = icmp ugt i64 %12, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %3
@@ -268,7 +268,7 @@ define hidden noundef i32 @_ZN5ceres8internal20InnerProductComputer15ComputeNonz
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %19, %12
+  %24 = icmp ult i64 %12, %19
   br i1 %24, label %25, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 25:                                               ; preds = %23
@@ -1011,7 +1011,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %59
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = ashr exact i64 %81, 2
-  %83 = icmp ult i64 %82, %75
+  %83 = icmp ugt i64 %75, %82
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %._crit_edge115
@@ -1020,7 +1020,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %59
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %56
 
 86:                                               ; preds = %._crit_edge115
-  %87 = icmp ugt i64 %82, %75
+  %87 = icmp ult i64 %75, %82
   br i1 %87, label %88, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 88:                                               ; preds = %86
@@ -2151,7 +2151,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8interna
 define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal20InnerProductComputer11ProductTermESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 %4) local_unnamed_addr #0 comdat {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
-  %8 = icmp sgt i64 %7, %1
+  %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5ceres8internal20InnerProductComputer11ProductTermESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
@@ -2494,7 +2494,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %18 = icmp sgt i32 %1, 0
   %19 = zext nneg i32 %2 to i64
   %20 = sext i32 %5 to i64
-  %21 = add i32 %15, %8
+  %21 = add i32 %8, %15
   br i1 %18, label %.lr.ph.us, label %.lr.ph116.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph116, %._crit_edge.us
@@ -2518,7 +2518,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 ._crit_edge.us:                                   ; preds = %23
   %30 = trunc i64 %indvars.iv185 to i32
-  %31 = add i32 %30, %7
+  %31 = add i32 %7, %30
   %32 = mul i32 %31, %10
   %33 = add i32 %21, %32
   %34 = sext i32 %33 to i64
@@ -2533,7 +2533,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 .lr.ph116.split:                                  ; preds = %.lr.ph116, %.lr.ph116.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph116.split ], [ 0, %.lr.ph116 ]
   %38 = trunc i64 %indvars.iv to i32
-  %39 = add i32 %38, %7
+  %39 = add i32 %7, %38
   %40 = mul i32 %39, %10
   %41 = add i32 %21, %40
   %42 = sext i32 %41 to i64
@@ -2565,7 +2565,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %54 = icmp sgt i32 %1, 0
   %55 = zext nneg i32 %2 to i64
   %56 = sext i32 %5 to i64
-  %57 = add i32 %51, %8
+  %57 = add i32 %8, %51
   br i1 %54, label %.lr.ph.us128, label %.lr.ph126.split.lver.check
 
 .lr.ph126.split.lver.check:                       ; preds = %.lr.ph126
@@ -2584,7 +2584,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 .lr.ph126.split.lver.orig:                        ; preds = %.lr.ph126.split.lver.check, %.lr.ph126.split.lver.orig
   %indvars.iv190.lver.orig = phi i64 [ %indvars.iv.next191.lver.orig, %.lr.ph126.split.lver.orig ], [ 0, %.lr.ph126.split.lver.check ]
   %67 = trunc i64 %indvars.iv190.lver.orig to i32
-  %68 = add i32 %67, %7
+  %68 = add i32 %7, %67
   %69 = mul i32 %68, %10
   %70 = add i32 %57, %69
   %71 = sext i32 %70 to i64
@@ -2635,7 +2635,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 ._crit_edge.us129:                                ; preds = %84
   %94 = trunc i64 %indvars.iv196 to i32
-  %95 = add i32 %94, %7
+  %95 = add i32 %7, %94
   %96 = mul i32 %95, %10
   %97 = add i32 %57, %96
   %98 = sext i32 %97 to i64
@@ -2655,7 +2655,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %store_forwarded264 = phi double [ %82, %.lr.ph126.split.ph ], [ %113, %.lr.ph126.split ]
   %indvars.iv190 = phi i64 [ 0, %.lr.ph126.split.ph ], [ %indvars.iv.next191, %.lr.ph126.split ]
   %105 = trunc i64 %indvars.iv190 to i32
-  %106 = add i32 %105, %7
+  %106 = add i32 %7, %105
   %107 = mul nuw i32 %106, %10
   %108 = add i32 %57, %107
   %109 = sext i32 %108 to i64
@@ -2704,14 +2704,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us.us.us
   %indvars.iv219 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next220, %._crit_edge.split.us.us.us ]
   %124 = trunc nuw nsw i64 %indvars.iv219 to i32
-  %125 = add i32 %124, %8
+  %125 = add i32 %8, %124
   %126 = getelementptr inbounds double, ptr %3, i64 %indvars.iv219
   br label %.lr.ph.i.preheader.us.us.us
 
 .lr.ph.i.preheader.us.us.us:                      ; preds = %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us, %.preheader.us.us
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us ], [ 0, %.preheader.us.us ]
   %127 = trunc i64 %indvars.iv214 to i32
-  %128 = add i32 %127, %7
+  %128 = add i32 %7, %127
   %129 = mul i32 %128, %10
   %130 = add i32 %125, %129
   %131 = getelementptr inbounds double, ptr %0, i64 %indvars.iv214
@@ -2899,7 +2899,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
 .preheader.i.us132.us.us.lver.orig:               ; preds = %.preheader.i.us132.us.us.lver.check, %.preheader.i.us132.us.us.lver.orig
   %indvars.iv209.lver.orig = phi i64 [ %indvars.iv.next210.lver.orig, %.preheader.i.us132.us.us.lver.orig ], [ 0, %.preheader.i.us132.us.us.lver.check ]
   %243 = trunc i64 %indvars.iv209.lver.orig to i32
-  %244 = add i32 %243, %7
+  %244 = add i32 %7, %243
   %245 = mul i32 %244, %10
   %246 = add i32 %238, %245
   %247 = sext i32 %246 to i64
@@ -2935,7 +2935,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %store_forwarded = phi double [ %load_initial, %.preheader.i.us132.us.us.ph ], [ %278, %.preheader.i.us132.us.us ]
   %indvars.iv209 = phi i64 [ 0, %.preheader.i.us132.us.us.ph ], [ %indvars.iv.next210, %.preheader.i.us132.us.us ]
   %263 = trunc i64 %indvars.iv209 to i32
-  %264 = add i32 %263, %7
+  %264 = add i32 %7, %263
   %265 = mul nuw i32 %264, %10
   %266 = add i32 %238, %265
   %267 = sext i32 %266 to i64
@@ -2966,14 +2966,14 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.split.split.us157
   %indvars.iv206 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next207, %._crit_edge.split.split.us157 ]
   %281 = trunc nuw nsw i64 %indvars.iv206 to i32
-  %282 = add i32 %281, %8
+  %282 = add i32 %8, %281
   %283 = getelementptr inbounds double, ptr %3, i64 %indvars.iv206
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151
   %indvars.iv201 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next202, %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151 ]
   %284 = trunc i64 %indvars.iv201 to i32
-  %285 = add i32 %284, %7
+  %285 = add i32 %7, %284
   %286 = mul i32 %285, %10
   %287 = add i32 %282, %286
   %288 = getelementptr inbounds double, ptr %0, i64 %indvars.iv201

@@ -824,7 +824,7 @@ if.then6:                                         ; preds = %entry
   %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
   switch i64 %sub.ptr.div.i42, label %if.end20 [
     i64 4, label %if.then10
-    i64 5, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit57
+    i64 5, label %if.then.i55
   ]
 
 if.then10:                                        ; preds = %if.then6
@@ -842,7 +842,7 @@ lpad:                                             ; preds = %if.then10
   tail call void @__cxa_free_exception(ptr %exception) #23
   resume { ptr, i32 } %8
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit57:             ; preds = %if.then6
+if.then.i55:                                      ; preds = %if.then6
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams7, i64 noundef 1)
   %m_greenParams15 = getelementptr inbounds i8, ptr %this, i64 192
   %_M_finish.i.i58 = getelementptr inbounds i8, ptr %this, i64 200
@@ -855,12 +855,12 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit57:             ; preds = %if.then6
   %cmp.i63 = icmp ult i64 %sub.ptr.div.i.i62, 6
   br i1 %cmp.i63, label %if.then.i70, label %if.else.i64
 
-if.then.i70:                                      ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit57
+if.then.i70:                                      ; preds = %if.then.i55
   %sub.i71 = sub nuw nsw i64 6, %sub.ptr.div.i.i62
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams15, i64 noundef %sub.i71)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit72
 
-if.else.i64:                                      ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit57
+if.else.i64:                                      ; preds = %if.then.i55
   %cmp4.i65.not = icmp eq i64 %sub.ptr.sub.i.i61, 48
   br i1 %cmp4.i65.not, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit72, label %if.then5.i66
 

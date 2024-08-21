@@ -164,7 +164,7 @@ if.end49:                                         ; preds = %if.end
   %call.i = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %ntr.i, i32 noundef 8) #11
   %conv.i = trunc i64 %call.i to i32
   %9 = load ptr, ptr %ntr.i, align 8
-  %cmp.i = icmp ne ptr %9, %3
+  %cmp.i = icmp ne ptr %3, %9
   %tobool.i = icmp ne ptr %9, null
   %or.cond.i = and i1 %cmp.i, %tobool.i
   br i1 %or.cond.i, label %lor.lhs.false2.i, label %if.then.i

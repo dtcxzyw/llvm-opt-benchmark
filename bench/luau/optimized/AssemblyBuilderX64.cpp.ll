@@ -466,7 +466,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
@@ -550,7 +550,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
-  %42 = icmp ugt i64 %8, %1
+  %42 = icmp ult i64 %1, %8
   br i1 %42, label %43, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 43:                                               ; preds = %41
@@ -1370,8 +1370,8 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemE
   br i1 %.not53, label %74, label %22
 
 22:                                               ; preds = %21
-  %.not55 = icmp eq i8 %.sroa.4.0.extract.trunc, -128
-  br i1 %.not55, label %54, label %23
+  %.not54 = icmp eq i8 %.sroa.4.0.extract.trunc, -128
+  br i1 %.not54, label %54, label %23
 
 23:                                               ; preds = %22
   %24 = shl i8 %2, 3
@@ -1522,11 +1522,11 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemE
   %114 = load ptr, ptr %113, align 8
   %115 = ptrtoint ptr %112 to i64
   %116 = ptrtoint ptr %114 to i64
-  %.neg58 = sub i64 %116, %115
-  %.neg59 = trunc i64 %.neg58 to i32
-  %reass.sub60 = sub i32 %.sroa.10.0.extract.trunc, %3
-  %reass.sub = add i32 %reass.sub60, -4
-  %117 = add i32 %reass.sub, %.neg59
+  %.neg57 = sub i64 %116, %115
+  %.neg58 = trunc i64 %.neg57 to i32
+  %reass.sub59 = sub i32 %.sroa.10.0.extract.trunc, %3
+  %reass.sub = add i32 %reass.sub59, -4
+  %117 = add i32 %reass.sub, %.neg58
   store i32 %117, ptr %112, align 1
   %118 = getelementptr inbounds i8, ptr %112, i64 4
   store ptr %118, ptr %109, align 8
@@ -6204,7 +6204,7 @@ define dso_local i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643i32Ei(ptr noundef
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 168
   %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   br i1 %11, label %_ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEE4findERKj.exit.thread, label %12
 
 12:                                               ; preds = %8
@@ -6300,7 +6300,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %_ZN4L
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %0, i64 168
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, %1
+  %71 = icmp eq i32 %1, %70
   br i1 %71, label %.loopexit.i.i, label %72
 
 72:                                               ; preds = %68
@@ -6437,7 +6437,7 @@ define dso_local i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643i64El(ptr noundef
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 200
   %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   br i1 %11, label %_ZN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEE4findERKm.exit.thread, label %12
 
 12:                                               ; preds = %8
@@ -6531,7 +6531,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %_ZN4L
 67:                                               ; preds = %65
   %68 = getelementptr inbounds i8, ptr %0, i64 200
   %69 = load i64, ptr %68, align 8
-  %70 = icmp eq i64 %69, %1
+  %70 = icmp eq i64 %1, %69
   br i1 %70, label %.loopexit.i.i, label %71
 
 71:                                               ; preds = %67

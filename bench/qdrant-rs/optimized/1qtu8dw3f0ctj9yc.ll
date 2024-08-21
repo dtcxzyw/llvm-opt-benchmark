@@ -220,7 +220,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds { { i32, float } }, ptr %6, i64 %1
   %11 = load i32, ptr %10, align 4, !noundef !5
@@ -387,7 +387,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !66
   %17 = load ptr, ptr %11, align 8, !alias.scope !66, !nonnull !5, !noundef !5
-  %18 = icmp ugt i64 %16, %6
+  %18 = icmp ult i64 %6, %16
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds { { i32, float } }, ptr %17, i64 %6
   %20 = load i32, ptr %19, align 4, !noalias !66, !noundef !5
@@ -469,7 +469,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp ult i64 %2, %8
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds { { i32, float } }, ptr %6, i64 %2
   %11 = load i32, ptr %10, align 4, !noundef !5

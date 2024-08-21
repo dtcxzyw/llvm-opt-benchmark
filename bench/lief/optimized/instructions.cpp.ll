@@ -100,7 +100,7 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1s
 18:                                               ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i
   %19 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %20 = load i8, ptr %19, align 1
-  %21 = icmp ugt i8 %20, %0
+  %21 = icmp ult i8 %0, %20
   br i1 %21, label %_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread, label %_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit
 
 _ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit: ; preds = %18
@@ -200,7 +200,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE10_M_insert_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -317,7 +317,7 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4les
 18:                                               ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i
   %19 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %20 = load i8, ptr %19, align 1
-  %21 = icmp ugt i8 %20, %0
+  %21 = icmp ult i8 %0, %20
   br i1 %21, label %_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread, label %_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit
 
 _ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit: ; preds = %18
@@ -411,7 +411,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold

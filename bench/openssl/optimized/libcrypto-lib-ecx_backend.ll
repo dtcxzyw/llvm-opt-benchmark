@@ -310,7 +310,7 @@ if.end:                                           ; preds = %if.then2
   br i1 %cmp5, label %if.end13, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp9.not = icmp eq i32 %call, %id
+  %cmp9.not = icmp eq i32 %id, %call
   br i1 %cmp9.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.else
@@ -333,7 +333,7 @@ lor.lhs.false16:                                  ; preds = %if.end13
   %cmp20 = icmp eq i32 %id.addr.1, 1035
   %cond = select i1 %cmp20, i32 56, i32 57
   %cond21 = select i1 %or.cond1, i32 32, i32 %cond
-  %cmp22.not = icmp eq i32 %cond21, %plen
+  %cmp22.not = icmp eq i32 %plen, %cond21
   br i1 %cmp22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %lor.lhs.false16, %if.end13

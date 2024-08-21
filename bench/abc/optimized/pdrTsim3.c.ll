@@ -1789,13 +1789,13 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %._c
   %369 = add nsw i32 %1, 1
   %370 = getelementptr inbounds i8, ptr %367, i64 68
   %371 = load i32, ptr %370, align 4
-  %.not.i.not.i = icmp sgt i32 %371, %1
+  %.not.i.not.i = icmp slt i32 %1, %371
   br i1 %.not.i.not.i, label %Vec_PtrGetEntry.exit, label %372
 
 372:                                              ; preds = %Vec_IntSelectSort.exit
   %373 = load i32, ptr %368, align 8
   %374 = shl nsw i32 %373, 1
-  %.not.i223 = icmp sgt i32 %374, %1
+  %.not.i223 = icmp slt i32 %1, %374
   %.not.i.i.not.i = icmp sgt i32 %373, %1
   br i1 %.not.i223, label %387, label %375
 

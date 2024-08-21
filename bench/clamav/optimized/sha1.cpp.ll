@@ -1112,7 +1112,7 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
 .loopexit:                                        ; preds = %.lr.ph, %11, %3
   %.1 = phi i64 [ 0, %3 ], [ %14, %11 ], [ %18, %.lr.ph ]
   %.0 = phi i64 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
-  %21 = icmp ult i64 %.1, %2
+  %21 = icmp ugt i64 %2, %.1
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %.loopexit
@@ -1162,7 +1162,7 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
 .loopexit:                                        ; preds = %.lr.ph, %11, %3
   %.1 = phi i64 [ 0, %3 ], [ %14, %11 ], [ %17, %.lr.ph ]
   %.030 = phi i64 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
-  %20 = icmp ult i64 %.1, %2
+  %20 = icmp ugt i64 %2, %.1
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %.loopexit

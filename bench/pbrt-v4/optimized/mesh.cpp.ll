@@ -1249,7 +1249,7 @@ entry:
   %4 = extractvalue { ptr, i64 } %call10, 0
   %arrayidx.i20 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load float, ptr %arrayidx.i20, align 4
-  %mul12 = fmul float %5, %p.coerce1
+  %mul12 = fmul float %p.coerce1, %5
   %add13 = fadd float %add, %mul12
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %6 = extractvalue { ptr, i64 } %call16, 0
@@ -1270,7 +1270,7 @@ entry:
   %12 = extractvalue { ptr, i64 } %call34, 0
   %arrayidx.i24 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load float, ptr %arrayidx.i24, align 4
-  %mul37 = fmul float %13, %p.coerce1
+  %mul37 = fmul float %p.coerce1, %13
   %add38 = fadd float %add31, %mul37
   %call41 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call41, 0
@@ -1291,7 +1291,7 @@ entry:
   %20 = extractvalue { ptr, i64 } %call59, 0
   %arrayidx.i28 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load float, ptr %arrayidx.i28, align 4
-  %mul62 = fmul float %21, %p.coerce1
+  %mul62 = fmul float %p.coerce1, %21
   %add63 = fadd float %add56, %mul62
   %call66 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %22 = extractvalue { ptr, i64 } %call66, 0
@@ -1312,7 +1312,7 @@ entry:
   %28 = extractvalue { ptr, i64 } %call84, 0
   %arrayidx.i32 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load float, ptr %arrayidx.i32, align 4
-  %mul87 = fmul float %29, %p.coerce1
+  %mul87 = fmul float %p.coerce1, %29
   %add88 = fadd float %add81, %mul87
   %call91 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %30 = extractvalue { ptr, i64 } %call91, 0
@@ -2095,7 +2095,7 @@ entry:
   %call13 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
   %4 = extractvalue { ptr, i64 } %call13, 0
   %5 = load float, ptr %4, align 4
-  %mul15 = fmul float %5, %n.coerce1
+  %mul15 = fmul float %n.coerce1, %5
   %add16 = fadd float %add, %mul15
   %call19 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 0)
   %6 = extractvalue { ptr, i64 } %call19, 0
@@ -2112,7 +2112,7 @@ entry:
   %10 = extractvalue { ptr, i64 } %call30, 0
   %arrayidx.i8 = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load float, ptr %arrayidx.i8, align 4
-  %mul32 = fmul float %11, %n.coerce1
+  %mul32 = fmul float %n.coerce1, %11
   %add33 = fadd float %add27, %mul32
   %call36 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 0)
   %12 = extractvalue { ptr, i64 } %call36, 0
@@ -2129,7 +2129,7 @@ entry:
   %16 = extractvalue { ptr, i64 } %call47, 0
   %arrayidx.i11 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load float, ptr %arrayidx.i11, align 4
-  %mul49 = fmul float %17, %n.coerce1
+  %mul49 = fmul float %n.coerce1, %17
   %add50 = fadd float %add44, %mul49
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add16, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add33, i64 1
@@ -2496,7 +2496,7 @@ entry:
   %4 = extractvalue { ptr, i64 } %call10, 0
   %arrayidx.i11 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load float, ptr %arrayidx.i11, align 4
-  %mul12 = fmul float %5, %v.coerce1
+  %mul12 = fmul float %v.coerce1, %5
   %add13 = fadd float %add, %mul12
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %6 = extractvalue { ptr, i64 } %call16, 0
@@ -2512,7 +2512,7 @@ entry:
   %10 = extractvalue { ptr, i64 } %call29, 0
   %arrayidx.i14 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load float, ptr %arrayidx.i14, align 4
-  %mul32 = fmul float %11, %v.coerce1
+  %mul32 = fmul float %v.coerce1, %11
   %add33 = fadd float %add26, %mul32
   %call36 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %12 = extractvalue { ptr, i64 } %call36, 0
@@ -2528,7 +2528,7 @@ entry:
   %16 = extractvalue { ptr, i64 } %call49, 0
   %arrayidx.i17 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load float, ptr %arrayidx.i17, align 4
-  %mul52 = fmul float %17, %v.coerce1
+  %mul52 = fmul float %v.coerce1, %17
   %add53 = fadd float %add46, %mul52
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add13, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add33, i64 1
@@ -5493,7 +5493,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5564,7 +5564,7 @@ _ZNSt12_Vector_baseIN4pbrt6Point3IfEESaIS2_EE13_M_deallocateEPS2_m.exit29.i: ; p
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -5592,7 +5592,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5663,7 +5663,7 @@ _ZNSt12_Vector_baseIN4pbrt7Normal3IfEESaIS2_EE13_M_deallocateEPS2_m.exit29.i: ; 
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -5689,7 +5689,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5763,7 +5763,7 @@ _ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE13_M_deallocateEPS2_m.exit29.i: ; p
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -8217,7 +8217,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %14 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %20, %lor.lhs.false.i.i ]
   %15 = phi ptr [ %11, %if.end.i.i ], [ %19, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %14, %7
+  %cmp.i.i.i.i = icmp eq i64 %7, %14
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i4, label %if.end3.i.i
 
 land.rhs.i.i.i4:                                  ; preds = %for.cond.i.i
@@ -8350,7 +8350,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %16 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %22, %lor.lhs.false.i.i ]
   %17 = phi ptr [ %13, %if.end.i.i ], [ %21, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %16, %1
+  %cmp.i.i.i.i = icmp eq i64 %1, %16
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i9, label %if.end3.i.i
 
 land.rhs.i.i.i9:                                  ; preds = %for.cond.i.i
@@ -8612,7 +8612,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_12BufferHasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_12BufferHasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -8703,7 +8703,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %14 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %20, %lor.lhs.false.i.i ]
   %15 = phi ptr [ %11, %if.end.i.i ], [ %19, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %14, %7
+  %cmp.i.i.i.i = icmp eq i64 %7, %14
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i4, label %if.end3.i.i
 
 land.rhs.i.i.i4:                                  ; preds = %for.cond.i.i
@@ -8827,7 +8827,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %16 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %22, %lor.lhs.false.i.i ]
   %17 = phi ptr [ %13, %if.end.i.i ], [ %21, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %16, %1
+  %cmp.i.i.i.i = icmp eq i64 %1, %16
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i9, label %if.end3.i.i
 
 land.rhs.i.i.i9:                                  ; preds = %for.cond.i.i
@@ -9074,7 +9074,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -10086,7 +10086,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %14 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %20, %lor.lhs.false.i.i ]
   %15 = phi ptr [ %11, %if.end.i.i ], [ %19, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %14, %7
+  %cmp.i.i.i.i = icmp eq i64 %7, %14
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i4, label %if.end3.i.i
 
 land.rhs.i.i.i4:                                  ; preds = %for.cond.i.i
@@ -10210,7 +10210,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %16 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %22, %lor.lhs.false.i.i ]
   %17 = phi ptr [ %13, %if.end.i.i ], [ %21, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %16, %1
+  %cmp.i.i.i.i = icmp eq i64 %1, %16
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i9, label %if.end3.i.i
 
 land.rhs.i.i.i9:                                  ; preds = %for.cond.i.i
@@ -10457,7 +10457,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point2IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point2IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -11309,7 +11309,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %14 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %20, %lor.lhs.false.i.i ]
   %15 = phi ptr [ %11, %if.end.i.i ], [ %19, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %14, %7
+  %cmp.i.i.i.i = icmp eq i64 %7, %14
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i4, label %if.end3.i.i
 
 land.rhs.i.i.i4:                                  ; preds = %for.cond.i.i
@@ -11433,7 +11433,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %16 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %22, %lor.lhs.false.i.i ]
   %17 = phi ptr [ %13, %if.end.i.i ], [ %21, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %16, %1
+  %cmp.i.i.i.i = icmp eq i64 %1, %16
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i9, label %if.end3.i.i
 
 land.rhs.i.i.i9:                                  ; preds = %for.cond.i.i
@@ -11680,7 +11680,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Normal3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Normal3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -11768,7 +11768,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %14 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %20, %lor.lhs.false.i.i ]
   %15 = phi ptr [ %11, %if.end.i.i ], [ %19, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %14, %7
+  %cmp.i.i.i.i = icmp eq i64 %7, %14
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i4, label %if.end3.i.i
 
 land.rhs.i.i.i4:                                  ; preds = %for.cond.i.i
@@ -11892,7 +11892,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %16 = phi i64 [ %.pre.i.i, %if.end.i.i ], [ %22, %lor.lhs.false.i.i ]
   %17 = phi ptr [ %13, %if.end.i.i ], [ %21, %lor.lhs.false.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %16, %1
+  %cmp.i.i.i.i = icmp eq i64 %1, %16
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i9, label %if.end3.i.i
 
 land.rhs.i.i.i9:                                  ; preds = %for.cond.i.i
@@ -12139,7 +12139,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Vector3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Vector3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

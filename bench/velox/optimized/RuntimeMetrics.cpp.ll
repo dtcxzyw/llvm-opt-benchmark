@@ -26,7 +26,7 @@ entry:
   store i64 %inc, ptr %count, align 8
   %min = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %min, align 8
-  %.sroa.speculated6 = tail call i64 @llvm.smin.i64(i64 %2, i64 %value)
+  %.sroa.speculated6 = tail call i64 @llvm.smin.i64(i64 %value, i64 %2)
   store i64 %.sroa.speculated6, ptr %min, align 8
   %max = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i64, ptr %max, align 8

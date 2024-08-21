@@ -2860,7 +2860,7 @@ define dso_local i64 @per_cpu_ptr_to_phys(ptr noundef %0) local_unnamed_addr #1 
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @__per_cpu_start to i64)
   %44 = inttoptr i64 %43 to ptr
-  %45 = icmp ule ptr %44, %0
+  %45 = icmp uge ptr %0, %44
   %46 = getelementptr i8, ptr %44, i64 %26
   %47 = icmp ugt ptr %46, %0
   %48 = select i1 %45, i1 %47, i1 false
@@ -5541,7 +5541,7 @@ pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loo
   %.4 = phi i32 [ %.1, %.loopexit11.i ], [ %89, %86 ], [ %54, %51 ], [ %97, %92 ]
   %106 = shl i32 %36, 10
   %107 = icmp slt i32 %.217, %106
-  %108 = and i1 %107, %3
+  %108 = and i1 %3, %107
   br i1 %108, label %109, label %.loopexit
 
 109:                                              ; preds = %pcpu_next_fit_region.exit
@@ -5854,7 +5854,7 @@ define internal fastcc range(i32 -1, -3) i32 @pcpu_alloc_area(ptr noundef %0, i3
   %108 = add nsw i32 %101, 1
   %109 = add i32 %1, -1
   tail call void @__bitmap_clear(ptr noundef %107, i32 noundef %108, i32 noundef %109) #23
-  %110 = add i32 %101, %1
+  %110 = add i32 %1, %101
   %111 = sext i32 %110 to i64
   %112 = load ptr, ptr %103, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %112, i64 %111) #23, !srcloc !112

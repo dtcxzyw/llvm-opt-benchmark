@@ -29,7 +29,7 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 3360
   %18 = load i32, ptr %17, align 8
-  %19 = icmp slt i32 %18, %4
+  %19 = icmp sgt i32 %4, %18
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
@@ -55,7 +55,7 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   %27 = getelementptr inbounds i8, ptr %22, i64 44
   %28 = load i8, ptr %27, align 4
   %29 = zext i8 %28 to i32
-  %30 = and i32 %29, %3
+  %30 = and i32 %3, %29
   %.not101 = icmp eq i32 %30, 0
   br i1 %.not101, label %37, label %31
 
@@ -83,12 +83,12 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   br i1 %.not95, label %.thread, label %39
 
 39:                                               ; preds = %._crit_edge
-  %.not96 = icmp ugt i64 %.164, %2
+  %.not96 = icmp ult i64 %2, %.164
   br i1 %.not96, label %40, label %.thread
 
 40:                                               ; preds = %39
   %41 = add i64 %.164, -1
-  %42 = icmp eq i64 %41, %2
+  %42 = icmp eq i64 %2, %41
   br i1 %42, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %40
@@ -110,7 +110,7 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   %48 = getelementptr inbounds i8, ptr %43, i64 44
   %49 = load i8, ptr %48, align 4
   %50 = zext i8 %49 to i32
-  %51 = and i32 %50, %3
+  %51 = and i32 %3, %50
   %.not99 = icmp eq i32 %51, 0
   br i1 %.not99, label %59, label %52
 
@@ -171,7 +171,7 @@ declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 3360
   %6 = load i32, ptr %5, align 8
-  %7 = icmp slt i32 %6, %2
+  %7 = icmp sgt i32 %2, %6
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %4
@@ -206,7 +206,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
   %19 = getelementptr inbounds i8, ptr %18, i64 44
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i32
-  %22 = and i32 %21, %1
+  %22 = and i32 %1, %21
   %.not55 = icmp eq i32 %22, 0
   br i1 %.not55, label %27, label %23
 
@@ -255,7 +255,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
   %45 = getelementptr inbounds i8, ptr %35, i64 44
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i32
-  %48 = and i32 %47, %1
+  %48 = and i32 %1, %47
   %.not60 = icmp ne i32 %48, 0
   %49 = zext i1 %.not60 to i64
   %spec.select61 = add i64 %.04168, %49

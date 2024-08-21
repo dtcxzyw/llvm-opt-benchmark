@@ -1026,7 +1026,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 .lr.ph.i:                                         ; preds = %9, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %9 ]
   %12 = phi i32 [ %16, %14 ], [ %11, %9 ]
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   br i1 %13, label %._crit_edge.loopexit.split.loop.exit13.i, label %14
 
 14:                                               ; preds = %.lr.ph.i

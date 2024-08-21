@@ -2337,7 +2337,7 @@ define hidden void @_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3
   %13 = load ptr, ptr %10, align 8, !alias.scope !135, !nonnull !7, !noundef !7
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %12 to i64
-  %.neg = add i64 %15, %1
+  %.neg = add i64 %1, %15
   %16 = sub i64 %.neg, %14
   call void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..generated..tokens..String$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h5d159828f4408856E.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, i64 noundef 0, i64 noundef %16, i64 %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2458,7 +2458,7 @@ define hidden void @_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c
   %13 = load ptr, ptr %10, align 8, !alias.scope !141, !nonnull !7, !noundef !7
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %12 to i64
-  %.neg = add i64 %15, %1
+  %.neg = add i64 %1, %15
   %16 = sub i64 %.neg, %14
   call void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..generated..tokens..ByteString$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h23cce49a6197486aE.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, i64 noundef 0, i64 noundef %16, i64 %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2934,7 +2934,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h3b66f11463a501fbE.exit:
   %212 = add i64 %.pn, %.048.neg
   %213 = ptrtoint ptr %210 to i64
   %214 = ptrtoint ptr %211 to i64
-  %.neg = add i64 %214, %1
+  %.neg = add i64 %1, %214
   %215 = sub i64 %.neg, %213
   %.sroa.529.0.insert.ext = zext i48 %.sroa.10.sroa.0.1 to i64
   %.sroa.529.0.insert.shift = shl nuw i64 %.sroa.529.0.insert.ext, 16
@@ -3723,7 +3723,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0886ec014b5ce555E.exit.i: ; pr
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he769c57432ba228aE.exit.i.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he769c57432ba228aE.exit7.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !308
-  %.not.i.i.i.i = icmp ult i64 %148, %67
+  %.not.i.i.i.i = icmp ugt i64 %67, %148
   br i1 %.not.i.i.i.i, label %155, label %156
 
 155:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he769c57432ba228aE.exit.i.i.i.i"
@@ -3909,7 +3909,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he769c57432ba228aE.exit.i.i.i64.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he769c57432ba228aE.exit7.i.i.i63.i"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !316
-  %.not.i.i.i65.i = icmp ult i64 %242, %67
+  %.not.i.i.i65.i = icmp ugt i64 %67, %242
   br i1 %.not.i.i.i65.i, label %249, label %250
 
 249:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he769c57432ba228aE.exit.i.i.i64.i"
@@ -5394,7 +5394,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h8ae4fac37ef9f9c3E.exit:
   %212 = add i64 %.pn, %.048.neg
   %213 = ptrtoint ptr %210 to i64
   %214 = ptrtoint ptr %211 to i64
-  %.neg = add i64 %214, %1
+  %.neg = add i64 %1, %214
   %215 = sub i64 %.neg, %213
   %.sroa.529.0.insert.ext = zext i48 %.sroa.10.sroa.0.1 to i64
   %.sroa.529.0.insert.shift = shl nuw i64 %.sroa.529.0.insert.ext, 16
@@ -6346,7 +6346,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hc0fb008e0439a2a1E.exit:
 232:                                              ; preds = %230
   %233 = load ptr, ptr %9, align 8, !alias.scope !598, !nonnull !7, !align !65, !noundef !7
   %234 = load i64, ptr %233, align 8, !noalias !598, !noundef !7
-  %235 = icmp eq i64 %234, %216
+  %235 = icmp eq i64 %216, %234
   br i1 %235, label %236, label %237
 
 236:                                              ; preds = %232
@@ -6402,7 +6402,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hc0fb008e0439a2a1E.exit:
   %258 = load i64, ptr %239, align 8, !alias.scope !609, !noalias !598, !noundef !7
   %259 = load i64, ptr %222, align 8, !alias.scope !612, !noalias !598, !noundef !7
   %260 = sub i64 %259, %258
-  %261 = icmp ult i64 %260, %248
+  %261 = icmp ugt i64 %248, %260
   br i1 %261, label %262, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h768cf27c9343553bE.exit.i.i"
 
 262:                                              ; preds = %257
@@ -7045,7 +7045,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %44 = load i64, ptr %43, align 8, !alias.scope !689, !noalias !694, !noundef !7
   %45 = load i64, ptr %0, align 8, !alias.scope !696, !noalias !694, !noundef !7
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -7353,7 +7353,7 @@ define hidden void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..genera
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !7, !align !65, !noundef !7
   %19 = load i64, ptr %18, align 8, !noundef !7
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %16
@@ -7412,7 +7412,7 @@ define hidden void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..genera
   %46 = load i64, ptr %25, align 8, !alias.scope !720, !noalias !725, !noundef !7
   %47 = load i64, ptr %5, align 8, !alias.scope !727, !noalias !725, !noundef !7
   %48 = sub i64 %47, %46
-  %49 = icmp ult i64 %48, %36
+  %49 = icmp ugt i64 %36, %48
   br i1 %49, label %50, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit"
 
 50:                                               ; preds = %45
@@ -7486,7 +7486,7 @@ define hidden void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..genera
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !7, !align !65, !noundef !7
   %30 = load i64, ptr %29, align 8, !noundef !7
-  %31 = icmp eq i64 %30, %1
+  %31 = icmp eq i64 %1, %30
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %27
@@ -7545,7 +7545,7 @@ define hidden void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..genera
   %57 = load i64, ptr %36, align 8, !alias.scope !741, !noalias !746, !noundef !7
   %58 = load i64, ptr %5, align 8, !alias.scope !748, !noalias !746, !noundef !7
   %59 = sub i64 %58, %57
-  %60 = icmp ult i64 %59, %47
+  %60 = icmp ugt i64 %47, %59
   br i1 %60, label %61, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit"
 
 61:                                               ; preds = %56
@@ -7670,7 +7670,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %9, %
   %47 = load i64, ptr %46, align 8, !alias.scope !757, !noundef !7
   %48 = load i64, ptr %0, align 8, !alias.scope !760, !noundef !7
   %49 = sub i64 %48, %47
-  %50 = icmp ult i64 %49, %45
+  %50 = icmp ugt i64 %45, %49
   br i1 %50, label %51, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h768cf27c9343553bE.exit"
 
 51:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit

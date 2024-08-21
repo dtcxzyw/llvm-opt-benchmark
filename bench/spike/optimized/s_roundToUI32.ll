@@ -28,12 +28,12 @@ define range(i64 0, 4503599627370496) i64 @softfloat_roundToUI32(i1 noundef zero
   %17 = xor i64 %16, -1
   %18 = and i64 %14, %17
   %19 = icmp ne i64 %18, 0
-  %or.cond4 = and i1 %19, %0
+  %or.cond4 = and i1 %0, %19
   br i1 %or.cond4, label %25, label %20
 
 20:                                               ; preds = %13
   %21 = icmp ne i64 %11, 0
-  %or.cond6 = and i1 %21, %3
+  %or.cond6 = and i1 %3, %21
   br i1 %or.cond6, label %22, label %27
 
 22:                                               ; preds = %20

@@ -57,7 +57,7 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %add.ptr = getelementptr i64, ptr %a, i64 %n
-  %cmp8460 = icmp ugt ptr %add.ptr, %a
+  %cmp8460 = icmp ult ptr %a, %add.ptr
   br i1 %cmp8460, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -813,7 +813,7 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %add.ptr = getelementptr i64, ptr %a, i64 %n
-  %cmp5460 = icmp ugt ptr %add.ptr, %a
+  %cmp5460 = icmp ult ptr %a, %add.ptr
   br i1 %cmp5460, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body

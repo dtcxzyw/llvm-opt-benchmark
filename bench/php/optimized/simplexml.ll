@@ -3348,7 +3348,7 @@ define hidden void @zim_SimpleXMLElement_getChildren(ptr nocapture noundef reado
 define dso_local noundef nonnull ptr @sxe_object_new(ptr noundef %0) #1 {
   %2 = load ptr, ptr @ce_SimpleXMLElement, align 8
   %.not21.i = icmp eq ptr %0, null
-  %3 = icmp eq ptr %2, %0
+  %3 = icmp eq ptr %0, %2
   %or.cond22.i = select i1 %.not21.i, i1 true, i1 %3
   br i1 %or.cond22.i, label %php_sxe_find_fptr_count.exit, label %.lr.ph.i
 
@@ -3483,7 +3483,7 @@ define hidden void @zif_simplexml_load_file(ptr nocapture noundef readonly %0, p
   br label %php_sxe_find_fptr_count.exit
 
 51:                                               ; preds = %47
-  %52 = icmp eq ptr %49, %48
+  %52 = icmp eq ptr %48, %49
   br i1 %52, label %php_sxe_find_fptr_count.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
@@ -3692,7 +3692,7 @@ define hidden void @zif_simplexml_load_string(ptr nocapture noundef readonly %0,
   br label %php_sxe_find_fptr_count.exit
 
 65:                                               ; preds = %61
-  %66 = icmp eq ptr %63, %62
+  %66 = icmp eq ptr %62, %63
   br i1 %66, label %php_sxe_find_fptr_count.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %65, %.lr.ph.i
@@ -4448,7 +4448,7 @@ define hidden void @zif_simplexml_import_dom(ptr nocapture noundef readonly %0, 
   br label %php_sxe_find_fptr_count.exit
 
 36:                                               ; preds = %32
-  %37 = icmp eq ptr %34, %33
+  %37 = icmp eq ptr %33, %34
   br i1 %37, label %php_sxe_find_fptr_count.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.i
@@ -5666,7 +5666,7 @@ define internal fastcc noundef ptr @sxe_prop_dim_read(ptr noundef %0, ptr nounde
   %.not180 = icmp eq i32 %26, 3
   %spec.select = and i1 %.not180, %3
   %not..not180 = xor i1 %.not180, true
-  %spec.select206 = or i1 %not..not180, %2
+  %spec.select206 = or i1 %2, %not..not180
   br label %38
 
 27:                                               ; preds = %22
@@ -6446,9 +6446,9 @@ define internal fastcc ptr @sxe_prop_dim_write(ptr nocapture noundef %0, ptr nou
   %26 = getelementptr inbounds i8, ptr %0, i64 -44
   %27 = load i32, ptr %26, align 4
   %.not305 = icmp eq i32 %27, 3
-  %spec.select365 = and i1 %.not305, %4
+  %spec.select365 = and i1 %4, %.not305
   %not..not305 = xor i1 %.not305, true
-  %spec.select366 = or i1 %not..not305, %3
+  %spec.select366 = or i1 %3, %not..not305
   br label %62
 
 28:                                               ; preds = %23

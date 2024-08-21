@@ -1246,7 +1246,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !132, !noalias !137, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !139, !noalias !137, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h81aa28aa32fd9f72E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
@@ -1300,7 +1300,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !145, !noalias !150, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !152, !noalias !150, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h81aa28aa32fd9f72E.exit"
 
 9:                                                ; preds = %3
@@ -3299,7 +3299,7 @@ define void @_ZN11tree_sitter4Node9utf8_text17h2fcc80af116bbc5cE(ptr noalias noc
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i64 %8, %3
+  %11 = icmp ult i64 %3, %8
   br i1 %11, label %13, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb72d9ce24649c64aE.exit"
 
 12:                                               ; preds = %4
@@ -3327,7 +3327,7 @@ define { ptr, i64 } @_ZN11tree_sitter4Node10utf16_text17h75b19cddc7ce5d0bE(ptr n
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i64 %7, %2
+  %10 = icmp ult i64 %2, %7
   br i1 %10, label %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9c4ae4164ee12eb4E.exit"
 
 11:                                               ; preds = %3
@@ -4100,7 +4100,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i: ; preds = %66,
   %118 = load i64, ptr %117, align 8, !alias.scope !483, !noalias !489, !noundef !4
   %119 = load i64, ptr %9, align 8, !alias.scope !492, !noalias !489, !noundef !4
   %120 = sub i64 %119, %118
-  %121 = icmp ult i64 %120, %116
+  %121 = icmp ugt i64 %116, %120
   br i1 %121, label %122, label %127
 
 122:                                              ; preds = %112
@@ -4210,11 +4210,11 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i: ; preds = %66,
   br i1 %159, label %166, label %160
 
 160:                                              ; preds = %157
-  %.not.i.i38 = icmp ult i64 %28, %3
+  %.not.i.i38 = icmp ugt i64 %3, %28
   br i1 %.not.i.i38, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %161
 
 161:                                              ; preds = %160
-  %162 = icmp eq i64 %28, %3
+  %162 = icmp eq i64 %3, %28
   br i1 %162, label %166, label %.noexc39
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %160
@@ -7167,7 +7167,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN11tree_sitter5Query22start_byte_
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %2
@@ -7225,7 +7225,7 @@ define { ptr, i64 } @_ZN11tree_sitter5Query13capture_names17hec32939f859f506cE(p
 define { ptr, i64 } @_ZN11tree_sitter5Query19capture_quantifiers17h729730ad313d15a1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %15, !prof !592
 
 6:                                                ; preds = %2
@@ -7292,7 +7292,7 @@ define { i32, i32 } @_ZN11tree_sitter5Query22capture_index_for_name17h279651024a
 define { ptr, i64 } @_ZN11tree_sitter5Query19property_predicates17h43089889472b0f05E(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %15, !prof !592
 
 6:                                                ; preds = %2
@@ -7315,7 +7315,7 @@ define { ptr, i64 } @_ZN11tree_sitter5Query19property_predicates17h43089889472b0
 define { ptr, i64 } @_ZN11tree_sitter5Query17property_settings17hebe827cc356ef0f4E(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %15, !prof !592
 
 6:                                                ; preds = %2
@@ -7338,7 +7338,7 @@ define { ptr, i64 } @_ZN11tree_sitter5Query17property_settings17hebe827cc356ef0f
 define { ptr, i64 } @_ZN11tree_sitter5Query18general_predicates17h034f2e2fc75f3841E(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %6, label %15, !prof !592
 
 6:                                                ; preds = %2
@@ -7609,7 +7609,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit47:  ; preds = %._crit_edge
   %66 = getelementptr inbounds i8, ptr %.sroa.061.0129, i64 4
   %67 = load i32, ptr %66, align 4, !noundef !4
   %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %68, %7
+  %69 = icmp ugt i64 %7, %68
   br i1 %69, label %91, label %93, !prof !592
 
 70:                                               ; preds = %64
@@ -7618,14 +7618,14 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit47:  ; preds = %._crit_edge
   %71 = getelementptr inbounds i8, ptr %.sroa.061.0129, i64 4
   %72 = load i32, ptr %71, align 4, !noundef !4
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %73, %7
+  %74 = icmp ugt i64 %7, %73
   br i1 %74, label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit52, label %84, !prof !592
 
 75:                                               ; preds = %64
   %76 = getelementptr inbounds i8, ptr %.sroa.061.0129, i64 4
   %77 = load i32, ptr %76, align 4, !noundef !4
   %78 = zext i32 %77 to i64
-  %79 = icmp ult i64 %78, %7
+  %79 = icmp ugt i64 %7, %78
   br i1 %79, label %85, label %90, !prof !592
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit52:  ; preds = %70
@@ -7698,7 +7698,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit52:  ; preds = %70
   %97 = getelementptr inbounds i8, ptr %.sroa.061.0129, i64 4
   %98 = load i32, ptr %97, align 4, !noundef !4
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %99, %5
+  %100 = icmp ugt i64 %5, %99
   br i1 %100, label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit57, label %109, !prof !592
 
 101:                                              ; preds = %62

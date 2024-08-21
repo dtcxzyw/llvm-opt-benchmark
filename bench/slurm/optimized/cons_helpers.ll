@@ -174,7 +174,7 @@ define ptr @cons_helpers_mark_avail_cores(ptr noundef %0, i16 noundef zeroext %1
 
 49:                                               ; preds = %.lr.ph116.split
   %50 = load i16, ptr %42, align 8
-  %.not89 = icmp ugt i16 %50, %1
+  %.not89 = icmp ult i16 %1, %50
   br i1 %.not89, label %52, label %51
 
 51:                                               ; preds = %49

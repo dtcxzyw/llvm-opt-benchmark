@@ -105,7 +105,7 @@ define noundef i32 @mca_bml_r2_finalize() #0 {
   %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %17, %16 ]
   %22 = getelementptr inbounds ptr, ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %23, %.val.val
+  %.not.i = icmp eq ptr %.val.val, %23
   br i1 %.not.i, label %24, label %16
 
 24:                                               ; preds = %20
@@ -1091,7 +1091,7 @@ mca_bml_base_btl_array_get_index.exit.lr.ph:      ; preds = %8
 mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_array_get_index.exit.lr.ph, %11
   %.04874 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %12, %11 ]
   %13 = load i64, ptr %9, align 8
-  %14 = icmp ugt i64 %13, %.04874
+  %14 = icmp ult i64 %.04874, %13
   call void @llvm.assume(i1 %14)
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %15, i64 %.04874
@@ -1118,7 +1118,7 @@ mca_bml_base_btl_array_get_index.exit59.lr.ph:    ; preds = %._crit_edge
 mca_bml_base_btl_array_get_index.exit59:          ; preds = %mca_bml_base_btl_array_get_index.exit59.lr.ph, %.loopexit
   %.04977 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit59.lr.ph ], [ %46, %.loopexit ]
   %26 = load i64, ptr %23, align 8
-  %27 = icmp ugt i64 %26, %.04977
+  %27 = icmp ult i64 %.04977, %26
   call void @llvm.assume(i1 %27)
   %28 = load ptr, ptr %24, align 8
   %29 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %28, i64 %.04977
@@ -1140,7 +1140,7 @@ mca_bml_base_btl_array_get_index.exit61.lr.ph:    ; preds = %mca_bml_base_btl_ar
 
 mca_bml_base_btl_array_get_index.exit61:          ; preds = %mca_bml_base_btl_array_get_index.exit61.lr.ph, %36
   %.04676 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit61.lr.ph ], [ %37, %36 ]
-  %38 = icmp ugt i64 %32, %.04676
+  %38 = icmp ult i64 %.04676, %32
   call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %33, i64 %.04676, i32 3
   %40 = load ptr, ptr %39, align 8
@@ -1316,7 +1316,7 @@ define internal noundef i32 @mca_bml_r2_del_btl(ptr noundef %0) #0 {
   %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %15, %14 ]
   %20 = getelementptr inbounds ptr, ptr %13, i64 %19
   %21 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %21, %.val.val
+  %.not.i = icmp eq ptr %.val.val, %21
   br i1 %.not.i, label %22, label %14
 
 22:                                               ; preds = %18
@@ -2085,7 +2085,7 @@ mca_bml_r2_calculate_bandwidth_latency.exit:      ; preds = %mca_bml_base_btl_ar
 mca_bml_base_btl_array_get_index.exit:            ; preds = %.lr.ph, %47
   %.066 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
   %22 = load i64, ptr %2, align 8
-  %23 = icmp ugt i64 %22, %.066
+  %23 = icmp ult i64 %.066, %22
   tail call void @llvm.assume(i1 %23)
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %24, i64 %.066
@@ -2168,7 +2168,7 @@ mca_bml_base_btl_array_get_index.exit53.lr.ph:    ; preds = %mca_bml_r2_calculat
 mca_bml_base_btl_array_get_index.exit53:          ; preds = %mca_bml_base_btl_array_get_index.exit53.lr.ph, %mca_bml_base_btl_array_get_index.exit53
   %.03767 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit53.lr.ph ], [ %72, %mca_bml_base_btl_array_get_index.exit53 ]
   %61 = load i64, ptr %3, align 8
-  %62 = icmp ugt i64 %61, %.03767
+  %62 = icmp ult i64 %.03767, %61
   tail call void @llvm.assume(i1 %62)
   %63 = load ptr, ptr %49, align 8
   %64 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %63, i64 %.03767

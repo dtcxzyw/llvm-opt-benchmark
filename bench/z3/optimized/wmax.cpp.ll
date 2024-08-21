@@ -1744,7 +1744,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN3refI5modelEaSEPS0_.exit:                      ; preds = %if.end.i, %if.then.i.i, %if.then.i.i.i
   store ptr %0, ptr %mdl, align 8
   %m_labels = getelementptr inbounds i8, ptr %this, i64 144
-  %cmp.i.i = icmp eq ptr %m_labels, %labels
+  %cmp.i.i = icmp eq ptr %labels, %m_labels
   br i1 %cmp.i.i, label %_ZN7svectorI6symboljEaSERKS1_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN3refI5modelEaSEPS0_.exit

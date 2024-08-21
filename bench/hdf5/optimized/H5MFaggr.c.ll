@@ -127,7 +127,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
 
 35:                                               ; preds = %32
   %36 = tail call i64 @H5F_get_threshold(ptr noundef nonnull %0) #6
-  %.not222 = icmp ugt i64 %36, %4
+  %.not222 = icmp ult i64 %4, %36
   br i1 %.not222, label %47, label %37
 
 37:                                               ; preds = %35
@@ -169,7 +169,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
 59:                                               ; preds = %47
   %60 = getelementptr inbounds i8, ptr %1, i64 8
   %61 = load i64, ptr %60, align 8
-  %.not227 = icmp ugt i64 %61, %4
+  %.not227 = icmp ult i64 %4, %61
   br i1 %.not227, label %120, label %62
 
 62:                                               ; preds = %59
@@ -553,7 +553,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %1, i64 32
   %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %3
+  %17 = icmp eq i64 %3, %16
   br i1 %17, label %18, label %62
 
 18:                                               ; preds = %14
@@ -579,7 +579,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
   %32 = uitofp i64 %28 to float
   %33 = fmul float %32, 0x3FB99999A0000000
   %34 = fptoui float %33 to i64
-  %.not50 = icmp ult i64 %34, %4
+  %.not50 = icmp ugt i64 %4, %34
   br i1 %.not50, label %38, label %35
 
 35:                                               ; preds = %31
@@ -592,7 +592,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8
-  %. = tail call i64 @llvm.umax.i64(i64 %40, i64 %4)
+  %. = tail call i64 @llvm.umax.i64(i64 %4, i64 %40)
   %41 = tail call i32 @H5F__try_extend(ptr noundef nonnull %0, i32 noundef %2, i64 noundef %19, i64 noundef %.) #6
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %47
@@ -697,7 +697,7 @@ define noundef i32 @H5MF__aggr_absorb(ptr nocapture noundef readnone %0, ptr noc
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %.not = icmp uge i64 %9, %11
-  %brmerge.not = and i1 %.not, %3
+  %brmerge.not = and i1 %3, %.not
   %12 = load i64, ptr %2, align 8
   %13 = add i64 %12, %8
   %.not39 = icmp eq i64 %13, -1

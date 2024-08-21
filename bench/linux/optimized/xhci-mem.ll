@@ -4428,7 +4428,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xhci_add_interrupter(ptr n
   %4 = getelementptr inbounds i8, ptr %0, i64 78
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = icmp ugt i32 %6, %2
+  %7 = icmp ult i32 %2, %6
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3

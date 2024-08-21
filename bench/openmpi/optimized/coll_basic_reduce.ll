@@ -235,7 +235,7 @@ ompi_datatype_copy_content_same_ddt.exit189:      ; preds = %.lr.ph.i180, %96, %
   %.1133212 = phi ptr [ %.1133222, %76 ], [ %45, %66 ], [ %.2, %102 ]
   %.1135 = phi ptr [ %.0145, %76 ], [ %.0141, %66 ], [ %.2136, %102 ]
   %105 = icmp eq i32 %19, 0
-  %106 = icmp eq i32 %.val175, %5
+  %106 = icmp eq i32 %5, %.val175
   br i1 %105, label %107, label %112
 
 107:                                              ; preds = %.loopexit

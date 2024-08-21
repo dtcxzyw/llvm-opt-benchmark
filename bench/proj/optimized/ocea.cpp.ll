@@ -121,10 +121,10 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_oceaP8PJconsts(ptr n
   %60 = tail call double @cos(double noundef %52) #7
   %61 = tail call double @sin(double noundef %44) #7
   %62 = tail call double @cos(double noundef %48) #7
-  %63 = tail call double @cos(double noundef %56) #7
-  %64 = fneg double %61
-  %65 = fmul double %62, %64
-  %66 = fmul double %65, %63
+  %63 = fmul double %61, %62
+  %64 = tail call double @cos(double noundef %56) #7
+  %65 = fneg double %64
+  %66 = fmul double %63, %65
   %67 = tail call double @llvm.fmuladd.f64(double %59, double %60, double %66)
   %68 = tail call double @sin(double noundef %44) #7
   %69 = tail call double @cos(double noundef %48) #7
@@ -132,10 +132,10 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_oceaP8PJconsts(ptr n
   %71 = tail call double @sin(double noundef %56) #7
   %72 = tail call double @cos(double noundef %44) #7
   %73 = tail call double @sin(double noundef %48) #7
-  %74 = tail call double @sin(double noundef %52) #7
-  %75 = fneg double %72
-  %76 = fmul double %73, %75
-  %77 = fmul double %76, %74
+  %74 = fmul double %72, %73
+  %75 = tail call double @sin(double noundef %52) #7
+  %76 = fneg double %75
+  %77 = fmul double %74, %76
   %78 = tail call double @llvm.fmuladd.f64(double %70, double %71, double %77)
   %79 = tail call double @atan2(double noundef %67, double noundef %78) #7
   %80 = fcmp oeq double %52, 0xBFF921FB54442D18
@@ -237,12 +237,13 @@ define internal { double, double } @_ZL14ocea_s_inverse5PJ_XYP8PJconsts(double %
   %23 = load double, ptr %15, align 8
   %24 = fmul double %13, %23
   %25 = load double, ptr %17, align 8
-  %26 = fmul double %25, %11
-  %27 = tail call double @llvm.fmuladd.f64(double %24, double %14, double %26)
-  %28 = tail call double @cos(double noundef %10) #7
-  %29 = fmul double %13, %28
-  %30 = tail call double @atan2(double noundef %27, double noundef %29) #7
-  %.fca.0.insert = insertvalue { double, double } poison, double %30, 0
+  %26 = fneg double %25
+  %27 = fmul double %7, %26
+  %28 = tail call double @llvm.fmuladd.f64(double %24, double %14, double %27)
+  %29 = tail call double @cos(double noundef %10) #7
+  %30 = fmul double %13, %29
+  %31 = tail call double @atan2(double noundef %28, double noundef %30) #7
+  %.fca.0.insert = insertvalue { double, double } poison, double %31, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %22, 1
   ret { double, double } %.fca.1.insert
 }
@@ -273,9 +274,9 @@ define internal { double, double } @_ZL14ocea_s_forward5PJ_LPP8PJconsts(double %
   %24 = tail call double @sin(double noundef %1) #7
   %25 = load double, ptr %9, align 8
   %26 = tail call double @cos(double noundef %1) #7
-  %27 = fneg double %25
-  %28 = fmul double %26, %27
-  %29 = fmul double %6, %28
+  %27 = fmul double %25, %26
+  %28 = fneg double %6
+  %29 = fmul double %27, %28
   %30 = tail call double @llvm.fmuladd.f64(double %23, double %24, double %29)
   %31 = fmul double %22, %30
   %.fca.0.insert = insertvalue { double, double } poison, double %21, 0

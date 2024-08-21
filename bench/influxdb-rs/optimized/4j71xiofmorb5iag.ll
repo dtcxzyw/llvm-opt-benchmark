@@ -162,7 +162,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !16
   %28 = load i64, ptr %9, align 8, !alias.scope !4, !noalias !7, !noundef !15
   %29 = load i64, ptr %10, align 8, !alias.scope !17, !noalias !20, !noundef !15
-  %30 = icmp ult i64 %29, %28
+  %30 = icmp ugt i64 %28, %29
   br i1 %30, label %._crit_edge, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader": ; preds = %24
@@ -226,7 +226,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
   %52 = load i64, ptr %16, align 8, !alias.scope !37, !noalias !44, !noundef !15
   %53 = load i64, ptr %17, align 8, !alias.scope !47, !noalias !44, !noundef !15
   %54 = sub i64 %53, %52
-  %55 = icmp ult i64 %54, %44
+  %55 = icmp ugt i64 %44, %54
   br i1 %55, label %56, label %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
 
 56:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i"
@@ -377,7 +377,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !90
   %53 = load i64, ptr %21, align 8, !alias.scope !85, !noalias !88, !noundef !15
   %54 = load i64, ptr %22, align 8, !alias.scope !91, !noalias !94, !noundef !15
-  %55 = icmp ult i64 %54, %53
+  %55 = icmp ugt i64 %53, %54
   br i1 %55, label %._crit_edge, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader": ; preds = %52
@@ -441,7 +441,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   %77 = load i64, ptr %28, align 8, !alias.scope !110, !noalias !117, !noundef !15
   %78 = load i64, ptr %29, align 8, !alias.scope !120, !noalias !117, !noundef !15
   %79 = sub i64 %78, %77
-  %80 = icmp ult i64 %79, %69
+  %80 = icmp ugt i64 %69, %79
   br i1 %80, label %81, label %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
 
 81:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i"
@@ -486,7 +486,7 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$15wri
   %4 = getelementptr inbounds i8, ptr %0, i64 336
   %5 = load i64, ptr %3, align 8, !noundef !15
   %6 = load i64, ptr %4, align 8, !alias.scope !127, !noalias !130, !noundef !15
-  %7 = icmp ult i64 %6, %5
+  %7 = icmp ugt i64 %5, %6
   br i1 %7, label %._crit_edge, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph": ; preds = %1
@@ -537,7 +537,7 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$15wri
   %28 = load i64, ptr %11, align 8, !alias.scope !146, !noalias !153, !noundef !15
   %29 = load i64, ptr %12, align 8, !alias.scope !156, !noalias !153, !noundef !15
   %30 = sub i64 %29, %28
-  %31 = icmp ult i64 %30, %21
+  %31 = icmp ugt i64 %21, %30
   br i1 %31, label %32, label %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
 
 32:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i"
@@ -593,7 +593,7 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16wri
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %15 = load i64, ptr %13, align 8, !noundef !15
   %16 = load i64, ptr %14, align 8, !alias.scope !169, !noalias !172, !noundef !15
-  %17 = icmp ult i64 %16, %15
+  %17 = icmp ugt i64 %15, %16
   br i1 %17, label %._crit_edge, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph": ; preds = %8
@@ -670,7 +670,7 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16wri
   %49 = load i64, ptr %23, align 8, !alias.scope !188, !noalias !195, !noundef !15
   %50 = load i64, ptr %24, align 8, !alias.scope !198, !noalias !195, !noundef !15
   %51 = sub i64 %50, %49
-  %52 = icmp ult i64 %51, %38
+  %52 = icmp ugt i64 %38, %51
   br i1 %52, label %53, label %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
 
 53:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i"
@@ -750,7 +750,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_termi
   %23 = getelementptr inbounds i8, ptr %0, i64 336
   %24 = load i64, ptr %22, align 8, !noundef !15
   %25 = load i64, ptr %23, align 8, !alias.scope !209, !noalias !212, !noundef !15
-  %26 = icmp ult i64 %25, %24
+  %26 = icmp ugt i64 %24, %25
   br i1 %26, label %._crit_edge, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph"
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph": ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$17check_field_count17hf2d27f16f2b44173E.exit"
@@ -806,7 +806,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_termi
   %48 = load i64, ptr %30, align 8, !alias.scope !228, !noalias !235, !noundef !15
   %49 = load i64, ptr %31, align 8, !alias.scope !238, !noalias !235, !noundef !15
   %50 = sub i64 %49, %48
-  %51 = icmp ult i64 %50, %41
+  %51 = icmp ugt i64 %41, %50
   br i1 %51, label %52, label %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
 
 52:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i"
@@ -892,7 +892,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %24 = getelementptr inbounds i8, ptr %0, i64 336
   %25 = load i64, ptr %24, align 8, !alias.scope !257, !noalias !260, !noundef !15
-  %26 = icmp ult i64 %25, %23
+  %26 = icmp ugt i64 %23, %25
   br i1 %26, label %27, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit"
 
 27:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit32"
@@ -1027,7 +1027,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
 
 80:                                               ; preds = %74
   %81 = load i64, ptr %24, align 8, !alias.scope !276, !noalias !15, !noundef !15
-  %82 = icmp ult i64 %81, %204
+  %82 = icmp ugt i64 %204, %81
   br i1 %82, label %83, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.i"
 
 83:                                               ; preds = %80
@@ -1044,7 +1044,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
 87:                                               ; preds = %74
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
   %88 = load i64, ptr %24, align 8, !alias.scope !293, !noalias !294, !noundef !15
-  %89 = icmp ult i64 %88, %204
+  %89 = icmp ugt i64 %204, %88
   br i1 %89, label %90, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit14.i"
 
 90:                                               ; preds = %87
@@ -1099,7 +1099,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   %106 = load i8, ptr %34, align 2, !noundef !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %107 = load i64, ptr %24, align 8, !alias.scope !299, !noalias !302, !noundef !15
-  %108 = icmp ult i64 %107, %44
+  %108 = icmp ugt i64 %44, %107
   br i1 %108, label %109, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit43"
 
 109:                                              ; preds = %105
@@ -1254,7 +1254,7 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread64: ; pr
   %189 = phi i64 [ %111, %110 ], [ %.pre314, %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit ], [ %111, %174 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   %190 = load i64, ptr %24, align 8, !alias.scope !326, !noalias !329, !noundef !15
-  %191 = icmp ult i64 %190, %189
+  %191 = icmp ugt i64 %189, %190
   br i1 %191, label %192, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit44"
 
 192:                                              ; preds = %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread64
@@ -1281,7 +1281,7 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread: ; pred
   %199 = load i8, ptr %37, align 1, !noundef !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   %200 = load i64, ptr %24, align 8, !alias.scope !343, !noalias !346, !noundef !15
-  %201 = icmp ult i64 %200, %198
+  %201 = icmp ugt i64 %198, %200
   br i1 %201, label %202, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit46"
 
 202:                                              ; preds = %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread
@@ -1310,7 +1310,7 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread: ; pred
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   %211 = load i64, ptr %24, align 8, !alias.scope !351, !noalias !354, !noundef !15
-  %212 = icmp ult i64 %211, %210
+  %212 = icmp ugt i64 %210, %211
   br i1 %212, label %213, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit47"
 
 213:                                              ; preds = %206
@@ -1334,7 +1334,7 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread: ; pred
   %224 = load i8, ptr %37, align 1, !noundef !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !359)
   %225 = load i64, ptr %24, align 8, !alias.scope !359, !noalias !362, !noundef !15
-  %226 = icmp ult i64 %225, %223
+  %226 = icmp ugt i64 %223, %225
   br i1 %226, label %227, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit48"
 
 227:                                              ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit47"
@@ -1467,7 +1467,7 @@ define hidden noalias noundef ptr @"_ZN3csv6writer15Writer$LT$W$GT$5flush17ha65a
   %16 = getelementptr inbounds i8, ptr %0, i64 360
   %17 = load i64, ptr %16, align 8, !alias.scope !385, !noalias !382, !noundef !15
   %18 = sub i64 %17, %15
-  %19 = icmp ult i64 %18, %10
+  %19 = icmp ugt i64 %10, %18
   br i1 %19, label %20, label %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
 
 20:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit.i"
@@ -1531,7 +1531,7 @@ define hidden noalias noundef ptr @"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h
   %16 = getelementptr inbounds i8, ptr %0, i64 360
   %17 = load i64, ptr %16, align 8, !alias.scope !403, !noalias !400, !noundef !15
   %18 = sub i64 %17, %15
-  %19 = icmp ult i64 %18, %10
+  %19 = icmp ugt i64 %10, %18
   br i1 %19, label %20, label %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h7da4fd2f4a93e98aE.exit"
 
 20:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit"
@@ -1570,7 +1570,7 @@ define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_co
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !15
   %9 = sub i64 %6, %8
-  %10 = icmp ult i64 %9, %3
+  %10 = icmp ugt i64 %3, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
@@ -1584,7 +1584,7 @@ define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_co
 
 14:                                               ; preds = %._crit_edge, %4
   %15 = phi i64 [ %.pre, %._crit_edge ], [ %6, %4 ]
-  %.not = icmp ugt i64 %15, %3
+  %.not = icmp ult i64 %3, %15
   br i1 %.not, label %18, label %24
 
 16:                                               ; preds = %11
@@ -1615,7 +1615,7 @@ define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_co
   %29 = getelementptr inbounds i8, ptr %.val, i64 8
   %30 = load i64, ptr %29, align 8, !alias.scope !420, !noalias !413, !noundef !15
   %31 = sub i64 %30, %28
-  %32 = icmp ult i64 %31, %3
+  %32 = icmp ugt i64 %3, %31
   br i1 %32, label %33, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17hcf7b7d0992bb3867E.exit"
 
 33:                                               ; preds = %24
@@ -1665,7 +1665,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !15
   %8 = sub i64 %5, %7
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
@@ -1679,7 +1679,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
 
 13:                                               ; preds = %._crit_edge, %3
   %14 = phi i64 [ %.pre, %._crit_edge ], [ %5, %3 ]
-  %.not = icmp ugt i64 %14, %2
+  %.not = icmp ult i64 %2, %14
   br i1 %.not, label %15, label %20
 
 15:                                               ; preds = %13
@@ -1701,7 +1701,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %25 = getelementptr inbounds i8, ptr %.val, i64 8
   %26 = load i64, ptr %25, align 8, !alias.scope !436, !noalias !431, !noundef !15
   %27 = sub i64 %26, %24
-  %28 = icmp ult i64 %27, %2
+  %28 = icmp ugt i64 %2, %27
   br i1 %28, label %29, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.exit"
 
 29:                                               ; preds = %20
@@ -1762,7 +1762,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
   %17 = getelementptr inbounds i8, ptr %.val, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !453, !noalias !446, !noundef !15
   %19 = sub i64 %18, %16
-  %20 = icmp ult i64 %19, %14
+  %20 = icmp ugt i64 %14, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %12
@@ -2228,7 +2228,7 @@ define hidden noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT
 define hidden { ptr, i64 } @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !15
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8ea024a78c162daeE.llvm.14933412330345768097.exit"
 
 7:                                                ; preds = %3

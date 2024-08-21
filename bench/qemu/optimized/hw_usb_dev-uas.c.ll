@@ -1506,7 +1506,7 @@ entry:
   %0 = load ptr, ptr %uas1, align 8
   %datain2 = getelementptr inbounds i8, ptr %0, i64 6064
   %1 = load ptr, ptr %datain2, align 8
-  %cmp = icmp eq ptr %1, %priv
+  %cmp = icmp eq ptr %priv, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1516,7 +1516,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %dataout2 = getelementptr inbounds i8, ptr %0, i64 6072
   %2 = load ptr, ptr %dataout2, align 8
-  %cmp3 = icmp eq ptr %2, %priv
+  %cmp3 = icmp eq ptr %priv, %2
   br i1 %cmp3, label %if.then4, label %do.body
 
 if.then4:                                         ; preds = %if.end

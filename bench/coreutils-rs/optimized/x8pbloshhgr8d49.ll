@@ -1278,7 +1278,7 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   %5 = load i64, ptr %4, align 16, !noundef !23
   %6 = xor i64 %5, -1
-  %7 = and i64 %6, %1
+  %7 = and i64 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 392
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = getelementptr inbounds i8, ptr %0, i64 416
@@ -1365,7 +1365,7 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   %5 = load i64, ptr %4, align 16, !noundef !23
   %6 = xor i64 %5, -1
-  %7 = and i64 %6, %1
+  %7 = and i64 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 392
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = getelementptr inbounds i8, ptr %0, i64 416
@@ -1452,7 +1452,7 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   %5 = load i64, ptr %4, align 16, !noundef !23
   %6 = xor i64 %5, -1
-  %7 = and i64 %6, %1
+  %7 = and i64 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 392
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = getelementptr inbounds i8, ptr %0, i64 416
@@ -5471,7 +5471,7 @@ common.resume:                                    ; preds = %47, %19
 
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !627)
-  %.not.i13.i = icmp ugt i64 %28, %31
+  %.not.i13.i = icmp ult i64 %31, %28
   br i1 %.not.i13.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h2dfbb96f3d0929f3E.exit.i", label %40
 
 40:                                               ; preds = %39
@@ -5727,7 +5727,7 @@ _ZN3std4sync4mpmc7context7Context12store_packet17h71587165d6a8dce1E.exit.i.i.i: 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !666)
   %77 = load i64, ptr %37, align 8, !alias.scope !669, !noalias !670, !noundef !23
-  %.not.i.i = icmp ugt i64 %77, %.016.i.i
+  %.not.i.i = icmp ult i64 %.016.i.i, %77
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5waker5Waker10try_select17ha74c1d6f879212f7E.exit, label %78
 
 78:                                               ; preds = %.noexc5
@@ -6853,7 +6853,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %6, %
   %.sink = phi i8 [ %15, %13 ], [ %4, %6 ]
   %18 = phi i64 [ 2, %13 ], [ 1, %6 ]
   store i8 %.sink, ptr %8, align 4
-  %.not.i.i = icmp ugt i64 %18, %1
+  %.not.i.i = icmp ult i64 %1, %18
   %.pre.i = sub i64 %1, %18
   br i1 %.not.i.i, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h763f6a95ff91a66cE.exit.i"
 

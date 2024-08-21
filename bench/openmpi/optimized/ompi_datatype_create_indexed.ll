@@ -117,7 +117,7 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
   %.150 = phi i64 [ %.04970, %.lr.ph72 ], [ %48, %45 ], [ %56, %49 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %58 = trunc nuw i64 %indvars.iv.next77 to i32
-  %59 = icmp slt i32 %58, %0
+  %59 = icmp sgt i32 %0, %58
   br i1 %59, label %.lr.ph72, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %16
@@ -242,7 +242,7 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
   %.150 = phi i64 [ %.04973, %.lr.ph75 ], [ %48, %44 ], [ %55, %49 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %57 = trunc nuw i64 %indvars.iv.next80 to i32
-  %58 = icmp slt i32 %57, %0
+  %58 = icmp sgt i32 %0, %57
   br i1 %58, label %.lr.ph75, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %56, %16

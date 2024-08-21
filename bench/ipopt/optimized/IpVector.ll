@@ -427,7 +427,7 @@ define void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable
   store i32 %45, ptr %40, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 144
   %48 = load double, ptr %47, align 8
-  %49 = fmul double %48, %1
+  %49 = fmul double %1, %48
   store double %49, ptr %47, align 8
   br label %56
 
@@ -436,7 +436,7 @@ define void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable
   store i32 %45, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 144
   %53 = load double, ptr %52, align 8
-  %54 = fmul double %53, %1
+  %54 = fmul double %1, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 160
   store double %54, ptr %55, align 8
   br label %56
@@ -456,14 +456,14 @@ define void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable
 64:                                               ; preds = %60
   store i32 %62, ptr %57, align 8
   %65 = load double, ptr %63, align 8
-  %66 = fmul double %65, %1
+  %66 = fmul double %1, %65
   store double %66, ptr %63, align 8
   br label %71
 
 67:                                               ; preds = %60
   store i32 %62, ptr %40, align 8
   %68 = load double, ptr %63, align 8
-  %69 = fmul double %68, %1
+  %69 = fmul double %1, %68
   %70 = getelementptr inbounds i8, ptr %0, i64 144
   store double %69, ptr %70, align 8
   br label %71
@@ -479,7 +479,7 @@ define void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable
   store i32 %76, ptr %72, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 176
   %78 = load double, ptr %77, align 8
-  %79 = fmul double %78, %1
+  %79 = fmul double %1, %78
   store double %79, ptr %77, align 8
   br label %80
 

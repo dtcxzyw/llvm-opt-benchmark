@@ -2091,7 +2091,7 @@ define internal fastcc i32 @rsa_rsassa_pss_sign(ptr noundef %0, ptr noundef %1, 
 19:                                               ; preds = %16
   %20 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %17) #14
   %21 = zext i8 %20 to i32
-  %.not91 = icmp eq i32 %21, %4
+  %.not91 = icmp eq i32 %4, %21
   br i1 %.not91, label %22, label %89
 
 22:                                               ; preds = %19, %13
@@ -2323,7 +2323,7 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
 13:                                               ; preds = %11
   %14 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %9) #14
   %15 = zext i8 %14 to i32
-  %.not67 = icmp eq i32 %15, %1
+  %.not67 = icmp eq i32 %1, %15
   br i1 %.not67, label %16, label %65
 
 16:                                               ; preds = %13
@@ -2339,13 +2339,13 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %24 = zext nneg i32 %23 to i64
   %25 = add i64 %19, %24
   %26 = icmp ult i64 %25, %24
-  %27 = icmp ugt i64 %25, %3
+  %27 = icmp ult i64 %3, %25
   %or.cond = or i1 %26, %27
   br i1 %or.cond, label %65, label %31
 
 28:                                               ; preds = %5
   %29 = zext i32 %1 to i64
-  %30 = icmp ugt i64 %29, %3
+  %30 = icmp ult i64 %3, %29
   br i1 %30, label %65, label %31
 
 31:                                               ; preds = %22, %28
@@ -2485,7 +2485,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
 25:                                               ; preds = %22
   %26 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #14
   %27 = zext i8 %26 to i32
-  %.not78 = icmp eq i32 %27, %2
+  %.not78 = icmp eq i32 %2, %27
   br i1 %.not78, label %28, label %93
 
 28:                                               ; preds = %25, %21

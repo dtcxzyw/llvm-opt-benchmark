@@ -340,7 +340,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #6
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
-  %brmerge.demorgan = and i1 %7, %3
+  %brmerge.demorgan = and i1 %3, %7
   %. = select i1 %brmerge.demorgan, i64 24, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 %.
   %9 = load ptr, ptr %8, align 8
@@ -351,7 +351,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4
 _ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %4
   %10 = load i8, ptr @UseCompressedClassPointers, align 1
   %11 = trunc i8 %10 to i1
-  %brmerge.demorgan.c = and i1 %11, %3
+  %brmerge.demorgan.c = and i1 %3, %11
   %..c = select i1 %brmerge.demorgan.c, i64 24, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 %..c
   %13 = load ptr, ptr %12, align 8

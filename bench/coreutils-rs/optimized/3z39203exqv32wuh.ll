@@ -1057,7 +1057,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br label %34
 
 34:                                               ; preds = %31, %26
-  %35 = icmp ult i64 %.sroa.5.0.i.ph.i, %3
+  %35 = icmp ugt i64 %3, %.sroa.5.0.i.ph.i
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf91d4c6d2473aab8E.exit.i.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf91d4c6d2473aab8E.exit.i.i.i.i": ; preds = %34
@@ -1276,7 +1276,7 @@ define internal fastcc void @_ZN5uu_dd6blocks7unblock17h909f21a5c5cb7e8cE(ptr no
 21:                                               ; preds = %24, %16
   %22 = phi ptr [ %19, %16 ], [ %25, %24 ]
   %.0.i.i.i = phi i64 [ %.0.sroa.speculated.i.i.i, %16 ], [ %26, %24 ]
-  %23 = icmp eq ptr %22, %18
+  %23 = icmp eq ptr %18, %22
   br i1 %23, label %.loopexit.i.i, label %24
 
 24:                                               ; preds = %21
@@ -1305,7 +1305,7 @@ define internal fastcc void @_ZN5uu_dd6blocks7unblock17h909f21a5c5cb7e8cE(ptr no
   %33 = icmp ult i64 %26, %.0.sroa.speculated.i.i.i
   call void @llvm.assume(i1 %33)
   %34 = sub i64 %.sroa.0.033.i, %.sroa.8.031.i
-  %35 = icmp ult i64 %34, %.0.i.i.i
+  %35 = icmp ugt i64 %.0.i.i.i, %34
   br i1 %35, label %40, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E.exit.i.i"
 
 .loopexit.i.i:                                    ; preds = %21, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hd7c3a02b57a88821E.exit.i.i"
@@ -1942,7 +1942,7 @@ define hidden void @_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17hca
   %20 = sub nuw i64 %3, %18
   %21 = load i64, ptr %1, align 8, !alias.scope !415, !noalias !422, !noundef !4
   %22 = sub i64 %21, %15
-  %23 = icmp ult i64 %22, %18
+  %23 = icmp ugt i64 %18, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h817100a1e83c35b3E.exit"
 
 24:                                               ; preds = %13
@@ -1976,7 +1976,7 @@ define hidden void @_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17hca
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   store i64 0, ptr %7, align 8
   %36 = load i64, ptr %1, align 8, !alias.scope !425, !noalias !432, !noundef !4
-  %37 = icmp ult i64 %36, %20
+  %37 = icmp ugt i64 %20, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h817100a1e83c35b3E.exit11"
 
 38:                                               ; preds = %34

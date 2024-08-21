@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @mca_coll_han_algorithm_id_is_valid(i32 noundef %0, i
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = icmp sge i32 %8, %1
+  %9 = icmp sle i32 %1, %8
   %10 = zext i1 %9 to i32
   br label %11
 
@@ -96,7 +96,7 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %4
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %.not8 = icmp slt i32 %9, %1
+  %.not8 = icmp sgt i32 %1, %9
   br i1 %.not8, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %10
 
 10:                                               ; preds = %mca_coll_han_algorithm_id_is_valid.exit
@@ -124,7 +124,7 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %2
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
-  %.not8 = icmp slt i32 %7, %1
+  %.not8 = icmp sgt i32 %1, %7
   br i1 %.not8, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %8
 
 8:                                                ; preds = %mca_coll_han_algorithm_id_is_valid.exit

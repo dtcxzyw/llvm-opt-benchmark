@@ -2702,7 +2702,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #5 {
   %5 = load i8, ptr %0, align 4
   %6 = sext i8 %5 to i32
-  %7 = icmp eq i32 %6, %3
+  %7 = icmp eq i32 %3, %6
   br i1 %7, label %12, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %4
@@ -2719,7 +2719,7 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr nocapture nound
 12:                                               ; preds = %4
   %13 = load i8, ptr %1, align 4
   %14 = sext i8 %13 to i32
-  %15 = icmp eq i32 %14, %3
+  %15 = icmp eq i32 %3, %14
   br i1 %15, label %.preheader102, label %.preheader105
 
 .preheader102:                                    ; preds = %12

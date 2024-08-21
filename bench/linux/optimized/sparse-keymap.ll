@@ -73,7 +73,7 @@ define dso_local noundef ptr @sparse_keymap_entry_from_keycode(ptr nocapture nou
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i16, ptr %9, align 4
   %11 = zext i16 %10 to i32
-  %12 = icmp eq i32 %11, %1
+  %12 = icmp eq i32 %1, %11
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %8, %5

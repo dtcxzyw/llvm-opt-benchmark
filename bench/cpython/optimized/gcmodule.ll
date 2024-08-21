@@ -2690,7 +2690,7 @@ entry:
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
   %sub.i = xor i64 %narrow.i, 9223372036854775807
-  %cmp.i = icmp ult i64 %sub.i, %tp.val5
+  %cmp.i = icmp ugt i64 %tp.val5, %sub.i
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -2829,7 +2829,7 @@ if.end:                                           ; preds = %entry
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8
   %sub.i = xor i64 %narrow.i, 9223372036854775807
-  %cmp.i = icmp ult i64 %sub.i, %and.i
+  %cmp.i = icmp ugt i64 %and.i, %sub.i
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
@@ -2960,7 +2960,7 @@ entry:
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
   %sub.i = xor i64 %narrow.i, 9223372036854775807
-  %cmp.i = icmp ult i64 %sub.i, %add
+  %cmp.i = icmp ugt i64 %add, %sub.i
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -3507,8 +3507,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1025 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2024 = phi i64 [ %cond19, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2024, %add
+  %add = sub i64 0, %cond2024
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos.thread28, label %if.end14
 
 skip_optional_pos.thread28:                       ; preds = %if.end
@@ -3596,8 +3596,8 @@ cond.end9:                                        ; preds = %cond.end, %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1023 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond1822 = phi i64 [ %cond17, %cond.end9 ], [ 0, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond1822, %add
+  %add = sub i64 0, %cond1822
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
@@ -4512,7 +4512,7 @@ define internal fastcc void @deduce_unreachable(ptr noundef %base, ptr noundef %
 entry:
   %containers.val.i = load i64, ptr %base, align 8
   %0 = inttoptr i64 %containers.val.i to ptr
-  %cmp.not10.i = icmp eq ptr %0, %base
+  %cmp.not10.i = icmp eq ptr %base, %0
   br i1 %cmp.not10.i, label %update_refs.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
@@ -4559,7 +4559,7 @@ if.then.i:                                        ; preds = %while.body.i
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end.i, %if.then.i
-  %cmp.not.i = icmp eq ptr %2, %base
+  %cmp.not.i = icmp eq ptr %base, %2
   br i1 %cmp.not.i, label %update_refs.exit.loopexit, label %while.body.i, !llvm.loop !37
 
 if.end.i:                                         ; preds = %while.body.i
@@ -4579,7 +4579,7 @@ update_refs.exit.loopexit:                        ; preds = %while.cond.backedge
 
 update_refs.exit:                                 ; preds = %update_refs.exit.loopexit, %entry
   %gc.07.i.pre-phi = phi ptr [ %.pre, %update_refs.exit.loopexit ], [ %0, %entry ]
-  %cmp.not8.i = icmp eq ptr %gc.07.i.pre-phi, %base
+  %cmp.not8.i = icmp eq ptr %base, %gc.07.i.pre-phi
   br i1 %cmp.not8.i, label %subtract_refs.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %update_refs.exit, %for.body.i
@@ -4592,7 +4592,7 @@ for.body.i:                                       ; preds = %update_refs.exit, %
   %call3.i = tail call i32 %17(ptr noundef %add.ptr.i.i4, ptr noundef nonnull @visit_decref, ptr noundef %add.ptr.i.i4) #15
   %gc.0.in.i = load i64, ptr %gc.09.i, align 8
   %gc.0.i = inttoptr i64 %gc.0.in.i to ptr
-  %cmp.not.i5 = icmp eq ptr %gc.0.i, %base
+  %cmp.not.i5 = icmp eq ptr %base, %gc.0.i
   br i1 %cmp.not.i5, label %subtract_refs.exit, label %for.body.i, !llvm.loop !38
 
 subtract_refs.exit:                               ; preds = %for.body.i, %update_refs.exit
@@ -4602,7 +4602,7 @@ subtract_refs.exit:                               ; preds = %for.body.i, %update
   store i64 %18, ptr %unreachable, align 8
   %gc.0.in29.i = load i64, ptr %base, align 8
   %gc.030.i = inttoptr i64 %gc.0.in29.i to ptr
-  %cmp.not31.i = icmp eq ptr %gc.030.i, %base
+  %cmp.not31.i = icmp eq ptr %base, %gc.030.i
   br i1 %cmp.not31.i, label %move_unreachable.exit, label %while.body.lr.ph.i6
 
 while.body.lr.ph.i6:                              ; preds = %subtract_refs.exit
@@ -4653,7 +4653,7 @@ if.end.i13:                                       ; preds = %if.else.i, %if.then
   %prev.1.i = phi ptr [ %gc.034.i, %if.then.i9 ], [ %prev.032.i, %if.else.i ]
   %gc.0.in.i14 = load i64, ptr %prev.1.i, align 8
   %gc.0.i15 = inttoptr i64 %gc.0.in.i14 to ptr
-  %cmp.not.i16 = icmp eq ptr %gc.0.i15, %base
+  %cmp.not.i16 = icmp eq ptr %base, %gc.0.i15
   br i1 %cmp.not.i16, label %move_unreachable.exit, label %while.body.i7, !llvm.loop !39
 
 move_unreachable.exit:                            ; preds = %if.end.i13, %subtract_refs.exit

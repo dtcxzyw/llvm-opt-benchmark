@@ -451,7 +451,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %81 = mul nuw nsw i64 %indvars.iv825.i, %79
   %82 = add nuw nsw i64 %81, %78
   %83 = load i64, ptr %38, align 8
-  %or.cond696.not.i = icmp ugt i64 %83, %82
+  %or.cond696.not.i = icmp ult i64 %82, %83
   br i1 %or.cond696.not.i, label %84, label %fmap_readn.exit575.thread.i
 
 84:                                               ; preds = %80
@@ -538,16 +538,16 @@ fmap_readn.exit575.thread.i:                      ; preds = %fmap_readn.exit575.
   %112 = sub nuw nsw i32 8192, %.0420787.i
   %113 = zext nneg i32 %112 to i64
   %114 = load i64, ptr %38, align 8
-  %.not697.i = icmp eq i64 %114, %.0445785.i
+  %.not697.i = icmp eq i64 %.0445785.i, %114
   br i1 %.not697.i, label %fmap_readn.exit579.i, label %115
 
 115:                                              ; preds = %105
-  %116 = icmp ult i64 %114, %.0445785.i
+  %116 = icmp ugt i64 %.0445785.i, %114
   br i1 %116, label %121, label %117
 
 117:                                              ; preds = %115
   %118 = sub nuw i64 %114, %.0445785.i
-  %spec.select.i577.i = call i64 @llvm.umin.i64(i64 %118, i64 %113)
+  %spec.select.i577.i = call i64 @llvm.umin.i64(i64 %113, i64 %118)
   %119 = load ptr, ptr %42, align 8
   %120 = call ptr %119(ptr noundef nonnull %37, i64 noundef %.0445785.i, i64 noundef %spec.select.i577.i, i32 noundef 0) #8
   %.not.i578.i = icmp eq ptr %120, null
@@ -966,16 +966,16 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %326 = sub nuw nsw i32 8196, %.9.in756.i
   %327 = zext nneg i32 %326 to i64
   %328 = load i64, ptr %38, align 8
-  %.not700.i = icmp eq i64 %328, %.9454754.i
+  %.not700.i = icmp eq i64 %.9454754.i, %328
   br i1 %.not700.i, label %fmap_readn.exit584.i, label %329
 
 329:                                              ; preds = %319
-  %330 = icmp ult i64 %328, %.9454754.i
+  %330 = icmp ugt i64 %.9454754.i, %328
   br i1 %330, label %335, label %331
 
 331:                                              ; preds = %329
   %332 = sub nuw i64 %328, %.9454754.i
-  %spec.select.i582.i = call i64 @llvm.umin.i64(i64 %332, i64 %327)
+  %spec.select.i582.i = call i64 @llvm.umin.i64(i64 %327, i64 %332)
   %333 = load ptr, ptr %42, align 8
   %334 = call ptr %333(ptr noundef nonnull %37, i64 noundef %.9454754.i, i64 noundef %spec.select.i582.i, i32 noundef 0) #8
   %.not.i583.i = icmp eq ptr %334, null
@@ -1038,16 +1038,16 @@ fmap_readn.exit584.i:                             ; preds = %select.unfold633.i,
   %356 = sub nuw nsw i32 8192, %.11765.i
   %357 = zext nneg i32 %356 to i64
   %358 = load i64, ptr %38, align 8
-  %.not699.i = icmp eq i64 %358, %.11456763.i
+  %.not699.i = icmp eq i64 %.11456763.i, %358
   br i1 %.not699.i, label %fmap_readn.exit589.i, label %359
 
 359:                                              ; preds = %349
-  %360 = icmp ult i64 %358, %.11456763.i
+  %360 = icmp ugt i64 %.11456763.i, %358
   br i1 %360, label %365, label %361
 
 361:                                              ; preds = %359
   %362 = sub nuw i64 %358, %.11456763.i
-  %spec.select.i587.i = call i64 @llvm.umin.i64(i64 %362, i64 %357)
+  %spec.select.i587.i = call i64 @llvm.umin.i64(i64 %357, i64 %362)
   %363 = load ptr, ptr %42, align 8
   %364 = call ptr %363(ptr noundef nonnull %37, i64 noundef %.11456763.i, i64 noundef %spec.select.i587.i, i32 noundef 0) #8
   %.not.i588.i = icmp eq ptr %364, null
@@ -1110,16 +1110,16 @@ fmap_readn.exit589.i:                             ; preds = %select.unfold635.i,
   %387 = sub nuw nsw i32 8192, %.13773.i
   %388 = zext nneg i32 %387 to i64
   %389 = load i64, ptr %38, align 8
-  %.not698.i = icmp eq i64 %389, %.13458771.i
+  %.not698.i = icmp eq i64 %.13458771.i, %389
   br i1 %.not698.i, label %fmap_readn.exit594.i, label %390
 
 390:                                              ; preds = %380
-  %391 = icmp ult i64 %389, %.13458771.i
+  %391 = icmp ugt i64 %.13458771.i, %389
   br i1 %391, label %396, label %392
 
 392:                                              ; preds = %390
   %393 = sub nuw i64 %389, %.13458771.i
-  %spec.select.i592.i = call i64 @llvm.umin.i64(i64 %393, i64 %388)
+  %spec.select.i592.i = call i64 @llvm.umin.i64(i64 %388, i64 %393)
   %394 = load ptr, ptr %42, align 8
   %395 = call ptr %394(ptr noundef nonnull %37, i64 noundef %.13458771.i, i64 noundef %spec.select.i592.i, i32 noundef 0) #8
   %.not.i593.i = icmp eq ptr %395, null
@@ -1519,11 +1519,11 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   %574 = zext i32 %573 to i64
   %575 = add i64 %.2447.i, %574
   %576 = load i64, ptr %38, align 8
-  %.not701.i = icmp eq i64 %576, %575
+  %.not701.i = icmp eq i64 %575, %576
   br i1 %.not701.i, label %fmap_readn.exit599.i, label %577
 
 577:                                              ; preds = %572
-  %578 = icmp ult i64 %576, %575
+  %578 = icmp ugt i64 %575, %576
   br i1 %578, label %584, label %579
 
 579:                                              ; preds = %577
@@ -1746,18 +1746,18 @@ real_scansis.exit:                                ; preds = %fmap_readn.exit.thr
   %672 = zext i32 %671 to i64
   %673 = getelementptr inbounds i8, ptr %666, i64 88
   %674 = load i64, ptr %673, align 8
-  %675 = icmp ne i64 %674, %670
+  %675 = icmp ne i64 %670, %674
   %676 = icmp ne i32 %667, 8192
   %or.cond.i.i.i = and i1 %676, %675
   br i1 %or.cond.i.i.i, label %677, label %fmap_readn.exit.i.i
 
 677:                                              ; preds = %660
-  %678 = icmp ult i64 %674, %670
+  %678 = icmp ugt i64 %670, %674
   br i1 %678, label %getd.exit.thread.i, label %679
 
 679:                                              ; preds = %677
   %680 = sub nuw i64 %674, %670
-  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %680, i64 %672)
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %672, i64 %680)
   %681 = getelementptr inbounds i8, ptr %666, i64 104
   %682 = load ptr, ptr %681, align 8
   %683 = call ptr %682(ptr noundef nonnull %666, i64 noundef %670, i64 noundef %spec.select.i.i.i, i32 noundef 0) #8
@@ -1881,18 +1881,18 @@ getd.exit.i:                                      ; preds = %690, %656
   %754 = zext i32 %753 to i64
   %755 = getelementptr inbounds i8, ptr %748, i64 88
   %756 = load i64, ptr %755, align 8
-  %757 = icmp ne i64 %756, %752
+  %757 = icmp ne i64 %752, %756
   %758 = icmp ne i32 %749, 8192
   %or.cond.i.i221.i = and i1 %758, %757
   br i1 %or.cond.i.i221.i, label %759, label %fmap_readn.exit.i222.i
 
 759:                                              ; preds = %742
-  %760 = icmp ult i64 %756, %752
+  %760 = icmp ugt i64 %752, %756
   br i1 %760, label %getd.exit228.thread.i, label %761
 
 761:                                              ; preds = %759
   %762 = sub nuw i64 %756, %752
-  %spec.select.i.i224.i = call i64 @llvm.umin.i64(i64 %762, i64 %754)
+  %spec.select.i.i224.i = call i64 @llvm.umin.i64(i64 %754, i64 %762)
   %763 = getelementptr inbounds i8, ptr %748, i64 104
   %764 = load ptr, ptr %763, align 8
   %765 = call ptr %764(ptr noundef nonnull %748, i64 noundef %752, i64 noundef %spec.select.i.i224.i, i32 noundef 0) #8
@@ -2016,18 +2016,18 @@ getd.exit228.i:                                   ; preds = %772, %738
   %836 = zext i32 %835 to i64
   %837 = getelementptr inbounds i8, ptr %830, i64 88
   %838 = load i64, ptr %837, align 8
-  %839 = icmp ne i64 %838, %834
+  %839 = icmp ne i64 %834, %838
   %840 = icmp ne i32 %831, 8192
   %or.cond.i.i233.i = and i1 %840, %839
   br i1 %or.cond.i.i233.i, label %841, label %fmap_readn.exit.i234.i
 
 841:                                              ; preds = %824
-  %842 = icmp ult i64 %838, %834
+  %842 = icmp ugt i64 %834, %838
   br i1 %842, label %getd.exit240.thread.i, label %843
 
 843:                                              ; preds = %841
   %844 = sub nuw i64 %838, %834
-  %spec.select.i.i236.i = call i64 @llvm.umin.i64(i64 %844, i64 %836)
+  %spec.select.i.i236.i = call i64 @llvm.umin.i64(i64 %836, i64 %844)
   %845 = getelementptr inbounds i8, ptr %830, i64 104
   %846 = load ptr, ptr %845, align 8
   %847 = call ptr %846(ptr noundef nonnull %830, i64 noundef %834, i64 noundef %spec.select.i.i236.i, i32 noundef 0) #8
@@ -2088,18 +2088,18 @@ fmap_readn.exit.i234.i:                           ; preds = %.fmap_readn.exit_cr
   %877 = zext i32 %876 to i64
   %878 = getelementptr inbounds i8, ptr %871, i64 88
   %879 = load i64, ptr %878, align 8
-  %880 = icmp ne i64 %879, %875
+  %880 = icmp ne i64 %875, %879
   %881 = icmp ne i32 %872, 8192
   %or.cond.i.i245.i = and i1 %881, %880
   br i1 %or.cond.i.i245.i, label %882, label %fmap_readn.exit.i246.i
 
 882:                                              ; preds = %865
-  %883 = icmp ult i64 %879, %875
+  %883 = icmp ugt i64 %875, %879
   br i1 %883, label %getd.exit240.thread.i, label %884
 
 884:                                              ; preds = %882
   %885 = sub nuw i64 %879, %875
-  %spec.select.i.i248.i = call i64 @llvm.umin.i64(i64 %885, i64 %877)
+  %spec.select.i.i248.i = call i64 @llvm.umin.i64(i64 %877, i64 %885)
   %886 = getelementptr inbounds i8, ptr %871, i64 104
   %887 = load ptr, ptr %886, align 8
   %888 = call ptr %887(ptr noundef nonnull %871, i64 noundef %875, i64 noundef %spec.select.i.i248.i, i32 noundef 0) #8
@@ -2159,18 +2159,18 @@ fmap_readn.exit.i246.i:                           ; preds = %.fmap_readn.exit_cr
   %918 = zext i32 %917 to i64
   %919 = getelementptr inbounds i8, ptr %912, i64 88
   %920 = load i64, ptr %919, align 8
-  %921 = icmp ne i64 %920, %916
+  %921 = icmp ne i64 %916, %920
   %922 = icmp ne i32 %913, 8192
   %or.cond.i.i257.i = and i1 %922, %921
   br i1 %or.cond.i.i257.i, label %923, label %fmap_readn.exit.i258.i
 
 923:                                              ; preds = %906
-  %924 = icmp ult i64 %920, %916
+  %924 = icmp ugt i64 %916, %920
   br i1 %924, label %getd.exit240.thread.i, label %925
 
 925:                                              ; preds = %923
   %926 = sub nuw i64 %920, %916
-  %spec.select.i.i260.i = call i64 @llvm.umin.i64(i64 %926, i64 %918)
+  %spec.select.i.i260.i = call i64 @llvm.umin.i64(i64 %918, i64 %926)
   %927 = getelementptr inbounds i8, ptr %912, i64 104
   %928 = load ptr, ptr %927, align 8
   %929 = call ptr %928(ptr noundef nonnull %912, i64 noundef %916, i64 noundef %spec.select.i.i260.i, i32 noundef 0) #8
@@ -2285,18 +2285,18 @@ getd.exit264.i:                                   ; preds = %936, %._crit_edge.i
   %1001 = zext i32 %998 to i64
   %1002 = getelementptr inbounds i8, ptr %999, i64 88
   %1003 = load i64, ptr %1002, align 8
-  %1004 = icmp ne i64 %1003, %1000
+  %1004 = icmp ne i64 %1000, %1003
   %1005 = icmp ne i32 %998, 0
   %or.cond.i.i = and i1 %1004, %1005
   br i1 %or.cond.i.i, label %1006, label %fmap_readn.exit.i38
 
 1006:                                             ; preds = %988
-  %1007 = icmp ult i64 %1003, %1000
+  %1007 = icmp ugt i64 %1000, %1003
   br i1 %1007, label %fmap_readn.exit.i38, label %1008
 
 1008:                                             ; preds = %1006
   %1009 = sub nuw i64 %1003, %1000
-  %spec.select.i.i39 = call i64 @llvm.umin.i64(i64 %1009, i64 %1001)
+  %spec.select.i.i39 = call i64 @llvm.umin.i64(i64 %1001, i64 %1009)
   %1010 = getelementptr inbounds i8, ptr %999, i64 104
   %1011 = load ptr, ptr %1010, align 8
   %1012 = call ptr %1011(ptr noundef nonnull %999, i64 noundef %1000, i64 noundef %spec.select.i.i39, i32 noundef 0) #8
@@ -2550,18 +2550,18 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define internal fastcc noundef i64 @fmap_readn(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ne i64 %6, %2
+  %7 = icmp ne i64 %2, %6
   %8 = icmp ne i64 %3, 0
   %or.cond = and i1 %8, %7
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %4
-  %10 = icmp ult i64 %6, %2
+  %10 = icmp ugt i64 %2, %6
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %9
   %12 = sub nuw i64 %6, %2
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %12, i64 %3)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %12)
   %13 = getelementptr inbounds i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, i64 noundef %2, i64 noundef %spec.select, i32 noundef 0) #8
@@ -2670,7 +2670,7 @@ define internal fastcc ptr @getsistring(ptr noundef %0, i32 noundef %1, i32 noun
 
 14:                                               ; preds = %9
   %15 = sub nuw i64 %13, %10
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %11)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %15)
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, i64 noundef %10, i64 noundef %spec.select.i, i32 noundef 0) #8
@@ -2761,18 +2761,18 @@ define internal fastcc noundef i32 @getfield(ptr nocapture noundef %0, ptr nocap
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %15, i64 88
   %24 = load i64, ptr %23, align 8
-  %25 = icmp ne i64 %24, %20
+  %25 = icmp ne i64 %20, %24
   %26 = icmp ne i32 %16, 8192
   %or.cond.i.i = and i1 %26, %25
   br i1 %or.cond.i.i, label %27, label %fmap_readn.exit.i
 
 27:                                               ; preds = %6
-  %28 = icmp ult i64 %24, %20
+  %28 = icmp ugt i64 %20, %24
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %27
   %30 = sub nuw i64 %24, %20
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %22)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %30)
   %31 = getelementptr inbounds i8, ptr %15, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr %32(ptr noundef nonnull %15, i64 noundef %20, i64 noundef %spec.select.i.i, i32 noundef 0) #8
@@ -2888,18 +2888,18 @@ define internal fastcc range(i32 0, 2) i32 @getsize(ptr nocapture noundef %0) un
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %19, i64 88
   %28 = load i64, ptr %27, align 8
-  %29 = icmp ne i64 %28, %24
+  %29 = icmp ne i64 %24, %28
   %30 = icmp ne i32 %20, 8192
   %or.cond.i.i = and i1 %30, %29
   br i1 %or.cond.i.i, label %31, label %fmap_readn.exit.i
 
 31:                                               ; preds = %10
-  %32 = icmp ult i64 %28, %24
+  %32 = icmp ugt i64 %24, %28
   br i1 %32, label %getd.exit.thread, label %33
 
 33:                                               ; preds = %31
   %34 = sub nuw i64 %28, %24
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %26)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %34)
   %35 = getelementptr inbounds i8, ptr %19, i64 104
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %19, i64 noundef %24, i64 noundef %spec.select.i.i, i32 noundef 0) #8

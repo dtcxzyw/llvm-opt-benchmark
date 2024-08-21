@@ -231,7 +231,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   %.05887 = phi ptr [ %.058, %42 ], [ %.05885, %.lr.ph ]
   %27 = getelementptr inbounds i8, ptr %.05887, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = icmp eq i64 %28, %1
+  %29 = icmp eq i64 %1, %28
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %.lr.ph.split
@@ -450,7 +450,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr nocapture noundef readonly %
   %.03242 = phi ptr [ %.032, %28 ], [ %.03240, %.lr.ph ]
   %13 = getelementptr inbounds i8, ptr %.03242, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = icmp eq i64 %14, %1
+  %15 = icmp eq i64 %1, %14
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %.lr.ph.split

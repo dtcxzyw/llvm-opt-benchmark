@@ -59,7 +59,7 @@ define range(i32 -1, 1) i32 @H5F__accum_read(ptr nocapture noundef %0, i32 nound
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %17
   %22 = add i64 %21, -1
-  %23 = icmp ult i64 %22, %2
+  %23 = icmp ugt i64 %2, %22
   %.old = add i64 %3, %2
   br i1 %23, label %29, label %24
 
@@ -79,7 +79,7 @@ define range(i32 -1, 1) i32 @H5F__accum_read(ptr nocapture noundef %0, i32 nound
   br i1 %or.cond178, label %30, label %144
 
 30:                                               ; preds = %29, %24
-  %. = tail call i64 @llvm.umin.i64(i64 %17, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %17)
   %31 = tail call i64 @llvm.umax.i64(i64 %.old, i64 %21)
   %32 = sub i64 %31, %.
   %33 = getelementptr inbounds i8, ptr %0, i64 2024
@@ -206,7 +206,7 @@ H5VM_log2_gen.exit:                               ; preds = %42, %48, %54, %60, 
 102:                                              ; preds = %98, %30
   %.pre185 = phi i64 [ %.pre185.pre, %98 ], [ %20, %30 ]
   %103 = phi i64 [ %.pre, %98 ], [ %17, %30 ]
-  %104 = icmp ugt i64 %103, %2
+  %104 = icmp ult i64 %2, %103
   br i1 %104, label %105, label %124
 
 105:                                              ; preds = %102
@@ -313,7 +313,7 @@ H5VM_log2_gen.exit:                               ; preds = %42, %48, %54, %60, 
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %167, %169
   %171 = add i64 %170, -1
-  %172 = icmp ult i64 %171, %2
+  %172 = icmp ugt i64 %2, %171
   br i1 %172, label %199, label %173
 
 173:                                              ; preds = %162
@@ -326,7 +326,7 @@ H5VM_log2_gen.exit:                               ; preds = %42, %48, %54, %60, 
   %178 = icmp eq i64 %2, -1
   %179 = icmp eq i64 %167, -1
   %or.cond3.not181 = or i1 %178, %179
-  %.not = icmp ult i64 %167, %2
+  %.not = icmp ugt i64 %2, %167
   %or.cond171 = or i1 %.not, %or.cond3.not181
   br i1 %or.cond171, label %184, label %180
 
@@ -567,7 +567,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
 
 52:                                               ; preds = %51
   %53 = add i64 %20, %17
-  %54 = icmp eq i64 %53, %2
+  %54 = icmp eq i64 %2, %53
   br i1 %54, label %55, label %78
 
 55:                                               ; preds = %52
@@ -615,14 +615,14 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
 
 78:                                               ; preds = %52
   %79 = add i64 %53, -1
-  %80 = icmp ult i64 %79, %2
+  %80 = icmp ugt i64 %2, %79
   %81 = add i64 %21, -1
   %82 = icmp ugt i64 %20, %81
   %or.cond453 = or i1 %82, %80
   br i1 %or.cond453, label %.thread, label %83
 
 83:                                               ; preds = %78
-  %.not430 = icmp ugt i64 %20, %2
+  %.not430 = icmp ult i64 %2, %20
   %.not431 = icmp ugt i64 %21, %53
   %or.cond441 = or i1 %.not430, %.not431
   br i1 %or.cond441, label %105, label %84
@@ -716,7 +716,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
   %134 = load i64, ptr %133, align 8
   %135 = add i64 %132, %134
   store i64 0, ptr %129, align 8
-  %.not435 = icmp ult i64 %135, %3
+  %.not435 = icmp ugt i64 %3, %135
   br i1 %.not435, label %137, label %136
 
 136:                                              ; preds = %130
@@ -792,7 +792,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
 .thread451:                                       ; preds = %106, %140
   %170 = getelementptr inbounds i8, ptr %0, i64 2024
   %171 = load i64, ptr %170, align 8
-  %172 = icmp ult i64 %171, %3
+  %172 = icmp ugt i64 %3, %171
   br i1 %172, label %173, label %189
 
 173:                                              ; preds = %.thread451
@@ -864,7 +864,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
 212:                                              ; preds = %211, %.thread
   %213 = getelementptr inbounds i8, ptr %0, i64 2024
   %214 = load i64, ptr %213, align 8
-  %215 = icmp ult i64 %214, %3
+  %215 = icmp ugt i64 %3, %214
   br i1 %215, label %216, label %233
 
 216:                                              ; preds = %212
@@ -897,7 +897,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
 
 233:                                              ; preds = %212
   %234 = lshr i64 %214, 3
-  %235 = icmp ugt i64 %234, %3
+  %235 = icmp ult i64 %3, %234
   %236 = icmp ugt i64 %214, 2048
   %or.cond442 = and i1 %236, %235
   %.pre458 = load ptr, ptr %13, align 8
@@ -934,7 +934,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
 249:                                              ; preds = %15
   %250 = getelementptr inbounds i8, ptr %0, i64 2024
   %251 = load i64, ptr %250, align 8
-  %252 = icmp ult i64 %251, %3
+  %252 = icmp ugt i64 %3, %251
   br i1 %252, label %253, label %283
 
 253:                                              ; preds = %249
@@ -1044,7 +1044,7 @@ H5VM_log2_gen.exit:                               ; preds = %255, %262, %268
   %312 = load i64, ptr %311, align 8
   %313 = add i64 %312, %309
   %314 = add i64 %313, -1
-  %315 = icmp ult i64 %314, %2
+  %315 = icmp ugt i64 %2, %314
   br i1 %315, label %379, label %316
 
 316:                                              ; preds = %310
@@ -1055,7 +1055,7 @@ H5VM_log2_gen.exit:                               ; preds = %255, %262, %268
 
 320:                                              ; preds = %316
   %321 = icmp ne i64 %2, -1
-  %.not415 = icmp uge i64 %309, %2
+  %.not415 = icmp ule i64 %2, %309
   %or.cond444.not = and i1 %321, %.not415
   br i1 %or.cond444.not, label %322, label %351
 
@@ -1420,7 +1420,7 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
   store i64 %.078, ptr %8, align 8
   %131 = load i64, ptr %5, align 8
   %132 = getelementptr inbounds i8, ptr %124, i64 %131
-  %133 = add i64 %131, %3
+  %133 = add i64 %3, %131
   %134 = sub i64 %.078, %133
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %132, i8 0, i64 %134, i1 false)
   br label %135
@@ -1533,7 +1533,7 @@ define range(i32 -1, 1) i32 @H5F__accum_free(ptr nocapture noundef %0, i32 nound
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   %17 = add i64 %16, -1
-  %18 = icmp ult i64 %17, %2
+  %18 = icmp ugt i64 %2, %17
   br i1 %18, label %116, label %19
 
 19:                                               ; preds = %13
@@ -1544,7 +1544,7 @@ define range(i32 -1, 1) i32 @H5F__accum_free(ptr nocapture noundef %0, i32 nound
 
 23:                                               ; preds = %19
   %24 = icmp ne i64 %2, -1
-  %.not147 = icmp uge i64 %12, %2
+  %.not147 = icmp ule i64 %2, %12
   %or.cond156.not = and i1 %24, %.not147
   br i1 %or.cond156.not, label %25, label %52
 
@@ -1619,14 +1619,14 @@ define range(i32 -1, 1) i32 @H5F__accum_free(ptr nocapture noundef %0, i32 nound
   %61 = trunc i8 %60 to i1
   %or.cond = and i1 %24, %61
   %62 = icmp ne i64 %58, -1
-  %63 = icmp ugt i64 %58, %2
+  %63 = icmp ult i64 %2, %58
   %64 = and i1 %62, %63
   %or.cond159 = select i1 %or.cond, i1 %64, i1 false
   br i1 %or.cond159, label %65, label %113
 
 65:                                               ; preds = %52
   %.not148 = icmp ne i64 %55, -1
-  %66 = icmp ugt i64 %55, %2
+  %66 = icmp ult i64 %2, %55
   %or.cond160 = and i1 %.not148, %66
   br i1 %or.cond160, label %67, label %93
 
@@ -1699,7 +1699,7 @@ define range(i32 -1, 1) i32 @H5F__accum_free(ptr nocapture noundef %0, i32 nound
   br label %116
 
 108:                                              ; preds = %93, %95
-  %109 = icmp eq i64 %55, %2
+  %109 = icmp eq i64 %2, %55
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %108

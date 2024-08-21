@@ -1564,9 +1564,9 @@ define noundef float @_ZN2cv8saliency25StaticSaliencyFineGrained7getMeanENS_3Mat
   %6 = sub nsw i32 %.sroa.0.0.extract.trunc, %3
   %7 = sub nsw i32 %.sroa.3.0.extract.trunc, %3
   %8 = add nsw i32 %7, 1
-  %9 = add nsw i32 %.sroa.0.0.extract.trunc, %3
+  %9 = add nsw i32 %3, %.sroa.0.0.extract.trunc
   %10 = add nsw i32 %9, 1
-  %11 = add nsw i32 %.sroa.3.0.extract.trunc, %3
+  %11 = add nsw i32 %3, %.sroa.3.0.extract.trunc
   %12 = add nsw i32 %11, 1
   %13 = icmp slt i32 %6, -1
   br i1 %13, label %19, label %14

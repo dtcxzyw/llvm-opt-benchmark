@@ -1215,7 +1215,7 @@ idaLs_AccessLMem.exit:                            ; preds = %13
   %.03559 = phi i32 [ 0, %35 ], [ %51, %49 ]
   %.13758 = phi double [ %.036, %35 ], [ %50, %49 ]
   tail call void @N_VLinearSum(double noundef %.13758, ptr noundef %4, double noundef 1.000000e+00, ptr noundef %1, ptr noundef %8) #13
-  %40 = fmul double %.13758, %6
+  %40 = fmul double %6, %.13758
   tail call void @N_VLinearSum(double noundef %40, ptr noundef %4, double noundef 1.000000e+00, ptr noundef %2, ptr noundef %9) #13
   %41 = load ptr, ptr %36, align 8
   %42 = load ptr, ptr %37, align 8
@@ -2861,7 +2861,7 @@ define range(i32 -101, 1) i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -2877,7 +2877,7 @@ define range(i32 -101, 1) i32 @IDASetLinearSolverB(ptr noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %18, %22
   %.03949 = phi ptr [ %.039, %22 ], [ %.03947, %18 ]
   %20 = load i32, ptr %.03949, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   br i1 %21, label %._crit_edge, label %22
 
 22:                                               ; preds = %.lr.ph
@@ -3059,7 +3059,7 @@ define range(i32 -102, 1) i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1,
   store ptr %17, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 56
   %19 = load i32, ptr %18, align 8
-  %.not = icmp sgt i32 %19, %1
+  %.not = icmp slt i32 %1, %19
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %15
@@ -3076,7 +3076,7 @@ define range(i32 -102, 1) i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1,
   %storemerge = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   store ptr %storemerge, ptr %5, align 8
   %24 = load i32, ptr %storemerge, align 8
-  %25 = icmp eq i32 %24, %1
+  %25 = icmp eq i32 %1, %24
   %26 = getelementptr inbounds i8, ptr %storemerge, i64 128
   br i1 %25, label %._crit_edge, label %.lr.ph
 

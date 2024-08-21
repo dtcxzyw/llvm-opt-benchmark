@@ -579,7 +579,7 @@ define internal fastcc void @ltsWriteBlock(ptr nocapture noundef %0, i64 noundef
   %4 = alloca %union.PGIOAlignedBlock, align 4096
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %7 = icmp slt i64 %6, %1
+  %7 = icmp sgt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -587,7 +587,7 @@ define internal fastcc void @ltsWriteBlock(ptr nocapture noundef %0, i64 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %4, i8 0, i64 8192, i1 false)
   call fastcc void @ltsWriteBlock(ptr noundef nonnull %0, i64 noundef %8, ptr noundef nonnull %4)
   %9 = load i64, ptr %5, align 8
-  %10 = icmp slt i64 %9, %1
+  %10 = icmp sgt i64 %1, %9
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -608,7 +608,7 @@ define internal fastcc void @ltsWriteBlock(ptr nocapture noundef %0, i64 noundef
   %18 = load ptr, ptr %0, align 8
   call void @BufFileWrite(ptr noundef %18, ptr noundef %2, i64 noundef 8192) #9
   %19 = load i64, ptr %5, align 8
-  %20 = icmp eq i64 %19, %1
+  %20 = icmp eq i64 %1, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17
@@ -1159,7 +1159,7 @@ define dso_local i64 @LogicalTapeBackspace(ptr nocapture noundef %0, i64 noundef
   %18 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
-  %.not = icmp ult i64 %20, %1
+  %.not = icmp ugt i64 %1, %20
   br i1 %.not, label %.preheader, label %24
 
 .preheader:                                       ; preds = %17
@@ -1238,7 +1238,7 @@ ltsReadBlock.exit:                                ; preds = %39
   %60 = load i64, ptr %49, align 8
   store i64 %60, ptr %23, align 8
   %61 = add i64 %.03446, 8176
-  %62 = icmp ult i64 %61, %1
+  %62 = icmp ugt i64 %1, %61
   br i1 %62, label %27, label %63, !llvm.loop !14
 
 63:                                               ; preds = %59
@@ -1280,7 +1280,7 @@ define dso_local void @LogicalTapeSeek(ptr nocapture noundef %0, i64 noundef %1,
 18:                                               ; preds = %7, %3
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
-  %.not = icmp eq i64 %20, %1
+  %.not = icmp eq i64 %1, %20
   br i1 %.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %18
@@ -1319,7 +1319,7 @@ ltsReadBlock.exit:                                ; preds = %21
 
 36:                                               ; preds = %._crit_edge, %ltsReadBlock.exit
   %37 = phi i32 [ %.pre, %._crit_edge ], [ 8176, %ltsReadBlock.exit ]
-  %38 = icmp slt i32 %37, %2
+  %38 = icmp sgt i32 %2, %37
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36

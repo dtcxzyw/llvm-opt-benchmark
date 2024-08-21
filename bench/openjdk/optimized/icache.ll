@@ -140,7 +140,7 @@ define hidden void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef %0, i3
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @_ZN14AbstractICache18_flush_icache_stubE, align 8
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3

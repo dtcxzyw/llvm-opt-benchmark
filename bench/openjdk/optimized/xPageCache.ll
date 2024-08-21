@@ -310,7 +310,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %18, align 8
   %22 = sub i64 %20, %21
-  %23 = icmp eq i64 %22, %1
+  %23 = icmp eq i64 %1, %22
   br i1 %23, label %24, label %select.unfold, !llvm.loop !9
 
 24:                                               ; preds = %10
@@ -337,7 +337,7 @@ _ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit: ; preds = %select.unfold, %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN10XPageCache27alloc_oversized_medium_pageEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr @XPageSizeMedium, align 8
-  %.not = icmp ult i64 %3, %1
+  %.not = icmp ugt i64 %1, %3
   br i1 %.not, label %_ZN5XListI5XPageE12remove_firstEv.exit, label %4
 
 4:                                                ; preds = %2
@@ -407,7 +407,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %18, align 8
   %22 = sub i64 %20, %21
-  %.not = icmp ult i64 %22, %1
+  %.not = icmp ugt i64 %1, %22
   br i1 %.not, label %select.unfold, label %23, !llvm.loop !10
 
 23:                                               ; preds = %10
@@ -462,7 +462,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i.pre
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %18, align 8
   %22 = sub i64 %20, %21
-  %.not.i = icmp ult i64 %22, %1
+  %.not.i = icmp ugt i64 %1, %22
   br i1 %.not.i, label %select.unfold.i, label %_ZN10XPageCache26alloc_oversized_large_pageEm.exit, !llvm.loop !10
 
 _ZN10XPageCache26alloc_oversized_large_pageEm.exit: ; preds = %10
@@ -471,7 +471,7 @@ _ZN10XPageCache26alloc_oversized_large_pageEm.exit: ; preds = %10
 
 24:                                               ; preds = %select.unfold.i
   %25 = load i64, ptr @XPageSizeMedium, align 8
-  %.not.i6 = icmp ult i64 %25, %1
+  %.not.i6 = icmp ugt i64 %1, %25
   br i1 %.not.i6, label %_ZN10XPageCache27alloc_oversized_medium_pageEm.exit.thread, label %26
 
 26:                                               ; preds = %24
@@ -572,7 +572,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i.pre
   %34 = load i64, ptr %33, align 8
   %35 = load i64, ptr %32, align 8
   %36 = sub i64 %34, %35
-  %37 = icmp eq i64 %36, %2
+  %37 = icmp eq i64 %2, %36
   br i1 %37, label %38, label %select.unfold.i, !llvm.loop !9
 
 38:                                               ; preds = %24
@@ -614,12 +614,12 @@ select.unfold.i.i:                                ; preds = %_ZN10XPageCache17al
   %60 = load i64, ptr %59, align 8
   %61 = load i64, ptr %58, align 8
   %62 = sub i64 %60, %61
-  %.not.i.i20 = icmp ult i64 %62, %2
+  %.not.i.i20 = icmp ugt i64 %2, %62
   br i1 %.not.i.i20, label %select.unfold.i.i, label %.loopexit.loopexit, !llvm.loop !10
 
 63:                                               ; preds = %select.unfold.i.i
   %64 = load i64, ptr @XPageSizeMedium, align 8
-  %.not.i6.i = icmp ult i64 %64, %2
+  %.not.i6.i = icmp ugt i64 %2, %64
   br i1 %.not.i6.i, label %.thread.sink.split, label %65
 
 65:                                               ; preds = %63
@@ -667,7 +667,7 @@ select.unfold.i.i:                                ; preds = %_ZN10XPageCache17al
   %87 = load i64, ptr %86, align 8
   %88 = load i64, ptr %85, align 8
   %89 = sub i64 %87, %88
-  %90 = icmp ugt i64 %89, %2
+  %90 = icmp ult i64 %2, %89
   br i1 %90, label %91, label %131
 
 91:                                               ; preds = %.loopexit

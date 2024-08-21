@@ -2563,7 +2563,7 @@ define internal fastcc ptr @aeron_transport_add(ptr nocapture noundef readonly %
   %.038 = phi ptr [ %23, %16 ], [ %14, %3 ]
   %25 = getelementptr inbounds i8, ptr %.038, i64 32
   %26 = load i32, ptr %25, align 8
-  %27 = icmp ult i32 %26, %2
+  %27 = icmp ugt i32 %2, %26
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %24

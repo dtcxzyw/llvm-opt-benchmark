@@ -1388,7 +1388,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr nocapture noundef no
   %95 = fneg double %94
   %96 = tail call double @llvm.fmuladd.f64(double %95, double %78, double %92)
   %97 = load double, ptr %53, align 8, !noalias !21
-  %98 = fmul double %97, %96
+  %98 = fmul double %96, %97
   %99 = load double, ptr %.sroa.256.0..sroa_idx, align 8, !noalias !21
   %100 = fmul double %96, %99
   %101 = load double, ptr %.sroa.357.0..sroa_idx, align 8, !noalias !21
@@ -1471,7 +1471,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr nocapture noundef no
   %156 = load double, ptr %155, align 8
   %157 = fdiv double %154, %156
   %158 = load double, ptr %71, align 8, !noalias !30
-  %159 = fmul double %158, %157
+  %159 = fmul double %157, %158
   %160 = load double, ptr %.sroa.241.0..sroa_idx, align 8, !noalias !30
   %161 = fmul double %157, %160
   %162 = load double, ptr %.sroa.342.0..sroa_idx, align 8, !noalias !30
@@ -1746,50 +1746,51 @@ define void @_ZN6colvar8dihedral10calc_valueEv(ptr noundef nonnull align 8 deref
   %96 = load double, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 1696
   %98 = load double, ptr %97, align 8, !noalias !43
-  %99 = fneg double %96
-  %100 = fmul double %98, %99
+  %99 = fneg double %98
+  %100 = fmul double %96, %99
   %101 = call double @llvm.fmuladd.f64(double %92, double %94, double %100)
   %102 = load double, ptr %45, align 8, !noalias !43
   %103 = fneg double %102
   %104 = load double, ptr %68, align 8
   %105 = fmul double %98, %104
   %106 = call double @llvm.fmuladd.f64(double %103, double %94, double %105)
-  %107 = fneg double %104
-  %108 = fmul double %92, %107
+  %107 = fneg double %92
+  %108 = fmul double %104, %107
   %109 = call double @llvm.fmuladd.f64(double %102, double %96, double %108)
   %110 = getelementptr inbounds i8, ptr %0, i64 1744
   %111 = load double, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 1736
   %113 = load double, ptr %112, align 8
-  %114 = fneg double %113
-  %115 = fmul double %94, %114
+  %114 = fneg double %94
+  %115 = fmul double %113, %114
   %116 = call double @llvm.fmuladd.f64(double %96, double %111, double %115)
-  %117 = load double, ptr %90, align 8
-  %118 = fmul double %94, %117
-  %119 = call double @llvm.fmuladd.f64(double %107, double %111, double %118)
-  %120 = fneg double %117
-  %121 = fmul double %96, %120
-  %122 = call double @llvm.fmuladd.f64(double %104, double %113, double %121)
-  %123 = fmul double %106, %119
-  %124 = call double @llvm.fmuladd.f64(double %101, double %116, double %123)
-  %125 = call noundef double @llvm.fmuladd.f64(double %109, double %122, double %124)
-  %126 = fmul double %106, %113
-  %127 = call double @llvm.fmuladd.f64(double %101, double %117, double %126)
-  %128 = call noundef double @llvm.fmuladd.f64(double %109, double %111, double %127)
-  %129 = fmul double %96, %96
-  %130 = call double @llvm.fmuladd.f64(double %104, double %104, double %129)
-  %131 = call noundef double @llvm.fmuladd.f64(double %94, double %94, double %130)
-  %sqrt.i = call noundef double @llvm.sqrt.f64(double %131)
-  %132 = fmul double %sqrt.i, %128
-  %133 = call noundef double @atan2(double noundef %132, double noundef %125) #22
-  %134 = fmul double %133, 0x404CA5DC1A63C1F8
-  %135 = getelementptr inbounds i8, ptr %0, i64 632
-  %136 = getelementptr inbounds i8, ptr %0, i64 640
-  store double %134, ptr %136, align 8
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 200
-  %139 = load ptr, ptr %138, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(1753) %0, ptr noundef nonnull align 8 dereferenceable(168) %135)
+  %117 = fneg double %104
+  %118 = load double, ptr %90, align 8
+  %119 = fmul double %94, %118
+  %120 = call double @llvm.fmuladd.f64(double %117, double %111, double %119)
+  %121 = fneg double %96
+  %122 = fmul double %118, %121
+  %123 = call double @llvm.fmuladd.f64(double %104, double %113, double %122)
+  %124 = fmul double %106, %120
+  %125 = call double @llvm.fmuladd.f64(double %101, double %116, double %124)
+  %126 = call noundef double @llvm.fmuladd.f64(double %109, double %123, double %125)
+  %127 = fmul double %106, %113
+  %128 = call double @llvm.fmuladd.f64(double %101, double %118, double %127)
+  %129 = call noundef double @llvm.fmuladd.f64(double %109, double %111, double %128)
+  %130 = fmul double %96, %96
+  %131 = call double @llvm.fmuladd.f64(double %104, double %104, double %130)
+  %132 = call noundef double @llvm.fmuladd.f64(double %94, double %94, double %131)
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %132)
+  %133 = fmul double %sqrt.i, %129
+  %134 = call noundef double @atan2(double noundef %133, double noundef %126) #22
+  %135 = fmul double %134, 0x404CA5DC1A63C1F8
+  %136 = getelementptr inbounds i8, ptr %0, i64 632
+  %137 = getelementptr inbounds i8, ptr %0, i64 640
+  store double %135, ptr %137, align 8
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 200
+  %140 = load ptr, ptr %139, align 8
+  call void %140(ptr noundef nonnull align 8 dereferenceable(1753) %0, ptr noundef nonnull align 8 dereferenceable(168) %136)
   ret void
 }
 
@@ -1809,16 +1810,16 @@ define void @_ZN6colvar8dihedral14calc_gradientsEv(ptr nocapture noundef nonnull
   %13 = load double, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 1696
   %15 = load double, ptr %14, align 8
-  %16 = fneg double %13
-  %17 = fmul double %15, %16
+  %16 = fneg double %15
+  %17 = fmul double %13, %16
   %18 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %17)
   %19 = load double, ptr %6, align 8
   %20 = fneg double %19
   %21 = load double, ptr %7, align 8
   %22 = fmul double %15, %21
   %23 = tail call double @llvm.fmuladd.f64(double %20, double %11, double %22)
-  %24 = fneg double %21
-  %25 = fmul double %9, %24
+  %24 = fneg double %9
+  %25 = fmul double %21, %24
   %26 = tail call double @llvm.fmuladd.f64(double %19, double %13, double %25)
   %27 = fmul double %23, %23
   %28 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %27)
@@ -1829,282 +1830,285 @@ define void @_ZN6colvar8dihedral14calc_gradientsEv(ptr nocapture noundef nonnull
   %32 = load double, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 1736
   %34 = load double, ptr %33, align 8
-  %35 = fneg double %34
-  %36 = fmul double %11, %35
+  %35 = fneg double %11
+  %36 = fmul double %34, %35
   %37 = tail call double @llvm.fmuladd.f64(double %13, double %32, double %36)
-  %38 = load double, ptr %30, align 8
-  %39 = fmul double %11, %38
-  %40 = tail call double @llvm.fmuladd.f64(double %24, double %32, double %39)
-  %41 = fneg double %38
-  %42 = fmul double %13, %41
-  %43 = tail call double @llvm.fmuladd.f64(double %21, double %34, double %42)
-  %44 = fmul double %40, %40
-  %45 = tail call double @llvm.fmuladd.f64(double %37, double %37, double %44)
-  %46 = tail call noundef double @llvm.fmuladd.f64(double %43, double %43, double %45)
-  %sqrt.i28 = tail call noundef double @llvm.sqrt.f64(double %46)
-  %47 = fneg double %23
-  %48 = fmul double %11, %47
+  %38 = fneg double %21
+  %39 = load double, ptr %30, align 8
+  %40 = fmul double %11, %39
+  %41 = tail call double @llvm.fmuladd.f64(double %38, double %32, double %40)
+  %42 = fneg double %13
+  %43 = fmul double %39, %42
+  %44 = tail call double @llvm.fmuladd.f64(double %21, double %34, double %43)
+  %45 = fmul double %41, %41
+  %46 = tail call double @llvm.fmuladd.f64(double %37, double %37, double %45)
+  %47 = tail call noundef double @llvm.fmuladd.f64(double %44, double %44, double %46)
+  %sqrt.i28 = tail call noundef double @llvm.sqrt.f64(double %47)
+  %48 = fmul double %23, %35
   %49 = tail call double @llvm.fmuladd.f64(double %13, double %26, double %48)
   %50 = fmul double %11, %18
-  %51 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %50)
-  %52 = fneg double %18
-  %53 = fmul double %13, %52
-  %54 = tail call double @llvm.fmuladd.f64(double %21, double %23, double %53)
-  %55 = fmul double %51, %51
-  %56 = tail call double @llvm.fmuladd.f64(double %49, double %49, double %55)
-  %57 = tail call noundef double @llvm.fmuladd.f64(double %54, double %54, double %56)
-  %sqrt.i29 = tail call noundef double @llvm.sqrt.f64(double %57)
-  %58 = fmul double %23, %40
-  %59 = tail call double @llvm.fmuladd.f64(double %18, double %37, double %58)
-  %60 = tail call noundef double @llvm.fmuladd.f64(double %26, double %43, double %59)
-  %61 = fmul double %sqrt.i, %sqrt.i28
-  %62 = fdiv double %60, %61
-  %63 = fmul double %51, %40
-  %64 = tail call double @llvm.fmuladd.f64(double %49, double %37, double %63)
-  %65 = tail call noundef double @llvm.fmuladd.f64(double %54, double %43, double %64)
-  %66 = fmul double %sqrt.i29, %sqrt.i28
-  %67 = fdiv double %65, %66
+  %51 = tail call double @llvm.fmuladd.f64(double %38, double %26, double %50)
+  %52 = fmul double %18, %42
+  %53 = tail call double @llvm.fmuladd.f64(double %21, double %23, double %52)
+  %54 = fmul double %51, %51
+  %55 = tail call double @llvm.fmuladd.f64(double %49, double %49, double %54)
+  %56 = tail call noundef double @llvm.fmuladd.f64(double %53, double %53, double %55)
+  %sqrt.i29 = tail call noundef double @llvm.sqrt.f64(double %56)
+  %57 = fmul double %23, %41
+  %58 = tail call double @llvm.fmuladd.f64(double %18, double %37, double %57)
+  %59 = tail call noundef double @llvm.fmuladd.f64(double %26, double %44, double %58)
+  %60 = fmul double %sqrt.i, %sqrt.i28
+  %61 = fdiv double %59, %60
+  %62 = fmul double %51, %41
+  %63 = tail call double @llvm.fmuladd.f64(double %49, double %37, double %62)
+  %64 = tail call noundef double @llvm.fmuladd.f64(double %53, double %44, double %63)
+  %65 = fmul double %sqrt.i29, %sqrt.i28
+  %66 = fdiv double %64, %65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %68 = fdiv double 1.000000e+00, %sqrt.i28
-  %69 = fmul double %37, %68
-  %70 = fmul double %40, %68
-  %71 = fmul double %43, %68
-  %72 = tail call noundef double @llvm.fabs.f64(double %67)
-  %73 = fcmp ogt double %72, 1.000000e-01
-  br i1 %73, label %74, label %140
+  %67 = fdiv double 1.000000e+00, %sqrt.i28
+  %68 = fmul double %37, %67
+  %69 = fmul double %41, %67
+  %70 = fmul double %44, %67
+  %71 = tail call noundef double @llvm.fabs.f64(double %66)
+  %72 = fcmp ogt double %71, 1.000000e-01
+  br i1 %72, label %73, label %143
 
-74:                                               ; preds = %1
-  %75 = fdiv double 1.000000e+00, %sqrt.i
-  %76 = fmul double %18, %75
-  %77 = fmul double %23, %75
-  %78 = fmul double %26, %75
-  %79 = fmul double %76, %62
-  %80 = fmul double %77, %62
-  %81 = fmul double %78, %62
+73:                                               ; preds = %1
+  %74 = fdiv double 1.000000e+00, %sqrt.i
+  %75 = fmul double %18, %74
+  %76 = fmul double %23, %74
+  %77 = fmul double %26, %74
+  %78 = fmul double %75, %61
+  %79 = fmul double %76, %61
+  %80 = fmul double %77, %61
+  %81 = fsub double %78, %68
   %82 = fsub double %79, %69
   %83 = fsub double %80, %70
-  %84 = fsub double %81, %71
-  %85 = fmul double %75, %82
-  %86 = fmul double %75, %83
-  %87 = fmul double %75, %84
-  %88 = fmul double %69, %62
-  %89 = fmul double %70, %62
-  %90 = fmul double %71, %62
+  %84 = fmul double %74, %81
+  %85 = fmul double %74, %82
+  %86 = fmul double %74, %83
+  %87 = fmul double %61, %68
+  %88 = fmul double %61, %69
+  %89 = fmul double %61, %70
+  %90 = fsub double %87, %75
   %91 = fsub double %88, %76
   %92 = fsub double %89, %77
-  %93 = fsub double %90, %78
-  %94 = fmul double %68, %91
-  %95 = fmul double %68, %92
-  %96 = fmul double %68, %93
-  %97 = fdiv double 1.000000e+00, %67
-  %98 = fmul double %97, 0x404CA5DC1A63C1F8
-  %99 = fneg double %86
-  %100 = fmul double %11, %99
-  %101 = tail call double @llvm.fmuladd.f64(double %13, double %87, double %100)
-  %102 = fmul double %11, %85
-  %103 = tail call double @llvm.fmuladd.f64(double %24, double %87, double %102)
-  %104 = fneg double %85
-  %105 = fmul double %13, %104
-  %106 = tail call double @llvm.fmuladd.f64(double %21, double %86, double %105)
-  %107 = fmul double %98, %101
-  %108 = fmul double %98, %103
-  %109 = fmul double %98, %106
-  %110 = fmul double %96, %16
-  %111 = tail call double @llvm.fmuladd.f64(double %95, double %11, double %110)
-  %112 = fneg double %94
-  %113 = fmul double %21, %96
-  %114 = tail call double @llvm.fmuladd.f64(double %112, double %11, double %113)
-  %115 = fmul double %95, %24
-  %116 = tail call double @llvm.fmuladd.f64(double %94, double %13, double %115)
-  %117 = fmul double %98, %111
-  %118 = fmul double %98, %114
-  %119 = fmul double %98, %116
-  store double %117, ptr %2, align 8
+  %93 = fmul double %67, %90
+  %94 = fmul double %67, %91
+  %95 = fmul double %67, %92
+  %96 = fdiv double 1.000000e+00, %66
+  %97 = fmul double %96, 0x404CA5DC1A63C1F8
+  %98 = fmul double %85, %35
+  %99 = tail call double @llvm.fmuladd.f64(double %13, double %86, double %98)
+  %100 = fmul double %11, %84
+  %101 = tail call double @llvm.fmuladd.f64(double %38, double %86, double %100)
+  %102 = fmul double %84, %42
+  %103 = tail call double @llvm.fmuladd.f64(double %21, double %85, double %102)
+  %104 = fmul double %97, %99
+  %105 = fmul double %97, %101
+  %106 = fmul double %97, %103
+  %107 = fneg double %95
+  %108 = fmul double %13, %107
+  %109 = tail call double @llvm.fmuladd.f64(double %94, double %11, double %108)
+  %110 = fneg double %93
+  %111 = fmul double %21, %95
+  %112 = tail call double @llvm.fmuladd.f64(double %110, double %11, double %111)
+  %113 = fneg double %94
+  %114 = fmul double %21, %113
+  %115 = tail call double @llvm.fmuladd.f64(double %93, double %13, double %114)
+  %116 = fmul double %97, %109
+  %117 = fmul double %97, %112
+  %118 = fmul double %97, %115
+  store double %116, ptr %2, align 8
   %.sroa.287.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  store double %118, ptr %.sroa.287.0..sroa_idx, align 8
+  store double %117, ptr %.sroa.287.0..sroa_idx, align 8
   %.sroa.388.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  store double %119, ptr %.sroa.388.0..sroa_idx, align 8
-  %120 = fneg double %9
-  %121 = fmul double %87, %120
-  %122 = tail call double @llvm.fmuladd.f64(double %86, double %15, double %121)
-  %123 = fmul double %19, %87
-  %124 = tail call double @llvm.fmuladd.f64(double %104, double %15, double %123)
-  %125 = fmul double %86, %20
-  %126 = tail call double @llvm.fmuladd.f64(double %85, double %9, double %125)
-  %127 = fneg double %95
-  %128 = fmul double %32, %127
-  %129 = tail call double @llvm.fmuladd.f64(double %34, double %96, double %128)
-  %130 = fmul double %32, %94
-  %131 = tail call double @llvm.fmuladd.f64(double %41, double %96, double %130)
-  %132 = fmul double %34, %112
-  %133 = tail call double @llvm.fmuladd.f64(double %38, double %95, double %132)
-  %134 = fadd double %122, %129
-  %135 = fadd double %124, %131
-  %136 = fadd double %126, %133
-  %137 = fmul double %98, %134
-  %138 = fmul double %98, %135
-  %139 = fmul double %98, %136
-  br label %246
+  store double %118, ptr %.sroa.388.0..sroa_idx, align 8
+  %119 = fneg double %86
+  %120 = fmul double %9, %119
+  %121 = tail call double @llvm.fmuladd.f64(double %85, double %15, double %120)
+  %122 = fneg double %84
+  %123 = fmul double %19, %86
+  %124 = tail call double @llvm.fmuladd.f64(double %122, double %15, double %123)
+  %125 = fneg double %85
+  %126 = fmul double %19, %125
+  %127 = tail call double @llvm.fmuladd.f64(double %84, double %9, double %126)
+  %128 = fneg double %32
+  %129 = fmul double %94, %128
+  %130 = tail call double @llvm.fmuladd.f64(double %34, double %95, double %129)
+  %131 = fneg double %39
+  %132 = fmul double %32, %93
+  %133 = tail call double @llvm.fmuladd.f64(double %131, double %95, double %132)
+  %134 = fneg double %34
+  %135 = fmul double %93, %134
+  %136 = tail call double @llvm.fmuladd.f64(double %39, double %94, double %135)
+  %137 = fadd double %121, %130
+  %138 = fadd double %124, %133
+  %139 = fadd double %127, %136
+  %140 = fmul double %97, %137
+  %141 = fmul double %97, %138
+  %142 = fmul double %97, %139
+  br label %249
 
-140:                                              ; preds = %1
-  %141 = fdiv double 1.000000e+00, %sqrt.i29
-  %142 = fmul double %49, %141
-  %143 = fmul double %51, %141
-  %144 = fmul double %54, %141
-  %145 = fmul double %142, %67
-  %146 = fmul double %143, %67
-  %147 = fmul double %144, %67
-  %148 = fsub double %145, %69
-  %149 = fsub double %146, %70
-  %150 = fsub double %147, %71
-  %151 = fmul double %141, %148
-  %152 = fmul double %141, %149
-  %153 = fmul double %141, %150
-  %154 = fmul double %69, %67
-  %155 = fmul double %70, %67
-  %156 = fmul double %71, %67
-  %157 = fsub double %154, %142
-  %158 = fsub double %155, %143
-  %159 = fsub double %156, %144
-  %160 = fmul double %68, %157
-  %161 = fmul double %68, %158
-  %162 = fmul double %68, %159
-  %163 = fdiv double -1.000000e+00, %62
-  %164 = fmul double %163, 0x404CA5DC1A63C1F8
-  %165 = fmul double %11, %11
-  %166 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %165)
-  %167 = fmul double %13, %24
-  %168 = fmul double %152, %167
-  %169 = tail call double @llvm.fmuladd.f64(double %166, double %151, double %168)
-  %170 = fmul double %11, %24
-  %171 = tail call double @llvm.fmuladd.f64(double %170, double %153, double %169)
-  %172 = fmul double %164, %171
-  %173 = fmul double %21, %21
-  %174 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %173)
-  %175 = fmul double %11, %16
-  %176 = fmul double %153, %175
-  %177 = tail call double @llvm.fmuladd.f64(double %174, double %152, double %176)
-  %178 = fmul double %21, %16
-  %179 = tail call double @llvm.fmuladd.f64(double %178, double %151, double %177)
-  %180 = fmul double %164, %179
-  %181 = fmul double %13, %13
-  %182 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %181)
-  %183 = fneg double %11
-  %184 = fmul double %21, %183
-  %185 = fmul double %151, %184
-  %186 = tail call double @llvm.fmuladd.f64(double %182, double %153, double %185)
-  %187 = fmul double %13, %183
-  %188 = tail call double @llvm.fmuladd.f64(double %187, double %152, double %186)
-  %189 = fmul double %164, %188
-  %190 = fmul double %162, %16
-  %191 = tail call double @llvm.fmuladd.f64(double %161, double %11, double %190)
-  %192 = fneg double %160
-  %193 = fmul double %21, %162
-  %194 = tail call double @llvm.fmuladd.f64(double %192, double %11, double %193)
-  %195 = fmul double %161, %24
-  %196 = tail call double @llvm.fmuladd.f64(double %160, double %13, double %195)
+143:                                              ; preds = %1
+  %144 = fdiv double 1.000000e+00, %sqrt.i29
+  %145 = fmul double %49, %144
+  %146 = fmul double %51, %144
+  %147 = fmul double %53, %144
+  %148 = fmul double %145, %66
+  %149 = fmul double %146, %66
+  %150 = fmul double %147, %66
+  %151 = fsub double %148, %68
+  %152 = fsub double %149, %69
+  %153 = fsub double %150, %70
+  %154 = fmul double %144, %151
+  %155 = fmul double %144, %152
+  %156 = fmul double %144, %153
+  %157 = fmul double %66, %68
+  %158 = fmul double %66, %69
+  %159 = fmul double %66, %70
+  %160 = fsub double %157, %145
+  %161 = fsub double %158, %146
+  %162 = fsub double %159, %147
+  %163 = fmul double %67, %160
+  %164 = fmul double %67, %161
+  %165 = fmul double %67, %162
+  %166 = fdiv double -1.000000e+00, %61
+  %167 = fmul double %166, 0x404CA5DC1A63C1F8
+  %168 = fmul double %11, %11
+  %169 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %168)
+  %170 = fmul double %21, %13
+  %171 = fneg double %155
+  %172 = fmul double %170, %171
+  %173 = tail call double @llvm.fmuladd.f64(double %169, double %154, double %172)
+  %174 = fmul double %21, %35
+  %175 = tail call double @llvm.fmuladd.f64(double %174, double %156, double %173)
+  %176 = fmul double %167, %175
+  %177 = fmul double %21, %21
+  %178 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %177)
+  %179 = fmul double %13, %11
+  %180 = fneg double %156
+  %181 = fmul double %179, %180
+  %182 = tail call double @llvm.fmuladd.f64(double %178, double %155, double %181)
+  %183 = fmul double %13, %38
+  %184 = tail call double @llvm.fmuladd.f64(double %183, double %154, double %182)
+  %185 = fmul double %167, %184
+  %186 = fmul double %13, %13
+  %187 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %186)
+  %188 = fmul double %21, %11
+  %189 = fneg double %154
+  %190 = fmul double %188, %189
+  %191 = tail call double @llvm.fmuladd.f64(double %187, double %156, double %190)
+  %192 = fmul double %11, %42
+  %193 = tail call double @llvm.fmuladd.f64(double %192, double %155, double %191)
+  %194 = fmul double %167, %193
+  %195 = fneg double %165
+  %196 = fmul double %13, %195
+  %197 = tail call double @llvm.fmuladd.f64(double %164, double %11, double %196)
+  %198 = fneg double %163
+  %199 = fmul double %21, %165
+  %200 = tail call double @llvm.fmuladd.f64(double %198, double %11, double %199)
+  %201 = fneg double %164
+  %202 = fmul double %21, %201
+  %203 = tail call double @llvm.fmuladd.f64(double %163, double %13, double %202)
   %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  %197 = fmul double %164, %191
-  store double %197, ptr %2, align 8
-  %198 = fmul double %164, %194
-  store double %198, ptr %.sroa.234.0..sroa_idx, align 8
-  %199 = fmul double %164, %196
-  store double %199, ptr %.sroa.3.0..sroa_idx, align 8
-  %200 = fmul double %11, %15
-  %201 = tail call double @llvm.fmuladd.f64(double %13, double %9, double %200)
-  %202 = fneg double %201
-  %203 = fmul double %21, 2.000000e+00
-  %204 = fmul double %13, %20
-  %205 = tail call double @llvm.fmuladd.f64(double %203, double %9, double %204)
-  %206 = fmul double %152, %205
-  %207 = tail call double @llvm.fmuladd.f64(double %202, double %151, double %206)
-  %208 = fmul double %11, %20
-  %209 = tail call double @llvm.fmuladd.f64(double %203, double %15, double %208)
-  %210 = tail call double @llvm.fmuladd.f64(double %209, double %153, double %207)
-  %211 = tail call double @llvm.fmuladd.f64(double %162, double %34, double %210)
-  %212 = fneg double %161
-  %213 = tail call double @llvm.fmuladd.f64(double %212, double %32, double %211)
-  %214 = fmul double %164, %213
-  %215 = fmul double %19, %21
-  %216 = tail call double @llvm.fmuladd.f64(double %11, double %15, double %215)
-  %217 = fneg double %216
-  %218 = fmul double %13, 2.000000e+00
-  %219 = fneg double %9
-  %220 = fmul double %11, %219
-  %221 = tail call double @llvm.fmuladd.f64(double %218, double %15, double %220)
-  %222 = fmul double %153, %221
-  %223 = tail call double @llvm.fmuladd.f64(double %217, double %152, double %222)
-  %224 = fmul double %21, %219
-  %225 = tail call double @llvm.fmuladd.f64(double %218, double %19, double %224)
-  %226 = tail call double @llvm.fmuladd.f64(double %225, double %151, double %223)
-  %227 = tail call double @llvm.fmuladd.f64(double %160, double %32, double %226)
-  %228 = fneg double %162
-  %229 = tail call double @llvm.fmuladd.f64(double %228, double %38, double %227)
-  %230 = fmul double %164, %229
-  %231 = fmul double %13, %9
-  %232 = tail call double @llvm.fmuladd.f64(double %21, double %19, double %231)
-  %233 = fneg double %232
-  %234 = fmul double %11, 2.000000e+00
-  %235 = fneg double %15
-  %236 = fmul double %21, %235
-  %237 = tail call double @llvm.fmuladd.f64(double %234, double %19, double %236)
-  %238 = fmul double %151, %237
-  %239 = tail call double @llvm.fmuladd.f64(double %233, double %153, double %238)
-  %240 = fmul double %13, %235
-  %241 = tail call double @llvm.fmuladd.f64(double %234, double %9, double %240)
-  %242 = tail call double @llvm.fmuladd.f64(double %241, double %152, double %239)
-  %243 = tail call double @llvm.fmuladd.f64(double %161, double %38, double %242)
-  %244 = tail call double @llvm.fmuladd.f64(double %192, double %34, double %243)
-  %245 = fmul double %164, %244
-  br label %246
+  %204 = fmul double %167, %197
+  store double %204, ptr %2, align 8
+  %205 = fmul double %167, %200
+  store double %205, ptr %.sroa.234.0..sroa_idx, align 8
+  %206 = fmul double %167, %203
+  store double %206, ptr %.sroa.3.0..sroa_idx, align 8
+  %207 = fmul double %11, %15
+  %208 = tail call double @llvm.fmuladd.f64(double %13, double %9, double %207)
+  %209 = fneg double %208
+  %210 = fmul double %21, 2.000000e+00
+  %211 = fmul double %19, %42
+  %212 = tail call double @llvm.fmuladd.f64(double %210, double %9, double %211)
+  %213 = fmul double %155, %212
+  %214 = tail call double @llvm.fmuladd.f64(double %209, double %154, double %213)
+  %215 = fmul double %19, %35
+  %216 = tail call double @llvm.fmuladd.f64(double %210, double %15, double %215)
+  %217 = tail call double @llvm.fmuladd.f64(double %216, double %156, double %214)
+  %218 = tail call double @llvm.fmuladd.f64(double %165, double %34, double %217)
+  %219 = tail call double @llvm.fmuladd.f64(double %201, double %32, double %218)
+  %220 = fmul double %167, %219
+  %221 = fmul double %19, %21
+  %222 = tail call double @llvm.fmuladd.f64(double %11, double %15, double %221)
+  %223 = fneg double %222
+  %224 = fmul double %13, 2.000000e+00
+  %225 = fmul double %9, %35
+  %226 = tail call double @llvm.fmuladd.f64(double %224, double %15, double %225)
+  %227 = fmul double %156, %226
+  %228 = tail call double @llvm.fmuladd.f64(double %223, double %155, double %227)
+  %229 = fmul double %9, %38
+  %230 = tail call double @llvm.fmuladd.f64(double %224, double %19, double %229)
+  %231 = tail call double @llvm.fmuladd.f64(double %230, double %154, double %228)
+  %232 = tail call double @llvm.fmuladd.f64(double %163, double %32, double %231)
+  %233 = tail call double @llvm.fmuladd.f64(double %195, double %39, double %232)
+  %234 = fmul double %167, %233
+  %235 = fmul double %13, %9
+  %236 = tail call double @llvm.fmuladd.f64(double %21, double %19, double %235)
+  %237 = fneg double %236
+  %238 = fmul double %11, 2.000000e+00
+  %239 = fmul double %15, %38
+  %240 = tail call double @llvm.fmuladd.f64(double %238, double %19, double %239)
+  %241 = fmul double %154, %240
+  %242 = tail call double @llvm.fmuladd.f64(double %237, double %156, double %241)
+  %243 = fmul double %15, %42
+  %244 = tail call double @llvm.fmuladd.f64(double %238, double %9, double %243)
+  %245 = tail call double @llvm.fmuladd.f64(double %244, double %155, double %242)
+  %246 = tail call double @llvm.fmuladd.f64(double %164, double %39, double %245)
+  %247 = tail call double @llvm.fmuladd.f64(double %198, double %34, double %246)
+  %248 = fmul double %167, %247
+  br label %249
 
-246:                                              ; preds = %140, %74
-  %247 = phi double [ %119, %74 ], [ %199, %140 ]
-  %248 = phi double [ %118, %74 ], [ %198, %140 ]
-  %249 = phi double [ %117, %74 ], [ %197, %140 ]
-  %.sroa.9.0 = phi double [ %139, %74 ], [ %245, %140 ]
-  %.sroa.5.0 = phi double [ %138, %74 ], [ %230, %140 ]
-  %.sroa.0118.0 = phi double [ %137, %74 ], [ %214, %140 ]
-  %.sroa.9126.0 = phi double [ %109, %74 ], [ %189, %140 ]
-  %.sroa.5124.0 = phi double [ %108, %74 ], [ %180, %140 ]
-  %.sroa.0122.0 = phi double [ %107, %74 ], [ %172, %140 ]
-  %250 = getelementptr inbounds i8, ptr %0, i64 1648
-  %251 = load ptr, ptr %250, align 8
-  %252 = fneg double %.sroa.0122.0
-  %253 = fneg double %.sroa.5124.0
-  %254 = fneg double %.sroa.9126.0
-  store double %252, ptr %3, align 8, !alias.scope !46
-  %255 = getelementptr inbounds i8, ptr %3, i64 8
-  store double %253, ptr %255, align 8, !alias.scope !46
-  %256 = getelementptr inbounds i8, ptr %3, i64 16
-  store double %254, ptr %256, align 8, !alias.scope !46
-  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %251, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %257 = getelementptr inbounds i8, ptr %0, i64 1656
-  %258 = load ptr, ptr %257, align 8
-  %259 = fsub double %.sroa.0122.0, %.sroa.0118.0
-  %260 = fsub double %.sroa.5124.0, %.sroa.5.0
-  %261 = fsub double %.sroa.9126.0, %.sroa.9.0
-  store double %259, ptr %4, align 8, !alias.scope !49
-  %262 = getelementptr inbounds i8, ptr %4, i64 8
-  store double %260, ptr %262, align 8, !alias.scope !49
-  %263 = getelementptr inbounds i8, ptr %4, i64 16
-  store double %261, ptr %263, align 8, !alias.scope !49
-  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %258, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %264 = getelementptr inbounds i8, ptr %0, i64 1664
-  %265 = load ptr, ptr %264, align 8
-  %266 = fsub double %.sroa.0118.0, %249
-  %267 = fsub double %.sroa.5.0, %248
-  %268 = fsub double %.sroa.9.0, %247
-  store double %266, ptr %5, align 8, !alias.scope !52
-  %269 = getelementptr inbounds i8, ptr %5, i64 8
-  store double %267, ptr %269, align 8, !alias.scope !52
-  %270 = getelementptr inbounds i8, ptr %5, i64 16
-  store double %268, ptr %270, align 8, !alias.scope !52
-  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %265, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %271 = getelementptr inbounds i8, ptr %0, i64 1672
-  %272 = load ptr, ptr %271, align 8
-  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %272, ptr noundef nonnull align 8 dereferenceable(24) %2)
+249:                                              ; preds = %143, %73
+  %250 = phi double [ %118, %73 ], [ %206, %143 ]
+  %251 = phi double [ %117, %73 ], [ %205, %143 ]
+  %252 = phi double [ %116, %73 ], [ %204, %143 ]
+  %.sroa.9.0 = phi double [ %142, %73 ], [ %248, %143 ]
+  %.sroa.5.0 = phi double [ %141, %73 ], [ %234, %143 ]
+  %.sroa.0118.0 = phi double [ %140, %73 ], [ %220, %143 ]
+  %.sroa.9126.0 = phi double [ %106, %73 ], [ %194, %143 ]
+  %.sroa.5124.0 = phi double [ %105, %73 ], [ %185, %143 ]
+  %.sroa.0122.0 = phi double [ %104, %73 ], [ %176, %143 ]
+  %253 = getelementptr inbounds i8, ptr %0, i64 1648
+  %254 = load ptr, ptr %253, align 8
+  %255 = fneg double %.sroa.0122.0
+  %256 = fneg double %.sroa.5124.0
+  %257 = fneg double %.sroa.9126.0
+  store double %255, ptr %3, align 8, !alias.scope !46
+  %258 = getelementptr inbounds i8, ptr %3, i64 8
+  store double %256, ptr %258, align 8, !alias.scope !46
+  %259 = getelementptr inbounds i8, ptr %3, i64 16
+  store double %257, ptr %259, align 8, !alias.scope !46
+  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %254, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %260 = getelementptr inbounds i8, ptr %0, i64 1656
+  %261 = load ptr, ptr %260, align 8
+  %262 = fsub double %.sroa.0122.0, %.sroa.0118.0
+  %263 = fsub double %.sroa.5124.0, %.sroa.5.0
+  %264 = fsub double %.sroa.9126.0, %.sroa.9.0
+  store double %262, ptr %4, align 8, !alias.scope !49
+  %265 = getelementptr inbounds i8, ptr %4, i64 8
+  store double %263, ptr %265, align 8, !alias.scope !49
+  %266 = getelementptr inbounds i8, ptr %4, i64 16
+  store double %264, ptr %266, align 8, !alias.scope !49
+  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %261, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %267 = getelementptr inbounds i8, ptr %0, i64 1664
+  %268 = load ptr, ptr %267, align 8
+  %269 = fsub double %.sroa.0118.0, %252
+  %270 = fsub double %.sroa.5.0, %251
+  %271 = fsub double %.sroa.9.0, %250
+  store double %269, ptr %5, align 8, !alias.scope !52
+  %272 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %270, ptr %272, align 8, !alias.scope !52
+  %273 = getelementptr inbounds i8, ptr %5, i64 16
+  store double %271, ptr %273, align 8, !alias.scope !52
+  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %268, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %274 = getelementptr inbounds i8, ptr %0, i64 1672
+  %275 = load ptr, ptr %274, align 8
+  call void @_ZN12colvarmodule10atom_group21set_weighted_gradientERKNS_7rvectorE(ptr noundef nonnull align 8 dereferenceable(1440) %275, ptr noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -2164,14 +2168,14 @@ define void @_ZN6colvar8dihedral19calc_force_invgradsEv(ptr nocapture noundef no
   %.sink4.i15 = select i1 %40, double %41, double 1.000000e+00
   %.sink3.i16 = select i1 %40, double %42, double 0.000000e+00
   %.sink.i17 = select i1 %40, double %43, double 0.000000e+00
-  %44 = fneg double %.sink3.i
-  %45 = fmul double %.sink.i13, %44
+  %44 = fneg double %.sink.i13
+  %45 = fmul double %.sink3.i, %44
   %46 = tail call double @llvm.fmuladd.f64(double %.sink3.i12, double %.sink.i, double %45)
   %47 = fneg double %.sink4.i11
   %48 = fmul double %.sink4.i, %.sink.i13
   %49 = tail call double @llvm.fmuladd.f64(double %47, double %.sink.i, double %48)
-  %50 = fneg double %.sink4.i
-  %51 = fmul double %.sink3.i12, %50
+  %50 = fneg double %.sink3.i12
+  %51 = fmul double %.sink4.i, %50
   %52 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %.sink3.i, double %51)
   %53 = fmul double %49, %49
   %54 = tail call double @llvm.fmuladd.f64(double %46, double %46, double %53)
@@ -2220,61 +2224,59 @@ define void @_ZN6colvar8dihedral19calc_force_invgradsEv(ptr nocapture noundef no
   %89 = load double, ptr %88, align 8
   %90 = call noundef double @llvm.fmuladd.f64(double %.sink.i22, double %89, double %87)
   %91 = fmul double %81, %90
-  br label %132
+  br label %130
 
 92:                                               ; preds = %1
-  %93 = fneg double %.sink4.i15
-  %94 = fmul double %.sink3.i12, %93
-  %95 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %.sink3.i16, double %94)
-  %96 = fneg double %.sink3.i16
-  %97 = fmul double %.sink.i13, %96
-  %98 = tail call double @llvm.fmuladd.f64(double %.sink3.i12, double %.sink.i17, double %97)
-  %99 = fmul double %.sink.i13, %.sink4.i15
-  %100 = tail call double @llvm.fmuladd.f64(double %47, double %.sink.i17, double %99)
-  %101 = fmul double %100, %100
-  %102 = tail call double @llvm.fmuladd.f64(double %98, double %98, double %101)
-  %103 = tail call noundef double @llvm.fmuladd.f64(double %95, double %95, double %102)
-  %104 = fcmp ogt double %103, 0.000000e+00
-  %sqrt.i.i23 = tail call double @llvm.sqrt.f64(double %103)
-  %105 = fdiv double %95, %sqrt.i.i23
-  %.sink.i26 = select i1 %104, double %105, double 0.000000e+00
-  %106 = fdiv double %100, %sqrt.i.i23
-  %.sink3.i25 = select i1 %104, double %106, double 0.000000e+00
-  %107 = fdiv double %98, %sqrt.i.i23
-  %.sink4.i24 = select i1 %104, double %107, double 1.000000e+00
-  %108 = fmul double %72, %sqrt.i.i14
-  %109 = getelementptr inbounds i8, ptr %0, i64 1672
-  %110 = load ptr, ptr %109, align 8
-  tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %110)
-  %111 = load ptr, ptr %73, align 8
-  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1440) %111)
-  %112 = load double, ptr %3, align 8
-  %113 = getelementptr inbounds i8, ptr %3, i64 8
-  %114 = load double, ptr %113, align 8
-  %115 = fmul double %.sink3.i21, %114
-  %116 = call double @llvm.fmuladd.f64(double %.sink4.i20, double %112, double %115)
-  %117 = getelementptr inbounds i8, ptr %3, i64 16
-  %118 = load double, ptr %117, align 8
-  %119 = call noundef double @llvm.fmuladd.f64(double %.sink.i22, double %118, double %116)
-  %120 = load ptr, ptr %109, align 8
-  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1440) %120)
-  %121 = load double, ptr %4, align 8
-  %122 = getelementptr inbounds i8, ptr %4, i64 8
-  %123 = load double, ptr %122, align 8
-  %124 = fmul double %.sink3.i25, %123
-  %125 = call double @llvm.fmuladd.f64(double %.sink4.i24, double %121, double %124)
-  %126 = getelementptr inbounds i8, ptr %4, i64 16
-  %127 = load double, ptr %126, align 8
-  %128 = call noundef double @llvm.fmuladd.f64(double %.sink.i26, double %127, double %125)
-  %129 = fmul double %108, %128
-  %130 = call double @llvm.fmuladd.f64(double %69, double %119, double %129)
-  %131 = fmul double %130, 0x3F81DF46A2529D39
-  br label %132
+  %93 = fmul double %.sink4.i15, %50
+  %94 = tail call double @llvm.fmuladd.f64(double %.sink4.i11, double %.sink3.i16, double %93)
+  %95 = fmul double %.sink3.i16, %44
+  %96 = tail call double @llvm.fmuladd.f64(double %.sink3.i12, double %.sink.i17, double %95)
+  %97 = fmul double %.sink.i13, %.sink4.i15
+  %98 = tail call double @llvm.fmuladd.f64(double %47, double %.sink.i17, double %97)
+  %99 = fmul double %98, %98
+  %100 = tail call double @llvm.fmuladd.f64(double %96, double %96, double %99)
+  %101 = tail call noundef double @llvm.fmuladd.f64(double %94, double %94, double %100)
+  %102 = fcmp ogt double %101, 0.000000e+00
+  %sqrt.i.i23 = tail call double @llvm.sqrt.f64(double %101)
+  %103 = fdiv double %94, %sqrt.i.i23
+  %.sink.i26 = select i1 %102, double %103, double 0.000000e+00
+  %104 = fdiv double %98, %sqrt.i.i23
+  %.sink3.i25 = select i1 %102, double %104, double 0.000000e+00
+  %105 = fdiv double %96, %sqrt.i.i23
+  %.sink4.i24 = select i1 %102, double %105, double 1.000000e+00
+  %106 = fmul double %72, %sqrt.i.i14
+  %107 = getelementptr inbounds i8, ptr %0, i64 1672
+  %108 = load ptr, ptr %107, align 8
+  tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %108)
+  %109 = load ptr, ptr %73, align 8
+  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1440) %109)
+  %110 = load double, ptr %3, align 8
+  %111 = getelementptr inbounds i8, ptr %3, i64 8
+  %112 = load double, ptr %111, align 8
+  %113 = fmul double %.sink3.i21, %112
+  %114 = call double @llvm.fmuladd.f64(double %.sink4.i20, double %110, double %113)
+  %115 = getelementptr inbounds i8, ptr %3, i64 16
+  %116 = load double, ptr %115, align 8
+  %117 = call noundef double @llvm.fmuladd.f64(double %.sink.i22, double %116, double %114)
+  %118 = load ptr, ptr %107, align 8
+  call void @_ZNK12colvarmodule10atom_group11total_forceEv(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1440) %118)
+  %119 = load double, ptr %4, align 8
+  %120 = getelementptr inbounds i8, ptr %4, i64 8
+  %121 = load double, ptr %120, align 8
+  %122 = fmul double %.sink3.i25, %121
+  %123 = call double @llvm.fmuladd.f64(double %.sink4.i24, double %119, double %122)
+  %124 = getelementptr inbounds i8, ptr %4, i64 16
+  %125 = load double, ptr %124, align 8
+  %126 = call noundef double @llvm.fmuladd.f64(double %.sink.i26, double %125, double %123)
+  %127 = fmul double %106, %126
+  %128 = call double @llvm.fmuladd.f64(double %69, double %117, double %127)
+  %129 = fmul double %128, 0x3F81DF46A2529D39
+  br label %130
 
-132:                                              ; preds = %92, %80
-  %.sink = phi double [ %91, %80 ], [ %131, %92 ]
-  %133 = getelementptr inbounds i8, ptr %0, i64 976
-  store double %.sink, ptr %133, align 8
+130:                                              ; preds = %92, %80
+  %.sink = phi double [ %91, %80 ], [ %129, %92 ]
+  %131 = getelementptr inbounds i8, ptr %0, i64 976
+  store double %.sink, ptr %131, align 8
   ret void
 }
 
@@ -3096,7 +3098,7 @@ _ZSt10_ConstructIN12colvarmodule4atomEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #22
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12colvarmodule4atomEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %15, %.lr.ph.i.i.i.i.i.i.i

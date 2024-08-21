@@ -443,7 +443,7 @@ define internal fastcc ptr @__tcf_chain_get(ptr noundef %0, i32 noundef %1, i1 n
   %45 = sub i32 %44, %42
   %46 = icmp ne i32 %45, 1
   tail call void @mutex_unlock(ptr noundef %5) #14
-  %47 = or i1 %46, %3
+  %47 = or i1 %3, %46
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %.thread4._crit_edge
@@ -512,7 +512,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   %28 = load i8, ptr %27, align 4, !range !17, !noundef !18
   %29 = zext nneg i8 %28 to i32
   %30 = icmp ne i32 %22, %29
-  %31 = or i1 %30, %1
+  %31 = or i1 %1, %30
   br i1 %31, label %54, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -2577,7 +2577,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_add(ptr noundef %0, 
   %17 = getelementptr inbounds i8, ptr %0, i64 176
   %18 = load i32, ptr %17, align 8
   %19 = icmp ne i32 %18, 0
-  %20 = and i1 %19, %4
+  %20 = and i1 %4, %19
   br i1 %20, label %73, label %21
 
 21:                                               ; preds = %.loopexit
@@ -2717,7 +2717,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_replace(ptr noundef 
   %19 = getelementptr inbounds i8, ptr %0, i64 176
   %20 = load i32, ptr %19, align 8
   %21 = icmp ne i32 %20, 0
-  %22 = and i1 %21, %4
+  %22 = and i1 %4, %21
   br i1 %22, label %88, label %23
 
 23:                                               ; preds = %.loopexit
@@ -4308,7 +4308,7 @@ define internal fastcc i32 @tcf_block_playback_offloads(ptr noundef %0, ptr noun
   %37 = add i32 %22, 1
   store i32 %37, ptr %36, align 4
   tail call void @mutex_unlock(ptr noundef %7) #14
-  %38 = and i1 %18, %4
+  %38 = and i1 %4, %18
   br label %39
 
 39:                                               ; preds = %.loopexit, %35
@@ -7974,7 +7974,7 @@ define internal fastcc ptr @tcf_chain_tp_find(ptr noundef %0, ptr nocapture noun
   %17 = getelementptr inbounds i8, ptr %8, i64 24
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
-  %20 = icmp ne i32 %19, %2
+  %20 = icmp ne i32 %2, %19
   %21 = icmp ne i32 %2, 0
   %22 = and i1 %21, %20
   br i1 %22, label %36, label %23
@@ -8210,7 +8210,7 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef %0, ptr nound
   %99 = getelementptr inbounds i8, ptr %90, i64 24
   %100 = load i16, ptr %99, align 8
   %101 = zext i16 %100 to i32
-  %.not19 = icmp eq i32 %101, %2
+  %.not19 = icmp eq i32 %2, %101
   br i1 %.not19, label %102, label %149
 
 102:                                              ; preds = %98

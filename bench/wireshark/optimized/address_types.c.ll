@@ -649,7 +649,7 @@ define internal i32 @ax25_addr_to_str(ptr nocapture noundef readonly %0, ptr nou
   %26 = ptrtoint ptr %.0.lcssa to i64
   %.neg = sub i64 %.pre, %26
   %.neg30 = trunc i64 %.neg to i32
-  %27 = add i32 %.neg30, %2
+  %27 = add i32 %2, %.neg30
   %28 = sext i32 %27 to i64
   %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0.lcssa, i64 noundef %28, ptr noundef nonnull @.str.41, i32 noundef %25) #16
   %30 = sext i32 %29 to i64

@@ -13804,7 +13804,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -13867,7 +13867,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -14687,7 +14687,7 @@ _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i: ; preds = %cond.fa
 
 if.then:                                          ; preds = %if.then.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i, %if.end12.i, %cond.false7.i.i7.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa48.i, %cond.false7.i.i7.i ], [ %__y.0.lcssa48.i, %if.end12.i ], [ %__y.0.lcssa48.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit18.i ], [ %__y.0.lcssa49.i, %if.then.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -14751,12 +14751,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -20696,7 +20696,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ugt i64 %div.i5557, %div11
+  %cmp24.i = icmp ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -20776,7 +20776,7 @@ if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph
   %dec.us = add nsw i64 %__parent.059.us, -1
   %add.ptr10.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
   %7 = load i32, ptr %add.ptr10.us, align 4
-  %cmp24.i14.not.us = icmp slt i64 %div.i5557, %__parent.059.us
+  %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
 
 while.body.i42.us:                                ; preds = %if.end7.split.us, %while.body.i42.us
@@ -20828,7 +20828,7 @@ if.end7.split:                                    ; preds = %if.end7.split.prehe
   %dec = add nsw i64 %__parent.059, -1
   %add.ptr10 = getelementptr inbounds i32, ptr %__first, i64 %dec
   %12 = load i32, ptr %add.ptr10, align 4
-  %cmp24.i14.not = icmp slt i64 %div.i5557, %__parent.059
+  %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
 
 while.body.i42:                                   ; preds = %if.end7.split, %while.body.i42
@@ -22379,7 +22379,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5961 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5961, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5961
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -22465,7 +22465,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.063.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.541", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5961, %__parent.063.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.063.us, %div.i5961
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i46.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -22528,7 +22528,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.063, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.541", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5961, %__parent.063
+  %cmp23.i16.not = icmp sgt i64 %__parent.063, %div.i5961
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i46
 
 while.body.i46:                                   ; preds = %if.end9.split, %while.body.i46
@@ -23464,7 +23464,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5961 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5961, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5961
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -23550,7 +23550,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.063.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.530", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5961, %__parent.063.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.063.us, %div.i5961
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i46.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -23613,7 +23613,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.063, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.530", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5961, %__parent.063
+  %cmp23.i16.not = icmp sgt i64 %__parent.063, %div.i5961
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i46
 
 while.body.i46:                                   ; preds = %if.end9.split, %while.body.i46
@@ -23707,7 +23707,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -23770,7 +23770,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -24393,12 +24393,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -29852,7 +29852,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load i64, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ugt i64 %div.i5557, %div11
+  %cmp24.i = icmp ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -29932,7 +29932,7 @@ if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph
   %dec.us = add nsw i64 %__parent.059.us, -1
   %add.ptr10.us = getelementptr inbounds i64, ptr %__first, i64 %dec.us
   %7 = load i64, ptr %add.ptr10.us, align 8
-  %cmp24.i14.not.us = icmp slt i64 %div.i5557, %__parent.059.us
+  %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
 
 while.body.i42.us:                                ; preds = %if.end7.split.us, %while.body.i42.us
@@ -29984,7 +29984,7 @@ if.end7.split:                                    ; preds = %if.end7.split.prehe
   %dec = add nsw i64 %__parent.059, -1
   %add.ptr10 = getelementptr inbounds i64, ptr %__first, i64 %dec
   %12 = load i64, ptr %add.ptr10, align 8
-  %cmp24.i14.not = icmp slt i64 %div.i5557, %__parent.059
+  %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
 
 while.body.i42:                                   ; preds = %if.end7.split, %while.body.i42
@@ -31505,7 +31505,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -31586,7 +31586,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.671", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i44.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -31644,7 +31644,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.671", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i16.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i44
 
 while.body.i44:                                   ; preds = %if.end9.split, %while.body.i44
@@ -32563,7 +32563,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -32644,7 +32644,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.660", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i44.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -32702,7 +32702,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.660", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i16.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i44
 
 while.body.i44:                                   ; preds = %if.end9.split, %while.body.i44
@@ -32787,7 +32787,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -32850,7 +32850,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -33470,12 +33470,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -39096,7 +39096,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load float, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ugt i64 %div.i5557, %div11
+  %cmp24.i = icmp ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -39176,7 +39176,7 @@ if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph
   %dec.us = add nsw i64 %__parent.059.us, -1
   %add.ptr10.us = getelementptr inbounds float, ptr %__first, i64 %dec.us
   %7 = load float, ptr %add.ptr10.us, align 4
-  %cmp24.i14.not.us = icmp slt i64 %div.i5557, %__parent.059.us
+  %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
 
 while.body.i42.us:                                ; preds = %if.end7.split.us, %while.body.i42.us
@@ -39228,7 +39228,7 @@ if.end7.split:                                    ; preds = %if.end7.split.prehe
   %dec = add nsw i64 %__parent.059, -1
   %add.ptr10 = getelementptr inbounds float, ptr %__first, i64 %dec
   %12 = load float, ptr %add.ptr10, align 4
-  %cmp24.i14.not = icmp slt i64 %div.i5557, %__parent.059
+  %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
 
 while.body.i42:                                   ; preds = %if.end7.split, %while.body.i42
@@ -40783,7 +40783,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -40867,7 +40867,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.751", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i44.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -40928,7 +40928,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.751", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i16.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i44
 
 while.body.i44:                                   ; preds = %if.end9.split, %while.body.i44
@@ -41886,7 +41886,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -41970,7 +41970,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.740", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i44.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -42031,7 +42031,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.740", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i16.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i44
 
 while.body.i44:                                   ; preds = %if.end9.split, %while.body.i44
@@ -42123,7 +42123,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -42186,7 +42186,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -42809,12 +42809,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -48434,7 +48434,7 @@ if.end.split:                                     ; preds = %entry
   %0 = load double, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5557 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ugt i64 %div.i5557, %div11
+  %cmp24.i = icmp ult i64 %div11, %div.i5557
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -48514,7 +48514,7 @@ if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph
   %dec.us = add nsw i64 %__parent.059.us, -1
   %add.ptr10.us = getelementptr inbounds double, ptr %__first, i64 %dec.us
   %7 = load double, ptr %add.ptr10.us, align 8
-  %cmp24.i14.not.us = icmp slt i64 %div.i5557, %__parent.059.us
+  %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
 
 while.body.i42.us:                                ; preds = %if.end7.split.us, %while.body.i42.us
@@ -48566,7 +48566,7 @@ if.end7.split:                                    ; preds = %if.end7.split.prehe
   %dec = add nsw i64 %__parent.059, -1
   %add.ptr10 = getelementptr inbounds double, ptr %__first, i64 %dec
   %12 = load double, ptr %add.ptr10, align 8
-  %cmp24.i14.not = icmp slt i64 %div.i5557, %__parent.059
+  %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
 
 while.body.i42:                                   ; preds = %if.end7.split, %while.body.i42
@@ -50098,7 +50098,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -50180,7 +50180,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.837", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i44.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -50239,7 +50239,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.837", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i16.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i44
 
 while.body.i44:                                   ; preds = %if.end9.split, %while.body.i44
@@ -51172,7 +51172,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -51254,7 +51254,7 @@ if.end9.split.us:                                 ; preds = %if.end9.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.826", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load ptr, ptr %add.ptr11.us, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i44.us
 
 while.end.i17.us.thread:                          ; preds = %if.end9.split.us
@@ -51313,7 +51313,7 @@ if.end9.split:                                    ; preds = %if.end9.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr11 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.826", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load ptr, ptr %add.ptr11, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i16.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i44
 
 while.body.i44:                                   ; preds = %if.end9.split, %while.body.i44
@@ -51399,7 +51399,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -51462,7 +51462,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -52082,12 +52082,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -57856,7 +57856,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load float, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp30.i = icmp sgt i64 %div.i, %div17
+  %cmp30.i = icmp slt i64 %div17, %div.i
   br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i
@@ -57986,7 +57986,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %__value.sroa.0.0.copyload14 = load <2 x float>, ptr %add.ptr13, align 4
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load float, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 4
-  %cmp30.i20.not = icmp slt i64 %div.i, %__parent.0105
+  %cmp30.i20.not = icmp sgt i64 %__parent.0105, %div.i
   br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i63
 
 while.body.i63:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78
@@ -59965,7 +59965,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i8991 = lshr i64 %sub.i, 1
-  %cmp30.i = icmp ugt i64 %div.i8991, %div17
+  %cmp30.i = icmp ult i64 %div17, %div.i8991
   br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
@@ -60097,7 +60097,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp30.i20.not = icmp slt i64 %div.i8991, %__parent.0106
+  %cmp30.i20.not = icmp sgt i64 %__parent.0106, %div.i8991
   br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i62
 
 while.body.i62:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
@@ -61585,7 +61585,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i8991 = lshr i64 %sub.i, 1
-  %cmp30.i = icmp ugt i64 %div.i8991, %div17
+  %cmp30.i = icmp ult i64 %div17, %div.i8991
   br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
@@ -61717,7 +61717,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp30.i20.not = icmp slt i64 %div.i8991, %__parent.0106
+  %cmp30.i20.not = icmp sgt i64 %__parent.0106, %div.i8991
   br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i62
 
 while.body.i62:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
@@ -62190,7 +62190,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -62253,7 +62253,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IfEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -62873,12 +62873,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -68658,7 +68658,7 @@ while.body:                                       ; preds = %_ZSt13__adjust_heap
   %__value.sroa.0.sroa.2.0.copyload = load double, ptr %__value.sroa.0.sroa.2.0.add.ptr.sroa_idx, align 8
   %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx, align 8
-  %cmp35.i = icmp sgt i64 %div.i2330, %__parent.0
+  %cmp35.i = icmp slt i64 %__parent.0, %div.i2330
   br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i
@@ -70635,7 +70635,7 @@ while.body:                                       ; preds = %_ZSt13__adjust_heap
   %__value.sroa.0.sroa.2.0.copyload = load double, ptr %__value.sroa.0.sroa.2.0.add.ptr.sroa_idx, align 8
   %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx, align 8
-  %cmp35.i = icmp sgt i64 %div.i2330, %__parent.0
+  %cmp35.i = icmp slt i64 %__parent.0, %div.i2330
   br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
@@ -72122,7 +72122,7 @@ while.body:                                       ; preds = %_ZSt13__adjust_heap
   %__value.sroa.0.sroa.2.0.copyload = load double, ptr %__value.sroa.0.sroa.2.0.add.ptr.sroa_idx, align 8
   %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx, align 8
-  %cmp35.i = icmp sgt i64 %div.i2330, %__parent.0
+  %cmp35.i = icmp slt i64 %__parent.0, %div.i2330
   br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
@@ -72588,7 +72588,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -72651,7 +72651,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IdEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -73271,12 +73271,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -78787,7 +78787,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load i32, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp30.i = icmp sgt i64 %div.i, %div17
+  %cmp30.i = icmp slt i64 %div17, %div.i
   br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i
@@ -78914,7 +78914,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %__value.sroa.0.0.copyload14 = load i64, ptr %add.ptr13, align 4
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i32, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 4
-  %cmp30.i20.not = icmp slt i64 %div.i, %__parent.0104
+  %cmp30.i20.not = icmp sgt i64 %__parent.0104, %div.i
   br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i62
 
 while.body.i62:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77
@@ -80888,7 +80888,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i9193 = lshr i64 %sub.i, 1
-  %cmp30.i = icmp ugt i64 %div.i9193, %div17
+  %cmp30.i = icmp ult i64 %div17, %div.i9193
   br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
@@ -81020,7 +81020,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp30.i20.not = icmp slt i64 %div.i9193, %__parent.0108
+  %cmp30.i20.not = icmp sgt i64 %__parent.0108, %div.i9193
   br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i64
 
 while.body.i64:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
@@ -82503,7 +82503,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i9193 = lshr i64 %sub.i, 1
-  %cmp30.i = icmp ugt i64 %div.i9193, %div17
+  %cmp30.i = icmp ult i64 %div17, %div.i9193
   br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
@@ -82635,7 +82635,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp30.i20.not = icmp slt i64 %div.i9193, %__parent.0108
+  %cmp30.i20.not = icmp sgt i64 %__parent.0108, %div.i9193
   br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i64
 
 while.body.i64:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
@@ -83108,7 +83108,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -83171,7 +83171,7 @@ _ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12I
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IiEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(12) %__k) local_unnamed_addr #5 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -83791,12 +83791,12 @@ entry:
   %2 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.i = icmp eq ptr %3, %0
+  %cmp.i.i = icmp eq ptr %0, %3
   br i1 %cmp.i.i, label %land.rhs.i, label %if.else.i
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp.i1.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.rhs.i

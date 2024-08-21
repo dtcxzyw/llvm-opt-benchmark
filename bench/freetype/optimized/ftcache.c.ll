@@ -365,11 +365,11 @@ FTC_MruNode_Up.exit118:                           ; preds = %109
   store ptr %132, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   store ptr %131, ptr %133, align 8
-  %134 = icmp eq ptr %132, %72
+  %134 = icmp eq ptr %72, %132
   br i1 %134, label %.sink.split.i.i, label %135
 
 135:                                              ; preds = %126
-  %136 = icmp eq ptr %129, %72
+  %136 = icmp eq ptr %72, %129
   br i1 %136, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
 
 .sink.split.i.i:                                  ; preds = %135, %126
@@ -561,11 +561,11 @@ FTC_MruNode_Prepend.exit:                         ; preds = %27, %30
   store ptr %39, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %38, ptr %40, align 8
-  %41 = icmp eq ptr %39, %.128
+  %41 = icmp eq ptr %.128, %39
   br i1 %41, label %.sink.split.i, label %42
 
 42:                                               ; preds = %36
-  %43 = icmp eq ptr %9, %.128
+  %43 = icmp eq ptr %.128, %9
   br i1 %43, label %.sink.split.i, label %FTC_MruNode_Remove.exit
 
 .sink.split.i:                                    ; preds = %42, %36
@@ -695,11 +695,11 @@ define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, pt
   store ptr %43, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %42, ptr %44, align 8
-  %45 = icmp eq ptr %43, %.018.i
+  %45 = icmp eq ptr %.018.i, %43
   br i1 %45, label %.sink.split.i.i.i, label %46
 
 46:                                               ; preds = %30
-  %47 = icmp eq ptr %41, %.018.i
+  %47 = icmp eq ptr %.018.i, %41
   br i1 %47, label %.sink.split.i.i.i, label %ftc_node_mru_unlink.exit.i
 
 .sink.split.i.i.i:                                ; preds = %46, %30
@@ -827,13 +827,13 @@ FTC_Manager_FlushN.exit._crit_edge:               ; preds = %91, %FTC_Manager_Fl
   %106 = getelementptr inbounds i8, ptr %0, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
-  %109 = and i64 %108, %1
+  %109 = and i64 %1, %108
   %110 = load i32, ptr %0, align 8
   %111 = zext i32 %110 to i64
   %.not.i.i = icmp ult i64 %109, %111
   %112 = lshr i32 %107, 1
   %113 = zext nneg i32 %112 to i64
-  %114 = and i64 %113, %1
+  %114 = and i64 %1, %113
   %115 = select i1 %.not.i.i, i64 %109, i64 %114
   %116 = getelementptr inbounds ptr, ptr %105, i64 %115
   %117 = load ptr, ptr %116, align 8
@@ -1220,11 +1220,11 @@ FTC_MruNode_Up.exit119:                           ; preds = %135
   store ptr %158, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 8
   store ptr %157, ptr %159, align 8
-  %160 = icmp eq ptr %158, %98
+  %160 = icmp eq ptr %98, %158
   br i1 %160, label %.sink.split.i.i, label %161
 
 161:                                              ; preds = %152
-  %162 = icmp eq ptr %155, %98
+  %162 = icmp eq ptr %98, %155
   br i1 %162, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
 
 .sink.split.i.i:                                  ; preds = %161, %152
@@ -1660,11 +1660,11 @@ FTC_MruNode_Up.exit119:                           ; preds = %128
   store ptr %152, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 8
   store ptr %151, ptr %153, align 8
-  %154 = icmp eq ptr %152, %74
+  %154 = icmp eq ptr %74, %152
   br i1 %154, label %.sink.split.i.i, label %155
 
 155:                                              ; preds = %146
-  %156 = icmp eq ptr %149, %74
+  %156 = icmp eq ptr %74, %149
   br i1 %156, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
 
 .sink.split.i.i:                                  ; preds = %155, %146
@@ -2247,11 +2247,11 @@ FTC_MruNode_Up.exit120:                           ; preds = %154
   store ptr %178, ptr %177, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 8
   store ptr %177, ptr %179, align 8
-  %180 = icmp eq ptr %178, %100
+  %180 = icmp eq ptr %100, %178
   br i1 %180, label %.sink.split.i.i, label %181
 
 181:                                              ; preds = %172
-  %182 = icmp eq ptr %175, %100
+  %182 = icmp eq ptr %100, %175
   br i1 %182, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
 
 .sink.split.i.i:                                  ; preds = %181, %172
@@ -2397,11 +2397,11 @@ define i32 @FTC_CMapCache_New(ptr noundef %0, ptr noundef writeonly %1) local_un
   store ptr %47, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %46, ptr %48, align 8
-  %49 = icmp eq ptr %47, %.02730.i
+  %49 = icmp eq ptr %.02730.i, %47
   br i1 %49, label %.sink.split.i.i.i, label %50
 
 50:                                               ; preds = %.lr.ph.i
-  %51 = icmp eq ptr %44, %.02730.i
+  %51 = icmp eq ptr %.02730.i, %44
   br i1 %51, label %.sink.split.i.i.i, label %ftc_node_mru_unlink.exit.i
 
 .sink.split.i.i.i:                                ; preds = %50, %.lr.ph.i
@@ -3171,7 +3171,7 @@ FTC_MruNode_Remove.exit.i.i.i:                    ; preds = %FTC_MruList_Remove.
   store ptr %29, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %28, ptr %30, align 8
-  %31 = icmp eq ptr %29, %25
+  %31 = icmp eq ptr %25, %29
   %spec.select.i.i = select i1 %31, ptr null, ptr %29
   store ptr %spec.select.i.i, ptr %20, align 8
   %32 = load i32, ptr %19, align 8
@@ -3214,7 +3214,7 @@ FTC_MruNode_Remove.exit.i.i.i22:                  ; preds = %FTC_MruList_Remove.
   store ptr %48, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %47, ptr %49, align 8
-  %50 = icmp eq ptr %48, %44
+  %50 = icmp eq ptr %44, %48
   %spec.select.i.i23 = select i1 %50, ptr null, ptr %48
   store ptr %spec.select.i.i23, ptr %39, align 8
   %51 = load i32, ptr %38, align 8
@@ -3272,7 +3272,7 @@ FTC_MruNode_Remove.exit.i.i:                      ; preds = %FTC_MruList_Remove.
   store ptr %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
-  %15 = icmp eq ptr %13, %9
+  %15 = icmp eq ptr %9, %13
   %spec.select.i = select i1 %15, ptr null, ptr %13
   store ptr %spec.select.i, ptr %4, align 8
   %16 = load i32, ptr %3, align 8
@@ -3315,7 +3315,7 @@ FTC_MruNode_Remove.exit.i.i7:                     ; preds = %FTC_MruList_Remove.
   store ptr %32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %31, ptr %33, align 8
-  %34 = icmp eq ptr %32, %28
+  %34 = icmp eq ptr %28, %32
   %spec.select.i8 = select i1 %34, ptr null, ptr %32
   store ptr %spec.select.i8, ptr %23, align 8
   %35 = load i32, ptr %22, align 8
@@ -3413,11 +3413,11 @@ define void @FTC_Manager_RemoveFaceID(ptr noundef %0, ptr noundef %1) local_unna
   store ptr %21, ptr %15, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %15, ptr %22, align 8
-  %23 = icmp eq ptr %21, %.0.i
+  %23 = icmp eq ptr %.0.i, %21
   br i1 %23, label %.sink.split.i.i.i, label %24
 
 24:                                               ; preds = %18
-  %25 = icmp eq ptr %20, %.0.i
+  %25 = icmp eq ptr %.0.i, %20
   br i1 %25, label %.sink.split.i.i.i, label %FTC_MruNode_Remove.exit.i.i
 
 .sink.split.i.i.i:                                ; preds = %24, %18
@@ -3510,11 +3510,11 @@ FTC_MruList_RemoveSelection.exit:                 ; preds = %31, %3
   store ptr %66, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %65, ptr %67, align 8
-  %68 = icmp eq ptr %66, %53
+  %68 = icmp eq ptr %53, %66
   br i1 %68, label %.sink.split.i.i.i10, label %69
 
 69:                                               ; preds = %57
-  %70 = icmp eq ptr %63, %53
+  %70 = icmp eq ptr %53, %63
   br i1 %70, label %.sink.split.i.i.i10, label %ftc_node_mru_unlink.exit.i
 
 .sink.split.i.i.i10:                              ; preds = %69, %57
@@ -3649,11 +3649,11 @@ define internal i32 @ftc_inode_new(ptr nocapture noundef writeonly %0, ptr nocap
   store ptr %43, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %42, ptr %44, align 8
-  %45 = icmp eq ptr %43, %29
+  %45 = icmp eq ptr %29, %43
   br i1 %45, label %.sink.split.i.i.i.i.i.i.i, label %46
 
 46:                                               ; preds = %35
-  %47 = icmp eq ptr %40, %29
+  %47 = icmp eq ptr %29, %40
   br i1 %47, label %.sink.split.i.i.i.i.i.i.i, label %FTC_MruNode_Remove.exit.i.i.i.i.i.i
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %46, %35
@@ -3778,11 +3778,11 @@ define internal zeroext range(i8 0, 2) i8 @ftc_basic_gnode_compare_faceid(ptr no
   store ptr %27, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %26, ptr %28, align 8
-  %29 = icmp eq ptr %27, %13
+  %29 = icmp eq ptr %13, %27
   br i1 %29, label %.sink.split.i.i.i, label %30
 
 30:                                               ; preds = %19
-  %31 = icmp eq ptr %24, %13
+  %31 = icmp eq ptr %13, %24
   br i1 %31, label %.sink.split.i.i.i, label %FTC_MruNode_Remove.exit.i.i
 
 .sink.split.i.i.i:                                ; preds = %30, %19
@@ -3849,11 +3849,11 @@ define internal void @ftc_inode_free(ptr noundef %0, ptr nocapture noundef %1) #
   store ptr %23, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %22, ptr %24, align 8
-  %25 = icmp eq ptr %23, %9
+  %25 = icmp eq ptr %9, %23
   br i1 %25, label %.sink.split.i.i.i.i, label %26
 
 26:                                               ; preds = %15
-  %27 = icmp eq ptr %20, %9
+  %27 = icmp eq ptr %9, %20
   br i1 %27, label %.sink.split.i.i.i.i, label %FTC_MruNode_Remove.exit.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %26, %15
@@ -3969,11 +3969,11 @@ define internal void @ftc_gcache_done(ptr noundef %0) #0 {
   store ptr %24, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %23, ptr %25, align 8
-  %26 = icmp eq ptr %24, %.02730.i.i
+  %26 = icmp eq ptr %.02730.i.i, %24
   br i1 %26, label %.sink.split.i.i.i.i, label %27
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = icmp eq ptr %21, %.02730.i.i
+  %28 = icmp eq ptr %.02730.i.i, %21
   br i1 %28, label %.sink.split.i.i.i.i, label %ftc_node_mru_unlink.exit.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %27, %.lr.ph.i.i
@@ -4029,7 +4029,7 @@ FTC_MruNode_Remove.exit.i.i.i:                    ; preds = %FTC_MruList_Remove.
   store ptr %47, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %46, ptr %48, align 8
-  %49 = icmp eq ptr %47, %43
+  %49 = icmp eq ptr %43, %47
   %spec.select.i.i = select i1 %49, ptr null, ptr %47
   store ptr %spec.select.i.i, ptr %38, align 8
   %50 = load i32, ptr %37, align 8
@@ -4120,11 +4120,11 @@ define internal void @ftc_cache_done(ptr noundef %0) #0 {
   store ptr %24, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %23, ptr %25, align 8
-  %26 = icmp eq ptr %24, %.02730
+  %26 = icmp eq ptr %.02730, %24
   br i1 %26, label %.sink.split.i.i, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = icmp eq ptr %21, %.02730
+  %28 = icmp eq ptr %.02730, %21
   br i1 %28, label %.sink.split.i.i, label %ftc_node_mru_unlink.exit
 
 .sink.split.i.i:                                  ; preds = %27, %.lr.ph
@@ -4249,7 +4249,7 @@ define internal i32 @ftc_snode_new(ptr nocapture noundef writeonly %0, ptr nocap
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %13(ptr noundef %.val5, ptr noundef %15) #12
   %17 = icmp ne i32 %16, 0
-  %.not.i = icmp ugt i32 %16, %.val
+  %.not.i = icmp ult i32 %.val, %16
   %or.cond.i = select i1 %17, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %18, label %FTC_SNode_New.exit
 
@@ -4412,11 +4412,11 @@ define internal void @ftc_snode_free(ptr noundef %0, ptr nocapture noundef %1) #
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = icmp eq ptr %28, %14
+  %30 = icmp eq ptr %14, %28
   br i1 %30, label %.sink.split.i.i.i.i, label %31
 
 31:                                               ; preds = %20
-  %32 = icmp eq ptr %25, %14
+  %32 = icmp eq ptr %14, %25
   br i1 %32, label %.sink.split.i.i.i.i, label %FTC_MruNode_Remove.exit.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %31, %20
@@ -4957,11 +4957,11 @@ define internal fastcc void @ftc_node_destroy(ptr noundef %0, ptr nocapture noun
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
-  %21 = icmp eq ptr %19, %0
+  %21 = icmp eq ptr %0, %19
   br i1 %21, label %.sink.split.i.i, label %22
 
 22:                                               ; preds = %2
-  %23 = icmp eq ptr %16, %0
+  %23 = icmp eq ptr %0, %16
   br i1 %23, label %.sink.split.i.i, label %ftc_node_mru_unlink.exit
 
 .sink.split.i.i:                                  ; preds = %22, %2
@@ -5167,11 +5167,11 @@ define internal void @ftc_face_node_done(ptr nocapture noundef %0, ptr nocapture
   store ptr %22, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %16, ptr %23, align 8
-  %24 = icmp eq ptr %22, %.0.i
+  %24 = icmp eq ptr %.0.i, %22
   br i1 %24, label %.sink.split.i.i.i, label %25
 
 25:                                               ; preds = %19
-  %26 = icmp eq ptr %21, %.0.i
+  %26 = icmp eq ptr %.0.i, %21
   br i1 %26, label %.sink.split.i.i.i, label %FTC_MruNode_Remove.exit.i.i
 
 .sink.split.i.i.i:                                ; preds = %25, %19

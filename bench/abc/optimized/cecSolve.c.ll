@@ -1698,14 +1698,14 @@ define range(i32 -1, 2) i32 @Cec_ManSatCheckNode(ptr nocapture noundef %0, ptr n
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 32
   %.val56 = load ptr, ptr %19, align 8
-  %20 = icmp eq ptr %.val56, %1
+  %20 = icmp eq ptr %1, %.val56
   br i1 %20, label %176, label %21
 
 21:                                               ; preds = %2
   %22 = ptrtoint ptr %.val56 to i64
   %23 = xor i64 %22, 1
   %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %24, %1
+  %25 = icmp eq ptr %1, %24
   br i1 %25, label %176, label %26
 
 26:                                               ; preds = %21
@@ -1985,12 +1985,12 @@ define range(i32 -1, 2) i32 @Cec_ManSatCheckNodeTwo(ptr nocapture noundef %0, pt
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 32
   %.val75 = load ptr, ptr %23, align 8
-  %24 = icmp eq ptr %.val75, %1
-  %25 = icmp eq ptr %.val75, %2
+  %24 = icmp eq ptr %1, %.val75
+  %25 = icmp eq ptr %2, %.val75
   %or.cond = or i1 %24, %25
   %26 = xor i64 %15, 1
   %27 = inttoptr i64 %26 to ptr
-  %28 = icmp eq ptr %27, %1
+  %28 = icmp eq ptr %1, %27
   %or.cond93 = or i1 %28, %or.cond
   br i1 %or.cond93, label %203, label %29
 
@@ -1998,12 +1998,12 @@ define range(i32 -1, 2) i32 @Cec_ManSatCheckNodeTwo(ptr nocapture noundef %0, pt
   %30 = ptrtoint ptr %.val75 to i64
   %31 = xor i64 %30, 1
   %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %32, %1
+  %33 = icmp eq ptr %1, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %29
   %35 = icmp eq ptr %2, null
-  %36 = icmp eq ptr %1, %2
+  %36 = icmp eq ptr %2, %1
   %or.cond94 = or i1 %35, %36
   br i1 %or.cond94, label %203, label %37
 

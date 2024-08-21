@@ -196,7 +196,7 @@ _ZNK2cv11_InputArray6getMatEi.exit130:            ; preds = %76, %79
   %88 = sub i64 %86, %87
   %89 = sdiv exact i64 %88, 96
   %90 = trunc i64 %89 to i32
-  %91 = icmp eq i32 %90, %3
+  %91 = icmp eq i32 %3, %90
   br i1 %91, label %92, label %106
 
 92:                                               ; preds = %82
@@ -208,7 +208,7 @@ _ZNK2cv11_InputArray6getMatEi.exit130:            ; preds = %76, %79
   %98 = sub i64 %96, %97
   %99 = sdiv exact i64 %98, 96
   %100 = trunc i64 %99 to i32
-  %101 = icmp eq i32 %100, %3
+  %101 = icmp eq i32 %3, %100
   br i1 %101, label %114, label %106
 
 102:                                              ; preds = %79, %76, %_ZNK2cv11_InputArray6getMatEi.exit
@@ -1640,7 +1640,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %8
   %39 = trunc i64 %indvars.iv107.i to i32
   %40 = sub i32 %39, %1
   %.sroa.speculated68.us.i = call i32 @llvm.smax.i32(i32 %40, i32 0)
-  %41 = add i32 %39, %1
+  %41 = add i32 %1, %39
   %.sroa.speculated63.us.i = call i32 @llvm.smin.i32(i32 %41, i32 %30)
   %.not75.us.i = icmp sgt i32 %.sroa.speculated68.us.i, %.sroa.speculated63.us.i
   br i1 %.not75.us.i, label %._crit_edge80.us.i, label %.preheader.lr.ph.us.preheader.i
@@ -1657,7 +1657,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %8
   %44 = trunc i64 %indvars.iv104.i to i32
   %45 = sub i32 %44, %1
   %.sroa.speculated58.us.i = call i32 @llvm.smax.i32(i32 %45, i32 0)
-  %46 = add i32 %44, %1
+  %46 = add i32 %1, %44
   %.sroa.speculated.us.i = call i32 @llvm.smin.i32(i32 %46, i32 %32)
   %.not4873.us.i = icmp sgt i32 %.sroa.speculated58.us.i, %.sroa.speculated.us.i
   br i1 %.not4873.us.i, label %._crit_edge77.us.i, label %.preheader.us85.preheader.i
@@ -2122,7 +2122,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit163:              ; preds = %101
   %indvars.iv261 = phi i64 [ 1, %268 ], [ 0, %252 ]
   %258 = or disjoint i64 %indvars.iv261, %.pre267
   %259 = trunc nuw i64 %258 to i32
-  %260 = icmp slt i32 %259, %4
+  %260 = icmp sgt i32 %4, %259
   br i1 %260, label %261, label %268
 
 261:                                              ; preds = %.split
@@ -2354,16 +2354,16 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %5
   %60 = add nsw i32 %12, %59
   %.188.us = select i1 %.not93.us, i32 %.087.us, i32 %60
   %61 = add nsw i32 %.186.us, %31
-  %.sroa.speculated118.us = call i32 @llvm.smin.i32(i32 %61, i32 %4)
+  %.sroa.speculated118.us = call i32 @llvm.smin.i32(i32 %4, i32 %61)
   %62 = sub nsw i32 0, %.sroa.speculated118.us
   %63 = xor i32 %61, -1
   %64 = add i32 %10, %63
-  %.sroa.speculated114.us = call i32 @llvm.smin.i32(i32 %64, i32 %4)
+  %.sroa.speculated114.us = call i32 @llvm.smin.i32(i32 %4, i32 %64)
   %65 = add i32 %.188.us, %53
-  %.sroa.speculated110.us = call i32 @llvm.smin.i32(i32 %65, i32 %4)
+  %.sroa.speculated110.us = call i32 @llvm.smin.i32(i32 %4, i32 %65)
   %66 = xor i32 %65, -1
   %67 = add i32 %12, %66
-  %.sroa.speculated106.us = call i32 @llvm.smin.i32(i32 %67, i32 %4)
+  %.sroa.speculated106.us = call i32 @llvm.smin.i32(i32 %4, i32 %67)
   %.not94137.us = icmp slt i32 %.sroa.speculated114.us, %62
   %68 = sub nsw i32 0, %.sroa.speculated110.us
   %.not97130.us = icmp slt i32 %.sroa.speculated106.us, %68
@@ -3507,7 +3507,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27
@@ -3615,12 +3615,12 @@ define internal fastcc void @_ZN2cv7optflowL2wdERNS_3MatEiiiid(ptr noundef nonnu
   %8 = alloca %"class.cv::_InputArray", align 8
   %9 = alloca %"class.cv::_OutputArray", align 8
   %10 = sub nsw i32 0, %1
-  %.not33 = icmp sgt i32 %10, %2
+  %.not33 = icmp slt i32 %2, %10
   br i1 %.not33, label %._crit_edge38, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %6
   %11 = sub nsw i32 0, %3
-  %.not2930 = icmp sgt i32 %11, %4
+  %.not2930 = icmp slt i32 %4, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = getelementptr inbounds i8, ptr %0, i64 72
   br i1 %.not2930, label %._crit_edge38, label %.lr.ph.preheader
@@ -3667,7 +3667,7 @@ define internal fastcc void @_ZN2cv7optflowL2wdERNS_3MatEiiiid(ptr noundef nonnu
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37, %6
   %32 = fmul double %5, 2.000000e+00
-  %33 = fmul double %32, %5
+  %33 = fmul double %5, %32
   %34 = fdiv double 1.000000e+00, %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %35 = getelementptr inbounds i8, ptr %7, i64 8

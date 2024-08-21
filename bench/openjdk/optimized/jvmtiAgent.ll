@@ -1214,7 +1214,7 @@ define internal fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noc
 8:                                                ; preds = %2
   %9 = tail call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef %7, ptr noundef nonnull @_ZL4ebuf, i32 noundef 1024) #12
   %10 = icmp eq ptr %9, null
-  %brmerge.not.i = and i1 %10, %1
+  %brmerge.not.i = and i1 %1, %10
   br i1 %brmerge.not.i, label %11, label %_ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit
 
 11:                                               ; preds = %8
@@ -1239,7 +1239,7 @@ define internal fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noc
 20:                                               ; preds = %.thread.i
   %21 = tail call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull @_ZL6buffer, ptr noundef nonnull @_ZL4ebuf, i32 noundef 1024) #12
   %.not.i = icmp eq ptr %21, null
-  %brmerge.not.i4 = and i1 %.not.i, %1
+  %brmerge.not.i4 = and i1 %1, %.not.i
   br i1 %brmerge.not.i4, label %22, label %_ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit
 
 22:                                               ; preds = %20

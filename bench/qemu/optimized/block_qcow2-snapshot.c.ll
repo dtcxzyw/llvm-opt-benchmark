@@ -136,7 +136,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %nb_snapshots = getelementptr inbounds i8, ptr %bs.24.val, i64 260
   %0 = load i32, ptr %nb_snapshots, align 4
-  %cmp1 = icmp ugt i32 %0, %i
+  %cmp1 = icmp ult i32 %i, %0
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry

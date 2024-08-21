@@ -684,7 +684,7 @@ if.else66:                                        ; preds = %if.then62
   %call67 = call ptr @_ctypes_get_fielddesc(ptr noundef nonnull @.str.11) #6
   %setfunc68 = getelementptr inbounds i8, ptr %call67, i64 8
   %30 = load ptr, ptr %setfunc68, align 8
-  %cmp69.not = icmp eq ptr %30, %setfunc
+  %cmp69.not = icmp eq ptr %setfunc, %30
   br i1 %cmp69.not, label %if.then.i58, label %if.then70
 
 if.then70:                                        ; preds = %if.else66

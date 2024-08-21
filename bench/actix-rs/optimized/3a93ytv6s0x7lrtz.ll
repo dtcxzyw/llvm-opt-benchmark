@@ -104,7 +104,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   store i64 %28, ptr %7, align 8, !noalias !18
   %36 = getelementptr inbounds i8, ptr %9, i64 16
   %37 = load i64, ptr %36, align 8, !noalias !11, !noundef !9
-  %.not.i.i.i = icmp ult i64 %37, %28
+  %.not.i.i.i = icmp ugt i64 %28, %37
   br i1 %.not.i.i.i, label %38, label %"_ZN10actix_http4body12message_body13foreign_impls100_$LT$impl$u20$actix_http..body..message_body..MessageBody$u20$for$u20$bytes..bytes_mut..BytesMut$GT$9poll_next17h333b4f31ed1b400dE.exit"
 
 38:                                               ; preds = %27
@@ -998,7 +998,7 @@ common.ret:                                       ; preds = %161, %47
   store i64 %94, ptr %8, align 8, !noalias !131
   %102 = getelementptr inbounds i8, ptr %10, i64 16
   %103 = load i64, ptr %102, align 8, !noalias !127, !noundef !9
-  %.not.i.i = icmp ult i64 %103, %94
+  %.not.i.i = icmp ugt i64 %94, %103
   br i1 %.not.i.i, label %104, label %120
 
 104:                                              ; preds = %.noexc25

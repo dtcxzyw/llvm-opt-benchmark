@@ -496,7 +496,7 @@ if.end:                                           ; preds = %entry
   %tx_count = getelementptr inbounds i8, ptr %s, i64 1200
   %2 = load i32, ptr %tx_count, align 16
   %sub = sub i32 16, %2
-  %cmp = icmp ult i32 %sub, %size
+  %cmp = icmp ugt i32 %size, %sub
   br i1 %cmp, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.end
@@ -1129,7 +1129,7 @@ if.end.i:                                         ; preds = %if.then5
   %tx_count.i = getelementptr inbounds i8, ptr %opaque, i64 1200
   %4 = load i32, ptr %tx_count.i, align 16
   %sub.i = sub i32 16, %4
-  %cmp.i = icmp ult i32 %sub.i, %size
+  %cmp.i = icmp ugt i32 %size, %sub.i
   br i1 %cmp.i, label %if.then5.i, label %if.end14.i
 
 if.then5.i:                                       ; preds = %if.end.i

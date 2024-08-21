@@ -63,7 +63,7 @@ entry:
   %reass.sub = sub i64 %.sroa.speculated12.i, %conv.i
   %sub8.i = add i64 %reass.sub, 8
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %sub8.i, i64 0)
-  %.sroa.speculated9.i = tail call noundef i64 @llvm.smin.i64(i64 %.sroa.speculated.i, i64 %0)
+  %.sroa.speculated9.i = tail call noundef i64 @llvm.smin.i64(i64 %0, i64 %.sroa.speculated.i)
   %tobool.not = icmp eq ptr %sel_left_maybe_null, null
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -627,7 +627,7 @@ if.then:                                          ; preds = %entry
   %reass.sub = sub i64 %.sroa.speculated12.i, %conv.i
   %sub8.i = add i64 %reass.sub, 8
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %sub8.i, i64 0)
-  %.sroa.speculated9.i = tail call noundef i64 @llvm.smin.i64(i64 %.sroa.speculated.i, i64 %1)
+  %.sroa.speculated9.i = tail call noundef i64 @llvm.smin.i64(i64 %1, i64 %.sroa.speculated.i)
   br label %if.end18
 
 if.else:                                          ; preds = %entry

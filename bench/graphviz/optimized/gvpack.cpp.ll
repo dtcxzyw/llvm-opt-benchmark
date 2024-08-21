@@ -484,7 +484,7 @@ _ZL12setNameValuePc.exit.i.backedge:              ; preds = %116, %115, %113, %_
 
 133:                                              ; preds = %_ZL12setNameValuePc.exit.i
   %134 = load i32, ptr @optind, align 4
-  %135 = icmp slt i32 %134, %0
+  %135 = icmp sgt i32 %0, %134
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %133
@@ -902,7 +902,7 @@ _ZL10readGraphsP5GVC_s.exit:                      ; preds = %158
   %268 = getelementptr inbounds i8, ptr %.sroa.017.019.i.i.i, i64 32
   %269 = getelementptr inbounds i8, ptr %.sroa.017.019.i.i.i, i64 96
   %270 = load i64, ptr %269, align 8
-  %271 = icmp eq i64 %270, %267
+  %271 = icmp eq i64 %267, %270
   br i1 %271, label %272, label %277
 
 272:                                              ; preds = %.lr.ph.i.i.i
@@ -932,7 +932,7 @@ _ZL9fillGraphP8Agraph_sRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %281 = getelementptr inbounds i8, ptr %.sroa.017.019.i22.i.i, i64 32
   %282 = getelementptr inbounds i8, ptr %.sroa.017.019.i22.i.i, i64 96
   %283 = load i64, ptr %282, align 8
-  %284 = icmp eq i64 %283, %267
+  %284 = icmp eq i64 %267, %283
   br i1 %284, label %285, label %290
 
 285:                                              ; preds = %.lr.ph.i21.i.i
@@ -962,7 +962,7 @@ _ZL9fillGraphP8Agraph_sRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %294 = getelementptr inbounds i8, ptr %.sroa.017.019.i30.i.i, i64 32
   %295 = getelementptr inbounds i8, ptr %.sroa.017.019.i30.i.i, i64 96
   %296 = load i64, ptr %295, align 8
-  %297 = icmp eq i64 %296, %267
+  %297 = icmp eq i64 %267, %296
   br i1 %297, label %298, label %303
 
 298:                                              ; preds = %.lr.ph.i29.i.i
@@ -2524,7 +2524,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i.i:                                ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.024.lcssa36.i.i.i, %._crit_edge.thread.i.i.i ], [ %.024.lcssa37.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i ]
-  %61 = icmp eq ptr %12, %.sroa.4.0.i.ph.i.i
+  %61 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %12
   br i1 %61, label %69, label %62
 
 62:                                               ; preds = %select.unfold.i.i
@@ -2968,7 +2968,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE23_M_get_insert_equal_posERKS5_.exit, label %.lr.ph.i, !llvm.loop !42
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE23_M_get_insert_equal_posERKS5_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %11 = icmp eq ptr %4, %.0712.i
+  %11 = icmp eq ptr %.0712.i, %4
   br i1 %11, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %12
 
 12:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE23_M_get_insert_equal_posERKS5_.exit

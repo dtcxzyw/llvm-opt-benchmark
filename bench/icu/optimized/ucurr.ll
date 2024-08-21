@@ -496,7 +496,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -776,7 +776,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #19
   %cmp7 = icmp eq ptr %call, null
@@ -1202,7 +1202,7 @@ if.then44:                                        ; preds = %invoke.cont41
           to label %invoke.cont45 unwind label %lpad.loopexit.split-lp
 
 invoke.cont45:                                    ; preds = %if.then44
-  %cmp47 = icmp slt i32 %call46, %buffCapacity
+  %cmp47 = icmp sgt i32 %buffCapacity, %call46
   br i1 %cmp47, label %if.then48, label %if.end51
 
 if.then48:                                        ; preds = %invoke.cont45
@@ -1413,7 +1413,7 @@ if.end139:                                        ; preds = %if.end134, %if.then
   %31 = phi i32 [ %29, %if.end134 ], [ %30, %if.then138 ]
   %cmp.i72 = icmp slt i32 %31, 1
   %32 = load i32, ptr %resLen, align 4
-  %cmp144 = icmp slt i32 %32, %buffCapacity
+  %cmp144 = icmp sgt i32 %buffCapacity, %32
   %or.cond50 = select i1 %cmp.i72, i1 %cmp144, i1 false
   br i1 %or.cond50, label %if.then145, label %if.end30.invoke
 
@@ -3153,7 +3153,7 @@ if.else.i:                                        ; preds = %while.body.i
   %3 = load ptr, ptr %currencyName.i, align 8
   %arrayidx6.i = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
   %4 = load i16, ptr %arrayidx6.i, align 2
-  %cmp8.i = icmp ult i16 %4, %0
+  %cmp8.i = icmp ugt i16 %0, %4
   br i1 %cmp8.i, label %if.then9.i, label %if.else11.i
 
 if.then9.i:                                       ; preds = %if.else.i
@@ -3161,7 +3161,7 @@ if.then9.i:                                       ; preds = %if.else.i
   br label %if.end94.i
 
 if.else11.i:                                      ; preds = %if.else.i
-  %cmp19.i = icmp ugt i16 %4, %0
+  %cmp19.i = icmp ult i16 %0, %4
   br i1 %cmp19.i, label %if.then20.i, label %while.cond22.preheader.i
 
 while.cond22.preheader.i:                         ; preds = %if.else11.i
@@ -3972,13 +3972,13 @@ if.then4:                                         ; preds = %if.else
 if.else5:                                         ; preds = %if.else
   %to6 = getelementptr inbounds i8, ptr %call1, i64 16
   %15 = load double, ptr %to6, align 8
-  %cmp7 = fcmp olt double %15, %from
+  %cmp7 = fcmp ogt double %from, %15
   br i1 %cmp7, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else5
   %from8 = getelementptr inbounds i8, ptr %call1, i64 8
   %16 = load double, ptr %from8, align 8
-  %cmp9 = fcmp ogt double %16, %to
+  %cmp9 = fcmp olt double %to, %16
   br i1 %cmp9, label %return, label %if.end13
 
 if.end13:                                         ; preds = %lor.lhs.false
@@ -4093,7 +4093,7 @@ if.then27:                                        ; preds = %for.body
   store i32 0, ptr %toLength, align 4
   %call28 = call ptr @ures_getByKey_75(ptr noundef %call18, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %localStatus)
   %call29 = call ptr @ures_getIntVector_75(ptr noundef %call28, ptr noundef nonnull %toLength, ptr noundef nonnull %localStatus)
-  %cmp38 = fcmp ugt double %conv24, %date
+  %cmp38 = fcmp ult double %date, %conv24
   br i1 %cmp38, label %if.end42, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %if.then27
@@ -4105,7 +4105,7 @@ land.lhs.true39:                                  ; preds = %if.then27
   %conv34 = zext i32 %6 to i64
   %or36 = or disjoint i64 %shl32, %conv34
   %conv37 = sitofp i64 %or36 to double
-  %cmp40 = fcmp ogt double %conv37, %date
+  %cmp40 = fcmp olt double %date, %conv37
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %land.lhs.true39
@@ -4118,7 +4118,7 @@ if.end42:                                         ; preds = %if.then41, %land.lh
   br label %if.end47
 
 if.else:                                          ; preds = %for.body
-  %cmp43 = fcmp ugt double %conv24, %date
+  %cmp43 = fcmp ult double %date, %conv24
   br i1 %cmp43, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.else
@@ -4216,7 +4216,7 @@ if.then20:                                        ; preds = %if.end13
 
 lor.lhs.false22:                                  ; preds = %if.then20
   %call23 = call i32 @ures_getSize_75(ptr noundef %call17)
-  %cmp24 = icmp slt i32 %call23, %index
+  %cmp24 = icmp sgt i32 %index, %call23
   br i1 %cmp24, label %if.then25, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false22
@@ -4259,7 +4259,7 @@ if.then39:                                        ; preds = %for.body
   store i32 0, ptr %toLength, align 4
   %call40 = call ptr @ures_getByKey_75(ptr noundef %call29, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %localStatus)
   %call41 = call ptr @ures_getIntVector_75(ptr noundef %call40, ptr noundef nonnull %toLength, ptr noundef nonnull %localStatus)
-  %cmp50 = fcmp ugt double %conv36, %date
+  %cmp50 = fcmp ult double %date, %conv36
   br i1 %cmp50, label %if.end57, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.then39
@@ -4271,7 +4271,7 @@ land.lhs.true51:                                  ; preds = %if.then39
   %conv46 = zext i32 %6 to i64
   %or48 = or disjoint i64 %shl44, %conv46
   %conv49 = sitofp i64 %or48 to double
-  %cmp52 = fcmp ogt double %conv49, %date
+  %cmp52 = fcmp olt double %date, %conv49
   br i1 %cmp52, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %land.lhs.true51
@@ -4287,7 +4287,7 @@ if.end57:                                         ; preds = %if.then53, %land.lh
   br label %if.end65
 
 if.else:                                          ; preds = %for.body
-  %cmp58 = fcmp ugt double %conv36, %date
+  %cmp58 = fcmp ult double %date, %conv36
   br i1 %cmp58, label %if.end65, label %if.then59
 
 if.then59:                                        ; preds = %if.else
@@ -4331,7 +4331,7 @@ if.end75:                                         ; preds = %if.end70, %if.then7
 
 if.then78:                                        ; preds = %if.end75
   %12 = load i32, ptr %resLen, align 4
-  %cmp79 = icmp sge i32 %12, %buffCapacity
+  %cmp79 = icmp sle i32 %buffCapacity, %12
   %brmerge = select i1 %cmp79, i1 true, i1 %matchFound.0
   br i1 %brmerge, label %return, label %if.then82
 

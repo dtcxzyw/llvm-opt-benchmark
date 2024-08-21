@@ -21,7 +21,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
   %5 = getelementptr inbounds [0 x i32], ptr @_pcre2_utf8_table1, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
-  %.not = icmp slt i32 %6, %0
+  %.not = icmp sgt i32 %0, %6
   br i1 %.not, label %7, label %._crit_edge.split.loop.exit34
 
 7:                                                ; preds = %.lr.ph

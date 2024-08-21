@@ -2466,7 +2466,7 @@ do.body:
   %conv6 = sext i32 %nv to i64
   %mul = mul nsw i64 %conv6, %conv
   store i64 %mul, ptr %vb, align 8
-  %cmp = icmp eq i64 %mul, %func.coerce1
+  %cmp = icmp eq i64 %func.coerce1, %mul
   br i1 %cmp, label %do.end, label %if.then
 
 if.then:                                          ; preds = %do.body
@@ -2508,7 +2508,7 @@ invoke.cont17:                                    ; preds = %invoke.cont17.lr.ph
   %indvars.iv = phi i64 [ 0, %invoke.cont17.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = mul nsw i64 %indvars.iv, %conv
   %sub.i = sub i64 %func.coerce1, %2
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %conv, i64 %sub.i)
   %add.ptr.i = getelementptr inbounds float, ptr %func.coerce0, i64 %2
   %3 = load i64, ptr %nAlloc.i, align 8
   %cmp.i = icmp eq i64 %3, %1
@@ -7904,12 +7904,12 @@ entry:
   %expX = getelementptr inbounds i8, ptr %this, i64 12
   %radius.sroa.0.0.vec.extract = extractelement <2 x float> %radius.coerce, i64 0
   %mul.i = fmul float %sigma, 0x401921FB60000000
-  %mul1.i = fmul float %mul.i, %sigma
+  %mul1.i = fmul float %sigma, %mul.i
   %call.i.i = tail call noundef float @sqrtf(float noundef %mul1.i) #17
   %0 = fneg float %radius.sroa.0.0.vec.extract
   %fneg.i = fmul float %radius.sroa.0.0.vec.extract, %0
   %mul3.i = fmul float %sigma, 2.000000e+00
-  %mul4.i = fmul float %mul3.i, %sigma
+  %mul4.i = fmul float %sigma, %mul3.i
   %div5.i = fdiv float %fneg.i, %mul4.i
   %mul.i4.i = fmul float %div5.i, 0x3FF7154760000000
   %1 = tail call noundef float @llvm.floor.f32(float %mul.i4.i)

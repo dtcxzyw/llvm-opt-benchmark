@@ -576,7 +576,7 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
   %141 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
   %142 = call ptr @add_protocol_subtree(ptr noundef nonnull %9, i32 noundef %141, ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef %4, ptr noundef nonnull @.str.1) #2
   %143 = add i32 %4, %3
-  %144 = icmp ugt i32 %143, %3
+  %144 = icmp ult i32 %3, %143
   br i1 %144, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %140, %185

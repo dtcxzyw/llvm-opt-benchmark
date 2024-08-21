@@ -1961,7 +1961,7 @@ define internal i32 @hidinput_input_event(ptr noundef %0, i32 noundef %1, i32 no
   %40 = getelementptr inbounds i8, ptr %35, i64 14
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
-  %43 = icmp eq i32 %42, %2
+  %43 = icmp eq i32 %2, %42
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %39, %32

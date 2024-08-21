@@ -281,7 +281,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   %m_counter = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load double, ptr %m_counter, align 8, !tbaa !28
-  %add = fadd nsz double %0, %number
+  %add = fadd nsz double %number, %0
   store double %add, ptr %m_counter, align 8, !tbaa !28
   %call1.i.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #13
   ret void
@@ -408,7 +408,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   %m_gauge = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load double, ptr %m_gauge, align 8, !tbaa !34
-  %add = fadd nsz double %0, %number
+  %add = fadd nsz double %number, %0
   store double %add, ptr %m_gauge, align 8, !tbaa !34
   %call1.i.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #13
   ret void

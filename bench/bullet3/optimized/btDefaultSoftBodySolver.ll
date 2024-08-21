@@ -146,7 +146,7 @@ entry:
   %0 = load i32, ptr %m_size.i.i, align 4
   %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %m_size.i.i.i, align 4
-  %cmp3.i.i = icmp slt i32 %1, %0
+  %cmp3.i.i = icmp sgt i32 %0, %1
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_.exit.i
 
 if.then4.i.i:                                     ; preds = %entry

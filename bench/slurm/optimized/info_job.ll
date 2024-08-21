@@ -790,7 +790,7 @@ _het_job_offset_match.exit.us:                    ; preds = %.lr.ph110.split.us,
   %.060103.us = phi i32 [ %110, %_task_id_in_job.exit.thread97.us ], [ 0, %.lr.ph110.split.us ]
   %103 = getelementptr inbounds i8, ptr %.054106.us, i64 408
   %104 = load i32, ptr %103, align 8
-  %105 = icmp eq i32 %104, %.055
+  %105 = icmp eq i32 %.055, %104
   br i1 %105, label %_het_job_offset_match.exit.thread.us, label %_task_id_in_job.exit.thread97.us
 
 _het_job_offset_match.exit.thread.us:             ; preds = %_het_job_offset_match.exit.us
@@ -818,7 +818,7 @@ _het_job_offset_match.exit.thread.us115:          ; preds = %.lr.ph110.split, %_
   %.060103.us114 = phi i32 [ %133, %_task_id_in_job.exit.thread97.us120 ], [ 0, %.lr.ph110.split ]
   %113 = getelementptr inbounds i8, ptr %.054106.us112, i64 52
   %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, %.056.fr
+  %115 = icmp eq i32 %.056.fr, %114
   br i1 %115, label %.thread.us, label %116
 
 116:                                              ; preds = %_het_job_offset_match.exit.thread.us115
@@ -882,13 +882,13 @@ _het_job_offset_match.exit:                       ; preds = %.lr.ph110.split, %_
   %.060103 = phi i32 [ %160, %_task_id_in_job.exit.thread97 ], [ 0, %.lr.ph110.split ]
   %137 = getelementptr inbounds i8, ptr %.054106, i64 408
   %138 = load i32, ptr %137, align 8
-  %139 = icmp eq i32 %138, %.055
+  %139 = icmp eq i32 %.055, %138
   br i1 %139, label %_het_job_offset_match.exit.thread, label %_task_id_in_job.exit.thread97
 
 _het_job_offset_match.exit.thread:                ; preds = %_het_job_offset_match.exit
   %140 = getelementptr inbounds i8, ptr %.054106, i64 52
   %141 = load i32, ptr %140, align 4
-  %142 = icmp eq i32 %141, %.056.fr
+  %142 = icmp eq i32 %.056.fr, %141
   br i1 %142, label %.thread, label %143
 
 143:                                              ; preds = %_het_job_offset_match.exit.thread
@@ -2782,7 +2782,7 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %52, i64 16
   %56 = load i32, ptr %55, align 4
-  %57 = icmp eq i32 %56, %51
+  %57 = icmp eq i32 %51, %56
   br i1 %57, label %.critedge, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader.i, %.lr.ph.i
@@ -2794,7 +2794,7 @@ define internal fastcc void @_list_pids_one_step(ptr noundef %0, ptr noundef %1)
 .lr.ph.i:                                         ; preds = %.lr.ph23
   %58 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %52, i64 %indvars.iv.next.i, i32 4
   %59 = load i32, ptr %58, align 4
-  %60 = icmp eq i32 %59, %51
+  %60 = icmp eq i32 %51, %59
   br i1 %60, label %_in_task_array.exit, label %.lr.ph23, !llvm.loop !28
 
 _in_task_array.exit:                              ; preds = %.lr.ph.i, %.lr.ph23

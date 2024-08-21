@@ -166,7 +166,7 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr nocapture noundef writeonly 
 
 19:                                               ; preds = %14
   %.not38 = icmp eq i32 %15, 2
-  %.not39 = icmp eq i32 %9, %3
+  %.not39 = icmp eq i32 %3, %9
   %or.cond = and i1 %.not39, %.not38
   br i1 %or.cond, label %20, label %23
 
@@ -319,7 +319,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr nocapture noundef
 
 20:                                               ; preds = %15
   %.not40 = icmp eq i32 %16, 2
-  %.not41 = icmp eq i32 %10, %3
+  %.not41 = icmp eq i32 %3, %10
   %or.cond = and i1 %.not41, %.not40
   br i1 %or.cond, label %21, label %30
 
@@ -755,7 +755,7 @@ store_coded_char.exit:                            ; preds = %182, %180, %157, %1
   %.1113 = phi i32 [ %54, %57 ], [ %.0112199, %18 ], [ %.0112199, %21 ], [ %.0112199, %24 ]
   %.1 = phi ptr [ %60, %57 ], [ %.0200, %18 ], [ %.0200, %21 ], [ %.0200, %24 ]
   %192 = icmp slt i32 %.1113, 1
-  %brmerge = or i1 %192, %8
+  %brmerge = or i1 %8, %192
   br i1 %brmerge, label %.thread, label %193
 
 193:                                              ; preds = %.loopexit
@@ -832,13 +832,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i32
-  %12 = icmp ugt i8 %10, %2
+  %12 = icmp ult i8 %2, %10
   br i1 %12, label %254, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %0, i64 49
   %15 = load i8, ptr %14, align 1
-  %16 = icmp ult i8 %15, %2
+  %16 = icmp ugt i8 %2, %15
   br i1 %16, label %254, label %17
 
 17:                                               ; preds = %13
@@ -846,13 +846,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %19 = getelementptr inbounds i8, ptr %0, i64 50
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
-  %22 = icmp ugt i8 %20, %3
+  %22 = icmp ult i8 %3, %20
   br i1 %22, label %254, label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %0, i64 51
   %25 = load i8, ptr %24, align 1
-  %26 = icmp ult i8 %25, %3
+  %26 = icmp ugt i8 %3, %25
   br i1 %26, label %254, label %27
 
 27:                                               ; preds = %23
@@ -860,13 +860,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %29 = getelementptr inbounds i8, ptr %0, i64 52
   %30 = load i8, ptr %29, align 4
   %31 = zext i8 %30 to i32
-  %32 = icmp ugt i8 %30, %4
+  %32 = icmp ult i8 %4, %30
   br i1 %32, label %254, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 53
   %35 = load i8, ptr %34, align 1
-  %36 = icmp ult i8 %35, %4
+  %36 = icmp ugt i8 %4, %35
   br i1 %36, label %254, label %37
 
 37:                                               ; preds = %33
@@ -874,13 +874,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %39 = getelementptr inbounds i8, ptr %0, i64 54
   %40 = load i8, ptr %39, align 2
   %41 = zext i8 %40 to i32
-  %42 = icmp ugt i8 %40, %5
+  %42 = icmp ult i8 %5, %40
   br i1 %42, label %254, label %43
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds i8, ptr %0, i64 55
   %45 = load i8, ptr %44, align 1
-  %46 = icmp ult i8 %45, %5
+  %46 = icmp ugt i8 %5, %45
   br i1 %46, label %254, label %47
 
 47:                                               ; preds = %43
@@ -948,13 +948,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %102 = getelementptr inbounds i8, ptr %0, i64 36
   %103 = load i8, ptr %102, align 4
   %104 = zext i8 %103 to i32
-  %105 = icmp ugt i8 %103, %3
+  %105 = icmp ult i8 %3, %103
   br i1 %105, label %254, label %106
 
 106:                                              ; preds = %100
   %107 = getelementptr inbounds i8, ptr %0, i64 37
   %108 = load i8, ptr %107, align 1
-  %109 = icmp ult i8 %108, %3
+  %109 = icmp ugt i8 %3, %108
   br i1 %109, label %254, label %110
 
 110:                                              ; preds = %106
@@ -962,13 +962,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %112 = getelementptr inbounds i8, ptr %0, i64 38
   %113 = load i8, ptr %112, align 2
   %114 = zext i8 %113 to i32
-  %115 = icmp ugt i8 %113, %4
+  %115 = icmp ult i8 %4, %113
   br i1 %115, label %254, label %116
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds i8, ptr %0, i64 39
   %118 = load i8, ptr %117, align 1
-  %119 = icmp ult i8 %118, %4
+  %119 = icmp ugt i8 %4, %118
   br i1 %119, label %254, label %120
 
 120:                                              ; preds = %116
@@ -976,13 +976,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %122 = getelementptr inbounds i8, ptr %0, i64 40
   %123 = load i8, ptr %122, align 8
   %124 = zext i8 %123 to i32
-  %125 = icmp ugt i8 %123, %5
+  %125 = icmp ult i8 %5, %123
   br i1 %125, label %254, label %126
 
 126:                                              ; preds = %120
   %127 = getelementptr inbounds i8, ptr %0, i64 41
   %128 = load i8, ptr %127, align 1
-  %129 = icmp ult i8 %128, %5
+  %129 = icmp ugt i8 %5, %128
   br i1 %129, label %254, label %130
 
 130:                                              ; preds = %126
@@ -1039,13 +1039,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %174 = getelementptr inbounds i8, ptr %0, i64 28
   %175 = load i8, ptr %174, align 4
   %176 = zext i8 %175 to i32
-  %177 = icmp ugt i8 %175, %4
+  %177 = icmp ult i8 %4, %175
   br i1 %177, label %254, label %178
 
 178:                                              ; preds = %172
   %179 = getelementptr inbounds i8, ptr %0, i64 29
   %180 = load i8, ptr %179, align 1
-  %181 = icmp ult i8 %180, %4
+  %181 = icmp ugt i8 %4, %180
   br i1 %181, label %254, label %182
 
 182:                                              ; preds = %178
@@ -1053,13 +1053,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %184 = getelementptr inbounds i8, ptr %0, i64 30
   %185 = load i8, ptr %184, align 2
   %186 = zext i8 %185 to i32
-  %187 = icmp ugt i8 %185, %5
+  %187 = icmp ult i8 %5, %185
   br i1 %187, label %254, label %188
 
 188:                                              ; preds = %182
   %189 = getelementptr inbounds i8, ptr %0, i64 31
   %190 = load i8, ptr %189, align 1
-  %191 = icmp ult i8 %190, %5
+  %191 = icmp ugt i8 %5, %190
   br i1 %191, label %254, label %192
 
 192:                                              ; preds = %188
@@ -1105,13 +1105,13 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef readonly %0, 
   %225 = getelementptr inbounds i8, ptr %0, i64 20
   %226 = load i8, ptr %225, align 4
   %227 = zext i8 %226 to i32
-  %228 = icmp ugt i8 %226, %5
+  %228 = icmp ult i8 %5, %226
   br i1 %228, label %254, label %229
 
 229:                                              ; preds = %223
   %230 = getelementptr inbounds i8, ptr %0, i64 21
   %231 = load i8, ptr %230, align 1
-  %232 = icmp ult i8 %231, %5
+  %232 = icmp ugt i8 %5, %231
   br i1 %232, label %254, label %233
 
 233:                                              ; preds = %229

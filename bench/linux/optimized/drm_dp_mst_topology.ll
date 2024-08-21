@@ -2670,7 +2670,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_topology_mgr_set_mst(
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1
   %9 = icmp eq i8 %8, 0
-  %10 = xor i1 %9, %1
+  %10 = xor i1 %1, %9
   br i1 %10, label %.thread8, label %11
 
 11:                                               ; preds = %2
@@ -6513,7 +6513,7 @@ define dso_local i32 @drm_dp_mst_atomic_enable_dsc(ptr noundef %0, ptr noundef %
   %36 = zext i1 %3 to i32
   %37 = and i8 %35, 2
   %38 = icmp eq i8 %37, 0
-  %39 = xor i1 %38, %3
+  %39 = xor i1 %3, %38
   br i1 %39, label %40, label %52
 
 40:                                               ; preds = %33

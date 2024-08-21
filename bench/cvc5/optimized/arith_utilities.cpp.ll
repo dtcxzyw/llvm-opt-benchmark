@@ -881,7 +881,7 @@ _ZN4cvc58internal8RationalD2Ev.exit80:            ; preds = %invoke.cont66
 
 if.then69:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit80
   %cmp70 = icmp slt i32 %44, 1
-  %brmerge = or i1 %cmp70, %isLower
+  %brmerge = or i1 %isLower, %cmp70
   br i1 %brmerge, label %if.else, label %if.then71
 
 if.then71:                                        ; preds = %if.then69
@@ -988,7 +988,7 @@ terminate.lpad.i.i99:                             ; preds = %ehcleanup82
   unreachable
 
 if.else:                                          ; preds = %if.then69
-  %brmerge32.not = and i1 %cmp.inv.i71, %isLower
+  %brmerge32.not = and i1 %isLower, %cmp.inv.i71
   br i1 %brmerge32.not, label %if.then86, label %if.end98
 
 if.then86:                                        ; preds = %if.else

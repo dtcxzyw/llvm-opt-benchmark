@@ -151,7 +151,7 @@ if.end3:                                          ; preds = %if.end
   %4 = load ptr, ptr %ctx, align 8
   %call5 = tail call i64 @EVP_AEAD_max_overhead(ptr noundef %4) #7
   %add6 = add i64 %call5, %in_len
-  %cmp7 = icmp ugt i64 %add6, %max_out_len
+  %cmp7 = icmp ult i64 %max_out_len, %add6
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end3
@@ -161,7 +161,7 @@ if.then8:                                         ; preds = %if.end3
 if.end9:                                          ; preds = %if.end3
   %5 = load ptr, ptr %ctx, align 8
   %call11 = tail call i64 @EVP_AEAD_nonce_length(ptr noundef %5) #7
-  %cmp12.not = icmp eq i64 %call11, %nonce_len
+  %cmp12.not = icmp eq i64 %nonce_len, %call11
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
@@ -251,7 +251,7 @@ if.then71:                                        ; preds = %if.end64
   %conv72 = zext i32 %call68 to i64
   %10 = load i32, ptr %mac_len, align 4
   %conv73 = zext i32 %10 to i64
-  %add74 = add nuw nsw i64 %conv73, %in_len
+  %add74 = add nuw nsw i64 %in_len, %conv73
   %rem = urem i64 %add74, %conv72
   %11 = trunc nuw i64 %rem to i32
   %conv76 = sub i32 %call68, %11
@@ -313,7 +313,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %hmac_ctx = getelementptr inbounds i8, ptr %0, i64 152
   %call = tail call i64 @HMAC_size(ptr noundef nonnull %hmac_ctx) #7
-  %cmp = icmp ugt i64 %call, %in_len
+  %cmp = icmp ult i64 %in_len, %call
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
@@ -331,7 +331,7 @@ if.then4:                                         ; preds = %if.end2
 if.end5:                                          ; preds = %if.end2
   %2 = load ptr, ptr %ctx, align 8
   %call6 = tail call i64 @EVP_AEAD_nonce_length(ptr noundef %2) #7
-  %cmp7.not = icmp eq i64 %call6, %nonce_len
+  %cmp7.not = icmp eq i64 %nonce_len, %call6
   br i1 %cmp7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
@@ -546,7 +546,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i64 @EVP_MD_size(ptr noundef %md) #7
-  %cmp1.not = icmp eq i64 %call, %tag_len
+  %cmp1.not = icmp eq i64 %tag_len, %call
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -556,7 +556,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %land.lhs.true, %entry
   %0 = load ptr, ptr %ctx, align 8
   %call2 = tail call i64 @EVP_AEAD_key_length(ptr noundef %0) #7
-  %cmp3.not = icmp eq i64 %call2, %key_len
+  %cmp3.not = icmp eq i64 %key_len, %call2
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end

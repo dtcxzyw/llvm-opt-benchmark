@@ -261,7 +261,7 @@ define hidden noundef ptr @initCubemap(ptr nocapture noundef readonly %0, i32 no
   %56 = phi i32 [ %33, %.lr.ph ], [ %54, %47 ]
   %57 = trunc i64 %indvars.iv to i32
   %58 = xor i32 %57, -1
-  %59 = add i32 %58, %1
+  %59 = add i32 %1, %58
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4

@@ -110,7 +110,7 @@ define internal { double, double } @_ZL16comill_s_forward5PJ_LPP8PJconsts(double
   %4 = fmul double %1, %1
   %5 = tail call double @llvm.fmuladd.f64(double %4, double -3.054000e-02, double 1.604000e-01)
   %6 = tail call double @llvm.fmuladd.f64(double %4, double %5, double 0x3FEFAFB7E90FF972)
-  %7 = fmul double %6, %1
+  %7 = fmul double %1, %6
   %.fca.0.insert = insertvalue { double, double } poison, double %0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %7, 1
   ret { double, double } %.fca.1.insert

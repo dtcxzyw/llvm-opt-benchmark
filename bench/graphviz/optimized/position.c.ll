@@ -2387,7 +2387,7 @@ define internal fastcc noundef zeroext i1 @go(ptr noundef readonly %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @contain_clustnodes(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @dot_root(ptr noundef %0) #16
-  %.not = icmp eq ptr %2, %0
+  %.not = icmp eq ptr %0, %2
   br i1 %.not, label %24, label %3
 
 3:                                                ; preds = %1
@@ -3084,7 +3084,7 @@ define internal fastcc void @make_lrvn(ptr noundef %0) unnamed_addr #0 {
 
 20:                                               ; preds = %6
   %21 = tail call ptr @dot_root(ptr noundef nonnull %0) #16
-  %.not22 = icmp eq ptr %21, %0
+  %.not22 = icmp eq ptr %0, %21
   br i1 %.not22, label %39, label %22
 
 22:                                               ; preds = %20
@@ -3143,7 +3143,7 @@ define internal fastcc range(i32 0, 2) i32 @clust_ht(ptr noundef %0) unnamed_add
   %5 = getelementptr inbounds i8, ptr %4, i64 264
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @dot_root(ptr noundef %0) #16
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %1
@@ -3226,7 +3226,7 @@ define internal fastcc range(i32 0, 2) i32 @clust_ht(ptr noundef %0) unnamed_add
   %.061.lcssa = phi double [ %17, %13 ], [ %.162, %53 ]
   %.0.lcssa = phi i32 [ 0, %13 ], [ %28, %53 ]
   %57 = tail call ptr @dot_root(ptr noundef nonnull %0) #16
-  %.not72 = icmp eq ptr %57, %0
+  %.not72 = icmp eq ptr %0, %57
   %.pre84 = load ptr, ptr %14, align 8
   br i1 %.not72, label %75, label %58
 
@@ -3267,7 +3267,7 @@ define internal fastcc range(i32 0, 2) i32 @clust_ht(ptr noundef %0) unnamed_add
   %79 = getelementptr inbounds i8, ptr %78, i64 144
   store double %.265, ptr %79, align 8
   %80 = tail call ptr @dot_root(ptr noundef nonnull %0) #16
-  %.not75 = icmp eq ptr %80, %0
+  %.not75 = icmp eq ptr %0, %80
   br i1 %.not75, label %97, label %81
 
 81:                                               ; preds = %75
@@ -3303,7 +3303,7 @@ define internal fastcc void @adjustRanks(ptr noundef %0, i32 noundef %1) unnamed
   %6 = getelementptr inbounds i8, ptr %5, i64 264
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @dot_root(ptr noundef %0) #16
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
@@ -3391,7 +3391,7 @@ define internal fastcc void @adjustRanks(ptr noundef %0, i32 noundef %1) unnamed
   %60 = getelementptr inbounds i8, ptr %59, i64 144
   store double %.061.lcssa, ptr %60, align 8
   %61 = tail call ptr @dot_root(ptr noundef nonnull %0) #16
-  %.not69 = icmp eq ptr %61, %0
+  %.not69 = icmp eq ptr %0, %61
   br i1 %.not69, label %191, label %62
 
 62:                                               ; preds = %._crit_edge
@@ -3591,7 +3591,7 @@ adjustSimple.exit:                                ; preds = %150, %.preheader.i,
 
 191:                                              ; preds = %66, %adjustSimple.exit, %62, %._crit_edge
   %192 = tail call ptr @dot_root(ptr noundef nonnull %0) #16
-  %.not71 = icmp eq ptr %192, %0
+  %.not71 = icmp eq ptr %0, %192
   br i1 %.not71, label %212, label %193
 
 193:                                              ; preds = %191
@@ -3648,7 +3648,7 @@ define internal fastcc void @rec_bb(ptr noundef %0, ptr nocapture noundef readon
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %16 = tail call ptr @dot_root(ptr noundef nonnull %0) #16
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   %18 = load ptr, ptr %3, align 8
   br i1 %17, label %19, label %106
 
@@ -3905,22 +3905,22 @@ define internal fastcc void @scale_bb(ptr nocapture noundef readonly %0, double 
   %.lcssa = phi ptr [ %5, %3 ], [ %13, %.lr.ph ]
   %17 = getelementptr inbounds i8, ptr %.lcssa, i64 32
   %18 = load double, ptr %17, align 8
-  %19 = fmul double %18, %1
+  %19 = fmul double %1, %18
   store double %19, ptr %17, align 8
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load double, ptr %21, align 8
-  %23 = fmul double %22, %2
+  %23 = fmul double %2, %22
   store double %23, ptr %21, align 8
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 48
   %26 = load double, ptr %25, align 8
-  %27 = fmul double %26, %1
+  %27 = fmul double %1, %26
   store double %27, ptr %25, align 8
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 56
   %30 = load double, ptr %29, align 8
-  %31 = fmul double %30, %2
+  %31 = fmul double %2, %30
   store double %31, ptr %29, align 8
   ret void
 }

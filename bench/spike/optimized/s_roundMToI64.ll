@@ -64,7 +64,7 @@ define i64 @softfloat_roundMToI64(i1 noundef zeroext %0, ptr nocapture noundef r
   %39 = select i1 %0, i64 %38, i64 %.031
   %.not36 = icmp eq i64 %.031, 0
   %40 = icmp sgt i64 %39, -1
-  %.not3738 = xor i1 %40, %0
+  %.not3738 = xor i1 %0, %40
   %or.cond = or i1 %.not36, %.not3738
   br i1 %or.cond, label %41, label %46
 

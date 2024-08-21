@@ -209,7 +209,7 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 64, %6
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
@@ -1597,7 +1597,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr nocapture noundef %0, p
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp ult i64 %2, %8
   br i1 %9, label %50, label %10
 
 10:                                               ; preds = %6
@@ -1749,7 +1749,7 @@ blake2s_init.exit:                                ; preds = %29
   %40 = getelementptr inbounds i8, ptr %9, i64 112
   %41 = load i64, ptr %40, align 16
   %42 = sub i64 64, %41
-  %43 = icmp ult i64 %42, %3
+  %43 = icmp ugt i64 %3, %42
   br i1 %43, label %44, label %.loopexit.i
 
 44:                                               ; preds = %39
@@ -1807,7 +1807,7 @@ blake2s_init.exit:                                ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %73 = getelementptr inbounds i8, ptr %9, i64 120
   %74 = load i64, ptr %73, align 8
-  %75 = icmp ugt i64 %74, %1
+  %75 = icmp ult i64 %1, %74
   br i1 %75, label %blake2s_final.exit, label %76
 
 76:                                               ; preds = %72

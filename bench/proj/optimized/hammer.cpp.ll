@@ -154,7 +154,7 @@ define internal { double, double } @_ZL16hammer_s_forward5PJ_LPP8PJconsts(double
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double @cos(double noundef %1) #6
   %8 = load double, ptr %6, align 8
-  %9 = fmul double %8, %0
+  %9 = fmul double %0, %8
   %10 = tail call double @cos(double noundef %9) #6
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %10, double 1.000000e+00)
   %12 = fcmp oeq double %11, 0.000000e+00
@@ -197,38 +197,39 @@ define internal { double, double } @_ZL16hammer_s_inverse5PJ_XYP8PJconsts(double
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, -2.500000e-01
+  %7 = fmul double %6, 2.500000e-01
   %8 = fmul double %6, %7
-  %9 = fmul double %8, %0
-  %10 = tail call double @llvm.fmuladd.f64(double %9, double %0, double 1.000000e+00)
-  %11 = fmul double %1, -2.500000e-01
-  %12 = tail call double @llvm.fmuladd.f64(double %11, double %1, double %10)
-  %13 = tail call double @sqrt(double noundef %12) #6
-  %14 = fmul double %13, 2.000000e+00
-  %15 = tail call double @llvm.fmuladd.f64(double %14, double %13, double -1.000000e+00)
-  %16 = tail call double @llvm.fabs.f64(double %15)
-  %17 = fcmp olt double %16, 1.000000e-10
-  br i1 %17, label %18, label %20
+  %9 = fneg double %0
+  %10 = fmul double %8, %9
+  %11 = tail call double @llvm.fmuladd.f64(double %10, double %0, double 1.000000e+00)
+  %12 = fmul double %1, -2.500000e-01
+  %13 = tail call double @llvm.fmuladd.f64(double %12, double %1, double %11)
+  %14 = tail call double @sqrt(double noundef %13) #6
+  %15 = fmul double %14, 2.000000e+00
+  %16 = tail call double @llvm.fmuladd.f64(double %15, double %14, double -1.000000e+00)
+  %17 = tail call double @llvm.fabs.f64(double %16)
+  %18 = fcmp olt double %17, 1.000000e-10
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %3
-  %19 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  br label %30
+19:                                               ; preds = %3
+  %20 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  br label %31
 
-20:                                               ; preds = %3
-  %21 = load double, ptr %5, align 8
-  %22 = fmul double %21, %0
-  %23 = fmul double %13, %22
-  %24 = tail call noundef double @_Z6aatan2dd(double noundef %23, double noundef %15)
-  %25 = load double, ptr %5, align 8
-  %26 = fdiv double %24, %25
-  %27 = load ptr, ptr %2, align 8
-  %28 = fmul double %13, %1
-  %29 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %27, double noundef %28)
-  br label %30
+21:                                               ; preds = %3
+  %22 = load double, ptr %5, align 8
+  %23 = fmul double %0, %22
+  %24 = fmul double %14, %23
+  %25 = tail call noundef double @_Z6aatan2dd(double noundef %24, double noundef %16)
+  %26 = load double, ptr %5, align 8
+  %27 = fdiv double %25, %26
+  %28 = load ptr, ptr %2, align 8
+  %29 = fmul double %1, %14
+  %30 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %28, double noundef %29)
+  br label %31
 
-30:                                               ; preds = %20, %18
-  %.sroa.418.0 = phi double [ 0x7FF0000000000000, %18 ], [ %29, %20 ]
-  %.sroa.017.0 = phi double [ 0x7FF0000000000000, %18 ], [ %26, %20 ]
+31:                                               ; preds = %21, %19
+  %.sroa.418.0 = phi double [ 0x7FF0000000000000, %19 ], [ %30, %21 ]
+  %.sroa.017.0 = phi double [ 0x7FF0000000000000, %19 ], [ %27, %21 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.017.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.418.0, 1
   ret { double, double } %.fca.1.insert

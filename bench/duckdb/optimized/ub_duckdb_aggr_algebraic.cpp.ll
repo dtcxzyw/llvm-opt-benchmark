@@ -5574,7 +5574,7 @@ if.end:                                           ; preds = %_ZN6duckdb14Constan
   store i64 %add.i.i, ptr %6, align 8, !tbaa !100
   %8 = load i16, ptr %4, align 2, !tbaa !102
   %conv.i.i = sext i16 %8 to i64
-  %mul.i.i = mul i64 %conv.i.i, %count
+  %mul.i.i = mul i64 %count, %conv.i.i
   %value.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i64, ptr %value.i.i, align 8, !tbaa !104
   %add.i3.i = add i64 %mul.i.i, %9
@@ -6813,7 +6813,7 @@ if.end:                                           ; preds = %_ZN6duckdb14Constan
   store i64 %add.i.i, ptr %state, align 8, !tbaa !100
   %5 = load i16, ptr %3, align 2, !tbaa !102
   %conv.i.i = sext i16 %5 to i64
-  %mul.i.i = mul i64 %conv.i.i, %count
+  %mul.i.i = mul i64 %count, %conv.i.i
   %value.i.i = getelementptr inbounds i8, ptr %state, i64 8
   %6 = load i64, ptr %value.i.i, align 8, !tbaa !104
   %add.i3.i = add i64 %mul.i.i, %6
@@ -8198,7 +8198,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %input to i64
-  %mul = mul i64 %conv, %count
+  %mul = mul i64 %count, %conv
   %value3 = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load i64, ptr %value3, align 8, !tbaa !168
   %add.i = add i64 %0, %mul
@@ -8227,7 +8227,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %upper.i34 = getelementptr inbounds i8, ptr %state, i64 16
   %value7.promoted = load i64, ptr %value7, align 8, !tbaa !168
   %upper.i34.promoted = load i64, ptr %upper.i34, align 8, !tbaa !169
-  %2 = mul nsw i64 %conv8, %count
+  %2 = mul nsw i64 %count, %conv8
   %add.i30 = add i64 %value7.promoted, %conv8
   %.not = icmp ult i64 %add.i30, %conv8
   br i1 %.not, label %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36, label %if.then.i33

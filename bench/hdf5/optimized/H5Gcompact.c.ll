@@ -90,7 +90,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
 
 17:                                               ; preds = %8
   %18 = load i64, ptr %9, align 8
-  %.not = icmp ugt i64 %18, %4
+  %.not = icmp ult i64 %4, %18
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %17
@@ -292,7 +292,7 @@ define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr noca
 
 16:                                               ; preds = %6
   %17 = load i64, ptr %7, align 8
-  %.not = icmp ugt i64 %17, %5
+  %.not = icmp ult i64 %5, %17
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %16
@@ -481,7 +481,7 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup_by_idx(ptr noundef %0, ptr noca
 
 15:                                               ; preds = %6
   %16 = load i64, ptr %7, align 8
-  %.not = icmp ugt i64 %16, %4
+  %.not = icmp ult i64 %4, %16
   br i1 %.not, label %21, label %17
 
 17:                                               ; preds = %15

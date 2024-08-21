@@ -271,7 +271,7 @@ define dso_local void @bf_init(ptr noundef %0, ptr nocapture noundef writeonly %
 define dso_local range(i32 -1, 1) i32 @bf_resize(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
-  %.not = icmp eq i64 %4, %1
+  %.not = icmp eq i64 %1, %4
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
@@ -637,7 +637,7 @@ define dso_local range(i32 0, 33) i32 @bf_set(ptr noundef %0, ptr noundef readon
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
-  %.not.i = icmp eq i64 %8, %6
+  %.not.i = icmp eq i64 %6, %8
   br i1 %.not.i, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %4
@@ -1207,7 +1207,7 @@ bf_set_zero.exit:                                 ; preds = %133, %139
   %.091 = phi i64 [ %179, %177 ], [ %3, %175 ]
   %182 = getelementptr inbounds i8, ptr %0, i64 24
   %183 = load i64, ptr %182, align 8
-  %.not.i118 = icmp eq i64 %183, %.091
+  %.not.i118 = icmp eq i64 %.091, %183
   br i1 %.not.i118, label %bf_resize.exit122, label %184
 
 184:                                              ; preds = %181
@@ -1246,14 +1246,14 @@ define dso_local range(i32 0, 2) i32 @bf_can_round(ptr nocapture noundef readonl
 
 9:                                                ; preds = %7
   %10 = add i64 %1, 1
-  %11 = icmp sle i64 %10, %3
+  %11 = icmp sge i64 %3, %10
   %12 = zext i1 %11 to i32
   br label %.loopexit
 
 13:                                               ; preds = %7
   %14 = icmp eq i64 %6, -9223372036854775808
   %15 = add i64 %1, 2
-  %16 = icmp sgt i64 %15, %3
+  %16 = icmp slt i64 %3, %15
   %or.cond = or i1 %16, %14
   br i1 %or.cond, label %.loopexit, label %17
 
@@ -1283,7 +1283,7 @@ define dso_local range(i32 0, 2) i32 @bf_can_round(ptr nocapture noundef readonl
 
 get_bit.exit:                                     ; preds = %17, %29
   %.0.i = phi i64 [ %34, %29 ], [ 0, %17 ]
-  %35 = add i64 %23, %3
+  %35 = add i64 %3, %23
   %36 = zext i1 %19 to i64
   %37 = xor i64 %.0.i, %36
   %.not40 = icmp eq i64 %35, 0
@@ -1477,7 +1477,7 @@ define dso_local range(i32 -1, 2) i32 @bf_cmpu(ptr nocapture noundef readonly %0
 
 20:                                               ; preds = %18
   %21 = add i64 %.021, %14
-  %.not.i = icmp ugt i64 %11, %21
+  %.not.i = icmp ult i64 %21, %11
   br i1 %.not.i, label %22, label %get_limbz.exit
 
 22:                                               ; preds = %20
@@ -1489,7 +1489,7 @@ define dso_local range(i32 -1, 2) i32 @bf_cmpu(ptr nocapture noundef readonly %0
 get_limbz.exit:                                   ; preds = %20, %22
   %.0.i = phi i64 [ %25, %22 ], [ 0, %20 ]
   %26 = add i64 %.021, %16
-  %.not.i28 = icmp ugt i64 %13, %26
+  %.not.i28 = icmp ult i64 %26, %13
   br i1 %.not.i28, label %27, label %get_limbz.exit30
 
 27:                                               ; preds = %get_limbz.exit
@@ -1575,7 +1575,7 @@ define dso_local i32 @bf_cmp_full(ptr nocapture noundef readonly %0, ptr nocaptu
 
 32:                                               ; preds = %30
   %33 = add i64 %.021.i, %26
-  %.not.i.i = icmp ugt i64 %23, %33
+  %.not.i.i = icmp ult i64 %33, %23
   br i1 %.not.i.i, label %34, label %get_limbz.exit.i
 
 34:                                               ; preds = %32
@@ -1587,7 +1587,7 @@ define dso_local i32 @bf_cmp_full(ptr nocapture noundef readonly %0, ptr nocaptu
 get_limbz.exit.i:                                 ; preds = %34, %32
   %.0.i.i = phi i64 [ %37, %34 ], [ 0, %32 ]
   %38 = add i64 %.021.i, %28
-  %.not.i28.i = icmp ugt i64 %25, %38
+  %.not.i28.i = icmp ult i64 %38, %25
   br i1 %.not.i28.i, label %39, label %get_limbz.exit30.i
 
 39:                                               ; preds = %get_limbz.exit.i
@@ -1679,7 +1679,7 @@ define dso_local i32 @bf_cmp(ptr nocapture noundef readonly %0, ptr nocapture no
 
 35:                                               ; preds = %33
   %36 = add i64 %.021.i, %29
-  %.not.i.i = icmp ugt i64 %26, %36
+  %.not.i.i = icmp ult i64 %36, %26
   br i1 %.not.i.i, label %37, label %get_limbz.exit.i
 
 37:                                               ; preds = %35
@@ -1691,7 +1691,7 @@ define dso_local i32 @bf_cmp(ptr nocapture noundef readonly %0, ptr nocapture no
 get_limbz.exit.i:                                 ; preds = %37, %35
   %.0.i.i = phi i64 [ %40, %37 ], [ 0, %35 ]
   %41 = add i64 %.021.i, %31
-  %.not.i28.i = icmp ugt i64 %28, %41
+  %.not.i28.i = icmp ult i64 %41, %28
   br i1 %.not.i28.i, label %42, label %get_limbz.exit30.i
 
 42:                                               ; preds = %get_limbz.exit.i
@@ -1800,7 +1800,7 @@ define dso_local i64 @mp_sub(ptr nocapture noundef writeonly %0, ptr nocapture n
   store i64 %14, ptr %18, align 8
   %19 = add i32 %.022, 1
   %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %20, %3
+  %21 = icmp sgt i64 %3, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2398,7 +2398,7 @@ ntt_free.exit:                                    ; preds = %219, %222
   %.val3.i.i = load ptr, ptr %228, align 8
   %229 = tail call ptr %.val3.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.1212, i64 noundef 0) #17
   %230 = load i64, ptr %220, align 8
-  %.not.i137 = icmp eq i64 %230, %107
+  %.not.i137 = icmp eq i64 %107, %230
   br i1 %.not.i137, label %bf_resize.exit141.thread, label %231
 
 231:                                              ; preds = %ntt_free.exit
@@ -2985,7 +2985,7 @@ mp_sub_ui.exit146:                                ; preds = %.lr.ph.i142, %60
   store i64 %72, ptr %66, align 8
   %76 = add i32 %.022.i, 1
   %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %77, %3
+  %78 = icmp sgt i64 %3, %77
   br i1 %78, label %.lr.ph.i147, label %mp_sub.exit, !llvm.loop !23
 
 mp_sub.exit:                                      ; preds = %.lr.ph.i147, %mp_sub_ui.exit146
@@ -3064,7 +3064,7 @@ mp_neg.exit:                                      ; preds = %mp_neg.exit.loopexi
 
 ._crit_edge192:                                   ; preds = %.lr.ph191
   %106 = getelementptr i64, ptr %45, i64 %42
-  %.not.i155 = icmp eq i64 %35, %3
+  %.not.i155 = icmp eq i64 %3, %35
   br i1 %.not.i155, label %bf_free.exit163, label %.lr.ph.i156
 
 .lr.ph.i156:                                      ; preds = %._crit_edge192, %.lr.ph.i156
@@ -3457,7 +3457,7 @@ mp_add_ui.exit:                                   ; preds = %mp_add_ui.exit.back
   store i64 %160, ptr %154, align 8
   %164 = add i32 %.022.i133, 1
   %165 = sext i32 %164 to i64
-  %166 = icmp slt i64 %165, %5
+  %166 = icmp sgt i64 %5, %165
   br i1 %166, label %.lr.ph.i132, label %mp_sub.exit135.loopexit, !llvm.loop !23
 
 mp_sub.exit135.loopexit:                          ; preds = %.lr.ph.i132
@@ -3575,7 +3575,7 @@ bf_free.exit128.thread174:                        ; preds = %122, %bf_free.exit1
   store i64 %215, ptr %209, align 8
   %219 = add i32 %.022.i, 1
   %220 = sext i32 %219 to i64
-  %221 = icmp slt i64 %220, %5
+  %221 = icmp sgt i64 %5, %220
   br i1 %221, label %.lr.ph.i116, label %mp_sub.exit, !llvm.loop !23
 
 mp_sub.exit:                                      ; preds = %.lr.ph.i116, %205, %201
@@ -3901,12 +3901,12 @@ bf_set_zero.exit:                                 ; preds = %62, %64
   %88 = sub i64 0, %.079
   %89 = getelementptr i64, ptr %87, i64 %88
   %90 = icmp ugt i64 %.079, 99
-  %91 = icmp eq ptr %spec.select94, %0
+  %91 = icmp eq ptr %0, %spec.select94
   br i1 %90, label %92, label %97
 
 92:                                               ; preds = %79
   %spec.select95 = zext i1 %91 to i32
-  %93 = icmp eq ptr %spec.select, %0
+  %93 = icmp eq ptr %0, %spec.select
   %94 = or disjoint i32 %spec.select95, 2
   %.1 = select i1 %93, i32 %94, i32 %spec.select95
   %95 = load ptr, ptr %0, align 8
@@ -3915,7 +3915,7 @@ bf_set_zero.exit:                                 ; preds = %62, %64
   br i1 %.not93, label %mp_mul_basecase.exit, label %bf_resize.exit
 
 97:                                               ; preds = %79
-  %98 = icmp eq ptr %spec.select, %0
+  %98 = icmp eq ptr %0, %spec.select
   %or.cond96 = or i1 %91, %98
   br i1 %or.cond96, label %99, label %._crit_edge
 
@@ -3942,7 +3942,7 @@ bf_set_zero.exit:                                 ; preds = %62, %64
   %.2.sroa.phi = phi ptr [ %.2.sroa.gep119, %99 ], [ %.2.sroa.gep120, %._crit_edge ]
   %.2 = phi ptr [ %6, %99 ], [ %0, %._crit_edge ]
   %105 = add i64 %.079, %.080
-  %.not.i = icmp eq i64 %104, %105
+  %.not.i = icmp eq i64 %105, %104
   br i1 %.not.i, label %124, label %106
 
 106:                                              ; preds = %103
@@ -4369,7 +4369,7 @@ bf_set_nan.exit88:                                ; preds = %52, %55
   %66 = load i64, ptr %13, align 8
   %67 = getelementptr inbounds i8, ptr %1, i64 24
   %68 = load i64, ptr %67, align 8
-  %.not.i.i89 = icmp eq i64 %68, %66
+  %.not.i.i89 = icmp eq i64 %66, %68
   br i1 %.not.i.i89, label %._crit_edge.i, label %69
 
 ._crit_edge.i:                                    ; preds = %65
@@ -4519,7 +4519,7 @@ bf_set.exit:                                      ; preds = %63, %bf_set_nan.exi
 
 139:                                              ; preds = %137
   %140 = add i64 %.021.i.i, %135
-  %.not.i.i.i96 = icmp ugt i64 %14, %140
+  %.not.i.i.i96 = icmp ult i64 %140, %14
   br i1 %.not.i.i.i96, label %141, label %get_limbz.exit.i.i
 
 141:                                              ; preds = %139
@@ -4530,7 +4530,7 @@ bf_set.exit:                                      ; preds = %63, %bf_set_nan.exi
 get_limbz.exit.i.i:                               ; preds = %141, %139
   %.0.i.i.i = phi i64 [ %143, %141 ], [ 0, %139 ]
   %144 = add i64 %.021.i.i, %136
-  %.not.i28.i.i = icmp ugt i64 %18, %144
+  %.not.i28.i.i = icmp ult i64 %144, %18
   br i1 %.not.i28.i.i, label %145, label %get_limbz.exit30.i.i
 
 145:                                              ; preds = %get_limbz.exit.i.i
@@ -4570,13 +4570,13 @@ bf_cmpu.exit.i:                                   ; preds = %148, %132
   br label %bf_set_ui.exit.i
 
 bf_set_ui.exit.i:                                 ; preds = %154, %bf_cmpu.exit.i
-  %160 = icmp eq ptr %11, %1
+  %160 = icmp eq ptr %1, %11
   br i1 %160, label %bf_tdivremu.exit, label %161
 
 161:                                              ; preds = %bf_set_ui.exit.i
   %162 = getelementptr inbounds i8, ptr %1, i64 24
   %163 = load i64, ptr %162, align 8
-  %.not.i.i19.i = icmp eq i64 %163, %14
+  %.not.i.i19.i = icmp eq i64 %14, %163
   br i1 %.not.i.i19.i, label %._crit_edge.i.i, label %164
 
 ._crit_edge.i.i:                                  ; preds = %161
@@ -4647,8 +4647,8 @@ bf_set_nan.exit.i.i:                              ; preds = %174, %bf_resize.exi
   %191 = sub i64 %190, %125
   %..i23.i = tail call noundef i64 @llvm.smax.i64(i64 %191, i64 2)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  %192 = icmp eq ptr %11, %0
-  %193 = icmp eq ptr %12, %0
+  %192 = icmp eq ptr %0, %11
+  %193 = icmp eq ptr %0, %12
   %or.cond.i.i24.i = or i1 %192, %193
   br i1 %or.cond.i.i24.i, label %194, label %206
 
@@ -4706,7 +4706,7 @@ bf_rint.exit.i:                                   ; preds = %211, %bf_div.exit.i
   %217 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, i8 0, i64 16, i1 false)
   %218 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef 4611686018427387903, i32 noundef 1, i32 noundef 1)
-  %219 = icmp eq ptr %9, %1
+  %219 = icmp eq ptr %1, %9
   br i1 %219, label %bf_sub.exit.i, label %220
 
 220:                                              ; preds = %bf_rint.exit.i
@@ -4783,7 +4783,7 @@ bf_tdivremu.exit:                                 ; preds = %bf_set_ui.exit.i, %
 
 247:                                              ; preds = %245
   %248 = add i64 %.021.i, %241
-  %.not.i.i99 = icmp ugt i64 %232, %248
+  %.not.i.i99 = icmp ult i64 %248, %232
   br i1 %.not.i.i99, label %249, label %get_limbz.exit.i
 
 249:                                              ; preds = %247
@@ -4795,7 +4795,7 @@ bf_tdivremu.exit:                                 ; preds = %bf_set_ui.exit.i, %
 get_limbz.exit.i:                                 ; preds = %249, %247
   %.0.i.i = phi i64 [ %252, %249 ], [ 0, %247 ]
   %253 = add i64 %.021.i, %243
-  %.not.i28.i = icmp ugt i64 %240, %253
+  %.not.i28.i = icmp ult i64 %253, %240
   br i1 %.not.i28.i, label %254, label %get_limbz.exit30.i
 
 254:                                              ; preds = %get_limbz.exit.i
@@ -4862,7 +4862,7 @@ get_bit.exit:                                     ; preds = %260
   %280 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %280, i8 0, i64 16, i1 false)
   %281 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %12, i64 noundef 4611686018427387903, i32 noundef 1, i32 noundef 1)
-  %282 = icmp eq ptr %8, %1
+  %282 = icmp eq ptr %1, %8
   br i1 %282, label %bf_sub.exit, label %283
 
 283:                                              ; preds = %275
@@ -5033,7 +5033,7 @@ bf_set_si.exit:                                   ; preds = %25, %bf_set_ui.exit
   %.0.i = phi i32 [ %.0.i.i, %bf_set_ui.exit.i ], [ 32, %bf_set_nan.exit.i15.i ], [ 0, %30 ], [ 0, %25 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %35 = icmp eq ptr %0, %1
-  %36 = icmp eq ptr %7, %0
+  %36 = icmp eq ptr %0, %7
   %or.cond.i.i = or i1 %35, %36
   br i1 %or.cond.i.i, label %37, label %51
 
@@ -5047,7 +5047,7 @@ bf_set_si.exit:                                   ; preds = %25, %bf_set_ui.exit
   %41 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %42 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, i64 noundef %3, i32 noundef %4, i32 noundef 0)
-  %43 = icmp eq ptr %6, %0
+  %43 = icmp eq ptr %0, %6
   br i1 %43, label %bf_add.exit, label %44
 
 44:                                               ; preds = %37
@@ -5116,7 +5116,7 @@ define dso_local i32 @bf_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 1)
-  %15 = icmp eq ptr %6, %0
+  %15 = icmp eq ptr %0, %6
   br i1 %15, label %bf_op2.exit, label %16
 
 16:                                               ; preds = %9
@@ -5898,7 +5898,7 @@ bf_rint.exit:                                     ; preds = %76, %85
   %96 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   %97 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %4, ptr noundef nonnull %.0, ptr noundef nonnull %2, i64 noundef 4611686018427387903, i32 noundef 1, i32 noundef 0)
-  %98 = icmp eq ptr %4, %.0
+  %98 = icmp eq ptr %.0, %4
   br i1 %98, label %bf_add.exit, label %99
 
 99:                                               ; preds = %89
@@ -6084,7 +6084,7 @@ bf_set_nan.exit79:                                ; preds = %52, %55
   %66 = lshr i64 %65, 7
   %67 = getelementptr inbounds i8, ptr %0, i64 24
   %68 = load i64, ptr %67, align 8
-  %.not.i = icmp eq i64 %68, %66
+  %.not.i = icmp eq i64 %66, %68
   br i1 %.not.i, label %79, label %69
 
 69:                                               ; preds = %63
@@ -6348,7 +6348,7 @@ define dso_local i32 @bf_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 0)
-  %15 = icmp eq ptr %6, %0
+  %15 = icmp eq ptr %0, %6
   br i1 %15, label %bf_op2.exit, label %16
 
 16:                                               ; preds = %9
@@ -6669,7 +6669,7 @@ bf_set_inf.exit96:                                ; preds = %86, %89
   %117 = add nuw i64 %..i, 1
   %118 = getelementptr inbounds i8, ptr %0, i64 24
   %119 = load i64, ptr %118, align 8
-  %.not.i = icmp eq i64 %119, %117
+  %.not.i = icmp eq i64 %117, %119
   br i1 %.not.i, label %._crit_edge, label %120
 
 ._crit_edge:                                      ; preds = %108
@@ -7093,7 +7093,7 @@ bf_logic_op1.exit:                                ; preds = %.split, %35
   %57 = sdiv i64 %56, 64
   %58 = getelementptr inbounds i8, ptr %0, i64 24
   %59 = load i64, ptr %58, align 8
-  %.not.i = icmp eq i64 %59, %57
+  %.not.i = icmp eq i64 %57, %59
   br i1 %.not.i, label %69, label %60
 
 60:                                               ; preds = %54
@@ -8180,7 +8180,7 @@ define dso_local i32 @bf_mul_pow_radix(ptr noundef %0, ptr noundef %1, i64 nound
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 24
   %42 = load i64, ptr %41, align 8
-  %.not.i.i78 = icmp eq i64 %42, %11
+  %.not.i.i78 = icmp eq i64 %11, %42
   br i1 %.not.i.i78, label %._crit_edge.i88, label %43
 
 ._crit_edge.i88:                                  ; preds = %40
@@ -8279,7 +8279,7 @@ bf_round.exit:                                    ; preds = %bf_set.exit91, %75
   %85 = add i64 %spec.select, -1
   %86 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %85, i1 false)
   %87 = icmp eq ptr %0, %1
-  %88 = icmp eq ptr %9, %0
+  %88 = icmp eq ptr %0, %9
   %or.cond.i.i95 = or i1 %87, %88
   %89 = getelementptr inbounds i8, ptr %7, i64 8
   %90 = getelementptr inbounds i8, ptr %7, i64 16
@@ -8311,7 +8311,7 @@ bf_round.exit:                                    ; preds = %bf_set.exit91, %75
   %110 = shl i64 %109, 6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %111 = icmp eq ptr %0, %1
-  %112 = icmp eq ptr %9, %0
+  %112 = icmp eq ptr %0, %9
   %or.cond.i.i93 = or i1 %111, %112
   br i1 %or.cond.i.i93, label %113, label %125
 
@@ -8427,12 +8427,12 @@ bf_div.exit101:                                   ; preds = %bf_free.exit.i.i.i1
   br i1 %95, label %154, label %156
 
 154:                                              ; preds = %153
-  %155 = icmp sle i64 %103, %131
+  %155 = icmp sge i64 %131, %103
   br label %bf_can_round.exit
 
 156:                                              ; preds = %153
   %157 = icmp eq i64 %152, -9223372036854775808
-  %158 = icmp sgt i64 %96, %131
+  %158 = icmp slt i64 %131, %96
   %or.cond.i = or i1 %158, %157
   br i1 %or.cond.i, label %bf_can_round.exit, label %159
 
@@ -9792,7 +9792,7 @@ define dso_local i64 @bf_mul_log2_radix(i64 noundef %0, i32 noundef %1, i32 noun
   %.036 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
   %.lobit = lshr i64 %0, 63
   %.0 = trunc nuw nsw i64 %.lobit to i32
-  %5 = xor i32 %.0, %3
+  %5 = xor i32 %3, %.0
   %6 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %7 = icmp ult i32 %6, 2
   br i1 %7, label %8, label %24
@@ -9815,7 +9815,7 @@ ceil_log2.exit:                                   ; preds = %8, %10
   br i1 %.not39, label %21, label %16
 
 16:                                               ; preds = %ceil_log2.exit
-  %.not40 = icmp eq i32 %.0, %3
+  %.not40 = icmp eq i32 %3, %.0
   %17 = add nsw i32 %.0.i, -1
   %narrow = select i1 %.not40, i32 0, i32 %17
   %18 = sext i32 %narrow to i64
@@ -10062,7 +10062,7 @@ bfdec_round.exit.thread:                          ; preds = %77, %bfdec_round.ex
 bf_round.exit:                                    ; preds = %85
   %89 = and i32 %4, 7
   %90 = or disjoint i32 %89, 16
-  %91 = mul i64 %86, %3
+  %91 = mul i64 %3, %86
   %92 = call fastcc i32 @__bf_round(ptr noundef nonnull %10, i64 noundef %91, i32 noundef %90, i64 noundef %87, i32 noundef 0)
   %93 = and i32 %92, 32
   %.not324 = icmp eq i32 %93, 0
@@ -10497,7 +10497,7 @@ bf_set.exit370:                                   ; preds = %bf_resize.exit.i362
 bf_round.exit372:                                 ; preds = %297
   %299 = and i32 %4, 7
   %300 = zext nneg i32 %.0282 to i64
-  %301 = mul i64 %300, %3
+  %301 = mul i64 %3, %300
   %302 = sub i64 0, %.pre462
   %303 = srem i64 %302, %300
   %304 = icmp slt i64 %303, 0
@@ -10722,7 +10722,7 @@ bf_round.exit372.thread:                          ; preds = %.bf_round.exit372.t
 
 419:                                              ; preds = %417
   %420 = add i64 %.021.i, %413
-  %.not.i.i388 = icmp ugt i64 %411, %420
+  %.not.i.i388 = icmp ult i64 %420, %411
   br i1 %.not.i.i388, label %421, label %get_limbz.exit.i
 
 421:                                              ; preds = %419
@@ -10733,7 +10733,7 @@ bf_round.exit372.thread:                          ; preds = %.bf_round.exit372.t
 get_limbz.exit.i:                                 ; preds = %421, %419
   %.0.i.i389 = phi i64 [ %423, %421 ], [ 0, %419 ]
   %424 = add i64 %.021.i, %414
-  %.not.i28.i = icmp ugt i64 %412, %424
+  %.not.i28.i = icmp ult i64 %424, %412
   br i1 %.not.i28.i, label %425, label %get_limbz.exit30.i
 
 425:                                              ; preds = %get_limbz.exit.i
@@ -11065,7 +11065,7 @@ define internal fastcc i32 @bf_const_get(ptr noundef %0, i64 noundef %1, i32 nou
 37:                                               ; preds = %36
   %38 = load i64, ptr %8, align 8
   %39 = load i64, ptr %12, align 8
-  %.not.i.i = icmp eq i64 %39, %38
+  %.not.i.i = icmp eq i64 %38, %39
   br i1 %.not.i.i, label %._crit_edge.i, label %40
 
 ._crit_edge.i:                                    ; preds = %37
@@ -11134,7 +11134,7 @@ bf_set.exit:                                      ; preds = %36, %55
 
 63:                                               ; preds = %62
   %64 = icmp eq i64 %.pr, -9223372036854775808
-  %65 = icmp sgt i64 %19, %.0
+  %65 = icmp slt i64 %.0, %19
   %or.cond.i = or i1 %65, %64
   br i1 %or.cond.i, label %bf_can_round.exit.thread, label %66
 
@@ -11192,7 +11192,7 @@ get_bit.exit38.i:                                 ; preds = %84, %.lr.ph.i
   br i1 %.not33.i, label %80, label %bf_can_round.exit.thread33
 
 bf_can_round.exit:                                ; preds = %62
-  %.not36 = icmp sgt i64 %25, %.0
+  %.not36 = icmp slt i64 %.0, %25
   br i1 %.not36, label %bf_can_round.exit.thread, label %bf_can_round.exit.thread33.loopexit38
 
 bf_can_round.exit.thread:                         ; preds = %80, %bf_set.exit.thread, %get_bit.exit.i, %63, %bf_set.exit, %bf_can_round.exit
@@ -11584,7 +11584,7 @@ bf_set_ui.exit.i:                                 ; preds = %110, %bf_set_ui.exi
   %116 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
   %117 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
-  %118 = icmp eq ptr %5, %0
+  %118 = icmp eq ptr %0, %5
   br i1 %118, label %.sink.split.i, label %119
 
 119:                                              ; preds = %bf_set_ui.exit.i
@@ -11740,7 +11740,7 @@ define internal fastcc range(i32 0, 33) i32 @check_exp_underflow_overflow(ptr no
 
 63:                                               ; preds = %61
   %64 = add i64 %.021.i.i.i, %56
-  %.not.i.i.i.i = icmp ugt i64 %53, %64
+  %.not.i.i.i.i = icmp ult i64 %64, %53
   br i1 %.not.i.i.i.i, label %65, label %get_limbz.exit.i.i.i
 
 65:                                               ; preds = %63
@@ -11751,7 +11751,7 @@ define internal fastcc range(i32 0, 33) i32 @check_exp_underflow_overflow(ptr no
 get_limbz.exit.i.i.i:                             ; preds = %65, %63
   %.0.i.i.i.i = phi i64 [ %67, %65 ], [ 0, %63 ]
   %68 = add i64 %.021.i.i.i, %58
-  %.not.i28.i.i.i = icmp ugt i64 %55, %68
+  %.not.i28.i.i.i = icmp ult i64 %68, %55
   br i1 %.not.i28.i.i.i, label %69, label %get_limbz.exit30.i.i.i
 
 69:                                               ; preds = %get_limbz.exit.i.i.i
@@ -11884,7 +11884,7 @@ bf_cmp_lt.exit.thread:                            ; preds = %43, %12, %35, %bf_c
 
 126:                                              ; preds = %124
   %127 = add i64 %.021.i.i.i57, %119
-  %.not.i.i.i.i58 = icmp ugt i64 %117, %127
+  %.not.i.i.i.i58 = icmp ult i64 %127, %117
   br i1 %.not.i.i.i.i58, label %128, label %get_limbz.exit.i.i.i59
 
 128:                                              ; preds = %126
@@ -11896,7 +11896,7 @@ bf_cmp_lt.exit.thread:                            ; preds = %43, %12, %35, %bf_c
 get_limbz.exit.i.i.i59:                           ; preds = %128, %126
   %.0.i.i.i.i60 = phi i64 [ %131, %128 ], [ 0, %126 ]
   %132 = add i64 %.021.i.i.i57, %121
-  %.not.i28.i.i.i61 = icmp ugt i64 %118, %132
+  %.not.i28.i.i.i61 = icmp ult i64 %132, %118
   br i1 %.not.i28.i.i.i61, label %133, label %get_limbz.exit30.i.i.i62
 
 133:                                              ; preds = %get_limbz.exit.i.i.i59
@@ -12136,7 +12136,7 @@ define internal fastcc i32 @bf_ziv_rounding(ptr noundef %0, ptr noundef %1, i64 
 
 28:                                               ; preds = %26
   %29 = icmp eq i64 %27, -9223372036854775808
-  %30 = icmp sgt i64 %13, %24
+  %30 = icmp slt i64 %24, %13
   %or.cond.i = or i1 %30, %29
   br i1 %or.cond.i, label %bf_can_round.exit.thread, label %31
 
@@ -12786,7 +12786,7 @@ bf_set_ui.exit.thread:                            ; preds = %66
 
 81:                                               ; preds = %79
   %.reass = add i64 %.021.in.i.i.i, %invariant.op
-  %.not.i.i.i.i = icmp ugt i64 %76, %.reass
+  %.not.i.i.i.i = icmp ult i64 %.reass, %76
   br i1 %.not.i.i.i.i, label %82, label %get_limbz.exit.i.i.i
 
 82:                                               ; preds = %81
@@ -12976,7 +12976,7 @@ bf_set_ui.exit:                                   ; preds = %45, %50
 
 66:                                               ; preds = %64
   %67 = add i64 %.021.i.i.i, %60
-  %.not.i.i.i.i = icmp ugt i64 %59, %67
+  %.not.i.i.i.i = icmp ult i64 %67, %59
   br i1 %.not.i.i.i.i, label %68, label %get_limbz.exit.i.i.i
 
 68:                                               ; preds = %66
@@ -12987,7 +12987,7 @@ bf_set_ui.exit:                                   ; preds = %45, %50
 get_limbz.exit.i.i.i:                             ; preds = %68, %66
   %.0.i.i.i.i = phi i64 [ %70, %68 ], [ 0, %66 ]
   %71 = add i64 %.021.i.i.i, %62
-  %.not.i28.i.i.i = icmp ugt i64 %.sroa.13.2, %71
+  %.not.i28.i.i.i = icmp ult i64 %71, %.sroa.13.2
   br i1 %.not.i28.i.i.i, label %72, label %get_limbz.exit30.i.i.i
 
 72:                                               ; preds = %get_limbz.exit.i.i.i
@@ -13169,7 +13169,7 @@ bf_set_ui.exit129:                                ; preds = %bf_div.exit123, %13
   %150 = getelementptr inbounds i8, ptr %6, i64 8
   %151 = getelementptr inbounds i8, ptr %6, i64 16
   %152 = getelementptr inbounds i8, ptr %6, i64 24
-  %153 = icmp eq ptr %6, %0
+  %153 = icmp eq ptr %0, %6
   %154 = getelementptr inbounds i8, ptr %0, i64 32
   br label %155
 
@@ -13442,7 +13442,7 @@ bf_mul_2exp.exit:                                 ; preds = %bf_delete.exit191, 
   %254 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, i8 0, i64 16, i1 false)
   %255 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %90, i32 noundef 0, i32 noundef 0)
-  %256 = icmp eq ptr %5, %0
+  %256 = icmp eq ptr %0, %5
   br i1 %256, label %bf_add.exit199, label %257
 
 257:                                              ; preds = %bf_mul_2exp.exit
@@ -13678,7 +13678,7 @@ bf_set_ui.exit187:                                ; preds = %._crit_edge.i184, %
 
 87:                                               ; preds = %85
   %88 = add i64 %.021.i, %81
-  %.not.i.i189 = icmp ugt i64 %79, %88
+  %.not.i.i189 = icmp ult i64 %88, %79
   br i1 %.not.i.i189, label %89, label %get_limbz.exit.i
 
 89:                                               ; preds = %87
@@ -13690,7 +13690,7 @@ bf_set_ui.exit187:                                ; preds = %._crit_edge.i184, %
 get_limbz.exit.i:                                 ; preds = %89, %87
   %.0.i.i = phi i64 [ %92, %89 ], [ 0, %87 ]
   %93 = add i64 %.021.i, %83
-  %.not.i28.i = icmp ugt i64 %80, %93
+  %.not.i28.i = icmp ult i64 %93, %80
   br i1 %.not.i28.i, label %94, label %get_limbz.exit30.i
 
 94:                                               ; preds = %get_limbz.exit.i
@@ -14071,7 +14071,7 @@ bf_set_nan.exit238:                               ; preds = %223, %226
   %or.cond = icmp eq i32 %244, 2
   %or.cond174 = and i1 %or.cond, %242
   %245 = zext i1 %or.cond174 to i32
-  %.0149 = xor i32 %245, %4
+  %.0149 = xor i32 %4, %245
   %246 = load i32, ptr %181, align 8
   %247 = xor i32 %246, 1
   store i32 %247, ptr %181, align 8
@@ -14173,7 +14173,7 @@ bf_set_ui.exit253.thread:                         ; preds = %._crit_edge.i250, %
 
 287:                                              ; preds = %285
   %288 = add i64 %.021.i.i.i, %280
-  %.not.i.i.i.i = icmp ugt i64 %278, %288
+  %.not.i.i.i.i = icmp ult i64 %288, %278
   br i1 %.not.i.i.i.i, label %289, label %get_limbz.exit.i.i.i
 
 289:                                              ; preds = %287
@@ -14184,7 +14184,7 @@ bf_set_ui.exit253.thread:                         ; preds = %._crit_edge.i250, %
 get_limbz.exit.i.i.i:                             ; preds = %289, %287
   %.0.i.i.i.i = phi i64 [ %291, %289 ], [ 0, %287 ]
   %292 = add i64 %.021.i.i.i, %282
-  %.not.i28.i.i.i = icmp ugt i64 %279, %292
+  %.not.i28.i.i.i = icmp ult i64 %292, %279
   br i1 %.not.i28.i.i.i, label %293, label %get_limbz.exit30.i.i.i
 
 293:                                              ; preds = %get_limbz.exit.i.i.i
@@ -14379,7 +14379,7 @@ bf_delete.exit281:                                ; preds = %360, %362, %365
   %380 = call i32 @bf_mul_si(ptr noundef nonnull %0, ptr noundef %.0148, i64 noundef %379, i64 noundef 64, i32 noundef 1)
   %381 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %10, ptr noundef readonly %0, i32 noundef 0)
   %382 = load i64, ptr %10, align 8
-  %383 = icmp ugt i64 %382, %3
+  %383 = icmp ult i64 %3, %382
   br i1 %383, label %400, label %384
 
 384:                                              ; preds = %378, %371
@@ -14491,7 +14491,7 @@ define internal fastcc range(i32 20, 33) i32 @bf_set_overflow(ptr nocapture noun
   %27 = lshr i64 %26, 6
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   %29 = load i64, ptr %28, align 8
-  %.not.i = icmp eq i64 %29, %27
+  %.not.i = icmp eq i64 %27, %29
   br i1 %.not.i, label %._crit_edge47, label %30
 
 ._crit_edge47:                                    ; preds = %25
@@ -14654,7 +14654,7 @@ bf_set_nan.exit.i:                                ; preds = %23, %bf_resize.exit
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load i64, ptr %34, align 8
-  %.not.i.i = icmp eq i64 %35, %33
+  %.not.i.i = icmp eq i64 %33, %35
   br i1 %.not.i.i, label %._crit_edge.i31, label %36
 
 ._crit_edge.i31:                                  ; preds = %31
@@ -15125,7 +15125,7 @@ bf_set.exit52.us:                                 ; preds = %.lr.ph, %95
 99:                                               ; preds = %.lr.ph.split
   %100 = load i64, ptr %89, align 8
   %101 = load i64, ptr %62, align 8
-  %.not.i.i39 = icmp eq i64 %101, %100
+  %.not.i.i39 = icmp eq i64 %100, %101
   br i1 %.not.i.i39, label %._crit_edge.i49, label %102
 
 ._crit_edge.i49:                                  ; preds = %99
@@ -15501,7 +15501,7 @@ bf_set_ui.exit.i:                                 ; preds = %93, %bf_set_ui.exit
   %99 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
   %100 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
-  %101 = icmp eq ptr %5, %0
+  %101 = icmp eq ptr %0, %5
   br i1 %101, label %.sink.split.i, label %102
 
 102:                                              ; preds = %bf_set_ui.exit.i
@@ -15585,7 +15585,7 @@ bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %108
 
 131:                                              ; preds = %128
   %132 = icmp eq i64 %130, -9223372036854775808
-  %133 = icmp sgt i64 %119, %129
+  %133 = icmp slt i64 %129, %119
   %or.cond.i.i = or i1 %133, %132
   br i1 %or.cond.i.i, label %bf_can_round.exit.thread.i, label %134
 
@@ -15786,7 +15786,7 @@ bf_set_zero.exit:                                 ; preds = %35, %40
 67:                                               ; preds = %65
   %68 = getelementptr inbounds i8, ptr %0, i64 24
   %69 = load i64, ptr %68, align 8
-  %.not.i.i36 = icmp eq i64 %69, %8
+  %.not.i.i36 = icmp eq i64 %8, %69
   br i1 %.not.i.i36, label %._crit_edge.i, label %70
 
 ._crit_edge.i:                                    ; preds = %67
@@ -15890,7 +15890,7 @@ bf_set_ui.exit.i:                                 ; preds = %108, %bf_set.exit
   %114 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   %115 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
-  %116 = icmp eq ptr %5, %0
+  %116 = icmp eq ptr %0, %5
   br i1 %116, label %.sink.split.i, label %117
 
 117:                                              ; preds = %bf_set_ui.exit.i
@@ -15974,7 +15974,7 @@ bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %123
 
 146:                                              ; preds = %143
   %147 = icmp eq i64 %145, -9223372036854775808
-  %148 = icmp sgt i64 %134, %144
+  %148 = icmp slt i64 %144, %134
   %or.cond.i.i42 = or i1 %148, %147
   br i1 %or.cond.i.i42, label %bf_can_round.exit.thread.i, label %149
 
@@ -16175,7 +16175,7 @@ bf_set_zero.exit:                                 ; preds = %35, %40
 67:                                               ; preds = %65
   %68 = getelementptr inbounds i8, ptr %0, i64 24
   %69 = load i64, ptr %68, align 8
-  %.not.i.i36 = icmp eq i64 %69, %8
+  %.not.i.i36 = icmp eq i64 %8, %69
   br i1 %.not.i.i36, label %._crit_edge.i, label %70
 
 ._crit_edge.i:                                    ; preds = %67
@@ -16278,7 +16278,7 @@ bf_set_ui.exit.i:                                 ; preds = %107, %bf_set.exit
   %113 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
   %114 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
-  %115 = icmp eq ptr %5, %0
+  %115 = icmp eq ptr %0, %5
   br i1 %115, label %.sink.split.i, label %116
 
 116:                                              ; preds = %bf_set_ui.exit.i
@@ -16523,7 +16523,7 @@ bf_set_ui.exit:                                   ; preds = %51, %56
 
 66:                                               ; preds = %64
   %67 = add i64 %.021.i, %61
-  %.not.i.i51 = icmp ugt i64 %60, %67
+  %.not.i.i51 = icmp ult i64 %67, %60
   br i1 %.not.i.i51, label %68, label %get_limbz.exit.i
 
 68:                                               ; preds = %66
@@ -16535,7 +16535,7 @@ bf_set_ui.exit:                                   ; preds = %51, %56
 get_limbz.exit.i:                                 ; preds = %68, %66
   %.0.i.i = phi i64 [ %71, %68 ], [ 0, %66 ]
   %72 = add i64 %.021.i, %63
-  %.not.i28.i = icmp ugt i64 %.sroa.11.2, %72
+  %.not.i28.i = icmp ult i64 %72, %.sroa.11.2
   br i1 %.not.i28.i, label %73, label %get_limbz.exit30.i
 
 73:                                               ; preds = %get_limbz.exit.i
@@ -16612,7 +16612,7 @@ bf_delete.exit:                                   ; preds = %bf_cmpu.exit, %77
 114:                                              ; preds = %112
   %115 = getelementptr inbounds i8, ptr %0, i64 24
   %116 = load i64, ptr %115, align 8
-  %.not.i.i57 = icmp eq i64 %116, %107
+  %.not.i.i57 = icmp eq i64 %107, %116
   br i1 %.not.i.i57, label %._crit_edge.i65, label %117
 
 ._crit_edge.i65:                                  ; preds = %114
@@ -16718,7 +16718,7 @@ bf_set_ui.exit.i:                                 ; preds = %156, %bf_set.exit
   %162 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
   %163 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
-  %164 = icmp eq ptr %5, %0
+  %164 = icmp eq ptr %0, %5
   br i1 %164, label %.sink.split.i, label %165
 
 165:                                              ; preds = %bf_set_ui.exit.i
@@ -17025,7 +17025,7 @@ bf_set_ui.exit118:                                ; preds = %._crit_edge, %107
   %119 = getelementptr inbounds i8, ptr %6, i64 8
   %120 = getelementptr inbounds i8, ptr %6, i64 16
   %121 = getelementptr inbounds i8, ptr %6, i64 24
-  %122 = icmp eq ptr %6, %0
+  %122 = icmp eq ptr %0, %6
   %123 = getelementptr inbounds i8, ptr %0, i64 32
   br label %124
 
@@ -17326,7 +17326,7 @@ bf_mul_2exp.exit158:                              ; preds = %231, %228, %224
   %239 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %239, i8 0, i64 16, i1 false)
   %240 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull %0, i64 noundef %25, i32 noundef 0, i32 noundef 0)
-  %241 = icmp eq ptr %5, %0
+  %241 = icmp eq ptr %0, %5
   br i1 %241, label %bf_add.exit164, label %242
 
 242:                                              ; preds = %bf_mul_2exp.exit158
@@ -17542,7 +17542,7 @@ bf_div.exit:                                      ; preds = %bf_free.exit.i.i.i,
   %79 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
   %80 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %30, i32 noundef 0, i32 noundef 0)
-  %81 = icmp eq ptr %5, %0
+  %81 = icmp eq ptr %0, %5
   br i1 %81, label %bf_add.exit, label %82
 
 82:                                               ; preds = %70
@@ -17728,7 +17728,7 @@ bf_cmpu.exit.thread:                              ; preds = %bf_set_ui.exit
 
 64:                                               ; preds = %62
   %65 = add i64 %.021.i, %59
-  %.not.i.i46 = icmp ugt i64 %58, %65
+  %.not.i.i46 = icmp ult i64 %65, %58
   br i1 %.not.i.i46, label %66, label %get_limbz.exit.i
 
 66:                                               ; preds = %64
@@ -17740,7 +17740,7 @@ bf_cmpu.exit.thread:                              ; preds = %bf_set_ui.exit
 get_limbz.exit.i:                                 ; preds = %66, %64
   %.0.i.i = phi i64 [ %69, %66 ], [ 0, %64 ]
   %70 = add i64 %.021.i, %61
-  %.not.i28.i = icmp ugt i64 %.sroa.11.2, %70
+  %.not.i28.i = icmp ult i64 %70, %.sroa.11.2
   br i1 %.not.i28.i, label %71, label %get_limbz.exit30.i
 
 71:                                               ; preds = %get_limbz.exit.i
@@ -17829,7 +17829,7 @@ bf_set_nan.exit51:                                ; preds = %79, %82
 111:                                              ; preds = %109
   %112 = getelementptr inbounds i8, ptr %0, i64 24
   %113 = load i64, ptr %112, align 8
-  %.not.i.i54 = icmp eq i64 %113, %104
+  %.not.i.i54 = icmp eq i64 %104, %113
   br i1 %.not.i.i54, label %._crit_edge.i62, label %114
 
 ._crit_edge.i62:                                  ; preds = %111
@@ -17934,7 +17934,7 @@ bf_set_ui.exit.i:                                 ; preds = %152, %bf_set.exit
   %158 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
   %159 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
-  %160 = icmp eq ptr %5, %0
+  %160 = icmp eq ptr %0, %5
   br i1 %160, label %.sink.split.i, label %161
 
 161:                                              ; preds = %bf_set_ui.exit.i
@@ -18216,7 +18216,7 @@ bf_cmpu.exit.thread:                              ; preds = %bf_set_ui.exit
 
 61:                                               ; preds = %59
   %62 = add i64 %.021.i, %56
-  %.not.i.i33 = icmp ugt i64 %55, %62
+  %.not.i.i33 = icmp ult i64 %62, %55
   br i1 %.not.i.i33, label %63, label %get_limbz.exit.i
 
 63:                                               ; preds = %61
@@ -18228,7 +18228,7 @@ bf_cmpu.exit.thread:                              ; preds = %bf_set_ui.exit
 get_limbz.exit.i:                                 ; preds = %63, %61
   %.0.i.i = phi i64 [ %66, %63 ], [ 0, %61 ]
   %67 = add i64 %.021.i, %58
-  %.not.i28.i = icmp ugt i64 %.sroa.11.2, %67
+  %.not.i28.i = icmp ult i64 %67, %.sroa.11.2
   br i1 %.not.i28.i, label %68, label %get_limbz.exit30.i
 
 68:                                               ; preds = %get_limbz.exit.i
@@ -18899,7 +18899,7 @@ define dso_local i64 @mp_div1_dec(ptr nocapture noundef writeonly %0, ptr nocapt
   %60 = add i64 %52, 1
   %61 = add i64 %60, %59
   %62 = trunc i128 %57 to i64
-  %63 = and i64 %59, %3
+  %63 = and i64 %3, %59
   %64 = add i64 %63, %62
   %65 = getelementptr i64, ptr %0, i64 %.1
   store i64 %61, ptr %65, align 8
@@ -20023,7 +20023,7 @@ floor_div.exit:                                   ; preds = %241
   %.078 = phi i64 [ %287, %285 ], [ %3, %283 ]
   %290 = getelementptr inbounds i8, ptr %0, i64 24
   %291 = load i64, ptr %290, align 8
-  %.not.i.i107 = icmp eq i64 %291, %.078
+  %.not.i.i107 = icmp eq i64 %.078, %291
   br i1 %.not.i.i107, label %bfdec_resize.exit112, label %292
 
 292:                                              ; preds = %289
@@ -20449,7 +20449,7 @@ bfdec_resize.exit:                                ; preds = %._crit_edge.thread,
 define internal fastcc range(i32 -1, 1) i32 @bfdec_resize(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
-  %.not.i = icmp eq i64 %4, %1
+  %.not.i = icmp eq i64 %1, %4
   br i1 %.not.i, label %bf_resize.exit, label %5
 
 5:                                                ; preds = %2
@@ -20627,7 +20627,7 @@ define dso_local i32 @bfdec_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call fastcc i32 @bfdec_add_internal(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 0)
-  %15 = icmp eq ptr %6, %0
+  %15 = icmp eq ptr %0, %6
   br i1 %15, label %bf_op2.exit, label %16
 
 16:                                               ; preds = %9
@@ -20677,7 +20677,7 @@ define dso_local i32 @bfdec_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call fastcc i32 @bfdec_add_internal(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 1)
-  %15 = icmp eq ptr %6, %0
+  %15 = icmp eq ptr %0, %6
   br i1 %15, label %bf_op2.exit, label %16
 
 16:                                               ; preds = %9
@@ -20857,8 +20857,8 @@ bfdec_set_zero.exit:                              ; preds = %56, %58
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %spec.select, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %spec.select67, %0
-  %71 = icmp eq ptr %spec.select, %0
+  %70 = icmp eq ptr %0, %spec.select67
+  %71 = icmp eq ptr %0, %spec.select
   %or.cond68 = or i1 %70, %71
   br i1 %or.cond68, label %72, label %._crit_edge
 
@@ -20885,7 +20885,7 @@ bfdec_set_zero.exit:                              ; preds = %56, %58
   %.0.sroa.phi92 = phi ptr [ %.0.sroa.gep93, %72 ], [ %.0.sroa.gep94, %._crit_edge ]
   %.0 = phi ptr [ %6, %72 ], [ %0, %._crit_edge ]
   %76 = add i64 %65, %18
-  %.not.i.i = icmp eq i64 %75, %76
+  %.not.i.i = icmp eq i64 %76, %75
   br i1 %.not.i.i, label %91, label %77
 
 77:                                               ; preds = %74
@@ -21045,7 +21045,7 @@ bfdec_set_si.exit:                                ; preds = %13, %16
   %.0.i = phi i32 [ %15, %13 ], [ %17, %16 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %18 = icmp eq ptr %0, %1
-  %19 = icmp eq ptr %7, %0
+  %19 = icmp eq ptr %0, %7
   %or.cond.i.i = or i1 %18, %19
   br i1 %or.cond.i.i, label %20, label %34
 
@@ -21059,7 +21059,7 @@ bfdec_set_si.exit:                                ; preds = %13, %16
   %24 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = call fastcc i32 @bfdec_add_internal(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, i64 noundef %3, i32 noundef %4, i32 noundef 0)
-  %26 = icmp eq ptr %6, %0
+  %26 = icmp eq ptr %0, %6
   br i1 %26, label %bfdec_add.exit, label %27
 
 27:                                               ; preds = %20
@@ -21126,7 +21126,7 @@ define dso_local i32 @bfdec_div(ptr noundef %0, ptr noundef readonly %1, ptr nou
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call fastcc i32 @__bfdec_div(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #17
-  %15 = icmp eq ptr %6, %0
+  %15 = icmp eq ptr %0, %6
   br i1 %15, label %bf_op2.exit, label %16
 
 16:                                               ; preds = %9
@@ -21433,7 +21433,7 @@ bfdec_set_inf.exit113:                            ; preds = %91, %94
   %136 = add i64 %..i114, 1
   %137 = getelementptr inbounds i8, ptr %0, i64 24
   %138 = load i64, ptr %137, align 8
-  %.not.i.i = icmp eq i64 %138, %136
+  %.not.i.i = icmp eq i64 %136, %138
   br i1 %.not.i.i, label %._crit_edge, label %139
 
 ._crit_edge:                                      ; preds = %127
@@ -21695,7 +21695,7 @@ bfdec_set_nan.exit102:                            ; preds = %52, %55
   %66 = load i64, ptr %14, align 8
   %67 = getelementptr inbounds i8, ptr %1, i64 24
   %68 = load i64, ptr %67, align 8
-  %.not.i.i.i103 = icmp eq i64 %68, %66
+  %.not.i.i.i103 = icmp eq i64 %66, %68
   br i1 %.not.i.i.i103, label %._crit_edge.i.i, label %69
 
 ._crit_edge.i.i:                                  ; preds = %65
@@ -21845,7 +21845,7 @@ bfdec_set.exit:                                   ; preds = %63, %bf_set_nan.exi
 
 139:                                              ; preds = %137
   %140 = add i64 %.021.i.i.i, %135
-  %.not.i.i.i.i113 = icmp ugt i64 %15, %140
+  %.not.i.i.i.i113 = icmp ult i64 %140, %15
   br i1 %.not.i.i.i.i113, label %141, label %get_limbz.exit.i.i.i
 
 141:                                              ; preds = %139
@@ -21856,7 +21856,7 @@ bfdec_set.exit:                                   ; preds = %63, %bf_set_nan.exi
 get_limbz.exit.i.i.i:                             ; preds = %141, %139
   %.0.i.i.i.i = phi i64 [ %143, %141 ], [ 0, %139 ]
   %144 = add i64 %.021.i.i.i, %136
-  %.not.i28.i.i.i = icmp ugt i64 %19, %144
+  %.not.i28.i.i.i = icmp ult i64 %144, %19
   br i1 %.not.i28.i.i.i, label %145, label %get_limbz.exit30.i.i.i
 
 145:                                              ; preds = %get_limbz.exit.i.i.i
@@ -21928,14 +21928,14 @@ bfdec_set_nan.exit.i.i:                           ; preds = %162, %bfdec_resize.
   br label %bfdec_set_ui.exit.i
 
 bfdec_set_ui.exit.i:                              ; preds = %bfdec_set_nan.exit.i.i, %._crit_edge.i.i110
-  %169 = icmp eq ptr %10, %1
+  %169 = icmp eq ptr %1, %10
   br i1 %169, label %bfdec_tdivremu.exit, label %170
 
 170:                                              ; preds = %bfdec_set_ui.exit.i
   %171 = load i64, ptr %122, align 8
   %172 = getelementptr inbounds i8, ptr %1, i64 24
   %173 = load i64, ptr %172, align 8
-  %.not.i.i.i14.i = icmp eq i64 %173, %171
+  %.not.i.i.i14.i = icmp eq i64 %171, %173
   br i1 %.not.i.i.i14.i, label %._crit_edge.i.i.i, label %174
 
 ._crit_edge.i.i.i:                                ; preds = %170
@@ -22002,8 +22002,8 @@ bf_set_nan.exit.i.i.i:                            ; preds = %185, %bf_resize.exi
 
 .loopexit.i:                                      ; preds = %137, %148, %132
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  %201 = icmp eq ptr %10, %0
-  %202 = icmp eq ptr %11, %0
+  %201 = icmp eq ptr %0, %10
+  %202 = icmp eq ptr %0, %11
   %or.cond.i.i.i107 = or i1 %201, %202
   br i1 %or.cond.i.i.i107, label %203, label %216
 
@@ -22016,7 +22016,7 @@ bf_set_nan.exit.i.i.i:                            ; preds = %185, %bf_resize.exi
   %206 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %206, i8 0, i64 16, i1 false)
   %207 = call fastcc i32 @__bfdec_div(ptr noundef nonnull %9, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, i64 noundef 0, i32 noundef 17) #17
-  %208 = icmp eq ptr %9, %0
+  %208 = icmp eq ptr %0, %9
   br i1 %208, label %bfdec_div.exit.i, label %209
 
 209:                                              ; preds = %203
@@ -22054,7 +22054,7 @@ bfdec_div.exit.i:                                 ; preds = %216, %bf_free.exit.
   %222 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false)
   %223 = call fastcc i32 @bfdec_add_internal(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef 4611686018427387903, i32 noundef 1, i32 noundef 1)
-  %224 = icmp eq ptr %8, %1
+  %224 = icmp eq ptr %1, %8
   br i1 %224, label %bfdec_sub.exit.i, label %225
 
 225:                                              ; preds = %bfdec_div.exit.i
@@ -22335,7 +22335,7 @@ define internal fastcc range(i32 -1, 2) i32 @bfdec_cmpu(ptr nocapture noundef re
 
 20:                                               ; preds = %18
   %21 = add i64 %.021.i, %14
-  %.not.i.i = icmp ugt i64 %11, %21
+  %.not.i.i = icmp ult i64 %21, %11
   br i1 %.not.i.i, label %22, label %get_limbz.exit.i
 
 22:                                               ; preds = %20
@@ -22347,7 +22347,7 @@ define internal fastcc range(i32 -1, 2) i32 @bfdec_cmpu(ptr nocapture noundef re
 get_limbz.exit.i:                                 ; preds = %22, %20
   %.0.i.i = phi i64 [ %25, %22 ], [ 0, %20 ]
   %26 = add i64 %.021.i, %16
-  %.not.i28.i = icmp ugt i64 %13, %26
+  %.not.i28.i = icmp ult i64 %26, %13
   br i1 %.not.i28.i, label %27, label %get_limbz.exit30.i
 
 27:                                               ; preds = %get_limbz.exit.i
@@ -22631,7 +22631,7 @@ floor_div.exit:                                   ; preds = %72, %74
   %80 = sdiv i64 %79, 38
   %81 = getelementptr inbounds i8, ptr %0, i64 24
   %82 = load i64, ptr %81, align 8
-  %.not.i.i = icmp eq i64 %82, %80
+  %.not.i.i = icmp eq i64 %80, %82
   br i1 %.not.i.i, label %94, label %83
 
 83:                                               ; preds = %77
@@ -23126,7 +23126,7 @@ bfdec_set_nan.exit.i:                             ; preds = %22, %bfdec_resize.e
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load i64, ptr %34, align 8
-  %.not.i.i.i = icmp eq i64 %35, %33
+  %.not.i.i.i = icmp eq i64 %33, %35
   br i1 %.not.i.i.i, label %._crit_edge.i.i, label %36
 
 ._crit_edge.i.i:                                  ; preds = %31
@@ -23505,7 +23505,7 @@ define internal fastcc i32 @bf_add_internal(ptr noundef %0, ptr noundef readonly
 
 30:                                               ; preds = %28
   %31 = add i64 %.021.i, %24
-  %.not.i.i = icmp ugt i64 %21, %31
+  %.not.i.i = icmp ult i64 %31, %21
   br i1 %.not.i.i, label %32, label %get_limbz.exit.i
 
 32:                                               ; preds = %30
@@ -23517,7 +23517,7 @@ define internal fastcc i32 @bf_add_internal(ptr noundef %0, ptr noundef readonly
 get_limbz.exit.i:                                 ; preds = %32, %30
   %.0.i.i = phi i64 [ %35, %32 ], [ 0, %30 ]
   %36 = add i64 %.021.i, %26
-  %.not.i28.i = icmp ugt i64 %23, %36
+  %.not.i28.i = icmp ult i64 %36, %23
   br i1 %.not.i28.i, label %37, label %get_limbz.exit30.i
 
 37:                                               ; preds = %get_limbz.exit.i
@@ -23679,13 +23679,13 @@ bf_set_inf.exit:                                  ; preds = %101, %102
   br label %bf_normalize_and_round.exit
 
 110:                                              ; preds = %69
-  %111 = icmp eq ptr %.0140, %0
+  %111 = icmp eq ptr %0, %.0140
   br i1 %111, label %bf_set.exit, label %112
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %0, i64 24
   %114 = load i64, ptr %113, align 8
-  %.not.i.i170 = icmp eq i64 %114, %63
+  %.not.i.i170 = icmp eq i64 %63, %114
   br i1 %.not.i.i170, label %._crit_edge.i, label %115
 
 ._crit_edge.i:                                    ; preds = %112
@@ -23794,7 +23794,7 @@ bf_set.exit:                                      ; preds = %110, %bf_set_nan.ex
   %.047.i = phi i64 [ 0, %154 ], [ %195, %194 ]
   %.0.i174 = phi i64 [ %156, %154 ], [ %196, %194 ]
   %166 = ashr i64 %.0.i174, 6
-  %.not.i.i175 = icmp ugt i64 %.pre238, %166
+  %.not.i.i175 = icmp ult i64 %166, %.pre238
   br i1 %.not.i.i175, label %167, label %get_limbz.exit.i176
 
 167:                                              ; preds = %165
@@ -23890,7 +23890,7 @@ get_bits.exit.i:                                  ; preds = %187, %179
   %.1.in.i = phi i64 [ %.1.i, %get_bits.exit61.i ], [ %.0.i174, %.preheader269 ]
   %.1.i = add i64 %.1.in.i, -64
   %221 = ashr i64 %.1.i, 6
-  %.not.i55.i = icmp ugt i64 %.pre238, %221
+  %.not.i55.i = icmp ult i64 %221, %.pre238
   br i1 %.not.i55.i, label %222, label %get_limbz.exit57.i
 
 222:                                              ; preds = %220
@@ -23968,7 +23968,7 @@ count_cancelled_bits.exit:                        ; preds = %.count_cancelled_bi
   %..i180 = tail call noundef i64 @llvm.smin.i64(i64 %262, i64 %..i179)
   %266 = getelementptr inbounds i8, ptr %0, i64 24
   %267 = load i64, ptr %266, align 8
-  %.not.i181 = icmp eq i64 %267, %..i180
+  %.not.i181 = icmp eq i64 %..i180, %267
   br i1 %.not.i181, label %278, label %268
 
 268:                                              ; preds = %count_cancelled_bits.exit
@@ -24142,7 +24142,7 @@ get_bits.exit.thread:                             ; preds = %.thread, %341, %334
   %.1150228 = phi i64 [ %.0149.lcssa, %.lr.ph230 ], [ %392, %get_bits.exit192 ]
   %359 = add i64 %.3229, %281
   %360 = load i64, ptr %62, align 8
-  %.not.i187 = icmp ugt i64 %360, %359
+  %.not.i187 = icmp ult i64 %359, %360
   br i1 %.not.i187, label %361, label %get_limbz.exit
 
 361:                                              ; preds = %358
@@ -24219,7 +24219,7 @@ get_bits.exit192:                                 ; preds = %375, %382
 402:                                              ; preds = %._crit_edge
   %403 = add nsw i64 %..i180, 1
   %404 = load i64, ptr %266, align 8
-  %.not.i193 = icmp eq i64 %404, %403
+  %.not.i193 = icmp eq i64 %403, %404
   %.pre243 = load ptr, ptr %396, align 8
   br i1 %.not.i193, label %413, label %405
 
@@ -24612,7 +24612,7 @@ bf_set_nan.exit.i:                                ; preds = %43, %bf_resize.exit
   %79 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
   %80 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 4611686018427387903, i32 noundef 1, i32 noundef 0)
-  %81 = icmp eq ptr %8, %0
+  %81 = icmp eq ptr %0, %8
   br i1 %81, label %bf_add.exit, label %82
 
 82:                                               ; preds = %75
@@ -24907,7 +24907,7 @@ bf_integer_to_radix.exit:                         ; preds = %bf_delete.exit.i
 
 105:                                              ; preds = %103
   %106 = load i64, ptr %.071.sroa.phi85, align 8
-  %.not.i101 = icmp ugt i64 %106, %104
+  %.not.i101 = icmp ult i64 %104, %106
   br i1 %.not.i101, label %107, label %get_limbz.exit
 
 107:                                              ; preds = %105
@@ -25095,7 +25095,7 @@ define internal fastcc i32 @bf_convert_to_radix(ptr noundef %0, ptr nocapture no
   %16 = load i64, ptr %10, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8
-  %.not.i.i = icmp eq i64 %18, %16
+  %.not.i.i = icmp eq i64 %16, %18
   br i1 %.not.i.i, label %._crit_edge.i, label %19
 
 ._crit_edge.i:                                    ; preds = %15
@@ -25363,7 +25363,7 @@ bf_div.exit:                                      ; preds = %146, %150
 161:                                              ; preds = %160
   %162 = icmp eq i64 %159, -9223372036854775808
   %163 = add nsw i64 %159, 2
-  %164 = icmp sgt i64 %163, %142
+  %164 = icmp slt i64 %142, %163
   %or.cond.i = or i1 %162, %164
   br i1 %or.cond.i, label %bf_can_round.exit.thread, label %165
 
@@ -25423,7 +25423,7 @@ get_bit.exit38.i:                                 ; preds = %185, %.lr.ph.i
   br i1 %.not33.i, label %181, label %bf_can_round.exit.thread105
 
 bf_can_round.exit:                                ; preds = %160
-  %.not110 = icmp slt i64 %159, %142
+  %.not110 = icmp sgt i64 %142, %159
   br i1 %.not110, label %bf_can_round.exit.thread105.loopexit120, label %bf_can_round.exit.thread
 
 bf_can_round.exit.thread:                         ; preds = %181, %get_bit.exit.i, %161, %158, %bf_can_round.exit
@@ -25503,7 +25503,7 @@ bf_rint.exit.thread:                              ; preds = %bf_can_round.exit.t
 
 220:                                              ; preds = %218
   %221 = add i64 %.021.i, %215
-  %.not.i.i96 = icmp ugt i64 %213, %221
+  %.not.i.i96 = icmp ult i64 %221, %213
   br i1 %.not.i.i96, label %222, label %get_limbz.exit.i
 
 222:                                              ; preds = %220
@@ -25515,7 +25515,7 @@ bf_rint.exit.thread:                              ; preds = %bf_can_round.exit.t
 get_limbz.exit.i:                                 ; preds = %222, %220
   %.0.i.i97 = phi i64 [ %225, %222 ], [ 0, %220 ]
   %226 = add i64 %.021.i, %216
-  %.not.i28.i = icmp ugt i64 %214, %226
+  %.not.i28.i = icmp ult i64 %226, %214
   br i1 %.not.i28.i, label %227, label %get_limbz.exit30.i
 
 227:                                              ; preds = %get_limbz.exit.i
@@ -25997,7 +25997,7 @@ bf_add.exit:                                      ; preds = %204, %208
 
 232:                                              ; preds = %230
   %233 = add i64 %.021.i, %227
-  %.not.i.i = icmp ugt i64 %225, %233
+  %.not.i.i = icmp ult i64 %233, %225
   br i1 %.not.i.i, label %234, label %get_limbz.exit.i
 
 234:                                              ; preds = %232
@@ -26008,7 +26008,7 @@ bf_add.exit:                                      ; preds = %204, %208
 get_limbz.exit.i:                                 ; preds = %234, %232
   %.0.i.i114 = phi i64 [ %236, %234 ], [ 0, %232 ]
   %237 = add i64 %.021.i, %228
-  %.not.i28.i = icmp ugt i64 %226, %237
+  %.not.i28.i = icmp ult i64 %237, %226
   br i1 %.not.i28.i, label %238, label %get_limbz.exit30.i
 
 238:                                              ; preds = %get_limbz.exit.i
@@ -26350,7 +26350,7 @@ bf_set_ui.exit80:                                 ; preds = %71, %bf_set_nan.exi
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %0, i64 24
   %89 = load i64, ptr %88, align 8
-  %.not.i.i81 = icmp eq i64 %89, %87
+  %.not.i.i81 = icmp eq i64 %87, %89
   br i1 %.not.i.i81, label %._crit_edge.i89, label %90
 
 ._crit_edge.i89:                                  ; preds = %85
@@ -26456,7 +26456,7 @@ bf_set_nan.exit.i88:                              ; preds = %101, %bf_resize.exi
   %138 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, i8 0, i64 16, i1 false)
   %139 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 4611686018427387903, i32 noundef 1, i32 noundef 0)
-  %140 = icmp eq ptr %7, %0
+  %140 = icmp eq ptr %0, %7
   br i1 %140, label %bf_add.exit, label %141
 
 141:                                              ; preds = %120
@@ -26799,7 +26799,7 @@ define internal fastcc void @chud_bs(ptr noundef %0, ptr noundef %1, ptr noundef
   %15 = alloca %struct.bf_t, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = add nsw i64 %4, -1
-  %18 = icmp eq i64 %17, %3
+  %18 = icmp eq i64 %3, %17
   br i1 %18, label %19, label %144
 
 19:                                               ; preds = %6
@@ -27171,7 +27171,7 @@ bf_set_ui.exit116:                                ; preds = %157, %162
   %172 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false)
   %173 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 4611686018427387903, i32 noundef 0, i32 noundef 0)
-  %174 = icmp eq ptr %8, %0
+  %174 = icmp eq ptr %0, %8
   br i1 %174, label %bf_add.exit120, label %175
 
 175:                                              ; preds = %bf_set_ui.exit116
@@ -27242,7 +27242,7 @@ bf_delete.exit125:                                ; preds = %bf_add.exit120, %18
   %201 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %201, i8 0, i64 16, i1 false)
   %202 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 4611686018427387903, i32 noundef 0, i32 noundef 0)
-  %203 = icmp eq ptr %7, %0
+  %203 = icmp eq ptr %0, %7
   br i1 %203, label %bf_add.exit135, label %204
 
 204:                                              ; preds = %.critedge
@@ -28407,7 +28407,7 @@ define internal fastcc i32 @bfdec_add_internal(ptr noundef %0, ptr noundef reado
 
 30:                                               ; preds = %28
   %31 = add i64 %.021.i.i, %24
-  %.not.i.i.i = icmp ugt i64 %21, %31
+  %.not.i.i.i = icmp ult i64 %31, %21
   br i1 %.not.i.i.i, label %32, label %get_limbz.exit.i.i
 
 32:                                               ; preds = %30
@@ -28419,7 +28419,7 @@ define internal fastcc i32 @bfdec_add_internal(ptr noundef %0, ptr noundef reado
 get_limbz.exit.i.i:                               ; preds = %32, %30
   %.0.i.i.i = phi i64 [ %35, %32 ], [ 0, %30 ]
   %36 = add i64 %.021.i.i, %26
-  %.not.i28.i.i = icmp ugt i64 %23, %36
+  %.not.i28.i.i = icmp ult i64 %36, %23
   br i1 %.not.i28.i.i, label %37, label %get_limbz.exit30.i.i
 
 37:                                               ; preds = %get_limbz.exit.i.i
@@ -28577,13 +28577,13 @@ bfdec_set_inf.exit:                               ; preds = %98, %99
   br label %312
 
 106:                                              ; preds = %68
-  %107 = icmp eq ptr %.0127, %0
+  %107 = icmp eq ptr %0, %.0127
   br i1 %107, label %136, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds i8, ptr %0, i64 24
   %110 = load i64, ptr %109, align 8
-  %.not.i.i.i161 = icmp eq i64 %110, %62
+  %.not.i.i.i161 = icmp eq i64 %62, %110
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br i1 %.not.i.i.i161, label %._crit_edge.i.i, label %111
@@ -28660,7 +28660,7 @@ bfdec_set.exit:                                   ; preds = %bf_resize.exit.i.i,
   %..i = tail call noundef i64 @llvm.smax.i64(i64 %62, i64 %146)
   %147 = getelementptr inbounds i8, ptr %0, i64 24
   %148 = load i64, ptr %147, align 8
-  %.not.i.i165 = icmp eq i64 %148, %..i
+  %.not.i.i165 = icmp eq i64 %..i, %148
   br i1 %.not.i.i165, label %158, label %149
 
 149:                                              ; preds = %138
@@ -29202,7 +29202,7 @@ get_bits.exit88:                                  ; preds = %85, %92
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %115 = trunc nuw nsw i64 %indvars.iv104 to i32
-  %116 = add i32 %115, %6
+  %116 = add i32 %6, %115
   %117 = sext i32 %116 to i64
   %118 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %117
   %119 = load i64, ptr %118, align 8
@@ -29253,7 +29253,7 @@ get_bits.exit88:                                  ; preds = %85, %92
   %159 = trunc nuw i128 %158 to i64
   %160 = and i64 %119, %159
   %161 = add i64 %160, %157
-  %162 = mul i64 %indvars.iv104, %2
+  %162 = mul i64 %2, %indvars.iv104
   %163 = getelementptr i64, ptr %114, i64 %162
   store i64 %161, ptr %163, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -29263,7 +29263,7 @@ get_bits.exit88:                                  ; preds = %85, %92
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %164 = trunc nuw nsw i64 %indvars.iv to i32
-  %165 = add i32 %164, %6
+  %165 = add i32 %6, %164
   %166 = sext i32 %165 to i64
   %167 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %166
   %168 = load i64, ptr %167, align 8
@@ -29289,7 +29289,7 @@ get_bits.exit88:                                  ; preds = %85, %92
   %188 = trunc nuw i128 %187 to i64
   %189 = and i64 %168, %188
   %190 = add i64 %189, %186
-  %191 = mul i64 %indvars.iv, %2
+  %191 = mul i64 %2, %indvars.iv
   %192 = getelementptr i64, ptr %114, i64 %191
   store i64 %190, ptr %192, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

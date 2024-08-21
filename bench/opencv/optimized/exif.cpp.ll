@@ -158,7 +158,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN2cv11ExifEntry_tEESt10_Select1stIS4_ESt4lessIiESaIS4
 _ZNKSt3mapIiN2cv11ExifEntry_tESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN2cv11ExifEntry_tEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %16 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %17 = load i32, ptr %16, align 4
-  %18 = icmp sgt i32 %17, %2
+  %18 = icmp slt i32 %2, %17
   br i1 %18, label %_ZNKSt3mapIiN2cv11ExifEntry_tESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.thread, label %19
 
 19:                                               ; preds = %_ZNKSt3mapIiN2cv11ExifEntry_tESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit
@@ -218,7 +218,7 @@ define hidden noundef zeroext i1 @_ZN2cv10ExifReader9parseExifEPhm(ptr noundef n
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, %2
+  %13 = icmp ugt i64 %2, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %6
@@ -279,7 +279,7 @@ _ZSt7advanceIPhmEvRT_T0_.exit.i.i.i:              ; preds = %21
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit18.i.i.i:         ; preds = %29, %_ZSt7advanceIPhmEvRT_T0_.exit.i.i.i
   %30 = phi ptr [ %23, %_ZSt7advanceIPhmEvRT_T0_.exit.i.i.i ], [ %.pre26.i.i.i, %29 ]
   %gepdiff = sub nsw i64 %2, %25
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %25, %2
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %2, %25
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit.i.i.i, label %31
 
 31:                                               ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit18.i.i.i
@@ -2959,7 +2959,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiN2cv11ExifEntr
 
 select.unfold:                                    ; preds = %32, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %32 ]
-  %36 = icmp eq ptr %21, %.sroa.4.0.i.ph
+  %36 = icmp eq ptr %.sroa.4.0.i.ph, %21
   br i1 %36, label %.thread15, label %37
 
 37:                                               ; preds = %select.unfold

@@ -85,7 +85,7 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %40 = load ptr, ptr @g_pendingtasks, align 8
   %.not31 = icmp ne ptr %40, null
-  %brmerge.not = and i1 %.not31, %1
+  %brmerge.not = and i1 %1, %.not31
   br i1 %brmerge.not, label %41, label %44
 
 41:                                               ; preds = %36

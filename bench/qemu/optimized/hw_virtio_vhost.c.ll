@@ -419,7 +419,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %idx.ext.i = sext i32 %i.015.i to i64
   %add.ptr.i = getelementptr %struct.vhost_memory_region, ptr %regions.i, i64 %idx.ext.i
   %12 = load i64, ptr %add.ptr.i, align 8
-  %cmp2.not.i = icmp ugt i64 %12, %iotlb.sroa.215.0.copyload
+  %cmp2.not.i = icmp ult i64 %iotlb.sroa.215.0.copyload, %12
   br i1 %cmp2.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -482,7 +482,7 @@ if.end:                                           ; preds = %land.lhs.true.i
   %add = add i64 %iotlb.sroa.4.0.copyload, 1
   %cond = call i64 @llvm.umin.i64(i64 %add, i64 %sub10.i)
   %not = xor i64 %iotlb.sroa.4.0.copyload, -1
-  %and = and i64 %not, %iova
+  %and = and i64 %iova, %not
   %call35 = call i32 @vhost_backend_update_device_iotlb(ptr noundef nonnull %dev, i64 noundef %and, i64 noundef %sub.i, i64 noundef %cond, i32 noundef %iotlb.sroa.6.0.copyload) #19
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.end39, label %if.then37
@@ -2066,7 +2066,7 @@ if.end3.i:                                        ; preds = %for.body.i
   %add.i.i.i = add i64 %59, -1
   %sub.i.i.i = add i64 %add.i.i.i, %conv.i
   %cmp.i.i76 = icmp ult i64 %sub.i.i.i, %53
-  %cmp2.i.i = icmp ult i64 %sub.i8.i.i, %59
+  %cmp2.i.i = icmp ugt i64 %59, %sub.i8.i.i
   %or.cond.i.i77 = or i1 %cmp2.i.i, %cmp.i.i76
   br i1 %or.cond.i.i77, label %if.end7.i, label %if.end.i.i
 
@@ -2077,7 +2077,7 @@ if.end.i.i:                                       ; preds = %if.end3.i
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = sub i64 %59, %53
   %add.ptr.i.i = getelementptr i8, ptr %52, i64 %sub.i.i
-  %cmp6.not.i.i = icmp eq ptr %add.ptr.i.i, %60
+  %cmp6.not.i.i = icmp eq ptr %60, %add.ptr.i.i
   br i1 %cmp6.not.i.i, label %if.end7.i, label %if.then74
 
 if.end7.i:                                        ; preds = %if.end5.i.i, %if.end3.i
@@ -2091,7 +2091,7 @@ if.end7.i:                                        ; preds = %if.end5.i.i, %if.en
   %add.i.i31.i = add i64 %63, -1
   %sub.i.i32.i = add i64 %add.i.i31.i, %conv8.i
   %cmp.i35.i = icmp ult i64 %sub.i.i32.i, %53
-  %cmp2.i36.i = icmp ult i64 %sub.i8.i.i, %63
+  %cmp2.i36.i = icmp ugt i64 %63, %sub.i8.i.i
   %or.cond.i37.i = or i1 %cmp2.i36.i, %cmp.i35.i
   br i1 %or.cond.i37.i, label %if.end12.i, label %if.end.i38.i
 
@@ -2102,7 +2102,7 @@ if.end.i38.i:                                     ; preds = %if.end7.i
 if.end5.i40.i:                                    ; preds = %if.end.i38.i
   %sub.i41.i = sub i64 %63, %53
   %add.ptr.i42.i = getelementptr i8, ptr %52, i64 %sub.i41.i
-  %cmp6.not.i43.i = icmp eq ptr %add.ptr.i42.i, %62
+  %cmp6.not.i43.i = icmp eq ptr %62, %add.ptr.i42.i
   br i1 %cmp6.not.i43.i, label %if.end12.i, label %if.then74
 
 if.end12.i:                                       ; preds = %if.end5.i40.i, %if.end7.i
@@ -2116,7 +2116,7 @@ if.end12.i:                                       ; preds = %if.end5.i40.i, %if.
   %add.i.i47.i = add i64 %66, -1
   %sub.i.i48.i = add i64 %add.i.i47.i, %conv14.i
   %cmp.i51.i = icmp ult i64 %sub.i.i48.i, %53
-  %cmp2.i52.i = icmp ult i64 %sub.i8.i.i, %66
+  %cmp2.i52.i = icmp ugt i64 %66, %sub.i8.i.i
   %or.cond.i53.i = or i1 %cmp2.i52.i, %cmp.i51.i
   br i1 %or.cond.i53.i, label %for.inc.i, label %if.end.i54.i
 
@@ -2127,7 +2127,7 @@ if.end.i54.i:                                     ; preds = %if.end12.i
 if.end5.i56.i:                                    ; preds = %if.end.i54.i
   %sub.i57.i = sub i64 %66, %53
   %add.ptr.i58.i = getelementptr i8, ptr %52, i64 %sub.i57.i
-  %cmp6.not.i59.i = icmp eq ptr %add.ptr.i58.i, %65
+  %cmp6.not.i59.i = icmp eq ptr %65, %add.ptr.i58.i
   br i1 %cmp6.not.i59.i, label %for.inc.i, label %if.then74
 
 for.inc.i:                                        ; preds = %if.end5.i56.i, %if.end12.i, %for.body.i
@@ -3267,14 +3267,14 @@ entry:
   %0 = load ptr, ptr %vqs, align 8
   %vq_index = getelementptr inbounds i8, ptr %hdev, i64 444
   %1 = load i32, ptr %vq_index, align 4
-  %cmp.not = icmp sgt i32 %1, %n
+  %cmp.not = icmp slt i32 %n, %1
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %nvqs = getelementptr inbounds i8, ptr %hdev, i64 440
   %2 = load i32, ptr %nvqs, align 8
   %add = add i32 %2, %1
-  %cmp5 = icmp ugt i32 %add, %n
+  %cmp5 = icmp ult i32 %n, %add
   br i1 %cmp5, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -4446,7 +4446,7 @@ if.then3:                                         ; preds = %if.end
   %log_size = getelementptr inbounds i8, ptr %dev, i64 512
   %2 = load i64, ptr %log_size, align 8
   %tobool4.not = icmp ne i64 %2, 0
-  %brmerge.not = and i1 %tobool4.not, %sync
+  %brmerge.not = and i1 %sync, %tobool4.not
   br i1 %brmerge.not, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then3
@@ -5391,7 +5391,7 @@ int128_get64.exit:                                ; preds = %if.end
   %coerce.sroa.0.0.extract.trunc = trunc nuw i128 %3 to i64
   %add.i = add i64 %2, -1
   %sub.i = add i64 %add.i, %coerce.sroa.0.0.extract.trunc
-  %cond8 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %last)
+  %cond8 = tail call i64 @llvm.umin.i64(i64 %last, i64 %sub.i)
   %mem = getelementptr inbounds i8, ptr %dev, i64 392
   %4 = load ptr, ptr %mem, align 8
   %5 = load i32, ptr %4, align 8
@@ -5683,7 +5683,7 @@ entry:
   %log_enabled = getelementptr i8, ptr %listener, i64 497
   %0 = load i8, ptr %log_enabled, align 1
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %enable
+  %2 = xor i1 %enable, %1
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

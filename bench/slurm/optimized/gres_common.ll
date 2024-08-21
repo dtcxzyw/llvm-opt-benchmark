@@ -627,7 +627,7 @@ define noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, ptr noundef 
   br i1 %12, label %78, label %13
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %11, %2
+  %14 = icmp ugt i32 %2, %11
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

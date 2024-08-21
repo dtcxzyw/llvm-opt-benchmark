@@ -194,7 +194,7 @@ define hidden i32 @mbedtls_ssl_tls12_write_client_hello_exts(ptr noundef %0, ptr
   %14 = ptrtoint ptr %2 to i64
   %15 = ptrtoint ptr %1 to i64
   %16 = sub i64 %14, %15
-  %17 = icmp uge i64 %16, %12
+  %17 = icmp ule i64 %12, %16
   %narrow.i.not.i = and i1 %13, %17
   br i1 %narrow.i.not.i, label %18, label %ssl_write_renegotiation_ext.exit
 
@@ -415,7 +415,7 @@ define internal fastcc range(i32 -27136, 1) i32 @ssl_write_session_ticket_ext(pt
   %16 = ptrtoint ptr %2 to i64
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %16, %17
-  %19 = icmp uge i64 %18, %14
+  %19 = icmp ule i64 %14, %18
   %narrow.i.not = and i1 %15, %19
   br i1 %narrow.i.not, label %20, label %39
 
@@ -2685,7 +2685,7 @@ define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(pt
   %8 = load i64, ptr %7, align 8
   %9 = shl i64 %8, 1
   %10 = or disjoint i64 %9, 1
-  %.not21 = icmp eq i64 %10, %2
+  %.not21 = icmp eq i64 %2, %10
   br i1 %.not21, label %11, label %23
 
 11:                                               ; preds = %6

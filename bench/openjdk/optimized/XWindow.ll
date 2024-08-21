@@ -105,7 +105,7 @@ define hidden i64 @keycodeToKeysym(ptr noundef %0, i8 noundef zeroext %1, i32 no
 17:                                               ; preds = %13
   %18 = call ptr @XGetKeyboardMapping(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 1, ptr noundef nonnull %4) #6
   %19 = load i32, ptr %4, align 4
-  %.not = icmp sgt i32 %19, %2
+  %.not = icmp slt i32 %2, %19
   br i1 %.not, label %20, label %.sink.split
 
 20:                                               ; preds = %17

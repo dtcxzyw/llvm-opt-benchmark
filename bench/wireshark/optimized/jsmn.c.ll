@@ -11,7 +11,7 @@ define hidden i32 @jsmn_parse(ptr nocapture noundef %0, ptr nocapture noundef re
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %0, align 4
   %9 = zext i32 %8 to i64
-  %10 = icmp ult i64 %9, %2
+  %10 = icmp ugt i64 %2, %9
   br i1 %10, label %.lr.ph205, label %.critedge
 
 .lr.ph205:                                        ; preds = %5
@@ -60,7 +60,7 @@ define hidden i32 @jsmn_parse(ptr nocapture noundef %0, ptr nocapture noundef re
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %6, align 4
-  %.not.i = icmp ult i32 %20, %4
+  %.not.i = icmp ugt i32 %4, %20
   br i1 %.not.i, label %jsmn_alloc_token.exit, label %jsmn_alloc_token.exit.thread
 
 jsmn_alloc_token.exit:                            ; preds = %19
@@ -192,7 +192,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
   %79 = add i32 %14, 1
   store i32 %79, ptr %0, align 4
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %80, %2
+  %81 = icmp ugt i64 %2, %80
   br i1 %81, label %.lr.ph.i, label %jsmn_alloc_token.exit.thread.sink.split
 
 .lr.ph.i:                                         ; preds = %78, %118
@@ -215,7 +215,7 @@ jsmn_parse_string.exit.thread155:                 ; preds = %85
 
 87:                                               ; preds = %85
   %88 = load i32, ptr %6, align 4
-  %.not.i.i = icmp ult i32 %88, %4
+  %.not.i.i = icmp ugt i32 %4, %88
   br i1 %.not.i.i, label %jsmn_alloc_token.exit.i, label %jsmn_alloc_token.exit.thread.sink.split
 
 jsmn_alloc_token.exit.i:                          ; preds = %87
@@ -235,7 +235,7 @@ jsmn_alloc_token.exit.i:                          ; preds = %87
 96:                                               ; preds = %.lr.ph.i
   %97 = add i32 %storemerge76.i, 1
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %98, %2
+  %99 = icmp ugt i64 %2, %98
   br i1 %99, label %100, label %118
 
 100:                                              ; preds = %96
@@ -263,7 +263,7 @@ jsmn_alloc_token.exit.i:                          ; preds = %87
   %106 = phi i32 [ %104, %103 ], [ %115, %114 ]
   %.072.i = phi i32 [ 0, %103 ], [ %116, %114 ]
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %107, %2
+  %108 = icmp ugt i64 %2, %107
   br i1 %108, label %109, label %.critedge2.i
 
 109:                                              ; preds = %105
@@ -311,7 +311,7 @@ switch.early.test.i:                              ; preds = %112
   %119 = add i32 %.promoted74.i, 1
   store i32 %119, ptr %0, align 4
   %120 = zext i32 %119 to i64
-  %121 = icmp ult i64 %120, %2
+  %121 = icmp ugt i64 %2, %120
   br i1 %121, label %.lr.ph.i, label %jsmn_alloc_token.exit.thread.sink.split, !llvm.loop !8
 
 jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.exit.i
@@ -446,7 +446,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
   %174 = add i32 %168, 1
   store i32 %174, ptr %0, align 4
   %175 = zext i32 %174 to i64
-  %176 = icmp ult i64 %175, %2
+  %176 = icmp ugt i64 %2, %175
   br i1 %176, label %.lr.ph.i149, label %jsmn_alloc_token.exit.thread.sink.split, !llvm.loop !10
 
 177:                                              ; preds = %.lr.ph.i149, %.lr.ph.i149, %.lr.ph.i149, %.lr.ph.i149, %.lr.ph.i149, %.lr.ph.i149, %.lr.ph.i149
@@ -460,7 +460,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
 
 180:                                              ; preds = %177
   %181 = load i32, ptr %6, align 4
-  %.not.i.i150 = icmp ult i32 %181, %4
+  %.not.i.i150 = icmp ugt i32 %4, %181
   br i1 %.not.i.i150, label %jsmn_alloc_token.exit.i151, label %jsmn_alloc_token.exit.thread.sink.split
 
 jsmn_alloc_token.exit.i151:                       ; preds = %180
@@ -505,7 +505,7 @@ jsmn_alloc_token.exit.i151:                       ; preds = %180
   %201 = add i32 %200, 1
   store i32 %201, ptr %0, align 4
   %202 = zext i32 %201 to i64
-  %203 = icmp ult i64 %202, %2
+  %203 = icmp ugt i64 %2, %202
   br i1 %203, label %12, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.loopexit, %12, %5

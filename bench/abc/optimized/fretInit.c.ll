@@ -255,7 +255,7 @@ define void @Abc_FlowRetime_UpdateBackwardInit(ptr nocapture noundef readonly %0
   %39 = load ptr, ptr @pManMR, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 168
   %41 = load i32, ptr %40, align 8
-  %.not.i = icmp sgt i32 %41, %.val75
+  %.not.i = icmp slt i32 %.val75, %41
   br i1 %.not.i, label %._crit_edge.i, label %42
 
 ._crit_edge.i:                                    ; preds = %29
@@ -1740,7 +1740,7 @@ define internal fastcc void @Abc_FlowRetime_ClearInitToOrig(i32 %.16.val) unname
   %1 = load ptr, ptr @pManMR, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 168
   %3 = load i32, ptr %2, align 8
-  %.not = icmp sgt i32 %3, %.16.val
+  %.not = icmp slt i32 %.16.val, %3
   br i1 %.not, label %._crit_edge, label %4
 
 ._crit_edge:                                      ; preds = %0
@@ -1848,7 +1848,7 @@ define internal fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %0
 
 42:                                               ; preds = %38, %38, %38
   %.val15.i = load i32, ptr %16, align 8
-  %.not.i.i = icmp sgt i32 %39, %.val15.i
+  %.not.i.i = icmp slt i32 %.val15.i, %39
   br i1 %.not.i.i, label %._crit_edge.i.i, label %43
 
 ._crit_edge.i.i:                                  ; preds = %42
@@ -2114,7 +2114,7 @@ define ptr @Abc_FlowRetime_CopyNodeToInitNtk(ptr noundef %0) local_unnamed_addr 
   %14 = load ptr, ptr @pManMR, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 168
   %16 = load i32, ptr %15, align 8
-  %.not.i = icmp sgt i32 %16, %.val51
+  %.not.i = icmp slt i32 %.val51, %16
   br i1 %.not.i, label %._crit_edge.i, label %17
 
 ._crit_edge.i:                                    ; preds = %11
@@ -3183,13 +3183,13 @@ Vec_IntFill.exit.i.i:                             ; preds = %84, %Vec_IntGrow.ex
   %104 = add nsw i32 %.val3.i.i, 1
   %105 = getelementptr inbounds i8, ptr %.val2.i.i, i64 228
   %106 = load i32, ptr %105, align 4
-  %.not.i36.not = icmp sgt i32 %106, %.val3.i.i
+  %.not.i36.not = icmp slt i32 %.val3.i.i, %106
   br i1 %.not.i36.not, label %Vec_IntFillExtra.exit49, label %107
 
 107:                                              ; preds = %.lr.ph13.i
   %108 = load i32, ptr %103, align 8
   %109 = shl nsw i32 %108, 1
-  %.not50 = icmp sgt i32 %109, %.val3.i.i
+  %.not50 = icmp slt i32 %.val3.i.i, %109
   %.not.i.i37.not = icmp sgt i32 %108, %.val3.i.i
   br i1 %.not50, label %122, label %110
 
@@ -3299,13 +3299,13 @@ Vec_IntFillExtra.exit49:                          ; preds = %.lr.ph13.i, %._crit
   %148 = add nsw i32 %.val48.i, 1
   %149 = getelementptr inbounds i8, ptr %.val.i56.i, i64 228
   %150 = load i32, ptr %149, align 4
-  %.not.i31.not = icmp sgt i32 %150, %.val48.i
+  %.not.i31.not = icmp slt i32 %.val48.i, %150
   br i1 %.not.i31.not, label %Vec_IntFillExtra.exit, label %151
 
 151:                                              ; preds = %146
   %152 = load i32, ptr %147, align 8
   %153 = shl nsw i32 %152, 1
-  %.not52 = icmp sgt i32 %153, %.val48.i
+  %.not52 = icmp slt i32 %.val48.i, %153
   %.not.i.i32.not = icmp sgt i32 %152, %.val48.i
   br i1 %.not52, label %166, label %154
 
@@ -3646,13 +3646,13 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

@@ -5195,14 +5195,14 @@ if.end331.i:                                      ; preds = %verify_cb_cert.exit
 
 land.lhs.true334.i:                               ; preds = %if.end331.i
   %68 = load i32, ptr %num_untrusted.i.i, align 4
-  %cmp.not.i.i = icmp sgt i32 %68, %i.0471.i
+  %cmp.not.i.i = icmp slt i32 %i.0471.i, %68
   br i1 %cmp.not.i.i, label %sw.default.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.true334.i
   %69 = load ptr, ptr %param10.i, align 8
   %purpose1.i.i = getelementptr inbounds i8, ptr %69, i64 32
   %70 = load i32, ptr %purpose1.i.i, align 8
-  %cmp2.i.i = icmp eq i32 %70, %purpose.0.i
+  %cmp2.i.i = icmp eq i32 %purpose.0.i, %70
   br i1 %cmp2.i.i, label %if.end.i423.i, label %sw.default.i.i
 
 if.end.i423.i:                                    ; preds = %land.lhs.true.i.i
@@ -5760,7 +5760,7 @@ entry:
   store i32 0, ptr %cmplen, align 4
   %cmp = icmp eq i32 %depth, 0
   %cond = select i1 %cmp, i32 10, i32 5
-  %cmp2.not = icmp sgt i32 %ctx.148.val, %depth
+  %cmp2.not = icmp slt i32 %depth, %ctx.148.val
   %and = and i32 %cond, 3
   %spec.select = select i1 %cmp2.not, i32 %cond, i32 %and
   %mdpth = getelementptr inbounds i8, ptr %ctx.240.val, i64 44
@@ -7086,7 +7086,7 @@ land.lhs.true:                                    ; preds = %entry
   %tobool3 = icmp ne i32 %and, 0
   %cmp = icmp sgt i32 %num_untrusted, 0
   %or.cond = and i1 %cmp, %tobool3
-  %cmp6 = icmp sgt i32 %call2, %num_untrusted
+  %cmp6 = icmp slt i32 %num_untrusted, %call2
   %or.cond41 = select i1 %or.cond, i1 %cmp6, i1 false
   br i1 %or.cond41, label %if.then, label %if.end10
 
@@ -7126,7 +7126,7 @@ if.then11.i:                                      ; preds = %if.end9.i
   br label %return
 
 if.end10:                                         ; preds = %if.end.i, %if.end9.i, %if.then, %land.lhs.true.i, %land.lhs.true, %entry
-  %cmp1179 = icmp sgt i32 %call2, %num_untrusted
+  %cmp1179 = icmp slt i32 %num_untrusted, %call2
   br i1 %cmp1179, label %for.body.lr.ph, label %if.end30
 
 for.body.lr.ph:                                   ; preds = %if.end10
@@ -7166,7 +7166,7 @@ if.then24:                                        ; preds = %for.end
   br i1 %brmerge, label %return, label %land.lhs.true63
 
 if.end30:                                         ; preds = %if.end10, %for.end
-  %cmp31 = icmp eq i32 %call2, %num_untrusted
+  %cmp31 = icmp eq i32 %num_untrusted, %call2
   br i1 %cmp31, label %land.lhs.true32, label %return
 
 land.lhs.true32:                                  ; preds = %if.end30

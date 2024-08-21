@@ -954,7 +954,7 @@ define range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef %0, i64 no
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 192
   %11 = load i64, ptr %10, align 8
-  %. = tail call i64 @llvm.umin.i64(i64 %11, i64 %1)
+  %. = tail call i64 @llvm.umin.i64(i64 %1, i64 %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #29
@@ -2318,7 +2318,7 @@ define internal fastcc ptr @_php_stream_search_delim(ptr nocapture noundef reado
   %24 = icmp uge ptr %23, %16
   tail call void @llvm.assume(i1 %24)
   %gepdiff = sub i64 %., %2
-  %25 = icmp ult i64 %gepdiff, %4
+  %25 = icmp ugt i64 %4, %gepdiff
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %22
@@ -2691,7 +2691,7 @@ define i32 @_php_stream_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %27 = getelementptr inbounds i8, ptr %0, i64 176
   %28 = load i64, ptr %27, align 8
   %29 = sub nsw i64 %26, %28
-  %.not68 = icmp slt i64 %29, %1
+  %.not68 = icmp sgt i64 %1, %29
   br i1 %.not68, label %51, label %30
 
 30:                                               ; preds = %24
@@ -2708,7 +2708,7 @@ define i32 @_php_stream_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
 36:                                               ; preds = %21
   %37 = getelementptr inbounds i8, ptr %0, i64 152
   %38 = load i64, ptr %37, align 8
-  %39 = icmp slt i64 %38, %1
+  %39 = icmp sgt i64 %1, %38
   br i1 %39, label %40, label %51
 
 40:                                               ; preds = %36
@@ -2718,7 +2718,7 @@ define i32 @_php_stream_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %44 = getelementptr inbounds i8, ptr %0, i64 176
   %45 = load i64, ptr %44, align 8
   %46 = sub i64 %43, %45
-  %.not67 = icmp slt i64 %46, %1
+  %.not67 = icmp sgt i64 %1, %46
   br i1 %.not67, label %51, label %47
 
 47:                                               ; preds = %40

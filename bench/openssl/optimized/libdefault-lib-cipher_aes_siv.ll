@@ -119,7 +119,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %keylen3.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load i64, ptr %keylen3.i, align 8
-  %cmp4.not.i = icmp eq i64 %0, %keylen
+  %cmp4.not.i = icmp eq i64 %keylen, %0
   br i1 %cmp4.not.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then2.i
@@ -163,7 +163,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %keylen3.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load i64, ptr %keylen3.i, align 8
-  %cmp4.not.i = icmp eq i64 %0, %keylen
+  %cmp4.not.i = icmp eq i64 %keylen, %0
   br i1 %cmp4.not.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then2.i

@@ -841,7 +841,7 @@ define hidden range(i32 -1, 1) i32 @mapSocketOption(i32 noundef %0, ptr nocaptur
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %6 = getelementptr inbounds [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %4
 
 9:                                                ; preds = %5
@@ -874,7 +874,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr noca
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %8 ]
   %10 = getelementptr inbounds [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, %3
+  %12 = icmp eq i32 %3, %11
   br i1 %12, label %14, label %8
 
 13:                                               ; preds = %8
@@ -932,7 +932,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr nocap
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
   %10 = getelementptr inbounds [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, %3
+  %12 = icmp eq i32 %3, %11
   br i1 %12, label %14, label %8
 
 13:                                               ; preds = %8

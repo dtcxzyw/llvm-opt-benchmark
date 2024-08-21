@@ -451,21 +451,21 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   %264 = load i32, ptr %263, align 4
   %265 = add nsw i32 %264, -1
   %.not306 = icmp ult i32 %254, %256
-  %266 = icmp sgt i32 %259, %1
-  %.not284 = icmp sgt i32 %264, %1
+  %266 = icmp slt i32 %1, %259
+  %.not284 = icmp slt i32 %1, %264
   %267 = select i1 %.not284, i32 0, i32 2
   %268 = select i1 %266, i32 1, i32 %267
-  %269 = icmp sgt i32 %257, %0
-  %.not285 = icmp sgt i32 %261, %0
+  %269 = icmp slt i32 %0, %257
+  %.not285 = icmp slt i32 %0, %261
   %270 = select i1 %.not285, i32 0, i32 8
   %271 = select i1 %269, i32 4, i32 %270
   %272 = or disjoint i32 %268, %271
-  %273 = icmp sgt i32 %259, %3
-  %.not286 = icmp sgt i32 %264, %3
+  %273 = icmp slt i32 %3, %259
+  %.not286 = icmp slt i32 %3, %264
   %274 = select i1 %.not286, i32 0, i32 2
   %275 = select i1 %273, i32 1, i32 %274
-  %276 = icmp sgt i32 %257, %2
-  %.not287 = icmp sgt i32 %261, %2
+  %276 = icmp slt i32 %2, %257
+  %.not287 = icmp slt i32 %2, %261
   %277 = select i1 %.not287, i32 0, i32 8
   %278 = select i1 %276, i32 4, i32 %277
   %279 = or disjoint i32 %275, %278
@@ -831,9 +831,9 @@ RefineBounds.exit:                                ; preds = %47, %51
 
 71:                                               ; preds = %69
   %72 = load i32, ptr %43, align 4
-  %.not104 = icmp sle i32 %72, %5
+  %.not104 = icmp sge i32 %5, %72
   %73 = load i32, ptr %48, align 4
-  %74 = icmp sgt i32 %73, %5
+  %74 = icmp slt i32 %5, %73
   %or.cond = select i1 %.not104, i1 %74, i1 false
   br i1 %or.cond, label %75, label %110
 
@@ -858,9 +858,9 @@ RefineBounds.exit:                                ; preds = %47, %51
 
 85:                                               ; preds = %83
   %86 = load i32, ptr %9, align 8
-  %.not103 = icmp sle i32 %86, %4
+  %.not103 = icmp sge i32 %4, %86
   %87 = load i32, ptr %37, align 8
-  %88 = icmp sgt i32 %87, %4
+  %88 = icmp slt i32 %4, %87
   %or.cond111 = select i1 %.not103, i1 %88, i1 false
   br i1 %or.cond111, label %89, label %110
 

@@ -5710,7 +5710,7 @@ mca_bml_base_btl_array_get_next.exit:             ; preds = %36, %38
   %.0.i = phi ptr [ %37, %36 ], [ %43, %38 ]
   %.phi.trans.insert = getelementptr i8, ptr %.0.i, i64 8
   %.val.i.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %44 = icmp eq ptr %.val.i.pre, %0
+  %44 = icmp eq ptr %0, %.val.i.pre
   %or.cond = select i1 %32, i1 true, i1 %44
   br i1 %or.cond, label %mca_bml_base_btl_array_get_next.exit._crit_edge, label %mca_pml_ob1_recv_request_ack_send_btl.exit.thread
 

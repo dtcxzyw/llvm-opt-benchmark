@@ -130,7 +130,7 @@ define internal void @skip_input_data(ptr noundef %0, i64 noundef %1) #0 {
 .preheader:                                       ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp slt i64 %7, %1
+  %8 = icmp sgt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader

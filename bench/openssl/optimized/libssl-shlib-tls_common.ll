@@ -520,7 +520,7 @@ if.then24:                                        ; preds = %if.end22
   br i1 %or.cond1, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.then24
-  %8 = tail call i64 @llvm.umin.i64(i64 %0, i64 %n)
+  %8 = tail call i64 @llvm.umin.i64(i64 %n, i64 %0)
   %spec.select99 = select i1 %cmp25, i64 %n, i64 %8
   br label %if.end35
 
@@ -562,7 +562,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end44
   %13 = load i32, ptr %read_ahead, align 4
   %14 = or i32 %13, %7
   %brmerge.not = icmp eq i32 %14, 0
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %n.addr.0, i64 %max)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %max, i64 %n.addr.0)
   %spec.select100 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %sub47)
   %max.addr.0 = select i1 %brmerge.not, i64 %n.addr.0, i64 %spec.select100
   %prev = getelementptr inbounds i8, ptr %rl, i64 56
@@ -1821,7 +1821,7 @@ entry:
   %curr_rec = getelementptr inbounds i8, ptr %rl, i64 4056
   %1 = load i64, ptr %curr_rec, align 8
   %cmp = icmp ult i64 %0, %1
-  %cmp6 = icmp eq ptr %arrayidx, %rechandle
+  %cmp6 = icmp eq ptr %rechandle, %arrayidx
   %or.cond = select i1 %cmp, i1 %cmp6, i1 false
   br i1 %or.cond, label %if.end, label %if.then
 

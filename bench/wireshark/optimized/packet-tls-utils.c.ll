@@ -7601,7 +7601,7 @@ ssl_compile_keyfile_regex.exit:                   ; preds = %50
   %58 = zext i32 %2 to i64
   %59 = getelementptr i8, ptr %1, i64 %58
   %60 = icmp ne ptr %1, null
-  %61 = icmp ugt ptr %59, %1
+  %61 = icmp ult ptr %1, %59
   %62 = and i1 %60, %61
   br i1 %62, label %.lr.ph, label %.loopexit120
 
@@ -8311,7 +8311,7 @@ define hidden range(i32 0, 2) i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1
   br label %44
 
 44:                                               ; preds = %39, %41, %36
-  %45 = add i32 %.055, %4
+  %45 = add i32 %4, %.055
   %46 = sub i32 %5, %45
   %47 = load i32, ptr %11, align 4
   %48 = icmp ult i32 %46, %47
@@ -9192,7 +9192,7 @@ define hidden void @ssl_check_record_length(ptr noundef %0, ptr noundef %1, i32 
 
 14:                                               ; preds = %10, %7
   %15 = or disjoint i32 %., 16384
-  %16 = icmp ult i32 %15, %3
+  %16 = icmp ugt i32 %3, %15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14

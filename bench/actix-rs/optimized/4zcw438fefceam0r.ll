@@ -227,7 +227,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf13poll_read_buf17h1d04fa84271fa
   %42 = load i64, ptr %12, align 8, !alias.scope !23, !noundef !4
   %43 = load i64, ptr %9, align 8, !alias.scope !23, !noundef !4
   %44 = sub i64 %42, %43
-  %45 = icmp ult i64 %44, %35
+  %45 = icmp ugt i64 %35, %44
   br i1 %45, label %46, label %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$11advance_mut17h8138949172b965c3E.exit"
 
 46:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb436595f7898f322E.exit23"
@@ -410,7 +410,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf13poll_read_buf17h642e099d0cc52
   %67 = load i64, ptr %14, align 8, !alias.scope !64, !noundef !4
   %68 = load i64, ptr %11, align 8, !alias.scope !64, !noundef !4
   %69 = sub i64 %67, %68
-  %70 = icmp ult i64 %69, %60
+  %70 = icmp ugt i64 %60, %69
   br i1 %70, label %71, label %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$11advance_mut17h8138949172b965c3E.exit"
 
 71:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb436595f7898f322E.exit23"
@@ -527,7 +527,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf13poll_read_buf17hb9297916af943
   %40 = load i64, ptr %12, align 8, !alias.scope !73, !noundef !4
   %41 = load i64, ptr %9, align 8, !alias.scope !73, !noundef !4
   %42 = sub i64 %40, %41
-  %43 = icmp ult i64 %42, %33
+  %43 = icmp ugt i64 %33, %42
   br i1 %43, label %44, label %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$11advance_mut17h8138949172b965c3E.exit"
 
 44:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb436595f7898f322E.exit23"
@@ -651,7 +651,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf13poll_read_buf17hf1c0117de9ac4
   %45 = load i64, ptr %12, align 8, !alias.scope !95, !noundef !4
   %46 = load i64, ptr %9, align 8, !alias.scope !95, !noundef !4
   %47 = sub i64 %45, %46
-  %48 = icmp ult i64 %47, %38
+  %48 = icmp ugt i64 %38, %47
   br i1 %48, label %49, label %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$11advance_mut17h8138949172b965c3E.exit"
 
 49:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb436595f7898f322E.exit23"
@@ -782,7 +782,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf13poll_read_buf17hf6c764e690874
   %46 = load i64, ptr %12, align 8, !alias.scope !121, !noundef !4
   %47 = load i64, ptr %9, align 8, !alias.scope !121, !noundef !4
   %48 = sub i64 %46, %47
-  %49 = icmp ult i64 %48, %39
+  %49 = icmp ugt i64 %39, %48
   br i1 %49, label %50, label %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$11advance_mut17h8138949172b965c3E.exit"
 
 50:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb436595f7898f322E.exit23"
@@ -830,7 +830,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h0d586156008a
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %16 = call i64 @llvm.usub.sat.i64(i64 %8, i64 %10)
-  %17 = icmp ult i64 %16, %.sroa.2.0.copyload
+  %17 = icmp ugt i64 %.sroa.2.0.copyload, %16
   br i1 %17, label %18, label %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hb02ca8881a9299ddE.exit"
 
 18:                                               ; preds = %15
@@ -954,7 +954,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   %28 = load i64, ptr %18, align 8, !alias.scope !146, !noalias !147, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %28, %.0.i
+  %.not.i.i.i.i = icmp ugt i64 %.0.i, %28
   br i1 %.not.i.i.i.i, label %29, label %30
 
 29:                                               ; preds = %27
@@ -966,7 +966,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !150
   store i64 %.0.i, ptr %8, align 8, !noalias !154
   %31 = load i64, ptr %16, align 8, !alias.scope !155, !noalias !147, !noundef !4
-  %.not.i.i.i.i.i = icmp ult i64 %31, %.0.i
+  %.not.i.i.i.i.i = icmp ugt i64 %.0.i, %31
   br i1 %.not.i.i.i.i.i, label %32, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h2ad8883c49b90654E.llvm.13402347524827553107.exit.i"
 
 32:                                               ; preds = %30
@@ -1230,7 +1230,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
   call void @llvm.experimental.noalias.scope.decl(metadata !221)
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %58 = load i64, ptr %19, align 8, !alias.scope !227, !noalias !228, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %58, %.0.i
+  %.not.i.i.i.i = icmp ugt i64 %.0.i, %58
   br i1 %.not.i.i.i.i, label %59, label %60
 
 59:                                               ; preds = %57
@@ -1242,7 +1242,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !231
   store i64 %.0.i, ptr %8, align 8, !noalias !235
   %61 = load i64, ptr %17, align 8, !alias.scope !236, !noalias !228, !noundef !4
-  %.not.i.i.i.i.i = icmp ult i64 %61, %.0.i
+  %.not.i.i.i.i.i = icmp ugt i64 %.0.i, %61
   br i1 %.not.i.i.i.i.i, label %62, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h2ad8883c49b90654E.llvm.13402347524827553107.exit.i"
 
 62:                                               ; preds = %60
@@ -1473,7 +1473,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17hf6f0f0972e79
   %.0 = phi i64 [ %.sroa.2.0.copyload, %60 ], [ %.sroa.212.0.copyload, %32 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !300)
   %36 = call i64 @llvm.usub.sat.i64(i64 %9, i64 %11)
-  %37 = icmp ult i64 %36, %.0
+  %37 = icmp ugt i64 %.0, %36
   br i1 %37, label %38, label %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hb02ca8881a9299ddE.exit"
 
 38:                                               ; preds = %35
@@ -4983,7 +4983,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h2b1d65e28ce
   %.067 = phi i64 [ 0, %.lr.ph ], [ %.1, %259 ]
   %.02366 = phi i64 [ %36, %.lr.ph ], [ %.124, %259 ]
   %93 = load i64, ptr %37, align 8, !alias.scope !424, !noundef !4
-  %.not.i.not = icmp ugt i64 %93, %.067
+  %.not.i.not = icmp ult i64 %.067, %93
   br i1 %.not.i.not, label %96, label %95
 
 94:                                               ; preds = %265, %._crit_edge
@@ -5546,7 +5546,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h36989e10fc0
   %.043 = phi i64 [ 0, %.lr.ph ], [ %.1, %36 ]
   %.02342 = phi i64 [ %6, %.lr.ph ], [ %.124, %36 ]
   %19 = load i64, ptr %7, align 8, !alias.scope !465, !noundef !4
-  %.not.i.not = icmp ugt i64 %19, %.043
+  %.not.i.not = icmp ult i64 %.043, %19
   br i1 %.not.i.not, label %22, label %21
 
 20:                                               ; preds = %42, %._crit_edge
@@ -5636,7 +5636,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h8cf68fb1257
   %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %19 ]
   %.01316 = phi i64 [ %6, %.lr.ph ], [ %.114, %19 ]
   %17 = load i64, ptr %7, align 8, !alias.scope !474, !noundef !4
-  %.not.i.not = icmp ugt i64 %17, %.017
+  %.not.i.not = icmp ult i64 %.017, %17
   br i1 %.not.i.not, label %19, label %18
 
 18:                                               ; preds = %16
@@ -5716,7 +5716,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hb096cc980ae
   %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %"_ZN2h25proto7streams5store5Store8for_each28_$u7b$$u7b$closure$u7d$$u7d$17h63ea681ee5b38a8dE.exit" ]
   %.01316 = phi i64 [ %7, %.lr.ph ], [ %.114, %"_ZN2h25proto7streams5store5Store8for_each28_$u7b$$u7b$closure$u7d$$u7d$17h63ea681ee5b38a8dE.exit" ]
   %20 = load i64, ptr %8, align 8, !alias.scope !501, !noundef !4
-  %.not.i.not = icmp ugt i64 %20, %.017
+  %.not.i.not = icmp ult i64 %.017, %20
   br i1 %.not.i.not, label %22, label %21
 
 21:                                               ; preds = %19
@@ -5805,7 +5805,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hef44caf1a5b
   %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %17 ]
   %.01316 = phi i64 [ %6, %.lr.ph ], [ %.114, %17 ]
   %15 = load i64, ptr %7, align 8, !alias.scope !530, !noundef !4
-  %.not.i.not = icmp ugt i64 %15, %.017
+  %.not.i.not = icmp ult i64 %.017, %15
   br i1 %.not.i.not, label %17, label %16
 
 16:                                               ; preds = %14
@@ -5940,7 +5940,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.13402
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -6184,7 +6184,7 @@ define hidden void @"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Bu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !591)
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8, !alias.scope !594, !noundef !4
-  %.not.i.i = icmp ult i64 %9, %1
+  %.not.i.i = icmp ugt i64 %1, %9
   br i1 %.not.i.i, label %10, label %11
 
 10:                                               ; preds = %2
@@ -6197,7 +6197,7 @@ define hidden void @"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Bu
   store i64 %1, ptr %6, align 8, !noalias !598
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !598, !noundef !4
-  %.not.i.i.i = icmp ult i64 %13, %1
+  %.not.i.i.i = icmp ugt i64 %1, %13
   br i1 %.not.i.i.i, label %14, label %"_ZN98_$LT$h2..proto..streams..prioritize..Prioritized$LT$B$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17habd6bf06c4aca367E.exit"
 
 14:                                               ; preds = %11
@@ -6370,7 +6370,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d14
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = sub i64 %7, %5
-  %.not = icmp ult i64 %8, %2
+  %.not = icmp ugt i64 %2, %8
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %3
@@ -6386,7 +6386,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d14
   %14 = load i64, ptr %6, align 8, !noundef !4
   %15 = load i64, ptr %4, align 8, !noundef !4
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %10
@@ -6456,7 +6456,7 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
   %.val9 = load i64, ptr %20, align 8, !noundef !4
   %21 = load i64, ptr %4, align 8, !alias.scope !612, !noalias !619, !noundef !4
   %22 = sub i64 %21, %18
-  %23 = icmp ult i64 %22, %.val9
+  %23 = icmp ugt i64 %.val9, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb1406ca275f9020eE.exit"
 
 24:                                               ; preds = %.lr.ph
@@ -6558,7 +6558,7 @@ define hidden void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_im
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %17
 
 9:                                                ; preds = %2
@@ -6994,7 +6994,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %12 = phi i64 [ %.promoted, %.lr.ph ], [ %26, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h2ad8883c49b90654E.llvm.13402347524827553107.exit" ]
   %13 = phi i64 [ %.promoted4, %.lr.ph ], [ %28, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h2ad8883c49b90654E.llvm.13402347524827553107.exit" ]
   %14 = sub i64 %9, %10
-  %.not.i = icmp ult i64 %14, %.0.sroa.speculated.i.i.i.i.i7
+  %.not.i = icmp ugt i64 %.0.sroa.speculated.i.i.i.i.i7, %14
   br i1 %.not.i, label %15, label %16
 
 15:                                               ; preds = %8
@@ -7010,7 +7010,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %20 = load i64, ptr %7, align 8, !alias.scope !663, !noalias !666, !noundef !4
   %21 = load i64, ptr %6, align 8, !alias.scope !663, !noalias !666, !noundef !4
   %22 = sub i64 %20, %21
-  %23 = icmp ult i64 %22, %.0.sroa.speculated.i.i.i.i.i7
+  %23 = icmp ugt i64 %.0.sroa.speculated.i.i.i.i.i7, %22
   br i1 %23, label %24, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h2ad8883c49b90654E.llvm.13402347524827553107.exit"
 
 24:                                               ; preds = %16
@@ -7095,7 +7095,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %26 = phi ptr [ %.pre, %.lr.ph ], [ %52, %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.llvm.13402347524827553107.exit" ]
   %27 = phi i64 [ %8, %.lr.ph ], [ %50, %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.llvm.13402347524827553107.exit" ]
   %28 = sub i64 %24, %25
-  %.not.i = icmp ult i64 %28, %27
+  %.not.i = icmp ugt i64 %27, %28
   br i1 %.not.i, label %29, label %30
 
 29:                                               ; preds = %23
@@ -7114,7 +7114,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %34 = load i64, ptr %10, align 8, !alias.scope !684, !noalias !687, !noundef !4
   %35 = load i64, ptr %9, align 8, !alias.scope !684, !noalias !687, !noundef !4
   %36 = sub i64 %34, %35
-  %37 = icmp ult i64 %36, %27
+  %37 = icmp ugt i64 %27, %36
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %30
@@ -7131,7 +7131,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %27, ptr %6, align 8, !noalias !698
   %41 = load i64, ptr %7, align 8, !alias.scope !698, !noundef !4
-  %.not.i2 = icmp ult i64 %41, %27
+  %.not.i2 = icmp ugt i64 %27, %41
   br i1 %.not.i2, label %42, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.llvm.13402347524827553107.exit"
 
 42:                                               ; preds = %39
@@ -7192,7 +7192,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %6 = load i64, ptr %4, align 8, !alias.scope !707, !noalias !710, !noundef !4
   %7 = load i64, ptr %5, align 8, !alias.scope !707, !noalias !710, !noundef !4
   %8 = sub i64 %7, %6
-  %.not.i.us = icmp ult i64 %8, %2
+  %.not.i.us = icmp ugt i64 %2, %8
   br i1 %.not.i.us, label %9, label %10
 
 9:                                                ; preds = %.lr.ph.split.us
@@ -7208,7 +7208,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %14 = load i64, ptr %5, align 8, !alias.scope !707, !noalias !710, !noundef !4
   %15 = load i64, ptr %4, align 8, !alias.scope !707, !noalias !710, !noundef !4
   %16 = sub i64 %14, %15
-  %17 = icmp ult i64 %16, %2
+  %17 = icmp ugt i64 %2, %16
   br i1 %17, label %.split.us, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h5b0b05ddc38aa96aE.llvm.13402347524827553107.exit.us"
 
 "_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h5b0b05ddc38aa96aE.llvm.13402347524827553107.exit.us": ; preds = %10
@@ -7256,7 +7256,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %13 = phi i64 [ %.promoted, %.lr.ph ], [ %27, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4a1cdcd98e9b2599E.llvm.13402347524827553107.exit" ]
   %14 = phi i64 [ %.promoted7, %.lr.ph ], [ %29, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4a1cdcd98e9b2599E.llvm.13402347524827553107.exit" ]
   %15 = sub i64 %10, %11
-  %.not.i = icmp ult i64 %15, %.0.sroa.speculated.i.i.i12
+  %.not.i = icmp ugt i64 %.0.sroa.speculated.i.i.i12, %15
   br i1 %.not.i, label %16, label %17
 
 16:                                               ; preds = %9
@@ -7272,7 +7272,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %21 = load i64, ptr %8, align 8, !alias.scope !712, !noalias !715, !noundef !4
   %22 = load i64, ptr %7, align 8, !alias.scope !712, !noalias !715, !noundef !4
   %23 = sub i64 %21, %22
-  %24 = icmp ult i64 %23, %.0.sroa.speculated.i.i.i12
+  %24 = icmp ugt i64 %.0.sroa.speculated.i.i.i12, %23
   br i1 %24, label %25, label %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h4a1cdcd98e9b2599E.llvm.13402347524827553107.exit"
 
 25:                                               ; preds = %17
@@ -7336,7 +7336,7 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %2
@@ -7349,7 +7349,7 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
   store i64 %1, ptr %6, align 8, !noalias !733
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !733, !noundef !4
-  %.not.i = icmp ult i64 %12, %1
+  %.not.i = icmp ugt i64 %1, %12
   br i1 %.not.i, label %13, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.llvm.13402347524827553107.exit"
 
 13:                                               ; preds = %10
@@ -7397,7 +7397,7 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %.not = icmp ult i64 %8, %1
+  %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %2
@@ -7411,7 +7411,7 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !748)
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load i64, ptr %12, align 8, !alias.scope !751, !noalias !742, !noundef !4
-  %.not.i.i.i = icmp ult i64 %13, %1
+  %.not.i.i.i = icmp ugt i64 %1, %13
   br i1 %.not.i.i.i, label %14, label %15
 
 14:                                               ; preds = %10
@@ -7424,7 +7424,7 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
   store i64 %1, ptr %6, align 8, !noalias !756
   %16 = getelementptr inbounds i8, ptr %11, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !757, !noalias !742, !noundef !4
-  %.not.i.i.i.i = icmp ult i64 %17, %1
+  %.not.i.i.i.i = icmp ugt i64 %1, %17
   br i1 %.not.i.i.i.i, label %18, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h2ad8883c49b90654E.llvm.13402347524827553107.exit"
 
 18:                                               ; preds = %15

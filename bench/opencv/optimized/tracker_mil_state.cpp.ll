@@ -976,7 +976,7 @@ define void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting12estimateI
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = sdiv exact i64 %36, 24
-  %.not.i.i = icmp ugt i64 %37, %31
+  %.not.i.i = icmp ult i64 %31, %37
   br i1 %.not.i.i, label %39, label %38
 
 38:                                               ; preds = %.loopexit

@@ -1653,7 +1653,7 @@ define void @_Z19_gmx_sel_init_lexerPPvP23gmx_ana_selcollection_tPN3gmx10TextWri
   %37 = sub i64 %35, %36
   %38 = lshr exact i64 %37, 3
   %39 = trunc i64 %38 to i32
-  %40 = add i32 %39, %3
+  %40 = add i32 %3, %39
   br label %41
 
 41:                                               ; preds = %22, %30

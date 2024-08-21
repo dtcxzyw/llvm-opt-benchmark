@@ -38,7 +38,7 @@ define void @php_random_pcgoneseq128xslrr64_seed128(ptr nocapture noundef writeo
   %.sroa.02.0.insert.insert.i = add nuw nsw i128 %.sroa.0.0.insert.ext.i13, 117397592171526113268558934119004209487
   %4 = lshr i128 %.sroa.02.0.insert.insert.i, 64
   %.tr.i = trunc nuw nsw i128 %4 to i64
-  %.narrow.i = add i64 %.tr.i, %2
+  %.narrow.i = add i64 %2, %.tr.i
   %.sroa.2.0.insert.ext = zext i64 %.narrow.i to i128
   %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
   %.sroa.0.0.insert.ext = and i128 %.sroa.02.0.insert.insert.i, 18446744073709551615

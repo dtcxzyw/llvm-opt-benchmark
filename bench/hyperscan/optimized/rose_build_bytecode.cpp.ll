@@ -22406,7 +22406,7 @@ entry:
   tail call void @_ZN3ue212shengCompileERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbPSt3setItSt4lessItESaItEE(ptr sret(%"class.ue2::bytecode_ptr.541") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext false, ptr noundef null)
   %0 = load ptr, ptr %agg.result, align 8
   %cmp.i.i.i = icmp ne ptr %0, null
-  %brmerge = or i1 %cmp.i.i.i, %is_transient
+  %brmerge = or i1 %is_transient, %cmp.i.i.i
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -22594,7 +22594,7 @@ if.end15:                                         ; preds = %if.then.i.i70, %_ZN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp11) #26
   %.pre116 = load ptr, ptr %agg.result, align 8
   %cmp.i.i.i73 = icmp ne ptr %.pre116, null
-  %brmerge50 = or i1 %cmp.i.i.i73, %is_transient
+  %brmerge50 = or i1 %is_transient, %cmp.i.i.i73
   br i1 %brmerge50, label %if.end24, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
@@ -22804,7 +22804,7 @@ if.else:                                          ; preds = %if.then29
   br label %return
 
 if.else33:                                        ; preds = %if.then27
-  %brmerge58.demorgan = and i1 %call14, %fast_nfa
+  %brmerge58.demorgan = and i1 %fast_nfa, %call14
   br i1 %brmerge58.demorgan, label %if.then37, label %if.else38
 
 if.then37:                                        ; preds = %if.else33
@@ -23777,7 +23777,7 @@ invoke.cont:                                      ; preds = %cleanup36.i, %entry
 land.lhs.true:                                    ; preds = %invoke.cont
   %67 = load i8, ptr %0, align 8, !range !11, !noundef !12
   %tobool3.not = icmp eq i8 %67, 0
-  %brmerge = or i1 %tobool3.not, %do_prefix
+  %brmerge = or i1 %do_prefix, %tobool3.not
   br i1 %brmerge, label %invoke.cont11, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -25827,7 +25827,7 @@ if.end28:                                         ; preds = %invoke.cont23
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %if.end28
-  %292 = xor i1 %call31, %do_prefix
+  %292 = xor i1 %do_prefix, %call31
   br i1 %292, label %cleanup87, label %invoke.cont40
 
 lpad29:                                           ; preds = %if.end28
@@ -26280,7 +26280,7 @@ invoke.cont126:                                   ; preds = %call.i.i.noexc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ei, i8 0, i64 20, i1 false)
   %and.i = and i64 %334, %or4.i
   %cmp.i452 = icmp ne i64 %and.i, %or4.i
-  %or.cond.not.i = and i1 %cmp.i452, %do_prefix
+  %or.cond.not.i = and i1 %do_prefix, %cmp.i452
   br i1 %or.cond.not.i, label %if.end7.i, label %if.end139
 
 if.end7.i:                                        ; preds = %invoke.cont126
@@ -41023,7 +41023,7 @@ land.lhs.true43:                                  ; preds = %if.else
   %cmp = icmp ne i32 %51, 2
   %is_prefix.not = xor i1 %is_prefix, true
   %brmerge = or i1 %cmp, %is_prefix.not
-  %brmerge237 = or i1 %brmerge, %is_transient
+  %brmerge237 = or i1 %is_transient, %brmerge
   br i1 %brmerge237, label %if.end66, label %if.then48
 
 if.then48:                                        ; preds = %land.lhs.true43
@@ -41094,7 +41094,7 @@ if.end66:                                         ; preds = %_ZN3ue212bytecode_p
   %60 = phi ptr [ %47, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit262 ], [ null, %land.lhs.true43 ], [ %59, %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit280 ]
   %.pre366.pre368.pr = load ptr, ptr %left, align 8
   %cmp.i.i.i281 = icmp ne ptr %60, null
-  %brmerge238 = or i1 %cmp.i.i.i281, %is_prefix
+  %brmerge238 = or i1 %is_prefix, %cmp.i.i.i281
   br i1 %brmerge238, label %if.end95, label %land.lhs.true70
 
 if.end66.thread:                                  ; preds = %if.else
@@ -41535,7 +41535,7 @@ if.end119:                                        ; preds = %if.end95.thread, %_
   %roseMcClellanPrefix121 = getelementptr inbounds i8, ptr %cc, i64 140
   %112 = load i32, ptr %roseMcClellanPrefix121, align 4
   %cmp122 = icmp eq i32 %112, 1
-  %brmerge240.not364 = and i1 %cmp122, %is_prefix
+  %brmerge240.not364 = and i1 %is_prefix, %cmp122
   %113 = load ptr, ptr %d.i, align 8
   %tobool129.not = icmp ne ptr %113, null
   %not.brmerge240.not364 = xor i1 %brmerge240.not364, true
@@ -53497,7 +53497,7 @@ invoke.cont30:                                    ; preds = %invoke.cont16, %cle
           to label %invoke.cont33 unwind label %lpad29.loopexit
 
 invoke.cont33:                                    ; preds = %invoke.cont30
-  %7 = xor i1 %call34, %in_etable
+  %7 = xor i1 %in_etable, %call34
   br i1 %7, label %cleanup, label %if.end41
 
 lpad29.loopexit:                                  ; preds = %_ZNSt16allocator_traitsISaIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEE8allocateERS9_m.exit.i.i, %if.end41, %invoke.cont30

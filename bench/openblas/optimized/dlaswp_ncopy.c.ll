@@ -216,7 +216,7 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 .split.split.us.preheader:                        ; preds = %.split
   %115 = shl i64 %15, 4
-  %116 = mul i64 %115, %4
+  %116 = mul i64 %4, %115
   %117 = getelementptr i8, ptr %3, i64 %116
   %scevgep = getelementptr i8, ptr %117, i64 -8
   br label %.split22.us

@@ -883,7 +883,7 @@ if.end:                                           ; preds = %entry
   %sector_mask = getelementptr inbounds i8, ptr %dev, i64 664
   %0 = load i16, ptr %sector_mask, align 8
   %conv = zext i16 %0 to i64
-  %and = and i64 %conv, %sector
+  %and = and i64 %sector, %conv
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end2, label %return
 
@@ -900,7 +900,7 @@ if.end7:                                          ; preds = %if.end2
   %2 = load ptr, ptr %blk, align 8
   call void @blk_get_geometry(ptr noundef %2, ptr noundef nonnull %total_sectors) #14
   %3 = load i64, ptr %total_sectors, align 8
-  %cmp8 = icmp uge i64 %3, %sector
+  %cmp8 = icmp ule i64 %sector, %3
   %sub = sub nuw i64 %3, %sector
   %cmp10 = icmp ule i64 %shr, %sub
   %or.cond.not = select i1 %cmp8, i1 %cmp10, i1 false
@@ -1071,7 +1071,7 @@ lor.lhs.false3.i:                                 ; preds = %if.end.i
   %4 = load i64, ptr %total_sectors.i, align 8
   %shl.i = shl i64 %4, 9
   %cmp4.i = icmp slt i64 %shl.i, 0
-  %cmp8.i = icmp slt i64 %shl.i, %shl
+  %cmp8.i = icmp sgt i64 %shl, %shl.i
   %or.cond.i = select i1 %cmp4.i, i1 true, i1 %cmp8.i
   br i1 %or.cond.i, label %out17, label %if.end4
 
@@ -1280,9 +1280,9 @@ lor.lhs.false3.i:                                 ; preds = %if.end.i
   %total_sectors.i = getelementptr inbounds i8, ptr %call.i41, i64 16888
   %20 = load i64, ptr %total_sectors.i, align 8
   %shl.i = shl i64 %20, 9
-  %cmp4.i = icmp slt i64 %shl.i, %len.0
+  %cmp4.i = icmp sgt i64 %len.0, %shl.i
   %sub.i = sub nsw i64 %shl.i, %len.0
-  %cmp8.i = icmp slt i64 %sub.i, %offset.0
+  %cmp8.i = icmp sgt i64 %offset.0, %sub.i
   %or.cond.i = select i1 %cmp4.i, i1 true, i1 %cmp8.i
   br i1 %or.cond.i, label %out29, label %if.end26
 
@@ -1544,9 +1544,9 @@ lor.lhs.false3.i:                                 ; preds = %if.end.i
   %total_sectors.i = getelementptr inbounds i8, ptr %call.i25, i64 16888
   %10 = load i64, ptr %total_sectors.i, align 8
   %shl.i = shl i64 %10, 9
-  %cmp4.i = icmp slt i64 %shl.i, %call2
+  %cmp4.i = icmp sgt i64 %call2, %shl.i
   %sub.i = sub nsw i64 %shl.i, %call2
-  %cmp8.i = icmp slt i64 %sub.i, %shl
+  %cmp8.i = icmp sgt i64 %shl, %sub.i
   %or.cond.i = select i1 %cmp4.i, i1 true, i1 %cmp8.i
   br i1 %or.cond.i, label %out15, label %if.end10.i
 
@@ -1676,7 +1676,7 @@ virtio_blk_sect_range_ok.exit:                    ; preds = %if.end2.i
   %3 = load ptr, ptr %blk.i, align 8
   call void @blk_get_geometry(ptr noundef %3, ptr noundef nonnull %total_sectors.i) #14
   %4 = load i64, ptr %total_sectors.i, align 8
-  %cmp8.i = icmp uge i64 %4, %dwz_hdr.val
+  %cmp8.i = icmp ule i64 %dwz_hdr.val, %4
   %sub.i = sub nuw i64 %4, %dwz_hdr.val
   %cmp10.i = icmp ule i64 %shr.i, %sub.i
   %or.cond.not.i = select i1 %cmp8.i, i1 %cmp10.i, i1 false
@@ -1997,7 +1997,7 @@ switch.lookup51:                                  ; preds = %switch.hole_check
 
 land.lhs.true1.i36:                               ; preds = %switch.lookup51
   %27 = load i64, ptr %iov_len.i37, align 8
-  %cmp.not.i = icmp ult i64 %27, %i.048
+  %cmp.not.i = icmp ugt i64 %i.048, %27
   %sub.i = sub nuw i64 %27, %i.048
   %cmp5.not.i38 = icmp ult i64 %sub.i, 64
   %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i38

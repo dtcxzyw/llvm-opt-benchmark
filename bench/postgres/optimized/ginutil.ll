@@ -1185,7 +1185,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %48 = getelementptr inbounds i8, ptr %0, i64 48
   %49 = load i32, ptr %48, align 8
   %50 = icmp ne i32 %49, 0
-  %brmerge = or i1 %50, %2
+  %brmerge = or i1 %2, %50
   br i1 %brmerge, label %62, label %52
 
 51:                                               ; preds = %40

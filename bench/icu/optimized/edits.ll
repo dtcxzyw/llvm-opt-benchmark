@@ -136,7 +136,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -416,7 +416,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #14
   %cmp7 = icmp eq ptr %call, null
@@ -912,7 +912,7 @@ _ZNK6icu_755Edits8lastUnitEv.exit:                ; preds = %if.end5
 if.then8:                                         ; preds = %_ZNK6icu_755Edits8lastUnitEv.exit
   %narrow = sub nuw nsw i16 4095, %5
   %sub = zext nneg i16 %narrow to i32
-  %cmp9.not = icmp ult i32 %sub, %unchangedLength
+  %cmp9.not = icmp ugt i32 %unchangedLength, %sub
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
@@ -3121,18 +3121,18 @@ if.end:                                           ; preds = %entry
   %spanLength.0.in = select i1 %tobool2.not, ptr %newLength_, ptr %oldLength_
   %spanStart.0.in = select i1 %tobool2.not, ptr %destIndex, ptr %srcIndex
   %spanStart.0 = load i32, ptr %spanStart.0.in, align 8
-  %cmp5 = icmp sgt i32 %spanStart.0, %i
+  %cmp5 = icmp slt i32 %i, %spanStart.0
   br i1 %cmp5, label %if.then6, label %if.else69
 
 if.then6:                                         ; preds = %if.end
   %div37 = lshr i32 %spanStart.0, 1
-  %cmp7.not = icmp ugt i32 %div37, %i
+  %cmp7.not = icmp ult i32 %i, %div37
   br i1 %cmp7.not, label %if.end61, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then6
   %call941 = tail call noundef signext i8 @_ZN6icu_755Edits8Iterator8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cond42 = load i32, ptr %spanStart.0.in, align 8
-  %cmp13.not43 = icmp sgt i32 %cond42, %i
+  %cmp13.not43 = icmp slt i32 %i, %cond42
   br i1 %cmp13.not43, label %if.end15.lr.ph, label %return
 
 if.end15.lr.ph:                                   ; preds = %for.cond.preheader
@@ -3160,7 +3160,7 @@ if.then17:                                        ; preds = %if.end15
   %sub = sub nsw i32 %add, %1
   %mul = mul nsw i32 %sub, %cond24
   %sub26 = sub nsw i32 %cond44, %mul
-  %cmp27.not = icmp sgt i32 %sub26, %i
+  %cmp27.not = icmp slt i32 %i, %sub26
   br i1 %cmp27.not, label %if.end46, label %if.then28
 
 if.then28:                                        ; preds = %if.then17
@@ -3205,7 +3205,7 @@ if.end46:                                         ; preds = %if.then17
 if.end60:                                         ; preds = %if.end46, %if.end15
   %call9 = tail call noundef signext i8 @_ZN6icu_755Edits8Iterator8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cond = load i32, ptr %spanStart.0.in, align 8
-  %cmp13.not = icmp sgt i32 %cond, %i
+  %cmp13.not = icmp slt i32 %i, %cond
   br i1 %cmp13.not, label %if.end15, label %return, !llvm.loop !18
 
 if.end61:                                         ; preds = %if.then6
@@ -3221,7 +3221,7 @@ if.end61:                                         ; preds = %if.then6
 if.else69:                                        ; preds = %if.end
   %spanLength.0 = load i32, ptr %spanLength.0.in, align 4
   %add70 = add nsw i32 %spanLength.0, %spanStart.0
-  %cmp71 = icmp sgt i32 %add70, %i
+  %cmp71 = icmp slt i32 %i, %add70
   br i1 %cmp71, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.else69, %if.end61
@@ -3237,7 +3237,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %spanStart.1 = load i32, ptr %spanStart.0.in, align 8
   %spanLength.1 = load i32, ptr %spanLength.0.in, align 4
   %add85 = add nsw i32 %spanLength.1, %spanStart.1
-  %cmp86 = icmp sgt i32 %add85, %i
+  %cmp86 = icmp slt i32 %i, %add85
   br i1 %cmp86, label %return, label %if.end88
 
 if.end88:                                         ; preds = %while.body
@@ -3248,7 +3248,7 @@ if.end88:                                         ; preds = %while.body
 if.then91:                                        ; preds = %if.end88
   %mul94 = mul nsw i32 %17, %spanLength.1
   %add95 = add nsw i32 %mul94, %spanStart.1
-  %cmp96 = icmp sgt i32 %add95, %i
+  %cmp96 = icmp slt i32 %i, %add95
   br i1 %cmp96, label %if.then97, label %if.end115
 
 if.then97:                                        ; preds = %if.then91
@@ -3306,7 +3306,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %srcIndex = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %srcIndex, align 8
-  %cmp3 = icmp eq i32 %0, %i
+  %cmp3 = icmp eq i32 %i, %0
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
@@ -3352,7 +3352,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %destIndex = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %destIndex, align 8
-  %cmp3 = icmp eq i32 %0, %i
+  %cmp3 = icmp eq i32 %i, %0
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end

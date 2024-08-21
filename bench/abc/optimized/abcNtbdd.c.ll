@@ -411,7 +411,7 @@ define range(i32 0, 2) i32 @Abc_NtkBddToMuxesPerformGlo(ptr noundef %0, ptr noun
   %41 = getelementptr i8, ptr %.val67.val.val, i64 56
   %.val67.val.val.val = load ptr, ptr %41, align 8
   %42 = load i32, ptr %.val67.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %42, %.val68
+  %.not.i.i = icmp slt i32 %.val68, %42
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %43
 
 43:                                               ; preds = %34
@@ -700,7 +700,7 @@ define ptr @Abc_NtkBuildGlobalBdds(ptr noundef %0, i32 noundef %1, i32 noundef %
   %39 = getelementptr i8, ptr %.val143.val.val, i64 56
   %.val143.val.val.val = load ptr, ptr %39, align 8
   %40 = load i32, ptr %.val143.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %40, %.val144
+  %.not.i.i = icmp slt i32 %.val144, %40
   br i1 %.not.i.i, label %Abc_ObjSetGlobalBdd.exit, label %41
 
 41:                                               ; preds = %33
@@ -794,7 +794,7 @@ Abc_ObjSetGlobalBdd.exit:                         ; preds = %33, %41, %55
   %88 = getelementptr i8, ptr %.val145.val.val, i64 56
   %.val145.val.val.val = load ptr, ptr %88, align 8
   %89 = load i32, ptr %.val145.val.val.val, align 8
-  %.not.i.i174 = icmp sgt i32 %89, %.val146
+  %.not.i.i174 = icmp slt i32 %.val146, %89
   br i1 %.not.i.i174, label %Abc_ObjSetGlobalBdd.exit178, label %90
 
 90:                                               ; preds = %77
@@ -1041,7 +1041,7 @@ switch.early.test271:                             ; preds = %166
   %201 = getelementptr i8, ptr %.val147.val.val, i64 56
   %.val147.val.val.val = load ptr, ptr %201, align 8
   %202 = load i32, ptr %.val147.val.val.val, align 8
-  %.not.i.i181 = icmp sgt i32 %202, %.val148
+  %.not.i.i181 = icmp slt i32 %.val148, %202
   br i1 %.not.i.i181, label %Abc_ObjSetGlobalBdd.exit185, label %203
 
 203:                                              ; preds = %190
@@ -1248,7 +1248,7 @@ define internal fastcc ptr @Abc_NodeBddToMuxes_rec(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
@@ -1258,7 +1258,7 @@ define internal fastcc ptr @Abc_NodeBddToMuxes_rec(ptr noundef %0, ptr noundef %
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
@@ -1368,7 +1368,7 @@ define internal fastcc ptr @Abc_NodeGlobalBdds_rec(ptr noundef %0, ptr nocapture
   %22 = getelementptr i8, ptr %.val114.val.val, i64 56
   %.val114.val.val.val = load ptr, ptr %22, align 8
   %23 = load i32, ptr %.val114.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %23, %.val115
+  %.not.i.i = icmp slt i32 %.val115, %23
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %24
 
 24:                                               ; preds = %18
@@ -1506,7 +1506,7 @@ Abc_ObjGlobalBdd.exit.thread:                     ; preds = %52, %Abc_ObjGlobalB
   %100 = getelementptr i8, ptr %.val108.val.val, i64 56
   %.val108.val.val.val = load ptr, ptr %100, align 8
   %101 = load i32, ptr %.val108.val.val.val, align 8
-  %.not.i.i124 = icmp sgt i32 %101, %.val109
+  %.not.i.i124 = icmp slt i32 %.val109, %101
   br i1 %.not.i.i124, label %Abc_ObjSetGlobalBdd.exit, label %102
 
 102:                                              ; preds = %95
@@ -1559,7 +1559,7 @@ Abc_ObjSetGlobalBdd.exit:                         ; preds = %95, %102, %116
 128:                                              ; preds = %Abc_ObjSetGlobalBdd.exit
   %129 = load i32, ptr %5, align 4
   %130 = load i32, ptr %4, align 4
-  %131 = icmp sgt i32 %130, %129
+  %131 = icmp slt i32 %129, %130
   br i1 %131, label %Extra_ProgressBarUpdate.exit, label %132
 
 132:                                              ; preds = %128
@@ -1576,7 +1576,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %Vec_AttGrow.exit.i.
   %135 = getelementptr i8, ptr %.val112.val.val, i64 56
   %.val112.val.val.val = load ptr, ptr %135, align 8
   %136 = load i32, ptr %.val112.val.val.val, align 8
-  %.not.i.i128 = icmp sgt i32 %136, %.val113
+  %.not.i.i128 = icmp slt i32 %.val113, %136
   br i1 %.not.i.i128, label %Vec_AttGrow.exit.i.i130, label %137
 
 137:                                              ; preds = %Extra_ProgressBarUpdate.exit
@@ -1666,7 +1666,7 @@ Abc_ObjGlobalBdd.exit137:                         ; preds = %Vec_AttGrow.exit.i.
   %183 = getelementptr i8, ptr %.val.val.val, i64 56
   %.val.val.val.val = load ptr, ptr %183, align 8
   %184 = load i32, ptr %.val.val.val.val, align 8
-  %.not.i.i138 = icmp sgt i32 %184, %.val107
+  %.not.i.i138 = icmp slt i32 %.val107, %184
   br i1 %.not.i.i138, label %Abc_ObjSetGlobalBdd.exit142, label %185
 
 185:                                              ; preds = %180
@@ -1776,7 +1776,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %7
   %20 = getelementptr i8, ptr %.val14.val.val, i64 56
   %.val14.val.val.val = load ptr, ptr %20, align 8
   %21 = load i32, ptr %.val14.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %21, %.val15
+  %.not.i.i = icmp slt i32 %.val15, %21
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %22
 
 22:                                               ; preds = %.lr.ph

@@ -2668,7 +2668,7 @@ define ptr @H5B_shared_new(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %33 = mul i32 %12, %32
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %30, %34
-  %36 = mul i64 %22, %2
+  %36 = mul i64 %2, %22
   %37 = add i64 %35, %36
   %38 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %37, ptr %38, align 8

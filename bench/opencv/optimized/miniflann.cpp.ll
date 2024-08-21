@@ -8152,7 +8152,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %25 = load ptr, ptr %6, align 8
   %.not.i.i = icmp ne ptr %22, null
   %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = icmp eq ptr %26, %23
+  %27 = icmp eq ptr %23, %26
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %27
   br i1 %or.cond.i.i, label %.thread, label %28
 
@@ -8219,7 +8219,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7cvflann3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -9492,7 +9492,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -9797,7 +9797,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27
@@ -9972,7 +9972,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -11192,7 +11192,7 @@ define linkonce_odr hidden void @_ZN7cvflann7NNIndexINS_10HammingLUTEE9knnSearch
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
-  %.not46 = icmp slt i32 %60, %4
+  %.not46 = icmp sgt i32 %4, %60
   br i1 %.not46, label %61, label %69
 
 61:                                               ; preds = %57
@@ -11227,7 +11227,7 @@ define linkonce_odr hidden void @_ZN7cvflann7NNIndexINS_10HammingLUTEE9knnSearch
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %.not49 = icmp slt i32 %72, %4
+  %.not49 = icmp sgt i32 %4, %72
   br i1 %.not49, label %73, label %_ZN7cvflann18KNNUniqueResultSetIiEC2Ej.exit
 
 73:                                               ; preds = %69
@@ -11975,7 +11975,7 @@ define linkonce_odr hidden void @_ZN7cvflann18KNNUniqueResultSetIiE8addPointEii(
   %4 = alloca %"struct.cvflann::UniqueResultSet<int>::DistIndex", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %7, label %33
 
 7:                                                ; preds = %3
@@ -12162,7 +12162,7 @@ _ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit9.i: ; pred
 
 27:                                               ; preds = %._crit_edge.thread.i, %_ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit9.i, %19
   %.sroa.4.0.i.ph = phi ptr [ %.024.lcssa36.i, %19 ], [ %.024.lcssa36.i, %_ZNKSt4lessIN7cvflann15UniqueResultSetIiE9DistIndexEEclERKS3_S6_.exit9.i ], [ %.024.lcssa37.i, %._crit_edge.thread.i ]
-  %28 = icmp eq ptr %4, %.sroa.4.0.i.ph
+  %28 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %28, label %_ZNSt8_Rb_treeIN7cvflann15UniqueResultSetIiE9DistIndexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %29
 
 29:                                               ; preds = %27
@@ -12335,8 +12335,8 @@ _ZNSt8_Rb_treeIN7cvflann15UniqueResultSetIiE9DistIndexES3_St9_IdentityIS3_ESt4le
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %.sroa.043.0.i
-  %43 = icmp eq ptr %4, %.sroa.3.0.i
+  %42 = icmp eq ptr %.sroa.043.0.i, %41
+  %43 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %42, i1 %43, i1 false
   br i1 %or.cond, label %44, label %.critedge.i
 
@@ -12467,7 +12467,7 @@ define linkonce_odr hidden void @_ZN7cvflann21RadiusUniqueResultSetIiE8addPointE
   %4 = alloca %"struct.cvflann::UniqueResultSet<int>::DistIndex", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
-  %.not = icmp slt i32 %6, %1
+  %.not = icmp sgt i32 %1, %6
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
@@ -17605,7 +17605,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -17685,7 +17685,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds i32, ptr %0, i64 %51
   %53 = load i32, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -17737,7 +17737,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds i32, ptr %0, i64 %73
   %75 = load i32, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -20090,7 +20090,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
-  %49 = icmp sgt i32 %48, %.sroa.24.0.copyload.i.i
+  %49 = icmp slt i32 %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -20390,7 +20390,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansInd
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -20929,7 +20929,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansInd
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -20948,7 +20948,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -21343,7 +21343,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_11KMeansIndexINS0_10HammingLUTEE10KMea
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
-  %53 = icmp sgt i32 %52, %.sroa.23.0.copyload.i
+  %53 = icmp slt i32 %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -23548,7 +23548,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_10H
   store i32 %5, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 200
   %12 = load i32, ptr %11, align 8
-  %13 = icmp sgt i32 %12, %3
+  %13 = icmp slt i32 %3, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %6
@@ -25150,7 +25150,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct.117", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
-  %49 = icmp sgt i32 %48, %.sroa.24.0.copyload.i.i
+  %49 = icmp slt i32 %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -25439,7 +25439,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27Hierarchi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -25976,7 +25976,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27Hierarchi
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEEE17getPooledInstanceIiEEN2cv3PtrISB_EERKT_iiE16HeapMapValueTypeESaISK_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -25995,7 +25995,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -26253,7 +26253,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_27HierarchicalClusteringIndexINS0_10Ha
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.117", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
-  %53 = icmp sgt i32 %52, %.sroa.23.0.copyload.i
+  %53 = icmp slt i32 %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -26742,7 +26742,7 @@ define linkonce_odr hidden void @_ZN7cvflann8LshIndexINS_10HammingLUTEE9knnSearc
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
-  %.not52 = icmp slt i32 %60, %4
+  %.not52 = icmp sgt i32 %4, %60
   br i1 %.not52, label %61, label %69
 
 61:                                               ; preds = %57
@@ -26777,7 +26777,7 @@ define linkonce_odr hidden void @_ZN7cvflann8LshIndexINS_10HammingLUTEE9knnSearc
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %.not55 = icmp slt i32 %72, %4
+  %.not55 = icmp sgt i32 %4, %72
   br i1 %.not55, label %73, label %_ZN7cvflann18KNNUniqueResultSetIiEC2Ej.exit
 
 73:                                               ; preds = %69
@@ -27415,7 +27415,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 72
-  %21 = icmp eq ptr %20, %19
+  %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZNSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -27494,7 +27494,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 48
-  %14 = icmp eq ptr %13, %12
+  %14 = icmp eq ptr %12, %13
   br i1 %14, label %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -28031,7 +28031,7 @@ define linkonce_odr hidden void @_ZSt19__relocate_object_aIN7cvflann3lsh8LshTabl
   %25 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 72
-  %27 = icmp eq ptr %26, %13
+  %27 = icmp eq ptr %13, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %3
@@ -28134,7 +28134,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt6vectorIjSaIjEEE
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt6vectorIjSaIjEEELb0EEEEE19_M_deallocate_nodesEPS8_.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt6vectorIjSaIjEEELb0EEEEE18_M_deallocate_nodeEPS8_.exit.i, %4
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = icmp eq ptr %12, %11
+  %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %14
 
 14:                                               ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt6vectorIjSaIjEEELb0EEEEE19_M_deallocate_nodesEPS8_.exit
@@ -28147,7 +28147,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stES
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 48
-  %19 = icmp eq ptr %18, %17
+  %19 = icmp eq ptr %17, %18
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
@@ -28654,7 +28654,7 @@ define linkonce_odr hidden void @_ZN7cvflann3lsh8LshTableIhE8optimizeEv(ptr noun
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 24
-  %23 = icmp ult i64 %22, %12
+  %23 = icmp ugt i64 %12, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %15
@@ -28663,7 +28663,7 @@ define linkonce_odr hidden void @_ZN7cvflann3lsh8LshTableIhE8optimizeEv(ptr noun
   br label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %15
-  %27 = icmp ugt i64 %22, %12
+  %27 = icmp ult i64 %12, %22
   br i1 %27, label %28, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 28:                                               ; preds = %26
@@ -28771,7 +28771,7 @@ _ZNSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_E
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 3
-  %.not.i = icmp ugt i64 %70, %62
+  %.not.i = icmp ult i64 %62, %70
   br i1 %.not.i, label %73, label %71
 
 71:                                               ; preds = %.critedge
@@ -28782,7 +28782,7 @@ _ZNSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_E
   br label %_ZN7cvflann13DynamicBitset6resizeEm.exit
 
 73:                                               ; preds = %.critedge
-  %74 = icmp ugt i64 %70, %63
+  %74 = icmp ult i64 %63, %70
   br i1 %74, label %75, label %_ZN7cvflann13DynamicBitset6resizeEm.exit
 
 75:                                               ; preds = %73
@@ -28865,7 +28865,7 @@ define linkonce_odr void @_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_E
   %12 = fdiv double %9, %11
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fptoui double %13 to i64
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %14, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %14)
   %15 = tail call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %.sroa.speculated)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
@@ -29003,7 +29003,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stES
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -29639,7 +29639,7 @@ _ZNK7cvflann3lsh8LshTableIhE6getKeyEPKh.exit:     ; preds = %._crit_edge.i, %14
 62:                                               ; preds = %.preheader
   %63 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, %49
+  %65 = icmp eq i32 %49, %64
   br i1 %65, label %_ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i, label %.preheader, !llvm.loop !228
 
 66:                                               ; preds = %60
@@ -29655,11 +29655,11 @@ _ZNK7cvflann3lsh8LshTableIhE6getKeyEPKh.exit:     ; preds = %._crit_edge.i, %14
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 4
-  %76 = icmp eq i32 %75, %49
+  %76 = icmp eq i32 %49, %75
   br i1 %76, label %_ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i, label %.lr.ph.i.i.i.i.i
 
 77:                                               ; preds = %80
-  %78 = icmp eq i32 %82, %49
+  %78 = icmp eq i32 %49, %82
   br i1 %78, label %_ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !218
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %72, %77
@@ -29695,7 +29695,7 @@ _ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_
 88:                                               ; preds = %.preheader57
   %89 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i10.i, i64 8
   %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %90, %49
+  %91 = icmp eq i32 %49, %90
   br i1 %91, label %_ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit12.i, label %.preheader57, !llvm.loop !228
 
 92:                                               ; preds = %86
@@ -29712,11 +29712,11 @@ _ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_
   %100 = load ptr, ptr %98, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 8
   %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %102, %49
+  %103 = icmp eq i32 %49, %102
   br i1 %103, label %_ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit12.i, label %.lr.ph.i.i.i.i4.i
 
 104:                                              ; preds = %107
-  %105 = icmp eq i32 %109, %49
+  %105 = icmp eq i32 %49, %109
   br i1 %105, label %_ZNKSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit12.i, label %.lr.ph.i.i.i.i4.i, !llvm.loop !218
 
 .lr.ph.i.i.i.i4.i:                                ; preds = %99, %104
@@ -30582,7 +30582,7 @@ define linkonce_odr hidden void @_ZN7cvflann7NNIndexINS_2L2IfEEE9knnSearchERKNS_
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
-  %.not46 = icmp slt i32 %60, %4
+  %.not46 = icmp sgt i32 %4, %60
   br i1 %.not46, label %61, label %69
 
 61:                                               ; preds = %57
@@ -30617,7 +30617,7 @@ define linkonce_odr hidden void @_ZN7cvflann7NNIndexINS_2L2IfEEE9knnSearchERKNS_
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %.not49 = icmp slt i32 %72, %4
+  %.not49 = icmp sgt i32 %4, %72
   br i1 %.not49, label %73, label %_ZN7cvflann18KNNUniqueResultSetIfEC2Ej.exit
 
 73:                                               ; preds = %69
@@ -31244,7 +31244,7 @@ define linkonce_odr hidden void @_ZN7cvflann18KNNUniqueResultSetIfE8addPointEfi(
   %4 = alloca %"struct.cvflann::UniqueResultSet<float>::DistIndex", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load float, ptr %5, align 4
-  %7 = fcmp ugt float %6, %1
+  %7 = fcmp ult float %1, %6
   br i1 %7, label %8, label %34
 
 8:                                                ; preds = %3
@@ -31433,7 +31433,7 @@ _ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit9.i: ; pred
 
 29:                                               ; preds = %._crit_edge.thread.i, %_ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit9.i, %20
   %.sroa.4.0.i.ph = phi ptr [ %.024.lcssa36.i, %20 ], [ %.024.lcssa36.i, %_ZNKSt4lessIN7cvflann15UniqueResultSetIfE9DistIndexEEclERKS3_S6_.exit9.i ], [ %.024.lcssa37.i, %._crit_edge.thread.i ]
-  %30 = icmp eq ptr %4, %.sroa.4.0.i.ph
+  %30 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %30, label %_ZNSt8_Rb_treeIN7cvflann15UniqueResultSetIfE9DistIndexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %31
 
 31:                                               ; preds = %29
@@ -31610,8 +31610,8 @@ _ZNSt8_Rb_treeIN7cvflann15UniqueResultSetIfE9DistIndexES3_St9_IdentityIS3_ESt4le
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %.sroa.043.0.i
-  %46 = icmp eq ptr %4, %.sroa.3.0.i
+  %45 = icmp eq ptr %.sroa.043.0.i, %44
+  %46 = icmp eq ptr %.sroa.3.0.i, %4
   %or.cond = select i1 %45, i1 %46, i1 false
   br i1 %or.cond, label %47, label %.critedge.i
 
@@ -31733,7 +31733,7 @@ define linkonce_odr hidden void @_ZN7cvflann21RadiusUniqueResultSetIfE8addPointE
   %4 = alloca %"struct.cvflann::UniqueResultSet<float>::DistIndex", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load float, ptr %5, align 8
-  %7 = fcmp ult float %6, %1
+  %7 = fcmp ugt float %1, %6
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %3
@@ -32121,7 +32121,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 2
-  %75 = icmp ult i64 %74, %67
+  %75 = icmp ugt i64 %67, %74
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %64
@@ -32134,7 +32134,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 78:                                               ; preds = %64
-  %79 = icmp ugt i64 %74, %67
+  %79 = icmp ult i64 %67, %74
   br i1 %79, label %80, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 80:                                               ; preds = %78
@@ -32350,7 +32350,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 2
-  %58 = icmp ult i64 %57, %50
+  %58 = icmp ugt i64 %50, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %48
@@ -32363,7 +32363,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 61:                                               ; preds = %48
-  %62 = icmp ugt i64 %57, %50
+  %62 = icmp ult i64 %50, %57
   br i1 %62, label %63, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 63:                                               ; preds = %61
@@ -33761,7 +33761,7 @@ define linkonce_odr hidden void @_ZN7cvflann11LinearIndexINS_2L2IfEEE13findNeigh
   %.0812 = phi i64 [ 0, %.lr.ph ], [ %53, %_ZNK7cvflann2L2IfEclIPfPKfEEfT_T0_mf.exit ]
   %12 = getelementptr inbounds float, ptr %.013, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -12
-  %14 = icmp ugt ptr %13, %.013
+  %14 = icmp ult ptr %.013, %13
   br i1 %14, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
@@ -34122,7 +34122,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE9knnS
   %52 = getelementptr inbounds i8, ptr %2, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
-  %.not37 = icmp slt i32 %54, %4
+  %.not37 = icmp sgt i32 %4, %54
   br i1 %.not37, label %55, label %62
 
 55:                                               ; preds = %51
@@ -34152,7 +34152,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE9knnS
   %63 = getelementptr inbounds i8, ptr %3, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = trunc i64 %64 to i32
-  %.not40 = icmp slt i32 %65, %4
+  %.not40 = icmp sgt i32 %4, %65
   br i1 %.not40, label %66, label %73
 
 66:                                               ; preds = %62
@@ -34782,7 +34782,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE18com
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ult i64 %11, %4
+  %12 = icmp ugt i64 %4, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -34791,7 +34791,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE18com
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %4
+  %16 = icmp ult i64 %4, %11
   br i1 %16, label %17, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 17:                                               ; preds = %15
@@ -35041,7 +35041,7 @@ _ZN7cvflann15PooledAllocator8allocateINS_17KDTreeSingleIndexINS_2L2IfEEE4NodeEEE
   %80 = phi i64 [ 0, %.preheader ], [ %109, %107 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit85, label %.preheader, !llvm.loop !256
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
@@ -35826,7 +35826,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7cvflann18KNNSimpleResultSetI
 define linkonce_odr hidden void @_ZN7cvflann18KNNSimpleResultSetIfE8addPointEfi(ptr noundef nonnull align 8 dereferenceable(36) %0, float noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load float, ptr %4, align 8
-  %6 = fcmp ugt float %5, %1
+  %6 = fcmp ult float %1, %5
   br i1 %6, label %7, label %52
 
 7:                                                ; preds = %3
@@ -35978,7 +35978,7 @@ define linkonce_odr hidden void @_ZN7cvflann10load_valueINS_17KDTreeSingleIndexI
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %10
@@ -35988,7 +35988,7 @@ define linkonce_odr hidden void @_ZN7cvflann10load_valueINS_17KDTreeSingleIndexI
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 22:                                               ; preds = %10
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -36060,7 +36060,7 @@ define linkonce_odr hidden void @_ZN7cvflann10load_valueIiEEvP8_IO_FILERSt6vecto
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %10
@@ -36070,7 +36070,7 @@ define linkonce_odr hidden void @_ZN7cvflann10load_valueIiEEvP8_IO_FILERSt6vecto
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 22:                                               ; preds = %10
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -36519,7 +36519,7 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit.us:     ; preds = %50, %.lr.ph57.i.us,
   %95 = load i64, ptr %30, align 8
   %96 = getelementptr inbounds float, ptr %2, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 -12
-  %98 = icmp ugt ptr %97, %2
+  %98 = icmp ult ptr %2, %97
   br i1 %98, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %.split.us.i, %.lr.ph.i
@@ -36712,7 +36712,7 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit92.us:   ; preds = %172, %.lr.ph57.i80.
   %218 = load i64, ptr %149, align 8
   %219 = getelementptr inbounds float, ptr %2, i64 %218
   %220 = getelementptr inbounds i8, ptr %219, i64 -12
-  %221 = icmp ugt ptr %220, %2
+  %221 = icmp ult ptr %2, %220
   br i1 %221, label %.lr.ph.i84, label %.preheader.i75
 
 .lr.ph.i84:                                       ; preds = %.split.us.i74, %.lr.ph.i84
@@ -36811,10 +36811,10 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit92:      ; preds = %.lr.ph57.i80, %.pre
   %283 = load ptr, ptr %5, align 8
   %284 = getelementptr inbounds float, ptr %283, i64 %268
   %285 = load float, ptr %284, align 4
-  %286 = fadd float %.0, %4
+  %286 = fadd float %4, %.0
   %287 = fsub float %286, %285
   store float %.0, ptr %284, align 4
-  %288 = fmul float %287, %6
+  %288 = fmul float %6, %287
   %289 = load ptr, ptr %1, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 32
   %291 = load ptr, ptr %290, align 8
@@ -38494,7 +38494,7 @@ tailrecurse:                                      ; preds = %65, %6
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds float, ptr %22, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -12
-  %27 = icmp ugt ptr %26, %22
+  %27 = icmp ult ptr %22, %26
   br i1 %27, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
@@ -38574,7 +38574,7 @@ _ZNK7cvflann2L2IfEclIPfPKfEEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %77 = fmul float %76, %76
   %78 = fadd float %.tr37, %77
   tail call void @_ZN7cvflann11KDTreeIndexINS_2L2IfEEE16searchLevelExactERNS_9ResultSetIfEEPKfPNS3_4NodeEff(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %74, float noundef %.tr37, float noundef %5)
-  %79 = fmul float %78, %5
+  %79 = fmul float %5, %78
   %80 = load ptr, ptr %1, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
@@ -39147,7 +39147,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_2L2IfEEE11searchLev
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds float, ptr %53, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -12
-  %58 = icmp ugt ptr %57, %53
+  %58 = icmp ult ptr %53, %57
   br i1 %58, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
@@ -39225,8 +39225,8 @@ _ZNK7cvflann2L2IfEclIPfPKfEEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %106 = load ptr, ptr %.in46, align 8
   %107 = fsub float %100, %102
   %108 = fmul float %107, %107
-  %109 = fadd float %108, %4
-  %110 = fmul float %109, %7
+  %109 = fadd float %4, %108
+  %110 = fmul float %7, %109
   %111 = load ptr, ptr %1, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 32
   %113 = load ptr, ptr %112, align 8
@@ -39339,7 +39339,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct.268", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load float, ptr %47, align 8
-  %49 = fcmp ogt float %48, %.sroa.24.0.copyload.i.i
+  %49 = fcmp olt float %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -39628,7 +39628,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeInd
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -40165,7 +40165,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeInd
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -40184,7 +40184,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -40442,7 +40442,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_11KDTreeIndexINS0_2L2IfEEE4NodeEfEESaI
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.268", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load float, ptr %51, align 8
-  %53 = fcmp ogt float %52, %.sroa.23.0.copyload.i
+  %53 = fcmp olt float %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -40607,7 +40607,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %_ZN7cvflann12Unique
   %58 = load i64, ptr %41, align 8
   %59 = getelementptr inbounds float, ptr %57, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -12
-  %61 = icmp ugt ptr %60, %57
+  %61 = icmp ult ptr %57, %60
   br i1 %61, label %.lr.ph.i.preheader.us.us, label %.lr.ph.split.us59
 
 .lr.ph.split.us59:                                ; preds = %.lr.ph.us
@@ -40820,7 +40820,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %33 = load i64, ptr %28, align 8
   %34 = getelementptr inbounds float, ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -12
-  %36 = icmp ugt ptr %35, %32
+  %36 = icmp ult ptr %32, %35
   %37 = icmp ugt i64 %indvars.iv163, 1
   br i1 %37, label %.lr.ph69.split.us.us, label %.lr.ph69.split.us124
 
@@ -40919,7 +40919,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit.us.us:  ; preds = %_ZNK7cvflann2L2IfEc
   %86 = getelementptr inbounds float, ptr %29, i64 %85
   %87 = getelementptr inbounds float, ptr %86, i64 %33
   %88 = getelementptr inbounds i8, ptr %87, i64 -12
-  %89 = icmp ugt ptr %88, %86
+  %89 = icmp ult ptr %86, %88
   br i1 %89, label %.lr.ph.i52.us.us, label %.preheader.i43.us.us
 
 .lr.ph.i52.us.us:                                 ; preds = %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit.us.us, %.lr.ph.i52.us.us
@@ -41177,7 +41177,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %49 = getelementptr inbounds float, ptr %30, i64 %48
   %50 = getelementptr inbounds float, ptr %49, i64 %37
   %51 = getelementptr inbounds i8, ptr %50, i64 -12
-  %52 = icmp ugt ptr %51, %49
+  %52 = icmp ult ptr %49, %51
   br i1 %52, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -41315,7 +41315,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %123 = getelementptr inbounds float, ptr %109, i64 %122
   %124 = getelementptr inbounds float, ptr %123, i64 %117
   %125 = getelementptr inbounds i8, ptr %124, i64 -12
-  %126 = icmp ugt ptr %125, %123
+  %126 = icmp ult ptr %123, %125
   br i1 %126, label %.lr.ph.i96, label %.preheader.i87
 
 .lr.ph.i96:                                       ; preds = %118, %.lr.ph.i96
@@ -41408,7 +41408,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit100:     ; preds = %.lr.ph57.i92, %.pre
   %180 = getelementptr inbounds float, ptr %168, i64 %179
   %181 = getelementptr inbounds float, ptr %180, i64 %174
   %182 = getelementptr inbounds i8, ptr %181, i64 -12
-  %183 = icmp ugt ptr %182, %180
+  %183 = icmp ult ptr %180, %182
   br i1 %183, label %.lr.ph.i110, label %.preheader.i101
 
 .lr.ph.i110:                                      ; preds = %175, %.lr.ph.i110
@@ -42940,7 +42940,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit100:          ; preds = %.noexc99, %._crit_e
   %111 = load i64, ptr %97, align 8
   %112 = getelementptr inbounds float, ptr %106, i64 %111
   %113 = getelementptr inbounds i8, ptr %112, i64 -12
-  %114 = icmp ugt ptr %113, %106
+  %114 = icmp ult ptr %106, %113
   br i1 %114, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.i
@@ -43311,7 +43311,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21computeNo
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %32 = getelementptr inbounds float, ptr %25, i64 %6
   %33 = getelementptr inbounds i8, ptr %32, i64 -12
-  %34 = icmp ugt ptr %33, %25
+  %34 = icmp ult ptr %25, %33
   br i1 %34, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -43370,7 +43370,7 @@ _ZNK7cvflann2L2IfEclIPfNS_12ZeroIteratorIfEEEEfT_T0_mf.exit: ; preds = %.lr.ph44
 ._crit_edge81:                                    ; preds = %55, %.preheader
   %62 = getelementptr inbounds float, ptr %10, i64 %6
   %63 = getelementptr inbounds i8, ptr %62, i64 -12
-  %64 = icmp ugt ptr %63, %10
+  %64 = icmp ult ptr %10, %63
   br i1 %64, label %.lr.ph.i57, label %.preheader.i50
 
 .lr.ph.i57:                                       ; preds = %._crit_edge81, %.lr.ph.i57
@@ -43941,7 +43941,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %180 = getelementptr inbounds float, ptr %164, i64 %179
   %181 = getelementptr inbounds float, ptr %180, i64 %168
   %182 = getelementptr inbounds i8, ptr %181, i64 -12
-  %183 = icmp ugt ptr %182, %180
+  %183 = icmp ult ptr %180, %182
   br i1 %183, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %175, %.lr.ph.i
@@ -44254,7 +44254,7 @@ _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L2IfEEE10KMeansNodeE
   %69 = load i64, ptr %49, align 8
   %70 = getelementptr inbounds float, ptr %68, i64 %69
   %71 = getelementptr inbounds i8, ptr %70, i64 -12
-  %72 = icmp ugt ptr %71, %68
+  %72 = icmp ult ptr %68, %71
   br i1 %72, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
@@ -44330,7 +44330,7 @@ _ZNK7cvflann2L2IfEclIPfNS_12ZeroIteratorIfEEEEfT_T0_mf.exit: ; preds = %.lr.ph44
   %108 = load i64, ptr %49, align 8
   %109 = getelementptr inbounds float, ptr %107, i64 %108
   %110 = getelementptr inbounds i8, ptr %109, i64 -12
-  %111 = icmp ugt ptr %110, %107
+  %111 = icmp ult ptr %107, %110
   br i1 %111, label %.lr.ph.i78, label %.preheader.i71
 
 .lr.ph.i78:                                       ; preds = %._crit_edge, %.lr.ph.i78
@@ -44510,7 +44510,7 @@ define linkonce_odr hidden void @_ZNK7cvflann11KMeansIndexINS_2L2IfEEE22KMeansDi
   %31 = load i64, ptr %10, align 8
   %32 = getelementptr inbounds float, ptr %26, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -12
-  %34 = icmp ugt ptr %33, %26
+  %34 = icmp ult ptr %26, %33
   br i1 %34, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
@@ -44973,7 +44973,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE11findExact
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds float, ptr %3, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -12
-  %10 = icmp ugt ptr %9, %3
+  %10 = icmp ult ptr %3, %9
   br i1 %10, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
@@ -45079,7 +45079,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE11findExact
   %78 = load i64, ptr %6, align 8
   %79 = getelementptr inbounds float, ptr %77, i64 %78
   %80 = getelementptr inbounds i8, ptr %79, i64 -12
-  %81 = icmp ugt ptr %80, %77
+  %81 = icmp ult ptr %77, %80
   br i1 %81, label %.lr.ph.i48, label %.preheader.i39
 
 .lr.ph.i48:                                       ; preds = %69, %.lr.ph.i48
@@ -45681,7 +45681,7 @@ tailrecurse:                                      ; preds = %137, %7
   %11 = load i64, ptr %8, align 8
   %12 = getelementptr inbounds float, ptr %3, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -12
-  %14 = icmp ugt ptr %13, %3
+  %14 = icmp ult ptr %3, %13
   br i1 %14, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse, %.lr.ph.i
@@ -45807,7 +45807,7 @@ tailrecurse:                                      ; preds = %137, %7
   %93 = load i64, ptr %8, align 8
   %94 = getelementptr inbounds float, ptr %92, i64 %93
   %95 = getelementptr inbounds i8, ptr %94, i64 -12
-  %96 = icmp ugt ptr %95, %92
+  %96 = icmp ult ptr %92, %95
   br i1 %96, label %.lr.ph.i53, label %.preheader.i44
 
 .lr.ph.i53:                                       ; preds = %84, %.lr.ph.i53
@@ -45974,7 +45974,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct.328", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load float, ptr %47, align 8
-  %49 = fcmp ogt float %48, %.sroa.24.0.copyload.i.i
+  %49 = fcmp olt float %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -46107,7 +46107,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE17getCenter
   %20 = load i64, ptr %14, align 8
   %21 = getelementptr inbounds float, ptr %2, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -12
-  %23 = icmp ugt ptr %22, %2
+  %23 = icmp ult ptr %2, %22
   br i1 %23, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
@@ -46399,7 +46399,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansInd
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -46936,7 +46936,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansInd
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -46955,7 +46955,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -47110,7 +47110,7 @@ define linkonce_odr hidden noundef i32 @_ZN7cvflann11KMeansIndexINS_2L2IfEEE19ex
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds float, ptr %2, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -12
-  %14 = icmp ugt ptr %13, %2
+  %14 = icmp ult ptr %2, %13
   br i1 %14, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
@@ -47194,7 +47194,7 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %60 = load i64, ptr %10, align 8
   %61 = getelementptr inbounds float, ptr %2, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -12
-  %63 = icmp ugt ptr %62, %2
+  %63 = icmp ult ptr %2, %62
   br i1 %63, label %.lr.ph.i42, label %.preheader.i33
 
 .lr.ph.i42:                                       ; preds = %.lr.ph, %.lr.ph.i42
@@ -47415,7 +47415,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_11KMeansIndexINS0_2L2IfEEE10KMeansNode
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.328", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load float, ptr %51, align 8
-  %53 = fcmp ogt float %52, %.sroa.23.0.copyload.i
+  %53 = fcmp olt float %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -50693,7 +50693,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds float, ptr %19, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -12
-  %25 = icmp ugt ptr %24, %19
+  %25 = icmp ult ptr %19, %24
   br i1 %25, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, %.lr.ph.i
@@ -50780,7 +50780,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %70 = getelementptr inbounds float, ptr %19, i64 %69
   %71 = getelementptr inbounds float, ptr %70, i64 %22
   %72 = getelementptr inbounds i8, ptr %71, i64 -12
-  %73 = icmp ugt ptr %72, %70
+  %73 = icmp ult ptr %70, %72
   br i1 %73, label %.lr.ph.i64, label %.preheader.i55
 
 .lr.ph.i64:                                       ; preds = %68, %.lr.ph.i64
@@ -51062,7 +51062,7 @@ _ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataES5_SaI
 _ZNSt6vectorIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %64, %_ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i ]
   %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i26 = icmp eq ptr %6, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L2IfEEE8CostDataES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i31
@@ -51933,7 +51933,7 @@ _ZN7cvflann19countCorrectMatchesEPiS0_i.exit.us.us: ; preds = %..loopexit_crit_e
   %106 = getelementptr inbounds float, ptr %98, i64 %105
   %107 = getelementptr inbounds float, ptr %106, i64 %100
   %108 = getelementptr inbounds i8, ptr %107, i64 -12
-  %109 = icmp ugt ptr %108, %106
+  %109 = icmp ult ptr %106, %108
   br i1 %109, label %.lr.ph.i.i.us.us, label %.preheader.i.i.us.us
 
 .lr.ph.i.i.us.us:                                 ; preds = %101, %.lr.ph.i.i.us.us
@@ -51997,7 +51997,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit.i.us.us: ; preds = %.lr.ph57.i.i.us.us
   %148 = getelementptr inbounds float, ptr %98, i64 %147
   %149 = getelementptr inbounds float, ptr %148, i64 %100
   %150 = getelementptr inbounds i8, ptr %149, i64 -12
-  %151 = icmp ugt ptr %150, %148
+  %151 = icmp ult ptr %148, %150
   br i1 %151, label %.lr.ph.i32.i.us.us, label %.preheader.i23.i.us.us
 
 .lr.ph.i32.i.us.us:                               ; preds = %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit.i.us.us, %.lr.ph.i32.i.us.us
@@ -52279,7 +52279,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7cvflann12KNNResultSetIfE4ful
 define linkonce_odr hidden void @_ZN7cvflann12KNNResultSetIfE8addPointEfi(ptr noundef nonnull align 8 dereferenceable(36) %0, float noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load float, ptr %4, align 8
-  %6 = fcmp ugt float %5, %1
+  %6 = fcmp ult float %1, %5
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %3
@@ -53047,7 +53047,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %_ZN7cvflann12Unique
   %58 = load i64, ptr %41, align 8
   %59 = getelementptr inbounds float, ptr %57, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -12
-  %61 = icmp ugt ptr %60, %57
+  %61 = icmp ult ptr %57, %60
   br i1 %61, label %.lr.ph.i.preheader.us.us, label %.lr.ph.split.us59
 
 .lr.ph.split.us59:                                ; preds = %.lr.ph.us
@@ -53260,7 +53260,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %33 = load i64, ptr %28, align 8
   %34 = getelementptr inbounds float, ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -12
-  %36 = icmp ugt ptr %35, %32
+  %36 = icmp ult ptr %32, %35
   %37 = icmp ugt i64 %indvars.iv163, 1
   br i1 %37, label %.lr.ph69.split.us.us, label %.lr.ph69.split.us124
 
@@ -53359,7 +53359,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit.us.us:  ; preds = %_ZNK7cvflann2L2IfEc
   %86 = getelementptr inbounds float, ptr %29, i64 %85
   %87 = getelementptr inbounds float, ptr %86, i64 %33
   %88 = getelementptr inbounds i8, ptr %87, i64 -12
-  %89 = icmp ugt ptr %88, %86
+  %89 = icmp ult ptr %86, %88
   br i1 %89, label %.lr.ph.i52.us.us, label %.preheader.i43.us.us
 
 .lr.ph.i52.us.us:                                 ; preds = %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit.us.us, %.lr.ph.i52.us.us
@@ -53617,7 +53617,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %49 = getelementptr inbounds float, ptr %30, i64 %48
   %50 = getelementptr inbounds float, ptr %49, i64 %37
   %51 = getelementptr inbounds i8, ptr %50, i64 -12
-  %52 = icmp ugt ptr %51, %49
+  %52 = icmp ult ptr %49, %51
   br i1 %52, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -53755,7 +53755,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %123 = getelementptr inbounds float, ptr %109, i64 %122
   %124 = getelementptr inbounds float, ptr %123, i64 %117
   %125 = getelementptr inbounds i8, ptr %124, i64 -12
-  %126 = icmp ugt ptr %125, %123
+  %126 = icmp ult ptr %123, %125
   br i1 %126, label %.lr.ph.i96, label %.preheader.i87
 
 .lr.ph.i96:                                       ; preds = %118, %.lr.ph.i96
@@ -53848,7 +53848,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit100:     ; preds = %.lr.ph57.i92, %.pre
   %180 = getelementptr inbounds float, ptr %168, i64 %179
   %181 = getelementptr inbounds float, ptr %180, i64 %174
   %182 = getelementptr inbounds i8, ptr %181, i64 -12
-  %183 = icmp ugt ptr %182, %180
+  %183 = icmp ult ptr %180, %182
   br i1 %183, label %.lr.ph.i110, label %.preheader.i101
 
 .lr.ph.i110:                                      ; preds = %175, %.lr.ph.i110
@@ -53987,7 +53987,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %47 = getelementptr inbounds float, ptr %30, i64 %46
   %48 = getelementptr inbounds float, ptr %47, i64 %37
   %49 = getelementptr inbounds i8, ptr %48, i64 -12
-  %50 = icmp ugt ptr %49, %47
+  %50 = icmp ult ptr %47, %49
   br i1 %50, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
@@ -54099,7 +54099,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %104 = getelementptr inbounds float, ptr %88, i64 %103
   %105 = getelementptr inbounds float, ptr %104, i64 %90
   %106 = getelementptr inbounds i8, ptr %105, i64 -12
-  %107 = icmp ugt ptr %106, %104
+  %107 = icmp ult ptr %104, %106
   br i1 %107, label %.lr.ph.i79.us, label %.preheader.i70.us
 
 .lr.ph.i79.us:                                    ; preds = %99, %.lr.ph.i79.us
@@ -54206,7 +54206,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit83.us:   ; preds = %.lr.ph57.i75.us, %.
   %169 = getelementptr inbounds float, ptr %158, i64 %168
   %170 = getelementptr inbounds float, ptr %169, i64 %163
   %171 = getelementptr inbounds i8, ptr %170, i64 -12
-  %172 = icmp ugt ptr %171, %169
+  %172 = icmp ult ptr %169, %171
   br i1 %172, label %.lr.ph.i93, label %.preheader.i84
 
 .lr.ph.i93:                                       ; preds = %164, %.lr.ph.i93
@@ -55489,7 +55489,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   store i32 %5, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 200
   %12 = load i32, ptr %11, align 8
-  %13 = icmp sgt i32 %12, %3
+  %13 = icmp slt i32 %3, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %6
@@ -55876,7 +55876,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %25 = load i64, ptr %11, align 8
   %26 = getelementptr inbounds float, ptr %20, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -12
-  %28 = icmp ugt ptr %27, %20
+  %28 = icmp ult ptr %20, %27
   br i1 %28, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
@@ -55950,7 +55950,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %71 = load i64, ptr %11, align 8
   %72 = getelementptr inbounds float, ptr %20, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 -12
-  %74 = icmp ugt ptr %73, %20
+  %74 = icmp ult ptr %20, %73
   br i1 %74, label %.lr.ph.i36, label %.preheader.i27
 
 .lr.ph.i36:                                       ; preds = %.lr.ph, %.lr.ph.i36
@@ -56835,7 +56835,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %9
   %51 = load i64, ptr %30, align 8
   %52 = getelementptr inbounds float, ptr %50, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -12
-  %54 = icmp ugt ptr %53, %50
+  %54 = icmp ult ptr %50, %53
   br i1 %54, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
@@ -56934,7 +56934,7 @@ _ZNK7cvflann2L2IfEclIPfPKfEEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %118 = load i64, ptr %16, align 8
   %119 = getelementptr inbounds float, ptr %3, i64 %118
   %120 = getelementptr inbounds i8, ptr %119, i64 -12
-  %121 = icmp ugt ptr %120, %3
+  %121 = icmp ult ptr %3, %120
   br i1 %121, label %.lr.ph.i73, label %.preheader.i64
 
 .lr.ph.i73:                                       ; preds = %102, %.lr.ph.i73
@@ -57205,7 +57205,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct.387", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load float, ptr %47, align 8
-  %49 = fcmp ogt float %48, %.sroa.24.0.copyload.i.i
+  %49 = fcmp olt float %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -57494,7 +57494,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27Hierarchi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -58031,7 +58031,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27Hierarchi
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -58050,7 +58050,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -58308,7 +58308,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_27HierarchicalClusteringIndexINS0_2L2I
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.387", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load float, ptr %51, align 8
-  %53 = fcmp ogt float %52, %.sroa.23.0.copyload.i
+  %53 = fcmp olt float %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -58769,7 +58769,7 @@ define linkonce_odr hidden void @_ZN7cvflann8LshIndexINS_2L2IfEEE9knnSearchERKNS
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
-  %.not52 = icmp slt i32 %60, %4
+  %.not52 = icmp sgt i32 %4, %60
   br i1 %.not52, label %61, label %69
 
 61:                                               ; preds = %57
@@ -58804,7 +58804,7 @@ define linkonce_odr hidden void @_ZN7cvflann8LshIndexINS_2L2IfEEE9knnSearchERKNS
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %.not55 = icmp slt i32 %72, %4
+  %.not55 = icmp sgt i32 %4, %72
   br i1 %.not55, label %73, label %_ZN7cvflann18KNNUniqueResultSetIfEC2Ej.exit
 
 73:                                               ; preds = %69
@@ -59481,7 +59481,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 72
-  %21 = icmp eq ptr %20, %19
+  %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZNSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -59620,7 +59620,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stES
   call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 %33, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %34 = load ptr, ptr %6, align 8
-  %35 = icmp eq ptr %7, %34
+  %35 = icmp eq ptr %34, %7
   br i1 %35, label %_ZNSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEED2Ev.exit, label %36
 
 36:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -59990,7 +59990,7 @@ define linkonce_odr hidden void @_ZSt19__relocate_object_aIN7cvflann3lsh8LshTabl
   %25 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 72
-  %27 = icmp eq ptr %26, %13
+  %27 = icmp eq ptr %13, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %3
@@ -60090,7 +60090,7 @@ define linkonce_odr hidden void @_ZN7cvflann3lsh8LshTableIfE8optimizeEv(ptr noun
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 24
-  %23 = icmp ult i64 %22, %12
+  %23 = icmp ugt i64 %12, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %15
@@ -60099,7 +60099,7 @@ define linkonce_odr hidden void @_ZN7cvflann3lsh8LshTableIfE8optimizeEv(ptr noun
   br label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %15
-  %27 = icmp ugt i64 %22, %12
+  %27 = icmp ult i64 %12, %22
   br i1 %27, label %28, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 28:                                               ; preds = %26
@@ -60207,7 +60207,7 @@ _ZNSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_E
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 3
-  %.not.i = icmp ugt i64 %70, %62
+  %.not.i = icmp ult i64 %62, %70
   br i1 %.not.i, label %73, label %71
 
 71:                                               ; preds = %.critedge
@@ -60218,7 +60218,7 @@ _ZNSt13unordered_mapIjSt6vectorIjSaIjEESt4hashIjESt8equal_toIjESaISt4pairIKjS2_E
   br label %_ZN7cvflann13DynamicBitset6resizeEm.exit
 
 73:                                               ; preds = %.critedge
-  %74 = icmp ugt i64 %70, %63
+  %74 = icmp ult i64 %63, %70
   br i1 %74, label %75, label %_ZN7cvflann13DynamicBitset6resizeEm.exit
 
 75:                                               ; preds = %73
@@ -61061,7 +61061,7 @@ define linkonce_odr hidden void @_ZN7cvflann7NNIndexINS_2L1IfEEE9knnSearchERKNS_
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
-  %.not46 = icmp slt i32 %60, %4
+  %.not46 = icmp sgt i32 %4, %60
   br i1 %.not46, label %61, label %69
 
 61:                                               ; preds = %57
@@ -61096,7 +61096,7 @@ define linkonce_odr hidden void @_ZN7cvflann7NNIndexINS_2L1IfEEE9knnSearchERKNS_
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %.not49 = icmp slt i32 %72, %4
+  %.not49 = icmp sgt i32 %4, %72
   br i1 %.not49, label %73, label %_ZN7cvflann18KNNUniqueResultSetIfEC2Ej.exit
 
 73:                                               ; preds = %69
@@ -61937,7 +61937,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 2
-  %75 = icmp ult i64 %74, %67
+  %75 = icmp ugt i64 %67, %74
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %64
@@ -61950,7 +61950,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 78:                                               ; preds = %64
-  %79 = icmp ugt i64 %74, %67
+  %79 = icmp ult i64 %67, %74
   br i1 %79, label %80, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 80:                                               ; preds = %78
@@ -62166,7 +62166,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 2
-  %58 = icmp ult i64 %57, %50
+  %58 = icmp ugt i64 %50, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %48
@@ -62179,7 +62179,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 61:                                               ; preds = %48
-  %62 = icmp ugt i64 %57, %50
+  %62 = icmp ult i64 %50, %57
   br i1 %62, label %63, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 63:                                               ; preds = %61
@@ -63577,7 +63577,7 @@ define linkonce_odr hidden void @_ZN7cvflann11LinearIndexINS_2L1IfEEE13findNeigh
   %.0812 = phi i64 [ 0, %.lr.ph ], [ %57, %_ZNK7cvflann2L1IfEclIPfPKfEEfT_T0_mf.exit ]
   %12 = getelementptr inbounds float, ptr %.013, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -12
-  %14 = icmp ugt ptr %13, %.013
+  %14 = icmp ult ptr %.013, %13
   br i1 %14, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
@@ -63942,7 +63942,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE9knnS
   %52 = getelementptr inbounds i8, ptr %2, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
-  %.not37 = icmp slt i32 %54, %4
+  %.not37 = icmp sgt i32 %4, %54
   br i1 %.not37, label %55, label %62
 
 55:                                               ; preds = %51
@@ -63972,7 +63972,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE9knnS
   %63 = getelementptr inbounds i8, ptr %3, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = trunc i64 %64 to i32
-  %.not40 = icmp slt i32 %65, %4
+  %.not40 = icmp sgt i32 %4, %65
   br i1 %.not40, label %66, label %73
 
 66:                                               ; preds = %62
@@ -64602,7 +64602,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE18com
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ult i64 %11, %4
+  %12 = icmp ugt i64 %4, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
@@ -64611,7 +64611,7 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE18com
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i64 %11, %4
+  %16 = icmp ult i64 %4, %11
   br i1 %16, label %17, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 17:                                               ; preds = %15
@@ -64861,7 +64861,7 @@ _ZN7cvflann15PooledAllocator8allocateINS_17KDTreeSingleIndexINS_2L1IfEEE4NodeEEE
   %80 = phi i64 [ 0, %.preheader ], [ %109, %107 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit85, label %.preheader, !llvm.loop !534
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
@@ -65677,7 +65677,7 @@ define linkonce_odr hidden void @_ZN7cvflann10load_valueINS_17KDTreeSingleIndexI
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %19 = icmp ult i64 %18, %11
+  %19 = icmp ugt i64 %11, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %10
@@ -65687,7 +65687,7 @@ define linkonce_odr hidden void @_ZN7cvflann10load_valueINS_17KDTreeSingleIndexI
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 22:                                               ; preds = %10
-  %23 = icmp ugt i64 %18, %11
+  %23 = icmp ult i64 %11, %18
   br i1 %23, label %24, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EE6resizeEm.exit
 
 24:                                               ; preds = %22
@@ -65962,7 +65962,7 @@ _ZNK7cvflann2L1IfEclIPKfPfEEfT_T0_mf.exit.us:     ; preds = %51, %.lr.ph52.i.us,
   %99 = load i64, ptr %30, align 8
   %100 = getelementptr inbounds float, ptr %2, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -12
-  %102 = icmp ugt ptr %101, %2
+  %102 = icmp ult ptr %2, %101
   br i1 %102, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %.split.us.i, %.lr.ph.i
@@ -66163,7 +66163,7 @@ _ZNK7cvflann2L1IfEclIPKfPfEEfT_T0_mf.exit92.us:   ; preds = %181, %.lr.ph52.i80.
   %230 = load i64, ptr %157, align 8
   %231 = getelementptr inbounds float, ptr %2, i64 %230
   %232 = getelementptr inbounds i8, ptr %231, i64 -12
-  %233 = icmp ugt ptr %232, %2
+  %233 = icmp ult ptr %2, %232
   br i1 %233, label %.lr.ph.i84, label %.preheader.i75
 
 .lr.ph.i84:                                       ; preds = %.split.us.i74, %.lr.ph.i84
@@ -66265,10 +66265,10 @@ _ZNK7cvflann2L1IfEclIPKfPfEEfT_T0_mf.exit92:      ; preds = %.lr.ph52.i80, %.pre
   %298 = load ptr, ptr %5, align 8
   %299 = getelementptr inbounds float, ptr %298, i64 %284
   %300 = load float, ptr %299, align 4
-  %301 = fadd float %297, %4
+  %301 = fadd float %4, %297
   %302 = fsub float %301, %300
   store float %297, ptr %299, align 4
-  %303 = fmul float %302, %6
+  %303 = fmul float %6, %302
   %304 = load ptr, ptr %1, align 8
   %305 = getelementptr inbounds i8, ptr %304, i64 32
   %306 = load ptr, ptr %305, align 8
@@ -67946,7 +67946,7 @@ tailrecurse:                                      ; preds = %69, %6
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds float, ptr %22, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -12
-  %27 = icmp ugt ptr %26, %22
+  %27 = icmp ult ptr %22, %26
   br i1 %27, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
@@ -68030,7 +68030,7 @@ _ZNK7cvflann2L1IfEclIPfPKfEEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %81 = tail call noundef float @llvm.fabs.f32(float %80)
   %82 = fadd float %.tr37, %81
   tail call void @_ZN7cvflann11KDTreeIndexINS_2L1IfEEE16searchLevelExactERNS_9ResultSetIfEEPKfPNS3_4NodeEff(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %78, float noundef %.tr37, float noundef %5)
-  %83 = fmul float %82, %5
+  %83 = fmul float %5, %82
   %84 = load ptr, ptr %1, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
@@ -68603,7 +68603,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_2L1IfEEE11searchLev
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds float, ptr %53, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -12
-  %58 = icmp ugt ptr %57, %53
+  %58 = icmp ult ptr %53, %57
   br i1 %58, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
@@ -68685,8 +68685,8 @@ _ZNK7cvflann2L1IfEclIPfPKfEEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %110 = load ptr, ptr %.in46, align 8
   %111 = fsub float %104, %106
   %112 = tail call noundef float @llvm.fabs.f32(float %111)
-  %113 = fadd float %112, %4
-  %114 = fmul float %113, %7
+  %113 = fadd float %4, %112
+  %114 = fmul float %7, %113
   %115 = load ptr, ptr %1, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 32
   %117 = load ptr, ptr %116, align 8
@@ -68799,7 +68799,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct.463", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load float, ptr %47, align 8
-  %49 = fcmp ogt float %48, %.sroa.24.0.copyload.i.i
+  %49 = fcmp olt float %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -69088,7 +69088,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeInd
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -69625,7 +69625,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeInd
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -69644,7 +69644,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -69902,7 +69902,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_11KDTreeIndexINS0_2L1IfEEE4NodeEfEESaI
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.463", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load float, ptr %51, align 8
-  %53 = fcmp ogt float %52, %.sroa.23.0.copyload.i
+  %53 = fcmp olt float %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -70067,7 +70067,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %_ZN7cvflann12Unique
   %58 = load i64, ptr %41, align 8
   %59 = getelementptr inbounds float, ptr %57, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -12
-  %61 = icmp ugt ptr %60, %57
+  %61 = icmp ult ptr %57, %60
   br i1 %61, label %.lr.ph.i.preheader.us.us, label %.lr.ph.split.us59
 
 .lr.ph.split.us59:                                ; preds = %.lr.ph.us
@@ -70283,7 +70283,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE21chooseCen
   %33 = load i64, ptr %28, align 8
   %34 = getelementptr inbounds float, ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -12
-  %36 = icmp ugt ptr %35, %32
+  %36 = icmp ult ptr %32, %35
   %37 = icmp ugt i64 %indvars.iv91, 1
   br label %43
 
@@ -70388,7 +70388,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit.us:     ; preds = %.lr.ph52.i.us, %.pr
   %93 = getelementptr inbounds float, ptr %29, i64 %92
   %94 = getelementptr inbounds float, ptr %93, i64 %33
   %95 = getelementptr inbounds i8, ptr %94, i64 -12
-  %96 = icmp ugt ptr %95, %93
+  %96 = icmp ult ptr %93, %95
   br i1 %96, label %.lr.ph.i52.us, label %.preheader.i43.us
 
 .lr.ph.i52.us:                                    ; preds = %.lr.ph.us, %.lr.ph.i52.us
@@ -70534,7 +70534,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE21chooseCen
   %49 = getelementptr inbounds float, ptr %30, i64 %48
   %50 = getelementptr inbounds float, ptr %49, i64 %37
   %51 = getelementptr inbounds i8, ptr %50, i64 -12
-  %52 = icmp ugt ptr %51, %49
+  %52 = icmp ult ptr %49, %51
   br i1 %52, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -70677,7 +70677,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %128 = getelementptr inbounds float, ptr %114, i64 %127
   %129 = getelementptr inbounds float, ptr %128, i64 %122
   %130 = getelementptr inbounds i8, ptr %129, i64 -12
-  %131 = icmp ugt ptr %130, %128
+  %131 = icmp ult ptr %128, %130
   br i1 %131, label %.lr.ph.i96, label %.preheader.i87
 
 .lr.ph.i96:                                       ; preds = %123, %.lr.ph.i96
@@ -70775,7 +70775,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit100:     ; preds = %.lr.ph52.i92, %.pre
   %190 = getelementptr inbounds float, ptr %178, i64 %189
   %191 = getelementptr inbounds float, ptr %190, i64 %184
   %192 = getelementptr inbounds i8, ptr %191, i64 -12
-  %193 = icmp ugt ptr %192, %190
+  %193 = icmp ult ptr %190, %192
   br i1 %193, label %.lr.ph.i110, label %.preheader.i101
 
 .lr.ph.i110:                                      ; preds = %185, %.lr.ph.i110
@@ -72312,7 +72312,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit100:          ; preds = %.noexc99, %._crit_e
   %111 = load i64, ptr %97, align 8
   %112 = getelementptr inbounds float, ptr %106, i64 %111
   %113 = getelementptr inbounds i8, ptr %112, i64 -12
-  %114 = icmp ugt ptr %113, %106
+  %114 = icmp ult ptr %106, %113
   br i1 %114, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.i
@@ -72691,7 +72691,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE21computeNo
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %32 = getelementptr inbounds float, ptr %25, i64 %6
   %33 = getelementptr inbounds i8, ptr %32, i64 -12
-  %34 = icmp ugt ptr %33, %25
+  %34 = icmp ult ptr %25, %33
   br i1 %34, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -72754,7 +72754,7 @@ _ZNK7cvflann2L1IfEclIPfNS_12ZeroIteratorIfEEEEfT_T0_mf.exit: ; preds = %.lr.ph39
 ._crit_edge81:                                    ; preds = %59, %.preheader
   %66 = getelementptr inbounds float, ptr %10, i64 %6
   %67 = getelementptr inbounds i8, ptr %66, i64 -12
-  %68 = icmp ugt ptr %67, %10
+  %68 = icmp ult ptr %10, %67
   br i1 %68, label %.lr.ph.i57, label %.preheader.i50
 
 .lr.ph.i57:                                       ; preds = %._crit_edge81, %.lr.ph.i57
@@ -73334,7 +73334,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %180 = getelementptr inbounds float, ptr %164, i64 %179
   %181 = getelementptr inbounds float, ptr %180, i64 %168
   %182 = getelementptr inbounds i8, ptr %181, i64 -12
-  %183 = icmp ugt ptr %182, %180
+  %183 = icmp ult ptr %180, %182
   br i1 %183, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %175, %.lr.ph.i
@@ -73651,7 +73651,7 @@ _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L1IfEEE10KMeansNodeE
   %69 = load i64, ptr %49, align 8
   %70 = getelementptr inbounds float, ptr %68, i64 %69
   %71 = getelementptr inbounds i8, ptr %70, i64 -12
-  %72 = icmp ugt ptr %71, %68
+  %72 = icmp ult ptr %68, %71
   br i1 %72, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
@@ -73731,7 +73731,7 @@ _ZNK7cvflann2L1IfEclIPfNS_12ZeroIteratorIfEEEEfT_T0_mf.exit: ; preds = %.lr.ph39
   %112 = load i64, ptr %49, align 8
   %113 = getelementptr inbounds float, ptr %111, i64 %112
   %114 = getelementptr inbounds i8, ptr %113, i64 -12
-  %115 = icmp ugt ptr %114, %111
+  %115 = icmp ult ptr %111, %114
   br i1 %115, label %.lr.ph.i78, label %.preheader.i71
 
 .lr.ph.i78:                                       ; preds = %._crit_edge, %.lr.ph.i78
@@ -73915,7 +73915,7 @@ define linkonce_odr hidden void @_ZNK7cvflann11KMeansIndexINS_2L1IfEEE22KMeansDi
   %31 = load i64, ptr %10, align 8
   %32 = getelementptr inbounds float, ptr %26, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -12
-  %34 = icmp ugt ptr %33, %26
+  %34 = icmp ult ptr %26, %33
   br i1 %34, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
@@ -74386,7 +74386,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE11findExact
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds float, ptr %3, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -12
-  %10 = icmp ugt ptr %9, %3
+  %10 = icmp ult ptr %3, %9
   br i1 %10, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
@@ -74488,7 +74488,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE11findExact
   %76 = load i64, ptr %6, align 8
   %77 = getelementptr inbounds float, ptr %75, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -12
-  %79 = icmp ugt ptr %78, %75
+  %79 = icmp ult ptr %75, %78
   br i1 %79, label %.lr.ph.i48, label %.preheader.i39
 
 .lr.ph.i48:                                       ; preds = %67, %.lr.ph.i48
@@ -75094,7 +75094,7 @@ tailrecurse:                                      ; preds = %139, %7
   %11 = load i64, ptr %8, align 8
   %12 = getelementptr inbounds float, ptr %3, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -12
-  %14 = icmp ugt ptr %13, %3
+  %14 = icmp ult ptr %3, %13
   br i1 %14, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse, %.lr.ph.i
@@ -75216,7 +75216,7 @@ tailrecurse:                                      ; preds = %139, %7
   %91 = load i64, ptr %8, align 8
   %92 = getelementptr inbounds float, ptr %90, i64 %91
   %93 = getelementptr inbounds i8, ptr %92, i64 -12
-  %94 = icmp ugt ptr %93, %90
+  %94 = icmp ult ptr %90, %93
   br i1 %94, label %.lr.ph.i53, label %.preheader.i44
 
 .lr.ph.i53:                                       ; preds = %82, %.lr.ph.i53
@@ -75387,7 +75387,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct.520", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load float, ptr %47, align 8
-  %49 = fcmp ogt float %48, %.sroa.24.0.copyload.i.i
+  %49 = fcmp olt float %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -75520,7 +75520,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE17getCenter
   %20 = load i64, ptr %14, align 8
   %21 = getelementptr inbounds float, ptr %2, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -12
-  %23 = icmp ugt ptr %22, %2
+  %23 = icmp ult ptr %2, %22
   br i1 %23, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
@@ -75816,7 +75816,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansInd
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -76353,7 +76353,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansInd
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -76372,7 +76372,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -76527,7 +76527,7 @@ define linkonce_odr hidden noundef i32 @_ZN7cvflann11KMeansIndexINS_2L1IfEEE19ex
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds float, ptr %2, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -12
-  %14 = icmp ugt ptr %13, %2
+  %14 = icmp ult ptr %2, %13
   br i1 %14, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
@@ -76615,7 +76615,7 @@ _ZNK7cvflann2L1IfEclIPKfPfEEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %64 = load i64, ptr %10, align 8
   %65 = getelementptr inbounds float, ptr %2, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -12
-  %67 = icmp ugt ptr %66, %2
+  %67 = icmp ult ptr %2, %66
   br i1 %67, label %.lr.ph.i42, label %.preheader.i33
 
 .lr.ph.i42:                                       ; preds = %.lr.ph, %.lr.ph.i42
@@ -76840,7 +76840,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_11KMeansIndexINS0_2L1IfEEE10KMeansNode
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.520", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load float, ptr %51, align 8
-  %53 = fcmp ogt float %52, %.sroa.23.0.copyload.i
+  %53 = fcmp olt float %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -79644,7 +79644,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds float, ptr %19, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -12
-  %25 = icmp ugt ptr %24, %19
+  %25 = icmp ult ptr %19, %24
   br i1 %25, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, %.lr.ph.i
@@ -79735,7 +79735,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %74 = getelementptr inbounds float, ptr %19, i64 %73
   %75 = getelementptr inbounds float, ptr %74, i64 %22
   %76 = getelementptr inbounds i8, ptr %75, i64 -12
-  %77 = icmp ugt ptr %76, %74
+  %77 = icmp ult ptr %74, %76
   br i1 %77, label %.lr.ph.i64, label %.preheader.i55
 
 .lr.ph.i64:                                       ; preds = %72, %.lr.ph.i64
@@ -80019,7 +80019,7 @@ _ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataES5_SaI
 _ZNSt6vectorIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %64, %_ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i ]
   %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i26 = icmp eq ptr %6, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aIN7cvflann14AutotunedIndexINS0_2L1IfEEE8CostDataES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i31
@@ -80685,7 +80685,7 @@ _ZN7cvflann19countCorrectMatchesEPiS0_i.exit.us.us: ; preds = %..loopexit_crit_e
   %106 = getelementptr inbounds float, ptr %98, i64 %105
   %107 = getelementptr inbounds float, ptr %106, i64 %100
   %108 = getelementptr inbounds i8, ptr %107, i64 -12
-  %109 = icmp ugt ptr %108, %106
+  %109 = icmp ult ptr %106, %108
   br i1 %109, label %.lr.ph.i.i.us.us, label %.preheader.i.i.us.us
 
 .lr.ph.i.i.us.us:                                 ; preds = %101, %.lr.ph.i.i.us.us
@@ -80753,7 +80753,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit.i.us.us: ; preds = %.lr.ph52.i.i.us.us
   %152 = getelementptr inbounds float, ptr %98, i64 %151
   %153 = getelementptr inbounds float, ptr %152, i64 %100
   %154 = getelementptr inbounds i8, ptr %153, i64 -12
-  %155 = icmp ugt ptr %154, %152
+  %155 = icmp ult ptr %152, %154
   br i1 %155, label %.lr.ph.i32.i.us.us, label %.preheader.i23.i.us.us
 
 .lr.ph.i32.i.us.us:                               ; preds = %_ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit.i.us.us, %.lr.ph.i32.i.us.us
@@ -81320,7 +81320,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %_ZN7cvflann12Unique
   %58 = load i64, ptr %41, align 8
   %59 = getelementptr inbounds float, ptr %57, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -12
-  %61 = icmp ugt ptr %60, %57
+  %61 = icmp ult ptr %57, %60
   br i1 %61, label %.lr.ph.i.preheader.us.us, label %.lr.ph.split.us59
 
 .lr.ph.split.us59:                                ; preds = %.lr.ph.us
@@ -81536,7 +81536,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   %33 = load i64, ptr %28, align 8
   %34 = getelementptr inbounds float, ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -12
-  %36 = icmp ugt ptr %35, %32
+  %36 = icmp ult ptr %32, %35
   %37 = icmp ugt i64 %indvars.iv91, 1
   br label %43
 
@@ -81641,7 +81641,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit.us:     ; preds = %.lr.ph52.i.us, %.pr
   %93 = getelementptr inbounds float, ptr %29, i64 %92
   %94 = getelementptr inbounds float, ptr %93, i64 %33
   %95 = getelementptr inbounds i8, ptr %94, i64 -12
-  %96 = icmp ugt ptr %95, %93
+  %96 = icmp ult ptr %93, %95
   br i1 %96, label %.lr.ph.i52.us, label %.preheader.i43.us
 
 .lr.ph.i52.us:                                    ; preds = %.lr.ph.us, %.lr.ph.i52.us
@@ -81787,7 +81787,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   %49 = getelementptr inbounds float, ptr %30, i64 %48
   %50 = getelementptr inbounds float, ptr %49, i64 %37
   %51 = getelementptr inbounds i8, ptr %50, i64 -12
-  %52 = icmp ugt ptr %51, %49
+  %52 = icmp ult ptr %49, %51
   br i1 %52, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -81930,7 +81930,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %128 = getelementptr inbounds float, ptr %114, i64 %127
   %129 = getelementptr inbounds float, ptr %128, i64 %122
   %130 = getelementptr inbounds i8, ptr %129, i64 -12
-  %131 = icmp ugt ptr %130, %128
+  %131 = icmp ult ptr %128, %130
   br i1 %131, label %.lr.ph.i96, label %.preheader.i87
 
 .lr.ph.i96:                                       ; preds = %123, %.lr.ph.i96
@@ -82028,7 +82028,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit100:     ; preds = %.lr.ph52.i92, %.pre
   %190 = getelementptr inbounds float, ptr %178, i64 %189
   %191 = getelementptr inbounds float, ptr %190, i64 %184
   %192 = getelementptr inbounds i8, ptr %191, i64 -12
-  %193 = icmp ugt ptr %192, %190
+  %193 = icmp ult ptr %190, %192
   br i1 %193, label %.lr.ph.i110, label %.preheader.i101
 
 .lr.ph.i110:                                      ; preds = %185, %.lr.ph.i110
@@ -82172,7 +82172,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   %47 = getelementptr inbounds float, ptr %30, i64 %46
   %48 = getelementptr inbounds float, ptr %47, i64 %37
   %49 = getelementptr inbounds i8, ptr %48, i64 -12
-  %50 = icmp ugt ptr %49, %47
+  %50 = icmp ult ptr %47, %49
   br i1 %50, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
@@ -82288,7 +82288,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %108 = getelementptr inbounds float, ptr %92, i64 %107
   %109 = getelementptr inbounds float, ptr %108, i64 %94
   %110 = getelementptr inbounds i8, ptr %109, i64 -12
-  %111 = icmp ugt ptr %110, %108
+  %111 = icmp ult ptr %108, %110
   br i1 %111, label %.lr.ph.i79.us, label %.preheader.i70.us
 
 .lr.ph.i79.us:                                    ; preds = %103, %.lr.ph.i79.us
@@ -82399,7 +82399,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit83.us:   ; preds = %.lr.ph52.i75.us, %.
   %177 = getelementptr inbounds float, ptr %166, i64 %176
   %178 = getelementptr inbounds float, ptr %177, i64 %171
   %179 = getelementptr inbounds i8, ptr %178, i64 -12
-  %180 = icmp ugt ptr %179, %177
+  %180 = icmp ult ptr %177, %179
   br i1 %180, label %.lr.ph.i93, label %.preheader.i84
 
 .lr.ph.i93:                                       ; preds = %172, %.lr.ph.i93
@@ -83686,7 +83686,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   store i32 %5, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 200
   %12 = load i32, ptr %11, align 8
-  %13 = icmp sgt i32 %12, %3
+  %13 = icmp slt i32 %3, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %6
@@ -84073,7 +84073,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   %25 = load i64, ptr %11, align 8
   %26 = getelementptr inbounds float, ptr %20, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -12
-  %28 = icmp ugt ptr %27, %20
+  %28 = icmp ult ptr %20, %27
   br i1 %28, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
@@ -84151,7 +84151,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %75 = load i64, ptr %11, align 8
   %76 = getelementptr inbounds float, ptr %20, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -12
-  %78 = icmp ugt ptr %77, %20
+  %78 = icmp ult ptr %20, %77
   br i1 %78, label %.lr.ph.i36, label %.preheader.i27
 
 .lr.ph.i36:                                       ; preds = %.lr.ph, %.lr.ph.i36
@@ -85040,7 +85040,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %9
   %51 = load i64, ptr %30, align 8
   %52 = getelementptr inbounds float, ptr %50, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -12
-  %54 = icmp ugt ptr %53, %50
+  %54 = icmp ult ptr %50, %53
   br i1 %54, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
@@ -85143,7 +85143,7 @@ _ZNK7cvflann2L1IfEclIPfPKfEEfT_T0_mf.exit:        ; preds = %.lr.ph52.i, %.prehe
   %122 = load i64, ptr %16, align 8
   %123 = getelementptr inbounds float, ptr %3, i64 %122
   %124 = getelementptr inbounds i8, ptr %123, i64 -12
-  %125 = icmp ugt ptr %124, %3
+  %125 = icmp ult ptr %3, %124
   br i1 %125, label %.lr.ph.i73, label %.preheader.i64
 
 .lr.ph.i73:                                       ; preds = %106, %.lr.ph.i73
@@ -85422,7 +85422,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %46 = getelementptr inbounds %"struct.cvflann::BranchStruct.579", ptr %8, i64 %.0920.i.i1011.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load float, ptr %47, align 8
-  %49 = fcmp ogt float %48, %.sroa.24.0.copyload.i.i
+  %49 = fcmp olt float %.sroa.24.0.copyload.i.i, %48
   br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
 50:                                               ; preds = %.lr.ph.i.i.i.i
@@ -85711,7 +85711,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27Hierarchi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
-  %47 = icmp eq ptr %46, %45
+  %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %48
 
 48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -86248,7 +86248,7 @@ _ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27Hierarchi
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2_12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEEE17getPooledInstanceIiEEN2cv3PtrISC_EERKT_iiE16HeapMapValueTypeESaISL_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSN_18_Mod_range_hashingENSN_20_Default_ranged_hashENSN_20_Prime_rehash_policyENSN_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -86267,7 +86267,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIiSt4pairIKiZN7cvflann4HeapINS2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %9, null
   br i1 %8, label %10, label %27
@@ -86525,7 +86525,7 @@ _ZNSt6vectorIN7cvflann12BranchStructIPNS0_27HierarchicalClusteringIndexINS0_2L1I
   %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.579", ptr %42, i64 %.0920.i89.i
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load float, ptr %51, align 8
-  %53 = fcmp ogt float %52, %.sroa.23.0.copyload.i
+  %53 = fcmp olt float %.sroa.23.0.copyload.i, %52
   br i1 %53, label %54, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -86954,7 +86954,7 @@ define linkonce_odr hidden void @_ZN7cvflann8LshIndexINS_2L1IfEEE9knnSearchERKNS
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
-  %.not52 = icmp slt i32 %60, %4
+  %.not52 = icmp sgt i32 %4, %60
   br i1 %.not52, label %61, label %69
 
 61:                                               ; preds = %57
@@ -86989,7 +86989,7 @@ define linkonce_odr hidden void @_ZN7cvflann8LshIndexINS_2L1IfEEE9knnSearchERKNS
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %.not55 = icmp slt i32 %72, %4
+  %.not55 = icmp sgt i32 %4, %72
   br i1 %.not55, label %73, label %_ZN7cvflann18KNNUniqueResultSetIfEC2Ej.exit
 
 73:                                               ; preds = %69

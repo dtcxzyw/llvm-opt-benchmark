@@ -49,7 +49,7 @@ if.then5:                                         ; preds = %if.else
   %sub.ptr.sub9 = sub i64 %2, %sub.ptr.lhs.cast
   %sub.ptr.div10 = lshr exact i64 %sub.ptr.sub9, 3
   %conv11 = trunc i64 %sub.ptr.div10 to i32
-  %cmp12 = icmp slt i32 %conv11, %size
+  %cmp12 = icmp sgt i32 %size, %conv11
   br i1 %cmp12, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then5
@@ -101,7 +101,7 @@ if.then5.i:                                       ; preds = %if.else.i
   %sub.ptr.sub9.i = sub i64 %2, %sub.ptr.lhs.cast.i
   %sub.ptr.div10.i = lshr exact i64 %sub.ptr.sub9.i, 3
   %conv11.i = trunc i64 %sub.ptr.div10.i to i32
-  %cmp12.i = icmp slt i32 %conv11.i, %size
+  %cmp12.i = icmp sgt i32 %size, %conv11.i
   br i1 %cmp12.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.then5.i
@@ -5760,7 +5760,7 @@ land.end:                                         ; preds = %land.rhs, %entry
   %mainthref = getelementptr inbounds i8, ptr %6, i64 192
   %7 = load i64, ptr %mainthref, align 8
   %8 = inttoptr i64 %7 to ptr
-  %cmp3 = icmp eq ptr %8, %L
+  %cmp3 = icmp eq ptr %L, %8
   %conv = zext i1 %cmp3 to i32
   ret i32 %conv
 }
@@ -6468,7 +6468,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %22 = inttoptr i64 %and to ptr
   %asize = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load i32, ptr %asize, align 8
-  %cmp = icmp ugt i32 %23, %n
+  %cmp = icmp ult i32 %n, %23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %index2adr.exit
@@ -8227,7 +8227,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %22 = inttoptr i64 %and to ptr
   %asize = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load i32, ptr %asize, align 8
-  %cmp = icmp ugt i32 %23, %n
+  %cmp = icmp ult i32 %n, %23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %index2adr.exit

@@ -1151,7 +1151,7 @@ define range(i32 0, 7) i32 @FT_Get_Var_Axis_Flags(ptr noundef readonly %0, i32 n
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
-  %.not = icmp ugt i32 %7, %1
+  %.not = icmp ult i32 %1, %7
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %6

@@ -18,7 +18,7 @@ define range(i64 -9223371487098961920, -9223372036854775807) i64 @f32_to_i64_r_m
 9:                                                ; preds = %2
   %10 = or i64 %5, %6
   %.not33 = icmp ne i64 %10, 0
-  %or.cond35.not = and i1 %.not33, %1
+  %or.cond35.not = and i1 %1, %.not33
   br i1 %or.cond35.not, label %11, label %39
 
 11:                                               ; preds = %9
@@ -50,7 +50,7 @@ define range(i64 -9223371487098961920, -9223372036854775807) i64 @f32_to_i64_r_m
   %25 = shl nuw i64 %24, 40
   %26 = lshr i64 %25, %7
   %27 = icmp ult i64 %5, 150
-  %or.cond3 = and i1 %27, %1
+  %or.cond3 = and i1 %1, %27
   br i1 %or.cond3, label %28, label %36
 
 28:                                               ; preds = %23

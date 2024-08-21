@@ -304,7 +304,7 @@ define dso_local zeroext i1 @LockHasWaiters(ptr nocapture noundef readonly %0, i
 
 17:                                               ; preds = %12
   %18 = load i32, ptr %15, align 8
-  %19 = icmp slt i32 %18, %1
+  %19 = icmp sgt i32 %1, %18
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17, %12
@@ -541,7 +541,7 @@ define dso_local range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef %0, i32 no
 
 21:                                               ; preds = %16
   %22 = load i32, ptr %19, align 8
-  %23 = icmp slt i32 %22, %1
+  %23 = icmp sgt i32 %1, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21, %16
@@ -1814,7 +1814,7 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr nocapture noundef re
   %.275 = phi i32 [ %.5, %76 ], [ %.1, %47 ]
   %.sroa.0.074 = phi ptr [ %78, %76 ], [ %50, %47 ]
   %51 = getelementptr i8, ptr %.sroa.0.074, i64 -32
-  %.not58 = icmp eq ptr %51, %3
+  %.not58 = icmp eq ptr %3, %51
   br i1 %.not58, label %76, label %52
 
 52:                                               ; preds = %.lr.ph77.split
@@ -2199,7 +2199,7 @@ define dso_local noundef zeroext i1 @LockRelease(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %16, align 8
-  %20 = icmp slt i32 %19, %1
+  %20 = icmp sgt i32 %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %18, %13
@@ -2647,7 +2647,7 @@ VirtualXactLockTableCleanup.exit:                 ; preds = %15, %27
   %48 = getelementptr inbounds i8, ptr %41, i64 15
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i16
-  %.not114 = icmp eq i16 %50, %0
+  %.not114 = icmp eq i16 %0, %50
   br i1 %.not114, label %51, label %.backedge
 
 51:                                               ; preds = %47
@@ -2906,7 +2906,7 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %137
   %176 = getelementptr inbounds i8, ptr %175, i64 15
   %177 = load i8, ptr %176, align 1
   %178 = zext i8 %177 to i16
-  %.not110 = icmp eq i16 %178, %0
+  %.not110 = icmp eq i16 %0, %178
   br i1 %.not110, label %179, label %CleanUpLock.exit
 
 179:                                              ; preds = %.lr.ph146
@@ -3326,7 +3326,7 @@ define dso_local void @LockReleaseSession(i16 noundef zeroext %0) local_unnamed_
   %12 = getelementptr inbounds i8, ptr %11, i64 15
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i16
-  %.not8 = icmp eq i16 %14, %0
+  %.not8 = icmp eq i16 %0, %14
   br i1 %.not8, label %15, label %.backedge
 
 15:                                               ; preds = %.lr.ph
@@ -3671,7 +3671,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
 
 16:                                               ; preds = %11
   %17 = load i32, ptr %14, align 8
-  %18 = icmp slt i32 %17, %1
+  %18 = icmp sgt i32 %1, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16, %11

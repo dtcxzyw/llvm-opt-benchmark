@@ -207,7 +207,7 @@ define noundef ptr @_ZN5faiss19InvertedListsIOHook6lookupEi(i32 noundef %0) loca
   %7 = load ptr, ptr %.sroa.011.016, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = tail call noundef i32 @_ZN5faiss6fourccERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %10 = icmp eq i32 %9, %0
+  %10 = icmp eq i32 %0, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph

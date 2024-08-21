@@ -1923,7 +1923,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !noalias !270
   %73 = getelementptr inbounds i8, ptr %24, i64 16
   %74 = load i64, ptr %73, align 8, !alias.scope !297, !noalias !270, !noundef !12
-  %75 = icmp ult i64 %74, %.sroa.3.0.i
+  %75 = icmp ugt i64 %.sroa.3.0.i, %74
   br i1 %75, label %76, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h74f7dd7beff498baE.llvm.712157615307907702.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h74f7dd7beff498baE.llvm.712157615307907702.exit.i.i": ; preds = %72

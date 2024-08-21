@@ -134,7 +134,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 define dso_local noundef range(i32 -22, 1) i32 @__kfifo_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 align 16 {
   %5 = zext i32 %2 to i64
   %6 = udiv i64 %5, %3
-  %7 = icmp uge i64 %5, %3
+  %7 = icmp ule i64 %3, %5
   %8 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %6), !range !7
   %9 = icmp ult i64 %8, 2
   %10 = select i1 %7, i1 %9, i1 false
@@ -638,7 +638,7 @@ define dso_local range(i32 0, 65536) i32 @__kfifo_len_r(ptr nocapture noundef re
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__kfifo_in_r(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = zext i32 %2 to i64
-  %6 = add i64 %5, %3
+  %6 = add i64 %3, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %0, align 8
@@ -884,7 +884,7 @@ define dso_local noundef range(i32 -14, 1) i32 @__kfifo_from_user_r(ptr nocaptur
   %10 = xor i32 %9, -1
   %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 %6)
   %12 = zext nneg i32 %11 to i64
-  %13 = add i64 %12, %4
+  %13 = add i64 %4, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = load i32, ptr %0, align 8
@@ -1026,7 +1026,7 @@ define dso_local i32 @__kfifo_dma_in_prepare_r(ptr nocapture noundef readonly %0
   %12 = xor i32 %11, -1
   %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 %3)
   %14 = zext nneg i32 %13 to i64
-  %15 = add i64 %14, %4
+  %15 = add i64 %4, %14
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr %0, align 8
@@ -1124,7 +1124,7 @@ define dso_local i32 @__kfifo_dma_out_prepare_r(ptr nocapture noundef readonly %
   %12 = xor i32 %11, -1
   %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 %3)
   %14 = zext nneg i32 %13 to i64
-  %15 = add i64 %14, %4
+  %15 = add i64 %4, %14
   %16 = load i32, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4

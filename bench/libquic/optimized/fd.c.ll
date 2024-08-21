@@ -190,7 +190,7 @@ entry:
   br i1 %cmp, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %cmp212 = icmp ugt ptr %add.ptr1, %buf
+  %cmp212 = icmp ult ptr %buf, %add.ptr1
   br i1 %cmp212, label %land.lhs.true.lr.ph, label %while.end
 
 land.lhs.true.lr.ph:                              ; preds = %while.cond.preheader

@@ -15005,7 +15005,7 @@ define internal fastcc void @green_equilibration_favg(ptr noundef %0, ptr nounde
   %24 = select i1 %15, i32 -1, i32 1
   %25 = zext i1 %15 to i64
   %26 = xor i32 %24, -1
-  %27 = add i32 %26, %2
+  %27 = add i32 %2, %26
   %28 = sext i32 %27 to i64
   %29 = icmp ult i64 %25, %28
   %30 = sext i32 %24 to i64

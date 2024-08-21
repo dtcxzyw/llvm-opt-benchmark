@@ -1798,7 +1798,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
   %22 = getelementptr inbounds i8, ptr %9, i64 20
   %23 = load i16, ptr %22, align 4
   %24 = sext i16 %23 to i32
-  %25 = icmp sgt i32 %24, %2
+  %25 = icmp slt i32 %2, %24
   %26 = icmp ne i32 %16, 0
   %27 = and i1 %26, %25
   br i1 %27, label %28, label %.loopexit7
@@ -1835,7 +1835,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
   %49 = getelementptr [0 x i16], ptr %42, i64 0, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  %52 = icmp eq i32 %51, %1
+  %52 = icmp eq i32 %1, %51
   br i1 %52, label %53, label %43, !llvm.loop !40
 
 53:                                               ; preds = %46
@@ -2964,7 +2964,7 @@ define internal i64 @ifalias_store(ptr noundef %0, ptr nocapture readnone %1, pt
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 10
   %18 = sext i1 %17 to i64
-  %19 = add i64 %18, %3
+  %19 = add i64 %3, %18
   br label %20
 
 20:                                               ; preds = %13, %11

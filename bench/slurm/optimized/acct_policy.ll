@@ -7644,7 +7644,7 @@ define internal fastcc void @_handle_add_accrue(ptr noundef %0, ptr noundef %1, 
   br label %63
 
 43:                                               ; preds = %14
-  %. = tail call i32 @llvm.umin.i32(i32 %15, i32 %4)
+  %. = tail call i32 @llvm.umin.i32(i32 %4, i32 %15)
   %44 = icmp sgt i32 %., 0
   br i1 %44, label %.lr.ph, label %._crit_edge
 

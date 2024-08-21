@@ -959,7 +959,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11ReplaceTypeN3gmx
 
 282:                                              ; preds = %279
   %.not.i.i.i100.i = icmp ne ptr %280, null
-  %283 = icmp eq ptr %89, %281
+  %283 = icmp eq ptr %281, %89
   %or.cond.i.i.i.i = or i1 %.not.i.i.i100.i, %283
   br i1 %or.cond.i.i.i.i, label %.thread.i101.i, label %284
 
@@ -2737,7 +2737,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i19:      ; preds = %825, %822
 
 .loopexit57.i:                                    ; preds = %.noexc82.i, %.noexc81.i, %.noexc80.i, %.noexc.i31, %.noexc85.i20, %.noexc84.i, %.noexc83.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %.noexc83.i ], [ %.sroa.025.1.i.i.i.i.i.i, %.noexc84.i ], [ %spec.select.i.i.i.i.i.i, %.noexc85.i20 ], [ %851, %.noexc82.i ], [ %847, %.noexc81.i ], [ %843, %.noexc80.i ], [ %.sroa.025.035.i.i.i.i.i.i, %.noexc.i31 ]
-  %.not28.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %834
+  %.not28.i = icmp eq ptr %834, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not28.i, label %.thread.i, label %872
 
 872:                                              ; preds = %.loopexit57.i
@@ -2957,7 +2957,7 @@ _ZL10print_atomP8_IO_FILERK6t_atomP22PreprocessingAtomTypes.exit.i: ; preds = %8
 
 .loopexit51.i:                                    ; preds = %.noexc103.i, %.noexc102.i28, %.noexc101.i, %.noexc100.i, %.noexc106.i, %.noexc105.i, %.noexc104.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i92.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i89.i, %.noexc104.i ], [ %.sroa.025.1.i.i.i.i.i93.i, %.noexc105.i ], [ %spec.select.i.i.i.i.i91.i, %.noexc106.i ], [ %921, %.noexc103.i ], [ %917, %.noexc102.i28 ], [ %913, %.noexc101.i ], [ %.sroa.025.035.i.i.i.i.i96.i, %.noexc100.i ]
-  %.not30.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i92.i, %904
+  %.not30.i = icmp eq ptr %904, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i92.i
   br i1 %.not30.i, label %.thread23.i, label %942
 
 942:                                              ; preds = %.loopexit51.i
@@ -3124,7 +3124,7 @@ _ZL10print_atomP8_IO_FILERK6t_atomP22PreprocessingAtomTypes.exit108.i: ; preds =
 
 .loopexit45.i:                                    ; preds = %.noexc125.i, %.noexc124.i, %.noexc123.i, %.noexc122.i, %.noexc128.i, %.noexc127.i, %.noexc126.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i114.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i111.i, %.noexc126.i ], [ %.sroa.025.1.i.i.i.i.i115.i, %.noexc127.i ], [ %spec.select.i.i.i.i.i113.i, %.noexc128.i ], [ %989, %.noexc125.i ], [ %985, %.noexc124.i ], [ %981, %.noexc123.i ], [ %.sroa.025.035.i.i.i.i.i118.i, %.noexc122.i ]
-  %.not32.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i114.i, %972
+  %.not32.i = icmp eq ptr %972, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i114.i
   br i1 %.not32.i, label %.thread25.i, label %1010
 
 1010:                                             ; preds = %.loopexit45.i
@@ -4025,7 +4025,7 @@ common.resume:                                    ; preds = %15, %38
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -4068,7 +4068,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_11BondedTypesESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3
@@ -4439,7 +4439,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11ReplaceTypeN3gmx
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_11ReplaceTypeESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3
@@ -4814,7 +4814,7 @@ _ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.
 _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit ], [ %84, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ]
   %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 280
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit23, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20
@@ -5234,7 +5234,7 @@ _ZSt19__relocate_object_aI17BondedInteractionS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i:
 _ZNSt6vectorI17BondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt19__relocate_object_aI17BondedInteractionS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaI17BondedInteractionEE9constructIS0_JEEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaI17BondedInteractionEE9constructIS0_JEEEvRS1_PT_DpOT0_.exit ], [ %45, %_ZSt19__relocate_object_aI17BondedInteractionS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ]
   %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 232
-  %.not10.i.i.i15 = icmp eq ptr %4, %1
+  %.not10.i.i.i15 = icmp eq ptr %1, %4
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorI17BondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit23, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorI17BondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %_ZSt19__relocate_object_aI17BondedInteractionS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20

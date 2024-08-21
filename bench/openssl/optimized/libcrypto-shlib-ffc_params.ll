@@ -84,7 +84,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load ptr, ptr %d, align 8
-  %cmp2.not = icmp eq ptr %0, %p
+  %cmp2.not = icmp eq ptr %p, %0
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -99,7 +99,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 land.lhs.true6:                                   ; preds = %if.end
   %q7 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load ptr, ptr %q7, align 8
-  %cmp8.not = icmp eq ptr %1, %q
+  %cmp8.not = icmp eq ptr %q, %1
   br i1 %cmp8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6
@@ -114,7 +114,7 @@ if.end12:                                         ; preds = %if.then9, %land.lhs
 land.lhs.true14:                                  ; preds = %if.end12
   %g15 = getelementptr inbounds i8, ptr %d, i64 16
   %2 = load ptr, ptr %g15, align 8
-  %cmp16.not = icmp eq ptr %2, %g
+  %cmp16.not = icmp eq ptr %g, %2
   br i1 %cmp16.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true14

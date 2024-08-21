@@ -2240,7 +2240,7 @@ define internal fastcc void @wait_for_xmitr(ptr noundef %0, i32 noundef %1) unna
   %12 = and i16 %9, %11
   store i16 %12, ptr %3, align 8
   %13 = zext i16 %9 to i32
-  %14 = and i32 %13, %1
+  %14 = and i32 %1, %13
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %.loopexit2, label %.preheader
 
@@ -2261,7 +2261,7 @@ define internal fastcc void @wait_for_xmitr(ptr noundef %0, i32 noundef %1) unna
   %26 = and i16 %24, %25
   store i16 %26, ptr %3, align 8
   %27 = zext i16 %24 to i32
-  %28 = and i32 %27, %1
+  %28 = and i32 %1, %27
   %29 = icmp eq i32 %28, %1
   br i1 %29, label %.loopexit2, label %.preheader, !llvm.loop !21
 

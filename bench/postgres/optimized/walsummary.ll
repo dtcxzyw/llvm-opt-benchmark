@@ -81,7 +81,7 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
   %35 = load i32, ptr %10, align 16
   %36 = zext i32 %35 to i64
   %37 = or disjoint i64 %34, %36
-  %.not27.us.us = icmp ule i64 %37, %1
+  %.not27.us.us = icmp uge i64 %1, %37
   %or.cond29.us.us.not = select i1 %11, i1 %.not27.us.us, i1 false
   %or.cond30.not.us.us = icmp ult i64 %12, %31
   %or.cond31.us.us = or i1 %or.cond30.not.us.us, %or.cond29.us.us.not
@@ -126,7 +126,7 @@ IsWalSummaryFilename.exit.backedge.us.us:         ; preds = %23, %19, %14
 55:                                               ; preds = %51
   %56 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %48, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %57 = load i32, ptr %4, align 16
-  %.not26 = icmp eq i32 %57, %0
+  %.not26 = icmp eq i32 %0, %57
   br i1 %.not26, label %59, label %IsWalSummaryFilename.exit.backedge
 
 IsWalSummaryFilename.exit.backedge:               ; preds = %55, %59, %51, %46
@@ -148,7 +148,7 @@ IsWalSummaryFilename.exit.backedge:               ; preds = %55, %59, %51, %46
   %70 = zext i32 %69 to i64
   %71 = or disjoint i64 %68, %70
   %72 = freeze i64 %71
-  %.not27 = icmp ule i64 %65, %1
+  %.not27 = icmp uge i64 %1, %65
   %or.cond29 = select i1 %11, i1 %.not27, i1 false
   %or.cond30.not = icmp ult i64 %12, %72
   %or.cond31 = or i1 %or.cond30.not, %or.cond29
@@ -230,7 +230,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv111
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ugt i64 %22, %3
+  %23 = icmp ult i64 %3, %22
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %.lr.ph78.split.us.split
@@ -258,7 +258,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = icmp ult i64 %35, %2
+  %36 = icmp ugt i64 %2, %35
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %.lr.ph78.split.split.us
@@ -283,12 +283,12 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
-  %49 = icmp ult i64 %48, %2
+  %49 = icmp ugt i64 %2, %48
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %.lr.ph78.split.split
   %51 = load i64, ptr %46, align 8
-  %52 = icmp ugt i64 %51, %3
+  %52 = icmp ult i64 %3, %51
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %50
@@ -322,7 +322,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
-  %.not24.us.us71 = icmp eq i32 %64, %1
+  %.not24.us.us71 = icmp eq i32 %1, %64
   br i1 %.not24.us.us71, label %65, label %67
 
 65:                                               ; preds = %.lr.ph69.split.us
@@ -347,12 +347,12 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
-  %.not24.us = icmp eq i32 %76, %1
+  %.not24.us = icmp eq i32 %1, %76
   br i1 %.not24.us, label %77, label %82
 
 77:                                               ; preds = %.lr.ph69.split
   %78 = load i64, ptr %74, align 8
-  %79 = icmp ugt i64 %78, %3
+  %79 = icmp ult i64 %3, %78
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %77
@@ -383,13 +383,13 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load i32, ptr %90, align 8
-  %.not24.us41 = icmp eq i32 %91, %1
+  %.not24.us41 = icmp eq i32 %1, %91
   br i1 %.not24.us41, label %92, label %98
 
 92:                                               ; preds = %.lr.ph63
   %93 = getelementptr inbounds i8, ptr %89, i64 8
   %94 = load i64, ptr %93, align 8
-  %95 = icmp ult i64 %94, %2
+  %95 = icmp ugt i64 %2, %94
   br i1 %95, label %98, label %96
 
 96:                                               ; preds = %92
@@ -417,18 +417,18 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   %107 = load i32, ptr %106, align 8
-  %.not24 = icmp eq i32 %107, %1
+  %.not24 = icmp eq i32 %1, %107
   br i1 %.not24, label %108, label %117
 
 108:                                              ; preds = %.lr.ph57
   %109 = getelementptr inbounds i8, ptr %105, i64 8
   %110 = load i64, ptr %109, align 8
-  %111 = icmp ult i64 %110, %2
+  %111 = icmp ugt i64 %2, %110
   br i1 %111, label %117, label %112
 
 112:                                              ; preds = %108
   %113 = load i64, ptr %105, align 8
-  %114 = icmp ugt i64 %113, %3
+  %114 = icmp ult i64 %3, %113
   br i1 %114, label %117, label %115
 
 115:                                              ; preds = %112
@@ -548,7 +548,7 @@ define dso_local i32 @OpenWalSummaryFile(ptr nocapture noundef readonly %0, i1 n
   %19 = tail call ptr @__errno_location() #13
   %20 = load i32, ptr %19, align 4
   %.not = icmp eq i32 %20, 17
-  %brmerge.not = and i1 %.not, %1
+  %brmerge.not = and i1 %1, %.not
   br i1 %brmerge.not, label %25, label %21
 
 21:                                               ; preds = %18
@@ -720,7 +720,7 @@ define dso_local range(i32 0, -2147483648) i32 @WriteWalSummary(ptr nocapture no
   unreachable
 
 19:                                               ; preds = %3
-  %.not = icmp eq i32 %11, %2
+  %.not = icmp eq i32 %2, %11
   br i1 %.not, label %29, label %20
 
 20:                                               ; preds = %19

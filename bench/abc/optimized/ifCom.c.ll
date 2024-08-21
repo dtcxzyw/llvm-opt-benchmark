@@ -95,7 +95,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
 11:                                               ; preds = %7
   %12 = load i32, ptr @globalUtilOptind, align 4
   %13 = add nsw i32 %12, 1
-  %.not43 = icmp eq i32 %13, %1
+  %.not43 = icmp eq i32 %1, %13
   br i1 %.not43, label %14, label %.loopexit
 
 14:                                               ; preds = %11
@@ -184,7 +184,7 @@ define internal range(i32 0, 2) i32 @If_CommandPrintLut(ptr noundef %0, i32 noun
 
 11:                                               ; preds = %7
   %12 = load i32, ptr @globalUtilOptind, align 4
-  %.not15 = icmp eq i32 %12, %1
+  %.not15 = icmp eq i32 %1, %12
   br i1 %.not15, label %13, label %.loopexit
 
 13:                                               ; preds = %11
@@ -239,7 +239,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
 13:                                               ; preds = %7
   %14 = load i32, ptr @globalUtilOptind, align 4
   %15 = add nsw i32 %14, 1
-  %.not38 = icmp eq i32 %15, %1
+  %.not38 = icmp eq i32 %1, %15
   br i1 %.not38, label %16, label %.loopexit
 
 16:                                               ; preds = %13
@@ -331,7 +331,7 @@ define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noun
 
 11:                                               ; preds = %7
   %12 = load i32, ptr @globalUtilOptind, align 4
-  %.not15 = icmp eq i32 %12, %1
+  %.not15 = icmp eq i32 %1, %12
   br i1 %.not15, label %13, label %.loopexit
 
 13:                                               ; preds = %11

@@ -162,7 +162,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len.i.i, align 8
   %2 = load i64, ptr %worktree_path.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
-  %cmp.i4.i.i = icmp ult i64 %spec.select.i.i.i, %sub.i.i.i
+  %cmp.i4.i.i = icmp ugt i64 %sub.i.i.i, %spec.select.i.i.i
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.end.i5.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -289,7 +289,7 @@ if.then.i.i53:                                    ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i34, ptr %len.i.i31, align 8
   %11 = load i64, ptr %worktree_path.i27, align 8
   %spec.select.i.i.i54 = call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
-  %cmp.i4.i.i55 = icmp ult i64 %spec.select.i.i.i54, %sub.i.i.i34
+  %cmp.i4.i.i55 = icmp ugt i64 %sub.i.i.i34, %spec.select.i.i.i54
   br i1 %cmp.i4.i.i55, label %if.then.i.i.i59, label %if.end.i5.i.i56
 
 if.then.i.i.i59:                                  ; preds = %if.then.i.i53
@@ -1628,7 +1628,7 @@ if.end6:                                          ; preds = %if.end
   %sub = add i64 %6, -6
   %7 = load i64, ptr %sb, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %sub
+  %cmp.i = icmp ugt i64 %sub, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end6
@@ -2001,7 +2001,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len.i.i, align 8
   %2 = load i64, ptr %target.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
-  %cmp.i4.i.i = icmp ult i64 %spec.select.i.i.i, %sub.i.i.i
+  %cmp.i4.i.i = icmp ugt i64 %sub.i.i.i, %spec.select.i.i.i
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.end.i5.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -2037,7 +2037,7 @@ if.then.i10.i:                                    ; preds = %lor.lhs.false.i.i4.
   store i64 %sub.i.i5.i, ptr %len.i2.i, align 8
   %5 = load i64, ptr %maindir.i, align 8
   %spec.select.i.i11.i = call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %cmp.i4.i12.i = icmp ult i64 %spec.select.i.i11.i, %sub.i.i5.i
+  %cmp.i4.i12.i = icmp ugt i64 %sub.i.i5.i, %spec.select.i.i11.i
   br i1 %cmp.i4.i12.i, label %if.then.i.i16.i, label %if.end.i5.i13.i
 
 if.then.i.i16.i:                                  ; preds = %if.then.i10.i

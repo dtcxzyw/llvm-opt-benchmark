@@ -150,9 +150,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define hidden { <2 x float>, float } @_ZN6Assimp12X3DGeoHelper12make_point2DEff(float noundef %angle, float noundef %radius) local_unnamed_addr #2 align 2 {
 entry:
   %call.i = tail call noundef float @cosf(float noundef %angle) #22
-  %mul = fmul float %call.i, %radius
+  %mul = fmul float %radius, %call.i
   %call.i3 = tail call noundef float @sinf(float noundef %angle) #22
-  %mul2 = fmul float %call.i3, %radius
+  %mul2 = fmul float %radius, %call.i3
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %mul2, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
@@ -238,9 +238,9 @@ for.body:                                         ; preds = %if.end15, %for.body
   %conv22 = uitofp i64 %pi.022 to float
   %6 = tail call float @llvm.fmuladd.f32(float %conv22, float %div, float %pStartAngle)
   %call.i.i = tail call noundef float @cosf(float noundef %6) #22
-  %mul.i = fmul float %call.i.i, %pRadius
+  %mul.i = fmul float %pRadius, %call.i.i
   %call.i3.i = tail call noundef float @sinf(float noundef %6) #22
-  %mul2.i = fmul float %call.i3.i, %pRadius
+  %mul2.i = fmul float %pRadius, %call.i3.i
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul2.i, i64 1
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
@@ -995,7 +995,7 @@ if.then.i53:                                      ; preds = %invoke.cont20
   store i32 0, ptr %14, align 8
   %mIndices.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr null, ptr %mIndices.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %14, %tface
+  %cmp.i.i.i.i.i = icmp eq ptr %tface, %14
   br i1 %cmp.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI6aiFaceEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i, label %delete.end.i.i.i.i.i
 
 delete.end.i.i.i.i.i:                             ; preds = %if.then.i53
@@ -1150,7 +1150,7 @@ for.body33:                                       ; preds = %for.body33.preheade
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %cmp.not.i.i102 = icmp ugt i64 %sub.ptr.div.i.i.i, %i.0182
+  %cmp.not.i.i102 = icmp ult i64 %i.0182, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i102, label %invoke.cont34, label %if.then.i.i103
 
 if.then.i.i103:                                   ; preds = %for.body33
@@ -4093,7 +4093,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %fi.0127
+  %cmp.not.i.i = icmp ult i64 %fi.0127, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont35, label %if.then.i.i45.invoke
 
 if.then.i.i45.invoke:                             ; preds = %for.body33, %invoke.cont66, %for.body61
@@ -4190,7 +4190,7 @@ for.body61:                                       ; preds = %for.cond55.preheade
   %sub.ptr.rhs.cast.i.i.i52 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i.i53 = sub i64 %sub.ptr.lhs.cast.i.i.i51, %sub.ptr.rhs.cast.i.i.i52
   %sub.ptr.div.i.i.i54 = ashr exact i64 %sub.ptr.sub.i.i.i53, 4
-  %cmp.not.i.i55 = icmp ugt i64 %sub.ptr.div.i.i.i54, %fi.0127
+  %cmp.not.i.i55 = icmp ult i64 %fi.0127, %sub.ptr.div.i.i.i54
   br i1 %cmp.not.i.i55, label %invoke.cont66, label %if.then.i.i45.invoke
 
 invoke.cont66:                                    ; preds = %for.body61
@@ -4652,7 +4652,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %i.034
+  %cmp.not.i.i = icmp ult i64 %i.034, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %invoke.cont8, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
@@ -5116,7 +5116,7 @@ lpad:                                             ; preds = %if.then4.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #22
-  %cmp.not3.i.i = icmp eq ptr %__cur.011, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.011
   br i1 %cmp.not3.i.i, label %invoke.cont3, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyI6aiFaceEvPT_.exit.i.i
@@ -5203,7 +5203,7 @@ _ZNSt12_Vector_baseI6aiFaceSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vecto
   store i32 0, ptr %add.ptr, align 8
   %mIndices.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr null, ptr %mIndices.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %add.ptr, %__args
+  %cmp.i.i.i.i = icmp eq ptr %__args, %add.ptr
   br i1 %cmp.i.i.i.i, label %invoke.cont, label %delete.end.i.i.i.i
 
 delete.end.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseI6aiFaceSaIS0_EE11_M_allocateEm.exit

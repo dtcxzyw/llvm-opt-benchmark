@@ -611,11 +611,11 @@ if.then68.us.i:                                   ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i, label %ssl_cipher_apply_rule.exit, label %if.end29.us.i
 
 if.then76.i:                                      ; preds = %lor.lhs.false58.us.i
-  %cmp.i60.i = icmp eq ptr %tail.0.ph168.i, %next.1116.us.i
+  %cmp.i60.i = icmp eq ptr %next.1116.us.i, %tail.0.ph168.i
   br i1 %cmp.i60.i, label %ll_append_tail.exit.i, label %if.end.i61.i
 
 if.end.i61.i:                                     ; preds = %if.then76.i
-  %cmp1.i.i = icmp eq ptr %head.0.ph165.i, %next.1116.us.i
+  %cmp1.i.i = icmp eq ptr %next.1116.us.i, %head.0.ph165.i
   %.head.0.ph165.i = select i1 %cmp1.i.i, ptr %cond.us.i, ptr %head.0.ph165.i
   %10 = load ptr, ptr %prev.us.i.le, align 8
   %cmp4.not.i.i = icmp eq ptr %10, null
@@ -719,11 +719,11 @@ if.then68.us.i104:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i107, label %ssl_cipher_apply_rule.exit108, label %if.end29.us.i56
 
 if.then76.i86:                                    ; preds = %lor.lhs.false58.us.i74
-  %cmp.i60.i87 = icmp eq ptr %tail.0.ph168.i54, %next.1116.us.i57
+  %cmp.i60.i87 = icmp eq ptr %next.1116.us.i57, %tail.0.ph168.i54
   br i1 %cmp.i60.i87, label %ll_append_tail.exit.i100, label %if.end.i61.i88
 
 if.end.i61.i88:                                   ; preds = %if.then76.i86
-  %cmp1.i.i89 = icmp eq ptr %head.0.ph165.i55, %next.1116.us.i57
+  %cmp1.i.i89 = icmp eq ptr %next.1116.us.i57, %head.0.ph165.i55
   %.head.0.ph165.i90 = select i1 %cmp1.i.i89, ptr %cond.us.i60, ptr %head.0.ph165.i55
   %18 = load ptr, ptr %prev.us.i58.le, align 8
   %cmp4.not.i.i91 = icmp eq ptr %18, null
@@ -827,11 +827,11 @@ if.then68.us.i145:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i148, label %ssl_cipher_apply_rule.exit149, label %if.end29.us.i117
 
 if.then95.i:                                      ; preds = %lor.lhs.false58.us.i135
-  %cmp.i82.i = icmp eq ptr %head.0.ph165.i116, %next.1116.us.i118
+  %cmp.i82.i = icmp eq ptr %next.1116.us.i118, %head.0.ph165.i116
   br i1 %cmp.i82.i, label %ll_append_head.exit.i, label %if.end.i83.i
 
 if.end.i83.i:                                     ; preds = %if.then95.i
-  %cmp1.i84.i = icmp eq ptr %tail.0.ph168.i115, %next.1116.us.i118
+  %cmp1.i84.i = icmp eq ptr %next.1116.us.i118, %tail.0.ph168.i115
   %.tail.0.ph168.i = select i1 %cmp1.i84.i, ptr %cond.us.i121, ptr %tail.0.ph168.i115
   %26 = load ptr, ptr %next31.us.i120.le, align 8
   %cmp4.not.i87.i = icmp eq ptr %26, null
@@ -940,11 +940,11 @@ if.then68.us.i206:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i209, label %ssl_cipher_apply_rule.exit210, label %if.end29.us.i158
 
 if.then76.i188:                                   ; preds = %lor.lhs.false58.us.i176
-  %cmp.i60.i189 = icmp eq ptr %tail.0.ph168.i156, %next.1116.us.i159
+  %cmp.i60.i189 = icmp eq ptr %next.1116.us.i159, %tail.0.ph168.i156
   br i1 %cmp.i60.i189, label %ll_append_tail.exit.i202, label %if.end.i61.i190
 
 if.end.i61.i190:                                  ; preds = %if.then76.i188
-  %cmp1.i.i191 = icmp eq ptr %head.0.ph165.i157, %next.1116.us.i159
+  %cmp1.i.i191 = icmp eq ptr %next.1116.us.i159, %head.0.ph165.i157
   %.head.0.ph165.i192 = select i1 %cmp1.i.i191, ptr %cond.us.i162, ptr %head.0.ph165.i157
   %34 = load ptr, ptr %prev.us.i160.le, align 8
   %cmp4.not.i.i193 = icmp eq ptr %34, null
@@ -1048,11 +1048,11 @@ if.then68.us.i268:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i271, label %ssl_cipher_apply_rule.exit272, label %if.end29.us.i219
 
 if.then76.i250:                                   ; preds = %lor.lhs.false58.us.i238
-  %cmp.i60.i251 = icmp eq ptr %tail.0.ph168.i217, %next.1116.us.i220
+  %cmp.i60.i251 = icmp eq ptr %next.1116.us.i220, %tail.0.ph168.i217
   br i1 %cmp.i60.i251, label %ll_append_tail.exit.i264, label %if.end.i61.i252
 
 if.end.i61.i252:                                  ; preds = %if.then76.i250
-  %cmp1.i.i253 = icmp eq ptr %head.0.ph165.i218, %next.1116.us.i220
+  %cmp1.i.i253 = icmp eq ptr %next.1116.us.i220, %head.0.ph165.i218
   %.head.0.ph165.i254 = select i1 %cmp1.i.i253, ptr %cond.us.i223, ptr %head.0.ph165.i218
   %42 = load ptr, ptr %prev.us.i221.le, align 8
   %cmp4.not.i.i255 = icmp eq ptr %42, null
@@ -1156,11 +1156,11 @@ if.then68.us.i330:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i333, label %ssl_cipher_apply_rule.exit334, label %if.end29.us.i281
 
 if.then76.i312:                                   ; preds = %lor.lhs.false58.us.i300
-  %cmp.i60.i313 = icmp eq ptr %tail.0.ph168.i279, %next.1116.us.i282
+  %cmp.i60.i313 = icmp eq ptr %next.1116.us.i282, %tail.0.ph168.i279
   br i1 %cmp.i60.i313, label %ll_append_tail.exit.i326, label %if.end.i61.i314
 
 if.end.i61.i314:                                  ; preds = %if.then76.i312
-  %cmp1.i.i315 = icmp eq ptr %head.0.ph165.i280, %next.1116.us.i282
+  %cmp1.i.i315 = icmp eq ptr %next.1116.us.i282, %head.0.ph165.i280
   %.head.0.ph165.i316 = select i1 %cmp1.i.i315, ptr %cond.us.i285, ptr %head.0.ph165.i280
   %50 = load ptr, ptr %prev.us.i283.le, align 8
   %cmp4.not.i.i317 = icmp eq ptr %50, null
@@ -1264,11 +1264,11 @@ if.then68.us.i392:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i395, label %if.end7, label %if.end29.us.i343
 
 if.then76.i374:                                   ; preds = %lor.lhs.false58.us.i362
-  %cmp.i60.i375 = icmp eq ptr %tail.0.ph168.i341, %next.1116.us.i344
+  %cmp.i60.i375 = icmp eq ptr %next.1116.us.i344, %tail.0.ph168.i341
   br i1 %cmp.i60.i375, label %ll_append_tail.exit.i388, label %if.end.i61.i376
 
 if.end.i61.i376:                                  ; preds = %if.then76.i374
-  %cmp1.i.i377 = icmp eq ptr %head.0.ph165.i342, %next.1116.us.i344
+  %cmp1.i.i377 = icmp eq ptr %next.1116.us.i344, %head.0.ph165.i342
   %.head.0.ph165.i378 = select i1 %cmp1.i.i377, ptr %cond.us.i347, ptr %head.0.ph165.i342
   %58 = load ptr, ptr %prev.us.i345.le, align 8
   %cmp4.not.i.i379 = icmp eq ptr %58, null
@@ -1365,11 +1365,11 @@ if.then68.us.i454:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i457, label %ssl_cipher_apply_rule.exit458, label %if.end29.us.i405
 
 if.then76.i436:                                   ; preds = %lor.lhs.false58.us.i424
-  %cmp.i60.i437 = icmp eq ptr %tail.0.ph168.i403, %next.1116.us.i406
+  %cmp.i60.i437 = icmp eq ptr %next.1116.us.i406, %tail.0.ph168.i403
   br i1 %cmp.i60.i437, label %ll_append_tail.exit.i450, label %if.end.i61.i438
 
 if.end.i61.i438:                                  ; preds = %if.then76.i436
-  %cmp1.i.i439 = icmp eq ptr %head.0.ph165.i404, %next.1116.us.i406
+  %cmp1.i.i439 = icmp eq ptr %next.1116.us.i406, %head.0.ph165.i404
   %.head.0.ph165.i440 = select i1 %cmp1.i.i439, ptr %cond.us.i409, ptr %head.0.ph165.i404
   %66 = load ptr, ptr %prev.us.i407.le, align 8
   %cmp4.not.i.i441 = icmp eq ptr %66, null
@@ -1473,11 +1473,11 @@ if.then68.us.i516:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i519, label %ssl_cipher_apply_rule.exit520, label %if.end29.us.i467
 
 if.then76.i498:                                   ; preds = %lor.lhs.false58.us.i486
-  %cmp.i60.i499 = icmp eq ptr %tail.0.ph168.i465, %next.1116.us.i468
+  %cmp.i60.i499 = icmp eq ptr %next.1116.us.i468, %tail.0.ph168.i465
   br i1 %cmp.i60.i499, label %ll_append_tail.exit.i512, label %if.end.i61.i500
 
 if.end.i61.i500:                                  ; preds = %if.then76.i498
-  %cmp1.i.i501 = icmp eq ptr %head.0.ph165.i466, %next.1116.us.i468
+  %cmp1.i.i501 = icmp eq ptr %next.1116.us.i468, %head.0.ph165.i466
   %.head.0.ph165.i502 = select i1 %cmp1.i.i501, ptr %cond.us.i471, ptr %head.0.ph165.i466
   %74 = load ptr, ptr %prev.us.i469.le, align 8
   %cmp4.not.i.i503 = icmp eq ptr %74, null
@@ -1581,11 +1581,11 @@ if.then68.us.i578:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i581, label %ssl_cipher_apply_rule.exit582, label %if.end29.us.i529
 
 if.then76.i560:                                   ; preds = %lor.lhs.false58.us.i548
-  %cmp.i60.i561 = icmp eq ptr %tail.0.ph168.i527, %next.1116.us.i530
+  %cmp.i60.i561 = icmp eq ptr %next.1116.us.i530, %tail.0.ph168.i527
   br i1 %cmp.i60.i561, label %ll_append_tail.exit.i574, label %if.end.i61.i562
 
 if.end.i61.i562:                                  ; preds = %if.then76.i560
-  %cmp1.i.i563 = icmp eq ptr %head.0.ph165.i528, %next.1116.us.i530
+  %cmp1.i.i563 = icmp eq ptr %next.1116.us.i530, %head.0.ph165.i528
   %.head.0.ph165.i564 = select i1 %cmp1.i.i563, ptr %cond.us.i533, ptr %head.0.ph165.i528
   %82 = load ptr, ptr %prev.us.i531.le, align 8
   %cmp4.not.i.i565 = icmp eq ptr %82, null
@@ -1689,11 +1689,11 @@ if.then68.us.i640:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i643, label %if.end7, label %if.end29.us.i591
 
 if.then76.i622:                                   ; preds = %lor.lhs.false58.us.i610
-  %cmp.i60.i623 = icmp eq ptr %tail.0.ph168.i589, %next.1116.us.i592
+  %cmp.i60.i623 = icmp eq ptr %next.1116.us.i592, %tail.0.ph168.i589
   br i1 %cmp.i60.i623, label %ll_append_tail.exit.i636, label %if.end.i61.i624
 
 if.end.i61.i624:                                  ; preds = %if.then76.i622
-  %cmp1.i.i625 = icmp eq ptr %head.0.ph165.i590, %next.1116.us.i592
+  %cmp1.i.i625 = icmp eq ptr %next.1116.us.i592, %head.0.ph165.i590
   %.head.0.ph165.i626 = select i1 %cmp1.i.i625, ptr %cond.us.i595, ptr %head.0.ph165.i590
   %90 = load ptr, ptr %prev.us.i593.le, align 8
   %cmp4.not.i.i627 = icmp eq ptr %90, null
@@ -1797,11 +1797,11 @@ if.then68.us.i702:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i705, label %ssl_cipher_apply_rule.exit706, label %if.end29.us.i653
 
 if.then76.i684:                                   ; preds = %lor.lhs.false58.us.i672
-  %cmp.i60.i685 = icmp eq ptr %tail.0.ph168.i651, %next.1116.us.i654
+  %cmp.i60.i685 = icmp eq ptr %next.1116.us.i654, %tail.0.ph168.i651
   br i1 %cmp.i60.i685, label %ll_append_tail.exit.i698, label %if.end.i61.i686
 
 if.end.i61.i686:                                  ; preds = %if.then76.i684
-  %cmp1.i.i687 = icmp eq ptr %head.0.ph165.i652, %next.1116.us.i654
+  %cmp1.i.i687 = icmp eq ptr %next.1116.us.i654, %head.0.ph165.i652
   %.head.0.ph165.i688 = select i1 %cmp1.i.i687, ptr %cond.us.i657, ptr %head.0.ph165.i652
   %98 = load ptr, ptr %prev.us.i655.le, align 8
   %cmp4.not.i.i689 = icmp eq ptr %98, null
@@ -1905,11 +1905,11 @@ if.then68.us.i764:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i767, label %ssl_cipher_apply_rule.exit768, label %if.end29.us.i715
 
 if.then76.i746:                                   ; preds = %lor.lhs.false58.us.i734
-  %cmp.i60.i747 = icmp eq ptr %tail.0.ph168.i713, %next.1116.us.i716
+  %cmp.i60.i747 = icmp eq ptr %next.1116.us.i716, %tail.0.ph168.i713
   br i1 %cmp.i60.i747, label %ll_append_tail.exit.i760, label %if.end.i61.i748
 
 if.end.i61.i748:                                  ; preds = %if.then76.i746
-  %cmp1.i.i749 = icmp eq ptr %head.0.ph165.i714, %next.1116.us.i716
+  %cmp1.i.i749 = icmp eq ptr %next.1116.us.i716, %head.0.ph165.i714
   %.head.0.ph165.i750 = select i1 %cmp1.i.i749, ptr %cond.us.i719, ptr %head.0.ph165.i714
   %106 = load ptr, ptr %prev.us.i717.le, align 8
   %cmp4.not.i.i751 = icmp eq ptr %106, null
@@ -2013,11 +2013,11 @@ if.then68.us.i826:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i829, label %ssl_cipher_apply_rule.exit830, label %if.end29.us.i777
 
 if.then76.i808:                                   ; preds = %lor.lhs.false58.us.i796
-  %cmp.i60.i809 = icmp eq ptr %tail.0.ph168.i775, %next.1116.us.i778
+  %cmp.i60.i809 = icmp eq ptr %next.1116.us.i778, %tail.0.ph168.i775
   br i1 %cmp.i60.i809, label %ll_append_tail.exit.i822, label %if.end.i61.i810
 
 if.end.i61.i810:                                  ; preds = %if.then76.i808
-  %cmp1.i.i811 = icmp eq ptr %head.0.ph165.i776, %next.1116.us.i778
+  %cmp1.i.i811 = icmp eq ptr %next.1116.us.i778, %head.0.ph165.i776
   %.head.0.ph165.i812 = select i1 %cmp1.i.i811, ptr %cond.us.i781, ptr %head.0.ph165.i776
   %114 = load ptr, ptr %prev.us.i779.le, align 8
   %cmp4.not.i.i813 = icmp eq ptr %114, null
@@ -2121,11 +2121,11 @@ if.then68.us.i888:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i891, label %ssl_cipher_apply_rule.exit892, label %if.end29.us.i839
 
 if.then76.i870:                                   ; preds = %lor.lhs.false58.us.i858
-  %cmp.i60.i871 = icmp eq ptr %tail.0.ph168.i837, %next.1116.us.i840
+  %cmp.i60.i871 = icmp eq ptr %next.1116.us.i840, %tail.0.ph168.i837
   br i1 %cmp.i60.i871, label %ll_append_tail.exit.i884, label %if.end.i61.i872
 
 if.end.i61.i872:                                  ; preds = %if.then76.i870
-  %cmp1.i.i873 = icmp eq ptr %head.0.ph165.i838, %next.1116.us.i840
+  %cmp1.i.i873 = icmp eq ptr %next.1116.us.i840, %head.0.ph165.i838
   %.head.0.ph165.i874 = select i1 %cmp1.i.i873, ptr %cond.us.i843, ptr %head.0.ph165.i838
   %122 = load ptr, ptr %prev.us.i841.le, align 8
   %cmp4.not.i.i875 = icmp eq ptr %122, null
@@ -2230,11 +2230,11 @@ if.then68.us.i951:                                ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i954, label %ssl_cipher_apply_rule.exit955, label %if.end29.us.i901
 
 if.then76.i933:                                   ; preds = %lor.lhs.false58.us.i921
-  %cmp.i60.i934 = icmp eq ptr %tail.0.ph168.i899, %next.1116.us.i902
+  %cmp.i60.i934 = icmp eq ptr %next.1116.us.i902, %tail.0.ph168.i899
   br i1 %cmp.i60.i934, label %ll_append_tail.exit.i947, label %if.end.i61.i935
 
 if.end.i61.i935:                                  ; preds = %if.then76.i933
-  %cmp1.i.i936 = icmp eq ptr %head.0.ph165.i900, %next.1116.us.i902
+  %cmp1.i.i936 = icmp eq ptr %next.1116.us.i902, %head.0.ph165.i900
   %.head.0.ph165.i937 = select i1 %cmp1.i.i936, ptr %cond.us.i905, ptr %head.0.ph165.i900
   %130 = load ptr, ptr %prev.us.i903.le, align 8
   %cmp4.not.i.i938 = icmp eq ptr %130, null
@@ -2337,11 +2337,11 @@ if.then68.us.i1014:                               ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i1017, label %ssl_cipher_apply_rule.exit1018, label %if.end29.us.i964
 
 if.then76.i996:                                   ; preds = %lor.lhs.false58.us.i984
-  %cmp.i60.i997 = icmp eq ptr %tail.0.ph168.i962, %next.1116.us.i965
+  %cmp.i60.i997 = icmp eq ptr %next.1116.us.i965, %tail.0.ph168.i962
   br i1 %cmp.i60.i997, label %ll_append_tail.exit.i1010, label %if.end.i61.i998
 
 if.end.i61.i998:                                  ; preds = %if.then76.i996
-  %cmp1.i.i999 = icmp eq ptr %head.0.ph165.i963, %next.1116.us.i965
+  %cmp1.i.i999 = icmp eq ptr %next.1116.us.i965, %head.0.ph165.i963
   %.head.0.ph165.i1000 = select i1 %cmp1.i.i999, ptr %cond.us.i968, ptr %head.0.ph165.i963
   %138 = load ptr, ptr %prev.us.i966.le, align 8
   %cmp4.not.i.i1001 = icmp eq ptr %138, null
@@ -2445,11 +2445,11 @@ if.then68.us.i1057:                               ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i1060, label %ssl_cipher_apply_rule.exit1061, label %if.end29.us.i1027
 
 if.then86.i:                                      ; preds = %lor.lhs.false58.us.i1047
-  %cmp.i62.i = icmp eq ptr %tail.0.ph168.i1025, %next.1116.us.i1028
+  %cmp.i62.i = icmp eq ptr %next.1116.us.i1028, %tail.0.ph168.i1025
   br i1 %cmp.i62.i, label %ll_append_tail.exit81.i, label %if.end.i63.i
 
 if.end.i63.i:                                     ; preds = %if.then86.i
-  %cmp1.i64.i = icmp eq ptr %head.0.ph165.i1026, %next.1116.us.i1028
+  %cmp1.i64.i = icmp eq ptr %next.1116.us.i1028, %head.0.ph165.i1026
   %.head.0.ph165228.i = select i1 %cmp1.i64.i, ptr %cond.us.i1031, ptr %head.0.ph165.i1026
   %146 = load ptr, ptr %prev.us.i1029.le, align 8
   %cmp4.not.i67.i = icmp eq ptr %146, null
@@ -2551,11 +2551,11 @@ if.then68.us.i1120:                               ; preds = %lor.lhs.false55.us.
   br i1 %or.cond59.us.i1123, label %ssl_cipher_apply_rule.exit1124, label %if.end29.us.i1070
 
 if.then95.i1093:                                  ; preds = %lor.lhs.false58.us.i1090
-  %cmp.i82.i1094 = icmp eq ptr %head.0.ph165.i1069, %next.1116.us.i1071
+  %cmp.i82.i1094 = icmp eq ptr %next.1116.us.i1071, %head.0.ph165.i1069
   br i1 %cmp.i82.i1094, label %ll_append_head.exit.i1107, label %if.end.i83.i1095
 
 if.end.i83.i1095:                                 ; preds = %if.then95.i1093
-  %cmp1.i84.i1096 = icmp eq ptr %tail.0.ph168.i1068, %next.1116.us.i1071
+  %cmp1.i84.i1096 = icmp eq ptr %next.1116.us.i1071, %tail.0.ph168.i1068
   %.tail.0.ph168.i1097 = select i1 %cmp1.i84.i1096, ptr %cond.us.i1074, ptr %tail.0.ph168.i1068
   %154 = load ptr, ptr %next31.us.i1073.le, align 8
   %cmp4.not.i87.i1098 = icmp eq ptr %154, null
@@ -2845,7 +2845,7 @@ sw.default.i.us.us:                               ; preds = %if.end.i.us.us
 
 SSL_CIPHER_get_bits.exit.us.us:                   ; preds = %sw.default.i.us.us, %sw.bb1.i.us.us, %sw.bb2.i.us.us, %sw.bb3.i.us.us, %if.end.i.us.us, %if.end.i.us.us, %if.end.i.us.us, %if.end29.us.us
   %retval.0.i.us.us = phi i32 [ 0, %if.end29.us.us ], [ 0, %sw.default.i.us.us ], [ 0, %sw.bb3.i.us.us ], [ 112, %sw.bb2.i.us.us ], [ 256, %sw.bb1.i.us.us ], [ 128, %if.end.i.us.us ], [ 128, %if.end.i.us.us ], [ 128, %if.end.i.us.us ]
-  %cmp43.not.us.us = icmp eq i32 %retval.0.i.us.us, %strength_bits
+  %cmp43.not.us.us = icmp eq i32 %strength_bits, %retval.0.i.us.us
   br i1 %cmp43.not.us.us, label %if.end71, label %for.cond.backedge.us.us
 
 for.cond.backedge.us.us:                          ; preds = %SSL_CIPHER_get_bits.exit.us.us
@@ -2915,7 +2915,7 @@ if.end29.us129:                                   ; preds = %if.end29.lr.ph.spli
   %10 = load ptr, ptr %next.1116.us130, align 8
   %id.us = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %id.us, align 8
-  %cmp35.not.us = icmp eq i32 %11, %cipher_id
+  %cmp35.not.us = icmp eq i32 %cipher_id, %11
   br i1 %cmp35.not.us, label %if.end71.split.split.us, label %for.cond.backedge.us133
 
 for.cond.backedge.us133:                          ; preds = %if.end29.us129
@@ -2936,7 +2936,7 @@ if.end29:                                         ; preds = %if.end29.lr.ph.spli
   %12 = load ptr, ptr %next.1116, align 8
   %id = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i32, ptr %id, align 8
-  %cmp35.not = icmp eq i32 %13, %cipher_id
+  %cmp35.not = icmp eq i32 %cipher_id, %13
   br i1 %cmp35.not, label %if.end71.split.split, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end29
@@ -2967,11 +2967,11 @@ if.then74:                                        ; preds = %if.end71
   br i1 %tobool75.not, label %if.then76, label %if.end139
 
 if.then76:                                        ; preds = %if.then74
-  %cmp.i60 = icmp eq ptr %tail.0.ph168, %.us-phi122
+  %cmp.i60 = icmp eq ptr %.us-phi122, %tail.0.ph168
   br i1 %cmp.i60, label %ll_append_tail.exit, label %if.end.i61
 
 if.end.i61:                                       ; preds = %if.then76
-  %cmp1.i = icmp eq ptr %head.0.ph165, %.us-phi122
+  %cmp1.i = icmp eq ptr %.us-phi122, %head.0.ph165
   %15 = load ptr, ptr %.us-phi120, align 8
   %.head.0.ph165 = select i1 %cmp1.i, ptr %15, ptr %head.0.ph165
   %16 = load ptr, ptr %.us-phi, align 8
@@ -3015,11 +3015,11 @@ if.then83:                                        ; preds = %if.end71
   br i1 %tobool85.not, label %if.end139, label %if.then86
 
 if.then86:                                        ; preds = %if.then83
-  %cmp.i62 = icmp eq ptr %tail.0.ph168, %.us-phi122
+  %cmp.i62 = icmp eq ptr %.us-phi122, %tail.0.ph168
   br i1 %cmp.i62, label %ll_append_tail.exit81, label %if.end.i63
 
 if.end.i63:                                       ; preds = %if.then86
-  %cmp1.i64 = icmp eq ptr %head.0.ph165, %.us-phi122
+  %cmp1.i64 = icmp eq ptr %.us-phi122, %head.0.ph165
   %19 = load ptr, ptr %.us-phi120, align 8
   %.head.0.ph165228 = select i1 %cmp1.i64, ptr %19, ptr %head.0.ph165
   %20 = load ptr, ptr %.us-phi, align 8
@@ -3065,11 +3065,11 @@ if.then92:                                        ; preds = %if.else89
   br i1 %tobool94.not, label %if.end139, label %if.then95
 
 if.then95:                                        ; preds = %if.then92
-  %cmp.i82 = icmp eq ptr %head.0.ph165, %.us-phi122
+  %cmp.i82 = icmp eq ptr %.us-phi122, %head.0.ph165
   br i1 %cmp.i82, label %ll_append_head.exit, label %if.end.i83
 
 if.end.i83:                                       ; preds = %if.then95
-  %cmp1.i84 = icmp eq ptr %tail.0.ph168, %.us-phi122
+  %cmp1.i84 = icmp eq ptr %.us-phi122, %tail.0.ph168
   %23 = load ptr, ptr %.us-phi, align 8
   %.tail.0.ph168 = select i1 %cmp1.i84, ptr %23, ptr %tail.0.ph168
   %24 = load ptr, ptr %.us-phi120, align 8

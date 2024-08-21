@@ -1236,7 +1236,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 define internal void @flush_ldt(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @cpu_tlbstate) #11, !srcloc !58
   %3 = inttoptr i64 %2 to ptr
-  %4 = icmp eq ptr %3, %0
+  %4 = icmp eq ptr %0, %3
   br i1 %4, label %5, label %42
 
 5:                                                ; preds = %1

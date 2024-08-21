@@ -174,7 +174,7 @@ entry:
   %buflen = getelementptr inbounds i8, ptr %c, i64 224
   %0 = load i64, ptr %buflen, align 8
   %sub = sub i64 128, %0
-  %cmp = icmp ult i64 %sub, %datalen
+  %cmp = icmp ugt i64 %datalen, %sub
   br i1 %cmp, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry

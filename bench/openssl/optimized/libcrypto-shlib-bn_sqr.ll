@@ -116,7 +116,7 @@ if.end50:                                         ; preds = %if.then16, %if.end3
   store i32 0, ptr %neg51, align 8
   %top52 = getelementptr inbounds i8, ptr %cond, i64 8
   store i32 %mul, ptr %top52, align 8
-  %cmp53.not = icmp eq ptr %cond, %r
+  %cmp53.not = icmp eq ptr %r, %cond
   br i1 %cmp53.not, label %if.end59, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end50

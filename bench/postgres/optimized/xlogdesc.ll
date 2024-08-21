@@ -468,7 +468,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %130, %91, %10
-  %brmerge77 = or i1 %.not75, %2
+  %brmerge77 = or i1 %2, %.not75
   br i1 %brmerge77, label %136, label %135
 
 135:                                              ; preds = %._crit_edge

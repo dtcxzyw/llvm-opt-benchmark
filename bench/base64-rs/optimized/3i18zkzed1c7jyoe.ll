@@ -536,7 +536,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %22 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %21)
   %23 = lshr i64 %22, 2
   %24 = mul nuw i64 %23, 3
-  %25 = icmp ugt i64 %24, %5
+  %25 = icmp ult i64 %5, %24
   br i1 %25, label %40, label %35
 
 26:                                               ; preds = %16

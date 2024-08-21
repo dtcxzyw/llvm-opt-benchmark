@@ -558,14 +558,14 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread: ; preds = %.noexc47
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %69 ]
   %70 = getelementptr inbounds i32, ptr %.sroa.10.0, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %71, %65
+  %72 = icmp eq i32 %65, %71
   br i1 %72, label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit.thread76, label %69
 
 _ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit: ; preds = %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread, %68
   %73 = phi i32 [ %63, %68 ], [ %55, %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread ]
   %74 = phi ptr [ %64, %68 ], [ %66, %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread ]
   %75 = phi i32 [ %65, %68 ], [ %67, %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread ]
-  %76 = icmp eq i32 %73, %75
+  %76 = icmp eq i32 %75, %73
   br i1 %76, label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit.thread76, label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit.thread.invoke
 
 _ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit.thread.invoke: ; preds = %69, %13, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit, %.preheader.i
@@ -1548,11 +1548,11 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.i: ; preds = %92
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %98 ]
   %99 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv.i.i
   %100 = load i32, ptr %99, align 4
-  %101 = icmp eq i32 %100, %54
+  %101 = icmp eq i32 %54, %100
   br i1 %101, label %_ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit.thread, label %98
 
 _ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit: ; preds = %89, %95, %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.i
-  %102 = icmp eq i32 %90, %54
+  %102 = icmp eq i32 %54, %90
   br i1 %102, label %_ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit.thread, label %_ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit.thread72
 
 _ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit.thread72: ; preds = %98, %_ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit
@@ -2260,14 +2260,14 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit:  ; preds = %6
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %12 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond = select i1 %14, i1 true, i1 %exitcond.not.i
   br i1 %or.cond, label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread: ; preds = %9, %2, %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit
-  %15 = icmp eq i32 %4, %1
+  %15 = icmp eq i32 %1, %4
   br label %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit
 
 _ZNK3gmx12_GLOBAL__N_115FileTypeHandler11isValidTypeEi.exit: ; preds = %.lr.ph.i, %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread
@@ -2573,14 +2573,14 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.i: ; preds = %8
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i.i
   %15 = load i32, ptr %14, align 4
-  %16 = icmp eq i32 %15, %1
+  %16 = icmp eq i32 %1, %15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond = select i1 %16, i1 true, i1 %exitcond.not.i.i
   br i1 %or.cond, label %_ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread.i: ; preds = %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.i, %11, %2
-  %17 = icmp eq i32 %6, %1
+  %17 = icmp eq i32 %1, %6
   br label %_ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit
 
 _ZNK3gmx21FileNameOptionStorage11isValidTypeEi.exit: ; preds = %.lr.ph.i.i, %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread.i
@@ -4803,7 +4803,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -5417,7 +5417,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17

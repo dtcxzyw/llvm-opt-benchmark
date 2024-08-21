@@ -2471,7 +2471,7 @@ define dso_local void @acpi_scan_hotplug_enabled(ptr nocapture noundef %0, i1 no
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
   %6 = icmp eq i8 %5, 0
-  %7 = xor i1 %6, %1
+  %7 = xor i1 %1, %6
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %2

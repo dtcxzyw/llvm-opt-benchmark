@@ -468,7 +468,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 
 select.unfold.i.i:                                ; preds = %109, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %109 ]
-  %112 = icmp eq ptr %71, %.sroa.4.0.i.ph.i.i
+  %112 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %71
   br i1 %112, label %_ZNSt8_Rb_treeIP17cmGeneratorTargetS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %113
 
 113:                                              ; preds = %select.unfold.i.i
@@ -3523,7 +3523,7 @@ _ZNK26cmExportBuildFileGenerator10GetTargetsERSt6vectorINS_12TargetExportESaIS1_
 
 .loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit27.i.i.i.i.i", %87, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit25.i.i.i.i.i", %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit23.i.i.i.i.i", %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit.i.i.i.i.i", %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit33.i.i.i.i.i", %123, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit31.i.i.i.i.i", %112, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit29.i.i.i.i.i", %101
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit29.i.i.i.i.i" ], [ %.sroa.037.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit31.i.i.i.i.i" ], [ %.sroa.037.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit33.i.i.i.i.i" ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %101 ], [ %.sroa.037.1.i.i.i.i.i, %112 ], [ %.sroa.037.2.i.i.i.i.i, %123 ], [ %.sroa.037.054.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit.i.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit23.i.i.i.i.i" ], [ %73, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit25.i.i.i.i.i" ], [ %83, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN26cmExportBuildFileGenerator19FindBuildExportInfoEP17cmGlobalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISH_SaISH_EEEEEEbT_.exit27.i.i.i.i.i" ], [ %.sroa.037.054.i.i.i.i.i, %57 ], [ %63, %67 ], [ %73, %77 ], [ %83, %87 ]
-  %.not35 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %48
+  %.not35 = icmp eq ptr %48, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %.not35, label %.thread, label %129
 
 129:                                              ; preds = %.loopexit
@@ -4388,7 +4388,7 @@ define dso_local void @_ZN26cmExportBuildFileGenerator21GetFileSetDirectoriesB5c
 
 .loopexit114:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit114.loopexit.split.loop.exit, %.loopexit114.loopexit.split.loop.exit150, %.loopexit114.loopexit.split.loop.exit152, %104, %97, %90
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %90 ], [ %.sroa.032.1.i.i.i.i.i, %97 ], [ %spec.select.i.i.i.i.i, %104 ], [ %109, %.loopexit114.loopexit.split.loop.exit ], [ %110, %.loopexit114.loopexit.split.loop.exit150 ], [ %111, %.loopexit114.loopexit.split.loop.exit152 ], [ %.sroa.032.042.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.not106 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %56
+  %.not106 = icmp eq ptr %56, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %.not106, label %.critedge, label %112
 
 112:                                              ; preds = %.loopexit114
@@ -5232,7 +5232,7 @@ define dso_local void @_ZN26cmExportBuildFileGenerator15GetFileSetFilesB5cxx11EP
 
 .loopexit235:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit235.loopexit.split.loop.exit, %.loopexit235.loopexit.split.loop.exit304, %.loopexit235.loopexit.split.loop.exit306, %126, %119, %112
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %112 ], [ %.sroa.032.1.i.i.i.i.i, %119 ], [ %spec.select.i.i.i.i.i, %126 ], [ %131, %.loopexit235.loopexit.split.loop.exit ], [ %132, %.loopexit235.loopexit.split.loop.exit304 ], [ %133, %.loopexit235.loopexit.split.loop.exit306 ], [ %.sroa.032.042.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.not220 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %78
+  %.not220 = icmp eq ptr %78, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %.not220, label %.thread, label %.thread215
 
 .thread:                                          ; preds = %._crit_edge.i.i.i.i.i, %.loopexit235
@@ -5350,7 +5350,7 @@ define dso_local void @_ZN26cmExportBuildFileGenerator15GetFileSetFilesB5cxx11EP
 
 .loopexit234:                                     ; preds = %.lr.ph.i.i.i.i.i70, %.loopexit234.loopexit.split.loop.exit, %.loopexit234.loopexit.split.loop.exit312, %.loopexit234.loopexit.split.loop.exit314, %183, %176, %169
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i68 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i65, %169 ], [ %.sroa.032.1.i.i.i.i.i69, %176 ], [ %spec.select.i.i.i.i.i67, %183 ], [ %188, %.loopexit234.loopexit.split.loop.exit ], [ %189, %.loopexit234.loopexit.split.loop.exit312 ], [ %190, %.loopexit234.loopexit.split.loop.exit314 ], [ %.sroa.032.042.i.i.i.i.i72, %.lr.ph.i.i.i.i.i70 ]
-  %.not221 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i68, %135
+  %.not221 = icmp eq ptr %135, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i68
   br i1 %.not221, label %.critedge, label %.thread215
 
 .thread215:                                       ; preds = %.loopexit235, %.loopexit234
@@ -6406,7 +6406,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #18
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -6726,7 +6726,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -7172,7 +7172,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
@@ -7279,7 +7279,7 @@ _ZNSt12_Vector_baseIN26cmExportBuildFileGenerator19TargetExportPrivateESaIS1_EE1
 _ZNSt6vectorIN26cmExportBuildFileGenerator19TargetExportPrivateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %28
   %.0.lcssa.i.i.i = phi ptr [ %25, %28 ], [ %34, %.lr.ph.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not10.i.i.i27 = icmp eq ptr %7, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN26cmExportBuildFileGenerator19TargetExportPrivateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN26cmExportBuildFileGenerator19TargetExportPrivateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28
@@ -7378,7 +7378,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -7434,7 +7434,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -7981,7 +7981,7 @@ _ZNSt12_Vector_baseIN26cmExportBuildFileGenerator12TargetExportESaIS1_EE11_M_all
 _ZNSt6vectorIN26cmExportBuildFileGenerator12TargetExportESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %30
   %.0.lcssa.i.i.i = phi ptr [ %26, %30 ], [ %35, %.lr.ph.i.i.i ]
   %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i27 = icmp eq ptr %8, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN26cmExportBuildFileGenerator12TargetExportESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN26cmExportBuildFileGenerator12TargetExportESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28

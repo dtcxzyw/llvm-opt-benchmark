@@ -15548,7 +15548,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.10740
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -18061,7 +18061,7 @@ define hidden { i32, i32 } @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i": ; preds = %14, %8
   %.sink5.i.i = phi ptr [ %17, %14 ], [ %11, %8 ]
   %.sink3.i.i = phi i64 [ %19, %14 ], [ %5, %8 ]
-  %20 = icmp ugt i64 %.sink3.i.i, %3
+  %20 = icmp ult i64 %3, %.sink3.i.i
   br i1 %20, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h647ecf6b3e838196E.exit", label %21, !prof !4543
 
 21:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
@@ -18115,7 +18115,7 @@ define hidden { i32, i32 } @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i": ; preds = %14, %8
   %.sink5.i.i = phi ptr [ %17, %14 ], [ %11, %8 ]
   %.sink3.i.i = phi i64 [ %19, %14 ], [ %5, %8 ]
-  %20 = icmp ugt i64 %.sink3.i.i, %3
+  %20 = icmp ult i64 %3, %.sink3.i.i
   br i1 %20, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h647ecf6b3e838196E.exit", label %21, !prof !4543
 
 21:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
@@ -18216,7 +18216,7 @@ define hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i": ; preds = %28, %.noexc
   %.sink5.i.i = phi ptr [ %31, %28 ], [ %26, %.noexc ]
   %.sink3.i.i = phi i64 [ %33, %28 ], [ %20, %.noexc ]
-  %34 = icmp ugt i64 %.sink3.i.i, %18
+  %34 = icmp ult i64 %18, %.sink3.i.i
   br i1 %34, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit, label %.invoke88, !prof !4543
 
 .invoke88:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
@@ -18269,7 +18269,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37": ; preds = %55, %.noexc40
   %.sink5.i.i38 = phi ptr [ %58, %55 ], [ %53, %.noexc40 ]
   %.sink3.i.i39 = phi i64 [ %60, %55 ], [ %47, %.noexc40 ]
-  %61 = icmp ugt i64 %.sink3.i.i39, %46
+  %61 = icmp ult i64 %46, %.sink3.i.i39
   br i1 %61, label %62, label %.invoke88, !prof !4543
 
 62:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37"
@@ -18311,7 +18311,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44": ; preds = %81, %.noexc47
   %.sink5.i.i45 = phi ptr [ %84, %81 ], [ %79, %.noexc47 ]
   %.sink3.i.i46 = phi i64 [ %86, %81 ], [ %73, %.noexc47 ]
-  %87 = icmp ugt i64 %.sink3.i.i46, %72
+  %87 = icmp ult i64 %72, %.sink3.i.i46
   br i1 %87, label %88, label %.invoke88, !prof !4543
 
 88:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44"
@@ -18351,7 +18351,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %105, %.noexc51
   %.sink5.i.i.i = phi ptr [ %108, %105 ], [ %103, %.noexc51 ]
   %.sink3.i.i.i = phi i64 [ %110, %105 ], [ %97, %.noexc51 ]
-  %111 = icmp ugt i64 %.sink3.i.i.i, %96
+  %111 = icmp ult i64 %96, %.sink3.i.i.i
   br i1 %111, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, label %.invoke88, !prof !4543
 
 _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
@@ -18372,7 +18372,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %125 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %124, i64 %121)
   %126 = extractvalue { i64, i1 } %125, 1
   %127 = extractvalue { i64, i1 } %125, 0
-  %128 = icmp ne i64 %127, %3
+  %128 = icmp ne i64 %3, %127
   %.031 = or i1 %126, %128
   br i1 %.031, label %130, label %129
 
@@ -18487,7 +18487,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %147 = getelementptr inbounds i8, ptr %14, i64 904
   %148 = load i64, ptr %147, align 8, !noundef !19
   %149 = shl nsw i64 %148, 2
-  %.not.i = icmp eq i64 %149, %3
+  %.not.i = icmp eq i64 %3, %149
   br i1 %.not.i, label %151, label %150
 
 150:                                              ; preds = %146
@@ -18613,7 +18613,7 @@ define hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i": ; preds = %28, %.noexc
   %.sink5.i.i = phi ptr [ %31, %28 ], [ %26, %.noexc ]
   %.sink3.i.i = phi i64 [ %33, %28 ], [ %20, %.noexc ]
-  %34 = icmp ugt i64 %.sink3.i.i, %18
+  %34 = icmp ult i64 %18, %.sink3.i.i
   br i1 %34, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit, label %.invoke88, !prof !4543
 
 .invoke88:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
@@ -18666,7 +18666,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37": ; preds = %55, %.noexc40
   %.sink5.i.i38 = phi ptr [ %58, %55 ], [ %53, %.noexc40 ]
   %.sink3.i.i39 = phi i64 [ %60, %55 ], [ %47, %.noexc40 ]
-  %61 = icmp ugt i64 %.sink3.i.i39, %46
+  %61 = icmp ult i64 %46, %.sink3.i.i39
   br i1 %61, label %62, label %.invoke88, !prof !4543
 
 62:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37"
@@ -18708,7 +18708,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44": ; preds = %81, %.noexc47
   %.sink5.i.i45 = phi ptr [ %84, %81 ], [ %79, %.noexc47 ]
   %.sink3.i.i46 = phi i64 [ %86, %81 ], [ %73, %.noexc47 ]
-  %87 = icmp ugt i64 %.sink3.i.i46, %72
+  %87 = icmp ult i64 %72, %.sink3.i.i46
   br i1 %87, label %88, label %.invoke88, !prof !4543
 
 88:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44"
@@ -18748,7 +18748,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %105, %.noexc51
   %.sink5.i.i.i = phi ptr [ %108, %105 ], [ %103, %.noexc51 ]
   %.sink3.i.i.i = phi i64 [ %110, %105 ], [ %97, %.noexc51 ]
-  %111 = icmp ugt i64 %.sink3.i.i.i, %96
+  %111 = icmp ult i64 %96, %.sink3.i.i.i
   br i1 %111, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, label %.invoke88, !prof !4543
 
 _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
@@ -18769,7 +18769,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %125 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %124, i64 %121)
   %126 = extractvalue { i64, i1 } %125, 1
   %127 = extractvalue { i64, i1 } %125, 0
-  %128 = icmp ne i64 %127, %3
+  %128 = icmp ne i64 %3, %127
   %.031 = or i1 %126, %128
   br i1 %.031, label %130, label %129
 
@@ -18884,7 +18884,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %147 = getelementptr inbounds i8, ptr %14, i64 904
   %148 = load i64, ptr %147, align 8, !noundef !19
   %149 = shl nsw i64 %148, 2
-  %.not.i = icmp eq i64 %149, %3
+  %.not.i = icmp eq i64 %3, %149
   br i1 %.not.i, label %151, label %150
 
 150:                                              ; preds = %146
@@ -19193,7 +19193,7 @@ switch.lookup10:                                  ; preds = %switch.lookup
   %61 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %47, i64 %switch.load12)
   %62 = extractvalue { i64, i1 } %61, 1
   %63 = extractvalue { i64, i1 } %61, 0
-  %64 = icmp ugt i64 %63, %3
+  %64 = icmp ult i64 %3, %63
   %narrow82.i = or i1 %62, %64
   br i1 %narrow82.i, label %85, label %65
 
@@ -20143,7 +20143,7 @@ define hidden void @_ZN5image8dynimage16decoder_to_image17h0bea2064088740c7E(ptr
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %23, %.noexc
   %.sink5.i.i.i = phi ptr [ %26, %23 ], [ %20, %.noexc ]
   %.sink3.i.i.i = phi i64 [ %28, %23 ], [ %14, %.noexc ]
-  %29 = icmp ugt i64 %.sink3.i.i.i, %12
+  %29 = icmp ult i64 %12, %.sink3.i.i.i
   br i1 %29, label %31, label %30, !prof !4543
 
 30:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
@@ -24031,7 +24031,7 @@ define hidden void @_ZN5image8dynimage16decoder_to_image17h595dc6a0199b58f2E(ptr
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %23, %.noexc
   %.sink5.i.i.i = phi ptr [ %26, %23 ], [ %20, %.noexc ]
   %.sink3.i.i.i = phi i64 [ %28, %23 ], [ %14, %.noexc ]
-  %29 = icmp ugt i64 %.sink3.i.i.i, %12
+  %29 = icmp ult i64 %12, %.sink3.i.i.i
   br i1 %29, label %31, label %30, !prof !4543
 
 30:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
@@ -33149,7 +33149,7 @@ define hidden noundef i64 @_ZN5image5image12ImageDecoder11total_bytes17h5d7a9aa7
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %14, %8
   %.sink5.i.i.i = phi ptr [ %17, %14 ], [ %11, %8 ]
   %.sink3.i.i.i = phi i64 [ %19, %14 ], [ %5, %8 ]
-  %20 = icmp ugt i64 %.sink3.i.i.i, %3
+  %20 = icmp ult i64 %3, %.sink3.i.i.i
   br i1 %20, label %"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h52ebb4ec1b6315d4E.exit", label %21, !prof !4543
 
 21:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
@@ -33214,7 +33214,7 @@ define hidden noundef i64 @_ZN5image5image12ImageDecoder11total_bytes17he107f1d3
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %14, %8
   %.sink5.i.i.i = phi ptr [ %17, %14 ], [ %11, %8 ]
   %.sink3.i.i.i = phi i64 [ %19, %14 ], [ %5, %8 ]
-  %20 = icmp ugt i64 %.sink3.i.i.i, %3
+  %20 = icmp ult i64 %3, %.sink3.i.i.i
   br i1 %20, label %"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h4015d6902cf3032cE.llvm.10740287948243559469.exit", label %21, !prof !4543
 
 21:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
@@ -33301,7 +33301,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17h38d236e8c77bee8f
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %16, %10
   %.sink5.i.i.i = phi ptr [ %19, %16 ], [ %13, %10 ]
   %.sink3.i.i.i = phi i64 [ %21, %16 ], [ %7, %10 ]
-  %22 = icmp ugt i64 %.sink3.i.i.i, %5
+  %22 = icmp ult i64 %5, %.sink3.i.i.i
   br i1 %22, label %"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h4015d6902cf3032cE.llvm.10740287948243559469.exit", label %23, !prof !4543
 
 23:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
@@ -33383,7 +33383,7 @@ define hidden void @_ZN5image5image12ImageDecoder10set_limits17hb6df0754e690997a
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i": ; preds = %16, %10
   %.sink5.i.i.i = phi ptr [ %19, %16 ], [ %13, %10 ]
   %.sink3.i.i.i = phi i64 [ %21, %16 ], [ %7, %10 ]
-  %22 = icmp ugt i64 %.sink3.i.i.i, %5
+  %22 = icmp ult i64 %5, %.sink3.i.i.i
   br i1 %22, label %"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h52ebb4ec1b6315d4E.exit", label %23, !prof !4543
 
 23:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"

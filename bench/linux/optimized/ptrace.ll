@@ -290,7 +290,7 @@ define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef %1) unnamed_addr 
 5:                                                ; preds = %2
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
@@ -306,7 +306,7 @@ define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef %1) unnamed_addr 
 15:                                               ; preds = %2
   %16 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %17 = inttoptr i64 %16 to ptr
-  %18 = icmp eq ptr %17, %0
+  %18 = icmp eq ptr %0, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
@@ -322,7 +322,7 @@ define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef %1) unnamed_addr 
 25:                                               ; preds = %2
   %26 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %27 = inttoptr i64 %26 to ptr
-  %28 = icmp eq ptr %27, %0
+  %28 = icmp eq ptr %0, %27
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
@@ -338,7 +338,7 @@ define internal fastcc i64 @getreg(ptr noundef %0, i64 noundef %1) unnamed_addr 
 35:                                               ; preds = %2
   %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %0
+  %38 = icmp eq ptr %0, %37
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %35
@@ -418,7 +418,7 @@ define internal fastcc i64 @ptrace_get_debugreg(ptr nocapture noundef readonly %
   %5 = zext nneg i32 %1 to i64
   %6 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %5) #15, !srcloc !18
   %7 = trunc i64 %6 to i32
-  %8 = and i32 %7, %1
+  %8 = and i32 %1, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 2872
   %10 = zext nneg i32 %8 to i64
   %11 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %10
@@ -479,7 +479,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @putreg(ptr noundef %0, i64 
   %7 = trunc i64 %2 to i16
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %12, !prof !19
 
 11:                                               ; preds = %6
@@ -1262,7 +1262,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i3
 9:                                                ; preds = %3
   %10 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
@@ -1283,7 +1283,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i3
 22:                                               ; preds = %3
   %23 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %24, %0
+  %25 = icmp eq ptr %0, %24
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
@@ -1304,7 +1304,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i3
 35:                                               ; preds = %3
   %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %0
+  %38 = icmp eq ptr %0, %37
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %35
@@ -1325,7 +1325,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i3
 48:                                               ; preds = %3
   %49 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %50 = inttoptr i64 %49 to ptr
-  %51 = icmp eq ptr %50, %0
+  %51 = icmp eq ptr %0, %50
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %48
@@ -1547,7 +1547,7 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
 9:                                                ; preds = %3
   %10 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br i1 %12, label %13, label %14, !prof !19
 
 13:                                               ; preds = %9
@@ -1572,7 +1572,7 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
   %22 = trunc i32 %2 to i16
   %23 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %24, %0
+  %25 = icmp eq ptr %0, %24
   br i1 %25, label %26, label %27, !prof !19
 
 26:                                               ; preds = %21
@@ -1597,7 +1597,7 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
   %35 = trunc i32 %2 to i16
   %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %0
+  %38 = icmp eq ptr %0, %37
   br i1 %38, label %39, label %40, !prof !19
 
 39:                                               ; preds = %34
@@ -1622,7 +1622,7 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
   %48 = trunc i32 %2 to i16
   %49 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %50 = inttoptr i64 %49 to ptr
-  %51 = icmp eq ptr %50, %0
+  %51 = icmp eq ptr %0, %50
   br i1 %51, label %52, label %53, !prof !19
 
 52:                                               ; preds = %47
@@ -1650,7 +1650,7 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
   %63 = trunc i32 %2 to i16
   %64 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %65 = inttoptr i64 %64 to ptr
-  %66 = icmp eq ptr %65, %0
+  %66 = icmp eq ptr %0, %65
   br i1 %66, label %67, label %68, !prof !19
 
 67:                                               ; preds = %62
@@ -1677,7 +1677,7 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
 77:                                               ; preds = %3
   %78 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %79 = inttoptr i64 %78 to ptr
-  %80 = icmp eq ptr %79, %0
+  %80 = icmp eq ptr %0, %79
   br i1 %80, label %81, label %82, !prof !19
 
 81:                                               ; preds = %77

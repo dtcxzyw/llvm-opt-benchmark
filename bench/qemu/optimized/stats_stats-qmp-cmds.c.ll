@@ -245,7 +245,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %entry3.011.us = phi ptr [ %entry3.0.us, %for.inc.us ], [ %entry3.09, %for.body.lr.ph ]
   %0 = load i32, ptr %entry3.011.us, align 8
-  %cmp8.us = icmp eq i32 %0, %provider
+  %cmp8.us = icmp eq i32 %provider, %0
   br i1 %cmp8.us, label %if.then9.us, label %for.inc.us
 
 if.then9.us:                                      ; preds = %for.body.us

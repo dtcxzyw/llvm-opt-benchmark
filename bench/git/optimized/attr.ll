@@ -657,7 +657,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr @direction, align 4
-  %cmp1.not = icmp eq i32 %0, %new_direction
+  %cmp1.not = icmp eq i32 %new_direction, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -873,7 +873,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
   %8 = phi ptr [ %call1.i.i, %if.then.i ], [ %7, %if.then ]
-  %cmp.i = icmp eq ptr %8, %6
+  %cmp.i = icmp eq ptr %6, %8
   br i1 %cmp.i, label %if.then1.i, label %if.end
 
 if.then1.i:                                       ; preds = %if.end.i
@@ -1476,7 +1476,7 @@ if.end45.i:                                       ; preds = %strbuf_addch.exit.i
   %call48.i = call fastcc ptr @read_attr(ptr noundef %istate, ptr noundef %tree_oid, ptr noundef %36, i32 noundef 2)
   %37 = load i64, ptr %pathbuf.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %37, i64 1)
-  %cmp.i39.i = icmp ult i64 %spec.select.i.i, %len17.1.lcssa.i
+  %cmp.i39.i = icmp ugt i64 %len17.1.lcssa.i, %spec.select.i.i
   br i1 %cmp.i39.i, label %if.then.i44.i, label %if.end.i40.i
 
 if.then.i44.i:                                    ; preds = %if.end45.i
@@ -2393,7 +2393,7 @@ st_add.exit.i:                                    ; preds = %st_mult.exit.i, %if
   %add.i = add i64 %namelen.1.i, 1
   %cond.i = select i1 %tobool50.not.i, i64 %add.i, i64 0
   %sub.i.i = sub i64 -41, %mul.i90.i
-  %cmp.i65.i = icmp ult i64 %sub.i.i, %cond.i
+  %cmp.i65.i = icmp ugt i64 %cond.i, %sub.i.i
   br i1 %cmp.i65.i, label %if.then.i67.i, label %st_add.exit68.i
 
 if.then.i67.i:                                    ; preds = %st_add.exit.i

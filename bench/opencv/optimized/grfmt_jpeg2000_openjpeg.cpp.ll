@@ -3420,7 +3420,7 @@ define internal noundef range(i64 1, 0) i64 @_ZN2cv12_GLOBAL__N_117opjReadFromBu
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %12, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %12)
   %.not = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not, label %16, label %13
 
@@ -3449,7 +3449,7 @@ define internal noundef range(i64 1, 0) i64 @_ZN2cv12_GLOBAL__N_117opjSkipFromBu
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %11, i64 %0)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %11)
   %.not = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not, label %14, label %12
 
@@ -3469,7 +3469,7 @@ declare hidden void @opj_stream_set_seek_function(ptr noundef, ptr noundef) loca
 define internal noundef i32 @_ZN2cv12_GLOBAL__N_117opjSeekFromBufferElPNS_6detail15OpjMemoryBufferE(i64 noundef %0, ptr nocapture noundef %1) #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %4, i64 %0)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 %.sroa.speculated

@@ -1299,7 +1299,7 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   %64 = getelementptr inbounds i8, ptr %0, i64 582
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, %3
-  %67 = or i1 %66, %6
+  %67 = or i1 %6, %66
   %68 = getelementptr inbounds i8, ptr %1, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %5, i64 16

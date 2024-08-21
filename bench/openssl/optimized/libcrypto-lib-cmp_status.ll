@@ -261,7 +261,7 @@ switch.lookup:                                    ; preds = %lor.lhs.false2
 
 lor.lhs.false6:                                   ; preds = %switch.lookup
   %conv = zext nneg i32 %call4 to i64
-  %cmp7.not = icmp ult i64 %conv, %bufsize
+  %cmp7.not = icmp ugt i64 %bufsize, %conv
   br i1 %cmp7.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %lor.lhs.false6

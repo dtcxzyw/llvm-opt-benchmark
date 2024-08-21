@@ -660,7 +660,7 @@ define internal fastcc void @_homography(ptr noundef %0, float noundef %1, float
   %23 = fdiv reassoc nsz arcp contract afn float %22, %13
   %24 = fadd reassoc nsz arcp contract afn float %23, 0x401CCCCCC0000000
   %25 = fadd reassoc nsz arcp contract afn float %21, -1.000000e+00
-  %26 = fmul reassoc nsz arcp contract afn float %25, %5
+  %26 = fmul reassoc nsz arcp contract afn float %5, %25
   %27 = fadd reassoc nsz arcp contract afn float %21, 1.000000e+00
   %28 = fmul reassoc nsz arcp contract afn float %24, %27
   %29 = fdiv reassoc nsz arcp contract afn float %26, %28
@@ -4065,9 +4065,9 @@ declare void @cairo_restore(ptr noundef) local_unnamed_addr #7
 define internal fastcc float @_calculate_straightening(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #5 {
   %9 = alloca [4 x float], align 16
   %10 = fsub reassoc nsz arcp contract afn float %1, %3
-  %11 = fmul reassoc nsz arcp contract afn float %10, %5
+  %11 = fmul reassoc nsz arcp contract afn float %5, %10
   %12 = fsub reassoc nsz arcp contract afn float %2, %4
-  %13 = fmul reassoc nsz arcp contract afn float %12, %6
+  %13 = fmul reassoc nsz arcp contract afn float %6, %12
   %14 = fmul reassoc nsz arcp contract afn float %11, %11
   %15 = fmul reassoc nsz arcp contract afn float %13, %13
   %16 = fadd reassoc nsz arcp contract afn float %15, %14

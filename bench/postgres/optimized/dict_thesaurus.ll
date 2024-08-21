@@ -1587,7 +1587,7 @@ matchIdSubst.exit77.us:                           ; preds = %18, %.loopexit82.us
   %40 = getelementptr inbounds i8, ptr %31, i64 6
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
-  %43 = icmp eq i32 %42, %4
+  %43 = icmp eq i32 %4, %42
   br i1 %43, label %._crit_edge, label %44
 
 44:                                               ; preds = %39, %35
@@ -1708,7 +1708,7 @@ define internal fastcc void @addWrd(ptr nocapture noundef %0, ptr noundef %1, pt
   store i32 0, ptr @addWrd.nres, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %.not = icmp ugt i32 %11, %3
+  %.not = icmp ult i32 %3, %11
   br i1 %.not, label %23, label %12
 
 12:                                               ; preds = %9

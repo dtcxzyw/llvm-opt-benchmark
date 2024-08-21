@@ -286,7 +286,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
@@ -370,7 +370,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
-  %42 = icmp ugt i64 %8, %1
+  %42 = icmp ult i64 %1, %8
   br i1 %42, label %43, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 43:                                               ; preds = %41
@@ -545,7 +545,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR1EPKcNS1_1
   %43 = sub i64 %42, %39
   %44 = ashr exact i64 %43, 2
   %45 = ashr exact i64 %43, 1
-  %46 = icmp ult i64 %44, %45
+  %46 = icmp ugt i64 %45, %44
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %36
@@ -557,7 +557,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR1EPKcNS1_1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 49:                                               ; preds = %36
-  %50 = icmp ugt i64 %44, %45
+  %50 = icmp ult i64 %45, %44
   br i1 %50, label %51, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 51:                                               ; preds = %49
@@ -643,7 +643,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR2EPKcNS1_
   %45 = sub i64 %44, %41
   %46 = ashr exact i64 %45, 2
   %47 = ashr exact i64 %45, 1
-  %48 = icmp ult i64 %46, %47
+  %48 = icmp ugt i64 %47, %46
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
@@ -655,7 +655,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR2EPKcNS1_
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 51:                                               ; preds = %38
-  %52 = icmp ugt i64 %46, %47
+  %52 = icmp ult i64 %47, %46
   br i1 %52, label %53, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 53:                                               ; preds = %51
@@ -794,7 +794,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64Eii.exit: ; pre
   %45 = sub i64 %44, %41
   %46 = ashr exact i64 %45, 2
   %47 = ashr exact i64 %45, 1
-  %48 = icmp ult i64 %46, %47
+  %48 = icmp ugt i64 %47, %46
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
@@ -806,7 +806,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64Eii.exit: ; pre
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 51:                                               ; preds = %38
-  %52 = icmp ugt i64 %46, %47
+  %52 = icmp ult i64 %47, %46
   br i1 %52, label %53, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 53:                                               ; preds = %51
@@ -911,7 +911,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeEREPKcNS1_1
   %46 = sub i64 %45, %42
   %47 = ashr exact i64 %46, 2
   %48 = ashr exact i64 %46, 1
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp ugt i64 %48, %47
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %39
@@ -923,7 +923,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeEREPKcNS1_1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 52:                                               ; preds = %39
-  %53 = icmp ugt i64 %47, %48
+  %53 = icmp ult i64 %48, %47
   br i1 %53, label %54, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 54:                                               ; preds = %52
@@ -1013,7 +1013,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR3EPKcNS1_
   %53 = sub i64 %52, %49
   %54 = ashr exact i64 %53, 2
   %55 = ashr exact i64 %53, 1
-  %56 = icmp ult i64 %54, %55
+  %56 = icmp ugt i64 %55, %54
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %46
@@ -1025,7 +1025,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR3EPKcNS1_
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 59:                                               ; preds = %46
-  %60 = icmp ugt i64 %54, %55
+  %60 = icmp ult i64 %55, %54
   br i1 %60, label %61, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 61:                                               ; preds = %59
@@ -1112,7 +1112,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI12EPKcNS1_
   %40 = sub i64 %39, %36
   %41 = ashr exact i64 %40, 2
   %42 = ashr exact i64 %40, 1
-  %43 = icmp ult i64 %41, %42
+  %43 = icmp ugt i64 %42, %41
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %33
@@ -1124,7 +1124,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI12EPKcNS1_
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 46:                                               ; preds = %33
-  %47 = icmp ugt i64 %41, %42
+  %47 = icmp ult i64 %42, %41
   br i1 %47, label %48, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 48:                                               ; preds = %46
@@ -1243,7 +1243,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_1
   %28 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
-  %31 = xor i32 %30, %8
+  %31 = xor i32 %8, %30
   %32 = shl i32 %31, 12
   %33 = lshr i8 %4, 3
   %34 = zext nneg i8 %33 to i32
@@ -1275,7 +1275,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_1
   %56 = sub i64 %55, %52
   %57 = ashr exact i64 %56, 2
   %58 = ashr exact i64 %56, 1
-  %59 = icmp ult i64 %57, %58
+  %59 = icmp ugt i64 %58, %57
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %49
@@ -1287,7 +1287,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 62:                                               ; preds = %49
-  %63 = icmp ugt i64 %57, %58
+  %63 = icmp ult i64 %58, %57
   br i1 %63, label %64, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 64:                                               ; preds = %62
@@ -1428,7 +1428,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBMEPKcNS1_1
   %46 = sub i64 %45, %42
   %47 = ashr exact i64 %46, 2
   %48 = ashr exact i64 %46, 1
-  %49 = icmp ult i64 %47, %48
+  %49 = icmp ugt i64 %48, %47
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %39
@@ -1440,7 +1440,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBMEPKcNS1_1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 52:                                               ; preds = %39
-  %53 = icmp ugt i64 %47, %48
+  %53 = icmp ult i64 %48, %47
   br i1 %53, label %54, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 54:                                               ; preds = %52
@@ -1552,7 +1552,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR3EPKcNS1_1
   %47 = sub i64 %46, %43
   %48 = ashr exact i64 %47, 2
   %49 = ashr exact i64 %47, 1
-  %50 = icmp ult i64 %48, %49
+  %50 = icmp ugt i64 %49, %48
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %40
@@ -1564,7 +1564,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR3EPKcNS1_1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 53:                                               ; preds = %40
-  %54 = icmp ugt i64 %48, %49
+  %54 = icmp ult i64 %49, %48
   br i1 %54, label %55, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 55:                                               ; preds = %53
@@ -1699,7 +1699,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBFMEPKcNS1_
   %45 = sub i64 %44, %41
   %46 = ashr exact i64 %45, 2
   %47 = ashr exact i64 %45, 1
-  %48 = icmp ult i64 %46, %47
+  %48 = icmp ugt i64 %47, %46
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
@@ -1711,7 +1711,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBFMEPKcNS1_
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 51:                                               ; preds = %38
-  %52 = icmp ugt i64 %46, %47
+  %52 = icmp ult i64 %47, %46
   br i1 %52, label %53, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 53:                                               ; preds = %51
@@ -2015,7 +2015,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeAEPKcNS1_11
   %109 = sub i64 %108, %105
   %110 = ashr exact i64 %109, 2
   %111 = ashr exact i64 %109, 1
-  %112 = icmp ult i64 %110, %111
+  %112 = icmp ugt i64 %111, %110
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %102
@@ -2027,7 +2027,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeAEPKcNS1_11
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 115:                                              ; preds = %102
-  %116 = icmp ugt i64 %110, %111
+  %116 = icmp ult i64 %111, %110
   br i1 %116, label %117, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 117:                                              ; preds = %115
@@ -2169,7 +2169,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placePEPKcNS1_11
   %52 = sub i64 %51, %48
   %53 = ashr exact i64 %52, 2
   %54 = ashr exact i64 %52, 1
-  %55 = icmp ult i64 %53, %54
+  %55 = icmp ugt i64 %54, %53
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %45
@@ -2181,7 +2181,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placePEPKcNS1_11
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 58:                                               ; preds = %45
-  %59 = icmp ugt i64 %53, %54
+  %59 = icmp ult i64 %54, %53
   br i1 %59, label %60, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 60:                                               ; preds = %58
@@ -2293,7 +2293,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(p
   %17 = sub i64 %16, %13
   %18 = ashr exact i64 %17, 2
   %19 = ashr exact i64 %17, 1
-  %20 = icmp ult i64 %18, %19
+  %20 = icmp ugt i64 %19, %18
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %10
@@ -2305,7 +2305,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(p
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 23:                                               ; preds = %10
-  %24 = icmp ugt i64 %18, %19
+  %24 = icmp ult i64 %19, %18
   br i1 %24, label %25, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 25:                                               ; preds = %23
@@ -2375,7 +2375,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeBEPKcRNS0_5
   %21 = sub i64 %20, %17
   %22 = ashr exact i64 %21, 2
   %23 = ashr exact i64 %21, 1
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp ugt i64 %23, %22
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %14
@@ -2387,7 +2387,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeBEPKcRNS0_5
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 27:                                               ; preds = %14
-  %28 = icmp ugt i64 %22, %23
+  %28 = icmp ult i64 %23, %22
   br i1 %28, label %29, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 29:                                               ; preds = %27
@@ -2455,7 +2455,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA642blERNS0_5LabelE(
   %17 = sub i64 %16, %13
   %18 = ashr exact i64 %17, 2
   %19 = ashr exact i64 %17, 1
-  %20 = icmp ult i64 %18, %19
+  %20 = icmp ugt i64 %19, %18
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %10
@@ -2467,7 +2467,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA642blERNS0_5LabelE(
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 23:                                               ; preds = %10
-  %24 = icmp ugt i64 %18, %19
+  %24 = icmp ult i64 %19, %18
   br i1 %24, label %25, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 25:                                               ; preds = %23
@@ -2559,7 +2559,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBREPKcNS1_1
   %31 = sub i64 %30, %27
   %32 = ashr exact i64 %31, 2
   %33 = ashr exact i64 %31, 1
-  %34 = icmp ult i64 %32, %33
+  %34 = icmp ugt i64 %33, %32
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %24
@@ -2571,7 +2571,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBREPKcNS1_1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 37:                                               ; preds = %24
-  %38 = icmp ugt i64 %32, %33
+  %38 = icmp ult i64 %33, %32
   br i1 %38, label %39, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 39:                                               ; preds = %37
@@ -2642,7 +2642,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643retEv(ptr nounde
   %21 = sub i64 %20, %17
   %22 = ashr exact i64 %21, 2
   %23 = ashr exact i64 %21, 1
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp ugt i64 %23, %22
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %14
@@ -2654,7 +2654,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643retEv(ptr nounde
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 27:                                               ; preds = %14
-  %28 = icmp ugt i64 %22, %23
+  %28 = icmp ult i64 %23, %22
   br i1 %28, label %29, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 29:                                               ; preds = %27
@@ -2719,7 +2719,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj(ptr 
   %23 = sub i64 %22, %19
   %24 = ashr exact i64 %23, 2
   %25 = ashr exact i64 %23, 1
-  %26 = icmp ult i64 %24, %25
+  %26 = icmp ugt i64 %25, %24
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %16
@@ -2731,7 +2731,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj(ptr 
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 29:                                               ; preds = %16
-  %30 = icmp ugt i64 %24, %25
+  %30 = icmp ult i64 %25, %24
   br i1 %30, label %31, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 31:                                               ; preds = %29
@@ -2793,7 +2793,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12Conditio
   %25 = sub i64 %24, %21
   %26 = ashr exact i64 %25, 2
   %27 = ashr exact i64 %25, 1
-  %28 = icmp ult i64 %26, %27
+  %28 = icmp ugt i64 %27, %26
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %18
@@ -2805,7 +2805,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12Conditio
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 31:                                               ; preds = %18
-  %32 = icmp ugt i64 %26, %27
+  %32 = icmp ult i64 %27, %26
   br i1 %32, label %33, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 33:                                               ; preds = %31
@@ -2877,7 +2877,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBCEPKcRNS0_
   %24 = sub i64 %23, %20
   %25 = ashr exact i64 %24, 2
   %26 = ashr exact i64 %24, 1
-  %27 = icmp ult i64 %25, %26
+  %27 = icmp ugt i64 %26, %25
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %17
@@ -2889,7 +2889,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBCEPKcRNS0_
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 30:                                               ; preds = %17
-  %31 = icmp ugt i64 %25, %26
+  %31 = icmp ult i64 %26, %25
   br i1 %31, label %32, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 32:                                               ; preds = %30
@@ -2972,7 +2972,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBCREPKcRNS0
   %29 = sub i64 %28, %25
   %30 = ashr exact i64 %29, 2
   %31 = ashr exact i64 %29, 1
-  %32 = icmp ult i64 %30, %31
+  %32 = icmp ugt i64 %31, %30
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %22
@@ -2984,7 +2984,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBCREPKcRNS0
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 35:                                               ; preds = %22
-  %36 = icmp ugt i64 %30, %31
+  %36 = icmp ult i64 %31, %30
   br i1 %36, label %37, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 37:                                               ; preds = %35
@@ -3080,7 +3080,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBTREPKcRNS0
   %33 = sub i64 %32, %29
   %34 = ashr exact i64 %33, 2
   %35 = ashr exact i64 %33, 1
-  %36 = icmp ult i64 %34, %35
+  %36 = icmp ugt i64 %35, %34
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %26
@@ -3092,7 +3092,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBTREPKcRNS0
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 39:                                               ; preds = %26
-  %40 = icmp ugt i64 %34, %35
+  %40 = icmp ult i64 %35, %34
   br i1 %40, label %41, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 41:                                               ; preds = %39
@@ -3314,7 +3314,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   %31 = sub i64 %30, %27
   %32 = ashr exact i64 %31, 2
   %33 = ashr exact i64 %31, 1
-  %34 = icmp ult i64 %32, %33
+  %34 = icmp ugt i64 %33, %32
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %24
@@ -3326,7 +3326,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 37:                                               ; preds = %24
-  %38 = icmp ugt i64 %32, %33
+  %38 = icmp ult i64 %33, %32
   br i1 %38, label %39, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 39:                                               ; preds = %37
@@ -3366,8 +3366,8 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiN
   %8 = select i1 %6, i32 524288, i32 %7
   %9 = lshr exact i32 %8, 1
   %10 = sub nsw i32 0, %9
-  %11 = icmp slt i32 %10, %2
-  %12 = icmp sgt i32 %9, %2
+  %11 = icmp sgt i32 %2, %10
+  %12 = icmp slt i32 %2, %9
   %or.cond = and i1 %11, %12
   br i1 %or.cond, label %13, label %24
 
@@ -3584,7 +3584,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   %25 = sub i64 %24, %21
   %26 = ashr exact i64 %25, 2
   %27 = ashr exact i64 %25, 1
-  %28 = icmp ult i64 %26, %27
+  %28 = icmp ugt i64 %27, %26
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %18
@@ -3596,7 +3596,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 31:                                               ; preds = %18
-  %32 = icmp ugt i64 %26, %27
+  %32 = icmp ult i64 %27, %26
   br i1 %32, label %33, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 33:                                               ; preds = %31
@@ -3766,7 +3766,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1
   %32 = sub i64 %31, %28
   %33 = ashr exact i64 %32, 2
   %34 = ashr exact i64 %32, 1
-  %35 = icmp ult i64 %33, %34
+  %35 = icmp ugt i64 %34, %33
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %25
@@ -3778,7 +3778,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 38:                                               ; preds = %25
-  %39 = icmp ugt i64 %33, %34
+  %39 = icmp ult i64 %34, %33
   br i1 %39, label %40, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 40:                                               ; preds = %38
@@ -3890,7 +3890,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeVREPKcNS1_1
   %43 = sub i64 %42, %39
   %44 = ashr exact i64 %43, 2
   %45 = ashr exact i64 %43, 1
-  %46 = icmp ult i64 %44, %45
+  %46 = icmp ugt i64 %45, %44
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %36
@@ -3902,7 +3902,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeVREPKcNS1_1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 49:                                               ; preds = %36
-  %50 = icmp ugt i64 %44, %45
+  %50 = icmp ult i64 %45, %44
   br i1 %50, label %51, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 51:                                               ; preds = %49
@@ -4074,7 +4074,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   %34 = sub i64 %33, %30
   %35 = ashr exact i64 %34, 2
   %36 = ashr exact i64 %34, 1
-  %37 = icmp ult i64 %35, %36
+  %37 = icmp ugt i64 %36, %35
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %27
@@ -4086,7 +4086,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 40:                                               ; preds = %27
-  %41 = icmp ugt i64 %35, %36
+  %41 = icmp ult i64 %36, %35
   br i1 %41, label %42, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 42:                                               ; preds = %40
@@ -4159,7 +4159,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv(ptr nou
   %14 = sub i64 %13, %10
   %15 = ashr exact i64 %14, 2
   %16 = ashr exact i64 %14, 1
-  %17 = icmp ult i64 %15, %16
+  %17 = icmp ugt i64 %16, %15
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %7
@@ -4171,7 +4171,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv(ptr nou
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit
 
 20:                                               ; preds = %7
-  %21 = icmp ugt i64 %15, %16
+  %21 = icmp ult i64 %16, %15
   br i1 %21, label %22, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit
 
 22:                                               ; preds = %20
@@ -4257,7 +4257,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   %38 = sub i64 %37, %34
   %39 = ashr exact i64 %38, 2
   %40 = ashr exact i64 %38, 1
-  %41 = icmp ult i64 %39, %40
+  %41 = icmp ugt i64 %40, %39
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %31
@@ -4269,7 +4269,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 44:                                               ; preds = %31
-  %45 = icmp ugt i64 %39, %40
+  %45 = icmp ult i64 %40, %39
   br i1 %45, label %46, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 46:                                               ; preds = %44
@@ -4349,7 +4349,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11Reg
   %35 = sub i64 %34, %31
   %36 = ashr exact i64 %35, 2
   %37 = ashr exact i64 %35, 1
-  %38 = icmp ult i64 %36, %37
+  %38 = icmp ugt i64 %37, %36
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %28
@@ -4361,7 +4361,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11Reg
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 41:                                               ; preds = %28
-  %42 = icmp ugt i64 %36, %37
+  %42 = icmp ult i64 %37, %36
   br i1 %42, label %43, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 43:                                               ; preds = %41
@@ -4534,7 +4534,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFCMPEPKcNS1
   %45 = sub i64 %44, %41
   %46 = ashr exact i64 %45, 2
   %47 = ashr exact i64 %45, 1
-  %48 = icmp ult i64 %46, %47
+  %48 = icmp ugt i64 %47, %46
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
@@ -4546,7 +4546,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFCMPEPKcNS1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 51:                                               ; preds = %38
-  %52 = icmp ugt i64 %46, %47
+  %52 = icmp ult i64 %47, %46
   br i1 %52, label %53, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
 
 53:                                               ; preds = %51
@@ -4624,7 +4624,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr nounde
   %21 = sub i64 %20, %17
   %22 = ashr exact i64 %21, 2
   %23 = ashr exact i64 %21, 1
-  %24 = icmp ult i64 %22, %23
+  %24 = icmp ugt i64 %23, %22
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %14
@@ -4636,7 +4636,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr nounde
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 27:                                               ; preds = %14
-  %28 = icmp ugt i64 %22, %23
+  %28 = icmp ult i64 %23, %22
   br i1 %28, label %29, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i
 
 29:                                               ; preds = %27
@@ -4683,7 +4683,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648fi
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %12, %7
   %14 = ashr exact i64 %13, 2
-  %15 = icmp ult i64 %14, %9
+  %15 = icmp ugt i64 %9, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %1
@@ -4692,7 +4692,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648fi
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 18:                                               ; preds = %1
-  %19 = icmp ule i64 %14, %9
+  %19 = icmp uge i64 %9, %14
   %.not.i.i = icmp eq ptr %11, %4
   %or.cond = or i1 %.not.i.i, %19
   br i1 %or.cond, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %20
@@ -4735,7 +4735,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %16, %18, %20
   %41 = lshr exact i32 %40, 1
   %42 = sub nsw i32 0, %41
   %43 = icmp sgt i32 %35, %42
-  %44 = icmp sgt i32 %41, %35
+  %44 = icmp slt i32 %35, %41
   %or.cond.i = and i1 %43, %44
   br i1 %or.cond.i, label %45, label %55
 
@@ -5403,7 +5403,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_i
   %96 = lshr exact i32 %95, 1
   %97 = sub nsw i32 0, %96
   %98 = icmp sgt i32 %91, %97
-  %99 = icmp sgt i32 %96, %91
+  %99 = icmp slt i32 %91, %96
   %or.cond.i = and i1 %98, %99
   br i1 %or.cond.i, label %100, label %109
 
@@ -5531,7 +5531,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv(ptr nou
   %10 = sub i64 %9, %6
   %11 = ashr exact i64 %10, 2
   %12 = ashr exact i64 %10, 1
-  %13 = icmp ult i64 %11, %12
+  %13 = icmp ugt i64 %12, %11
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %1
@@ -5543,7 +5543,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv(ptr nou
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 16:                                               ; preds = %1
-  %17 = icmp ugt i64 %11, %12
+  %17 = icmp ult i64 %12, %11
   br i1 %17, label %18, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 18:                                               ; preds = %16

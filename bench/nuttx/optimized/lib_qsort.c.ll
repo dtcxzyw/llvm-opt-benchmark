@@ -9,7 +9,7 @@ define void @qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture
   %6 = icmp ne i64 %2, 8
   %7 = zext i1 %6 to i32
   %8 = ptrtoint ptr %0 to i64
-  %9 = or i64 %8, %2
+  %9 = or i64 %2, %8
   %10 = and i64 %9, 7
   %or.cond393 = icmp eq i64 %10, 0
   %11 = select i1 %or.cond393, i32 %7, i32 2
@@ -30,7 +30,7 @@ define void @qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture
   %15 = mul i64 %.0222.lcssa, %2
   %16 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %15
   %.0237421 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %2
-  %17 = icmp sgt i64 %15, %2
+  %17 = icmp slt i64 %2, %15
   br i1 %17, label %.preheader326.lr.ph, label %.loopexit
 
 .preheader326.lr.ph:                              ; preds = %.preheader327
@@ -551,7 +551,7 @@ swapfunc.exit296:                                 ; preds = %.preheader337, %.pr
   br i1 %234, label %.preheader331, label %273
 
 .preheader331:                                    ; preds = %.critedge2._crit_edge
-  %237 = icmp sgt i64 %235, %2
+  %237 = icmp slt i64 %2, %235
   br i1 %237, label %.preheader330.lr.ph, label %.loopexit
 
 .preheader330.lr.ph:                              ; preds = %.preheader331
@@ -708,7 +708,7 @@ swapfunc.exit310:                                 ; preds = %.preheader341, %286
   %300 = ptrtoint ptr %.1227.lcssa to i64
   %301 = sub i64 %299, %300
   %302 = ptrtoint ptr %236 to i64
-  %303 = add i64 %299, %2
+  %303 = add i64 %2, %299
   %304 = sub i64 %302, %303
   %.265 = tail call i64 @llvm.umin.i64(i64 %301, i64 %304)
   %305 = trunc i64 %.265 to i32
@@ -776,7 +776,7 @@ swapfunc.exit317:                                 ; preds = %.preheader339, %313
   %.fr489 = freeze ptr %335
   %336 = udiv i64 %331, %2
   %337 = ptrtoint ptr %.fr489 to i64
-  %338 = or i64 %337, %2
+  %338 = or i64 %2, %337
   %339 = and i64 %338, 7
   %or.cond = icmp eq i64 %339, 0
   %340 = select i1 %or.cond, i32 %7, i32 2

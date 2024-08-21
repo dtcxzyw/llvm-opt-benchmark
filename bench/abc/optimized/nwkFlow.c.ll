@@ -664,7 +664,7 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge8, %108
   %125 = getelementptr i8, ptr %.val103, i64 104
   %.val103.val = load i32, ptr %125, align 8
   %126 = add nsw i32 %.val103.val, -2
-  %.not109 = icmp eq i32 %126, %.val104
+  %.not109 = icmp eq i32 %.val104, %126
   br i1 %.not109, label %127, label %160
 
 127:                                              ; preds = %123
@@ -792,7 +792,7 @@ define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushForwardBot_rec(ptr nounde
   %4 = getelementptr i8, ptr %.val28, i64 104
   %.val28.val = load i32, ptr %4, align 8
   %5 = add nsw i32 %.val28.val, -2
-  %6 = icmp ne i32 %5, %.val29
+  %6 = icmp ne i32 %.val29, %5
   %7 = icmp ne i32 %.val29, %.val28.val
   %narrow.i.not = and i1 %7, %6
   br i1 %narrow.i.not, label %8, label %.critedge
@@ -1132,7 +1132,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %100 = getelementptr i8, ptr %.val17.i, i64 104
   %.val17.val.i = load i32, ptr %100, align 8
   %101 = add nsw i32 %.val17.val.i, -2
-  %102 = icmp ne i32 %101, %.val18.i
+  %102 = icmp ne i32 %.val18.i, %101
   %103 = icmp ne i32 %.val18.i, %.val17.val.i
   %narrow.i.not.i = and i1 %103, %102
   br i1 %narrow.i.not.i, label %104, label %Nwk_ManPushBackwardBot_rec.exit.thread
@@ -1241,7 +1241,7 @@ Nwk_ManPushBackwardBot_rec.exit.thread:           ; preds = %113, %111, %115, %9
   %145 = getelementptr i8, ptr %.val17.i138, i64 104
   %.val17.val.i140 = load i32, ptr %145, align 8
   %146 = add nsw i32 %.val17.val.i140, -2
-  %147 = icmp ne i32 %146, %.val18.i139
+  %147 = icmp ne i32 %.val18.i139, %146
   %148 = icmp ne i32 %.val18.i139, %.val17.val.i140
   %narrow.i.not.i141 = and i1 %148, %147
   br i1 %narrow.i.not.i141, label %149, label %Nwk_ManPushBackwardBot_rec.exit154
@@ -1362,7 +1362,7 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge10, %173
   %196 = getelementptr i8, ptr %.val129, i64 104
   %.val129.val = load i32, ptr %196, align 8
   %197 = add nsw i32 %.val129.val, -2
-  %.not162 = icmp eq i32 %197, %.val130
+  %.not162 = icmp eq i32 %.val130, %197
   br i1 %.not162, label %198, label %226
 
 198:                                              ; preds = %194
@@ -1453,7 +1453,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %234 = getelementptr i8, ptr %.val127, i64 104
   %.val127.val = load i32, ptr %234, align 8
   %235 = add nsw i32 %.val127.val, -2
-  %.not161 = icmp eq i32 %235, %.val128
+  %.not161 = icmp eq i32 %.val128, %235
   %236 = zext i1 %.not161 to i32
   %spec.select = add nuw nsw i32 %.2184, %236
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
@@ -1507,7 +1507,7 @@ define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushForwardTop_rec(ptr nounde
   %4 = getelementptr i8, ptr %.val28, i64 104
   %.val28.val = load i32, ptr %4, align 8
   %5 = add nsw i32 %.val28.val, -1
-  %6 = icmp ne i32 %5, %.val29
+  %6 = icmp ne i32 %.val29, %5
   %7 = icmp ne i32 %.val29, %.val28.val
   %narrow.i.not = and i1 %7, %6
   br i1 %narrow.i.not, label %8, label %.loopexit
@@ -1627,7 +1627,7 @@ define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushBackwardTop_rec(ptr nocap
   %4 = getelementptr i8, ptr %.val42, i64 104
   %.val42.val = load i32, ptr %4, align 8
   %5 = add nsw i32 %.val42.val, -1
-  %6 = icmp ne i32 %5, %.val43
+  %6 = icmp ne i32 %.val43, %5
   %7 = icmp ne i32 %.val43, %.val42.val
   %narrow.i.not = and i1 %7, %6
   br i1 %narrow.i.not, label %8, label %Nwk_ManPushBackwardBot_rec.exit
@@ -1678,7 +1678,7 @@ Nwk_ObjSetVisitedTop.exit:                        ; preds = %11, %.sink.split.i
   %25 = getelementptr i8, ptr %.val17.i, i64 104
   %.val17.val.i = load i32, ptr %25, align 8
   %26 = add nsw i32 %.val17.val.i, -2
-  %27 = icmp ne i32 %26, %.val18.i
+  %27 = icmp ne i32 %.val18.i, %26
   %28 = icmp ne i32 %.val18.i, %.val17.val.i
   %narrow.i.i.not = and i1 %28, %27
   br i1 %narrow.i.i.not, label %29, label %49
@@ -1802,7 +1802,7 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %3
   %77 = getelementptr i8, ptr %.val17.i45, i64 104
   %.val17.val.i47 = load i32, ptr %77, align 8
   %78 = add nsw i32 %.val17.val.i47, -2
-  %79 = icmp ne i32 %78, %.val18.i46
+  %79 = icmp ne i32 %.val18.i46, %78
   %80 = icmp ne i32 %.val18.i46, %.val17.val.i47
   %narrow.i.i48.not = and i1 %80, %79
   br i1 %narrow.i.i48.not, label %81, label %Nwk_ManPushBackwardBot_rec.exit

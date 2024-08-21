@@ -1709,7 +1709,7 @@ for.end:                                          ; preds = %for.body, %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp16.not = icmp ugt ptr %add.ptr, %ibuf
+  %cmp16.not = icmp ult ptr %ibuf, %add.ptr
   br i1 %cmp16.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.end
@@ -1870,7 +1870,7 @@ for.end:                                          ; preds = %for.body, %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp15.not = icmp ugt ptr %add.ptr, %ibuf
+  %cmp15.not = icmp ult ptr %ibuf, %add.ptr
   br i1 %cmp15.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end

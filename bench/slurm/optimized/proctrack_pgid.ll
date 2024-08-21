@@ -110,7 +110,7 @@ define zeroext i1 @proctrack_p_has_pid(i64 noundef %0, i32 noundef %1) local_unn
   %3 = tail call i32 @getpgid(i32 noundef %1) #8
   %4 = icmp ne i32 %3, -1
   %5 = sext i32 %3 to i64
-  %.not = icmp eq i64 %5, %0
+  %.not = icmp eq i64 %0, %5
   %or.cond = and i1 %4, %.not
   ret i1 %or.cond
 }

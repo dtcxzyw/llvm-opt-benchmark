@@ -3160,7 +3160,7 @@ invoke.cont9:                                     ; preds = %_ZN6bufferIbLb1ELj1
   %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %14 = load i32, ptr %m_pos.i35, align 8
-  %cmp.i40 = icmp ult i32 %14, %shl
+  %cmp.i40 = icmp ugt i32 %shl, %14
   br i1 %cmp.i40, label %for.body.i45, label %if.else.i41
 
 for.body.i45:                                     ; preds = %invoke.cont9, %.noexc47
@@ -3174,7 +3174,7 @@ for.body.i45:                                     ; preds = %invoke.cont9, %.noe
   br i1 %exitcond13.not.i, label %invoke.cont11, label %for.body.i45, !llvm.loop !18
 
 if.else.i41:                                      ; preds = %invoke.cont9
-  %cmp3.i42 = icmp ugt i32 %14, %shl
+  %cmp3.i42 = icmp ult i32 %shl, %14
   br i1 %cmp3.i42, label %for.body8.i, label %invoke.cont11
 
 for.body8.i:                                      ; preds = %if.else.i41, %_ZN6bufferI8rationalLb1ELj16EE8pop_backEv.exit.i
@@ -5982,9 +5982,9 @@ if.end15.us:                                      ; preds = %_ZNK11ast_manager5i
 
 if.end18.us:                                      ; preds = %if.end15.us
   %17 = load ptr, ptr %m_true.i.i.i93, align 8
-  %cmp.i.i.i.us = icmp eq ptr %17, %11
+  %cmp.i.i.i.us = icmp eq ptr %11, %17
   %18 = load ptr, ptr %m_false.i.i.i94, align 8
-  %cmp.i4.i.i.us = icmp eq ptr %18, %3
+  %cmp.i4.i.i.us = icmp eq ptr %3, %18
   %or.cond.i.i.us = select i1 %cmp.i.i.i.us, i1 %cmp.i4.i.i.us, i1 false
   br i1 %or.cond.i.i.us, label %if.then21, label %lor.rhs.i.i.us
 
@@ -6015,8 +6015,8 @@ _ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us: ; preds = %_ZNK11ast
   br i1 %cmp.i.i43.us, label %if.then21, label %lor.rhs.i.us
 
 lor.rhs.i.us:                                     ; preds = %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.us, %land.rhs.i.i.i.i42.us, %lor.rhs.i.i.us
-  %cmp.i.i4.i.us = icmp eq ptr %17, %3
-  %cmp.i4.i6.i.us = icmp eq ptr %18, %11
+  %cmp.i.i4.i.us = icmp eq ptr %3, %17
+  %cmp.i4.i6.i.us = icmp eq ptr %11, %18
   %or.cond.i7.i.us = select i1 %cmp.i.i4.i.us, i1 %cmp.i4.i6.i.us, i1 false
   br i1 %or.cond.i7.i.us, label %if.then21, label %lor.rhs.i8.i.us
 
@@ -6079,9 +6079,9 @@ if.end15:                                         ; preds = %land.rhs.i.i32, %fo
 
 if.end18:                                         ; preds = %if.end15
   %37 = load ptr, ptr %m_true.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %37, %31
+  %cmp.i.i.i = icmp eq ptr %31, %37
   %38 = load ptr, ptr %m_false.i.i.i, align 8
-  %cmp.i4.i.i = icmp eq ptr %38, %3
+  %cmp.i4.i.i = icmp eq ptr %3, %38
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i4.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then21, label %lor.rhs.i.i
 
@@ -6112,8 +6112,8 @@ _ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i: ; preds = %_ZNK11ast_ma
   br i1 %cmp.i.i43, label %if.then21, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.rhs.i.i.i.i42, %lor.rhs.i.i
-  %cmp.i.i4.i = icmp eq ptr %37, %3
-  %cmp.i4.i6.i = icmp eq ptr %38, %31
+  %cmp.i.i4.i = icmp eq ptr %3, %37
+  %cmp.i4.i6.i = icmp eq ptr %31, %38
   %or.cond.i7.i = select i1 %cmp.i.i4.i, i1 %cmp.i4.i6.i, i1 false
   br i1 %or.cond.i7.i, label %if.then21, label %for.inc
 

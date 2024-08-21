@@ -162,7 +162,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = sub i32 8, %5
   %conv = zext i32 %sub to i64
-  %cmp = icmp ugt i64 %conv, %inlen
+  %cmp = icmp ult i64 %inlen, %conv
   %leavings = getelementptr inbounds i8, ptr %ctx, i64 56
   %idxprom = zext i32 %5 to i64
   %arrayidx = getelementptr inbounds [8 x i8], ptr %leavings, i64 0, i64 %idxprom
@@ -407,7 +407,7 @@ lor.lhs.false6:                                   ; preds = %entry
   %hash_size = getelementptr inbounds i8, ptr %ctx, i64 44
   %6 = load i32, ptr %hash_size, align 4
   %conv = zext i32 %6 to i64
-  %cmp7.not = icmp eq i64 %conv, %outlen
+  %cmp7.not = icmp eq i64 %outlen, %conv
   br i1 %cmp7.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false6

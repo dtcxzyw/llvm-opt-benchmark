@@ -1806,7 +1806,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp5 = icmp ugt i64 %conv, %len
+  %cmp5 = icmp ult i64 %len, %conv
   br i1 %cmp5, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.else

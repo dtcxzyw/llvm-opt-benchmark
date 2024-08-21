@@ -128,7 +128,7 @@ define hidden range(i32 0, 2) i32 @CBS_mem_equal(ptr nocapture noundef readonly 
 entry:
   %len1 = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len1, align 8
-  %cmp.not = icmp eq i64 %0, %len
+  %cmp.not = icmp eq i64 %len, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -813,7 +813,7 @@ if.end.i42.i.i.else:                              ; preds = %if.end.i42.i.i
   br label %CBS_get_any_asn1_element.exit
 
 CBS_get_any_asn1_element.exit:                    ; preds = %if.end.i42.i.i.else, %if.end.i42.i.i
-  %cmp1.not = icmp eq i32 %conv.i.i, %tag_value
+  %cmp1.not = icmp eq i32 %tag_value, %conv.i.i
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %CBS_get_any_asn1_element.exit
@@ -937,7 +937,7 @@ if.end.i42.i.i.else.i:                            ; preds = %if.end.i42.i.i.i
   br label %CBS_get_any_asn1_element.exit.i
 
 CBS_get_any_asn1_element.exit.i:                  ; preds = %if.end.i42.i.i.else.i, %if.end.i42.i.i.i
-  %cmp1.not.i = icmp eq i32 %conv.i.i.i, %tag_value
+  %cmp1.not.i = icmp eq i32 %tag_value, %conv.i.i.i
   %spec.select = zext i1 %cmp1.not.i to i32
   br label %cbs_get_asn1.exit
 
@@ -958,7 +958,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %2 = load i8, ptr %1, align 1
   %conv = zext i8 %2 to i32
-  %cmp2 = icmp eq i32 %conv, %tag_value
+  %cmp2 = icmp eq i32 %tag_value, %conv
   %conv3 = zext i1 %cmp2 to i32
   br label %return
 
@@ -1114,7 +1114,7 @@ CBS_peek_asn1_tag.exit:                           ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %2 = load i8, ptr %1, align 1
   %conv.i = zext i8 %2 to i32
-  %cmp2.i.not = icmp eq i32 %conv.i, %tag
+  %cmp2.i.not = icmp eq i32 %tag, %conv.i
   br i1 %cmp2.i.not, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %CBS_peek_asn1_tag.exit
@@ -1148,7 +1148,7 @@ CBS_peek_asn1_tag.exit.i:                         ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %2 = load i8, ptr %1, align 1
   %conv.i.i = zext i8 %2 to i32
-  %cmp2.i.not.i = icmp eq i32 %conv.i.i, %tag
+  %cmp2.i.not.i = icmp eq i32 %tag, %conv.i.i
   br i1 %cmp2.i.not.i, label %if.then.i, label %if.else
 
 if.then.i:                                        ; preds = %CBS_peek_asn1_tag.exit.i
@@ -1362,7 +1362,7 @@ CBS_peek_asn1_tag.exit.i:                         ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %2 = load i8, ptr %1, align 1
   %conv.i.i = zext i8 %2 to i32
-  %cmp2.i.not.i = icmp eq i32 %conv.i.i, %tag
+  %cmp2.i.not.i = icmp eq i32 %tag, %conv.i.i
   br i1 %cmp2.i.not.i, label %if.then.i, label %if.else
 
 if.then.i:                                        ; preds = %CBS_peek_asn1_tag.exit.i
@@ -1479,7 +1479,7 @@ CBS_peek_asn1_tag.exit.i:                         ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %2 = load i8, ptr %1, align 1
   %conv.i.i = zext i8 %2 to i32
-  %cmp2.i.not.i = icmp eq i32 %conv.i.i, %tag
+  %cmp2.i.not.i = icmp eq i32 %tag, %conv.i.i
   br i1 %cmp2.i.not.i, label %if.then.i, label %return.sink.split
 
 if.then.i:                                        ; preds = %CBS_peek_asn1_tag.exit.i

@@ -313,8 +313,8 @@ define hidden void @_ZN2cv3mcc17polyanticlockwiseERSt6vectorINS_6Point_IfEESaIS3
   %.val11 = load float, ptr %9, align 4
   %10 = fsub float %.val10, %.val8
   %11 = fsub float %.val11, %.val9
-  %12 = fneg float %7
-  %13 = fmul float %10, %12
+  %12 = fneg float %10
+  %13 = fmul float %7, %12
   %14 = tail call float @llvm.fmuladd.f32(float %6, float %11, float %13)
   %15 = fcmp olt float %14, 0.000000e+00
   br i1 %15, label %16, label %20
@@ -349,8 +349,8 @@ define hidden void @_ZN2cv3mcc13polyclockwiseERSt6vectorINS_6Point_IfEESaIS3_EE(
   %.val7 = load float, ptr %9, align 4
   %10 = fsub float %.val, %.val12
   %11 = fsub float %.val7, %.val13
-  %12 = fneg float %7
-  %13 = fmul float %10, %12
+  %12 = fneg float %10
+  %13 = fmul float %7, %12
   %14 = tail call float @llvm.fmuladd.f32(float %6, float %11, float %13)
   %15 = fcmp ogt float %14, 0.000000e+00
   br i1 %15, label %16, label %20

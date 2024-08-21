@@ -9757,7 +9757,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   %68 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %67)
   %69 = fptoui float %68 to i64
   %70 = add i64 %69, 1
-  %71 = icmp ult i64 %69, %2
+  %71 = icmp ugt i64 %2, %69
   %72 = select i1 %71, i64 %69, i64 %48
   %73 = icmp ult i64 %70, %2
   %74 = select i1 %73, i64 %70, i64 %48
@@ -9830,7 +9830,7 @@ define internal fastcc void @fast_surface_blur(ptr noalias nocapture noundef %0,
   %128 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %127)
   %129 = fptoui float %128 to i64
   %130 = add i64 %129, 1
-  %131 = icmp ult i64 %129, %1
+  %131 = icmp ugt i64 %1, %129
   %132 = select i1 %131, i64 %129, i64 %47
   %133 = icmp ult i64 %130, %1
   %134 = select i1 %133, i64 %130, i64 %47
@@ -10872,7 +10872,7 @@ define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture nounde
   %166 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %165)
   %167 = fptoui float %166 to i64
   %168 = add i64 %167, 1
-  %169 = icmp ult i64 %167, %2
+  %169 = icmp ugt i64 %2, %167
   %170 = select i1 %169, i64 %167, i64 %51
   %171 = icmp ult i64 %168, %2
   %172 = select i1 %171, i64 %168, i64 %51
@@ -10944,7 +10944,7 @@ define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture nounde
   %225 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %224)
   %226 = fptoui float %225 to i64
   %227 = add i64 %226, 1
-  %228 = icmp ult i64 %226, %1
+  %228 = icmp ugt i64 %1, %226
   %229 = select i1 %228, i64 %226, i64 %50
   %230 = icmp ult i64 %227, %1
   %231 = select i1 %230, i64 %227, i64 %50
@@ -11089,7 +11089,7 @@ define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture nounde
   %317 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %316)
   %318 = fptoui float %317 to i64
   %319 = add i64 %318, 1
-  %320 = icmp ult i64 %318, %2
+  %320 = icmp ugt i64 %2, %318
   %321 = select i1 %320, i64 %318, i64 %51
   %322 = icmp ult i64 %319, %2
   %323 = select i1 %322, i64 %319, i64 %51
@@ -11161,7 +11161,7 @@ define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture nounde
   %376 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %375)
   %377 = fptoui float %376 to i64
   %378 = add i64 %377, 1
-  %379 = icmp ult i64 %377, %1
+  %379 = icmp ugt i64 %1, %377
   %380 = select i1 %379, i64 %377, i64 %50
   %381 = icmp ult i64 %378, %1
   %382 = select i1 %381, i64 %378, i64 %50

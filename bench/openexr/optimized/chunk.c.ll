@@ -98,7 +98,7 @@ if.end3:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end3
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %2 = load i32, ptr %num_parts, align 4
-  %cmp6.not = icmp sgt i32 %2, %part_index
+  %cmp6.not = icmp slt i32 %part_index, %2
   br i1 %cmp6.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.end3
@@ -145,8 +145,8 @@ if.end25:                                         ; preds = %if.end15
   %dw.sroa.10.0.copyload = load i32, ptr %dw.sroa.10.0.data_window.sroa_idx, align 8
   %dw.sroa.11.0.data_window.sroa_idx = getelementptr inbounds i8, ptr %5, i64 156
   %dw.sroa.11.0.copyload = load i32, ptr %dw.sroa.11.0.data_window.sroa_idx, align 4
-  %cmp27 = icmp sgt i32 %dw.sroa.3.0.copyload, %y
-  %cmp31 = icmp slt i32 %dw.sroa.11.0.copyload, %y
+  %cmp27 = icmp slt i32 %y, %dw.sroa.3.0.copyload
+  %cmp31 = icmp sgt i32 %y, %dw.sroa.11.0.copyload
   %or.cond178 = select i1 %cmp27, i1 true, i1 %cmp31
   br i1 %or.cond178, label %if.then33, label %if.end40
 
@@ -771,7 +771,7 @@ if.end3:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end3
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %2 = load i32, ptr %num_parts, align 4
-  %cmp6.not = icmp sgt i32 %2, %part_index
+  %cmp6.not = icmp slt i32 %part_index, %2
   br i1 %cmp6.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.end3
@@ -1001,7 +1001,7 @@ if.end134:                                        ; preds = %if.end121
 
 if.then139:                                       ; preds = %if.end134
   %41 = load i32, ptr %data, align 16
-  %cmp141.not = icmp eq i32 %41, %part_index
+  %cmp141.not = icmp eq i32 %part_index, %41
   br i1 %cmp141.not, label %if.end147, label %if.then143
 
 if.then143:                                       ; preds = %if.then139
@@ -1302,7 +1302,7 @@ if.then21:                                        ; preds = %sw.bb
   br label %return
 
 if.end24:                                         ; preds = %sw.bb
-  %cmp26.not = icmp sgt i32 %1, %levelx
+  %cmp26.not = icmp slt i32 %levelx, %1
   br i1 %cmp26.not, label %if.end32, label %if.then28
 
 if.then28:                                        ; preds = %if.end24
@@ -1317,8 +1317,8 @@ if.end32:                                         ; preds = %if.end24
   %16 = load i32, ptr %arrayidx, align 4
   %arrayidx36 = getelementptr inbounds i32, ptr %4, i64 %idxprom
   %17 = load i32, ptr %arrayidx36, align 4
-  %cmp37.not = icmp sgt i32 %16, %tilex
-  %cmp40.not = icmp sgt i32 %17, %tiley
+  %cmp37.not = icmp slt i32 %tilex, %16
+  %cmp40.not = icmp slt i32 %tiley, %17
   %or.cond = select i1 %cmp37.not, i1 %cmp40.not, i1 false
   br i1 %or.cond, label %for.cond.preheader, label %if.then42
 
@@ -1348,7 +1348,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond155.not, label %sw.epilog, label %for.body, !llvm.loop !8
 
 sw.bb60:                                          ; preds = %if.end17
-  %cmp62.not = icmp sgt i32 %1, %levelx
+  %cmp62.not = icmp slt i32 %levelx, %1
   br i1 %cmp62.not, label %if.end68, label %if.then64
 
 if.then64:                                        ; preds = %sw.bb60
@@ -1358,7 +1358,7 @@ if.then64:                                        ; preds = %sw.bb60
   br label %return
 
 if.end68:                                         ; preds = %sw.bb60
-  %cmp70.not = icmp sgt i32 %2, %levely
+  %cmp70.not = icmp slt i32 %levely, %2
   br i1 %cmp70.not, label %if.end76, label %if.then72
 
 if.then72:                                        ; preds = %if.end68
@@ -1374,8 +1374,8 @@ if.end76:                                         ; preds = %if.end68
   %idxprom81 = zext i32 %levely to i64
   %arrayidx82 = getelementptr inbounds i32, ptr %4, i64 %idxprom81
   %24 = load i32, ptr %arrayidx82, align 4
-  %cmp83.not = icmp sgt i32 %23, %tilex
-  %cmp86.not = icmp sgt i32 %24, %tiley
+  %cmp83.not = icmp slt i32 %tilex, %23
+  %cmp86.not = icmp slt i32 %tiley, %24
   %or.cond124 = select i1 %cmp83.not, i1 %cmp86.not, i1 false
   br i1 %or.cond124, label %for.cond92.preheader, label %if.then88
 
@@ -1500,7 +1500,7 @@ if.end3:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end3
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %2 = load i32, ptr %num_parts, align 4
-  %cmp6.not = icmp sgt i32 %2, %part_index
+  %cmp6.not = icmp slt i32 %part_index, %2
   br i1 %cmp6.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.end3
@@ -1657,7 +1657,7 @@ if.end3:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end3
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %2 = load i32, ptr %num_parts, align 4
-  %cmp6.not = icmp sgt i32 %2, %part_index
+  %cmp6.not = icmp slt i32 %part_index, %2
   br i1 %cmp6.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.end3
@@ -1817,7 +1817,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
-  %cmp1.not = icmp sgt i32 %0, %part_index
+  %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
@@ -1888,8 +1888,8 @@ if.end29:                                         ; preds = %if.end15
   %dw.sroa.10.0.copyload = load i32, ptr %dw.sroa.10.0.data_window.sroa_idx, align 8
   %dw.sroa.11.0.data_window.sroa_idx = getelementptr inbounds i8, ptr %3, i64 156
   %dw.sroa.11.0.copyload = load i32, ptr %dw.sroa.11.0.data_window.sroa_idx, align 4
-  %cmp31 = icmp sgt i32 %dw.sroa.3.0.copyload, %y
-  %cmp35 = icmp slt i32 %dw.sroa.11.0.copyload, %y
+  %cmp31 = icmp slt i32 %y, %dw.sroa.3.0.copyload
+  %cmp35 = icmp sgt i32 %y, %dw.sroa.11.0.copyload
   %or.cond = select i1 %cmp31, i1 true, i1 %cmp35
   br i1 %or.cond, label %if.then37, label %if.end44
 
@@ -2016,7 +2016,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
-  %cmp1.not = icmp sgt i32 %0, %part_index
+  %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
@@ -2243,7 +2243,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
-  %cmp1.not = icmp sgt i32 %0, %part_index
+  %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
@@ -2378,10 +2378,10 @@ if.then49:                                        ; preds = %land.lhs.true44
 if.end52:                                         ; preds = %land.lhs.true44, %if.end39
   %y53 = getelementptr inbounds i8, ptr %part, i64 148
   %10 = load i32, ptr %y53, align 4
-  %cmp54 = icmp sgt i32 %10, %y
+  %cmp54 = icmp slt i32 %y, %10
   %y68.phi.trans.insert = getelementptr inbounds i8, ptr %part, i64 156
   %.pre126 = load i32, ptr %y68.phi.trans.insert, align 4
-  %cmp59 = icmp slt i32 %.pre126, %y
+  %cmp59 = icmp sgt i32 %y, %.pre126
   %or.cond127 = select i1 %cmp54, i1 true, i1 %cmp59
   br i1 %or.cond127, label %if.then61, label %if.end70
 
@@ -2407,7 +2407,7 @@ if.end78:                                         ; preds = %if.then77, %if.end7
   %cidx.0 = phi i32 [ %div, %if.then77 ], [ %sub, %if.end70 ]
   %mul = mul nsw i32 %cidx.0, %conv71
   %add = add nsw i32 %mul, %10
-  %cmp82.not = icmp eq i32 %add, %y
+  %cmp82.not = icmp eq i32 %y, %add
   br i1 %cmp82.not, label %if.end87, label %if.then84
 
 if.then84:                                        ; preds = %if.end78
@@ -2589,7 +2589,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
-  %cmp1.not = icmp sgt i32 %0, %part_index
+  %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
@@ -2642,7 +2642,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
-  %cmp1.not = icmp sgt i32 %0, %part_index
+  %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
@@ -2962,7 +2962,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
-  %cmp1.not = icmp sgt i32 %0, %part_index
+  %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end

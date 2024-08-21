@@ -812,7 +812,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.prehe
   %8 = load i8, ptr %7, align 1
   %cmp2.not = icmp eq i8 %8, 124
   %conv = sext i8 %8 to i32
-  %cmp5.not = icmp eq i32 %conv, %stop
+  %cmp5.not = icmp eq i32 %stop, %conv
   %or.cond = or i1 %cmp2.not, %cmp5.not
   %.pre746.pre748 = load i64, ptr %slen, align 8
   br i1 %or.cond, label %while.end, label %while.body
@@ -2777,13 +2777,13 @@ land.lhs.true14:                                  ; preds = %land.lhs.true14.lr.
 land.lhs.true19:                                  ; preds = %land.lhs.true14
   %18 = load i8, ptr %17, align 1
   %conv21 = sext i8 %18 to i32
-  %cmp22 = icmp eq i32 %conv21, %end1
+  %cmp22 = icmp eq i32 %end1, %conv21
   br i1 %cmp22, label %land.rhs24, label %while.body
 
 land.rhs24:                                       ; preds = %land.lhs.true19
   %19 = load i8, ptr %add.ptr, align 1
   %conv27 = sext i8 %19 to i32
-  %cmp28 = icmp eq i32 %conv27, %end2
+  %cmp28 = icmp eq i32 %end2, %conv27
   br i1 %cmp28, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true19, %land.rhs24
@@ -5067,7 +5067,7 @@ for.body.i180:                                    ; preds = %if.then147, %for.bo
 
 for.end.i183:                                     ; preds = %for.body.i180, %if.then147
   %add.ptr.i184 = getelementptr inbounds i8, ptr %arrayidx.i174, i64 -32
-  %cmp12.i = icmp eq ptr %add.ptr.i184, %arrayidx53.i
+  %cmp12.i = icmp eq ptr %arrayidx53.i, %add.ptr.i184
   br i1 %cmp12.i, label %if.then.i186, label %if.end278
 
 if.then.i186:                                     ; preds = %for.end.i183
@@ -5449,7 +5449,7 @@ for.body.i242:                                    ; preds = %ordinary.exit, %for
 
 for.end.i251:                                     ; preds = %for.body.i242, %ordinary.exit
   %add.ptr.i252 = getelementptr inbounds i8, ptr %arrayidx.i235, i64 -32
-  %cmp12.i253 = icmp eq ptr %add.ptr.i252, %arrayidx53.i
+  %cmp12.i253 = icmp eq ptr %arrayidx53.i, %add.ptr.i252
   br i1 %cmp12.i253, label %if.then.i255, label %if.end278
 
 if.then.i255:                                     ; preds = %for.end.i251
@@ -5580,7 +5580,7 @@ for.end.i.loopexit.i:                             ; preds = %for.body.i.i268
 for.end.i.i:                                      ; preds = %for.end.i.loopexit.i, %if.then49.i
   %.pre50.i = phi ptr [ %.pre50.pre.i, %for.end.i.loopexit.i ], [ %p.val, %if.then49.i ]
   %add.ptr.i.i270 = getelementptr inbounds i8, ptr %arrayidx.i264400402, i64 -32
-  %cmp12.i.i = icmp eq ptr %add.ptr.i.i270, %arrayidx53.i
+  %cmp12.i.i = icmp eq ptr %arrayidx53.i, %add.ptr.i.i270
   br i1 %cmp12.i.i, label %if.then.i.i271, label %freezeset.exit
 
 if.then.i.i271:                                   ; preds = %for.end.i.i
@@ -5724,7 +5724,7 @@ othercase.exit:                                   ; preds = %if.then.i, %if.else
   %retval.0.in.i = phi i32 [ %call3.i, %if.then.i ], [ %call12.i, %if.then11.i ], [ %ch, %if.else.i ]
   %sext = shl i32 %retval.0.in.i, 24
   %conv8 = ashr exact i32 %sext, 24
-  %cmp.not = icmp eq i32 %conv8, %ch
+  %cmp.not = icmp eq i32 %ch, %conv8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %othercase.exit

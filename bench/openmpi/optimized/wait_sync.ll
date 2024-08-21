@@ -250,7 +250,7 @@ define range(i32 -1, 1) i32 @ompi_sync_wait_mt(ptr noundef %0) local_unnamed_add
 
 32:                                               ; preds = %37, %30
   %33 = load ptr, ptr @opal_threads_base_wait_sync_list, align 8
-  %.not = icmp eq ptr %33, %0
+  %.not = icmp eq ptr %0, %33
   br i1 %.not, label %43, label %34
 
 34:                                               ; preds = %32
@@ -338,12 +338,12 @@ opal_thread_add_fetch_32.exit38:                  ; preds = %62, %60, %41
   %77 = getelementptr inbounds i8, ptr %72, i64 104
   store ptr %76, ptr %77, align 8
   %78 = load ptr, ptr @opal_threads_base_wait_sync_list, align 8
-  %79 = icmp eq ptr %78, %0
+  %79 = icmp eq ptr %0, %78
   br i1 %79, label %80, label %92
 
 80:                                               ; preds = %70
   %81 = load ptr, ptr %71, align 8
-  %82 = icmp eq ptr %81, %0
+  %82 = icmp eq ptr %0, %81
   %spec.select = select i1 %82, ptr null, ptr %81
   store ptr %spec.select, ptr @opal_threads_base_wait_sync_list, align 8
   %.not36 = icmp eq ptr %spec.select, null

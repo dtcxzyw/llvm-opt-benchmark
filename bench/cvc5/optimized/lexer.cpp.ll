@@ -174,7 +174,7 @@ if.then2.i:                                       ; preds = %cond.false
   %1 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
   %_M_word_size.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 192
   %2 = load i32, ptr %_M_word_size.i.i, align 8
-  %cmp.i.i = icmp ugt i32 %2, %1
+  %cmp.i.i = icmp ult i32 %1, %2
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.then2.i
@@ -664,7 +664,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN4cvc56parser5Lexer9nextTokenEv.exit:           ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %call2.i, %if.then.i ], [ %3, %if.end.i ]
-  %cmp.not = icmp eq i32 %retval.0.i, %t
+  %cmp.not = icmp eq i32 %t, %retval.0.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4cvc56parser5Lexer9nextTokenEv.exit

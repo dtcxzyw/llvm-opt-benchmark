@@ -784,7 +784,7 @@ if.end.i3:                                        ; preds = %while.end.i
   %5 = load i32, ptr @share__optind, align 4
   %sub.i = sub nsw i32 %argc, %5
   store i32 %sub.i, ptr getelementptr inbounds (i8, ptr @option_values, i64 6312), align 8
-  %cmp8.not.i = icmp eq i32 %5, %argc
+  %cmp8.not.i = icmp eq i32 %argc, %5
   br i1 %cmp8.not.i, label %if.then6, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i3
@@ -2862,10 +2862,10 @@ if.then90:                                        ; preds = %if.then87
 if.then92:                                        ; preds = %if.then90
   %cmp.i = icmp eq ptr %encode_infile.0, null
   %17 = load ptr, ptr @stdin, align 8
-  %cmp1.i = icmp eq ptr %17, %encode_infile.0
+  %cmp1.i = icmp eq ptr %encode_infile.0, %17
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
   %18 = load ptr, ptr @stdout, align 8
-  %cmp3.i = icmp eq ptr %18, %encode_infile.0
+  %cmp3.i = icmp eq ptr %encode_infile.0, %18
   %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %cmp3.i
   br i1 %or.cond4.i, label %return, label %if.else.i
 
@@ -2886,10 +2886,10 @@ if.then100:                                       ; preds = %if.else96
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %19, i32 noundef 1, ptr noundef nonnull @.str.502, ptr noundef nonnull %infilename) #21
   %cmp.i218 = icmp eq ptr %encode_infile.0, null
   %20 = load ptr, ptr @stdin, align 8
-  %cmp1.i219 = icmp eq ptr %20, %encode_infile.0
+  %cmp1.i219 = icmp eq ptr %encode_infile.0, %20
   %or.cond.i220 = select i1 %cmp.i218, i1 true, i1 %cmp1.i219
   %21 = load ptr, ptr @stdout, align 8
-  %cmp3.i221 = icmp eq ptr %21, %encode_infile.0
+  %cmp3.i221 = icmp eq ptr %encode_infile.0, %21
   %or.cond4.i222 = select i1 %or.cond.i220, i1 true, i1 %cmp3.i221
   br i1 %or.cond4.i222, label %return, label %if.else.i223
 
@@ -2966,10 +2966,10 @@ if.then160:                                       ; preds = %if.else157
 if.then162:                                       ; preds = %if.then160
   %cmp.i229 = icmp eq ptr %encode_infile.0, null
   %25 = load ptr, ptr @stdin, align 8
-  %cmp1.i230 = icmp eq ptr %25, %encode_infile.0
+  %cmp1.i230 = icmp eq ptr %encode_infile.0, %25
   %or.cond.i231 = select i1 %cmp.i229, i1 true, i1 %cmp1.i230
   %26 = load ptr, ptr @stdout, align 8
-  %cmp3.i232 = icmp eq ptr %26, %encode_infile.0
+  %cmp3.i232 = icmp eq ptr %encode_infile.0, %26
   %or.cond4.i233 = select i1 %or.cond.i231, i1 true, i1 %cmp3.i232
   br i1 %or.cond4.i233, label %return, label %if.else.i234
 
@@ -3011,10 +3011,10 @@ land.lhs.true177:                                 ; preds = %if.end175
 if.then188:                                       ; preds = %land.lhs.true177
   %cmp.i238 = icmp eq ptr %encode_infile.0, null
   %28 = load ptr, ptr @stdin, align 8
-  %cmp1.i239 = icmp eq ptr %28, %encode_infile.0
+  %cmp1.i239 = icmp eq ptr %encode_infile.0, %28
   %or.cond.i240 = select i1 %cmp.i238, i1 true, i1 %cmp1.i239
   %29 = load ptr, ptr @stdout, align 8
-  %cmp3.i241 = icmp eq ptr %29, %encode_infile.0
+  %cmp3.i241 = icmp eq ptr %encode_infile.0, %29
   %or.cond4.i242 = select i1 %or.cond.i240, i1 true, i1 %cmp3.i241
   br i1 %or.cond4.i242, label %conditional_fclose.exit246, label %if.else.i243
 
@@ -3069,7 +3069,7 @@ if.then235:                                       ; preds = %if.then230
   %cmp.i247 = icmp eq ptr %encode_infile.0, null
   %or.cond.i249 = or i1 %cmp.i247, %cmp231
   %37 = load ptr, ptr @stdout, align 8
-  %cmp3.i250 = icmp eq ptr %37, %encode_infile.0
+  %cmp3.i250 = icmp eq ptr %encode_infile.0, %37
   %or.cond4.i251 = select i1 %or.cond.i249, i1 true, i1 %cmp3.i250
   br i1 %or.cond4.i251, label %conditional_fclose.exit255, label %if.else.i252
 
@@ -3091,7 +3091,7 @@ if.end238:                                        ; preds = %if.then230
 if.then253:                                       ; preds = %if.end238
   %cmp.i256 = icmp eq ptr %encode_infile.0, null
   %38 = load ptr, ptr @stdout, align 8
-  %cmp3.i259 = icmp eq ptr %38, %encode_infile.0
+  %cmp3.i259 = icmp eq ptr %encode_infile.0, %38
   %or.cond4.i260 = select i1 %cmp.i256, i1 true, i1 %cmp3.i259
   br i1 %or.cond4.i260, label %conditional_fclose.exit264, label %if.else.i261
 
@@ -3141,10 +3141,10 @@ if.then268:                                       ; preds = %land.lhs.true264
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %48, i32 noundef 1, ptr noundef nonnull %.str.516.sink, ptr noundef nonnull %call2.i) #21
   %cmp.i265 = icmp eq ptr %encode_infile.0, null
   %49 = load ptr, ptr @stdin, align 8
-  %cmp1.i266 = icmp eq ptr %49, %encode_infile.0
+  %cmp1.i266 = icmp eq ptr %encode_infile.0, %49
   %or.cond.i267 = select i1 %cmp.i265, i1 true, i1 %cmp1.i266
   %50 = load ptr, ptr @stdout, align 8
-  %cmp3.i268 = icmp eq ptr %50, %encode_infile.0
+  %cmp3.i268 = icmp eq ptr %encode_infile.0, %50
   %or.cond4.i269 = select i1 %or.cond.i267, i1 true, i1 %cmp3.i268
   br i1 %or.cond4.i269, label %return, label %if.else.i270
 
@@ -3167,10 +3167,10 @@ if.then289:                                       ; preds = %if.then283
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %52, i32 noundef 1, ptr noundef nonnull @.str.517) #21
   %cmp.i274 = icmp eq ptr %encode_infile.0, null
   %53 = load ptr, ptr @stdin, align 8
-  %cmp1.i275 = icmp eq ptr %53, %encode_infile.0
+  %cmp1.i275 = icmp eq ptr %encode_infile.0, %53
   %or.cond.i276 = select i1 %cmp.i274, i1 true, i1 %cmp1.i275
   %54 = load ptr, ptr @stdout, align 8
-  %cmp3.i277 = icmp eq ptr %54, %encode_infile.0
+  %cmp3.i277 = icmp eq ptr %encode_infile.0, %54
   %or.cond4.i278 = select i1 %or.cond.i276, i1 true, i1 %cmp3.i277
   br i1 %or.cond4.i278, label %return, label %if.else.i279
 
@@ -3202,10 +3202,10 @@ if.then296:                                       ; preds = %if.end293
 if.then311:                                       ; preds = %if.then296
   %cmp.i283 = icmp eq ptr %encode_infile.0, null
   %60 = load ptr, ptr @stdin, align 8
-  %cmp1.i284 = icmp eq ptr %60, %encode_infile.0
+  %cmp1.i284 = icmp eq ptr %encode_infile.0, %60
   %or.cond.i285 = select i1 %cmp.i283, i1 true, i1 %cmp1.i284
   %61 = load ptr, ptr @stdout, align 8
-  %cmp3.i286 = icmp eq ptr %61, %encode_infile.0
+  %cmp3.i286 = icmp eq ptr %encode_infile.0, %61
   %or.cond4.i287 = select i1 %or.cond.i285, i1 true, i1 %cmp3.i286
   br i1 %or.cond4.i287, label %conditional_fclose.exit291, label %if.else.i288
 
@@ -3232,10 +3232,10 @@ if.else315:                                       ; preds = %if.end293
 if.then330:                                       ; preds = %if.else315
   %cmp.i292 = icmp eq ptr %encode_infile.0, null
   %62 = load ptr, ptr @stdin, align 8
-  %cmp1.i293 = icmp eq ptr %62, %encode_infile.0
+  %cmp1.i293 = icmp eq ptr %encode_infile.0, %62
   %or.cond.i294 = select i1 %cmp.i292, i1 true, i1 %cmp1.i293
   %63 = load ptr, ptr @stdout, align 8
-  %cmp3.i295 = icmp eq ptr %63, %encode_infile.0
+  %cmp3.i295 = icmp eq ptr %encode_infile.0, %63
   %or.cond4.i296 = select i1 %or.cond.i294, i1 true, i1 %cmp3.i295
   br i1 %or.cond4.i296, label %conditional_fclose.exit300, label %if.else.i297
 
@@ -3258,10 +3258,10 @@ if.end334:                                        ; preds = %if.else315, %if.the
 if.then338:                                       ; preds = %if.end334
   %cmp.i301 = icmp eq ptr %encode_infile.0, null
   %66 = load ptr, ptr @stdin, align 8
-  %cmp1.i302 = icmp eq ptr %66, %encode_infile.0
+  %cmp1.i302 = icmp eq ptr %encode_infile.0, %66
   %or.cond.i303 = select i1 %cmp.i301, i1 true, i1 %cmp1.i302
   %67 = load ptr, ptr @stdout, align 8
-  %cmp3.i304 = icmp eq ptr %67, %encode_infile.0
+  %cmp3.i304 = icmp eq ptr %encode_infile.0, %67
   %or.cond4.i305 = select i1 %or.cond.i303, i1 true, i1 %cmp3.i304
   br i1 %or.cond4.i305, label %conditional_fclose.exit309, label %if.else.i306
 
@@ -3282,10 +3282,10 @@ if.end342:                                        ; preds = %if.end334
 if.then346:                                       ; preds = %if.end342
   %cmp.i310 = icmp eq ptr %encode_infile.0, null
   %69 = load ptr, ptr @stdin, align 8
-  %cmp1.i311 = icmp eq ptr %69, %encode_infile.0
+  %cmp1.i311 = icmp eq ptr %encode_infile.0, %69
   %or.cond.i312 = select i1 %cmp.i310, i1 true, i1 %cmp1.i311
   %70 = load ptr, ptr @stdout, align 8
-  %cmp3.i313 = icmp eq ptr %70, %encode_infile.0
+  %cmp3.i313 = icmp eq ptr %encode_infile.0, %70
   %or.cond4.i314 = select i1 %or.cond.i312, i1 true, i1 %cmp3.i313
   br i1 %or.cond4.i314, label %conditional_fclose.exit318, label %if.else.i315
 
@@ -3309,10 +3309,10 @@ if.end349:                                        ; preds = %if.end342
 if.then355:                                       ; preds = %if.end349
   %cmp.i319 = icmp eq ptr %encode_infile.0, null
   %73 = load ptr, ptr @stdin, align 8
-  %cmp1.i320 = icmp eq ptr %73, %encode_infile.0
+  %cmp1.i320 = icmp eq ptr %encode_infile.0, %73
   %or.cond.i321 = select i1 %cmp.i319, i1 true, i1 %cmp1.i320
   %74 = load ptr, ptr @stdout, align 8
-  %cmp3.i322 = icmp eq ptr %74, %encode_infile.0
+  %cmp3.i322 = icmp eq ptr %encode_infile.0, %74
   %or.cond4.i323 = select i1 %or.cond.i321, i1 true, i1 %cmp3.i322
   br i1 %or.cond4.i323, label %conditional_fclose.exit327, label %if.else.i324
 
@@ -3334,10 +3334,10 @@ if.end358:                                        ; preds = %if.end349
 if.then361:                                       ; preds = %if.end358
   %cmp.i328 = icmp eq ptr %encode_infile.0, null
   %76 = load ptr, ptr @stdin, align 8
-  %cmp1.i329 = icmp eq ptr %76, %encode_infile.0
+  %cmp1.i329 = icmp eq ptr %encode_infile.0, %76
   %or.cond.i330 = select i1 %cmp.i328, i1 true, i1 %cmp1.i329
   %77 = load ptr, ptr @stdout, align 8
-  %cmp3.i331 = icmp eq ptr %77, %encode_infile.0
+  %cmp3.i331 = icmp eq ptr %encode_infile.0, %77
   %or.cond4.i332 = select i1 %or.cond.i330, i1 true, i1 %cmp3.i331
   br i1 %or.cond4.i332, label %conditional_fclose.exit336, label %if.else.i333
 
@@ -3482,10 +3482,10 @@ if.then395:                                       ; preds = %if.then388
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %105, i32 noundef 1, ptr noundef nonnull @.str.523) #21
   %cmp.i338 = icmp eq ptr %encode_infile.0, null
   %106 = load ptr, ptr @stdin, align 8
-  %cmp1.i339 = icmp eq ptr %106, %encode_infile.0
+  %cmp1.i339 = icmp eq ptr %encode_infile.0, %106
   %or.cond.i340 = select i1 %cmp.i338, i1 true, i1 %cmp1.i339
   %107 = load ptr, ptr @stdout, align 8
-  %cmp3.i341 = icmp eq ptr %107, %encode_infile.0
+  %cmp3.i341 = icmp eq ptr %encode_infile.0, %107
   %or.cond4.i342 = select i1 %or.cond.i340, i1 true, i1 %cmp3.i341
   br i1 %or.cond4.i342, label %return, label %if.else.i343
 
@@ -3563,10 +3563,10 @@ if.then465:                                       ; preds = %if.then445
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %115, i32 noundef 1, ptr noundef nonnull @.str.469) #21
   %cmp.i347 = icmp eq ptr %encode_infile.0, null
   %116 = load ptr, ptr @stdin, align 8
-  %cmp1.i348 = icmp eq ptr %116, %encode_infile.0
+  %cmp1.i348 = icmp eq ptr %encode_infile.0, %116
   %or.cond.i349 = select i1 %cmp.i347, i1 true, i1 %cmp1.i348
   %117 = load ptr, ptr @stdout, align 8
-  %cmp3.i350 = icmp eq ptr %117, %encode_infile.0
+  %cmp3.i350 = icmp eq ptr %encode_infile.0, %117
   %or.cond4.i351 = select i1 %or.cond.i349, i1 true, i1 %cmp3.i350
   br i1 %or.cond4.i351, label %conditional_fclose.exit355, label %if.else.i352
 

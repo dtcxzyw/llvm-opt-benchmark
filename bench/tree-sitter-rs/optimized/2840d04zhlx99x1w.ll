@@ -2691,7 +2691,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 define hidden noundef i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h96cbb8af2dd5d746E.llvm.13011881893299697394"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = icmp eq i32 %2, 10
   %5 = zext i1 %4 to i64
-  %6 = add i64 %5, %1
+  %6 = add i64 %1, %5
   ret i64 %6
 }
 
@@ -3599,7 +3599,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 6
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -3614,7 +3614,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 5
   %9 = select i1 %4, i64 0, i64 %8
-  %.0 = add i64 %9, %2
+  %.0 = add i64 %2, %9
   ret i64 %.0
 }
 
@@ -3766,7 +3766,7 @@ define hidden void @"_ZN18tree_sitter_loader6Loader17languages_at_path28_$u7b$$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1123)
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load i64, ptr %10, align 8, !alias.scope !1126, !noalias !1129, !noundef !4
-  %12 = icmp ugt i64 %11, %7
+  %12 = icmp ult i64 %7, %11
   br i1 %12, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17heb6845901671f11aE.llvm.2523804239324124153.exit.i", label %13, !prof !13
 
 13:                                               ; preds = %3

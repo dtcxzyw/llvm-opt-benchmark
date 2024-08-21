@@ -1292,7 +1292,7 @@ define dso_local noundef zeroext i1 @_ZN25cmInstallCommandArguments16CheckPermis
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %19, %30, %41, %13, %24, %35, %46, %61, %73, %85, %._crit_edge.i.i.i.i, %59, %71, %83, %91
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %6, %91 ], [ %6, %._crit_edge.i.i.i.i ], [ %.sroa.055.0.lcssa.i.i.i.i, %59 ], [ %.sroa.055.1.i.i.i.i, %71 ], [ %.sroa.055.2.i.i.i.i, %83 ], [ %.sroa.055.2.i.i.i.i, %85 ], [ %.sroa.055.1.i.i.i.i, %73 ], [ %.sroa.055.0.lcssa.i.i.i.i, %61 ], [ %44, %46 ], [ %33, %35 ], [ %22, %24 ], [ %.sroa.055.081.i.i.i.i, %13 ], [ %44, %41 ], [ %33, %30 ], [ %22, %19 ], [ %.sroa.055.081.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %94 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %6
+  %94 = icmp eq ptr %6, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   ret i1 %94
 }
 
@@ -2298,7 +2298,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
@@ -2349,7 +2349,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11c
   br i1 %.not, label %33, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12

@@ -20,8 +20,8 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   %17 = getelementptr inbounds i8, ptr %14, i64 7
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = add i64 %19, %9
-  %21 = icmp ugt i64 %20, %11
+  %20 = add i64 %9, %19
+  %21 = icmp ult i64 %11, %20
   br i1 %21, label %42, label %22
 
 22:                                               ; preds = %16
@@ -61,7 +61,7 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
 38:                                               ; preds = %35
   %39 = load i8, ptr %17, align 1
   %40 = zext i8 %39 to i64
-  %41 = add i64 %40, %9
+  %41 = add i64 %9, %40
   store i64 %41, ptr %12, align 8
   br label %42
 
@@ -283,7 +283,7 @@ define hidden i32 @mbedtls_psa_aead_decrypt(ptr nocapture noundef readonly %0, p
   %17 = getelementptr inbounds i8, ptr %14, i64 7
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = icmp ugt i64 %19, %9
+  %20 = icmp ult i64 %9, %19
   br i1 %20, label %psa_aead_unpadded_locate_tag.exit.thread, label %21
 
 21:                                               ; preds = %16
@@ -597,7 +597,7 @@ define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 n
   %8 = getelementptr inbounds i8, ptr %0, i64 7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = icmp ugt i64 %10, %5
+  %11 = icmp ult i64 %5, %10
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %7

@@ -384,7 +384,7 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef readonly %0, ptr n
   %8 = getelementptr inbounds i8, ptr %.03565.us, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %.not41.us = icmp eq i64 %10, %3
+  %.not41.us = icmp eq i64 %3, %10
   br i1 %.not41.us, label %11, label %.critedge.us
 
 11:                                               ; preds = %.lr.ph68.split.us
@@ -408,7 +408,7 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef readonly %0, ptr n
   %14 = getelementptr inbounds i8, ptr %.03565.us74, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %.not41.us75 = icmp eq i64 %16, %3
+  %.not41.us75 = icmp eq i64 %3, %16
   br i1 %.not41.us75, label %17, label %.critedge.us78
 
 17:                                               ; preds = %.lr.ph68.split.split.us
@@ -448,7 +448,7 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef readonly %0, ptr n
   %28 = getelementptr inbounds i8, ptr %.03565, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %.not41 = icmp eq i64 %30, %3
+  %.not41 = icmp eq i64 %3, %30
   br i1 %.not41, label %31, label %.critedge
 
 31:                                               ; preds = %.lr.ph68.split.split
@@ -918,7 +918,7 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
   %12 = getelementptr inbounds i8, ptr %.03565.us.i, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %.not41.us.i = icmp eq i64 %14, %2
+  %.not41.us.i = icmp eq i64 %2, %14
   br i1 %.not41.us.i, label %15, label %.critedge.us.i
 
 15:                                               ; preds = %.lr.ph68.split.us.i
@@ -938,7 +938,7 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
   %18 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %.not41.us75.i = icmp eq i64 %20, %2
+  %.not41.us75.i = icmp eq i64 %2, %20
   br i1 %.not41.us75.i, label %21, label %.critedge.us78.i
 
 21:                                               ; preds = %.lr.ph68.split.split.us.i
@@ -1107,7 +1107,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
   %12 = getelementptr inbounds i8, ptr %.03565.us.i, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %.not41.us.i = icmp eq i64 %14, %2
+  %.not41.us.i = icmp eq i64 %2, %14
   br i1 %.not41.us.i, label %15, label %.critedge.us.i
 
 15:                                               ; preds = %.lr.ph68.split.us.i
@@ -1127,7 +1127,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
   %18 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %.not41.us75.i = icmp eq i64 %20, %2
+  %.not41.us75.i = icmp eq i64 %2, %20
   br i1 %.not41.us75.i, label %21, label %.critedge.us78.i
 
 21:                                               ; preds = %.lr.ph68.split.split.us.i

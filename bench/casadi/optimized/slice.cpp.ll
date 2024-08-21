@@ -169,7 +169,7 @@ define void @_ZN6casadi5SliceC2Exb(ptr nocapture noundef nonnull writeonly align
   %15 = alloca %"class.std::vector", align 8
   store i64 %1, ptr %4, align 8
   %.neg = sext i1 %2 to i64
-  %16 = add i64 %.neg, %1
+  %16 = add i64 %1, %.neg
   store i64 %16, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = add nsw i64 %16, 1
@@ -177,7 +177,7 @@ define void @_ZN6casadi5SliceC2Exb(ptr nocapture noundef nonnull writeonly align
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 1, ptr %19, align 8
   %20 = icmp slt i64 %1, 1
-  %or.cond = and i1 %20, %2
+  %or.cond = and i1 %2, %20
   br i1 %or.cond, label %21, label %65
 
 21:                                               ; preds = %3
@@ -2063,10 +2063,10 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %52, %53
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6casadi5Slice9is_scalarEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = load i64, ptr %0, align 8
-  %.sroa.speculated9 = tail call i64 @llvm.smin.i64(i64 %3, i64 %1)
+  %.sroa.speculated9 = tail call i64 @llvm.smin.i64(i64 %1, i64 %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %5, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %5)
   %6 = sub nsw i64 %.sroa.speculated, %.sroa.speculated9
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
@@ -2102,10 +2102,10 @@ define noundef i64 @_ZNK6casadi5Slice6scalarEx(ptr nocapture noundef nonnull rea
   %21 = alloca %"class.std::allocator", align 1
   %22 = alloca %"class.std::vector", align 8
   %23 = load i64, ptr %0, align 8
-  %.sroa.speculated9.i = tail call i64 @llvm.smin.i64(i64 %23, i64 %1)
+  %.sroa.speculated9.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %23)
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %25, i64 %1)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %25)
   %26 = sub nsw i64 %.sroa.speculated.i, %.sroa.speculated9.i
   %27 = getelementptr inbounds i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8

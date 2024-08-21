@@ -98,7 +98,7 @@ define range(i32 -29, 1) i32 @pmix_hash_table_init2(ptr noundef %0, i64 noundef 
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   %9 = sext i32 %3 to i64
-  %10 = mul i64 %9, %1
+  %10 = mul i64 %1, %9
   %11 = sext i32 %2 to i64
   %12 = udiv i64 %10, %11
   %13 = add i64 %12, 29

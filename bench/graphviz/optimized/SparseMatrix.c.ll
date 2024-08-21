@@ -895,7 +895,7 @@ define noundef zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %0, i1 noundef 
 7:                                                ; preds = %3
   %8 = and i32 %5, 1
   %.not204 = icmp ne i32 %8, 0
-  %or.cond.not = and i1 %.not204, %1
+  %or.cond.not = and i1 %1, %.not204
   br i1 %or.cond.not, label %221, label %9
 
 9:                                                ; preds = %7
@@ -4103,8 +4103,8 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
   %173 = or disjoint i64 %169, 1
   %174 = getelementptr inbounds double, ptr %132, i64 %173
   %175 = load double, ptr %174, align 8
-  %176 = fneg double %172
-  %177 = fmul double %175, %176
+  %176 = fneg double %175
+  %177 = fmul double %172, %176
   %178 = tail call double @llvm.fmuladd.f64(double %168, double %171, double %177)
   %179 = shl nsw i32 %.11377, 1
   %180 = sext i32 %179 to i64
@@ -4132,8 +4132,8 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
   %198 = or disjoint i64 %194, 1
   %199 = getelementptr inbounds double, ptr %132, i64 %198
   %200 = load double, ptr %199, align 8
-  %201 = fneg double %197
-  %202 = fmul double %200, %201
+  %201 = fneg double %200
+  %202 = fmul double %197, %201
   %203 = tail call double @llvm.fmuladd.f64(double %193, double %196, double %202)
   %204 = shl nsw i32 %162, 1
   %205 = sext i32 %204 to i64
@@ -5356,7 +5356,7 @@ SparseMatrix_realloc.exit:                        ; preds = %16, %30, %gv_calloc
 
 90:                                               ; preds = %85, %75
   %91 = load i32, ptr %0, align 8
-  %.not33 = icmp sgt i32 %91, %1
+  %.not33 = icmp slt i32 %1, %91
   br i1 %.not33, label %94, label %92
 
 92:                                               ; preds = %90
@@ -5367,7 +5367,7 @@ SparseMatrix_realloc.exit:                        ; preds = %16, %30, %gv_calloc
 94:                                               ; preds = %92, %90
   %95 = getelementptr inbounds i8, ptr %0, i64 4
   %96 = load i32, ptr %95, align 4
-  %.not34 = icmp sgt i32 %96, %2
+  %.not34 = icmp slt i32 %2, %96
   br i1 %.not34, label %99, label %97
 
 97:                                               ; preds = %94

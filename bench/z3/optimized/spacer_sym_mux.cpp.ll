@@ -1698,7 +1698,7 @@ while.body70.i.i:                                 ; preds = %while.cond67.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body70.i.i
   %46 = load i32, ptr %m_num_patterns.i.i.i.i, align 8
-  %cmp3.not.i.i.i = icmp ult i32 %46, %45
+  %cmp3.not.i.i.i = icmp ugt i32 %45, %46
   %47 = xor i32 %46, -1
   %.sink585.i.i = select i1 %cmp3.not.i.i.i, i32 %47, i32 -1
   %sub9.i.i.i = add i32 %.sink585.i.i, %45
@@ -5447,7 +5447,7 @@ while.body.i105.i:                                ; preds = %while.cond.i54.i
 
 if.else.i991:                                     ; preds = %while.body.i105.i
   %302 = load i32, ptr %m_num_patterns.i.i1000, align 8
-  %cmp3.not.i = icmp ult i32 %302, %bf.lshr12.i.i
+  %cmp3.not.i = icmp ugt i32 %bf.lshr12.i.i, %302
   br i1 %cmp3.not.i, label %if.else6.i, label %if.then4.i992
 
 if.then4.i992:                                    ; preds = %if.else.i991
@@ -5950,7 +5950,7 @@ if.then2.i.i.i844:                                ; preds = %if.then.i.i.i839
 
 invoke.cont97.i.i:                                ; preds = %if.then.i.i.i839, %invoke.cont95.i.i, %if.then2.i.i.i844
   store ptr null, ptr %m_pr.i67.i, align 8
-  %cmp101.not.i.i = icmp eq ptr %call93.i65.i, %84
+  %cmp101.not.i.i = icmp eq ptr %84, %call93.i65.i
   br i1 %cmp101.not.i.i, label %if.end140.i.i, label %if.then102.i70.i
 
 if.then102.i70.i:                                 ; preds = %invoke.cont97.i.i
@@ -7339,13 +7339,13 @@ if.then.i3029:                                    ; preds = %_ZNK11ast_manager6i
   %this.val13.i3033 = load ptr, ptr %516, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %this.val13.i3033, i64 856
   %580 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i3034 = icmp eq ptr %580, %579
+  %cmp.i.i3034 = icmp eq ptr %579, %580
   br i1 %cmp.i.i3034, label %if.end14.i, label %if.else.i3035
 
 if.else.i3035:                                    ; preds = %if.then.i3029
   %m_false.i.i = getelementptr inbounds i8, ptr %this.val13.i3033, i64 864
   %581 = load ptr, ptr %m_false.i.i, align 8
-  %cmp.i16.i = icmp eq ptr %581, %579
+  %cmp.i16.i = icmp eq ptr %579, %581
   br i1 %cmp.i16.i, label %if.end14.i, label %if.end.i.i416
 
 if.end14.i:                                       ; preds = %if.else.i3035, %if.then.i3029
@@ -8597,7 +8597,7 @@ while.body.i64.i:                                 ; preds = %while.cond.i35.i
 
 if.else.i2383:                                    ; preds = %while.body.i64.i
   %788 = load i32, ptr %m_num_patterns.i.i2409, align 8
-  %cmp3.not.i2385 = icmp ult i32 %788, %bf.lshr12.i.i236
+  %cmp3.not.i2385 = icmp ugt i32 %bf.lshr12.i.i236, %788
   br i1 %cmp3.not.i2385, label %if.else6.i2397, label %if.then4.i2386
 
 if.then4.i2386:                                   ; preds = %if.else.i2383
@@ -9707,7 +9707,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %10 = getelementptr inbounds i8, ptr %this, i64 40
   %this.val32 = load ptr, ptr %10, align 8
-  %cmp.not.i = icmp eq ptr %1, %t
+  %cmp.not.i = icmp eq ptr %t, %1
   %cmp.i.i.i = icmp eq ptr %this.val32, null
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp.i.i.i
   br i1 %or.cond.i, label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i
@@ -9847,7 +9847,7 @@ if.end11:                                         ; preds = %if.end
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %37 = load i32, ptr %m_ref_count.i.i.i, align 4
   %cmp.i9.i = icmp ult i32 %37, 2
-  %cmp2.not.i.i = icmp eq ptr %this.val35, %t
+  %cmp2.not.i.i = icmp eq ptr %t, %this.val35
   %or.cond.i.i = select i1 %cmp.i9.i, i1 true, i1 %cmp2.not.i.i
   br i1 %or.cond.i.i, label %if.end30, label %land.rhs.i.i
 
@@ -9911,7 +9911,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i109, ptr %arrayidx10.i.i108, align 4
   %48 = getelementptr inbounds i8, ptr %this, i64 40
   %this.val33 = load ptr, ptr %48, align 8
-  %cmp.not.i115 = icmp eq ptr %call.i.i, %t
+  %cmp.not.i115 = icmp eq ptr %t, %call.i.i
   %cmp.i.i.i116 = icmp eq ptr %this.val33, null
   %or.cond.i117 = select i1 %cmp.not.i115, i1 true, i1 %cmp.i.i.i116
   br i1 %or.cond.i117, label %_ZN12rewriter_tplIN12_GLOBAL__N_117conv_rewriter_cfgEE18set_new_child_flagEP4exprS4_.exit125, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i118
@@ -10330,7 +10330,7 @@ _ZNK6spacer7sym_mux9has_indexEP9func_declj.exit:  ; preds = %if.then.i.i.i.i.i, 
   %retval.0.i.i.i.i.i = phi ptr [ %curr.133.i.i.i.i.i, %if.then22.i.i.i.i.i ], [ %curr.031.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %second.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   %10 = load i32, ptr %second.i.i.i.i, align 8
-  %cmp.i5 = icmp eq i32 %10, %2
+  %cmp.i5 = icmp eq i32 %2, %10
   br i1 %cmp.i5, label %if.end6, label %return
 
 if.end6:                                          ; preds = %_ZNK6spacer7sym_mux9has_indexEP9func_declj.exit
@@ -11143,7 +11143,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %10 = getelementptr inbounds i8, ptr %this, i64 40
   %this.val33 = load ptr, ptr %10, align 8
-  %cmp.not.i = icmp eq ptr %1, %t
+  %cmp.not.i = icmp eq ptr %t, %1
   %cmp.i.i.i = icmp eq ptr %this.val33, null
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp.i.i.i
   br i1 %or.cond.i, label %return, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i
@@ -11218,7 +11218,7 @@ if.end7:                                          ; preds = %if.end
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %23 = load i32, ptr %m_ref_count.i.i.i, align 4
   %cmp.i9.i = icmp ult i32 %23, 2
-  %cmp2.not.i.i = icmp eq ptr %this.val34, %t
+  %cmp2.not.i.i = icmp eq ptr %t, %this.val34
   %or.cond.i.i = select i1 %cmp.i9.i, i1 true, i1 %cmp2.not.i.i
   br i1 %or.cond.i.i, label %if.end21, label %land.rhs.i.i
 
@@ -11282,7 +11282,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   store i32 %inc.i.i73, ptr %arrayidx10.i.i72, align 4
   %34 = getelementptr inbounds i8, ptr %this, i64 40
   %this.val32 = load ptr, ptr %34, align 8
-  %cmp.not.i79 = icmp eq ptr %call.i.i, %t
+  %cmp.not.i79 = icmp eq ptr %t, %call.i.i
   %cmp.i.i.i80 = icmp eq ptr %this.val32, null
   %or.cond.i81 = select i1 %cmp.not.i79, i1 true, i1 %cmp.i.i.i80
   br i1 %or.cond.i81, label %return, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i82

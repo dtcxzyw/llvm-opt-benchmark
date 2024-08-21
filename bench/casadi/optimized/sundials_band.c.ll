@@ -53,7 +53,7 @@ define i64 @bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 nou
   %18 = getelementptr inbounds double, ptr %17, i64 %4
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = add nsw i64 %.0126173, %3
-  %.not = icmp slt i64 %20, %1
+  %.not = icmp sgt i64 %1, %20
   %. = select i1 %.not, i64 %20, i64 %14
   %21 = load double, ptr %18, align 8
   %22 = tail call double @SUNRabs(double noundef %21) #7
@@ -239,7 +239,7 @@ define void @BandGBTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds double, ptr %24, i64 %9
   %26 = add nsw i64 %.067.i, %11
-  %.not63.i = icmp slt i64 %26, %7
+  %.not63.i = icmp sgt i64 %7, %26
   %..i = select i1 %.not63.i, i64 %26, i64 %12
   %27 = add nuw nsw i64 %.067.i, 1
   %.not6465.not.i = icmp slt i64 %.067.i, %..i
@@ -331,7 +331,7 @@ define void @bandGBTRS(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds double, ptr %19, i64 %2
   %21 = add nsw i64 %.067, %3
-  %.not63 = icmp slt i64 %21, %1
+  %.not63 = icmp sgt i64 %1, %21
   %. = select i1 %.not63, i64 %21, i64 %7
   %22 = add nuw nsw i64 %.067, 1
   %.not6465.not = icmp slt i64 %.067, %.
@@ -515,7 +515,7 @@ define void @BandScale(double noundef %0, ptr nocapture noundef readonly %1) loc
   %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %20 ]
   %21 = getelementptr inbounds double, ptr %19, i64 %.016.i
   %22 = load double, ptr %21, align 8
-  %23 = fmul double %22, %0
+  %23 = fmul double %0, %22
   store double %23, ptr %21, align 8
   %24 = add nuw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %.016.i, %13
@@ -553,7 +553,7 @@ define void @bandScale(double noundef %0, ptr nocapture noundef readonly %1, i64
   %.016 = phi i64 [ 0, %.lr.ph ], [ %18, %14 ]
   %15 = getelementptr inbounds double, ptr %13, i64 %.016
   %16 = load double, ptr %15, align 8
-  %17 = fmul double %16, %0
+  %17 = fmul double %0, %16
   store double %17, ptr %15, align 8
   %18 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %7
@@ -597,7 +597,7 @@ define void @BandMatvec(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %21 = sub nsw i64 %.03342.i, %9
   %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 0)
   %23 = add nsw i64 %.03342.i, %11
-  %.not.i = icmp slt i64 %23, %7
+  %.not.i = icmp sgt i64 %7, %23
   %24 = select i1 %.not.i, i64 %23, i64 %16
   %.not3739.i = icmp sgt i64 %22, %24
   br i1 %.not3739.i, label %._crit_edge.i, label %.lr.ph41.i
@@ -648,7 +648,7 @@ define void @bandMatvec(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %15 = sub nsw i64 %.03342, %4
   %16 = tail call i64 @llvm.smax.i64(i64 %15, i64 0)
   %17 = add nsw i64 %.03342, %5
-  %.not = icmp slt i64 %17, %3
+  %.not = icmp sgt i64 %3, %17
   %18 = select i1 %.not, i64 %17, i64 %10
   %.not3739 = icmp sgt i64 %16, %18
   br i1 %.not3739, label %._crit_edge, label %.lr.ph41

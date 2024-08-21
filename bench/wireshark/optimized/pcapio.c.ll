@@ -917,7 +917,7 @@ pcapng_count_string_option.exit:                  ; preds = %12, %22, %25
   %32 = add i32 %.1, %21
   store i32 %32, ptr %16, align 4
   %33 = zext i32 %7 to i64
-  %34 = mul i64 %33, %2
+  %34 = mul i64 %2, %33
   %35 = zext i32 %3 to i64
   %36 = add i64 %34, %35
   store i32 6, ptr %14, align 4

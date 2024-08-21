@@ -555,7 +555,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %add = add i64 %conv, %rom_base
+  %add = add i64 %rom_base, %conv
   %call6 = call ptr @rom_add_blob(ptr noundef nonnull @.str.18, ptr noundef nonnull %dinfo, i64 noundef 48, i64 noundef 48, i64 noundef %add, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #12
   ret void
 }

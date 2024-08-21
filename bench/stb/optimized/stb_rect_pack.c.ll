@@ -188,7 +188,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %height4 = getelementptr inbounds i8, ptr %c, i64 4
   %2 = load i32, ptr %height4, align 4
-  %cmp5 = icmp slt i32 %2, %height
+  %cmp5 = icmp sgt i32 %height, %2
   br i1 %cmp5, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -522,7 +522,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %retval.sroa.7.0.extract.shift = lshr i64 %0, 32
   %retval.sroa.7.0.extract.trunc = trunc nuw i64 %retval.sroa.7.0.extract.shift to i32
-  %add = add nsw i32 %retval.sroa.7.0.extract.trunc, %height
+  %add = add nsw i32 %height, %retval.sroa.7.0.extract.trunc
   %height1 = getelementptr inbounds i8, ptr %context, i64 4
   %2 = load i32, ptr %height1, align 4
   %cmp2 = icmp sgt i32 %add, %2
@@ -558,7 +558,7 @@ if.end21:                                         ; preds = %if.end, %if.then16
   %next2236 = getelementptr inbounds i8, ptr %cur.0, i64 8
   %8 = load ptr, ptr %next2236, align 8
   %tobool.not37 = icmp eq ptr %8, null
-  %.pre = add nsw i32 %retval.sroa.0.0.extract.trunc, %width
+  %.pre = add nsw i32 %width, %retval.sroa.0.0.extract.trunc
   br i1 %tobool.not37, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end21, %while.body

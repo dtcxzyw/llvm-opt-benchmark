@@ -426,7 +426,7 @@ define dso_local void @inet_frag_kill(ptr noundef %0) #0 align 16 {
 
 112:                                              ; preds = %.loopexit13
   %113 = inttoptr i64 %109 to ptr
-  %114 = icmp eq ptr %113, %0
+  %114 = icmp eq ptr %0, %113
   br i1 %114, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %112

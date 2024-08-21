@@ -491,11 +491,11 @@ define dso_local void @cost_gather_merge(ptr nocapture noundef %0, ptr nocapture
   %37 = load double, ptr @parallel_tuple_cost, align 8
   %38 = fmul double %31, %37
   %39 = tail call double @llvm.fmuladd.f64(double %38, double 1.050000e+00, double %34)
-  %40 = fadd double %36, %4
+  %40 = fadd double %4, %36
   %41 = getelementptr inbounds i8, ptr %0, i64 48
   store double %40, ptr %41, align 8
   %42 = fadd double %36, %39
-  %43 = fadd double %42, %5
+  %43 = fadd double %5, %42
   %44 = getelementptr inbounds i8, ptr %0, i64 56
   store double %43, ptr %44, align 8
   ret void
@@ -713,7 +713,7 @@ clamp_row_est.exit:                               ; preds = %extract_nonindex_co
   br i1 %119, label %120, label %216
 
 120:                                              ; preds = %clamp_row_est.exit
-  %121 = fmul double %.0.i, %2
+  %121 = fmul double %2, %.0.i
   %122 = getelementptr inbounds i8, ptr %16, i64 192
   %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %14, i64 24
@@ -753,7 +753,7 @@ clamp_row_est.exit:                               ; preds = %extract_nonindex_co
   %151 = fneg double %.037.i
   %152 = call double @llvm.fmuladd.f64(double %128, double 2.000000e+00, double %151)
   %153 = fdiv double %150, %152
-  %154 = fcmp ult double %153, %121
+  %154 = fcmp ugt double %121, %153
   br i1 %154, label %159, label %155
 
 155:                                              ; preds = %149
@@ -796,7 +796,7 @@ index_pages_fetched.exit:                         ; preds = %142, %147, %165
   %178 = uitofp i32 %123 to double
   %179 = fmul double %177, %178
   %180 = call double @llvm.ceil.f64(double %179)
-  %181 = fmul double %180, %2
+  %181 = fmul double %2, %180
   br i1 %140, label %189, label %182
 
 182:                                              ; preds = %173
@@ -815,7 +815,7 @@ index_pages_fetched.exit:                         ; preds = %142, %147, %165
   %191 = fneg double %.037.i
   %192 = call double @llvm.fmuladd.f64(double %128, double 2.000000e+00, double %191)
   %193 = fdiv double %190, %192
-  %194 = fcmp ult double %193, %181
+  %194 = fcmp ugt double %181, %193
   br i1 %194, label %199, label %195
 
 195:                                              ; preds = %189
@@ -895,7 +895,7 @@ index_pages_fetched.exit134:                      ; preds = %182, %187, %205
   %246 = fneg double %.037.i135
   %247 = call double @llvm.fmuladd.f64(double %223, double 2.000000e+00, double %246)
   %248 = fdiv double %245, %247
-  %249 = fcmp ult double %248, %.0.i
+  %249 = fcmp ugt double %.0.i, %248
   br i1 %249, label %254, label %250
 
 250:                                              ; preds = %244
@@ -1103,7 +1103,7 @@ define dso_local double @index_pages_fetched(double noundef %0, i32 noundef %1, 
   %6 = uitofp i32 %5 to double
   %7 = getelementptr inbounds i8, ptr %3, i64 560
   %8 = load double, ptr %7, align 8
-  %9 = fadd double %8, %2
+  %9 = fadd double %2, %8
   %10 = fcmp ogt double %9, 1.000000e+00
   %11 = select i1 %10, double %9, double 1.000000e+00
   %12 = load i32, ptr @effective_cache_size, align 4
@@ -1118,7 +1118,7 @@ define dso_local double @index_pages_fetched(double noundef %0, i32 noundef %1, 
   br i1 %18, label %27, label %20
 
 20:                                               ; preds = %4
-  %21 = fmul double %19, %0
+  %21 = fmul double %0, %19
   %22 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double %0)
   %23 = fdiv double %21, %22
   %24 = fcmp ult double %23, %6
@@ -1133,11 +1133,11 @@ define dso_local double @index_pages_fetched(double noundef %0, i32 noundef %1, 
   %29 = fneg double %.037
   %30 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double %29)
   %31 = fdiv double %28, %30
-  %32 = fcmp ult double %31, %0
+  %32 = fcmp ugt double %0, %31
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %27
-  %34 = fmul double %19, %0
+  %34 = fmul double %0, %19
   %35 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double %0)
   %36 = fdiv double %34, %35
   br label %43
@@ -1459,7 +1459,7 @@ clamp_row_est.exit:                               ; preds = %cost_bitmap_tree_no
   br i1 %54, label %55, label %100
 
 55:                                               ; preds = %clamp_row_est.exit
-  %56 = fmul double %.0.i, %3
+  %56 = fmul double %3, %.0.i
   %57 = load i32, ptr %38, align 8
   %58 = tail call fastcc double @get_indexpath_pages(ptr noundef nonnull %2)
   %59 = tail call i32 @llvm.umax.i32(i32 %57, i32 1)
@@ -1496,7 +1496,7 @@ clamp_row_est.exit:                               ; preds = %cost_bitmap_tree_no
   %83 = fneg double %.037.i
   %84 = tail call double @llvm.fmuladd.f64(double %60, double 2.000000e+00, double %83)
   %85 = fdiv double %82, %84
-  %86 = fcmp ult double %85, %56
+  %86 = fcmp ugt double %56, %85
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %81
@@ -2245,7 +2245,7 @@ clamp_row_est.exit:                               ; preds = %16, %25, %27
   %36 = getelementptr inbounds i8, ptr %0, i64 56
   store double %35, ptr %36, align 8
   %37 = icmp eq ptr %.0, null
-  %brmerge.not = and i1 %37, %4
+  %brmerge.not = and i1 %4, %37
   br i1 %brmerge.not, label %82, label %38
 
 38:                                               ; preds = %clamp_row_est.exit
@@ -3099,7 +3099,7 @@ define dso_local void @cost_incremental_sort(ptr nocapture noundef writeonly %0,
   %42 = fdiv double %40, %.047
   call fastcc void @cost_tuplesort(ptr noundef nonnull %12, ptr noundef nonnull %13, double noundef %41, i32 noundef %7, double noundef %8, i32 noundef %9, double noundef %10)
   %43 = load double, ptr %12, align 8
-  %44 = fadd double %43, %4
+  %44 = fadd double %4, %43
   %45 = fadd double %42, %44
   %46 = load double, ptr %13, align 8
   %47 = fadd double %43, %46
@@ -3107,7 +3107,7 @@ define dso_local void @cost_incremental_sort(ptr nocapture noundef writeonly %0,
   %49 = tail call double @llvm.fmuladd.f64(double %47, double %48, double %46)
   %50 = tail call double @llvm.fmuladd.f64(double %42, double %48, double %49)
   %51 = load double, ptr @cpu_tuple_cost, align 8
-  %52 = fadd double %51, %8
+  %52 = fadd double %8, %51
   %53 = tail call double @llvm.fmuladd.f64(double %52, double %.0, double %50)
   %54 = fmul double %51, 2.000000e+00
   %55 = tail call double @llvm.fmuladd.f64(double %54, double %.047, double %53)
@@ -3136,7 +3136,7 @@ define internal fastcc void @cost_tuplesort(ptr nocapture noundef %0, ptr nocapt
   %10 = and i64 %9, -8
   %11 = add nsw i64 %10, 24
   %12 = uitofp i64 %11 to double
-  %13 = fmul double %12, %2
+  %13 = fmul double %2, %12
   %14 = sext i32 %5 to i64
   %15 = shl nsw i64 %14, 10
   %16 = fcmp olt double %2, 2.000000e+00
@@ -3144,9 +3144,9 @@ define internal fastcc void @cost_tuplesort(ptr nocapture noundef %0, ptr nocapt
   %17 = load double, ptr @cpu_operator_cost, align 8
   %18 = tail call double @llvm.fmuladd.f64(double %17, double 2.000000e+00, double %4)
   %19 = fcmp ogt double %6, 0.000000e+00
-  %20 = fcmp ogt double %.0, %6
+  %20 = fcmp olt double %6, %.0
   %or.cond = and i1 %19, %20
-  %21 = fmul double %12, %6
+  %21 = fmul double %6, %12
   %.045 = select i1 %or.cond, double %21, double %13
   %22 = sitofp i64 %15 to double
   %23 = fcmp ogt double %.045, %22
@@ -3226,7 +3226,7 @@ define dso_local void @cost_sort(ptr nocapture noundef writeonly %0, ptr nocaptu
   %14 = load double, ptr @disable_cost, align 8
   %15 = fadd double %14, %.pre
   %16 = select i1 %13, double %.pre, double %15
-  %17 = fadd double %16, %3
+  %17 = fadd double %3, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   store double %4, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3721,16 +3721,16 @@ define dso_local void @cost_merge_append(ptr nocapture noundef writeonly %0, ptr
   %13 = fmul double %12, 2.000000e+00
   %14 = fmul double %13, %9
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %11, double 0.000000e+00)
-  %16 = fmul double %13, %6
+  %16 = fmul double %6, %13
   %17 = tail call double @llvm.fmuladd.f64(double %16, double %11, double 0.000000e+00)
   %18 = load double, ptr @cpu_tuple_cost, align 8
   %19 = fmul double %18, 5.000000e-01
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %6, double %17)
-  %21 = fadd double %15, %4
+  %21 = fadd double %4, %15
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   store double %21, ptr %22, align 8
   %23 = fadd double %15, %20
-  %24 = fadd double %23, %5
+  %24 = fadd double %5, %23
   %25 = getelementptr inbounds i8, ptr %0, i64 56
   store double %24, ptr %25, align 8
   ret void
@@ -3744,7 +3744,7 @@ define dso_local void @cost_material(ptr nocapture noundef writeonly %0, double 
   %9 = and i64 %8, -8
   %10 = add nsw i64 %9, 24
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, %3
+  %12 = fmul double %3, %11
   %13 = load i32, ptr @work_mem, align 4
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 10
@@ -3768,7 +3768,7 @@ define dso_local void @cost_material(ptr nocapture noundef writeonly %0, double 
   %.0 = phi double [ %26, %22 ], [ %19, %5 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 48
   store double %1, ptr %28, align 8
-  %29 = fadd double %.0, %1
+  %29 = fadd double %1, %.0
   %30 = getelementptr inbounds i8, ptr %0, i64 56
   store double %29, ptr %30, align 8
   ret void
@@ -3814,7 +3814,7 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
 
 .thread:                                          ; preds = %.loopexit
   %17 = load double, ptr %.0.sroa.phi159, align 8
-  %18 = fadd double %17, %8
+  %18 = fadd double %8, %17
   %19 = load double, ptr %.0.sroa.phi159.sroa.phi178, align 8
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %9, double %18)
   %21 = load double, ptr %.0.sroa.phi159.sroa.phi175, align 8
@@ -3832,8 +3832,8 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
 
 30:                                               ; preds = %27
   %31 = load double, ptr @disable_cost, align 8
-  %32 = fadd double %31, %7
-  %33 = fadd double %31, %8
+  %32 = fadd double %7, %31
+  %33 = fadd double %8, %31
   br label %34
 
 34:                                               ; preds = %.loopexit, %30, %27
@@ -3855,7 +3855,7 @@ define dso_local void @cost_agg(ptr nocapture noundef writeonly %0, ptr noundef 
   %46 = load i8, ptr @enable_hashagg, align 1
   %47 = trunc i8 %46 to i1
   %48 = load double, ptr @disable_cost, align 8
-  %49 = fadd double %48, %8
+  %49 = fadd double %8, %48
   %.2 = select i1 %47, double %8, double %49
   %50 = load double, ptr %.0.sroa.phi159, align 8
   %51 = fadd double %50, %.2
@@ -3898,7 +3898,7 @@ list_length.exit:                                 ; preds = %66, %69
   %75 = tail call i64 @hash_agg_entry_size(i32 noundef %72, i64 noundef %73, i64 noundef %74) #17
   %76 = uitofp i64 %75 to double
   call void @hash_agg_set_limits(double noundef %76, double noundef %5, i32 noundef 0, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #17
-  %77 = fmul double %76, %5
+  %77 = fmul double %5, %76
   %78 = load i64, ptr %13, align 8
   %79 = uitofp i64 %78 to double
   %80 = fdiv double %77, %79
@@ -3926,7 +3926,7 @@ list_length.exit:                                 ; preds = %66, %69
   %100 = and i64 %99, -8
   %101 = add nsw i64 %100, 24
   %102 = uitofp i64 %101 to double
-  %103 = fmul double %102, %9
+  %103 = fmul double %9, %102
   %104 = fmul double %103, 0x3F20000000000000
   %105 = sitofp i32 %96 to double
   %106 = fmul double %104, %105
@@ -3936,7 +3936,7 @@ list_length.exit:                                 ; preds = %66, %69
   %110 = call double @llvm.fmuladd.f64(double %107, double %108, double %64)
   %111 = load double, ptr @seq_page_cost, align 8
   %112 = call double @llvm.fmuladd.f64(double %107, double %111, double %110)
-  %113 = fmul double %105, %9
+  %113 = fmul double %9, %105
   %114 = fmul double %113, 2.000000e+00
   %115 = load double, ptr @cpu_tuple_cost, align 8
   %116 = fmul double %115, %114
@@ -4312,7 +4312,7 @@ declare void @add_function_cost(ptr noundef, i32 noundef, ptr noundef, ptr nound
 define dso_local void @cost_group(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, double noundef %3, ptr noundef %4, double noundef %5, double noundef %6, double noundef %7) local_unnamed_addr #2 {
   %9 = alloca %struct.cost_qual_eval_context, align 8
   %10 = load double, ptr @cpu_operator_cost, align 8
-  %11 = fmul double %10, %7
+  %11 = fmul double %7, %10
   %12 = sitofp i32 %2 to double
   %13 = tail call double @llvm.fmuladd.f64(double %11, double %12, double %6)
   %.not = icmp eq ptr %4, null
@@ -4351,11 +4351,11 @@ cost_qual_eval.exit:                              ; preds = %cost_qual_eval.exit
   %.sroa.2.0.copyload = phi double [ %.sroa.2.0.copyload.pre, %cost_qual_eval.exit.loopexit ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.0.0.copyload = phi double [ %.sroa.0.0.copyload.pre, %cost_qual_eval.exit.loopexit ], [ 0.000000e+00, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %26 = fadd double %.sroa.0.0.copyload, %5
+  %26 = fadd double %5, %.sroa.0.0.copyload
   %27 = call double @llvm.fmuladd.f64(double %3, double %.sroa.2.0.copyload, double %.sroa.0.0.copyload)
   %28 = fadd double %13, %27
   %29 = call double @clauselist_selectivity(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
-  %30 = fmul double %29, %3
+  %30 = fmul double %3, %29
   %31 = fcmp ogt double %30, 1.000000e+100
   %32 = fcmp uno double %30, 0.000000e+00
   %or.cond.i = or i1 %31, %32
@@ -7747,14 +7747,14 @@ get_foreign_key_join_selectivity.exit:            ; preds = %.lr.ph162.i, %6, %.
   br label %198
 
 187:                                              ; preds = %169
-  %188 = fmul double %.5.i, %2
+  %188 = fmul double %2, %.5.i
   %189 = fmul double %188, %.0
   br label %198
 
 190:                                              ; preds = %169
   %191 = fneg double %.5.i
   %192 = tail call double @llvm.fmuladd.f64(double %191, double %.0, double 1.000000e+00)
-  %193 = fmul double %192, %2
+  %193 = fmul double %2, %192
   %194 = fmul double %.066, %193
   br label %198
 
@@ -8311,7 +8311,7 @@ define dso_local void @set_cte_size_estimates(ptr noundef %0, ptr nocapture noun
 
 28:                                               ; preds = %23
   %29 = load double, ptr @recursive_worktable_factor, align 8
-  %30 = fmul double %29, %2
+  %30 = fmul double %2, %29
   %31 = fcmp ogt double %30, 1.000000e+100
   %32 = fcmp uno double %30, 0.000000e+00
   %or.cond.i = or i1 %31, %32

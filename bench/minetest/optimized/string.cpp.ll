@@ -1565,7 +1565,7 @@ if.end:                                           ; preds = %_ZStlsISt11char_tra
   %i.1 = phi i32 [ %add9, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ %i.086, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit72 ]
   %inc = add i32 %i.1, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %str.coerce0
+  %cmp = icmp ugt i64 %str.coerce0, %conv
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !77
 
 invoke.cont25:                                    ; preds = %if.else.i.i, %if.then.i.i
@@ -2833,7 +2833,7 @@ _ZL21parseNamedColorStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 if.end:                                           ; preds = %_ZL21parseNamedColorStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN3irr5video6SColorE.exit, %_ZL19parseHexColorStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN3irr5video6SColorEh.exit
   %success.0.in = phi i1 [ %retval.5.i, %_ZL19parseHexColorStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN3irr5video6SColorEh.exit ], [ %retval.3.i, %_ZL21parseNamedColorStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN3irr5video6SColorE.exit ]
-  %brmerge = or i1 %success.0.in, %quiet
+  %brmerge = or i1 %quiet, %success.0.in
   br i1 %brmerge, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
@@ -4116,7 +4116,7 @@ lpad9:                                            ; preds = %if.then.i.i109, %if
 
 if.else16:                                        ; preds = %if.then
   %cmp21 = icmp eq i8 %5, 27
-  %or.cond133 = and i1 %cmp21, %has_color_codes
+  %or.cond133 = and i1 %has_color_codes, %cmp21
   br i1 %or.cond133, label %if.then22, label %if.else25
 
 if.then22:                                        ; preds = %if.else16

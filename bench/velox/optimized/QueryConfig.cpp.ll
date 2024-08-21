@@ -460,7 +460,7 @@ entry:
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !8
   %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 48
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i, %0
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %0, %_M_single_bucket.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
@@ -519,7 +519,7 @@ entry:
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8, !noalias !11
   %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %values, i64 48
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i, %0
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %0, %_M_single_bucket.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
@@ -723,7 +723,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 if.then36:                                        ; preds = %lpad
   %15 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %15
+  %cmp.i.i.i = icmp eq ptr %15, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %if.end39, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then36

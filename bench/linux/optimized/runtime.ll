@@ -231,7 +231,7 @@ define dso_local void @pm_runtime_set_memalloc_noio(ptr noundef %0, i1 noundef z
   %10 = or disjoint i16 %9, %3
   store i16 %10, ptr %5, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %4) #8
-  %11 = and i1 %8, %1
+  %11 = and i1 %1, %8
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -2971,7 +2971,7 @@ define dso_local void @__pm_runtime_disable(ptr noundef %0, i1 noundef zeroext %
 13:                                               ; preds = %2
   %14 = and i16 %5, 16
   %15 = icmp ne i16 %14, 0
-  %16 = and i1 %15, %1
+  %16 = and i1 %1, %15
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %13

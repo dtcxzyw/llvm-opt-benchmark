@@ -3641,7 +3641,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %32, %22
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 2
-  %44 = icmp ult i64 %43, %30
+  %44 = icmp ugt i64 %30, %43
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.noexc
@@ -3656,7 +3656,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %32, %22
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
 
 47:                                               ; preds = %.noexc
-  %48 = icmp ugt i64 %43, %30
+  %48 = icmp ult i64 %30, %43
   br i1 %48, label %49, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
 
 49:                                               ; preds = %47
@@ -3991,7 +3991,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %29, %_ZSt22__uninit
 _ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit: ; preds = %.lr.ph.i, %36
   %40 = phi ptr [ %10, %36 ], [ %39, %.lr.ph.i ]
   store ptr %40, ptr %9, align 8
-  %.not13.i.i68 = icmp eq ptr %10, %1
+  %.not13.i.i68 = icmp eq ptr %1, %10
   br i1 %.not13.i.i68, label %_ZSt22__uninitialized_move_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit74.thread, label %.lr.ph.i.i69
 
 _ZSt22__uninitialized_move_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit74.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit
@@ -4090,7 +4090,7 @@ _ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEE
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i91, %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit89
   %.0.lcssa.i.i95 = phi ptr [ %68, %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit89 ], [ %74, %.lr.ph.i.i91 ]
   %75 = getelementptr float, ptr %.0.lcssa.i.i95, i64 %2
-  %.not13.i.i96 = icmp eq ptr %10, %1
+  %.not13.i.i96 = icmp eq ptr %1, %10
   br i1 %.not13.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit102, label %.lr.ph.i.i97
 
 .lr.ph.i.i97:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i97

@@ -421,7 +421,7 @@ if.end.i15.i:                                     ; preds = %_ZN3CFF8CFFIndexIN2
   %12 = sub nuw nsw i32 39, %11
   %13 = lshr i32 %12, 3
   %div10.i.i = select i1 %tobool.not.i.i.i, i32 0, i32 %13
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %div10.i.i, i32 %5)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %5, i32 %div10.i.i)
   %add18.i.i = add i32 %iterable.val.i.i, 1
   %mul.i.i = mul i32 %.sroa.speculated.i.i, %add18.i.i
   %add20.i.i = add i32 %add19.i.i, %mul.i.i
@@ -1083,7 +1083,7 @@ if.end.i187:                                      ; preds = %_ZNK14hb_inc_bimap_
 _ZNK22hb_serialize_context_t6lengthEv.exit:       ; preds = %_ZNK14hb_inc_bimap_tixEj.exit, %if.end.i187
   %retval.0.i190 = phi i32 [ %conv.i189, %if.end.i187 ], [ 0, %_ZNK14hb_inc_bimap_tixEj.exit ]
   %116 = load i32, ptr %length.i191, align 4
-  %cmp.not.i192 = icmp ugt i32 %116, %112
+  %cmp.not.i192 = icmp ult i32 %112, %116
   br i1 %cmp.not.i192, label %if.end.i195, label %if.then.i193
 
 if.then.i193:                                     ; preds = %_ZNK22hb_serialize_context_t6lengthEv.exit
@@ -1102,7 +1102,7 @@ _ZN11hb_vector_tIN3CFF27cff1_font_dict_values_mod_tELb0EEixEi.exit: ; preds = %i
   store i32 %retval.0.i190, ptr %size, align 4
   %call26 = call noundef i32 @_ZN22hb_serialize_context_t8pop_packEb(ptr noundef nonnull align 8 dereferenceable(144) %c, i1 noundef zeroext true)
   %118 = load i32, ptr %length.i191, align 4
-  %cmp.not.i200 = icmp ugt i32 %118, %112
+  %cmp.not.i200 = icmp ult i32 %112, %118
   br i1 %cmp.not.i200, label %if.end.i203, label %if.then.i201
 
 if.then.i201:                                     ; preds = %_ZN11hb_vector_tIN3CFF27cff1_font_dict_values_mod_tELb0EEixEi.exit
@@ -2322,7 +2322,7 @@ _ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERK
 if.then26:                                        ; preds = %_ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13get_with_hashERKS3_j.exit
   %length.i.i = getelementptr inbounds i8, ptr %this, i64 84
   %20 = load i32, ptr %length.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %20, %19
+  %cmp.not.i.i = icmp ult i32 %19, %20
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then26
@@ -2368,7 +2368,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i
   br i1 %cmp.i.i.i.i, label %if.then.i14.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %27, %add.i.i
+  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i, %27
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i9.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -2376,7 +2376,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %add.i.i
+  %cmp13.i.i.i = icmp ugt i32 %add.i.i, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %lor.rhs.i.i.i, !llvm.loop !22
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
@@ -2503,7 +2503,7 @@ land.lhs.true.i:                                  ; preds = %if.end35
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ult i32 %45, %add.i
+  %cmp9.not.i.i = icmp ugt i32 %add.i, %45
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i16
 
 while.body.i.i:                                   ; preds = %if.end.i.i15, %while.body.i.i
@@ -2511,7 +2511,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i15, %whil
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i18 = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i18, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %add.i
+  %cmp13.i.i = icmp ugt i32 %add.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !23
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -3732,7 +3732,7 @@ entry:
   %1 = sub nuw nsw i32 39, %0
   %2 = lshr i32 %1, 3
   %div30 = select i1 %tobool.not.i, i32 0, i32 %2
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %div30, i32 %min_off_size)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %min_off_size, i32 %div30)
   %errors.i.i.i = getelementptr inbounds i8, ptr %c, i64 44
   %3 = load i32, ptr %errors.i.i.i, align 4
   %tobool.i.i.not.i = icmp eq i32 %3, 0
@@ -4330,7 +4330,7 @@ land.lhs.true.i.i69:                              ; preds = %if.then50
   br i1 %cmp.i.i.i.i71, label %if.then.i.i109, label %if.end.i.i.i72
 
 if.end.i.i.i72:                                   ; preds = %land.lhs.true.i.i69
-  %cmp9.not.i.i.i73 = icmp ult i32 %34, %add.i.i70
+  %cmp9.not.i.i.i73 = icmp ugt i32 %add.i.i70, %34
   br i1 %cmp9.not.i.i.i73, label %while.body.i.i.i90, label %if.end.i.i74
 
 while.body.i.i.i90:                               ; preds = %if.end.i.i.i72, %while.body.i.i.i90
@@ -4338,7 +4338,7 @@ while.body.i.i.i90:                               ; preds = %if.end.i.i.i72, %wh
   %shr14.i.i.i92 = lshr i32 %new_allocated.133.i.i.i91, 1
   %add.i.i.i93 = add i32 %new_allocated.133.i.i.i91, 8
   %add15.i.i.i94 = add i32 %add.i.i.i93, %shr14.i.i.i92
-  %cmp13.i.i.i95 = icmp ult i32 %add15.i.i.i94, %add.i.i70
+  %cmp13.i.i.i95 = icmp ugt i32 %add.i.i70, %add15.i.i.i94
   br i1 %cmp13.i.i.i95, label %while.body.i.i.i90, label %lor.rhs.i.i.i96, !llvm.loop !43
 
 lor.rhs.i.i.i96:                                  ; preds = %while.body.i.i.i90
@@ -4792,7 +4792,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %retval.0.i.i.i.i = select i1 %cmp.not.i.i.i.i, ptr %arrayidx.i.i.i.i158, ptr @_hb_NullPool
   %98 = load i32, ptr %retval.0.i.i.i.i, align 4
   %99 = load i32, ptr %length.i.i.i157, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %99, %98
+  %cmp.not.i.i.i = icmp ult i32 %98, %99
   %100 = load ptr, ptr %arrayZ.i.i.i, align 8
   %idxprom.i.i.i159 = zext i32 %98 to i64
   %arrayidx.i.i.i160 = getelementptr inbounds %"struct.CFF::parsed_cs_str_t", ptr %100, i64 %idxprom.i.i.i159
@@ -5292,7 +5292,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %cmp9.not.i = icmp ult i32 %2, %add
+  %cmp9.not.i = icmp ugt i32 %add, %2
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
@@ -5300,7 +5300,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %add
+  %cmp13.i = icmp ugt i32 %add, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !57
 
 lor.rhs.i:                                        ; preds = %while.body.i
@@ -5349,7 +5349,7 @@ land.lhs.true.i:                                  ; preds = %if.end7
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ult i32 %7, %add.i2
+  %cmp9.not.i.i = icmp ugt i32 %add.i2, %7
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i3
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -5357,7 +5357,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %add.i2
+  %cmp13.i.i = icmp ugt i32 %add.i2, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !57
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -6417,7 +6417,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i.i
-  %cmp9.not.i.i.i.i.i.i = icmp ult i32 %5, %add.i.i.i.i.i
+  %cmp9.not.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i, %5
   br i1 %cmp9.not.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i, %while.body.i.i.i.i.i.i
@@ -6425,7 +6425,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i,
   %shr14.i.i.i.i.i.i = lshr i32 %new_allocated.133.i.i.i.i.i.i, 1
   %add.i.i.i.i.i.i = add i32 %new_allocated.133.i.i.i.i.i.i, 8
   %add15.i.i.i.i.i.i = add i32 %add.i.i.i.i.i.i, %shr14.i.i.i.i.i.i
-  %cmp13.i.i.i.i.i.i = icmp ult i32 %add15.i.i.i.i.i.i, %add.i.i.i.i.i
+  %cmp13.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i, %add15.i.i.i.i.i.i
   br i1 %cmp13.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i, !llvm.loop !65
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
@@ -6492,7 +6492,7 @@ entry:
   %1 = load i8, ptr %arrayidx3.i.i, align 1
   %conv4.i.i = zext i8 %1 to i32
   %add.i.i = or disjoint i32 %shl.i.i, %conv4.i.i
-  %cmp.not = icmp ugt i32 %add.i.i, %index
+  %cmp.not = icmp ult i32 %index, %add.i.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -6732,7 +6732,7 @@ entry:
   %1 = sub nuw nsw i32 39, %0
   %2 = lshr i32 %1, 3
   %div30 = select i1 %tobool.not.i, i32 0, i32 %2
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %div30, i32 %min_off_size)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %min_off_size, i32 %div30)
   %errors.i.i.i = getelementptr inbounds i8, ptr %c, i64 44
   %3 = load i32, ptr %errors.i.i.i, align 4
   %tobool.i.i.not.i = icmp eq i32 %3, 0
@@ -7171,7 +7171,7 @@ if.end.i42:                                       ; preds = %entry
   %num_charset_entries = getelementptr inbounds i8, ptr %acc, i64 300
   %2 = load i32, ptr %num_charset_entries, align 4
   %.sroa.speculated122 = tail call i32 @llvm.umin.i32(i32 %1, i32 %2)
-  %cmp9.not.i = icmp ult i32 %0, %.sroa.speculated122
+  %cmp9.not.i = icmp ugt i32 %.sroa.speculated122, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end9
 
 while.body.i:                                     ; preds = %if.end.i42, %while.body.i
@@ -7179,7 +7179,7 @@ while.body.i:                                     ; preds = %if.end.i42, %while.
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %.sroa.speculated122
+  %cmp13.i = icmp ugt i32 %.sroa.speculated122, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !69
 
 lor.rhs.i:                                        ; preds = %while.body.i
@@ -7307,7 +7307,7 @@ if.then31:                                        ; preds = %if.end18
 if.end.i.i54:                                     ; preds = %if.then31
   %length.i.i55 = getelementptr inbounds i8, ptr %this, i64 452
   %18 = load i32, ptr %length.i.i55, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %18, i32 %1)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %18)
   %cmp.not.i.i = icmp ugt i32 %.sroa.speculated.i.i, %17
   %shr.i.i = lshr i32 %17, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -7466,7 +7466,7 @@ land.lhs.true.i:                                  ; preds = %if.then52
   br i1 %cmp.i.i.i79, label %if.then.i99, label %if.end.i.i80
 
 if.end.i.i80:                                     ; preds = %land.lhs.true.i
-  %cmp9.not.i.i81 = icmp ult i32 %30, %add.i78
+  %cmp9.not.i.i81 = icmp ugt i32 %add.i78, %30
   br i1 %cmp9.not.i.i81, label %while.body.i.i84, label %if.end.i82
 
 while.body.i.i84:                                 ; preds = %if.end.i.i80, %while.body.i.i84
@@ -7474,7 +7474,7 @@ while.body.i.i84:                                 ; preds = %if.end.i.i80, %whil
   %shr14.i.i85 = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i86 = add i32 %new_allocated.133.i.i, 8
   %add15.i.i87 = add i32 %add.i.i86, %shr14.i.i85
-  %cmp13.i.i = icmp ult i32 %add15.i.i87, %add.i78
+  %cmp13.i.i = icmp ugt i32 %add.i78, %add15.i.i87
   br i1 %cmp13.i.i, label %while.body.i.i84, label %lor.rhs.i.i88, !llvm.loop !69
 
 lor.rhs.i.i88:                                    ; preds = %while.body.i.i84
@@ -7803,7 +7803,7 @@ land.lhs.true.i:                                  ; preds = %_ZN11hb_vector_tIS_
   br i1 %cmp.i.i.i, label %if.then.i17, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ult i32 %22, %add.i
+  %cmp9.not.i.i = icmp ugt i32 %add.i, %22
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i12
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -7811,7 +7811,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %add.i
+  %cmp13.i.i = icmp ugt i32 %add.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %if.end23.thread.i.i, !llvm.loop !72
 
 if.end23.thread.i.i:                              ; preds = %while.body.i.i
@@ -7923,7 +7923,7 @@ while.body.i.i.i.i22:                             ; preds = %if.end8.i.i.i.i, %w
   %37 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i = zext i8 %37 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i23 = icmp ugt i32 %add.i.i.i.i.i.i.i, %17
+  %cmp.i.i.i.i.i23 = icmp ult i32 %17, %add.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i23, label %if.then.i.i.i.i24, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i22
@@ -7935,7 +7935,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i
   %39 = load i8, ptr %arrayidx3.i.i5.i.i.i.i.i, align 1
   %conv4.i.i6.i.i.i.i.i = zext i8 %39 to i32
   %add.i.i7.i.i.i.i.i = or disjoint i32 %shl.i.i4.i.i.i.i.i, %conv4.i.i6.i.i.i.i.i
-  %cmp4.i.not.i.i.i.i = icmp ugt i32 %add.i.i7.i.i.i.i.i, %17
+  %cmp4.i.not.i.i.i.i = icmp ult i32 %17, %add.i.i7.i.i.i.i.i
   br i1 %cmp4.i.not.i.i.i.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i, label %if.then5.i.i.i.i
 
 if.then.i.i.i.i24:                                ; preds = %while.body.i.i.i.i22
@@ -7990,7 +7990,7 @@ if.end15:                                         ; preds = %_ZNK3CFF8FDSelect6g
   %45 = load ptr, ptr %globalSubrs.i, align 8
   %length.i.i = getelementptr inbounds i8, ptr %42, i64 284
   %46 = load i32, ptr %length.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %46, %retval.0.shrunk.i
+  %cmp.not.i.i = icmp ult i32 %retval.0.shrunk.i, %46
   %arrayZ.i.i = getelementptr inbounds i8, ptr %42, i64 288
   %47 = load ptr, ptr %arrayZ.i.i, align 8
   %idxprom.i.i25 = zext nneg i32 %retval.0.shrunk.i to i64
@@ -8187,7 +8187,7 @@ if.then7:                                         ; preds = %entry
 if.end.i.i.i:                                     ; preds = %if.then7
   %length.i.i.i = getelementptr inbounds i8, ptr %this, i64 108
   %5 = load i32, ptr %length.i.i.i, align 4
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.umax.i32(i32 %5, i32 %cond.i.i)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.umax.i32(i32 %cond.i.i, i32 %5)
   %cmp.not.i.i.i = icmp ugt i32 %.sroa.speculated.i.i.i, %4
   %shr.i.i.i = lshr i32 %4, 2
   %cmp5.not.i.i.i = icmp ult i32 %.sroa.speculated.i.i.i, %shr.i.i.i
@@ -8460,7 +8460,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0329 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %length.i = getelementptr inbounds i8, ptr %37, i64 284
   %38 = load i32, ptr %length.i, align 4
-  %cmp.not.i = icmp ugt i32 %38, %i.0329
+  %cmp.not.i = icmp ult i32 %i.0329, %38
   %arrayZ.i = getelementptr inbounds i8, ptr %37, i64 288
   %39 = load ptr, ptr %arrayZ.i, align 8
   %idxprom.i = zext i32 %i.0329 to i64
@@ -8475,7 +8475,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %42 = load i8, ptr %arrayidx3.i.i83, align 1
   %conv4.i.i84 = zext i8 %42 to i32
   %add.i.i85 = or disjoint i32 %shl.i.i82, %conv4.i.i84
-  %cmp.not.i87 = icmp ugt i32 %36, %i.0329
+  %cmp.not.i87 = icmp ult i32 %i.0329, %36
   br i1 %cmp.not.i87, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -8563,7 +8563,7 @@ if.end15.i:                                       ; preds = %_ZN3CFF15parsed_cs_
 
 _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE6resizeEibb.exit: ; preds = %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit, %if.end15.i
   %51 = load i32, ptr %length.i86, align 4
-  %cmp.not.i95 = icmp ugt i32 %51, %i.0329
+  %cmp.not.i95 = icmp ult i32 %i.0329, %51
   br i1 %cmp.not.i95, label %if.end.i98, label %if.then.i96
 
 if.then.i96:                                      ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE6resizeEibb.exit
@@ -8760,7 +8760,7 @@ while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %w
   %75 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i = zext i8 %75 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i, %_.sroa.2.0.copyload
+  %cmp.i.i.i.i.i = icmp ult i32 %_.sroa.2.0.copyload, %add.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -8772,7 +8772,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i
   %77 = load i8, ptr %arrayidx3.i.i5.i.i.i.i.i, align 1
   %conv4.i.i6.i.i.i.i.i = zext i8 %77 to i32
   %add.i.i7.i.i.i.i.i = or disjoint i32 %shl.i.i4.i.i.i.i.i, %conv4.i.i6.i.i.i.i.i
-  %cmp4.i.not.i.i.i.i = icmp ugt i32 %add.i.i7.i.i.i.i.i, %_.sroa.2.0.copyload
+  %cmp4.i.not.i.i.i.i = icmp ult i32 %_.sroa.2.0.copyload, %add.i.i7.i.i.i.i.i
   br i1 %cmp4.i.not.i.i.i.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i, label %if.then5.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -8828,7 +8828,7 @@ if.then70:                                        ; preds = %if.end68
   %82 = load i32, ptr %length.i121, align 4
   %tobool.i.not = icmp eq i32 %82, 0
   %83 = load i32, ptr %length.i122, align 4
-  %cmp.not.i137 = icmp ugt i32 %83, %_.sroa.2.0.copyload
+  %cmp.not.i137 = icmp ult i32 %_.sroa.2.0.copyload, %83
   %84 = load ptr, ptr %arrayZ.i124, align 8
   %idxprom.i139 = zext i32 %_.sroa.2.0.copyload to i64
   %arrayidx.i140 = getelementptr inbounds %"struct.CFF::parsed_cs_str_t", ptr %84, i64 %idxprom.i139
@@ -8836,7 +8836,7 @@ if.then70:                                        ; preds = %if.end68
   br i1 %tobool.i.not, label %if.else78, label %if.then73
 
 if.then73:                                        ; preds = %if.then70
-  %cmp.not.i129 = icmp ugt i32 %82, %_.sroa.0.0.copyload
+  %cmp.not.i129 = icmp ult i32 %_.sroa.0.0.copyload, %82
   br i1 %cmp.not.i129, label %if.end.i132, label %if.then.i130
 
 if.then.i130:                                     ; preds = %if.then73
@@ -8856,7 +8856,7 @@ _ZN11hb_vector_tIPKN3CFF15parsed_cs_str_tELb0EEixEi.exit: ; preds = %if.then.i13
 
 if.else78:                                        ; preds = %if.then70
   %86 = load i32, ptr %length.i142, align 4
-  %cmp.not.i143 = icmp ugt i32 %86, %_.sroa.0.0.copyload
+  %cmp.not.i143 = icmp ult i32 %_.sroa.0.0.copyload, %86
   br i1 %cmp.not.i143, label %if.end.i146, label %if.then.i144
 
 if.then.i144:                                     ; preds = %if.else78
@@ -8882,7 +8882,7 @@ if.end85:                                         ; preds = %if.end68
   %88 = load ptr, ptr %globalSubrs.i, align 8
   %length.i.i151 = getelementptr inbounds i8, ptr %80, i64 284
   %89 = load i32, ptr %length.i.i151, align 4
-  %cmp.not.i.i = icmp ugt i32 %89, %retval.0.shrunk.i
+  %cmp.not.i.i = icmp ult i32 %retval.0.shrunk.i, %89
   %arrayZ.i.i152 = getelementptr inbounds i8, ptr %80, i64 288
   %90 = load ptr, ptr %arrayZ.i.i152, align 8
   %idxprom.i.i153 = zext nneg i32 %retval.0.shrunk.i to i64
@@ -8971,7 +8971,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_
   store i32 0, ptr %arg_start.i, align 4
   store i8 0, ptr %in_seac.i, align 8
   %96 = load i32, ptr %length.i142, align 4
-  %cmp.not.i158 = icmp ugt i32 %96, %_.sroa.0.0.copyload
+  %cmp.not.i158 = icmp ult i32 %_.sroa.0.0.copyload, %96
   br i1 %cmp.not.i158, label %if.end.i161, label %if.then.i159
 
 if.then.i159:                                     ; preds = %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit
@@ -8995,7 +8995,7 @@ if.end.i.i167:                                    ; preds = %_ZN11hb_vector_tIN3
   %str.sroa.3.8.extract.trunc = trunc i64 %68 to i32
   %length.i.i168 = getelementptr inbounds i8, ptr %retval.0.i160, i64 12
   %99 = load i32, ptr %length.i.i168, align 4
-  %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %99, i32 %str.sroa.3.8.extract.trunc)
+  %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %str.sroa.3.8.extract.trunc, i32 %99)
   %cmp.not.i.i169 = icmp ugt i32 %.sroa.speculated.i.i, %98
   %shr.i.i = lshr i32 %98, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -9048,7 +9048,7 @@ return.sink.split.i.i:                            ; preds = %if.end33.i.i, %if.e
 
 _ZN3CFF15parsed_values_tINS_14parsed_cs_op_tEE5allocEj.exit: ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit165, %if.end.i.i167, %if.then28.i.i, %return.sink.split.i.i
   %104 = load i32, ptr %length.i142, align 4
-  %cmp.not.i174 = icmp ugt i32 %104, %_.sroa.0.0.copyload
+  %cmp.not.i174 = icmp ult i32 %_.sroa.0.0.copyload, %104
   br i1 %cmp.not.i174, label %if.end.i177, label %if.then.i175
 
 if.then.i175:                                     ; preds = %_ZN3CFF15parsed_values_tINS_14parsed_cs_op_tEE5allocEj.exit
@@ -9064,7 +9064,7 @@ if.end.i177:                                      ; preds = %_ZN3CFF15parsed_val
 _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit181: ; preds = %if.then.i175, %if.end.i177
   %retval.0.i176 = phi ptr [ @_hb_CrapPool, %if.then.i175 ], [ %arrayidx.i180, %if.end.i177 ]
   %106 = load i32, ptr %length.i182, align 4
-  %cmp.not.i183 = icmp ugt i32 %106, %retval.0.shrunk.i
+  %cmp.not.i183 = icmp ult i32 %retval.0.shrunk.i, %106
   br i1 %cmp.not.i183, label %if.end.i186, label %if.then.i184
 
 if.then.i184:                                     ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit181
@@ -9079,7 +9079,7 @@ if.end.i186:                                      ; preds = %_ZN11hb_vector_tIN3
 _ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit190: ; preds = %if.then.i184, %if.end.i186
   %retval.0.i185 = phi ptr [ @_hb_CrapPool, %if.then.i184 ], [ %arrayidx.i189, %if.end.i186 ]
   %108 = load i32, ptr %length.i191, align 4
-  %cmp.not.i192 = icmp ugt i32 %108, %retval.0.shrunk.i
+  %cmp.not.i192 = icmp ult i32 %retval.0.shrunk.i, %108
   br i1 %cmp.not.i192, label %if.end.i195, label %if.then.i193
 
 if.then.i193:                                     ; preds = %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit190
@@ -9170,7 +9170,7 @@ if.end.i207:                                      ; preds = %lor.lhs.false.i
 
 if.end102:                                        ; preds = %if.end.i207
   %124 = load i32, ptr %length.i142, align 4
-  %cmp.not.i212 = icmp ugt i32 %124, %_.sroa.0.0.copyload
+  %cmp.not.i212 = icmp ult i32 %_.sroa.0.0.copyload, %124
   br i1 %cmp.not.i212, label %if.end.i215, label %if.then.i213
 
 if.then.i213:                                     ; preds = %if.end102
@@ -9295,7 +9295,7 @@ lor.lhs.false110:                                 ; preds = %_ZN21cff1_subr_subs
 
 if.then113:                                       ; preds = %lor.lhs.false110, %_ZN21cff1_subr_subsetter_t19complete_parsed_strERN3CFF20cff1_cs_interp_env_tERNS0_19subr_subset_param_tERNS0_15parsed_cs_str_tE.exit
   %145 = load i32, ptr %length.i142, align 4
-  %cmp.not.i238 = icmp ugt i32 %145, %_.sroa.0.0.copyload
+  %cmp.not.i238 = icmp ult i32 %_.sroa.0.0.copyload, %145
   br i1 %cmp.not.i238, label %if.end.i241, label %if.then.i239
 
 if.then.i239:                                     ; preds = %if.then113
@@ -9311,7 +9311,7 @@ if.end.i241:                                      ; preds = %if.then113
 _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit245: ; preds = %if.then.i239, %if.end.i241
   %retval.0.i240 = phi ptr [ @_hb_CrapPool, %if.then.i239 ], [ %arrayidx.i244, %if.end.i241 ]
   %147 = load i32, ptr %length.i182, align 4
-  %cmp.not.i247 = icmp ugt i32 %147, %retval.0.shrunk.i
+  %cmp.not.i247 = icmp ult i32 %retval.0.shrunk.i, %147
   br i1 %cmp.not.i247, label %if.end.i250, label %if.then.i248
 
 if.then.i248:                                     ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit245
@@ -9326,7 +9326,7 @@ if.end.i250:                                      ; preds = %_ZN11hb_vector_tIN3
 _ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit254: ; preds = %if.then.i248, %if.end.i250
   %retval.0.i249 = phi ptr [ @_hb_CrapPool, %if.then.i248 ], [ %arrayidx.i253, %if.end.i250 ]
   %149 = load i32, ptr %length.i191, align 4
-  %cmp.not.i256 = icmp ugt i32 %149, %retval.0.shrunk.i
+  %cmp.not.i256 = icmp ult i32 %retval.0.shrunk.i, %149
   br i1 %cmp.not.i256, label %if.end.i259, label %if.then.i257
 
 if.then.i257:                                     ; preds = %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit254
@@ -9372,7 +9372,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit279: ; preds = %if.then.i2
 
 if.then132:                                       ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit279
   %155 = load i32, ptr %length.i142, align 4
-  %cmp.not.i281 = icmp ugt i32 %155, %_.sroa.0.0.copyload
+  %cmp.not.i281 = icmp ult i32 %_.sroa.0.0.copyload, %155
   br i1 %cmp.not.i281, label %if.end.i284, label %if.then.i282
 
 if.then.i282:                                     ; preds = %if.then132
@@ -9397,7 +9397,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit288: ; preds = %if.then.i2
 
 if.then136:                                       ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit288
   %158 = load i32, ptr %length.i142, align 4
-  %cmp.not.i290 = icmp ugt i32 %158, %_.sroa.0.0.copyload
+  %cmp.not.i290 = icmp ult i32 %_.sroa.0.0.copyload, %158
   br i1 %cmp.not.i290, label %if.end.i293, label %if.then.i291
 
 if.then.i291:                                     ; preds = %if.then136
@@ -9420,7 +9420,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit297: ; preds = %if.then.i2
 
 if.end141:                                        ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit279, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit297, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit288, %lor.lhs.false110
   %160 = load i32, ptr %length.i142, align 4
-  %cmp.not.i301 = icmp ugt i32 %160, %_.sroa.0.0.copyload
+  %cmp.not.i301 = icmp ult i32 %_.sroa.0.0.copyload, %160
   br i1 %cmp.not.i301, label %if.end.i304, label %if.then.i302
 
 if.then.i302:                                     ; preds = %if.end141
@@ -9610,7 +9610,7 @@ while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %w
   %15 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i = zext i8 %15 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i, %_.sroa.2.0.copyload
+  %cmp.i.i.i.i.i = icmp ult i32 %_.sroa.2.0.copyload, %add.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -9622,7 +9622,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i
   %17 = load i8, ptr %arrayidx3.i.i5.i.i.i.i.i, align 1
   %conv4.i.i6.i.i.i.i.i = zext i8 %17 to i32
   %add.i.i7.i.i.i.i.i = or disjoint i32 %shl.i.i4.i.i.i.i.i, %conv4.i.i6.i.i.i.i.i
-  %cmp4.i.not.i.i.i.i = icmp ugt i32 %add.i.i7.i.i.i.i.i, %_.sroa.2.0.copyload
+  %cmp4.i.not.i.i.i.i = icmp ult i32 %_.sroa.2.0.copyload, %add.i.i7.i.i.i.i.i
   br i1 %cmp4.i.not.i.i.i.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i, label %if.then5.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -9677,7 +9677,7 @@ if.end15:                                         ; preds = %_ZNK3CFF8FDSelect6g
   br i1 %tobool.i.not.i, label %if.end.i22, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end15
-  %cmp.not.i.i = icmp ugt i32 %22, %_.sroa.0.0.copyload
+  %cmp.not.i.i = icmp ult i32 %_.sroa.0.0.copyload, %22
   %23 = load ptr, ptr %arrayZ.i.i, align 8
   %idxprom.i.i20 = zext i32 %_.sroa.0.0.copyload to i64
   %arrayidx.i.i21 = getelementptr inbounds ptr, ptr %23, i64 %idxprom.i.i20
@@ -9687,7 +9687,7 @@ if.then.i:                                        ; preds = %if.end15
 
 if.end.i22:                                       ; preds = %if.end15
   %25 = load i32, ptr %length.i3.i, align 4
-  %cmp.not.i4.i = icmp ugt i32 %25, %_.sroa.0.0.copyload
+  %cmp.not.i4.i = icmp ult i32 %_.sroa.0.0.copyload, %25
   %26 = load ptr, ptr %arrayZ.i5.i, align 8
   %idxprom.i6.i = zext i32 %_.sroa.0.0.copyload to i64
   %arrayidx.i7.i = getelementptr inbounds %"struct.CFF::parsed_cs_str_t", ptr %26, i64 %idxprom.i6.i
@@ -9754,7 +9754,7 @@ for.body.i:                                       ; preds = %_ZN11hb_vector_tIS_
   %retval.0.i.i.i = select i1 %cmp.not.i.i.i, ptr %arrayidx.i.i.i, ptr @_hb_NullPool
   %5 = load i32, ptr %retval.0.i.i.i, align 4
   %6 = load i32, ptr %length.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %6, %5
+  %cmp.not.i.i = icmp ult i32 %5, %6
   %7 = load ptr, ptr %arrayZ.i.i, align 8
   %idxprom.i.i = zext i32 %5 to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.CFF::parsed_cs_str_t", ptr %7, i64 %idxprom.i.i
@@ -9800,7 +9800,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -9808,7 +9808,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -9816,7 +9816,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !83
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -9884,7 +9884,7 @@ if.end.i.i:                                       ; preds = %if.then6
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp ult i32 %cond, %6
-  %brmerge.not = and i1 %cmp9, %initialize
+  %brmerge.not = and i1 %initialize, %cmp9
   br i1 %brmerge.not, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
@@ -10083,7 +10083,7 @@ land.lhs.true.i:                                  ; preds = %if.then26
   br i1 %cmp.i.i.i31, label %if.then.i, label %if.end.i.i32
 
 if.end.i.i32:                                     ; preds = %land.lhs.true.i
-  %cmp9.not.i.i33 = icmp ult i32 %12, %add.i
+  %cmp9.not.i.i33 = icmp ugt i32 %add.i, %12
   br i1 %cmp9.not.i.i33, label %while.body.i.i35, label %if.end.i34
 
 while.body.i.i35:                                 ; preds = %if.end.i.i32, %while.body.i.i35
@@ -10091,7 +10091,7 @@ while.body.i.i35:                                 ; preds = %if.end.i.i32, %whil
   %shr14.i.i36 = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i37 = add i32 %new_allocated.133.i.i, 8
   %add15.i.i38 = add i32 %add.i.i37, %shr14.i.i36
-  %cmp13.i.i = icmp ult i32 %add15.i.i38, %add.i
+  %cmp13.i.i = icmp ugt i32 %add.i, %add15.i.i38
   br i1 %cmp13.i.i, label %while.body.i.i35, label %lor.rhs.i.i, !llvm.loop !69
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i35
@@ -10248,7 +10248,7 @@ _ZNK2OT7ArrayOfIN3CFF12SuppEncodingENS_7IntTypeIhLj1EEEEixEi.exit.i: ; preds = %
   %24 = load i8, ptr %arrayidx3.i.i.i, align 1
   %conv4.i.i.i = zext i8 %24 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
-  %cmp6.i = icmp eq i32 %add.i.i.i, %retval.0.i51
+  %cmp6.i = icmp eq i32 %retval.0.i51, %add.i.i.i
   br i1 %cmp6.i, label %if.then.i110, label %for.inc.i
 
 if.then.i110:                                     ; preds = %_ZNK2OT7ArrayOfIN3CFF12SuppEncodingENS_7IntTypeIhLj1EEEEixEi.exit.i
@@ -10273,7 +10273,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNK2OT7ArrayOfIN3C
   br i1 %cmp.i.i.i.i112, label %if.then.i.i115, label %if.end.i.i.i113
 
 if.end.i.i.i113:                                  ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %supp_codes.sroa.0.4, %.pre180
+  %cmp9.not.i.i.i = icmp ugt i32 %.pre180, %supp_codes.sroa.0.4
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i14.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i113, %while.body.i.i.i
@@ -10281,7 +10281,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i113, %w
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i20.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i20.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %.pre180
+  %cmp13.i.i.i = icmp ugt i32 %.pre180, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %lor.rhs.i.i.i, !llvm.loop !84
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
@@ -10352,7 +10352,7 @@ land.lhs.true.i67:                                ; preds = %_ZN11hb_vector_tIjL
   br i1 %cmp.i.i.i69, label %if.then.i96, label %if.end.i.i70
 
 if.end.i.i70:                                     ; preds = %land.lhs.true.i67
-  %cmp9.not.i.i71 = icmp ult i32 %33, %add.i68
+  %cmp9.not.i.i71 = icmp ugt i32 %add.i68, %33
   br i1 %cmp9.not.i.i71, label %while.body.i.i78, label %if.end.i72
 
 while.body.i.i78:                                 ; preds = %if.end.i.i70, %while.body.i.i78
@@ -10360,7 +10360,7 @@ while.body.i.i78:                                 ; preds = %if.end.i.i70, %whil
   %shr14.i.i80 = lshr i32 %new_allocated.133.i.i79, 1
   %add.i.i81 = add i32 %new_allocated.133.i.i79, 8
   %add15.i.i82 = add i32 %add.i.i81, %shr14.i.i80
-  %cmp13.i.i83 = icmp ult i32 %add15.i.i82, %add.i68
+  %cmp13.i.i83 = icmp ugt i32 %add.i68, %add15.i.i82
   br i1 %cmp13.i.i83, label %while.body.i.i78, label %lor.rhs.i.i84, !llvm.loop !69
 
 lor.rhs.i.i84:                                    ; preds = %while.body.i.i78
@@ -10501,7 +10501,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %cmp9.not.i = icmp ult i32 %1, %add
+  %cmp9.not.i = icmp ugt i32 %add, %1
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.i
@@ -10509,7 +10509,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %add
+  %cmp13.i = icmp ugt i32 %add, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !88
 
 lor.rhs.i:                                        ; preds = %while.body.i
@@ -10670,7 +10670,7 @@ land.lhs.true.i.i.i:                              ; preds = %"_ZN9hb_iter_tI13hb
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %cmp9.not.i.i.i.i = icmp ult i32 %15, %add.i.i.i
+  %cmp9.not.i.i.i.i = icmp ugt i32 %add.i.i.i, %15
   br i1 %cmp9.not.i.i.i.i, label %while.body.i.i.i.i, label %if.end.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %while.body.i.i.i.i
@@ -10678,7 +10678,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %wh
   %shr14.i.i.i.i = lshr i32 %new_allocated.133.i.i.i.i, 1
   %add.i.i.i.i = add i32 %new_allocated.133.i.i.i.i, 8
   %add15.i.i.i.i = add i32 %add.i.i.i.i, %shr14.i.i.i.i
-  %cmp13.i.i.i.i = icmp ult i32 %add15.i.i.i.i, %add.i.i.i
+  %cmp13.i.i.i.i = icmp ugt i32 %add.i.i.i, %add15.i.i.i.i
   br i1 %cmp13.i.i.i.i, label %while.body.i.i.i.i, label %lor.rhs.i.i.i.i, !llvm.loop !88
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -11016,7 +11016,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ult i32 %11, %add.i
+  %cmp9.not.i.i = icmp ugt i32 %add.i, %11
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -11024,7 +11024,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %add.i
+  %cmp13.i.i = icmp ugt i32 %add.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !84
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -11512,7 +11512,7 @@ land.lhs.true.i:                                  ; preds = %if.then4
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %cmp9.not.i.i = icmp ult i32 %3, %add.i
+  %cmp9.not.i.i = icmp ugt i32 %add.i, %3
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -11520,7 +11520,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %add.i
+  %cmp13.i.i = icmp ugt i32 %add.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !84
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -11660,7 +11660,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.i.i.i, label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE6resizeEibb.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb
-  %cmp9.not.i.i.i = icmp slt i32 %1, %num_glyphs
+  %cmp9.not.i.i.i = icmp sgt i32 %num_glyphs, %1
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -11668,7 +11668,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %cond.i.i
+  %cmp13.i.i.i = icmp ugt i32 %cond.i.i, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %lor.rhs.i.i.i, !llvm.loop !69
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
@@ -11767,7 +11767,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE6resizeEibb.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp9.not.i.i = icmp slt i32 %0, %num_glyphs
+  %cmp9.not.i.i = icmp sgt i32 %num_glyphs, %0
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -11775,7 +11775,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %cond.i
+  %cmp13.i.i = icmp ugt i32 %cond.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !69
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -11881,7 +11881,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE6resizeEibb.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp9.not.i.i = icmp slt i32 %0, %num_glyphs
+  %cmp9.not.i.i = icmp sgt i32 %num_glyphs, %0
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -11889,7 +11889,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %cond.i
+  %cmp13.i.i = icmp ugt i32 %cond.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !69
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -12207,7 +12207,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -12215,7 +12215,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -12223,7 +12223,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !119
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -12291,7 +12291,7 @@ if.end.i.i:                                       ; preds = %if.then6
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp ult i32 %cond, %6
-  %brmerge.not = and i1 %cmp9, %initialize
+  %brmerge.not = and i1 %initialize, %cmp9
   br i1 %brmerge.not, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
@@ -12511,7 +12511,7 @@ land.lhs.true.i.i41.i:                            ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i, label %if.then.i.i67.i, label %if.end.i.i.i44.i
 
 if.end.i.i.i44.i:                                 ; preds = %land.lhs.true.i.i41.i
-  %cmp9.not.i.i.i45.i = icmp ult i32 %27, %add.i.i42.i
+  %cmp9.not.i.i.i45.i = icmp ugt i32 %add.i.i42.i, %27
   br i1 %cmp9.not.i.i.i45.i, label %while.body.i.i.i51.i, label %if.end.i.i46.i
 
 while.body.i.i.i51.i:                             ; preds = %if.end.i.i.i44.i, %while.body.i.i.i51.i
@@ -12519,7 +12519,7 @@ while.body.i.i.i51.i:                             ; preds = %if.end.i.i.i44.i, %
   %shr14.i.i.i53.i = lshr i32 %new_allocated.133.i.i.i52.i, 1
   %add.i.i.i54.i = add i32 %new_allocated.133.i.i.i52.i, 8
   %add15.i.i.i55.i = add i32 %add.i.i.i54.i, %shr14.i.i.i53.i
-  %cmp13.i.i.i56.i = icmp ult i32 %add15.i.i.i55.i, %add.i.i42.i
+  %cmp13.i.i.i56.i = icmp ugt i32 %add.i.i42.i, %add15.i.i.i55.i
   br i1 %cmp13.i.i.i56.i, label %while.body.i.i.i51.i, label %if.end23.thread.i.i.i57.i, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i:                        ; preds = %while.body.i.i.i51.i
@@ -12902,7 +12902,7 @@ land.lhs.true.i.i41.i:                            ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i, label %if.then.i.i67.i, label %if.end.i.i.i44.i
 
 if.end.i.i.i44.i:                                 ; preds = %land.lhs.true.i.i41.i
-  %cmp9.not.i.i.i45.i = icmp ult i32 %20, %add.i.i42.i
+  %cmp9.not.i.i.i45.i = icmp ugt i32 %add.i.i42.i, %20
   br i1 %cmp9.not.i.i.i45.i, label %while.body.i.i.i51.i, label %if.end.i.i46.i
 
 while.body.i.i.i51.i:                             ; preds = %if.end.i.i.i44.i, %while.body.i.i.i51.i
@@ -12910,7 +12910,7 @@ while.body.i.i.i51.i:                             ; preds = %if.end.i.i.i44.i, %
   %shr14.i.i.i53.i = lshr i32 %new_allocated.133.i.i.i52.i, 1
   %add.i.i.i54.i = add i32 %new_allocated.133.i.i.i52.i, 8
   %add15.i.i.i55.i = add i32 %add.i.i.i54.i, %shr14.i.i.i53.i
-  %cmp13.i.i.i56.i = icmp ult i32 %add15.i.i.i55.i, %add.i.i42.i
+  %cmp13.i.i.i56.i = icmp ugt i32 %add.i.i42.i, %add15.i.i.i55.i
   br i1 %cmp13.i.i.i56.i, label %while.body.i.i.i51.i, label %if.end23.thread.i.i.i57.i, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i:                        ; preds = %while.body.i.i.i51.i
@@ -13109,7 +13109,7 @@ lor.lhs.false.i5.i:                               ; preds = %_ZN3CFF11cff_stack_
   %49 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %49 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i.i156 = icmp ugt i32 %add.i.i.i.i, %add.i.i146
+  %cmp.not.i.i156 = icmp ult i32 %add.i.i146, %add.i.i.i.i
   br i1 %cmp.not.i.i156, label %if.else.i7.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 if.else.i7.i:                                     ; preds = %lor.lhs.false.i5.i
@@ -13216,7 +13216,7 @@ lor.lhs.false.i5.i193:                            ; preds = %_ZN3CFF11cff_stack_
   %65 = load i8, ptr %arrayidx3.i.i.i.i196, align 1
   %conv4.i.i.i.i197 = zext i8 %65 to i32
   %add.i.i.i.i198 = or disjoint i32 %shl.i.i.i.i195, %conv4.i.i.i.i197
-  %cmp.not.i.i199 = icmp ugt i32 %add.i.i.i.i198, %add.i.i167
+  %cmp.not.i.i199 = icmp ult i32 %add.i.i167, %add.i.i.i.i198
   br i1 %cmp.not.i.i199, label %if.else.i7.i206, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i200
 
 if.else.i7.i206:                                  ; preds = %lor.lhs.false.i5.i193
@@ -13590,7 +13590,7 @@ land.lhs.true.i.i41.i798:                         ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i800, label %if.then.i.i67.i825, label %if.end.i.i.i44.i801
 
 if.end.i.i.i44.i801:                              ; preds = %land.lhs.true.i.i41.i798
-  %cmp9.not.i.i.i45.i802 = icmp ult i32 %120, %add.i.i42.i799
+  %cmp9.not.i.i.i45.i802 = icmp ugt i32 %add.i.i42.i799, %120
   br i1 %cmp9.not.i.i.i45.i802, label %while.body.i.i.i51.i809, label %if.end.i.i46.i803
 
 while.body.i.i.i51.i809:                          ; preds = %if.end.i.i.i44.i801, %while.body.i.i.i51.i809
@@ -13598,7 +13598,7 @@ while.body.i.i.i51.i809:                          ; preds = %if.end.i.i.i44.i801
   %shr14.i.i.i53.i811 = lshr i32 %new_allocated.133.i.i.i52.i810, 1
   %add.i.i.i54.i812 = add i32 %new_allocated.133.i.i.i52.i810, 8
   %add15.i.i.i55.i813 = add i32 %add.i.i.i54.i812, %shr14.i.i.i53.i811
-  %cmp13.i.i.i56.i814 = icmp ult i32 %add15.i.i.i55.i813, %add.i.i42.i799
+  %cmp13.i.i.i56.i814 = icmp ugt i32 %add.i.i42.i799, %add15.i.i.i55.i813
   br i1 %cmp13.i.i.i56.i814, label %while.body.i.i.i51.i809, label %if.end23.thread.i.i.i57.i815, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i815:                     ; preds = %while.body.i.i.i51.i809
@@ -13786,7 +13786,7 @@ land.lhs.true.i.i41.i834:                         ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i836, label %if.then.i.i67.i861, label %if.end.i.i.i44.i837
 
 if.end.i.i.i44.i837:                              ; preds = %land.lhs.true.i.i41.i834
-  %cmp9.not.i.i.i45.i838 = icmp ult i32 %148, %add.i.i42.i835
+  %cmp9.not.i.i.i45.i838 = icmp ugt i32 %add.i.i42.i835, %148
   br i1 %cmp9.not.i.i.i45.i838, label %while.body.i.i.i51.i845, label %if.end.i.i46.i839
 
 while.body.i.i.i51.i845:                          ; preds = %if.end.i.i.i44.i837, %while.body.i.i.i51.i845
@@ -13794,7 +13794,7 @@ while.body.i.i.i51.i845:                          ; preds = %if.end.i.i.i44.i837
   %shr14.i.i.i53.i847 = lshr i32 %new_allocated.133.i.i.i52.i846, 1
   %add.i.i.i54.i848 = add i32 %new_allocated.133.i.i.i52.i846, 8
   %add15.i.i.i55.i849 = add i32 %add.i.i.i54.i848, %shr14.i.i.i53.i847
-  %cmp13.i.i.i56.i850 = icmp ult i32 %add15.i.i.i55.i849, %add.i.i42.i835
+  %cmp13.i.i.i56.i850 = icmp ugt i32 %add.i.i42.i835, %add15.i.i.i55.i849
   br i1 %cmp13.i.i.i56.i850, label %while.body.i.i.i51.i845, label %if.end23.thread.i.i.i57.i851, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i851:                     ; preds = %while.body.i.i.i51.i845
@@ -13982,7 +13982,7 @@ land.lhs.true.i.i41.i870:                         ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i872, label %if.then.i.i67.i897, label %if.end.i.i.i44.i873
 
 if.end.i.i.i44.i873:                              ; preds = %land.lhs.true.i.i41.i870
-  %cmp9.not.i.i.i45.i874 = icmp ult i32 %176, %add.i.i42.i871
+  %cmp9.not.i.i.i45.i874 = icmp ugt i32 %add.i.i42.i871, %176
   br i1 %cmp9.not.i.i.i45.i874, label %while.body.i.i.i51.i881, label %if.end.i.i46.i875
 
 while.body.i.i.i51.i881:                          ; preds = %if.end.i.i.i44.i873, %while.body.i.i.i51.i881
@@ -13990,7 +13990,7 @@ while.body.i.i.i51.i881:                          ; preds = %if.end.i.i.i44.i873
   %shr14.i.i.i53.i883 = lshr i32 %new_allocated.133.i.i.i52.i882, 1
   %add.i.i.i54.i884 = add i32 %new_allocated.133.i.i.i52.i882, 8
   %add15.i.i.i55.i885 = add i32 %add.i.i.i54.i884, %shr14.i.i.i53.i883
-  %cmp13.i.i.i56.i886 = icmp ult i32 %add15.i.i.i55.i885, %add.i.i42.i871
+  %cmp13.i.i.i56.i886 = icmp ugt i32 %add.i.i42.i871, %add15.i.i.i55.i885
   br i1 %cmp13.i.i.i56.i886, label %while.body.i.i.i51.i881, label %if.end23.thread.i.i.i57.i887, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i887:                     ; preds = %while.body.i.i.i51.i881
@@ -14117,7 +14117,7 @@ land.lhs.true.i.i41.i906:                         ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i908, label %if.then.i.i67.i933, label %if.end.i.i.i44.i909
 
 if.end.i.i.i44.i909:                              ; preds = %land.lhs.true.i.i41.i906
-  %cmp9.not.i.i.i45.i910 = icmp ult i32 %196, %add.i.i42.i907
+  %cmp9.not.i.i.i45.i910 = icmp ugt i32 %add.i.i42.i907, %196
   br i1 %cmp9.not.i.i.i45.i910, label %while.body.i.i.i51.i917, label %if.end.i.i46.i911
 
 while.body.i.i.i51.i917:                          ; preds = %if.end.i.i.i44.i909, %while.body.i.i.i51.i917
@@ -14125,7 +14125,7 @@ while.body.i.i.i51.i917:                          ; preds = %if.end.i.i.i44.i909
   %shr14.i.i.i53.i919 = lshr i32 %new_allocated.133.i.i.i52.i918, 1
   %add.i.i.i54.i920 = add i32 %new_allocated.133.i.i.i52.i918, 8
   %add15.i.i.i55.i921 = add i32 %add.i.i.i54.i920, %shr14.i.i.i53.i919
-  %cmp13.i.i.i56.i922 = icmp ult i32 %add15.i.i.i55.i921, %add.i.i42.i907
+  %cmp13.i.i.i56.i922 = icmp ugt i32 %add.i.i42.i907, %add15.i.i.i55.i921
   br i1 %cmp13.i.i.i56.i922, label %while.body.i.i.i51.i917, label %if.end23.thread.i.i.i57.i923, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i923:                     ; preds = %while.body.i.i.i51.i917
@@ -14252,7 +14252,7 @@ land.lhs.true.i.i41.i942:                         ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i944, label %if.then.i.i67.i969, label %if.end.i.i.i44.i945
 
 if.end.i.i.i44.i945:                              ; preds = %land.lhs.true.i.i41.i942
-  %cmp9.not.i.i.i45.i946 = icmp ult i32 %216, %add.i.i42.i943
+  %cmp9.not.i.i.i45.i946 = icmp ugt i32 %add.i.i42.i943, %216
   br i1 %cmp9.not.i.i.i45.i946, label %while.body.i.i.i51.i953, label %if.end.i.i46.i947
 
 while.body.i.i.i51.i953:                          ; preds = %if.end.i.i.i44.i945, %while.body.i.i.i51.i953
@@ -14260,7 +14260,7 @@ while.body.i.i.i51.i953:                          ; preds = %if.end.i.i.i44.i945
   %shr14.i.i.i53.i955 = lshr i32 %new_allocated.133.i.i.i52.i954, 1
   %add.i.i.i54.i956 = add i32 %new_allocated.133.i.i.i52.i954, 8
   %add15.i.i.i55.i957 = add i32 %add.i.i.i54.i956, %shr14.i.i.i53.i955
-  %cmp13.i.i.i56.i958 = icmp ult i32 %add15.i.i.i55.i957, %add.i.i42.i943
+  %cmp13.i.i.i56.i958 = icmp ugt i32 %add.i.i42.i943, %add15.i.i.i55.i957
   br i1 %cmp13.i.i.i56.i958, label %while.body.i.i.i51.i953, label %if.end23.thread.i.i.i57.i959, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i959:                     ; preds = %while.body.i.i.i51.i953
@@ -14387,7 +14387,7 @@ land.lhs.true.i.i41.i978:                         ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i980, label %if.then.i.i67.i1005, label %if.end.i.i.i44.i981
 
 if.end.i.i.i44.i981:                              ; preds = %land.lhs.true.i.i41.i978
-  %cmp9.not.i.i.i45.i982 = icmp ult i32 %236, %add.i.i42.i979
+  %cmp9.not.i.i.i45.i982 = icmp ugt i32 %add.i.i42.i979, %236
   br i1 %cmp9.not.i.i.i45.i982, label %while.body.i.i.i51.i989, label %if.end.i.i46.i983
 
 while.body.i.i.i51.i989:                          ; preds = %if.end.i.i.i44.i981, %while.body.i.i.i51.i989
@@ -14395,7 +14395,7 @@ while.body.i.i.i51.i989:                          ; preds = %if.end.i.i.i44.i981
   %shr14.i.i.i53.i991 = lshr i32 %new_allocated.133.i.i.i52.i990, 1
   %add.i.i.i54.i992 = add i32 %new_allocated.133.i.i.i52.i990, 8
   %add15.i.i.i55.i993 = add i32 %add.i.i.i54.i992, %shr14.i.i.i53.i991
-  %cmp13.i.i.i56.i994 = icmp ult i32 %add15.i.i.i55.i993, %add.i.i42.i979
+  %cmp13.i.i.i56.i994 = icmp ugt i32 %add.i.i42.i979, %add15.i.i.i55.i993
   br i1 %cmp13.i.i.i56.i994, label %while.body.i.i.i51.i989, label %if.end23.thread.i.i.i57.i995, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i995:                     ; preds = %while.body.i.i.i51.i989
@@ -14522,7 +14522,7 @@ land.lhs.true.i.i41.i1014:                        ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i1016, label %if.then.i.i67.i1041, label %if.end.i.i.i44.i1017
 
 if.end.i.i.i44.i1017:                             ; preds = %land.lhs.true.i.i41.i1014
-  %cmp9.not.i.i.i45.i1018 = icmp ult i32 %256, %add.i.i42.i1015
+  %cmp9.not.i.i.i45.i1018 = icmp ugt i32 %add.i.i42.i1015, %256
   br i1 %cmp9.not.i.i.i45.i1018, label %while.body.i.i.i51.i1025, label %if.end.i.i46.i1019
 
 while.body.i.i.i51.i1025:                         ; preds = %if.end.i.i.i44.i1017, %while.body.i.i.i51.i1025
@@ -14530,7 +14530,7 @@ while.body.i.i.i51.i1025:                         ; preds = %if.end.i.i.i44.i101
   %shr14.i.i.i53.i1027 = lshr i32 %new_allocated.133.i.i.i52.i1026, 1
   %add.i.i.i54.i1028 = add i32 %new_allocated.133.i.i.i52.i1026, 8
   %add15.i.i.i55.i1029 = add i32 %add.i.i.i54.i1028, %shr14.i.i.i53.i1027
-  %cmp13.i.i.i56.i1030 = icmp ult i32 %add15.i.i.i55.i1029, %add.i.i42.i1015
+  %cmp13.i.i.i56.i1030 = icmp ugt i32 %add.i.i42.i1015, %add15.i.i.i55.i1029
   br i1 %cmp13.i.i.i56.i1030, label %while.body.i.i.i51.i1025, label %if.end23.thread.i.i.i57.i1031, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i1031:                    ; preds = %while.body.i.i.i51.i1025
@@ -14657,7 +14657,7 @@ land.lhs.true.i.i41.i1050:                        ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i1052, label %if.then.i.i67.i1077, label %if.end.i.i.i44.i1053
 
 if.end.i.i.i44.i1053:                             ; preds = %land.lhs.true.i.i41.i1050
-  %cmp9.not.i.i.i45.i1054 = icmp ult i32 %276, %add.i.i42.i1051
+  %cmp9.not.i.i.i45.i1054 = icmp ugt i32 %add.i.i42.i1051, %276
   br i1 %cmp9.not.i.i.i45.i1054, label %while.body.i.i.i51.i1061, label %if.end.i.i46.i1055
 
 while.body.i.i.i51.i1061:                         ; preds = %if.end.i.i.i44.i1053, %while.body.i.i.i51.i1061
@@ -14665,7 +14665,7 @@ while.body.i.i.i51.i1061:                         ; preds = %if.end.i.i.i44.i105
   %shr14.i.i.i53.i1063 = lshr i32 %new_allocated.133.i.i.i52.i1062, 1
   %add.i.i.i54.i1064 = add i32 %new_allocated.133.i.i.i52.i1062, 8
   %add15.i.i.i55.i1065 = add i32 %add.i.i.i54.i1064, %shr14.i.i.i53.i1063
-  %cmp13.i.i.i56.i1066 = icmp ult i32 %add15.i.i.i55.i1065, %add.i.i42.i1051
+  %cmp13.i.i.i56.i1066 = icmp ugt i32 %add.i.i42.i1051, %add15.i.i.i55.i1065
   br i1 %cmp13.i.i.i56.i1066, label %while.body.i.i.i51.i1061, label %if.end23.thread.i.i.i57.i1067, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i1067:                    ; preds = %while.body.i.i.i51.i1061
@@ -14792,7 +14792,7 @@ land.lhs.true.i.i41.i1086:                        ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i1088, label %if.then.i.i67.i1113, label %if.end.i.i.i44.i1089
 
 if.end.i.i.i44.i1089:                             ; preds = %land.lhs.true.i.i41.i1086
-  %cmp9.not.i.i.i45.i1090 = icmp ult i32 %296, %add.i.i42.i1087
+  %cmp9.not.i.i.i45.i1090 = icmp ugt i32 %add.i.i42.i1087, %296
   br i1 %cmp9.not.i.i.i45.i1090, label %while.body.i.i.i51.i1097, label %if.end.i.i46.i1091
 
 while.body.i.i.i51.i1097:                         ; preds = %if.end.i.i.i44.i1089, %while.body.i.i.i51.i1097
@@ -14800,7 +14800,7 @@ while.body.i.i.i51.i1097:                         ; preds = %if.end.i.i.i44.i108
   %shr14.i.i.i53.i1099 = lshr i32 %new_allocated.133.i.i.i52.i1098, 1
   %add.i.i.i54.i1100 = add i32 %new_allocated.133.i.i.i52.i1098, 8
   %add15.i.i.i55.i1101 = add i32 %add.i.i.i54.i1100, %shr14.i.i.i53.i1099
-  %cmp13.i.i.i56.i1102 = icmp ult i32 %add15.i.i.i55.i1101, %add.i.i42.i1087
+  %cmp13.i.i.i56.i1102 = icmp ugt i32 %add.i.i42.i1087, %add15.i.i.i55.i1101
   br i1 %cmp13.i.i.i56.i1102, label %while.body.i.i.i51.i1097, label %if.end23.thread.i.i.i57.i1103, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i1103:                    ; preds = %while.body.i.i.i51.i1097
@@ -14927,7 +14927,7 @@ land.lhs.true.i.i41.i1122:                        ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i1124, label %if.then.i.i67.i1149, label %if.end.i.i.i44.i1125
 
 if.end.i.i.i44.i1125:                             ; preds = %land.lhs.true.i.i41.i1122
-  %cmp9.not.i.i.i45.i1126 = icmp ult i32 %316, %add.i.i42.i1123
+  %cmp9.not.i.i.i45.i1126 = icmp ugt i32 %add.i.i42.i1123, %316
   br i1 %cmp9.not.i.i.i45.i1126, label %while.body.i.i.i51.i1133, label %if.end.i.i46.i1127
 
 while.body.i.i.i51.i1133:                         ; preds = %if.end.i.i.i44.i1125, %while.body.i.i.i51.i1133
@@ -14935,7 +14935,7 @@ while.body.i.i.i51.i1133:                         ; preds = %if.end.i.i.i44.i112
   %shr14.i.i.i53.i1135 = lshr i32 %new_allocated.133.i.i.i52.i1134, 1
   %add.i.i.i54.i1136 = add i32 %new_allocated.133.i.i.i52.i1134, 8
   %add15.i.i.i55.i1137 = add i32 %add.i.i.i54.i1136, %shr14.i.i.i53.i1135
-  %cmp13.i.i.i56.i1138 = icmp ult i32 %add15.i.i.i55.i1137, %add.i.i42.i1123
+  %cmp13.i.i.i56.i1138 = icmp ugt i32 %add.i.i42.i1123, %add15.i.i.i55.i1137
   br i1 %cmp13.i.i.i56.i1138, label %while.body.i.i.i51.i1133, label %if.end23.thread.i.i.i57.i1139, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i1139:                    ; preds = %while.body.i.i.i51.i1133
@@ -15062,7 +15062,7 @@ land.lhs.true.i.i41.i1158:                        ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i1160, label %if.then.i.i67.i1185, label %if.end.i.i.i44.i1161
 
 if.end.i.i.i44.i1161:                             ; preds = %land.lhs.true.i.i41.i1158
-  %cmp9.not.i.i.i45.i1162 = icmp ult i32 %336, %add.i.i42.i1159
+  %cmp9.not.i.i.i45.i1162 = icmp ugt i32 %add.i.i42.i1159, %336
   br i1 %cmp9.not.i.i.i45.i1162, label %while.body.i.i.i51.i1169, label %if.end.i.i46.i1163
 
 while.body.i.i.i51.i1169:                         ; preds = %if.end.i.i.i44.i1161, %while.body.i.i.i51.i1169
@@ -15070,7 +15070,7 @@ while.body.i.i.i51.i1169:                         ; preds = %if.end.i.i.i44.i116
   %shr14.i.i.i53.i1171 = lshr i32 %new_allocated.133.i.i.i52.i1170, 1
   %add.i.i.i54.i1172 = add i32 %new_allocated.133.i.i.i52.i1170, 8
   %add15.i.i.i55.i1173 = add i32 %add.i.i.i54.i1172, %shr14.i.i.i53.i1171
-  %cmp13.i.i.i56.i1174 = icmp ult i32 %add15.i.i.i55.i1173, %add.i.i42.i1159
+  %cmp13.i.i.i56.i1174 = icmp ugt i32 %add.i.i42.i1159, %add15.i.i.i55.i1173
   br i1 %cmp13.i.i.i56.i1174, label %while.body.i.i.i51.i1169, label %if.end23.thread.i.i.i57.i1175, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i1175:                    ; preds = %while.body.i.i.i51.i1169
@@ -15197,7 +15197,7 @@ land.lhs.true.i.i41.i1194:                        ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i1196, label %if.then.i.i67.i1221, label %if.end.i.i.i44.i1197
 
 if.end.i.i.i44.i1197:                             ; preds = %land.lhs.true.i.i41.i1194
-  %cmp9.not.i.i.i45.i1198 = icmp ult i32 %356, %add.i.i42.i1195
+  %cmp9.not.i.i.i45.i1198 = icmp ugt i32 %add.i.i42.i1195, %356
   br i1 %cmp9.not.i.i.i45.i1198, label %while.body.i.i.i51.i1205, label %if.end.i.i46.i1199
 
 while.body.i.i.i51.i1205:                         ; preds = %if.end.i.i.i44.i1197, %while.body.i.i.i51.i1205
@@ -15205,7 +15205,7 @@ while.body.i.i.i51.i1205:                         ; preds = %if.end.i.i.i44.i119
   %shr14.i.i.i53.i1207 = lshr i32 %new_allocated.133.i.i.i52.i1206, 1
   %add.i.i.i54.i1208 = add i32 %new_allocated.133.i.i.i52.i1206, 8
   %add15.i.i.i55.i1209 = add i32 %add.i.i.i54.i1208, %shr14.i.i.i53.i1207
-  %cmp13.i.i.i56.i1210 = icmp ult i32 %add15.i.i.i55.i1209, %add.i.i42.i1195
+  %cmp13.i.i.i56.i1210 = icmp ugt i32 %add.i.i42.i1195, %add15.i.i.i55.i1209
   br i1 %cmp13.i.i.i56.i1210, label %while.body.i.i.i51.i1205, label %if.end23.thread.i.i.i57.i1211, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i1211:                    ; preds = %while.body.i.i.i51.i1205
@@ -15332,7 +15332,7 @@ land.lhs.true.i.i41.i1230:                        ; preds = %_ZN23cff1_cs_opset_
   br i1 %cmp.i.i.i.i43.i1232, label %if.then.i.i67.i1257, label %if.end.i.i.i44.i1233
 
 if.end.i.i.i44.i1233:                             ; preds = %land.lhs.true.i.i41.i1230
-  %cmp9.not.i.i.i45.i1234 = icmp ult i32 %376, %add.i.i42.i1231
+  %cmp9.not.i.i.i45.i1234 = icmp ugt i32 %add.i.i42.i1231, %376
   br i1 %cmp9.not.i.i.i45.i1234, label %while.body.i.i.i51.i1241, label %if.end.i.i46.i1235
 
 while.body.i.i.i51.i1241:                         ; preds = %if.end.i.i.i44.i1233, %while.body.i.i.i51.i1241
@@ -15340,7 +15340,7 @@ while.body.i.i.i51.i1241:                         ; preds = %if.end.i.i.i44.i123
   %shr14.i.i.i53.i1243 = lshr i32 %new_allocated.133.i.i.i52.i1242, 1
   %add.i.i.i54.i1244 = add i32 %new_allocated.133.i.i.i52.i1242, 8
   %add15.i.i.i55.i1245 = add i32 %add.i.i.i54.i1244, %shr14.i.i.i53.i1243
-  %cmp13.i.i.i56.i1246 = icmp ult i32 %add15.i.i.i55.i1245, %add.i.i42.i1231
+  %cmp13.i.i.i56.i1246 = icmp ugt i32 %add.i.i42.i1231, %add15.i.i.i55.i1245
   br i1 %cmp13.i.i.i56.i1246, label %while.body.i.i.i51.i1241, label %if.end23.thread.i.i.i57.i1247, !llvm.loop !72
 
 if.end23.thread.i.i.i57.i1247:                    ; preds = %while.body.i.i.i51.i1241
@@ -15706,7 +15706,7 @@ land.lhs.true.i.i:                                ; preds = %if.else
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %3, %add.i.i
+  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i, %3
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -15714,7 +15714,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %add.i.i
+  %cmp13.i.i.i = icmp ugt i32 %add.i.i, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %if.end23.thread.i.i.i, !llvm.loop !72
 
 if.end23.thread.i.i.i:                            ; preds = %while.body.i.i.i
@@ -15782,7 +15782,7 @@ land.lhs.true.i.i11:                              ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i13, label %if.then.i.i37, label %if.end.i.i.i14
 
 if.end.i.i.i14:                                   ; preds = %land.lhs.true.i.i11
-  %cmp9.not.i.i.i15 = icmp ult i32 %12, %add.i.i12
+  %cmp9.not.i.i.i15 = icmp ugt i32 %add.i.i12, %12
   br i1 %cmp9.not.i.i.i15, label %while.body.i.i.i21, label %if.end.i.i16
 
 while.body.i.i.i21:                               ; preds = %if.end.i.i.i14, %while.body.i.i.i21
@@ -15790,7 +15790,7 @@ while.body.i.i.i21:                               ; preds = %if.end.i.i.i14, %wh
   %shr14.i.i.i23 = lshr i32 %new_allocated.133.i.i.i22, 1
   %add.i.i.i24 = add i32 %new_allocated.133.i.i.i22, 8
   %add15.i.i.i25 = add i32 %add.i.i.i24, %shr14.i.i.i23
-  %cmp13.i.i.i26 = icmp ult i32 %add15.i.i.i25, %add.i.i12
+  %cmp13.i.i.i26 = icmp ugt i32 %add.i.i12, %add15.i.i.i25
   br i1 %cmp13.i.i.i26, label %while.body.i.i.i21, label %if.end23.thread.i.i.i27, !llvm.loop !72
 
 if.end23.thread.i.i.i27:                          ; preds = %while.body.i.i.i21
@@ -15858,7 +15858,7 @@ land.lhs.true.i.i46:                              ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i48, label %if.then.i.i72, label %if.end.i.i.i49
 
 if.end.i.i.i49:                                   ; preds = %land.lhs.true.i.i46
-  %cmp9.not.i.i.i50 = icmp ult i32 %21, %add.i.i47
+  %cmp9.not.i.i.i50 = icmp ugt i32 %add.i.i47, %21
   br i1 %cmp9.not.i.i.i50, label %while.body.i.i.i56, label %if.end.i.i51
 
 while.body.i.i.i56:                               ; preds = %if.end.i.i.i49, %while.body.i.i.i56
@@ -15866,7 +15866,7 @@ while.body.i.i.i56:                               ; preds = %if.end.i.i.i49, %wh
   %shr14.i.i.i58 = lshr i32 %new_allocated.133.i.i.i57, 1
   %add.i.i.i59 = add i32 %new_allocated.133.i.i.i57, 8
   %add15.i.i.i60 = add i32 %add.i.i.i59, %shr14.i.i.i58
-  %cmp13.i.i.i61 = icmp ult i32 %add15.i.i.i60, %add.i.i47
+  %cmp13.i.i.i61 = icmp ugt i32 %add.i.i47, %add15.i.i.i60
   br i1 %cmp13.i.i.i61, label %while.body.i.i.i56, label %if.end23.thread.i.i.i62, !llvm.loop !72
 
 if.end23.thread.i.i.i62:                          ; preds = %while.body.i.i.i56
@@ -15934,7 +15934,7 @@ land.lhs.true.i.i81:                              ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i83, label %if.then.i.i107, label %if.end.i.i.i84
 
 if.end.i.i.i84:                                   ; preds = %land.lhs.true.i.i81
-  %cmp9.not.i.i.i85 = icmp ult i32 %30, %add.i.i82
+  %cmp9.not.i.i.i85 = icmp ugt i32 %add.i.i82, %30
   br i1 %cmp9.not.i.i.i85, label %while.body.i.i.i91, label %if.end.i.i86
 
 while.body.i.i.i91:                               ; preds = %if.end.i.i.i84, %while.body.i.i.i91
@@ -15942,7 +15942,7 @@ while.body.i.i.i91:                               ; preds = %if.end.i.i.i84, %wh
   %shr14.i.i.i93 = lshr i32 %new_allocated.133.i.i.i92, 1
   %add.i.i.i94 = add i32 %new_allocated.133.i.i.i92, 8
   %add15.i.i.i95 = add i32 %add.i.i.i94, %shr14.i.i.i93
-  %cmp13.i.i.i96 = icmp ult i32 %add15.i.i.i95, %add.i.i82
+  %cmp13.i.i.i96 = icmp ugt i32 %add.i.i82, %add15.i.i.i95
   br i1 %cmp13.i.i.i96, label %while.body.i.i.i91, label %if.end23.thread.i.i.i97, !llvm.loop !72
 
 if.end23.thread.i.i.i97:                          ; preds = %while.body.i.i.i91
@@ -16009,7 +16009,7 @@ land.lhs.true.i.i116:                             ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i118, label %if.then.i.i142, label %if.end.i.i.i119
 
 if.end.i.i.i119:                                  ; preds = %land.lhs.true.i.i116
-  %cmp9.not.i.i.i120 = icmp ult i32 %39, %add.i.i117
+  %cmp9.not.i.i.i120 = icmp ugt i32 %add.i.i117, %39
   br i1 %cmp9.not.i.i.i120, label %while.body.i.i.i126, label %if.end.i.i121
 
 while.body.i.i.i126:                              ; preds = %if.end.i.i.i119, %while.body.i.i.i126
@@ -16017,7 +16017,7 @@ while.body.i.i.i126:                              ; preds = %if.end.i.i.i119, %w
   %shr14.i.i.i128 = lshr i32 %new_allocated.133.i.i.i127, 1
   %add.i.i.i129 = add i32 %new_allocated.133.i.i.i127, 8
   %add15.i.i.i130 = add i32 %add.i.i.i129, %shr14.i.i.i128
-  %cmp13.i.i.i131 = icmp ult i32 %add15.i.i.i130, %add.i.i117
+  %cmp13.i.i.i131 = icmp ugt i32 %add.i.i117, %add15.i.i.i130
   br i1 %cmp13.i.i.i131, label %while.body.i.i.i126, label %if.end23.thread.i.i.i132, !llvm.loop !72
 
 if.end23.thread.i.i.i132:                         ; preds = %while.body.i.i.i126
@@ -16101,7 +16101,7 @@ land.lhs.true.i.i:                                ; preds = %if.then6
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %5, %add.i.i
+  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i, %5
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -16109,7 +16109,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %add.i.i
+  %cmp13.i.i.i = icmp ugt i32 %add.i.i, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %if.end23.thread.i.i.i, !llvm.loop !72
 
 if.end23.thread.i.i.i:                            ; preds = %while.body.i.i.i
@@ -16183,7 +16183,7 @@ land.lhs.true.i.i19:                              ; preds = %if.then8
   br i1 %cmp.i.i.i.i21, label %if.then.i.i45, label %if.end.i.i.i22
 
 if.end.i.i.i22:                                   ; preds = %land.lhs.true.i.i19
-  %cmp9.not.i.i.i23 = icmp ult i32 %14, %add.i.i20
+  %cmp9.not.i.i.i23 = icmp ugt i32 %add.i.i20, %14
   br i1 %cmp9.not.i.i.i23, label %while.body.i.i.i29, label %if.end.i.i24
 
 while.body.i.i.i29:                               ; preds = %if.end.i.i.i22, %while.body.i.i.i29
@@ -16191,7 +16191,7 @@ while.body.i.i.i29:                               ; preds = %if.end.i.i.i22, %wh
   %shr14.i.i.i31 = lshr i32 %new_allocated.133.i.i.i30, 1
   %add.i.i.i32 = add i32 %new_allocated.133.i.i.i30, 8
   %add15.i.i.i33 = add i32 %add.i.i.i32, %shr14.i.i.i31
-  %cmp13.i.i.i34 = icmp ult i32 %add15.i.i.i33, %add.i.i20
+  %cmp13.i.i.i34 = icmp ugt i32 %add.i.i20, %add15.i.i.i33
   br i1 %cmp13.i.i.i34, label %while.body.i.i.i29, label %if.end23.thread.i.i.i35, !llvm.loop !72
 
 if.end23.thread.i.i.i35:                          ; preds = %while.body.i.i.i29
@@ -16258,7 +16258,7 @@ land.lhs.true.i.i54:                              ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i56, label %if.then.i.i80, label %if.end.i.i.i57
 
 if.end.i.i.i57:                                   ; preds = %land.lhs.true.i.i54
-  %cmp9.not.i.i.i58 = icmp ult i32 %24, %add.i.i55
+  %cmp9.not.i.i.i58 = icmp ugt i32 %add.i.i55, %24
   br i1 %cmp9.not.i.i.i58, label %while.body.i.i.i64, label %if.end.i.i59
 
 while.body.i.i.i64:                               ; preds = %if.end.i.i.i57, %while.body.i.i.i64
@@ -16266,7 +16266,7 @@ while.body.i.i.i64:                               ; preds = %if.end.i.i.i57, %wh
   %shr14.i.i.i66 = lshr i32 %new_allocated.133.i.i.i65, 1
   %add.i.i.i67 = add i32 %new_allocated.133.i.i.i65, 8
   %add15.i.i.i68 = add i32 %add.i.i.i67, %shr14.i.i.i66
-  %cmp13.i.i.i69 = icmp ult i32 %add15.i.i.i68, %add.i.i55
+  %cmp13.i.i.i69 = icmp ugt i32 %add.i.i55, %add15.i.i.i68
   br i1 %cmp13.i.i.i69, label %while.body.i.i.i64, label %if.end23.thread.i.i.i70, !llvm.loop !72
 
 if.end23.thread.i.i.i70:                          ; preds = %while.body.i.i.i64
@@ -16331,7 +16331,7 @@ land.lhs.true.i.i89:                              ; preds = %if.else12
   br i1 %cmp.i.i.i.i91, label %if.then.i.i115, label %if.end.i.i.i92
 
 if.end.i.i.i92:                                   ; preds = %land.lhs.true.i.i89
-  %cmp9.not.i.i.i93 = icmp ult i32 %14, %add.i.i90
+  %cmp9.not.i.i.i93 = icmp ugt i32 %add.i.i90, %14
   br i1 %cmp9.not.i.i.i93, label %while.body.i.i.i99, label %if.end.i.i94
 
 while.body.i.i.i99:                               ; preds = %if.end.i.i.i92, %while.body.i.i.i99
@@ -16339,7 +16339,7 @@ while.body.i.i.i99:                               ; preds = %if.end.i.i.i92, %wh
   %shr14.i.i.i101 = lshr i32 %new_allocated.133.i.i.i100, 1
   %add.i.i.i102 = add i32 %new_allocated.133.i.i.i100, 8
   %add15.i.i.i103 = add i32 %add.i.i.i102, %shr14.i.i.i101
-  %cmp13.i.i.i104 = icmp ult i32 %add15.i.i.i103, %add.i.i90
+  %cmp13.i.i.i104 = icmp ugt i32 %add.i.i90, %add15.i.i.i103
   br i1 %cmp13.i.i.i104, label %while.body.i.i.i99, label %if.end23.thread.i.i.i105, !llvm.loop !72
 
 if.end23.thread.i.i.i105:                         ; preds = %while.body.i.i.i99
@@ -16406,7 +16406,7 @@ land.lhs.true.i.i124:                             ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i126, label %if.then.i.i150, label %if.end.i.i.i127
 
 if.end.i.i.i127:                                  ; preds = %land.lhs.true.i.i124
-  %cmp9.not.i.i.i128 = icmp ult i32 %40, %add.i.i125
+  %cmp9.not.i.i.i128 = icmp ugt i32 %add.i.i125, %40
   br i1 %cmp9.not.i.i.i128, label %while.body.i.i.i134, label %if.end.i.i129
 
 while.body.i.i.i134:                              ; preds = %if.end.i.i.i127, %while.body.i.i.i134
@@ -16414,7 +16414,7 @@ while.body.i.i.i134:                              ; preds = %if.end.i.i.i127, %w
   %shr14.i.i.i136 = lshr i32 %new_allocated.133.i.i.i135, 1
   %add.i.i.i137 = add i32 %new_allocated.133.i.i.i135, 8
   %add15.i.i.i138 = add i32 %add.i.i.i137, %shr14.i.i.i136
-  %cmp13.i.i.i139 = icmp ult i32 %add15.i.i.i138, %add.i.i125
+  %cmp13.i.i.i139 = icmp ugt i32 %add.i.i125, %add15.i.i.i138
   br i1 %cmp13.i.i.i139, label %while.body.i.i.i134, label %if.end23.thread.i.i.i140, !llvm.loop !72
 
 if.end23.thread.i.i.i140:                         ; preds = %while.body.i.i.i134
@@ -16482,7 +16482,7 @@ land.lhs.true.i.i159:                             ; preds = %if.else21
   br i1 %cmp.i.i.i.i161, label %if.then.i.i185, label %if.end.i.i.i162
 
 if.end.i.i.i162:                                  ; preds = %land.lhs.true.i.i159
-  %cmp9.not.i.i.i163 = icmp ult i32 %49, %add.i.i160
+  %cmp9.not.i.i.i163 = icmp ugt i32 %add.i.i160, %49
   br i1 %cmp9.not.i.i.i163, label %while.body.i.i.i169, label %if.end.i.i164
 
 while.body.i.i.i169:                              ; preds = %if.end.i.i.i162, %while.body.i.i.i169
@@ -16490,7 +16490,7 @@ while.body.i.i.i169:                              ; preds = %if.end.i.i.i162, %w
   %shr14.i.i.i171 = lshr i32 %new_allocated.133.i.i.i170, 1
   %add.i.i.i172 = add i32 %new_allocated.133.i.i.i170, 8
   %add15.i.i.i173 = add i32 %add.i.i.i172, %shr14.i.i.i171
-  %cmp13.i.i.i174 = icmp ult i32 %add15.i.i.i173, %add.i.i160
+  %cmp13.i.i.i174 = icmp ugt i32 %add.i.i160, %add15.i.i.i173
   br i1 %cmp13.i.i.i174, label %while.body.i.i.i169, label %if.end23.thread.i.i.i175, !llvm.loop !72
 
 if.end23.thread.i.i.i175:                         ; preds = %while.body.i.i.i169
@@ -16558,7 +16558,7 @@ land.lhs.true.i.i194:                             ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i196, label %if.then.i.i220, label %if.end.i.i.i197
 
 if.end.i.i.i197:                                  ; preds = %land.lhs.true.i.i194
-  %cmp9.not.i.i.i198 = icmp ult i32 %58, %add.i.i195
+  %cmp9.not.i.i.i198 = icmp ugt i32 %add.i.i195, %58
   br i1 %cmp9.not.i.i.i198, label %while.body.i.i.i204, label %if.end.i.i199
 
 while.body.i.i.i204:                              ; preds = %if.end.i.i.i197, %while.body.i.i.i204
@@ -16566,7 +16566,7 @@ while.body.i.i.i204:                              ; preds = %if.end.i.i.i197, %w
   %shr14.i.i.i206 = lshr i32 %new_allocated.133.i.i.i205, 1
   %add.i.i.i207 = add i32 %new_allocated.133.i.i.i205, 8
   %add15.i.i.i208 = add i32 %add.i.i.i207, %shr14.i.i.i206
-  %cmp13.i.i.i209 = icmp ult i32 %add15.i.i.i208, %add.i.i195
+  %cmp13.i.i.i209 = icmp ugt i32 %add.i.i195, %add15.i.i.i208
   br i1 %cmp13.i.i.i209, label %while.body.i.i.i204, label %if.end23.thread.i.i.i210, !llvm.loop !72
 
 if.end23.thread.i.i.i210:                         ; preds = %while.body.i.i.i204
@@ -16633,7 +16633,7 @@ land.lhs.true.i.i229:                             ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i231, label %if.then.i.i255, label %if.end.i.i.i232
 
 if.end.i.i.i232:                                  ; preds = %land.lhs.true.i.i229
-  %cmp9.not.i.i.i233 = icmp ult i32 %67, %add.i.i230
+  %cmp9.not.i.i.i233 = icmp ugt i32 %add.i.i230, %67
   br i1 %cmp9.not.i.i.i233, label %while.body.i.i.i239, label %if.end.i.i234
 
 while.body.i.i.i239:                              ; preds = %if.end.i.i.i232, %while.body.i.i.i239
@@ -16641,7 +16641,7 @@ while.body.i.i.i239:                              ; preds = %if.end.i.i.i232, %w
   %shr14.i.i.i241 = lshr i32 %new_allocated.133.i.i.i240, 1
   %add.i.i.i242 = add i32 %new_allocated.133.i.i.i240, 8
   %add15.i.i.i243 = add i32 %add.i.i.i242, %shr14.i.i.i241
-  %cmp13.i.i.i244 = icmp ult i32 %add15.i.i.i243, %add.i.i230
+  %cmp13.i.i.i244 = icmp ugt i32 %add.i.i230, %add15.i.i.i243
   br i1 %cmp13.i.i.i244, label %while.body.i.i.i239, label %if.end23.thread.i.i.i245, !llvm.loop !72
 
 if.end23.thread.i.i.i245:                         ; preds = %while.body.i.i.i239
@@ -16717,7 +16717,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %2, %add.i.i
+  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i, %2
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -16725,7 +16725,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %add.i.i
+  %cmp13.i.i.i = icmp ugt i32 %add.i.i, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %if.end23.thread.i.i.i, !llvm.loop !72
 
 if.end23.thread.i.i.i:                            ; preds = %while.body.i.i.i
@@ -16792,7 +16792,7 @@ land.lhs.true.i.i6:                               ; preds = %_ZN3CFF13str_encode
   br i1 %cmp.i.i.i.i8, label %if.then.i.i32, label %if.end.i.i.i9
 
 if.end.i.i.i9:                                    ; preds = %land.lhs.true.i.i6
-  %cmp9.not.i.i.i10 = icmp ult i32 %11, %add.i.i7
+  %cmp9.not.i.i.i10 = icmp ugt i32 %add.i.i7, %11
   br i1 %cmp9.not.i.i.i10, label %while.body.i.i.i16, label %if.end.i.i11
 
 while.body.i.i.i16:                               ; preds = %if.end.i.i.i9, %while.body.i.i.i16
@@ -16800,7 +16800,7 @@ while.body.i.i.i16:                               ; preds = %if.end.i.i.i9, %whi
   %shr14.i.i.i18 = lshr i32 %new_allocated.133.i.i.i17, 1
   %add.i.i.i19 = add i32 %new_allocated.133.i.i.i17, 8
   %add15.i.i.i20 = add i32 %add.i.i.i19, %shr14.i.i.i18
-  %cmp13.i.i.i21 = icmp ult i32 %add15.i.i.i20, %add.i.i7
+  %cmp13.i.i.i21 = icmp ugt i32 %add.i.i7, %add15.i.i.i20
   br i1 %cmp13.i.i.i21, label %while.body.i.i.i16, label %if.end23.thread.i.i.i22, !llvm.loop !72
 
 if.end23.thread.i.i.i22:                          ; preds = %while.body.i.i.i16
@@ -16867,7 +16867,7 @@ land.lhs.true.i.i41:                              ; preds = %if.else
   br i1 %cmp.i.i.i.i43, label %if.then.i.i67, label %if.end.i.i.i44
 
 if.end.i.i.i44:                                   ; preds = %land.lhs.true.i.i41
-  %cmp9.not.i.i.i45 = icmp ult i32 %20, %add.i.i42
+  %cmp9.not.i.i.i45 = icmp ugt i32 %add.i.i42, %20
   br i1 %cmp9.not.i.i.i45, label %while.body.i.i.i51, label %if.end.i.i46
 
 while.body.i.i.i51:                               ; preds = %if.end.i.i.i44, %while.body.i.i.i51
@@ -16875,7 +16875,7 @@ while.body.i.i.i51:                               ; preds = %if.end.i.i.i44, %wh
   %shr14.i.i.i53 = lshr i32 %new_allocated.133.i.i.i52, 1
   %add.i.i.i54 = add i32 %new_allocated.133.i.i.i52, 8
   %add15.i.i.i55 = add i32 %add.i.i.i54, %shr14.i.i.i53
-  %cmp13.i.i.i56 = icmp ult i32 %add15.i.i.i55, %add.i.i42
+  %cmp13.i.i.i56 = icmp ugt i32 %add.i.i42, %add15.i.i.i55
   br i1 %cmp13.i.i.i56, label %while.body.i.i.i51, label %if.end23.thread.i.i.i57, !llvm.loop !72
 
 if.end23.thread.i.i.i57:                          ; preds = %while.body.i.i.i51
@@ -17236,7 +17236,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN3CFF14byte_str_r
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %9, %add.i.i8
+  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i8, %9
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -17244,7 +17244,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %add.i.i8
+  %cmp13.i.i.i = icmp ugt i32 %add.i.i8, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %if.end23.thread.i.i.i, !llvm.loop !72
 
 if.end23.thread.i.i.i:                            ; preds = %while.body.i.i.i
@@ -17307,7 +17307,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -17315,7 +17315,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -17323,7 +17323,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !122
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -17404,7 +17404,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp ult i32 %cond, %5
-  %brmerge.not = and i1 %cmp9, %initialize
+  %brmerge.not = and i1 %initialize, %cmp9
   br i1 %brmerge.not, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
@@ -17603,7 +17603,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -17611,7 +17611,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -17619,7 +17619,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.129.i, 1
   %add.i = add i32 %new_allocated.129.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !129
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -17689,7 +17689,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp ult i32 %cond, %4
-  %brmerge.not = and i1 %cmp9, %initialize
+  %brmerge.not = and i1 %initialize, %cmp9
   br i1 %brmerge.not, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
@@ -17957,7 +17957,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -17965,7 +17965,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -17973,7 +17973,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !133
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -18042,7 +18042,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp ult i32 %cond, %6
-  %brmerge.not = and i1 %cmp9, %initialize
+  %brmerge.not = and i1 %initialize, %cmp9
   br i1 %brmerge.not, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
@@ -18405,7 +18405,7 @@ if.end.i:                                         ; preds = %for.end
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %cmp.not.i.i = icmp slt i32 %14, %add68
+  %cmp.not.i.i = icmp sgt i32 %add68, %14
   %shr.i.i = lshr i32 %14, 2
   %cmp5.not.i.i = icmp ult i32 %cond.i, %shr.i.i
   %or.cond12.i.i = or i1 %cmp.not.i.i, %cmp5.not.i.i
@@ -18617,7 +18617,7 @@ while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %w
   %17 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i = zext i8 %17 to i32
   %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i, %_.sroa.2.0.copyload
+  %cmp.i.i.i.i.i = icmp ult i32 %_.sroa.2.0.copyload, %add.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -18629,7 +18629,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i
   %19 = load i8, ptr %arrayidx3.i.i5.i.i.i.i.i, align 1
   %conv4.i.i6.i.i.i.i.i = zext i8 %19 to i32
   %add.i.i7.i.i.i.i.i = or disjoint i32 %shl.i.i4.i.i.i.i.i, %conv4.i.i6.i.i.i.i.i
-  %cmp4.i.not.i.i.i.i = icmp ugt i32 %add.i.i7.i.i.i.i.i, %_.sroa.2.0.copyload
+  %cmp4.i.not.i.i.i.i = icmp ult i32 %_.sroa.2.0.copyload, %add.i.i7.i.i.i.i.i
   br i1 %cmp4.i.not.i.i.i.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i, label %if.then5.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -18684,7 +18684,7 @@ if.end:                                           ; preds = %_ZNK3CFF8FDSelect6g
   br i1 %tobool.i.not.i, label %if.end.i16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %cmp.not.i.i11 = icmp ugt i32 %24, %_.sroa.0.0.copyload
+  %cmp.not.i.i11 = icmp ult i32 %_.sroa.0.0.copyload, %24
   %25 = load ptr, ptr %arrayZ.i.i12, align 8
   %idxprom.i.i13 = zext i32 %_.sroa.0.0.copyload to i64
   %arrayidx.i.i14 = getelementptr inbounds ptr, ptr %25, i64 %idxprom.i.i13
@@ -18694,7 +18694,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i16:                                       ; preds = %if.end
   %27 = load i32, ptr %length.i3.i, align 4
-  %cmp.not.i4.i = icmp ugt i32 %27, %_.sroa.0.0.copyload
+  %cmp.not.i4.i = icmp ult i32 %_.sroa.0.0.copyload, %27
   %28 = load ptr, ptr %arrayZ.i5.i, align 8
   %idxprom.i6.i = zext i32 %_.sroa.0.0.copyload to i64
   %arrayidx.i7.i = getelementptr inbounds %"struct.CFF::parsed_cs_str_t", ptr %28, i64 %idxprom.i6.i
@@ -18704,13 +18704,13 @@ if.end.i16:                                       ; preds = %if.end
 _ZNK3CFF16subr_subsetter_tI21cff1_subr_subsetter_tNS_5SubrsIN2OT7IntTypeItLj2EEEEEKNS3_4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE27cff1_cs_opset_subr_subset_tLj14EE21get_parsed_charstringEj.exit: ; preds = %if.then.i, %if.end.i16
   %retval.0.i = phi ptr [ %26, %if.then.i ], [ %retval.0.i8.i, %if.end.i16 ]
   %29 = load i32, ptr %length.i17, align 4
-  %cmp.not.i = icmp ugt i32 %29, %retval.0.shrunk.i
+  %cmp.not.i = icmp ult i32 %retval.0.shrunk.i, %29
   %30 = load ptr, ptr %arrayZ.i18, align 8
   %idxprom.i = zext nneg i32 %retval.0.shrunk.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.CFF::parsed_cs_str_vec_t", ptr %30, i64 %idxprom.i
   %retval.0.i19 = select i1 %cmp.not.i, ptr %arrayidx.i, ptr @_hb_NullPool
   %31 = load i32, ptr %length.i, align 4
-  %cmp.not.i21 = icmp ugt i32 %31, %retval.0.shrunk.i
+  %cmp.not.i21 = icmp ult i32 %retval.0.shrunk.i, %31
   br i1 %cmp.not.i21, label %if.end.i24, label %if.then.i22
 
 if.then.i22:                                      ; preds = %_ZNK3CFF16subr_subsetter_tI21cff1_subr_subsetter_tNS_5SubrsIN2OT7IntTypeItLj2EEEEEKNS3_4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE27cff1_cs_opset_subr_subset_tLj14EE21get_parsed_charstringEj.exit
@@ -18739,7 +18739,7 @@ _ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit:         ; preds = %if.then.i22, %if.en
   br i1 %tobool.i.not.i, label %if.end.i37, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit
-  %cmp.not.i.i31 = icmp ugt i32 %24, %_.sroa.0.0.copyload
+  %cmp.not.i.i31 = icmp ult i32 %_.sroa.0.0.copyload, %24
   %36 = load ptr, ptr %arrayZ.i.i12, align 8
   %idxprom.i.i33 = zext i32 %_.sroa.0.0.copyload to i64
   %arrayidx.i.i34 = getelementptr inbounds ptr, ptr %36, i64 %idxprom.i.i33
@@ -18749,7 +18749,7 @@ if.then.i30:                                      ; preds = %_ZN11hb_vector_tI8h
 
 if.end.i37:                                       ; preds = %_ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit
   %38 = load i32, ptr %length.i3.i, align 4
-  %cmp.not.i4.i39 = icmp ugt i32 %38, %_.sroa.0.0.copyload
+  %cmp.not.i4.i39 = icmp ult i32 %_.sroa.0.0.copyload, %38
   %39 = load ptr, ptr %arrayZ.i5.i, align 8
   %idxprom.i6.i41 = zext i32 %_.sroa.0.0.copyload to i64
   %arrayidx.i7.i42 = getelementptr inbounds %"struct.CFF::parsed_cs_str_t", ptr %39, i64 %idxprom.i6.i41
@@ -18872,7 +18872,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %length = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length, align 4
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %1, i32 %size)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %size, i32 %1)
   %cmp.not = icmp ugt i32 %.sroa.speculated, %0
   %shr = lshr i32 %0, 2
   %cmp5.not = icmp ult i32 %.sroa.speculated, %shr
@@ -18880,7 +18880,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %or.cond12, label %lor.rhs, label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp9.not = icmp ult i32 %0, %size
+  %cmp9.not = icmp ugt i32 %size, %0
   br i1 %cmp9.not, label %while.body, label %return
 
 while.body:                                       ; preds = %if.else, %while.body
@@ -18888,7 +18888,7 @@ while.body:                                       ; preds = %if.else, %while.bod
   %shr14 = lshr i32 %new_allocated.130, 1
   %add = add i32 %new_allocated.130, 8
   %add15 = add i32 %add, %shr14
-  %cmp13 = icmp ult i32 %add15, %size
+  %cmp13 = icmp ugt i32 %size, %add15
   br i1 %cmp13, label %while.body, label %lor.rhs, !llvm.loop !142
 
 lor.rhs:                                          ; preds = %while.body, %if.then2
@@ -19271,7 +19271,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %1, %add.i.i
+  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i, %1
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -19279,7 +19279,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %add.i.i
+  %cmp13.i.i.i = icmp ugt i32 %add.i.i, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %lor.rhs.i.i.i, !llvm.loop !145
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
@@ -19462,7 +19462,7 @@ if.end.i.i:                                       ; preds = %if.then7
   %14 = load i32, ptr %length.i15, align 8
   %length.i.i16 = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   %15 = load i32, ptr %length.i.i16, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %15, i32 %14)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %14, i32 %15)
   %cmp.not.i.i = icmp ugt i32 %.sroa.speculated.i.i, %13
   %shr.i.i = lshr i32 %13, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -19610,7 +19610,7 @@ lor.lhs.false.i5.i:                               ; preds = %_ZN3CFF11cff_stack_
   %12 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %12 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i.i = icmp ugt i32 %add.i.i.i.i, %add.i.i
+  %cmp.not.i.i = icmp ult i32 %add.i.i, %add.i.i.i.i
   br i1 %cmp.not.i.i, label %if.else.i7.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 if.else.i7.i:                                     ; preds = %lor.lhs.false.i5.i
@@ -19910,7 +19910,7 @@ lor.lhs.false.i5.i:                               ; preds = %_ZN3CFF11cff_stack_
   %29 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %29 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i.i151 = icmp ugt i32 %add.i.i.i.i, %add.i.i141
+  %cmp.not.i.i151 = icmp ult i32 %add.i.i141, %add.i.i.i.i
   br i1 %cmp.not.i.i151, label %if.else.i7.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 if.else.i7.i:                                     ; preds = %lor.lhs.false.i5.i
@@ -20017,7 +20017,7 @@ lor.lhs.false.i5.i188:                            ; preds = %_ZN3CFF11cff_stack_
   %45 = load i8, ptr %arrayidx3.i.i.i.i191, align 1
   %conv4.i.i.i.i192 = zext i8 %45 to i32
   %add.i.i.i.i193 = or disjoint i32 %shl.i.i.i.i190, %conv4.i.i.i.i192
-  %cmp.not.i.i194 = icmp ugt i32 %add.i.i.i.i193, %add.i.i162
+  %cmp.not.i.i194 = icmp ult i32 %add.i.i162, %add.i.i.i.i193
   br i1 %cmp.not.i.i194, label %if.else.i7.i201, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i195
 
 if.else.i7.i201:                                  ; preds = %lor.lhs.false.i5.i188
@@ -20582,7 +20582,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN11hb_vector_tIN3
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i.not = icmp ugt i32 %2, %1
+  %cmp9.not.i.i.i.not = icmp ult i32 %1, %2
   br i1 %cmp9.not.i.i.i.not, label %if.end.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -20590,7 +20590,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i.not = icmp ugt i32 %add15.i.i.i, %1
+  %cmp13.i.i.i.not = icmp ult i32 %1, %add15.i.i.i
   br i1 %cmp13.i.i.i.not, label %lor.rhs.i.i.i, label %while.body.i.i.i, !llvm.loop !145
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i
@@ -20724,7 +20724,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %mul.i.i.i.i.i.i
   %6 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i.i = icmp sgt i32 %6, %shr.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp slt i32 %shr.i.i.i, %6
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
@@ -20732,7 +20732,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br label %if.end8.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
-  %cmp4.not.i.i.i.i.i.i = icmp eq i32 %6, %shr.i.i.i
+  %cmp4.not.i.i.i.i.i.i = icmp eq i32 %shr.i.i.i, %6
   br i1 %cmp4.not.i.i.i.i.i.i, label %if.end45.i.i, label %if.then5.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
@@ -20862,7 +20862,7 @@ while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %w
   %mul.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i, 3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %mul.i.i.i.i
   %7 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %cmp2.i.i.i.i = icmp sgt i32 %7, %shr.i
+  %cmp2.i.i.i.i = icmp slt i32 %shr.i, %7
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -20870,7 +20870,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br label %if.end8.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp4.not.i.i.i.i = icmp eq i32 %7, %shr.i
+  %cmp4.not.i.i.i.i = icmp eq i32 %shr.i, %7
   br i1 %cmp4.not.i.i.i.i, label %if.end45, label %if.then5.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
@@ -20910,7 +20910,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %10 = load i32, ptr %length, align 4
-  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %10, i32 %cond.i)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %cond.i, i32 %10)
   %cmp.not.i.i = icmp ugt i32 %.sroa.speculated.i.i, %9
   %shr.i.i = lshr i32 %9, 2
   %cmp5.not.i.i = icmp ult i32 %.sroa.speculated.i.i, %shr.i.i
@@ -20918,7 +20918,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %or.cond12.i.i, label %lor.rhs.i.i, label %if.end.i3
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %cmp9.not.i.i = icmp slt i32 %9, %add
+  %cmp9.not.i.i = icmp sgt i32 %add, %9
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i3
 
 while.body.i.i:                                   ; preds = %if.else.i.i, %while.body.i.i
@@ -20926,7 +20926,7 @@ while.body.i.i:                                   ; preds = %if.else.i.i, %while
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %cond.i
+  %cmp13.i.i = icmp ugt i32 %cond.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !147
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i, %if.then2.i.i
@@ -21052,7 +21052,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %cond)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %cond, i32 %1)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %0
   %shr.i = lshr i32 %0, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -21060,7 +21060,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %or.cond12.i, label %lor.rhs.i, label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.not.i = icmp slt i32 %0, %size_
+  %cmp9.not.i = icmp sgt i32 %size_, %0
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
@@ -21068,7 +21068,7 @@ while.body.i:                                     ; preds = %if.else.i, %while.b
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %cond
+  %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !148
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
@@ -21148,7 +21148,7 @@ entry:
   store i8 0, ptr %ends_in_hint, align 1
   %length.i = getelementptr inbounds i8, ptr %subrs, i64 4
   %0 = load i32, ptr %length.i, align 4
-  %cmp.not.i = icmp ugt i32 %0, %subr_num
+  %cmp.not.i = icmp ult i32 %subr_num, %0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -21172,7 +21172,7 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit: ; preds = %if.then.i, %i
 if.then:                                          ; preds = %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit
   %length.i9 = getelementptr inbounds i8, ptr %str, i64 12
   %3 = load i32, ptr %length.i9, align 4
-  %cmp.not.i10 = icmp ugt i32 %3, %pos
+  %cmp.not.i10 = icmp ult i32 %pos, %3
   br i1 %cmp.not.i10, label %if.end.i13, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.then
@@ -21217,7 +21217,7 @@ if.else:                                          ; preds = %_ZN11hb_vector_tIN3
 if.then9:                                         ; preds = %if.else
   %length.i19 = getelementptr inbounds i8, ptr %str, i64 12
   %9 = load i32, ptr %length.i19, align 4
-  %cmp.not.i20 = icmp ugt i32 %9, %pos
+  %cmp.not.i20 = icmp ult i32 %pos, %9
   br i1 %cmp.not.i20, label %if.end.i23, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.then9
@@ -21328,7 +21328,7 @@ while.body.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.end8.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i.i.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %mul.i.i.i.i.i.i.i.i.i.i
   %13 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %13, %shr.i.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %shr.i.i.i.i.i.i.i, %13
   br i1 %cmp2.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %while.body.i.i.i.i.i.i.i.i.i.i
@@ -21336,7 +21336,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %while.body.i.i.i.i.
   br label %if.end8.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %while.body.i.i.i.i.i.i.i.i.i.i
-  %cmp4.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, %shr.i.i.i.i.i.i.i
+  %cmp4.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %shr.i.i.i.i.i.i.i, %13
   br i1 %cmp4.not.i.i.i.i.i.i.i.i.i.i, label %if.end16.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.else.i.i.i.i.i.i.i.i.i.i
@@ -21351,7 +21351,7 @@ if.end8.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then5.i.i.i.i.i.
 
 if.end16.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i.i.i.i.i
   store atomic i32 %div9.i.i.i.i.i.i.i.i.i.i, ptr %last_page_lookup.i.i.i.i.i.i monotonic, align 4
-  %cmp.not.i.i.i.i.i.i.i = icmp ugt i32 %10, %div9.i.i.i.i.i.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp ult i32 %div9.i.i.i.i.i.i.i.i.i.i, %10
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %11, i64 %conv1.i.i.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, ptr @_hb_NullPool
   br label %_ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i
@@ -21449,7 +21449,7 @@ while.body.i.i.i.i.i.i.i.i.i.i44:                 ; preds = %if.end8.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i.i50 = shl nuw nsw i64 %conv1.i.i.i.i.i.i.i.i.i.i49, 3
   %add.ptr.i.i.i.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %27, i64 %mul.i.i.i.i.i.i.i.i.i.i50
   %29 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i51, align 4
-  %cmp2.i.i.i.i.i.i.i.i.i.i52 = icmp sgt i32 %29, %shr.i.i.i.i.i.i.i32
+  %cmp2.i.i.i.i.i.i.i.i.i.i52 = icmp slt i32 %shr.i.i.i.i.i.i.i32, %29
   br i1 %cmp2.i.i.i.i.i.i.i.i.i.i52, label %if.then.i.i.i.i.i.i.i.i.i.i83, label %if.else.i.i.i.i.i.i.i.i.i.i53
 
 if.then.i.i.i.i.i.i.i.i.i.i83:                    ; preds = %while.body.i.i.i.i.i.i.i.i.i.i44
@@ -21457,7 +21457,7 @@ if.then.i.i.i.i.i.i.i.i.i.i83:                    ; preds = %while.body.i.i.i.i.
   br label %if.end8.i.i.i.i.i.i.i.i.i.i57
 
 if.else.i.i.i.i.i.i.i.i.i.i53:                    ; preds = %while.body.i.i.i.i.i.i.i.i.i.i44
-  %cmp4.not.i.i.i.i.i.i.i.i.i.i54 = icmp eq i32 %29, %shr.i.i.i.i.i.i.i32
+  %cmp4.not.i.i.i.i.i.i.i.i.i.i54 = icmp eq i32 %shr.i.i.i.i.i.i.i32, %29
   br i1 %cmp4.not.i.i.i.i.i.i.i.i.i.i54, label %if.end16.i.i.i.i.i.i61, label %if.then5.i.i.i.i.i.i.i.i.i.i55
 
 if.then5.i.i.i.i.i.i.i.i.i.i55:                   ; preds = %if.else.i.i.i.i.i.i.i.i.i.i53
@@ -21472,7 +21472,7 @@ if.end8.i.i.i.i.i.i.i.i.i.i57:                    ; preds = %if.then5.i.i.i.i.i.
 
 if.end16.i.i.i.i.i.i61:                           ; preds = %if.else.i.i.i.i.i.i.i.i.i.i53
   store atomic i32 %div9.i.i.i.i.i.i.i.i.i.i48, ptr %last_page_lookup.i.i.i.i.i.i33 monotonic, align 4
-  %cmp.not.i.i.i.i.i.i.i62 = icmp ugt i32 %26, %div9.i.i.i.i.i.i.i.i.i.i48
+  %cmp.not.i.i.i.i.i.i.i62 = icmp ult i32 %div9.i.i.i.i.i.i.i.i.i.i48, %26
   %arrayidx.i.i.i.i.i.i.i63 = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %27, i64 %conv1.i.i.i.i.i.i.i.i.i.i49
   %retval.0.i.i.i.i.i.i.i64 = select i1 %cmp.not.i.i.i.i.i.i.i62, ptr %arrayidx.i.i.i.i.i.i.i63, ptr @_hb_NullPool
   br label %_ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i65
@@ -21573,7 +21573,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit.thread: ; pre
 if.end.i.i:                                       ; preds = %lor.lhs.false.i
   %3 = load i32, ptr %length15.i, align 4
   %cond.i = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
-  %cmp9.not.i.i = icmp slt i32 %1, %3
+  %cmp9.not.i.i = icmp sgt i32 %3, %1
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i1
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -21581,7 +21581,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %cond.i
+  %cmp13.i.i = icmp ugt i32 %cond.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !148
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -21800,7 +21800,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit: ; preds 
   %back_map.i = getelementptr inbounds i8, ptr %this, i64 48
   %16 = load i32, ptr %back_map.i, align 8
   %cmp.i.i.i = icmp sgt i32 %16, -1
-  %cmp9.not.i.i = icmp ult i32 %16, %cond.i.i
+  %cmp9.not.i.i = icmp ugt i32 %cond.i.i, %16
   %or.cond.i = and i1 %cmp.i.i.i, %cmp9.not.i.i
   br i1 %or.cond.i, label %while.body.i.i, label %_ZN14hb_inc_bimap_t5allocEj.exit
 
@@ -21809,7 +21809,7 @@ while.body.i.i:                                   ; preds = %_ZNK14hb_sparseset_
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %cond.i.i
+  %cmp13.i.i = icmp ugt i32 %cond.i.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !84
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -22187,7 +22187,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %retval.0.i.i = select i1 %cmp.not.i.i, ptr %arrayidx.i.i, ptr @_hb_NullPool
   %index.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %6 = load i32, ptr %index.i, align 4
-  %cmp.not.i6.i = icmp ugt i32 %1, %6
+  %cmp.not.i6.i = icmp ult i32 %6, %1
   %idxprom.i8.i = zext i32 %6 to i64
   %arrayidx.i9.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %4, i64 %idxprom.i8.i
   %retval.0.i10.i = select i1 %cmp.not.i6.i, ptr %arrayidx.i9.i, ptr @_hb_NullPool
@@ -22292,7 +22292,7 @@ while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %w
   %mul.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i, 3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 %mul.i.i.i.i
   %17 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %cmp2.i.i.i.i = icmp sgt i32 %17, %shr.i
+  %cmp2.i.i.i.i = icmp slt i32 %shr.i, %17
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
@@ -22300,7 +22300,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br label %if.end8.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp4.not.i.i.i.i = icmp eq i32 %17, %shr.i
+  %cmp4.not.i.i.i.i = icmp eq i32 %shr.i, %17
   br i1 %cmp4.not.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %if.then5.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
@@ -22608,7 +22608,7 @@ if.end.i.i:                                       ; preds = %for.end.i
   br i1 %cmp.i.i.i.i, label %_ZN3CFF15parsed_cs_str_t7compactEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %cmp.not.i.i.i = icmp slt i32 %20, %add68.i
+  %cmp.not.i.i.i = icmp sgt i32 %add68.i, %20
   %shr.i.i.i = lshr i32 %20, 2
   %cmp5.not.i.i.i = icmp ult i32 %cond.i.i, %shr.i.i.i
   %or.cond12.i.i.i = or i1 %cmp.not.i.i.i, %cmp5.not.i.i.i
@@ -22694,7 +22694,7 @@ if.end.i:                                         ; preds = %_ZN11hb_vector_tIN3
   %2 = load i32, ptr %length, align 4
   %length.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %length.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %3, i32 %2)
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %1
   %shr.i = lshr i32 %1, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -23106,7 +23106,7 @@ for.end:                                          ; preds = %for.inc, %if.end12
 if.end.i:                                         ; preds = %for.end
   %11 = load i32, ptr %length.i.i.i, align 4
   %add23 = add i32 %11, %size.0.lcssa
-  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %11, i32 %add23)
+  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %add23, i32 %11)
   %cmp.not.i = icmp ugt i32 %.sroa.speculated.i, %10
   %shr.i = lshr i32 %10, 2
   %cmp5.not.i = icmp ult i32 %.sroa.speculated.i, %shr.i
@@ -23183,7 +23183,7 @@ if.then40:                                        ; preds = %lor.lhs.false38, %f
 
 sw.bb:                                            ; preds = %if.then40
   %18 = load i32, ptr %length.i39, align 4
-  %cmp.not.i40 = icmp ugt i32 %18, %fd
+  %cmp.not.i40 = icmp ult i32 %fd, %18
   %19 = load ptr, ptr %arrayZ.i41, align 8
   %arrayidx.i = getelementptr inbounds %"struct.CFF::subr_remap_t", ptr %19, i64 %idxprom.i
   %retval.0.i42 = select i1 %cmp.not.i40, ptr %arrayidx.i, ptr @_hb_NullPool
@@ -23881,7 +23881,7 @@ entry:
   %1 = sub nuw nsw i32 39, %0
   %2 = lshr i32 %1, 3
   %div30 = select i1 %tobool.not.i, i32 0, i32 %2
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %div30, i32 %min_off_size)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %min_off_size, i32 %div30)
   %errors.i.i.i = getelementptr inbounds i8, ptr %c, i64 44
   %3 = load i32, ptr %errors.i.i.i, align 4
   %tobool.i.i.not.i = icmp eq i32 %3, 0
@@ -24491,7 +24491,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp9.not.i.i = icmp slt i32 %1, %add
+  %cmp9.not.i.i = icmp sgt i32 %add, %1
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -24499,7 +24499,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
   %add.i.i = add i32 %new_allocated.133.i.i, 8
   %add15.i.i = add i32 %add.i.i, %shr14.i.i
-  %cmp13.i.i = icmp ult i32 %add15.i.i, %cond.i
+  %cmp13.i.i = icmp ugt i32 %cond.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !22
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i
@@ -24600,7 +24600,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %shr14.i = lshr i32 %new_allocated.133.i, 1
   %add.i = add i32 %new_allocated.133.i, 8
   %add15.i = add i32 %add.i, %shr14.i
-  %cmp13.i = icmp ult i32 %add15.i, %.sroa.speculated.i.i.i.i
+  %cmp13.i = icmp ugt i32 %.sroa.speculated.i.i.i.i, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !84
 
 lor.rhs.i:                                        ; preds = %while.body.i
@@ -24717,7 +24717,7 @@ entry:
   %1 = sub nuw nsw i32 39, %0
   %2 = lshr i32 %1, 3
   %div30 = select i1 %tobool.not.i, i32 0, i32 %2
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %div30, i32 %min_off_size)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %min_off_size, i32 %div30)
   %errors.i.i.i = getelementptr inbounds i8, ptr %c, i64 44
   %3 = load i32, ptr %errors.i.i.i, align 4
   %tobool.i.i.not.i = icmp eq i32 %3, 0
@@ -25289,7 +25289,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN9hb_iter_tI13hb_
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %cmp9.not.i.i.i = icmp ult i32 %46, %add.i.i
+  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i, %46
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -25297,7 +25297,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %shr14.i.i.i = lshr i32 %new_allocated.133.i.i.i, 1
   %add.i.i.i = add i32 %new_allocated.133.i.i.i, 8
   %add15.i.i.i = add i32 %add.i.i.i, %shr14.i.i.i
-  %cmp13.i.i.i = icmp ult i32 %add15.i.i.i, %add.i.i
+  %cmp13.i.i.i = icmp ugt i32 %add.i.i, %add15.i.i.i
   br i1 %cmp13.i.i.i, label %while.body.i.i.i, label %lor.rhs.i.i.i, !llvm.loop !84
 
 lor.rhs.i.i.i:                                    ; preds = %while.body.i.i.i

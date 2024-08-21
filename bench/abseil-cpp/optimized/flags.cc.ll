@@ -666,7 +666,7 @@ invoke.cont7.i:                                   ; preds = %if.end.i
   %call10.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %log_backtrace_at.i) #14
   %4 = extractvalue { i64, ptr } %call10.i, 0
   %add.i = add nuw i64 %call2.i, 1
-  %cmp.i.i.not.i = icmp ugt i64 %4, %call2.i
+  %cmp.i.i.not.i = icmp ult i64 %call2.i, %4
   br i1 %cmp.i.i.not.i, label %invoke.cont11.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont7.i

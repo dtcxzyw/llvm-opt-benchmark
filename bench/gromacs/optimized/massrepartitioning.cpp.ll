@@ -74,7 +74,7 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
 
 _ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit:   ; preds = %._crit_edge.i, %4
   %.05.lcssa.i = phi float [ 0x47EFFFFFE0000000, %4 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %21 = fmul float %.05.lcssa.i, %2
+  %21 = fmul float %2, %.05.lcssa.i
   %22 = fpext float %.05.lcssa.i to double
   %23 = fpext float %21 to double
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %22, double noundef %23)

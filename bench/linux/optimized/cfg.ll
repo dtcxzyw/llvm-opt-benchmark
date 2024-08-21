@@ -11857,7 +11857,7 @@ define internal fastcc i32 @sta_link_apply_parameters(ptr noundef %0, ptr nounde
   %15 = getelementptr [15 x ptr], ptr %14, i64 0, i64 %11
   %16 = load ptr, ptr %15, align 8
   %17 = icmp slt i32 %8, 0
-  %18 = or i1 %17, %2
+  %18 = or i1 %2, %17
   br i1 %18, label %51, label %19
 
 19:                                               ; preds = %4

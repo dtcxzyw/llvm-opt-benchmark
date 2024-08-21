@@ -51,7 +51,7 @@ entry:
 if.then:                                          ; preds = %entry
   %capacity_.i = getelementptr inbounds i8, ptr %storage, i64 12
   %2 = load i32, ptr %capacity_.i, align 4
-  %cmp.not.i = icmp slt i32 %2, %size
+  %cmp.not.i = icmp sgt i32 %size, %2
   br i1 %cmp.not.i, label %if.then.i.i, label %if.then._ZN8facebook5velox10raw_vectorIiE6resizeEi.exit_crit_edge
 
 if.then._ZN8facebook5velox10raw_vectorIiE6resizeEi.exit_crit_edge: ; preds = %if.then

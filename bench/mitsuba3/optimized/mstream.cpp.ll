@@ -173,7 +173,7 @@ define void @_ZN7mitsuba12MemoryStream6resizeEm(ptr nocapture noundef nonnull al
   store ptr %storemerge, ptr %13, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ult i64 %22, %1
+  %23 = icmp ugt i64 %1, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
@@ -531,7 +531,7 @@ common.resume:                                    ; preds = %18, %20, %42
   %53 = phi i64 [ %.pre, %50 ], [ %31, %48 ]
   %storemerge.i = phi ptr [ %51, %50 ], [ %49, %48 ]
   store ptr %storemerge.i, ptr %45, align 8
-  %54 = icmp ult i64 %53, %33
+  %54 = icmp ugt i64 %33, %53
   br i1 %54, label %55, label %_ZN7mitsuba12MemoryStream6resizeEm.exit
 
 55:                                               ; preds = %52
@@ -702,7 +702,7 @@ define void @_ZN7mitsuba12MemoryStream8truncateEm(ptr nocapture noundef nonnull 
   store ptr %storemerge.i, ptr %14, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = icmp ult i64 %23, %1
+  %24 = icmp ugt i64 %1, %23
   br i1 %24, label %25, label %_ZN7mitsuba12MemoryStream6resizeEm.exit
 
 25:                                               ; preds = %21
@@ -2942,7 +2942,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

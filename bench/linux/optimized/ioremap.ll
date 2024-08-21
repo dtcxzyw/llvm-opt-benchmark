@@ -371,10 +371,10 @@ define dso_local void @iounmap(ptr noundef %0) #0 align 16 {
   %5 = load i64, ptr @page_offset_base, align 8
   %6 = add i64 %5, 655360
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp ule ptr %7, %0
+  %8 = icmp uge ptr %0, %7
   %9 = add i64 %5, 1048576
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp ugt ptr %10, %0
+  %11 = icmp ult ptr %0, %10
   %12 = and i1 %8, %11
   br i1 %12, label %13, label %14
 

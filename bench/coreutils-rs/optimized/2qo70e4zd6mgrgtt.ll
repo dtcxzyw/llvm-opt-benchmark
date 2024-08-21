@@ -619,7 +619,7 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   %5 = load i64, ptr %4, align 16, !noundef !13
   %6 = xor i64 %5, -1
-  %7 = and i64 %6, %1
+  %7 = and i64 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 392
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = getelementptr inbounds i8, ptr %0, i64 416
@@ -1173,7 +1173,7 @@ _ZN3std4sync4mpmc7context7Context12store_packet17h71587165d6a8dce1E.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %156 = load i64, ptr %116, align 8, !alias.scope !115, !noalias !116, !noundef !13
-  %.not.i.i.i.i = icmp ugt i64 %156, %.016.i.i.i.i
+  %.not.i.i.i.i = icmp ult i64 %.016.i.i.i.i, %156
   br i1 %.not.i.i.i.i, label %_ZN3std4sync4mpmc5waker5Waker10try_select17ha74c1d6f879212f7E.exit.i.i, label %157
 
 157:                                              ; preds = %.noexc5.i.i
@@ -1806,7 +1806,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i4: 
 
 147:                                              ; preds = %142
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
-  %.not.i13.i.i = icmp ugt i64 %136, %139
+  %.not.i13.i.i = icmp ult i64 %139, %136
   br i1 %.not.i13.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hd42d7e768ede1054E.exit.i.i", label %148
 
 148:                                              ; preds = %147

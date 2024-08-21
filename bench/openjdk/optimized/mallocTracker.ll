@@ -1034,10 +1034,10 @@ _ZNK12MallocHeader11looks_validEv.exit:           ; preds = %10, %10
   br i1 %spec.select.i, label %15, label %_ZNK12MallocHeader11looks_validEv.exit.thread
 
 15:                                               ; preds = %_ZNK12MallocHeader11looks_validEv.exit
-  %.not52 = icmp ule ptr %.048.ptr59, %0
+  %.not52 = icmp uge ptr %0, %.048.ptr59
   %16 = getelementptr inbounds i8, ptr %8, i64 %13
   %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = icmp ugt ptr %17, %0
+  %18 = icmp ult ptr %0, %17
   %or.cond = select i1 %.not52, i1 %18, i1 false
   br i1 %or.cond, label %19, label %_ZNK12MallocHeader11looks_validEv.exit.thread
 
@@ -1062,9 +1062,9 @@ _ZNK12MallocHeader11looks_validEv.exit.thread:    ; preds = %10, %19, %15, %_ZNK
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load i64, ptr %22, align 8
-  %26 = icmp ugt ptr %24, %0
+  %26 = icmp ult ptr %0, %24
   %27 = getelementptr inbounds i8, ptr %24, i64 %25
-  %28 = icmp ugt ptr %27, %0
+  %28 = icmp ult ptr %0, %27
   %.str.8..str.9 = select i1 %28, ptr @.str.8, ptr @.str.9
   %.047 = select i1 %26, ptr @.str.7, ptr %.str.8..str.9
   %29 = getelementptr inbounds i8, ptr %22, i64 14

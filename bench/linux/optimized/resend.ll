@@ -79,7 +79,7 @@ define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0,
 14:                                               ; preds = %11
   %15 = and i32 %8, 512
   %16 = icmp ne i32 %15, 0
-  %17 = or i1 %16, %1
+  %17 = or i1 %1, %16
   br i1 %17, label %18, label %73
 
 18:                                               ; preds = %14

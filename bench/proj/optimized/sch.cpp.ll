@@ -64,7 +64,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr no
 
 6:                                                ; preds = %1
   %7 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %187
+  br label %188
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 88
@@ -95,7 +95,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr no
 25:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3)
   %26 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %187
+  br label %188
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %0, align 8
@@ -113,7 +113,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr no
 36:                                               ; preds = %17
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.6)
   %37 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %187
+  br label %188
 
 38:                                               ; preds = %27
   %39 = load ptr, ptr %0, align 8
@@ -131,7 +131,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr no
 47:                                               ; preds = %27
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
   %48 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %187
+  br label %188
 
 49:                                               ; preds = %38
   %50 = load ptr, ptr %0, align 8
@@ -197,8 +197,8 @@ _ZL17pj_sch_destructorP8PJconstsi.exit.i:         ; preds = %71, %68, %59
   %85 = tail call double @sin(double noundef %84) #8
   %86 = getelementptr inbounds i8, ptr %0, i64 216
   %87 = load double, ptr %86, align 8
-  %88 = fneg double %87
-  %89 = fmul double %80, %88
+  %88 = fneg double %80
+  %89 = fmul double %87, %88
   %90 = tail call double @llvm.fmuladd.f64(double %89, double %80, double 1.000000e+00)
   %91 = tail call double @sqrt(double noundef %90) #8
   %92 = getelementptr inbounds i8, ptr %0, i64 168
@@ -272,26 +272,26 @@ _ZL17pj_sch_destructorP8PJconstsi.exit101.i:      ; preds = %131, %128, %119
   %140 = getelementptr inbounds i8, ptr %54, i64 32
   store double %139, ptr %140, align 8
   %141 = fneg double %104
-  %142 = fneg double %80
-  %143 = fmul double %83, %142
-  %144 = fmul double %143, %102
+  %142 = fmul double %80, %83
+  %143 = fneg double %102
+  %144 = fmul double %142, %143
   %145 = tail call double @llvm.fmuladd.f64(double %141, double %85, double %144)
   %146 = getelementptr inbounds i8, ptr %54, i64 40
   store double %145, ptr %146, align 8
-  %147 = fmul double %143, %104
+  %147 = fmul double %142, %141
   %148 = tail call double @llvm.fmuladd.f64(double %85, double %102, double %147)
   %149 = getelementptr inbounds i8, ptr %54, i64 48
   store double %148, ptr %149, align 8
   %150 = fmul double %78, %85
   %151 = getelementptr inbounds i8, ptr %54, i64 56
   store double %150, ptr %151, align 8
-  %152 = fmul double %85, %142
-  %153 = fmul double %152, %102
+  %152 = fmul double %80, %85
+  %153 = fmul double %152, %143
   %154 = tail call double @llvm.fmuladd.f64(double %83, double %104, double %153)
   %155 = getelementptr inbounds i8, ptr %54, i64 64
   store double %154, ptr %155, align 8
   %156 = fneg double %83
-  %157 = fmul double %152, %104
+  %157 = fmul double %152, %141
   %158 = tail call double @llvm.fmuladd.f64(double %156, double %102, double %157)
   %159 = getelementptr inbounds i8, ptr %54, i64 72
   store double %158, ptr %159, align 8
@@ -317,8 +317,8 @@ _ZL17pj_sch_destructorP8PJconstsi.exit101.i:      ; preds = %131, %128, %119
   call void %170(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %2, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %3, ptr noundef %168)
   %171 = load double, ptr %2, align 8
   %172 = load double, ptr %114, align 8
-  %173 = fneg double %172
-  %174 = fmul double %78, %173
+  %173 = fneg double %78
+  %174 = fmul double %172, %173
   %175 = call double @llvm.fmuladd.f64(double %174, double %83, double %171)
   %176 = getelementptr inbounds i8, ptr %54, i64 104
   store double %175, ptr %176, align 8
@@ -329,22 +329,23 @@ _ZL17pj_sch_destructorP8PJconstsi.exit101.i:      ; preds = %131, %128, %119
   store double %179, ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %2, i64 16
   %182 = load double, ptr %181, align 8
-  %183 = call double @llvm.fmuladd.f64(double %173, double %80, double %182)
-  %184 = getelementptr inbounds i8, ptr %54, i64 120
-  store double %183, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @_ZL13sch_forward3d6PJ_LPZP8PJconsts, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr @_ZL13sch_inverse3d6PJ_XYZP8PJconsts, ptr %186, align 8
+  %183 = fneg double %172
+  %184 = call double @llvm.fmuladd.f64(double %183, double %80, double %182)
+  %185 = getelementptr inbounds i8, ptr %54, i64 120
+  store double %184, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @_ZL13sch_forward3d6PJ_LPZP8PJconsts, ptr %186, align 8
+  %187 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr @_ZL13sch_inverse3d6PJ_XYZP8PJconsts, ptr %187, align 8
   br label %_ZL12pj_sch_setupP8PJconsts.exit
 
 _ZL12pj_sch_setupP8PJconsts.exit:                 ; preds = %_ZL17pj_sch_destructorP8PJconstsi.exit.i, %_ZL17pj_sch_destructorP8PJconstsi.exit101.i, %136
   %.0.i = phi ptr [ %75, %_ZL17pj_sch_destructorP8PJconstsi.exit.i ], [ %135, %_ZL17pj_sch_destructorP8PJconstsi.exit101.i ], [ %0, %136 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %187
+  br label %188
 
-187:                                              ; preds = %_ZL12pj_sch_setupP8PJconsts.exit, %47, %36, %25, %6
+188:                                              ; preds = %_ZL12pj_sch_setupP8PJconsts.exit, %47, %36, %25, %6
   %.0 = phi ptr [ %7, %6 ], [ %.0.i, %_ZL12pj_sch_setupP8PJconsts.exit ], [ %48, %47 ], [ %37, %36 ], [ %26, %25 ]
   ret ptr %.0
 }

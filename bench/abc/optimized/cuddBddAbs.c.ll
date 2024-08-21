@@ -22,7 +22,7 @@ define ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 11:                                               ; preds = %tailrecurse.i, %.lr.ph.i
   %.tr1012.i = phi ptr [ %2, %.lr.ph.i ], [ %22, %tailrecurse.i ]
-  %12 = icmp eq ptr %7, %.tr1012.i
+  %12 = icmp eq ptr %.tr1012.i, %7
   br i1 %12, label %bddCheckPositiveCube.exit.preheader, label %14
 
 bddCheckPositiveCube.exit.preheader:              ; preds = %11
@@ -75,7 +75,7 @@ define ptr @cuddBddExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %5, %2
+  %9 = icmp eq ptr %2, %5
   %10 = icmp eq ptr %5, %8
   %or.cond = or i1 %9, %10
   br i1 %or.cond, label %.loopexit, label %.preheader
@@ -127,7 +127,7 @@ define ptr @cuddBddExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %8, i64 24
   %38 = load ptr, ptr %37, align 8
-  %.not125 = icmp eq ptr %8, %1
+  %.not125 = icmp eq ptr %1, %8
   %39 = ptrtoint ptr %36 to i64
   %40 = xor i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
@@ -321,7 +321,7 @@ define ptr @Cudd_bddXorExistAbstract(ptr noundef %0, ptr noundef %1, ptr noundef
 
 12:                                               ; preds = %tailrecurse.i, %.lr.ph.i
   %.tr1012.i = phi ptr [ %3, %.lr.ph.i ], [ %23, %tailrecurse.i ]
-  %13 = icmp eq ptr %8, %.tr1012.i
+  %13 = icmp eq ptr %.tr1012.i, %8
   br i1 %13, label %bddCheckPositiveCube.exit.preheader, label %15
 
 bddCheckPositiveCube.exit.preheader:              ; preds = %12
@@ -394,7 +394,7 @@ define ptr @cuddBddXorExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %12
-  %20 = icmp eq ptr %14, %.tr193236
+  %20 = icmp eq ptr %.tr193236, %14
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
@@ -402,7 +402,7 @@ define ptr @cuddBddXorExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 23:                                               ; preds = %19
-  %24 = icmp eq ptr %14, %.tr191234
+  %24 = icmp eq ptr %.tr191234, %14
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
@@ -410,7 +410,7 @@ define ptr @cuddBddXorExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 27:                                               ; preds = %23
-  %28 = icmp eq ptr %14, %.tr192235
+  %28 = icmp eq ptr %.tr192235, %14
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %27
@@ -421,7 +421,7 @@ define ptr @cuddBddXorExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 34:                                               ; preds = %27
-  %35 = icmp eq ptr %13, %.tr191234
+  %35 = icmp eq ptr %.tr191234, %13
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
@@ -429,7 +429,7 @@ define ptr @cuddBddXorExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 38:                                               ; preds = %34
-  %39 = icmp eq ptr %13, %.tr192235
+  %39 = icmp eq ptr %.tr192235, %13
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
@@ -701,7 +701,7 @@ define ptr @Cudd_bddUnivAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 11:                                               ; preds = %tailrecurse.i, %.lr.ph.i
   %.tr1012.i = phi ptr [ %2, %.lr.ph.i ], [ %25, %tailrecurse.i ]
-  %12 = icmp eq ptr %7, %.tr1012.i
+  %12 = icmp eq ptr %.tr1012.i, %7
   br i1 %12, label %bddCheckPositiveCube.exit.preheader, label %17
 
 bddCheckPositiveCube.exit.preheader:              ; preds = %11
@@ -762,7 +762,7 @@ bddCheckPositiveCube.exit:                        ; preds = %bddCheckPositiveCub
 define ptr @Cudd_bddBooleanDiff(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %2
+  %.not = icmp slt i32 %2, %5
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
@@ -926,7 +926,7 @@ define i32 @Cudd_bddVarIsDependent(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %3
-  %15 = icmp eq ptr %8, %1
+  %15 = icmp eq ptr %1, %8
   %16 = zext i1 %15 to i32
   br label %61
 
@@ -957,7 +957,7 @@ define i32 @Cudd_bddVarIsDependent(ptr noundef %0, ptr noundef %1, ptr noundef %
   %34 = getelementptr inbounds i8, ptr %11, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
-  %37 = icmp ne ptr %11, %1
+  %37 = icmp ne ptr %1, %11
   %38 = zext i1 %37 to i64
   %39 = xor i64 %36, %38
   %40 = inttoptr i64 %39 to ptr

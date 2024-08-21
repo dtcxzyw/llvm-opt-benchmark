@@ -466,7 +466,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_create(ptr noundef %0, i64 no
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 296
   %42 = load i64, ptr %41, align 8
-  %43 = icmp eq i64 %42, %39
+  %43 = icmp eq i64 %39, %42
   br i1 %43, label %44, label %.thread.i
 
 44:                                               ; preds = %40
@@ -683,7 +683,7 @@ H5HF__man_iblock_protect.exit:                    ; preds = %44
 160:                                              ; preds = %.critedge
   %161 = getelementptr inbounds i8, ptr %0, i64 272
   %162 = load i64, ptr %161, align 8
-  %163 = icmp ult i64 %162, %1
+  %163 = icmp ugt i64 %1, %162
   br i1 %163, label %164, label %175
 
 164:                                              ; preds = %160
@@ -871,7 +871,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_create(ptr noundef %0, ptr noundef
   %32 = getelementptr inbounds i8, ptr %0, i64 264
   %33 = getelementptr inbounds i8, ptr %0, i64 312
   %34 = load i32, ptr %33, align 8
-  %. = tail call i32 @llvm.umin.i32(i32 %34, i32 %3)
+  %. = tail call i32 @llvm.umin.i32(i32 %3, i32 %34)
   %35 = load i32, ptr %32, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 252
   %37 = load i32, ptr %36, align 4
@@ -1135,7 +1135,7 @@ define ptr @H5HF__man_iblock_protect(ptr noundef %0, i64 noundef %1, i32 noundef
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %0, i64 296
   %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %1
+  %17 = icmp eq i64 %1, %16
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %14
@@ -1277,7 +1277,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_attach(ptr noundef %0, i32 noundef
 35:                                               ; preds = %19, %26, %10
   %36 = getelementptr inbounds i8, ptr %0, i64 316
   %37 = load i32, ptr %36, align 4
-  %38 = icmp ult i32 %37, %1
+  %38 = icmp ugt i32 %1, %37
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %35
@@ -1406,7 +1406,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds i64, ptr %23, i64 %25
   %27 = load i64, ptr %26, align 8
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %21
@@ -2026,7 +2026,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_detach(ptr noundef %0, i32 noundef
   store i32 %41, ptr %39, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 316
   %43 = load i32, ptr %42, align 4
-  %44 = icmp eq i32 %43, %1
+  %44 = icmp eq i32 %1, %43
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %38
@@ -2235,7 +2235,7 @@ H5HF__man_iblock_root_revert.exit.thread:         ; preds = %140, %136, %149
 
 165:                                              ; preds = %162
   %166 = load i32, ptr %42, align 4
-  %167 = icmp ult i32 %166, %1
+  %167 = icmp ugt i32 %1, %166
   br i1 %167, label %168, label %183
 
 168:                                              ; preds = %165

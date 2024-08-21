@@ -63,7 +63,7 @@ define noundef zeroext i1 @_ZNK7glslang14TAttributeArgs6getIntERii(ptr nocapture
   %18 = sub i64 %16, %17
   %19 = lshr exact i64 %18, 3
   %20 = trunc i64 %19 to i32
-  %.not.i = icmp sgt i32 %20, %2
+  %.not.i = icmp slt i32 %2, %20
   br i1 %.not.i, label %21, label %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit.thread
 
 21:                                               ; preds = %7
@@ -138,7 +138,7 @@ define noundef ptr @_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeE
   %18 = sub i64 %16, %17
   %19 = lshr exact i64 %18, 3
   %20 = trunc i64 %19 to i32
-  %.not = icmp sgt i32 %20, %2
+  %.not = icmp slt i32 %2, %20
   br i1 %.not, label %21, label %57
 
 21:                                               ; preds = %7
@@ -209,7 +209,7 @@ define noundef zeroext i1 @_ZNK7glslang14TAttributeArgs9getStringERNSt7__cxx1112
   %19 = sub i64 %17, %18
   %20 = lshr exact i64 %19, 3
   %21 = trunc i64 %20 to i32
-  %.not.i = icmp sgt i32 %21, %2
+  %.not.i = icmp slt i32 %2, %21
   br i1 %.not.i, label %22, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEESB_PDoFiiEET0_T_SF_SE_T1_.exit
 
 22:                                               ; preds = %8
@@ -255,7 +255,7 @@ define noundef zeroext i1 @_ZNK7glslang14TAttributeArgs9getStringERNSt7__cxx1112
 
 _ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit: ; preds = %38
   %58 = load ptr, ptr %55, align 8
-  %.not.i.i.i = icmp eq ptr %58, %1
+  %.not.i.i.i = icmp eq ptr %1, %58
   br i1 %.not.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit, label %59
 
 59:                                               ; preds = %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit

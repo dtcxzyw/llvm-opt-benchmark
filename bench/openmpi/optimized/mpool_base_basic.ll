@@ -85,7 +85,7 @@ define internal ptr @mca_mpool_base_basic_alloc(ptr noundef %0, i64 noundef %1, 
   %7 = getelementptr inbounds i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %. = tail call i64 @llvm.umax.i64(i64 %9, i64 %2)
+  %. = tail call i64 @llvm.umax.i64(i64 %2, i64 %9)
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, -1

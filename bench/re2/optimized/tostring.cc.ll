@@ -1016,7 +1016,7 @@ if.then:                                          ; preds = %land.lhs.true2
 if.else:                                          ; preds = %land.lhs.true2, %entry
   %0 = add i32 %r, -97
   %1 = icmp ult i32 %0, 26
-  %or.cond2 = and i1 %1, %foldcase
+  %or.cond2 = and i1 %foldcase, %1
   br i1 %or.cond2, label %if.then10, label %if.else20
 
 if.then10:                                        ; preds = %if.else
@@ -1230,7 +1230,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #16
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -1799,7 +1799,7 @@ if.then35:                                        ; preds = %sw.default
 
 if.then41:                                        ; preds = %if.then35
   %cmp44 = icmp sgt i32 %.pre79, 0
-  %or.cond = and i1 %cmp44, %use_copy
+  %or.cond = and i1 %use_copy, %cmp44
   br i1 %or.cond, label %land.lhs.true45, label %if.then41.if.else66_crit_edge
 
 if.then41.if.else66_crit_edge:                    ; preds = %if.then41

@@ -51,7 +51,7 @@ define dso_local void @open_target_file(ptr noundef %0, i1 noundef zeroext %1) l
 5:                                                ; preds = %2
   %6 = load i32, ptr @dstfd, align 4
   %.not = icmp eq i32 %6, -1
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %14, label %7
 
 7:                                                ; preds = %5
@@ -329,7 +329,7 @@ define dso_local void @remove_target_file(ptr noundef %0, i1 noundef zeroext %1)
   %11 = tail call ptr @__errno_location() #13
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 2
-  %brmerge.not = and i1 %13, %1
+  %brmerge.not = and i1 %1, %13
   br i1 %brmerge.not, label %15, label %14
 
 14:                                               ; preds = %10

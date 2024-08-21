@@ -444,7 +444,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %193, %191, %189, %1
   %209 = icmp ne ptr %207, null
   %or.cond7 = and i1 %or.cond5, %209
   %or.cond7.not = xor i1 %or.cond7, true
-  %brmerge = or i1 %or.cond7.not, %10
+  %brmerge = or i1 %10, %or.cond7.not
   %210 = getelementptr inbounds i8, ptr %8, i64 88
   br i1 %brmerge, label %248, label %211
 
@@ -1052,7 +1052,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   store float %144, ptr %142, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 3
   %145 = trunc nuw i64 %indvars.iv.next127 to i32
-  %146 = icmp slt i32 %145, %2
+  %146 = icmp sgt i32 %2, %145
   br i1 %146, label %.lr.ph118.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %135, %87, %.preheader
@@ -1529,7 +1529,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %.2206 = phi float [ %.0204250, %96 ], [ %.0204250, %125 ], [ %.0204250, %127 ], [ %.1205, %.split.us ], [ %.1205, %.split ]
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 3
   %256 = trunc nuw i64 %indvars.iv.next266 to i32
-  %257 = icmp slt i32 %256, %0
+  %257 = icmp sgt i32 %0, %256
   br i1 %257, label %54, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread234, %39

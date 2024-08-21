@@ -196,7 +196,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -476,7 +476,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #25
   %cmp7 = icmp eq ptr %call, null
@@ -1159,7 +1159,7 @@ define void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr nocapt
 entry:
   %lReqPos = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %lReqPos, align 4
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %0, i32 %minInt)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %minInt, i32 %0)
   store i32 %spec.select, ptr %lReqPos, align 4
   ret void
 }
@@ -1184,7 +1184,7 @@ entry:
 if.end:                                           ; preds = %entry
   %scale = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %scale, align 4
-  %cmp2.not = icmp slt i32 %1, %maxInt
+  %cmp2.not = icmp sgt i32 %maxInt, %1
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -1218,7 +1218,7 @@ _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %if.then
 if.end4:                                          ; preds = %if.end
   %add.i = add i32 %0, -1
   %sub.i = add i32 %add.i, %1
-  %cmp5.not = icmp slt i32 %sub.i, %maxInt
+  %cmp5.not = icmp sgt i32 %maxInt, %sub.i
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
@@ -2375,7 +2375,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %9 = trunc nuw nsw i64 %indvars.iv15.i to i32
   %sub6.us.i = sub i32 %9, %add.i3
   %cmp.i5.us.i = icmp sgt i32 %sub6.us.i, -1
-  %cmp2.not.i.us.i = icmp sgt i32 %4, %sub6.us.i
+  %cmp2.not.i.us.i = icmp slt i32 %sub6.us.i, %4
   %or.cond6.i.us.i = and i1 %cmp.i5.us.i, %cmp2.not.i.us.i
   br i1 %or.cond6.i.us.i, label %if.end.i.us.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i
 
@@ -2431,7 +2431,7 @@ for.body.us.i33:                                  ; preds = %for.body.lr.ph.i14,
   %16 = trunc nuw nsw i64 %indvars.iv15.i34 to i32
   %sub6.us.i37 = sub i32 %16, %add.i3
   %cmp.i5.us.i38 = icmp sgt i32 %sub6.us.i37, -1
-  %cmp2.not.i.us.i39 = icmp sgt i32 %4, %sub6.us.i37
+  %cmp2.not.i.us.i39 = icmp slt i32 %sub6.us.i37, %4
   %or.cond6.i.us.i40 = and i1 %cmp.i5.us.i38, %cmp2.not.i.us.i39
   br i1 %or.cond6.i.us.i40, label %if.end.i.us.i47, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i41
 
@@ -2500,7 +2500,7 @@ for.body.us.i70:                                  ; preds = %for.body.lr.ph.i55,
   %mul.us.i71 = mul nuw i64 %result.015.us.i, 10
   %sub4.us.i = sub nsw i32 %magnitude.016.us.i, %20
   %cmp.i10.us.i = icmp sgt i32 %sub4.us.i, -1
-  %cmp2.not.i.us.i72 = icmp sgt i32 %24, %sub4.us.i
+  %cmp2.not.i.us.i72 = icmp slt i32 %sub4.us.i, %24
   %or.cond6.i.us.i73 = select i1 %cmp.i10.us.i, i1 %cmp2.not.i.us.i72, i1 false
   br i1 %or.cond6.i.us.i73, label %if.end.i.us.i77, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i74
 
@@ -2569,7 +2569,7 @@ for.body.us.i111:                                 ; preds = %for.body.lr.ph.i86,
   %mul.us.i114 = mul nuw i64 %result.015.us.i113, 10
   %sub4.us.i115 = sub nsw i32 %magnitude.016.us.i112, %29
   %cmp.i10.us.i116 = icmp sgt i32 %sub4.us.i115, -1
-  %cmp2.not.i.us.i117 = icmp sgt i32 %32, %sub4.us.i115
+  %cmp2.not.i.us.i117 = icmp slt i32 %sub4.us.i115, %32
   %or.cond6.i.us.i118 = select i1 %cmp.i10.us.i116, i1 %cmp2.not.i.us.i117, i1 false
   br i1 %or.cond6.i.us.i118, label %if.end.i.us.i126, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us.i119
 
@@ -2719,7 +2719,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %_Z
   %6 = trunc nuw nsw i64 %indvars.iv15 to i32
   %sub6.us = sub i32 %6, %add
   %cmp.i5.us = icmp sgt i32 %sub6.us, -1
-  %cmp2.not.i.us = icmp sgt i32 %2, %sub6.us
+  %cmp2.not.i.us = icmp slt i32 %sub6.us, %2
   %or.cond6.i.us = and i1 %cmp.i5.us, %cmp2.not.i.us
   br i1 %or.cond6.i.us, label %if.end.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
 
@@ -2797,7 +2797,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %_Z
   %mul.us = mul nuw i64 %result.015.us, 10
   %sub4.us = sub nsw i32 %magnitude.016.us, %1
   %cmp.i10.us = icmp sgt i32 %sub4.us, -1
-  %cmp2.not.i.us = icmp sgt i32 %5, %sub4.us
+  %cmp2.not.i.us = icmp slt i32 %sub4.us, %5
   %or.cond6.i.us = select i1 %cmp.i10.us, i1 %cmp2.not.i.us, i1 false
   br i1 %or.cond6.i.us, label %if.end.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit.us
 
@@ -3075,7 +3075,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i = icmp sgt i32 %sub, -1
   %precision.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %precision.i, align 8
-  %cmp2.not.i = icmp sgt i32 %2, %sub
+  %cmp2.not.i = icmp slt i32 %sub, %2
   %or.cond6.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
@@ -3118,7 +3118,7 @@ if.then:                                          ; preds = %entry
   %cmp = icmp sgt i32 %position, -1
   %precision = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %precision, align 8
-  %cmp2.not = icmp sgt i32 %1, %position
+  %cmp2.not = icmp slt i32 %position, %1
   %or.cond6 = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond6, label %if.end, label %return
 
@@ -3774,7 +3774,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %conv2 = fptosi double %n to i64
   %conv3 = sitofp i64 %conv2 to double
-  %cmp4 = fcmp oeq double %conv3, %n
+  %cmp4 = fcmp oeq double %n, %conv3
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -3963,15 +3963,15 @@ for.cond9.preheader:                              ; preds = %entry
 for.body11.preheader:                             ; preds = %for.cond9.preheader
   %0 = zext nneg i32 %length to i64
   %wide.trip.count = zext nneg i32 %length to i64
-  %invariant.gep = getelementptr i8, ptr %buffer, i64 %0
+  %1 = getelementptr i8, ptr %buffer, i64 %0
   br label %for.body11
 
 if.end.i:                                         ; preds = %entry
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load i8, ptr %usingBytes.i, align 8
-  %tobool.i = trunc i8 %1 to i1
+  %2 = load i8, ptr %usingBytes.i, align 8
+  %tobool.i = trunc i8 %2 to i1
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %len.i, align 8
+  %3 = load i32, ptr %len.i, align 8
   br i1 %tobool.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -3984,7 +3984,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %for.body.lr.ph
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp12.i = icmp slt i32 %2, %length
+  %cmp12.i = icmp slt i32 %3, %length
   br i1 %cmp12.i, label %if.then13.i, label %for.body.lr.ph
 
 if.then13.i:                                      ; preds = %if.else.i
@@ -3992,14 +3992,14 @@ if.then13.i:                                      ; preds = %if.else.i
   %conv15.i = zext nneg i32 %mul14.i to i64
   %call17.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv15.i) #25
   %fBCD18.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %fBCD18.i, align 8
-  %conv20.i = sext i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %3, i64 %conv20.i, i1 false)
+  %4 = load ptr, ptr %fBCD18.i, align 8
+  %conv20.i = sext i32 %3 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17.i, ptr align 1 %4, i64 %conv20.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call17.i, i64 %conv20.i
-  %sub.i = sub nsw i32 %length, %2
+  %sub.i = sub nsw i32 %length, %3
   %conv22.i = sext i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv22.i, i1 false)
-  tail call void @uprv_free_75(ptr noundef %3)
+  tail call void @uprv_free_75(ptr noundef %4)
   store ptr %call17.i, ptr %fBCD18.i, align 8
   store i32 %mul14.i, ptr %len.i, align 8
   br label %for.body.lr.ph
@@ -4007,19 +4007,19 @@ if.then13.i:                                      ; preds = %if.else.i
 for.body.lr.ph:                                   ; preds = %if.then13.i, %if.else.i, %if.then4.i
   store i8 1, ptr %usingBytes.i, align 8
   %fBCD = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = zext nneg i32 %length to i64
+  %5 = zext nneg i32 %length to i64
   %wide.trip.count28 = zext nneg i32 %length to i64
-  %invariant.gep30 = getelementptr i8, ptr %buffer, i64 %4
+  %6 = getelementptr i8, ptr %buffer, i64 %5
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv24 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next25, %for.body ]
-  %5 = xor i64 %indvars.iv24, -1
-  %gep31 = getelementptr i8, ptr %invariant.gep30, i64 %5
-  %6 = load i8, ptr %gep31, align 1
-  %sub4 = add i8 %6, -48
-  %7 = load ptr, ptr %fBCD, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv24
+  %7 = xor i64 %indvars.iv24, -1
+  %arrayidx = getelementptr i8, ptr %6, i64 %7
+  %8 = load i8, ptr %arrayidx, align 1
+  %sub4 = add i8 %8, -48
+  %9 = load ptr, ptr %fBCD, align 8
+  %arrayidx7 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv24
   store i8 %sub4, ptr %arrayidx7, align 1
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count28
@@ -4028,13 +4028,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body11:                                       ; preds = %for.body11.preheader, %for.body11
   %indvars.iv = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next, %for.body11 ]
   %result.017 = phi i64 [ 0, %for.body11.preheader ], [ %or, %for.body11 ]
-  %8 = xor i64 %indvars.iv, -1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %8
-  %9 = load i8, ptr %gep, align 1
-  %conv16 = sext i8 %9 to i64
+  %10 = xor i64 %indvars.iv, -1
+  %arrayidx15 = getelementptr i8, ptr %1, i64 %10
+  %11 = load i8, ptr %arrayidx15, align 1
+  %conv16 = sext i8 %11 to i64
   %sub17 = add nsw i64 %conv16, -48
-  %10 = shl nsw i64 %indvars.iv, 2
-  %shl = shl i64 %sub17, %10
+  %12 = shl nsw i64 %indvars.iv, 2
+  %shl = shl i64 %sub17, %12
   %or = or i64 %shl, %result.017
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4297,7 +4297,7 @@ if.end20:                                         ; preds = %if.then, %if.end, %
   %shr.i.i.i.i = sext i16 %28 to i32
   %29 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %29, i32 %shr.i.i.i.i
-  %cmp.i.i63 = icmp ugt i32 %cond.i.i.i, %add
+  %cmp.i.i63 = icmp ult i32 %add, %cond.i.i.i
   br i1 %cmp.i.i63, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %if.end20
@@ -4636,7 +4636,7 @@ if.end7:                                          ; preds = %if.end
   %4 = load i32, ptr %scale, align 4
   %add = add nsw i32 %4, %3
   %cmp = icmp sgt i32 %add, -1
-  %brmerge = or i1 %cmp, %ignoreFraction
+  %brmerge = or i1 %ignoreFraction, %cmp
   br i1 %brmerge, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end7
@@ -5242,7 +5242,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i121 = icmp sgt i32 %retval.0.i, -1
   %precision.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %precision.i, align 8
-  %cmp2.not.i = icmp sgt i32 %2, %retval.0.i
+  %cmp2.not.i = icmp slt i32 %retval.0.i, %2
   %or.cond6.i = select i1 %cmp.i121, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
@@ -5300,7 +5300,7 @@ if.else11:                                        ; preds = %if.else
 
 if.then.i140:                                     ; preds = %if.else11
   %cmp.i141 = icmp sgt i32 %spec.select.i127, -1
-  %cmp2.not.i143 = icmp sgt i32 %8, %spec.select.i127
+  %cmp2.not.i143 = icmp slt i32 %spec.select.i127, %8
   %or.cond6.i144 = and i1 %cmp.i141, %cmp2.not.i143
   br i1 %or.cond6.i144, label %if.end.i145, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit149
 
@@ -5451,7 +5451,7 @@ for.body76.lr.ph:                                 ; preds = %if.then73
 for.body76.us:                                    ; preds = %for.body76.lr.ph, %for.inc82.us
   %p59.0435.us = phi i32 [ %dec83.us, %for.inc82.us ], [ %spec.select.i183, %for.body76.lr.ph ]
   %cmp.i197.us = icmp sgt i32 %p59.0435.us, -1
-  %cmp2.not.i199.us = icmp sgt i32 %22, %p59.0435.us
+  %cmp2.not.i199.us = icmp slt i32 %p59.0435.us, %22
   %or.cond6.i200.us = select i1 %cmp.i197.us, i1 %cmp2.not.i199.us, i1 false
   br i1 %or.cond6.i200.us, label %if.end.i201.us, label %for.inc82.us
 
@@ -5572,7 +5572,7 @@ for.body122.lr.ph:                                ; preds = %if.then119
 for.body122.us:                                   ; preds = %for.body122.lr.ph, %for.inc128.us
   %p59.2408.us = phi i32 [ %dec129.us, %for.inc128.us ], [ %spec.select.i183, %for.body122.lr.ph ]
   %cmp.i239.us = icmp sgt i32 %p59.2408.us, -1
-  %cmp2.not.i241.us = icmp sgt i32 %32, %p59.2408.us
+  %cmp2.not.i241.us = icmp slt i32 %p59.2408.us, %32
   %or.cond6.i242.us = select i1 %cmp.i239.us, i1 %cmp2.not.i241.us, i1 false
   br i1 %or.cond6.i242.us, label %if.end.i243.us, label %for.inc128.us
 
@@ -6786,7 +6786,7 @@ for.body:                                         ; preds = %for.cond
 if.then.i:                                        ; preds = %for.body
   %cmp.i18 = icmp sgt i32 %sub31, -1
   %11 = load i32, ptr %precision, align 8
-  %cmp2.not.i = icmp sgt i32 %11, %sub31
+  %cmp2.not.i = icmp slt i32 %sub31, %11
   %or.cond6.i = select i1 %cmp.i18, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
@@ -6848,7 +6848,7 @@ for.body44:                                       ; preds = %if.end41, %for.inc5
 if.then.i33:                                      ; preds = %for.body44
   %cmp.i34 = icmp sgt i32 %sub48, -1
   %20 = load i32, ptr %precision, align 8
-  %cmp2.not.i36 = icmp sgt i32 %20, %sub48
+  %cmp2.not.i36 = icmp slt i32 %sub48, %20
   %or.cond6.i37 = select i1 %cmp.i34, i1 %cmp2.not.i36, i1 false
   br i1 %or.cond6.i37, label %if.end.i38, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit42
 
@@ -6982,7 +6982,7 @@ for.body:                                         ; preds = %for.cond
 if.then.i:                                        ; preds = %for.body
   %cmp.i15 = icmp sgt i32 %sub20, -1
   %8 = load i32, ptr %precision, align 8
-  %cmp2.not.i = icmp sgt i32 %8, %sub20
+  %cmp2.not.i = icmp slt i32 %sub20, %8
   %or.cond6.i = select i1 %cmp.i15, i1 %cmp2.not.i, i1 false
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
@@ -7042,7 +7042,7 @@ for.body33:                                       ; preds = %if.end30, %for.inc4
 if.then.i30:                                      ; preds = %for.body33
   %cmp.i31 = icmp sgt i32 %sub35, -1
   %15 = load i32, ptr %precision, align 8
-  %cmp2.not.i33 = icmp sgt i32 %15, %sub35
+  %cmp2.not.i33 = icmp slt i32 %sub35, %15
   %or.cond6.i34 = select i1 %cmp.i31, i1 %cmp2.not.i33, i1 false
   br i1 %or.cond6.i34, label %if.end.i35, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
@@ -7546,7 +7546,7 @@ for.cond.us.us:                                   ; preds = %if.else31.split.us,
 for.body.us.us:                                   ; preds = %for.cond.us.us
   %sub.i14.us.us = sub nsw i32 %m.0.us.us, %0
   %cmp.i.i.us.us = icmp sgt i32 %sub.i14.us.us, -1
-  %cmp2.not.i.i.us.us = icmp sgt i32 %2, %sub.i14.us.us
+  %cmp2.not.i.i.us.us = icmp slt i32 %sub.i14.us.us, %2
   %or.cond6.i.i.us.us = and i1 %cmp.i.i.us.us, %cmp2.not.i.i.us.us
   br i1 %or.cond6.i.i.us.us, label %if.end.i.i33.us.us, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us.us
 
@@ -7574,7 +7574,7 @@ for.cond.us:                                      ; preds = %if.else31.split.us,
 for.body.us:                                      ; preds = %for.cond.us
   %sub.i14.us = sub nsw i32 %m.0.us, %0
   %cmp.i.i.us = icmp sgt i32 %sub.i14.us, -1
-  %cmp2.not.i.i.us = icmp sgt i32 %2, %sub.i14.us
+  %cmp2.not.i.i.us = icmp slt i32 %sub.i14.us, %2
   %or.cond6.i.i.us = and i1 %cmp.i.i.us, %cmp2.not.i.i.us
   br i1 %or.cond6.i.i.us, label %if.end.i.i.us, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit.us
 
@@ -7619,7 +7619,7 @@ for.body.us42:                                    ; preds = %for.cond.us38
   %conv.i.i.us = and i8 %25, 15
   %retval.0.i.i.us45 = select i1 %or.cond.i.i.us, i8 0, i8 %conv.i.i.us
   %cmp.i.i29.us48 = icmp sgt i32 %sub.i14.us43, -1
-  %cmp2.not.i.i31.us49 = icmp sgt i32 %2, %sub.i14.us43
+  %cmp2.not.i.i31.us49 = icmp slt i32 %sub.i14.us43, %2
   %or.cond6.i.i32.us50 = and i1 %cmp.i.i29.us48, %cmp2.not.i.i31.us49
   br i1 %or.cond6.i.i32.us50, label %if.end.i.i33.us51, label %_ZNK6icu_756number4impl15DecimalQuantity8getDigitEi.exit37.us54
 
@@ -7739,7 +7739,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then.i:                                        ; preds = %for.body
   %cmp.i6 = icmp sgt i32 %sub5, -1
-  %cmp2.not.i = icmp sgt i32 %6, %sub5
+  %cmp2.not.i = icmp slt i32 %sub5, %6
   %or.cond6.i = and i1 %cmp.i6, %cmp2.not.i
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 

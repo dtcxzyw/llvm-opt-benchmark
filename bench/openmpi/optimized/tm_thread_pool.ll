@@ -71,7 +71,7 @@ define hidden range(i32 0, 2) i32 @tm_submit_work(ptr noundef %0, i32 noundef %1
 4:                                                ; preds = %2
   %5 = load ptr, ptr @pool, align 8
   %6 = load i32, ptr %5, align 8
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %4

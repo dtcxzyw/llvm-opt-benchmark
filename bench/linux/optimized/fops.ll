@@ -1980,7 +1980,7 @@ define internal noundef range(i32 -5, 1) i32 @blkdev_iomap_begin(ptr noundef %0,
   %21 = select i1 %17, i32 512, i32 %16
   %22 = zext i32 %21 to i64
   %23 = xor i64 %20, -1
-  %24 = add i64 %23, %1
+  %24 = add i64 %1, %23
   %25 = add i64 %24, %22
   br label %.thread3
 

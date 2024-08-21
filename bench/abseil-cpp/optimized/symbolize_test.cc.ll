@@ -2273,7 +2273,7 @@ while.cond15:                                     ; preds = %invoke.cont12
   %conv = zext nneg i32 %limit to i64
   %call18 = call i64 @strnlen(ptr noundef nonnull %call.i, i64 noundef %conv) #32
   %conv19 = trunc i64 %call18 to i32
-  %cmp.i.i = icmp slt i32 %conv19, %limit
+  %cmp.i.i = icmp sgt i32 %limit, %conv19
   br i1 %cmp.i.i, label %while.end38, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %while.cond15
@@ -9117,7 +9117,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i19
@@ -9907,7 +9907,7 @@ if.end.i:                                         ; preds = %invoke.cont.i, %cal
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %6 = xor i1 %call5.i9, %all_elements_should_match
+  %6 = xor i1 %all_elements_should_match, %call5.i9
   br i1 %6, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont

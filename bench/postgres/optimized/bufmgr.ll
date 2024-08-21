@@ -533,19 +533,19 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %5, %15, %17
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %36, i64 8
   %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, %1
+  %50 = icmp eq i32 %1, %49
   br i1 %50, label %51, label %BufferTagsEqual.exit.thread
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %36, i64 16
   %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, %3
+  %54 = icmp eq i32 %3, %53
   br i1 %54, label %BufferTagsEqual.exit, label %BufferTagsEqual.exit.thread
 
 BufferTagsEqual.exit:                             ; preds = %51
   %55 = getelementptr inbounds i8, ptr %36, i64 12
   %56 = load i32, ptr %55, align 4
-  %57 = icmp eq i32 %56, %2
+  %57 = icmp eq i32 %2, %56
   br i1 %57, label %58, label %BufferTagsEqual.exit.thread
 
 58:                                               ; preds = %BufferTagsEqual.exit
@@ -664,19 +664,19 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %GetPriva
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %66, i64 8
   %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, %1
+  %109 = icmp eq i32 %1, %108
   br i1 %109, label %110, label %BufferTagsEqual.exit26.thread
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %66, i64 16
   %112 = load i32, ptr %111, align 4
-  %113 = icmp eq i32 %112, %3
+  %113 = icmp eq i32 %3, %112
   br i1 %113, label %BufferTagsEqual.exit26, label %BufferTagsEqual.exit26.thread
 
 BufferTagsEqual.exit26:                           ; preds = %110
   %114 = getelementptr inbounds i8, ptr %66, i64 12
   %115 = load i32, ptr %114, align 4
-  %116 = icmp eq i32 %115, %2
+  %116 = icmp eq i32 %2, %115
   br i1 %116, label %117, label %BufferTagsEqual.exit26.thread
 
 117:                                              ; preds = %BufferTagsEqual.exit26
@@ -1689,7 +1689,7 @@ LimitAdditionalPins.exit.thread.i:                ; preds = %22
   %.neg7.i.i = add i32 %28, -8
   %30 = sub i32 %.neg7.i.i, %29
   %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %30, i32 1)
-  %spec.select168.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i.i, i32 %4)
+  %spec.select168.i = tail call i32 @llvm.umin.i32(i32 %4, i32 %spec.store.select.i.i)
   br label %.lr.ph.preheader.i
 
 LimitAdditionalPins.exit.i:                       ; preds = %22
@@ -3104,7 +3104,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %42 = and i32 %.lcssa.i, 4194303
   %or.cond = icmp ne i32 %42, 0
-  %brmerge.not = and i1 %or.cond, %1
+  %brmerge.not = and i1 %1, %or.cond
   %.mux = select i1 %or.cond, i32 0, i32 2
   br i1 %brmerge.not, label %43, label %45
 
@@ -5715,7 +5715,7 @@ define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 
 
 12:                                               ; preds = %6
   %13 = icmp eq i32 %4, 3
-  %14 = or i1 %13, %5
+  %14 = or i1 %5, %13
   br label %15
 
 15:                                               ; preds = %12, %6
@@ -6134,7 +6134,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
   %15 = load ptr, ptr @PrivateRefCountHash, align 8
   %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #14
   %17 = icmp ne ptr %16, null
-  %brmerge.not = and i1 %17, %1
+  %brmerge.not = and i1 %1, %17
   br i1 %brmerge.not, label %18, label %.loopexit
 
 18:                                               ; preds = %14

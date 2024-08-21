@@ -65,7 +65,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %sub = sub i64 %0, %1
-  %cmp3 = icmp ugt i64 %sub, %len
+  %cmp3 = icmp ult i64 %len, %sub
   %buf = getelementptr inbounds i8, ptr %vctx, i64 200
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %1
   br i1 %cmp3, label %if.then4, label %if.end6

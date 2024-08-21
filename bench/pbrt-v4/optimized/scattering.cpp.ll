@@ -38,9 +38,9 @@ $_ZN4pbrt6detail21stringPrintfRecursiveIRKfJEEEvPNSt7__cxx1112basic_stringIcSt11
 define dso_local noundef float @_ZN4pbrt14FresnelMoment1Ef(float noundef %eta) local_unnamed_addr #0 {
 entry:
   %mul = fmul float %eta, %eta
-  %mul1 = fmul float %mul, %eta
-  %mul2 = fmul float %mul1, %eta
-  %mul3 = fmul float %mul2, %eta
+  %mul1 = fmul float %eta, %mul
+  %mul2 = fmul float %eta, %mul1
+  %mul3 = fmul float %eta, %mul2
   %cmp = fcmp olt float %eta, 1.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
@@ -84,9 +84,9 @@ return:                                           ; preds = %if.else, %if.then
 define dso_local noundef float @_ZN4pbrt14FresnelMoment2Ef(float noundef %eta) local_unnamed_addr #0 {
 entry:
   %mul = fmul float %eta, %eta
-  %mul1 = fmul float %mul, %eta
-  %mul2 = fmul float %mul1, %eta
-  %mul3 = fmul float %mul2, %eta
+  %mul1 = fmul float %eta, %mul
+  %mul2 = fmul float %eta, %mul1
+  %mul3 = fmul float %eta, %mul2
   %cmp = fcmp olt float %eta, 1.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 

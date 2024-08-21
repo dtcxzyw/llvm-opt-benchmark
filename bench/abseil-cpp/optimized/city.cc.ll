@@ -717,7 +717,7 @@ entry:
   %xor.i.i.i = xor i64 %sub.i, %seed
   %mul1.i.i.i = mul i64 %xor.i.i.i, -7070675565921424023
   %shr.i.i.i = lshr i64 %mul1.i.i.i, 47
-  %0 = xor i64 %shr.i.i.i, %seed
+  %0 = xor i64 %seed, %shr.i.i.i
   %xor3.i.i.i = xor i64 %0, %mul1.i.i.i
   %mul4.i.i.i = mul i64 %xor3.i.i.i, -7070675565921424023
   %shr5.i.i.i = lshr i64 %mul4.i.i.i, 47
@@ -734,7 +734,7 @@ entry:
   %xor.i.i = xor i64 %sub, %seed1
   %mul1.i.i = mul i64 %xor.i.i, -7070675565921424023
   %shr.i.i = lshr i64 %mul1.i.i, 47
-  %0 = xor i64 %shr.i.i, %seed1
+  %0 = xor i64 %seed1, %shr.i.i
   %xor3.i.i = xor i64 %0, %mul1.i.i
   %mul4.i.i = mul i64 %xor3.i.i, -7070675565921424023
   %shr5.i.i = lshr i64 %mul4.i.i, 47

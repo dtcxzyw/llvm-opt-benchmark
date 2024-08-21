@@ -33,7 +33,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %12 = shl i64 %11, 6
   %13 = and i64 %1, -16
   %scevgep = getelementptr i8, ptr %2, i64 %12
-  %14 = add i64 %13, %4
+  %14 = add i64 %4, %13
   br label %.loopexit54
 
 .split.us:                                        ; preds = %9, %.loopexit53.us

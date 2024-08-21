@@ -1054,7 +1054,7 @@ define hidden void @_ZN8rawspeed12RawImageData11startWorkerENS_14RawImageWorker1
   %4 = alloca %"class.rawspeed::RawImageWorker", align 8
   %5 = and i32 %1, 4096
   %6 = icmp eq i32 %5, 0
-  %7 = and i1 %6, %2
+  %7 = and i1 %2, %6
   %8 = select i1 %7, i64 44, i64 604
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !10
@@ -1340,7 +1340,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
 171:                                              ; preds = %.loopexit
   %172 = add nuw nsw i64 %29, 1
   %173 = trunc nuw nsw i64 %172 to i32
-  %174 = icmp slt i32 %173, %2
+  %174 = icmp sgt i32 %2, %173
   br i1 %174, label %28, label %.loopexit5, !llvm.loop !129
 
 .loopexit5:                                       ; preds = %171, %3

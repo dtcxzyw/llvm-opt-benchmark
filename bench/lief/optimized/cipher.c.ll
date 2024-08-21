@@ -343,7 +343,7 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %54, label %17
 
 17:                                               ; preds = %8, %12
@@ -537,7 +537,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   ]
 
 17:                                               ; preds = %14
-  %.not204 = icmp eq i64 %12, %2
+  %.not204 = icmp eq i64 %2, %12
   br i1 %.not204, label %18, label %mbedtls_cipher_get_block_size.exit.thread
 
 18:                                               ; preds = %17
@@ -621,18 +621,18 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br i1 %.not196, label %62, label %61
 
 61:                                               ; preds = %55
-  %.not197 = icmp ult i64 %60, %2
+  %.not197 = icmp ugt i64 %2, %60
   br i1 %.not197, label %.thread208, label %69
 
 62:                                               ; preds = %55
-  %63 = icmp ugt i64 %60, %2
+  %63 = icmp ult i64 %2, %60
   br i1 %63, label %69, label %.thread208
 
 64:                                               ; preds = %52
   %65 = getelementptr inbounds i8, ptr %0, i64 48
   %66 = load i64, ptr %65, align 8
   %67 = sub i64 %12, %66
-  %68 = icmp ugt i64 %67, %2
+  %68 = icmp ult i64 %2, %67
   br i1 %68, label %69, label %.thread208
 
 69:                                               ; preds = %64, %62, %61
@@ -1009,25 +1009,25 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define internal void @add_pkcs_padding(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) #13 {
   %4 = sub i64 %1, %2
-  %invariant.gep = getelementptr i8, ptr %0, i64 %2
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = trunc i64 %4 to i8
-  br label %6
+  %6 = getelementptr i8, ptr %0, i64 %2
+  br label %7
 
-6:                                                ; preds = %.lr.ph, %6
-  %7 = phi i64 [ 0, %.lr.ph ], [ %9, %6 ]
-  %.010 = phi i8 [ 0, %.lr.ph ], [ %8, %6 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %7
-  store i8 %5, ptr %gep, align 1
-  %8 = add i8 %.010, 1
-  %9 = zext i8 %8 to i64
-  %10 = icmp ugt i64 %4, %9
-  br i1 %10, label %6, label %._crit_edge, !llvm.loop !9
+7:                                                ; preds = %.lr.ph, %7
+  %8 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
+  %.010 = phi i8 [ 0, %.lr.ph ], [ %10, %7 ]
+  %9 = getelementptr i8, ptr %6, i64 %8
+  store i8 %5, ptr %9, align 1
+  %10 = add i8 %.010, 1
+  %11 = zext i8 %10 to i64
+  %12 = icmp ugt i64 %4, %11
+  br i1 %12, label %7, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %6, %3
+._crit_edge:                                      ; preds = %7, %3
   ret void
 }
 
@@ -1045,7 +1045,7 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
   %10 = zext i8 %9 to i64
   %11 = sub i64 %1, %10
   store i64 %11, ptr %2, align 8
-  %12 = icmp ugt i64 %10, %1
+  %12 = icmp ult i64 %1, %10
   %13 = icmp eq i8 %9, 0
   %14 = or i1 %13, %12
   %15 = zext i1 %14 to i8
@@ -1079,20 +1079,20 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define internal void @add_one_and_zeros_padding(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) #13 {
   %4 = sub i64 %1, %2
-  %5 = getelementptr i8, ptr %0, i64 %2
+  %5 = getelementptr inbounds i8, ptr %0, i64 %2
   store i8 -128, ptr %5, align 1
   %6 = icmp ugt i64 %4, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %7 = phi i64 [ %9, %.lr.ph ], [ 1, %3 ]
-  %.010 = phi i8 [ %8, %.lr.ph ], [ 1, %3 ]
-  %gep = getelementptr i8, ptr %5, i64 %7
-  store i8 0, ptr %gep, align 1
-  %8 = add i8 %.010, 1
-  %9 = zext i8 %8 to i64
-  %10 = icmp ugt i64 %4, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %7 = phi i64 [ %10, %.lr.ph ], [ 1, %3 ]
+  %.010 = phi i8 [ %9, %.lr.ph ], [ 1, %3 ]
+  %8 = getelementptr i8, ptr %5, i64 %7
+  store i8 0, ptr %8, align 1
+  %9 = add i8 %.010, 1
+  %10 = zext i8 %9 to i64
+  %11 = icmp ugt i64 %4, %10
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1144,26 +1144,29 @@ define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define internal void @add_zeros_and_len_padding(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) #13 {
   %4 = sub i64 %1, %2
-  %invariant.gep = getelementptr i8, ptr %0, i64 %2
-  %invariant.gep12 = getelementptr i8, ptr %invariant.gep, i64 -1
   %5 = icmp ugt i64 %4, 1
   br i1 %5, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %6 = phi i64 [ %8, %.lr.ph ], [ 1, %3 ]
-  %.014 = phi i8 [ %7, %.lr.ph ], [ 1, %3 ]
-  %gep13 = getelementptr i8, ptr %invariant.gep12, i64 %6
-  store i8 0, ptr %gep13, align 1
-  %7 = add i8 %.014, 1
-  %8 = zext i8 %7 to i64
-  %9 = icmp ugt i64 %4, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+.lr.ph:                                           ; preds = %3
+  %6 = getelementptr i8, ptr %0, i64 %2
+  %invariant.gep = getelementptr i8, ptr %6, i64 -1
+  br label %7
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %10 = trunc nuw i64 %4 to i8
-  %11 = getelementptr i8, ptr %0, i64 %1
-  %12 = getelementptr i8, ptr %11, i64 -1
-  store i8 %10, ptr %12, align 1
+7:                                                ; preds = %.lr.ph, %7
+  %8 = phi i64 [ 1, %.lr.ph ], [ %10, %7 ]
+  %.012 = phi i8 [ 1, %.lr.ph ], [ %9, %7 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %8
+  store i8 0, ptr %gep, align 1
+  %9 = add i8 %.012, 1
+  %10 = zext i8 %9 to i64
+  %11 = icmp ugt i64 %4, %10
+  br i1 %11, label %7, label %._crit_edge, !llvm.loop !13
+
+._crit_edge:                                      ; preds = %7, %3
+  %12 = trunc nuw i64 %4 to i8
+  %13 = getelementptr i8, ptr %0, i64 %1
+  %14 = getelementptr i8, ptr %13, i64 -1
+  store i8 %12, ptr %14, align 1
   ret void
 }
 
@@ -1181,7 +1184,7 @@ define internal range(i32 -25088, 1) i32 @get_zeros_and_len_padding(ptr noundef 
   %10 = zext i8 %9 to i64
   %11 = sub i64 %1, %10
   store i64 %11, ptr %2, align 8
-  %12 = icmp ugt i64 %10, %1
+  %12 = icmp ult i64 %1, %10
   %13 = icmp eq i8 %9, 0
   %14 = or i1 %13, %12
   %15 = zext i1 %14 to i8
@@ -1464,7 +1467,7 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonl
 
 25:                                               ; preds = %11
   %26 = add i64 %10, %6
-  %27 = icmp ugt i64 %26, %8
+  %27 = icmp ult i64 %8, %26
   br i1 %27, label %53, label %28
 
 28:                                               ; preds = %25
@@ -1497,7 +1500,7 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonl
   %42 = getelementptr inbounds i8, ptr %12, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = icmp ne i64 %44, %2
+  %45 = icmp ne i64 %2, %44
   %46 = icmp ne i64 %10, 16
   %or.cond.i = or i1 %46, %45
   br i1 %or.cond.i, label %mbedtls_cipher_aead_encrypt.exit, label %47
@@ -1552,7 +1555,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
 
 27:                                               ; preds = %25
   %28 = sub nuw i64 %6, %10
-  %29 = icmp ugt i64 %28, %8
+  %29 = icmp ult i64 %8, %28
   br i1 %29, label %mbedtls_cipher_aead_decrypt.exit, label %30
 
 30:                                               ; preds = %27
@@ -1591,7 +1594,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
   %48 = getelementptr inbounds i8, ptr %12, i64 24
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = icmp ne i64 %50, %2
+  %51 = icmp ne i64 %2, %50
   %52 = icmp ne i64 %10, 16
   %or.cond.i = or i1 %52, %51
   br i1 %or.cond.i, label %mbedtls_cipher_aead_decrypt.exit, label %53

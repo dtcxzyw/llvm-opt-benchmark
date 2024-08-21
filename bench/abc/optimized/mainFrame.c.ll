@@ -2146,7 +2146,7 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr nocapture noundef readonl
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %11, align 4
-  %.not11 = icmp sgt i32 %.val.val, %1
+  %.not11 = icmp slt i32 %1, %.val.val
   br i1 %.not11, label %12, label %34
 
 12:                                               ; preds = %9

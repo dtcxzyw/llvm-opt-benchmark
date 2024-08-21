@@ -24,7 +24,7 @@ entry:
   %0 = ptrtoint ptr %workspace to i64
   %sub1.i = sub i64 0, %0
   %and2.i = and i64 %sub1.i, 3
-  %cmp.not.i = icmp ugt i64 %and2.i, %workspaceSize
+  %cmp.not.i = icmp ult i64 %workspaceSize, %and2.i
   %add.ptr.i = getelementptr inbounds i8, ptr %workspace, i64 %and2.i
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %workspaceSize, i64 %and2.i)
   %retval.0.i = select i1 %cmp.not.i, ptr null, ptr %add.ptr.i
@@ -104,7 +104,7 @@ if.end.i:                                         ; preds = %if.end25
 if.end3.i:                                        ; preds = %if.end.i
   %count.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 400
   %call4.i = call i32 @HIST_count_simple(ptr noundef nonnull %count.i, ptr noundef nonnull %maxSymbolValue.i, ptr noundef nonnull %huffWeight28, i64 noundef %conv29) #14
-  %cmp5.i = icmp eq i32 %call4.i, %maxSymbolValue
+  %cmp5.i = icmp eq i32 %maxSymbolValue, %call4.i
   %cmp9.i = icmp eq i32 %call4.i, 1
   %or.cond = or i1 %cmp5.i, %cmp9.i
   br i1 %or.cond, label %do.end.thread, label %if.end12.i
@@ -183,7 +183,7 @@ if.end49:                                         ; preds = %if.end45
   %div5143 = lshr i32 %add50, 1
   %add52 = add nuw nsw i32 %div5143, 1
   %conv53 = zext nneg i32 %add52 to i64
-  %cmp54 = icmp ugt i64 %conv53, %maxDstSize
+  %cmp54 = icmp ult i64 %maxDstSize, %conv53
   br i1 %cmp54, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end49
@@ -404,7 +404,7 @@ entry:
   %0 = trunc i64 %retval.sroa.0.0.copyload.i to i32
   %1 = lshr i32 %0, 8
   %conv = and i32 %1, 255
-  %cmp = icmp ult i32 %conv, %symbolValue
+  %cmp = icmp ugt i32 %symbolValue, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -430,7 +430,7 @@ entry:
   %0 = ptrtoint ptr %workSpace to i64
   %sub1.i = sub i64 0, %0
   %and2.i = and i64 %sub1.i, 3
-  %cmp.not.i = icmp ugt i64 %and2.i, %wkspSize
+  %cmp.not.i = icmp ult i64 %wkspSize, %and2.i
   %add.ptr.i = getelementptr inbounds i8, ptr %workSpace, i64 %and2.i
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %wkspSize, i64 %and2.i)
   %retval.0.i = select i1 %cmp.not.i, ptr null, ptr %add.ptr.i
@@ -1198,7 +1198,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   %mul.i.i = mul i64 %conv8.i.i, %srcSize
   %shr.i1594.i = lshr i64 %mul.i.i, 3
   %add.i1595.i = add nuw nsw i64 %shr.i1594.i, 8
-  %cmp10.i.i = icmp ugt i64 %add.i1595.i, %dstSize
+  %cmp10.i.i = icmp ult i64 %dstSize, %add.i1595.i
   %cmp12.i.i = icmp ugt i32 %conv.i.i, 11
   %or.cond.i = select i1 %cmp10.i.i, i1 true, i1 %cmp12.i.i
   %conv.i2.i = trunc i64 %srcSize to i32
@@ -2929,7 +2929,7 @@ entry:
   %0 = ptrtoint ptr %workSpace to i64
   %sub1.i = sub i64 0, %0
   %and2.i = and i64 %sub1.i, 7
-  %cmp.not.i = icmp ugt i64 %and2.i, %wkspSize
+  %cmp.not.i = icmp ult i64 %wkspSize, %and2.i
   %add.ptr.i = getelementptr inbounds i8, ptr %workSpace, i64 %and2.i
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %wkspSize, i64 %and2.i)
   %retval.0.i = select i1 %cmp.not.i, ptr null, ptr %add.ptr.i
@@ -3335,7 +3335,7 @@ if.end7.i:                                        ; preds = %if.end.i
   %mul.i = mul i64 %conv8.i, %srcSize
   %shr.i1594 = lshr i64 %mul.i, 3
   %add.i1595 = add nuw nsw i64 %shr.i1594, 8
-  %cmp10.i = icmp ugt i64 %add.i1595, %dstSize
+  %cmp10.i = icmp ult i64 %dstSize, %add.i1595
   %cmp12.i = icmp ugt i32 %conv.i, 11
   %or.cond = select i1 %cmp10.i, i1 true, i1 %cmp12.i
   %conv.i2 = trunc i64 %srcSize to i32

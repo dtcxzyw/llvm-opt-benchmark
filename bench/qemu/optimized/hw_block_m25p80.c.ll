@@ -3026,7 +3026,7 @@ if.then:                                          ; preds = %sw.bb4
   %conv = zext i8 %4 to i32
   %div = udiv i32 %5, %conv
   %not = sub i32 0, %div
-  %and = and i32 %not, %offset
+  %and = and i32 %offset, %not
   br label %sw.epilog
 
 do.body:                                          ; preds = %sw.bb4

@@ -129,7 +129,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %1 = phi i8 [ %2, %for.inc ], [ %0, %entry ]
   %str.addr.05 = phi ptr [ %incdec.ptr, %for.inc ], [ %str, %entry ]
   %conv = sext i8 %1 to i32
-  %cmp = icmp eq i32 %conv, %ch
+  %cmp = icmp eq i32 %ch, %conv
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body

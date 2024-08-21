@@ -1780,7 +1780,7 @@ entry:
   %div1.lhs.trunc.i.i = and i32 %0, 30
   %div123.i.i = xor i32 %div1.lhs.trunc.i.i, 30
   %shl.i = shl nuw nsw i32 1, %div123.i.i
-  %cmp.i = icmp eq i32 %shl.i, %samplesPerPixel
+  %cmp.i = icmp eq i32 %samplesPerPixel, %shl.i
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3485,7 +3485,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorIN4pbrt10MLTSampler13PrimaryS
 entry:
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %nStored.i, align 8
-  %cmp = icmp ugt i64 %0, %n
+  %cmp = icmp ult i64 %n, %0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
@@ -3514,7 +3514,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10MLTSampler13PrimarySampleEE17dealloc
   br label %if.end24
 
 if.else:                                          ; preds = %entry
-  %cmp11 = icmp ult i64 %0, %n
+  %cmp11 = icmp ugt i64 %n, %0
   br i1 %cmp11, label %if.then12, label %if.end24
 
 if.then12:                                        ; preds = %if.else

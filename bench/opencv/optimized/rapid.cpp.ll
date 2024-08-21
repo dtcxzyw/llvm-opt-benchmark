@@ -718,8 +718,8 @@ _ZN2cv4Mat_INS_3VecIiLi3EEEEclEi.exit:            ; preds = %119, %113, %106
   %262 = sitofp i32 %260 to double
   %263 = sitofp i32 %258 to double
   %264 = sitofp i32 %259 to double
-  %265 = fneg double %263
-  %266 = fmul double %265, %264
+  %265 = fneg double %264
+  %266 = fmul double %263, %265
   %267 = call noundef double @llvm.fmuladd.f64(double %261, double %262, double %266)
   %268 = fcmp ult double %267, 0.000000e+00
   br i1 %268, label %273, label %.thread
@@ -1282,7 +1282,7 @@ _ZNSt6vectorIN2cv3VecIfLi2EEESaIS2_EE7reserveEm.exit.i: ; preds = %.noexc59
   %indvars.iv.i.i = phi i64 [ %149, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %153 ]
   %150 = getelementptr inbounds float, ptr %141, i64 %indvars.iv.i.i
   %151 = load float, ptr %150, align 4
-  %152 = fcmp ugt float %151, %139
+  %152 = fcmp ult float %139, %151
   br i1 %152, label %.critedge.loopexit.split.loop.exit9.i.i, label %153
 
 153:                                              ; preds = %.lr.ph.i.i
@@ -1317,10 +1317,10 @@ _ZN2cv5rapid16Contour3DSampler9advanceToEf.exit.i: ; preds = %153, %.critedge.lo
   %.sroa.065.4.vec.extract.i = extractelement <2 x float> %164, i64 1
   %168 = shufflevector <2 x float> %164, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %169 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %168)
-  %.not.i.i = icmp sge i32 %167, %1
+  %.not.i.i = icmp sle i32 %1, %167
   %170 = icmp slt i32 %167, %135
   %or.cond.not77.not80 = select i1 %.not.i.i, i1 %170, i1 false
-  %.not8.i.i = icmp sge i32 %169, %1
+  %.not8.i.i = icmp sle i32 %1, %169
   %or.cond73.not78 = and i1 %or.cond.not77.not80, %.not8.i.i
   %171 = icmp slt i32 %169, %136
   %or.cond75 = select i1 %or.cond73.not78, i1 %171, i1 false
@@ -2251,7 +2251,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %238 = ptrtoint ptr %236 to i64
   %239 = sub i64 %237, %238
   %240 = ashr exact i64 %239, 2
-  %241 = icmp ult i64 %240, %233
+  %241 = icmp ugt i64 %233, %240
   br i1 %241, label %242, label %244
 
 242:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -2268,7 +2268,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 244:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %245 = icmp ugt i64 %240, %233
+  %245 = icmp ult i64 %233, %240
   br i1 %245, label %246, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 246:                                              ; preds = %244

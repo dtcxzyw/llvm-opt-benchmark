@@ -7830,7 +7830,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = phi float [ %sub, %if.then ], [ %2, %entry ]
   %counter = getelementptr inbounds i8, ptr %stats, i64 20
   %4 = load float, ptr %counter, align 4, !tbaa !502
-  %add = fadd nsz float %4, %dtime
+  %add = fadd nsz float %dtime, %4
   store float %add, ptr %counter, align 4, !tbaa !502
   %cmp10 = fcmp nsz ogt float %add, 0.000000e+00
   br i1 %cmp10, label %if.then11, label %if.end24
@@ -7888,7 +7888,7 @@ if.end42:                                         ; preds = %if.then40, %if.end3
   %11 = phi float [ %sub33, %if.then40 ], [ %10, %if.end38 ]
   %counter43 = getelementptr inbounds i8, ptr %stats, i64 48
   %12 = load float, ptr %counter43, align 4, !tbaa !502
-  %add44 = fadd nsz float %12, %dtime
+  %add44 = fadd nsz float %dtime, %12
   store float %add44, ptr %counter43, align 4, !tbaa !502
   %cmp47 = fcmp nsz ogt float %add44, 0.000000e+00
   br i1 %cmp47, label %if.then48, label %if.end58
@@ -8415,7 +8415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %profiler_print_interval.0 = select i1 %cmp, float %call, float 3.000000e+00
   %profiler_interval = getelementptr inbounds i8, ptr %this, i64 648
   %6 = load float, ptr %profiler_interval, align 8, !tbaa !40
-  %add.i = fadd nsz float %6, %dtime
+  %add.i = fadd nsz float %dtime, %6
   %cmp.i = fcmp nsz uge float %add.i, %profiler_print_interval.0
   %sub.i = fsub nsz float %add.i, %profiler_print_interval.0
   %storemerge.i = select i1 %cmp.i, float %sub.i, float %add.i
@@ -8893,7 +8893,7 @@ land.lhs.true38:                                  ; preds = %if.end33
   br i1 %cmp, label %land.lhs.true45, label %if.then39
 
 if.then39:                                        ; preds = %land.lhs.true38
-  %add = fadd nsz float %28, %dtime
+  %add = fadd nsz float %dtime, %28
   store float %add, ptr %jump_timer_up, align 8, !tbaa !537
   br label %land.lhs.true45
 
@@ -8904,7 +8904,7 @@ land.lhs.true45:                                  ; preds = %if.then39, %land.lh
   br i1 %cmp47, label %if.end52, label %if.then48
 
 if.then48:                                        ; preds = %land.lhs.true45
-  %add51 = fadd nsz float %29, %dtime
+  %add51 = fadd nsz float %dtime, %29
   store float %add51, ptr %jump_timer_down, align 4, !tbaa !538
   br label %if.end52
 
@@ -11605,7 +11605,7 @@ cleanup.done266:                                  ; preds = %if.then.i.i654, %_Z
 if.then271:                                       ; preds = %cleanup.done266
   %repeat_place_timer = getelementptr inbounds i8, ptr %this, i64 480
   %161 = load float, ptr %repeat_place_timer, align 8, !tbaa !676
-  %add = fadd nsz float %161, %dtime
+  %add = fadd nsz float %dtime, %161
   store float %add, ptr %repeat_place_timer, align 8, !tbaa !676
   br label %if.end276
 
@@ -21315,7 +21315,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.then
 if.else:                                          ; preds = %invoke.cont
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %8 = load float, ptr %second, align 8, !tbaa !944
-  %add = fadd nsz float %8, %value
+  %add = fadd nsz float %value, %8
   store float %add, ptr %second, align 8, !tbaa !944
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
 
@@ -30092,7 +30092,7 @@ if.then45:                                        ; preds = %if.end43
   %mul.i97 = fmul nsz float %call.i.i96, 0x3FF605A900000000
   %m_cache_joystick_frustum_sensitivity = getelementptr inbounds i8, ptr %this, i64 664
   %38 = load float, ptr %m_cache_joystick_frustum_sensitivity, align 8, !tbaa !82
-  %mul48 = fmul nsz float %38, %dtime
+  %mul48 = fmul nsz float %dtime, %38
   %mul49 = fmul nsz float %mul.i97, %mul48
   %39 = load ptr, ptr %this, align 8, !tbaa !152
   %joystick = getelementptr inbounds i8, ptr %39, i64 8
@@ -37690,7 +37690,7 @@ if.end250:                                        ; preds = %if.end250thread-pre
 
 if.then255:                                       ; preds = %if.end250
   %162 = load float, ptr %dig_time257, align 8, !tbaa !671
-  %add = fadd nsz float %162, %dtime
+  %add = fadd nsz float %dtime, %162
   store float %add, ptr %dig_time257, align 8, !tbaa !671
   br label %if.end264
 

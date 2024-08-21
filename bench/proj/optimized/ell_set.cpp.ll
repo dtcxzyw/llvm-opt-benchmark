@@ -1046,8 +1046,8 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %17, %17
   %78 = call double @sin(double noundef %72) #13
   %79 = getelementptr inbounds i8, ptr %0, i64 216
   %80 = load double, ptr %79, align 8
-  %81 = fneg double %80
-  %82 = fmul double %78, %81
+  %81 = fneg double %78
+  %82 = fmul double %80, %81
   %83 = call double @llvm.fmuladd.f64(double %82, double %78, double 1.000000e+00)
   %84 = fcmp oeq double %83, 0.000000e+00
   br i1 %84, label %85, label %87
@@ -1089,8 +1089,8 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %17, %17
   %108 = tail call double @sin(double noundef %107) #13
   %109 = getelementptr inbounds i8, ptr %0, i64 216
   %110 = load double, ptr %109, align 8
-  %111 = fneg double %110
-  %112 = fmul double %108, %111
+  %111 = fneg double %108
+  %112 = fmul double %110, %111
   %113 = tail call double @llvm.fmuladd.f64(double %112, double %108, double 1.000000e+00)
   %114 = fcmp oeq double %113, 0.000000e+00
   br i1 %114, label %115, label %117

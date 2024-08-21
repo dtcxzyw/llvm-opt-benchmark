@@ -5868,13 +5868,13 @@ Ga2_ManCnfCompute.exit68:                         ; preds = %Ga2_ManCnfCompute.e
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 
@@ -9095,7 +9095,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %346 = and i32 %345, 1
   %347 = xor i32 %346, %341
   store i32 %347, ptr %33, align 4
-  %348 = icmp eq i32 %346, %341
+  %348 = icmp eq i32 %341, %346
   br i1 %348, label %1040, label %349
 
 349:                                              ; preds = %318
@@ -9524,7 +9524,7 @@ Vec_IntFill.exit:                                 ; preds = %543, %Vec_IntGrow.e
   %571 = getelementptr inbounds i8, ptr %566, i64 8
   %572 = load i32, ptr %571, align 8
   %573 = shl nsw i32 %572, 6
-  %574 = icmp sgt i32 %573, %570
+  %574 = icmp slt i32 %570, %573
   br i1 %574, label %Prf_ManGrow.exit, label %575
 
 575:                                              ; preds = %567

@@ -8317,7 +8317,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_110ParseIndexERKNSt7__cxx111
 27:                                               ; preds = %3
   %28 = load i64, ptr %4, align 8
   %29 = trunc i64 %28 to i32
-  %.not = icmp ult i32 %29, %2
+  %.not = icmp ugt i32 %2, %29
   br i1 %.not, label %52, label %30
 
 30:                                               ; preds = %27

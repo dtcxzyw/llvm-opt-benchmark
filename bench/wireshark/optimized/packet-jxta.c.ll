@@ -2790,7 +2790,7 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   %107 = load i32, ptr @hf_jxta_element1_namespaceid, align 4
   %108 = zext i8 %106 to i32
   %109 = tail call ptr @proto_tree_add_uint(ptr noundef %103, i32 noundef %107, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %108) #12
-  %110 = icmp ult i32 %108, %3
+  %110 = icmp ugt i32 %3, %108
   br i1 %110, label %111, label %115
 
 111:                                              ; preds = %99
@@ -3098,7 +3098,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   %120 = load i32, ptr @hf_jxta_element2_namespaceid, align 4
   %121 = zext i16 %119 to i32
   %122 = tail call ptr @proto_tree_add_uint(ptr noundef %112, i32 noundef %120, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef %121) #12
-  %123 = icmp ult i32 %121, %3
+  %123 = icmp ugt i32 %3, %121
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %108
@@ -3123,7 +3123,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   %135 = load i32, ptr @hf_jxta_element2_nameid, align 4
   %136 = zext i16 %133 to i32
   %137 = tail call ptr @proto_tree_add_uint(ptr noundef %112, i32 noundef %135, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef %136) #12
-  %138 = icmp ult i32 %136, %3
+  %138 = icmp ugt i32 %3, %136
   br i1 %138, label %139, label %143
 
 139:                                              ; preds = %134
@@ -3159,7 +3159,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   %156 = load i32, ptr @hf_jxta_element2_mimeid, align 4
   %157 = zext i16 %155 to i32
   %158 = tail call ptr @proto_tree_add_uint(ptr noundef %112, i32 noundef %156, ptr noundef %0, i32 noundef %.0223, i32 noundef 2, i32 noundef %157) #12
-  %159 = icmp ult i32 %157, %3
+  %159 = icmp ugt i32 %3, %157
   br i1 %159, label %160, label %168
 
 160:                                              ; preds = %154
@@ -3194,7 +3194,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   %175 = load i32, ptr @hf_jxta_element2_encodingid, align 4
   %176 = zext i16 %174 to i32
   %177 = tail call ptr @proto_tree_add_uint(ptr noundef %112, i32 noundef %175, ptr noundef %0, i32 noundef %.1224, i32 noundef 2, i32 noundef %176) #12
-  %178 = icmp ult i32 %176, %3
+  %178 = icmp ugt i32 %3, %176
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %173

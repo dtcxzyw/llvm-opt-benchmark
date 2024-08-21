@@ -14,7 +14,7 @@ define dso_local noundef ptr @bsearch_arg(ptr noundef %0, ptr noundef %1, i64 no
   %.01822 = phi i32 [ %18, %14 ], [ %7, %6 ]
   %8 = ashr i32 %.01822, 1
   %9 = sext i32 %8 to i64
-  %10 = mul i64 %9, %3
+  %10 = mul i64 %3, %9
   %11 = getelementptr i8, ptr %.01723, i64 %10
   %12 = tail call i32 %4(ptr noundef %0, ptr noundef %11, ptr noundef %5) #1
   %13 = icmp eq i32 %12, 0

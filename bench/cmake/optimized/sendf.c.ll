@@ -63,7 +63,7 @@ define dso_local noundef i32 @Curl_write(ptr noundef %0, i32 noundef %1, ptr nou
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %.pre, i64 396
   %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   %11 = zext i1 %10 to i32
   br label %._crit_edge
 
@@ -1216,13 +1216,13 @@ define dso_local i32 @Curl_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 396
   %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, %1
+  %11 = icmp eq i32 %1, %10
   %12 = zext i1 %11 to i32
   store i64 0, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 1676
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %. = tail call i64 @llvm.umin.i64(i64 %15, i64 %3)
+  %. = tail call i64 @llvm.umin.i64(i64 %3, i64 %15)
   %16 = getelementptr inbounds i8, ptr %8, i64 400
   %17 = zext i1 %11 to i64
   %18 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 %17
@@ -1360,7 +1360,7 @@ get_max_body_write_len.exit:                      ; preds = %45
   %49 = sub nsw i64 %47, %48
   %..i = tail call i64 @llvm.smax.i64(i64 %49, i64 0)
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %..i)
-  %spec.select93 = tail call i64 @llvm.umin.i64(i64 %..i, i64 %4)
+  %spec.select93 = tail call i64 @llvm.umin.i64(i64 %4, i64 %..i)
   %.not106 = icmp ugt i64 %..i, %4
   br i1 %.not106, label %52, label %50
 

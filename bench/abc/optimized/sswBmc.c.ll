@@ -316,13 +316,13 @@ define noundef ptr @Ssw_BmcGetCounterExample(ptr nocapture noundef readonly %0, 
   %31 = add nsw i32 %30, 1
   %32 = getelementptr inbounds i8, ptr %.val32, i64 4
   %33 = load i32, ptr %32, align 4
-  %.not.i.not = icmp sgt i32 %33, %30
+  %.not.i.not = icmp slt i32 %30, %33
   br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %34
 
 34:                                               ; preds = %.lr.ph
   %35 = load i32, ptr %.val32, align 8
   %36 = shl nsw i32 %35, 1
-  %.not39 = icmp sgt i32 %36, %30
+  %.not39 = icmp slt i32 %30, %36
   %.not.i.i.not = icmp sgt i32 %35, %30
   br i1 %.not39, label %49, label %37
 
@@ -559,13 +559,13 @@ Abc_Clock.exit:                                   ; preds = %43, %46
   %58 = add nsw i32 %57, 1
   %59 = getelementptr inbounds i8, ptr %.val69, i64 4
   %60 = load i32, ptr %59, align 4
-  %.not.i.not = icmp sgt i32 %60, %57
+  %.not.i.not = icmp slt i32 %57, %60
   br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %61
 
 61:                                               ; preds = %.lr.ph
   %62 = load i32, ptr %.val69, align 8
   %63 = shl nsw i32 %62, 1
-  %.not91 = icmp sgt i32 %63, %57
+  %.not91 = icmp slt i32 %57, %63
   %.not.i.i90.not = icmp sgt i32 %62, %57
   br i1 %.not91, label %76, label %64
 
@@ -665,13 +665,13 @@ Vec_PtrFillExtra.exit:                            ; preds = %.lr.ph, %._crit_edg
   %104 = add nsw i32 %.val84, 1
   %105 = getelementptr inbounds i8, ptr %.val83, i64 4
   %106 = load i32, ptr %105, align 4
-  %.not.i.not.i.i = icmp sgt i32 %106, %.val84
+  %.not.i.not.i.i = icmp slt i32 %.val84, %106
   br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.exit, label %107
 
 107:                                              ; preds = %Vec_PtrFillExtra.exit
   %108 = load i32, ptr %.val83, align 8
   %109 = shl nsw i32 %108, 1
-  %.not.i.i = icmp sgt i32 %109, %.val84
+  %.not.i.i = icmp slt i32 %.val84, %109
   %.not.i.i.not.i.i = icmp sgt i32 %108, %.val84
   br i1 %.not.i.i, label %122, label %110
 
@@ -923,13 +923,13 @@ declare void @Ssw_FrmStop(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @Vec_PtrFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

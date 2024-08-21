@@ -167,25 +167,25 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end3
   %indvars.iv.i = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next.i, %for.inc.i ]
   %add.ptr.i = getelementptr inbounds %struct.ReorderingScheme, ptr @_ZL7Schemes, i64 %indvars.iv.i
   %5 = load i8, ptr %add.ptr.i, align 8
-  %cmp3.i = icmp eq i8 %5, %3
+  %cmp3.i = icmp eq i8 %3, %5
   br i1 %cmp3.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %outLevel5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %6 = load i8, ptr %outLevel5.i, align 8
-  %cmp7.i = icmp eq i8 %6, %4
+  %cmp7.i = icmp eq i8 %4, %6
   br i1 %cmp7.i, label %land.lhs.true8.i, label %for.inc.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %inOrder9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %7 = load i32, ptr %inOrder9.i, align 4
-  %cmp10.i = icmp eq i32 %7, %inOrder
+  %cmp10.i = icmp eq i32 %inOrder, %7
   br i1 %cmp10.i, label %land.lhs.true11.i, label %for.inc.i
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true8.i
   %outOrder12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %8 = load i32, ptr %outOrder12.i, align 4
-  %cmp13.i = icmp eq i32 %8, %outOrder
+  %cmp13.i = icmp eq i32 %outOrder, %8
   br i1 %cmp13.i, label %if.end38, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true11.i, %land.lhs.true8.i, %land.lhs.true.i, %for.body.i
@@ -271,7 +271,7 @@ if.then67:                                        ; preds = %for.body
   %18 = load ptr, ptr %pDestLength, align 8
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %srcSize.i, align 4
-  %cmp1.i = icmp ult i32 %20, %19
+  %cmp1.i = icmp ugt i32 %19, %20
   br i1 %cmp1.i, label %if.then2.i78, label %if.end.if.end14_crit_edge.i
 
 if.end.if.end14_crit_edge.i:                      ; preds = %if.then67
@@ -347,7 +347,7 @@ if.else:                                          ; preds = %if.then77
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread, %for.end, %land.lhs.true, %if.else, %if.then79, %if.then49, %if.end38
-  %cmp83.not = icmp eq ptr %pBiDiTransform.addr.0, %pBiDiTransform
+  %cmp83.not = icmp eq ptr %pBiDiTransform, %pBiDiTransform.addr.0
   br i1 %cmp83.not, label %if.else85, label %if.then84
 
 if.then84:                                        ; preds = %cleanup
@@ -430,7 +430,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %srcSize = getelementptr inbounds i8, ptr %pTransform, i64 36
   %0 = load i32, ptr %srcSize, align 4
-  %cmp1 = icmp ult i32 %0, %newSize
+  %cmp1 = icmp ugt i32 %newSize, %0
   br i1 %cmp1, label %if.then2, label %if.end.if.end14_crit_edge
 
 if.end.if.end14_crit_edge:                        ; preds = %if.end
@@ -539,7 +539,7 @@ if.then14:                                        ; preds = %if.else
   %13 = load i32, ptr %12, align 4
   %srcSize.i = getelementptr inbounds i8, ptr %pTransform, i64 36
   %14 = load i32, ptr %srcSize.i, align 4
-  %cmp1.i = icmp ult i32 %14, %13
+  %cmp1.i = icmp ugt i32 %13, %14
   br i1 %cmp1.i, label %if.then2.i, label %if.end.if.end14_crit_edge.i
 
 if.end.if.end14_crit_edge.i:                      ; preds = %if.then14

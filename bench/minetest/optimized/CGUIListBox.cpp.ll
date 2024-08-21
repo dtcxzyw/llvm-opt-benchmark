@@ -1130,7 +1130,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %id
+  %cmp.not = icmp ult i32 %id, %conv.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1156,7 +1156,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %id
+  %cmp.not = icmp ult i32 %id, %conv.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1192,7 +1192,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %id
+  %cmp.not = icmp ult i32 %id, %conv.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1463,7 +1463,7 @@ if.end:                                           ; preds = %lor.lhs.false5
 
 if.end16:                                         ; preds = %if.end
   %5 = xor i32 %2, -1
-  %sub20 = add i32 %5, %ypos
+  %sub20 = add i32 %ypos, %5
   %ScrollBar = getelementptr inbounds i8, ptr %this, i64 384
   %6 = load ptr, ptr %ScrollBar, align 8, !tbaa !53
   %vtable = load ptr, ptr %6, align 8, !tbaa !3
@@ -1574,7 +1574,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %id
+  %cmp.not = icmp ult i32 %id, %conv.i
   %spec.select = select i1 %cmp.not, i32 %id, i32 -1
   %2 = getelementptr inbounds i8, ptr %this, i64 344
   store i32 %spec.select, ptr %2, align 8
@@ -2665,7 +2665,7 @@ lor.lhs.false:                                    ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !43
   %conv.i = trunc i64 %0 to i32
-  %cmp2.not = icmp ugt i32 %conv.i, %begin
+  %cmp2.not = icmp ult i32 %begin, %conv.i
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -2897,7 +2897,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %Parent = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %Parent, align 8, !tbaa !58
   %tobool.not = icmp eq ptr %7, null
-  %brmerge = or i1 %tobool.not, %onlyHover
+  %brmerge = or i1 %onlyHover, %tobool.not
   br i1 %brmerge, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %if.end
@@ -4203,7 +4203,7 @@ land.lhs.true2:                                   ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp5 = icmp ugt i32 %conv.i, %icon
+  %cmp5 = icmp ult i32 %icon, %conv.i
   br i1 %cmp5, label %land.lhs.true6, label %if.end38
 
 land.lhs.true6:                                   ; preds = %land.lhs.true2
@@ -4575,7 +4575,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %index
+  %cmp.not = icmp ult i32 %index, %conv.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -4894,8 +4894,8 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.not = icmp ugt i32 %conv.i, %index1
-  %cmp4.not = icmp ugt i32 %conv.i, %index2
+  %cmp.not = icmp ult i32 %index1, %conv.i
+  %cmp4.not = icmp ult i32 %index2, %conv.i
   %or.cond = and i1 %cmp.not, %cmp4.not
   br i1 %or.cond, label %if.end, label %return
 
@@ -5006,7 +5006,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ule i32 %conv.i, %index
+  %cmp = icmp uge i32 %index, %conv.i
   %2 = icmp ugt i32 %colorType, 3
   %or.cond12 = or i1 %2, %cmp
   br i1 %or.cond12, label %return, label %if.end
@@ -5053,7 +5053,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ule i32 %conv.i, %index
+  %cmp = icmp uge i32 %index, %conv.i
   %2 = icmp ugt i32 %colorType, 3
   %or.cond7 = or i1 %2, %cmp
   br i1 %or.cond7, label %return, label %if.end
@@ -5081,7 +5081,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ule i32 %conv.i, %index
+  %cmp = icmp uge i32 %index, %conv.i
   %2 = icmp ugt i32 %colorType, 3
   %or.cond7 = or i1 %2, %cmp
   br i1 %or.cond7, label %return, label %if.end
@@ -5111,7 +5111,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 72
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp = icmp ule i32 %conv.i, %index
+  %cmp = icmp uge i32 %index, %conv.i
   %2 = icmp ugt i32 %colorType, 3
   %or.cond7 = or i1 %2, %cmp
   br i1 %or.cond7, label %return, label %if.end
@@ -6862,7 +6862,7 @@ while.body:                                       ; preds = %if.end97, %while.bo
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(308) %0) #22
-  %brmerge = or i1 %call10, %includeInvisible
+  %brmerge = or i1 %includeInvisible, %call10
   br i1 %brmerge, label %land.lhs.true, label %if.end97
 
 land.lhs.true:                                    ; preds = %while.body
@@ -6880,7 +6880,7 @@ if.then19:                                        ; preds = %lor.lhs.false14, %l
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 144
   %3 = load ptr, ptr %vfn22, align 8
   %call23 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(308) %.pre) #22
-  %brmerge140 = or i1 %call23, %includeDisabled
+  %brmerge140 = or i1 %includeDisabled, %call23
   %.pre189 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !75
   br i1 %brmerge140, label %if.then26, label %if.end88
 
@@ -6894,7 +6894,7 @@ land.lhs.true29:                                  ; preds = %if.then26
   %IsTabGroup.i155 = getelementptr inbounds i8, ptr %.pre189, i64 276
   %5 = load i8, ptr %IsTabGroup.i155, align 4, !tbaa !69, !range !70, !noundef !71
   %tobool.i156 = icmp ne i8 %5, 0
-  %6 = xor i1 %tobool.i156, %group
+  %6 = xor i1 %group, %tobool.i156
   br i1 %6, label %if.end88, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true29
@@ -6918,7 +6918,7 @@ if.then44:                                        ; preds = %if.end42
   %cmp48 = icmp sgt i32 %7, %9
   %cmp50 = icmp slt i32 %7, %startOrder
   %10 = and i1 %cmp50, %cmp48
-  %or.cond141 = and i1 %10, %reverse
+  %or.cond141 = and i1 %reverse, %10
   br i1 %or.cond141, label %if.end70.sink.split, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %if.then44

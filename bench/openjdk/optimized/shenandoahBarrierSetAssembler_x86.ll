@@ -2456,13 +2456,13 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %8
 
 21:                                               ; preds = %19
   %.sroa.0.0.copyload.i = load i32, ptr %5, align 8
-  %.not = icmp eq i32 %.sroa.0.0.copyload.i, %4
+  %.not = icmp eq i32 %4, %.sroa.0.0.copyload.i
   br i1 %.not, label %.critedge, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i64 = load i32, ptr %23, align 4
-  %.not92 = icmp eq i32 %.sroa.0.0.copyload.i64, %4
+  %.not92 = icmp eq i32 %4, %.sroa.0.0.copyload.i64
   br i1 %.not92, label %.critedge, label %32
 
 .critedge:                                        ; preds = %21, %22
@@ -2472,14 +2472,14 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %8
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %29 = icmp ugt i32 %28, 31
-  %.not93 = icmp eq i32 %.sroa.0.0.copyload.i, %6
+  %.not93 = icmp eq i32 %6, %.sroa.0.0.copyload.i
   %or.cond = select i1 %29, i1 true, i1 %.not93
   br i1 %or.cond, label %.critedge2, label %30
 
 30:                                               ; preds = %.critedge
   %31 = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i66 = load i32, ptr %31, align 4
-  %.not94 = icmp eq i32 %.sroa.0.0.copyload.i66, %6
+  %.not94 = icmp eq i32 %6, %.sroa.0.0.copyload.i66
   br i1 %.not94, label %.critedge2, label %32
 
 .critedge2:                                       ; preds = %.critedge, %30

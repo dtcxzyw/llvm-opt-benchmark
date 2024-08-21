@@ -48,7 +48,7 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
 
 22:                                               ; preds = %19
   %23 = zext nneg i32 %17 to i64
-  %24 = add i64 %23, %1
+  %24 = add i64 %1, %23
   %25 = getelementptr inbounds i8, ptr %9, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %20
@@ -63,7 +63,7 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
 
 33:                                               ; preds = %29
   %34 = zext nneg i32 %17 to i64
-  %35 = add i64 %34, %1
+  %35 = add i64 %1, %34
   br label %36
 
 36:                                               ; preds = %47, %33

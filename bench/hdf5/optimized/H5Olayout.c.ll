@@ -160,7 +160,7 @@ define internal ptr @H5O__layout_decode(ptr noundef %0, ptr nocapture readnone %
 17:                                               ; preds = %6
   %18 = getelementptr inbounds i8, ptr %11, i64 1912
   store i32 -1, ptr %18, align 8
-  %19 = icmp ult ptr %.ptr870, %5
+  %19 = icmp ugt ptr %5, %.ptr870
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %17

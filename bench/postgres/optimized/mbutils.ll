@@ -467,7 +467,7 @@ define dso_local zeroext i1 @pg_verify_mbstr(i32 noundef %0, ptr noundef %1, i32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #12
   %.not = icmp eq i32 %8, %2
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %13, label %9
 
 9:                                                ; preds = %4
@@ -759,7 +759,7 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
   %8 = sext i32 %2 to i64
   %9 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %8) #15
   %10 = icmp eq ptr %9, null
-  %brmerge = or i1 %10, %3
+  %brmerge = or i1 %3, %10
   %.mux = select i1 %10, i32 %2, i32 -1
   br i1 %brmerge, label %.loopexit, label %11
 
@@ -871,7 +871,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = load ptr, ptr @DatabaseEncoding, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   %10 = icmp eq i32 %2, 0
   %or.cond = or i1 %10, %9
   br i1 %or.cond, label %11, label %20
@@ -946,7 +946,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   %44 = load ptr, ptr @ClientEncoding, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %46, %2
+  %47 = icmp eq i32 %2, %46
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %43
@@ -1029,7 +1029,7 @@ define dso_local ptr @pg_server_to_client(ptr noundef %0, i32 noundef %1) local_
   %8 = load ptr, ptr @DatabaseEncoding, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, %5
+  %11 = icmp eq i32 %5, %10
   %12 = icmp eq i32 %5, 0
   %or.cond.i = or i1 %12, %11
   br i1 %or.cond.i, label %pg_server_to_any.exit, label %13
@@ -1071,7 +1071,7 @@ define dso_local ptr @pg_server_to_any(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = load ptr, ptr @DatabaseEncoding, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   %10 = icmp eq i32 %2, 0
   %or.cond = or i1 %10, %9
   br i1 %or.cond, label %pg_verify_mbstr.exit, label %11
@@ -1099,7 +1099,7 @@ define dso_local ptr @pg_server_to_any(ptr noundef %0, i32 noundef %1, i32 nound
   %23 = load ptr, ptr @ClientEncoding, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, %2
+  %26 = icmp eq i32 %2, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %22
@@ -1962,7 +1962,7 @@ define dso_local zeroext i1 @pg_verifymbstr(ptr noundef %0, i32 noundef %1, i1 n
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #12
   %.not.i = icmp eq i32 %10, %1
-  %brmerge.i = or i1 %.not.i, %2
+  %brmerge.i = or i1 %2, %.not.i
   br i1 %brmerge.i, label %pg_verify_mbstr.exit, label %11
 
 11:                                               ; preds = %3

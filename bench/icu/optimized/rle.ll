@@ -868,7 +868,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end6
-  %cmp13 = icmp sgt i32 %or, %tgtLen
+  %cmp13 = icmp slt i32 %tgtLen, %or
   br i1 %cmp13, label %return.sink.split, label %for.body
 
 for.body:                                         ; preds = %if.end12, %for.inc51
@@ -988,7 +988,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end6
-  %cmp13 = icmp sgt i32 %or, %tgtLen
+  %cmp13 = icmp slt i32 %tgtLen, %or
   br i1 %cmp13, label %return.sink.split, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end12

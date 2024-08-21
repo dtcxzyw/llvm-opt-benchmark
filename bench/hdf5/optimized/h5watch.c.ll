@@ -337,7 +337,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 ._crit_edge.i:                                    ; preds = %69, %.preheader.i
   %71 = load i32, ptr @H5_optind, align 4
-  %.not7.i = icmp slt i32 %71, %0
+  %.not7.i = icmp sgt i32 %0, %71
   br i1 %.not7.i, label %parse_command_line.exit, label %72
 
 72:                                               ; preds = %._crit_edge.i
@@ -1316,7 +1316,7 @@ define internal fastcc i32 @slicendump(i64 noundef %0, ptr nocapture noundef rea
   store i64 %39, ptr %40, align 8
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next71 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %5
+  %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph67
 
 ._crit_edge:                                      ; preds = %.lr.ph67, %27

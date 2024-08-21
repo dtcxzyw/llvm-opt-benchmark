@@ -49,7 +49,7 @@ define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr nocapture nounde
 entry:
   %alloc = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8
-  %cmp = icmp eq i64 %0, %num_bytes
+  %cmp = icmp eq i64 %num_bytes, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -58,7 +58,7 @@ if.end:                                           ; preds = %entry
   %2 = getelementptr i8, ptr %r, i64 24
   %r.val14 = load i64, ptr %2, align 8
   %sub.i = sub i64 %r.val, %r.val14
-  %cmp1 = icmp ugt i64 %sub.i, %num_bytes
+  %cmp1 = icmp ult i64 %num_bytes, %sub.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -70,7 +70,7 @@ if.end8:                                          ; preds = %if.end3
   %3 = load i64, ptr %1, align 8
   %r.val16 = load i64, ptr %2, align 8
   %4 = load ptr, ptr %r, align 8
-  %cmp.i46 = icmp ult i64 %3, %r.val16
+  %cmp.i46 = icmp ugt i64 %r.val16, %3
   br i1 %cmp.i46, label %if.then15, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %if.end8
@@ -82,8 +82,8 @@ if.end.i.lr.ph:                                   ; preds = %if.end8
 for.cond:                                         ; preds = %ring_buf_push.exit
   %add26 = add i64 %spec.select.i, %copied.048
   %add = add i64 %add26, %r.val16
-  %cmp.i = icmp ult i64 %3, %add
-  %cmp2.i = icmp ugt i64 %r.val16, %add
+  %cmp.i = icmp ugt i64 %add, %3
+  %cmp2.i = icmp ult i64 %add, %r.val16
   %or.cond = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond, label %if.then15, label %if.end.i
 
@@ -284,12 +284,12 @@ if.end23:                                         ; preds = %if.end23.lr.ph, %if
   %add27 = add i64 %6, %total_len.050
   %7 = load ptr, ptr %qss, align 8
   %8 = load i64, ptr %head_offset.i, align 8
-  %cmp.i = icmp ult i64 %8, %add27
+  %cmp.i = icmp ugt i64 %add27, %8
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end23
   %9 = load i64, ptr %ctail_offset.i, align 8
-  %cmp2.i = icmp ugt i64 %9, %add27
+  %cmp2.i = icmp ult i64 %add27, %9
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -412,7 +412,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %head_offset = getelementptr inbounds i8, ptr %qss, i64 16
   %0 = load i64, ptr %head_offset, align 8
-  %cmp.not = icmp eq i64 %0, %final_size
+  %cmp.not = icmp eq i64 %final_size, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -484,7 +484,7 @@ if.then.i:                                        ; preds = %if.end
   %1 = load i64, ptr %end.i, align 8
   %ctail_offset.i.i = getelementptr inbounds i8, ptr %qss, i64 24
   %2 = load i64, ptr %ctail_offset.i.i, align 8
-  %cmp.i.i = icmp ult i64 %2, %0
+  %cmp.i.i = icmp ugt i64 %0, %2
   %cmp1.i.i = icmp ugt i64 %1, 4611686018427387903
   %or.cond.i.i = or i1 %cmp1.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %return, label %if.end.i.i
@@ -500,7 +500,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %alloc.i.i = getelementptr inbounds i8, ptr %qss, i64 8
   %4 = load i64, ptr %alloc.i.i, align 8
   %cmp2.not.i.i = icmp ne i64 %4, 0
-  %cmp5.i.i = icmp ult i64 %2, %1
+  %cmp5.i.i = icmp ugt i64 %1, %2
   %or.cond31.i.i = and i1 %cmp5.i.i, %cmp2.not.i.i
   br i1 %or.cond31.i.i, label %if.then6.i.i, label %if.end30.i.i
 
@@ -509,7 +509,7 @@ if.then6.i.i:                                     ; preds = %land.lhs.true.i.i
   %add.i.i = add nuw nsw i64 %1, 1
   %head_offset.i.i = getelementptr inbounds i8, ptr %qss, i64 16
   %5 = load i64, ptr %head_offset.i.i, align 8
-  %cmp9.not.i.i = icmp ugt i64 %5, %1
+  %cmp9.not.i.i = icmp ult i64 %1, %5
   %spec.select.i.i = select i1 %cmp9.not.i.i, i64 %add.i.i, i64 %5
   %sub.i.i = sub i64 %spec.select.i.i, %2
   %sub15.i.i = sub i64 %4, %rem.i.i

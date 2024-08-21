@@ -256,13 +256,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 define internal fastcc void @Vec_PtrFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -771,13 +771,13 @@ Vec_PtrPush.exit:                                 ; preds = %Abc_NtkIncrementTra
   %76 = add nsw i32 %.val3.i, 1
   %77 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %78 = load i32, ptr %77, align 4
-  %.not.i93.not = icmp sgt i32 %78, %.val3.i
+  %.not.i93.not = icmp slt i32 %.val3.i, %78
   br i1 %.not.i93.not, label %Vec_IntFillExtra.exit, label %79
 
 79:                                               ; preds = %73
   %80 = load i32, ptr %75, align 8
   %81 = shl nsw i32 %80, 1
-  %.not144 = icmp sgt i32 %81, %.val3.i
+  %.not144 = icmp slt i32 %.val3.i, %81
   %.not.i.i.not = icmp sgt i32 %80, %.val3.i
   br i1 %.not144, label %94, label %82
 
@@ -878,13 +878,13 @@ Vec_IntFillExtra.exit:                            ; preds = %73, %._crit_edge.i
   %120 = add nsw i32 %.val49, 1
   %121 = getelementptr inbounds i8, ptr %.val.i64, i64 228
   %122 = load i32, ptr %121, align 4
-  %.not.i95.not = icmp sgt i32 %122, %.val49
+  %.not.i95.not = icmp slt i32 %.val49, %122
   br i1 %.not.i95.not, label %Vec_IntFillExtra.exit108, label %123
 
 123:                                              ; preds = %118
   %124 = load i32, ptr %119, align 8
   %125 = shl nsw i32 %124, 1
-  %.not147 = icmp sgt i32 %125, %.val49
+  %.not147 = icmp slt i32 %.val49, %125
   %.not.i.i96.not = icmp sgt i32 %124, %.val49
   br i1 %.not147, label %138, label %126
 
@@ -1141,13 +1141,13 @@ Vec_PtrPush.exit79:                               ; preds = %.Vec_PtrGrow.exit11
   %233 = add nsw i32 %.val3.i82, 1
   %234 = getelementptr inbounds i8, ptr %.val2.i81, i64 228
   %235 = load i32, ptr %234, align 4
-  %.not.i109.not = icmp sgt i32 %235, %.val3.i82
+  %.not.i109.not = icmp slt i32 %.val3.i82, %235
   br i1 %.not.i109.not, label %Vec_IntFillExtra.exit122, label %236
 
 236:                                              ; preds = %230
   %237 = load i32, ptr %232, align 8
   %238 = shl nsw i32 %237, 1
-  %.not137 = icmp sgt i32 %238, %.val3.i82
+  %.not137 = icmp slt i32 %.val3.i82, %238
   %.not.i.i110.not = icmp sgt i32 %237, %.val3.i82
   br i1 %.not137, label %251, label %239
 
@@ -1248,13 +1248,13 @@ Vec_IntFillExtra.exit122:                         ; preds = %230, %._crit_edge.i
   %277 = add nsw i32 %.val51, 1
   %278 = getelementptr inbounds i8, ptr %.val.i84, i64 228
   %279 = load i32, ptr %278, align 4
-  %.not.i123.not = icmp sgt i32 %279, %.val51
+  %.not.i123.not = icmp slt i32 %.val51, %279
   br i1 %.not.i123.not, label %Vec_IntFillExtra.exit136, label %280
 
 280:                                              ; preds = %275
   %281 = load i32, ptr %276, align 8
   %282 = shl nsw i32 %281, 1
-  %.not140 = icmp sgt i32 %282, %.val51
+  %.not140 = icmp slt i32 %.val51, %282
   %.not.i.i124.not = icmp sgt i32 %281, %.val51
   br i1 %.not140, label %295, label %283
 
@@ -5462,13 +5462,13 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

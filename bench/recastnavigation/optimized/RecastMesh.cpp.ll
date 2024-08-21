@@ -4275,7 +4275,7 @@ define internal fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyPtiii(ptr noca
   %116 = getelementptr inbounds i8, ptr %102, i64 4
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
-  %119 = add nuw nsw i32 %118, %3
+  %119 = add nuw nsw i32 %3, %118
   %120 = zext nneg i32 %119 to i64
   %121 = getelementptr inbounds i16, ptr %112, i64 %120
   store i16 %106, ptr %121, align 2
@@ -4283,7 +4283,7 @@ define internal fastcc noundef zeroext i1 @_ZL18buildMeshAdjacencyPtiii(ptr noca
   %123 = getelementptr inbounds i8, ptr %102, i64 6
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
-  %126 = add nuw nsw i32 %125, %3
+  %126 = add nuw nsw i32 %3, %125
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds i16, ptr %115, i64 %127
   store i16 %122, ptr %128, align 2
@@ -5625,26 +5625,26 @@ _ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread:    ; preds = %163
 
 .thread:                                          ; preds = %_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread, %179
   %.val33.i.i1618 = phi i32 [ %.val33.i.i, %179 ], [ %.val33.i.i12, %_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread ]
-  %.not31.i57.i.i = icmp slt i32 %120, %39
+  %.not31.i57.i.i = icmp sgt i32 %39, %120
   %.not32.i58.i.i = icmp sgt i32 %120, %54
   %or.cond.i59.i.i = or i1 %.not31.i57.i.i, %.not32.i58.i.i
   br i1 %or.cond.i59.i.i, label %180, label %_ZL10diagonalieiiiPKiPi.exit
 
 180:                                              ; preds = %.thread
-  %.not33.i60.i.i = icmp sle i32 %120, %39
+  %.not33.i60.i.i = icmp sge i32 %39, %120
   %181 = icmp sge i32 %120, %54
   %spec.select.i61.i.i = and i1 %.not33.i60.i.i, %181
   br i1 %spec.select.i61.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i.i
 
 .thread23:                                        ; preds = %_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread19, %179
   %.val33.i.i1625 = phi i32 [ %.val33.i.i, %179 ], [ %.val33.i.i20, %_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread19 ]
-  %.not28.i62.i.i = icmp slt i32 %.val33.i.i1625, %51
+  %.not28.i62.i.i = icmp sgt i32 %51, %.val33.i.i1625
   %.not29.i63.i.i = icmp sgt i32 %.val33.i.i1625, %.val46.pre.i
   %or.cond9.i64.i.i = or i1 %.not28.i62.i.i, %.not29.i63.i.i
   br i1 %or.cond9.i64.i.i, label %_ZL7betweenPKiS0_S0_.exit67.i.i, label %_ZL10diagonalieiiiPKiPi.exit
 
 _ZL7betweenPKiS0_S0_.exit67.i.i:                  ; preds = %.thread23
-  %.not30.i65.i.i = icmp sle i32 %.val33.i.i1625, %51
+  %.not30.i65.i.i = icmp sge i32 %51, %.val33.i.i1625
   %182 = icmp sge i32 %.val33.i.i1625, %.val46.pre.i
   %spec.select10.i66.i.i = and i1 %.not30.i65.i.i, %182
   br i1 %spec.select10.i66.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i.i
@@ -5661,30 +5661,30 @@ _ZL7betweenPKiS0_S0_.exit67.thread16.i.i:         ; preds = %_ZL7betweenPKiS0_S0
   br i1 %185, label %186, label %_ZL7betweenPKiS0_S0_.exit84.thread19.i.i
 
 186:                                              ; preds = %_ZL7betweenPKiS0_S0_.exit67.thread16.i.i
-  %.not.i73.i.i = icmp eq i32 %120, %111
+  %.not.i73.i.i = icmp eq i32 %111, %120
   br i1 %.not.i73.i.i, label %190, label %187
 
 187:                                              ; preds = %186
   %.not31.i74.i.i = icmp sgt i32 %111, %39
-  %.not32.i75.i.i = icmp slt i32 %120, %39
+  %.not32.i75.i.i = icmp sgt i32 %39, %120
   %or.cond.i76.i.i = or i1 %.not31.i74.i.i, %.not32.i75.i.i
   br i1 %or.cond.i76.i.i, label %188, label %_ZL10diagonalieiiiPKiPi.exit
 
 188:                                              ; preds = %187
   %.not33.i77.i.i = icmp sge i32 %111, %39
-  %189 = icmp sle i32 %120, %39
+  %189 = icmp sge i32 %39, %120
   %spec.select.i78.i.i = and i1 %.not33.i77.i.i, %189
   br i1 %spec.select.i78.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit84.thread19.i.i
 
 190:                                              ; preds = %186
   %.not28.i79.i.i = icmp sgt i32 %.val48.i, %51
-  %.not29.i80.i.i = icmp slt i32 %.val33.i.i15, %51
+  %.not29.i80.i.i = icmp sgt i32 %51, %.val33.i.i15
   %or.cond9.i81.i.i = or i1 %.not28.i79.i.i, %.not29.i80.i.i
   br i1 %or.cond9.i81.i.i, label %_ZL7betweenPKiS0_S0_.exit84.i.i, label %_ZL10diagonalieiiiPKiPi.exit
 
 _ZL7betweenPKiS0_S0_.exit84.i.i:                  ; preds = %190
   %.not30.i82.i.i = icmp sge i32 %.val48.i, %51
-  %191 = icmp sle i32 %.val33.i.i15, %51
+  %191 = icmp sge i32 %51, %.val33.i.i15
   %spec.select10.i83.i.i = and i1 %.not30.i82.i.i, %191
   br i1 %spec.select10.i83.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit84.thread19.i.i
 
@@ -5697,30 +5697,30 @@ _ZL7betweenPKiS0_S0_.exit84.thread19.i.i:         ; preds = %_ZL7betweenPKiS0_S0
   br i1 %194, label %195, label %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i
 
 195:                                              ; preds = %_ZL7betweenPKiS0_S0_.exit84.thread19.i.i
-  %.not.i90.i.i = icmp eq i32 %120, %111
+  %.not.i90.i.i = icmp eq i32 %111, %120
   br i1 %.not.i90.i.i, label %199, label %196
 
 196:                                              ; preds = %195
   %.not31.i91.i.i = icmp sgt i32 %111, %54
-  %.not32.i92.i.i = icmp slt i32 %120, %54
+  %.not32.i92.i.i = icmp sgt i32 %54, %120
   %or.cond.i93.i.i = or i1 %.not31.i91.i.i, %.not32.i92.i.i
   br i1 %or.cond.i93.i.i, label %197, label %_ZL10diagonalieiiiPKiPi.exit
 
 197:                                              ; preds = %196
   %.not33.i94.i.i = icmp sge i32 %111, %54
-  %198 = icmp sle i32 %120, %54
+  %198 = icmp sge i32 %54, %120
   %spec.select.i95.i.i = and i1 %.not33.i94.i.i, %198
   br i1 %spec.select.i95.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i
 
 199:                                              ; preds = %195
   %.not28.i96.i.i = icmp sgt i32 %.val48.i, %.val46.pre.i
-  %.not29.i97.i.i = icmp slt i32 %.val33.i.i15, %.val46.pre.i
+  %.not29.i97.i.i = icmp sgt i32 %.val46.pre.i, %.val33.i.i15
   %or.cond9.i98.i.i = or i1 %.not28.i96.i.i, %.not29.i97.i.i
   br i1 %or.cond9.i98.i.i, label %_ZL9intersectPKiS0_S0_S0_.exit.i, label %_ZL10diagonalieiiiPKiPi.exit
 
 _ZL9intersectPKiS0_S0_S0_.exit.i:                 ; preds = %199
   %.not30.i99.i.i = icmp sge i32 %.val48.i, %.val46.pre.i
-  %200 = icmp sle i32 %.val33.i.i15, %.val46.pre.i
+  %200 = icmp sge i32 %.val46.pre.i, %.val33.i.i15
   %spec.select10.i100.i.i = and i1 %.not30.i99.i.i, %200
   br i1 %spec.select10.i100.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i
 

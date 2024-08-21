@@ -762,7 +762,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %69, %64
   %80 = add i32 %79, 1
   store i32 %80, ptr %32, align 8
   %81 = load i32, ptr %19, align 8
-  %.not.i.i.i = icmp ugt i32 %81, %79
+  %.not.i.i.i = icmp ult i32 %79, %81
   br i1 %.not.i.i.i, label %_ZN9Node_List4pushEP4Node.exit.i, label %82
 
 82:                                               ; preds = %78
@@ -803,7 +803,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
   %100 = getelementptr inbounds ptr, ptr %94, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr %19, align 8
-  %.not.i.i106 = icmp ugt i32 %102, %93
+  %.not.i.i106 = icmp ult i32 %93, %102
   br i1 %.not.i.i106, label %_ZN10Node_Array3mapEjP4Node.exit.i, label %103
 
 103:                                              ; preds = %92
@@ -1343,7 +1343,7 @@ _ZN9VectorSet8test_setEj.exit.i.i:                ; preds = %401, %_ZN4Node7set_
   store i32 %414, ptr %412, align 8
   %415 = getelementptr inbounds i8, ptr %396, i64 8
   %416 = load i32, ptr %415, align 8
-  %.not.i.i.i.i136 = icmp ugt i32 %416, %413
+  %.not.i.i.i.i136 = icmp ult i32 %413, %416
   br i1 %.not.i.i.i.i136, label %_ZN9Node_List4pushEP4Node.exit.i.i, label %417
 
 417:                                              ; preds = %411
@@ -1472,7 +1472,7 @@ _ZN9VectorSet8test_setEj.exit.i144:               ; preds = %469, %_ZN16Unique_N
   %481 = add i32 %480, 1
   store i32 %481, ptr %462, align 8
   %482 = load i32, ptr %446, align 8
-  %.not.i.i.i146 = icmp ugt i32 %482, %480
+  %.not.i.i.i146 = icmp ult i32 %480, %482
   br i1 %.not.i.i.i146, label %_ZN9Node_List4pushEP4Node.exit.i147, label %483
 
 483:                                              ; preds = %479
@@ -1522,7 +1522,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit148:        ; preds = %_ZN9VectorSet8test_
   %502 = getelementptr inbounds ptr, ptr %496, i64 %501
   %503 = load ptr, ptr %502, align 8
   %504 = load i32, ptr %446, align 8
-  %.not.i.i150 = icmp ugt i32 %504, %495
+  %.not.i.i150 = icmp ult i32 %495, %504
   br i1 %.not.i.i150, label %_ZN10Node_Array3mapEjP4Node.exit.i152, label %505
 
 505:                                              ; preds = %494
@@ -1622,7 +1622,7 @@ _ZN9VectorSet8test_setEj.exit.i157:               ; preds = %547, %542
   %558 = add i32 %557, 1
   store i32 %558, ptr %441, align 8
   %559 = load i32, ptr %425, align 8
-  %.not.i.i.i159 = icmp ugt i32 %559, %557
+  %.not.i.i.i159 = icmp ult i32 %557, %559
   br i1 %.not.i.i.i159, label %_ZN16Unique_Node_List4pushEP4Node.exit161.sink.split, label %560
 
 560:                                              ; preds = %556
@@ -1664,7 +1664,7 @@ _ZN9VectorSet8test_setEj.exit.i163:               ; preds = %569, %564
   %580 = add i32 %579, 1
   store i32 %580, ptr %462, align 8
   %581 = load i32, ptr %446, align 8
-  %.not.i.i.i165 = icmp ugt i32 %581, %579
+  %.not.i.i.i165 = icmp ult i32 %579, %581
   br i1 %.not.i.i.i165, label %_ZN16Unique_Node_List4pushEP4Node.exit161.sink.split, label %582
 
 582:                                              ; preds = %578
@@ -1767,7 +1767,7 @@ _ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit: ; preds = %597, %599
   %637 = getelementptr inbounds ptr, ptr %631, i64 %636
   %638 = load ptr, ptr %637, align 8
   %639 = load i32, ptr %425, align 8
-  %.not.i.i169 = icmp ugt i32 %639, %630
+  %.not.i.i169 = icmp ult i32 %630, %639
   br i1 %.not.i.i169, label %_ZN10Node_Array3mapEjP4Node.exit.i171, label %640
 
 640:                                              ; preds = %629
@@ -2107,7 +2107,7 @@ _ZN9VectorSet8test_setEj.exit.i.i188:             ; preds = %817, %._crit_edge21
   store i32 %830, ptr %828, align 8
   %831 = getelementptr inbounds i8, ptr %812, i64 8
   %832 = load i32, ptr %831, align 8
-  %.not.i.i.i.i190 = icmp ugt i32 %832, %829
+  %.not.i.i.i.i190 = icmp ult i32 %829, %832
   br i1 %.not.i.i.i.i190, label %_ZN9Node_List4pushEP4Node.exit.i.i191, label %833
 
 833:                                              ; preds = %827
@@ -2960,7 +2960,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %37, %43, %54
   %79 = tail call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(52) %71) #6
   %80 = getelementptr inbounds i8, ptr %73, i64 8
   %81 = load i32, ptr %80, align 8
-  %.not.i.i = icmp ugt i32 %81, %75
+  %.not.i.i = icmp ult i32 %75, %81
   br i1 %.not.i.i, label %_ZN11PhaseValues15set_type_bottomEPK4Node.exit, label %82
 
 82:                                               ; preds = %68

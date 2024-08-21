@@ -229,7 +229,7 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr nocapture noundef
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %.not = icmp ult i64 %6, %1
+  %.not = icmp ugt i64 %1, %6
   br i1 %.not, label %7, label %48
 
 7:                                                ; preds = %2
@@ -293,7 +293,7 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr nocapture noundef
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %30 = load i8, ptr %4, align 1
   %31 = zext i8 %30 to i64
-  %.not52 = icmp ult i64 %31, %1
+  %.not52 = icmp ugt i64 %1, %31
   br i1 %.not52, label %38, label %32
 
 32:                                               ; preds = %27
@@ -648,7 +648,7 @@ define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr nocapture noundef 
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 3
-  %.not = icmp ugt i32 %12, %0
+  %.not = icmp ult i32 %0, %12
   br i1 %.not, label %13, label %28
 
 13:                                               ; preds = %8
@@ -715,13 +715,13 @@ define internal fastcc i32 @nx_dup3_from_tcb(ptr noundef %0, i32 noundef %1, i32
   br i1 %15, label %50, label %16
 
 16:                                               ; preds = %9
-  %17 = icmp ule i32 %14, %1
+  %17 = icmp uge i32 %1, %14
   %18 = icmp slt i32 %2, 0
   %or.cond = or i1 %18, %17
   br i1 %or.cond, label %50, label %19
 
 19:                                               ; preds = %16
-  %.not = icmp ugt i32 %14, %2
+  %.not = icmp ult i32 %2, %14
   %.pre = lshr i32 %2, 3
   br i1 %.not, label %._crit_edge, label %20
 
@@ -848,7 +848,7 @@ define i32 @nx_close_from_tcb(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 3
-  %.not = icmp ugt i32 %11, %1
+  %.not = icmp ult i32 %1, %11
   br i1 %.not, label %12, label %29
 
 12:                                               ; preds = %7
@@ -912,7 +912,7 @@ define i32 @nx_close(i32 noundef %0) local_unnamed_addr #1 {
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 3
-  %.not.i = icmp ugt i32 %11, %0
+  %.not.i = icmp ult i32 %0, %11
   br i1 %.not.i, label %12, label %nx_close_from_tcb.exit
 
 12:                                               ; preds = %7
@@ -971,7 +971,7 @@ define range(i32 -1, -2147483648) i32 @close(i32 noundef %0) local_unnamed_addr 
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 3
-  %.not.i.i = icmp ugt i32 %11, %0
+  %.not.i.i = icmp ult i32 %0, %11
   br i1 %.not.i.i, label %12, label %nx_close.exit.thread
 
 12:                                               ; preds = %7

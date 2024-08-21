@@ -455,7 +455,7 @@ _ZNSt16allocator_traitsISaI11SpecialBondEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.
 _ZNSt6vectorI11SpecialBondSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaI11SpecialBondEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI11SpecialBondEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 200
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorI11SpecialBondSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorI11SpecialBondSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i27
@@ -875,7 +875,7 @@ define void @_Z18makeDisulfideBondsP7t_atomsP8t_symtabPA3_fbb(ptr dead_on_unwind
 .loopexit329:                                     ; preds = %.noexc130, %.noexc129, %.noexc128, %.noexc, %.noexc133, %.noexc132, %.noexc131
   %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i.i.i, %.noexc131 ], [ %.sroa.027.1.i.i.i.i.i.i, %.noexc132 ], [ %spec.select.i.i.i.i.i.i, %.noexc133 ], [ %76, %.noexc130 ], [ %73, %.noexc129 ], [ %70, %.noexc128 ], [ %.sroa.027.035.i.i.i.i.i.i, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  %.not = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i, %48
+  %.not = icmp eq ptr %48, %.sroa.010.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit146, label %93
 
 93:                                               ; preds = %.loopexit329
@@ -1141,7 +1141,7 @@ _ZNSt12_Vector_baseISt6vectorIfSaIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   %190 = ptrtoint ptr %188 to i64
   %191 = sub i64 %189, %190
   %192 = ashr exact i64 %191, 2
-  %193 = icmp ult i64 %192, %173
+  %193 = icmp ugt i64 %173, %192
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %184
@@ -1150,7 +1150,7 @@ _ZNSt12_Vector_baseISt6vectorIfSaIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
           to label %.lr.ph469 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 196:                                              ; preds = %184
-  %197 = icmp ugt i64 %192, %173
+  %197 = icmp ult i64 %173, %192
   br i1 %197, label %198, label %.lr.ph469
 
 198:                                              ; preds = %196
@@ -2977,7 +2977,7 @@ _ZNSt16allocator_traitsISaI13DisulfideBondEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0
 _ZNSt6vectorI13DisulfideBondSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaI13DisulfideBondEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI13DisulfideBondEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ], [ %38, %.lr.ph.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 72
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorI13DisulfideBondSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorI13DisulfideBondSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i27

@@ -992,7 +992,7 @@ define void @_ZN2cv4UMat6createEiPKiiNS_14UMatUsageFlagsE(ptr noundef nonnull al
 30:                                               ; preds = %23
   %31 = getelementptr inbounds i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, %1
+  %33 = icmp eq i32 %1, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %30
@@ -1065,13 +1065,13 @@ define void @_ZN2cv4UMat6createEiPKiiNS_14UMatUsageFlagsE(ptr noundef nonnull al
 63:                                               ; preds = %._crit_edge, %57, %37, %34, %23
   %64 = getelementptr inbounds i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %2
+  %66 = icmp eq ptr %2, %65
   br i1 %66, label %.preheader, label %.loopexit
 
 .thread94:                                        ; preds = %.thread
   %67 = getelementptr inbounds i8, ptr %0, i64 48
   %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, %2
+  %69 = icmp eq ptr %2, %68
   br i1 %69, label %.lr.ph86.preheader, label %.loopexit.thread
 
 .preheader:                                       ; preds = %63
@@ -3523,7 +3523,7 @@ define void @_ZN2cv4UMatC2ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dere
           to label %_ZNK2cv4UMatclEPKNS_5RangeE.exit unwind label %50
 
 _ZNK2cv4UMatclEPKNS_5RangeE.exit:                 ; preds = %._crit_edge
-  %52 = icmp eq ptr %8, %0
+  %52 = icmp eq ptr %0, %8
   br i1 %52, label %_ZN2cv4UMataSEOS0_.exit, label %53
 
 53:                                               ; preds = %_ZNK2cv4UMatclEPKNS_5RangeE.exit
@@ -5332,7 +5332,7 @@ define noundef i32 @_ZNK2cv4UMat11checkVectorEiib(ptr nocapture noundef nonnull 
 9:                                                ; preds = %4
   %10 = and i32 %5, 16384
   %11 = icmp eq i32 %10, 0
-  %brmerge.not = and i1 %11, %3
+  %brmerge.not = and i1 %3, %11
   br i1 %brmerge.not, label %.thread, label %12
 
 12:                                               ; preds = %9
@@ -5460,7 +5460,7 @@ define void @_ZNK2cv4UMat7reshapeEiiPKi(ptr dead_on_unwind noalias writable sret
   %18 = alloca %"class.std::allocator", align 1
   %19 = getelementptr inbounds i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, %3
+  %21 = icmp eq i32 %3, %20
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %5

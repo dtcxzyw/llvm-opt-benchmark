@@ -94,7 +94,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
   %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
-  %cmp1.not.i = icmp ugt i32 %1, %guestfd
+  %cmp1.not.i = icmp ult i32 %guestfd, %1
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %return
 
 do_get_guestfd.exit:                              ; preds = %lor.lhs.false.i
@@ -125,7 +125,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
   %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
-  %cmp1.not.i = icmp ugt i32 %1, %guestfd
+  %cmp1.not.i = icmp ult i32 %guestfd, %1
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %if.else
 
 do_get_guestfd.exit:                              ; preds = %lor.lhs.false.i
@@ -162,7 +162,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
   %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
-  %cmp1.not.i = icmp ugt i32 %1, %guestfd
+  %cmp1.not.i = icmp ult i32 %guestfd, %1
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %if.else
 
 do_get_guestfd.exit:                              ; preds = %lor.lhs.false.i
@@ -197,7 +197,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
   %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
-  %cmp1.not.i = icmp ugt i32 %1, %guestfd
+  %cmp1.not.i = icmp ult i32 %guestfd, %1
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %if.else
 
 do_get_guestfd.exit:                              ; preds = %lor.lhs.false.i

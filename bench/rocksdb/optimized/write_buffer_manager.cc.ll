@@ -1060,7 +1060,7 @@ while.body.i.i.i.preheader:                       ; preds = %while.body.i.i.i.pr
 
 if.then15:                                        ; preds = %while.body.i.i.i.preheader
   %cmp.i.i.i = icmp eq ptr %cleanup, %storemerge25
-  %cmp.i3.i.i = icmp eq ptr %3, %cleanup
+  %cmp.i3.i.i = icmp eq ptr %cleanup, %3
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i3.i.i
   br i1 %or.cond.i.i, label %if.end, label %if.end8.i.i
 

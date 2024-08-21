@@ -1331,13 +1331,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %51 = add nsw i32 %1, 1
   %52 = getelementptr inbounds i8, ptr %.val25, i64 4
   %53 = load i32, ptr %52, align 4
-  %.not.i.not.i.i = icmp sgt i32 %53, %1
+  %.not.i.not.i.i = icmp slt i32 %1, %53
   br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %54
 
 54:                                               ; preds = %49
   %55 = load i32, ptr %.val25, align 8
   %56 = shl nsw i32 %55, 1
-  %.not.i.i = icmp sgt i32 %56, %1
+  %.not.i.i = icmp slt i32 %1, %56
   %.not.i.i.not.i.i = icmp sgt i32 %55, %1
   br i1 %.not.i.i, label %69, label %57
 

@@ -1039,7 +1039,7 @@ define internal fastcc ptr @_add_connection(i32 noundef %0, ptr noundef readonly
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 61440
   %31 = icmp ne i32 %30, 49152
-  %spec.select.not = or i1 %31, %7
+  %spec.select.not = or i1 %7, %31
   br i1 %spec.select.not, label %.thread, label %32
 
 32:                                               ; preds = %27
@@ -8219,7 +8219,7 @@ _handle_poll_event_error.exit:                    ; preds = %63, %67
 68:                                               ; preds = %3
   %69 = getelementptr inbounds i8, ptr %1, i64 8
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, %0
+  %71 = icmp eq i32 %0, %70
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %68
@@ -8232,7 +8232,7 @@ _handle_poll_event_error.exit:                    ; preds = %63, %67
 76:                                               ; preds = %72, %68
   %77 = getelementptr inbounds i8, ptr %1, i64 12
   %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, %0
+  %79 = icmp eq i32 %0, %78
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %76

@@ -1261,7 +1261,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %1, 1
   %add.i = add i64 %shr.i, %1
   %2 = load i64, ptr %initial.i, align 8
-  %3 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add)
+  %3 = tail call i64 @llvm.umax.i64(i64 %add, i64 %add.i)
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
   %buffer.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer.i, align 8
@@ -2757,7 +2757,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
 if.then.i48:                                      ; preds = %invoke.cont
   %shr.i.i = lshr i64 %3, 1
   %add.i.i = add nuw nsw i64 %shr.i.i, %3
-  %5 = tail call i64 @llvm.umax.i64(i64 %add.i.i, i64 %add.i)
+  %5 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add.i.i)
   %call4.i.i50 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %5) #19
           to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i49 unwind label %lpad.loopexit.split-lp
 
@@ -3089,7 +3089,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
 if.then.i135:                                     ; preds = %invoke.cont
   %shr.i.i = lshr i64 %3, 1
   %add.i.i = add nuw nsw i64 %shr.i.i, %3
-  %6 = tail call i64 @llvm.umax.i64(i64 %add.i.i, i64 %add.i)
+  %6 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add.i.i)
   %call4.i.i137 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %6) #19
           to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i136 unwind label %lpad
 
@@ -3415,7 +3415,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
 if.then.i80:                                      ; preds = %invoke.cont
   %shr.i.i = lshr i64 %3, 1
   %add.i.i = add nuw nsw i64 %shr.i.i, %3
-  %5 = tail call i64 @llvm.umax.i64(i64 %add.i.i, i64 %add.i)
+  %5 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add.i.i)
   %call4.i.i82 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %5) #19
           to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81 unwind label %lpad
 
@@ -3856,7 +3856,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
 if.then.i104:                                     ; preds = %invoke.cont
   %shr.i.i = lshr i64 %3, 1
   %add.i.i = add nuw nsw i64 %shr.i.i, %3
-  %6 = tail call i64 @llvm.umax.i64(i64 %add.i.i, i64 %add.i)
+  %6 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add.i.i)
   %call4.i.i106 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %6) #19
           to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4235,7 +4235,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
 if.then.i81:                                      ; preds = %invoke.cont
   %shr.i.i82 = lshr i64 %3, 1
   %add.i.i83 = add nuw nsw i64 %shr.i.i82, %3
-  %6 = tail call i64 @llvm.umax.i64(i64 %add.i.i83, i64 %add.i)
+  %6 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add.i.i83)
   %call4.i.i90 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %6) #19
           to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i87 unwind label %lpad
 
@@ -4304,7 +4304,7 @@ if.then.i:                                        ; preds = %invoke.cont8
   %shr.i.i = lshr i64 %18, 1
   %add.i.i = add i64 %shr.i.i, %18
   %19 = load i64, ptr %initial4.i, align 8
-  %20 = call i64 @llvm.umax.i64(i64 %add.i.i, i64 %add.i31)
+  %20 = call i64 @llvm.umax.i64(i64 %add.i31, i64 %add.i.i)
   %21 = call i64 @llvm.umax.i64(i64 %19, i64 %20)
   %call4.i.i34 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %21) #19
           to label %call4.i.i.noexc unwind label %lpad
@@ -4454,7 +4454,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
 if.then.i142:                                     ; preds = %invoke.cont
   %shr.i.i = lshr i64 %3, 1
   %add.i.i = add nuw nsw i64 %shr.i.i, %3
-  %6 = tail call i64 @llvm.umax.i64(i64 %add.i.i, i64 %add.i)
+  %6 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add.i.i)
   %call4.i.i144 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %6) #19
           to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i143 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

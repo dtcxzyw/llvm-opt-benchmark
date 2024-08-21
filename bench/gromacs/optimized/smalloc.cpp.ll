@@ -325,7 +325,7 @@ define noundef ptr @_Z19save_malloc_alignedPKcS0_immm(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %6
   %18 = tail call noundef i64 @_ZN3gmx23AlignedAllocationPolicy9alignmentEv()
-  %19 = icmp ult i64 %18, %5
+  %19 = icmp ugt i64 %5, %18
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17

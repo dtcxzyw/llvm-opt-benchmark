@@ -597,7 +597,7 @@ define { ptr, i64 } @_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369ad
   %54 = add i8 %1, -1
   %55 = icmp ult i8 %54, -93
   tail call void @llvm.assume(i1 %55)
-  %.not = icmp eq i8 %11, %1
+  %.not = icmp eq i8 %1, %11
   %.sroa.52.0. = select i1 %.not, ptr %52, ptr null
   br label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
 
@@ -1581,7 +1581,7 @@ define internal fastcc void @_ZN4ring3rsa7padding5pkcs112pkcs1_encode17hde4117c1
   %9 = load i64, ptr %8, align 8, !alias.scope !246, !noundef !4
   %10 = add i64 %9, %6
   %11 = add i64 %10, 11
-  %.not = icmp ugt i64 %11, %3
+  %.not = icmp ult i64 %3, %11
   br i1 %.not, label %12, label %13
 
 12:                                               ; preds = %4

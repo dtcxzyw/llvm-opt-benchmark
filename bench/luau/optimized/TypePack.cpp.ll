@@ -2084,7 +2084,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN4Luau11Type
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   call void %7(ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %.not.i.i.i = icmp eq ptr %3, %0
+  %.not.i.i.i = icmp eq ptr %0, %3
   br i1 %.not.i.i.i, label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEaSEOSE_.exit.i.i, label %10
 
 10:                                               ; preds = %2
@@ -3307,7 +3307,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %_Z
   %28 = getelementptr inbounds i8, ptr %.sroa.011.2.ph30, i64 16
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
-  %brmerge.demorgan = and i1 %30, %1
+  %brmerge.demorgan = and i1 %1, %30
   br i1 %brmerge.demorgan, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.lr.ph.i, %26

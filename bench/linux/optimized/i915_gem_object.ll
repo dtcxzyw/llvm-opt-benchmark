@@ -355,7 +355,7 @@ define dso_local void @i915_gem_object_set_pat_index(ptr nocapture noundef %0, i
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 63
   %6 = zext nneg i16 %5 to i32
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %46, label %8
 
 8:                                                ; preds = %2
@@ -1305,7 +1305,7 @@ define dso_local zeroext i1 @i915_gem_object_placement_possible(ptr noundef %0, 
   %25 = getelementptr inbounds i8, ptr %24, i64 144
   %26 = load i16, ptr %25, align 8
   %27 = zext i16 %26 to i32
-  %28 = icmp eq i32 %27, %1
+  %28 = icmp eq i32 %1, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = icmp eq i64 %indvars.iv.next, %9
   %30 = select i1 %28, i1 true, i1 %29

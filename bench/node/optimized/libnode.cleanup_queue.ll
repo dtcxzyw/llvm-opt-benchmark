@@ -105,7 +105,7 @@ if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.sroa.0.012.i.ptr.i.i.i, i64 16, i1 false)
   %6 = getelementptr i8, ptr %__first.coerce.pn11.i.i.i.i, i64 16
   %call.val.i8.i.i.i.i.i = load i64, ptr %6, align 8
-  %cmp.i.i9.i.i.i.i.i = icmp ult i64 %call.val.i8.i.i.i.i.i, %call.val.i.i.i.i.i
+  %cmp.i.i9.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i, %call.val.i8.i.i.i.i.i
   br i1 %cmp.i.i9.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %while.body.i.i.i.i.i
@@ -114,7 +114,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %w
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__next.sroa.0.0.i.i.i.i.i, i64 24, i1 false)
   %7 = getelementptr i8, ptr %__last.sroa.0.010.i.i.i.i.i, i64 -32
   %call.val.i.i.i.i.i.i = load i64, ptr %7, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ult i64 %call.val.i.i.i.i.i.i, %call.val.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i, %call.val.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i.i.i.i", !llvm.loop !8
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i.i.i.i, %if.else.i.i.i.i
@@ -147,7 +147,7 @@ for.body.i5.i.i.i:                                ; preds = %for.body.i5.i.i.i.p
   %__val.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %__val.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %8 = getelementptr i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -8
   %call.val.i8.i.i6.i.i.i = load i64, ptr %8, align 8
-  %cmp.i.i9.i.i7.i.i.i = icmp ult i64 %call.val.i8.i.i6.i.i.i, %__val.sroa.2.0.copyload.i.i.i.i.i
+  %cmp.i.i9.i.i7.i.i.i = icmp ugt i64 %__val.sroa.2.0.copyload.i.i.i.i.i, %call.val.i8.i.i6.i.i.i
   br i1 %cmp.i.i9.i.i7.i.i.i, label %while.body.i.i11.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i8.i.i.i"
 
 while.body.i.i11.i.i.i:                           ; preds = %for.body.i5.i.i.i, %while.body.i.i11.i.i.i
@@ -156,7 +156,7 @@ while.body.i.i11.i.i.i:                           ; preds = %for.body.i5.i.i.i, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.010.i.i12.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__next.sroa.0.0.i.i13.i.i.i, i64 24, i1 false)
   %9 = getelementptr i8, ptr %__last.sroa.0.010.i.i12.i.i.i, i64 -32
   %call.val.i.i.i14.i.i.i = load i64, ptr %9, align 8
-  %cmp.i.i.i.i15.i.i.i = icmp ult i64 %call.val.i.i.i14.i.i.i, %__val.sroa.2.0.copyload.i.i.i.i.i
+  %cmp.i.i.i.i15.i.i.i = icmp ugt i64 %__val.sroa.2.0.copyload.i.i.i.i.i, %call.val.i.i.i14.i.i.i
   br i1 %cmp.i.i.i.i15.i.i.i, label %while.body.i.i11.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i8.i.i.i", !llvm.loop !8
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i8.i.i.i": ; preds = %while.body.i.i11.i.i.i, %for.body.i5.i.i.i
@@ -203,7 +203,7 @@ if.else.i30.i.i.i:                                ; preds = %for.body.i24.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i.i16.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.sroa.0.012.i25.i.i.i, i64 16, i1 false)
   %12 = getelementptr i8, ptr %__first.coerce.pn11.i26.i.i.i, i64 16
   %call.val.i8.i.i31.i.i.i = load i64, ptr %12, align 8
-  %cmp.i.i9.i.i32.i.i.i = icmp ult i64 %call.val.i8.i.i31.i.i.i, %call.val.i.i27.i.i.i
+  %cmp.i.i9.i.i32.i.i.i = icmp ugt i64 %call.val.i.i27.i.i.i, %call.val.i8.i.i31.i.i.i
   br i1 %cmp.i.i9.i.i32.i.i.i, label %while.body.i.i39.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i33.i.i.i"
 
 while.body.i.i39.i.i.i:                           ; preds = %if.else.i30.i.i.i, %while.body.i.i39.i.i.i
@@ -212,7 +212,7 @@ while.body.i.i39.i.i.i:                           ; preds = %if.else.i30.i.i.i, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.010.i.i40.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__next.sroa.0.0.i.i41.i.i.i, i64 24, i1 false)
   %13 = getelementptr i8, ptr %__last.sroa.0.010.i.i40.i.i.i, i64 -32
   %call.val.i.i.i42.i.i.i = load i64, ptr %13, align 8
-  %cmp.i.i.i.i43.i.i.i = icmp ult i64 %call.val.i.i.i42.i.i.i, %call.val.i.i27.i.i.i
+  %cmp.i.i.i.i43.i.i.i = icmp ugt i64 %call.val.i.i27.i.i.i, %call.val.i.i.i42.i.i.i
   br i1 %cmp.i.i.i.i43.i.i.i, label %while.body.i.i39.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i33.i.i.i", !llvm.loop !8
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i33.i.i.i": ; preds = %while.body.i.i39.i.i.i, %if.else.i30.i.i.i
@@ -488,7 +488,7 @@ if.end13:                                         ; preds = %_ZNKSt8__detail15_H
   %__n.0 = phi ptr [ %11, %if.end ], [ %22, %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i ]
   %__bkt.0 = phi i64 [ %rem.i.i.i, %if.end ], [ %rem.i.i.i11, %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i ]
   %__prev_n.0 = phi ptr [ %__prev_p.06.i.lcssa, %if.end ], [ %__prev_p.0.i, %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i ]
-  %cmp.i = icmp eq ptr %29, %__prev_n.0
+  %cmp.i = icmp eq ptr %__prev_n.0, %29
   %31 = load ptr, ptr %__n.0, align 8
   %tobool.not.i18 = icmp eq ptr %31, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -620,7 +620,7 @@ while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_hea
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp611.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %phi.call.i.i.i, i64 16, i1 false)
   %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 16
   %__value.sroa.2.0.copyload.i.i.i = load i64, ptr %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i.i.i, align 8
-  %cmp29.i.i.i.i = icmp sgt i64 %div.i78.i.i.i, %__parent.0.i.i.i
+  %cmp29.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i78.i.i.i
   br i1 %cmp29.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i

@@ -25852,7 +25852,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb8ff4ecf7faf6731E.exit: ; preds = %61
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbda9da029d21e99E.exit.thread.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hfbda9da029d21e99E.exit.i.i.i: ; preds = %.noexc432.i.i
-  %872 = icmp eq i64 %.sroa.01.015.i.i.i.i, %.0199.i.i
+  %872 = icmp eq i64 %.0199.i.i, %.sroa.01.015.i.i.i.i
   br i1 %872, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbda9da029d21e99E.exit.thread.i.i.i, label %883
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hfbda9da029d21e99E.exit.thread.i.i.i: ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..GenericParam$GT$$GT$17h958375beb9f0bb69E.exit.i.i.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbda9da029d21e99E.exit.i.i.i, %861
@@ -34571,7 +34571,7 @@ define hidden void @_ZN14ide_completion6render7variant14visible_fields17h02a07fc
 
 41:                                               ; preds = %47, %"_ZN4core3ptr50drop_in_place$LT$hir_def..attr..AttrsWithOwner$GT$17h6a8e931c9bd62db8E.exit14"
   %.0 = phi i1 [ %48, %47 ], [ false, %"_ZN4core3ptr50drop_in_place$LT$hir_def..attr..AttrsWithOwner$GT$17h6a8e931c9bd62db8E.exit14" ]
-  %.not = icmp ne i64 %18, %3
+  %.not = icmp ne i64 %3, %18
   %spec.select = or i1 %.not, %.0
   %42 = zext i1 %spec.select to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
@@ -34703,7 +34703,7 @@ define hidden void @_ZN14ide_completion6render7variant14visible_fields17h8837b66
 
 41:                                               ; preds = %47, %"_ZN4core3ptr50drop_in_place$LT$hir_def..attr..AttrsWithOwner$GT$17h6a8e931c9bd62db8E.exit14"
   %.0 = phi i1 [ %48, %47 ], [ false, %"_ZN4core3ptr50drop_in_place$LT$hir_def..attr..AttrsWithOwner$GT$17h6a8e931c9bd62db8E.exit14" ]
-  %.not = icmp ne i64 %18, %3
+  %.not = icmp ne i64 %3, %18
   %spec.select = or i1 %.not, %.0
   %42 = zext i1 %spec.select to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
@@ -34835,7 +34835,7 @@ define hidden void @_ZN14ide_completion6render7variant14visible_fields17hcf7c0e7
 
 41:                                               ; preds = %47, %"_ZN4core3ptr50drop_in_place$LT$hir_def..attr..AttrsWithOwner$GT$17h6a8e931c9bd62db8E.exit14"
   %.0 = phi i1 [ %48, %47 ], [ false, %"_ZN4core3ptr50drop_in_place$LT$hir_def..attr..AttrsWithOwner$GT$17h6a8e931c9bd62db8E.exit14" ]
-  %.not = icmp ne i64 %18, %3
+  %.not = icmp ne i64 %3, %18
   %spec.select = or i1 %.not, %.0
   %42 = zext i1 %spec.select to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)

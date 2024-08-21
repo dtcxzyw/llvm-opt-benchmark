@@ -576,7 +576,7 @@ define void @_ZN4ring4test8TestCase22consume_optional_bytes17h2ea43aed47f4091eE(
   %36 = getelementptr inbounds i8, ptr %.sroa.0.018.i, i64 56
   %37 = getelementptr inbounds i8, ptr %.sroa.0.018.i, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !132, !noundef !8
-  %.not.i.i = icmp eq i64 %38, %3
+  %.not.i.i = icmp eq i64 %3, %38
   br i1 %.not.i.i, label %39, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.backedge.i"
 
 39:                                               ; preds = %.lr.ph.i
@@ -789,7 +789,7 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
 111:                                              ; preds = %107
   %112 = ptrtoint ptr %.sroa.0109.0 to i64
   %113 = sub nuw i64 %101, %112
-  %.not.i.i53.not = icmp ugt i64 %113, %.sroa.29.0
+  %.not.i.i53.not = icmp ult i64 %.sroa.29.0, %113
   %114 = getelementptr inbounds i8, ptr %.sroa.0109.0, i64 %.sroa.29.0
   br i1 %.not.i.i53.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread157", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread"
 
@@ -935,11 +935,11 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %_ZN4core3ops5range1
   br i1 %switch.not.not.i.i, label %144, label %145
 
 144:                                              ; preds = %140
-  %.not.i92 = icmp ult i8 %143, %135
+  %.not.i92 = icmp ugt i8 %135, %143
   br i1 %.not.i92, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i, label %148
 
 145:                                              ; preds = %140
-  %146 = icmp ugt i8 %143, %135
+  %146 = icmp ult i8 %135, %143
   br i1 %146, label %148, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i
 
 _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i: ; preds = %145, %144, %137
@@ -1004,11 +1004,11 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i100: ; preds = %_ZN4core3ops5rang
   br i1 %switch.not.not.i.i98, label %162, label %163
 
 162:                                              ; preds = %158
-  %.not.i105 = icmp ult i8 %161, %153
+  %.not.i105 = icmp ugt i8 %153, %161
   br i1 %.not.i105, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99, label %166
 
 163:                                              ; preds = %158
-  %164 = icmp ugt i8 %161, %153
+  %164 = icmp ult i8 %153, %161
   br i1 %164, label %166, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99
 
 _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99: ; preds = %163, %162, %155
@@ -1295,7 +1295,7 @@ define void @_ZN4ring4test8TestCase14consume_string17h042a5329397bdf11E(ptr noal
   %18 = getelementptr inbounds i8, ptr %.sroa.0.018.i, i64 56
   %19 = getelementptr inbounds i8, ptr %.sroa.0.018.i, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !244, !noundef !8
-  %.not.i.i = icmp eq i64 %20, %3
+  %.not.i.i = icmp eq i64 %3, %20
   br i1 %.not.i.i, label %21, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.backedge.i"
 
 21:                                               ; preds = %.lr.ph.i
@@ -1402,7 +1402,7 @@ define void @_ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE
   %14 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 56
   %15 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !8
-  %.not.i = icmp eq i64 %16, %3
+  %.not.i = icmp eq i64 %3, %16
   br i1 %.not.i, label %17, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.backedge"
 
 17:                                               ; preds = %.lr.ph
@@ -1590,11 +1590,11 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %_ZN4core3ops5range1
   br i1 %switch.not.not.i.i, label %47, label %48
 
 47:                                               ; preds = %43
-  %.not.i = icmp ult i8 %46, %37
+  %.not.i = icmp ugt i8 %37, %46
   br i1 %.not.i, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i, label %.thread67
 
 48:                                               ; preds = %43
-  %49 = icmp ugt i8 %46, %37
+  %49 = icmp ult i8 %37, %46
   br i1 %49, label %.thread67, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i
 
 _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i: ; preds = %48, %47, %40
@@ -1674,11 +1674,11 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i43: ; preds = %_ZN4core3ops5range
   br i1 %switch.not.not.i.i41, label %70, label %71
 
 70:                                               ; preds = %66
-  %.not.i48 = icmp ult i8 %69, %61
+  %.not.i48 = icmp ugt i8 %61, %69
   br i1 %.not.i48, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i42, label %.thread76
 
 71:                                               ; preds = %66
-  %72 = icmp ugt i8 %69, %61
+  %72 = icmp ult i8 %61, %69
   br i1 %72, label %.thread76, label %_ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i42
 
 _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i42: ; preds = %71, %70, %63
@@ -2102,7 +2102,7 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noca
 105:                                              ; preds = %101
   store i64 0, ptr %19, align 8, !alias.scope !347
   %106 = load i64, ptr %1, align 8, !alias.scope !352, !noalias !359, !noundef !8
-  %107 = icmp ult i64 %106, %.fca.1.extract
+  %107 = icmp ugt i64 %.fca.1.extract, %106
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %105

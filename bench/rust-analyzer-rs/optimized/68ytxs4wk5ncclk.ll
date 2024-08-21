@@ -1220,7 +1220,7 @@ default.unreachable:                              ; preds = %16
   %61 = ptrtoint ptr %.pre to i64
   %62 = sub nuw i64 %60, %61
   %63 = udiv exact i64 %62, 24
-  %.not.i.not = icmp ugt i64 %63, %57
+  %.not.i.not = icmp ult i64 %57, %63
   %64 = getelementptr inbounds { i8, [23 x i8] }, ptr %.pre, i64 %57
   %65 = getelementptr inbounds i8, ptr %64, i64 24
   %storemerge.i = select i1 %.not.i.not, ptr %65, ptr %59
@@ -2762,7 +2762,7 @@ default.unreachable:                              ; preds = %10
   %52 = ptrtoint ptr %.sroa.04.0.copyload to i64
   %53 = sub nuw i64 %51, %52
   %54 = udiv exact i64 %53, 24
-  %.not.i.not.i = icmp ugt i64 %54, %49
+  %.not.i.not.i = icmp ult i64 %49, %54
   %55 = getelementptr inbounds { i8, [23 x i8] }, ptr %.sroa.04.0.copyload, i64 %49
   %56 = getelementptr inbounds i8, ptr %55, i64 24
   br i1 %.not.i.not.i, label %._crit_edge.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d10ba534f373f94E.llvm.6150282900714191917.exit"
@@ -17107,7 +17107,7 @@ _ZN11chalk_solve7clauses14builtin_traits5sized27push_tuple_sized_conditions17h30
   %93 = load ptr, ptr %6, align 8, !alias.scope !3925, !nonnull !14, !noundef !14
   %94 = getelementptr inbounds i8, ptr %93, i64 24
   %95 = load i64, ptr %94, align 8, !noalias !3925, !noundef !14
-  %96 = icmp ugt i64 %95, %83
+  %96 = icmp ult i64 %83, %95
   br i1 %96, label %98, label %97, !prof !3172
 
 97:                                               ; preds = %92
@@ -17949,7 +17949,7 @@ _ZN11chalk_solve7clauses14builtin_traits6unsize12principal_id17hda5a00eb32e384ea
 248:                                              ; preds = %246
   %249 = getelementptr inbounds i8, ptr %247, i64 4
   %.val3.i.i.i = load i32, ptr %247, align 4, !alias.scope !4111, !noalias !4114, !noundef !14
-  %250 = icmp eq i32 %245, %.val3.i.i.i
+  %250 = icmp eq i32 %.val3.i.i.i, %245
   br i1 %250, label %"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$17hf64f868030b8dea3E.exit.loopexit.i", label %246
 
 .critedge:                                        ; preds = %246, %228
@@ -20237,7 +20237,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN11chalk_solve
   %16 = load ptr, ptr %15, align 8, !nonnull !14, !align !110, !noundef !14
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !noundef !14
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %23, !prof !3172
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h882c93f5dcf4e5d2E.exit.thread": ; preds = %3, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h882c93f5dcf4e5d2E.exit", %20
@@ -20387,7 +20387,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7clauses14builtin_traits6unsi
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %15, i64 4
   %.val3.i = load i32, ptr %15, align 4, !range !1813, !noalias !4593, !noundef !14
-  %.not.i = icmp eq i32 %7, %.val3.i
+  %.not.i = icmp eq i32 %.val3.i, %7
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit", label %14
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit": ; preds = %17
@@ -20408,7 +20408,7 @@ define hidden noundef zeroext i1 @"_ZN11chalk_solve7clauses14builtin_traits6unsi
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %27, i64 4
   %.val3.i17 = load i32, ptr %27, align 4, !range !1813, !noalias !4597, !noundef !14
-  %30 = icmp eq i32 %7, %.val3.i17
+  %30 = icmp eq i32 %.val3.i17, %7
   br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit", label %26
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0dffffe2e43a6f96E.exit": ; preds = %14, %28, %26, %2
@@ -43774,7 +43774,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.61502
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -43886,7 +43886,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %16, i64 4
   %.val3.i.i = load i32, ptr %16, align 4, !range !1813, !noalias !11137, !noundef !14
-  %.not.i.i = icmp eq i32 %8, %.val3.i.i
+  %.not.i.i = icmp eq i32 %.val3.i.i, %8
   br i1 %.not.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit.i", label %15
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hcb59718090606b65E.exit.i": ; preds = %18
@@ -43907,7 +43907,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %28, i64 4
   %.val3.i17.i = load i32, ptr %28, align 4, !range !1813, !noalias !11141, !noundef !14
-  %31 = icmp eq i32 %8, %.val3.i17.i
+  %31 = icmp eq i32 %.val3.i17.i, %8
   br i1 %31, label %"_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit", label %27
 
 "_ZN11chalk_solve7clauses14builtin_traits6unsize26add_unsize_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0b3e4aedcecde10E.llvm.6150282900714191917.exit": ; preds = %15, %27, %29, %2
@@ -45737,7 +45737,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core3ops8fun
   %16 = load ptr, ptr %15, align 8, !alias.scope !11603, !noalias !11608, !nonnull !14, !align !110, !noundef !14
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !11606, !noundef !14
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %23, !prof !3172
 
 20:                                               ; preds = %14
@@ -51670,7 +51670,7 @@ default.unreachable:                              ; preds = %9
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit": ; preds = %17, %20, %23
   %26 = getelementptr inbounds i8, ptr %.val6, i64 16
   %27 = load i64, ptr %26, align 8, !noundef !14
-  %.not = icmp eq i64 %27, %7
+  %.not = icmp eq i64 %7, %27
   br i1 %.not, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.thread"
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.thread": ; preds = %6, %23, %20, %17, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit"
@@ -54481,7 +54481,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !14020, !noalias !14025, !noundef !14
   %45 = load i64, ptr %0, align 8, !alias.scope !14027, !noalias !14025, !noundef !14
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5dfd2d848e760efeE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -54538,7 +54538,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !14033, !noalias !14038, !noundef !14
   %6 = load i64, ptr %0, align 8, !alias.scope !14040, !noalias !14038, !noundef !14
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5dfd2d848e760efeE.exit"
 
 9:                                                ; preds = %3
@@ -74736,7 +74736,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir11Ty$LT$I$GT$14is_general_var17h8
   %17 = load ptr, ptr %1, align 8, !alias.scope !18710, !nonnull !14, !noundef !14
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8, !noalias !18710, !noundef !14
-  %20 = icmp ugt i64 %19, %16
+  %20 = icmp ult i64 %16, %19
   br i1 %20, label %"_ZN8chalk_ir26CanonicalVarKinds$LT$I$GT$2at17ha10b51e2c199b798E.exit", label %21, !prof !3172
 
 21:                                               ; preds = %14
@@ -103197,7 +103197,7 @@ default.unreachable:                              ; preds = %14
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.i": ; preds = %28, %25, %22
   %31 = getelementptr inbounds i8, ptr %.val6.i, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !26005, !noundef !14
-  %.not.i = icmp eq i64 %32, %12
+  %.not.i = icmp eq i64 %12, %32
   br i1 %.not.i, label %11, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.llvm.6150282900714191917.exit"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf13d7688e3f88fb2E.llvm.6150282900714191917.exit": ; preds = %11, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h647b3740e2c0bdd4E.exit.i", %28, %25, %22
@@ -103214,7 +103214,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN8chalk_ir21Su
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !26011, !noalias !26014
   %.sink4.i.i = select i1 %6, i64 %8, i64 %5
-  %9 = icmp ugt i64 %.sink4.i.i, %1
+  %9 = icmp ult i64 %1, %.sink4.i.i
   br i1 %9, label %10, label %14, !prof !3172
 
 10:                                               ; preds = %2
@@ -108255,7 +108255,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8chalk_ir26Ca
   %3 = load ptr, ptr %0, align 8, !alias.scope !27528, !nonnull !14, !noundef !14
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !noalias !27528, !noundef !14
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %11, !prof !3172
 
 7:                                                ; preds = %2
@@ -122559,7 +122559,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %15 = getelementptr inbounds i8, ptr %11, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !30660, !noalias !30663
   %.sink4.i.i.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ugt i64 %.sink4.i.i.i.i, %1
+  %17 = icmp ult i64 %1, %.sink4.i.i.i.i
   br i1 %17, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17h21871b4bfa55d758E.exit", label %18, !prof !3172
 
 18:                                               ; preds = %10
@@ -122621,7 +122621,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %.val = load ptr, ptr %0, align 8, !nonnull !14, !align !110, !noundef !14
   %11 = getelementptr i8, ptr %.val, i64 16
   %.val2.i = load i64, ptr %11, align 8, !noundef !14
-  %12 = icmp ugt i64 %.val2.i, %1
+  %12 = icmp ult i64 %1, %.val2.i
   br i1 %12, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17hc27172c0a6c9b143E.exit", label %13, !prof !3172
 
 13:                                               ; preds = %10
@@ -122684,7 +122684,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %.val = load ptr, ptr %0, align 8, !nonnull !14, !align !110, !noundef !14
   %13 = getelementptr i8, ptr %.val, i64 16
   %.val2.i = load i64, ptr %13, align 8, !noundef !14
-  %14 = icmp ugt i64 %.val2.i, %2
+  %14 = icmp ult i64 %2, %.val2.i
   br i1 %14, label %19, label %15, !prof !3172
 
 15:                                               ; preds = %12
@@ -122829,7 +122829,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %17 = getelementptr inbounds i8, ptr %13, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !30719, !noalias !30722
   %.sink4.i.i.i.i = select i1 %16, i64 %18, i64 %15
-  %19 = icmp ugt i64 %.sink4.i.i.i.i, %2
+  %19 = icmp ult i64 %2, %.sink4.i.i.i.i
   br i1 %19, label %24, label %20, !prof !3172
 
 20:                                               ; preds = %12
@@ -122966,7 +122966,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %.val = load ptr, ptr %0, align 8, !nonnull !14, !align !110, !noundef !14
   %11 = getelementptr i8, ptr %.val, i64 16
   %.val2.i = load i64, ptr %11, align 8, !noundef !14
-  %12 = icmp ugt i64 %.val2.i, %1
+  %12 = icmp ult i64 %1, %.val2.i
   br i1 %12, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17hc27172c0a6c9b143E.exit", label %13, !prof !3172
 
 13:                                               ; preds = %10
@@ -123034,7 +123034,7 @@ define internal noundef nonnull ptr @"_ZN90_$LT$chalk_ir..SubstFolder$LT$I$C$A$G
   %15 = getelementptr inbounds i8, ptr %11, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !30766, !noalias !30769
   %.sink4.i.i.i.i = select i1 %14, i64 %16, i64 %13
-  %17 = icmp ugt i64 %.sink4.i.i.i.i, %1
+  %17 = icmp ult i64 %1, %.sink4.i.i.i.i
   br i1 %17, label %"_ZN8chalk_ir24SubstFolder$LT$I$C$A$GT$2at17h21871b4bfa55d758E.exit", label %18, !prof !3172
 
 18:                                               ; preds = %10
@@ -127007,7 +127007,7 @@ define internal noundef nonnull ptr @"_ZN93_$LT$chalk_ir..fold..subst..Subst$LT$
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !14
-  %13 = icmp ugt i64 %12, %1
+  %13 = icmp ult i64 %1, %12
   br i1 %13, label %16, label %21, !prof !3172
 
 14:                                               ; preds = %4
@@ -127096,7 +127096,7 @@ define internal noundef nonnull ptr @"_ZN93_$LT$chalk_ir..fold..subst..Subst$LT$
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !14
-  %14 = icmp ugt i64 %13, %2
+  %14 = icmp ult i64 %2, %13
   br i1 %14, label %18, label %16, !prof !3172
 
 15:                                               ; preds = %5
@@ -127250,7 +127250,7 @@ define internal noundef nonnull ptr @"_ZN93_$LT$chalk_ir..fold..subst..Subst$LT$
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !14
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %15, label %20, !prof !3172
 
 13:                                               ; preds = %4

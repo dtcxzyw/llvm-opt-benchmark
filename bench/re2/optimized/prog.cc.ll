@@ -604,7 +604,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   %size_.i = getelementptr inbounds i8, ptr %prog, i64 16
   %0 = load i32, ptr %size_.i, align 8
-  %cmp26 = icmp sgt i32 %0, %start
+  %cmp26 = icmp slt i32 %start, %0
   br i1 %cmp26, label %invoke.cont1.lr.ph, label %nrvo.skipdtor
 
 invoke.cont1.lr.ph:                               ; preds = %entry
@@ -1513,12 +1513,12 @@ _ZN3re210SparseSetTIvED2Ev.exit:                  ; preds = %for.inc124, %for.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 64) i32 @_ZN3re24Prog10EmptyFlagsEN4absl7debian211string_viewEPKc(ptr readnone %text.coerce0, i64 %text.coerce1, ptr noundef readonly %p) local_unnamed_addr #9 align 2 {
 entry:
-  %cmp = icmp eq ptr %text.coerce0, %p
+  %cmp = icmp eq ptr %p, %text.coerce0
   br i1 %cmp, label %if.end4, label %if.end4.thread
 
 if.end4:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp7 = icmp eq i64 %text.coerce1, 0
+  %cmp7 = icmp eq ptr %p, %add.ptr
   br i1 %cmp7, label %if.end63, label %if.else10
 
 if.end4.thread:                                   ; preds = %entry
@@ -1527,13 +1527,13 @@ if.end4.thread:                                   ; preds = %entry
   %cmp1 = icmp eq i8 %0, 10
   %spec.select = zext i1 %cmp1 to i32
   %add.ptr63 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp764 = icmp eq ptr %add.ptr63, %p
+  %cmp764 = icmp eq ptr %p, %add.ptr63
   br i1 %cmp764, label %if.then44, label %if.else10
 
 if.else10:                                        ; preds = %if.end4.thread, %if.end4
   %add.ptr67 = phi ptr [ %add.ptr63, %if.end4.thread ], [ %add.ptr, %if.end4 ]
   %flags.066 = phi i32 [ %spec.select, %if.end4.thread ], [ 5, %if.end4 ]
-  %cmp14 = icmp ugt ptr %add.ptr67, %p
+  %cmp14 = icmp ult ptr %p, %add.ptr67
   br i1 %cmp14, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %if.else10
@@ -6040,7 +6040,7 @@ define noundef ptr @_ZN3re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr nocapture nounde
 entry:
   %prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %prefix_size_, align 8
-  %cmp = icmp ugt i64 %0, %size
+  %cmp = icmp ult i64 %size, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -6261,7 +6261,7 @@ define noundef ptr @_ZN3re24Prog24PrefixAccel_FrontAndBackEPKvm(ptr nocapture no
 entry:
   %prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %prefix_size_, align 8
-  %cmp = icmp ugt i64 %0, %size
+  %cmp = icmp ult i64 %size, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -6695,7 +6695,7 @@ while.body.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEElcNS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us ], [ %div1516, %if.end ]
   %phi.call.us = getelementptr inbounds i8, ptr %__first.coerce, i64 %__parent.0.us
   %0 = load i8, ptr %phi.call.us, align 1
-  %cmp28.i.us = icmp sgt i64 %div.i2022, %__parent.0.us
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i2022
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEElcNS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.body.us, %while.body.i.us
@@ -6747,7 +6747,7 @@ while.body:                                       ; preds = %while.body.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEElcNS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit ], [ %div1516, %while.body.preheader ]
   %phi.call = getelementptr inbounds i8, ptr %__first.coerce, i64 %__parent.0
   %5 = load i8, ptr %phi.call, align 1
-  %cmp28.i = icmp sgt i64 %div.i2022, %__parent.0
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i2022
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %while.body.i
@@ -7284,7 +7284,7 @@ if.end.split:                                     ; preds = %entry
   %agg.tmp5.sroa.0.0.copyload11 = load ptr, ptr %__comp, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6365 = lshr i64 %sub.i, 1
-  %cmp24.i = icmp ugt i64 %div.i6365, %div15
+  %cmp24.i = icmp ult i64 %div15, %div.i6365
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -7372,7 +7372,7 @@ if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph
   %add.ptr12.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload13.us = load i64, ptr %add.ptr12.us, align 4
   %agg.tmp5.sroa.0.0.copyload14.us = load ptr, ptr %__comp, align 8
-  %cmp24.i19.not.us = icmp slt i64 %div.i6365, %__parent.067.us
+  %cmp24.i19.not.us = icmp sgt i64 %__parent.067.us, %div.i6365
   br i1 %cmp24.i19.not.us, label %while.end.i20.us.thread, label %while.body.i50.us
 
 while.end.i20.us.thread:                          ; preds = %if.end8.split.us
@@ -7436,7 +7436,7 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   %add.ptr12 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload13 = load i64, ptr %add.ptr12, align 4
   %agg.tmp5.sroa.0.0.copyload14 = load ptr, ptr %__comp, align 8
-  %cmp24.i19.not = icmp slt i64 %div.i6365, %__parent.067
+  %cmp24.i19.not = icmp sgt i64 %__parent.067, %div.i6365
   br i1 %cmp24.i19.not, label %while.end.i20, label %while.body.i50
 
 while.body.i50:                                   ; preds = %if.end8.split, %while.body.i50

@@ -258,7 +258,7 @@ _ZN8CodeHeap11segmap_hopsEmm.exit:                ; preds = %9, %._crit_edge.i
   %43 = select i1 %41, i32 %.019.i, i32 0
   %.1 = add nsw i32 %.040, %43
   %44 = icmp sgt i32 %.019.i, 0
-  %or.cond = and i1 %44, %1
+  %or.cond = and i1 %1, %44
   %brmerge.not = and i1 %20, %or.cond
   br i1 %brmerge.not, label %45, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
@@ -747,7 +747,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr @CodeCacheMinBlockLength, align 8
-  %6 = tail call i64 @llvm.umax.i64(i64 %5, i64 %1)
+  %6 = tail call i64 @llvm.umax.i64(i64 %1, i64 %5)
   %.not60 = icmp eq ptr %4, null
   br i1 %.not60, label %._crit_edge.thread, label %.lr.ph.preheader
 
@@ -1125,7 +1125,7 @@ define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noun
   br label %82
 
 22:                                               ; preds = %2
-  %23 = icmp ugt ptr %18, %1
+  %23 = icmp ult ptr %1, %18
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
@@ -1153,7 +1153,7 @@ define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noun
   %.not.i.i = icmp ule ptr %36, %34
   %37 = getelementptr inbounds i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp ugt ptr %38, %34
+  %39 = icmp ult ptr %34, %38
   %40 = select i1 %.not.i.i, i1 %39, i1 false
   br i1 %40, label %41, label %_ZNK8CodeHeap14find_block_forEPv.exit.thread
 
@@ -1277,7 +1277,7 @@ define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr nocapture nounde
   %.not.i = icmp ule ptr %4, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %29
 
@@ -1322,7 +1322,7 @@ define hidden noundef ptr @_ZNK8CodeHeap10find_startEPv(ptr nocapture noundef no
   %.not.i.i = icmp ule ptr %4, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %_ZNK8CodeHeap14find_block_forEPv.exit.thread
 
@@ -1376,7 +1376,7 @@ define hidden noundef ptr @_ZNK8CodeHeap9find_blobEPv(ptr nocapture noundef nonn
   %.not.i.i.i = icmp ule ptr %4, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %_ZNK8CodeHeap10find_startEPv.exit.thread
 
@@ -1423,7 +1423,7 @@ _ZNK8CodeHeap10find_startEPv.exit:                ; preds = %27
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
-  %38 = icmp ugt ptr %37, %1
+  %38 = icmp ult ptr %1, %37
   %39 = select i1 %.not.i, i1 %38, i1 false
   %spec.select = select i1 %39, ptr %33, ptr null
   br label %_ZNK8CodeHeap10find_startEPv.exit.thread
@@ -1527,7 +1527,7 @@ define hidden noundef ptr @_ZNK8CodeHeap11block_startEPv(ptr nocapture noundef n
   %.not.i.i.i = icmp ule ptr %4, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ugt ptr %6, %1
+  %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %_ZNK8CodeHeap10find_startEPv.exit
 
@@ -1758,7 +1758,7 @@ define hidden noundef i32 @_ZN8CodeHeap11segmap_hopsEmm(ptr nocapture noundef no
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
   %9 = xor i64 %1, -1
-  %10 = add i64 %9, %2
+  %10 = add i64 %2, %9
   %11 = add i64 %10, 253
   %12 = udiv i64 %11, 254
   %13 = trunc i64 %12 to i32

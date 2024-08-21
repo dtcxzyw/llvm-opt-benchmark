@@ -92,7 +92,7 @@ define dso_local zeroext i1 @amd_nb_has_feature(i32 noundef %0) #0 align 16 {
 define dso_local ptr @node_to_amd_nb(i32 noundef %0) #0 align 16 {
   %2 = load i16, ptr @amd_northbridges.0, align 8
   %3 = zext i16 %2 to i32
-  %4 = icmp sgt i32 %3, %0
+  %4 = icmp slt i32 %0, %3
   %5 = load ptr, ptr @amd_northbridges.2, align 8
   %6 = sext i32 %0 to i64
   %7 = getelementptr %struct.amd_northbridge, ptr %5, i64 %6

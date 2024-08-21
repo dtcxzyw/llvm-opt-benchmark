@@ -232,7 +232,7 @@ _ZNKSt8functionIFvfEEclEf.exit:                   ; preds = %11
   %51 = getelementptr inbounds i8, ptr %0, i64 192
   %52 = load ptr, ptr %51, align 8
   %.not.i.i11.not = icmp eq ptr %52, null
-  %brmerge = or i1 %.not.i.i11.not, %3
+  %brmerge = or i1 %3, %.not.i.i11.not
   br i1 %brmerge, label %57, label %_ZNKSt8functionIFvfEEclEf.exit13
 
 _ZNKSt8functionIFvfEEclEf.exit13:                 ; preds = %50

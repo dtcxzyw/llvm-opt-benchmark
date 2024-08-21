@@ -2241,7 +2241,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %min.06.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %min.1.i, %while.body.i ]
   %add2.i = add i64 %min.06.i, %max.07.i
   %shr.i = lshr i64 %add2.i, 1
-  %cmp.not.i.i43 = icmp ugt i64 %sub.ptr.div.i.i, %shr.i
+  %cmp.not.i.i43 = icmp ult i64 %shr.i, %sub.ptr.div.i.i
   %retval.0.i.i = select i1 %cmp.not.i.i43, double %div.i.i, double 1.000000e+00
   %cmp4.i = fcmp ogt double %retval.0.i.i, %p.0484
   %min.1.i = select i1 %cmp4.i, i64 %min.06.i, i64 %shr.i
@@ -2262,7 +2262,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont
   br i1 %cmp6, label %invoke.cont10, label %for.inc
 
 invoke.cont10:                                    ; preds = %invoke.cont, %lor.lhs.false
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %max.0.lcssa.i
+  %cmp.not.i = icmp ult i64 %max.0.lcssa.i, %sub.ptr.div.i.i
   %20 = load double, ptr %sum_hnq_.i.i, align 16
   %div.i55 = fdiv double 0.000000e+00, %20
   %retval.0.i = select i1 %cmp.not.i, double %div.i55, double 1.000000e+00
@@ -5417,7 +5417,7 @@ entry:
   %cmp = fcmp ogt double %conv, 0x43EFFFFFFFFFFFFF
   %kd.0 = select i1 %cmp, double 0x43EFFFFFFFFFFFFF, double %conv
   %add = fadd double %kd.0, 5.000000e-01
-  %add.i = fadd double %add, %v
+  %add.i = fadd double %v, %add
   %cmp.i = fcmp oeq double %sub, -1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
@@ -7798,7 +7798,7 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
-  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not7.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not7.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
@@ -29290,7 +29290,7 @@ entry:
   %cmp = fcmp ogt double %conv, 0x43EFFFFFFFFFFFFF
   %kd.0 = select i1 %cmp, double 0x43EFFFFFFFFFFFFF, double %conv
   %add = fadd double %kd.0, 5.000000e-01
-  %add.i = fadd double %add, %v
+  %add.i = fadd double %v, %add
   %cmp.i = fcmp oeq double %sub, -1.000000e+00
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
@@ -48994,7 +48994,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -50340,7 +50340,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then.i:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i, %if.then.i.i
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa30.i.i, %if.then.i.i ], [ %__y.0.lcssa31.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i ]
-  %cmp2.i = icmp eq ptr %2, %retval.sroa.4.0.i.ph.i
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %2
   br i1 %cmp2.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then.i

@@ -1629,7 +1629,7 @@ for.body9:                                        ; preds = %for.body, %for.inc
   %9 = load ptr, ptr %__begin3.sroa.0.034, align 8
   %edition_.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load i32, ptr %edition_.i.i, align 8
-  %cmp12 = icmp sgt i32 %10, %maximum_edition
+  %cmp12 = icmp slt i32 %maximum_edition, %10
   br i1 %cmp12, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body9
@@ -2108,7 +2108,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::FieldOptions_EditionDefault", ptr %__first.sroa.0.03.i.i.i, i64 %shr.i.i.i
   %18 = getelementptr i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %call.val.i.i.i.i = load i32, ptr %18, align 8
-  %cmp.i.i5.i.i.i = icmp sgt i32 %call.val.i.i.i.i, %edition_lookup.val
+  %cmp.i.i5.i.i.i = icmp slt i32 %edition_lookup.val, %call.val.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 40
   %19 = xor i64 %shr.i.i.i, -1
   %sub9.i.i.i = add nsw i64 %__len.04.i.i.i, %19
@@ -2610,7 +2610,7 @@ entry:
   %agg.tmp = alloca %"class.google::protobuf::FeatureSet", align 8
   %minimum_edition_.i.i = getelementptr inbounds i8, ptr %compiled_defaults, i64 48
   %0 = load i32, ptr %minimum_edition_.i.i, align 8
-  %cmp = icmp sgt i32 %0, %edition
+  %cmp = icmp slt i32 %edition, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3080,7 +3080,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %71 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %72 = getelementptr i8, ptr %71, i64 32
   %call.val.i.i.i.i = load i32, ptr %72, align 8
-  %cmp.i.i5.i.i.i = icmp sgt i32 %call.val.i.i.i.i, %edition
+  %cmp.i.i5.i.i.i = icmp slt i32 %edition, %call.val.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %73 = xor i64 %shr.i.i.i, -1
   %sub9.i.i.i = add nsw i64 %__len.04.i.i.i, %73
@@ -4280,7 +4280,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google
   %conv.i33 = zext i8 %8 to i32
   %arrayidx.i.i34 = getelementptr i8, ptr %7, i64 10
   %9 = load i8, ptr %arrayidx.i.i34, align 1
-  %cmp.i = icmp ugt i8 %9, %8
+  %cmp.i = icmp ult i8 %8, %9
   %conv9.i = zext i8 %8 to i64
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -4535,7 +4535,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #19
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %call5.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -5393,7 +5393,7 @@ entry:
   %agg.tmp37 = alloca %"class.google::protobuf::FieldOptions_EditionDefault", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp57 = icmp sgt i64 %div, %__holeIndex
+  %cmp57 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp57, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit
@@ -5791,7 +5791,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %0 = getelementptr i8, ptr %__first.coerce, i64 32
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %__val, i64 8
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first.coerce to i64
-  %cmp.i3 = icmp eq ptr %__val, %__first.coerce
+  %cmp.i3 = icmp eq ptr %__first.coerce, %__val
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   br label %for.body
 
@@ -6100,7 +6100,7 @@ _ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit: ; preds = %invoke.
   %__val.val32 = load i32, ptr %12, align 8
   %13 = getelementptr i8, ptr %__last.coerce, i64 -8
   %call.val.i33 = load i32, ptr %13, align 8
-  %cmp.i.i34 = icmp sgt i32 %call.val.i33, %__val.val32
+  %cmp.i.i34 = icmp slt i32 %__val.val32, %call.val.i33
   br i1 %cmp.i.i34, label %if.end.i, label %while.end
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit, %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit
@@ -6164,7 +6164,7 @@ _ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit: ; preds = %if.then
   %__val.val = load i32, ptr %12, align 8
   %24 = getelementptr i8, ptr %__last.sroa.0.035, i64 -48
   %call.val.i = load i32, ptr %24, align 8
-  %cmp.i.i = icmp sgt i32 %call.val.i, %__val.val
+  %cmp.i.i = icmp slt i32 %__val.val, %call.val.i
   br i1 %cmp.i.i, label %if.end.i, label %while.end, !llvm.loop !89
 
 while.end:                                        ; preds = %_ZN6google8protobuf27FieldOptions_EditionDefaultaSEOS1_.exit, %_ZN6google8protobuf27FieldOptions_EditionDefaultC2EOS1_.exit

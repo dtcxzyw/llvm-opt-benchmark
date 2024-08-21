@@ -1087,7 +1087,7 @@ define internal fastcc void @assert_dsi_pll(ptr noundef %0, i1 noundef zeroext %
   %4 = icmp slt i32 %3, 0
   tail call void @vlv_iosf_sb_put(ptr noundef %0, i64 noundef 2) #6
   %5 = icmp sgt i32 %3, -1
-  %6 = xor i1 %5, %1
+  %6 = xor i1 %1, %5
   br i1 %6, label %34, label %7, !prof !13
 
 7:                                                ; preds = %2

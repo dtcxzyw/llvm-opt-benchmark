@@ -811,7 +811,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef %0, pt
 
 85:                                               ; preds = %80, %78
   %86 = fsub double 1.000000e+00, %4
-  %87 = fmul double %74, %4
+  %87 = fmul double %4, %74
   %88 = call double @llvm.fmuladd.f64(double %86, double %75, double %87)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
@@ -1515,7 +1515,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
 55:                                               ; preds = %62
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next87 to i32
-  %exitcond89.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond89.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !19
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %55
@@ -1731,7 +1731,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   %.not83 = icmp eq i32 %81, 0
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next101 to i32
-  %exitcond103.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond103.not = icmp eq i32 %1, %lftr.wideiv
   %or.cond104 = select i1 %.not83, i1 true, i1 %exitcond103.not
   br i1 %or.cond104, label %.loopexitthread-pre-split, label %.lr.ph94, !llvm.loop !22
 

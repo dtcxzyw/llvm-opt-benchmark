@@ -495,7 +495,7 @@ Vec_IntFill.exit:                                 ; preds = %32, %Vec_IntGrow.ex
 .preheader148.us:                                 ; preds = %.preheader148.lr.ph, %._crit_edge.us
   %.0103156.us = phi i32 [ %91, %._crit_edge.us ], [ 0, %.preheader148.lr.ph ]
   %39 = load i32, ptr %11, align 4
-  %invariant.op.us = add i32 %39, %1
+  %invariant.op.us = add i32 %1, %39
   br label %40
 
 40:                                               ; preds = %.preheader148.us, %78

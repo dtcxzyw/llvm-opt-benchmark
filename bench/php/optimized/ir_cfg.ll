@@ -3280,7 +3280,7 @@ define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed
 
 ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   %.010.lcssa.i = phi i32 [ %132, %133 ], [ %140, %.lr.ph.i ]
-  %144 = icmp eq i32 %.010.lcssa.i, %116
+  %144 = icmp eq i32 %116, %.010.lcssa.i
   br i1 %144, label %145, label %162
 
 145:                                              ; preds = %ir_dominates.exit
@@ -4125,7 +4125,7 @@ define hidden i32 @ir_skip_empty_target_blocks(ptr nocapture noundef readonly %0
 define hidden i32 @ir_skip_empty_next_blocks(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   %4 = load i32, ptr %3, align 4
-  %5 = icmp ult i32 %4, %1
+  %5 = icmp ugt i32 %1, %4
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -4289,12 +4289,12 @@ ir_skip_empty_target_blocks.exit36:               ; preds = %82, %ir_skip_empty_
 94:                                               ; preds = %ir_skip_empty_target_blocks.exit36, %ir_skip_empty_target_blocks.exit30
   %95 = getelementptr inbounds i8, ptr %0, i64 92
   %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, %1
+  %97 = icmp eq i32 %1, %96
   br i1 %97, label %ir_skip_empty_next_blocks.exit, label %98
 
 98:                                               ; preds = %94
   %99 = add i32 %1, 1
-  %100 = icmp ult i32 %96, %99
+  %100 = icmp ugt i32 %99, %96
   br i1 %100, label %ir_skip_empty_next_blocks.exit, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %98

@@ -3337,7 +3337,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   store ptr %139, ptr %8, align 8, !noalias !863
   %166 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %138, ptr %166, align 8, !noalias !863
-  %167 = icmp eq i64 %147, %.lcssa156.i
+  %167 = icmp eq i64 %.lcssa156.i, %147
   br i1 %167, label %359, label %.invoke.i.i.i
 
 .invoke.i.i.i:                                    ; preds = %159
@@ -3398,7 +3398,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !773
   store ptr %.sroa.46.1.i, ptr %7, align 8, !noalias !877
   store ptr %.sroa.48.1.i, ptr %134, align 8, !noalias !877
-  %191 = icmp eq i64 %184, %186
+  %191 = icmp eq i64 %186, %184
   br i1 %191, label %193, label %192
 
 192:                                              ; preds = %181
@@ -3702,7 +3702,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %330 = add nuw nsw i64 %314, 2
   %331 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 368
   %332 = add nsw i64 %.sroa.7.0.i.i, 2
-  %333 = icmp ult i64 %332, %330
+  %333 = icmp ugt i64 %330, %332
   br i1 %333, label %334, label %339
 
 334:                                              ; preds = %325
@@ -4939,7 +4939,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %.val133, ptr %5, align 8, !noalias !1101
   store ptr %.val134, ptr %93, align 8, !noalias !1101
-  %120 = icmp eq i64 %73, %.sroa.588.0
+  %120 = icmp eq i64 %.sroa.588.0, %73
   br i1 %120, label %124, label %.invoke.i
 
 .invoke.i:                                        ; preds = %124, %119
@@ -5559,7 +5559,7 @@ define noundef i64 @_ZN5tokio2io8interest8Interest3add17h6062f42bb5fdd352E(i64 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i64, i64 } @_ZN5tokio2io8interest8Interest6remove17hdcd748c54bfba542E(i64 noundef %0, i64 noundef %1) unnamed_addr #9 {
   %3 = xor i64 %1, -1
-  %4 = and i64 %3, %0
+  %4 = and i64 %0, %3
   %5 = icmp ne i64 %4, 0
   %. = zext i1 %5 to i64
   %6 = insertvalue { i64, i64 } poison, i64 %., 0

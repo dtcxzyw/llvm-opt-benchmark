@@ -505,7 +505,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 45
   %spec.select = zext i1 %7 to i32
-  %8 = icmp slt i32 %spec.select, %1
+  %8 = icmp sgt i32 %1, %spec.select
   br i1 %8, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %5
@@ -615,7 +615,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %spec.select192 = add nuw nsw i32 %.0153237, %49
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next265 to i32
-  %exitcond267.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond267.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond267.not, label %.critedge.thread, label %.lr.ph238, !llvm.loop !8
 
 .critedge:                                        ; preds = %5, %37, %25
@@ -1218,7 +1218,7 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   %37 = icmp eq i32 %36, 0
   %or.cond61 = and i1 %or.cond, %37
   %38 = icmp ne i32 %.sroa.14.1, %.sroa.2.1
-  %39 = and i1 %.055.in.lcssa, %3
+  %39 = and i1 %3, %.055.in.lcssa
   %or.cond63 = or i1 %38, %39
   %40 = icmp ugt i8 %.148, 4
   %not.or.cond61 = xor i1 %or.cond61, true

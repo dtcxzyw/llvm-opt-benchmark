@@ -110,7 +110,7 @@ define void @_ZN5faiss11Index2Layer5trainElPKf(ptr noundef nonnull align 8 deref
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   %33 = call noundef ptr @_ZN5faiss21fvecs_maybe_subsampleEmPmmPKfbl(i64 noundef %22, ptr noundef nonnull %4, i64 noundef %29, ptr noundef %2, i1 noundef zeroext %.pre-phi59, i64 noundef %32)
-  %34 = icmp eq ptr %33, %2
+  %34 = icmp eq ptr %2, %33
   %35 = select i1 %34, ptr null, ptr %33
   %36 = load i64, ptr %4, align 8
   %37 = icmp ugt i64 %36, 1152921504606846975
@@ -468,7 +468,7 @@ define void @_ZNK5faiss11Index2Layer9sa_encodeElPKfPh(ptr noundef nonnull align 
 25:                                               ; preds = %4
   %26 = load i32, ptr @_ZN5faiss24index2layer_sa_encode_bsE, align 4
   %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %27, %1
+  %28 = icmp sgt i64 %1, %27
   br i1 %28, label %.preheader, label %52
 
 .preheader:                                       ; preds = %25
@@ -484,7 +484,7 @@ define void @_ZNK5faiss11Index2Layer9sa_encodeElPKfPh(ptr noundef nonnull align 
 33:                                               ; preds = %.lr.ph80, %39
   %.03979 = phi i64 [ 0, %.lr.ph80 ], [ %34, %39 ]
   %34 = add nsw i64 %.03979, %27
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %34, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %34)
   %35 = load i8, ptr %30, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %39
@@ -526,7 +526,7 @@ define void @_ZNK5faiss11Index2Layer9sa_encodeElPKfPh(ptr noundef nonnull align 
   %63 = getelementptr inbounds i8, ptr %0, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = sext i32 %64 to i64
-  %66 = mul nsw i64 %65, %1
+  %66 = mul nsw i64 %1, %65
   %67 = icmp ugt i64 %66, 2305843009213693951
   br i1 %67, label %68, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 

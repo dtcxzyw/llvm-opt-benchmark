@@ -85371,7 +85371,7 @@ entry:
   %call3 = call noundef zeroext i1 @_ZN6duckdb23grapheme_break_extendedEiiPi(i32 noundef 0, i32 noundef %bf.cast, ptr noundef nonnull %boundclass)
   %0 = load i32, ptr %sz, align 4, !tbaa !65
   %conv32 = sext i32 %0 to i64
-  %cmp.not33 = icmp ult i64 %conv32, %len
+  %cmp.not33 = icmp ugt i64 %len, %conv32
   br i1 %cmp.not33, label %if.end, label %cleanup17
 
 if.end:                                           ; preds = %entry, %cleanup
@@ -91355,7 +91355,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %1 = trunc i64 %0 to i32
-  %cmp.i.i.i = icmp sgt i32 %1, %id
+  %cmp.i.i.i = icmp slt i32 %id, %1
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.then
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -91862,7 +91862,7 @@ land.lhs.true.i.i.i.2:                            ; preds = %land.lhs.true.i.i.i
 land.lhs.true.i.i.i.3:                            ; preds = %land.lhs.true.i.i.i.2
   %inc.i.i.i.3 = add nuw nsw i64 %num_code_points.1.i.i.i, 2
   %cmp3.i.i.i.3 = icmp ugt i64 %inc.i.i.i.3, %conv.i.i
-  %brmerge = or i1 %cmp3.i.i.i.3, %value
+  %brmerge = or i1 %value, %cmp3.i.i.i.3
   %.mux = select i1 %cmp3.i.i.i.3, i64 3, i64 %call.i.i.i
   br i1 %brmerge, label %cleanup, label %land.lhs.true.i.i.i.4
 
@@ -131899,7 +131899,7 @@ if.then:                                          ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.then
   %conv.i = zext nneg i32 %3 to i64
-  %cmp5.i = icmp ult i64 %conv.i, %value.coerce1
+  %cmp5.i = icmp ugt i64 %value.coerce1, %conv.i
   br i1 %cmp5.i, label %for.body.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeIcEEvNS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIcEE.exit
 
 for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
@@ -132025,7 +132025,7 @@ vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.b
 for.body.i.i.i.preheader:                         ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %vector.memcheck, %iter.check
   %__first.addr.08.i.i.i.ph = phi ptr [ %value.coerce0, %iter.check ], [ %value.coerce0, %vector.memcheck ], [ %ind.end16, %vec.epilog.iter.check ], [ %ind.end, %vec.epilog.middle.block ]
   %__result.addr.07.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %iter.check ], [ %add.ptr.i.i.i, %vector.memcheck ], [ %ind.end18, %vec.epilog.iter.check ], [ %ind.end17, %vec.epilog.middle.block ]
-  %17 = add i64 %value.coerce08, %value.coerce1
+  %17 = add i64 %value.coerce1, %value.coerce08
   %__first.addr.08.i.i.i.ph26 = ptrtoint ptr %__first.addr.08.i.i.i.ph to i64
   %18 = sub i64 %17, %__first.addr.08.i.i.i.ph26
   %xtraiter = and i64 %18, 7
@@ -133516,7 +133516,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %1 = trunc i64 %0 to i32
-  %cmp.i.i.i = icmp sgt i32 %1, %id
+  %cmp.i.i.i = icmp slt i32 %id, %1
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.then
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -134431,7 +134431,7 @@ land.lhs.true.i.i.i.2:                            ; preds = %land.lhs.true.i.i.i
 land.lhs.true.i.i.i.3:                            ; preds = %land.lhs.true.i.i.i.2
   %inc.i.i.i.3 = add nuw nsw i64 %num_code_points.1.i.i.i, 2
   %cmp3.i.i.i.3 = icmp ugt i64 %inc.i.i.i.3, %conv.i.i
-  %brmerge = or i1 %cmp3.i.i.i.3, %value
+  %brmerge = or i1 %value, %cmp3.i.i.i.3
   %.mux = select i1 %cmp3.i.i.i.3, i64 3, i64 %call.i.i.i
   br i1 %brmerge, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE5writeIcEEvNS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIcEE.exit.i, label %land.lhs.true.i.i.i.4
 

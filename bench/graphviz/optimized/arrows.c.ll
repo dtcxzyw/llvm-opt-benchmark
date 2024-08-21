@@ -986,8 +986,8 @@ define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sr
   %22 = fmul double %20, 5.000000e-01
   %23 = fsub double %1, %22
   %24 = fsub double %2, %21
-  %25 = fadd double %22, %1
-  %26 = fadd double %21, %2
+  %25 = fadd double %1, %22
+  %26 = fadd double %2, %21
   %27 = fadd double %19, %23
   %28 = fadd double %20, %24
   %29 = fadd double %19, %25
@@ -1085,7 +1085,7 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %40, i64 8
   %45 = load double, ptr %44, align 8
-  %46 = fmul double %45, %6
+  %46 = fmul double %6, %45
   %47 = fmul double %28, %46
   %48 = fmul double %29, %46
   %49 = getelementptr inbounds i8, ptr %40, i64 16
@@ -1182,7 +1182,7 @@ define internal double @arrow_length_normal(double noundef %0, double noundef %1
   %15 = fmul double %9, %14
   %16 = fdiv double %15, %13
   %17 = fmul double %2, 5.000000e-01
-  %18 = fmul double %9, %2
+  %18 = fmul double %2, %9
   %19 = fdiv double %18, %16
   %20 = and i32 %3, 32
   %.not = icmp eq i32 %20, 0
@@ -1245,7 +1245,7 @@ define internal double @arrow_length_crow(double noundef %0, double noundef %1, 
   %17 = fmul double %16, %13
   %18 = fdiv double %17, %15
   %19 = fmul double %2, 5.000000e-01
-  %20 = fmul double %13, %2
+  %20 = fmul double %2, %13
   %21 = fdiv double %20, %18
   %22 = and i32 %3, 32
   %.not = icmp eq i32 %22, 0
@@ -1301,16 +1301,16 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   %.sroa.576.0 = phi double [ %37, %21 ], [ %11, %8 ]
   %39 = fsub double %.sroa.042.0, %4
   store double %39, ptr %9, align 16
-  %40 = fadd double %.sroa.746.0, %3
+  %40 = fadd double %3, %.sroa.746.0
   %41 = getelementptr inbounds i8, ptr %9, i64 8
   store double %40, ptr %41, align 8
-  %42 = fadd double %.sroa.042.0, %4
+  %42 = fadd double %4, %.sroa.042.0
   %43 = getelementptr inbounds i8, ptr %9, i64 16
   store double %42, ptr %43, align 16
   %44 = fsub double %.sroa.746.0, %3
   %45 = getelementptr inbounds i8, ptr %9, i64 24
   store double %44, ptr %45, align 8
-  %46 = fadd double %.sroa.034.0, %4
+  %46 = fadd double %4, %.sroa.034.0
   %47 = getelementptr inbounds i8, ptr %9, i64 32
   store double %46, ptr %47, align 16
   %48 = fsub double %.sroa.7.0, %3
@@ -1319,7 +1319,7 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   %50 = fsub double %.sroa.034.0, %4
   %51 = getelementptr inbounds i8, ptr %9, i64 48
   store double %50, ptr %51, align 16
-  %52 = fadd double %.sroa.7.0, %3
+  %52 = fadd double %3, %.sroa.7.0
   %53 = getelementptr inbounds i8, ptr %9, i64 56
   store double %52, ptr %53, align 8
   %54 = and i32 %7, 64
@@ -1505,17 +1505,17 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   %21 = fadd double %2, %4
   %22 = fadd double %1, %3
   %23 = fmul double %4, 5.000000e-01
-  %24 = fadd double %23, %2
+  %24 = fadd double %2, %23
   %25 = fmul double %3, 5.000000e-01
-  %26 = fadd double %25, %1
+  %26 = fadd double %1, %25
   %27 = fneg double %3
   %28 = fneg double %4
   call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %9, double %.sroa.026.0.i, double %.sroa.328.0.i, double %27, double %28, double %.sroa.021.0.i, double %.sroa.323.0.i, double noundef %6)
   %.sroa.014.0.copyload.i = load double, ptr %9, align 8
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.215.0.copyload.i = load double, ptr %.sroa.215.0..sroa_idx.i, align 8
-  %29 = fadd double %.sroa.014.0.copyload.i, %3
-  %30 = fadd double %.sroa.215.0.copyload.i, %4
+  %29 = fadd double %3, %.sroa.014.0.copyload.i
+  %30 = fadd double %4, %.sroa.215.0.copyload.i
   %31 = fsub double %1, %29
   %32 = fsub double %2, %30
   %33 = fsub double %26, %29
@@ -1613,8 +1613,8 @@ define internal double @arrow_length_diamond(double noundef %0, double noundef %
   %29 = fadd double %23, %28
   %30 = fmul double %25, %29
   %31 = fdiv double %30, %27
-  %32 = fneg double %25
-  %33 = fmul double %32, %2
+  %32 = fneg double %2
+  %33 = fmul double %25, %32
   %34 = fdiv double %33, %31
   %35 = tail call double @llvm.fmuladd.f64(double %25, double 2.000000e+00, double %34)
   ret double %35
@@ -1668,8 +1668,8 @@ define internal { double, double } @arrow_type_dot(ptr noundef %0, double %1, do
   %.lobit = and i32 %38, 1
   %39 = xor i32 %.lobit, 1
   call void @gvrender_ellipse(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %39) #11
-  %40 = fadd double %.sroa.031.0, %3
-  %41 = fadd double %.sroa.6.0, %4
+  %40 = fadd double %3, %.sroa.031.0
+  %41 = fadd double %4, %.sroa.6.0
   %42 = fsub double %40, %.sroa.09.0
   %43 = fsub double %41, %.sroa.411.0
   %.fca.0.insert = insertvalue { double, double } poison, double %42, 0
@@ -1721,11 +1721,11 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
 30:                                               ; preds = %16, %19, %8
   %.sroa.054.0 = phi double [ %1, %8 ], [ %28, %19 ], [ %1, %16 ]
   %.sroa.1162.0 = phi double [ %2, %8 ], [ %29, %19 ], [ %2, %16 ]
-  %31 = fadd double %.sroa.054.0, %3
-  %32 = fadd double %.sroa.1162.0, %4
+  %31 = fadd double %3, %.sroa.054.0
+  %32 = fadd double %4, %.sroa.1162.0
   %33 = fneg double %4
   %34 = fmul double %14, %33
-  %35 = fmul double %14, %3
+  %35 = fmul double %3, %14
   %36 = getelementptr inbounds i8, ptr %10, i64 16
   store double %31, ptr %36, align 16
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
@@ -1851,7 +1851,7 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %.0 = select i1 %11, double %13, double 3.500000e-01
   %14 = fneg double %3
   %15 = fmul double %.0, %14
-  %16 = fmul double %.0, %2
+  %16 = fmul double %2, %.0
   %17 = fadd double %0, %2
   %18 = fadd double %1, %3
   %19 = and i32 %5, 128
@@ -1961,8 +1961,8 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   br i1 %.not189, label %83, label %76
 
 76:                                               ; preds = %74
-  %77 = fadd double %.sroa.0107.0, %0
-  %78 = fadd double %.sroa.5110.0, %1
+  %77 = fadd double %0, %.sroa.0107.0
+  %78 = fadd double %1, %.sroa.5110.0
   %79 = fadd double %17, %.sroa.0107.0
   %80 = fadd double %18, %.sroa.5110.0
   store double %77, ptr %75, align 8
@@ -2135,7 +2135,7 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %11 = alloca %struct.triangle, align 8
   %12 = alloca %struct.triangle, align 8
   %13 = fmul double %4, 4.000000e+00
-  %14 = fcmp uge double %13, %5
+  %14 = fcmp ule double %5, %13
   %15 = and i32 %6, 32
   %.not = icmp eq i32 %15, 0
   %or.cond305 = or i1 %14, %.not
@@ -2150,9 +2150,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %.0298 = select i1 %or.cond306, double 0.000000e+00, double %21
   %22 = fneg double %3
   %23 = fmul double %.0, %22
-  %24 = fmul double %.0, %2
+  %24 = fmul double %2, %.0
   %25 = fmul double %.0298, %22
-  %26 = fmul double %.0298, %2
+  %26 = fmul double %2, %.0298
   %27 = fadd double %0, %2
   %28 = fadd double %1, %3
   %29 = tail call double @llvm.fmuladd.f64(double %2, double 5.000000e-01, double %0)
@@ -2358,8 +2358,8 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %.sroa.9.0327 = phi double [ %107, %.thread ], [ 0.000000e+00, %108 ]
   %.sroa.078.0326 = phi double [ %.sroa.078.1, %.thread ], [ 0.000000e+00, %108 ]
   %.sroa.7.0325 = phi double [ %.sroa.7.1, %.thread ], [ 0.000000e+00, %108 ]
-  %143 = fadd double %.sroa.0138.0328, %0
-  %144 = fadd double %.sroa.9.0327, %1
+  %143 = fadd double %0, %.sroa.0138.0328
+  %144 = fadd double %1, %.sroa.9.0327
   %145 = fadd double %27, %.sroa.0138.0328
   %146 = fadd double %28, %.sroa.9.0327
   %147 = getelementptr inbounds i8, ptr %7, i64 128

@@ -253,7 +253,7 @@ entry:
   %1 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
   call void @_ZNK6icu_758EraRules12getStartDateEiRA3_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %call, ptr noundef nonnull align 4 dereferenceable(12) %eraStart, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %eraStart, align 4
-  %cmp = icmp eq i32 %2, %eyear
+  %cmp = icmp eq i32 %eyear, %2
   %arrayidx2 = getelementptr inbounds i8, ptr %eraStart, i64 4
   %3 = load i32, ptr %arrayidx2, align 4
   %sub = add nsw i32 %3, -1
@@ -280,14 +280,14 @@ entry:
   %1 = load ptr, ptr @_ZL17gJapaneseEraRules, align 8
   call void @_ZNK6icu_758EraRules12getStartDateEiRA3_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %call, ptr noundef nonnull align 4 dereferenceable(12) %eraStart, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %eraStart, align 4
-  %cmp = icmp eq i32 %2, %eyear
+  %cmp = icmp eq i32 %eyear, %2
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %eraStart, i64 4
   %3 = load i32, ptr %arrayidx2, align 4
   %sub = add nsw i32 %3, -1
-  %cmp3 = icmp eq i32 %sub, %month
+  %cmp3 = icmp eq i32 %month, %sub
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then

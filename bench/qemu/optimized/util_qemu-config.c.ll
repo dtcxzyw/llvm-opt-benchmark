@@ -262,7 +262,7 @@ for.end.i:                                        ; preds = %for.inc.i
 while.cond1.preheader.i.i:                        ; preds = %for.end.i, %while.end.i.i
   %18 = phi ptr [ %26, %while.end.i.i ], [ %17, %for.end.i ]
   %cur.014.i.i = phi ptr [ %25, %while.end.i.i ], [ %head.1.i, %for.end.i ]
-  %cmp.not11.i.i = icmp eq ptr %18, %head.1.i
+  %cmp.not11.i.i = icmp eq ptr %head.1.i, %18
   br i1 %cmp.not11.i.i, label %while.end.i.i, label %while.body3.lr.ph.i.i
 
 while.body3.lr.ph.i.i:                            ; preds = %while.cond1.preheader.i.i

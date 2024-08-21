@@ -3264,7 +3264,7 @@ declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #0
 define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %1, i64 noundef 1) #22
   %5 = icmp ne i32 %4, 0
-  %6 = and i1 %5, %2
+  %6 = and i1 %2, %5
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
@@ -3280,7 +3280,7 @@ define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 n
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %10, i64 noundef 1) #22
   %12 = icmp ne i32 %11, 0
-  %13 = and i1 %12, %2
+  %13 = and i1 %2, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %8
@@ -3296,7 +3296,7 @@ define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 n
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %21, i64 noundef 1) #22
   %23 = icmp ne i32 %22, 0
-  %24 = and i1 %23, %2
+  %24 = and i1 %2, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
@@ -3309,7 +3309,7 @@ define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 n
   %29 = getelementptr inbounds i8, ptr %1, i64 12
   %30 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef %29, i64 noundef 1) #22
   %31 = icmp ne i32 %30, 0
-  %32 = and i1 %31, %2
+  %32 = and i1 %2, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %28
@@ -3321,7 +3321,7 @@ define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 n
   %36 = load i32, ptr %21, align 4
   %37 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef %35, i64 noundef 1) #22
   %38 = icmp ne i32 %37, 0
-  %39 = and i1 %38, %2
+  %39 = and i1 %2, %38
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %34
@@ -3332,7 +3332,7 @@ define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 n
   %42 = getelementptr inbounds i8, ptr %1, i64 20
   %43 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %42, i64 noundef 1) #22
   %44 = icmp ne i32 %43, 0
-  %45 = and i1 %44, %2
+  %45 = and i1 %2, %44
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %41
@@ -3343,7 +3343,7 @@ define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 n
   %48 = getelementptr inbounds i8, ptr %1, i64 24
   %49 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %48, i64 noundef 1) #22
   %50 = icmp ne i32 %49, 0
-  %51 = and i1 %50, %2
+  %51 = and i1 %2, %50
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %47
@@ -3354,7 +3354,7 @@ define dso_local void @i2c_parse_fw_timings(ptr noundef %0, ptr noundef %1, i1 n
   %54 = getelementptr inbounds i8, ptr %1, i64 28
   %55 = tail call i32 @device_property_read_u32_array(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %54, i64 noundef 1) #22
   %56 = icmp ne i32 %55, 0
-  %57 = and i1 %56, %2
+  %57 = and i1 %2, %56
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %53
@@ -4819,7 +4819,7 @@ define dso_local ptr @i2c_get_dma_safe_msg_buf(ptr nocapture noundef readonly %0
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i32
-  %6 = icmp ult i32 %5, %1
+  %6 = icmp ugt i32 %1, %5
   %7 = icmp eq i16 %4, 0
   %8 = or i1 %7, %6
   br i1 %8, label %29, label %9

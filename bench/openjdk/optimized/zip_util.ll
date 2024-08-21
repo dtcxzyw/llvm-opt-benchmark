@@ -1984,9 +1984,9 @@ define internal fastcc noalias noundef ptr @newEntry(ptr nocapture noundef %0, p
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8
-  %.not31.i = icmp sgt i64 %30, %24
+  %.not31.i = icmp slt i64 %24, %30
   %31 = add nsw i64 %30, 8146
-  %.not32.i = icmp slt i64 %31, %24
+  %.not32.i = icmp sgt i64 %24, %31
   %or.cond.i = select i1 %.not31.i, i1 true, i1 %.not32.i
   br i1 %or.cond.i, label %50, label %32
 
@@ -2450,7 +2450,7 @@ define noalias noundef ptr @ZIP_GetNextEntry(ptr nocapture noundef %0, i32 nound
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %7, label %17
 
 7:                                                ; preds = %4
@@ -2588,7 +2588,7 @@ define hidden i32 @ZIP_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 16:                                               ; preds = %10, %13
   %17 = phi i64 [ %15, %13 ], [ %12, %10 ]
   %18 = icmp sgt i64 %2, -1
-  %.not40 = icmp sgt i64 %17, %2
+  %.not40 = icmp slt i64 %2, %17
   %or.cond = select i1 %18, i1 %.not40, i1 false
   br i1 %or.cond, label %19, label %readFullyAt.exit.sink.split
 

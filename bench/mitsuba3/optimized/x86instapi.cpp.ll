@@ -916,7 +916,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %295 = or i64 %285, %82
   %296 = add i32 %79, 1
   %297 = zext i32 %296 to i64
-  %298 = icmp ult i64 %297, %3
+  %298 = icmp ugt i64 %3, %297
   br i1 %298, label %77, label %.loopexit27, !llvm.loop !33
 
 299:                                              ; preds = %303, %86
@@ -1579,7 +1579,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   %187 = phi i32 [ %167, %163 ], [ %59, %74 ], [ %59, %168 ], [ %59, %182 ]
   %188 = add i32 %60, 1
   %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %189, %3
+  %190 = icmp ugt i64 %3, %189
   br i1 %190, label %56, label %191, !llvm.loop !77
 
 191:                                              ; preds = %185
@@ -3901,7 +3901,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %142 = phi i32 [ %113, %109 ], [ %123, %116 ], [ %103, %.preheader ], [ %133, %131 ]
   %143 = add i32 %105, 1
   %144 = zext i32 %143 to i64
-  %145 = icmp ult i64 %144, %3
+  %145 = icmp ugt i64 %3, %144
   br i1 %145, label %.preheader, label %97, !llvm.loop !86
 
 146:                                              ; preds = %97, %95

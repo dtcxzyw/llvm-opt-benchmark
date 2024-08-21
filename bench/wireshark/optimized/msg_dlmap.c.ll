@@ -5478,15 +5478,15 @@ define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE(ptr noundef
   %32 = ashr exact i32 %26, 1
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %32) #2
   %34 = lshr i8 %33, 4
-  %.pre76 = ashr exact i32 %26, 1
+  %.pre73 = ashr exact i32 %26, 1
   br label %35
 
 35:                                               ; preds = %31, %27
-  %.pre-phi77 = phi i32 [ %.pre76, %31 ], [ %28, %27 ]
+  %.pre-phi74 = phi i32 [ %.pre73, %31 ], [ %28, %27 ]
   %.in69 = phi i8 [ %34, %31 ], [ %30, %27 ]
   %36 = zext nneg i8 %.in69 to i32
   %37 = load i32, ptr @hf_dlmap_dedicated_dl_control_control_header, align 4
-  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %37, ptr noundef %2, i32 noundef %.pre-phi77, i32 noundef 1, i32 noundef %36) #2
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %37, ptr noundef %2, i32 noundef %.pre-phi74, i32 noundef 1, i32 noundef %36) #2
   %39 = add nsw i32 %1, 2
   %40 = and i32 %36, 1
   %.not70 = icmp eq i32 %40, 0
@@ -5505,36 +5505,34 @@ define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE(ptr noundef
   %47 = ashr exact i32 %39, 1
   %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %47) #2
   %49 = lshr i8 %48, 4
-  %.pre78 = ashr exact i32 %39, 1
+  %.pre75 = ashr exact i32 %39, 1
   br label %50
 
 50:                                               ; preds = %46, %42
-  %.pre-phi79 = phi i32 [ %.pre78, %46 ], [ %43, %42 ]
+  %.pre-phi76 = phi i32 [ %.pre75, %46 ], [ %43, %42 ]
   %.in72 = phi i8 [ %49, %46 ], [ %45, %42 ]
   %51 = load i32, ptr @hf_dlmap_dedicated_dl_control_num_sdma_layers, align 4
   %52 = lshr i8 %.in72, 2
   %53 = zext nneg i8 %52 to i32
-  %54 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %51, ptr noundef %2, i32 noundef %.pre-phi79, i32 noundef 1, i32 noundef %53) #2
+  %54 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %51, ptr noundef %2, i32 noundef %.pre-phi76, i32 noundef 1, i32 noundef %53) #2
   %55 = shl i32 %39, 2
   %56 = or disjoint i32 %55, 2
-  %57 = add nsw i32 %23, %1
+  %57 = add nsw i32 %1, %23
   %58 = shl i32 %57, 2
   %59 = icmp slt i32 %56, %58
   br i1 %59, label %60, label %80
 
 60:                                               ; preds = %50
-  %61 = shl nuw nsw i32 %23, 2
-  %62 = load i32, ptr @hf_reserved, align 4
-  %63 = sdiv i32 %55, 8
-  %64 = srem i32 %55, 8
-  %65 = add nsw i32 %64, 246
-  %66 = add nuw nsw i32 %65, %61
-  %67 = trunc i32 %66 to i8
-  %.lhs.trunc73 = add nsw i8 %67, -1
-  %68 = sdiv i8 %.lhs.trunc73, 8
-  %narrow75 = add nsw i8 %68, 1
-  %69 = sext i8 %narrow75 to i32
-  %70 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %19, i32 noundef %62, ptr noundef %2, i32 noundef %63, i32 noundef %69, ptr noundef null, ptr noundef nonnull @.str.548) #2
+  %61 = sub nsw i32 %57, %39
+  %62 = shl i32 %61, 2
+  %63 = load i32, ptr @hf_reserved, align 4
+  %64 = sdiv i32 %55, 8
+  %65 = srem i32 %55, 8
+  %66 = add nsw i32 %65, -3
+  %67 = add i32 %66, %62
+  %68 = sdiv i32 %67, 8
+  %69 = add nsw i32 %68, 1
+  %70 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %19, i32 noundef %63, ptr noundef %2, i32 noundef %64, i32 noundef %69, ptr noundef null, ptr noundef nonnull @.str.548) #2
   br label %80
 
 71:                                               ; preds = %35
@@ -5547,8 +5545,8 @@ define internal fastcc range(i32 1, 17) i32 @Dedicated_DL_Control_IE(ptr noundef
   %76 = trunc nuw nsw i32 %4 to i8
   %77 = add nsw i8 %76, -1
   %.lhs.trunc = add nsw i8 %77, %.in67
-  %78 = lshr i8 %.lhs.trunc, 1
-  %.sext = zext nneg i8 %78 to i32
+  %78 = sdiv i8 %.lhs.trunc, 2
+  %.sext = sext i8 %78 to i32
   %79 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %19, i32 noundef %74, ptr noundef %2, i32 noundef %75, i32 noundef %.sext, ptr noundef null, ptr noundef nonnull @.str.548) #2
   br label %80
 

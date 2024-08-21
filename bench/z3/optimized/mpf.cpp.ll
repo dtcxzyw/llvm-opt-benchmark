@@ -1845,7 +1845,7 @@ cleanup.action31:                                 ; preds = %cond.true
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #19
   %add = add nuw i64 %e_pos.0116, 1
-  %cmp.i.i64.not = icmp ugt i64 %v.sroa.0.0, %e_pos.0116
+  %cmp.i.i64.not = icmp ult i64 %e_pos.0116, %v.sroa.0.0
   br i1 %cmp.i.i64.not, label %invoke.cont40, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %cleanup.action31
@@ -3046,7 +3046,7 @@ if.then16:                                        ; preds = %land.lhs.true
   store i32 %bf.set9.i, ptr %o, align 8
   %bf.load10.i = load i32, ptr %x, align 8
   %bf.lshr11.i = and i32 %bf.load10.i, -2147483648
-  %14 = or disjoint i32 %bf.lshr11.i, %ebits
+  %14 = or disjoint i32 %ebits, %bf.lshr11.i
   %bf.set16.i = or disjoint i32 %14, %bf.clear5.i
   store i32 %bf.set16.i, ptr %o, align 8
   %15 = load i64, ptr %exponent.i.i.i, align 8
@@ -4154,7 +4154,7 @@ entry:
   %sticky_rem = alloca %class._scoped_numeral.0, align 8
   %bf.load.i = load i32, ptr %y, align 8
   %tobool.i = icmp slt i32 %bf.load.i, 0
-  %xor74 = xor i1 %tobool.i, %sub
+  %xor74 = xor i1 %sub, %tobool.i
   %exponent.i.i.i = getelementptr inbounds i8, ptr %x, i64 24
   %0 = load i64, ptr %exponent.i.i.i, align 8
   %bf.load.i.i = load i32, ptr %x, align 8
@@ -9530,7 +9530,7 @@ invoke.cont98:                                    ; preds = %invoke.cont93
 invoke.cont101:                                   ; preds = %invoke.cont98
   %18 = and i64 %0, 4294967295
   %cmp102 = icmp eq i64 %18, 4294967295
-  %brmerge56 = or i1 %cmp102, %partial
+  %brmerge56 = or i1 %partial, %cmp102
   %19 = load i32, ptr %m_num.i79, align 8
   %cmp.i134 = icmp eq i32 %19, 0
   %or.cond = select i1 %brmerge56, i1 %cmp.i134, i1 false
@@ -12021,7 +12021,7 @@ call.i.noexc:                                     ; preds = %if.else
 
 invoke.cont35:                                    ; preds = %call.i.noexc
   %add.i = add nsw i64 %call2.i20, 1
-  %cmp37 = icmp eq i64 %add.i, %exp
+  %cmp37 = icmp eq i64 %exp, %add.i
   br i1 %cmp37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %invoke.cont35
@@ -13613,7 +13613,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   %call309 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str) #19
   %cmp.i.i.i406 = icmp ne ptr %call307, %call309
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %call309, i64 -1
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %call307
+  %cmp.i110.i.i = icmp ult ptr %call307, %__last.sroa.0.09.i.i
   %or.cond.i.i407 = select i1 %cmp.i.i.i406, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i407, label %while.body.i.i, label %invoke.cont313
 
@@ -13774,7 +13774,7 @@ for.end382:                                       ; preds = %for.inc380, %invoke
   %call387 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str) #19
   %cmp.i.i.i438 = icmp ne ptr %call384, %call387
   %__last.sroa.0.09.i.i439 = getelementptr inbounds i8, ptr %call387, i64 -1
-  %cmp.i110.i.i440 = icmp ugt ptr %__last.sroa.0.09.i.i439, %call384
+  %cmp.i110.i.i440 = icmp ult ptr %call384, %__last.sroa.0.09.i.i439
   %or.cond.i.i441 = select i1 %cmp.i.i.i438, i1 %cmp.i110.i.i440, i1 false
   br i1 %or.cond.i.i441, label %while.body.i.i442, label %invoke.cont391
 

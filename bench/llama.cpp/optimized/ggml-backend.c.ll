@@ -955,7 +955,7 @@ ggml_backend_register.exit.i:                     ; preds = %if.end.i
 
 ggml_backend_registry_init.exit:                  ; preds = %entry, %ggml_backend_register.exit.i
   %2 = phi i64 [ %.pre, %entry ], [ %inc.i.i, %ggml_backend_register.exit.i ]
-  %cmp = icmp ugt i64 %2, %i
+  %cmp = icmp ult i64 %i, %2
   br i1 %cmp, label %do.end, label %if.then
 
 if.then:                                          ; preds = %ggml_backend_registry_init.exit
@@ -1014,7 +1014,7 @@ ggml_backend_register.exit.i:                     ; preds = %if.end.i
 
 ggml_backend_registry_init.exit:                  ; preds = %entry, %ggml_backend_register.exit.i
   %2 = phi i64 [ %.pre, %entry ], [ %inc.i.i, %ggml_backend_register.exit.i ]
-  %cmp = icmp ugt i64 %2, %i
+  %cmp = icmp ult i64 %i, %2
   br i1 %cmp, label %do.end, label %if.then
 
 if.then:                                          ; preds = %ggml_backend_registry_init.exit
@@ -1068,7 +1068,7 @@ ggml_backend_register.exit.i:                     ; preds = %if.end.i
 
 ggml_backend_registry_init.exit:                  ; preds = %entry, %ggml_backend_register.exit.i
   %2 = phi i64 [ %.pre, %entry ], [ %inc.i.i, %ggml_backend_register.exit.i ]
-  %cmp = icmp ugt i64 %2, %i
+  %cmp = icmp ult i64 %i, %2
   br i1 %cmp, label %do.end, label %if.then
 
 if.then:                                          ; preds = %ggml_backend_registry_init.exit
@@ -1123,7 +1123,7 @@ ggml_backend_register.exit.i:                     ; preds = %if.end.i
 
 ggml_backend_registry_init.exit:                  ; preds = %entry, %ggml_backend_register.exit.i
   %2 = phi i64 [ %.pre, %entry ], [ %inc.i.i, %ggml_backend_register.exit.i ]
-  %cmp = icmp ugt i64 %2, %i
+  %cmp = icmp ult i64 %i, %2
   br i1 %cmp, label %do.end, label %if.then
 
 if.then:                                          ; preds = %ggml_backend_registry_init.exit
@@ -3418,7 +3418,7 @@ if.then.i:                                        ; preds = %do.body17
   unreachable
 
 ggml_backend_buffer_get_base.exit:                ; preds = %do.body17
-  %cmp19.not = icmp ugt ptr %call.i, %addr
+  %cmp19.not = icmp ult ptr %addr, %call.i
   br i1 %cmp19.not, label %if.then20, label %do.body25
 
 if.then20:                                        ; preds = %ggml_backend_buffer_get_base.exit

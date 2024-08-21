@@ -333,7 +333,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
   %9 = udiv exact i64 %8, 24
-  %.not = icmp ugt i64 %9, %1
+  %.not = icmp ult i64 %1, %9
   %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %5, i64 %1
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %storemerge = select i1 %.not, ptr %11, ptr %4

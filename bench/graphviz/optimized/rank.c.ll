@@ -1623,7 +1623,7 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
 
 158:                                              ; preds = %156
   %159 = tail call ptr @dot_root(ptr noundef nonnull %0) #14
-  %160 = icmp eq ptr %159, %0
+  %160 = icmp eq ptr %0, %159
   br i1 %160, label %161, label %expand_ranksets.exit
 
 161:                                              ; preds = %158

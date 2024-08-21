@@ -1482,7 +1482,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i: ; preds = %27, %25
   %39 = load i64, ptr %38, align 8, !alias.scope !153, !noalias !156, !noundef !26
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8, !alias.scope !153, !noalias !156
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %50, %3
@@ -1563,8 +1563,8 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i: ; preds = %27, %25
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.017.i11.i
-  %86 = getelementptr i8, ptr %85, i64 %.1.lcssa.i
+  %85 = getelementptr i8, ptr %1, i64 %.1.lcssa.i
+  %86 = getelementptr i8, ptr %85, i64 %.017.i11.i
   %.0.copyload15.i16.i = load i16, ptr %86, align 1, !alias.scope !167, !noalias !153
   %87 = zext i16 %.0.copyload15.i16.i to i64
   %88 = shl nuw nsw i64 %.017.i11.i, 3
@@ -2132,8 +2132,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 84:                                               ; preds = %100, %.noexc51
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc51 ], [ %101, %100 ]
-  %.pn.i.i.i = phi i64 [ %80, %.noexc51 ], [ %102, %100 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %80, %.noexc51 ], [ %102, %100 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %85 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %85, align 1, !noalias !320
   %86 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -2161,7 +2161,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %98 = sub nsw i64 0, %97
   %gep.i.i.i.i = getelementptr { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %invariant.gep.i.i.i.i, i64 %98
   %.val4.i.i.i.i.i = load i128, ptr %gep.i.i.i.i, align 16, !alias.scope !329, !noalias !334, !noundef !26
-  %99 = icmp eq i128 %.val4.i.i.i.i.i, %35
+  %99 = icmp eq i128 %35, %.val4.i.i.i.i.i
   br i1 %99, label %103, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i.i"
 
 100:                                              ; preds = %88
@@ -5367,8 +5367,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 214:                                              ; preds = %230, %.noexc65
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %.noexc65 ], [ %231, %230 ]
-  %.pn.i.i.i = phi i64 [ %210, %.noexc65 ], [ %232, %230 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %210, %.noexc65 ], [ %232, %230 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val5.i.i
   %215 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i25.i.i.i.i = load <16 x i8>, ptr %215, align 1, !noalias !935
   %216 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -5396,7 +5396,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %228 = sub nsw i64 0, %227
   %gep.i.i.i.i = getelementptr { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %invariant.gep.i.i.i.i, i64 %228
   %.val4.i.i.i.i.i = load i128, ptr %gep.i.i.i.i, align 16, !alias.scope !944, !noalias !949, !noundef !26
-  %229 = icmp eq i128 %.val4.i.i.i.i.i, %165
+  %229 = icmp eq i128 %165, %.val4.i.i.i.i.i
   br i1 %229, label %233, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i.i"
 
 230:                                              ; preds = %218
@@ -7221,8 +7221,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 
 41:                                               ; preds = %57, %8
   %.sroa.9.0.i.i.i = phi i64 [ 0, %8 ], [ %58, %57 ]
-  %.pn.i = phi i64 [ %37, %8 ], [ %59, %57 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i.i = phi i64 [ %37, %8 ], [ %59, %57 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %42 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i25.i.i = load <16 x i8>, ptr %42, align 1, !noalias !1319
   %43 = icmp eq <16 x i8> %.0.copyload.i25.i.i, %.15.vec.insert.i.i.i
@@ -7250,7 +7250,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %55 = sub nsw i64 0, %54
   %gep.i.i = getelementptr { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %invariant.gep.i.i, i64 %55
   %.val4.i.i.i = load i128, ptr %gep.i.i, align 16, !alias.scope !1328, !noalias !1333, !noundef !26
-  %56 = icmp eq i128 %.val4.i.i.i, %.0.val
+  %56 = icmp eq i128 %.0.val, %.val4.i.i.i
   br i1 %56, label %60, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i"
 
 57:                                               ; preds = %45

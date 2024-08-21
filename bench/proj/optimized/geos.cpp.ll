@@ -229,43 +229,44 @@ define internal { double, double } @_ZL14geos_e_inverse5PJ_XYP8PJconsts(double %
   %33 = getelementptr inbounds i8, ptr %5, i64 32
   %34 = load double, ptr %33, align 8
   %35 = fmul double %34, -2.000000e+00
-  %36 = getelementptr inbounds i8, ptr %5, i64 48
-  %37 = load double, ptr %36, align 8
-  %38 = fmul double %32, -4.000000e+00
-  %39 = fmul double %37, %38
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %39)
-  %41 = fcmp olt double %40, 0.000000e+00
-  br i1 %41, label %42, label %44
+  %36 = fmul double %32, 4.000000e+00
+  %37 = getelementptr inbounds i8, ptr %5, i64 48
+  %38 = load double, ptr %37, align 8
+  %39 = fneg double %38
+  %40 = fmul double %36, %39
+  %41 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %40)
+  %42 = fcmp olt double %41, 0.000000e+00
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %26
-  %43 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  br label %64
+43:                                               ; preds = %26
+  %44 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  br label %65
 
-44:                                               ; preds = %26
-  %45 = fneg double %35
-  %46 = tail call double @sqrt(double noundef %40) #9
-  %47 = fsub double %45, %46
-  %48 = fmul double %32, 2.000000e+00
-  %49 = fdiv double %47, %48
-  %50 = load double, ptr %33, align 8
-  %51 = fsub double %50, %49
-  %52 = fmul double %.042, %49
-  %53 = fmul double %.0, %49
-  %54 = tail call double @atan2(double noundef %52, double noundef %51) #9
-  %55 = tail call double @cos(double noundef %54) #9
-  %56 = fmul double %53, %55
-  %57 = fdiv double %56, %51
-  %58 = tail call double @atan(double noundef %57) #9
-  %59 = getelementptr inbounds i8, ptr %5, i64 24
-  %60 = load double, ptr %59, align 8
-  %61 = tail call double @tan(double noundef %58) #9
-  %62 = fmul double %60, %61
-  %63 = tail call double @atan(double noundef %62) #9
-  br label %64
+45:                                               ; preds = %26
+  %46 = fneg double %35
+  %47 = tail call double @sqrt(double noundef %41) #9
+  %48 = fsub double %46, %47
+  %49 = fmul double %32, 2.000000e+00
+  %50 = fdiv double %48, %49
+  %51 = load double, ptr %33, align 8
+  %52 = fsub double %51, %50
+  %53 = fmul double %.042, %50
+  %54 = fmul double %.0, %50
+  %55 = tail call double @atan2(double noundef %53, double noundef %52) #9
+  %56 = tail call double @cos(double noundef %55) #9
+  %57 = fmul double %54, %56
+  %58 = fdiv double %57, %52
+  %59 = tail call double @atan(double noundef %58) #9
+  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  %61 = load double, ptr %60, align 8
+  %62 = tail call double @tan(double noundef %59) #9
+  %63 = fmul double %61, %62
+  %64 = tail call double @atan(double noundef %63) #9
+  br label %65
 
-64:                                               ; preds = %44, %42
-  %.sroa.4.0 = phi double [ 0.000000e+00, %42 ], [ %63, %44 ]
-  %.sroa.041.0 = phi double [ 0.000000e+00, %42 ], [ %54, %44 ]
+65:                                               ; preds = %45, %43
+  %.sroa.4.0 = phi double [ 0.000000e+00, %43 ], [ %64, %45 ]
+  %.sroa.041.0 = phi double [ 0.000000e+00, %43 ], [ %55, %45 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.041.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -395,38 +396,39 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
   %30 = getelementptr inbounds i8, ptr %5, i64 32
   %31 = load double, ptr %30, align 8
   %32 = fmul double %31, -2.000000e+00
-  %33 = getelementptr inbounds i8, ptr %5, i64 48
-  %34 = load double, ptr %33, align 8
-  %35 = fmul double %29, -4.000000e+00
-  %36 = fmul double %34, %35
-  %37 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %36)
-  %38 = fcmp olt double %37, 0.000000e+00
-  br i1 %38, label %39, label %41
+  %33 = fmul double %29, 4.000000e+00
+  %34 = getelementptr inbounds i8, ptr %5, i64 48
+  %35 = load double, ptr %34, align 8
+  %36 = fneg double %35
+  %37 = fmul double %33, %36
+  %38 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %37)
+  %39 = fcmp olt double %38, 0.000000e+00
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %26
-  %40 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  br label %56
+40:                                               ; preds = %26
+  %41 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  br label %57
 
-41:                                               ; preds = %26
-  %42 = fneg double %32
-  %43 = tail call double @sqrt(double noundef %37) #9
-  %44 = fsub double %42, %43
-  %45 = fmul double %29, 2.000000e+00
-  %46 = fdiv double %44, %45
-  %47 = load double, ptr %30, align 8
-  %48 = fsub double %47, %46
-  %49 = fmul double %.0, %46
-  %50 = fmul double %.041, %46
-  %51 = tail call double @atan2(double noundef %49, double noundef %48) #9
-  %52 = tail call double @cos(double noundef %51) #9
-  %53 = fmul double %50, %52
-  %54 = fdiv double %53, %48
-  %55 = tail call double @atan(double noundef %54) #9
-  br label %56
+42:                                               ; preds = %26
+  %43 = fneg double %32
+  %44 = tail call double @sqrt(double noundef %38) #9
+  %45 = fsub double %43, %44
+  %46 = fmul double %29, 2.000000e+00
+  %47 = fdiv double %45, %46
+  %48 = load double, ptr %30, align 8
+  %49 = fsub double %48, %47
+  %50 = fmul double %.0, %47
+  %51 = fmul double %.041, %47
+  %52 = tail call double @atan2(double noundef %50, double noundef %49) #9
+  %53 = tail call double @cos(double noundef %52) #9
+  %54 = fmul double %51, %53
+  %55 = fdiv double %54, %49
+  %56 = tail call double @atan(double noundef %55) #9
+  br label %57
 
-56:                                               ; preds = %41, %39
-  %.sroa.4.0 = phi double [ 0.000000e+00, %39 ], [ %55, %41 ]
-  %.sroa.040.0 = phi double [ 0.000000e+00, %39 ], [ %51, %41 ]
+57:                                               ; preds = %42, %40
+  %.sroa.4.0 = phi double [ 0.000000e+00, %40 ], [ %56, %42 ]
+  %.sroa.040.0 = phi double [ 0.000000e+00, %40 ], [ %52, %42 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.040.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert

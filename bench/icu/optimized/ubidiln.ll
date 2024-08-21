@@ -43,7 +43,7 @@ if.then12:                                        ; preds = %do.body8
 lor.lhs.false17:                                  ; preds = %do.body8
   %length18 = getelementptr inbounds i8, ptr %pParaBiDi, i64 20
   %2 = load i32, ptr %length18, align 4
-  %cmp19.not.not = icmp slt i32 %2, %limit
+  %cmp19.not.not = icmp sgt i32 %limit, %2
   br i1 %cmp19.not.not, label %if.then20, label %do.end22
 
 if.then20:                                        ; preds = %lor.lhs.false17
@@ -93,7 +93,7 @@ lor.lhs.false36:                                  ; preds = %if.end30
   %paras = getelementptr inbounds i8, ptr %pParaBiDi, i64 208
   %5 = load ptr, ptr %paras, align 8
   %6 = load i32, ptr %5, align 4
-  %cmp38 = icmp sgt i32 %6, %start
+  %cmp38 = icmp slt i32 %start, %6
   br i1 %cmp38, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false36, %if.end30
@@ -158,7 +158,7 @@ for.inc:                                          ; preds = %for.body, %if.then6
   %15 = phi i32 [ %12, %for.body ], [ %inc, %if.then65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp47 = icmp slt i32 %16, %limit
+  %cmp47 = icmp sgt i32 %limit, %16
   br i1 %cmp47, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
@@ -406,7 +406,7 @@ if.else:                                          ; preds = %lor.lhs.false10
 lor.lhs.false13:                                  ; preds = %if.else
   %trailingWSStart = getelementptr inbounds i8, ptr %pBiDi, i64 196
   %4 = load i32, ptr %trailingWSStart, align 4
-  %cmp14.not = icmp sgt i32 %4, %charIndex
+  %cmp14.not = icmp slt i32 %charIndex, %4
   br i1 %cmp14.not, label %if.else19, label %if.then15
 
 if.then15:                                        ; preds = %lor.lhs.false13, %if.else
@@ -419,7 +419,7 @@ lor.lhs.false17:                                  ; preds = %if.then15
   %paras = getelementptr inbounds i8, ptr %pBiDi, i64 208
   %6 = load ptr, ptr %paras, align 8
   %7 = load i32, ptr %6, align 4
-  %cmp18 = icmp sgt i32 %7, %charIndex
+  %cmp18 = icmp slt i32 %charIndex, %7
   br i1 %cmp18, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false17, %if.then15
@@ -562,7 +562,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %length = getelementptr inbounds i8, ptr %pBiDi, i64 20
   %0 = load i32, ptr %length, align 4
-  %cmp1.not = icmp sgt i32 %0, %logicalPosition
+  %cmp1.not = icmp slt i32 %logicalPosition, %0
   br i1 %cmp1.not, label %land.lhs.true.i, label %if.end37
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false
@@ -603,8 +603,8 @@ for.body:                                         ; preds = %for.body, %for.body
   %and = and i32 %iRun.sroa.0.0.copyload2, 2147483647
   %add = sub i32 %iRun.sroa.4.0.copyload3, %visualStart.033
   %sub = add i32 %add, %and
-  %cmp9.not = icmp sle i32 %and, %logicalPosition
-  %cmp10 = icmp sgt i32 %sub, %logicalPosition
+  %cmp9.not = icmp sge i32 %logicalPosition, %and
+  %cmp10 = icmp slt i32 %logicalPosition, %sub
   %or.cond = select i1 %cmp9.not, i1 %cmp10, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -645,7 +645,7 @@ if.else:                                          ; preds = %if.then18
 lor.lhs.false24:                                  ; preds = %if.else
   %trailingWSStart = getelementptr inbounds i8, ptr %pBiDi, i64 196
   %7 = load i32, ptr %trailingWSStart, align 4
-  %cmp25.not = icmp sgt i32 %7, %logicalPosition
+  %cmp25.not = icmp slt i32 %logicalPosition, %7
   br i1 %cmp25.not, label %if.else32, label %if.then26
 
 if.then26:                                        ; preds = %lor.lhs.false24, %if.else
@@ -658,7 +658,7 @@ lor.lhs.false28:                                  ; preds = %if.then26
   %paras = getelementptr inbounds i8, ptr %pBiDi, i64 208
   %9 = load ptr, ptr %paras, align 8
   %10 = load i32, ptr %9, align 4
-  %cmp30 = icmp sgt i32 %10, %logicalPosition
+  %cmp30 = icmp slt i32 %logicalPosition, %10
   br i1 %cmp30, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false28, %if.then26
@@ -907,7 +907,7 @@ if.end72:                                         ; preds = %if.then57, %do.end
   store i32 %spec.select107, ptr %runCount, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %tempRun.i)
   %21 = or i8 %minLevel.2, 1
-  %cmp.not.i = icmp ult i8 %21, %maxLevel.1
+  %cmp.not.i = icmp ugt i8 %maxLevel.1, %21
   br i1 %cmp.not.i, label %if.end.i, label %_ZL11reorderLineP5UBiDihh.exit
 
 if.end.i:                                         ; preds = %if.end72
@@ -1111,13 +1111,13 @@ for.body.i:                                       ; preds = %if.end.i127, %for.b
   %49 = load i32, ptr %visualLimit.i125, align 4
   %50 = load i32, ptr %arrayidx.i, align 4
   %and.i126 = and i32 %50, 2147483647
-  %cmp7.not.i = icmp sgt i32 %and.i126, %48
+  %cmp7.not.i = icmp slt i32 %48, %and.i126
   br i1 %cmp7.not.i, label %if.end.i127, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %sub.i = sub i32 %49, %visualStart.04.i
   %add.i = add nsw i32 %sub.i, %and.i126
-  %cmp8.i = icmp sgt i32 %add.i, %48
+  %cmp8.i = icmp slt i32 %48, %add.i
   br i1 %cmp8.i, label %_ZL22getRunFromLogicalIndexP5UBiDii.exit, label %if.end.i127
 
 if.end.i127:                                      ; preds = %land.lhs.true.i, %for.body.i
@@ -1264,7 +1264,7 @@ do.body12:                                        ; preds = %land.lhs.true3, %la
 lor.lhs.false14:                                  ; preds = %do.body12
   %runCount = getelementptr inbounds i8, ptr %pBiDi, i64 296
   %2 = load i32, ptr %runCount, align 8
-  %cmp15.not = icmp sgt i32 %2, %runIndex
+  %cmp15.not = icmp slt i32 %runIndex, %2
   br i1 %cmp15.not, label %do.end18, label %return
 
 do.end18:                                         ; preds = %lor.lhs.false14
@@ -1417,7 +1417,7 @@ do.body26.us:                                     ; preds = %do.body26.us, %for.
   br i1 %cmp33.us, label %do.body26.us, label %do.end.us, !llvm.loop !25
 
 do.end.us:                                        ; preds = %do.body26.us
-  %cmp34.us = icmp ne i32 %8, %length
+  %cmp34.us = icmp ne i32 %length, %8
   %add36.us = add nsw i32 %9, 2
   %cmp935.us = icmp slt i32 %add36.us, %length
   %or.cond39 = select i1 %cmp34.us, i1 %cmp935.us, i1 false
@@ -1533,7 +1533,7 @@ for.end.us:                                       ; preds = %land.rhs19.us, %for
   br i1 %cmp2741.us, label %while.body28.us, label %while.end38.us
 
 while.end38.us:                                   ; preds = %while.body28.us, %for.end.us
-  %cmp39.us = icmp ne i32 %8, %length
+  %cmp39.us = icmp ne i32 %length, %8
   %add.us = add nsw i32 %9, 2
   %cmp939.us = icmp slt i32 %add.us, %length
   %or.cond46 = select i1 %cmp39.us, i1 %cmp939.us, i1 false
@@ -1612,7 +1612,7 @@ do.body15:                                        ; preds = %land.lhs.true7, %la
 lor.lhs.false17:                                  ; preds = %do.body15
   %length = getelementptr inbounds i8, ptr %pBiDi, i64 20
   %3 = load i32, ptr %length, align 4
-  %cmp18.not = icmp sgt i32 %3, %logicalIndex
+  %cmp18.not = icmp slt i32 %logicalIndex, %3
   br i1 %cmp18.not, label %do.end21, label %if.then19
 
 if.then19:                                        ; preds = %lor.lhs.false17, %do.body15
@@ -1880,7 +1880,7 @@ do.body15:                                        ; preds = %land.lhs.true7, %la
 lor.lhs.false17:                                  ; preds = %do.body15
   %resultLength = getelementptr inbounds i8, ptr %pBiDi, i64 24
   %3 = load i32, ptr %resultLength, align 8
-  %cmp18.not = icmp sgt i32 %3, %visualIndex
+  %cmp18.not = icmp slt i32 %visualIndex, %3
   br i1 %cmp18.not, label %do.end21, label %if.then19
 
 if.then19:                                        ; preds = %lor.lhs.false17, %do.body15
@@ -1947,7 +1947,7 @@ for.cond:                                         ; preds = %if.end38, %for.inc
 
 if.then52:                                        ; preds = %for.cond
   %add = add nsw i32 %markFound.0, %visualStart.0
-  %cmp53.not = icmp slt i32 %add, %visualIndex
+  %cmp53.not = icmp sgt i32 %visualIndex, %add
   br i1 %cmp53.not, label %if.end55, label %return
 
 if.end55:                                         ; preds = %if.then52
@@ -1957,7 +1957,7 @@ if.end55:                                         ; preds = %if.then52
 if.end56:                                         ; preds = %if.end55, %for.cond
   %markFound.1 = phi i32 [ %inc, %if.end55 ], [ %markFound.0, %for.cond ]
   %add60 = add nsw i32 %markFound.1, %12
-  %cmp61 = icmp sgt i32 %add60, %visualIndex
+  %cmp61 = icmp slt i32 %visualIndex, %add60
   br i1 %cmp61, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %if.end56
@@ -1970,7 +1970,7 @@ if.end64:                                         ; preds = %if.end56
   br i1 %tobool66.not, label %for.inc, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
-  %cmp70 = icmp eq i32 %add60, %visualIndex
+  %cmp70 = icmp eq i32 %visualIndex, %add60
   br i1 %cmp70, label %return, label %if.end72
 
 if.end72:                                         ; preds = %if.then67
@@ -1994,7 +1994,7 @@ for.cond84.preheader:                             ; preds = %if.else77
   %insertRemove91122 = getelementptr inbounds i8, ptr %9, i64 8
   %16 = load i32, ptr %insertRemove91122, align 4
   %add96123 = add nsw i32 %15, %16
-  %cmp97.not124 = icmp sgt i32 %add96123, %visualIndex
+  %cmp97.not124 = icmp slt i32 %visualIndex, %add96123
   br i1 %cmp97.not124, label %if.end100, label %if.then98
 
 if.then98:                                        ; preds = %for.cond84.preheader, %if.then98
@@ -2011,7 +2011,7 @@ if.then98:                                        ; preds = %for.cond84.preheade
   %20 = load i32, ptr %insertRemove91, align 4
   %sub95 = sub i32 %19, %sub99
   %add96 = add nsw i32 %sub95, %20
-  %cmp97.not = icmp sgt i32 %add96, %visualIndex
+  %cmp97.not = icmp slt i32 %visualIndex, %add96
   br i1 %cmp97.not, label %if.end100, label %if.then98, !llvm.loop !39
 
 if.end100:                                        ; preds = %if.then98, %for.cond84.preheader

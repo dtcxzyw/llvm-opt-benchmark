@@ -104,7 +104,7 @@ define hidden void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr
   %.not.i = icmp ule ptr %5, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp ugt ptr %7, %1
+  %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   br i1 %9, label %10, label %12
 

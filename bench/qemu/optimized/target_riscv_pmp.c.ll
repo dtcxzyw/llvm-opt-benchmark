@@ -249,13 +249,13 @@ for.body:                                         ; preds = %if.end9, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end9 ], [ %indvars.iv.next, %for.cond ]
   %arrayidx.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr1.i, i64 0, i64 %indvars.iv
   %6 = load i64, ptr %arrayidx.i, align 16
-  %cmp.not.i = icmp ugt i64 %6, %addr
+  %cmp.not.i = icmp ult i64 %addr, %6
   br i1 %cmp.not.i, label %if.else.i52, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
   %ea.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %7 = load i64, ptr %ea.i, align 8
-  %cmp6.not.i = icmp ult i64 %7, %addr
+  %cmp6.not.i = icmp ugt i64 %addr, %7
   br i1 %cmp6.not.i, label %if.else.i52, label %pmp_is_in_range.exit
 
 if.else.i52:                                      ; preds = %land.lhs.true.i, %for.body
@@ -263,13 +263,13 @@ if.else.i52:                                      ; preds = %land.lhs.true.i, %f
 
 pmp_is_in_range.exit:                             ; preds = %land.lhs.true.i, %if.else.i52
   %result.0.i = phi i32 [ 0, %if.else.i52 ], [ 1, %land.lhs.true.i ]
-  %cmp.not.i56 = icmp ugt i64 %6, %sub15
+  %cmp.not.i56 = icmp ult i64 %sub15, %6
   br i1 %cmp.not.i56, label %if.else.i61, label %land.lhs.true.i57
 
 land.lhs.true.i57:                                ; preds = %pmp_is_in_range.exit
   %ea.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %8 = load i64, ptr %ea.i58, align 8
-  %cmp6.not.i59 = icmp ult i64 %8, %sub15
+  %cmp6.not.i59 = icmp ugt i64 %sub15, %8
   br i1 %cmp6.not.i59, label %if.else.i61, label %pmp_is_in_range.exit62
 
 if.else.i61:                                      ; preds = %land.lhs.true.i57, %pmp_is_in_range.exit

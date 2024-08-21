@@ -67,7 +67,7 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
 5:                                                ; preds = %3
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !5
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %9, label %59
 
 9:                                                ; preds = %5

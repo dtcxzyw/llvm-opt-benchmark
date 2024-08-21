@@ -1376,7 +1376,7 @@ define dso_local ptr @tcp_check_req(ptr noundef %0, ptr noundef %1, ptr noundef 
   %116 = phi i1 [ true, %.thread ], [ false, %79 ]
   %117 = and i32 %15, 4096
   %118 = icmp eq i32 %117, 0
-  %119 = or i1 %118, %3
+  %119 = or i1 %3, %118
   br i1 %119, label %127, label %120
 
 120:                                              ; preds = %112
@@ -1484,7 +1484,7 @@ define dso_local ptr @tcp_check_req(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 190:                                              ; preds = %177
   %191 = icmp eq i32 %181, 0
-  %192 = or i1 %191, %3
+  %192 = or i1 %3, %191
   %193 = select i1 %191, ptr null, ptr %0
   br i1 %192, label %273, label %194
 

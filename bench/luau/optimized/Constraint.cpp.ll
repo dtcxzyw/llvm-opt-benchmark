@@ -2511,7 +2511,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau25ReferenceCountInitia
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %.loopexit.i.i, label %18
 
 18:                                               ; preds = %14
@@ -2718,7 +2718,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau25ReferenceCountInitia
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %.loopexit.i.i, label %18
 
 18:                                               ; preds = %14
@@ -2821,7 +2821,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau25ReferenceCountInitia
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %.loopexit.i.i, label %18
 
 18:                                               ; preds = %14
@@ -3401,7 +3401,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   br i1 %9, label %.thread, label %12

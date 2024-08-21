@@ -1116,7 +1116,7 @@ if.end2:                                          ; preds = %if.end
   %add = add nuw nsw i32 %conv, 1
   %shl = shl i32 %add, %4
   %conv4 = zext i32 %shl to i64
-  %cmp5 = icmp eq i64 %conv4, %bytes
+  %cmp5 = icmp eq i64 %bytes, %conv4
   br i1 %cmp5, label %if.end8, label %if.else
 
 if.else:                                          ; preds = %if.end2
@@ -1313,7 +1313,7 @@ if.end7:                                          ; preds = %if.end
   %sh_prom = zext i32 %7 to i64
   %notmask = shl nsw i64 -1, %sh_prom
   %8 = xor i64 %notmask, -1
-  %rem = and i64 %8, %bytes
+  %rem = and i64 %bytes, %8
   %cmp8 = icmp eq i64 %rem, 0
   br i1 %cmp8, label %if.end11, label %if.else10
 
@@ -1322,7 +1322,7 @@ if.else10:                                        ; preds = %if.end7
   unreachable
 
 if.end11:                                         ; preds = %if.end7
-  %rem15 = and i64 %8, %offset
+  %rem15 = and i64 %offset, %8
   %cmp16 = icmp eq i64 %rem15, 0
   br i1 %cmp16, label %if.end19, label %if.else18
 
@@ -1619,8 +1619,8 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %blkshift.i, align 4
   %sh_prom.i = zext nneg i32 %2 to i64
   %shl.i = shl i64 %1, %sh_prom.i
-  %cmp2.not = icmp ne i64 %shl.i, %offset
-  %brmerge.not = and i1 %cmp2.not, %exact
+  %cmp2.not = icmp ne i64 %offset, %shl.i
+  %brmerge.not = and i1 %exact, %cmp2.not
   br i1 %brmerge.not, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
@@ -1628,7 +1628,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp4 = icmp slt i64 %shl.i, %offset
+  %cmp4 = icmp sgt i64 %offset, %shl.i
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else
@@ -2959,12 +2959,12 @@ if.end:                                           ; preds = %nvme_get_free_req_n
 
 land.lhs.true:                                    ; preds = %if.end
   %call.i = call ptr @qemu_get_current_aio_context() #17
-  %cmp.i11 = icmp eq ptr %call.i, %call
+  %cmp.i11 = icmp eq ptr %call, %call.i
   br i1 %cmp.i11, label %while.cond.preheader, label %if.end.i12
 
 if.end.i12:                                       ; preds = %land.lhs.true
   %call1.i = call ptr @qemu_get_aio_context() #17
-  %cmp2.i = icmp eq ptr %call1.i, %call
+  %cmp2.i = icmp eq ptr %call, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else
 
 if.then3.i:                                       ; preds = %if.end.i12
@@ -3348,7 +3348,7 @@ if.else7:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.end
   %max_transfer = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i64, ptr %max_transfer, align 8
-  %cmp9.not = icmp ult i64 %3, %bytes
+  %cmp9.not = icmp ugt i64 %bytes, %3
   br i1 %cmp9.not, label %if.else11, label %if.end12
 
 if.else11:                                        ; preds = %if.end8
@@ -3500,7 +3500,7 @@ if.end28:                                         ; preds = %if.then26, %if.end2
   %call30 = call i32 @nvme_co_prw_aligned(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %local_qiov, i1 noundef zeroext %is_write, i32 noundef %flags)
   call void @qemu_iovec_destroy(ptr noundef nonnull %local_qiov) #17
   %tobool31.not = icmp ne i32 %call30, 0
-  %brmerge = or i1 %tobool31.not, %is_write
+  %brmerge = or i1 %is_write, %tobool31.not
   br i1 %brmerge, label %cleanup, label %if.then33
 
 if.then33:                                        ; preds = %if.end28

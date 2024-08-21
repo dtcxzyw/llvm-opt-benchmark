@@ -131,7 +131,7 @@ define linkonce_odr void @_ZNSt3mapIN5ZXing3ECIENS0_12CharacterSetESt4lessIS1_ES
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN5ZXing3ECIESt4pairIKS1_NS0_12CharacterSetEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -399,7 +399,7 @@ _ZNKSt8_Rb_treeIN5ZXing3ECIESt4pairIKS1_NS0_12CharacterSetEESt10_Select1stIS5_ES
 7:                                                ; preds = %_ZNKSt8_Rb_treeIN5ZXing3ECIESt4pairIKS1_NS0_12CharacterSetEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   %8 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %9 = load i32, ptr %8, align 4
-  %10 = icmp sgt i32 %9, %0
+  %10 = icmp slt i32 %0, %9
   br i1 %10, label %_ZNKSt3mapIN5ZXing3ECIENS0_12CharacterSetESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.thread, label %_ZNKSt3mapIN5ZXing3ECIENS0_12CharacterSetESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit
 
 _ZNKSt3mapIN5ZXing3ECIENS0_12CharacterSetESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit: ; preds = %7

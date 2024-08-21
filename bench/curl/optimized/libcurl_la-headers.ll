@@ -30,7 +30,7 @@ if.end:                                           ; preds = %entry
 if.end11:                                         ; preds = %if.end
   %requests = getelementptr inbounds i8, ptr %easy, i64 3432
   %2 = load i32, ptr %requests, align 8
-  %cmp13 = icmp slt i32 %2, %request
+  %cmp13 = icmp sgt i32 %request, %2
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
@@ -56,7 +56,7 @@ land.lhs.true:                                    ; preds = %for.body
   %type27 = getelementptr inbounds i8, ptr %3, i64 44
   %5 = load i8, ptr %type27, align 4
   %conv = zext i8 %5 to i32
-  %and = and i32 %conv, %type
+  %and = and i32 %type, %conv
   %tobool28.not = icmp eq i32 %and, 0
   br i1 %tobool28.not, label %for.inc, label %land.lhs.true29
 
@@ -84,12 +84,12 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool35.not, label %return, label %if.else
 
 if.else:                                          ; preds = %for.end
-  %cmp37.not = icmp ugt i64 %amount.1, %nameindex
+  %cmp37.not = icmp ult i64 %nameindex, %amount.1
   br i1 %cmp37.not, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.else
   %sub = add i64 %amount.1, -1
-  %cmp42 = icmp eq i64 %sub, %nameindex
+  %cmp42 = icmp eq i64 %nameindex, %sub
   br i1 %cmp42, label %if.end77, label %for.cond49.preheader
 
 for.cond49.preheader:                             ; preds = %if.end41
@@ -111,7 +111,7 @@ land.lhs.true56:                                  ; preds = %for.body51
   %type57 = getelementptr inbounds i8, ptr %7, i64 44
   %9 = load i8, ptr %type57, align 4
   %conv58 = zext i8 %9 to i32
-  %and59 = and i32 %conv58, %type
+  %and59 = and i32 %type, %conv58
   %tobool60.not = icmp eq i32 %and59, 0
   br i1 %tobool60.not, label %for.inc71, label %land.lhs.true61
 
@@ -173,7 +173,7 @@ define noundef ptr @curl_easy_nextheader(ptr noundef %easy, i32 noundef %type, i
 entry:
   %requests = getelementptr inbounds i8, ptr %easy, i64 3432
   %0 = load i32, ptr %requests, align 8
-  %cmp = icmp slt i32 %0, %request
+  %cmp = icmp sgt i32 %request, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -208,7 +208,7 @@ do.body:                                          ; preds = %if.end11, %if.end20
   %type14 = getelementptr inbounds i8, ptr %2, i64 44
   %3 = load i8, ptr %type14, align 4
   %conv = zext i8 %3 to i32
-  %and = and i32 %conv, %type
+  %and = and i32 %type, %conv
   %tobool15.not = icmp eq i32 %and, 0
   br i1 %tobool15.not, label %if.end20, label %land.lhs.true
 
@@ -257,7 +257,7 @@ land.lhs.true39:                                  ; preds = %land.lhs.true35
   %type40 = getelementptr inbounds i8, ptr %6, i64 44
   %10 = load i8, ptr %type40, align 4
   %conv41 = zext i8 %10 to i32
-  %and42 = and i32 %conv41, %type
+  %and42 = and i32 %type, %conv41
   %tobool43.not = icmp ne i32 %and42, 0
   %inc = zext i1 %tobool43.not to i64
   %spec.select32 = add i64 %amount.039, %inc

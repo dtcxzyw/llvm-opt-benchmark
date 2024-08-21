@@ -730,7 +730,7 @@ set_guc_source.exit:                              ; preds = %124
   %.0158 = phi i1 [ false, %._crit_edge248 ], [ true, %201 ], [ false, %3 ], [ false, %11 ]
   %.0 = phi i8 [ %.2, %._crit_edge248 ], [ %.4.lcssa, %201 ], [ 1, %3 ], [ 1, %11 ]
   %204 = trunc nuw i8 %.0 to i1
-  %brmerge211.demorgan = and i1 %204, %1
+  %brmerge211.demorgan = and i1 %1, %204
   br i1 %brmerge211.demorgan, label %205, label %.thread220
 
 205:                                              ; preds = %203
@@ -2759,7 +2759,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
   %71 = load ptr, ptr %68, align 8
   store ptr %70, ptr %68, align 8
   %.not.i90 = icmp eq ptr %71, null
-  %72 = icmp eq ptr %70, %71
+  %72 = icmp eq ptr %71, %70
   %or.cond = select i1 %.not.i90, i1 true, i1 %72
   br i1 %or.cond, label %set_extra_field.exit, label %73
 
@@ -2774,19 +2774,19 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 75:                                               ; preds = %73
   %76 = getelementptr i8, ptr %.sroa.0.0128, i64 112
   %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, %71
+  %78 = icmp eq ptr %71, %77
   br i1 %78, label %set_extra_field.exit, label %87
 
 79:                                               ; preds = %73
   %80 = getelementptr i8, ptr %.sroa.0.0128, i64 120
   %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, %71
+  %82 = icmp eq ptr %71, %81
   br i1 %82, label %set_extra_field.exit, label %87
 
 83:                                               ; preds = %73
   %84 = getelementptr i8, ptr %.sroa.0.0128, i64 112
   %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %71
+  %86 = icmp eq ptr %71, %85
   br i1 %86, label %set_extra_field.exit, label %87
 
 87:                                               ; preds = %83, %79, %75, %73
@@ -2802,13 +2802,13 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 90:                                               ; preds = %89
   %91 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
   %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %92, %71
+  %93 = icmp eq ptr %71, %92
   br i1 %93, label %set_extra_field.exit, label %94
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
   %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, %71
+  %97 = icmp eq ptr %71, %96
   br i1 %97, label %set_extra_field.exit, label %89, !llvm.loop !32
 
 98:                                               ; preds = %push_old_value.exit
@@ -2837,7 +2837,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
   %114 = load ptr, ptr %111, align 8
   store ptr %113, ptr %111, align 8
   %.not.i91 = icmp eq ptr %114, null
-  %115 = icmp eq ptr %113, %114
+  %115 = icmp eq ptr %114, %113
   %or.cond147 = select i1 %.not.i91, i1 true, i1 %115
   br i1 %or.cond147, label %set_extra_field.exit, label %116
 
@@ -2851,18 +2851,18 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 
 118:                                              ; preds = %116
   %119 = load ptr, ptr %107, align 8
-  %120 = icmp eq ptr %119, %114
+  %120 = icmp eq ptr %114, %119
   br i1 %120, label %set_extra_field.exit, label %128
 
 121:                                              ; preds = %116
   %122 = getelementptr i8, ptr %.sroa.0.0128, i64 120
   %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %123, %114
+  %124 = icmp eq ptr %114, %123
   br i1 %124, label %set_extra_field.exit, label %128
 
 125:                                              ; preds = %116
   %126 = load ptr, ptr %107, align 8
-  %127 = icmp eq ptr %126, %114
+  %127 = icmp eq ptr %114, %126
   br i1 %127, label %set_extra_field.exit, label %128
 
 128:                                              ; preds = %125, %121, %118, %116
@@ -2878,13 +2878,13 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 131:                                              ; preds = %130
   %132 = getelementptr inbounds i8, ptr %.0.i.i93, i64 48
   %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, %114
+  %134 = icmp eq ptr %114, %133
   br i1 %134, label %set_extra_field.exit, label %135
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds i8, ptr %.0.i.i93, i64 64
   %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %137, %114
+  %138 = icmp eq ptr %114, %137
   br i1 %138, label %set_extra_field.exit, label %130, !llvm.loop !32
 
 139:                                              ; preds = %push_old_value.exit
@@ -2915,7 +2915,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
   %.not.i97 = icmp eq ptr %155, null
   %156 = bitcast double %149 to i64
   %157 = inttoptr i64 %156 to ptr
-  %158 = icmp eq ptr %154, %155
+  %158 = icmp eq ptr %155, %154
   %or.cond148 = select i1 %.not.i97, i1 true, i1 %158
   br i1 %or.cond148, label %set_extra_field.exit, label %159
 
@@ -2931,7 +2931,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 161:                                              ; preds = %159
   %162 = getelementptr i8, ptr %.sroa.0.0128, i64 104
   %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %163, %155
+  %164 = icmp eq ptr %155, %163
   br i1 %164, label %set_extra_field.exit, label %173
 
 165:                                              ; preds = %159
@@ -2941,7 +2941,7 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 167:                                              ; preds = %159
   %168 = getelementptr i8, ptr %.sroa.0.0128, i64 104
   %169 = load ptr, ptr %168, align 8
-  %170 = icmp eq ptr %169, %155
+  %170 = icmp eq ptr %155, %169
   br i1 %170, label %set_extra_field.exit, label %173
 
 171:                                              ; preds = %159
@@ -2961,13 +2961,13 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 176:                                              ; preds = %175
   %177 = getelementptr inbounds i8, ptr %.0.i.i99, i64 48
   %178 = load ptr, ptr %177, align 8
-  %179 = icmp eq ptr %178, %155
+  %179 = icmp eq ptr %155, %178
   br i1 %179, label %set_extra_field.exit, label %180
 
 180:                                              ; preds = %176
   %181 = getelementptr inbounds i8, ptr %.0.i.i99, i64 64
   %182 = load ptr, ptr %181, align 8
-  %183 = icmp eq ptr %182, %155
+  %183 = icmp eq ptr %155, %182
   br i1 %183, label %set_extra_field.exit, label %175, !llvm.loop !32
 
 184:                                              ; preds = %push_old_value.exit
@@ -2997,15 +2997,15 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 198:                                              ; preds = %192
   %199 = load ptr, ptr %193, align 8
   %200 = load ptr, ptr %199, align 8
-  %201 = icmp eq ptr %200, %197
-  %202 = icmp eq ptr %196, %197
+  %201 = icmp eq ptr %197, %200
+  %202 = icmp eq ptr %197, %196
   %or.cond149 = select i1 %201, i1 true, i1 %202
   br i1 %or.cond149, label %set_string_field.exit, label %203
 
 203:                                              ; preds = %198
   %204 = getelementptr i8, ptr %.sroa.0.0128, i64 64
   %205 = load ptr, ptr %204, align 8
-  %206 = icmp eq ptr %205, %197
+  %206 = icmp eq ptr %197, %205
   br i1 %206, label %set_string_field.exit, label %207
 
 207:                                              ; preds = %203
@@ -3021,13 +3021,13 @@ push_old_value.exit:                              ; preds = %13, %28, %50
 210:                                              ; preds = %209
   %211 = getelementptr inbounds i8, ptr %.0.i.i105, i64 40
   %212 = load ptr, ptr %211, align 8
-  %213 = icmp eq ptr %212, %197
+  %213 = icmp eq ptr %197, %212
   br i1 %213, label %set_string_field.exit, label %214
 
 214:                                              ; preds = %210
   %215 = getelementptr inbounds i8, ptr %.0.i.i105, i64 56
   %216 = load ptr, ptr %215, align 8
-  %217 = icmp eq ptr %216, %197
+  %217 = icmp eq ptr %197, %216
   br i1 %217, label %set_string_field.exit, label %209, !llvm.loop !33
 
 guc_free.exit.i107:                               ; preds = %209
@@ -3041,7 +3041,7 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
   %221 = load ptr, ptr %218, align 8
   store ptr %220, ptr %218, align 8
   %.not.i108 = icmp eq ptr %221, null
-  %222 = icmp eq ptr %220, %221
+  %222 = icmp eq ptr %221, %220
   %or.cond150 = select i1 %.not.i108, i1 true, i1 %222
   br i1 %or.cond150, label %set_extra_field.exit, label %223
 
@@ -3056,19 +3056,19 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
 225:                                              ; preds = %223
   %226 = getelementptr i8, ptr %.sroa.0.0128, i64 112
   %227 = load ptr, ptr %226, align 8
-  %228 = icmp eq ptr %227, %221
+  %228 = icmp eq ptr %221, %227
   br i1 %228, label %set_extra_field.exit, label %237
 
 229:                                              ; preds = %223
   %230 = getelementptr i8, ptr %.sroa.0.0128, i64 120
   %231 = load ptr, ptr %230, align 8
-  %232 = icmp eq ptr %231, %221
+  %232 = icmp eq ptr %221, %231
   br i1 %232, label %set_extra_field.exit, label %237
 
 233:                                              ; preds = %223
   %234 = getelementptr i8, ptr %.sroa.0.0128, i64 112
   %235 = load ptr, ptr %234, align 8
-  %236 = icmp eq ptr %235, %221
+  %236 = icmp eq ptr %221, %235
   br i1 %236, label %set_extra_field.exit, label %237
 
 237:                                              ; preds = %233, %229, %225, %223
@@ -3084,13 +3084,13 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
 240:                                              ; preds = %239
   %241 = getelementptr inbounds i8, ptr %.0.i.i110, i64 48
   %242 = load ptr, ptr %241, align 8
-  %243 = icmp eq ptr %242, %221
+  %243 = icmp eq ptr %221, %242
   br i1 %243, label %set_extra_field.exit, label %244
 
 244:                                              ; preds = %240
   %245 = getelementptr inbounds i8, ptr %.0.i.i110, i64 64
   %246 = load ptr, ptr %245, align 8
-  %247 = icmp eq ptr %246, %221
+  %247 = icmp eq ptr %221, %246
   br i1 %247, label %set_extra_field.exit, label %239, !llvm.loop !32
 
 248:                                              ; preds = %push_old_value.exit
@@ -3119,7 +3119,7 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
   %264 = load ptr, ptr %261, align 8
   store ptr %263, ptr %261, align 8
   %.not.i114 = icmp eq ptr %264, null
-  %265 = icmp eq ptr %263, %264
+  %265 = icmp eq ptr %264, %263
   %or.cond151 = select i1 %.not.i114, i1 true, i1 %265
   br i1 %or.cond151, label %set_extra_field.exit, label %266
 
@@ -3133,18 +3133,18 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
 
 268:                                              ; preds = %266
   %269 = load ptr, ptr %257, align 8
-  %270 = icmp eq ptr %269, %264
+  %270 = icmp eq ptr %264, %269
   br i1 %270, label %set_extra_field.exit, label %278
 
 271:                                              ; preds = %266
   %272 = getelementptr i8, ptr %.sroa.0.0128, i64 120
   %273 = load ptr, ptr %272, align 8
-  %274 = icmp eq ptr %273, %264
+  %274 = icmp eq ptr %264, %273
   br i1 %274, label %set_extra_field.exit, label %278
 
 275:                                              ; preds = %266
   %276 = load ptr, ptr %257, align 8
-  %277 = icmp eq ptr %276, %264
+  %277 = icmp eq ptr %264, %276
   br i1 %277, label %set_extra_field.exit, label %278
 
 278:                                              ; preds = %275, %271, %268, %266
@@ -3160,13 +3160,13 @@ set_string_field.exit:                            ; preds = %210, %214, %192, %1
 281:                                              ; preds = %280
   %282 = getelementptr inbounds i8, ptr %.0.i.i116, i64 48
   %283 = load ptr, ptr %282, align 8
-  %284 = icmp eq ptr %283, %264
+  %284 = icmp eq ptr %264, %283
   br i1 %284, label %set_extra_field.exit, label %285
 
 285:                                              ; preds = %281
   %286 = getelementptr inbounds i8, ptr %.0.i.i116, i64 64
   %287 = load ptr, ptr %286, align 8
-  %288 = icmp eq ptr %287, %264
+  %288 = icmp eq ptr %264, %287
   br i1 %288, label %set_extra_field.exit, label %280, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %280, %239, %175, %130, %89
@@ -3380,7 +3380,7 @@ define internal fastcc void @set_extra_field(ptr nocapture noundef readonly %0, 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %4
+  %8 = icmp eq ptr %4, %7
   br i1 %8, label %extra_field_used.exit.thread, label %9
 
 9:                                                ; preds = %5
@@ -3397,31 +3397,31 @@ define internal fastcc void @set_extra_field(ptr nocapture noundef readonly %0, 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 192
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %4
+  %15 = icmp eq ptr %4, %14
   br i1 %15, label %extra_field_used.exit.thread, label %32
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 200
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %4
+  %19 = icmp eq ptr %4, %18
   br i1 %19, label %extra_field_used.exit.thread, label %32
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds i8, ptr %0, i64 208
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %4
+  %23 = icmp eq ptr %4, %22
   br i1 %23, label %extra_field_used.exit.thread, label %32
 
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %0, i64 192
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %4
+  %27 = icmp eq ptr %4, %26
   br i1 %27, label %extra_field_used.exit.thread, label %32
 
 28:                                               ; preds = %9
   %29 = getelementptr inbounds i8, ptr %0, i64 200
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %4
+  %31 = icmp eq ptr %4, %30
   br i1 %31, label %extra_field_used.exit.thread, label %32
 
 32:                                               ; preds = %28, %24, %20, %16, %12, %9
@@ -3437,13 +3437,13 @@ define internal fastcc void @set_extra_field(ptr nocapture noundef readonly %0, 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %4
+  %38 = icmp eq ptr %4, %37
   br i1 %38, label %extra_field_used.exit.thread, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.0.i, i64 64
   %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %4
+  %42 = icmp eq ptr %4, %41
   br i1 %42, label %extra_field_used.exit.thread, label %34, !llvm.loop !32
 
 guc_free.exit:                                    ; preds = %34
@@ -3465,19 +3465,19 @@ define internal fastcc void @set_string_field(ptr nocapture noundef readonly %0,
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %4
+  %9 = icmp eq ptr %4, %8
   br i1 %9, label %string_field_used.exit.thread, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 184
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %4
+  %13 = icmp eq ptr %4, %12
   br i1 %13, label %string_field_used.exit.thread, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 152
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %4
+  %17 = icmp eq ptr %4, %16
   br i1 %17, label %string_field_used.exit.thread, label %18
 
 18:                                               ; preds = %14
@@ -3493,13 +3493,13 @@ define internal fastcc void @set_string_field(ptr nocapture noundef readonly %0,
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %4
+  %24 = icmp eq ptr %4, %23
   br i1 %24, label %string_field_used.exit.thread, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %4
+  %28 = icmp eq ptr %4, %27
   br i1 %28, label %string_field_used.exit.thread, label %20, !llvm.loop !33
 
 guc_free.exit:                                    ; preds = %20
@@ -3796,7 +3796,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   %119 = load ptr, ptr %10, align 8
   store ptr %.sroa.7.0, ptr %10, align 8
   %.not.i = icmp eq ptr %119, null
-  %120 = icmp eq ptr %.sroa.7.0, %119
+  %120 = icmp eq ptr %119, %.sroa.7.0
   %or.cond = select i1 %.not.i, i1 true, i1 %120
   br i1 %or.cond, label %set_extra_field.exit, label %121
 
@@ -3812,27 +3812,27 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr %13, align 8
-  %125 = icmp eq ptr %124, %119
+  %125 = icmp eq ptr %119, %124
   br i1 %125, label %set_extra_field.exit, label %.preheader384
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %12, align 8
-  %128 = icmp eq ptr %127, %119
+  %128 = icmp eq ptr %119, %127
   br i1 %128, label %set_extra_field.exit, label %.preheader384
 
 129:                                              ; preds = %121
   %130 = load ptr, ptr %14, align 8
-  %131 = icmp eq ptr %130, %119
+  %131 = icmp eq ptr %119, %130
   br i1 %131, label %set_extra_field.exit, label %.preheader384
 
 132:                                              ; preds = %121
   %133 = load ptr, ptr %13, align 8
-  %134 = icmp eq ptr %133, %119
+  %134 = icmp eq ptr %119, %133
   br i1 %134, label %set_extra_field.exit, label %.preheader384
 
 135:                                              ; preds = %121
   %136 = load ptr, ptr %12, align 8
-  %137 = icmp eq ptr %136, %119
+  %137 = icmp eq ptr %119, %136
   br i1 %137, label %set_extra_field.exit, label %.preheader384
 
 .preheader384:                                    ; preds = %135, %132, %129, %126, %123, %121
@@ -3847,13 +3847,13 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 139:                                              ; preds = %138
   %140 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
   %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %141, %119
+  %142 = icmp eq ptr %119, %141
   br i1 %142, label %set_extra_field.exit, label %143
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
   %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, %119
+  %146 = icmp eq ptr %119, %145
   br i1 %146, label %set_extra_field.exit, label %138, !llvm.loop !32
 
 147:                                              ; preds = %101
@@ -3883,7 +3883,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   %157 = load ptr, ptr %10, align 8
   store ptr %.sroa.7.0, ptr %10, align 8
   %.not.i197 = icmp eq ptr %157, null
-  %158 = icmp eq ptr %.sroa.7.0, %157
+  %158 = icmp eq ptr %157, %.sroa.7.0
   %or.cond359 = select i1 %.not.i197, i1 true, i1 %158
   br i1 %or.cond359, label %set_extra_field.exit, label %159
 
@@ -3899,27 +3899,27 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 
 161:                                              ; preds = %159
   %162 = load ptr, ptr %13, align 8
-  %163 = icmp eq ptr %162, %157
+  %163 = icmp eq ptr %157, %162
   br i1 %163, label %set_extra_field.exit, label %.preheader385
 
 164:                                              ; preds = %159
   %165 = load ptr, ptr %12, align 8
-  %166 = icmp eq ptr %165, %157
+  %166 = icmp eq ptr %157, %165
   br i1 %166, label %set_extra_field.exit, label %.preheader385
 
 167:                                              ; preds = %159
   %168 = load ptr, ptr %14, align 8
-  %169 = icmp eq ptr %168, %157
+  %169 = icmp eq ptr %157, %168
   br i1 %169, label %set_extra_field.exit, label %.preheader385
 
 170:                                              ; preds = %159
   %171 = load ptr, ptr %13, align 8
-  %172 = icmp eq ptr %171, %157
+  %172 = icmp eq ptr %157, %171
   br i1 %172, label %set_extra_field.exit, label %.preheader385
 
 173:                                              ; preds = %159
   %174 = load ptr, ptr %12, align 8
-  %175 = icmp eq ptr %174, %157
+  %175 = icmp eq ptr %157, %174
   br i1 %175, label %set_extra_field.exit, label %.preheader385
 
 .preheader385:                                    ; preds = %173, %170, %167, %164, %161, %159
@@ -3934,13 +3934,13 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 177:                                              ; preds = %176
   %178 = getelementptr inbounds i8, ptr %.0.i.i199, i64 48
   %179 = load ptr, ptr %178, align 8
-  %180 = icmp eq ptr %179, %157
+  %180 = icmp eq ptr %157, %179
   br i1 %180, label %set_extra_field.exit, label %181
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds i8, ptr %.0.i.i199, i64 64
   %183 = load ptr, ptr %182, align 8
-  %184 = icmp eq ptr %183, %157
+  %184 = icmp eq ptr %157, %183
   br i1 %184, label %set_extra_field.exit, label %176, !llvm.loop !32
 
 185:                                              ; preds = %101
@@ -3970,7 +3970,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
   %196 = load ptr, ptr %10, align 8
   store ptr %.sroa.7.0, ptr %10, align 8
   %.not.i203 = icmp eq ptr %196, null
-  %197 = icmp eq ptr %.sroa.7.0, %196
+  %197 = icmp eq ptr %196, %.sroa.7.0
   %or.cond360 = select i1 %.not.i203, i1 true, i1 %197
   br i1 %or.cond360, label %set_extra_field.exit, label %198
 
@@ -3986,27 +3986,27 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 
 200:                                              ; preds = %198
   %201 = load ptr, ptr %13, align 8
-  %202 = icmp eq ptr %201, %196
+  %202 = icmp eq ptr %196, %201
   br i1 %202, label %set_extra_field.exit, label %.preheader388
 
 203:                                              ; preds = %198
   %204 = load ptr, ptr %12, align 8
-  %205 = icmp eq ptr %204, %196
+  %205 = icmp eq ptr %196, %204
   br i1 %205, label %set_extra_field.exit, label %.preheader388
 
 206:                                              ; preds = %198
   %207 = load ptr, ptr %14, align 8
-  %208 = icmp eq ptr %207, %196
+  %208 = icmp eq ptr %196, %207
   br i1 %208, label %set_extra_field.exit, label %.preheader388
 
 209:                                              ; preds = %198
   %210 = load ptr, ptr %13, align 8
-  %211 = icmp eq ptr %210, %196
+  %211 = icmp eq ptr %196, %210
   br i1 %211, label %set_extra_field.exit, label %.preheader388
 
 212:                                              ; preds = %198
   %213 = load ptr, ptr %12, align 8
-  %214 = icmp eq ptr %213, %196
+  %214 = icmp eq ptr %196, %213
   br i1 %214, label %set_extra_field.exit, label %.preheader388
 
 .preheader388:                                    ; preds = %212, %209, %206, %203, %200, %198
@@ -4021,13 +4021,13 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 216:                                              ; preds = %215
   %217 = getelementptr inbounds i8, ptr %.0.i.i205, i64 48
   %218 = load ptr, ptr %217, align 8
-  %219 = icmp eq ptr %218, %196
+  %219 = icmp eq ptr %196, %218
   br i1 %219, label %set_extra_field.exit, label %220
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds i8, ptr %.0.i.i205, i64 64
   %222 = load ptr, ptr %221, align 8
-  %223 = icmp eq ptr %222, %196
+  %223 = icmp eq ptr %196, %222
   br i1 %223, label %set_extra_field.exit, label %215, !llvm.loop !32
 
 224:                                              ; preds = %101
@@ -4062,17 +4062,17 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 235:                                              ; preds = %232
   %236 = load ptr, ptr %9, align 8
   %237 = load ptr, ptr %236, align 8
-  %238 = icmp eq ptr %237, %233
+  %238 = icmp eq ptr %233, %237
   br i1 %238, label %set_string_field.exit, label %239
 
 239:                                              ; preds = %235
   %240 = load ptr, ptr %16, align 8
-  %241 = icmp eq ptr %240, %233
+  %241 = icmp eq ptr %233, %240
   br i1 %241, label %set_string_field.exit, label %242
 
 242:                                              ; preds = %239
   %243 = load ptr, ptr %17, align 8
-  %244 = icmp eq ptr %243, %233
+  %244 = icmp eq ptr %233, %243
   br i1 %244, label %set_string_field.exit, label %.preheader310
 
 .preheader310:                                    ; preds = %242, %249
@@ -4084,13 +4084,13 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 245:                                              ; preds = %.preheader310
   %246 = getelementptr inbounds i8, ptr %.0.i.i211, i64 40
   %247 = load ptr, ptr %246, align 8
-  %248 = icmp eq ptr %247, %233
+  %248 = icmp eq ptr %233, %247
   br i1 %248, label %set_string_field.exit, label %249
 
 249:                                              ; preds = %245
   %250 = getelementptr inbounds i8, ptr %.0.i.i211, i64 56
   %251 = load ptr, ptr %250, align 8
-  %252 = icmp eq ptr %251, %233
+  %252 = icmp eq ptr %233, %251
   br i1 %252, label %set_string_field.exit, label %.preheader310, !llvm.loop !33
 
 guc_free.exit.i213:                               ; preds = %.preheader310
@@ -4101,7 +4101,7 @@ set_string_field.exit:                            ; preds = %245, %249, %232, %2
   %253 = load ptr, ptr %10, align 8
   store ptr %.sroa.7.0, ptr %10, align 8
   %.not.i214 = icmp eq ptr %253, null
-  %254 = icmp eq ptr %.sroa.7.0, %253
+  %254 = icmp eq ptr %253, %.sroa.7.0
   %or.cond361 = select i1 %.not.i214, i1 true, i1 %254
   br i1 %or.cond361, label %set_extra_field.exit219, label %255
 
@@ -4117,27 +4117,27 @@ set_string_field.exit:                            ; preds = %245, %249, %232, %2
 
 257:                                              ; preds = %255
   %258 = load ptr, ptr %13, align 8
-  %259 = icmp eq ptr %258, %253
+  %259 = icmp eq ptr %253, %258
   br i1 %259, label %set_extra_field.exit219, label %.preheader393
 
 260:                                              ; preds = %255
   %261 = load ptr, ptr %12, align 8
-  %262 = icmp eq ptr %261, %253
+  %262 = icmp eq ptr %253, %261
   br i1 %262, label %set_extra_field.exit219, label %.preheader393
 
 263:                                              ; preds = %255
   %264 = load ptr, ptr %14, align 8
-  %265 = icmp eq ptr %264, %253
+  %265 = icmp eq ptr %253, %264
   br i1 %265, label %set_extra_field.exit219, label %.preheader393
 
 266:                                              ; preds = %255
   %267 = load ptr, ptr %13, align 8
-  %268 = icmp eq ptr %267, %253
+  %268 = icmp eq ptr %253, %267
   br i1 %268, label %set_extra_field.exit219, label %.preheader393
 
 269:                                              ; preds = %255
   %270 = load ptr, ptr %12, align 8
-  %271 = icmp eq ptr %270, %253
+  %271 = icmp eq ptr %253, %270
   br i1 %271, label %set_extra_field.exit219, label %.preheader393
 
 .preheader393:                                    ; preds = %269, %266, %263, %260, %257, %255
@@ -4152,13 +4152,13 @@ set_string_field.exit:                            ; preds = %245, %249, %232, %2
 273:                                              ; preds = %272
   %274 = getelementptr inbounds i8, ptr %.0.i.i216, i64 48
   %275 = load ptr, ptr %274, align 8
-  %276 = icmp eq ptr %275, %253
+  %276 = icmp eq ptr %253, %275
   br i1 %276, label %set_extra_field.exit219, label %277
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds i8, ptr %.0.i.i216, i64 64
   %279 = load ptr, ptr %278, align 8
-  %280 = icmp eq ptr %279, %253
+  %280 = icmp eq ptr %253, %279
   br i1 %280, label %set_extra_field.exit219, label %272, !llvm.loop !32
 
 guc_free.exit.i218:                               ; preds = %272
@@ -4176,17 +4176,17 @@ set_extra_field.exit219:                          ; preds = %277, %273, %guc_fre
 283:                                              ; preds = %set_extra_field.exit219
   %284 = load ptr, ptr %9, align 8
   %285 = load ptr, ptr %284, align 8
-  %286 = icmp eq ptr %285, %282
+  %286 = icmp eq ptr %282, %285
   br i1 %286, label %set_string_field.exit225, label %287
 
 287:                                              ; preds = %283
   %288 = load ptr, ptr %16, align 8
-  %289 = icmp eq ptr %288, %282
+  %289 = icmp eq ptr %282, %288
   br i1 %289, label %set_string_field.exit225, label %290
 
 290:                                              ; preds = %287
   %291 = load ptr, ptr %17, align 8
-  %292 = icmp eq ptr %291, %282
+  %292 = icmp eq ptr %282, %291
   br i1 %292, label %set_string_field.exit225, label %.preheader309
 
 .preheader309:                                    ; preds = %290, %297
@@ -4198,13 +4198,13 @@ set_extra_field.exit219:                          ; preds = %277, %273, %guc_fre
 293:                                              ; preds = %.preheader309
   %294 = getelementptr inbounds i8, ptr %.0.i.i222, i64 40
   %295 = load ptr, ptr %294, align 8
-  %296 = icmp eq ptr %295, %282
+  %296 = icmp eq ptr %282, %295
   br i1 %296, label %set_string_field.exit225, label %297
 
 297:                                              ; preds = %293
   %298 = getelementptr inbounds i8, ptr %.0.i.i222, i64 56
   %299 = load ptr, ptr %298, align 8
-  %300 = icmp eq ptr %299, %282
+  %300 = icmp eq ptr %282, %299
   br i1 %300, label %set_string_field.exit225, label %.preheader309, !llvm.loop !33
 
 guc_free.exit.i224:                               ; preds = %.preheader309
@@ -4221,17 +4221,17 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
 303:                                              ; preds = %set_string_field.exit225
   %304 = load ptr, ptr %9, align 8
   %305 = load ptr, ptr %304, align 8
-  %306 = icmp eq ptr %305, %302
+  %306 = icmp eq ptr %302, %305
   br i1 %306, label %set_extra_field.exit, label %307
 
 307:                                              ; preds = %303
   %308 = load ptr, ptr %16, align 8
-  %309 = icmp eq ptr %308, %302
+  %309 = icmp eq ptr %302, %308
   br i1 %309, label %set_extra_field.exit, label %310
 
 310:                                              ; preds = %307
   %311 = load ptr, ptr %17, align 8
-  %312 = icmp eq ptr %311, %302
+  %312 = icmp eq ptr %302, %311
   br i1 %312, label %set_extra_field.exit, label %.preheader
 
 .preheader:                                       ; preds = %310, %317
@@ -4243,13 +4243,13 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
 313:                                              ; preds = %.preheader
   %314 = getelementptr inbounds i8, ptr %.0.i.i228, i64 40
   %315 = load ptr, ptr %314, align 8
-  %316 = icmp eq ptr %315, %302
+  %316 = icmp eq ptr %302, %315
   br i1 %316, label %set_extra_field.exit, label %317
 
 317:                                              ; preds = %313
   %318 = getelementptr inbounds i8, ptr %.0.i.i228, i64 56
   %319 = load ptr, ptr %318, align 8
-  %320 = icmp eq ptr %319, %302
+  %320 = icmp eq ptr %302, %319
   br i1 %320, label %set_extra_field.exit, label %.preheader, !llvm.loop !33
 
 321:                                              ; preds = %101
@@ -4279,7 +4279,7 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
   %331 = load ptr, ptr %10, align 8
   store ptr %.sroa.7.0, ptr %10, align 8
   %.not.i232 = icmp eq ptr %331, null
-  %332 = icmp eq ptr %.sroa.7.0, %331
+  %332 = icmp eq ptr %331, %.sroa.7.0
   %or.cond362 = select i1 %.not.i232, i1 true, i1 %332
   br i1 %or.cond362, label %set_extra_field.exit, label %333
 
@@ -4295,27 +4295,27 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
 
 335:                                              ; preds = %333
   %336 = load ptr, ptr %13, align 8
-  %337 = icmp eq ptr %336, %331
+  %337 = icmp eq ptr %331, %336
   br i1 %337, label %set_extra_field.exit, label %.preheader394
 
 338:                                              ; preds = %333
   %339 = load ptr, ptr %12, align 8
-  %340 = icmp eq ptr %339, %331
+  %340 = icmp eq ptr %331, %339
   br i1 %340, label %set_extra_field.exit, label %.preheader394
 
 341:                                              ; preds = %333
   %342 = load ptr, ptr %14, align 8
-  %343 = icmp eq ptr %342, %331
+  %343 = icmp eq ptr %331, %342
   br i1 %343, label %set_extra_field.exit, label %.preheader394
 
 344:                                              ; preds = %333
   %345 = load ptr, ptr %13, align 8
-  %346 = icmp eq ptr %345, %331
+  %346 = icmp eq ptr %331, %345
   br i1 %346, label %set_extra_field.exit, label %.preheader394
 
 347:                                              ; preds = %333
   %348 = load ptr, ptr %12, align 8
-  %349 = icmp eq ptr %348, %331
+  %349 = icmp eq ptr %331, %348
   br i1 %349, label %set_extra_field.exit, label %.preheader394
 
 .preheader394:                                    ; preds = %347, %344, %341, %338, %335, %333
@@ -4330,13 +4330,13 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
 351:                                              ; preds = %350
   %352 = getelementptr inbounds i8, ptr %.0.i.i234, i64 48
   %353 = load ptr, ptr %352, align 8
-  %354 = icmp eq ptr %353, %331
+  %354 = icmp eq ptr %331, %353
   br i1 %354, label %set_extra_field.exit, label %355
 
 355:                                              ; preds = %351
   %356 = getelementptr inbounds i8, ptr %.0.i.i234, i64 64
   %357 = load ptr, ptr %356, align 8
-  %358 = icmp eq ptr %357, %331
+  %358 = icmp eq ptr %331, %357
   br i1 %358, label %set_extra_field.exit, label %350, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %350, %.preheader, %215, %176, %138
@@ -4355,7 +4355,7 @@ set_extra_field.exit:                             ; preds = %355, %351, %317, %3
 
 361:                                              ; preds = %set_extra_field.exit
   %362 = load ptr, ptr %10, align 8
-  %363 = icmp eq ptr %362, %360
+  %363 = icmp eq ptr %360, %362
   br i1 %363, label %set_extra_field.exit243, label %364
 
 364:                                              ; preds = %361
@@ -4370,27 +4370,27 @@ set_extra_field.exit:                             ; preds = %355, %351, %317, %3
 
 366:                                              ; preds = %364
   %367 = load ptr, ptr %13, align 8
-  %368 = icmp eq ptr %367, %360
+  %368 = icmp eq ptr %360, %367
   br i1 %368, label %set_extra_field.exit243, label %.preheader383
 
 369:                                              ; preds = %364
   %370 = load ptr, ptr %12, align 8
-  %371 = icmp eq ptr %370, %360
+  %371 = icmp eq ptr %360, %370
   br i1 %371, label %set_extra_field.exit243, label %.preheader383
 
 372:                                              ; preds = %364
   %373 = load ptr, ptr %14, align 8
-  %374 = icmp eq ptr %373, %360
+  %374 = icmp eq ptr %360, %373
   br i1 %374, label %set_extra_field.exit243, label %.preheader383
 
 375:                                              ; preds = %364
   %376 = load ptr, ptr %13, align 8
-  %377 = icmp eq ptr %376, %360
+  %377 = icmp eq ptr %360, %376
   br i1 %377, label %set_extra_field.exit243, label %.preheader383
 
 378:                                              ; preds = %364
   %379 = load ptr, ptr %12, align 8
-  %380 = icmp eq ptr %379, %360
+  %380 = icmp eq ptr %360, %379
   br i1 %380, label %set_extra_field.exit243, label %.preheader383
 
 .preheader383:                                    ; preds = %378, %375, %372, %369, %366, %364
@@ -4405,13 +4405,13 @@ set_extra_field.exit:                             ; preds = %355, %351, %317, %3
 382:                                              ; preds = %381
   %383 = getelementptr inbounds i8, ptr %.0.i.i240, i64 48
   %384 = load ptr, ptr %383, align 8
-  %385 = icmp eq ptr %384, %360
+  %385 = icmp eq ptr %360, %384
   br i1 %385, label %set_extra_field.exit243, label %386
 
 386:                                              ; preds = %382
   %387 = getelementptr inbounds i8, ptr %.0.i.i240, i64 64
   %388 = load ptr, ptr %387, align 8
-  %389 = icmp eq ptr %388, %360
+  %389 = icmp eq ptr %360, %388
   br i1 %389, label %set_extra_field.exit243, label %381, !llvm.loop !32
 
 guc_free.exit.i242:                               ; preds = %381
@@ -4427,7 +4427,7 @@ set_extra_field.exit243:                          ; preds = %382, %386, %set_ext
 
 392:                                              ; preds = %set_extra_field.exit243
   %393 = load ptr, ptr %10, align 8
-  %394 = icmp eq ptr %393, %391
+  %394 = icmp eq ptr %391, %393
   br i1 %394, label %set_extra_field.exit249, label %395
 
 395:                                              ; preds = %392
@@ -4442,27 +4442,27 @@ set_extra_field.exit243:                          ; preds = %382, %386, %set_ext
 
 397:                                              ; preds = %395
   %398 = load ptr, ptr %13, align 8
-  %399 = icmp eq ptr %398, %391
+  %399 = icmp eq ptr %391, %398
   br i1 %399, label %set_extra_field.exit249, label %.preheader382
 
 400:                                              ; preds = %395
   %401 = load ptr, ptr %12, align 8
-  %402 = icmp eq ptr %401, %391
+  %402 = icmp eq ptr %391, %401
   br i1 %402, label %set_extra_field.exit249, label %.preheader382
 
 403:                                              ; preds = %395
   %404 = load ptr, ptr %14, align 8
-  %405 = icmp eq ptr %404, %391
+  %405 = icmp eq ptr %391, %404
   br i1 %405, label %set_extra_field.exit249, label %.preheader382
 
 406:                                              ; preds = %395
   %407 = load ptr, ptr %13, align 8
-  %408 = icmp eq ptr %407, %391
+  %408 = icmp eq ptr %391, %407
   br i1 %408, label %set_extra_field.exit249, label %.preheader382
 
 409:                                              ; preds = %395
   %410 = load ptr, ptr %12, align 8
-  %411 = icmp eq ptr %410, %391
+  %411 = icmp eq ptr %391, %410
   br i1 %411, label %set_extra_field.exit249, label %.preheader382
 
 .preheader382:                                    ; preds = %409, %406, %403, %400, %397, %395
@@ -4477,13 +4477,13 @@ set_extra_field.exit243:                          ; preds = %382, %386, %set_ext
 413:                                              ; preds = %412
   %414 = getelementptr inbounds i8, ptr %.0.i.i246, i64 48
   %415 = load ptr, ptr %414, align 8
-  %416 = icmp eq ptr %415, %391
+  %416 = icmp eq ptr %391, %415
   br i1 %416, label %set_extra_field.exit249, label %417
 
 417:                                              ; preds = %413
   %418 = getelementptr inbounds i8, ptr %.0.i.i246, i64 64
   %419 = load ptr, ptr %418, align 8
-  %420 = icmp eq ptr %419, %391
+  %420 = icmp eq ptr %391, %419
   br i1 %420, label %set_extra_field.exit249, label %412, !llvm.loop !32
 
 guc_free.exit.i248:                               ; preds = %412
@@ -4616,19 +4616,19 @@ define internal fastcc void @discard_stack_value(ptr nocapture noundef readonly 
   %8 = getelementptr inbounds i8, ptr %0, i64 144
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %6
+  %11 = icmp eq ptr %6, %10
   br i1 %11, label %set_string_field.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 184
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %6
+  %15 = icmp eq ptr %6, %14
   br i1 %15, label %set_string_field.exit, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 152
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %6
+  %19 = icmp eq ptr %6, %18
   br i1 %19, label %set_string_field.exit, label %20
 
 20:                                               ; preds = %16
@@ -4644,13 +4644,13 @@ define internal fastcc void @discard_stack_value(ptr nocapture noundef readonly 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %6
+  %26 = icmp eq ptr %6, %25
   br i1 %26, label %set_string_field.exit, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %6
+  %30 = icmp eq ptr %6, %29
   br i1 %30, label %set_string_field.exit, label %22, !llvm.loop !33
 
 guc_free.exit.i:                                  ; preds = %22
@@ -4667,7 +4667,7 @@ set_string_field.exit:                            ; preds = %27, %23, %guc_free.
 33:                                               ; preds = %set_string_field.exit
   %34 = getelementptr inbounds i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %32
+  %36 = icmp eq ptr %32, %35
   br i1 %36, label %set_extra_field.exit, label %37
 
 37:                                               ; preds = %33
@@ -4683,31 +4683,31 @@ set_string_field.exit:                            ; preds = %27, %23, %guc_free.
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %0, i64 192
   %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %32
+  %42 = icmp eq ptr %32, %41
   br i1 %42, label %set_extra_field.exit, label %59
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds i8, ptr %0, i64 200
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, %32
+  %46 = icmp eq ptr %32, %45
   br i1 %46, label %set_extra_field.exit, label %59
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds i8, ptr %0, i64 208
   %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %32
+  %50 = icmp eq ptr %32, %49
   br i1 %50, label %set_extra_field.exit, label %59
 
 51:                                               ; preds = %37
   %52 = getelementptr inbounds i8, ptr %0, i64 192
   %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, %32
+  %54 = icmp eq ptr %32, %53
   br i1 %54, label %set_extra_field.exit, label %59
 
 55:                                               ; preds = %37
   %56 = getelementptr inbounds i8, ptr %0, i64 200
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, %32
+  %58 = icmp eq ptr %32, %57
   br i1 %58, label %set_extra_field.exit, label %59
 
 59:                                               ; preds = %55, %51, %47, %43, %39, %37
@@ -4723,13 +4723,13 @@ set_string_field.exit:                            ; preds = %27, %23, %guc_free.
 62:                                               ; preds = %61
   %63 = getelementptr inbounds i8, ptr %.0.i.i7, i64 48
   %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, %32
+  %65 = icmp eq ptr %32, %64
   br i1 %65, label %set_extra_field.exit, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %.0.i.i7, i64 64
   %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, %32
+  %69 = icmp eq ptr %32, %68
   br i1 %69, label %set_extra_field.exit, label %61, !llvm.loop !32
 
 guc_free.exit.i9:                                 ; preds = %61
@@ -5178,7 +5178,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %.03455 = phi i32 [ %63, %62 ], [ 0, %33 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, %2
+  %39 = icmp eq i32 %2, %38
   br i1 %39, label %40, label %62
 
 40:                                               ; preds = %.lr.ph56
@@ -5189,7 +5189,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %36, i64 8
   %45 = load double, ptr %44, align 8
-  %46 = fmul double %45, %0
+  %46 = fmul double %0, %45
   %47 = add i32 %.03455, 1
   %48 = sext i32 %47 to i64
   %49 = getelementptr %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %48
@@ -5200,7 +5200,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
 51:                                               ; preds = %43
   %52 = getelementptr inbounds i8, ptr %49, i64 4
   %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, %2
+  %54 = icmp eq i32 %2, %53
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
@@ -5494,7 +5494,7 @@ define dso_local range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %0, pt
   %22 = tail call zeroext i1 @IsInParallelMode() #29
   %23 = icmp ne i32 %6, 2
   %24 = and i1 %23, %22
-  %or.cond = and i1 %24, %7
+  %or.cond = and i1 %7, %24
   br i1 %or.cond, label %25, label %30
 
 25:                                               ; preds = %21
@@ -5602,9 +5602,9 @@ define dso_local range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %0, pt
 66:                                               ; preds = %56, %64
   %67 = load i8, ptr @IsUnderPostmaster, align 1
   %68 = trunc i8 %67 to i1
-  %brmerge.demorgan = and i1 %68, %7
+  %brmerge.demorgan = and i1 %7, %68
   %brmerge = xor i1 %brmerge.demorgan, true
-  %brmerge688 = or i1 %brmerge, %9
+  %brmerge688 = or i1 %9, %brmerge
   br i1 %brmerge688, label %83, label %guc_free.exit715
 
 .thread:                                          ; preds = %57, %56, %64
@@ -5951,7 +5951,7 @@ guc_free.exit:                                    ; preds = %162
 
 227:                                              ; preds = %220
   %228 = load ptr, ptr %213, align 8
-  %229 = icmp eq ptr %228, %226
+  %229 = icmp eq ptr %226, %228
   br i1 %229, label %set_extra_field.exit, label %230
 
 230:                                              ; preds = %227
@@ -5966,27 +5966,27 @@ guc_free.exit:                                    ; preds = %162
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr %215, align 8
-  %234 = icmp eq ptr %233, %226
+  %234 = icmp eq ptr %226, %233
   br i1 %234, label %set_extra_field.exit, label %.preheader780
 
 235:                                              ; preds = %230
   %236 = load ptr, ptr %214, align 8
-  %237 = icmp eq ptr %236, %226
+  %237 = icmp eq ptr %226, %236
   br i1 %237, label %set_extra_field.exit, label %.preheader780
 
 238:                                              ; preds = %230
   %239 = load ptr, ptr %216, align 8
-  %240 = icmp eq ptr %239, %226
+  %240 = icmp eq ptr %226, %239
   br i1 %240, label %set_extra_field.exit, label %.preheader780
 
 241:                                              ; preds = %230
   %242 = load ptr, ptr %215, align 8
-  %243 = icmp eq ptr %242, %226
+  %243 = icmp eq ptr %226, %242
   br i1 %243, label %set_extra_field.exit, label %.preheader780
 
 244:                                              ; preds = %230
   %245 = load ptr, ptr %214, align 8
-  %246 = icmp eq ptr %245, %226
+  %246 = icmp eq ptr %226, %245
   br i1 %246, label %set_extra_field.exit, label %.preheader780
 
 .preheader780:                                    ; preds = %244, %241, %238, %235, %232, %230
@@ -6001,13 +6001,13 @@ guc_free.exit:                                    ; preds = %162
 248:                                              ; preds = %247
   %249 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
   %250 = load ptr, ptr %249, align 8
-  %251 = icmp eq ptr %250, %226
+  %251 = icmp eq ptr %226, %250
   br i1 %251, label %set_extra_field.exit, label %252
 
 252:                                              ; preds = %248
   %253 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
   %254 = load ptr, ptr %253, align 8
-  %255 = icmp eq ptr %254, %226
+  %255 = icmp eq ptr %226, %254
   br i1 %255, label %set_extra_field.exit, label %247, !llvm.loop !32
 
 guc_free.exit.i:                                  ; preds = %247
@@ -6210,7 +6210,7 @@ guc_free.exit695:                                 ; preds = %285
 
 344:                                              ; preds = %338
   %345 = load ptr, ptr %331, align 8
-  %346 = icmp eq ptr %345, %343
+  %346 = icmp eq ptr %343, %345
   br i1 %346, label %set_extra_field.exit701, label %347
 
 347:                                              ; preds = %344
@@ -6225,27 +6225,27 @@ guc_free.exit695:                                 ; preds = %285
 
 349:                                              ; preds = %347
   %350 = load ptr, ptr %333, align 8
-  %351 = icmp eq ptr %350, %343
+  %351 = icmp eq ptr %343, %350
   br i1 %351, label %set_extra_field.exit701, label %.preheader781
 
 352:                                              ; preds = %347
   %353 = load ptr, ptr %332, align 8
-  %354 = icmp eq ptr %353, %343
+  %354 = icmp eq ptr %343, %353
   br i1 %354, label %set_extra_field.exit701, label %.preheader781
 
 355:                                              ; preds = %347
   %356 = load ptr, ptr %334, align 8
-  %357 = icmp eq ptr %356, %343
+  %357 = icmp eq ptr %343, %356
   br i1 %357, label %set_extra_field.exit701, label %.preheader781
 
 358:                                              ; preds = %347
   %359 = load ptr, ptr %333, align 8
-  %360 = icmp eq ptr %359, %343
+  %360 = icmp eq ptr %343, %359
   br i1 %360, label %set_extra_field.exit701, label %.preheader781
 
 361:                                              ; preds = %347
   %362 = load ptr, ptr %332, align 8
-  %363 = icmp eq ptr %362, %343
+  %363 = icmp eq ptr %343, %362
   br i1 %363, label %set_extra_field.exit701, label %.preheader781
 
 .preheader781:                                    ; preds = %361, %358, %355, %352, %349, %347
@@ -6260,13 +6260,13 @@ guc_free.exit695:                                 ; preds = %285
 365:                                              ; preds = %364
   %366 = getelementptr inbounds i8, ptr %.0.i.i698, i64 48
   %367 = load ptr, ptr %366, align 8
-  %368 = icmp eq ptr %367, %343
+  %368 = icmp eq ptr %343, %367
   br i1 %368, label %set_extra_field.exit701, label %369
 
 369:                                              ; preds = %365
   %370 = getelementptr inbounds i8, ptr %.0.i.i698, i64 64
   %371 = load ptr, ptr %370, align 8
-  %372 = icmp eq ptr %371, %343
+  %372 = icmp eq ptr %343, %371
   br i1 %372, label %set_extra_field.exit701, label %364, !llvm.loop !32
 
 guc_free.exit.i700:                               ; preds = %364
@@ -6469,7 +6469,7 @@ guc_free.exit705:                                 ; preds = %402
 
 462:                                              ; preds = %456
   %463 = load ptr, ptr %449, align 8
-  %464 = icmp eq ptr %463, %461
+  %464 = icmp eq ptr %461, %463
   br i1 %464, label %set_extra_field.exit711, label %465
 
 465:                                              ; preds = %462
@@ -6484,27 +6484,27 @@ guc_free.exit705:                                 ; preds = %402
 
 467:                                              ; preds = %465
   %468 = load ptr, ptr %451, align 8
-  %469 = icmp eq ptr %468, %461
+  %469 = icmp eq ptr %461, %468
   br i1 %469, label %set_extra_field.exit711, label %.preheader782
 
 470:                                              ; preds = %465
   %471 = load ptr, ptr %450, align 8
-  %472 = icmp eq ptr %471, %461
+  %472 = icmp eq ptr %461, %471
   br i1 %472, label %set_extra_field.exit711, label %.preheader782
 
 473:                                              ; preds = %465
   %474 = load ptr, ptr %452, align 8
-  %475 = icmp eq ptr %474, %461
+  %475 = icmp eq ptr %461, %474
   br i1 %475, label %set_extra_field.exit711, label %.preheader782
 
 476:                                              ; preds = %465
   %477 = load ptr, ptr %451, align 8
-  %478 = icmp eq ptr %477, %461
+  %478 = icmp eq ptr %461, %477
   br i1 %478, label %set_extra_field.exit711, label %.preheader782
 
 479:                                              ; preds = %465
   %480 = load ptr, ptr %450, align 8
-  %481 = icmp eq ptr %480, %461
+  %481 = icmp eq ptr %461, %480
   br i1 %481, label %set_extra_field.exit711, label %.preheader782
 
 .preheader782:                                    ; preds = %479, %476, %473, %470, %467, %465
@@ -6519,13 +6519,13 @@ guc_free.exit705:                                 ; preds = %402
 483:                                              ; preds = %482
   %484 = getelementptr inbounds i8, ptr %.0.i.i708, i64 48
   %485 = load ptr, ptr %484, align 8
-  %486 = icmp eq ptr %485, %461
+  %486 = icmp eq ptr %461, %485
   br i1 %486, label %set_extra_field.exit711, label %487
 
 487:                                              ; preds = %483
   %488 = getelementptr inbounds i8, ptr %.0.i.i708, i64 64
   %489 = load ptr, ptr %488, align 8
-  %490 = icmp eq ptr %489, %461
+  %490 = icmp eq ptr %461, %489
   br i1 %490, label %set_extra_field.exit711, label %482, !llvm.loop !32
 
 guc_free.exit.i710:                               ; preds = %482
@@ -6774,17 +6774,17 @@ guc_free.exit719:                                 ; preds = %542
 598:                                              ; preds = %594
   %599 = load ptr, ptr %584, align 8
   %600 = load ptr, ptr %599, align 8
-  %601 = icmp eq ptr %600, %597
+  %601 = icmp eq ptr %597, %600
   br i1 %601, label %set_string_field.exit, label %602
 
 602:                                              ; preds = %598
   %603 = load ptr, ptr %585, align 8
-  %604 = icmp eq ptr %603, %597
+  %604 = icmp eq ptr %597, %603
   br i1 %604, label %set_string_field.exit, label %605
 
 605:                                              ; preds = %602
   %606 = load ptr, ptr %586, align 8
-  %607 = icmp eq ptr %606, %597
+  %607 = icmp eq ptr %597, %606
   br i1 %607, label %set_string_field.exit, label %.preheader
 
 .preheader:                                       ; preds = %605, %612
@@ -6796,13 +6796,13 @@ guc_free.exit719:                                 ; preds = %542
 608:                                              ; preds = %.preheader
   %609 = getelementptr inbounds i8, ptr %.0.i.i722, i64 40
   %610 = load ptr, ptr %609, align 8
-  %611 = icmp eq ptr %610, %597
+  %611 = icmp eq ptr %597, %610
   br i1 %611, label %set_string_field.exit, label %612
 
 612:                                              ; preds = %608
   %613 = getelementptr inbounds i8, ptr %.0.i.i722, i64 56
   %614 = load ptr, ptr %613, align 8
-  %615 = icmp eq ptr %614, %597
+  %615 = icmp eq ptr %597, %614
   br i1 %615, label %set_string_field.exit, label %.preheader, !llvm.loop !33
 
 guc_free.exit.i724:                               ; preds = %.preheader
@@ -6819,7 +6819,7 @@ set_string_field.exit:                            ; preds = %608, %612, %594, %5
 
 619:                                              ; preds = %set_string_field.exit
   %620 = load ptr, ptr %587, align 8
-  %621 = icmp eq ptr %620, %618
+  %621 = icmp eq ptr %618, %620
   br i1 %621, label %set_extra_field.exit730, label %622
 
 622:                                              ; preds = %619
@@ -6834,27 +6834,27 @@ set_string_field.exit:                            ; preds = %608, %612, %594, %5
 
 624:                                              ; preds = %622
   %625 = load ptr, ptr %589, align 8
-  %626 = icmp eq ptr %625, %618
+  %626 = icmp eq ptr %618, %625
   br i1 %626, label %set_extra_field.exit730, label %.preheader783
 
 627:                                              ; preds = %622
   %628 = load ptr, ptr %588, align 8
-  %629 = icmp eq ptr %628, %618
+  %629 = icmp eq ptr %618, %628
   br i1 %629, label %set_extra_field.exit730, label %.preheader783
 
 630:                                              ; preds = %622
   %631 = load ptr, ptr %590, align 8
-  %632 = icmp eq ptr %631, %618
+  %632 = icmp eq ptr %618, %631
   br i1 %632, label %set_extra_field.exit730, label %.preheader783
 
 633:                                              ; preds = %622
   %634 = load ptr, ptr %589, align 8
-  %635 = icmp eq ptr %634, %618
+  %635 = icmp eq ptr %618, %634
   br i1 %635, label %set_extra_field.exit730, label %.preheader783
 
 636:                                              ; preds = %622
   %637 = load ptr, ptr %588, align 8
-  %638 = icmp eq ptr %637, %618
+  %638 = icmp eq ptr %618, %637
   br i1 %638, label %set_extra_field.exit730, label %.preheader783
 
 .preheader783:                                    ; preds = %636, %633, %630, %627, %624, %622
@@ -6869,13 +6869,13 @@ set_string_field.exit:                            ; preds = %608, %612, %594, %5
 640:                                              ; preds = %639
   %641 = getelementptr inbounds i8, ptr %.0.i.i727, i64 48
   %642 = load ptr, ptr %641, align 8
-  %643 = icmp eq ptr %642, %618
+  %643 = icmp eq ptr %618, %642
   br i1 %643, label %set_extra_field.exit730, label %644
 
 644:                                              ; preds = %640
   %645 = getelementptr inbounds i8, ptr %.0.i.i727, i64 64
   %646 = load ptr, ptr %645, align 8
-  %647 = icmp eq ptr %646, %618
+  %647 = icmp eq ptr %618, %646
   br i1 %647, label %set_extra_field.exit730, label %639, !llvm.loop !32
 
 guc_free.exit.i729:                               ; preds = %639
@@ -7091,7 +7091,7 @@ guc_free.exit736:                                 ; preds = %681
 
 740:                                              ; preds = %734
   %741 = load ptr, ptr %727, align 8
-  %742 = icmp eq ptr %741, %739
+  %742 = icmp eq ptr %739, %741
   br i1 %742, label %set_extra_field.exit742, label %743
 
 743:                                              ; preds = %740
@@ -7106,27 +7106,27 @@ guc_free.exit736:                                 ; preds = %681
 
 745:                                              ; preds = %743
   %746 = load ptr, ptr %729, align 8
-  %747 = icmp eq ptr %746, %739
+  %747 = icmp eq ptr %739, %746
   br i1 %747, label %set_extra_field.exit742, label %.preheader784
 
 748:                                              ; preds = %743
   %749 = load ptr, ptr %728, align 8
-  %750 = icmp eq ptr %749, %739
+  %750 = icmp eq ptr %739, %749
   br i1 %750, label %set_extra_field.exit742, label %.preheader784
 
 751:                                              ; preds = %743
   %752 = load ptr, ptr %730, align 8
-  %753 = icmp eq ptr %752, %739
+  %753 = icmp eq ptr %739, %752
   br i1 %753, label %set_extra_field.exit742, label %.preheader784
 
 754:                                              ; preds = %743
   %755 = load ptr, ptr %729, align 8
-  %756 = icmp eq ptr %755, %739
+  %756 = icmp eq ptr %739, %755
   br i1 %756, label %set_extra_field.exit742, label %.preheader784
 
 757:                                              ; preds = %743
   %758 = load ptr, ptr %728, align 8
-  %759 = icmp eq ptr %758, %739
+  %759 = icmp eq ptr %739, %758
   br i1 %759, label %set_extra_field.exit742, label %.preheader784
 
 .preheader784:                                    ; preds = %757, %754, %751, %748, %745, %743
@@ -7141,13 +7141,13 @@ guc_free.exit736:                                 ; preds = %681
 761:                                              ; preds = %760
   %762 = getelementptr inbounds i8, ptr %.0.i.i739, i64 48
   %763 = load ptr, ptr %762, align 8
-  %764 = icmp eq ptr %763, %739
+  %764 = icmp eq ptr %739, %763
   br i1 %764, label %set_extra_field.exit742, label %765
 
 765:                                              ; preds = %761
   %766 = getelementptr inbounds i8, ptr %.0.i.i739, i64 64
   %767 = load ptr, ptr %766, align 8
-  %768 = icmp eq ptr %767, %739
+  %768 = icmp eq ptr %739, %767
   br i1 %768, label %set_extra_field.exit742, label %760, !llvm.loop !32
 
 guc_free.exit.i741:                               ; preds = %760
@@ -7571,7 +7571,7 @@ define internal fastcc noundef zeroext i1 @call_bool_check_hook(ptr nocapture no
 define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
@@ -7588,31 +7588,31 @@ define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture nounde
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %.loopexit, label %29
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 200
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %.loopexit, label %29
 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds i8, ptr %0, i64 208
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   br i1 %20, label %.loopexit, label %29
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %0, i64 192
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %1
+  %24 = icmp eq ptr %1, %23
   br i1 %24, label %.loopexit, label %29
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds i8, ptr %0, i64 200
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %1
+  %28 = icmp eq ptr %1, %27
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %25, %21, %17, %13, %9, %6
@@ -7628,13 +7628,13 @@ define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture nounde
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %1
+  %35 = icmp eq ptr %1, %34
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %.0, i64 64
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %1
+  %39 = icmp eq ptr %1, %38
   br i1 %39, label %.loopexit, label %31, !llvm.loop !32
 
 .loopexit:                                        ; preds = %31, %32, %36, %25, %21, %17, %13, %9, %2
@@ -7878,19 +7878,19 @@ define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture nound
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 184
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %11
@@ -7906,13 +7906,13 @@ define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture nound
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %.0, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %1
+  %21 = icmp eq ptr %1, %20
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %.0, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %1
+  %25 = icmp eq ptr %1, %24
   br i1 %25, label %.loopexit, label %17, !llvm.loop !33
 
 .loopexit:                                        ; preds = %17, %18, %22, %2, %7, %11
@@ -8952,18 +8952,18 @@ RemoveGUCFromLists.exit:                          ; preds = %44, %48
 80:                                               ; preds = %77
   %81 = load ptr, ptr %63, align 8
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, %79
+  %83 = icmp eq ptr %79, %82
   br i1 %83, label %set_string_field.exitthread-pre-split, label %84
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr %50, align 8
-  %86 = icmp eq ptr %85, %79
+  %86 = icmp eq ptr %79, %85
   br i1 %86, label %set_string_field.exit, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %18, i64 152
   %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, %79
+  %90 = icmp eq ptr %79, %89
   br i1 %90, label %set_string_field.exitthread-pre-split, label %.preheader44
 
 .preheader44:                                     ; preds = %87, %95
@@ -8975,13 +8975,13 @@ RemoveGUCFromLists.exit:                          ; preds = %44, %48
 91:                                               ; preds = %.preheader44
   %92 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, %79
+  %94 = icmp eq ptr %79, %93
   br i1 %94, label %set_string_field.exitthread-pre-split, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, %79
+  %98 = icmp eq ptr %79, %97
   br i1 %98, label %set_string_field.exitthread-pre-split, label %.preheader44, !llvm.loop !33
 
 guc_free.exit.i:                                  ; preds = %.preheader44
@@ -9001,13 +9001,13 @@ set_string_field.exit:                            ; preds = %set_string_field.ex
 100:                                              ; preds = %set_string_field.exit
   %101 = load ptr, ptr %63, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %99
+  %103 = icmp eq ptr %99, %102
   br i1 %103, label %set_string_field.exit40.thread, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %18, i64 152
   %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, %99
+  %107 = icmp eq ptr %99, %106
   br i1 %107, label %set_string_field.exit40.thread, label %.preheader
 
 .preheader:                                       ; preds = %104, %112
@@ -9019,13 +9019,13 @@ set_string_field.exit:                            ; preds = %set_string_field.ex
 108:                                              ; preds = %.preheader
   %109 = getelementptr inbounds i8, ptr %.0.i.i37, i64 40
   %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %110, %99
+  %111 = icmp eq ptr %99, %110
   br i1 %111, label %set_string_field.exit40, label %112
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds i8, ptr %.0.i.i37, i64 56
   %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, %99
+  %115 = icmp eq ptr %99, %114
   br i1 %115, label %set_string_field.exit40, label %.preheader, !llvm.loop !33
 
 guc_free.exit.i39:                                ; preds = %.preheader
@@ -9620,7 +9620,7 @@ define internal fastcc void @convert_int_from_base_unit(i64 noundef %0, i32 noun
   %.025 = phi i32 [ %25, %24 ], [ 0, %4 ]
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %.lr.ph
@@ -9671,7 +9671,7 @@ define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 
   %.021 = phi i32 [ %24, %23 ], [ 0, %4 ]
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %.lr.ph
@@ -10866,7 +10866,7 @@ define internal fastcc zeroext i1 @validate_option_array_item(ptr noundef %0, pt
   %12 = tail call i32 @GetUserId() #29
   %13 = tail call i32 @pg_parameter_aclcheck(ptr noundef %0, i32 noundef %12, i64 noundef 4096) #29
   %14 = icmp eq i32 %13, 0
-  %brmerge17 = or i1 %14, %2
+  %brmerge17 = or i1 %2, %14
   br i1 %brmerge17, label %34, label %15
 
 15:                                               ; preds = %11
@@ -10893,7 +10893,7 @@ define internal fastcc zeroext i1 @validate_option_array_item(ptr noundef %0, pt
   %25 = tail call i32 @GetUserId() #29
   %26 = tail call i32 @pg_parameter_aclcheck(ptr noundef %0, i32 noundef %25, i64 noundef 4096) #29
   %27 = icmp ne i32 %26, 0
-  %brmerge.not = and i1 %27, %2
+  %brmerge.not = and i1 %2, %27
   br i1 %brmerge.not, label %34, label %29
 
 28:                                               ; preds = %19
@@ -11130,19 +11130,19 @@ define internal fastcc void @set_stack_value(ptr nocapture noundef readonly %0, 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %19, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %22
+  %26 = icmp eq ptr %22, %25
   br i1 %26, label %set_string_field.exit, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 184
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %22
+  %30 = icmp eq ptr %22, %29
   br i1 %30, label %set_string_field.exit, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 152
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %22
+  %34 = icmp eq ptr %22, %33
   br i1 %34, label %set_string_field.exit, label %35
 
 35:                                               ; preds = %31
@@ -11158,13 +11158,13 @@ define internal fastcc void @set_stack_value(ptr nocapture noundef readonly %0, 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, %22
+  %41 = icmp eq ptr %22, %40
   br i1 %41, label %set_string_field.exit, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %22
+  %45 = icmp eq ptr %22, %44
   br i1 %45, label %set_string_field.exit, label %37, !llvm.loop !33
 
 guc_free.exit.i:                                  ; preds = %37
@@ -11185,7 +11185,7 @@ set_string_field.exit:                            ; preds = %42, %38, %guc_free.
   %53 = load ptr, ptr %50, align 8
   store ptr %52, ptr %50, align 8
   %.not.i15 = icmp eq ptr %53, null
-  %54 = icmp eq ptr %52, %53
+  %54 = icmp eq ptr %53, %52
   %or.cond = select i1 %.not.i15, i1 true, i1 %54
   br i1 %or.cond, label %set_extra_field.exit, label %55
 
@@ -11202,31 +11202,31 @@ set_string_field.exit:                            ; preds = %42, %38, %guc_free.
 57:                                               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %0, i64 192
   %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %53
+  %60 = icmp eq ptr %53, %59
   br i1 %60, label %set_extra_field.exit, label %77
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds i8, ptr %0, i64 200
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %53
+  %64 = icmp eq ptr %53, %63
   br i1 %64, label %set_extra_field.exit, label %77
 
 65:                                               ; preds = %55
   %66 = getelementptr inbounds i8, ptr %0, i64 208
   %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %53
+  %68 = icmp eq ptr %53, %67
   br i1 %68, label %set_extra_field.exit, label %77
 
 69:                                               ; preds = %55
   %70 = getelementptr inbounds i8, ptr %0, i64 192
   %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, %53
+  %72 = icmp eq ptr %53, %71
   br i1 %72, label %set_extra_field.exit, label %77
 
 73:                                               ; preds = %55
   %74 = getelementptr inbounds i8, ptr %0, i64 200
   %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, %53
+  %76 = icmp eq ptr %53, %75
   br i1 %76, label %set_extra_field.exit, label %77
 
 77:                                               ; preds = %73, %69, %65, %61, %57, %55
@@ -11242,13 +11242,13 @@ set_string_field.exit:                            ; preds = %42, %38, %guc_free.
 80:                                               ; preds = %79
   %81 = getelementptr inbounds i8, ptr %.0.i.i17, i64 48
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, %53
+  %83 = icmp eq ptr %53, %82
   br i1 %83, label %set_extra_field.exit, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %.0.i.i17, i64 64
   %86 = load ptr, ptr %85, align 8
-  %87 = icmp eq ptr %86, %53
+  %87 = icmp eq ptr %53, %86
   br i1 %87, label %set_extra_field.exit, label %79, !llvm.loop !32
 
 guc_free.exit.i19:                                ; preds = %79
@@ -11346,25 +11346,25 @@ define internal fastcc void @reapply_stacked_values(ptr noundef %0, ptr nocaptur
 40:                                               ; preds = %7
   %41 = getelementptr inbounds i8, ptr %1, i64 184
   %42 = load ptr, ptr %41, align 8
-  %.not55 = icmp eq ptr %42, %3
+  %.not55 = icmp eq ptr %3, %42
   br i1 %.not55, label %43, label %52
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %1, i64 56
   %45 = load i32, ptr %44, align 8
-  %.not56 = icmp eq i32 %45, %4
+  %.not56 = icmp eq i32 %4, %45
   br i1 %.not56, label %46, label %52
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %1, i64 48
   %48 = load i32, ptr %47, align 8
-  %.not57 = icmp eq i32 %48, %5
+  %.not57 = icmp eq i32 %5, %48
   br i1 %.not57, label %49, label %52
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %1, i64 64
   %51 = load i32, ptr %50, align 8
-  %.not58 = icmp eq i32 %51, %6
+  %.not58 = icmp eq i32 %6, %51
   br i1 %.not58, label %57, label %52
 
 52:                                               ; preds = %49, %46, %43, %40

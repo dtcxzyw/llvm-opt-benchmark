@@ -1711,7 +1711,7 @@ do.body:                                          ; preds = %if.end25, %entry
   %0 = phi i32 [ %add20, %if.end25 ], [ %indexp.promoted, %entry ]
   %add = add i32 %0, 1
   %conv = zext i32 %add to i64
-  %cmp = icmp ugt i64 %conv, %dohlen
+  %cmp = icmp ult i64 %dohlen, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %do.body
@@ -1727,7 +1727,7 @@ if.end:                                           ; preds = %do.body
 if.then5:                                         ; preds = %if.end
   %add6 = add i32 %0, 2
   %conv7 = zext i32 %add6 to i64
-  %cmp8 = icmp ugt i64 %conv7, %dohlen
+  %cmp8 = icmp ult i64 %dohlen, %conv7
   br i1 %cmp8, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then5
@@ -1738,7 +1738,7 @@ if.end17:                                         ; preds = %if.end
   %conv2 = zext i8 %1 to i32
   %add20 = add i32 %add, %conv2
   %conv21 = zext i32 %add20 to i64
-  %cmp22 = icmp ugt i64 %conv21, %dohlen
+  %cmp22 = icmp ult i64 %dohlen, %conv21
   br i1 %cmp22, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.end17
@@ -1826,7 +1826,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end.
   %loop.0.i = phi i32 [ 128, %if.end.i ], [ %dec.i, %do.cond.i ]
   %index.addr.0.i = phi i32 [ %index, %if.end.i ], [ %index.addr.1.i, %do.cond.i ]
   %conv.i = zext i32 %index.addr.0.i to i64
-  %cmp2.not.i = icmp ult i64 %conv.i, %dohlen
+  %cmp2.not.i = icmp ugt i64 %dohlen, %conv.i
   br i1 %cmp2.not.i, label %if.end5.i, label %return
 
 if.end5.i:                                        ; preds = %do.body.i
@@ -1843,7 +1843,7 @@ if.end5.i:                                        ; preds = %do.body.i
 if.then11.i:                                      ; preds = %if.end5.i
   %add.i = add i32 %index.addr.0.i, 1
   %conv12.i = zext i32 %add.i to i64
-  %cmp13.not.i = icmp ult i64 %conv12.i, %dohlen
+  %cmp13.not.i = icmp ugt i64 %dohlen, %conv12.i
   br i1 %cmp13.not.i, label %if.end16.i, label %return
 
 if.end16.i:                                       ; preds = %if.then11.i
@@ -1873,7 +1873,7 @@ if.then33.i:                                      ; preds = %if.then31.i
 if.end38.i:                                       ; preds = %if.then33.i, %if.then31.i
   %add40.i = add i32 %inc27.i, %conv8.i
   %conv41.i = zext i32 %add40.i to i64
-  %cmp42.i = icmp ugt i64 %conv41.i, %dohlen
+  %cmp42.i = icmp ult i64 %dohlen, %conv41.i
   br i1 %cmp42.i, label %return, label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.end38.i

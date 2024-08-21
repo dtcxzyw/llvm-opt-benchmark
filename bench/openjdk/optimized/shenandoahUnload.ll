@@ -448,7 +448,7 @@ define linkonce_odr hidden void @_ZN31ShenandoahIsUnloadingOopClosure6do_oopEPP7
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
-  %.not.i = icmp ugt ptr %18, %7
+  %.not.i = icmp ult ptr %7, %18
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %9

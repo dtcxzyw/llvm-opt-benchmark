@@ -399,7 +399,7 @@ define void @EncodeDateTime(ptr nocapture noundef %0, i32 noundef %1, i1 noundef
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, -1
-  %spec.select = and i1 %11, %2
+  %spec.select = and i1 %2, %11
   switch i32 %5, label %199 [
     i32 1, label %12
     i32 2, label %67

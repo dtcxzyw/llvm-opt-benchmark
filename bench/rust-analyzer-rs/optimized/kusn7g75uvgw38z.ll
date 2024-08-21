@@ -16,7 +16,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN100_$LT$core.
   %9 = ptrtoint ptr %3 to i64
   %10 = sub nuw i64 %8, %9
   %11 = lshr exact i64 %10, 5
-  %.not.i.i = icmp ugt i64 %11, %1
+  %.not.i.i = icmp ult i64 %1, %11
   %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %3, i64 %1
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   %storemerge.i.i = select i1 %.not.i.i, ptr %13, ptr %7
@@ -42,7 +42,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN107_$LT$core.
   %9 = ptrtoint ptr %3 to i64
   %10 = sub nuw i64 %8, %9
   %11 = lshr exact i64 %10, 5
-  %.not.i = icmp ugt i64 %11, %1
+  %.not.i = icmp ult i64 %1, %11
   %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %3, i64 %1
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   %storemerge.i = select i1 %.not.i, ptr %13, ptr %7
@@ -71,7 +71,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
-  %.not = icmp ugt i64 %9, %1
+  %.not = icmp ult i64 %1, %9
   %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %5, i64 %1
   %11 = getelementptr inbounds i8, ptr %10, i64 32
   %storemerge = select i1 %.not, ptr %11, ptr %4
@@ -99,7 +99,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
   %13 = ptrtoint ptr %7 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 5
-  %.not.i.i.i = icmp ugt i64 %15, %1
+  %.not.i.i.i = icmp ult i64 %1, %15
   %16 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %7, i64 %1
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   %storemerge.i.i.i = select i1 %.not.i.i.i, ptr %17, ptr %11
@@ -134,7 +134,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
   %28 = ptrtoint ptr %21 to i64
   %29 = sub nuw i64 %27, %28
   %30 = lshr exact i64 %29, 5
-  %.not.i.i.i4 = icmp ugt i64 %30, %24
+  %.not.i.i.i4 = icmp ult i64 %24, %30
   %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %21, i64 %24
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %storemerge.i.i.i5 = select i1 %.not.i.i.i4, ptr %32, ptr %26

@@ -6355,13 +6355,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [1 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [1 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -7229,13 +7229,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [1 x [4 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [1 x [4 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -8105,13 +8105,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 204
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [1 x [6 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [1 x [6 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -8981,13 +8981,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 268
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [1 x [8 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [1 x [8 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -9857,13 +9857,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 332
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [1 x [10 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [1 x [10 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -10747,13 +10747,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -11666,13 +11666,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 268
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [2 x [4 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [2 x [4 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -12566,13 +12566,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 204
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -13466,13 +13466,13 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   %7 = getelementptr inbounds i8, ptr %0, i64 268
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = add i64 %9, %1
+  %10 = add i64 %1, %9
   %11 = shl i64 %2, 1
   %12 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %13 = load i32, ptr %7, align 4
   %14 = sext i32 %13 to i64
-  %15 = add i64 %14, %1
+  %15 = add i64 %1, %14
   %16 = or disjoint i64 %11, 1
   %17 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i64 0, i64 %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -35256,12 +35256,12 @@ _ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %100, %_ZN5
   %156 = getelementptr inbounds i16, ptr %90, i64 %155
   %157 = load i16, ptr %156, align 2
   %158 = getelementptr inbounds i32, ptr %91, i64 %155
-  %159 = icmp ult i16 %157, %97
+  %159 = icmp ugt i16 %97, %157
   br i1 %159, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i30
 
 _ZN5faiss4CMaxItiE4cmp2Ettii.exit.i30:            ; preds = %.lr.ph.i29
   %160 = load i32, ptr %158, align 4
-  %161 = icmp eq i16 %157, %97
+  %161 = icmp eq i16 %97, %157
   %162 = icmp slt i32 %160, %153
   %163 = and i1 %161, %162
   br i1 %163, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
@@ -38063,12 +38063,12 @@ _ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %147 = getelementptr inbounds i16, ptr %84, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds i32, ptr %85, i64 %146
-  %150 = icmp ult i16 %148, %91
+  %150 = icmp ugt i16 %91, %148
   br i1 %150, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29
 
 _ZN5faiss4CMaxItiE4cmp2Ettii.exit.i29:            ; preds = %.lr.ph.i28
   %151 = load i32, ptr %149, align 4
-  %152 = icmp eq i16 %148, %91
+  %152 = icmp eq i16 %91, %148
   %153 = icmp slt i32 %151, %144
   %154 = and i1 %152, %153
   br i1 %154, label %_ZN5faiss4CMaxItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
@@ -56974,12 +56974,12 @@ _ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %100, %_ZN5
   %156 = getelementptr inbounds i16, ptr %90, i64 %155
   %157 = load i16, ptr %156, align 2
   %158 = getelementptr inbounds i32, ptr %91, i64 %155
-  %159 = icmp ugt i16 %157, %97
+  %159 = icmp ult i16 %97, %157
   br i1 %159, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i30
 
 _ZN5faiss4CMinItiE4cmp2Ettii.exit.i30:            ; preds = %.lr.ph.i29
   %160 = load i32, ptr %158, align 4
-  %161 = icmp eq i16 %157, %97
+  %161 = icmp eq i16 %97, %157
   %162 = icmp sgt i32 %160, %153
   %163 = and i1 %161, %162
   br i1 %163, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i31, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
@@ -59781,12 +59781,12 @@ _ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %147 = getelementptr inbounds i16, ptr %84, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = getelementptr inbounds i32, ptr %85, i64 %146
-  %150 = icmp ugt i16 %148, %91
+  %150 = icmp ult i16 %91, %148
   br i1 %150, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.i29
 
 _ZN5faiss4CMinItiE4cmp2Ettii.exit.i29:            ; preds = %.lr.ph.i28
   %151 = load i32, ptr %149, align 4
-  %152 = icmp eq i16 %148, %91
+  %152 = icmp eq i16 %91, %148
   %153 = icmp sgt i32 %151, %144
   %154 = and i1 %152, %153
   br i1 %154, label %_ZN5faiss4CMinItiE4cmp2Ettii.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
@@ -78675,13 +78675,13 @@ _ZN5faiss8heap_popINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %100, %_ZN5
   %155 = getelementptr inbounds i16, ptr %90, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = getelementptr inbounds i64, ptr %91, i64 %154
-  %158 = icmp ult i16 %156, %97
+  %158 = icmp ugt i16 %97, %156
   br i1 %158, label %_ZN5faiss4CMaxItlE4cmp2Ettll.exit.thread.i31, label %_ZN5faiss4CMaxItlE4cmp2Ettll.exit.i30
 
 _ZN5faiss4CMaxItlE4cmp2Ettll.exit.i30:            ; preds = %.lr.ph.i29
   %159 = load i64, ptr %157, align 8
-  %160 = icmp eq i16 %156, %97
-  %161 = icmp slt i64 %159, %106
+  %160 = icmp eq i16 %97, %156
+  %161 = icmp sgt i64 %106, %159
   %162 = and i1 %160, %161
   br i1 %162, label %_ZN5faiss4CMaxItlE4cmp2Ettll.exit.thread.i31, label %_ZN5faiss9heap_pushINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -81476,13 +81476,13 @@ _ZN5faiss8heap_popINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %146 = getelementptr inbounds i16, ptr %84, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = getelementptr inbounds i64, ptr %85, i64 %145
-  %149 = icmp ult i16 %147, %91
+  %149 = icmp ugt i16 %91, %147
   br i1 %149, label %_ZN5faiss4CMaxItlE4cmp2Ettll.exit.thread.i30, label %_ZN5faiss4CMaxItlE4cmp2Ettll.exit.i29
 
 _ZN5faiss4CMaxItlE4cmp2Ettll.exit.i29:            ; preds = %.lr.ph.i28
   %150 = load i64, ptr %148, align 8
-  %151 = icmp eq i16 %147, %91
-  %152 = icmp slt i64 %150, %97
+  %151 = icmp eq i16 %91, %147
+  %152 = icmp sgt i64 %97, %150
   %153 = and i1 %151, %152
   br i1 %153, label %_ZN5faiss4CMaxItlE4cmp2Ettll.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -100365,13 +100365,13 @@ _ZN5faiss8heap_popINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %100, %_ZN5
   %155 = getelementptr inbounds i16, ptr %90, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = getelementptr inbounds i64, ptr %91, i64 %154
-  %158 = icmp ugt i16 %156, %97
+  %158 = icmp ult i16 %97, %156
   br i1 %158, label %_ZN5faiss4CMinItlE4cmp2Ettll.exit.thread.i31, label %_ZN5faiss4CMinItlE4cmp2Ettll.exit.i30
 
 _ZN5faiss4CMinItlE4cmp2Ettll.exit.i30:            ; preds = %.lr.ph.i29
   %159 = load i64, ptr %157, align 8
-  %160 = icmp eq i16 %156, %97
-  %161 = icmp sgt i64 %159, %106
+  %160 = icmp eq i16 %97, %156
+  %161 = icmp slt i64 %106, %159
   %162 = and i1 %160, %161
   br i1 %162, label %_ZN5faiss4CMinItlE4cmp2Ettll.exit.thread.i31, label %_ZN5faiss9heap_pushINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -103166,13 +103166,13 @@ _ZN5faiss8heap_popINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %94, %_ZN5f
   %146 = getelementptr inbounds i16, ptr %84, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = getelementptr inbounds i64, ptr %85, i64 %145
-  %149 = icmp ugt i16 %147, %91
+  %149 = icmp ult i16 %91, %147
   br i1 %149, label %_ZN5faiss4CMinItlE4cmp2Ettll.exit.thread.i30, label %_ZN5faiss4CMinItlE4cmp2Ettll.exit.i29
 
 _ZN5faiss4CMinItlE4cmp2Ettll.exit.i29:            ; preds = %.lr.ph.i28
   %150 = load i64, ptr %148, align 8
-  %151 = icmp eq i16 %147, %91
-  %152 = icmp sgt i64 %150, %97
+  %151 = icmp eq i16 %91, %147
+  %152 = icmp slt i64 %97, %150
   %153 = and i1 %151, %152
   br i1 %153, label %_ZN5faiss4CMinItlE4cmp2Ettll.exit.thread.i30, label %_ZN5faiss9heap_pushINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 

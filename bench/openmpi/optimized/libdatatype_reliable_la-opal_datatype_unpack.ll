@@ -1409,7 +1409,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %181 = load i64, ptr %180, align 8
   %182 = and i64 %181, 1
   %.not3420.i = icmp ne i64 %182, 0
-  %183 = icmp ult i64 %28, %.0
+  %183 = icmp ugt i64 %.0, %28
   %or.cond3427.i = and i1 %183, %.not3420.i
   br i1 %or.cond3427.i, label %opal_datatype_unpack_predefined_element.exit, label %184
 
@@ -1701,7 +1701,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %328 = load i64, ptr %327, align 8
   %329 = and i64 %328, 3
   %.not3415.i = icmp ne i64 %329, 0
-  %330 = icmp ult i64 %28, %.0
+  %330 = icmp ugt i64 %.0, %28
   %or.cond3430.i = and i1 %330, %.not3415.i
   br i1 %or.cond3430.i, label %opal_datatype_unpack_predefined_element.exit, label %331
 
@@ -1993,7 +1993,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %475 = load i64, ptr %474, align 8
   %476 = and i64 %475, 7
   %.not3410.i = icmp ne i64 %476, 0
-  %477 = icmp ult i64 %28, %.0
+  %477 = icmp ugt i64 %.0, %28
   %or.cond3433.i = and i1 %477, %.not3410.i
   br i1 %or.cond3433.i, label %opal_datatype_unpack_predefined_element.exit, label %478
 
@@ -2559,7 +2559,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %760 = load i64, ptr %759, align 8
   %761 = and i64 %760, 1
   %.not3403.i = icmp ne i64 %761, 0
-  %762 = icmp ult i64 %28, %.0
+  %762 = icmp ugt i64 %.0, %28
   %or.cond3436.i = and i1 %762, %.not3403.i
   br i1 %or.cond3436.i, label %opal_datatype_unpack_predefined_element.exit, label %763
 
@@ -2851,7 +2851,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %907 = load i64, ptr %906, align 8
   %908 = and i64 %907, 3
   %.not3398.i = icmp ne i64 %908, 0
-  %909 = icmp ult i64 %28, %.0
+  %909 = icmp ugt i64 %.0, %28
   %or.cond3439.i = and i1 %909, %.not3398.i
   br i1 %or.cond3439.i, label %opal_datatype_unpack_predefined_element.exit, label %910
 
@@ -3143,7 +3143,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1054 = load i64, ptr %1053, align 8
   %1055 = and i64 %1054, 7
   %.not3393.i = icmp ne i64 %1055, 0
-  %1056 = icmp ult i64 %28, %.0
+  %1056 = icmp ugt i64 %.0, %28
   %or.cond3442.i = and i1 %1056, %.not3393.i
   br i1 %or.cond3442.i, label %opal_datatype_unpack_predefined_element.exit, label %1057
 
@@ -3435,7 +3435,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1201 = load i64, ptr %1200, align 8
   %1202 = and i64 %1201, 1
   %.not3388.i = icmp ne i64 %1202, 0
-  %1203 = icmp ult i64 %28, %.0
+  %1203 = icmp ugt i64 %.0, %28
   %or.cond3445.i = and i1 %1203, %.not3388.i
   br i1 %or.cond3445.i, label %opal_datatype_unpack_predefined_element.exit, label %1204
 
@@ -3727,7 +3727,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1348 = load i64, ptr %1347, align 8
   %1349 = and i64 %1348, 3
   %.not3383.i = icmp ne i64 %1349, 0
-  %1350 = icmp ult i64 %28, %.0
+  %1350 = icmp ugt i64 %.0, %28
   %or.cond3448.i = and i1 %1350, %.not3383.i
   br i1 %or.cond3448.i, label %opal_datatype_unpack_predefined_element.exit, label %1351
 
@@ -4019,7 +4019,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1495 = load i64, ptr %1494, align 8
   %1496 = and i64 %1495, 7
   %.not3378.i = icmp ne i64 %1496, 0
-  %1497 = icmp ult i64 %28, %.0
+  %1497 = icmp ugt i64 %.0, %28
   %or.cond3451.i = and i1 %1497, %.not3378.i
   br i1 %or.cond3451.i, label %opal_datatype_unpack_predefined_element.exit, label %1498
 
@@ -4311,7 +4311,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1642 = load i64, ptr %1641, align 8
   %1643 = and i64 %1642, 15
   %.not3373.i = icmp ne i64 %1643, 0
-  %1644 = icmp ult i64 %28, %.0
+  %1644 = icmp ugt i64 %.0, %28
   %or.cond3454.i = and i1 %1644, %.not3373.i
   br i1 %or.cond3454.i, label %opal_datatype_unpack_predefined_element.exit, label %1645
 
@@ -4603,7 +4603,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1789 = load i64, ptr %1788, align 8
   %1790 = and i64 %1789, 1
   %.not3368.i = icmp ne i64 %1790, 0
-  %1791 = icmp ult i64 %28, %.0
+  %1791 = icmp ugt i64 %.0, %28
   %or.cond3457.i = and i1 %1791, %.not3368.i
   br i1 %or.cond3457.i, label %opal_datatype_unpack_predefined_element.exit, label %1792
 
@@ -4895,7 +4895,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1936 = load i64, ptr %1935, align 8
   %1937 = and i64 %1936, 3
   %.not3363.i = icmp ne i64 %1937, 0
-  %1938 = icmp ult i64 %28, %.0
+  %1938 = icmp ugt i64 %.0, %28
   %or.cond3460.i = and i1 %1938, %.not3363.i
   br i1 %or.cond3460.i, label %opal_datatype_unpack_predefined_element.exit, label %1939
 
@@ -5335,7 +5335,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2194 = load i64, ptr %2193, align 8
   %2195 = and i64 %2194, 7
   %.not3358.i = icmp ne i64 %2195, 0
-  %2196 = icmp ult i64 %28, %.0
+  %2196 = icmp ugt i64 %.0, %28
   %or.cond3463.i = and i1 %2196, %.not3358.i
   br i1 %or.cond3463.i, label %opal_datatype_unpack_predefined_element.exit, label %2197
 
@@ -5775,7 +5775,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2452 = load i64, ptr %2451, align 8
   %2453 = and i64 %2452, 15
   %.not3353.i = icmp ne i64 %2453, 0
-  %2454 = icmp ult i64 %28, %.0
+  %2454 = icmp ugt i64 %.0, %28
   %or.cond3466.i = and i1 %2454, %.not3353.i
   br i1 %or.cond3466.i, label %opal_datatype_unpack_predefined_element.exit, label %2455
 
@@ -6526,7 +6526,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2885 = load i64, ptr %2884, align 8
   %2886 = and i64 %2885, 3
   %.not3346.i = icmp ne i64 %2886, 0
-  %2887 = icmp ult i64 %28, %.0
+  %2887 = icmp ugt i64 %.0, %28
   %or.cond3469.i = and i1 %2887, %.not3346.i
   br i1 %or.cond3469.i, label %opal_datatype_unpack_predefined_element.exit, label %2888
 

@@ -2723,7 +2723,7 @@ define internal fastcc void @zend_do_inherit_interfaces(ptr noundef %0, ptr noca
 
 do_implement_interface.exit:                      ; preds = %.do_implement_interface.exit_crit_edge, %55, %62
   %76 = phi i32 [ %.pre, %.do_implement_interface.exit_crit_edge ], [ %56, %55 ], [ %56, %62 ]
-  %77 = icmp ne ptr %59, %0
+  %77 = icmp ne ptr %0, %59
   tail call void @llvm.assume(i1 %77)
   %78 = zext i32 %76 to i64
   %79 = icmp ult i64 %indvars.iv.next48, %78
@@ -6211,7 +6211,7 @@ add_dependency_obligation.exit.i:                 ; preds = %1124, %1119
   unreachable
 
 do_implement_interface.exit.i:                    ; preds = %1228, %1225, %.lr.ph136.i
-  %1239 = icmp ne ptr %1222, %.0329
+  %1239 = icmp ne ptr %.0329, %1222
   call void @llvm.assume(i1 %1239)
   %indvars.iv.next159.i = add nuw nsw i64 %indvars.iv158.i, 1
   %exitcond162.not.i = icmp eq i64 %indvars.iv.next159.i, %wide.trip.count161.i
@@ -9092,7 +9092,7 @@ define internal fastcc ptr @lookup_class_ex(ptr noundef readonly %0, ptr noundef
 
 27:                                               ; preds = %18, %26, %25, %14
   %28 = icmp eq ptr %.0, null
-  %or.cond.not = and i1 %28, %2
+  %or.cond.not = and i1 %2, %28
   br i1 %or.cond.not, label %29, label %class_visible.exit.thread
 
 29:                                               ; preds = %27
@@ -9208,7 +9208,7 @@ define internal fastcc void @track_class_dependency(ptr noundef %0, ptr noundef 
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 536), align 8
   %.not = icmp eq ptr %5, null
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   %or.cond = or i1 %.not, %6
   br i1 %or.cond, label %50, label %7
 

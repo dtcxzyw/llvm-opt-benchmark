@@ -585,7 +585,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 272
   %9 = load i64, ptr %8, align 8
-  %10 = icmp ugt i64 %9, %1
+  %10 = icmp ult i64 %1, %9
   br i1 %10, label %65, label %11
 
 11:                                               ; preds = %3
@@ -695,7 +695,7 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34, 
   %73 = getelementptr inbounds i8, ptr %0, i64 697
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i64
-  %76 = add i64 %72, %1
+  %76 = add i64 %1, %72
   %77 = add i64 %76, %69
   %78 = add i64 %77, %75
   %79 = icmp ult i64 %.0, %78

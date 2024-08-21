@@ -620,7 +620,7 @@ define void @vectors_scalar_mult(i32 noundef %0, ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %2
+  %8 = fmul double %2, %7
   %9 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
   store double %8, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

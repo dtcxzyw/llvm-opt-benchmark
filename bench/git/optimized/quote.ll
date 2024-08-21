@@ -1824,7 +1824,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 error:                                            ; preds = %sw.epilog, %if.end26, %sw.bb18, %for.cond
   %14 = load i64, ptr %sb, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %14, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i24, label %if.end.i
 
 if.then.i24:                                      ; preds = %error

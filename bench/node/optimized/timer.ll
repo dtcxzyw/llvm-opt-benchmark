@@ -301,7 +301,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
 
 if.then10.i:                                      ; preds = %while.end.i
   %6 = load ptr, ptr %timer_heap.i, align 8
-  %cmp12.i = icmp eq ptr %6, %heap_node
+  %cmp12.i = icmp eq ptr %heap_node, %6
   br i1 %cmp12.i, label %if.then13.i, label %heap_remove.exit
 
 if.then13.i:                                      ; preds = %if.then10.i

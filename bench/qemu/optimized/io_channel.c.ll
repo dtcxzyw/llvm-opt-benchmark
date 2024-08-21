@@ -527,12 +527,12 @@ if.end16:                                         ; preds = %if.then9, %if.then3
   tail call void @qio_channel_set_fd_handlers(ptr noundef nonnull %ioc, i32 noundef %.sink)
   tail call void @qemu_coroutine_yield() #8
   %call.i = tail call ptr @qemu_get_current_aio_context() #8
-  %cmp.i = icmp eq ptr %call.i, %call2
+  %cmp.i = icmp eq ptr %call2, %call.i
   br i1 %cmp.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end16
   %call1.i = tail call ptr @qemu_get_aio_context() #8
-  %cmp2.i = icmp eq ptr %call1.i, %call2
+  %cmp2.i = icmp eq ptr %call2, %call1.i
   br i1 %cmp2.i, label %in_aio_context_home_thread.exit, label %if.else19
 
 in_aio_context_home_thread.exit:                  ; preds = %if.end.i

@@ -132,7 +132,7 @@ if.end5:                                          ; preds = %if.end3
 
 lor.lhs.false:                                    ; preds = %if.end5
   %call7 = tail call i32 @ossl_rsa_multip_cap(i32 noundef %bits) #3
-  %cmp8 = icmp slt i32 %call7, %primes
+  %cmp8 = icmp sgt i32 %primes, %call7
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %lor.lhs.false, %if.end5

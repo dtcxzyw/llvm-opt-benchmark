@@ -211,7 +211,7 @@ define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr nocapture nounde
 entry:
   %cmp = icmp ne i64 %block_size, 1
   %conv = zext i1 %cmp to i64
-  %add = add i64 %conv, %mac_size
+  %add = add i64 %mac_size, %conv
   %0 = load i64, ptr %reclen, align 8
   %cmp1 = icmp ugt i64 %add, %0
   br i1 %cmp1, label %return, label %if.end

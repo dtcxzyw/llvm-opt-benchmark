@@ -985,7 +985,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
   %391 = ptrtoint ptr %389 to i64
   %392 = sub i64 %390, %391
   %393 = ashr exact i64 %392, 2
-  %394 = icmp ult i64 %393, %386
+  %394 = icmp ugt i64 %386, %393
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %376
@@ -999,7 +999,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
   br label %402
 
 397:                                              ; preds = %376
-  %398 = icmp ugt i64 %393, %386
+  %398 = icmp ult i64 %386, %393
   br i1 %398, label %399, label %402
 
 399:                                              ; preds = %397
@@ -1110,7 +1110,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
   %444 = ptrtoint ptr %442 to i64
   %445 = sub i64 %443, %444
   %446 = ashr exact i64 %445, 2
-  %447 = icmp ult i64 %446, %439
+  %447 = icmp ugt i64 %439, %446
   br i1 %447, label %448, label %450
 
 448:                                              ; preds = %426
@@ -1124,7 +1124,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
   br label %455
 
 450:                                              ; preds = %426
-  %451 = icmp ugt i64 %446, %439
+  %451 = icmp ult i64 %439, %446
   br i1 %451, label %452, label %455
 
 452:                                              ; preds = %450
@@ -3584,11 +3584,11 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %indvars.iv95.i = phi i64 [ %indvars.iv.next96.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %26 = getelementptr inbounds float, ptr %15, i64 %indvars.iv95.i
   %27 = load float, ptr %26, align 4
-  %28 = fadd float %27, %4
+  %28 = fadd float %4, %27
   %29 = getelementptr inbounds float, ptr %3, i64 %indvars.iv95.i
   %30 = fcmp olt float %28, %6
   %.sroa.speculated62.us.i = select i1 %30, float %6, float %28
-  %31 = fcmp ogt float %.sroa.speculated62.us.i, %7
+  %31 = fcmp olt float %7, %.sroa.speculated62.us.i
   %.sroa.speculated.us.i = select i1 %31, float %7, float %.sroa.speculated62.us.i
   store float %.sroa.speculated.us.i, ptr %29, align 4
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
@@ -3604,13 +3604,13 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %.lr.ph76.split.us.i ], [ 0, %.lr.ph76.i ]
   %32 = getelementptr inbounds float, ptr %15, i64 %indvars.iv107.i
   %33 = load float, ptr %32, align 4
-  %34 = fadd float %33, %4
+  %34 = fadd float %4, %33
   %35 = getelementptr inbounds float, ptr %3, i64 %indvars.iv107.i
   %36 = load float, ptr %35, align 4
   %37 = fadd float %36, %34
   %38 = fcmp olt float %37, %6
   %.sroa.speculated65.us.i = select i1 %38, float %6, float %37
-  %39 = fcmp ogt float %.sroa.speculated65.us.i, %7
+  %39 = fcmp olt float %7, %.sroa.speculated65.us.i
   %.sroa.speculated59.us.i = select i1 %39, float %7, float %.sroa.speculated65.us.i
   store float %.sroa.speculated59.us.i, ptr %35, align 4
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
@@ -3621,7 +3621,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %.lr.ph76.split.i ], [ 0, %.lr.ph76.i ]
   %40 = getelementptr inbounds float, ptr %15, i64 %indvars.iv101.i
   %41 = load float, ptr %40, align 4
-  %42 = fadd float %41, %4
+  %42 = fadd float %4, %41
   %43 = getelementptr inbounds float, ptr %3, i64 %indvars.iv101.i
   %44 = load float, ptr %43, align 4
   %45 = fadd float %44, %42
@@ -3634,7 +3634,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i:   ; preds = %_ZNSt6vectorIfSaIfE
   %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %46 = getelementptr inbounds float, ptr %15, i64 %indvars.iv89.i
   %47 = load float, ptr %46, align 4
-  %48 = fadd float %47, %4
+  %48 = fadd float %4, %47
   %49 = getelementptr inbounds float, ptr %3, i64 %indvars.iv89.i
   store float %48, ptr %49, align 4
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
@@ -5288,15 +5288,15 @@ define internal fastcc void @_ZN2cv3dnnL13packInputDataEPcPfPKiS4_iiiiiiiiiiiiii
   %75 = add i32 %16, -1
   %76 = add i32 %75, %19
   %77 = add nsw i32 %13, -1
-  %78 = mul nsw i32 %77, %16
+  %78 = mul nsw i32 %16, %77
   %79 = sub nsw i32 %19, %78
   %80 = add nsw i32 %14, -1
-  %81 = mul nsw i32 %80, %17
+  %81 = mul nsw i32 %17, %80
   %82 = sub nsw i32 %20, %81
   %83 = add i32 %17, -1
   %84 = add i32 %83, %20
   %85 = add nsw i32 %15, -1
-  %86 = mul nsw i32 %85, %18
+  %86 = mul nsw i32 %18, %85
   %87 = sub nsw i32 %21, %86
   %wide.trip.count.i650 = zext i32 %6 to i64
   %88 = add i32 %18, -1
@@ -5385,7 +5385,7 @@ define internal fastcc void @_ZN2cv3dnnL13packInputDataEPcPfPKiS4_iiiiiiiiiiiiii
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i8, ptr %0, i64 %121
   %123 = sub nsw i32 %5, %.0536911.us915
-  %.sroa.speculated734.us = tail call i32 @llvm.smin.i32(i32 %123, i32 %30)
+  %.sroa.speculated734.us = tail call i32 @llvm.smin.i32(i32 %30, i32 %123)
   tail call void @llvm.memset.p0.i64(ptr align 1 %122, i8 0, i64 %74, i1 false)
   %124 = sdiv i32 %.0536911.us915, %50
   %125 = mul nsw i32 %124, %50
@@ -5426,7 +5426,7 @@ define internal fastcc void @_ZN2cv3dnnL13packInputDataEPcPfPKiS4_iiiiiiiiiiiiii
   %145 = getelementptr inbounds float, ptr %143, i64 %144
   store ptr %145, ptr %44, align 8
   %146 = xor i32 %133, -1
-  %147 = add i32 %146, %16
+  %147 = add i32 %16, %146
   %148 = sdiv i32 %147, %16
   %.sroa.speculated680.us = tail call i32 @llvm.smax.i32(i32 %148, i32 0)
   %149 = sub i32 %76, %133
@@ -5529,7 +5529,7 @@ _ZN2cv3dnnL9packData2ERPcRPfRiS5_S5_PKiiii.exit655.us: ; preds = %.lr.ph.i651.us
 
 .critedge621.us:                                  ; preds = %176, %165
   %201 = xor i32 %168, -1
-  %202 = add i32 %201, %18
+  %202 = add i32 %18, %201
   %203 = sdiv i32 %202, %18
   %.sroa.speculated660.us = tail call i32 @llvm.smax.i32(i32 %203, i32 0)
   %204 = sub i32 %89, %168
@@ -5659,7 +5659,7 @@ _ZN2cv3dnnL9packData2ERPcRPfRiS5_S5_PKiiii.exit641.us: ; preds = %.lr.ph.i637.us
 
 .critedge.us:                                     ; preds = %247, %236
   %272 = xor i32 %239, -1
-  %273 = add i32 %272, %18
+  %273 = add i32 %18, %272
   %274 = sdiv i32 %273, %18
   %.sroa.speculated696.us = tail call i32 @llvm.smax.i32(i32 %274, i32 0)
   %275 = sub i32 %89, %239
@@ -5777,7 +5777,7 @@ _ZN2cv3dnnL9packData2ERPcRPfRiS5_S5_PKiiii.exit.us: ; preds = %.lr.ph.i.us, %313
 
 334:                                              ; preds = %309
   %335 = xor i32 %302, -1
-  %336 = add i32 %335, %18
+  %336 = add i32 %18, %335
   %337 = sdiv i32 %336, %18
   %.sroa.speculated722.us = tail call i32 @llvm.smax.i32(i32 %337, i32 0)
   %338 = sub i32 %89, %302
@@ -5894,7 +5894,7 @@ _ZN2cv3dnnL9packData2ERPcRPfRiS5_S5_PKiiii.exit.us: ; preds = %.lr.ph.i.us, %313
   %381 = sdiv i32 %380, %17
   %.sroa.speculated666.us = tail call i32 @llvm.smin.i32(i32 %381, i32 %14)
   %382 = xor i32 %135, -1
-  %383 = add i32 %382, %17
+  %383 = add i32 %17, %382
   %384 = sdiv i32 %383, %17
   %.sroa.speculated670.us = tail call i32 @llvm.smax.i32(i32 %384, i32 0)
   %385 = icmp slt i32 %.sroa.speculated680.us, %.sroa.speculated676.us
@@ -5944,7 +5944,7 @@ _ZN2cv3dnnL9packData2ERPcRPfRiS5_S5_PKiiii.exit.us: ; preds = %.lr.ph.i.us, %313
   %404 = sdiv i32 %403, %17
   %.sroa.speculated702.us = tail call i32 @llvm.smin.i32(i32 %404, i32 %14)
   %405 = xor i32 %402, -1
-  %406 = add i32 %405, %17
+  %406 = add i32 %17, %405
   %407 = sdiv i32 %406, %17
   %.sroa.speculated706.us = tail call i32 @llvm.smax.i32(i32 %407, i32 0)
   %408 = icmp slt i32 %.sroa.speculated706.us, %.sroa.speculated702.us
@@ -7090,7 +7090,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %368 = getelementptr inbounds float, ptr %.0216.i.i.i, i64 %indvars.iv95.i.i.i.i.i
   %369 = fcmp olt float %367, %345
   %.sroa.speculated62.us.i.i.i.i.i = select i1 %369, float %345, float %367
-  %370 = fcmp ogt float %.sroa.speculated62.us.i.i.i.i.i, %347
+  %370 = fcmp olt float %347, %.sroa.speculated62.us.i.i.i.i.i
   %.sroa.speculated.us.i.i.i.i.i = select i1 %370, float %347, float %.sroa.speculated62.us.i.i.i.i.i
   store float %.sroa.speculated.us.i.i.i.i.i, ptr %368, align 4
   %indvars.iv.next96.i.i.i.i.i = add nuw nsw i64 %indvars.iv95.i.i.i.i.i, 1
@@ -7112,7 +7112,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %376 = fadd float %375, %373
   %377 = fcmp olt float %376, %345
   %.sroa.speculated65.us.i.i.i.i.i = select i1 %377, float %345, float %376
-  %378 = fcmp ogt float %.sroa.speculated65.us.i.i.i.i.i, %347
+  %378 = fcmp olt float %347, %.sroa.speculated65.us.i.i.i.i.i
   %.sroa.speculated59.us.i.i.i.i.i = select i1 %378, float %347, float %.sroa.speculated65.us.i.i.i.i.i
   store float %.sroa.speculated59.us.i.i.i.i.i, ptr %374, align 4
   %indvars.iv.next108.i.i.i.i.i = add nuw nsw i64 %indvars.iv107.i.i.i.i.i, 1

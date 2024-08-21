@@ -1407,126 +1407,126 @@ define hidden void @"_ZN8bitflags4iter18IterNames$LT$B$GT$3new17hf8bb5dddad4f625
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17h2a28043d094573b5E.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17h2ddd0a268cc73b29E.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17h340a8c25087378d5E.llvm.11423182251827145186(i8 noundef %0, i8 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN8bitflags6traits5Flags10difference17h41a6ba7d046beddfE.llvm.11423182251827145186(i16 noundef %0, i16 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i16 %1, -1
-  %4 = and i16 %3, %0
+  %4 = and i16 %0, %3
   ret i16 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17h4abfe92322c9fcf7E.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17h67c802e6aa5ebf72E.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17h70f98ca09125b3a9E.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN8bitflags6traits5Flags10difference17h72ce46af89b1b466E.llvm.11423182251827145186(i16 noundef %0, i16 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i16 %1, -1
-  %4 = and i16 %3, %0
+  %4 = and i16 %0, %3
   ret i16 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17h7ed5f583a834747fE.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN8bitflags6traits5Flags10difference17h94a84671466e3fe2E.llvm.11423182251827145186(i16 noundef %0, i16 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i16 %1, -1
-  %4 = and i16 %3, %0
+  %4 = and i16 %0, %3
   ret i16 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17ha2c72b01bb155da5E.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN8bitflags6traits5Flags10difference17ha37fd43ffdf4a71cE.llvm.11423182251827145186(i16 noundef %0, i16 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i16 %1, -1
-  %4 = and i16 %3, %0
+  %4 = and i16 %0, %3
   ret i16 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN8bitflags6traits5Flags10difference17ha5d9076b6faccdc7E.llvm.11423182251827145186(i16 noundef %0, i16 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i16 %1, -1
-  %4 = and i16 %3, %0
+  %4 = and i16 %0, %3
   ret i16 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN8bitflags6traits5Flags10difference17hd074e91042960759E.llvm.11423182251827145186(i16 noundef %0, i16 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i16 %1, -1
-  %4 = and i16 %3, %0
+  %4 = and i16 %0, %3
   ret i16 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17hd6e4d92213ad6a36E.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN8bitflags6traits5Flags10difference17hd8829a30d968aeffE.llvm.11423182251827145186(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i32 %1, -1
-  %4 = and i32 %3, %0
+  %4 = and i32 %0, %3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN8bitflags6traits5Flags10difference17hfa22f5163dbbaca5E.llvm.11423182251827145186(i64 noundef %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i64 %1, -1
-  %4 = and i64 %3, %0
+  %4 = and i64 %0, %3
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i16 @_ZN8bitflags6traits5Flags10difference17hfc35ddc2f4a86a8dE.llvm.11423182251827145186(i16 noundef %0, i16 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = xor i16 %1, -1
-  %4 = and i16 %3, %0
+  %4 = and i16 %0, %3
   ret i16 %4
 }
 

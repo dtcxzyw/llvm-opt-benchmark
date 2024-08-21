@@ -247,7 +247,7 @@ define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 52
   %9 = load i32, ptr %8, align 4
-  %.not13 = icmp ugt i32 %9, %1
+  %.not13 = icmp ult i32 %1, %9
   br i1 %.not13, label %14, label %10
 
 10:                                               ; preds = %7
@@ -268,7 +268,7 @@ define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %4, i64 52
   %23 = load i32, ptr %22, align 4
-  %.not = icmp ugt i32 %23, %1
+  %.not = icmp ult i32 %1, %23
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %21

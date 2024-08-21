@@ -7970,7 +7970,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit71: ; preds
   %181 = getelementptr inbounds i8, ptr %0, i64 128
   %182 = load ptr, ptr %181, align 8
   %183 = icmp ne ptr %182, null
-  %brmerge.not = and i1 %183, %2
+  %brmerge.not = and i1 %2, %183
   br i1 %brmerge.not, label %184, label %199
 
 184:                                              ; preds = %180
@@ -16668,7 +16668,7 @@ _ZNK7glslang10TSourceLoc11getFilenameEv.exit.thread: ; preds = %3, %_ZNK7glslang
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   %.not = icmp ne ptr %27, null
-  %brmerge.not = and i1 %.not, %2
+  %brmerge.not = and i1 %2, %.not
   br i1 %brmerge.not, label %28, label %44
 
 28:                                               ; preds = %_ZNK7glslang10TSourceLoc11getFilenameEv.exit.thread

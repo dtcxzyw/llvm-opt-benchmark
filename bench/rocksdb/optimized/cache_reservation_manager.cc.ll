@@ -977,7 +977,7 @@ entry:
   store i64 %new_mem_used, ptr %memory_used_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp eq i64 %0, %new_mem_used
+  %cmp = icmp eq i64 %new_mem_used, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -987,7 +987,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %0, %new_mem_used
+  %cmp2 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -1003,7 +1003,7 @@ if.else4:                                         ; preds = %if.else
 land.lhs.true:                                    ; preds = %if.else4
   %div9 = lshr i64 %0, 2
   %mul = mul nuw i64 %div9, 3
-  %cmp5.not = icmp ugt i64 %mul, %new_mem_used
+  %cmp5.not = icmp ult i64 %new_mem_used, %mul
   br i1 %cmp5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -1078,7 +1078,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !21
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp25 = icmp ult i64 %0, %new_mem_used
+  %cmp25 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp25, label %while.body.lr.ph, label %nrvo.skipdtor
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -1087,7 +1087,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %ref.tmp.sroa.2.0.cache_key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -1288,7 +1288,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i15
   %26 = atomicrmw add ptr %cache_allocated_size_, i64 262144 seq_cst, align 8
   %27 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp ult i64 %27, %new_mem_used
+  %cmp = icmp ugt i64 %new_mem_used, %27
   br i1 %cmp, label %while.body, label %nrvo.skipdtor, !llvm.loop !28
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11, %_ZN7rocksdb6StatusD2Ev.exit9, %entry
@@ -2176,7 +2176,7 @@ entry:
   store i64 %new_mem_used, ptr %memory_used_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp eq i64 %0, %new_mem_used
+  %cmp = icmp eq i64 %new_mem_used, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2186,7 +2186,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %0, %new_mem_used
+  %cmp2 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -2202,7 +2202,7 @@ if.else4:                                         ; preds = %if.else
 land.lhs.true:                                    ; preds = %if.else4
   %div9 = lshr i64 %0, 2
   %mul = mul nuw i64 %div9, 3
-  %cmp5.not = icmp ugt i64 %mul, %new_mem_used
+  %cmp5.not = icmp ult i64 %new_mem_used, %mul
   br i1 %cmp5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -2277,7 +2277,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !55
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp25 = icmp ult i64 %0, %new_mem_used
+  %cmp25 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp25, label %while.body.lr.ph, label %nrvo.skipdtor
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -2286,7 +2286,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %ref.tmp.sroa.2.0.cache_key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -2487,7 +2487,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i15
   %26 = atomicrmw add ptr %cache_allocated_size_, i64 262144 seq_cst, align 8
   %27 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp ult i64 %27, %new_mem_used
+  %cmp = icmp ugt i64 %new_mem_used, %27
   br i1 %cmp, label %while.body, label %nrvo.skipdtor, !llvm.loop !61
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11, %_ZN7rocksdb6StatusD2Ev.exit9, %entry
@@ -3370,7 +3370,7 @@ entry:
   store i64 %new_mem_used, ptr %memory_used_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp eq i64 %0, %new_mem_used
+  %cmp = icmp eq i64 %new_mem_used, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3380,7 +3380,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %0, %new_mem_used
+  %cmp2 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -3396,7 +3396,7 @@ if.else4:                                         ; preds = %if.else
 land.lhs.true:                                    ; preds = %if.else4
   %div9 = lshr i64 %0, 2
   %mul = mul nuw i64 %div9, 3
-  %cmp5.not = icmp ugt i64 %mul, %new_mem_used
+  %cmp5.not = icmp ult i64 %new_mem_used, %mul
   br i1 %cmp5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -3471,7 +3471,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !87
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp25 = icmp ult i64 %0, %new_mem_used
+  %cmp25 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp25, label %while.body.lr.ph, label %nrvo.skipdtor
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -3480,7 +3480,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %ref.tmp.sroa.2.0.cache_key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -3681,7 +3681,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i15
   %26 = atomicrmw add ptr %cache_allocated_size_, i64 262144 seq_cst, align 8
   %27 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp ult i64 %27, %new_mem_used
+  %cmp = icmp ugt i64 %new_mem_used, %27
   br i1 %cmp, label %while.body, label %nrvo.skipdtor, !llvm.loop !93
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11, %_ZN7rocksdb6StatusD2Ev.exit9, %entry
@@ -4564,7 +4564,7 @@ entry:
   store i64 %new_mem_used, ptr %memory_used_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp eq i64 %0, %new_mem_used
+  %cmp = icmp eq i64 %new_mem_used, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4574,7 +4574,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %0, %new_mem_used
+  %cmp2 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -4590,7 +4590,7 @@ if.else4:                                         ; preds = %if.else
 land.lhs.true:                                    ; preds = %if.else4
   %div9 = lshr i64 %0, 2
   %mul = mul nuw i64 %div9, 3
-  %cmp5.not = icmp ugt i64 %mul, %new_mem_used
+  %cmp5.not = icmp ult i64 %new_mem_used, %mul
   br i1 %cmp5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -4665,7 +4665,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !119
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp25 = icmp ult i64 %0, %new_mem_used
+  %cmp25 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp25, label %while.body.lr.ph, label %nrvo.skipdtor
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -4674,7 +4674,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %ref.tmp.sroa.2.0.cache_key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -4875,7 +4875,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i15
   %26 = atomicrmw add ptr %cache_allocated_size_, i64 262144 seq_cst, align 8
   %27 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp ult i64 %27, %new_mem_used
+  %cmp = icmp ugt i64 %new_mem_used, %27
   br i1 %cmp, label %while.body, label %nrvo.skipdtor, !llvm.loop !125
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11, %_ZN7rocksdb6StatusD2Ev.exit9, %entry
@@ -5758,7 +5758,7 @@ entry:
   store i64 %new_mem_used, ptr %memory_used_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp eq i64 %0, %new_mem_used
+  %cmp = icmp eq i64 %new_mem_used, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5768,7 +5768,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %0, %new_mem_used
+  %cmp2 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -5784,7 +5784,7 @@ if.else4:                                         ; preds = %if.else
 land.lhs.true:                                    ; preds = %if.else4
   %div9 = lshr i64 %0, 2
   %mul = mul nuw i64 %div9, 3
-  %cmp5.not = icmp ugt i64 %mul, %new_mem_used
+  %cmp5.not = icmp ult i64 %new_mem_used, %mul
   br i1 %cmp5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -5859,7 +5859,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !151
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp25 = icmp ult i64 %0, %new_mem_used
+  %cmp25 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp25, label %while.body.lr.ph, label %nrvo.skipdtor
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -5868,7 +5868,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %ref.tmp.sroa.2.0.cache_key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -6069,7 +6069,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i15
   %26 = atomicrmw add ptr %cache_allocated_size_, i64 262144 seq_cst, align 8
   %27 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp ult i64 %27, %new_mem_used
+  %cmp = icmp ugt i64 %new_mem_used, %27
   br i1 %cmp, label %while.body, label %nrvo.skipdtor, !llvm.loop !157
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11, %_ZN7rocksdb6StatusD2Ev.exit9, %entry
@@ -6952,7 +6952,7 @@ entry:
   store i64 %new_mem_used, ptr %memory_used_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp eq i64 %0, %new_mem_used
+  %cmp = icmp eq i64 %new_mem_used, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -6962,7 +6962,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %0, %new_mem_used
+  %cmp2 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -6978,7 +6978,7 @@ if.else4:                                         ; preds = %if.else
 land.lhs.true:                                    ; preds = %if.else4
   %div9 = lshr i64 %0, 2
   %mul = mul nuw i64 %div9, 3
-  %cmp5.not = icmp ugt i64 %mul, %new_mem_used
+  %cmp5.not = icmp ult i64 %new_mem_used, %mul
   br i1 %cmp5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -7053,7 +7053,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !183
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp25 = icmp ult i64 %0, %new_mem_used
+  %cmp25 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp25, label %while.body.lr.ph, label %nrvo.skipdtor
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -7062,7 +7062,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %ref.tmp.sroa.2.0.cache_key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -7263,7 +7263,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i15
   %26 = atomicrmw add ptr %cache_allocated_size_, i64 262144 seq_cst, align 8
   %27 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp ult i64 %27, %new_mem_used
+  %cmp = icmp ugt i64 %new_mem_used, %27
   br i1 %cmp, label %while.body, label %nrvo.skipdtor, !llvm.loop !189
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11, %_ZN7rocksdb6StatusD2Ev.exit9, %entry
@@ -8146,7 +8146,7 @@ entry:
   store i64 %new_mem_used, ptr %memory_used_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp eq i64 %0, %new_mem_used
+  %cmp = icmp eq i64 %new_mem_used, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8156,7 +8156,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i64 %0, %new_mem_used
+  %cmp2 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -8172,7 +8172,7 @@ if.else4:                                         ; preds = %if.else
 land.lhs.true:                                    ; preds = %if.else4
   %div9 = lshr i64 %0, 2
   %mul = mul nuw i64 %div9, 3
-  %cmp5.not = icmp ugt i64 %mul, %new_mem_used
+  %cmp5.not = icmp ult i64 %new_mem_used, %mul
   br i1 %cmp5.not, label %if.else7, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -8247,7 +8247,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !215
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp25 = icmp ult i64 %0, %new_mem_used
+  %cmp25 = icmp ugt i64 %new_mem_used, %0
   br i1 %cmp25, label %while.body.lr.ph, label %nrvo.skipdtor
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -8256,7 +8256,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %ref.tmp.sroa.2.0.cache_key_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
@@ -8457,7 +8457,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__g
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i15
   %26 = atomicrmw add ptr %cache_allocated_size_, i64 262144 seq_cst, align 8
   %27 = load atomic i64, ptr %cache_allocated_size_ monotonic, align 8
-  %cmp = icmp ult i64 %27, %new_mem_used
+  %cmp = icmp ugt i64 %new_mem_used, %27
   br i1 %cmp, label %while.body, label %nrvo.skipdtor, !llvm.loop !221
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11, %_ZN7rocksdb6StatusD2Ev.exit9, %entry

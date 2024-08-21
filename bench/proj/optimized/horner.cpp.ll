@@ -820,7 +820,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %.03750.i.i, i64 -8
   %30 = load double, ptr %29, align 8
-  %.not40.i.i = icmp ugt i32 %.03453.i.i, %15
+  %.not40.i.i = icmp ult i32 %15, %.03453.i.i
   br i1 %.not40.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph55.i.i, %.lr.ph.i.i
@@ -916,7 +916,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %.03750.i.i, i64 -8
   %30 = load double, ptr %29, align 8
-  %.not40.i.i = icmp ugt i32 %.03453.i.i, %15
+  %.not40.i.i = icmp ult i32 %15, %.03453.i.i
   br i1 %.not40.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph55.i.i, %.lr.ph.i.i
@@ -1002,121 +1002,121 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %32 = zext i32 %24 to i64
   %gep99.i = getelementptr double, ptr %invariant.gep92.i, i64 %32
   %gep101.i = getelementptr double, ptr %invariant.gep.i, i64 %32
-  %33 = load double, ptr %gep99.i, align 8
-  %34 = load double, ptr %gep101.i, align 8
+  %33 = fneg double %23
+  %34 = fneg double %19
+  %35 = load double, ptr %gep99.i, align 8
+  %36 = load double, ptr %gep101.i, align 8
   br i1 %31, label %.lr.ph55.i.preheader.us.i, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
 
 .lr.ph55.i.preheader.us.i:                        ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
-  %35 = phi i32 [ %79, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
-  %.0103.us.i = phi double [ %67, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
-  %.059102.us.i = phi double [ %71, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %37 = phi i32 [ %80, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.0103.us.i = phi double [ %69, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.059102.us.i = phi double [ %72, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
   br label %.lr.ph55.i.us.i
 
 .lr.ph55.i.us.i:                                  ; preds = %._crit_edge.i.us.i, %.lr.ph55.i.preheader.us.i
-  %.03453.i.us.i = phi i32 [ %49, %._crit_edge.i.us.i ], [ %13, %.lr.ph55.i.preheader.us.i ]
-  %.03552.i.us.i = phi double [ %48, %._crit_edge.i.us.i ], [ %30, %.lr.ph55.i.preheader.us.i ]
-  %.03651.i.us.i = phi double [ %47, %._crit_edge.i.us.i ], [ %29, %.lr.ph55.i.preheader.us.i ]
+  %.03453.i.us.i = phi i32 [ %51, %._crit_edge.i.us.i ], [ %13, %.lr.ph55.i.preheader.us.i ]
+  %.03552.i.us.i = phi double [ %50, %._crit_edge.i.us.i ], [ %30, %.lr.ph55.i.preheader.us.i ]
+  %.03651.i.us.i = phi double [ %49, %._crit_edge.i.us.i ], [ %29, %.lr.ph55.i.preheader.us.i ]
   %.03750.i.us.i = phi ptr [ %.1.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %gep93.i, %.lr.ph55.i.preheader.us.i ]
   %.03849.i.us.i = phi ptr [ %.139.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %gep.i, %.lr.ph55.i.preheader.us.i ]
-  %36 = getelementptr inbounds i8, ptr %.03849.i.us.i, i64 -8
-  %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.03750.i.us.i, i64 -8
+  %38 = getelementptr inbounds i8, ptr %.03849.i.us.i, i64 -8
   %39 = load double, ptr %38, align 8
-  %.not40.i.us.i = icmp ugt i32 %.03453.i.us.i, %13
+  %40 = getelementptr inbounds i8, ptr %.03750.i.us.i, i64 -8
+  %41 = load double, ptr %40, align 8
+  %.not40.i.us.i = icmp ult i32 %13, %.03453.i.us.i
   br i1 %.not40.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph55.i.us.i, %.lr.ph.i.us.i
-  %.045.i.us.i = phi i32 [ %46, %.lr.ph.i.us.i ], [ %13, %.lr.ph55.i.us.i ]
-  %.03244.i.us.i = phi double [ %45, %.lr.ph.i.us.i ], [ %39, %.lr.ph55.i.us.i ]
-  %.03343.i.us.i = phi double [ %42, %.lr.ph.i.us.i ], [ %37, %.lr.ph55.i.us.i ]
-  %.142.i.us.i = phi ptr [ %43, %.lr.ph.i.us.i ], [ %38, %.lr.ph55.i.us.i ]
-  %.13941.i.us.i = phi ptr [ %40, %.lr.ph.i.us.i ], [ %36, %.lr.ph55.i.us.i ]
-  %40 = getelementptr inbounds i8, ptr %.13941.i.us.i, i64 -8
-  %41 = load double, ptr %40, align 8
-  %42 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.03343.i.us.i, double %41)
-  %43 = getelementptr inbounds i8, ptr %.142.i.us.i, i64 -8
-  %44 = load double, ptr %43, align 8
-  %45 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.03244.i.us.i, double %44)
-  %46 = add i32 %.045.i.us.i, -1
-  %.not.i.us.i = icmp ult i32 %46, %.03453.i.us.i
+  %.045.i.us.i = phi i32 [ %48, %.lr.ph.i.us.i ], [ %13, %.lr.ph55.i.us.i ]
+  %.03244.i.us.i = phi double [ %47, %.lr.ph.i.us.i ], [ %41, %.lr.ph55.i.us.i ]
+  %.03343.i.us.i = phi double [ %44, %.lr.ph.i.us.i ], [ %39, %.lr.ph55.i.us.i ]
+  %.142.i.us.i = phi ptr [ %45, %.lr.ph.i.us.i ], [ %40, %.lr.ph55.i.us.i ]
+  %.13941.i.us.i = phi ptr [ %42, %.lr.ph.i.us.i ], [ %38, %.lr.ph55.i.us.i ]
+  %42 = getelementptr inbounds i8, ptr %.13941.i.us.i, i64 -8
+  %43 = load double, ptr %42, align 8
+  %44 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.03343.i.us.i, double %43)
+  %45 = getelementptr inbounds i8, ptr %.142.i.us.i, i64 -8
+  %46 = load double, ptr %45, align 8
+  %47 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.03244.i.us.i, double %46)
+  %48 = add i32 %.045.i.us.i, -1
+  %.not.i.us.i = icmp ult i32 %48, %.03453.i.us.i
   br i1 %.not.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !7
 
 ._crit_edge.i.us.i:                               ; preds = %.lr.ph.i.us.i, %.lr.ph55.i.us.i
-  %.139.lcssa.i.us.i = phi ptr [ %36, %.lr.ph55.i.us.i ], [ %40, %.lr.ph.i.us.i ]
-  %.1.lcssa.i.us.i = phi ptr [ %38, %.lr.ph55.i.us.i ], [ %43, %.lr.ph.i.us.i ]
-  %.033.lcssa.i.us.i = phi double [ %37, %.lr.ph55.i.us.i ], [ %42, %.lr.ph.i.us.i ]
-  %.032.lcssa.i.us.i = phi double [ %39, %.lr.ph55.i.us.i ], [ %45, %.lr.ph.i.us.i ]
-  %47 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.03651.i.us.i, double %.033.lcssa.i.us.i)
-  %48 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.03552.i.us.i, double %.032.lcssa.i.us.i)
-  %49 = add i32 %.03453.i.us.i, -1
-  %50 = icmp ugt i32 %49, 1
-  br i1 %50, label %.lr.ph55.i.us.i, label %.lr.ph.i65.us.i, !llvm.loop !8
+  %.139.lcssa.i.us.i = phi ptr [ %38, %.lr.ph55.i.us.i ], [ %42, %.lr.ph.i.us.i ]
+  %.1.lcssa.i.us.i = phi ptr [ %40, %.lr.ph55.i.us.i ], [ %45, %.lr.ph.i.us.i ]
+  %.033.lcssa.i.us.i = phi double [ %39, %.lr.ph55.i.us.i ], [ %44, %.lr.ph.i.us.i ]
+  %.032.lcssa.i.us.i = phi double [ %41, %.lr.ph55.i.us.i ], [ %47, %.lr.ph.i.us.i ]
+  %49 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.03651.i.us.i, double %.033.lcssa.i.us.i)
+  %50 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.03552.i.us.i, double %.032.lcssa.i.us.i)
+  %51 = add i32 %.03453.i.us.i, -1
+  %52 = icmp ugt i32 %51, 1
+  br i1 %52, label %.lr.ph55.i.us.i, label %.lr.ph.i65.us.i, !llvm.loop !8
 
 .lr.ph.i65.us.i:                                  ; preds = %._crit_edge.i.us.i, %.lr.ph.i65.us.i
-  %.015.i.us.i = phi i32 [ %54, %.lr.ph.i65.us.i ], [ %13, %._crit_edge.i.us.i ]
-  %.01114.i.us.i = phi double [ %53, %.lr.ph.i65.us.i ], [ %33, %._crit_edge.i.us.i ]
-  %.01213.i.us.i = phi ptr [ %51, %.lr.ph.i65.us.i ], [ %gep99.i, %._crit_edge.i.us.i ]
-  %51 = getelementptr inbounds i8, ptr %.01213.i.us.i, i64 -8
-  %52 = load double, ptr %51, align 8
-  %53 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.01114.i.us.i, double %52)
-  %54 = add i32 %.015.i.us.i, -1
-  %55 = icmp ugt i32 %54, 1
-  br i1 %55, label %.lr.ph.i65.us.i, label %.lr.ph.i68.us.i, !llvm.loop !9
+  %.015.i.us.i = phi i32 [ %56, %.lr.ph.i65.us.i ], [ %13, %._crit_edge.i.us.i ]
+  %.01114.i.us.i = phi double [ %55, %.lr.ph.i65.us.i ], [ %35, %._crit_edge.i.us.i ]
+  %.01213.i.us.i = phi ptr [ %53, %.lr.ph.i65.us.i ], [ %gep99.i, %._crit_edge.i.us.i ]
+  %53 = getelementptr inbounds i8, ptr %.01213.i.us.i, i64 -8
+  %54 = load double, ptr %53, align 8
+  %55 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.01114.i.us.i, double %54)
+  %56 = add i32 %.015.i.us.i, -1
+  %57 = icmp ugt i32 %56, 1
+  br i1 %57, label %.lr.ph.i65.us.i, label %.lr.ph.i68.us.i, !llvm.loop !9
 
 .lr.ph.i68.us.i:                                  ; preds = %.lr.ph.i65.us.i, %.lr.ph.i68.us.i
-  %.015.i69.us.i = phi i32 [ %59, %.lr.ph.i68.us.i ], [ %13, %.lr.ph.i65.us.i ]
-  %.01114.i70.us.i = phi double [ %58, %.lr.ph.i68.us.i ], [ %34, %.lr.ph.i65.us.i ]
-  %.01213.i71.us.i = phi ptr [ %56, %.lr.ph.i68.us.i ], [ %gep101.i, %.lr.ph.i65.us.i ]
-  %56 = getelementptr inbounds i8, ptr %.01213.i71.us.i, i64 -8
-  %57 = load double, ptr %56, align 8
-  %58 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.01114.i70.us.i, double %57)
-  %59 = add i32 %.015.i69.us.i, -1
-  %60 = icmp ugt i32 %59, 1
-  br i1 %60, label %.lr.ph.i68.us.i, label %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i, !llvm.loop !9
+  %.015.i69.us.i = phi i32 [ %61, %.lr.ph.i68.us.i ], [ %13, %.lr.ph.i65.us.i ]
+  %.01114.i70.us.i = phi double [ %60, %.lr.ph.i68.us.i ], [ %36, %.lr.ph.i65.us.i ]
+  %.01213.i71.us.i = phi ptr [ %58, %.lr.ph.i68.us.i ], [ %gep101.i, %.lr.ph.i65.us.i ]
+  %58 = getelementptr inbounds i8, ptr %.01213.i71.us.i, i64 -8
+  %59 = load double, ptr %58, align 8
+  %60 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.01114.i70.us.i, double %59)
+  %61 = add i32 %.015.i69.us.i, -1
+  %62 = icmp ugt i32 %61, 1
+  br i1 %62, label %.lr.ph.i68.us.i, label %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i, !llvm.loop !9
 
 _ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i: ; preds = %.lr.ph.i68.us.i
-  %61 = fneg double %48
-  %62 = fmul double %47, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %62)
-  %64 = fdiv double 1.000000e+00, %63
-  %65 = fmul double %23, %61
-  %66 = tail call double @llvm.fmuladd.f64(double %58, double %19, double %65)
-  %67 = fmul double %66, %64
-  %68 = fneg double %47
-  %69 = fmul double %19, %68
-  %70 = tail call double @llvm.fmuladd.f64(double %53, double %23, double %69)
-  %71 = fmul double %70, %64
-  %72 = fsub double %67, %.0103.us.i
-  %73 = tail call double @llvm.fabs.f64(double %72)
-  %74 = fcmp olt double %73, %15
-  %75 = fsub double %71, %.059102.us.i
-  %76 = tail call double @llvm.fabs.f64(double %75)
-  %77 = fcmp olt double %76, %15
-  %78 = select i1 %74, i1 %77, i1 false
-  %79 = add nsw i32 %35, -1
-  %80 = icmp eq i32 %35, 0
-  %.not63.us.i = select i1 %80, i1 true, i1 %78
+  %63 = fneg double %49
+  %64 = fmul double %50, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %55, double %60, double %64)
+  %66 = fdiv double 1.000000e+00, %65
+  %67 = fmul double %50, %33
+  %68 = tail call double @llvm.fmuladd.f64(double %60, double %19, double %67)
+  %69 = fmul double %68, %66
+  %70 = fmul double %49, %34
+  %71 = tail call double @llvm.fmuladd.f64(double %55, double %23, double %70)
+  %72 = fmul double %71, %66
+  %73 = fsub double %69, %.0103.us.i
+  %74 = tail call double @llvm.fabs.f64(double %73)
+  %75 = fcmp olt double %74, %15
+  %76 = fsub double %72, %.059102.us.i
+  %77 = tail call double @llvm.fabs.f64(double %76)
+  %78 = fcmp olt double %77, %15
+  %79 = select i1 %75, i1 %78, i1 false
+  %80 = add nsw i32 %37, -1
+  %81 = icmp eq i32 %37, 0
+  %.not63.us.i = select i1 %81, i1 true, i1 %79
   br i1 %.not63.us.i, label %.split.us.i, label %.lr.ph55.i.preheader.us.i, !llvm.loop !10
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i: ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
-  %81 = fneg double %30
-  %82 = fmul double %29, %81
-  %83 = tail call double @llvm.fmuladd.f64(double %33, double %34, double %82)
-  %84 = fdiv double 1.000000e+00, %83
-  %85 = fmul double %23, %81
-  %86 = tail call double @llvm.fmuladd.f64(double %34, double %19, double %85)
-  %87 = fmul double %86, %84
-  %88 = fneg double %29
-  %89 = fmul double %19, %88
-  %90 = tail call double @llvm.fmuladd.f64(double %33, double %23, double %89)
-  %91 = fmul double %90, %84
+  %82 = fneg double %29
+  %83 = fmul double %30, %82
+  %84 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %83)
+  %85 = fdiv double 1.000000e+00, %84
+  %86 = fmul double %30, %33
+  %87 = tail call double @llvm.fmuladd.f64(double %36, double %19, double %86)
+  %88 = fmul double %87, %85
+  %89 = fmul double %29, %34
+  %90 = tail call double @llvm.fmuladd.f64(double %35, double %23, double %89)
+  %91 = fmul double %90, %85
   br label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i
 
 _ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
   %92 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %100, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.0103.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %87, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.0103.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %88, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
   %.059102.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %91, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %93 = fsub double %87, %.0103.i
+  %93 = fsub double %88, %.0103.i
   %94 = tail call double @llvm.fabs.f64(double %93)
   %95 = fcmp olt double %94, %15
   %96 = fsub double %91, %.059102.i
@@ -1129,9 +1129,9 @@ _ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double
   br i1 %.not63.i, label %.split.us.i, label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, !llvm.loop !10
 
 .split.us.i:                                      ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
-  %.us-phi.i = phi i1 [ %78, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %99, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.us-phi104.i = phi double [ %71, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %91, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.us-phi105.i = phi double [ %67, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %87, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.us-phi.i = phi i1 [ %79, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %99, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.us-phi104.i = phi double [ %72, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %91, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.us-phi105.i = phi double [ %69, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %88, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
   br i1 %.us-phi.i, label %104, label %102
 
 102:                                              ; preds = %.split.us.i

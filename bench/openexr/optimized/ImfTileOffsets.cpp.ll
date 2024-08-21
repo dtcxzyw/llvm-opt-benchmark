@@ -1217,7 +1217,7 @@ land.lhs.true11:                                  ; preds = %land.lhs.true9
   %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i31
   %sub.ptr.div.i33 = sdiv exact i64 %sub.ptr.sub.i32, 24
   %conv = trunc i64 %sub.ptr.div.i33 to i32
-  %cmp15 = icmp sgt i32 %conv, %dy
+  %cmp15 = icmp slt i32 %dy, %conv
   br i1 %cmp15, label %land.lhs.true16, label %sw.epilog
 
 land.lhs.true16:                                  ; preds = %land.lhs.true11
@@ -1231,16 +1231,16 @@ land.lhs.true16:                                  ; preds = %land.lhs.true11
   %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
   %sub.ptr.div.i38 = lshr exact i64 %sub.ptr.sub.i37, 3
   %conv22 = trunc i64 %sub.ptr.div.i38 to i32
-  %cmp23 = icmp sgt i32 %conv22, %dx
+  %cmp23 = icmp slt i32 %dx, %conv22
   br i1 %cmp23, label %return, label %sw.epilog
 
 sw.bb26:                                          ; preds = %if.end
   %_numXLevels = getelementptr inbounds i8, ptr %this, i64 4
   %10 = load i32, ptr %_numXLevels, align 4
-  %cmp27 = icmp sgt i32 %10, %lx
+  %cmp27 = icmp slt i32 %lx, %10
   %_numYLevels = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i32, ptr %_numYLevels, align 8
-  %cmp29 = icmp sgt i32 %11, %ly
+  %cmp29 = icmp slt i32 %ly, %11
   %or.cond = select i1 %cmp27, i1 %cmp29, i1 false
   br i1 %or.cond, label %land.lhs.true30, label %sw.epilog
 
@@ -1254,7 +1254,7 @@ land.lhs.true30:                                  ; preds = %sw.bb26
   %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i40, %sub.ptr.rhs.cast.i41
   %sub.ptr.div.i43 = sdiv exact i64 %sub.ptr.sub.i42, 24
   %conv33 = trunc i64 %sub.ptr.div.i43 to i32
-  %cmp34 = icmp sgt i32 %conv33, %lx
+  %cmp34 = icmp slt i32 %lx, %conv33
   br i1 %cmp34, label %land.lhs.true35, label %sw.epilog
 
 land.lhs.true35:                                  ; preds = %land.lhs.true30
@@ -1268,7 +1268,7 @@ land.lhs.true35:                                  ; preds = %land.lhs.true30
   %sub.ptr.sub.i48 = sub i64 %sub.ptr.lhs.cast.i46, %sub.ptr.rhs.cast.i47
   %sub.ptr.div.i49 = sdiv exact i64 %sub.ptr.sub.i48, 24
   %conv40 = trunc i64 %sub.ptr.div.i49 to i32
-  %cmp41 = icmp sgt i32 %conv40, %dy
+  %cmp41 = icmp slt i32 %dy, %conv40
   br i1 %cmp41, label %land.lhs.true42, label %sw.epilog
 
 land.lhs.true42:                                  ; preds = %land.lhs.true35
@@ -1282,16 +1282,16 @@ land.lhs.true42:                                  ; preds = %land.lhs.true35
   %sub.ptr.sub.i55 = sub i64 %sub.ptr.lhs.cast.i53, %sub.ptr.rhs.cast.i54
   %sub.ptr.div.i56 = lshr exact i64 %sub.ptr.sub.i55, 3
   %conv49 = trunc i64 %sub.ptr.div.i56 to i32
-  %cmp50 = icmp sgt i32 %conv49, %dx
+  %cmp50 = icmp slt i32 %dx, %conv49
   br i1 %cmp50, label %return, label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end
   %_numXLevels54 = getelementptr inbounds i8, ptr %this, i64 4
   %18 = load i32, ptr %_numXLevels54, align 4
-  %cmp55 = icmp sgt i32 %18, %lx
+  %cmp55 = icmp slt i32 %lx, %18
   %_numYLevels57 = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load i32, ptr %_numYLevels57, align 8
-  %cmp58 = icmp sgt i32 %19, %ly
+  %cmp58 = icmp slt i32 %ly, %19
   %or.cond28 = select i1 %cmp55, i1 %cmp58, i1 false
   br i1 %or.cond28, label %land.lhs.true59, label %sw.epilog
 
@@ -1325,7 +1325,7 @@ land.lhs.true67:                                  ; preds = %land.lhs.true59
   %sub.ptr.sub.i66 = sub i64 %sub.ptr.lhs.cast.i64, %sub.ptr.rhs.cast.i65
   %sub.ptr.div.i67 = sdiv exact i64 %sub.ptr.sub.i66, 24
   %conv75 = trunc i64 %sub.ptr.div.i67 to i32
-  %cmp76 = icmp sgt i32 %conv75, %dy
+  %cmp76 = icmp slt i32 %dy, %conv75
   br i1 %cmp76, label %land.lhs.true77, label %sw.epilog
 
 land.lhs.true77:                                  ; preds = %land.lhs.true67
@@ -1339,7 +1339,7 @@ land.lhs.true77:                                  ; preds = %land.lhs.true67
   %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
   %sub.ptr.div.i74 = lshr exact i64 %sub.ptr.sub.i73, 3
   %conv87 = trunc i64 %sub.ptr.div.i74 to i32
-  %cmp88 = icmp sgt i32 %conv87, %dx
+  %cmp88 = icmp slt i32 %dx, %conv87
   br i1 %cmp88, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb53, %land.lhs.true59, %land.lhs.true67, %land.lhs.true77, %sw.bb26, %land.lhs.true30, %land.lhs.true35, %land.lhs.true42, %sw.bb, %land.lhs.true9, %land.lhs.true11, %land.lhs.true16
@@ -2302,7 +2302,7 @@ if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %__val.sroa.3.0.__last.val2.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn10.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.3.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.3.0.__last.val2.sroa_idx.i.i.i.i.i, i64 16, i1 false)
   %call.val.i7.i.i.i.i.i = load i64, ptr %__first.coerce.pn10.i.i.i.i, align 8
-  %cmp.i.i8.i.i.i.i.i = icmp ugt i64 %call.val.i7.i.i.i.i.i, %call.val.i.i.i.i.i
+  %cmp.i.i8.i.i.i.i.i = icmp ult i64 %call.val.i.i.i.i.i, %call.val.i7.i.i.i.i.i
   br i1 %cmp.i.i8.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %while.body.i.i.i.i.i
@@ -2311,7 +2311,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %w
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__next.sroa.0.010.i.i.i.i.i, i64 24, i1 false)
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i.i.i, i64 -24
   %call.val.i.i.i.i.i.i = load i64, ptr %__next.sroa.0.0.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i106 = icmp ugt i64 %call.val.i.i.i.i.i.i, %call.val.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i106 = icmp ult i64 %call.val.i.i.i.i.i, %call.val.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i106, label %while.body.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, !llvm.loop !43
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.else.i.i.i.i
@@ -2341,7 +2341,7 @@ for.body.i5.i.i.i:                                ; preds = %_ZSt16__insertion_s
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.3.i.i4.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.3.0.__last.val2.sroa_idx.i.i6.i.i.i, i64 16, i1 false)
   %__next.sroa.0.06.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.02.i.i.i.i, i64 -24
   %call.val.i7.i.i7.i.i.i = load i64, ptr %__next.sroa.0.06.i.i.i.i.i, align 8
-  %cmp.i.i8.i.i8.i.i.i = icmp ugt i64 %call.val.i7.i.i7.i.i.i, %__val.sroa.0.0.copyload.i.i.i.i.i
+  %cmp.i.i8.i.i8.i.i.i = icmp ult i64 %__val.sroa.0.0.copyload.i.i.i.i.i, %call.val.i7.i.i7.i.i.i
   br i1 %cmp.i.i8.i.i8.i.i.i, label %while.body.i.i12.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i9.i.i.i
 
 while.body.i.i12.i.i.i:                           ; preds = %for.body.i5.i.i.i, %while.body.i.i12.i.i.i
@@ -2350,7 +2350,7 @@ while.body.i.i12.i.i.i:                           ; preds = %for.body.i5.i.i.i, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.09.i.i14.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__next.sroa.0.010.i.i13.i.i.i, i64 24, i1 false)
   %__next.sroa.0.0.i.i15.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i13.i.i.i, i64 -24
   %call.val.i.i.i16.i.i.i = load i64, ptr %__next.sroa.0.0.i.i15.i.i.i, align 8
-  %cmp.i.i.i.i17.i.i.i = icmp ugt i64 %call.val.i.i.i16.i.i.i, %__val.sroa.0.0.copyload.i.i.i.i.i
+  %cmp.i.i.i.i17.i.i.i = icmp ult i64 %__val.sroa.0.0.copyload.i.i.i.i.i, %call.val.i.i.i16.i.i.i
   br i1 %cmp.i.i.i.i17.i.i.i, label %while.body.i.i12.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i9.i.i.i, !llvm.loop !43
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i9.i.i.i: ; preds = %while.body.i.i12.i.i.i, %for.body.i5.i.i.i
@@ -2393,7 +2393,7 @@ if.else.i32.i.i.i:                                ; preds = %for.body.i26.i.i.i
   %__val.sroa.3.0.__last.val2.sroa_idx.i.i33.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn10.i28.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.3.i.i18.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.3.0.__last.val2.sroa_idx.i.i33.i.i.i, i64 16, i1 false)
   %call.val.i7.i.i34.i.i.i = load i64, ptr %__first.coerce.pn10.i28.i.i.i, align 8
-  %cmp.i.i8.i.i35.i.i.i = icmp ugt i64 %call.val.i7.i.i34.i.i.i, %call.val.i.i29.i.i.i
+  %cmp.i.i8.i.i35.i.i.i = icmp ult i64 %call.val.i.i29.i.i.i, %call.val.i7.i.i34.i.i.i
   br i1 %cmp.i.i8.i.i35.i.i.i, label %while.body.i.i42.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i36.i.i.i
 
 while.body.i.i42.i.i.i:                           ; preds = %if.else.i32.i.i.i, %while.body.i.i42.i.i.i
@@ -2402,7 +2402,7 @@ while.body.i.i42.i.i.i:                           ; preds = %if.else.i32.i.i.i, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.sroa.0.09.i.i44.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__next.sroa.0.010.i.i43.i.i.i, i64 24, i1 false)
   %__next.sroa.0.0.i.i45.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i43.i.i.i, i64 -24
   %call.val.i.i.i46.i.i.i = load i64, ptr %__next.sroa.0.0.i.i45.i.i.i, align 8
-  %cmp.i.i.i.i47.i.i.i = icmp ugt i64 %call.val.i.i.i46.i.i.i, %call.val.i.i29.i.i.i
+  %cmp.i.i.i.i47.i.i.i = icmp ult i64 %call.val.i.i29.i.i.i, %call.val.i.i.i46.i.i.i
   br i1 %cmp.i.i.i.i47.i.i.i, label %while.body.i.i42.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i36.i.i.i, !llvm.loop !43
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i36.i.i.i: ; preds = %while.body.i.i42.i.i.i, %if.else.i32.i.i.i
@@ -3180,7 +3180,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %__value.sroa.2.0.ref.tmp.sroa.0.0.ref.tmp.val.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp615.sroa.4.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp615.sroa.4.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.sroa.2.0.ref.tmp.sroa.0.0.ref.tmp.val.sroa_idx.i.i.i, i64 16, i1 false)
-  %cmp29.i.i.i.i = icmp sgt i64 %div.i34.i.i.i, %__parent.0.i.i.i
+  %cmp29.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i34.i.i.i
   br i1 %cmp29.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i

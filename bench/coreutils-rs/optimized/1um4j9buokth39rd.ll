@@ -3356,7 +3356,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !700, !noalias !705, !noundef !7
   %45 = load i64, ptr %0, align 8, !alias.scope !707, !noalias !705, !noundef !7
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0043028db738c686E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -3413,7 +3413,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !713, !noalias !718, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !720, !noalias !718, !noundef !7
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h0043028db738c686E.exit"
 
 9:                                                ; preds = %3
@@ -3726,7 +3726,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h29c367770d7e4ebbE(ptr noalias noca
 
 61:                                               ; preds = %10
   %62 = add i64 %59, 10240
-  %63 = icmp ult i64 %57, %62
+  %63 = icmp ugt i64 %62, %57
   br i1 %63, label %64, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i": ; preds = %61
@@ -3777,7 +3777,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h29c367770d7e4ebbE(ptr noalias noca
   call void @llvm.experimental.noalias.scope.decl(metadata !781)
   call void @llvm.experimental.noalias.scope.decl(metadata !784)
   %77 = load i64, ptr %56, align 8, !alias.scope !784, !noalias !786, !noundef !7
-  %78 = icmp ult i64 %77, %75
+  %78 = icmp ugt i64 %75, %77
   br i1 %78, label %.invoke, label %79
 
 79:                                               ; preds = %71
@@ -3838,7 +3838,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h29c367770d7e4ebbE(ptr noalias noca
 
 105:                                              ; preds = %101
   %.pre66.i = load i64, ptr %56, align 8, !alias.scope !784, !noalias !786
-  %106 = icmp ult i64 %.pre66.i, %4
+  %106 = icmp ugt i64 %4, %.pre66.i
   %or.cond.i = select i1 %85, i1 %106, i1 false
   br i1 %or.cond.i, label %120, label %108
 
@@ -4209,7 +4209,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h29c367770d7e4ebbE(ptr noalias noca
   %228 = sub nuw i64 %224, %.sroa.6.0136.ph
   %229 = getelementptr inbounds i8, ptr %227, i64 %.sroa.6.0136.ph
   %230 = load i64, ptr %5, align 8, !alias.scope !845, !noalias !852, !noundef !7
-  %231 = icmp ult i64 %230, %228
+  %231 = icmp ugt i64 %228, %230
   br i1 %231, label %232, label %236
 
 232:                                              ; preds = %226
@@ -5064,7 +5064,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h5a20c4bc273f4c0fE(ptr noalias noca
 
 61:                                               ; preds = %10
   %62 = add i64 %59, 10240
-  %63 = icmp ult i64 %57, %62
+  %63 = icmp ugt i64 %62, %57
   br i1 %63, label %64, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i": ; preds = %61
@@ -5114,7 +5114,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h5a20c4bc273f4c0fE(ptr noalias noca
   %76 = load i8, ptr %51, align 1, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !997)
   %77 = load i64, ptr %56, align 8, !alias.scope !997, !noalias !1000, !noundef !7
-  %78 = icmp ult i64 %77, %75
+  %78 = icmp ugt i64 %75, %77
   br i1 %78, label %.invoke, label %79
 
 79:                                               ; preds = %71
@@ -5170,7 +5170,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h5a20c4bc273f4c0fE(ptr noalias noca
 
 102:                                              ; preds = %98
   %.pre66.i = load i64, ptr %56, align 8, !alias.scope !997, !noalias !1000
-  %103 = icmp ult i64 %.pre66.i, %4
+  %103 = icmp ugt i64 %4, %.pre66.i
   %or.cond.i = select i1 %84, i1 %103, i1 false
   br i1 %or.cond.i, label %117, label %105
 
@@ -5541,7 +5541,7 @@ define hidden void @_ZN7uu_sort6chunks4read17h5a20c4bc273f4c0fE(ptr noalias noca
   %224 = sub nuw i64 %220, %.sroa.6.0137.ph
   %225 = getelementptr inbounds i8, ptr %223, i64 %.sroa.6.0137.ph
   %226 = load i64, ptr %5, align 8, !alias.scope !1054, !noalias !1061, !noundef !7
-  %227 = icmp ult i64 %226, %224
+  %227 = icmp ugt i64 %224, %226
   br i1 %227, label %228, label %232
 
 228:                                              ; preds = %222
@@ -6396,7 +6396,7 @@ define hidden void @_ZN7uu_sort6chunks4read17ha28cf254827117d4E(ptr noalias noca
 
 61:                                               ; preds = %10
   %62 = add i64 %59, 10240
-  %63 = icmp ult i64 %57, %62
+  %63 = icmp ugt i64 %62, %57
   br i1 %63, label %64, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i": ; preds = %61
@@ -6446,7 +6446,7 @@ define hidden void @_ZN7uu_sort6chunks4read17ha28cf254827117d4E(ptr noalias noca
   %76 = load i8, ptr %51, align 1, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !1206)
   %77 = load i64, ptr %56, align 8, !alias.scope !1206, !noalias !1209, !noundef !7
-  %78 = icmp ult i64 %77, %75
+  %78 = icmp ugt i64 %75, %77
   br i1 %78, label %.invoke, label %79
 
 79:                                               ; preds = %71
@@ -6502,7 +6502,7 @@ define hidden void @_ZN7uu_sort6chunks4read17ha28cf254827117d4E(ptr noalias noca
 
 102:                                              ; preds = %98
   %.pre66.i = load i64, ptr %56, align 8, !alias.scope !1206, !noalias !1209
-  %103 = icmp ult i64 %.pre66.i, %4
+  %103 = icmp ugt i64 %4, %.pre66.i
   %or.cond.i = select i1 %84, i1 %103, i1 false
   br i1 %or.cond.i, label %117, label %105
 
@@ -6873,7 +6873,7 @@ define hidden void @_ZN7uu_sort6chunks4read17ha28cf254827117d4E(ptr noalias noca
   %224 = sub nuw i64 %220, %.sroa.6.0137.ph
   %225 = getelementptr inbounds i8, ptr %223, i64 %.sroa.6.0137.ph
   %226 = load i64, ptr %5, align 8, !alias.scope !1263, !noalias !1270, !noundef !7
-  %227 = icmp ult i64 %226, %224
+  %227 = icmp ugt i64 %224, %226
   br i1 %227, label %228, label %232
 
 228:                                              ; preds = %222
@@ -7729,7 +7729,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
 
 62:                                               ; preds = %10
   %63 = add i64 %60, 10240
-  %64 = icmp ult i64 %58, %63
+  %64 = icmp ugt i64 %63, %58
   br i1 %64, label %65, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he07021fe20d04d72E.llvm.12548434128670613966.exit.i": ; preds = %62
@@ -7786,7 +7786,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   call void @llvm.experimental.noalias.scope.decl(metadata !1418)
   call void @llvm.experimental.noalias.scope.decl(metadata !1420)
   %78 = load i64, ptr %57, align 8, !alias.scope !1420, !noalias !1422, !noundef !7
-  %79 = icmp ult i64 %78, %76
+  %79 = icmp ugt i64 %76, %78
   br i1 %79, label %.invoke, label %80
 
 80:                                               ; preds = %72
@@ -7840,7 +7840,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
 
 98:                                               ; preds = %96
   %99 = load i64, ptr %57, align 8, !alias.scope !1420, !noalias !1422, !noundef !7
-  %100 = icmp ult i64 %99, %4
+  %100 = icmp ugt i64 %4, %99
   br i1 %100, label %101, label %.split299.us.i
 
 101:                                              ; preds = %98
@@ -8353,7 +8353,7 @@ define hidden void @_ZN7uu_sort6chunks4read17hd982614afe0fd325E(ptr noalias noca
   %267 = sub nuw i64 %263, %.sroa.6.1.ph
   %268 = getelementptr inbounds i8, ptr %266, i64 %.sroa.6.1.ph
   %269 = load i64, ptr %5, align 8, !alias.scope !1494, !noalias !1501, !noundef !7
-  %270 = icmp ult i64 %269, %267
+  %270 = icmp ugt i64 %267, %269
   br i1 %270, label %271, label %278
 
 271:                                              ; preds = %265

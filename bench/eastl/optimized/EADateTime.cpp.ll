@@ -174,7 +174,7 @@ entry:
   %2 = load i32, ptr %tm_isdst, align 8
   store i32 %2, ptr %spec.select.v.sroa.sel.v.sroa.sel, align 4
   %cmp7 = select i1 %cmp.not, i1 true, i1 %cmp5
-  %brmerge = or i1 %cmp7, %bUTC
+  %brmerge = or i1 %bUTC, %cmp7
   br i1 %brmerge, label %if.end20, label %if.then11
 
 if.then11:                                        ; preds = %entry
@@ -569,7 +569,7 @@ if.then:                                          ; preds = %sw.bb9
   %rem.i = srem i64 %div65.i, 7
   %conv66.i = trunc nsw i64 %rem.i to i32
   %add67.i.neg = xor i32 %conv66.i, -1
-  %sub12 = add nsw i32 %add67.i.neg, %nValue
+  %sub12 = add nsw i32 %nValue, %add67.i.neg
   %mul13 = mul nsw i32 %sub12, 86400
   %conv14 = sext i32 %mul13 to i64
   %add16 = add nsw i64 %3, %conv14
@@ -816,7 +816,7 @@ entry:
   %0 = load i64, ptr %this, align 8
   %1 = load i64, ptr %dateTime, align 8
   %bCompareDate.not = xor i1 %bCompareDate, true
-  %brmerge = or i1 %bCompareDate.not, %bCompareTime
+  %brmerge = or i1 %bCompareTime, %bCompareDate.not
   br i1 %brmerge, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -826,7 +826,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %bCompareTime.not = xor i1 %bCompareTime, true
-  %brmerge12 = or i1 %bCompareTime.not, %bCompareDate
+  %brmerge12 = or i1 %bCompareDate, %bCompareTime.not
   br i1 %brmerge12, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.else
@@ -974,7 +974,7 @@ sw.bb29:                                          ; preds = %entry
   %mnNanosecond.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i32, ptr %mnNanosecond.i, align 8
   %conv31 = zext i32 %8 to i64
-  %add32 = add nsw i64 %conv31, %nValue
+  %add32 = add nsw i64 %nValue, %conv31
   %div33 = sdiv i64 %add32, 1000000000
   %rem34 = srem i64 %add32, 1000000000
   %conv36 = and i64 %div33, 4294967295

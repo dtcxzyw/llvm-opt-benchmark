@@ -9709,7 +9709,7 @@ _ZN10ockam_core7routing7mailbox9Mailboxes20additional_addresses17h8eadc01a4c851d
   %44 = load i64, ptr %13, align 8, !alias.scope !2099, !noalias !2102, !noundef !4
   %45 = load i64, ptr %12, align 8, !alias.scope !2104, !noalias !2102, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %43
+  %47 = icmp ugt i64 %43, %46
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %_ZN10ockam_core7routing7mailbox9Mailboxes20additional_addresses17h8eadc01a4c851d38E.exit

@@ -451,7 +451,7 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
 
 23:                                               ; preds = %20
   %24 = sub nuw nsw i64 1048576, %16
-  %. = tail call i64 @llvm.umin.i64(i64 %24, i64 %3)
+  %. = tail call i64 @llvm.umin.i64(i64 %3, i64 %24)
   %25 = add nuw nsw i64 %., %16
   store i64 %25, ptr %15, align 8
   %26 = add i64 %., %2

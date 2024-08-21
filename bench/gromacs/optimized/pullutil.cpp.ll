@@ -322,7 +322,7 @@ define void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcdN
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   %104 = ashr exact i64 %103, 2
-  %105 = icmp ult i64 %104, %97
+  %105 = icmp ugt i64 %97, %104
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %88
@@ -331,7 +331,7 @@ define void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcdN
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 108:                                              ; preds = %88
-  %109 = icmp ugt i64 %104, %97
+  %109 = icmp ult i64 %97, %104
   br i1 %109, label %110, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 110:                                              ; preds = %108
@@ -1214,7 +1214,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   %686 = ptrtoint ptr %684 to i64
   %687 = sub i64 %685, %686
   %688 = ashr exact i64 %687, 2
-  %689 = icmp ult i64 %688, %681
+  %689 = icmp ugt i64 %681, %688
   br i1 %689, label %690, label %692
 
 690:                                              ; preds = %672
@@ -1223,7 +1223,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 692:                                              ; preds = %672
-  %693 = icmp ugt i64 %688, %681
+  %693 = icmp ult i64 %681, %688
   br i1 %693, label %694, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 694:                                              ; preds = %692
@@ -1246,7 +1246,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %696, %694, %692, %6
   %703 = ptrtoint ptr %701 to i64
   %704 = sub i64 %702, %703
   %705 = ashr exact i64 %704, 3
-  %706 = icmp ult i64 %705, %681
+  %706 = icmp ugt i64 %681, %705
   br i1 %706, label %707, label %709
 
 707:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
@@ -1255,7 +1255,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %696, %694, %692, %6
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 709:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %710 = icmp ugt i64 %705, %681
+  %710 = icmp ult i64 %681, %705
   br i1 %710, label %711, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 711:                                              ; preds = %709
@@ -1982,7 +1982,7 @@ define internal fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8Array
 .loopexit:                                        ; preds = %76, %57, %55, %74
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next30 to i32
-  %exitcond32.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond32.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond32.not, label %._crit_edge.loopexit, label %23, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
@@ -2521,7 +2521,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -2589,7 +2589,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIdEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -2997,7 +2997,7 @@ define internal fastcc noundef zeroext i1 @_ZL29pullGroupObeysPbcRestrictionsRK1
   %indvars.iv127 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next128, %35 ]
   %36 = getelementptr inbounds [3 x float], ptr %34, i64 0, i64 %indvars.iv127
   %37 = load float, ptr %36, align 4
-  %38 = fmul float %37, %5
+  %38 = fmul float %5, %37
   %39 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %indvars.iv127
   store float %38, ptr %39, align 4
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
@@ -3615,7 +3615,7 @@ define void @_Z25allocStatePrevStepPullComP7t_statePK6pull_t(ptr noundef %0, ptr
 28:                                               ; preds = %10
   %29 = mul nsw i64 %18, 3
   store double 0x7FF8000000000000, ptr %3, align 8
-  %30 = icmp ult i64 %26, %29
+  %30 = icmp ugt i64 %29, %26
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
@@ -3624,7 +3624,7 @@ define void @_Z25allocStatePrevStepPullComP7t_statePK6pull_t(ptr noundef %0, ptr
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit
 
 33:                                               ; preds = %28
-  %34 = icmp ugt i64 %26, %29
+  %34 = icmp ult i64 %29, %26
   br i1 %34, label %35, label %_ZNSt6vectorIdSaIdEE5clearEv.exit
 
 35:                                               ; preds = %33
@@ -3697,7 +3697,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !56
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -3781,7 +3781,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !56
 
 _ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79

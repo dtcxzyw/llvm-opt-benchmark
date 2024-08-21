@@ -687,9 +687,9 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
   %3 = load ptr, ptr @TopTransactionContext, align 8
   %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #16
   %5 = load ptr, ptr @CurrentSnapshot, align 8
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   %7 = load ptr, ptr @SecondarySnapshot, align 8
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   %or.cond = select i1 %6, i1 true, i1 %8
   br i1 %or.cond, label %13, label %9
 
@@ -3019,7 +3019,7 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nocap
   %indvars.iv52.i = phi i64 [ %29, %.lr.ph45.preheader.i ], [ %indvars.iv.next53.i, %50 ]
   %51 = getelementptr i32, ptr %20, i64 %indvars.iv52.i
   %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, %0
+  %53 = icmp eq i32 %0, %52
   br i1 %53, label %pg_lfind32.exit43, label %50
 
 54:                                               ; preds = %17
@@ -3097,7 +3097,7 @@ pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.ex
   %indvars.iv52.i39 = phi i64 [ %66, %.lr.ph45.preheader.i37 ], [ %indvars.iv.next53.i40, %.lr.ph45.i38 ]
   %87 = getelementptr i32, ptr %59, i64 %indvars.iv52.i39
   %88 = load i32, ptr %87, align 4
-  %89 = icmp eq i32 %88, %.022
+  %89 = icmp eq i32 %.022, %88
   %indvars.iv.next53.i40 = add nuw nsw i64 %indvars.iv52.i39, 1
   %lftr.wideiv.i41 = trunc i64 %indvars.iv.next53.i40 to i32
   %exitcond.not.i42 = icmp eq i32 %61, %lftr.wideiv.i41
@@ -3178,7 +3178,7 @@ pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.ex
   %indvars.iv52.i60 = phi i64 [ %106, %.lr.ph45.preheader.i58 ], [ %indvars.iv.next53.i61, %.lr.ph45.i59 ]
   %127 = getelementptr i32, ptr %97, i64 %indvars.iv52.i60
   %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, %.1
+  %129 = icmp eq i32 %.1, %128
   %indvars.iv.next53.i61 = add nuw nsw i64 %indvars.iv52.i60, 1
   %lftr.wideiv.i62 = trunc i64 %indvars.iv.next53.i61 to i32
   %exitcond.not.i63 = icmp eq i32 %99, %lftr.wideiv.i62

@@ -227,7 +227,7 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %immutableVisibleList_.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %count.i.i, align 8
-  %cmp2 = icmp sgt i32 %2, %index
+  %cmp2 = icmp slt i32 %index, %2
   br i1 %cmp2, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
@@ -2614,7 +2614,7 @@ if.else:                                          ; preds = %invoke.cont19
   %shr.i.i.i.i = sext i16 %10 to i32
   %11 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %11, i32 %shr.i.i.i.i
-  %cmp.i.i46 = icmp ugt i32 %cond.i.i.i, %sub23
+  %cmp.i.i46 = icmp ult i32 %sub23, %cond.i.i.i
   br i1 %cmp.i.i46, label %invoke.cont24, label %if.end44
 
 invoke.cont24:                                    ; preds = %if.else
@@ -2632,7 +2632,7 @@ invoke.cont24:                                    ; preds = %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont24
   %sub26 = add nsw i32 %cond.i, -2
-  %cmp.i.i52 = icmp ugt i32 %cond.i.i.i, %sub26
+  %cmp.i.i52 = icmp ult i32 %sub26, %cond.i.i.i
   br i1 %cmp.i.i52, label %invoke.cont27, label %if.then31
 
 invoke.cont27:                                    ; preds = %land.lhs.true
@@ -2898,7 +2898,7 @@ if.else.i.i.i:                                    ; preds = %if.end8.i
   %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i.i, i32 0)
   %cmp5.i.i.i.i = icmp slt i32 %cond.i6.i.i, 0
   %sub.i.i.i.i = sub nsw i32 %cond.i6.i.i, %spec.select.i.i.i
-  %spec.select9.i.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i.i, i32 %cond.i6.i.i)
+  %spec.select9.i.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i.i, i32 %sub.i.i.i.i)
   %srcLength.addr.0.i.i.i = select i1 %cmp5.i.i.i.i, i32 0, i32 %spec.select9.i.i.i
   %40 = and i16 %33, 2
   %tobool.not.i.i.i.i = icmp eq i16 %40, 0
@@ -2941,7 +2941,7 @@ if.else.i.i22.i:                                  ; preds = %if.end16.i
   %spec.select.i.i31.i = call i32 @llvm.smin.i32(i32 %cond.i6.i26.i, i32 0)
   %cmp5.i.i.i32.i = icmp slt i32 %cond.i6.i26.i, 0
   %sub.i.i.i33.i = sub nsw i32 %cond.i6.i26.i, %spec.select.i.i31.i
-  %spec.select9.i.i34.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i33.i, i32 %cond.i6.i26.i)
+  %spec.select9.i.i34.i = call i32 @llvm.smin.i32(i32 %cond.i6.i26.i, i32 %sub.i.i.i33.i)
   %srcLength.addr.0.i.i35.i = select i1 %cmp5.i.i.i32.i, i32 0, i32 %spec.select9.i.i34.i
   %48 = and i16 %42, 2
   %tobool.not.i.i.i36.i = icmp eq i16 %48, 0

@@ -1077,7 +1077,7 @@ _ZN2cv22VideoCaptureParametersCI2NS_15VideoParametersEERKSt6vectorIiSaIiEE.exit:
   %.0150313 = phi i64 [ 0, %.lr.ph ], [ %557, %_ZN2cv3PtrINS_8IBackendEED2Ev.exit ]
   %78 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %77, i64 %.0150313
   %79 = load i32, ptr %78, align 8
-  %80 = icmp eq i32 %79, %2
+  %80 = icmp eq i32 %2, %79
   %or.cond212 = select i1 %61, i1 true, i1 %80
   br i1 %or.cond212, label %81, label %_ZN2cv3PtrINS_8IBackendEED2Ev.exit
 
@@ -6021,7 +6021,7 @@ _ZN2cv21VideoWriterParametersCI2NS_15VideoParametersEERKSt6vectorIiSaIiEE.exit: 
 80:                                               ; preds = %.lr.ph286, %_ZN2cv3PtrINS_8IBackendEED2Ev.exit
   %.sroa.0248.0284 = phi ptr [ %59, %.lr.ph286 ], [ %622, %_ZN2cv3PtrINS_8IBackendEED2Ev.exit ]
   %81 = load i32, ptr %.sroa.0248.0284, align 8
-  %82 = icmp eq i32 %81, %2
+  %82 = icmp eq i32 %2, %81
   %or.cond = select i1 %62, i1 true, i1 %82
   br i1 %or.cond, label %83, label %_ZN2cv3PtrINS_8IBackendEED2Ev.exit
 

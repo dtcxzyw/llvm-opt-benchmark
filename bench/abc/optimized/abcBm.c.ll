@@ -3729,13 +3729,13 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %22, %Vec_IntFill.ex
   %45 = add nsw i32 %.val29, 1
   %46 = getelementptr inbounds i8, ptr %.val28, i64 228
   %47 = load i32, ptr %46, align 4
-  %.not.i.not.i.i.i = icmp sgt i32 %47, %.val29
+  %.not.i.not.i.i.i = icmp slt i32 %.val29, %47
   br i1 %.not.i.not.i.i.i, label %Abc_NodeSetTravIdCurrent.exit, label %48
 
 48:                                               ; preds = %Abc_NtkIncrementTravId.exit
   %49 = load i32, ptr %44, align 8
   %50 = shl nsw i32 %49, 1
-  %.not.i.i.i33 = icmp sgt i32 %50, %.val29
+  %.not.i.i.i33 = icmp slt i32 %.val29, %50
   %.not.i.i.not.i.i.i = icmp sgt i32 %49, %.val29
   br i1 %.not.i.i.i33, label %63, label %51
 
@@ -8033,7 +8033,7 @@ define range(i32 0, 2) i32 @matchNonSingletonOutputs(ptr noundef %0, ptr nocaptu
   store i1 false, ptr @matchNonSingletonOutputs.MATCH_FOUND, align 4
   %29 = getelementptr i8, ptr %23, i64 4
   %.val262 = load i32, ptr %29, align 4
-  %30 = icmp eq i32 %.val262, %24
+  %30 = icmp eq i32 %24, %.val262
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %28
@@ -8428,7 +8428,7 @@ Vec_IntPush.exit300:                              ; preds = %.Vec_IntGrow.exit10
   %227 = getelementptr i8, ptr %226, i64 4
   %.val258 = load i32, ptr %227, align 4
   %228 = add nsw i32 %.val258, -1
-  %.not246 = icmp eq i32 %228, %25
+  %.not246 = icmp eq i32 %25, %228
   br i1 %.not246, label %231, label %229
 
 229:                                              ; preds = %221
@@ -8738,7 +8738,7 @@ define range(i32 0, 2) i32 @match1by1(ptr noundef %0, ptr nocapture noundef read
   store i1 false, ptr @match1by1.MATCH_FOUND, align 4
   %24 = getelementptr i8, ptr %19, i64 4
   %.val352 = load i32, ptr %24, align 4
-  %25 = icmp eq i32 %.val352, %20
+  %25 = icmp eq i32 %20, %.val352
   br i1 %25, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
@@ -8761,7 +8761,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %22
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 4
   %.val351 = load i32, ptr %34, align 4
-  %35 = icmp eq i32 %.val351, %.tr494512
+  %35 = icmp eq i32 %.tr494512, %.val351
   br i1 %35, label %tailrecurse, label %38
 
 tailrecurse:                                      ; preds = %28

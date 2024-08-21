@@ -197,7 +197,7 @@ for.cond:                                         ; preds = %if.end55, %lor.lhs.
   %sub.ptr.rhs.cast66 = ptrtoint ptr %12 to i64
   %sub.ptr.sub67 = sub i64 %sub.ptr.rhs.cast62, %sub.ptr.rhs.cast66
   %13 = trunc i64 %sub.ptr.sub67 to i32
-  %conv69 = add i32 %13, %offset
+  %conv69 = add i32 %offset, %13
   %call71 = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef nonnull %p, i64 noundef %sub.ptr.sub63, i32 noundef %conv69, i32 noundef %add96, i32 noundef %indent, i32 noundef %dump)
   switch i32 %call71, label %lor.lhs.false [
     i32 0, label %end
@@ -229,7 +229,7 @@ while.body89:                                     ; preds = %while.cond86.prehea
   %sub.ptr.rhs.cast92 = ptrtoint ptr %17 to i64
   %sub.ptr.sub93 = sub i64 %sub.ptr.lhs.cast91, %sub.ptr.rhs.cast92
   %18 = trunc i64 %sub.ptr.sub93 to i32
-  %conv95 = add i32 %18, %offset
+  %conv95 = add i32 %offset, %18
   %call97 = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef nonnull %p, i64 noundef %tmp.0177, i32 noundef %conv95, i32 noundef %add96, i32 noundef %indent, i32 noundef %dump)
   %cmp98 = icmp eq i32 %call97, 0
   br i1 %cmp98, label %end, label %if.end101
@@ -437,7 +437,7 @@ if.then288:                                       ; preds = %if.else262
 if.end294:                                        ; preds = %if.then288
   %42 = load ptr, ptr %opp, align 8
   %.pre272 = load i32, ptr %call207, align 8
-  %cmp299 = icmp slt i32 %.pre272, %dump
+  %cmp299 = icmp sgt i32 %dump, %.pre272
   %or.cond292 = select i1 %cmp295, i1 true, i1 %cmp299
   %.pre274 = sext i32 %.pre272 to i64
   %conv306.pre-phi = select i1 %or.cond292, i64 %.pre274, i64 %conv455

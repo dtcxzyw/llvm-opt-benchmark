@@ -16,7 +16,7 @@ land.rhs:                                         ; preds = %entry
   %arrayidx = getelementptr inbounds [128 x i16], ptr @ctype_char_map, i64 0, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %0 to i32
-  %and = and i32 %conv, %mask
+  %and = and i32 %mask, %conv
   %cmp2 = icmp ne i32 %and, 0
   %1 = zext i1 %cmp2 to i32
   br label %land.end

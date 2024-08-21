@@ -1083,7 +1083,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len2.i.i, align 8
   %41 = load i64, ptr %buf.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %41, i64 1)
-  %cmp.i4.i.i = icmp ult i64 %spec.select.i.i.i, %sub.i.i.i
+  %cmp.i4.i.i = icmp ugt i64 %sub.i.i.i, %spec.select.i.i.i
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.end.i5.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -1229,7 +1229,7 @@ if.then.i.i101:                                   ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i95, ptr %len2.i.i75, align 8
   %55 = load i64, ptr %buf.i72, align 8
   %spec.select.i.i.i102 = call i64 @llvm.usub.sat.i64(i64 %55, i64 1)
-  %cmp.i4.i.i103 = icmp ult i64 %spec.select.i.i.i102, %sub.i.i.i95
+  %cmp.i4.i.i103 = icmp ugt i64 %sub.i.i.i95, %spec.select.i.i.i102
   br i1 %cmp.i4.i.i103, label %if.then.i.i.i107, label %if.end.i5.i.i104
 
 if.then.i.i.i107:                                 ; preds = %if.then.i.i101
@@ -2455,7 +2455,7 @@ if.then.i.i218:                                   ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i211, ptr %len.i.i, align 8
   %247 = load i64, ptr %buf.i189, align 8
   %spec.select.i.i.i219 = call i64 @llvm.usub.sat.i64(i64 %247, i64 1)
-  %cmp.i4.i.i220 = icmp ult i64 %spec.select.i.i.i219, %sub.i.i.i211
+  %cmp.i4.i.i220 = icmp ugt i64 %sub.i.i.i211, %spec.select.i.i.i219
   br i1 %cmp.i4.i.i220, label %if.then.i.i.i224, label %if.end.i5.i.i221
 
 if.then.i.i.i224:                                 ; preds = %if.then.i.i218
@@ -3413,7 +3413,7 @@ if.then.i34.i:                                    ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len2.i.i, align 8
   %17 = load i64, ptr %buf.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %17, i64 1)
-  %cmp.i4.i.i = icmp ult i64 %spec.select.i.i.i, %sub.i.i.i
+  %cmp.i4.i.i = icmp ugt i64 %sub.i.i.i, %spec.select.i.i.i
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.end.i5.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i34.i
@@ -3526,7 +3526,7 @@ if.then.i.i43.i:                                  ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i.i, ptr %len.i.i.i, align 8
   %26 = load i64, ptr %buf.i39.i, align 8
   %spec.select.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %26, i64 1)
-  %cmp.i4.i.i.i = icmp ult i64 %spec.select.i.i.i.i, %sub.i.i.i.i
+  %cmp.i4.i.i.i = icmp ugt i64 %sub.i.i.i.i, %spec.select.i.i.i.i
   br i1 %cmp.i4.i.i.i, label %if.then.i.i.i.i, label %if.end.i5.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i43.i
@@ -3910,7 +3910,7 @@ if.then.i10:                                      ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i, ptr %len.i, align 8
   %13 = load i64, ptr %path, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
-  %cmp.i4.i = icmp ult i64 %spec.select.i.i, %sub.i.i
+  %cmp.i4.i = icmp ugt i64 %sub.i.i, %spec.select.i.i
   br i1 %cmp.i4.i, label %if.then.i.i, label %if.end.i5.i
 
 if.then.i.i:                                      ; preds = %if.then.i10
@@ -3956,7 +3956,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
 if.end:                                           ; preds = %_.exit, %land.lhs.true, %strbuf_strip_suffix.exit
   %18 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %18, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %6
+  %cmp.i = icmp ugt i64 %6, %spec.select.i
   br i1 %cmp.i, label %if.then.i16, label %if.end.i
 
 if.then.i16:                                      ; preds = %if.end
@@ -4047,7 +4047,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i
   store i64 %sub.i.i, ptr %len2.i, align 8
   %6 = load i64, ptr %buf, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %cmp.i4.i = icmp ult i64 %spec.select.i.i, %sub.i.i
+  %cmp.i4.i = icmp ugt i64 %sub.i.i, %spec.select.i.i
   br i1 %cmp.i4.i, label %if.then.i.i, label %if.end.i5.i
 
 if.then.i.i:                                      ; preds = %if.then.i

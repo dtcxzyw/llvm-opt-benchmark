@@ -551,10 +551,10 @@ entry:
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i, align 8
   %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
-  %cmp.i.i.i = icmp ult ptr %2, %add.ptr.i.i
+  %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i, %2
   %mBuffer.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i, align 8
-  %cmp4.i.i.i = icmp ugt ptr %3, %add.ptr.i.i
+  %cmp4.i.i.i = icmp ult ptr %add.ptr.i.i, %3
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit
 
@@ -589,10 +589,10 @@ entry:
   store ptr %add.ptr.i, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %2, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %2
   %mBuffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i, align 8
-  %cmp4.i.i = icmp ugt ptr %3, %add.ptr.i
+  %cmp4.i.i = icmp ult ptr %add.ptr.i, %3
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit
 
@@ -627,10 +627,10 @@ entry:
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i, align 8
   %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
-  %cmp.i.i.i = icmp ult ptr %2, %add.ptr.i.i
+  %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i, %2
   %mBuffer.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i, align 8
-  %cmp4.i.i.i = icmp ugt ptr %3, %add.ptr.i.i
+  %cmp4.i.i.i = icmp ult ptr %add.ptr.i.i, %3
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit
 
@@ -666,10 +666,10 @@ entry:
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i.i, align 8
   %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult ptr %2, %add.ptr.i.i.i
+  %cmp.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   %mBuffer.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i.i, align 8
-  %cmp4.i.i.i.i = icmp ugt ptr %3, %add.ptr.i.i.i
+  %cmp4.i.i.i.i = icmp ult ptr %add.ptr.i.i.i, %3
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm.exit
 
@@ -707,10 +707,10 @@ entry:
   store ptr %add.ptr.i, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %2, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %2
   %mBuffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i, align 8
-  %cmp4.i.i = icmp ugt ptr %3, %add.ptr.i
+  %cmp4.i.i = icmp ult ptr %add.ptr.i, %3
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit
 
@@ -745,10 +745,10 @@ entry:
   store ptr %add.ptr.i, ptr %mCurrent.i.i, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ult ptr %2, %add.ptr.i
+  %cmp.i.i = icmp ugt ptr %add.ptr.i, %2
   %mBuffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i, align 8
-  %cmp4.i.i = icmp ugt ptr %3, %add.ptr.i
+  %cmp4.i.i = icmp ult ptr %add.ptr.i, %3
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit
 
@@ -822,10 +822,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i.i, align 8
   %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult ptr %2, %add.ptr.i.i.i
+  %cmp.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   %mBuffer.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i.i, align 8
-  %cmp4.i.i.i.i = icmp ugt ptr %3, %add.ptr.i.i.i
+  %cmp4.i.i.i.i = icmp ult ptr %add.ptr.i.i.i, %3
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %nrvo.skipdtor
 
@@ -1944,10 +1944,10 @@ if.then:                                          ; preds = %_ZN6Assimp4Ogre20Og
   store ptr %add.ptr.i.i.i.i, ptr %mCurrent.i.i.i.i.i, align 8
   %mLimit.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 40
   %28 = load ptr, ptr %mLimit.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult ptr %28, %add.ptr.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i, %28
   %mBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %29 = load ptr, ptr %mBuffer.i.i.i.i.i, align 8
-  %cmp4.i.i.i.i.i = icmp ugt ptr %29, %add.ptr.i.i.i.i
+  %cmp4.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i, %29
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
 
@@ -4114,7 +4114,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %2, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %2
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -4900,10 +4900,10 @@ if.end11:                                         ; preds = %if.end
   store ptr %add.ptr.i.i.i.i, ptr %mCurrent.i.i.i.i.i, align 8
   %mLimit.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %mLimit.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult ptr %15, %add.ptr.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i, %15
   %mBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load ptr, ptr %mBuffer.i.i.i.i.i, align 8
-  %cmp4.i.i.i.i.i = icmp ugt ptr %16, %add.ptr.i.i.i.i
+  %cmp4.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i, %16
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
 
@@ -5625,10 +5625,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %while.body
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i12, align 8
   %mLimit.i.i.i13 = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load ptr, ptr %mLimit.i.i.i13, align 8
-  %cmp.i.i.i14 = icmp ult ptr %13, %add.ptr.i.i
+  %cmp.i.i.i14 = icmp ugt ptr %add.ptr.i.i, %13
   %mBuffer.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load ptr, ptr %mBuffer.i.i.i, align 8
-  %cmp4.i.i.i = icmp ugt ptr %14, %add.ptr.i.i
+  %cmp4.i.i.i = icmp ult ptr %add.ptr.i.i, %14
   %or.cond.i.i.i = select i1 %cmp.i.i.i14, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i15, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
 
@@ -5660,10 +5660,10 @@ if.then5:                                         ; preds = %_ZN6Assimp4Ogre20Og
   store ptr %add.ptr.i.i21, ptr %mCurrent.i.i.i20, align 8
   %mLimit.i.i.i22 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %mLimit.i.i.i22, align 8
-  %cmp.i.i.i23 = icmp ult ptr %19, %add.ptr.i.i21
+  %cmp.i.i.i23 = icmp ugt ptr %add.ptr.i.i21, %19
   %mBuffer.i.i.i24 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load ptr, ptr %mBuffer.i.i.i24, align 8
-  %cmp4.i.i.i25 = icmp ugt ptr %20, %add.ptr.i.i21
+  %cmp4.i.i.i25 = icmp ult ptr %add.ptr.i.i21, %20
   %or.cond.i.i.i26 = select i1 %cmp.i.i.i23, i1 true, i1 %cmp4.i.i.i25
   br i1 %or.cond.i.i.i26, label %if.then.i.i.i27, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit31
 
@@ -5801,7 +5801,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -6230,10 +6230,10 @@ call.i.noexc:                                     ; preds = %invoke.cont12
   store ptr %add.ptr.i.i.i.i, ptr %mCurrent.i.i.i.i.i, align 8
   %mLimit.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult ptr %22, %add.ptr.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i, %22
   %mBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load ptr, ptr %mBuffer.i.i.i.i.i, align 8
-  %cmp4.i.i.i.i.i = icmp ugt ptr %23, %add.ptr.i.i.i.i
+  %cmp4.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i, %23
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %invoke.cont17
 
@@ -8400,10 +8400,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %invoke.cont
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i4, align 8
   %mLimit.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i5, align 8
-  %cmp.i.i.i6 = icmp ult ptr %7, %add.ptr.i.i
+  %cmp.i.i.i6 = icmp ugt ptr %add.ptr.i.i, %7
   %mBuffer.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %mBuffer.i.i.i, align 8
-  %cmp4.i.i.i = icmp ugt ptr %8, %add.ptr.i.i
+  %cmp4.i.i.i = icmp ult ptr %add.ptr.i.i, %8
   %or.cond.i.i.i = select i1 %cmp.i.i.i6, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i7, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
 
@@ -8432,10 +8432,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds
   store ptr %add.ptr.i.i13, ptr %mCurrent.i.i.i12, align 8
   %mLimit.i.i.i14 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %mLimit.i.i.i14, align 8
-  %cmp.i.i.i15 = icmp ult ptr %12, %add.ptr.i.i13
+  %cmp.i.i.i15 = icmp ugt ptr %add.ptr.i.i13, %12
   %mBuffer.i.i.i16 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load ptr, ptr %mBuffer.i.i.i16, align 8
-  %cmp4.i.i.i17 = icmp ugt ptr %13, %add.ptr.i.i13
+  %cmp4.i.i.i17 = icmp ult ptr %add.ptr.i.i13, %13
   %or.cond.i.i.i18 = select i1 %cmp.i.i.i15, i1 true, i1 %cmp4.i.i.i17
   br i1 %or.cond.i.i.i18, label %if.then.i.i.i19, label %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
 
@@ -8482,10 +8482,10 @@ if.then:                                          ; preds = %_ZN6Assimp4Ogre20Og
   store ptr %add.ptr.i.i25, ptr %mCurrent.i.i.i24, align 8
   %mLimit.i.i.i26 = getelementptr inbounds i8, ptr %16, i64 40
   %18 = load ptr, ptr %mLimit.i.i.i26, align 8
-  %cmp.i.i.i27 = icmp ult ptr %18, %add.ptr.i.i25
+  %cmp.i.i.i27 = icmp ugt ptr %add.ptr.i.i25, %18
   %mBuffer.i.i.i28 = getelementptr inbounds i8, ptr %16, i64 16
   %19 = load ptr, ptr %mBuffer.i.i.i28, align 8
-  %cmp4.i.i.i29 = icmp ugt ptr %19, %add.ptr.i.i25
+  %cmp4.i.i.i29 = icmp ult ptr %add.ptr.i.i25, %19
   %or.cond.i.i.i30 = select i1 %cmp.i.i.i27, i1 true, i1 %cmp4.i.i.i29
   br i1 %or.cond.i.i.i30, label %if.then.i.i.i31, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit35
 
@@ -9426,10 +9426,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %entry
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i2, align 8
   %mLimit.i.i.i3 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i3, align 8
-  %cmp.i.i.i4 = icmp ult ptr %7, %add.ptr.i.i
+  %cmp.i.i.i4 = icmp ugt ptr %add.ptr.i.i, %7
   %mBuffer.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %mBuffer.i.i.i, align 8
-  %cmp4.i.i.i = icmp ugt ptr %8, %add.ptr.i.i
+  %cmp4.i.i.i = icmp ult ptr %add.ptr.i.i, %8
   %or.cond.i.i.i = select i1 %cmp.i.i.i4, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i5, label %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
 
@@ -9470,10 +9470,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit: 
   store ptr %add.ptr.i.i11, ptr %mCurrent.i.i.i10, align 8
   %mLimit.i.i.i12 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %mLimit.i.i.i12, align 8
-  %cmp.i.i.i13 = icmp ult ptr %12, %add.ptr.i.i11
+  %cmp.i.i.i13 = icmp ugt ptr %add.ptr.i.i11, %12
   %mBuffer.i.i.i14 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load ptr, ptr %mBuffer.i.i.i14, align 8
-  %cmp4.i.i.i15 = icmp ugt ptr %13, %add.ptr.i.i11
+  %cmp4.i.i.i15 = icmp ult ptr %add.ptr.i.i11, %13
   %or.cond.i.i.i16 = select i1 %cmp.i.i.i13, i1 true, i1 %cmp4.i.i.i15
   br i1 %or.cond.i.i.i16, label %if.then.i.i.i17, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
 
@@ -9506,10 +9506,10 @@ if.then:                                          ; preds = %_ZN6Assimp4Ogre20Og
   store ptr %add.ptr.i.i23, ptr %mCurrent.i.i.i22, align 8
   %mLimit.i.i.i24 = getelementptr inbounds i8, ptr %16, i64 40
   %18 = load ptr, ptr %mLimit.i.i.i24, align 8
-  %cmp.i.i.i25 = icmp ult ptr %18, %add.ptr.i.i23
+  %cmp.i.i.i25 = icmp ugt ptr %add.ptr.i.i23, %18
   %mBuffer.i.i.i26 = getelementptr inbounds i8, ptr %16, i64 16
   %19 = load ptr, ptr %mBuffer.i.i.i26, align 8
-  %cmp4.i.i.i27 = icmp ugt ptr %19, %add.ptr.i.i23
+  %cmp4.i.i.i27 = icmp ult ptr %add.ptr.i.i23, %19
   %or.cond.i.i.i28 = select i1 %cmp.i.i.i25, i1 true, i1 %cmp4.i.i.i27
   br i1 %or.cond.i.i.i28, label %if.then.i.i.i29, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit33
 
@@ -9796,7 +9796,7 @@ entry:
 if.then:                                          ; preds = %entry
   %length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %length, align 8
-  %cmp2 = icmp ult i64 %0, %pOffset
+  %cmp2 = icmp ugt i64 %pOffset, %0
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
@@ -9807,7 +9807,7 @@ if.end:                                           ; preds = %if.then
 if.then5:                                         ; preds = %entry
   %length6 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length6, align 8
-  %cmp7 = icmp ult i64 %1, %pOffset
+  %cmp7 = icmp ugt i64 %pOffset, %1
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
@@ -11926,7 +11926,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -12039,7 +12039,7 @@ _ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 2 dereferenceable(2) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -12488,7 +12488,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN6Assimp4Ogre4Pose6VertexEESt10_Select1stIS6_ESt4lessIjESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -12801,7 +12801,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 112
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i19
@@ -13221,7 +13221,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   %5 = extractvalue { ptr, i32 } %lpad.phi, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #21
-  %cmp.not3.i.i = icmp eq ptr %__cur.015, %__result
+  %cmp.not3.i.i = icmp eq ptr %__result, %__cur.015
   br i1 %cmp.not3.i.i, label %invoke.cont5, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i
@@ -13363,7 +13363,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i12
@@ -13526,7 +13526,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i19 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, label %for.body.i.i.i20
 
 for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i20

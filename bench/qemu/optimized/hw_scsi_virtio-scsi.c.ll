@@ -464,7 +464,7 @@ entry:
   %host_features = getelementptr inbounds i8, ptr %call.i, i64 852
   %0 = load i32, ptr %host_features, align 4
   %conv = zext i32 %0 to i64
-  %or = or i64 %conv, %requested_features
+  %or = or i64 %requested_features, %conv
   ret i64 %or
 }
 

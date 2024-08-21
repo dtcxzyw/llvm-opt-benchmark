@@ -254,7 +254,7 @@ define hidden void @_ZN15ClassListWriter15write_to_streamEPK13InstanceKlassP12ou
 48:                                               ; preds = %.lr.ph.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %45, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, %33
+  %51 = icmp eq ptr %33, %50
   br i1 %51, label %_ZN15ClassListWriter6has_idEPK13InstanceKlass.exit, label %52
 
 52:                                               ; preds = %48, %.lr.ph.i.i.i.i
@@ -304,7 +304,7 @@ _ZN15ClassListWriter6has_idEPK13InstanceKlass.exit: ; preds = %48, %29
 74:                                               ; preds = %.lr.ph.i.i.i.i55
   %75 = getelementptr inbounds i8, ptr %71, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, %62
+  %77 = icmp eq ptr %62, %76
   br i1 %77, label %_ZN15ClassListWriter6has_idEPK13InstanceKlass.exit58, label %78
 
 78:                                               ; preds = %74, %.lr.ph.i.i.i.i55
@@ -390,7 +390,7 @@ _ZN15ClassListWriter6has_idEPK13InstanceKlass.exit58: ; preds = %74
 127:                                              ; preds = %.lr.ph.i.i.i
   %128 = getelementptr inbounds i8, ptr %124, i64 8
   %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, %0
+  %130 = icmp eq ptr %0, %129
   br i1 %130, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPK13InstanceKlassiES3_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE13put_if_absentERKS3_Pb.exit.i, label %131
 
 131:                                              ; preds = %127, %.lr.ph.i.i.i
@@ -504,7 +504,7 @@ _ZN15ClassListWriter6get_idEPK13InstanceKlass.exit: ; preds = %_ZN21ResourceHash
 185:                                              ; preds = %.lr.ph.i.i.i60
   %186 = getelementptr inbounds i8, ptr %182, i64 8
   %187 = load ptr, ptr %186, align 8
-  %188 = icmp eq ptr %187, %164
+  %188 = icmp eq ptr %164, %187
   br i1 %188, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPK13InstanceKlassiES3_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE13put_if_absentERKS3_Pb.exit.i65, label %189
 
 189:                                              ; preds = %185, %.lr.ph.i.i.i60
@@ -636,7 +636,7 @@ define hidden noundef i32 @_ZN15ClassListWriter6get_idEPK13InstanceKlass(ptr nou
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, %0
+  %25 = icmp eq ptr %0, %24
   br i1 %25, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPK13InstanceKlassiES3_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE13put_if_absentERKS3_Pb.exit, label %26
 
 26:                                               ; preds = %22, %.lr.ph.i.i
@@ -722,7 +722,7 @@ define hidden noundef zeroext i1 @_ZN15ClassListWriter6has_idEPK13InstanceKlass(
 15:                                               ; preds = %.lr.ph.i.i.i
   %16 = getelementptr inbounds i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %0
+  %18 = icmp eq ptr %0, %17
   br i1 %18, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPK13InstanceKlassiES3_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit, label %19
 
 19:                                               ; preds = %15, %.lr.ph.i.i.i
@@ -764,7 +764,7 @@ define hidden void @_ZN15ClassListWriter22handle_class_unloadingEPK13InstanceKla
 15:                                               ; preds = %.lr.ph.i.i.i
   %16 = getelementptr inbounds i8, ptr %.pr.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %1
+  %18 = icmp eq ptr %1, %17
   br i1 %18, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPK13InstanceKlassiES3_iLN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE11lookup_nodeEjRKS3_.exit.i.i, label %19
 
 19:                                               ; preds = %15, %.lr.ph.i.i.i
@@ -891,22 +891,22 @@ define hidden void @_ZN15ClassListWriter28write_resolved_constants_forEP13Instan
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9248), align 8
-  %12 = icmp eq ptr %11, %10
+  %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN12ResourceMarkD2Ev.exit, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9256), align 8
-  %15 = icmp eq ptr %14, %10
+  %15 = icmp eq ptr %10, %14
   br i1 %15, label %_ZN12ResourceMarkD2Ev.exit, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9264), align 8
-  %18 = icmp eq ptr %17, %10
+  %18 = icmp eq ptr %10, %17
   br i1 %18, label %_ZN12ResourceMarkD2Ev.exit, label %_ZN18LambdaFormInvokers24may_be_regenerated_classEP6Symbol.exit
 
 _ZN18LambdaFormInvokers24may_be_regenerated_classEP6Symbol.exit: ; preds = %16
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9272), align 8
-  %20 = icmp eq ptr %19, %10
+  %20 = icmp eq ptr %10, %19
   br i1 %20, label %_ZN12ResourceMarkD2Ev.exit, label %21
 
 21:                                               ; preds = %_ZN18LambdaFormInvokers24may_be_regenerated_classEP6Symbol.exit
@@ -947,7 +947,7 @@ _ZNK6Symbol6equalsEPKc.exit.thread:               ; preds = %21, %_ZNK6Symbol6eq
 39:                                               ; preds = %.lr.ph.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %36, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %0
+  %42 = icmp eq ptr %0, %41
   br i1 %42, label %_ZN15ClassListWriter6has_idEPK13InstanceKlass.exit, label %43
 
 43:                                               ; preds = %39, %.lr.ph.i.i.i.i

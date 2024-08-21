@@ -99,13 +99,13 @@ define range(i32 -1, 2) i32 @H5T__ref_set_loc(ptr noundef %0, ptr noundef %1, i3
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 92
   %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, %2
+  %12 = icmp eq i32 %2, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %9, i64 96
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %170, label %17
 
 17:                                               ; preds = %13, %3

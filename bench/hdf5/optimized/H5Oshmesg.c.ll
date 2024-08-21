@@ -40,7 +40,7 @@ define internal noundef ptr @H5O__shmesg_decode(ptr noundef %0, ptr nocapture re
   br label %.thread
 
 15:                                               ; preds = %6
-  %16 = icmp ult ptr %.ptr34, %5
+  %16 = icmp ugt ptr %5, %.ptr34
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %15

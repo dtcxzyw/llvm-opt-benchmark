@@ -472,7 +472,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %num_layers = getelementptr inbounds i8, ptr %tm, i64 800008
   %0 = load i32, ptr %num_layers, align 8
-  %cmp1 = icmp sgt i32 %0, %layer
+  %cmp1 = icmp slt i32 %layer, %0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -642,7 +642,7 @@ entry:
 lor.lhs.false7:                                   ; preds = %entry
   %num_layers = getelementptr inbounds i8, ptr %tm, i64 800008
   %1 = load i32, ptr %num_layers, align 8
-  %cmp8 = icmp sle i32 %1, %layer
+  %cmp8 = icmp sge i32 %layer, %1
   %cmp10 = icmp slt i16 %tile, -1
   %or.cond3 = or i1 %cmp10, %cmp8
   br i1 %or.cond3, label %return, label %if.end13
@@ -682,7 +682,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %category_id = getelementptr inbounds %struct.stbte__tileinfo, ptr %1, i64 %indvars.iv, i32 1
   %2 = load i16, ptr %category_id, align 2
   %conv = zext i16 %2 to i32
-  %cmp1 = icmp eq i32 %conv, %category
+  %cmp1 = icmp eq i32 %category, %conv
   %or.cond = or i1 %cmp3, %cmp1
   %inc = zext i1 %or.cond to i32
   %spec.select = add nuw nsw i32 %n.012, %inc
@@ -5617,7 +5617,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds %struct.stbte__tileinfo, ptr %1, i64 %indvars.iv
   %2 = load i16, ptr %arrayidx, align 8
   %conv = sext i16 %2 to i32
-  %cmp1 = icmp eq i32 %conv, %tile_id
+  %cmp1 = icmp eq i32 %tile_id, %conv
   br i1 %cmp1, label %return.loopexit, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -5692,7 +5692,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds %struct.stbte__tileinfo, ptr %7, i64 %indvars.iv.i
   %8 = load i16, ptr %arrayidx.i, align 8
-  %cmp1.i = icmp eq i16 %8, %5
+  %cmp1.i = icmp eq i16 %5, %8
   br i1 %cmp1.i, label %return.loopexit.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -5758,7 +5758,7 @@ for.body.i42:                                     ; preds = %for.inc.i47, %for.b
   %indvars.iv.i43 = phi i64 [ 0, %for.body.lr.ph.i39 ], [ %indvars.iv.next.i48, %for.inc.i47 ]
   %arrayidx.i44 = getelementptr inbounds %struct.stbte__tileinfo, ptr %16, i64 %indvars.iv.i43
   %17 = load i16, ptr %arrayidx.i44, align 8
-  %cmp1.i46 = icmp eq i16 %17, %14
+  %cmp1.i46 = icmp eq i16 %14, %17
   br i1 %cmp1.i46, label %return.loopexit.i50, label %for.inc.i47
 
 for.inc.i47:                                      ; preds = %for.body.i42
@@ -6934,12 +6934,12 @@ define range(i32 0, 2) i32 @stbte__in_rect(i32 noundef %x, i32 noundef %y, i32 n
 entry:
   %cmp.not = icmp sge i32 %x, %x0
   %add = add nsw i32 %w, %x0
-  %cmp1 = icmp sgt i32 %add, %x
+  %cmp1 = icmp slt i32 %x, %add
   %or.cond.not6.not7 = select i1 %cmp.not, i1 %cmp1, i1 false
   %cmp3.not = icmp sge i32 %y, %y0
   %or.cond5.not = and i1 %cmp3.not, %or.cond.not6.not7
   %add4 = add nsw i32 %h, %y0
-  %cmp5 = icmp sgt i32 %add4, %y
+  %cmp5 = icmp slt i32 %y, %add4
   %narrow = select i1 %or.cond5.not, i1 %cmp5, i1 false
   %land.ext = zext i1 %narrow to i32
   ret i32 %land.ext
@@ -7655,11 +7655,11 @@ if.then26:                                        ; preds = %land.lhs.true20
   %max_y = getelementptr inbounds i8, ptr %tm, i64 800004
   %25 = load i32, ptr %max_y, align 4
   %cmp.not.i = icmp slt i32 %add, 0
-  %cmp1.i = icmp sle i32 %24, %add
+  %cmp1.i = icmp sge i32 %add, %24
   %or.cond.not6.not7.i.not91 = select i1 %cmp.not.i, i1 true, i1 %cmp1.i
   %cmp3.not.i = icmp slt i32 %add27, 0
   %or.cond5.not.i.not90 = or i1 %cmp3.not.i, %or.cond.not6.not7.i.not91
-  %cmp5.i = icmp sle i32 %25, %add27
+  %cmp5.i = icmp sge i32 %add27, %25
   %narrow.i.not = select i1 %or.cond5.not.i.not90, i1 true, i1 %cmp5.i
   br i1 %narrow.i.not, label %if.end110, label %if.then29
 
@@ -8358,26 +8358,26 @@ if.then88:                                        ; preds = %if.then85
   %and91 = and i32 %shr90, 4095
   %52 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5316), align 4
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5320), align 8
-  %cmp94.not = icmp sgt i32 %52, %mapx
-  %cmp97.not = icmp slt i32 %and89, %mapx
+  %cmp94.not = icmp slt i32 %mapx, %52
+  %cmp97.not = icmp sgt i32 %mapx, %and89
   %or.cond92 = or i1 %cmp97.not, %cmp94.not
   br i1 %or.cond92, label %lor.lhs.false, label %land.lhs.true102
 
 lor.lhs.false:                                    ; preds = %if.then88
-  %cmp98.not = icmp sgt i32 %and89, %mapx
-  %cmp101.not = icmp slt i32 %52, %mapx
+  %cmp98.not = icmp slt i32 %mapx, %and89
+  %cmp101.not = icmp sgt i32 %mapx, %52
   %or.cond93 = or i1 %cmp98.not, %cmp101.not
   br i1 %or.cond93, label %if.end144, label %land.lhs.true102
 
 land.lhs.true102:                                 ; preds = %lor.lhs.false, %if.then88
-  %cmp103.not = icmp sgt i32 %53, %mapy
-  %cmp106.not = icmp slt i32 %and91, %mapy
+  %cmp103.not = icmp slt i32 %mapy, %53
+  %cmp106.not = icmp sgt i32 %mapy, %and91
   %or.cond94 = or i1 %cmp106.not, %cmp103.not
   br i1 %or.cond94, label %lor.lhs.false107, label %if.then112
 
 lor.lhs.false107:                                 ; preds = %land.lhs.true102
-  %cmp108.not = icmp sgt i32 %and91, %mapy
-  %cmp111.not = icmp slt i32 %53, %mapy
+  %cmp108.not = icmp slt i32 %mapy, %and91
+  %cmp111.not = icmp sgt i32 %mapy, %53
   %or.cond95 = select i1 %cmp108.not, i1 true, i1 %cmp111.not
   br i1 %or.cond95, label %if.end144, label %if.then112
 
@@ -8527,7 +8527,7 @@ if.end176:                                        ; preds = %for.inc.i134, %for.
   %data.1 = phi ptr [ %data.0, %if.then152 ], [ %data.0, %land.lhs.true148 ], [ %data.0, %if.end144 ], [ %temp, %for.end172 ], [ %temp, %if.end38.i ], [ %temp, %for.cond157.preheader ], [ %temp, %for.inc.i134 ]
   %solo_layer = getelementptr inbounds i8, ptr %tm, i64 801040
   %78 = load i32, ptr %solo_layer, align 8
-  %cmp177 = icmp eq i32 %78, %layer
+  %cmp177 = icmp eq i32 %layer, %78
   br i1 %cmp177, label %if.end176.if.then185_crit_edge, label %lor.lhs.false178
 
 if.end176.if.then185_crit_edge:                   ; preds = %if.end176
@@ -8968,16 +8968,16 @@ if.then161:                                       ; preds = %sw.bb159
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5296), align 8
   %tobool162.not = icmp eq i32 %50, 0
   %51 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5300), align 4
-  %cmp164.not = icmp sgt i32 %51, %mapx
+  %cmp164.not = icmp slt i32 %mapx, %51
   %or.cond122 = select i1 %tobool162.not, i1 true, i1 %cmp164.not
   %52 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5308), align 4
-  %cmp166.not = icmp slt i32 %52, %mapx
+  %cmp166.not = icmp sgt i32 %mapx, %52
   %or.cond123 = select i1 %or.cond122, i1 true, i1 %cmp166.not
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5304), align 8
-  %cmp168.not = icmp sgt i32 %53, %mapy
+  %cmp168.not = icmp slt i32 %mapy, %53
   %or.cond124 = select i1 %or.cond123, i1 true, i1 %cmp168.not
   %54 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5312), align 8
-  %cmp170.not = icmp slt i32 %54, %mapy
+  %cmp170.not = icmp sgt i32 %mapy, %54
   %or.cond125 = select i1 %or.cond124, i1 true, i1 %cmp170.not
   br i1 %or.cond125, label %if.end179, label %if.then171
 
@@ -9918,7 +9918,7 @@ if.end15:                                         ; preds = %while.body.i.i, %st
   %.sink = phi i32 [ 5, %if.end ], [ 16, %if.then9 ], [ 16, %stbte__draw_bitmap.exit.i.i ], [ 16, %while.body.i.i ]
   %add5149 = phi i32 [ %add5, %if.end ], [ %add5145, %if.then9 ], [ %add5145, %stbte__draw_bitmap.exit.i.i ], [ %add5145, %while.body.i.i ]
   %xoff.0147 = phi i32 [ %sub.add2, %if.end ], [ 20, %if.then9 ], [ 20, %stbte__draw_bitmap.exit.i.i ], [ 20, %while.body.i.i ]
-  %add6 = add nsw i32 %.sink, %y0
+  %add6 = add nsw i32 %y0, %.sink
   %sub16 = sub i32 %h, %.sink
   %div = sdiv i32 %sub16, 15
   %dec = add nsw i32 %div, -1
@@ -10389,11 +10389,11 @@ sw.bb:                                            ; preds = %stbte__hittest.exit
   %conv = trunc i32 %add2 to i16
   %cur_tile = getelementptr inbounds i8, ptr %tm, i64 800040
   %6 = load i32, ptr %cur_tile, align 8
-  %cmp = icmp eq i32 %6, %slot
+  %cmp = icmp eq i32 %slot, %6
   %conv9 = zext i1 %cmp to i32
   tail call void @STBTE_DRAW_TILE(i32 noundef %x, i32 noundef %y, i16 noundef zeroext %conv, i32 noundef %conv9, ptr noundef null) #25
   %7 = load i32, ptr %cur_tile, align 8
-  %cmp11 = icmp eq i32 %7, %slot
+  %cmp11 = icmp eq i32 %slot, %7
   br i1 %cmp11, label %if.then, label %sw.epilog
 
 if.then:                                          ; preds = %sw.bb

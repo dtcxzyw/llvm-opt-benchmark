@@ -649,7 +649,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %5, %8
   %18 = getelementptr inbounds i8, ptr %0, i64 2624
   %19 = getelementptr inbounds i8, ptr %0, i64 2640
   %20 = load i64, ptr %19, align 8
-  %21 = icmp ult i64 %20, %14
+  %21 = icmp ugt i64 %14, %20
   %22 = getelementptr inbounds i8, ptr %0, i64 2632
   store i64 %14, ptr %22, align 8
   br i1 %21, label %23, label %._ZN5ArrayIhE5AllocEm.exit_crit_edge
@@ -662,7 +662,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %5, %8
   %24 = getelementptr inbounds i8, ptr %0, i64 2648
   %25 = load i64, ptr %24, align 8
   %.not.i.i8 = icmp ne i64 %25, 0
-  %26 = icmp ult i64 %25, %14
+  %26 = icmp ugt i64 %14, %25
   %or.cond.i.i = and i1 %.not.i.i8, %26
   br i1 %or.cond.i.i, label %27, label %28
 
@@ -745,11 +745,11 @@ define noundef zeroext i1 @_ZN9QuickOpen4SeekEli(ptr noundef nonnull align 8 der
   %8 = icmp eq i32 %2, 0
   %9 = getelementptr inbounds i8, ptr %0, i64 2664
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   %or.cond = select i1 %8, i1 %11, i1 false
   %12 = getelementptr inbounds i8, ptr %0, i64 2656
   %13 = load i64, ptr %12, align 8
-  %14 = icmp ugt i64 %13, %1
+  %14 = icmp ult i64 %1, %13
   %or.cond15 = select i1 %or.cond, i1 %14, i1 false
   br i1 %or.cond15, label %.thread, label %17
 

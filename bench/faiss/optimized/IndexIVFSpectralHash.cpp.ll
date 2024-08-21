@@ -567,7 +567,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 2
-  %75 = icmp ult i64 %74, %67
+  %75 = icmp ugt i64 %67, %74
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %61
@@ -581,7 +581,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 78:                                               ; preds = %61
-  %79 = icmp ugt i64 %74, %67
+  %79 = icmp ult i64 %67, %74
   br i1 %79, label %80, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 80:                                               ; preds = %78
@@ -803,7 +803,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   %174 = getelementptr inbounds i8, ptr %0, i64 276
   %175 = load i32, ptr %174, align 4
   %176 = sext i32 %175 to i64
-  %177 = mul nsw i64 %176, %1
+  %177 = mul nsw i64 %1, %176
   %178 = icmp ugt i64 %177, 4611686018427387903
   %179 = shl i64 %177, 2
   %180 = select i1 %178, i64 -1, i64 %179
@@ -878,7 +878,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %215
   %211 = ptrtoint ptr %209 to i64
   %212 = sub i64 %210, %211
   %213 = ashr exact i64 %212, 2
-  %214 = icmp ult i64 %213, %177
+  %214 = icmp ugt i64 %177, %213
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %._crit_edge171
@@ -887,7 +887,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %215
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit108 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 217:                                              ; preds = %._crit_edge171
-  %218 = icmp ugt i64 %213, %177
+  %218 = icmp ult i64 %177, %213
   br i1 %218, label %219, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit108
 
 219:                                              ; preds = %217
@@ -978,7 +978,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit108:            ; preds = %221, %219, %217, %2
 .lr.ph174.split.split.us:                         ; preds = %.lr.ph174.split, %.lr.ph174.split.split.us
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %.lr.ph174.split.split.us ], [ 0, %.lr.ph174.split ]
   %259 = phi i32 [ %269, %.lr.ph174.split.split.us ], [ %237, %.lr.ph174.split ]
-  %260 = mul nsw i64 %indvars.iv200, %1
+  %260 = mul nsw i64 %1, %indvars.iv200
   %261 = getelementptr inbounds float, ptr %241, i64 %260
   %262 = load float, ptr %261, align 4
   %263 = mul nsw i32 %259, %258
@@ -996,7 +996,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit108:            ; preds = %221, %219, %217, %2
 
 .lr.ph174.split.split:                            ; preds = %.lr.ph174.split, %_ZN5faiss12_GLOBAL__N_16medianEmPf.exit
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %_ZN5faiss12_GLOBAL__N_16medianEmPf.exit ], [ 0, %.lr.ph174.split ]
-  %272 = mul nsw i64 %indvars.iv197, %1
+  %272 = mul nsw i64 %1, %indvars.iv197
   %273 = getelementptr inbounds float, ptr %241, i64 %272
   %274 = getelementptr inbounds float, ptr %273, i64 %243
   invoke void @_ZSt6__sortIPfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef nonnull %273, ptr noundef nonnull %274)
@@ -3146,7 +3146,7 @@ define linkonce_odr void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_less_iter
   %12 = load float, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -3226,7 +3226,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds float, ptr %0, i64 %51
   %53 = load float, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -3278,7 +3278,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds float, ptr %0, i64 %73
   %75 = load float, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -3724,7 +3724,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
   %74 = getelementptr inbounds i64, ptr %12, i64 %57
   %75 = load i64, ptr %74, align 8
   %76 = fcmp oeq float %72, %42
-  %77 = icmp slt i64 %75, %55
+  %77 = icmp sgt i64 %55, %75
   %78 = and i1 %76, %77
   br i1 %78, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %84
 
@@ -3734,7 +3734,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %79
   %81 = fcmp oeq float %63, %42
-  %82 = icmp slt i64 %65, %55
+  %82 = icmp sgt i64 %55, %65
   %83 = and i1 %81, %82
   br i1 %83, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %84
 
@@ -3796,7 +3796,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4
   %14 = xor i32 %13, %12
   %15 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
   %16 = uitofp nneg i32 %15 to float
-  %17 = fcmp olt float %16, %4
+  %17 = fcmp ogt float %4, %16
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %11
@@ -4282,7 +4282,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
   %76 = getelementptr inbounds i64, ptr %12, i64 %59
   %77 = load i64, ptr %76, align 8
   %78 = fcmp oeq float %74, %44
-  %79 = icmp slt i64 %77, %57
+  %79 = icmp sgt i64 %57, %77
   %80 = and i1 %78, %79
   br i1 %80, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %86
 
@@ -4292,7 +4292,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %81
   %83 = fcmp oeq float %65, %44
-  %84 = icmp slt i64 %67, %57
+  %84 = icmp sgt i64 %57, %67
   %85 = and i1 %83, %84
   br i1 %85, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %86
 
@@ -4353,7 +4353,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8
   %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14)
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = uitofp nneg i32 %16 to float
-  %18 = fcmp olt float %17, %4
+  %18 = fcmp ogt float %4, %17
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %11
@@ -4811,7 +4811,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
   %62 = getelementptr inbounds i64, ptr %13, i64 %45
   %63 = load i64, ptr %62, align 8
   %64 = fcmp oeq float %60, %29
-  %65 = icmp slt i64 %63, %43
+  %65 = icmp sgt i64 %43, %63
   %66 = and i1 %64, %65
   br i1 %66, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %72
 
@@ -4821,7 +4821,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %67
   %69 = fcmp oeq float %51, %29
-  %70 = icmp slt i64 %53, %43
+  %70 = icmp sgt i64 %43, %53
   %71 = and i1 %69, %70
   br i1 %71, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %72
 
@@ -4890,7 +4890,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer1
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = add nuw nsw i32 %23, %17
   %25 = uitofp nneg i32 %24 to float
-  %26 = fcmp olt float %25, %4
+  %26 = fcmp ogt float %4, %25
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %12
@@ -5372,7 +5372,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
   %69 = getelementptr inbounds i64, ptr %14, i64 %52
   %70 = load i64, ptr %69, align 8
   %71 = fcmp oeq float %67, %36
-  %72 = icmp slt i64 %70, %50
+  %72 = icmp sgt i64 %50, %70
   %73 = and i1 %71, %72
   br i1 %73, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %79
 
@@ -5382,7 +5382,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %74
   %76 = fcmp oeq float %58, %36
-  %77 = icmp slt i64 %60, %50
+  %77 = icmp sgt i64 %50, %60
   %78 = and i1 %76, %77
   br i1 %78, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %79
 
@@ -5458,7 +5458,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer2
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
   %31 = add nuw nsw i32 %25, %30
   %32 = uitofp nneg i32 %31 to float
-  %33 = fcmp olt float %32, %4
+  %33 = fcmp ogt float %4, %32
   br i1 %33, label %34, label %46
 
 34:                                               ; preds = %13
@@ -5964,7 +5964,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
   %78 = getelementptr inbounds i64, ptr %15, i64 %61
   %79 = load i64, ptr %78, align 8
   %80 = fcmp oeq float %76, %45
-  %81 = icmp slt i64 %79, %59
+  %81 = icmp sgt i64 %59, %79
   %82 = and i1 %80, %81
   br i1 %82, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %88
 
@@ -5974,7 +5974,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %83
   %85 = fcmp oeq float %67, %45
-  %86 = icmp slt i64 %69, %59
+  %86 = icmp sgt i64 %59, %69
   %87 = and i1 %85, %86
   br i1 %87, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %88
 
@@ -6059,7 +6059,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer3
   %39 = trunc nuw nsw i64 %38 to i32
   %40 = add nuw nsw i32 %33, %39
   %41 = uitofp nneg i32 %40 to float
-  %42 = fcmp olt float %41, %4
+  %42 = fcmp ogt float %4, %41
   br i1 %42, label %43, label %55
 
 43:                                               ; preds = %14
@@ -6661,7 +6661,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
   %110 = getelementptr inbounds i64, ptr %19, i64 %93
   %111 = load i64, ptr %110, align 8
   %112 = fcmp oeq float %108, %77
-  %113 = icmp slt i64 %111, %91
+  %113 = icmp sgt i64 %91, %111
   %114 = and i1 %112, %113
   br i1 %114, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %120
 
@@ -6671,7 +6671,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %115
   %117 = fcmp oeq float %99, %77
-  %118 = icmp slt i64 %101, %91
+  %118 = icmp sgt i64 %91, %101
   %119 = and i1 %117, %118
   br i1 %119, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %120
 
@@ -6788,7 +6788,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer6
   %71 = trunc nuw nsw i64 %70 to i32
   %72 = add nuw nsw i32 %65, %71
   %73 = uitofp nneg i32 %72 to float
-  %74 = fcmp olt float %73, %4
+  %74 = fcmp ogt float %4, %73
   br i1 %74, label %75, label %87
 
 75:                                               ; preds = %18
@@ -7271,7 +7271,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
   %68 = getelementptr inbounds i64, ptr %12, i64 %51
   %69 = load i64, ptr %68, align 8
   %70 = fcmp oeq float %66, %36
-  %71 = icmp slt i64 %69, %49
+  %71 = icmp sgt i64 %49, %69
   %72 = and i1 %70, %71
   br i1 %72, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %78
 
@@ -7281,7 +7281,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i:          ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %73
   %75 = fcmp oeq float %57, %36
-  %76 = icmp slt i64 %59, %49
+  %76 = icmp sgt i64 %49, %59
   %77 = and i1 %75, %76
   br i1 %77, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %78
 
@@ -7338,7 +7338,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerD
   %.01315 = phi i64 [ 0, %.lr.ph ], [ %30, %27 ]
   %12 = tail call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %.017)
   %13 = sitofp i32 %12 to float
-  %14 = fcmp olt float %13, %4
+  %14 = fcmp ogt float %4, %13
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %11

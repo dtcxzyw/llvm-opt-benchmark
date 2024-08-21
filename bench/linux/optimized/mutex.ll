@@ -1333,7 +1333,7 @@ define internal fastcc noundef i32 @__mutex_lock(ptr noundef %0, i32 noundef %1)
   %90 = load volatile i64, ptr %0, align 8
   %91 = and i64 %90, -8
   %92 = inttoptr i64 %91 to ptr
-  %.not.i = icmp eq ptr %92, %88
+  %.not.i = icmp eq ptr %88, %92
   br i1 %.not.i, label %93, label %.loopexit60
 
 93:                                               ; preds = %87
@@ -1355,7 +1355,7 @@ define internal fastcc noundef i32 @__mutex_lock(ptr noundef %0, i32 noundef %1)
   %102 = load volatile i64, ptr %0, align 8
   %103 = and i64 %102, -8
   %104 = inttoptr i64 %103 to ptr
-  %.not4.us.i = icmp eq ptr %104, %88
+  %.not4.us.i = icmp eq ptr %88, %104
   br i1 %.not4.us.i, label %105, label %.loopexit60, !llvm.loop !38
 
 105:                                              ; preds = %101
@@ -1799,7 +1799,7 @@ define internal fastcc noundef i32 @__mutex_lock(ptr noundef %0, i32 noundef %1)
   %344 = load volatile i64, ptr %0, align 8
   %345 = and i64 %344, -8
   %346 = inttoptr i64 %345 to ptr
-  %.not.i18 = icmp eq ptr %346, %342
+  %.not.i18 = icmp eq ptr %342, %346
   br i1 %.not.i18, label %347, label %.loopexit55
 
 347:                                              ; preds = %341
@@ -1821,7 +1821,7 @@ define internal fastcc noundef i32 @__mutex_lock(ptr noundef %0, i32 noundef %1)
   %356 = load volatile i64, ptr %0, align 8
   %357 = and i64 %356, -8
   %358 = inttoptr i64 %357 to ptr
-  %.not4.us.i20 = icmp eq ptr %358, %342
+  %.not4.us.i20 = icmp eq ptr %342, %358
   br i1 %.not4.us.i20, label %359, label %.loopexit55, !llvm.loop !38
 
 359:                                              ; preds = %355
@@ -2116,7 +2116,7 @@ define internal fastcc noundef zeroext i1 @mutex_spin_on_owner(ptr noundef %0, p
   %8 = load volatile i64, ptr %0, align 8
   %9 = and i64 %8, -8
   %10 = inttoptr i64 %9 to ptr
-  %.not = icmp eq ptr %10, %1
+  %.not = icmp eq ptr %1, %10
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %4
@@ -2146,7 +2146,7 @@ define internal fastcc noundef zeroext i1 @mutex_spin_on_owner(ptr noundef %0, p
   %26 = load volatile i64, ptr %0, align 8
   %27 = and i64 %26, -8
   %28 = inttoptr i64 %27 to ptr
-  %.not4.us = icmp eq ptr %28, %1
+  %.not4.us = icmp eq ptr %1, %28
   br i1 %.not4.us, label %29, label %.loopexit, !llvm.loop !38
 
 29:                                               ; preds = %25
@@ -2186,7 +2186,7 @@ define internal fastcc noundef zeroext i1 @mutex_spin_on_owner(ptr noundef %0, p
   %47 = load volatile i64, ptr %0, align 8
   %48 = and i64 %47, -8
   %49 = inttoptr i64 %48 to ptr
-  %.not4.us5 = icmp eq ptr %49, %1
+  %.not4.us5 = icmp eq ptr %1, %49
   br i1 %.not4.us5, label %50, label %.loopexit, !llvm.loop !38
 
 50:                                               ; preds = %46
@@ -2228,7 +2228,7 @@ define internal fastcc noundef zeroext i1 @mutex_spin_on_owner(ptr noundef %0, p
   %70 = load volatile i64, ptr %0, align 8
   %71 = and i64 %70, -8
   %72 = inttoptr i64 %71 to ptr
-  %.not4 = icmp eq ptr %72, %1
+  %.not4 = icmp eq ptr %1, %72
   br i1 %.not4, label %53, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %69, %66, %63, %.split.split, %53, %.split.split.us, %39, %42, %46, %50, %29, %25, %.split.us, %11, %4
@@ -2419,7 +2419,7 @@ define internal fastcc noundef i32 @__ww_mutex_lock(ptr noundef %0, i32 noundef 
   %106 = load volatile i64, ptr %0, align 8
   %107 = and i64 %106, -8
   %108 = inttoptr i64 %107 to ptr
-  %.not.i = icmp eq ptr %108, %104
+  %.not.i = icmp eq ptr %104, %108
   br i1 %.not.i, label %109, label %.loopexit71
 
 109:                                              ; preds = %103
@@ -2444,7 +2444,7 @@ define internal fastcc noundef i32 @__ww_mutex_lock(ptr noundef %0, i32 noundef 
   %119 = load volatile i64, ptr %0, align 8
   %120 = and i64 %119, -8
   %121 = inttoptr i64 %120 to ptr
-  %.not4.us.i = icmp eq ptr %121, %104
+  %.not4.us.i = icmp eq ptr %104, %121
   br i1 %.not4.us.i, label %122, label %.loopexit71, !llvm.loop !38
 
 122:                                              ; preds = %118
@@ -2481,7 +2481,7 @@ define internal fastcc noundef i32 @__ww_mutex_lock(ptr noundef %0, i32 noundef 
   %140 = load volatile i64, ptr %0, align 8
   %141 = and i64 %140, -8
   %142 = inttoptr i64 %141 to ptr
-  %.not4.us5.i = icmp eq ptr %142, %104
+  %.not4.us5.i = icmp eq ptr %104, %142
   br i1 %.not4.us5.i, label %143, label %.loopexit71, !llvm.loop !38
 
 143:                                              ; preds = %139

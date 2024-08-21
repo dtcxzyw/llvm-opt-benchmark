@@ -2225,7 +2225,7 @@ define dso_local range(i32 0, 2) i32 @intel_gt_coherent_map_type(ptr nocapture n
   %24 = load i64, ptr %23, align 4
   %25 = and i64 %24, 524288
   %26 = icmp ne i64 %25, 0
-  %27 = or i1 %26, %2
+  %27 = or i1 %2, %26
   %28 = xor i1 %27, true
   %29 = zext i1 %28 to i32
   br label %30

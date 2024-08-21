@@ -488,7 +488,7 @@ if.end8.i:                                        ; preds = %for.inc.i, %if.end8
   %ridx.128.i = phi i64 [ %ridx.032.i, %if.end8.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %arrayidx10.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %10, i64 %ridx.128.i
   %12 = load i64, ptr %arrayidx10.i, align 8
-  %cmp.not.i.i = icmp ugt i64 %12, %11
+  %cmp.not.i.i = icmp ult i64 %11, %12
   br i1 %cmp.not.i.i, label %if.end8.if.else_crit_edge.i, label %range_contains.exit.i
 
 if.end8.if.else_crit_edge.i:                      ; preds = %if.end8.i
@@ -499,7 +499,7 @@ if.end8.if.else_crit_edge.i:                      ; preds = %if.end8.i
 range_contains.exit.i:                            ; preds = %if.end8.i
   %end.i.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
   %13 = load i64, ptr %end.i.i, align 8
-  %cmp1.i.not.i = icmp ult i64 %13, %11
+  %cmp1.i.not.i = icmp ugt i64 %11, %13
   br i1 %cmp1.i.not.i, label %if.else.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %range_contains.exit.i
@@ -936,7 +936,7 @@ if.then17.i:                                      ; preds = %if.end.i75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %r.i.i)
   %watermark1.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i77, i64 24
   %78 = load i64, ptr %watermark1.i.i, align 8
-  %cmp.not.i.not.i = icmp ugt i64 %78, %77
+  %cmp.not.i.not.i = icmp ult i64 %77, %78
   br i1 %cmp.not.i.not.i, label %rx_pkt_history_bump_watermark.exit.i, label %if.end.i.i78
 
 if.end.i.i78:                                     ; preds = %if.then17.i
@@ -2100,7 +2100,7 @@ entry:
   %0 = load i64, ptr %pkt, align 8
   %watermark.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %1 = load i64, ptr %watermark.i, align 8
-  %cmp.not.i = icmp ugt i64 %1, %0
+  %cmp.not.i = icmp ult i64 %0, %1
   br i1 %cmp.not.i, label %return, label %ossl_ackm_is_rx_pn_processable.exit
 
 ossl_ackm_is_rx_pn_processable.exit:              ; preds = %entry
@@ -2150,20 +2150,20 @@ land.lhs.true.i:                                  ; preds = %if.end27
   %7 = load ptr, ptr %arrayidx.i29, align 8
   %end.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %end.i, align 8
-  %cmp5.not.i = icmp ult i64 %8, %5
+  %cmp5.not.i = icmp ugt i64 %5, %8
   br i1 %cmp5.not.i, label %ackm_is_missing.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.lhs.true.i, %for.inc.i.i
   %i.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %land.lhs.true.i ]
   %arrayidx.i.i31 = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %7, i64 %i.07.i.i
   %9 = load i64, ptr %arrayidx.i.i31, align 8
-  %cmp.not.i.i.i = icmp ugt i64 %9, %5
+  %cmp.not.i.i.i = icmp ult i64 %5, %9
   br i1 %cmp.not.i.i.i, label %for.inc.i.i, label %range_contains.exit.i.i
 
 range_contains.exit.i.i:                          ; preds = %for.body.i.i
   %end.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i31, i64 8
   %10 = load i64, ptr %end.i.i.i, align 8
-  %cmp1.i.not.i.i = icmp ult i64 %10, %5
+  %cmp1.i.not.i.i = icmp ugt i64 %5, %10
   br i1 %cmp1.i.not.i.i, label %for.inc.i.i, label %ackm_is_missing.exit
 
 for.inc.i.i:                                      ; preds = %range_contains.exit.i.i, %for.body.i.i
@@ -2178,7 +2178,7 @@ ackm_is_missing.exit:                             ; preds = %range_contains.exit
   %end.i33 = getelementptr inbounds i8, ptr %r.i, i64 8
   store i64 %5, ptr %end.i33, align 8
   %11 = load i64, ptr %watermark.i, align 8
-  %cmp.i = icmp ugt i64 %11, %5
+  %cmp.i = icmp ult i64 %5, %11
   br i1 %cmp.i, label %if.end38, label %if.end.i
 
 if.end.i:                                         ; preds = %ackm_is_missing.exit
@@ -2219,7 +2219,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %add.i.i = add nuw i64 %cond.i.i, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %r.i.i.i)
   %14 = load i64, ptr %watermark.i, align 8
-  %cmp.not.i.not.i.i = icmp ugt i64 %14, %cond.i.i
+  %cmp.not.i.not.i.i = icmp ult i64 %cond.i.i, %14
   br i1 %cmp.not.i.not.i.i, label %rx_pkt_history_bump_watermark.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -2425,7 +2425,7 @@ entry:
   %arrayidx.i = getelementptr inbounds [3 x %struct.rx_pkt_history_st], ptr %rx_history.i, i64 0, i64 %idxprom.i
   %watermark = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %0 = load i64, ptr %watermark, align 8
-  %cmp.not = icmp ugt i64 %0, %pn
+  %cmp.not = icmp ult i64 %pn, %0
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry

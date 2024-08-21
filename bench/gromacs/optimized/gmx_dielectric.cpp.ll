@@ -1449,8 +1449,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit123.i:     ; preds = %486, %483
   %522 = call float @llvm.fmuladd.f32(float %514, float %511, float %521)
   %523 = fdiv float 1.000000e+00, %518
   %524 = fmul float %520, %523
-  %525 = fneg float %522
-  %526 = fmul float %523, %525
+  %525 = fneg float %523
+  %526 = fmul float %522, %525
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %527 = trunc nuw nsw i64 %indvars.iv.next145.i to i32
   %528 = uitofp nneg i32 %527 to double
@@ -1822,7 +1822,7 @@ define internal fastcc noundef i32 @_ZL11calc_nbeginiPff(i32 noundef %0, ptr noc
 
 .critedge:                                        ; preds = %.lr.ph
   %10 = trunc nuw nsw i64 %indvars.iv to i32
-  %11 = icmp eq i32 %10, %0
+  %11 = icmp eq i32 %0, %10
   %12 = icmp eq i64 %indvars.iv, 0
   %or.cond = or i1 %11, %12
   br i1 %or.cond, label %.critedge.thread, label %24

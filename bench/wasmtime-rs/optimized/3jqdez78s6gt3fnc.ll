@@ -622,7 +622,7 @@ define hidden void @_ZN14cranelift_wasm7environ4spec15FuncEnvironment13update_gl
 define hidden noundef zeroext i1 @_ZN14cranelift_wasm7environ4spec15FuncEnvironment14is_wasm_return17h2c897d7e4823c978E(ptr noalias nocapture noundef readonly align 8 dereferenceable(520) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %2
+  %6 = icmp ult i64 %2, %5
   br i1 %6, label %7, label %13, !prof !5
 
 7:                                                ; preds = %3
@@ -793,7 +793,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !28, !noalias !31, !noundef !4
-  %.not = icmp ugt i64 %11, %1
+  %.not = icmp ult i64 %1, %11
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit.thread", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit.thread": ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ab8591e8fdee786E.llvm.7808069312437652055.exit"
@@ -811,7 +811,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cr
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !36
   %.pre = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.5)
-  %13 = icmp ugt i64 %.pre, %1
+  %13 = icmp ult i64 %1, %.pre
   br i1 %13, label %14, label %18, !prof !37
 
 14:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit.thread", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit"
@@ -852,7 +852,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !44, !noalias !47, !noundef !4
-  %12 = icmp ult i64 %11, %5
+  %12 = icmp ugt i64 %5, %11
   br i1 %12, label %13, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h64c79df9db8c05ccE.llvm.12599983639457799574.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h64c79df9db8c05ccE.llvm.12599983639457799574.exit.i": ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ab8591e8fdee786E.llvm.7808069312437652055.exit"
@@ -873,7 +873,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_e
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h64c79df9db8c05ccE.llvm.12599983639457799574.exit.i", %13
   %15 = phi i64 [ %5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h64c79df9db8c05ccE.llvm.12599983639457799574.exit.i" ], [ %.pre, %13 ]
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.5)
-  %16 = icmp ugt i64 %15, %1
+  %16 = icmp ult i64 %1, %15
   br i1 %16, label %17, label %21, !prof !5
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit"
@@ -903,7 +903,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !59, !noalias !62, !noundef !4
-  %.not = icmp ugt i64 %11, %1
+  %.not = icmp ult i64 %1, %11
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfe7adbc80b1d2226E.exit.thread", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfe7adbc80b1d2226E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfe7adbc80b1d2226E.exit.thread": ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf737a7591577cb4E.exit"
@@ -927,7 +927,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cr
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h11eebfa90ed98c68E.llvm.12599983639457799574"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %13, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %2), !noalias !62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !67
   %.pre = load i64, ptr %10, align 8
-  %14 = icmp ugt i64 %.pre, %1
+  %14 = icmp ult i64 %1, %.pre
   br i1 %14, label %15, label %19, !prof !37
 
 15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfe7adbc80b1d2226E.exit.thread", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfe7adbc80b1d2226E.exit"
@@ -1261,7 +1261,7 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_m
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %42 = icmp eq i64 %.sroa.01.012.i.i.i.i.i.i, %36
+  %42 = icmp eq i64 %36, %.sroa.01.012.i.i.i.i.i.i
   br i1 %42, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0f248e231828b68dE.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i.i.i.i: ; preds = %"_ZN100_$LT$cranelift_entity..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf186f35f6132dae6E.exit.i.i.i.i.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.i.i.i.i.i, %35
@@ -1323,7 +1323,7 @@ define hidden void @"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$3new17h6
   br i1 %exitcond.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %20 = icmp eq i64 %.sroa.01.012.i.i.i, %14
+  %20 = icmp eq i64 %14, %.sroa.01.012.i.i.i
   br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf34a47145633e6e7E.llvm.7808069312437652055.exit.sink.split"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i: ; preds = %"_ZN100_$LT$cranelift_entity..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf186f35f6132dae6E.exit.i.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.i.i, %13
@@ -1923,7 +1923,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.78080
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -4465,7 +4465,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
 193:                                              ; preds = %189
   %194 = getelementptr inbounds i8, ptr %0, i64 64
   %195 = load i32, ptr %194, align 8, !alias.scope !469, !noundef !4
-  %196 = icmp ugt i32 %195, %1
+  %196 = icmp ult i32 %1, %195
   br i1 %196, label %197, label %.invoke215
 
 197:                                              ; preds = %193
@@ -4475,7 +4475,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
   %201 = load i8, ptr %200, align 4, !noundef !4
   %202 = shl i8 %201, 1
   %203 = zext i8 %202 to i32
-  %204 = mul i32 %203, %1
+  %204 = mul i32 %1, %203
   %205 = zext i8 %201 to i32
   %206 = add i32 %199, %205
   %207 = add i32 %206, %204
@@ -5183,7 +5183,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit16
 
 499:                                              ; preds = %495
   %500 = load i32, ptr %194, align 8, !alias.scope !569, !noundef !4
-  %501 = icmp ugt i32 %500, %1
+  %501 = icmp ult i32 %1, %500
   br i1 %501, label %502, label %.invoke215
 
 502:                                              ; preds = %499
@@ -5191,7 +5191,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit16
   %504 = load i8, ptr %200, align 4, !alias.scope !572, !noundef !4
   %505 = shl i8 %504, 1
   %506 = zext i8 %505 to i32
-  %507 = mul i32 %506, %1
+  %507 = mul i32 %1, %506
   %508 = add i32 %507, %503
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   %switch.i.not.not = icmp sgt i32 %508, -1
@@ -7996,7 +7996,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18
   %33 = getelementptr inbounds i8, ptr %0, i64 140
   %34 = load i8, ptr %33, align 4, !noundef !4
   %35 = zext i8 %34 to i32
-  %36 = mul i32 %35, %2
+  %36 = mul i32 %2, %35
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.split6, label %.split8
 
@@ -11244,7 +11244,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18
   %22 = load ptr, ptr %21, align 8, !alias.scope !1259, !nonnull !4, !align !11, !noundef !4
   %23 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !1259
   %24 = icmp eq i16 %23, 121
-  %25 = xor i1 %24, %2
+  %25 = xor i1 %2, %24
   br i1 %25, label %26, label %_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler15cast_to_pointer17h62f75512454b9269E.exit
 
 26:                                               ; preds = %15
@@ -11318,7 +11318,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !11, !noundef !4
   %10 = tail call noundef i16 @"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE"(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %11 = icmp eq i16 %10, 121
-  %12 = xor i1 %11, %2
+  %12 = xor i1 %2, %11
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %3
@@ -11395,7 +11395,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18
   %14 = tail call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags7trusted17h2b2827b34ed60931E()
   %15 = getelementptr inbounds i8, ptr %0, i64 68
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %17 = icmp ugt i32 %16, %2
+  %17 = icmp ult i32 %2, %16
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %3
@@ -11408,7 +11408,7 @@ define internal fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18
   %22 = getelementptr inbounds i8, ptr %0, i64 140
   %23 = load i8, ptr %22, align 4, !noundef !4
   %24 = zext i8 %23 to i32
-  %25 = mul i32 %24, %2
+  %25 = mul i32 %2, %24
   %26 = add i32 %25, %21
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.split, label %.split2
@@ -11981,7 +11981,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1361)
   %35 = getelementptr inbounds i8, ptr %0, i64 388
   %36 = load i32, ptr %35, align 4, !alias.scope !1361, !noundef !4
-  %37 = icmp ugt i32 %36, %2
+  %37 = icmp ult i32 %2, %36
   br i1 %37, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$26vmctx_vmglobal_import_from17ha8cc028fa99bbdacE.exit", label %38
 
 38:                                               ; preds = %34
@@ -11994,7 +11994,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %41 = getelementptr inbounds i8, ptr %0, i64 492
   %42 = load i8, ptr %41, align 4, !alias.scope !1364, !noundef !4
   %43 = zext i8 %42 to i32
-  %44 = mul i32 %43, %2
+  %44 = mul i32 %2, %43
   %45 = add i32 %44, %40
   %46 = tail call noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -13483,7 +13483,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
 45:                                               ; preds = %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE.llvm.7808069312437652055.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 392
   %47 = load i32, ptr %46, align 8, !noundef !4
-  %48 = icmp ugt i32 %47, %43
+  %48 = icmp ult i32 %43, %47
   br i1 %48, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$24vmctx_vmtable_definition17h5b434e61b0fbc30bE.exit", label %49
 
 49:                                               ; preds = %45
@@ -13506,7 +13506,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1760)
   %60 = getelementptr inbounds i8, ptr %0, i64 380
   %61 = load i32, ptr %60, align 4, !alias.scope !1760, !noundef !4
-  %62 = icmp ugt i32 %61, %2
+  %62 = icmp ult i32 %2, %61
   br i1 %62, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$20vmctx_vmtable_import17hb9a728f9552d3be1E.exit", label %63
 
 63:                                               ; preds = %59
@@ -13520,7 +13520,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %67 = load i8, ptr %66, align 4, !alias.scope !1763, !noundef !4
   %68 = shl i8 %67, 1
   %69 = zext i8 %68 to i32
-  %70 = mul i32 %69, %2
+  %70 = mul i32 %2, %69
   %71 = add i32 %70, %65
   %72 = tail call noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
@@ -14440,7 +14440,7 @@ define hidden void @_ZN18wasmtime_cranelift12func_environ4Call11direct_call17h03
   store i64 %73, ptr %26, align 8, !alias.scope !1928
   %74 = load i64, ptr %20, align 8, !alias.scope !1931, !noalias !1938, !noundef !4
   %75 = sub i64 %74, %73
-  %76 = icmp ult i64 %75, %5
+  %76 = icmp ugt i64 %5, %75
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %68
@@ -14663,7 +14663,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder12global_value17hc76c916b36ee31c2E
 165:                                              ; preds = %163
   %166 = getelementptr inbounds i8, ptr %40, i64 376
   %167 = load i32, ptr %166, align 8, !alias.scope !1982, !noundef !4
-  %168 = icmp ugt i32 %167, %2
+  %168 = icmp ult i32 %2, %167
   br i1 %168, label %169, label %.invoke
 
 169:                                              ; preds = %165
@@ -14673,7 +14673,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder12global_value17hc76c916b36ee31c2E
   %173 = load i8, ptr %172, align 4, !alias.scope !1985, !noundef !4
   %174 = shl i8 %173, 2
   %175 = zext i8 %174 to i32
-  %176 = mul i32 %175, %2
+  %176 = mul i32 %2, %175
   %177 = add i32 %176, %171
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7)
   %switch.i15.not.not = icmp sgt i32 %177, -1
@@ -14721,7 +14721,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder12global_value17hc76c916b36ee31c2E
 
 _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit: ; preds = %.noexc41
   %193 = load i32, ptr %166, align 8, !alias.scope !1994, !noundef !4
-  %194 = icmp ugt i32 %193, %2
+  %194 = icmp ult i32 %2, %193
   br i1 %194, label %195, label %.invoke
 
 .invoke:                                          ; preds = %_ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit, %165
@@ -14736,7 +14736,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit: ; 
   %197 = load i8, ptr %172, align 4, !noundef !4
   %198 = shl i8 %197, 2
   %199 = zext i8 %198 to i32
-  %200 = mul i32 %199, %2
+  %200 = mul i32 %2, %199
   %201 = mul i8 %197, 3
   %202 = zext i8 %201 to i32
   %203 = add i32 %196, %202
@@ -14821,7 +14821,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit48: 
   store i64 %237, ptr %26, align 8, !alias.scope !2006
   %238 = load i64, ptr %20, align 8, !alias.scope !2009, !noalias !2016, !noundef !4
   %239 = sub i64 %238, %237
-  %240 = icmp ult i64 %239, %5
+  %240 = icmp ugt i64 %5, %239
   br i1 %240, label %241, label %242
 
 241:                                              ; preds = %232
@@ -15502,7 +15502,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h18a3462ddc9e77afE.exit: ; 
   store i64 %92, ptr %45, align 8, !alias.scope !2124
   %93 = load i64, ptr %12, align 8, !alias.scope !2127, !noalias !2134, !noundef !4
   %94 = sub i64 %93, %92
-  %95 = icmp ult i64 %94, %7
+  %95 = icmp ugt i64 %7, %94
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %87
@@ -16880,7 +16880,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2429)
   %63 = getelementptr inbounds i8, ptr %1, i64 384
   %64 = load i32, ptr %63, align 8, !alias.scope !2429, !noundef !4
-  %65 = icmp ugt i32 %64, %3
+  %65 = icmp ult i32 %3, %64
   br i1 %65, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$21vmctx_vmmemory_import17h9facc28f60ce8332E.exit", label %66
 
 66:                                               ; preds = %62
@@ -16894,7 +16894,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %70 = load i8, ptr %69, align 4, !alias.scope !2432, !noundef !4
   %71 = mul i8 %70, 3
   %72 = zext i8 %71 to i32
-  %73 = mul i32 %72, %3
+  %73 = mul i32 %3, %72
   %74 = add i32 %73, %68
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16)
   %75 = load i32, ptr %49, align 8, !range !455, !noundef !4
@@ -16915,7 +16915,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %86 = tail call fastcc noundef i32 @_ZN16wasmtime_environ6module6Module18owned_memory_index17hd5ca4f71e9f99b77E(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %56, i32 noundef %60)
   %87 = getelementptr inbounds i8, ptr %1, i64 400
   %88 = load i32, ptr %87, align 8, !noundef !4
-  %89 = icmp ugt i32 %88, %86
+  %89 = icmp ult i32 %86, %88
   br i1 %89, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$40vmctx_vmmemory_definition_current_length17h9f5a0fef2e34aac5E.exit", label %90
 
 90:                                               ; preds = %85
@@ -18354,7 +18354,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   call void @llvm.experimental.noalias.scope.decl(metadata !2643)
   %68 = getelementptr inbounds i8, ptr %1, i64 384
   %69 = load i32, ptr %68, align 8, !alias.scope !2643, !noundef !4
-  %70 = icmp ugt i32 %69, %3
+  %70 = icmp ult i32 %3, %69
   br i1 %70, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$21vmctx_vmmemory_import17h9facc28f60ce8332E.exit", label %71
 
 71:                                               ; preds = %67
@@ -18368,7 +18368,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   %75 = load i8, ptr %74, align 4, !alias.scope !2646, !noundef !4
   %76 = mul i8 %75, 3
   %77 = zext i8 %76 to i32
-  %78 = mul i32 %77, %3
+  %78 = mul i32 %3, %77
   %79 = add i32 %78, %73
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %.split, label %.split9
@@ -18480,7 +18480,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   call void @llvm.experimental.noalias.scope.decl(metadata !2682)
   %134 = getelementptr inbounds i8, ptr %1, i64 400
   %135 = load i32, ptr %134, align 8, !alias.scope !2682, !noundef !4
-  %136 = icmp ugt i32 %135, %133
+  %136 = icmp ult i32 %133, %135
   br i1 %136, label %"_ZN16wasmtime_environ9vmoffsets18VMOffsets$LT$P$GT$40vmctx_vmmemory_definition_current_length17h9f5a0fef2e34aac5E.exit", label %137
 
 137:                                              ; preds = %132

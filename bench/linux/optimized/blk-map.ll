@@ -1355,7 +1355,7 @@ define dso_local i32 @blk_rq_map_user_io(ptr noundef %0, ptr noundef %1, ptr nou
 28:                                               ; preds = %27, %23
   %29 = phi i64 [ %3, %27 ], [ %25, %23 ]
   %30 = icmp eq i64 %29, 0
-  %31 = and i1 %30, %7
+  %31 = and i1 %7, %30
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %28, %22

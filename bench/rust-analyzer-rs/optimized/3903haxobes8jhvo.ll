@@ -190,7 +190,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 define hidden noundef range(i16 0, 273) i16 @_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !26
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
@@ -209,7 +209,7 @@ define hidden noundef range(i16 0, 273) i16 @_ZN6parser5input5Input4kind17h4ea4d
 define hidden noundef range(i16 0, 273) i16 @_ZN6parser5input5Input15contextual_kind17hed87eec67e168dd5E(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !noundef !26
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
@@ -319,7 +319,7 @@ default.unreachable9:                             ; preds = %3
   %24 = phi i64 [ %14, %.lr.ph.i ], [ %39, %32 ]
   %25 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %33, %32 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %26 = icmp ugt i64 %24, %25
+  %26 = icmp ult i64 %25, %24
   br i1 %26, label %_ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i, label %27, !prof !45
 
 27:                                               ; preds = %23
@@ -445,7 +445,7 @@ default.unreachable7:                             ; preds = %2
   %22 = phi i64 [ %12, %.lr.ph.i ], [ %37, %30 ]
   %23 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %31, %30 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %24 = icmp ugt i64 %22, %23
+  %24 = icmp ult i64 %23, %22
   br i1 %24, label %_ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i, label %25, !prof !45
 
 25:                                               ; preds = %21
@@ -554,7 +554,7 @@ default.unreachable12:                            ; preds = %2
   %27 = phi i64 [ %18, %.lr.ph.i.i.i ], [ %28, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6a1f025f4c7cbd50E.exit.i.i.i" ]
   %28 = add nuw i64 %27, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %29 = icmp ugt i64 %22, %27
+  %29 = icmp ult i64 %27, %22
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %26
@@ -562,7 +562,7 @@ default.unreachable12:                            ; preds = %2
   unreachable
 
 31:                                               ; preds = %26
-  %32 = icmp ugt i64 %21, %27
+  %32 = icmp ult i64 %27, %21
   br i1 %32, label %"_ZN6parser9shortcuts7Builder5enter28_$u7b$$u7b$closure$u7d$$u7d$17hee2cccdcba164754E.exit.i.i.i.i", label %33, !prof !45
 
 33:                                               ; preds = %31
@@ -693,7 +693,7 @@ define hidden void @_ZN6parser9shortcuts7Builder11eat_trivias17hbd61413dc3adee8f
   %16 = phi i64 [ %6, %.lr.ph ], [ %31, %24 ]
   %17 = phi i64 [ %.promoted, %.lr.ph ], [ %25, %24 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %18 = icmp ugt i64 %16, %17
+  %18 = icmp ult i64 %17, %16
   br i1 %18, label %_ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit, label %19, !prof !45
 
 19:                                               ; preds = %15
@@ -767,7 +767,7 @@ define internal fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %16 = load i64, ptr %6, align 8, !alias.scope !92, !noundef !26
   %17 = add i64 %16, -1
-  %18 = icmp ugt i64 %17, %14
+  %18 = icmp ult i64 %14, %17
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %13
@@ -775,7 +775,7 @@ define internal fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412
   unreachable
 
 20:                                               ; preds = %13
-  %21 = icmp ugt i64 %16, %14
+  %21 = icmp ult i64 %14, %16
   br i1 %21, label %_ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit, label %22, !prof !45
 
 22:                                               ; preds = %20
@@ -888,7 +888,7 @@ define hidden void @_ZN6parser9shortcuts7Builder14do_float_split17hd6bf0c8a0b232
   br label %38
 
 30:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %26, %24
+  %.not.i.i.i = icmp eq i64 %24, %26
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30, %34

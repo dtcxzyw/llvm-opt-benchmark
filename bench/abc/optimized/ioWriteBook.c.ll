@@ -651,13 +651,13 @@ Abc_NtkIncrementTravId.exit.i.i.i.i:              ; preds = %Vec_IntFill.exit.i.
   %262 = add nsw i32 %.val122.i.i.i.i, 1
   %263 = getelementptr inbounds i8, ptr %.val121.i.i.i.i, i64 228
   %264 = load i32, ptr %263, align 4
-  %.not.i77.not.i.i.i = icmp sgt i32 %264, %.val122.i.i.i.i
+  %.not.i77.not.i.i.i = icmp slt i32 %.val122.i.i.i.i, %264
   br i1 %.not.i77.not.i.i.i, label %Vec_IntFillExtra.exit90.i.i.i, label %265
 
 265:                                              ; preds = %Abc_NtkIncrementTravId.exit.i.i.i.i
   %266 = load i32, ptr %261, align 8
   %267 = shl nsw i32 %266, 1
-  %.not91.i.i.i = icmp sgt i32 %267, %.val122.i.i.i.i
+  %.not91.i.i.i = icmp slt i32 %.val122.i.i.i.i, %267
   %.not.i.i78.not.i.i.i = icmp sgt i32 %266, %.val122.i.i.i.i
   br i1 %.not91.i.i.i, label %280, label %268
 
@@ -1002,13 +1002,13 @@ Vec_PtrRemove.exit.i.i.i.i:                       ; preds = %409, %406
   %417 = add nsw i32 %.val3.i.i.i.i.i, 1
   %418 = getelementptr inbounds i8, ptr %.val2.i.i.i.i.i, i64 228
   %419 = load i32, ptr %418, align 4
-  %.not.i63.not.i.i.i = icmp sgt i32 %419, %.val3.i.i.i.i.i
+  %.not.i63.not.i.i.i = icmp slt i32 %.val3.i.i.i.i.i, %419
   br i1 %.not.i63.not.i.i.i, label %Vec_IntFillExtra.exit76.i.i.i, label %420
 
 420:                                              ; preds = %Vec_PtrRemove.exit.i.i.i.i
   %421 = load i32, ptr %416, align 8
   %422 = shl nsw i32 %421, 1
-  %.not93.i.i.i = icmp sgt i32 %422, %.val3.i.i.i.i.i
+  %.not93.i.i.i = icmp slt i32 %.val3.i.i.i.i.i, %422
   %.not.i.i64.not.i.i.i = icmp sgt i32 %421, %.val3.i.i.i.i.i
   br i1 %.not93.i.i.i, label %435, label %423
 
@@ -1109,13 +1109,13 @@ Vec_IntFillExtra.exit76.i.i.i:                    ; preds = %._crit_edge.i66.i.i
   %461 = add nsw i32 %.val124.i.i.i.i, 1
   %462 = getelementptr inbounds i8, ptr %.val.i134.i.i.i.i, i64 228
   %463 = load i32, ptr %462, align 4
-  %.not.i58.not.i.i.i = icmp sgt i32 %463, %.val124.i.i.i.i
+  %.not.i58.not.i.i.i = icmp slt i32 %.val124.i.i.i.i, %463
   br i1 %.not.i58.not.i.i.i, label %Vec_IntFillExtra.exit.i.i.i, label %464
 
 464:                                              ; preds = %459
   %465 = load i32, ptr %460, align 8
   %466 = shl nsw i32 %465, 1
-  %.not95.i.i.i = icmp sgt i32 %466, %.val124.i.i.i.i
+  %.not95.i.i.i = icmp slt i32 %.val124.i.i.i.i, %466
   %.not.i.i59.not.i.i.i = icmp sgt i32 %465, %.val124.i.i.i.i
   br i1 %.not95.i.i.i, label %479, label %467
 
@@ -1302,13 +1302,13 @@ Vec_IntFillExtra.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
   %545 = add nsw i32 %.val3.i137.i.i.i.i, 1
   %546 = getelementptr inbounds i8, ptr %.val2.i136.i.i.i.i, i64 228
   %547 = load i32, ptr %546, align 4
-  %.not.i158.not.i.i.i.i = icmp sgt i32 %547, %.val3.i137.i.i.i.i
+  %.not.i158.not.i.i.i.i = icmp slt i32 %.val3.i137.i.i.i.i, %547
   br i1 %.not.i158.not.i.i.i.i, label %Vec_IntFillExtra.exit.i.i.i.i, label %548
 
 548:                                              ; preds = %535
   %549 = load i32, ptr %544, align 8
   %550 = shl nsw i32 %549, 1
-  %.not181.i.i.i.i = icmp sgt i32 %550, %.val3.i137.i.i.i.i
+  %.not181.i.i.i.i = icmp slt i32 %.val3.i137.i.i.i.i, %550
   %.not.i.i.not.i.i.i.i = icmp sgt i32 %549, %.val3.i137.i.i.i.i
   br i1 %.not181.i.i.i.i, label %563, label %551
 
@@ -1561,13 +1561,13 @@ Vec_PtrPush.exit146.i.i.i.i:                      ; preds = %609, %Vec_PtrGrow.e
   %656 = add nsw i32 %.val3.i148.i.i.i.i, 1
   %657 = getelementptr inbounds i8, ptr %.val2.i147.i.i.i.i, i64 228
   %658 = load i32, ptr %657, align 4
-  %.not.i162.not.i.i.i.i = icmp sgt i32 %658, %.val3.i148.i.i.i.i
+  %.not.i162.not.i.i.i.i = icmp slt i32 %.val3.i148.i.i.i.i, %658
   br i1 %.not.i162.not.i.i.i.i, label %Vec_IntFillExtra.exit175.i.i.i.i, label %659
 
 659:                                              ; preds = %640
   %660 = load i32, ptr %655, align 8
   %661 = shl nsw i32 %660, 1
-  %.not186.i.i.i.i = icmp sgt i32 %661, %.val3.i148.i.i.i.i
+  %.not186.i.i.i.i = icmp slt i32 %.val3.i148.i.i.i.i, %661
   %.not.i.i163.not.i.i.i.i = icmp sgt i32 %660, %.val3.i148.i.i.i.i
   br i1 %.not186.i.i.i.i, label %674, label %662
 
@@ -1769,7 +1769,7 @@ Io_NtkBfsPads.exit.i.i.i:                         ; preds = %.backedge.i.i.i.i, 
 
 743:                                              ; preds = %742
   %744 = load i32, ptr %214, align 4
-  %745 = icmp sgt i32 %744, %.2.i.i.i
+  %745 = icmp slt i32 %.2.i.i.i, %744
   br i1 %745, label %Extra_ProgressBarUpdate.exit.i.i.i, label %746
 
 746:                                              ; preds = %743, %742

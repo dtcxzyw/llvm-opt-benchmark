@@ -249,7 +249,7 @@ if.end38.i:                                       ; preds = %invoke.cont34.i
   %sub.ptr.lhs.cast.i.i7.i = ptrtoint ptr %sig.sroa.9.0.i to i64
   %sub.ptr.rhs.cast.i.i8.i = ptrtoint ptr %sig.sroa.0.2.i to i64
   %sub.ptr.sub.i.i9.i = sub i64 %sub.ptr.lhs.cast.i.i7.i, %sub.ptr.rhs.cast.i.i8.i
-  %cmp.i10.i = icmp ult i64 %sub.ptr.sub.i.i9.i, %7
+  %cmp.i10.i = icmp ugt i64 %7, %sub.ptr.sub.i.i9.i
   br i1 %cmp.i10.i, label %if.then.i17.i, label %invoke.cont39.i
 
 if.then.i17.i:                                    ; preds = %if.end38.i

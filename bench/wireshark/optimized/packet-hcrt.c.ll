@@ -278,7 +278,7 @@ default.unreachable:                              ; preds = %dissect_hcrt_header
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %.049, i32 noundef 4, i32 noundef 0) #2
   %66 = load i32, ptr @ett_hcrt_hdr, align 4
   %67 = tail call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66) #2
-  %.not.i.i = icmp eq i8 %37, %8
+  %.not.i.i = icmp eq i8 %8, %37
   br i1 %.not.i.i, label %70, label %68
 
 68:                                               ; preds = %60

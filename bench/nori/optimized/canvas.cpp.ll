@@ -124,7 +124,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   %42 = getelementptr inbounds i8, ptr %30, i64 346
   %43 = load i8, ptr %42, align 2
   %44 = trunc i8 %43 to i1
-  %brmerge.not = and i1 %44, %4
+  %brmerge.not = and i1 %4, %44
   %.not33 = and i8 %43, 1
   %.mux = xor i8 %.not33, 1
   br i1 %brmerge.not, label %46, label %.thread
@@ -150,7 +150,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   %54 = getelementptr inbounds i8, ptr %0, i64 172
   store i8 %53, ptr %54, align 4
   %.not35 = xor i1 %4, true
-  %brmerge36 = or i1 %.not35, %3
+  %brmerge36 = or i1 %3, %.not35
   br i1 %brmerge36, label %60, label %55
 
 55:                                               ; preds = %52

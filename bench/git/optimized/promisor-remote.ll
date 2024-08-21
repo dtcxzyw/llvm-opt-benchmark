@@ -304,7 +304,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i16 8, ptr %git_cmd.i, align 8
   store i32 -1, ptr %in.i, align 8
   %5 = load ptr, ptr @the_repository, align 8
-  %cmp.not.i = icmp eq ptr %5, %repo
+  %cmp.not.i = icmp eq ptr %repo, %5
   br i1 %cmp.not.i, label %if.end.i15, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body

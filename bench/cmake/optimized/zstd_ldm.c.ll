@@ -657,7 +657,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   %156 = getelementptr inbounds i8, ptr %146, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds %struct.ldmEntry_t, ptr %157, i64 %118
-  %159 = icmp ugt ptr %119, %147
+  %159 = icmp ult ptr %147, %119
   %160 = icmp ugt ptr %147, %.1289.i
   br i1 %.not.i, label %.lr.ph282.split.us.i, label %.lr.ph282.split.i
 
@@ -690,7 +690,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   %175 = icmp ult ptr %174, %44
   %..i.us.i = select i1 %175, ptr %174, ptr %104
   %176 = getelementptr inbounds i8, ptr %..i.us.i, i64 -7
-  %177 = icmp ugt ptr %176, %147
+  %177 = icmp ult ptr %147, %176
   br i1 %177, label %178, label %.loopexit.i.i.us.i
 
 178:                                              ; preds = %165
@@ -792,7 +792,7 @@ ZSTD_count.exit.i.us.i:                           ; preds = %209, %205, %179
 
 217:                                              ; preds = %ZSTD_count.exit.i.us.i
   %218 = getelementptr inbounds i8, ptr %147, i64 %.0.i.i.us.i
-  %219 = icmp ugt ptr %119, %218
+  %219 = icmp ult ptr %218, %119
   br i1 %219, label %220, label %.loopexit.i22.i.us.i
 
 220:                                              ; preds = %217
@@ -1559,7 +1559,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   br label %maybeSplitSequence.exit
 
 75:                                               ; preds = %65
-  %.not22.i = icmp ult i32 %.sroa.010.sroa.4.0.extract.trunc.i, %69
+  %.not22.i = icmp ugt i32 %69, %.sroa.010.sroa.4.0.extract.trunc.i
   %76 = sub i32 %69, %.sroa.010.sroa.4.0.extract.trunc.i
   %77 = icmp ult i32 %76, %9
   %spec.select.i = select i1 %77, i64 0, i64 %.sroa.010.0.copyload.i

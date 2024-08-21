@@ -229,7 +229,7 @@ define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr nocapture noundef nonnull al
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load i64, ptr %21, align 8
-  %23 = icmp ult i64 %22, %1
+  %23 = icmp ugt i64 %1, %22
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %20
@@ -640,7 +640,7 @@ _ZN6marisa6Keyset7reserveEm.exit.thread:          ; preds = %29
 38:                                               ; preds = %29
   %39 = getelementptr inbounds i8, ptr %0, i64 80
   %40 = load i64, ptr %39, align 8
-  %41 = icmp ult i64 %40, %2
+  %41 = icmp ugt i64 %2, %40
   br i1 %41, label %_ZN6marisa6Keyset7reserveEm.exit.thread24, label %_ZN6marisa6Keyset7reserveEm.exit
 
 _ZN6marisa6Keyset7reserveEm.exit.thread24:        ; preds = %38

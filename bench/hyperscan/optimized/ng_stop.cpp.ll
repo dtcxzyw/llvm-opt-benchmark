@@ -167,7 +167,7 @@ if.end.us:                                        ; preds = %invoke.cont7.us
   %sub.ptr.rhs.cast.i.i.i.i.us = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.i.us, %sub.ptr.rhs.cast.i.i.i.i.us
   %sub.ptr.div.i.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.us, 3
-  %cmp.not.i.i.i.us = icmp ugt i64 %sub.ptr.div.i.i.i.i.us, %conv2.i.us
+  %cmp.not.i.i.i.us = icmp ult i64 %conv2.i.us, %sub.ptr.div.i.i.i.i.us
   br i1 %cmp.not.i.i.i.us, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us, label %if.then.i.i.i.invoke
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us: ; preds = %if.end.us
@@ -177,7 +177,7 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us: ; preds = %if.end.us
   %sub.ptr.rhs.cast.i.i.i10.i.us = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i11.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i9.i.us, %sub.ptr.rhs.cast.i.i.i10.i.us
   %sub.ptr.div.i.i.i12.i.us = ashr exact i64 %sub.ptr.sub.i.i.i11.i.us, 3
-  %cmp.not.i.i13.i.us = icmp ugt i64 %sub.ptr.div.i.i.i12.i.us, %conv2.i.us
+  %cmp.not.i.i13.i.us = icmp ult i64 %conv2.i.us, %sub.ptr.div.i.i.i12.i.us
   br i1 %cmp.not.i.i13.i.us, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit16.i.us, label %if.then.i.i.i.invoke
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit16.i.us: ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us
@@ -258,7 +258,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 if.end:                                           ; preds = %invoke.cont7
   %conv2.i = and i64 %19, 4294967295
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %conv2.i
+  %cmp.not.i.i.i = icmp ult i64 %conv2.i, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i, label %if.then.i.i.i.invoke
 
 if.then.i.i.i.invoke:                             ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i, %if.end, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us, %if.end.us
@@ -271,7 +271,7 @@ if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invok
   unreachable
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i: ; preds = %if.end
-  %cmp.not.i.i13.i = icmp ugt i64 %sub.ptr.div.i.i.i12.i, %conv2.i
+  %cmp.not.i.i13.i = icmp ult i64 %conv2.i, %sub.ptr.div.i.i.i12.i
   br i1 %cmp.not.i.i13.i, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit16.i, label %if.then.i.i.i.invoke
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit16.i: ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i
@@ -546,7 +546,7 @@ if.end19:                                         ; preds = %invoke.cont17, %inv
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %conv2.i
+  %cmp.not.i.i.i = icmp ult i64 %conv2.i, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i, label %if.then.i.i.i.invoke
 
 if.then.i.i.i.invoke:                             ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i, %if.end19
@@ -565,7 +565,7 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i: ; preds = %if.end19
   %sub.ptr.rhs.cast.i.i.i10.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i11.i = sub i64 %sub.ptr.lhs.cast.i.i.i9.i, %sub.ptr.rhs.cast.i.i.i10.i
   %sub.ptr.div.i.i.i12.i = ashr exact i64 %sub.ptr.sub.i.i.i11.i, 3
-  %cmp.not.i.i13.i = icmp ugt i64 %sub.ptr.div.i.i.i12.i, %conv2.i
+  %cmp.not.i.i13.i = icmp ult i64 %conv2.i, %sub.ptr.div.i.i.i12.i
   br i1 %cmp.not.i.i13.i, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit16.i, label %if.then.i.i.i.invoke
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit16.i: ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i

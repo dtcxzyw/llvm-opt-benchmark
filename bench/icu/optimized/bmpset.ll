@@ -251,7 +251,7 @@ entry:
   %idxprom = sext i32 %lo to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp sgt i32 %1, %c
+  %cmp = icmp slt i32 %c, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -263,7 +263,7 @@ lor.lhs.false:                                    ; preds = %if.end
   %3 = getelementptr i32, ptr %0, i64 %2
   %arrayidx5 = getelementptr i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx5, align 4
-  %cmp6.not = icmp sgt i32 %4, %c
+  %cmp6.not = icmp slt i32 %c, %4
   br i1 %cmp6.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
@@ -279,7 +279,7 @@ if.else:                                          ; preds = %for.cond.preheader,
   %idxprom12 = sext i32 %shr19 to i64
   %arrayidx13 = getelementptr inbounds i32, ptr %0, i64 %idxprom12
   %5 = load i32, ptr %arrayidx13, align 4
-  %cmp14 = icmp sgt i32 %5, %c
+  %cmp14 = icmp slt i32 %c, %5
   %lo.addr.0.shr = select i1 %cmp14, i32 %lo.addr.017, i32 %shr19
   %shr.hi.addr.0 = select i1 %cmp14, i32 %shr19, i32 %hi.addr.018
   %add = add nsw i32 %shr.hi.addr.0, %lo.addr.0.shr
@@ -300,7 +300,7 @@ entry:
   %idxprom.i = sext i32 %lo to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i = icmp sgt i32 %1, %c
+  %cmp.i = icmp slt i32 %c, %1
   br i1 %cmp.i, label %_ZNK6icu_756BMPSet13findCodePointEiii.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -312,7 +312,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   %3 = getelementptr i32, ptr %0, i64 %2
   %arrayidx5.i = getelementptr i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx5.i, align 4
-  %cmp6.not.i = icmp sgt i32 %4, %c
+  %cmp6.not.i = icmp slt i32 %c, %4
   br i1 %cmp6.not.i, label %for.cond.preheader.i, label %_ZNK6icu_756BMPSet13findCodePointEiii.exit
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
@@ -328,7 +328,7 @@ if.else.i:                                        ; preds = %for.cond.preheader.
   %idxprom12.i = sext i32 %shr19.i to i64
   %arrayidx13.i = getelementptr inbounds i32, ptr %0, i64 %idxprom12.i
   %5 = load i32, ptr %arrayidx13.i, align 4
-  %cmp14.i = icmp sgt i32 %5, %c
+  %cmp14.i = icmp slt i32 %c, %5
   %lo.addr.0.shr.i = select i1 %cmp14.i, i32 %lo.addr.017.i, i32 %shr19.i
   %shr.hi.addr.0.i = select i1 %cmp14.i, i32 %shr19.i, i32 %hi.addr.018.i
   %add.i = add nsw i32 %shr.hi.addr.0.i, %lo.addr.0.shr.i
@@ -967,7 +967,7 @@ if.else23:                                        ; preds = %if.then12
   %idxprom.i.i = sext i32 %4 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i
   %7 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i.i = icmp sgt i32 %7, %c
+  %cmp.i.i = icmp slt i32 %c, %7
   br i1 %cmp.i.i, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else23
@@ -979,7 +979,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %9 = getelementptr i32, ptr %6, i64 %8
   %arrayidx5.i.i = getelementptr i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx5.i.i, align 4
-  %cmp6.not.i.i = icmp sgt i32 %10, %c
+  %cmp6.not.i.i = icmp slt i32 %c, %10
   br i1 %cmp6.not.i.i, label %for.cond.preheader.i.i, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
@@ -995,7 +995,7 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
   %idxprom12.i.i = sext i32 %shr19.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom12.i.i
   %11 = load i32, ptr %arrayidx13.i.i, align 4
-  %cmp14.i.i = icmp sgt i32 %11, %c
+  %cmp14.i.i = icmp slt i32 %c, %11
   %lo.addr.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.addr.017.i.i, i32 %shr19.i.i
   %shr.hi.addr.0.i.i = select i1 %cmp14.i.i, i32 %shr19.i.i, i32 %hi.addr.018.i.i
   %add.i.i = add nsw i32 %shr.hi.addr.0.i.i, %lo.addr.0.shr.i.i
@@ -1023,7 +1023,7 @@ if.then31:                                        ; preds = %if.else29
   %idxprom.i.i18 = sext i32 %13 to i64
   %arrayidx.i.i19 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i.i18
   %16 = load i32, ptr %arrayidx.i.i19, align 4
-  %cmp.i.i20 = icmp sgt i32 %16, %c
+  %cmp.i.i20 = icmp slt i32 %c, %16
   br i1 %cmp.i.i20, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit44, label %if.end.i.i21
 
 if.end.i.i21:                                     ; preds = %if.then31
@@ -1035,7 +1035,7 @@ lor.lhs.false.i.i25:                              ; preds = %if.end.i.i21
   %18 = getelementptr i32, ptr %15, i64 %17
   %arrayidx5.i.i26 = getelementptr i8, ptr %18, i64 -4
   %19 = load i32, ptr %arrayidx5.i.i26, align 4
-  %cmp6.not.i.i27 = icmp sgt i32 %19, %c
+  %cmp6.not.i.i27 = icmp slt i32 %c, %19
   br i1 %cmp6.not.i.i27, label %for.cond.preheader.i.i28, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit44
 
 for.cond.preheader.i.i28:                         ; preds = %lor.lhs.false.i.i25
@@ -1051,7 +1051,7 @@ if.else.i.i32:                                    ; preds = %for.cond.preheader.
   %idxprom12.i.i36 = sext i32 %shr19.i.i33 to i64
   %arrayidx13.i.i37 = getelementptr inbounds i32, ptr %15, i64 %idxprom12.i.i36
   %20 = load i32, ptr %arrayidx13.i.i37, align 4
-  %cmp14.i.i38 = icmp sgt i32 %20, %c
+  %cmp14.i.i38 = icmp slt i32 %c, %20
   %lo.addr.0.shr.i.i39 = select i1 %cmp14.i.i38, i32 %lo.addr.017.i.i35, i32 %shr19.i.i33
   %shr.hi.addr.0.i.i40 = select i1 %cmp14.i.i38, i32 %shr19.i.i33, i32 %hi.addr.018.i.i34
   %add.i.i41 = add nsw i32 %shr.hi.addr.0.i.i40, %lo.addr.0.shr.i.i39
@@ -1266,14 +1266,14 @@ if.else69:                                        ; preds = %lor.lhs.false52
   %add73 = add nsw i32 %shl71, -56613888
   %sub = add nuw nsw i32 %add73, %conv54
   %25 = load i32, ptr %arrayidx.i.i165, align 4
-  %cmp.i.i82 = icmp sgt i32 %25, %sub
+  %cmp.i.i82 = icmp slt i32 %sub, %25
   %brmerge202 = select i1 %cmp.i.i82, i1 true, i1 %cmp2.not.i.i168
   %.mux203 = select i1 %cmp.i.i82, i32 %0, i32 %1
   br i1 %brmerge202, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit106, label %lor.lhs.false.i.i87
 
 lor.lhs.false.i.i87:                              ; preds = %if.else69
   %26 = load i32, ptr %arrayidx5.i.i172, align 4
-  %cmp6.not.i.i89 = icmp sle i32 %26, %sub
+  %cmp6.not.i.i89 = icmp sge i32 %sub, %26
   %brmerge204 = select i1 %cmp6.not.i.i89, i1 true, i1 %cmp916.i.i177
   br i1 %brmerge204, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit106, label %if.else.i.i94
 
@@ -1284,7 +1284,7 @@ if.else.i.i94:                                    ; preds = %lor.lhs.false.i.i87
   %idxprom12.i.i98 = sext i32 %shr19.i.i95 to i64
   %arrayidx13.i.i99 = getelementptr inbounds i32, ptr %2, i64 %idxprom12.i.i98
   %27 = load i32, ptr %arrayidx13.i.i99, align 4
-  %cmp14.i.i100 = icmp sgt i32 %27, %sub
+  %cmp14.i.i100 = icmp slt i32 %sub, %27
   %lo.addr.0.shr.i.i101 = select i1 %cmp14.i.i100, i32 %lo.addr.017.i.i97, i32 %shr19.i.i95
   %shr.hi.addr.0.i.i102 = select i1 %cmp14.i.i100, i32 %shr19.i.i95, i32 %hi.addr.018.i.i96
   %add.i.i103 = add nsw i32 %shr.hi.addr.0.i.i102, %lo.addr.0.shr.i.i101
@@ -1461,14 +1461,14 @@ if.else176:                                       ; preds = %lor.lhs.false159
   %add180 = add nsw i32 %shl178, -56613888
   %sub181 = add nuw nsw i32 %add180, %conv161
   %44 = load i32, ptr %arrayidx.i.i165, align 4
-  %cmp.i.i166 = icmp sgt i32 %44, %sub181
+  %cmp.i.i166 = icmp slt i32 %sub181, %44
   %brmerge208 = select i1 %cmp.i.i166, i1 true, i1 %cmp2.not.i.i168
   %.mux209 = select i1 %cmp.i.i166, i32 %0, i32 %1
   br i1 %brmerge208, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit190, label %lor.lhs.false.i.i171
 
 lor.lhs.false.i.i171:                             ; preds = %if.else176
   %45 = load i32, ptr %arrayidx5.i.i172, align 4
-  %cmp6.not.i.i173 = icmp sle i32 %45, %sub181
+  %cmp6.not.i.i173 = icmp sge i32 %sub181, %45
   %brmerge210 = select i1 %cmp6.not.i.i173, i1 true, i1 %cmp916.i.i177
   br i1 %brmerge210, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit190, label %if.else.i.i178
 
@@ -1479,7 +1479,7 @@ if.else.i.i178:                                   ; preds = %lor.lhs.false.i.i17
   %idxprom12.i.i182 = sext i32 %shr19.i.i179 to i64
   %arrayidx13.i.i183 = getelementptr inbounds i32, ptr %2, i64 %idxprom12.i.i182
   %46 = load i32, ptr %arrayidx13.i.i183, align 4
-  %cmp14.i.i184 = icmp sgt i32 %46, %sub181
+  %cmp14.i.i184 = icmp slt i32 %sub181, %46
   %lo.addr.0.shr.i.i185 = select i1 %cmp14.i.i184, i32 %lo.addr.017.i.i181, i32 %shr19.i.i179
   %shr.hi.addr.0.i.i186 = select i1 %cmp14.i.i184, i32 %shr19.i.i179, i32 %hi.addr.018.i.i180
   %add.i.i187 = add nsw i32 %shr.hi.addr.0.i.i186, %lo.addr.0.shr.i.i185
@@ -1648,7 +1648,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit:        ; preds = %if.else.i.i, %if.el
 
 if.else47:                                        ; preds = %if.else16
   %cmp49 = icmp ult i16 %9, -9216
-  %cmp51 = icmp eq ptr %incdec.ptr, %s
+  %cmp51 = icmp eq ptr %s, %incdec.ptr
   %or.cond53 = or i1 %cmp49, %cmp51
   br i1 %or.cond53, label %if.then58, label %lor.lhs.false52
 
@@ -1699,14 +1699,14 @@ if.else68:                                        ; preds = %lor.lhs.false52
   %add72 = add nuw nsw i32 %conv, -56613888
   %sub = add nsw i32 %add72, %shl70
   %25 = load i32, ptr %arrayidx.i.i169, align 4
-  %cmp.i.i86 = icmp sgt i32 %25, %sub
+  %cmp.i.i86 = icmp slt i32 %sub, %25
   %brmerge208 = select i1 %cmp.i.i86, i1 true, i1 %cmp2.not.i.i172
   %.mux209 = select i1 %cmp.i.i86, i32 %0, i32 %1
   br i1 %brmerge208, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit110, label %lor.lhs.false.i.i91
 
 lor.lhs.false.i.i91:                              ; preds = %if.else68
   %26 = load i32, ptr %arrayidx5.i.i176, align 4
-  %cmp6.not.i.i93 = icmp sle i32 %26, %sub
+  %cmp6.not.i.i93 = icmp sge i32 %sub, %26
   %brmerge210 = select i1 %cmp6.not.i.i93, i1 true, i1 %cmp916.i.i181
   br i1 %brmerge210, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit110, label %if.else.i.i98
 
@@ -1717,7 +1717,7 @@ if.else.i.i98:                                    ; preds = %lor.lhs.false.i.i91
   %idxprom12.i.i102 = sext i32 %shr19.i.i99 to i64
   %arrayidx13.i.i103 = getelementptr inbounds i32, ptr %2, i64 %idxprom12.i.i102
   %27 = load i32, ptr %arrayidx13.i.i103, align 4
-  %cmp14.i.i104 = icmp sgt i32 %27, %sub
+  %cmp14.i.i104 = icmp slt i32 %sub, %27
   %lo.addr.0.shr.i.i105 = select i1 %cmp14.i.i104, i32 %lo.addr.017.i.i101, i32 %shr19.i.i99
   %shr.hi.addr.0.i.i106 = select i1 %cmp14.i.i104, i32 %shr19.i.i99, i32 %hi.addr.018.i.i100
   %add.i.i107 = add nsw i32 %shr.hi.addr.0.i.i106, %lo.addr.0.shr.i.i105
@@ -1733,7 +1733,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit110:     ; preds = %if.else.i.i98, %lor
 
 if.end85:                                         ; preds = %_ZNK6icu_756BMPSet12containsSlowEiii.exit110, %if.then7, %_ZNK6icu_756BMPSet12containsSlowEiii.exit82, %if.then32, %_ZNK6icu_756BMPSet12containsSlowEiii.exit, %if.then2
   %limit.addr.1 = phi ptr [ %incdec.ptr, %if.then2 ], [ %incdec.ptr, %if.then7 ], [ %incdec.ptr, %if.then32 ], [ %incdec.ptr, %_ZNK6icu_756BMPSet12containsSlowEiii.exit ], [ %incdec.ptr, %_ZNK6icu_756BMPSet12containsSlowEiii.exit82 ], [ %add.ptr, %_ZNK6icu_756BMPSet12containsSlowEiii.exit110 ]
-  %cmp86 = icmp eq ptr %limit.addr.1, %s
+  %cmp86 = icmp eq ptr %s, %limit.addr.1
   br i1 %cmp86, label %return, label %for.cond, !llvm.loop !21
 
 for.cond90:                                       ; preds = %entry, %if.end195
@@ -1841,7 +1841,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit138:     ; preds = %if.else.i.i126, %if
 
 if.else155:                                       ; preds = %if.else117
   %cmp157 = icmp ult i16 %28, -9216
-  %cmp159 = icmp eq ptr %incdec.ptr91, %s
+  %cmp159 = icmp eq ptr %s, %incdec.ptr91
   %or.cond54 = or i1 %cmp157, %cmp159
   br i1 %or.cond54, label %if.then167, label %lor.lhs.false160
 
@@ -1892,14 +1892,14 @@ if.else177:                                       ; preds = %lor.lhs.false160
   %add181 = add nuw nsw i32 %conv92, -56613888
   %sub182 = add nsw i32 %add181, %shl179
   %44 = load i32, ptr %arrayidx.i.i169, align 4
-  %cmp.i.i170 = icmp sgt i32 %44, %sub182
+  %cmp.i.i170 = icmp slt i32 %sub182, %44
   %brmerge214 = select i1 %cmp.i.i170, i1 true, i1 %cmp2.not.i.i172
   %.mux215 = select i1 %cmp.i.i170, i32 %0, i32 %1
   br i1 %brmerge214, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit194, label %lor.lhs.false.i.i175
 
 lor.lhs.false.i.i175:                             ; preds = %if.else177
   %45 = load i32, ptr %arrayidx5.i.i176, align 4
-  %cmp6.not.i.i177 = icmp sle i32 %45, %sub182
+  %cmp6.not.i.i177 = icmp sge i32 %sub182, %45
   %brmerge216 = select i1 %cmp6.not.i.i177, i1 true, i1 %cmp916.i.i181
   br i1 %brmerge216, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit194, label %if.else.i.i182
 
@@ -1910,7 +1910,7 @@ if.else.i.i182:                                   ; preds = %lor.lhs.false.i.i17
   %idxprom12.i.i186 = sext i32 %shr19.i.i183 to i64
   %arrayidx13.i.i187 = getelementptr inbounds i32, ptr %2, i64 %idxprom12.i.i186
   %46 = load i32, ptr %arrayidx13.i.i187, align 4
-  %cmp14.i.i188 = icmp sgt i32 %46, %sub182
+  %cmp14.i.i188 = icmp slt i32 %sub182, %46
   %lo.addr.0.shr.i.i189 = select i1 %cmp14.i.i188, i32 %lo.addr.017.i.i185, i32 %shr19.i.i183
   %shr.hi.addr.0.i.i190 = select i1 %cmp14.i.i188, i32 %shr19.i.i183, i32 %hi.addr.018.i.i184
   %add.i.i191 = add nsw i32 %shr.hi.addr.0.i.i190, %lo.addr.0.shr.i.i189
@@ -1926,7 +1926,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit194:     ; preds = %if.else.i.i182, %lo
 
 if.end195:                                        ; preds = %_ZNK6icu_756BMPSet12containsSlowEiii.exit194, %if.then104, %_ZNK6icu_756BMPSet12containsSlowEiii.exit166, %if.then137, %_ZNK6icu_756BMPSet12containsSlowEiii.exit138, %if.then94
   %limit.addr.4 = phi ptr [ %incdec.ptr91, %if.then94 ], [ %incdec.ptr91, %if.then104 ], [ %incdec.ptr91, %if.then137 ], [ %incdec.ptr91, %_ZNK6icu_756BMPSet12containsSlowEiii.exit138 ], [ %incdec.ptr91, %_ZNK6icu_756BMPSet12containsSlowEiii.exit166 ], [ %add.ptr161, %_ZNK6icu_756BMPSet12containsSlowEiii.exit194 ]
-  %cmp196 = icmp eq ptr %limit.addr.4, %s
+  %cmp196 = icmp eq ptr %s, %limit.addr.4
   br i1 %cmp196, label %return, label %for.cond90, !llvm.loop !22
 
 return:                                           ; preds = %if.end85, %_ZNK6icu_756BMPSet12containsSlowEiii.exit110, %_ZNK6icu_756BMPSet12containsSlowEiii.exit82, %_ZNK6icu_756BMPSet12containsSlowEiii.exit, %if.then32, %if.then7, %if.then2, %if.end195, %_ZNK6icu_756BMPSet12containsSlowEiii.exit194, %_ZNK6icu_756BMPSet12containsSlowEiii.exit166, %_ZNK6icu_756BMPSet12containsSlowEiii.exit138, %if.then137, %if.then104, %if.then94
@@ -2176,7 +2176,7 @@ if.else154:                                       ; preds = %if.then140
   %idxprom.i.i = sext i32 %19 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %21, i64 %idxprom.i.i
   %22 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i.i = icmp sgt i32 %22, %or159
+  %cmp.i.i = icmp slt i32 %or159, %22
   br i1 %cmp.i.i, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else154
@@ -2188,7 +2188,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %24 = getelementptr i32, ptr %21, i64 %23
   %arrayidx5.i.i = getelementptr i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx5.i.i, align 4
-  %cmp6.not.i.i = icmp sgt i32 %25, %or159
+  %cmp6.not.i.i = icmp slt i32 %or159, %25
   br i1 %cmp6.not.i.i, label %for.cond.preheader.i.i, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
@@ -2204,7 +2204,7 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
   %idxprom12.i.i = sext i32 %shr19.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %21, i64 %idxprom12.i.i
   %26 = load i32, ptr %arrayidx13.i.i, align 4
-  %cmp14.i.i = icmp sgt i32 %26, %or159
+  %cmp14.i.i = icmp slt i32 %or159, %26
   %lo.addr.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.addr.017.i.i, i32 %shr19.i.i
   %shr.hi.addr.0.i.i = select i1 %cmp14.i.i, i32 %shr19.i.i, i32 %hi.addr.018.i.i
   %add.i.i = add nsw i32 %shr.hi.addr.0.i.i, %lo.addr.0.shr.i.i
@@ -2460,7 +2460,7 @@ if.else72:                                        ; preds = %if.then58
   %idxprom.i.i = sext i32 %19 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %21, i64 %idxprom.i.i
   %22 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i.i = icmp sgt i32 %22, %call
+  %cmp.i.i = icmp slt i32 %call, %22
   br i1 %cmp.i.i, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else72
@@ -2472,7 +2472,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %24 = getelementptr i32, ptr %21, i64 %23
   %arrayidx5.i.i = getelementptr i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx5.i.i, align 4
-  %cmp6.not.i.i = icmp sgt i32 %25, %call
+  %cmp6.not.i.i = icmp slt i32 %call, %25
   br i1 %cmp6.not.i.i, label %for.cond.preheader.i.i, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
@@ -2488,7 +2488,7 @@ if.else.i.i:                                      ; preds = %for.cond.preheader.
   %idxprom12.i.i = sext i32 %shr19.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %21, i64 %idxprom12.i.i
   %26 = load i32, ptr %arrayidx13.i.i, align 4
-  %cmp14.i.i = icmp sgt i32 %26, %call
+  %cmp14.i.i = icmp slt i32 %call, %26
   %lo.addr.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.addr.017.i.i, i32 %shr19.i.i
   %shr.hi.addr.0.i.i = select i1 %cmp14.i.i, i32 %shr19.i.i, i32 %hi.addr.018.i.i
   %add.i.i = add nsw i32 %shr.hi.addr.0.i.i, %lo.addr.0.shr.i.i
@@ -2513,7 +2513,7 @@ if.else86:                                        ; preds = %if.else56
   %idxprom.i.i29 = sext i32 %29 to i64
   %arrayidx.i.i30 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i29
   %32 = load i32, ptr %arrayidx.i.i30, align 4
-  %cmp.i.i31 = icmp sgt i32 %32, %call
+  %cmp.i.i31 = icmp slt i32 %call, %32
   br i1 %cmp.i.i31, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit55, label %if.end.i.i32
 
 if.end.i.i32:                                     ; preds = %if.else86
@@ -2525,7 +2525,7 @@ lor.lhs.false.i.i36:                              ; preds = %if.end.i.i32
   %34 = getelementptr i32, ptr %31, i64 %33
   %arrayidx5.i.i37 = getelementptr i8, ptr %34, i64 -4
   %35 = load i32, ptr %arrayidx5.i.i37, align 4
-  %cmp6.not.i.i38 = icmp sgt i32 %35, %call
+  %cmp6.not.i.i38 = icmp slt i32 %call, %35
   br i1 %cmp6.not.i.i38, label %for.cond.preheader.i.i39, label %_ZNK6icu_756BMPSet12containsSlowEiii.exit55
 
 for.cond.preheader.i.i39:                         ; preds = %lor.lhs.false.i.i36
@@ -2541,7 +2541,7 @@ if.else.i.i43:                                    ; preds = %for.cond.preheader.
   %idxprom12.i.i47 = sext i32 %shr19.i.i44 to i64
   %arrayidx13.i.i48 = getelementptr inbounds i32, ptr %31, i64 %idxprom12.i.i47
   %36 = load i32, ptr %arrayidx13.i.i48, align 4
-  %cmp14.i.i49 = icmp sgt i32 %36, %call
+  %cmp14.i.i49 = icmp slt i32 %call, %36
   %lo.addr.0.shr.i.i50 = select i1 %cmp14.i.i49, i32 %lo.addr.017.i.i46, i32 %shr19.i.i44
   %shr.hi.addr.0.i.i51 = select i1 %cmp14.i.i49, i32 %shr19.i.i44, i32 %hi.addr.018.i.i45
   %add.i.i52 = add nsw i32 %shr.hi.addr.0.i.i51, %lo.addr.0.shr.i.i50

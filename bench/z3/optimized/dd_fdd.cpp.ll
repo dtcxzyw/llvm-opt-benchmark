@@ -719,7 +719,7 @@ entry:
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp = icmp ugt i32 %1, %var
+  %cmp = icmp ult i32 %var, %1
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
@@ -768,7 +768,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %while.body
   %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i = icmp ugt i32 %7, %5
+  %cmp.i = icmp ult i32 %5, %7
   br i1 %cmp.i, label %cond.true.i, label %_ZNK2dd3fdd7var2posEj.exit
 
 cond.true.i:                                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
@@ -1168,7 +1168,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %while.body
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i19 = icmp ugt i32 %9, %7
+  %cmp.i19 = icmp ult i32 %7, %9
   br i1 %cmp.i19, label %cond.true.i, label %_ZNK2dd3fdd7var2posEj.exit
 
 cond.true.i:                                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
@@ -1936,7 +1936,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph,
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %invoke.cont2
   %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp.i9 = icmp ugt i32 %13, %11
+  %cmp.i9 = icmp ult i32 %11, %13
   br i1 %cmp.i9, label %cond.true.i, label %invoke.cont4
 
 cond.true.i:                                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i

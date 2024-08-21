@@ -62,7 +62,7 @@ define hidden void @cmsMD5add(ptr nocapture noundef %0, ptr nocapture noundef re
   %19 = zext nneg i32 %16 to i64
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = sub nuw nsw i32 64, %16
-  %22 = icmp ugt i32 %21, %2
+  %22 = icmp ult i32 %2, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %17

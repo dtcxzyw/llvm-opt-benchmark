@@ -3158,7 +3158,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 1688
   %42 = load ptr, ptr %41, align 8
-  %.not137 = icmp eq ptr %42, %2
+  %.not137 = icmp eq ptr %2, %42
   br i1 %.not137, label %116, label %43
 
 43:                                               ; preds = %40
@@ -3574,7 +3574,7 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
   %114 = getelementptr inbounds i8, ptr %0, i64 784
   %115 = load ptr, ptr %114, align 8
   %116 = tail call double @N_VWrmsNorm(ptr noundef %113, ptr noundef %115) #13
-  %117 = fcmp olt double %116, %108
+  %117 = fcmp ogt double %108, %116
   %..i = select i1 %117, double %108, double %116
   br label %118
 
@@ -3592,7 +3592,7 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %106, align 8
   %127 = tail call double @IDASensWrmsNorm(ptr noundef nonnull readonly %0, ptr noundef readonly %123, ptr noundef readonly %125, i32 noundef %126)
-  %128 = fcmp olt double %127, %.0361
+  %128 = fcmp ogt double %.0361, %127
   %..i418 = select i1 %128, double %.0361, double %127
   br label %129
 
@@ -3626,7 +3626,7 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
 144:                                              ; preds = %142, %138
   %145 = phi double [ %143, %142 ], [ %139, %138 ]
   %146 = load double, ptr %71, align 8
-  %147 = fcmp ogt double %146, %1
+  %147 = fcmp olt double %1, %146
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %144
@@ -4161,7 +4161,7 @@ IDAWrmsNorm.exit:                                 ; preds = %462, %465
   %469 = load ptr, ptr %300, align 8
   %470 = load ptr, ptr %301, align 8
   %471 = tail call double @N_VWrmsNorm(ptr noundef %469, ptr noundef %470) #13
-  %472 = fcmp olt double %471, %.0.i
+  %472 = fcmp ogt double %.0.i, %471
   %..i419 = select i1 %472, double %.0.i, double %471
   br label %473
 
@@ -4176,7 +4176,7 @@ IDAWrmsNorm.exit:                                 ; preds = %462, %465
   %477 = load ptr, ptr %303, align 8
   %478 = load i32, ptr %307, align 8
   %479 = tail call double @IDASensWrmsNorm(ptr noundef nonnull readonly %0, ptr noundef readonly %476, ptr noundef readonly %477, i32 noundef %478)
-  %480 = fcmp olt double %479, %.0359
+  %480 = fcmp ogt double %.0359, %479
   %..i420 = select i1 %480, double %.0359, double %479
   br label %481
 
@@ -4978,7 +4978,7 @@ IDAWrmsNorm.exit20.us.i.i.i.i:                    ; preds = %._crit_edge.i.i.i, 
 
 IDASensWrmsNorm.exit.i.i.i:                       ; preds = %IDAWrmsNorm.exit20.us.i.i.i.i, %._crit_edge.i.i.i
   %.016.lcssa.i.i.i.i = phi double [ %865, %._crit_edge.i.i.i ], [ %.1.us.i.i.i.i, %IDAWrmsNorm.exit20.us.i.i.i.i ]
-  %877 = fcmp olt double %.016.lcssa.i.i.i.i, %835
+  %877 = fcmp ogt double %835, %.016.lcssa.i.i.i.i
   %..i.i.i.i = select i1 %877, double %835, double %.016.lcssa.i.i.i.i
   br label %878
 
@@ -6492,7 +6492,7 @@ IDAWrmsNorm.exit.i213.i:                          ; preds = %1699, %1696
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1704, double noundef -1.000000e+00, ptr noundef %1709, ptr noundef %1703) #13
   %1710 = load ptr, ptr %301, align 8
   %1711 = tail call double @N_VWrmsNorm(ptr noundef %1703, ptr noundef %1710) #13
-  %1712 = fcmp olt double %1711, %.0.i.i214.i
+  %1712 = fcmp ogt double %.0.i.i214.i, %1711
   %..i.i.i = select i1 %1712, double %.0.i.i214.i, double %1711
   br label %1713
 
@@ -6533,7 +6533,7 @@ IDAWrmsNorm.exit.i213.i:                          ; preds = %1699, %1696
   %1734 = load ptr, ptr %303, align 8
   %1735 = load i32, ptr %307, align 8
   %1736 = tail call double @IDASensWrmsNorm(ptr noundef nonnull readonly %0, ptr noundef readonly %1716, ptr noundef readonly %1734, i32 noundef %1735)
-  %1737 = fcmp olt double %1736, %.0234.i.i
+  %1737 = fcmp ogt double %.0234.i.i, %1736
   %..i257.i.i = select i1 %1737, double %.0234.i.i, double %1736
   br label %1738
 
@@ -7586,7 +7586,7 @@ define double @IDAWrmsNorm(ptr nocapture noundef readonly %0, ptr noundef %1, pt
 ; Function Attrs: nounwind uwtable
 define double @IDASensWrmsNormUpdate(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call double @IDASensWrmsNorm(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %7 = fcmp olt double %6, %1
+  %7 = fcmp ogt double %1, %6
   %. = select i1 %7, double %1, double %6
   ret double %.
 }
@@ -8907,7 +8907,7 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef %0, dou
 21:                                               ; preds = %10, %7
   %22 = getelementptr inbounds i8, ptr %0, i64 1192
   %23 = load double, ptr %22, align 8
-  %24 = fcmp oeq double %23, %1
+  %24 = fcmp oeq double %1, %23
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
@@ -9496,7 +9496,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 1660
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %2
+  %17 = icmp sgt i32 %2, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14, %12
@@ -9547,7 +9547,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   br label %48
 
 .loopexit88:                                      ; preds = %74, %.lr.ph96.preheader, %.preheader
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %indvars.iv.next110 = add nuw i64 %indvars.iv109, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !102
 
@@ -9635,7 +9635,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 ._crit_edge:                                      ; preds = %.loopexit88
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %3) #13
   %89 = load i32, ptr %15, align 4
-  %.not85100 = icmp slt i32 %89, %2
+  %.not85100 = icmp sgt i32 %2, %89
   br i1 %.not85100, label %.loopexit, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %._crit_edge
@@ -9720,7 +9720,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 1144
   %20 = load i32, ptr %19, align 8
-  %21 = icmp slt i32 %20, %2
+  %21 = icmp sgt i32 %2, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18, %16
@@ -9765,7 +9765,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   br label %47
 
 .loopexit88:                                      ; preds = %73, %.lr.ph96.preheader, %.preheader
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %indvars.iv.next110 = add nuw i64 %indvars.iv109, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !105
 
@@ -9854,7 +9854,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %3) #13
   %88 = getelementptr inbounds i8, ptr %0, i64 1660
   %89 = load i32, ptr %88, align 4
-  %.not85100 = icmp slt i32 %89, %2
+  %.not85100 = icmp sgt i32 %2, %89
   br i1 %.not85100, label %.loopexit, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %._crit_edge
@@ -9974,7 +9974,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 140
   %22 = load i32, ptr %21, align 4
-  %.not = icmp sgt i32 %22, %3
+  %.not = icmp slt i32 %3, %22
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %20, %18
@@ -9988,7 +9988,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 1660
   %28 = load i32, ptr %27, align 4
-  %29 = icmp slt i32 %28, %2
+  %29 = icmp sgt i32 %2, %28
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %26, %24
@@ -10039,7 +10039,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   br label %60
 
 .loopexit97:                                      ; preds = %86, %.lr.ph105.preheader, %.preheader
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %indvars.iv.next119 = add nuw i64 %indvars.iv118, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !109
 
@@ -10127,7 +10127,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
 ._crit_edge:                                      ; preds = %.loopexit97
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %4) #13
   %101 = load i32, ptr %27, align 4
-  %.not94109 = icmp slt i32 %101, %2
+  %.not94109 = icmp sgt i32 %2, %101
   br i1 %.not94109, label %.loopexit, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %._crit_edge
@@ -10190,7 +10190,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 1144
   %19 = load i32, ptr %18, align 8
-  %20 = icmp slt i32 %19, %2
+  %20 = icmp sgt i32 %2, %19
   br i1 %20, label %24, label %.preheader
 
 .preheader:                                       ; preds = %17
@@ -10349,7 +10349,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 140
   %27 = load i32, ptr %26, align 4
-  %.not = icmp sgt i32 %27, %3
+  %.not = icmp slt i32 %3, %27
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %25, %23
@@ -10363,7 +10363,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 1660
   %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %33, %2
+  %34 = icmp sgt i32 %2, %33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31, %29
@@ -10414,7 +10414,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   br label %65
 
 .loopexit99:                                      ; preds = %91, %.lr.ph107.preheader, %.preheader
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %indvars.iv.next121 = add nuw i64 %indvars.iv120, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !114
 
@@ -10502,7 +10502,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
 ._crit_edge:                                      ; preds = %.loopexit99
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %4) #13
   %106 = load i32, ptr %32, align 4
-  %.not96111 = icmp slt i32 %106, %2
+  %.not96111 = icmp sgt i32 %2, %106
   br i1 %.not96111, label %.loopexit, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %._crit_edge
@@ -10575,7 +10575,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 1144
   %24 = load i32, ptr %23, align 8
-  %25 = icmp slt i32 %24, %2
+  %25 = icmp sgt i32 %2, %24
   br i1 %25, label %29, label %.preheader
 
 .preheader:                                       ; preds = %22

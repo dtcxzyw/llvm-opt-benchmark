@@ -132,7 +132,7 @@ _getpwnam_r.exit:                                 ; preds = %17, %19
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %14, align 8
-  %35 = icmp eq ptr %34, %0
+  %35 = icmp eq ptr %0, %34
   br i1 %35, label %50, label %36
 
 36:                                               ; preds = %33
@@ -650,7 +650,7 @@ _getgrnam_r.exit:                                 ; preds = %17, %19
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %14, align 8
-  %35 = icmp eq ptr %34, %0
+  %35 = icmp eq ptr %0, %34
   br i1 %35, label %50, label %36
 
 36:                                               ; preds = %33

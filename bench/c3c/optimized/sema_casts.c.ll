@@ -141,7 +141,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 35:                                               ; preds = %33
   %36 = load ptr, ptr @type_void, align 8
   %37 = icmp eq ptr %9, %36
-  %38 = and i1 %37, %3
+  %38 = and i1 %3, %37
   %39 = load i32, ptr %2, align 8
   %40 = icmp eq i32 %39, 31
   %spec.select = select i1 %40, i32 %10, i32 %39
@@ -1798,7 +1798,7 @@ type_flatten.exit:                                ; preds = %5
 
 cast_is_allowed.exit:                             ; preds = %49, %54, %59
   %.0.i67 = phi i1 [ %60, %59 ], [ false, %54 ], [ false, %49 ]
-  %brmerge61 = or i1 %.0.i67, %2
+  %brmerge61 = or i1 %2, %.0.i67
   br i1 %brmerge61, label %cast_is_allowed.exit.thread, label %61
 
 61:                                               ; preds = %cast_is_allowed.exit
@@ -1857,8 +1857,8 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %59
 
 cast_is_allowed.exit77:                           ; preds = %81, %86, %80, %91
   %.0.i75 = phi i1 [ %92, %91 ], [ true, %80 ], [ false, %86 ], [ false, %81 ]
-  %brmerge.demorgan = and i1 %.0.i75, %1
-  %brmerge62 = or i1 %brmerge.demorgan, %2
+  %brmerge.demorgan = and i1 %1, %.0.i75
+  %brmerge62 = or i1 %2, %brmerge.demorgan
   br i1 %brmerge62, label %cast_is_allowed.exit.thread, label %cast_is_allowed.exit.thread.sink.split
 
 cast_is_allowed.exit.thread.sink.split:           ; preds = %cast_is_allowed.exit77, %61, %68, %73, %62, %78
@@ -1907,7 +1907,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   %23 = add i32 %.045, -13
   %24 = icmp ult i32 %23, 5
   %25 = tail call zeroext i1 @expr_is_simple(ptr noundef %12, i1 noundef zeroext %24) #10
-  %brmerge = or i1 %25, %2
+  %brmerge = or i1 %2, %25
   br i1 %brmerge, label %82, label %26
 
 26:                                               ; preds = %22
@@ -1966,7 +1966,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   %59 = load ptr, ptr %5, align 8
   %60 = tail call fastcc ptr @recursive_may_narrow(ptr noundef nonnull %12, ptr noundef %59)
   %.not = icmp eq ptr %60, null
-  %brmerge53 = or i1 %.not, %2
+  %brmerge53 = or i1 %2, %.not
   br i1 %brmerge53, label %82, label %.preheader
 
 .preheader:                                       ; preds = %58, %.preheader.backedge
@@ -2028,7 +2028,7 @@ define internal zeroext i1 @rule_int_to_float(ptr nocapture noundef readonly %0,
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @expr_is_simple(ptr noundef %6, i1 noundef zeroext true) #10
-  %brmerge = or i1 %7, %2
+  %brmerge = or i1 %2, %7
   br i1 %brmerge, label %14, label %8
 
 8:                                                ; preds = %4
@@ -2110,7 +2110,7 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   %39 = tail call zeroext i1 @int_fits(ptr noundef nonnull byval(%struct.Int) align 8 %34, i32 noundef %38) #10
-  %brmerge = or i1 %39, %2
+  %brmerge = or i1 %2, %39
   br i1 %brmerge, label %77, label %40
 
 40:                                               ; preds = %33
@@ -2344,7 +2344,7 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
   store i32 10, ptr %57, align 8
   %58 = tail call zeroext i1 @int_comp(ptr noundef nonnull byval(%struct.Int) align 8 %4, ptr noundef nonnull byval(%struct.Int) align 8 %5, i32 noundef 15) #10
   %.not25 = xor i1 %58, true
-  %brmerge = or i1 %.not25, %2
+  %brmerge = or i1 %2, %.not25
   br i1 %brmerge, label %64, label %59
 
 59:                                               ; preds = %55
@@ -2382,7 +2382,7 @@ define internal zeroext i1 @rule_ptr_to_int(ptr nocapture noundef readonly %0, i
   br label %29
 
 14:                                               ; preds = %3
-  %brmerge = or i1 %9, %2
+  %brmerge = or i1 %2, %9
   br i1 %brmerge, label %29, label %15
 
 15:                                               ; preds = %14
@@ -2823,7 +2823,7 @@ define internal noundef zeroext i1 @rule_sa_to_ptr(ptr nocapture noundef readonl
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %26 = icmp eq i16 %25, 6
-  %brmerge = or i1 %26, %2
+  %brmerge = or i1 %2, %26
   br i1 %brmerge, label %rule_sa_to_ptr.exit, label %29
 
 27:                                               ; preds = %3
@@ -2991,7 +2991,7 @@ type_flatten.exit72:                              ; preds = %type_flatten.exit, 
 60:                                               ; preds = %56, %53
   %.056 = phi i32 [ %59, %56 ], [ %54, %53 ]
   %61 = icmp eq i32 %.056, 23
-  %brmerge = or i1 %61, %2
+  %brmerge = or i1 %2, %61
   br i1 %brmerge, label %141, label %63
 
 62:                                               ; preds = %51
@@ -4170,7 +4170,7 @@ cast_is_allowed.exit:                             ; preds = %.loopexit, %.thread
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %.not34 = xor i1 %2, true
-  %brmerge = or i1 %.not34, %1
+  %brmerge = or i1 %1, %.not34
   br i1 %brmerge, label %4, label %68
 
 4:                                                ; preds = %3
@@ -4299,7 +4299,7 @@ report_cast_error.exit40:                         ; preds = %57, %60, %63
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_bits_to_arr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %.not21 = xor i1 %2, true
-  %brmerge = or i1 %.not21, %1
+  %brmerge = or i1 %1, %.not21
   br i1 %brmerge, label %4, label %55
 
 4:                                                ; preds = %3
@@ -4922,7 +4922,7 @@ define internal zeroext i1 @rule_struct_to_struct(ptr nocapture noundef readonly
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 @type_is_subtype(ptr noundef %7, ptr noundef %5) #10
-  %brmerge = or i1 %8, %2
+  %brmerge = or i1 %2, %8
   br i1 %brmerge, label %23, label %9
 
 9:                                                ; preds = %3

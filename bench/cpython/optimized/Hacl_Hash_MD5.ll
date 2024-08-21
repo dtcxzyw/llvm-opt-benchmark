@@ -757,7 +757,7 @@ entry:
   %add.ptr = getelementptr i8, ptr %input, i64 %idx.ext
   tail call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef %s, ptr noundef %input, i32 noundef %div13)
   %conv = zext i32 %input_len to i64
-  %add = add i64 %conv, %prev_len
+  %add = add i64 %prev_len, %conv
   %0 = trunc i64 %add to i32
   %sub3 = sub i32 55, %0
   %rem4 = and i32 %sub3, 63
@@ -929,7 +929,7 @@ if.end:                                           ; preds = %entry
   %conv9 = trunc nuw nsw i64 %rem to i32
   %sz.0 = select i1 %or.cond, i32 64, i32 %conv9
   %sub11 = sub nuw nsw i32 64, %sz.0
-  %cmp12.not = icmp ult i32 %sub11, %len
+  %cmp12.not = icmp ugt i32 %len, %sub11
   br i1 %cmp12.not, label %if.else34, label %if.then14
 
 if.then14:                                        ; preds = %if.end

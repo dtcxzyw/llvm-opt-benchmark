@@ -456,7 +456,7 @@ define i32 @ADIOI_cb_config_list_parse(ptr noundef %0, ptr nocapture noundef rea
 
 16:                                               ; preds = %12
   store ptr %0, ptr @token_ptr, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %7, i32 %3)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %7)
   %17 = load i32, ptr %6, align 4
   %18 = sext i32 %17 to i64
   %19 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %18, i32 noundef 294, ptr noundef nonnull @.str) #10
@@ -787,7 +787,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
   %140 = getelementptr inbounds ptr, ptr %9, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = sub nsw i32 %spec.select, %137
-  %143 = tail call i32 @llvm.smin.i32(i32 %142, i32 %126)
+  %143 = tail call i32 @llvm.smin.i32(i32 %126, i32 %142)
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
@@ -902,12 +902,12 @@ match_this_proc.exit.i:                           ; preds = %find_name.exit52.th
   %spec.select74 = tail call i32 @llvm.smax.i32(i32 %.03863.i.i, i32 %137)
   %182 = getelementptr inbounds i8, ptr %19, i64 %139
   store i8 1, ptr %182, align 1
-  %183 = icmp slt i32 %spec.select74, %spec.select
+  %183 = icmp sgt i32 %spec.select, %spec.select74
   br i1 %183, label %.preheader100.i, label %match_procs.exit, !llvm.loop !13
 
 184:                                              ; preds = %get_max_procs.exit
   %185 = sub nsw i32 %spec.select, %.06298
-  %186 = tail call i32 @llvm.smin.i32(i32 %185, i32 %.014.i)
+  %186 = tail call i32 @llvm.smin.i32(i32 %.014.i, i32 %185)
   %187 = icmp sgt i32 %186, 0
   br i1 %187, label %.lr.ph.preheader.i80.i, label %.preheader.i64.i
 

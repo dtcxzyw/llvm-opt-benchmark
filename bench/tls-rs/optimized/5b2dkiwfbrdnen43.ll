@@ -662,7 +662,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   %47 = load i64, ptr %46, align 8, !alias.scope !68, !noalias !75, !noundef !14
   %48 = load i64, ptr %45, align 8, !alias.scope !78, !noalias !75, !noundef !14
   %49 = sub i64 %48, %47
-  %50 = icmp ult i64 %49, %44
+  %50 = icmp ugt i64 %44, %49
   br i1 %50, label %51, label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h54a2f6afb6a02d48E.exit"
 
 51:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
@@ -1832,7 +1832,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = sub i64 %10, %9
   %12 = sub i64 %1, %11
-  %.not = icmp ult i64 %12, %4
+  %.not = icmp ugt i64 %4, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %6
@@ -2292,7 +2292,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !399, !noalias !404, !noundef !14
   %45 = load i64, ptr %0, align 8, !alias.scope !406, !noalias !404, !noundef !14
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
@@ -2346,7 +2346,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !412, !noalias !417, !noundef !14
   %6 = load i64, ptr %0, align 8, !alias.scope !419, !noalias !417, !noundef !14
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit"
 
 9:                                                ; preds = %3
@@ -2490,7 +2490,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %6 = load i64, ptr %5, align 8, !alias.scope !422, !noalias !429, !noundef !14
   %7 = load i64, ptr %4, align 8, !alias.scope !432, !noalias !429, !noundef !14
   %8 = sub i64 %7, %6
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h96ba5b63442ba89fE.exit"
 
 10:                                               ; preds = %3
@@ -22795,7 +22795,7 @@ default.unreachable:                              ; preds = %2
   store i64 %47, ptr %20, align 8, !alias.scope !788, !noalias !784
   %48 = load i64, ptr %1, align 8, !alias.scope !790, !noalias !797, !noundef !14
   %49 = sub i64 %48, %47
-  %50 = icmp ult i64 %49, %36
+  %50 = icmp ugt i64 %36, %49
   br i1 %50, label %51, label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 51:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
@@ -23513,7 +23513,7 @@ define void @"_ZN145_$LT$rustls..server..tls13..ExpectCertificate$u20$as$u20$rus
   %38 = getelementptr inbounds i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !868, !noalias !873, !noundef !14
   %40 = sub i64 %36, %39
-  %41 = icmp ult i64 %40, %.sroa.3.0.i.i
+  %41 = icmp ugt i64 %.sroa.3.0.i.i, %40
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 42:                                               ; preds = %37
@@ -24689,7 +24689,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %141 = getelementptr inbounds i8, ptr %1, i64 40
   %142 = load i64, ptr %141, align 8, !alias.scope !1045, !noalias !1050, !noundef !14
   %143 = sub i64 %139, %142
-  %144 = icmp ult i64 %143, %.sroa.3.0.i.i
+  %144 = icmp ugt i64 %.sroa.3.0.i.i, %143
   br i1 %144, label %145, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 145:                                              ; preds = %140
@@ -24975,7 +24975,7 @@ define void @"_ZN143_$LT$rustls..server..tls13..ExpectEarlyData$u20$as$u20$rustl
   %62 = getelementptr inbounds i8, ptr %1, i64 16
   %63 = load i64, ptr %62, align 8, !alias.scope !1101, !noalias !1106, !noundef !14
   %64 = sub i64 %60, %63
-  %65 = icmp ult i64 %64, %.sroa.3.0.i.i
+  %65 = icmp ugt i64 %.sroa.3.0.i.i, %64
   br i1 %65, label %66, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 66:                                               ; preds = %61
@@ -25625,7 +25625,7 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   %129 = getelementptr inbounds i8, ptr %1, i64 16
   %130 = load i64, ptr %129, align 8, !alias.scope !1200, !noalias !1205, !noundef !14
   %131 = sub i64 %127, %130
-  %132 = icmp ult i64 %131, %.sroa.3.0.i.i
+  %132 = icmp ugt i64 %.sroa.3.0.i.i, %131
   br i1 %132, label %133, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 133:                                              ; preds = %128

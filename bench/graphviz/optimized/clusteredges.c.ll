@@ -407,9 +407,9 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef %0, ptr noundef 
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.preheader, label %.lr.ph
 
-26:                                               ; preds = %.lr.ph38, %84
-  %27 = phi ptr [ %8, %.lr.ph38 ], [ %85, %84 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph38 ], [ %indvars.iv.next, %84 ]
+26:                                               ; preds = %.lr.ph38, %82
+  %27 = phi ptr [ %8, %.lr.ph38 ], [ %83, %82 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph38 ], [ %indvars.iv.next, %82 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 240
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
@@ -417,7 +417,7 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef %0, ptr noundef 
   %.not28 = icmp eq ptr %31, %2
   %.not29 = icmp eq ptr %31, %3
   %or.cond33 = or i1 %.not28, %.not29
-  br i1 %or.cond33, label %84, label %32
+  br i1 %or.cond33, label %82, label %32
 
 32:                                               ; preds = %26
   %33 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
@@ -472,59 +472,57 @@ gv_calloc.exit.i:                                 ; preds = %gv_alloc.exit.i
 
 58:                                               ; preds = %gv_calloc.exit.i
   %59 = fadd double %.sroa.414.0.copyload.i, %.sroa.10.0.copyload.i
-  %60 = fmul double %59, 5.000000e-01
-  %61 = fadd double %.sroa.011.0.copyload.i, %.sroa.7.0.copyload.i
-  %62 = fmul double %61, 5.000000e-01
-  %63 = load float, ptr %4, align 4
-  %64 = fpext float %63 to double
-  %65 = fadd double %64, -1.000000e+00
-  %66 = load float, ptr %12, align 4
-  %67 = fpext float %66 to double
-  %68 = fadd double %67, -1.000000e+00
-  %69 = fneg double %65
-  %70 = fmul double %62, %69
-  %71 = tail call double @llvm.fmuladd.f64(double %64, double %.sroa.7.0.copyload.i, double %70)
-  %72 = fneg double %68
-  %73 = fmul double %60, %72
-  %74 = tail call double @llvm.fmuladd.f64(double %67, double %.sroa.10.0.copyload.i, double %73)
-  %75 = tail call double @llvm.fmuladd.f64(double %64, double %.sroa.011.0.copyload.i, double %70)
-  %76 = tail call double @llvm.fmuladd.f64(double %67, double %.sroa.414.0.copyload.i, double %73)
+  %60 = fadd double %.sroa.011.0.copyload.i, %.sroa.7.0.copyload.i
+  %61 = load float, ptr %4, align 4
+  %62 = fpext float %61 to double
+  %63 = fadd double %62, -1.000000e+00
+  %64 = load float, ptr %12, align 4
+  %65 = fpext float %64 to double
+  %66 = fadd double %65, -1.000000e+00
+  %67 = fmul double %60, -5.000000e-01
+  %68 = fmul double %67, %63
+  %69 = tail call double @llvm.fmuladd.f64(double %62, double %.sroa.7.0.copyload.i, double %68)
+  %70 = fmul double %59, -5.000000e-01
+  %71 = fmul double %70, %66
+  %72 = tail call double @llvm.fmuladd.f64(double %65, double %.sroa.10.0.copyload.i, double %71)
+  %73 = tail call double @llvm.fmuladd.f64(double %62, double %.sroa.011.0.copyload.i, double %68)
+  %74 = tail call double @llvm.fmuladd.f64(double %65, double %.sroa.414.0.copyload.i, double %71)
   br label %makeClustObs.exit
 
 makeClustObs.exit:                                ; preds = %49, %58
-  %.sroa.06.0.i = phi double [ %56, %49 ], [ %75, %58 ]
-  %.sroa.4.0.i = phi double [ %57, %49 ], [ %76, %58 ]
-  %.sroa.8.0.i = phi double [ %52, %49 ], [ %71, %58 ]
-  %.sroa.12.0.i = phi double [ %55, %49 ], [ %74, %58 ]
+  %.sroa.06.0.i = phi double [ %56, %49 ], [ %73, %58 ]
+  %.sroa.4.0.i = phi double [ %57, %49 ], [ %74, %58 ]
+  %.sroa.8.0.i = phi double [ %52, %49 ], [ %69, %58 ]
+  %.sroa.12.0.i = phi double [ %55, %49 ], [ %72, %58 ]
   store double %.sroa.06.0.i, ptr %42, align 8
-  %77 = getelementptr inbounds i8, ptr %42, i64 8
-  store double %.sroa.4.0.i, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %42, i64 16
-  store double %.sroa.06.0.i, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %42, i64 24
+  %75 = getelementptr inbounds i8, ptr %42, i64 8
+  store double %.sroa.4.0.i, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %42, i64 16
+  store double %.sroa.06.0.i, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %42, i64 24
+  store double %.sroa.12.0.i, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %42, i64 32
+  store double %.sroa.8.0.i, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %42, i64 40
   store double %.sroa.12.0.i, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %42, i64 32
+  %80 = getelementptr inbounds i8, ptr %42, i64 48
   store double %.sroa.8.0.i, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %42, i64 40
-  store double %.sroa.12.0.i, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %42, i64 48
-  store double %.sroa.8.0.i, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %42, i64 56
-  store double %.sroa.4.0.i, ptr %83, align 8
+  %81 = getelementptr inbounds i8, ptr %42, i64 56
+  store double %.sroa.4.0.i, ptr %81, align 8
   tail call fastcc void @objlist_append(ptr noundef %0, ptr noundef nonnull %33)
   %.pre = load ptr, ptr %7, align 8
-  br label %84
+  br label %82
 
-84:                                               ; preds = %26, %makeClustObs.exit
-  %85 = phi ptr [ %27, %26 ], [ %.pre, %makeClustObs.exit ]
+82:                                               ; preds = %26, %makeClustObs.exit
+  %83 = phi ptr [ %27, %26 ], [ %.pre, %makeClustObs.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = getelementptr inbounds i8, ptr %85, i64 236
-  %87 = load i32, ptr %86, align 4
-  %88 = sext i32 %87 to i64
-  %.not27.not = icmp slt i64 %indvars.iv, %88
+  %84 = getelementptr inbounds i8, ptr %83, i64 236
+  %85 = load i32, ptr %84, align 4
+  %86 = sext i32 %85 to i64
+  %.not27.not = icmp slt i64 %indvars.iv, %86
   br i1 %.not27.not, label %26, label %._crit_edge
 
-._crit_edge:                                      ; preds = %84, %.preheader
+._crit_edge:                                      ; preds = %82, %.preheader
   ret void
 }
 

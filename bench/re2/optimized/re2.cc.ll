@@ -2076,7 +2076,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i64, ptr %consumed, align 8
   %1 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
-  %cmp.not.i = icmp ult i64 %1, %0
+  %cmp.not.i = icmp ugt i64 %0, %1
   br i1 %cmp.not.i, label %cond.false.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit
 
 cond.false.i:                                     ; preds = %if.then
@@ -2108,7 +2108,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i64, ptr %consumed, align 8
   %1 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
-  %cmp.not.i = icmp ult i64 %1, %0
+  %cmp.not.i = icmp ugt i64 %0, %1
   br i1 %cmp.not.i, label %cond.false.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit
 
 cond.false.i:                                     ; preds = %if.then
@@ -2343,7 +2343,7 @@ lpad:                                             ; preds = %invoke.cont5, %_ZN1
 
 if.end9:                                          ; preds = %entry
   %cmp = icmp ugt i64 %startpos, %endpos
-  %cmp11 = icmp ult i64 %text.coerce1, %endpos
+  %cmp11 = icmp ugt i64 %endpos, %text.coerce1
   %or.cond215 = select i1 %cmp, i1 true, i1 %cmp11
   br i1 %or.cond215, label %if.then12, label %_ZN4absl7debian211string_view13remove_suffixEm.exit
 
@@ -2426,8 +2426,8 @@ lpad17:                                           ; preds = %invoke.cont37, %inv
 
 _ZN4absl7debian211string_view13remove_suffixEm.exit: ; preds = %if.end9
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce0, i64 %startpos
-  %sub.neg = sub i64 %endpos, %text.coerce1
   %sub.i = sub nuw i64 %text.coerce1, %startpos
+  %sub.neg = sub i64 %endpos, %text.coerce1
   %sub.i95 = add i64 %sub.neg, %sub.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %match, i8 0, i64 16, i1 false)
   %cmp44 = icmp eq i32 %nsubmatch, 0
@@ -2452,7 +2452,7 @@ if.end54:                                         ; preds = %_ZN4absl7debian211s
   br i1 %tobool.i98, label %land.lhs.true57, label %if.else
 
 land.lhs.true57:                                  ; preds = %if.end54
-  %cmp59.not = icmp eq i64 %text.coerce1, %endpos
+  %cmp59.not = icmp eq i64 %endpos, %text.coerce1
   br i1 %cmp59.not, label %if.end61, label %return
 
 if.end61:                                         ; preds = %land.lhs.true57
@@ -2861,7 +2861,7 @@ if.end316:                                        ; preds = %land.lhs.true310, %
   br i1 %cmp.i114.not220, label %if.end324, label %land.lhs.true318
 
 land.lhs.true318:                                 ; preds = %if.end316
-  %cmp320 = icmp uge i64 %20, %text.coerce1
+  %cmp320 = icmp ule i64 %text.coerce1, %20
   %cmp322 = icmp sgt i32 %spec.select, 1
   %or.cond3 = select i1 %cmp320, i1 %cmp322, i1 false
   br i1 %or.cond3, label %if.end388, label %if.end324
@@ -3733,7 +3733,7 @@ if.end:                                           ; preds = %entry
   %prefix_ = getelementptr inbounds i8, ptr %this, i64 72
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix_) #30
   %conv = trunc i64 %call to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %conv, i32 %maxlen)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %maxlen, i32 %conv)
   %conv6 = sext i32 %spec.select to i64
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %prefix_, i64 noundef 0, i64 noundef %conv6)
   %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %min, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #30
@@ -4330,7 +4330,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %str.addr.2.idx.i = zext i1 %cmp10.i to i64
   %str.addr.2.i = getelementptr inbounds i8, ptr %str, i64 %str.addr.2.idx.i
   %dec12.i = sext i1 %cmp10.i to i64
-  %n.2.i = add i64 %dec12.i, %n
+  %n.2.i = add i64 %n, %dec12.i
   %cmp15.i = icmp ugt i64 %n.2.i, 2
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.end36.i
 
@@ -4440,7 +4440,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %str.addr.2.idx.i = zext i1 %cmp10.i to i64
   %str.addr.2.i = getelementptr inbounds i8, ptr %str, i64 %str.addr.2.idx.i
   %dec12.i = sext i1 %cmp10.i to i64
-  %n.2.i = add i64 %dec12.i, %n
+  %n.2.i = add i64 %n, %dec12.i
   %cmp15.i = icmp ugt i64 %n.2.i, 2
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.end36.i
 
@@ -4557,7 +4557,7 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
   %str.addr.2.idx.i.i = zext i1 %cmp10.i.i to i64
   %str.addr.2.i.i = getelementptr inbounds i8, ptr %str, i64 %str.addr.2.idx.i.i
   %dec12.i.i = sext i1 %cmp10.i.i to i64
-  %n.2.i.i = add i64 %dec12.i.i, %n
+  %n.2.i.i = add i64 %n, %dec12.i.i
   %cmp15.i.i = icmp ugt i64 %n.2.i.i, 2
   br i1 %cmp15.i.i, label %land.lhs.true16.i.i, label %if.end36.i.i
 
@@ -4705,7 +4705,7 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
   %str.addr.2.idx.i.i = zext i1 %cmp10.i.i to i64
   %str.addr.2.i.i = getelementptr inbounds i8, ptr %str, i64 %str.addr.2.idx.i.i
   %dec12.i.i = sext i1 %cmp10.i.i to i64
-  %n.2.i.i = add i64 %dec12.i.i, %n
+  %n.2.i.i = add i64 %n, %dec12.i.i
   %cmp15.i.i = icmp ugt i64 %n.2.i.i, 2
   br i1 %cmp15.i.i, label %land.lhs.true16.i.i, label %if.end36.i.i
 
@@ -4851,7 +4851,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %str.addr.2.idx.i = zext i1 %cmp10.i to i64
   %str.addr.2.i = getelementptr inbounds i8, ptr %str, i64 %str.addr.2.idx.i
   %dec12.i = sext i1 %cmp10.i to i64
-  %n.2.i = add i64 %dec12.i, %n
+  %n.2.i = add i64 %n, %dec12.i
   %cmp15.i = icmp ugt i64 %n.2.i, 2
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.end36.i
 
@@ -4961,7 +4961,7 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %str.addr.2.idx.i = zext i1 %cmp10.i to i64
   %str.addr.2.i = getelementptr inbounds i8, ptr %str, i64 %str.addr.2.idx.i
   %dec12.i = sext i1 %cmp10.i to i64
-  %n.2.i = add i64 %dec12.i, %n
+  %n.2.i = add i64 %n, %dec12.i
   %cmp15.i = icmp ugt i64 %n.2.i, 2
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.end36.i
 
@@ -5281,7 +5281,7 @@ if.then.i.i.i.i.i29:                              ; preds = %_ZSt7advanceIPimEvR
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit31:               ; preds = %_ZSt7advanceIPimEvRT_T0_.exit, %if.then.i.i.i.i.i29
   %4 = phi ptr [ %2, %_ZSt7advanceIPimEvRT_T0_.exit ], [ %.pre49, %if.then.i.i.i.i.i29 ]
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i.i.i.i25
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i, %__last
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %__last, %add.ptr.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit31

@@ -257,7 +257,7 @@ define i32 @pmix_mca_base_framework_open(ptr noundef %0, i32 noundef %1) local_u
   %.not23 = icmp eq i32 %10, 0
   %spec.select.v = select i1 %.not23, i32 1, i32 3
   %spec.select = select i1 %.not22, i32 0, i32 %spec.select.v
-  %.018 = or i32 %spec.select, %1
+  %.018 = or i32 %1, %spec.select
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0

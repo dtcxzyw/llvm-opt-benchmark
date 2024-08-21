@@ -3895,7 +3895,7 @@ sw.bb.i:                                          ; preds = %if.end46
 
 if.end.i34:                                       ; preds = %sw.bb.i
   %7 = load i64, ptr %arg.val, align 8
-  %cmp.i35 = icmp eq i64 %7, %4
+  %cmp.i35 = icmp eq i64 %4, %7
   br i1 %cmp.i35, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i34
@@ -3909,7 +3909,7 @@ if.end8.i:                                        ; preds = %land.lhs.true.i, %i
 
 sw.bb9.i:                                         ; preds = %if.end46, %if.end46
   %8 = load i64, ptr %arg.val, align 8
-  %cmp11.not.i = icmp eq i64 %8, %4
+  %cmp11.not.i = icmp eq i64 %4, %8
   br i1 %cmp11.not.i, label %if.end17.i, label %land.lhs.true12.i
 
 land.lhs.true12.i:                                ; preds = %sw.bb9.i
@@ -3930,7 +3930,7 @@ sw.bb18.i:                                        ; preds = %if.end46, %if.end46
 
 sw.bb24.i:                                        ; preds = %if.end46
   %9 = load i64, ptr %arg.val, align 8
-  %cmp26.i = icmp eq i64 %9, %4
+  %cmp26.i = icmp eq i64 %4, %9
   br i1 %cmp26.i, label %if.then27.i, label %if.end33.i
 
 if.then27.i:                                      ; preds = %sw.bb24.i
@@ -3952,7 +3952,7 @@ if.end33.i:                                       ; preds = %if.end31.i, %sw.bb2
 
 if.end38.i:                                       ; preds = %if.end33.i
   %12 = load i64, ptr %arg.val, align 8
-  %cmp40.i = icmp eq i64 %12, %4
+  %cmp40.i = icmp eq i64 %4, %12
   br i1 %cmp40.i, label %if.then42.i, label %tparam_handle.exit
 
 if.then42.i:                                      ; preds = %if.end38.i

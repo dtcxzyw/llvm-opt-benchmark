@@ -1064,8 +1064,8 @@ UpdateCostAtIndex.exit138.i:                      ; preds = %UpdateCost.exit.us.
   br label %PopInterval.exit.i.i
 
 PopInterval.exit.i.i:                             ; preds = %487, %483
-  %489 = icmp ugt ptr %206, %.019.i.i
-  %490 = icmp ult ptr %321, %.019.i.i
+  %489 = icmp ult ptr %.019.i.i, %206
+  %490 = icmp ugt ptr %.019.i.i, %321
   %.not15.i.i.i = select i1 %489, i1 true, i1 %490
   %..i.i.i = select i1 %.not15.i.i.i, i64 16760, i64 16752
   %491 = getelementptr inbounds i8, ptr %24, i64 %..i.i.i
@@ -1372,7 +1372,7 @@ define internal fastcc void @PushInterval(ptr noundef %0, float noundef %1, i32 
   %16 = sub nsw i64 %indvars.iv, %13
   %17 = getelementptr inbounds [4095 x float], ptr %10, i64 0, i64 %16
   %18 = load float, ptr %17, align 4
-  %19 = fadd float %18, %1
+  %19 = fadd float %1, %18
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
   %22 = load float, ptr %21, align 4
@@ -1422,7 +1422,7 @@ define internal fastcc void @PushInterval(ptr noundef %0, float noundef %1, i32 
   %. = tail call i32 @llvm.smin.i32(i32 %46, i32 %3)
   %47 = add nsw i32 %., %2
   %48 = load float, ptr %39, align 4
-  %49 = fadd float %48, %1
+  %49 = fadd float %1, %48
   %.not121 = icmp eq ptr %.089131, null
   br i1 %.not121, label %.critedge2, label %.lr.ph
 
@@ -1476,8 +1476,8 @@ define internal fastcc void @PushInterval(ptr noundef %0, float noundef %1, i32 
   br label %PopInterval.exit
 
 PopInterval.exit:                                 ; preds = %65, %69
-  %71 = icmp ugt ptr %35, %.1123
-  %72 = icmp ult ptr %36, %.1123
+  %71 = icmp ult ptr %.1123, %35
+  %72 = icmp ugt ptr %.1123, %36
   %.not15.i = select i1 %71, i1 true, i1 %72
   %..i = select i1 %.not15.i, i64 16760, i64 16752
   %73 = getelementptr inbounds i8, ptr %0, i64 %..i
@@ -1550,8 +1550,8 @@ define internal fastcc void @CostManagerClear(ptr noundef %0) unnamed_addr #0 {
   %.011.i = phi ptr [ %8, %.lr.ph.i ], [ %13, %17 ]
   %12 = getelementptr inbounds i8, ptr %.011.i, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ugt ptr %9, %.011.i
-  %15 = icmp ult ptr %10, %.011.i
+  %14 = icmp ult ptr %.011.i, %9
+  %15 = icmp ugt ptr %.011.i, %10
   %.not9.i = select i1 %14, i1 true, i1 %15
   br i1 %.not9.i, label %16, label %17
 
@@ -1579,8 +1579,8 @@ DeleteIntervalList.exit:                          ; preds = %17, %3
   %.011.i13 = phi ptr [ %19, %.lr.ph.i12 ], [ %24, %28 ]
   %23 = getelementptr inbounds i8, ptr %.011.i13, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp ugt ptr %20, %.011.i13
-  %26 = icmp ult ptr %21, %.011.i13
+  %25 = icmp ult ptr %.011.i13, %20
+  %26 = icmp ugt ptr %.011.i13, %21
   %.not9.i14 = select i1 %25, i1 true, i1 %26
   br i1 %.not9.i14, label %27, label %28
 
@@ -1760,7 +1760,7 @@ UpdateCost.exit.i43:                              ; preds = %43, %38
   %.151.i = phi ptr [ %64, %62 ], [ %.151.i.ph, %.lr.ph.i47.preheader ]
   %59 = getelementptr inbounds i8, ptr %.151.i, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = icmp sgt i32 %60, %4
+  %61 = icmp slt i32 %4, %60
   br i1 %61, label %62, label %.critedge.i.preheader
 
 62:                                               ; preds = %.lr.ph.i47

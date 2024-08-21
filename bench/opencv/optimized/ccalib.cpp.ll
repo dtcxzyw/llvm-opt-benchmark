@@ -1302,12 +1302,12 @@ define void @_ZN2cv6ccalib13CustomPattern16scaleFoundPointsEdRKSt6vectorINS_8Key
   %14 = getelementptr inbounds %"class.cv::KeyPoint", ptr %12, i64 %13
   %15 = load float, ptr %14, align 4
   %16 = fpext float %15 to double
-  %17 = fmul double %16, %1
+  %17 = fmul double %1, %16
   %18 = fptrunc double %17 to float
   %19 = getelementptr inbounds i8, ptr %14, i64 4
   %20 = load float, ptr %19, align 4
   %21 = fpext float %20 to double
-  %22 = fmul double %21, %1
+  %22 = fmul double %1, %21
   %23 = fptrunc double %22 to float
   %24 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %11, %24
@@ -2808,7 +2808,7 @@ _ZN2cv6ccalib13CustomPattern18refineKeypointsPosERKNS_3MatERSt6vectorINS_8KeyPoi
   %144 = getelementptr inbounds i8, ptr %140, i64 28
   %145 = load float, ptr %144, align 4
   %146 = fpext float %145 to double
-  %147 = fmul double %146, %6
+  %147 = fmul double %6, %146
   %148 = fcmp ogt double %147, %143
   br i1 %148, label %149, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit167
 
@@ -5235,7 +5235,7 @@ define void @_ZN2cv6ccalib13CustomPattern15drawOrientationERKNS_17_InputOutputAr
   %37 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %35, ptr %37, align 8
   store ptr %35, ptr %36, align 8
-  %38 = fmul double %24, %6
+  %38 = fmul double %6, %24
   %39 = fptrunc double %38 to float
   store float %27, ptr %34, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 4

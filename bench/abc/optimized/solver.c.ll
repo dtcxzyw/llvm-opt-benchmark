@@ -392,7 +392,7 @@ define void @solver_cancel_until(ptr nocapture noundef %0, i32 noundef %1) local
   %.val32 = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %.val32, i64 4
   %.val.i = load i32, ptr %33, align 4
-  %34 = icmp ugt i32 %.val.i, %24
+  %34 = icmp ult i32 %24, %.val.i
   br i1 %34, label %heap_in_heap.exit, label %39
 
 heap_in_heap.exit:                                ; preds = %17
@@ -1818,7 +1818,7 @@ var_act_rescale.exit.i.i.i:                       ; preds = %.lr.ph.i.i.i.i, %29
   %.val.i150.i.i = load ptr, ptr %322, align 8
   %323 = getelementptr i8, ptr %.val.i150.i.i, i64 4
   %.val.i15.i.i.i = load i32, ptr %323, align 4
-  %324 = icmp ugt i32 %.val.i15.i.i.i, %267
+  %324 = icmp ult i32 %267, %.val.i15.i.i.i
   br i1 %324, label %heap_in_heap.exit.i.i.i, label %var_act_bump.exit.i.i
 
 heap_in_heap.exit.i.i.i:                          ; preds = %321
@@ -2970,7 +2970,7 @@ var_act_rescale.exit.i250.i.i:                    ; preds = %.lr.ph.i.i244.i.i, 
   %.val.i212.i.i = load ptr, ptr %877, align 8
   %878 = getelementptr i8, ptr %.val.i212.i.i, i64 4
   %.val.i15.i213.i.i = load i32, ptr %878, align 4
-  %879 = icmp ugt i32 %.val.i15.i213.i.i, %821
+  %879 = icmp ult i32 %821, %.val.i15.i213.i.i
   br i1 %879, label %heap_in_heap.exit.i214.i.i, label %var_act_bump.exit253.i.i
 
 heap_in_heap.exit.i214.i.i:                       ; preds = %876

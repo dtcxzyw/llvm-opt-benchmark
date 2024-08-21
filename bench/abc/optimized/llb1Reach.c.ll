@@ -1107,7 +1107,7 @@ define noundef ptr @Llb_ManComputeInitState(ptr nocapture noundef readonly %0, p
   %.033 = phi ptr [ %5, %.lr.ph ], [ %37, %31 ]
   %.02632 = phi i32 [ 0, %.lr.ph ], [ %38, %31 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %31, label %16
 
 16:                                               ; preds = %12

@@ -17,7 +17,7 @@ entry:
 if.end:                                           ; preds = %entry
   %incdec.ptr = getelementptr inbounds i8, ptr %out_data, i64 1
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
-  %cmp199 = icmp ugt ptr %add.ptr5, %in_data
+  %cmp199 = icmp ult ptr %in_data, %add.ptr5
   br i1 %cmp199, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end

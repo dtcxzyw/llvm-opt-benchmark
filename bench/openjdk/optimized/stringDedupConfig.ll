@@ -62,7 +62,7 @@ define hidden noundef i32 @_ZN11StringDedup6Config13age_thresholdEv() local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN11StringDedup6Config20should_cleanup_tableEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr @_ZN11StringDedup6Config25_minimum_dead_for_cleanupE, align 8
-  %4 = icmp ult i64 %3, %1
+  %4 = icmp ugt i64 %1, %3
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
@@ -97,7 +97,7 @@ define hidden noundef i64 @_ZN11StringDedup6Config9good_sizeEm(i64 noundef %0) l
   %.08 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08
   %6 = load i64, ptr %5, align 8
-  %.not = icmp ult i64 %6, %0
+  %.not = icmp ugt i64 %0, %6
   br i1 %.not, label %2, label %7
 
 7:                                                ; preds = %4, %2
@@ -134,7 +134,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config17should_grow_tableEmm(
   %5 = load double, ptr @_ZN11StringDedup6Config23_load_factor_for_growthE, align 8
   %6 = fmul double %5, %4
   %7 = fptoui double %6 to i64
-  %8 = icmp ult i64 %7, %1
+  %8 = icmp ugt i64 %1, %7
   %9 = select i1 %3, i1 %8, i1 false
   ret i1 %9
 }
@@ -146,7 +146,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config19should_shrink_tableEm
   %5 = load double, ptr @_ZN11StringDedup6Config23_load_factor_for_shrinkE, align 8
   %6 = fmul double %5, %4
   %7 = fptoui double %6 to i64
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   %9 = select i1 %3, i1 %8, i1 false
   ret i1 %9
 }
@@ -275,7 +275,7 @@ define hidden void @_ZN11StringDedup6Config10initializeEv() local_unnamed_addr #
   %.08.i = phi i64 [ 0, %0 ], [ %3, %2 ]
   %5 = getelementptr inbounds [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08.i
   %6 = load i64, ptr %5, align 8
-  %.not.i = icmp ult i64 %6, %1
+  %.not.i = icmp ugt i64 %1, %6
   br i1 %.not.i, label %2, label %_ZN11StringDedup6Config9good_sizeEm.exit
 
 _ZN11StringDedup6Config9good_sizeEm.exit:         ; preds = %2, %4

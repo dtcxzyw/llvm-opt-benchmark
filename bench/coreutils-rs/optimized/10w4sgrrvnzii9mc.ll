@@ -634,7 +634,7 @@ define hidden void @"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$10drop_
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   %7 = load i64, ptr %6, align 8, !noundef !13
   %8 = icmp eq i64 %7, -1
-  %9 = icmp ult i64 %7, %1
+  %9 = icmp ugt i64 %1, %7
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %11, label %12
 
@@ -664,17 +664,17 @@ define hidden void @"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$4step17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %8 = getelementptr inbounds i8, ptr %1, i64 144
   %9 = load i64, ptr %8, align 8, !alias.scope !124, !noalias !121, !noundef !13
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h5ad3f1d240ee0fb8E.llvm.1321408711200081325.exit.sink.split", label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 136
   %13 = load i64, ptr %12, align 8, !alias.scope !124, !noalias !121, !noundef !13
-  %14 = icmp ugt i64 %13, %2
+  %14 = icmp ult i64 %2, %13
   br i1 %14, label %31, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp eq i64 %13, %2
+  %16 = icmp eq i64 %2, %13
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15
@@ -903,7 +903,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
   %11 = getelementptr inbounds i8, ptr %1, i64 144
   %12 = getelementptr inbounds i8, ptr %1, i64 136
   %13 = load i64, ptr %12, align 8, !noundef !13
-  %14 = icmp ugt i64 %13, %2
+  %14 = icmp ult i64 %2, %13
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %3
@@ -951,7 +951,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff7dc30fd3bb4b00E.exit": ; preds = %35, %32, %23
   %.not = phi i1 [ true, %35 ], [ %34, %32 ], [ true, %23 ]
-  %36 = icmp eq i64 %13, %2
+  %36 = icmp eq i64 %2, %13
   %or.cond = and i1 %.not, %36
   br i1 %or.cond, label %.preheader, label %38
 
@@ -1691,13 +1691,13 @@ common.resume:                                    ; preds = %35, %.thread95, %20
 define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h5ad3f1d240ee0fb8E.llvm.1321408711200081325"(ptr noalias nocapture noundef sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 136
   %5 = load i64, ptr %4, align 8, !noundef !13
-  %6 = icmp ugt i64 %5, %2
+  %6 = icmp ult i64 %2, %5
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 128
   %9 = load i64, ptr %8, align 8, !noundef !13
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %28, label %12
 
 11:                                               ; preds = %3
@@ -1705,7 +1705,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4ste
   br label %32
 
 12:                                               ; preds = %7
-  %13 = icmp eq i64 %9, %2
+  %13 = icmp eq i64 %2, %9
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %12

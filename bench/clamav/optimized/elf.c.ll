@@ -650,7 +650,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr no
   %.0140185.us = phi i64 [ %42, %.split.us.preheader ], [ %60, %59 ]
   %53 = getelementptr inbounds %struct.elf_program_hdr64, ptr %45, i64 %indvars.iv195
   %54 = load i64, ptr %51, align 8
-  %or.cond180.not.us = icmp ugt i64 %54, %.0140185.us
+  %or.cond180.not.us = icmp ult i64 %.0140185.us, %54
   br i1 %or.cond180.not.us, label %55, label %fmap_readn.exit.thread.loopexit
 
 55:                                               ; preds = %.split.us
@@ -677,7 +677,7 @@ fmap_readn.exit.us:                               ; preds = %55
   %.0140185 = phi i64 [ %42, %.split.preheader ], [ %81, %106 ]
   %61 = getelementptr inbounds %struct.elf_program_hdr64, ptr %47, i64 %indvars.iv
   %62 = load i64, ptr %49, align 8
-  %or.cond180.not = icmp ugt i64 %62, %.0140185
+  %or.cond180.not = icmp ult i64 %.0140185, %62
   %63 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %or.cond180.not, label %64, label %fmap_readn.exit.thread
 
@@ -1366,7 +1366,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
   %.0186209 = phi i64 [ %38, %.lr.ph ], [ %72, %134 ]
   %55 = getelementptr inbounds %struct.elf_section_hdr64, ptr %48, i64 %indvars.iv
   %56 = load i64, ptr %52, align 8
-  %or.cond207.not = icmp ugt i64 %56, %.0186209
+  %or.cond207.not = icmp ult i64 %.0186209, %56
   br i1 %or.cond207.not, label %57, label %fmap_readn.exit.thread
 
 57:                                               ; preds = %54

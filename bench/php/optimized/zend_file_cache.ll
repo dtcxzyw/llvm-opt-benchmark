@@ -10571,7 +10571,7 @@ define internal fastcc void @zend_file_cache_unserialize_op_array(ptr noundef %0
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %.not = icmp eq ptr %8, %0
+  %.not = icmp eq ptr %0, %8
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   br i1 %.not, label %14, label %11

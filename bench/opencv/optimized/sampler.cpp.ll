@@ -587,7 +587,7 @@ define linkonce_odr hidden void @_ZN2cv4usac18UniformSamplerImpl13setPointsSizeE
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 36
   %17 = load i32, ptr %16, align 4
-  %18 = icmp slt i32 %17, %1
+  %18 = icmp sgt i32 %1, %17
   br i1 %18, label %19, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 19:                                               ; preds = %15
@@ -3074,7 +3074,7 @@ _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46.._cri
   store i32 %159, ptr %160, align 4
   %161 = getelementptr inbounds i8, ptr %0, i64 168
   %162 = load i32, ptr %161, align 8
-  %163 = icmp slt i32 %162, %159
+  %163 = icmp sgt i32 %159, %162
   br i1 %163, label %_ZN2cv4usac17ProsacSamplerImpl15setSampleNumberEi.exit, label %164
 
 164:                                              ; preds = %.critedge44
@@ -3091,13 +3091,13 @@ _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46.._cri
   %173 = sext i32 %171 to i64
   %gep.i60 = getelementptr i32, ptr %invariant.gep.i, i64 %172
   %174 = load i32, ptr %gep.i60, align 4
-  %175 = icmp slt i32 %174, %159
+  %175 = icmp sgt i32 %159, %174
   br i1 %175, label %.lr.ph62, label %.loopexit.i
 
 176:                                              ; preds = %.lr.ph62
   %gep.i = getelementptr i32, ptr %169, i64 %indvars.iv.i61
   %177 = load i32, ptr %gep.i, align 4
-  %178 = icmp slt i32 %177, %159
+  %178 = icmp sgt i32 %159, %177
   br i1 %178, label %.lr.ph62, label %.loopexit.i, !llvm.loop !40
 
 .lr.ph62:                                         ; preds = %164, %176

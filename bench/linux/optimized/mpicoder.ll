@@ -1133,7 +1133,7 @@ twocompl.exit:                                    ; preds = %33, %89, %83
   %109 = phi i32 [ 0, %twocompl.exit ], [ 0, %101 ], [ 0, %99 ], [ -1, %.sink.split ]
   %110 = icmp ne ptr %1, null
   %111 = zext i32 %106 to i64
-  %112 = icmp ugt i64 %111, %2
+  %112 = icmp ult i64 %2, %111
   %113 = select i1 %110, i1 %112, i1 false
   br i1 %113, label %114, label %115
 
@@ -1184,7 +1184,7 @@ twocompl.exit:                                    ; preds = %33, %89, %83
   store i32 %134, ptr %7, align 4
   %135 = icmp ne ptr %1, null
   %136 = zext nneg i32 %134 to i64
-  %137 = icmp ugt i64 %136, %2
+  %137 = icmp ult i64 %2, %136
   %138 = select i1 %135, i1 %137, i1 false
   br i1 %138, label %150, label %139
 
@@ -1228,7 +1228,7 @@ twocompl.exit:                                    ; preds = %33, %89, %83
   %156 = icmp ne ptr %1, null
   %157 = add nuw nsw i32 %154, 2
   %158 = zext nneg i32 %157 to i64
-  %159 = icmp ugt i64 %158, %2
+  %159 = icmp ult i64 %2, %158
   %160 = select i1 %156, i1 %159, i1 false
   br i1 %160, label %178, label %161
 
@@ -1422,7 +1422,7 @@ twocompl.exit13:                                  ; preds = %188, %244, %238
   %268 = load i32, ptr %9, align 4
   %269 = add i32 %268, 4
   %270 = zext i32 %269 to i64
-  %271 = icmp ugt i64 %270, %2
+  %271 = icmp ult i64 %2, %270
   br i1 %271, label %272, label %273
 
 272:                                              ; preds = %267
@@ -1509,7 +1509,7 @@ twocompl.exit13:                                  ; preds = %188, %244, %238
   br i1 %314, label %356, label %319
 
 319:                                              ; preds = %311
-  %320 = icmp ugt i64 %318, %2
+  %320 = icmp ult i64 %2, %318
   br i1 %320, label %359, label %321
 
 321:                                              ; preds = %319

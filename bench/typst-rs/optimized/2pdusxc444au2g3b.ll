@@ -922,7 +922,7 @@ common.resume:                                    ; preds = %46, %64, %98, %109,
   br i1 %trunc.i, label %59, label %54
 
 54:                                               ; preds = %51
-  %55 = icmp ugt i64 %.cast.i, %3
+  %55 = icmp ult i64 %3, %.cast.i
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54

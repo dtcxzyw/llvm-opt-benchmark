@@ -377,7 +377,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   %125 = load i32, ptr %124, align 1
   %126 = and i32 %125, 33554431
   %127 = zext nneg i32 %126 to i64
-  %128 = icmp ult i64 %127, %2
+  %128 = icmp ugt i64 %2, %127
   br i1 %128, label %129, label %141
 
 129:                                              ; preds = %123

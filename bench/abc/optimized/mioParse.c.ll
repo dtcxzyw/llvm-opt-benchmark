@@ -240,7 +240,7 @@ Vec_IntPush.exit62.i:                             ; preds = %101, %Vec_IntGrow.e
   %108 = load i32, ptr %.val43.i, align 4
   %109 = xor i32 %108, 1
   %110 = shl nsw i32 %1, 1
-  %111 = icmp sgt i32 %110, %109
+  %111 = icmp slt i32 %109, %110
   %112 = shl nsw i32 %40, 1
   %113 = select i1 %111, i32 0, i32 %112
   %.0.i.i = add nsw i32 %113, %109
@@ -371,7 +371,7 @@ Vec_IntPush.exit76.i:                             ; preds = %164, %Vec_IntGrow.e
   store i32 %142, ptr %169, align 4
   %.val45.i = load ptr, ptr %107, align 8
   %170 = load i32, ptr %.val45.i, align 4
-  %171 = icmp sgt i32 %110, %170
+  %171 = icmp slt i32 %170, %110
   %172 = select i1 %171, i32 0, i32 %112
   %.0.i77.i = add nsw i32 %172, %170
   %173 = load i32, ptr %31, align 4
@@ -519,7 +519,7 @@ Vec_IntPush.exit91.i:                             ; preds = %223, %Vec_IntGrow.e
   %.val47.i = load ptr, ptr %107, align 8
   %231 = getelementptr inbounds i32, ptr %.val47.i, i64 %indvars.iv.i
   %232 = load i32, ptr %231, align 4
-  %233 = icmp sgt i32 %110, %232
+  %233 = icmp slt i32 %232, %110
   %234 = select i1 %233, i32 0, i32 %112
   %.0.i92.i = add nsw i32 %234, %232
   %235 = load i32, ptr %31, align 4
@@ -810,7 +810,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %33 = load i32, ptr %.val31, align 4
   %34 = xor i32 %33, %3
   %35 = shl nsw i32 %0, 1
-  %36 = icmp sgt i32 %35, %34
+  %36 = icmp slt i32 %34, %35
   %37 = shl nsw i32 %28, 1
   %38 = select i1 %36, i32 0, i32 %37
   %.0.i = add nsw i32 %38, %34
@@ -912,7 +912,7 @@ Vec_IntPush.exit48:                               ; preds = %.Vec_IntGrow.exit10
   %.val33 = load ptr, ptr %32, align 8
   %74 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4
-  %76 = icmp sgt i32 %35, %75
+  %76 = icmp slt i32 %75, %35
   %77 = select i1 %76, i32 0, i32 %37
   %.0.i49 = add nsw i32 %77, %75
   %78 = load i32, ptr %11, align 4
@@ -2999,7 +2999,7 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr nocapture 
   br label %Exp_TruthLit.exit.i
 
 65:                                               ; preds = %61
-  %66 = icmp sgt i32 %60, %64
+  %66 = icmp slt i32 %64, %60
   br i1 %66, label %.preheader.i.i, label %.preheader41.i.i
 
 .preheader41.i.i:                                 ; preds = %65
@@ -3096,7 +3096,7 @@ Exp_TruthLit.exit.i:                              ; preds = %.lr.ph51.split.i.i,
   br label %.lr.ph201.i
 
 98:                                               ; preds = %Exp_TruthLit.exit.i
-  %99 = icmp sgt i32 %60, %97
+  %99 = icmp slt i32 %97, %60
   br i1 %99, label %.preheader.i134.i, label %.preheader41.i122.i
 
 .preheader41.i122.i:                              ; preds = %98
@@ -3253,7 +3253,7 @@ Exp_TruthLit.exit146.i:                           ; preds = %.lr.ph51.split.i126
 
 155:                                              ; preds = %143
   %156 = shl nsw i32 %2, 1
-  %157 = icmp sgt i32 %156, %148
+  %157 = icmp slt i32 %148, %156
   %158 = icmp sgt i32 %10, 0
   br i1 %157, label %.preheader.i163.i, label %.preheader41.i151.i
 

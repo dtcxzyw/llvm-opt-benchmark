@@ -1234,7 +1234,7 @@ define void @Llb_ManGroupMarkNodes_rec(ptr nocapture noundef readonly %0, ptr no
   %.val28 = phi i32 [ %.val, %tailrecurse ], [ %.val24, %2 ]
   %.tr2127 = phi ptr [ %14, %tailrecurse ], [ %1, %2 ]
   %6 = add nsw i32 %.val28, -1
-  %.not20 = icmp eq i32 %6, %.val1329
+  %.not20 = icmp eq i32 %.val1329, %6
   store i32 %.val28, ptr %5, align 8
   br i1 %.not20, label %.loopexit, label %tailrecurse
 

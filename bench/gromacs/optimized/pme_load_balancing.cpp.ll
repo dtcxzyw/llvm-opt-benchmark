@@ -423,7 +423,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 187:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit, %176, %174
   %188 = call noundef zeroext i1 @_Z22wallcycle_have_counterv()
   %.not98 = xor i1 %188, true
-  %brmerge = or i1 %.not98, %8
+  %brmerge = or i1 %8, %.not98
   br i1 %brmerge, label %192, label %189
 
 189:                                              ; preds = %187
@@ -436,7 +436,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %194 = getelementptr inbounds i8, ptr %23, i64 1
   %195 = zext i1 %193 to i8
   store i8 %195, ptr %194, align 1
-  %brmerge101.not = and i1 %193, %8
+  %brmerge101.not = and i1 %8, %193
   br i1 %brmerge101.not, label %196, label %200
 
 196:                                              ; preds = %192
@@ -466,7 +466,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 210:                                              ; preds = %208
   %211 = load i32, ptr %.val108, align 8
   %212 = icmp sgt i32 %211, 1
-  %brmerge104.not = and i1 %212, %8
+  %brmerge104.not = and i1 %8, %212
   br i1 %brmerge104.not, label %213, label %227
 
 213:                                              ; preds = %210
@@ -766,7 +766,7 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
   %64 = load i32, ptr %63, align 8
   %65 = mul nsw i32 %64, 5
   %66 = sext i32 %65 to i64
-  %67 = icmp sgt i64 %66, %11
+  %67 = icmp slt i64 %11, %66
   br i1 %67, label %.sink.split, label %68
 
 68:                                               ; preds = %62
@@ -849,7 +849,7 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
 101:                                              ; preds = %93
   %102 = mul nsw i32 %64, 3
   %103 = sext i32 %102 to i64
-  %.not94 = icmp sgt i64 %103, %11
+  %.not94 = icmp slt i64 %11, %103
   br i1 %.not94, label %118, label %104
 
 104:                                              ; preds = %101
@@ -890,7 +890,7 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %0, i64 8
   %123 = load i64, ptr %122, align 8
-  %124 = icmp sge i64 %123, %11
+  %124 = icmp sle i64 %11, %123
   br label %125
 
 125:                                              ; preds = %121, %118
@@ -983,7 +983,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   %164 = load i32, ptr %63, align 8
   %165 = mul nsw i32 %164, 50
   %166 = sext i32 %165 to i64
-  %167 = add nsw i64 %166, %11
+  %167 = add nsw i64 %11, %166
   %168 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %167, ptr %168, align 8
   br label %170
@@ -2032,7 +2032,7 @@ _ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLo
 753:                                              ; preds = %750
   %754 = getelementptr inbounds i8, ptr %0, i64 8
   %755 = load i64, ptr %754, align 8
-  %756 = icmp slt i64 %755, %11
+  %756 = icmp sgt i64 %11, %755
   br i1 %756, label %757, label %758
 
 757:                                              ; preds = %753, %750
@@ -2817,7 +2817,7 @@ _ZL15pme_loadbal_endP20pme_load_balancing_t.exit.i: ; preds = %53, %48
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.48, double noundef %25, double noundef %44) #23
   %123 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 74, i64 1, ptr nonnull %1)
   %124 = fcmp ule float %24, 1.500000e+00
-  %brmerge.i = or i1 %124, %3
+  %brmerge.i = or i1 %3, %124
   br i1 %brmerge.i, label %136, label %125
 
 125:                                              ; preds = %75

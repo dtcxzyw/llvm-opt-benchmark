@@ -10,7 +10,7 @@ define noalias noundef ptr @WebPSafeMalloc(i64 noundef %0, i64 noundef %1) local
 
 CheckSizeArgumentsOverflow.exit:                  ; preds = %2
   %4 = udiv i64 17179869184, %0
-  %.not7 = icmp ult i64 %4, %1
+  %.not7 = icmp ugt i64 %1, %4
   br i1 %.not7, label %7, label %CheckSizeArgumentsOverflow.exit.thread
 
 CheckSizeArgumentsOverflow.exit.thread:           ; preds = %2, %CheckSizeArgumentsOverflow.exit
@@ -33,7 +33,7 @@ define noalias noundef ptr @WebPSafeCalloc(i64 noundef %0, i64 noundef %1) local
 
 CheckSizeArgumentsOverflow.exit:                  ; preds = %2
   %4 = udiv i64 17179869184, %0
-  %.not7 = icmp ult i64 %4, %1
+  %.not7 = icmp ugt i64 %1, %4
   br i1 %.not7, label %6, label %CheckSizeArgumentsOverflow.exit.thread
 
 CheckSizeArgumentsOverflow.exit.thread:           ; preds = %2, %CheckSizeArgumentsOverflow.exit

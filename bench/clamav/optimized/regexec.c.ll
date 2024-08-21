@@ -145,12 +145,12 @@ define noundef i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr noundef %
 78:                                               ; preds = %243, %63
   %.1.i = phi ptr [ %.0137.i, %63 ], [ %245, %243 ]
   %79 = load ptr, ptr %67, align 8
-  %80 = icmp eq ptr %79, %.1.i
+  %80 = icmp eq ptr %.1.i, %79
   br i1 %80, label %91, label %81
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %68, align 8
-  %83 = icmp eq ptr %82, %.1.i
+  %83 = icmp eq ptr %.1.i, %82
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %81
@@ -713,12 +713,12 @@ smatcher.exit:                                    ; preds = %40, %._crit_edge.i,
   %330 = load ptr, ptr %316, align 8
   %331 = load ptr, ptr %319, align 8
   %332 = load ptr, ptr %304, align 8
-  %333 = icmp eq ptr %332, %.1.i24
+  %333 = icmp eq ptr %.1.i24, %332
   br i1 %333, label %344, label %334
 
 334:                                              ; preds = %328
   %335 = load ptr, ptr %305, align 8
-  %336 = icmp eq ptr %335, %.1.i24
+  %336 = icmp eq ptr %.1.i24, %335
   br i1 %336, label %337, label %340
 
 337:                                              ; preds = %334
@@ -1189,13 +1189,13 @@ define internal fastcc ptr @sslow(ptr nocapture noundef readonly %0, ptr noundef
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %23, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
@@ -2152,7 +2152,7 @@ define internal fastcc i64 @sstep(ptr nocapture noundef readonly %0, i64 noundef
   %24 = trunc i64 %19 to i32
   %sext = shl i32 %24, 24
   %25 = ashr exact i32 %sext, 24
-  %26 = icmp eq i32 %25, %4
+  %26 = icmp eq i32 %4, %25
   br i1 %26, label %27, label %145
 
 27:                                               ; preds = %23
@@ -2377,13 +2377,13 @@ define internal fastcc ptr @lslow(ptr nocapture noundef readonly %0, ptr noundef
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %27, label %15
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %1
+  %18 = icmp eq ptr %1, %17
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
@@ -3366,7 +3366,7 @@ define internal fastcc noundef ptr @lstep(ptr nocapture noundef readonly %0, i64
   %23 = trunc i64 %18 to i32
   %sext = shl i32 %23, 24
   %24 = ashr exact i32 %sext, 24
-  %25 = icmp eq i32 %24, %4
+  %25 = icmp eq i32 %4, %24
   br i1 %25, label %26, label %170
 
 26:                                               ; preds = %22

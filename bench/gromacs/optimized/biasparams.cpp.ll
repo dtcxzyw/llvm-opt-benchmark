@@ -338,7 +338,7 @@ _ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKN
   %106 = getelementptr inbounds i8, ptr %0, i64 56
   %107 = getelementptr inbounds i8, ptr %2, i64 40
   %108 = load double, ptr %107, align 8
-  %109 = fmul double %108, %5
+  %109 = fmul double %5, %108
   store double %109, ptr %106, align 8
   %110 = getelementptr inbounds i8, ptr %0, i64 64
   %111 = getelementptr inbounds i8, ptr %2, i64 32
@@ -374,12 +374,12 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
   %126 = getelementptr inbounds i8, ptr %0, i64 96
   %127 = getelementptr inbounds i8, ptr %2, i64 80
   %128 = load double, ptr %127, align 8
-  %129 = fmul double %128, %5
+  %129 = fmul double %5, %128
   store double %129, ptr %126, align 8
   %130 = getelementptr inbounds i8, ptr %0, i64 104
   %131 = load i64, ptr %18, align 8
   %132 = sitofp i64 %131 to double
-  %133 = fmul double %132, %6
+  %133 = fmul double %6, %132
   %134 = load ptr, ptr %2, align 8
   br i1 %.not.i, label %.noexc15.i, label %.lr.ph.preheader.i54
 
@@ -433,7 +433,7 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
 
 _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEdd.exit: ; preds = %._crit_edge.i59
   %155 = load double, ptr %127, align 8
-  %156 = fmul double %155, %5
+  %156 = fmul double %5, %155
   %157 = fmul double %156, %156
   %158 = fmul double %133, %157
   %159 = fdiv double %.sroa.speculated.i57, %158
@@ -526,9 +526,9 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
   br i1 %194, label %195, label %205
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds %"struct.gmx::DimParams", ptr %3, i64 %indvars.iv, i32 1
+  %196 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %182, i64 %indvars.iv, i32 8
   %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %182, i64 %indvars.iv, i32 8
+  %198 = getelementptr inbounds %"struct.gmx::DimParams", ptr %3, i64 %indvars.iv, i32 1
   %199 = load double, ptr %198, align 8
   %200 = fmul double %197, %199
   %201 = fmul double %200, 5.000000e-01

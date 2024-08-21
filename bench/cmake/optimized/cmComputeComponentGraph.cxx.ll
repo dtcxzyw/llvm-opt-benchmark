@@ -301,7 +301,7 @@ _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit: ; preds = %1, %6
   %18 = ptrtoint ptr %7 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 24
-  %21 = icmp ult i64 %20, %16
+  %21 = icmp ugt i64 %16, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit
@@ -310,7 +310,7 @@ _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit: ; preds = %1, %6
   br label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit1
 
 24:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit
-  %25 = icmp ugt i64 %20, %16
+  %25 = icmp ult i64 %16, %20
   br i1 %25, label %26, label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit1
 
 26:                                               ; preds = %24
@@ -357,7 +357,7 @@ _ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEm.exit: ; p
   %18 = phi ptr [ %14, %._ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEm.exit_crit_edge ], [ %15, %17 ]
   %19 = sub i64 %.pre-phi, %16
   %20 = ashr exact i64 %19, 4
-  %21 = icmp ult i64 %20, %11
+  %21 = icmp ugt i64 %11, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEm.exit
@@ -366,7 +366,7 @@ _ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEm.exit: ; p
   br label %_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEmRKS1_.exit
 
 24:                                               ; preds = %_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEm.exit
-  %25 = icmp ugt i64 %20, %11
+  %25 = icmp ult i64 %11, %20
   br i1 %25, label %26, label %_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEmRKS1_.exit
 
 26:                                               ; preds = %24
@@ -400,7 +400,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIN23cmC
   %35 = phi ptr [ %31, %_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEmRKS1_.exit._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge ], [ %32, %34 ]
   %36 = sub i64 %.pre-phi20, %33
   %37 = ashr exact i64 %36, 3
-  %38 = icmp ult i64 %37, %11
+  %38 = icmp ugt i64 %11, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
@@ -409,7 +409,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIN23cmC
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 41:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %42 = icmp ugt i64 %37, %11
+  %42 = icmp ult i64 %11, %37
   br i1 %42, label %43, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 43:                                               ; preds = %41
@@ -446,7 +446,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit12:             ; preds = %_ZNSt6vectorImSaImE
   store i64 0, ptr %3, align 8
   %54 = sub i64 %.pre-phi22, %51
   %55 = ashr exact i64 %54, 3
-  %56 = icmp ult i64 %55, %11
+  %56 = icmp ugt i64 %11, %55
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit12
@@ -455,7 +455,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit12:             ; preds = %_ZNSt6vectorImSaImE
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit14
 
 59:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit12
-  %60 = icmp ugt i64 %55, %11
+  %60 = icmp ult i64 %11, %55
   br i1 %60, label %61, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit14
 
 61:                                               ; preds = %59
@@ -1170,7 +1170,7 @@ _ZNSt11_Deque_baseImSaImEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #18
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -1555,7 +1555,7 @@ _ZSt13move_backwardIPN23cmComputeComponentGraph11TarjanEntryES2_ET0_T_S4_S3_.exi
   br i1 %.not.i.i.i, label %_ZSt4fillIPN23cmComputeComponentGraph11TarjanEntryES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !30
 
 30:                                               ; preds = %14
-  %31 = icmp eq i64 %17, %2
+  %31 = icmp eq i64 %2, %17
   br i1 %31, label %_ZSt24__uninitialized_fill_n_aIPN23cmComputeComponentGraph11TarjanEntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %32
 
 32:                                               ; preds = %30
@@ -1642,7 +1642,7 @@ _ZNKSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE12_M_check_lenEmPK
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPN23cmComputeComponentGraph11TarjanEntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !30
 
 _ZSt24__uninitialized_fill_n_aIPN23cmComputeComponentGraph11TarjanEntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPN23cmComputeComponentGraph11TarjanEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %63
 
 63:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN23cmComputeComponentGraph11TarjanEntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79
@@ -1735,7 +1735,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !31
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -1819,7 +1819,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !31
 
 _ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -2111,7 +2111,7 @@ _ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit: ; preds = %_Z
 _ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i ]
   %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i15 = icmp eq ptr %4, %1
+  %.not10.i.i.i15 = icmp eq ptr %1, %4
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i16
@@ -2526,7 +2526,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds i64, ptr %0, i64 %.0.us
   %19 = load i64, ptr %phi.call.us, align 8
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -2578,7 +2578,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5_
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds i64, ptr %0, i64 %.0
   %43 = load i64, ptr %phi.call, align 8
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i

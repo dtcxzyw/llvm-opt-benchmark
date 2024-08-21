@@ -831,7 +831,7 @@ define hidden void @_ZN10PSYoungGen13resize_spacesEmm(ptr nocapture noundef nonn
   %63 = ptrtoint ptr %61 to i64
   %64 = sub i64 %62, %63
   %65 = and i64 %64, -8
-  %66 = icmp eq i64 %65, %2
+  %66 = icmp eq i64 %2, %65
   br i1 %66, label %67, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56
@@ -855,7 +855,7 @@ define hidden void @_ZN10PSYoungGen13resize_spacesEmm(ptr nocapture noundef nonn
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
   %77 = and i64 %76, -8
-  %78 = icmp eq i64 %77, %2
+  %78 = icmp eq i64 %2, %77
   %.pre128 = load ptr, ptr %4, align 8
   br i1 %78, label %79, label %92
 
@@ -868,7 +868,7 @@ define hidden void @_ZN10PSYoungGen13resize_spacesEmm(ptr nocapture noundef nonn
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
   %87 = and i64 %86, -8
-  %88 = icmp eq i64 %87, %1
+  %88 = icmp eq i64 %1, %87
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %79

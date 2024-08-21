@@ -1904,7 +1904,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !21, !noundef !21
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !21
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !21, !align !42, !noundef !21
@@ -2088,7 +2088,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !21, !noundef !21
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !21
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !21, !align !42, !noundef !21
@@ -2329,7 +2329,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %5 = load ptr, ptr %4, align 8, !nonnull !21, !noundef !21
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !21
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %10 = load ptr, ptr %9, align 8, !nonnull !21, !align !42, !noundef !21
@@ -2676,7 +2676,7 @@ default.unreachable.i.i.i.i:                      ; preds = %.noexc.i.i.i
   unreachable
 
 66:                                               ; preds = %.noexc.i.i.i
-  %.not15.i.i.i = icmp ugt i64 %.val13.i.i.i, %15
+  %.not15.i.i.i = icmp ult i64 %15, %.val13.i.i.i
   br i1 %.not15.i.i.i, label %.thread12.i.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2ff7a84dac969ad4E.exit.i"
 
 .thread12.i.i.i:                                  ; preds = %66, %.noexc.i.i.i
@@ -2899,7 +2899,7 @@ default.unreachable.i.i.i.i:                      ; preds = %.noexc.i.i.i
   unreachable
 
 66:                                               ; preds = %.noexc.i.i.i
-  %.not15.i.i.i = icmp ugt i64 %.val13.i.i.i, %15
+  %.not15.i.i.i = icmp ult i64 %15, %.val13.i.i.i
   br i1 %.not15.i.i.i, label %.thread12.i.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h7815d7cf41f942c7E.exit.i"
 
 .thread12.i.i.i:                                  ; preds = %66, %.noexc.i.i.i
@@ -3185,7 +3185,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
 define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hb019cc3907c6628eE"(ptr %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = icmp ugt i64 %.16.val, %0
+  %3 = icmp ult i64 %0, %.16.val
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds { ptr, i64 }, ptr %.8.val, i64 %0
   %5 = load ptr, ptr %4, align 8, !nonnull !21, !align !42, !noundef !21
@@ -3922,7 +3922,7 @@ _ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit: ; preds = 
   %77 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa.i
   %78 = load i64, ptr %27, align 8, !noalias !21, !noundef !21
   %79 = sub i64 %78, %73
-  %80 = icmp ult i64 %79, %62
+  %80 = icmp ugt i64 %62, %79
   br i1 %80, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i": ; preds = %76
@@ -3933,13 +3933,13 @@ _ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit: ; preds = 
   br label %.lr.ph.split.us.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i": ; preds = %76
-  %.not5.i = icmp eq i64 %.0.lcssa.i, %2
+  %.not5.i = icmp eq i64 %2, %.0.lcssa.i
   br i1 %.not5.i, label %"_ZN73_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h18e92f8b22734fefE.exit", label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i"
   %.pre-phi = phi i64 [ %79, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i" ], [ %.pre53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i" ]
   %81 = phi i64 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i" ], [ %.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i" ]
-  %82 = icmp ult i64 %.pre-phi, %62
+  %82 = icmp ugt i64 %62, %.pre-phi
   br i1 %82, label %83, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.8515880784993868172.exit.us.i"
 
 83:                                               ; preds = %.lr.ph.split.us.i
@@ -3982,7 +3982,7 @@ _ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit: ; preds = 
   store i64 %98, ptr %16, align 8, !alias.scope !744, !noalias !742
   %99 = load i64, ptr %27, align 8, !alias.scope !745, !noalias !748, !noundef !21
   %100 = sub i64 %99, %98
-  %101 = icmp ult i64 %100, %4
+  %101 = icmp ugt i64 %4, %100
   br i1 %101, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i38", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i33"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i38": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h42bcc8ca380b5e96E.exit32"
@@ -3999,7 +3999,7 @@ _ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit: ; preds = 
 .lr.ph.split.us.i35:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i33", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i38"
   %.pre-phi57 = phi i64 [ %100, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i33" ], [ %.pre56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i38" ]
   %102 = phi i64 [ %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.i33" ], [ %.pre51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha469982a7d2abf6eE.exit.thread.i38" ]
-  %103 = icmp ult i64 %.pre-phi57, %4
+  %103 = icmp ugt i64 %4, %.pre-phi57
   br i1 %103, label %104, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.8515880784993868172.exit.us.i36"
 
 104:                                              ; preds = %.lr.ph.split.us.i35
@@ -4348,7 +4348,7 @@ define hidden void @"_ZN8mini_lsm9iterators14merge_iterator22MergeIterator$LT$I$
   store i64 %69, ptr %.sroa.528.0..sroa_idx, align 8, !alias.scope !832, !noalias !833
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !829
   %.val.i43 = load ptr, ptr %.sroa.427.0..sroa_idx, align 8, !alias.scope !821, !noalias !824, !nonnull !21, !noundef !21
-  %70 = icmp ugt i64 %69, %56
+  %70 = icmp ult i64 %56, %69
   call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds { ptr, i64 }, ptr %.val.i43, i64 %56
   %72 = load ptr, ptr %71, align 8, !nonnull !21, !align !42, !noundef !21
@@ -4718,7 +4718,7 @@ define hidden void @"_ZN8mini_lsm9iterators14merge_iterator22MergeIterator$LT$I$
   store i64 %58, ptr %.sroa.528.0..sroa_idx, align 8, !alias.scope !877, !noalias !878
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !874
   %.val.i43 = load ptr, ptr %.sroa.427.0..sroa_idx, align 8, !alias.scope !866, !noalias !869, !nonnull !21, !noundef !21
-  %59 = icmp ugt i64 %58, %45
+  %59 = icmp ult i64 %45, %58
   call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds { ptr, i64 }, ptr %.val.i43, i64 %45
   %61 = load ptr, ptr %60, align 8, !nonnull !21, !align !42, !noundef !21

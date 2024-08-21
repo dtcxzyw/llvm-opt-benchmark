@@ -2661,7 +2661,7 @@ define internal i64 @date_s__parse(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %8 = load i64, ptr %6, align 8
   %9 = icmp ne i64 %8, 4
   %10 = sext i1 %9 to i32
-  %spec.select.i = add nsw i32 %10, %0
+  %spec.select.i = add nsw i32 %0, %10
   %11 = load i64, ptr %4, align 8
   call fastcc void @check_limit(i64 noundef %11, i64 noundef %8)
   %12 = call i64 @rb_string_value(ptr noundef nonnull %4) #20
@@ -2715,7 +2715,7 @@ define internal i64 @date_s_parse(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %10 = load i64, ptr %7, align 8
   %11 = icmp ne i64 %10, 4
   %12 = sext i1 %11 to i32
-  %spec.select = add nsw i32 %12, %0
+  %spec.select = add nsw i32 %0, %12
   switch i32 %spec.select, label %17 [
     i32 0, label %13
     i32 1, label %15
@@ -2788,7 +2788,7 @@ define internal i64 @date_s_iso8601(i32 noundef %0, ptr noundef %1, i64 noundef 
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -2874,7 +2874,7 @@ define internal i64 @date_s_rfc3339(i32 noundef %0, ptr noundef %1, i64 noundef 
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -2960,7 +2960,7 @@ define internal i64 @date_s_xmlschema(i32 noundef %0, ptr noundef %1, i64 nounde
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -3206,7 +3206,7 @@ define internal i64 @date_s_jisx0301(i32 noundef %0, ptr noundef %1, i64 noundef
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -12680,7 +12680,7 @@ define internal i64 @datetime_s_parse(i32 noundef %0, ptr noundef %1, i64 nounde
   %10 = load i64, ptr %7, align 8
   %11 = icmp ne i64 %10, 4
   %12 = sext i1 %11 to i32
-  %spec.select = add nsw i32 %12, %0
+  %spec.select = add nsw i32 %0, %12
   switch i32 %spec.select, label %17 [
     i32 0, label %13
     i32 1, label %15
@@ -12734,7 +12734,7 @@ define internal i64 @datetime_s_iso8601(i32 noundef %0, ptr noundef %1, i64 noun
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -12807,7 +12807,7 @@ define internal i64 @datetime_s_rfc3339(i32 noundef %0, ptr noundef %1, i64 noun
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -12880,7 +12880,7 @@ define internal i64 @datetime_s_xmlschema(i32 noundef %0, ptr noundef %1, i64 no
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -12953,7 +12953,7 @@ define internal i64 @datetime_s_rfc2822(i32 noundef %0, ptr noundef %1, i64 noun
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -13026,7 +13026,7 @@ define internal i64 @datetime_s_httpdate(i32 noundef %0, ptr noundef %1, i64 nou
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -13099,7 +13099,7 @@ define internal i64 @datetime_s_jisx0301(i32 noundef %0, ptr noundef %1, i64 nou
   %13 = load i64, ptr %10, align 8
   %14 = icmp ne i64 %13, 4
   %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %15, %0
+  %spec.select = add nsw i32 %0, %15
   switch i32 %spec.select, label %19 [
     i32 0, label %16
     i32 1, label %18
@@ -14755,7 +14755,7 @@ c_find_ldoy.exit.thread:                          ; preds = %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   %32 = sitofp i32 %31 to double
-  %33 = fcmp olt double %32, %2
+  %33 = fcmp ogt double %2, %32
   br i1 %33, label %c_jd_to_civil.exit.i, label %34
 
 34:                                               ; preds = %28
@@ -14806,7 +14806,7 @@ c_jd_to_ordinal.exit:                             ; preds = %55
   %60 = sub i32 %59, %58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  %.not17 = icmp eq i32 %54, %0
+  %.not17 = icmp eq i32 %0, %54
   br i1 %.not17, label %61, label %101
 
 61:                                               ; preds = %c_jd_to_ordinal.exit, %5
@@ -14833,7 +14833,7 @@ c_ordinal_to_jd.exit:                             ; preds = %62
   %67 = add nsw i32 %65, %66
   store i32 %67, ptr %3, align 4
   %68 = sitofp i32 %67 to double
-  %69 = fcmp uge double %68, %2
+  %69 = fcmp ule double %2, %68
   %70 = zext i1 %69 to i32
   store i32 %70, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -14841,7 +14841,7 @@ c_ordinal_to_jd.exit:                             ; preds = %62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %72 = sitofp i32 %71 to double
-  %73 = fcmp olt double %72, %2
+  %73 = fcmp ogt double %2, %72
   br i1 %73, label %c_jd_to_civil.exit.i24, label %74
 
 74:                                               ; preds = %c_ordinal_to_jd.exit
@@ -14892,7 +14892,7 @@ c_jd_to_ordinal.exit32:                           ; preds = %95
   %100 = sub i32 %99, %98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %.not18 = icmp eq i32 %94, %0
+  %.not18 = icmp eq i32 %0, %94
   %.not19 = icmp eq i32 %100, %.015
   %or.cond = select i1 %.not18, i1 %.not19, i1 false
   %spec.select = zext i1 %or.cond to i32
@@ -15147,7 +15147,7 @@ c_find_ldom.exit.thread:                          ; preds = %17
   %24 = add nsw i32 %23, %2
   %25 = add nsw i32 %24, 1
   %26 = sitofp i32 %25 to double
-  %27 = fcmp olt double %26, %3
+  %27 = fcmp ogt double %3, %26
   br i1 %27, label %c_jd_to_civil.exit, label %28
 
 28:                                               ; preds = %22
@@ -15186,7 +15186,7 @@ c_jd_to_civil.exit:                               ; preds = %22, %28
   store i32 %52, ptr %4, align 4
   %53 = fptosi double %50 to i32
   store i32 %53, ptr %5, align 4
-  %.not40 = icmp eq i32 %51, %0
+  %.not40 = icmp eq i32 %0, %51
   br i1 %.not40, label %54, label %114
 
 54:                                               ; preds = %c_jd_to_civil.exit
@@ -15200,7 +15200,7 @@ c_jd_to_civil.exit:                               ; preds = %22, %28
   %58 = add nuw nsw i32 %spec.select, 12
   %.018.i = select i1 %57, i32 %58, i32 %spec.select
   %59 = sext i1 %57 to i32
-  %.017.i = add nsw i32 %59, %0
+  %.017.i = add nsw i32 %0, %59
   %60 = sitofp i32 %.017.i to double
   %61 = fdiv double %60, 1.000000e+02
   %62 = tail call double @llvm.floor.f64(double %61)
@@ -15229,7 +15229,7 @@ c_jd_to_civil.exit:                               ; preds = %22, %28
   %82 = fptosi double %.0.i47 to i32
   store i32 %82, ptr %6, align 4
   %83 = sitofp i32 %82 to double
-  %84 = fcmp olt double %83, %3
+  %84 = fcmp ogt double %3, %83
   br i1 %84, label %c_jd_to_civil.exit53, label %85
 
 85:                                               ; preds = %56
@@ -15268,7 +15268,7 @@ c_jd_to_civil.exit53:                             ; preds = %56, %85
   store i32 %109, ptr %4, align 4
   %110 = fptosi double %107 to i32
   store i32 %110, ptr %5, align 4
-  %.not42 = icmp eq i32 %108, %0
+  %.not42 = icmp eq i32 %0, %108
   br i1 %.not42, label %111, label %114
 
 111:                                              ; preds = %c_jd_to_civil.exit53
@@ -15793,7 +15793,7 @@ c_commercial_to_jd.exit37:                        ; preds = %51, %55
   %62 = sub i32 %61, %57
   store i32 %62, ptr %6, align 4
   %63 = sitofp i32 %62 to double
-  %64 = fcmp uge double %63, %3
+  %64 = fcmp ule double %3, %63
   %65 = zext i1 %64 to i32
   store i32 %65, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -15801,7 +15801,7 @@ c_commercial_to_jd.exit37:                        ; preds = %51, %55
   %66 = load i32, ptr %6, align 4
   call fastcc void @c_jd_to_commercial(i32 noundef %66, double noundef %3, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5)
   %67 = load i32, ptr %17, align 4
-  %.not28 = icmp eq i32 %67, %0
+  %.not28 = icmp eq i32 %0, %67
   br i1 %.not28, label %68, label %72
 
 68:                                               ; preds = %c_commercial_to_jd.exit37
@@ -15832,7 +15832,7 @@ define internal fastcc void @c_jd_to_commercial(i32 noundef %0, double noundef %
   %13 = alloca i32, align 4
   %14 = add nsw i32 %0, -3
   %15 = sitofp i32 %14 to double
-  %16 = fcmp olt double %15, %1
+  %16 = fcmp ogt double %1, %15
   br i1 %16, label %c_jd_to_civil.exit, label %17
 
 17:                                               ; preds = %5
@@ -15901,7 +15901,7 @@ c_commercial_to_jd.exit:                          ; preds = %45, %49
   %52 = sub i32 %43, %51
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %.not = icmp sgt i32 %52, %0
+  %.not = icmp slt i32 %0, %52
   br i1 %.not, label %53, label %68
 
 53:                                               ; preds = %c_commercial_to_jd.exit
@@ -19862,7 +19862,7 @@ c_weeknum_to_jd.exit:                             ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   %41 = mul nsw i32 %1, 7
-  %42 = add i32 %41, %3
+  %42 = add i32 %3, %41
   %43 = add i32 %42, %30
   %44 = sub i32 %43, %40
   call fastcc void @c_jd_to_weeknum(i32 noundef %44, i32 noundef %3, double noundef %4, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
@@ -19920,7 +19920,7 @@ c_weeknum_to_jd.exit42:                           ; preds = %56, %60
   %68 = sub i32 %67, %63
   store i32 %68, ptr %7, align 4
   %69 = sitofp i32 %68 to double
-  %70 = fcmp uge double %69, %4
+  %70 = fcmp ule double %4, %69
   %71 = zext i1 %70 to i32
   store i32 %71, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -19928,7 +19928,7 @@ c_weeknum_to_jd.exit42:                           ; preds = %56, %60
   %72 = load i32, ptr %7, align 4
   call fastcc void @c_jd_to_weeknum(i32 noundef %72, i32 noundef %3, double noundef %4, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6)
   %73 = load i32, ptr %18, align 4
-  %.not33 = icmp eq i32 %73, %0
+  %.not33 = icmp eq i32 %0, %73
   br i1 %.not33, label %74, label %78
 
 74:                                               ; preds = %c_weeknum_to_jd.exit42
@@ -19954,7 +19954,7 @@ define internal fastcc void @c_jd_to_weeknum(i32 noundef %0, i32 noundef %1, dou
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = sitofp i32 %0 to double
-  %12 = fcmp olt double %11, %2
+  %12 = fcmp ogt double %2, %11
   br i1 %12, label %c_jd_to_civil.exit, label %13
 
 13:                                               ; preds = %6

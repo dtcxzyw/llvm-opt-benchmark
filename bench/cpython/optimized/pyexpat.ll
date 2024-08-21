@@ -1933,7 +1933,7 @@ if.end8.if.end13_crit_edge:                       ; preds = %if.end8
 if.end13:                                         ; preds = %if.end8.if.end13_crit_edge, %if.else
   %5 = phi i32 [ 0, %if.end8.if.end13_crit_edge ], [ %1, %if.else ]
   %6 = phi i32 [ %.pre, %if.end8.if.end13_crit_edge ], [ %2, %if.else ]
-  %cmp15 = icmp slt i32 %6, %len
+  %cmp15 = icmp sgt i32 %len, %6
   br i1 %cmp15, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %if.end13

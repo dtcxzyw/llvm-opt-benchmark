@@ -5361,7 +5361,7 @@ entry:
   %0 = load ptr, ptr %m_q, align 8
   %m_num_decls.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %m_num_decls.i, align 4
-  %cmp.not = icmp eq i32 %1, %num
+  %cmp.not = icmp eq i32 %num, %1
   br i1 %cmp.not, label %while.cond.preheader, label %if.then
 
 while.cond.preheader:                             ; preds = %entry

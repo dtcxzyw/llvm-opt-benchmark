@@ -202,7 +202,7 @@ land.lhs.true:                                    ; preds = %if.then
 
 if.else3:                                         ; preds = %entry
   %1 = load i32, ptr %pSize, align 4
-  %cmp4.not = icmp slt i32 %1, %sizeNeeded
+  %cmp4.not = icmp sgt i32 %sizeNeeded, %1
   br i1 %cmp4.not, label %if.else6, label %return
 
 if.else6:                                         ; preds = %if.else3
@@ -518,13 +518,13 @@ for.body.lr.ph:                                   ; preds = %entry
   %2 = zext nneg i32 %0 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   %3 = load i32, ptr %1, align 4
-  %cmp127 = icmp sgt i32 %3, %pindex
+  %cmp127 = icmp slt i32 %pindex, %3
   br i1 %cmp127, label %for.end, label %for.inc
 
 for.body:                                         ; preds = %for.inc
   %arrayidx = getelementptr inbounds %struct.Para, ptr %1, i64 %indvars.iv.next
   %4 = load i32, ptr %arrayidx, align 4
-  %cmp1 = icmp sgt i32 %4, %pindex
+  %cmp1 = icmp slt i32 %pindex, %4
   br i1 %cmp1, label %for.body.for.end.split.loop.exit21_crit_edge, label %for.inc, !llvm.loop !4
 
 for.inc:                                          ; preds = %for.body.lr.ph, %for.body
@@ -1155,7 +1155,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i208
 
 if.else3.i:                                       ; preds = %if.end43
   %70 = load i32, ptr %dirPropsSize, align 4
-  %cmp4.not.i = icmp slt i32 %70, %length.addr.0
+  %cmp4.not.i = icmp sgt i32 %length.addr.0, %70
   br i1 %cmp4.not.i, label %if.else6.i, label %if.then52
 
 if.else6.i:                                       ; preds = %if.else3.i
@@ -1710,7 +1710,7 @@ if.then.i23.i.i:                                  ; preds = %if.end10.i.i
 
 if.else3.i15.i.i:                                 ; preds = %if.end10.i.i
   %127 = load i32, ptr %parasSize12.i.i, align 4
-  %cmp4.not.i16.i.i = icmp slt i32 %127, %mul.i.i
+  %cmp4.not.i16.i.i = icmp sgt i32 %mul.i.i, %127
   br i1 %cmp4.not.i16.i.i, label %if.else6.i18.i.i, label %if.end18.i.i
 
 if.else6.i18.i.i:                                 ; preds = %if.else3.i15.i.i
@@ -2244,7 +2244,7 @@ for.inc.i320.preheader:                           ; preds = %cond.false229
 for.body.i315:                                    ; preds = %for.inc.i320
   %arrayidx.i318 = getelementptr inbounds %struct.Para, ptr %212, i64 %indvars.iv.next.i321
   %217 = load i32, ptr %arrayidx.i318, align 4
-  %cmp1.i319 = icmp sgt i32 %217, %limit184.0
+  %cmp1.i319 = icmp slt i32 %limit184.0, %217
   br i1 %cmp1.i319, label %for.end.split.loop.exit21.i330, label %for.inc.i320, !llvm.loop !4
 
 for.inc.i320:                                     ; preds = %for.inc.i320.preheader, %for.body.i315
@@ -2348,7 +2348,7 @@ for.inc.i347.preheader:                           ; preds = %cond.false264
 for.body.i342:                                    ; preds = %for.inc.i347
   %arrayidx.i345 = getelementptr inbounds %struct.Para, ptr %227, i64 %indvars.iv.next.i348
   %232 = load i32, ptr %arrayidx.i345, align 4
-  %cmp1.i346.not = icmp slt i32 %232, %164
+  %cmp1.i346.not = icmp sgt i32 %164, %232
   br i1 %cmp1.i346.not, label %for.inc.i347, label %for.end.split.loop.exit21.i357, !llvm.loop !4
 
 for.inc.i347:                                     ; preds = %for.inc.i347.preheader, %for.body.i342
@@ -4052,7 +4052,7 @@ entry:
   %0 = load ptr, ptr %dirProps1, align 8
   %lastArabicPos = getelementptr inbounds i8, ptr %pBiDi, i64 192
   %1 = load i32, ptr %lastArabicPos, align 8
-  %cmp = icmp sgt i32 %1, %start
+  %cmp = icmp slt i32 %start, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
@@ -4065,7 +4065,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %paras = getelementptr inbounds i8, ptr %pBiDi, i64 208
   %3 = load ptr, ptr %paras, align 8
   %4 = load i32, ptr %3, align 4
-  %cmp3 = icmp sgt i32 %4, %start
+  %cmp3 = icmp slt i32 %start, %4
   br i1 %cmp3, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false, %land.lhs.true
@@ -4090,7 +4090,7 @@ for.inc.i.preheader:                              ; preds = %cond.false
 for.body.i:                                       ; preds = %for.inc.i
   %arrayidx.i = getelementptr inbounds %struct.Para, ptr %3, i64 %indvars.iv.next.i
   %8 = load i32, ptr %arrayidx.i, align 4
-  %cmp1.i = icmp sgt i32 %8, %start
+  %cmp1.i = icmp slt i32 %start, %8
   br i1 %cmp1.i, label %for.end.split.loop.exit21.i, label %for.inc.i, !llvm.loop !4
 
 for.inc.i:                                        ; preds = %for.inc.i.preheader, %for.body.i
@@ -4465,7 +4465,7 @@ for.end168:                                       ; preds = %for.inc166, %for.en
   %start1.1.lcssa = phi i32 [ %start1.0, %if.end69 ], [ %start1.1189, %for.end ], [ %start1.2, %for.inc166 ]
   %length = getelementptr inbounds i8, ptr %pBiDi, i64 20
   %55 = load i32, ptr %length, align 4
-  %cmp169 = icmp eq i32 %55, %limit
+  %cmp169 = icmp eq i32 %limit, %55
   br i1 %cmp169, label %land.lhs.true170, label %if.end178
 
 land.lhs.true170:                                 ; preds = %for.end168
@@ -4587,7 +4587,7 @@ for.end194:                                       ; preds = %for.cond180, %for.e
 
 land.lhs.true202:                                 ; preds = %for.end194
   %69 = load i32, ptr %length, align 4
-  %cmp204 = icmp sgt i32 %69, %limit
+  %cmp204 = icmp slt i32 %limit, %69
   br i1 %cmp204, label %if.then205, label %if.else230
 
 if.then205:                                       ; preds = %land.lhs.true202
@@ -5220,7 +5220,7 @@ do.body15:                                        ; preds = %land.lhs.true7, %la
 lor.lhs.false17:                                  ; preds = %do.body15
   %paraCount = getelementptr inbounds i8, ptr %pBiDi, i64 200
   %3 = load i32, ptr %paraCount, align 8
-  %cmp18.not = icmp sgt i32 %3, %paraIndex
+  %cmp18.not = icmp slt i32 %paraIndex, %3
   br i1 %cmp18.not, label %do.end21, label %if.then19
 
 if.then19:                                        ; preds = %lor.lhs.false17, %do.body15
@@ -5301,7 +5301,7 @@ for.inc.i.preheader:                              ; preds = %cond.false
 for.body.i:                                       ; preds = %for.inc.i
   %arrayidx.i = getelementptr inbounds %struct.Para, ptr %11, i64 %indvars.iv.next.i
   %16 = load i32, ptr %arrayidx.i, align 4
-  %cmp1.i = icmp sgt i32 %16, %paraStart.0
+  %cmp1.i = icmp slt i32 %paraStart.0, %16
   br i1 %cmp1.i, label %for.end.split.loop.exit21.i, label %for.inc.i, !llvm.loop !4
 
 for.inc.i:                                        ; preds = %for.inc.i.preheader, %for.body.i
@@ -5380,7 +5380,7 @@ do.end14:                                         ; preds = %land.lhs.true, %lan
 lor.lhs.false18:                                  ; preds = %do.end14
   %length = getelementptr inbounds i8, ptr %1, i64 20
   %3 = load i32, ptr %length, align 4
-  %cmp19.not = icmp sgt i32 %3, %charIndex
+  %cmp19.not = icmp slt i32 %charIndex, %3
   br i1 %cmp19.not, label %for.cond.preheader, label %if.then20
 
 for.cond.preheader:                               ; preds = %lor.lhs.false18
@@ -5396,7 +5396,7 @@ for.cond:                                         ; preds = %for.cond, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds %struct.Para, ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx, align 4
-  %cmp23.not = icmp sgt i32 %5, %charIndex
+  %cmp23.not = icmp slt i32 %charIndex, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %cmp23.not, label %land.lhs.true.i, label %for.cond, !llvm.loop !33
 
@@ -5501,7 +5501,7 @@ for.inc.i.preheader.i:                            ; preds = %cond.false.i
 for.body.i.i:                                     ; preds = %for.inc.i.i
   %arrayidx.i.i = getelementptr inbounds %struct.Para, ptr %16, i64 %indvars.iv.next.i.i
   %21 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp1.i.i = icmp sgt i32 %21, %paraStart.0.i
+  %cmp1.i.i = icmp slt i32 %paraStart.0.i, %21
   br i1 %cmp1.i.i, label %for.end.i.i, label %for.inc.i.i, !llvm.loop !4
 
 for.inc.i.i:                                      ; preds = %for.body.i.i, %for.inc.i.preheader.i
@@ -6103,7 +6103,7 @@ for.body216:                                      ; preds = %for.body216.lr.ph, 
   %73 = load ptr, ptr %openings217, align 8
   %arrayidx219 = getelementptr inbounds %struct.Opening, ptr %73, i64 %indvars.iv154
   %74 = load i32, ptr %arrayidx219, align 4
-  %cmp221 = icmp slt i32 %74, %position
+  %cmp221 = icmp sgt i32 %position, %74
   br i1 %cmp221, label %if.then222, label %for.inc232
 
 if.then222:                                       ; preds = %for.body216
@@ -6169,7 +6169,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.else3.i:                                       ; preds = %if.then
   %5 = load i32, ptr %openingsSize, align 4
-  %cmp4.not.i = icmp slt i32 %5, %narrow
+  %cmp4.not.i = icmp sgt i32 %narrow, %5
   br i1 %cmp4.not.i, label %if.else6.i, label %if.end
 
 if.else6.i:                                       ; preds = %if.else3.i
@@ -6276,12 +6276,12 @@ for.body:                                         ; preds = %for.body.preheader,
 if.end:                                           ; preds = %for.body
   %contextPos = getelementptr inbounds i8, ptr %qOpening.028, i64 8
   %7 = load i32, ptr %contextPos, align 4
-  %cmp5 = icmp sgt i32 %7, %newPropPosition
+  %cmp5 = icmp slt i32 %newPropPosition, %7
   br i1 %cmp5, label %for.end, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %8 = load i32, ptr %qOpening.028, align 4
-  %cmp8.not = icmp sgt i32 %8, %newPropPosition
+  %cmp8.not = icmp slt i32 %newPropPosition, %8
   br i1 %cmp8.not, label %if.end10, label %for.inc
 
 if.end10:                                         ; preds = %if.end7
@@ -6669,7 +6669,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %and59, ptr %arrayidx57, align 1
   %indvars.iv.next418 = add nsw i64 %indvars.iv417, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next418 to i32
-  %exitcond420.not = icmp eq i32 %lftr.wideiv, %start
+  %exitcond420.not = icmp eq i32 %start, %lftr.wideiv
   br i1 %exitcond420.not, label %for.end.loopexit, label %for.body, !llvm.loop !42
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -7140,7 +7140,7 @@ sw.bb173:                                         ; preds = %entry
   %99 = load i8, ptr %runLevel174, align 4
   %startON177 = getelementptr inbounds i8, ptr %pLevState, i64 16
   %100 = load i32, ptr %startON177, align 8
-  %cmp178.not.not391 = icmp slt i32 %100, %start
+  %cmp178.not.not391 = icmp sgt i32 %start, %100
   br i1 %cmp178.not.not391, label %for.body179.lr.ph, label %if.end252
 
 for.body179.lr.ph:                                ; preds = %sw.bb173
@@ -7213,7 +7213,7 @@ sw.bb227:                                         ; preds = %entry
   %add230 = add i8 %108, 1
   %startON234 = getelementptr inbounds i8, ptr %pLevState, i64 16
   %109 = load i32, ptr %startON234, align 8
-  %cmp235.not.not383 = icmp slt i32 %109, %start
+  %cmp235.not.not383 = icmp sgt i32 %start, %109
   br i1 %cmp235.not.not383, label %for.body236.preheader, label %if.end252
 
 for.body236.preheader:                            ; preds = %sw.bb227
@@ -7269,7 +7269,7 @@ for.body266.preheader:                            ; preds = %for.cond264.prehead
   %117 = sext i32 %start.addr.0 to i64
   %scevgep = getelementptr i8, ptr %2, i64 %117
   %118 = xor i32 %start.addr.0, -1
-  %119 = add i32 %118, %limit
+  %119 = add i32 %limit, %118
   %120 = zext i32 %119 to i64
   %121 = add nuw nsw i64 %120, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %add260, i64 %121, i1 false)

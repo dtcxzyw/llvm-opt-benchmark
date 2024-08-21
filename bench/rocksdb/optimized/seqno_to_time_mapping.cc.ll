@@ -192,7 +192,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.17.1.i.i = phi ptr [ %add.ptr11.i.i.i.i.i, %cond.end.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i, %if.then.i19.i.i.i.i ]
   %time1.i = getelementptr inbounds i8, ptr %__middle.sroa.0.0.i.i, i64 8
   %8 = load i64, ptr %time1.i, align 8, !noalias !16
-  %cmp.i = icmp ugt i64 %8, %time
+  %cmp.i = icmp ult i64 %time, %8
   br i1 %cmp.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
@@ -460,7 +460,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.12.1.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i, %cond.end.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i, %if.then.i19.i.i.i.i ]
   %__middle.sroa.17.1.i.i = phi ptr [ %add.ptr11.i.i.i.i.i, %cond.end.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i, %if.then.i19.i.i.i.i ]
   %8 = load i64, ptr %__middle.sroa.0.0.i.i, align 8, !noalias !45
-  %cmp.i = icmp ugt i64 %8, %seqno
+  %cmp.i = icmp ult i64 %seqno, %8
   br i1 %cmp.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
@@ -790,7 +790,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
   %time1.i.i = getelementptr inbounds i8, ptr %__middle.sroa.0.0.i.i.i, i64 8
   %10 = load i64, ptr %time1.i.i, align 8, !noalias !71
-  %cmp.i.i = icmp ugt i64 %10, %sub
+  %cmp.i.i = icmp ult i64 %sub, %10
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
@@ -961,7 +961,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
   %time1.i.i = getelementptr inbounds i8, ptr %__middle.sroa.0.0.i.i.i, i64 8
   %8 = load i64, ptr %time1.i.i, align 8, !noalias !95
-  %cmp.i.i = icmp ugt i64 %8, %time
+  %cmp.i.i = icmp ult i64 %time, %8
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
@@ -1110,7 +1110,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.12.1.i.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
   %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !100
-  %cmp.i.i = icmp ugt i64 %8, %start
+  %cmp.i.i = icmp ult i64 %start, %8
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
@@ -1218,7 +1218,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.12.1.i.i.i76 = phi ptr [ %add.ptr.i.i17.i.i.i.i.i69, %cond.end.i.i.i.i.i.i66 ], [ %agg.tmp.sroa.11.0.i.i51, %if.then.i19.i.i.i.i.i102 ]
   %__middle.sroa.17.1.i.i.i77 = phi ptr [ %add.ptr11.i.i.i.i.i.i68, %cond.end.i.i.i.i.i.i66 ], [ %agg.tmp.sroa.17.0.i.i52, %if.then.i19.i.i.i.i.i102 ]
   %14 = load i64, ptr %__middle.sroa.0.0.i.i.i74, align 8, !noalias !110
-  %cmp.i.i78 = icmp ugt i64 %14, %end
+  %cmp.i.i78 = icmp ult i64 %end, %14
   br i1 %cmp.i.i78, label %if.end.i.i.i88, label %if.else.i.i.i79
 
 if.else.i.i.i79:                                  ; preds = %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i73
@@ -2001,37 +2001,37 @@ _ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit:      ; preds = %if.then2
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 496
   %5 = load i64, ptr %incdec.ptr.i.i.i, align 8
-  %cmp5 = icmp ugt i64 %5, %seqno
+  %cmp5 = icmp ult i64 %seqno, %5
   br i1 %cmp5, label %return, label %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit10.thread
 
 _ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit.thread: ; preds = %if.then2
   %incdec.ptr.i.i.i57 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load i64, ptr %incdec.ptr.i.i.i57, align 8
-  %cmp558 = icmp ugt i64 %6, %seqno
+  %cmp558 = icmp ult i64 %seqno, %6
   br i1 %cmp558, label %return, label %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit10
 
 _ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit10:    ; preds = %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit.thread
   %time7 = getelementptr inbounds i8, ptr %0, i64 -8
   %7 = load i64, ptr %time7, align 8
-  %cmp8 = icmp ugt i64 %7, %time
-  %cmp1363 = icmp eq i64 %6, %seqno
+  %cmp8 = icmp ult i64 %time, %7
+  %cmp1363 = icmp eq i64 %seqno, %6
   %or.cond68 = or i1 %cmp8, %cmp1363
   br i1 %or.cond68, label %return, label %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit28
 
 _ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit10.thread: ; preds = %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit
   %time760 = getelementptr inbounds i8, ptr %4, i64 504
   %8 = load i64, ptr %time760, align 8
-  %cmp861 = icmp ugt i64 %8, %time
-  %cmp13 = icmp eq i64 %5, %seqno
+  %cmp861 = icmp ult i64 %time, %8
+  %cmp13 = icmp eq i64 %seqno, %5
   %or.cond = or i1 %cmp861, %cmp13
   br i1 %or.cond, label %return, label %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit28.thread
 
 _ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit28:    ; preds = %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit10
-  %cmp18 = icmp eq i64 %7, %time
+  %cmp18 = icmp eq i64 %time, %7
   br i1 %cmp18, label %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit37, label %if.end23
 
 _ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit28.thread: ; preds = %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit10.thread
-  %cmp1866 = icmp eq i64 %8, %time
+  %cmp1866 = icmp eq i64 %time, %8
   br i1 %cmp1866, label %if.then.i.i.i33, label %if.end23
 
 if.then.i.i.i33:                                  ; preds = %_ZN7rocksdb18SeqnoToTimeMapping4LastEv.exit28.thread
@@ -2883,7 +2883,7 @@ _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERK
   %__middle.sroa.12.1.i.i.i = phi ptr [ %add.ptr.i.i17.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.11.0.i.i, %if.then.i19.i.i.i.i.i ]
   %__middle.sroa.17.1.i.i.i = phi ptr [ %add.ptr11.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i ], [ %agg.tmp.sroa.17.0.i.i, %if.then.i19.i.i.i.i.i ]
   %8 = load i64, ptr %__middle.sroa.0.0.i.i.i, align 8, !noalias !203
-  %cmp.i.i = icmp ugt i64 %8, %smallest_seqno
+  %cmp.i.i = icmp ult i64 %smallest_seqno, %8
   br i1 %cmp.i.i, label %if.end.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
@@ -3047,7 +3047,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #21
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -5905,7 +5905,7 @@ entry:
   %agg.tmp21 = alloca %"struct.std::_Deque_iterator.3", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp165 = icmp sgt i64 %div, %__holeIndex
+  %cmp165 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp165, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -6244,7 +6244,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i.i.i, label %while.body, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %cmp4.i.i.i.i = icmp ugt i64 %4, %__value.coerce0
+  %cmp4.i.i.i.i = icmp ult i64 %__value.coerce0, %4
   br i1 %cmp4.i.i.i.i, label %while.end, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES6_EEbT_RT0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES6_EEbT_RT0_.exit: ; preds = %lor.rhs.i.i.i.i

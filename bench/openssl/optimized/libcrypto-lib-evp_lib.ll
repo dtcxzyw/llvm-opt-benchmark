@@ -2077,7 +2077,7 @@ entry:
   %flags1 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load i64, ptr %flags1, align 8
   %1 = trunc i64 %0 to i32
-  %conv2 = and i32 %1, %flags
+  %conv2 = and i32 %flags, %1
   ret i32 %conv2
 }
 
@@ -2208,7 +2208,7 @@ entry:
   %flags1 = getelementptr inbounds i8, ptr %ctx, i64 112
   %0 = load i64, ptr %flags1, align 8
   %1 = trunc i64 %0 to i32
-  %conv2 = and i32 %1, %flags
+  %conv2 = and i32 %flags, %1
   ret i32 %conv2
 }
 

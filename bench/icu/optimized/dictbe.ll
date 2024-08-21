@@ -152,7 +152,7 @@ if.end:                                           ; preds = %entry
   %fSet = getelementptr inbounds i8, ptr %this, i64 8
   %call510 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv611 = trunc i64 %call510 to i32
-  %cmp12 = icmp slt i32 %conv611, %endPos
+  %cmp12 = icmp sgt i32 %endPos, %conv611
   br i1 %cmp12, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %if.end
@@ -170,7 +170,7 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %call10 = tail call i32 @utext_current32_75(ptr noundef %text)
   %call5 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv6 = trunc i64 %call5 to i32
-  %cmp = icmp slt i32 %conv6, %endPos
+  %cmp = icmp sgt i32 %endPos, %conv6
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %land.rhs, %land.rhs.preheader, %if.end
@@ -637,7 +637,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %wordsFound.0406 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.2, %if.end280 ]
   %call16 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv17 = trunc i64 %call16 to i32
-  %cmp18 = icmp slt i32 %conv17, %rangeEnd
+  %cmp18 = icmp sgt i32 %rangeEnd, %conv17
   br i1 %cmp18, label %while.body, label %while.end281
 
 while.body:                                       ; preds = %land.rhs
@@ -729,7 +729,7 @@ if.else:                                          ; preds = %if.then12.i
 if.then34:                                        ; preds = %if.else
   %call36 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv37 = trunc i64 %call36 to i32
-  %cmp38.not = icmp slt i32 %conv37, %rangeEnd
+  %cmp38.not = icmp sgt i32 %rangeEnd, %conv37
   br i1 %cmp38.not, label %do.body.preheader, label %foundBest
 
 do.body.preheader:                                ; preds = %if.then34
@@ -812,7 +812,7 @@ if.then49:                                        ; preds = %if.then12.i141
   store i32 %18, ptr %mark.i114, align 4
   %call55 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv56 = trunc i64 %call55 to i32
-  %cmp57.not = icmp slt i32 %conv56, %rangeEnd
+  %cmp57.not = icmp sgt i32 %rangeEnd, %conv56
   br i1 %cmp57.not, label %do.body60, label %foundBest
 
 do.body60:                                        ; preds = %if.then49, %if.then.i206
@@ -929,7 +929,7 @@ if.end103:                                        ; preds = %if.else.thread, %if
   %wordsFound.1 = phi i32 [ %add, %if.then22 ], [ %add101, %foundBest ], [ %wordsFound.0406, %if.else ], [ %wordsFound.0406, %if.else.thread ]
   %call105 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv106 = trunc i64 %call105 to i32
-  %cmp107 = icmp slt i32 %conv106, %rangeEnd
+  %cmp107 = icmp sgt i32 %rangeEnd, %conv106
   %cmp108 = icmp slt i32 %cpWordLength.0, 3
   %or.cond = and i1 %cmp108, %cmp107
   br i1 %or.cond, label %if.then109, label %if.end176
@@ -1129,7 +1129,7 @@ if.end176:                                        ; preds = %if.else171, %for.en
   %wordsFound.2 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else171 ], [ %wordsFound.1, %if.end103 ]
   %call179422 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv180423 = trunc i64 %call179422 to i32
-  %cmp181424 = icmp slt i32 %conv180423, %rangeEnd
+  %cmp181424 = icmp sgt i32 %rangeEnd, %conv180423
   br i1 %cmp181424, label %land.rhs182, label %while.end
 
 land.rhs182:                                      ; preds = %if.end176, %while.body189
@@ -1148,14 +1148,14 @@ while.body189:                                    ; preds = %land.rhs182
   %add196 = add i32 %sub195, %conv194
   %call179 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv180 = trunc i64 %call179 to i32
-  %cmp181 = icmp slt i32 %conv180, %rangeEnd
+  %cmp181 = icmp sgt i32 %rangeEnd, %conv180
   br i1 %cmp181, label %land.rhs182, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %land.rhs182, %while.body189, %if.end176
   %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end176 ], [ %cuWordLength.2425, %land.rhs182 ], [ %add196, %while.body189 ]
   %call198 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv199 = trunc i64 %call198 to i32
-  %cmp200 = icmp slt i32 %conv199, %rangeEnd
+  %cmp200 = icmp sgt i32 %rangeEnd, %conv199
   %cmp202 = icmp sgt i32 %cuWordLength.2.lcssa, 0
   %or.cond1 = select i1 %cmp200, i1 %cmp202, i1 false
   br i1 %or.cond1, label %if.then203, label %if.end274
@@ -1622,7 +1622,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %wordsFound.0329 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.2, %if.end198 ]
   %call11 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv12 = trunc i64 %call11 to i32
-  %cmp13 = icmp slt i32 %conv12, %rangeEnd
+  %cmp13 = icmp sgt i32 %rangeEnd, %conv12
   br i1 %cmp13, label %while.body, label %while.end199
 
 while.body:                                       ; preds = %land.rhs
@@ -1796,7 +1796,7 @@ if.then44:                                        ; preds = %if.then12.i109
   store i32 %18, ptr %mark.i82, align 4
   %call50 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv51 = trunc i64 %call50 to i32
-  %cmp52.not = icmp slt i32 %conv51, %rangeEnd
+  %cmp52.not = icmp sgt i32 %rangeEnd, %conv51
   br i1 %cmp52.not, label %do.body55, label %foundBest
 
 do.body55:                                        ; preds = %if.then44, %if.then.i174
@@ -1913,7 +1913,7 @@ if.end98:                                         ; preds = %if.else.thread, %if
   %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0329, %if.else ], [ %wordsFound.0329, %if.else.thread ]
   %call100 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv101 = trunc i64 %call100 to i32
-  %cmp102 = icmp slt i32 %conv101, %rangeEnd
+  %cmp102 = icmp sgt i32 %rangeEnd, %conv101
   %cmp103 = icmp slt i32 %cpWordLength.0, 3
   %or.cond = and i1 %cmp103, %cmp102
   br i1 %or.cond, label %if.then104, label %if.end172
@@ -2113,7 +2113,7 @@ if.end172:                                        ; preds = %if.else167, %for.en
   %wordsFound.2 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else167 ], [ %wordsFound.1, %if.end98 ]
   %call175345 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176346 = trunc i64 %call175345 to i32
-  %cmp177347 = icmp slt i32 %conv176346, %rangeEnd
+  %cmp177347 = icmp sgt i32 %rangeEnd, %conv176346
   br i1 %cmp177347, label %land.rhs178, label %while.end
 
 land.rhs178:                                      ; preds = %if.end172, %while.body185
@@ -2132,7 +2132,7 @@ while.body185:                                    ; preds = %land.rhs178
   %add192 = add i32 %sub191, %conv190
   %call175 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176 = trunc i64 %call175 to i32
-  %cmp177 = icmp slt i32 %conv176, %rangeEnd
+  %cmp177 = icmp sgt i32 %rangeEnd, %conv176
   br i1 %cmp177, label %land.rhs178, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %land.rhs178, %while.body185, %if.end172
@@ -2444,7 +2444,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %wordsFound.0329 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.2, %if.end198 ]
   %call11 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv12 = trunc i64 %call11 to i32
-  %cmp13 = icmp slt i32 %conv12, %rangeEnd
+  %cmp13 = icmp sgt i32 %rangeEnd, %conv12
   br i1 %cmp13, label %while.body, label %while.end199
 
 while.body:                                       ; preds = %land.rhs
@@ -2618,7 +2618,7 @@ if.then44:                                        ; preds = %if.then12.i109
   store i32 %18, ptr %mark.i82, align 4
   %call50 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv51 = trunc i64 %call50 to i32
-  %cmp52.not = icmp slt i32 %conv51, %rangeEnd
+  %cmp52.not = icmp sgt i32 %rangeEnd, %conv51
   br i1 %cmp52.not, label %do.body55, label %foundBest
 
 do.body55:                                        ; preds = %if.then44, %if.then.i174
@@ -2735,7 +2735,7 @@ if.end98:                                         ; preds = %if.else.thread, %if
   %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0329, %if.else ], [ %wordsFound.0329, %if.else.thread ]
   %call100 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv101 = trunc i64 %call100 to i32
-  %cmp102 = icmp slt i32 %conv101, %rangeEnd
+  %cmp102 = icmp sgt i32 %rangeEnd, %conv101
   %cmp103 = icmp slt i32 %cpWordLength.0, 3
   %or.cond = and i1 %cmp103, %cmp102
   br i1 %or.cond, label %if.then104, label %if.end172
@@ -2935,7 +2935,7 @@ if.end172:                                        ; preds = %if.else167, %for.en
   %wordsFound.2 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else167 ], [ %wordsFound.1, %if.end98 ]
   %call175345 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176346 = trunc i64 %call175345 to i32
-  %cmp177347 = icmp slt i32 %conv176346, %rangeEnd
+  %cmp177347 = icmp sgt i32 %rangeEnd, %conv176346
   br i1 %cmp177347, label %land.rhs178, label %while.end
 
 land.rhs178:                                      ; preds = %if.end172, %while.body185
@@ -2954,7 +2954,7 @@ while.body185:                                    ; preds = %land.rhs178
   %add192 = add i32 %sub191, %conv190
   %call175 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176 = trunc i64 %call175 to i32
-  %cmp177 = icmp slt i32 %conv176, %rangeEnd
+  %cmp177 = icmp sgt i32 %rangeEnd, %conv176
   br i1 %cmp177, label %land.rhs178, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %land.rhs178, %while.body185, %if.end172
@@ -3285,7 +3285,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %wordsFound.0329 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.2, %if.end198 ]
   %call11 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv12 = trunc i64 %call11 to i32
-  %cmp13 = icmp slt i32 %conv12, %rangeEnd
+  %cmp13 = icmp sgt i32 %rangeEnd, %conv12
   br i1 %cmp13, label %while.body, label %while.end199
 
 while.body:                                       ; preds = %land.rhs
@@ -3377,7 +3377,7 @@ if.else:                                          ; preds = %if.then12.i
 if.then29:                                        ; preds = %if.else
   %call31 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv32 = trunc i64 %call31 to i32
-  %cmp33.not = icmp slt i32 %conv32, %rangeEnd
+  %cmp33.not = icmp sgt i32 %rangeEnd, %conv32
   br i1 %cmp33.not, label %do.body.preheader, label %foundBest
 
 do.body.preheader:                                ; preds = %if.then29
@@ -3460,7 +3460,7 @@ if.then44:                                        ; preds = %if.then12.i109
   store i32 %18, ptr %mark.i82, align 4
   %call50 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv51 = trunc i64 %call50 to i32
-  %cmp52.not = icmp slt i32 %conv51, %rangeEnd
+  %cmp52.not = icmp sgt i32 %rangeEnd, %conv51
   br i1 %cmp52.not, label %do.body55, label %foundBest
 
 do.body55:                                        ; preds = %if.then44, %if.then.i174
@@ -3577,7 +3577,7 @@ if.end98:                                         ; preds = %if.else.thread, %if
   %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0329, %if.else ], [ %wordsFound.0329, %if.else.thread ]
   %call100 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv101 = trunc i64 %call100 to i32
-  %cmp102 = icmp slt i32 %conv101, %rangeEnd
+  %cmp102 = icmp sgt i32 %rangeEnd, %conv101
   %cmp103 = icmp slt i32 %cpWordLength.0, 3
   %or.cond = and i1 %cmp103, %cmp102
   br i1 %or.cond, label %if.then104, label %if.end172
@@ -3777,7 +3777,7 @@ if.end172:                                        ; preds = %if.else167, %for.en
   %wordsFound.2 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else167 ], [ %wordsFound.1, %if.end98 ]
   %call175345 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176346 = trunc i64 %call175345 to i32
-  %cmp177347 = icmp slt i32 %conv176346, %rangeEnd
+  %cmp177347 = icmp sgt i32 %rangeEnd, %conv176346
   br i1 %cmp177347, label %land.rhs178, label %while.end
 
 land.rhs178:                                      ; preds = %if.end172, %while.body185
@@ -3796,7 +3796,7 @@ while.body185:                                    ; preds = %land.rhs178
   %add192 = add i32 %sub191, %conv190
   %call175 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176 = trunc i64 %call175 to i32
-  %cmp177 = icmp slt i32 %conv176, %rangeEnd
+  %cmp177 = icmp sgt i32 %rangeEnd, %conv176
   br i1 %cmp177, label %land.rhs178, label %while.end, !llvm.loop !24
 
 while.end:                                        ; preds = %land.rhs178, %while.body185, %if.end172

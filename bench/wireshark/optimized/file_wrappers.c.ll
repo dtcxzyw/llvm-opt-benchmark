@@ -581,11 +581,11 @@ gz_skip.exit:                                     ; preds = %38, %32
   %110 = getelementptr ptr, ptr %105, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = load i64, ptr %111, align 8
-  %113 = icmp sgt i64 %112, %100
+  %113 = icmp slt i64 %100, %112
   br i1 %113, label %118, label %114
 
 114:                                              ; preds = %106
-  %115 = icmp slt i64 %112, %100
+  %115 = icmp sgt i64 %100, %112
   br i1 %115, label %116, label %fast_seek_find.exit.thread207
 
 116:                                              ; preds = %114
@@ -3072,7 +3072,7 @@ define hidden noundef i32 @gzwfile_write(ptr noundef %0, ptr noundef %1, i32 nou
 
 15:                                               ; preds = %._crit_edge, %8
   %16 = phi i32 [ %.pre, %._crit_edge ], [ %10, %8 ]
-  %17 = icmp ugt i32 %16, %2
+  %17 = icmp ult i32 %2, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 80
   br i1 %17, label %.preheader, label %42
 

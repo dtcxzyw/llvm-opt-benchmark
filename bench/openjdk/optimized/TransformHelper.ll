@@ -1339,7 +1339,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   %57 = sub nsw i32 %56, %55
   %58 = shl nsw i32 %57, 1
   %59 = trunc i64 %indvars.iv19 to i32
-  %60 = add i32 %59, %12
+  %60 = add i32 %12, %59
   %61 = sitofp i32 %60 to double
   %62 = fadd double %61, 5.000000e-01
   %63 = sext i32 %58 to i64
@@ -1352,7 +1352,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
 68:                                               ; preds = %.lr.ph4, %120
   %indvars.iv15 = phi i64 [ %67, %.lr.ph4 ], [ %indvars.iv.next16, %120 ]
   %69 = trunc i64 %indvars.iv15 to i32
-  %70 = add i32 %69, %11
+  %70 = add i32 %11, %69
   %71 = sitofp i32 %70 to double
   %72 = fadd double %71, 5.000000e-01
   store double %72, ptr %17, align 8
@@ -1373,11 +1373,11 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   %or.cond88 = select i1 %or.cond86, i1 %82, i1 false
   %83 = lshr i64 %75, 32
   %84 = trunc nuw i64 %83 to i32
-  %85 = icmp slt i32 %84, %13
+  %85 = icmp sgt i32 %13, %84
   %or.cond91 = select i1 %or.cond88, i1 %85, i1 false
   %86 = lshr i64 %78, 32
   %87 = trunc nuw i64 %86 to i32
-  %88 = icmp slt i32 %87, %14
+  %88 = icmp sgt i32 %14, %87
   %or.cond94 = select i1 %or.cond91, i1 %88, i1 false
   br i1 %or.cond94, label %89, label %120
 
@@ -1501,10 +1501,10 @@ define internal fastcc void @calculateEdges(ptr nocapture noundef writeonly %0, 
   %.06568 = phi i32 [ %48, %47 ], [ %37, %.lr.ph86 ]
   %40 = lshr i64 %.070, 32
   %41 = trunc nuw i64 %40 to i32
-  %42 = icmp uge i32 %41, %6
+  %42 = icmp ule i32 %6, %41
   %43 = lshr i64 %.06069, 32
   %44 = trunc nuw i64 %43 to i32
-  %45 = icmp uge i32 %44, %5
+  %45 = icmp ule i32 %5, %44
   %46 = select i1 %42, i1 true, i1 %45
   br i1 %46, label %47, label %.critedge
 
@@ -1531,10 +1531,10 @@ define internal fastcc void @calculateEdges(ptr nocapture noundef writeonly %0, 
   %.06373 = phi i32 [ %62, %61 ], [ %38, %.lr.ph76.preheader ]
   %54 = lshr i64 %.175, 32
   %55 = trunc nuw i64 %54 to i32
-  %56 = icmp uge i32 %55, %6
+  %56 = icmp ule i32 %6, %55
   %57 = lshr i64 %.16174, 32
   %58 = trunc nuw i64 %57 to i32
-  %59 = icmp uge i32 %58, %5
+  %59 = icmp ule i32 %5, %58
   %60 = select i1 %56, i1 true, i1 %59
   br i1 %60, label %61, label %.critedge2
 

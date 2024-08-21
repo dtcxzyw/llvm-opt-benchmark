@@ -2488,7 +2488,7 @@ _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread: ; preds = %.lr.ph
 _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread201: ; preds = %.preheader.i, %_ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit
   %92 = load i64, ptr %15, align 8, !alias.scope !406, !noundef !4
   %93 = sub i64 %92, %59
-  %94 = icmp ult i64 %93, %63
+  %94 = icmp ugt i64 %63, %93
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %_ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread201
@@ -2533,7 +2533,7 @@ _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread201: ; preds = %.pr
   %114 = load i64, ptr %113, align 8, !noundef !4
   %115 = load i64, ptr %15, align 8, !alias.scope !415, !noalias !422, !noundef !4
   %116 = sub i64 %115, %110
-  %117 = icmp ult i64 %116, %114
+  %117 = icmp ugt i64 %114, %116
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %105
@@ -2603,7 +2603,7 @@ _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread201: ; preds = %.pr
   %150 = load i64, ptr %149, align 8, !noundef !4
   %151 = load i64, ptr %15, align 8, !alias.scope !428, !noalias !435, !noundef !4
   %152 = sub i64 %151, %133
-  %153 = icmp ult i64 %152, %150
+  %153 = icmp ugt i64 %150, %152
   br i1 %153, label %154, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h1d113d77ccf98194E.exit135"
 
 154:                                              ; preds = %146
@@ -2688,7 +2688,7 @@ _ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread201: ; preds = %.pr
 177:                                              ; preds = %136
   %178 = load i64, ptr %15, align 8, !alias.scope !443, !noalias !450, !noundef !4
   %179 = sub i64 %178, %133
-  %180 = icmp ult i64 %179, %140
+  %180 = icmp ugt i64 %140, %179
   br i1 %180, label %181, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h1d113d77ccf98194E.exit138"
 
 181:                                              ; preds = %177
@@ -3102,7 +3102,7 @@ define hidden void @"_ZN88_$LT$png..text_metadata..ZTXtChunk$u20$as$u20$png..tex
   %52 = load i64, ptr %51, align 8, !noundef !4
   %53 = load i64, ptr %15, align 8, !alias.scope !504, !noalias !511, !noundef !4
   %54 = sub i64 %53, %46
-  %55 = icmp ult i64 %54, %52
+  %55 = icmp ugt i64 %52, %54
   br i1 %55, label %56, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h1d113d77ccf98194E.exit"
 
 56:                                               ; preds = %48
@@ -7530,8 +7530,8 @@ define hidden void @_ZN9typst_pdf5image12write_images17habacb3ce58dd39c3E(ptr no
 
 87:                                               ; preds = %103, %.noexc38
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %.noexc38 ], [ %104, %103 ]
-  %.pn.i.i = phi i64 [ %84, %.noexc38 ], [ %105, %103 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val5.i
+  %.pn.i.i.i.i = phi i64 [ %84, %.noexc38 ], [ %105, %103 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %88 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %88, align 1, !noalias !1166
   %89 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -7559,7 +7559,7 @@ define hidden void @_ZN9typst_pdf5image12write_images17habacb3ce58dd39c3E(ptr no
   %101 = sub nsw i64 0, %100
   %gep.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i, i64 %101
   %.val4.i.i.i.i = load i64, ptr %gep.i.i.i, align 8, !alias.scope !1175, !noalias !1180, !noundef !4
-  %102 = icmp eq i64 %.val4.i.i.i.i, %.sroa.7.0145
+  %102 = icmp eq i64 %.sroa.7.0145, %.val4.i.i.i.i
   br i1 %102, label %106, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i"
 
 103:                                              ; preds = %91
@@ -7993,7 +7993,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   %250 = load i64, ptr %43, align 8, !alias.scope !1219, !noalias !1222, !noundef !4
   %251 = load i64, ptr %0, align 8, !alias.scope !1219, !noalias !1222, !noundef !4
   %252 = sub i64 %251, %250
-  %253 = icmp ult i64 %252, %249
+  %253 = icmp ugt i64 %249, %252
   br i1 %253, label %254, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i"
 
 254:                                              ; preds = %.noexc44.thread
@@ -8096,8 +8096,8 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
 
 285:                                              ; preds = %301, %.noexc92
   %.sroa.9.0.i.i.i.i76 = phi i64 [ 0, %.noexc92 ], [ %302, %301 ]
-  %.pn.i.i77 = phi i64 [ %282, %.noexc92 ], [ %303, %301 ]
-  %.sroa.01.0.i.i.i.i78 = and i64 %.pn.i.i77, %.val5.i72
+  %.pn.i.i.i.i77 = phi i64 [ %282, %.noexc92 ], [ %303, %301 ]
+  %.sroa.01.0.i.i.i.i78 = and i64 %.pn.i.i.i.i77, %.val5.i72
   %286 = getelementptr inbounds i8, ptr %.val.i71, i64 %.sroa.01.0.i.i.i.i78
   %.0.copyload.i25.i.i.i79 = load <16 x i8>, ptr %286, align 1, !noalias !1268
   %287 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i79, %.15.vec.insert.i.i.i.i74

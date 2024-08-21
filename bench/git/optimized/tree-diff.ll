@@ -44,7 +44,7 @@ define internal fastcc ptr @ll_diff_tree_paths(ptr noundef %p, ptr noundef %oid,
 entry:
   %t = alloca %struct.tree_desc, align 8
   %0 = load i32, ptr @max_allowed_tree_depth, align 4
-  %cmp = icmp slt i32 %0, %depth
+  %cmp = icmp sgt i32 %depth, %0
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -829,7 +829,7 @@ if.then20:                                        ; preds = %if.end, %if.then16
   %conv21 = and i32 %mode.0, 65535
   %conv.i59 = sext i32 %pathlen.0 to i64
   %sub.i.i = xor i64 %0, -1
-  %cmp.i.i = icmp ult i64 %sub.i.i, %conv.i59
+  %cmp.i.i = icmp ugt i64 %conv.i59, %sub.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %st_add.exit.i
 
 if.then.i.i:                                      ; preds = %if.then20
@@ -866,7 +866,7 @@ if.then.i33.i:                                    ; preds = %st_add.exit32.i
 st_mult.exit.i:                                   ; preds = %st_add.exit32.i
   %mul.i.i = mul nuw nsw i64 %conv4.i, 72
   %sub.i34.i = sub nuw i64 -58, %add.i.i
-  %cmp.i35.i = icmp ult i64 %sub.i34.i, %mul.i.i
+  %cmp.i35.i = icmp ugt i64 %mul.i.i, %sub.i34.i
   br i1 %cmp.i35.i, label %if.then.i37.i, label %st_add.exit38.i
 
 if.then.i37.i:                                    ; preds = %st_mult.exit.i
@@ -1100,7 +1100,7 @@ if.end121:                                        ; preds = %strbuf_addch.exit, 
   %conv122 = ashr exact i64 %sext, 32
   %32 = load i64, ptr %base, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %cmp.i64 = icmp ult i64 %spec.select.i, %conv122
+  %cmp.i64 = icmp ugt i64 %conv122, %spec.select.i
   br i1 %cmp.i64, label %if.then.i67, label %if.end.i
 
 if.then.i67:                                      ; preds = %if.end121

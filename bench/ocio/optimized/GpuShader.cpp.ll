@@ -460,7 +460,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 264
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp.not = icmp ugt i32 %conv, %index
+  %cmp.not = icmp ult i32 %index, %conv
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -806,7 +806,7 @@ entry:
   %t = alloca %"struct.OpenColorIO_v2_4dev::GPUShaderImpl::PrivateImpl::Texture", align 8
   %m_max1DLUTWidth.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %m_max1DLUTWidth.i, align 8
-  %cmp = icmp ult i32 %0, %width
+  %cmp = icmp ugt i32 %width, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1263,7 +1263,7 @@ entry:
   %t = alloca %"struct.OpenColorIO_v2_4dev::GPUShaderImpl::PrivateImpl::Texture", align 8
   %0 = load i64, ptr @_ZN19OpenColorIO_v2_4dev11Lut3DOpData18maxSupportedLengthE, align 8
   %conv.i = trunc i64 %0 to i32
-  %cmp = icmp ult i32 %conv.i, %edgelen
+  %cmp = icmp ugt i32 %edgelen, %conv.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4985,7 +4985,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl7TextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 112
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl7TextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl7TextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i.i19

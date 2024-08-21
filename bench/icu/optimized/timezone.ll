@@ -1021,7 +1021,7 @@ if.end:                                           ; preds = %entry
   store i32 %call2, ptr %rawOffset, align 4
   %tobool3 = icmp eq i8 %local, 0
   %conv = sitofp i32 %call2 to double
-  %add = fadd double %conv, %date
+  %add = fadd double %date, %conv
   %date.addr.0 = select i1 %tobool3, double %add, double %date
   br label %for.cond
 
@@ -1726,7 +1726,7 @@ invoke.cont17:                                    ; preds = %invoke.cont13
   %cmp = icmp sgt i32 %index, -1
   %or.cond = and i1 %cmp, %cmp.i11
   %2 = load i32, ptr %size, align 4
-  %cmp23 = icmp sgt i32 %2, %index
+  %cmp23 = icmp slt i32 %index, %2
   %or.cond10 = select i1 %or.cond, i1 %cmp23, i1 false
   br i1 %or.cond10, label %if.end26, label %if.end26.thread17
 
@@ -1936,7 +1936,7 @@ if.else.i.i:                                      ; preds = %invoke.cont13
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %12 = and i16 %5, 2
   %tobool.not.i.i.i = icmp eq i16 %12, 0
@@ -2100,7 +2100,7 @@ if.end7:                                          ; preds = %if.end4
   %call8 = call i32 @u_strlen_75(ptr noundef nonnull %call.i)
   %call9 = call i32 @uprv_min_75(i32 noundef %call8, i32 noundef %capacity)
   call void @u_UCharsToChars_75(ptr noundef nonnull %call.i, ptr noundef nonnull %region, i32 noundef %call9)
-  %cmp10 = icmp sgt i32 %call8, %capacity
+  %cmp10 = icmp slt i32 %capacity, %call8
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end7
@@ -2780,7 +2780,7 @@ invoke.cont57:                                    ; preds = %invoke.cont45
 
 if.then60:                                        ; preds = %invoke.cont57
   %cmp63 = icmp slt i32 %sub, 3
-  %cmp.i.i83 = icmp ugt i32 %cond.i75, %17
+  %cmp.i.i83 = icmp ult i32 %17, %cond.i75
   %or.cond144 = and i1 %cmp63, %cmp.i.i83
   br i1 %or.cond144, label %invoke.cont66, label %delete.notnull72
 
@@ -2842,7 +2842,7 @@ invoke.cont102:                                   ; preds = %invoke.cont86
   br i1 %cmp104, label %if.then105, label %delete.end174
 
 if.then105:                                       ; preds = %invoke.cont102
-  %cmp.i.i111 = icmp ugt i32 %cond.i104, %29
+  %cmp.i.i111 = icmp ult i32 %29, %cond.i104
   br i1 %cmp.i.i111, label %invoke.cont108, label %delete.notnull114
 
 invoke.cont108:                                   ; preds = %if.then105

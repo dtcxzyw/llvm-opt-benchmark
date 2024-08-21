@@ -57,7 +57,7 @@ while.end.loopexit:                               ; preds = %while.body, %land.r
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
   %begin51.i.pre-phi = phi i64 [ %.pre, %while.end.loopexit ], [ %begin146, %while.cond.preheader ]
   %begin.addr.0.lcssa = phi ptr [ %begin.addr.0.lcssa.ph, %while.end.loopexit ], [ %begin, %while.cond.preheader ]
-  %cmp.not26.i = icmp eq ptr %begin.addr.0.lcssa, %end
+  %cmp.not26.i = icmp eq ptr %end, %begin.addr.0.lcssa
   br i1 %cmp.not26.i, label %while.end.i, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %while.end
@@ -73,7 +73,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.028.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %end
+  %cmp.not.i = icmp eq ptr %end, %incdec.ptr.i
   br i1 %cmp.not.i, label %while.end.i.loopexit, label %land.rhs.i, !llvm.loop !7
 
 while.end.i.loopexit:                             ; preds = %land.rhs.i, %while.body.i
@@ -214,7 +214,7 @@ while.end34:                                      ; preds = %land.rhs28, %while.
 
 if.end41:                                         ; preds = %while.end34
   %sub40 = sub nsw i32 %exponent_adjustment.0, %conv35
-  %cmp.not26.i67 = icmp eq ptr %begin.addr.3.lcssa, %end
+  %cmp.not26.i67 = icmp eq ptr %end, %begin.addr.3.lcssa
   br i1 %cmp.not26.i67, label %while.end.i74, label %land.rhs.preheader.i69
 
 land.rhs.preheader.i69:                           ; preds = %if.end41
@@ -230,7 +230,7 @@ land.rhs.i71:                                     ; preds = %while.body.i121, %l
 
 while.body.i121:                                  ; preds = %land.rhs.i71
   %incdec.ptr.i122 = getelementptr inbounds i8, ptr %begin.addr.028.i72, i64 1
-  %cmp.not.i123 = icmp eq ptr %incdec.ptr.i122, %end
+  %cmp.not.i123 = icmp eq ptr %end, %incdec.ptr.i122
   br i1 %cmp.not.i123, label %while.end.i74.loopexit, label %land.rhs.i71, !llvm.loop !7
 
 while.end.i74.loopexit:                           ; preds = %land.rhs.i71, %while.body.i121
@@ -343,7 +343,7 @@ if.end56:                                         ; preds = %if.else52, %if.then
   %mantissa_is_inexact.0 = phi i1 [ %mantissa_is_inexact.2, %if.then50 ], [ %mantissa_is_inexact.2, %if.else52 ], [ %mantissa_is_inexact.1, %land.lhs.true ], [ %mantissa_is_inexact.1, %if.else ]
   %exponent_adjustment.1 = phi i32 [ %sub51, %if.then50 ], [ %sub53, %if.else52 ], [ %exponent_adjustment.0, %land.lhs.true ], [ %exponent_adjustment.0, %if.else ]
   %begin.addr.1 = phi ptr [ %add.ptr44, %if.then50 ], [ %add.ptr44, %if.else52 ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %if.else ]
-  %cmp57 = icmp eq ptr %begin.addr.1, %begin
+  %cmp57 = icmp eq ptr %begin, %begin.addr.1
   br i1 %cmp57, label %return, label %if.end59
 
 if.end59:                                         ; preds = %if.end56
@@ -561,7 +561,7 @@ entry:
   %0 = load i32, ptr %out, align 4
   %.fr = freeze i32 %0
   %tobool.not = icmp ne i32 %.fr, 0
-  %cmp.not1 = icmp eq ptr %begin, %end
+  %cmp.not1 = icmp eq ptr %end, %begin
   %or.cond2 = or i1 %tobool.not, %cmp.not1
   br i1 %or.cond2, label %while.end, label %land.rhs.preheader
 
@@ -578,7 +578,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %begin.addr.03, i64 1
-  %cmp.not = icmp eq ptr %incdec.ptr, %end
+  %cmp.not = icmp eq ptr %end, %incdec.ptr
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !12
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
@@ -700,7 +700,7 @@ while.end.loopexit:                               ; preds = %while.body, %land.r
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
   %begin56.i.pre-phi = phi i64 [ %.pre, %while.end.loopexit ], [ %begin152, %while.cond.preheader ]
   %begin.addr.0.lcssa = phi ptr [ %begin.addr.0.lcssa.ph, %while.end.loopexit ], [ %begin, %while.cond.preheader ]
-  %cmp.not31.i = icmp eq ptr %begin.addr.0.lcssa, %end
+  %cmp.not31.i = icmp eq ptr %end, %begin.addr.0.lcssa
   br i1 %cmp.not31.i, label %while.end.i, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %while.end
@@ -716,7 +716,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.033.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %end
+  %cmp.not.i = icmp eq ptr %end, %incdec.ptr.i
   br i1 %cmp.not.i, label %while.end.i.loopexit, label %land.rhs.i, !llvm.loop !16
 
 while.end.i.loopexit:                             ; preds = %land.rhs.i, %while.body.i
@@ -866,7 +866,7 @@ while.end34:                                      ; preds = %land.rhs28, %while.
 
 if.end41:                                         ; preds = %while.end34
   %sub40 = sub nsw i32 %exponent_adjustment.0, %conv35
-  %cmp.not31.i65 = icmp eq ptr %begin.addr.3.lcssa, %end
+  %cmp.not31.i65 = icmp eq ptr %end, %begin.addr.3.lcssa
   br i1 %cmp.not31.i65, label %while.end.i72, label %land.rhs.preheader.i67
 
 land.rhs.preheader.i67:                           ; preds = %if.end41
@@ -882,7 +882,7 @@ land.rhs.i69:                                     ; preds = %while.body.i125, %l
 
 while.body.i125:                                  ; preds = %land.rhs.i69
   %incdec.ptr.i126 = getelementptr inbounds i8, ptr %begin.addr.033.i70, i64 1
-  %cmp.not.i127 = icmp eq ptr %incdec.ptr.i126, %end
+  %cmp.not.i127 = icmp eq ptr %end, %incdec.ptr.i126
   br i1 %cmp.not.i127, label %while.end.i72.loopexit, label %land.rhs.i69, !llvm.loop !16
 
 while.end.i72.loopexit:                           ; preds = %land.rhs.i69, %while.body.i125
@@ -998,7 +998,7 @@ if.end56:                                         ; preds = %if.else52, %if.then
   %mantissa_is_inexact.0 = phi i8 [ %mantissa_is_inexact.2, %if.then50 ], [ %mantissa_is_inexact.2, %if.else52 ], [ %mantissa_is_inexact.1, %land.lhs.true ], [ %mantissa_is_inexact.1, %if.else ]
   %exponent_adjustment.1 = phi i32 [ %sub51, %if.then50 ], [ %sub53, %if.else52 ], [ %exponent_adjustment.0, %land.lhs.true ], [ %exponent_adjustment.0, %if.else ]
   %begin.addr.1 = phi ptr [ %add.ptr44, %if.then50 ], [ %add.ptr44, %if.else52 ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %if.else ]
-  %cmp57 = icmp eq ptr %begin.addr.1, %begin
+  %cmp57 = icmp eq ptr %begin, %begin.addr.1
   br i1 %cmp57, label %return, label %if.end59
 
 if.end59:                                         ; preds = %if.end56

@@ -795,7 +795,7 @@ define void @_ZN5faiss11IndexFlat1D3addElPKf(ptr noundef nonnull align 8 derefer
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %18 = icmp ult i64 %17, %10
+  %18 = icmp ugt i64 %10, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %7
@@ -806,7 +806,7 @@ define void @_ZN5faiss11IndexFlat1D3addElPKf(ptr noundef nonnull align 8 derefer
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i
 
 21:                                               ; preds = %7
-  %22 = icmp ugt i64 %17, %10
+  %22 = icmp ult i64 %10, %17
   br i1 %22, label %23, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i
 
 23:                                               ; preds = %21
@@ -1536,7 +1536,7 @@ define void @_ZN5faiss11IndexFlatL212sync_l2normsEv(ptr noundef nonnull align 8 
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  %12 = icmp ult i64 %11, %4
+  %12 = icmp ugt i64 %4, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %1
@@ -1547,7 +1547,7 @@ define void @_ZN5faiss11IndexFlatL212sync_l2normsEv(ptr noundef nonnull align 8 
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i64 %11, %4
+  %16 = icmp ult i64 %4, %11
   br i1 %16, label %17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 17:                                               ; preds = %15
@@ -1970,7 +1970,7 @@ define void @_ZN5faiss11IndexFlat1D18update_permutationEv(ptr noundef nonnull al
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ult i64 %11, %4
+  %12 = icmp ugt i64 %4, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %1
@@ -1980,7 +1980,7 @@ define void @_ZN5faiss11IndexFlat1D18update_permutationEv(ptr noundef nonnull al
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i64 %11, %4
+  %16 = icmp ult i64 %4, %11
   br i1 %16, label %17, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 17:                                               ; preds = %15

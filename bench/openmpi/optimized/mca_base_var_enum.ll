@@ -489,7 +489,7 @@ define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 9:                                                ; preds = %4
   %10 = load i32, ptr %5, align 4
-  %.not17 = icmp sgt i32 %10, %1
+  %.not17 = icmp slt i32 %1, %10
   br i1 %.not17, label %11, label %26
 
 11:                                               ; preds = %9
@@ -1223,7 +1223,7 @@ define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr nou
 
 9:                                                ; preds = %4
   %10 = load i32, ptr %5, align 4
-  %.not18 = icmp sgt i32 %10, %1
+  %.not18 = icmp slt i32 %1, %10
   br i1 %.not18, label %11, label %26
 
 11:                                               ; preds = %9
@@ -1693,7 +1693,7 @@ define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %13 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %11, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, %1
+  %15 = icmp eq i32 %1, %14
   br i1 %15, label %._crit_edge.loopexit, label %16
 
 16:                                               ; preds = %12

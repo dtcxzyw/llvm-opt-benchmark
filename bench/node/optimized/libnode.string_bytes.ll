@@ -139,7 +139,7 @@ if.end:                                           ; preds = %entry
   %.biased = add i64 %0, 1
   %cond.i.i = and i64 %.biased, -2
   %1 = inttoptr i64 %cond.i.i to ptr
-  %cmp3 = icmp eq ptr %1, %buf
+  %cmp3 = icmp eq ptr %buf, %1
   br i1 %cmp3, label %if.then4, label %do.end16
 
 if.then4:                                         ; preds = %if.end
@@ -723,7 +723,7 @@ declare noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnul
 define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4node11StringBytes10hex_encodeEPKcmPcm(ptr nocapture noundef readonly %src, i64 noundef %slen, ptr nocapture noundef writeonly %dst, i64 noundef %dlen) local_unnamed_addr #3 align 2 {
 entry:
   %mul = shl i64 %slen, 1
-  %cmp.not = icmp ugt i64 %mul, %dlen
+  %cmp.not = icmp ult i64 %dlen, %mul
   br i1 %cmp.not, label %do.body3, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
@@ -1358,7 +1358,7 @@ _ZN4nodeL19base64_encoded_sizeEmNS_10Base64ModeE.exit: ; preds = %entry
   %add.i = add i64 %slen, 2
   %div.i = udiv i64 %add.i, 3
   %mul.i = shl i64 %div.i, 2
-  %cmp.not = icmp ugt i64 %mul.i, %dlen
+  %cmp.not = icmp ult i64 %dlen, %mul.i
   br i1 %cmp.not, label %do.body3, label %if.then7
 
 _ZN4nodeL19base64_encoded_sizeEmNS_10Base64ModeE.exit.thread: ; preds = %entry
@@ -1367,7 +1367,7 @@ _ZN4nodeL19base64_encoded_sizeEmNS_10Base64ModeE.exit.thread: ; preds = %entry
   %div2.i = fdiv double %conv.i, 3.000000e+00
   %0 = tail call double @llvm.ceil.f64(double %div2.i)
   %conv3.i = fptoui double %0 to i64
-  %cmp.not69 = icmp ugt i64 %conv3.i, %dlen
+  %cmp.not69 = icmp ult i64 %dlen, %conv3.i
   br i1 %cmp.not69, label %do.body3, label %if.end8
 
 do.body3:                                         ; preds = %_ZN4nodeL19base64_encoded_sizeEmNS_10Base64ModeE.exit.thread, %_ZN4nodeL19base64_encoded_sizeEmNS_10Base64ModeE.exit

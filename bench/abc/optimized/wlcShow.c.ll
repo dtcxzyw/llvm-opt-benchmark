@@ -933,7 +933,7 @@ Wlc_ObjCo2PoFo.exit521:                           ; preds = %390, %394
   %.5578 = phi i32 [ 0, %.lr.ph579 ], [ %432, %.critedge8 ]
   %.0351577 = phi i32 [ -1, %.lr.ph579 ], [ %.1352, %.critedge8 ]
   %.val.i522 = load i32, ptr %380, align 4
-  %409 = icmp sgt i32 %.val.i522, %.5578
+  %409 = icmp slt i32 %.5578, %.val.i522
   br i1 %409, label %Wlc_ObjCo2PoFo.exit528, label %410
 
 410:                                              ; preds = %408

@@ -2279,7 +2279,7 @@ dsdKernelCopyListPlusOne.exit:                    ; preds = %371, %.lr.ph.i713, 
 
 1096:                                             ; preds = %dsdKernelCopyListPlusOne.exit, %24
   %.sink1083 = phi i64 [ %1082, %dsdKernelCopyListPlusOne.exit ], [ %28, %24 ]
-  %1097 = icmp ne ptr %20, %1
+  %1097 = icmp ne ptr %1, %20
   %1098 = zext i1 %1097 to i64
   %1099 = xor i64 %.sink1083, %1098
   %.0 = inttoptr i64 %1099 to ptr

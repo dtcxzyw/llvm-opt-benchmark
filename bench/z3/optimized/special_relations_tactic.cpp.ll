@@ -264,7 +264,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i, %if.end.i.i.i
   %5 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
   %6 = load i32, ptr %5, align 4
-  %cmp4.i.i.i = icmp eq i32 %6, %idx
+  %cmp4.i.i.i = icmp eq i32 %idx, %6
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %sw.epilog.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i
@@ -695,7 +695,7 @@ for.inc36.i.i:                                    ; preds = %if.then22.i.i, %for
 if.then:                                          ; preds = %if.then.i.i, %if.then22.i.i
   %retval.0.i.i = phi ptr [ %curr.133.i.i, %if.then22.i.i ], [ %curr.031.i.i, %if.then.i.i ]
   %m_value = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %cmp.i.i.i = icmp eq ptr %m_value, %v
+  %cmp.i.i.i = icmp eq ptr %v, %m_value
   br i1 %cmp.i.i.i, label %_ZN24special_relations_tactic9sp_axiomsaSERKS0_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then

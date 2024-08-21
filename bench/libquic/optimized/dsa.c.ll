@@ -143,7 +143,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.then7:                                         ; preds = %cond.end
   %conv8 = and i64 %call2, 4294967295
-  %cmp9 = icmp ugt i64 %conv8, %seed_len
+  %cmp9 = icmp ult i64 %seed_len, %conv8
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then7
@@ -1225,7 +1225,7 @@ if.end44:                                         ; preds = %lor.lhs.false38
 if.end50:                                         ; preds = %if.end44
   %shr = lshr exact i32 %call, 3
   %conv = zext nneg i32 %shr to i64
-  %spec.select = call i64 @llvm.umin.i64(i64 %conv, i64 %digest_len)
+  %spec.select = call i64 @llvm.umin.i64(i64 %digest_len, i64 %conv)
   %call57 = call ptr @BN_bin2bn(ptr noundef %digest, i64 noundef %spec.select, ptr noundef nonnull %u1) #8
   %cmp58 = icmp eq ptr %call57, null
   br i1 %cmp58, label %if.then96, label %if.end61
@@ -1373,7 +1373,7 @@ if.end5:                                          ; preds = %if.end
   %call6 = call i32 @i2d_DSA_SIG(ptr noundef %1, ptr noundef nonnull %der) #8
   %cmp7 = icmp sgt i32 %call6, -1
   %conv = zext nneg i32 %call6 to i64
-  %cmp9.not = icmp eq i64 %conv, %sig_len
+  %cmp9.not = icmp eq i64 %sig_len, %conv
   %or.cond7 = select i1 %cmp7, i1 %cmp9.not, i1 false
   %.pre10 = load ptr, ptr %der, align 8
   br i1 %or.cond7, label %lor.lhs.false11, label %err

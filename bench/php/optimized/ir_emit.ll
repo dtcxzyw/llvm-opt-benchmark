@@ -22045,7 +22045,7 @@ ir_emit_overflow_and_branch.exit:                 ; preds = %8082, %8084
   %8089 = load ptr, ptr %784, align 8
   %8090 = load ptr, ptr %8089, align 8
   %8091 = load i32, ptr %8090, align 4
-  %8092 = icmp eq i32 %8091, %.04821938
+  %8092 = icmp eq i32 %.04821938, %8091
   br i1 %8092, label %._crit_edge.i1287, label %.lr.ph.i1286
 
 .lr.ph.i1286:                                     ; preds = %8088, %.lr.ph.i1286
@@ -22059,7 +22059,7 @@ ir_emit_overflow_and_branch.exit:                 ; preds = %8082, %8084
   %8098 = zext i32 %8097 to i64
   %8099 = getelementptr inbounds i32, ptr %8090, i64 %8098
   %8100 = load i32, ptr %8099, align 4
-  %8101 = icmp eq i32 %8100, %.04821938
+  %8101 = icmp eq i32 %.04821938, %8100
   br i1 %8101, label %._crit_edge.i1287, label %.lr.ph.i1286
 
 ._crit_edge.i1287:                                ; preds = %.lr.ph.i1286, %8088
@@ -43774,7 +43774,7 @@ define internal fastcc i32 @ir_match_insn(ptr noundef %0, i32 noundef %1) unname
 353:                                              ; preds = %.thread1218
   %354 = getelementptr inbounds i8, ptr %0, i64 248
   %355 = load i32, ptr %354, align 8
-  %356 = icmp slt i32 %355, %335
+  %356 = icmp sgt i32 %335, %355
   br i1 %356, label %357, label %ir_match_fuse_load_cmp_fp.exit
 
 357:                                              ; preds = %353
@@ -43874,7 +43874,7 @@ ir_match_fuse_load_commutative_fp.exit:           ; preds = %394, %396, %402, %4
 410:                                              ; preds = %387
   %411 = getelementptr inbounds i8, ptr %0, i64 248
   %412 = load i32, ptr %411, align 8
-  %413 = icmp slt i32 %412, %393
+  %413 = icmp sgt i32 %393, %412
   br i1 %413, label %414, label %ir_match_fuse_load.exit1211
 
 414:                                              ; preds = %410
@@ -44225,7 +44225,7 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   %602 = load i32, ptr %601, align 8
   %603 = getelementptr inbounds i8, ptr %0, i64 248
   %604 = load i32, ptr %603, align 8
-  %605 = icmp slt i32 %604, %602
+  %605 = icmp sgt i32 %602, %604
   br i1 %605, label %606, label %ir_match_fuse_load.exit1212
 
 606:                                              ; preds = %600
@@ -45881,7 +45881,7 @@ ir_match_fuse_load.exit1213:                      ; preds = %1606, %1403, %1617,
   %1659 = load i32, ptr %1658, align 4
   %1660 = getelementptr inbounds i8, ptr %0, i64 248
   %1661 = load i32, ptr %1660, align 8
-  %1662 = icmp slt i32 %1661, %1659
+  %1662 = icmp sgt i32 %1659, %1661
   br i1 %1662, label %1663, label %ir_match_fuse_load.exit1214
 
 1663:                                             ; preds = %1657
@@ -45940,7 +45940,7 @@ ir_match_fuse_load.exit1214:                      ; preds = %1657, %1663, %1668,
   %1696 = load i32, ptr %1695, align 4
   %1697 = getelementptr inbounds i8, ptr %0, i64 248
   %1698 = load i32, ptr %1697, align 8
-  %1699 = icmp slt i32 %1698, %1696
+  %1699 = icmp sgt i32 %1696, %1698
   br i1 %1699, label %1700, label %ir_match_fuse_load.exit1215
 
 1700:                                             ; preds = %1694
@@ -46030,7 +46030,7 @@ ir_match_fuse_load.exit1215:                      ; preds = %1694, %1700, %1705,
   %1755 = load i32, ptr %1754, align 4
   %1756 = getelementptr inbounds i8, ptr %0, i64 248
   %1757 = load i32, ptr %1756, align 8
-  %1758 = icmp slt i32 %1757, %1755
+  %1758 = icmp sgt i32 %1755, %1757
   br i1 %1758, label %1759, label %ir_match_fuse_load_cmp_fp.exit
 
 1759:                                             ; preds = %1753
@@ -51996,7 +51996,7 @@ define internal fastcc noundef zeroext i1 @ir_emit_guard_jcc(ptr noundef %0, i32
   %44 = tail call i32 @ir_skip_empty_target_blocks(ptr noundef nonnull %0, i32 noundef %.0156) #22
   %45 = getelementptr inbounds i8, ptr %0, i64 92
   %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, %1
+  %47 = icmp eq i32 %1, %46
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %43
@@ -55239,7 +55239,7 @@ ir_may_fuse_imm.exit.thread:                      ; preds = %36, %33, %29, %ir_m
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds i8, ptr %0, i64 248
   %47 = load i32, ptr %46, align 8
-  %48 = icmp slt i32 %47, %45
+  %48 = icmp sgt i32 %45, %47
   br i1 %48, label %49, label %ir_match_fuse_load.exit
 
 49:                                               ; preds = %ir_may_fuse_imm.exit.thread
@@ -55284,7 +55284,7 @@ ir_may_fuse_imm.exit.thread:                      ; preds = %36, %33, %29, %ir_m
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i32, ptr %65, i64 %70
   %75 = load i32, ptr %74, align 4
-  %.not16.i = icmp eq i32 %75, %45
+  %.not16.i = icmp eq i32 %45, %75
   br i1 %.not16.i, label %.loopexit, label %69
 
 .loopexit:                                        ; preds = %73, %61
@@ -55438,7 +55438,7 @@ ir_may_fuse_imm.exit.thread:                      ; preds = %36, %33, %29, %50, 
 define internal fastcc void @ir_match_fuse_load(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load i32, ptr %4, align 8
-  %6 = icmp slt i32 %5, %1
+  %6 = icmp sgt i32 %1, %5
   br i1 %6, label %7, label %ir_match_has_mem_deps.exit
 
 7:                                                ; preds = %3
@@ -55483,7 +55483,7 @@ define internal fastcc void @ir_match_fuse_load(ptr noundef %0, i32 noundef %1, 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i32, ptr %23, i64 %28
   %33 = load i32, ptr %32, align 4
-  %.not16.i = icmp eq i32 %33, %1
+  %.not16.i = icmp eq i32 %1, %33
   br i1 %.not16.i, label %.loopexit31, label %27
 
 .loopexit31:                                      ; preds = %31, %19
@@ -55716,7 +55716,7 @@ ir_may_fuse_imm.exit.thread:                      ; preds = %36, %33, %29, %ir_m
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds i8, ptr %0, i64 248
   %47 = load i32, ptr %46, align 8
-  %48 = icmp slt i32 %47, %45
+  %48 = icmp sgt i32 %45, %47
   br i1 %48, label %49, label %ir_match_fuse_load.exit
 
 49:                                               ; preds = %ir_may_fuse_imm.exit.thread
@@ -55761,7 +55761,7 @@ ir_may_fuse_imm.exit.thread:                      ; preds = %36, %33, %29, %ir_m
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i32, ptr %65, i64 %70
   %75 = load i32, ptr %74, align 4
-  %.not16.i = icmp eq i32 %75, %45
+  %.not16.i = icmp eq i32 %45, %75
   br i1 %.not16.i, label %.loopexit, label %69
 
 .loopexit:                                        ; preds = %73, %61
@@ -56105,7 +56105,7 @@ define internal fastcc noundef zeroext i1 @ir_match_try_fuse_load(ptr noundef %0
   %6 = getelementptr inbounds %struct._ir_insn, ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %0, i64 248
   %8 = load i32, ptr %7, align 8
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %10 = load i8, ptr %6, align 8
   %11 = icmp eq i8 %10, 78
   %or.cond = select i1 %9, i1 %11, i1 false
@@ -56145,7 +56145,7 @@ define internal fastcc noundef zeroext i1 @ir_match_try_fuse_load(ptr noundef %0
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i32, ptr %22, i64 %27
   %32 = load i32, ptr %31, align 4
-  %.not16.i = icmp eq i32 %32, %1
+  %.not16.i = icmp eq i32 %1, %32
   br i1 %.not16.i, label %.loopexit, label %26
 
 .loopexit:                                        ; preds = %30, %18
@@ -56340,7 +56340,7 @@ define internal fastcc noundef zeroext i1 @ir_match_has_mem_deps(ptr nocapture n
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i32, ptr %7, i64 %13
   %18 = load i32, ptr %17, align 4
-  %.not16 = icmp eq i32 %18, %1
+  %.not16 = icmp eq i32 %1, %18
   br i1 %.not16, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %16, %12, %12, %3

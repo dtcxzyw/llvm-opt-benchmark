@@ -150,7 +150,7 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 2
   %83 = select i1 %82, i32 32, i32 128
-  %84 = icmp sgt i32 %83, %71
+  %84 = icmp slt i32 %71, %83
   br i1 %84, label %85, label %inet_spg_node_number.exit
 
 85:                                               ; preds = %62
@@ -211,7 +211,7 @@ inet_spg_node_number.exit89:                      ; preds = %102, %110
   %.0.i86 = phi i32 [ 0, %102 ], [ %spec.select.i88, %110 ]
   %121 = getelementptr inbounds i8, ptr %105, i64 1
   %122 = load i8, ptr %121, align 1
-  %123 = icmp ugt i8 %122, %33
+  %123 = icmp ult i8 %33, %122
   %124 = or disjoint i32 %.0.i86, 2
   %spec.select18.i87 = select i1 %123, i32 %124, i32 %.0.i86
   %125 = getelementptr inbounds i8, ptr %7, i64 8
@@ -388,7 +388,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, 2
   %104 = select i1 %103, i32 32, i32 128
-  %105 = icmp sgt i32 %104, %.1
+  %105 = icmp slt i32 %.1, %104
   br i1 %105, label %106, label %inet_spg_node_number.exit
 
 106:                                              ; preds = %93
@@ -879,7 +879,7 @@ select.unfold268:                                 ; preds = %128, %124
 142:                                              ; preds = %.thread270
   %143 = and i32 %.9273, 3
   %.not205 = icmp eq i32 %143, 0
-  %or.cond231 = or i1 %.not205, %3
+  %or.cond231 = or i1 %3, %.not205
   br i1 %or.cond231, label %.thread280, label %144
 
 144:                                              ; preds = %142

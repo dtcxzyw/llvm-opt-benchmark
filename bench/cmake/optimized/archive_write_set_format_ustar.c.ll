@@ -271,7 +271,7 @@ define internal i64 @archive_write_ustar_data(ptr noundef %0, ptr noundef %1, i6
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %7 = tail call i32 @__archive_write_output(ptr noundef %0, ptr noundef %1, i64 noundef %spec.select) #10
   %8 = load i64, ptr %5, align 8
   %9 = sub i64 %8, %spec.select
@@ -684,7 +684,7 @@ format_number.exit.thread:                        ; preds = %._crit_edge.i26.i, 
 .lr.ph.i136:                                      ; preds = %161, %173
   %.045.i137 = phi i64 [ %175, %173 ], [ 262144, %161 ]
   %.01944.i138 = phi i32 [ %174, %173 ], [ 6, %161 ]
-  %162 = icmp sgt i64 %.045.i137, %147
+  %162 = icmp slt i64 %147, %.045.i137
   br i1 %162, label %.lr.ph.i22.preheader.i146, label %173
 
 .lr.ph.i22.preheader.i146:                        ; preds = %.lr.ph.i136
@@ -791,7 +791,7 @@ format_number.exit155.thread:                     ; preds = %._crit_edge.i26.i15
 .lr.ph.i166:                                      ; preds = %197, %209
   %.045.i167 = phi i64 [ %211, %209 ], [ 262144, %197 ]
   %.01944.i168 = phi i32 [ %210, %209 ], [ 6, %197 ]
-  %198 = icmp sgt i64 %.045.i167, %183
+  %198 = icmp slt i64 %183, %.045.i167
   br i1 %198, label %.lr.ph.i22.preheader.i176, label %209
 
 .lr.ph.i22.preheader.i176:                        ; preds = %.lr.ph.i166
@@ -898,7 +898,7 @@ format_number.exit185.thread:                     ; preds = %._crit_edge.i26.i18
 .lr.ph.i196:                                      ; preds = %233, %245
   %.045.i197 = phi i64 [ %247, %245 ], [ 8589934592, %233 ]
   %.01944.i198 = phi i32 [ %246, %245 ], [ 11, %233 ]
-  %234 = icmp sgt i64 %.045.i197, %219
+  %234 = icmp slt i64 %219, %.045.i197
   br i1 %234, label %.lr.ph.i22.preheader.i206, label %245
 
 .lr.ph.i22.preheader.i206:                        ; preds = %.lr.ph.i196
@@ -1103,7 +1103,7 @@ format_number.exit245.thread:                     ; preds = %._crit_edge.i26.i24
 .lr.ph.i256:                                      ; preds = %306, %318
   %.045.i257 = phi i64 [ %320, %318 ], [ 262144, %306 ]
   %.01944.i258 = phi i32 [ %319, %318 ], [ 6, %306 ]
-  %307 = icmp sgt i64 %.045.i257, %292
+  %307 = icmp slt i64 %292, %.045.i257
   br i1 %307, label %.lr.ph.i22.preheader.i266, label %318
 
 .lr.ph.i22.preheader.i266:                        ; preds = %.lr.ph.i256
@@ -1210,7 +1210,7 @@ format_number.exit275.thread:                     ; preds = %._crit_edge.i26.i27
 .lr.ph.i286:                                      ; preds = %342, %354
   %.045.i287 = phi i64 [ %356, %354 ], [ 262144, %342 ]
   %.01944.i288 = phi i32 [ %355, %354 ], [ 6, %342 ]
-  %343 = icmp sgt i64 %.045.i287, %328
+  %343 = icmp slt i64 %328, %.045.i287
   br i1 %343, label %.lr.ph.i22.preheader.i296, label %354
 
 .lr.ph.i22.preheader.i296:                        ; preds = %.lr.ph.i286

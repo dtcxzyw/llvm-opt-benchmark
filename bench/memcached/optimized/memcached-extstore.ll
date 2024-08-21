@@ -1249,7 +1249,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %ptr, 
 entry:
   %page_bucketcount = getelementptr inbounds i8, ptr %ptr, i64 132
   %0 = load i32, ptr %page_bucketcount, align 4
-  %cmp.not = icmp ugt i32 %0, %bucket
+  %cmp.not = icmp ult i32 %bucket, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1799,7 +1799,7 @@ land.lhs.true:                                    ; preds = %entry
   %version = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %2 = load i32, ptr %version, align 8
   %conv = zext i32 %2 to i64
-  %cmp = icmp eq i64 %conv, %page_version
+  %cmp = icmp eq i64 %page_version, %conv
   br i1 %cmp, label %if.then, label %if.end34
 
 if.then:                                          ; preds = %land.lhs.true
@@ -1852,7 +1852,7 @@ entry:
   %version = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %1 = load i32, ptr %version, align 8
   %conv = zext i32 %1 to i64
-  %cmp.not = icmp ne i64 %conv, %page_version
+  %cmp.not = icmp ne i64 %page_version, %conv
   %spec.select = sext i1 %cmp.not to i32
   %call3 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx) #12
   ret i32 %spec.select
@@ -1875,7 +1875,7 @@ land.lhs.true:                                    ; preds = %entry
   %version = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %2 = load i32, ptr %version, align 8
   %conv = zext i32 %2 to i64
-  %cmp = icmp eq i64 %conv, %page_version
+  %cmp = icmp eq i64 %page_version, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true

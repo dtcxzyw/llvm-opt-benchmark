@@ -226,7 +226,7 @@ call8.i.noexc:                                    ; preds = %call8.i.noexc.lr.ph
   %arrayidx.i = getelementptr inbounds %"struct.std::pair", ptr %17, i64 %idxprom.i
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i) #24
   %call3.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i) #24
-  %cmp.i.i.i = icmp eq i64 %call3.i.i.i, %string.coerce0.fr
+  %cmp.i.i.i = icmp eq i64 %string.coerce0.fr, %call3.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %call11.i.noexc
 
 land.rhs.i.i.i:                                   ; preds = %call8.i.noexc
@@ -343,7 +343,7 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %idxprom.i = zext i32 %9 to i64
   %arrayidx.i = getelementptr inbounds %"struct.std::pair.21", ptr %3, i64 %idxprom.i
   %10 = load i64, ptr %arrayidx.i, align 8
-  %cmp.i.i118 = icmp eq i64 %10, %id
+  %cmp.i.i118 = icmp eq i64 %id, %10
   br i1 %cmp.i.i118, label %if.then, label %while.cond.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -709,7 +709,7 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %idxprom.i = zext i32 %9 to i64
   %arrayidx.i = getelementptr inbounds %"struct.std::pair.21", ptr %3, i64 %idxprom.i
   %10 = load i64, ptr %arrayidx.i, align 8
-  %cmp.i.i20 = icmp eq i64 %10, %id
+  %cmp.i.i20 = icmp eq i64 %id, %10
   br i1 %cmp.i.i20, label %if.end, label %while.cond.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -867,7 +867,7 @@ call8.i.noexc229:                                 ; preds = %call8.i.noexc229.lr
   %arrayidx.i = getelementptr inbounds %"struct.std::pair", ptr %17, i64 %idxprom.i
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i) #24
   %call3.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i) #24
-  %cmp.i.i.i = icmp eq i64 %call3.i.i.i, %string.coerce0.fr
+  %cmp.i.i.i = icmp eq i64 %string.coerce0.fr, %call3.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %call11.i.noexc231
 
 land.rhs.i.i.i:                                   ; preds = %call8.i.noexc229
@@ -1459,7 +1459,7 @@ if.then:                                          ; preds = %_ZN5folly3f146detai
   %2 = load ptr, ptr %chunks_, align 8
   %3 = load i32, ptr %chunkMask_, align 8
   %conv23 = zext i32 %3 to i64
-  %and24 = and i64 %conv23, %hp.coerce0
+  %and24 = and i64 %hp.coerce0, %conv23
   %add.ptr25 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and24
   %cmp726 = icmp eq ptr %add.ptr25, %add.ptr1.i.i
   br i1 %cmp726, label %if.then8, label %if.end
@@ -1774,7 +1774,7 @@ if.end9:                                          ; preds = %if.end20.i, %while.
   %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load i32, ptr %chunkMask_, align 8
   %conv = zext i32 %13 to i64
-  %and = and i64 %conv, %hp.coerce0
+  %and = and i64 %hp.coerce0, %conv
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %12, i64 %and
   %14 = load <16 x i8>, ptr %add.ptr, align 16
   %15 = icmp slt <16 x i8> %14, zeroinitializer
@@ -1883,7 +1883,7 @@ entry:
   %sizeAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   %conv = zext i32 %0 to i64
-  %add = add i64 %conv, %incoming
+  %add = add i64 %incoming, %conv
   %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %chunkMask_, align 8
   %add2 = add i32 %1, 1
@@ -2726,7 +2726,7 @@ if.end9:                                          ; preds = %if.end20.i, %while.
   %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load i32, ptr %chunkMask_, align 8
   %conv = zext i32 %14 to i64
-  %and = and i64 %conv, %hp.coerce0
+  %and = and i64 %hp.coerce0, %conv
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %and
   %15 = load <16 x i8>, ptr %add.ptr, align 16
   %16 = icmp slt <16 x i8> %15, zeroinitializer
@@ -2865,7 +2865,7 @@ entry:
   %sizeAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   %conv = zext i32 %0 to i64
-  %add = add i64 %conv, %incoming
+  %add = add i64 %incoming, %conv
   %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %chunkMask_, align 8
   %add2 = add i32 %1, 1

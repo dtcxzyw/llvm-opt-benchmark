@@ -1082,7 +1082,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   tail call void @Gia_ManHashAlloc(ptr noundef nonnull %6) #12
   %111 = getelementptr inbounds i8, ptr %1, i64 4
   %112 = load i32, ptr %111, align 4
-  %.not172298 = icmp slt i32 %112, %2
+  %.not172298 = icmp sgt i32 %2, %112
   br i1 %.not172298, label %.critedge10._crit_edge, label %.lr.ph300
 
 .lr.ph300:                                        ; preds = %.critedge

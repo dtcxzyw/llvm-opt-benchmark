@@ -139,7 +139,7 @@ for.body.lr.ph:                                   ; preds = %if.end14
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %add = add i32 %0, %hartid_base
+  %add = add i32 %hartid_base, %0
   %conv20 = zext i32 %add to i64
   %call21 = tail call ptr @cpu_by_arch_id(i64 noundef %conv20) #6
   %call.i33 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call21, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
@@ -292,7 +292,7 @@ for.body.lr.ph:                                   ; preds = %if.end3
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %add = add i32 %0, %hartid_base
+  %add = add i32 %hartid_base, %0
   %conv = zext i32 %add to i64
   %call9 = tail call ptr @cpu_by_arch_id(i64 noundef %conv) #6
   %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call9, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
@@ -447,7 +447,7 @@ entry:
   %timecmp_base = getelementptr inbounds i8, ptr %opaque, i64 1128
   %0 = load i32, ptr %timecmp_base, align 8
   %conv = zext i32 %0 to i64
-  %cmp.not = icmp ugt i64 %conv, %addr
+  %cmp.not = icmp ult i64 %addr, %conv
   br i1 %cmp.not, label %if.else53, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -456,7 +456,7 @@ land.lhs.true:                                    ; preds = %entry
   %shl = shl i32 %1, 3
   %add = add i32 %shl, %0
   %conv3 = zext i32 %add to i64
-  %cmp4 = icmp ugt i64 %conv3, %addr
+  %cmp4 = icmp ult i64 %addr, %conv3
   br i1 %cmp4, label %if.then, label %if.else53
 
 if.then:                                          ; preds = %land.lhs.true
@@ -523,7 +523,7 @@ if.else53:                                        ; preds = %land.lhs.true, %ent
   %time_base = getelementptr inbounds i8, ptr %opaque, i64 1132
   %10 = load i32, ptr %time_base, align 4
   %conv54 = zext i32 %10 to i64
-  %cmp55 = icmp eq i64 %conv54, %addr
+  %cmp55 = icmp eq i64 %addr, %conv54
   br i1 %cmp55, label %if.then57, label %if.else66
 
 if.then57:                                        ; preds = %if.else53
@@ -546,7 +546,7 @@ if.then57:                                        ; preds = %if.else53
 if.else66:                                        ; preds = %if.else53
   %add68 = add i32 %10, 4
   %conv69 = zext i32 %add68 to i64
-  %cmp70 = icmp eq i64 %conv69, %addr
+  %cmp70 = icmp eq i64 %addr, %conv69
   br i1 %cmp70, label %if.then72, label %do.body79
 
 if.then72:                                        ; preds = %if.else66
@@ -586,7 +586,7 @@ entry:
   %timecmp_base = getelementptr inbounds i8, ptr %opaque, i64 1128
   %0 = load i32, ptr %timecmp_base, align 8
   %conv = zext i32 %0 to i64
-  %cmp.not = icmp ugt i64 %conv, %addr
+  %cmp.not = icmp ult i64 %addr, %conv
   br i1 %cmp.not, label %if.else78, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -595,7 +595,7 @@ land.lhs.true:                                    ; preds = %entry
   %shl = shl i32 %1, 3
   %add = add i32 %shl, %0
   %conv3 = zext i32 %add to i64
-  %cmp4 = icmp ugt i64 %conv3, %addr
+  %cmp4 = icmp ult i64 %addr, %conv3
   br i1 %cmp4, label %if.then, label %if.else78
 
 if.then:                                          ; preds = %land.lhs.true
@@ -695,10 +695,10 @@ if.else78:                                        ; preds = %land.lhs.true, %ent
   %time_base = getelementptr inbounds i8, ptr %opaque, i64 1132
   %11 = load i32, ptr %time_base, align 4
   %conv79 = zext i32 %11 to i64
-  %cmp80 = icmp eq i64 %conv79, %addr
+  %cmp80 = icmp eq i64 %addr, %conv79
   %add83 = add i32 %11, 4
   %conv84 = zext i32 %add83 to i64
-  %cmp85 = icmp eq i64 %conv84, %addr
+  %cmp85 = icmp eq i64 %addr, %conv84
   %or.cond = or i1 %cmp80, %cmp85
   br i1 %or.cond, label %if.then87, label %do.body154
 
@@ -723,7 +723,7 @@ if.then87:                                        ; preds = %if.else78
   %add.i = add i64 %14, %conv3.i.i.i
   %15 = load i32, ptr %time_base, align 4
   %conv91 = zext i32 %15 to i64
-  %cmp92 = icmp eq i64 %conv91, %addr
+  %cmp92 = icmp eq i64 %addr, %conv91
   %cmp95 = icmp eq i32 %size, 4
   br i1 %cmp92, label %if.then94, label %if.else105
 
@@ -1010,7 +1010,7 @@ entry:
   %0 = load i32, ptr %num_harts, align 4
   %shl = shl i32 %0, 2
   %conv = zext i32 %shl to i64
-  %cmp = icmp ugt i64 %conv, %addr
+  %cmp = icmp ult i64 %addr, %conv
   br i1 %cmp, label %if.then, label %do.body26
 
 if.then:                                          ; preds = %entry
@@ -1077,7 +1077,7 @@ entry:
   %0 = load i32, ptr %num_harts, align 4
   %shl = shl i32 %0, 2
   %conv = zext i32 %shl to i64
-  %cmp = icmp ugt i64 %conv, %addr
+  %cmp = icmp ult i64 %addr, %conv
   br i1 %cmp, label %if.then, label %do.body32
 
 if.then:                                          ; preds = %entry

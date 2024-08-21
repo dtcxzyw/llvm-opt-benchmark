@@ -5785,7 +5785,7 @@ if.end:                                           ; preds = %entry
   %conv9 = trunc nuw nsw i64 %rem to i32
   %sz.0 = select i1 %or.cond, i32 64, i32 %conv9
   %sub11 = sub nuw nsw i32 64, %sz.0
-  %cmp12.not = icmp ult i32 %sub11, %len
+  %cmp12.not = icmp ugt i32 %len, %sub11
   br i1 %cmp12.not, label %if.else34, label %if.then14
 
 if.then14:                                        ; preds = %if.end
@@ -6482,7 +6482,7 @@ if.end:                                           ; preds = %entry
   %conv9 = trunc nuw nsw i64 %rem to i32
   %sz.0 = select i1 %or.cond, i32 128, i32 %conv9
   %sub11 = sub nuw nsw i32 128, %sz.0
-  %cmp12.not = icmp ult i32 %sub11, %len
+  %cmp12.not = icmp ugt i32 %len, %sub11
   br i1 %cmp12.not, label %if.else34, label %if.then14
 
 if.then14:                                        ; preds = %if.end

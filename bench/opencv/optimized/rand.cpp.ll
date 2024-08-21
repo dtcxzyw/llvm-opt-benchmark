@@ -85,7 +85,7 @@ define noundef double @_ZN2cv3RNG8gaussianEd(ptr nocapture noundef nonnull align
   call fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %0)
   %4 = load float, ptr %3, align 4
   %5 = fpext float %4 to double
-  %6 = fmul double %5, %1
+  %6 = fmul double %1, %5
   ret double %6
 }
 

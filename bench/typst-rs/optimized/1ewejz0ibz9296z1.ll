@@ -957,7 +957,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %138 = getelementptr inbounds i8, ptr %11, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %139 = icmp eq i64 %120, %.lcssa194
+  %139 = icmp eq i64 %.lcssa194, %120
   br i1 %139, label %143, label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %143, %131
@@ -1026,7 +1026,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.50.40..sroa_idx, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %.sroa.7.i.sroa.5)
-  %172 = icmp eq i64 %165, %167
+  %172 = icmp eq i64 %167, %165
   br i1 %172, label %174, label %173
 
 173:                                              ; preds = %162
@@ -1345,7 +1345,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %308 = add nuw nsw i64 %293, 2
   %309 = getelementptr inbounds i8, ptr %spec.select.i, i64 216
   %310 = add nsw i64 %.sroa.7.0.i, 2
-  %311 = icmp ult i64 %310, %308
+  %311 = icmp ugt i64 %308, %310
   br i1 %311, label %312, label %317
 
 312:                                              ; preds = %306
@@ -1639,7 +1639,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hb82a445191eb5491E.exit.i33.i: 
   %91 = getelementptr inbounds i8, ptr %.sroa.01.0182, i64 140
   %92 = load i16, ptr %91, align 4, !noalias !274
   %93 = zext i16 %92 to i64
-  %94 = icmp eq i64 %.sroa.5.0181, %.sroa.8.0179
+  %94 = icmp eq i64 %.sroa.8.0179, %.sroa.5.0181
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %.lr.ph
@@ -1901,7 +1901,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h3696847ce3570052E.exit.i22.i: 
   %216 = add nuw nsw i64 %201, 2
   %217 = getelementptr inbounds i8, ptr %spec.select.i, i64 144
   %218 = add nsw i64 %.sroa.7.0.i, 2
-  %219 = icmp ult i64 %218, %216
+  %219 = icmp ugt i64 %216, %218
   br i1 %219, label %220, label %_ZN5alloc11collections5btree4node12slice_insert17h81c02a9f0638eae2E.exit.i23.i
 
 220:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h3696847ce3570052E.exit.i22.i
@@ -1991,7 +1991,7 @@ _ZN5alloc11collections5btree3mem7replace17h1f670dd74e1f7f13E.exit.i: ; preds = %
   store ptr %239, ptr %.val, align 8, !alias.scope !337, !noalias !334
   store i64 %248, ptr %237, align 8, !alias.scope !337, !noalias !334
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !334
-  %250 = icmp eq i64 %238, %.sroa.8.0.lcssa
+  %250 = icmp eq i64 %.sroa.8.0.lcssa, %238
   br i1 %250, label %252, label %251
 
 251:                                              ; preds = %_ZN5alloc11collections5btree3mem7replace17h1f670dd74e1f7f13E.exit.i
@@ -2243,7 +2243,7 @@ common.resume:                                    ; preds = %208, %168, %49
   %77 = zext i16 %76 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.757)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.024.i.sroa.4)
-  %78 = icmp eq i64 %.sroa.7.0170, %.sroa.10.0168
+  %78 = icmp eq i64 %.sroa.10.0168, %.sroa.7.0170
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %.lr.ph
@@ -2493,7 +2493,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h2fb2c7a7faf2f8e1E.exit.i18.i: 
   %181 = add nuw nsw i64 %171, 2
   %182 = getelementptr inbounds i8, ptr %spec.select.i, i64 456
   %183 = add nsw i64 %.sroa.7.0.i, 2
-  %184 = icmp ult i64 %183, %181
+  %184 = icmp ugt i64 %181, %183
   br i1 %184, label %185, label %_ZN5alloc11collections5btree4node12slice_insert17h712840b1c15c7621E.exit.i19.i
 
 185:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h2fb2c7a7faf2f8e1E.exit.i18.i
@@ -2592,7 +2592,7 @@ _ZN5alloc11collections5btree3mem7replace17h6041d7e061639631E.exit.i: ; preds = %
   store ptr %205, ptr %.val, align 8, !alias.scope !462, !noalias !459
   store i64 %214, ptr %203, align 8, !alias.scope !462, !noalias !459
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !459
-  %216 = icmp eq i64 %204, %.sroa.10.0.lcssa
+  %216 = icmp eq i64 %.sroa.10.0.lcssa, %204
   br i1 %216, label %218, label %217
 
 217:                                              ; preds = %_ZN5alloc11collections5btree3mem7replace17h6041d7e061639631E.exit.i
@@ -3554,7 +3554,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   ]
 
 .split.split:                                     ; preds = %3
-  %42 = icmp eq i64 %8, %2
+  %42 = icmp eq i64 %2, %8
   br i1 %42, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9656155a92790c63E.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9656155a92790c63E.exit"
 
 43:                                               ; preds = %"_ZN63_$LT$xmp_writer..types..Namespace$u20$as$u20$core..cmp..Ord$GT$3cmp17h64b8d627ba092f9fE.exit"

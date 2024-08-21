@@ -134,7 +134,7 @@ define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr @_ZN8GraphKit21just_allocated_objectEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %33) #4
-  %35 = icmp eq ptr %34, %4
+  %35 = icmp eq ptr %4, %34
   br i1 %35, label %149, label %36
 
 36:                                               ; preds = %28, %25

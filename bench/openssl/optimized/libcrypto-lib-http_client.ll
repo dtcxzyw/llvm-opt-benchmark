@@ -1611,7 +1611,7 @@ entry:
   %max_resp_len = getelementptr inbounds i8, ptr %rctx, i64 152
   %0 = load i64, ptr %max_resp_len, align 8
   %cmp.not = icmp ne i64 %0, 0
-  %cmp2 = icmp ult i64 %0, %len
+  %cmp2 = icmp ugt i64 %len, %0
   %or.cond = and i1 %cmp.not, %cmp2
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -2412,7 +2412,7 @@ land.lhs.true28:                                  ; preds = %if.end.i, %land.lhs
   br i1 %cmp.not.i, label %if.then31, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true28
-  %cmp1.i18 = icmp sgt i64 %call.i17, %cond
+  %cmp1.i18 = icmp slt i64 %cond, %call.i17
   br i1 %cmp1.i18, label %may_still_retry.exit, label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.then.i

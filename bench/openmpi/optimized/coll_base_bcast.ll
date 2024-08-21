@@ -775,7 +775,7 @@ define i32 @ompi_coll_base_bcast_intra_split_bintree(ptr noundef %0, i32 noundef
 
 41:                                               ; preds = %33
   %42 = trunc i64 %.val237 to i32
-  %spec.select232 = tail call i32 @llvm.umax.i32(i32 %42, i32 %6)
+  %spec.select232 = tail call i32 @llvm.umax.i32(i32 %6, i32 %42)
   %43 = zext i32 %spec.select232 to i64
   %44 = udiv i64 %43, %.val237
   %45 = trunc nuw i64 %44 to i32
@@ -815,7 +815,7 @@ define i32 @ompi_coll_base_bcast_intra_split_bintree(ptr noundef %0, i32 noundef
   %61 = phi i32 [ %45, %53 ], [ %45, %41 ], [ %spec.select, %55 ]
   %.1 = phi i32 [ %spec.select232, %53 ], [ %spec.select232, %41 ], [ 0, %55 ]
   %62 = icmp eq i32 %spec.select, 0
-  %63 = icmp eq i32 %spec.select, %1
+  %63 = icmp eq i32 %1, %spec.select
   %or.cond = or i1 %62, %63
   br i1 %or.cond, label %72, label %64
 
@@ -1588,7 +1588,7 @@ define i32 @ompi_coll_base_bcast_intra_scatter_allgather(ptr noundef %0, i32 nou
   br i1 %or.cond, label %.loopexit228, label %20
 
 20:                                               ; preds = %7
-  %21 = icmp sgt i32 %.val219.val, %1
+  %21 = icmp slt i32 %1, %.val219.val
   br i1 %21, label %22, label %.lr.ph.preheader
 
 22:                                               ; preds = %20
@@ -1860,7 +1860,7 @@ define i32 @ompi_coll_base_bcast_intra_scatter_allgather_ring(ptr noundef %0, i3
   br i1 %or.cond, label %.loopexit, label %20
 
 20:                                               ; preds = %7
-  %21 = icmp sgt i32 %.val152.val, %1
+  %21 = icmp slt i32 %1, %.val152.val
   br i1 %21, label %22, label %.lr.ph.preheader
 
 22:                                               ; preds = %20

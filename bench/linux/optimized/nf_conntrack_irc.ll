@@ -198,7 +198,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 116
   %14 = load i32, ptr %13, align 4
-  %15 = add i32 %14, %1
+  %15 = add i32 %1, %14
   %16 = sub i32 %12, %15
   %17 = icmp slt i32 %16, 20
   br i1 %17, label %18, label %23, !prof !9
@@ -232,7 +232,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %33 = lshr i16 %32, 2
   %34 = and i16 %33, 60
   %35 = zext nneg i16 %34 to i32
-  %36 = add i32 %35, %1
+  %36 = add i32 %1, %35
   %37 = icmp ult i32 %36, %29
   br i1 %37, label %38, label %.thread
 

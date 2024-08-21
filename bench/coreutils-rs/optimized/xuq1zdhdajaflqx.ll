@@ -53,11 +53,11 @@ define hidden void @_ZN5alloc6string6String13replace_range17h5f8f297d1b469686E(p
   br i1 %12, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %13
 
 13:                                               ; preds = %4
-  %.not.i = icmp ugt i64 %11, %1
+  %.not.i = icmp ult i64 %1, %11
   br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", label %14
 
 14:                                               ; preds = %13
-  %15 = icmp eq i64 %11, %1
+  %15 = icmp eq i64 %1, %11
   br i1 %15, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %34
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit": ; preds = %13

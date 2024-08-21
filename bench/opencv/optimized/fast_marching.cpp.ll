@@ -30,7 +30,7 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nocap
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = icmp sgt i32 %10, %2
+  %11 = icmp slt i32 %2, %10
   %12 = icmp sgt i32 %1, -1
   %or.cond = and i1 %12, %11
   br i1 %or.cond, label %13, label %74
@@ -38,7 +38,7 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nocap
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %15, %1
+  %16 = icmp slt i32 %1, %15
   br i1 %16, label %17, label %74
 
 17:                                               ; preds = %13
@@ -70,10 +70,10 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nocap
   br i1 %40, label %41, label %72
 
 41:                                               ; preds = %30
-  %42 = icmp ugt i32 %10, %4
+  %42 = icmp ult i32 %4, %10
   %43 = icmp sgt i32 %3, -1
   %or.cond3 = and i1 %43, %42
-  %44 = icmp sgt i32 %15, %3
+  %44 = icmp slt i32 %3, %15
   %or.cond56 = and i1 %or.cond3, %44
   br i1 %or.cond56, label %45, label %72
 
@@ -125,12 +125,12 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nocap
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %0, i64 16
   %78 = load i32, ptr %77, align 8
-  %79 = icmp sgt i32 %78, %4
+  %79 = icmp slt i32 %4, %78
   %80 = icmp sgt i32 %3, -1
   %or.cond5 = and i1 %80, %79
   %81 = getelementptr inbounds i8, ptr %0, i64 20
   %82 = load i32, ptr %81, align 4
-  %83 = icmp sgt i32 %82, %3
+  %83 = icmp slt i32 %3, %82
   %or.cond61 = select i1 %or.cond5, i1 %83, i1 false
   br i1 %or.cond61, label %84, label %109
 
@@ -454,7 +454,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv9videostab18FastMarchingMethod
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -525,7 +525,7 @@ _ZNSt12_Vector_baseIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE13_M_dealloca
   br label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

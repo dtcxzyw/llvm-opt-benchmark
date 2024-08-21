@@ -229,7 +229,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
 19:                                               ; preds = %18
   %20 = tail call ptr @wmem_packet_scope() #11
   %21 = zext i8 %5 to i32
-  %22 = add nuw i32 %21, %3
+  %22 = add nuw i32 %3, %21
   %23 = sext i32 %22 to i64
   %24 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %23) #11
   br label %25

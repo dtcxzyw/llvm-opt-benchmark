@@ -4045,9 +4045,9 @@ entry:
   %ref.tmp2.sroa.0.0.extract.trunc = trunc i32 %div.i.i to i16
   %ref.tmp2.sroa.4.0.extract.trunc = trunc i32 %div.i11.i to i16
   %ref.tmp2.sroa.5.0.extract.trunc = trunc i32 %div.i19.i to i16
-  %mul.i = mul i16 %ref.tmp2.sroa.0.0.extract.trunc, %chunksize
-  %mul6.i = mul i16 %ref.tmp2.sroa.4.0.extract.trunc, %chunksize
-  %mul10.i = mul i16 %ref.tmp2.sroa.5.0.extract.trunc, %chunksize
+  %mul.i = mul i16 %chunksize, %ref.tmp2.sroa.0.0.extract.trunc
+  %mul6.i = mul i16 %chunksize, %ref.tmp2.sroa.4.0.extract.trunc
+  %mul10.i = mul i16 %chunksize, %ref.tmp2.sroa.5.0.extract.trunc
   %add.i = add i16 %mul.i, %0
   %add8.i = add i16 %mul6.i, %0
   %add13.i = add i16 %mul10.i, %0

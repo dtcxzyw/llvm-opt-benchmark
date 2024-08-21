@@ -1279,7 +1279,7 @@ _ZN3ozz3log6LoggerlsIA14_cEERSoRKT_.exit.i.i:     ; preds = %427
 
 select.unfold.i.i.i:                              ; preds = %448, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %448 ]
-  %450 = icmp eq ptr %269, %.sroa.4.0.i.ph.i.i.i
+  %450 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %269
   br i1 %450, label %456, label %451
 
 451:                                              ; preds = %select.unfold.i.i.i
@@ -3811,7 +3811,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacit
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -3920,7 +3920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_moveE
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57
@@ -4412,7 +4412,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12RawAnimation
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #19
-  %.not5.i.i = icmp eq ptr %.016.i, %20
+  %.not5.i.i = icmp eq ptr %20, %.016.i
   br i1 %.not5.i.i, label %_ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.i.i
@@ -5005,7 +5005,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12RawAnimation
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
   %81 = tail call ptr @__cxa_begin_catch(ptr %80) #19
-  %.not5.i.i = icmp eq ptr %.018.i, %73
+  %.not5.i.i = icmp eq ptr %73, %.018.i
   br i1 %.not5.i.i, label %_ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %78, %.lr.ph.i.i
@@ -5095,7 +5095,7 @@ _ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12RawAnimation
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = tail call ptr @__cxa_begin_catch(ptr %21) #19
-  %.not5.i.i = icmp eq ptr %.016.i, %16
+  %.not5.i.i = icmp eq ptr %16, %.016.i
   br i1 %.not5.i.i, label %_ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i

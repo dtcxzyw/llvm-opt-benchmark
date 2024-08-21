@@ -132,7 +132,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   %cmp3.not = icmp eq ptr %aliasData, null
   %dataCapacity6.phi.trans.insert = getelementptr inbounds i8, ptr %other, i64 139408
   %.pre = load i32, ptr %dataCapacity6.phi.trans.insert, align 8
-  %cmp4.not = icmp sgt i32 %.pre, %aliasDataCapacity
+  %cmp4.not = icmp slt i32 %aliasDataCapacity, %.pre
   %or.cond = select i1 %cmp3.not, i1 true, i1 %cmp4.not
   br i1 %or.cond, label %if.else, label %if.end11
 
@@ -567,7 +567,7 @@ if.end26:                                         ; preds = %while.body.i, %if.e
   br i1 %cmp33188, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end26
-  %cmp29 = icmp ne i32 %2, %value
+  %cmp29 = icmp ne i32 %value, %2
   %. = sext i1 %cmp29 to i32
   %tobool47 = icmp ne i8 %overwrite, 0
   %dataLength.i.i112 = getelementptr inbounds i8, ptr %trie, i64 139412
@@ -1659,13 +1659,13 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end14:                                         ; preds = %if.end
   %mul12 = shl nuw nsw i32 %spec.select, 2
   %add13 = or disjoint i32 %mul12, 4160
-  %cmp15 = icmp sgt i32 %add13, %length
+  %cmp15 = icmp slt i32 %length, %add13
   br i1 %cmp15, label %if.then16, label %if.else64
 
 if.end14.thread:                                  ; preds = %if.end
   %mul79 = shl nuw nsw i32 %spec.select, 1
   %add10 = add nuw nsw i32 %mul79, 4160
-  %cmp1581 = icmp sgt i32 %add10, %length
+  %cmp1581 = icmp slt i32 %length, %add10
   br i1 %cmp1581, label %if.then16, label %if.then20
 
 if.then16:                                        ; preds = %if.end14.thread, %if.end14

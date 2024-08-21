@@ -1187,7 +1187,7 @@ qrx_get_cipher_ctx_idx.exit.i.i:                  ; preds = %if.end8.i.i.i
 
 land.lhs.true.i5.i:                               ; preds = %qrx_get_cipher_ctx_idx.exit.i.i
   %55 = load i64, ptr %cur_epoch_start_pn.i.i, align 8
-  %cmp33.not.i.i = icmp ugt i64 %55, %45
+  %cmp33.not.i.i = icmp ult i64 %45, %55
   br i1 %cmp33.not.i.i, label %if.end36.i.i, label %qrx_decrypt_pkt_body.exit.thread.i
 
 if.end36.i.i:                                     ; preds = %land.lhs.true.i5.i, %qrx_get_cipher_ctx_idx.exit.i.i, %sw.bb.i.i.i, %cond.end.thread.i.i.i, %if.end8.i.i.i, %if.end18.i.i

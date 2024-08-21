@@ -6703,7 +6703,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -6712,7 +6712,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -6818,7 +6818,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -6827,7 +6827,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -7012,7 +7012,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -7095,7 +7095,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -7170,7 +7170,7 @@ if.end:                                           ; preds = %if.then.i, %entry
   %sub = add nsw i64 %sub.ptr.div.i, -1
   %5 = load i64, ptr %batch, align 8
   %add8 = add i64 %sub.ptr.div.i, %5
-  %cmp.i41 = icmp ult i64 %sub.ptr.div.i, %add8
+  %cmp.i41 = icmp ugt i64 %add8, %sub.ptr.div.i
   br i1 %cmp.i41, label %if.then.i48, label %if.else.i42
 
 if.then.i48:                                      ; preds = %if.end
@@ -7178,7 +7178,7 @@ if.then.i48:                                      ; preds = %if.end
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50thread-pre-split
 
 if.else.i42:                                      ; preds = %if.end
-  %cmp4.i43 = icmp ugt i64 %sub.ptr.div.i, %add8
+  %cmp4.i43 = icmp ult i64 %add8, %sub.ptr.div.i
   br i1 %cmp4.i43, label %if.then5.i44, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
 
 if.then5.i44:                                     ; preds = %if.else.i42
@@ -7572,7 +7572,7 @@ for.end:                                          ; preds = %cond.end, %_ZNSt6ve
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
@@ -7581,7 +7581,7 @@ if.then.i:                                        ; preds = %for.end
           to label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE6resizeEm.exit unwind label %lpad4.loopexit.split-lp
 
 if.else.i:                                        ; preds = %for.end
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -9017,7 +9017,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #23
-  %cmp.not.i1.i.i = icmp eq ptr %__cur.010.i, %cond.i.i.i
+  %cmp.not.i1.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i
   br i1 %cmp.not.i1.i.i, label %invoke.cont5.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %lpad.i, %for.body.i.i.i

@@ -346,7 +346,7 @@ if.end35:                                         ; preds = %invoke.cont31
   %15 = load i32, ptr %mNumOutputVertices.i, align 4
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %16 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %16, %15
+  %cmp3.i = icmp sgt i32 %15, %16
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %if.end35
@@ -443,7 +443,7 @@ for.end50:                                        ; preds = %for.body42, %_ZN20b
   store i32 %27, ptr %m_numIndices, align 8
   %m_size.i.i35 = getelementptr inbounds i8, ptr %this, i64 36
   %28 = load i32, ptr %m_size.i.i35, align 4
-  %cmp3.i38 = icmp slt i32 %28, %27
+  %cmp3.i38 = icmp sgt i32 %27, %28
   br i1 %cmp3.i38, label %if.then4.i39, label %_ZN20btAlignedObjectArrayIjE6resizeEiRKj.exit
 
 if.then4.i39:                                     ; preds = %for.end50

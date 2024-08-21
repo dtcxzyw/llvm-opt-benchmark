@@ -1835,13 +1835,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val156 = load i32, ptr %17, align 4
   %235 = add nsw i32 %234, 1
   %236 = load i32, ptr %7, align 4
-  %.not.i253.not = icmp sgt i32 %236, %234
+  %.not.i253.not = icmp slt i32 %234, %236
   br i1 %.not.i253.not, label %Vec_IntFillExtra.exit, label %237
 
 237:                                              ; preds = %232
   %238 = load i32, ptr %5, align 8
   %239 = shl nsw i32 %238, 1
-  %.not265 = icmp sgt i32 %239, %234
+  %.not265 = icmp slt i32 %234, %239
   %.not.i.i254.not = icmp sgt i32 %238, %234
   br i1 %.not265, label %249, label %240
 
@@ -2767,13 +2767,13 @@ declare i32 @Gia_ManFromIfLogicNode(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

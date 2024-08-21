@@ -3669,7 +3669,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_itera
   br i1 %exitcond.not.i.i14.us.us.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit15.thread.us.i, label %73, !llvm.loop !33
 
 .split.i:                                         ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN2cv9SparseMat4NodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS2_13SparseNodeCmpEEEEvT_SG_SG_SG_T0_.exit.thread, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN2cv9SparseMat4NodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS2_13SparseNodeCmpEEEEvT_SG_SG_SG_T0_.exit
-  %80 = icmp ugt ptr %11, %10
+  %80 = icmp ult ptr %10, %11
   br i1 %80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.loopexit26.i, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPPKN2cv9SparseMat4NodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS2_13SparseNodeCmpEEEET_SG_SG_SG_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.loopexit26.i: ; preds = %.split.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv13SparseNodeCmpEEclINS_17__normal_iteratorIPPKNS2_9SparseMat4NodeESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.loopexit26.i
@@ -3693,7 +3693,7 @@ _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPPKN2cv9SparseMat4Nod
 define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN2cv9SparseMat4NodeESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS2_13SparseNodeCmpEEEEvT_T0_SH_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 %4) local_unnamed_addr #0 comdat {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
-  %8 = icmp sgt i64 %7, %1
+  %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -3847,7 +3847,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyINS_8KeyPointEL
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 28
-  %15 = icmp ult i64 %14, %.sroa.speculated
+  %15 = icmp ugt i64 %.sroa.speculated, %14
   br i1 %15, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.thread, label %17
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.thread: ; preds = %3
@@ -3856,7 +3856,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.thread: ; preds = %3
   br label %.lr.ph
 
 17:                                               ; preds = %3
-  %18 = icmp ugt i64 %14, %.sroa.speculated
+  %18 = icmp ult i64 %.sroa.speculated, %14
   br i1 %18, label %19, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 
 19:                                               ; preds = %17
@@ -4043,7 +4043,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyINS_6DMatchELi0
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 4
-  %15 = icmp ult i64 %14, %.sroa.speculated
+  %15 = icmp ugt i64 %.sroa.speculated, %14
   br i1 %15, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE6resizeEm.exit.thread, label %17
 
 _ZNSt6vectorIN2cv6DMatchESaIS1_EE6resizeEm.exit.thread: ; preds = %3
@@ -4052,7 +4052,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE6resizeEm.exit.thread: ; preds = %3
   br label %.lr.ph
 
 17:                                               ; preds = %3
-  %18 = icmp ugt i64 %14, %.sroa.speculated
+  %18 = icmp ult i64 %.sroa.speculated, %14
   br i1 %18, label %19, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE6resizeEm.exit
 
 19:                                               ; preds = %17

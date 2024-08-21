@@ -297,7 +297,7 @@ FilterPrepare.exit:                               ; preds = %48, %44, %39, %37
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 88
   %76 = load i32, ptr %75, align 8
-  %.not10.i.i = icmp eq i32 %76, %68
+  %.not10.i.i = icmp eq i32 %68, %76
   br i1 %.not10.i.i, label %77, label %.preheader.i
 
 77:                                               ; preds = %72, %71
@@ -469,7 +469,7 @@ FilterPrepare.exit61:                             ; preds = %147, %143, %138, %1
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 88
   %169 = load i32, ptr %168, align 8
-  %.not10.i.i65 = icmp eq i32 %169, %161
+  %.not10.i.i65 = icmp eq i32 %161, %169
   br i1 %.not10.i.i65, label %170, label %.preheader.i66
 
 170:                                              ; preds = %165, %164
@@ -666,7 +666,7 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 88
   %282 = load i32, ptr %281, align 8
-  %.not10.i.i79 = icmp eq i32 %282, %274
+  %.not10.i.i79 = icmp eq i32 %274, %282
   br i1 %.not10.i.i79, label %283, label %297
 
 283:                                              ; preds = %278, %277

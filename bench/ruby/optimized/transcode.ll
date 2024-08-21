@@ -1116,7 +1116,7 @@ define dso_local noundef i32 @rb_econv_convert(ptr noundef %0, ptr noundef %1, p
   br i1 %52, label %53, label %ruby_nonempty_memcpy.exit182.i
 
 53:                                               ; preds = %45
-  %.not.i.i = icmp eq ptr %46, %.019
+  %.not.i.i = icmp eq ptr %.019, %46
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %54
 
 54:                                               ; preds = %53
@@ -1208,7 +1208,7 @@ ruby_nonempty_memcpy.exit184.i:                   ; preds = %72, %71
   br i1 %94, label %95, label %ruby_nonempty_memcpy.exit188.i
 
 95:                                               ; preds = %87
-  %.not.i185.i = icmp eq ptr %88, %.019
+  %.not.i185.i = icmp eq ptr %.019, %88
   br i1 %.not.i185.i, label %ruby_nonempty_memcpy.exit186.i, label %96
 
 96:                                               ; preds = %95
@@ -7597,7 +7597,7 @@ rb_transcoding_open_by_transcoder.exit:           ; preds = %60, %64
   %83 = load ptr, ptr %1, align 8
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 0
-  %.not45 = icmp slt i32 %81, %2
+  %.not45 = icmp sgt i32 %2, %81
   %or.cond = select i1 %85, i1 true, i1 %.not45
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
@@ -7607,7 +7607,7 @@ rb_transcoding_open_by_transcoder.exit:           ; preds = %60, %64
 
 87:                                               ; preds = %89
   %88 = add i32 %.046, -1
-  %.not = icmp slt i32 %88, %2
+  %.not = icmp sgt i32 %2, %88
   br i1 %.not, label %.loopexit, label %89, !llvm.loop !132
 
 89:                                               ; preds = %.lr.ph, %87
@@ -8080,7 +8080,7 @@ define internal fastcc range(i32 0, 7) i32 @transcode_restartable0(ptr nocapture
 22:                                               ; preds = %6, %19, %.loopexit
   %.11094 = phi ptr [ %.01093, %19 ], [ %.01093, %.loopexit ], [ %11, %6 ]
   %.01091 = phi ptr [ %.01129, %19 ], [ %.01129, %.loopexit ], [ %10, %6 ]
-  %.not1215 = icmp ult ptr %.01091, %2
+  %.not1215 = icmp ugt ptr %2, %.01091
   br i1 %.not1215, label %26, label %23
 
 23:                                               ; preds = %22

@@ -945,11 +945,11 @@ define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocaptu
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr %struct._value_string, ptr %6, i64 %10
   %12 = load i32, ptr %11, align 8
-  %13 = icmp ugt i32 %12, %0
+  %13 = icmp ult i32 %0, %12
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %7
-  %15 = icmp ult i32 %12, %0
+  %15 = icmp ugt i32 %0, %12
   br i1 %15, label %16, label %._crit_edge
 
 16:                                               ; preds = %14
@@ -1340,11 +1340,11 @@ define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocap
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr %struct._val64_string, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = icmp ugt i64 %12, %0
+  %13 = icmp ult i64 %0, %12
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %7
-  %15 = icmp ult i64 %12, %0
+  %15 = icmp ugt i64 %0, %12
   br i1 %15, label %16, label %._crit_edge
 
 16:                                               ; preds = %14
@@ -1735,13 +1735,13 @@ define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr n
   %6 = phi ptr [ %17, %14 ], [ %1, %.preheader ]
   %.023 = phi i32 [ %15, %14 ], [ 0, %.preheader ]
   %7 = load i64, ptr %6, align 8
-  %.not18 = icmp ugt i64 %7, %0
+  %.not18 = icmp ult i64 %0, %7
   br i1 %.not18, label %14, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
-  %.not19 = icmp ult i64 %10, %0
+  %.not19 = icmp ugt i64 %0, %10
   br i1 %.not19, label %14, label %11
 
 11:                                               ; preds = %8
@@ -1784,13 +1784,13 @@ define ptr @try_rval64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unn
   %6 = phi ptr [ %14, %11 ], [ %1, %.preheader.i ]
   %.023.i = phi i32 [ %12, %11 ], [ 0, %.preheader.i ]
   %7 = load i64, ptr %6, align 8
-  %.not18.i = icmp ugt i64 %7, %0
+  %.not18.i = icmp ult i64 %0, %7
   br i1 %.not18.i, label %11, label %8
 
 8:                                                ; preds = %.lr.ph.i
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
-  %.not19.i = icmp ult i64 %10, %0
+  %.not19.i = icmp ugt i64 %0, %10
   br i1 %.not19.i, label %11, label %try_rval64_to_str_idx.exit
 
 11:                                               ; preds = %8, %.lr.ph.i
@@ -1925,7 +1925,7 @@ define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1
   %.021.i = phi i32 [ %16, %15 ], [ 0, %.preheader.i ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
-  %.not18.i = icmp ugt i64 %12, %1
+  %.not18.i = icmp ult i64 %1, %12
   br i1 %.not18.i, label %15, label %13
 
 13:                                               ; preds = %.lr.ph.i
@@ -1970,7 +1970,7 @@ define ptr @try_bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 nounde
   %.021 = phi i32 [ %13, %12 ], [ 0, %.preheader ]
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
-  %.not18 = icmp ugt i64 %9, %1
+  %.not18 = icmp ult i64 %1, %9
   br i1 %.not18, label %12, label %10
 
 10:                                               ; preds = %.lr.ph

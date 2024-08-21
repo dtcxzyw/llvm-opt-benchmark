@@ -425,7 +425,7 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %1
+  %17 = icmp eq ptr %1, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
@@ -439,7 +439,7 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
 23:                                               ; preds = %14
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %1
+  %26 = icmp eq ptr %1, %25
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %23
@@ -1323,7 +1323,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr nocapture noundef readnone %0, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
-  %7 = and i64 %6, %4
+  %7 = and i64 %4, %6
   %8 = udiv i64 %7, 40
   %9 = tail call i32 @st__lookup(ptr noundef %2, ptr noundef %0, ptr noundef null) #9
   %10 = icmp eq i32 %9, 1
@@ -1741,7 +1741,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = ptrtoint ptr %1 to i64
-  %8 = and i64 %7, %5
+  %8 = and i64 %5, %7
   %9 = udiv i64 %8, 40
   %10 = tail call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef null) #9
   %11 = icmp eq i32 %10, 1
@@ -1766,13 +1766,13 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr no
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
-  %.not64 = icmp eq ptr %24, %1
+  %.not64 = icmp eq ptr %1, %24
   br i1 %.not64, label %28, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
-  %.not65 = icmp eq ptr %27, %1
+  %.not65 = icmp eq ptr %1, %27
   br i1 %.not65, label %28, label %74
 
 28:                                               ; preds = %25, %22
@@ -1802,9 +1802,9 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr no
 
 45:                                               ; preds = %38
   %46 = ptrtoint ptr %36 to i64
-  %47 = and i64 %46, %5
+  %47 = and i64 %5, %46
   %48 = udiv i64 %47, 40
-  %49 = and i64 %41, %5
+  %49 = and i64 %5, %41
   %50 = udiv i64 %49, 40
   %.not = icmp eq ptr %4, null
   %51 = inttoptr i64 %9 to ptr

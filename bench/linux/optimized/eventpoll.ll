@@ -169,7 +169,7 @@ define internal fastcc noundef zeroext i1 @__ep_remove(ptr noundef %0, ptr nound
   %21 = getelementptr inbounds i8, ptr %1, i64 60
   %22 = load i8, ptr %21, align 4, !range !10, !noundef !11
   %23 = icmp eq i8 %22, 0
-  %24 = or i1 %23, %2
+  %24 = or i1 %2, %23
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %.loopexit
@@ -3909,7 +3909,7 @@ define internal zeroext i1 @ep_busy_loop_end(ptr noundef %0, i64 noundef %1) #0 
 
 17:                                               ; preds = %14
   %18 = zext i32 %15 to i64
-  %19 = add i64 %18, %1
+  %19 = add i64 %1, %18
   %20 = tail call i64 @local_clock() #11
   %21 = lshr i64 %20, 10
   %22 = sub i64 %19, %21

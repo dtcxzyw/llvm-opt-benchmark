@@ -36,7 +36,7 @@ define dso_local noundef range(i32 -22, 1) i32 @crypto_authenc_extractkeys(ptr n
   %6 = load i16, ptr %1, align 2
   %7 = icmp ult i16 %6, 4
   %8 = zext i16 %6 to i32
-  %9 = icmp ugt i32 %8, %2
+  %9 = icmp ult i32 %2, %8
   %10 = or i1 %7, %9
   br i1 %10, label %34, label %11
 
@@ -330,7 +330,7 @@ define internal i32 @crypto_authenc_setkey(ptr nocapture noundef readonly %0, pt
   %11 = load i16, ptr %1, align 2
   %12 = icmp ult i16 %11, 4
   %13 = zext i16 %11 to i32
-  %14 = icmp ugt i32 %13, %2
+  %14 = icmp ult i32 %2, %13
   %15 = or i1 %12, %14
   br i1 %15, label %50, label %16
 

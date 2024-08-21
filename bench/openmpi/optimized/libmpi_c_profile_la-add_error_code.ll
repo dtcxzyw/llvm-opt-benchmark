@@ -57,7 +57,7 @@ define i32 @PMPI_Add_error_code(i32 noundef %0, ptr noundef writeonly %1) #0 {
 ompi_mpi_errcode_is_invalid.exit:                 ; preds = %10, %13
   %15 = icmp slt i32 %0, 0
   %16 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
-  %.not.i = icmp slt i32 %16, %0
+  %.not.i = icmp sgt i32 %0, %16
   %or.cond.i = select i1 %15, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %17, label %19
 
@@ -77,7 +77,7 @@ ompi_mpi_errcode_is_invalid.exit:                 ; preds = %10, %13
 
 24:                                               ; preds = %19, %22
   %25 = phi i32 [ %20, %19 ], [ %.pre, %22 ]
-  %.not.i12 = icmp slt i32 %25, %0
+  %.not.i12 = icmp sgt i32 %0, %25
   br i1 %.not.i12, label %26, label %47
 
 26:                                               ; preds = %24

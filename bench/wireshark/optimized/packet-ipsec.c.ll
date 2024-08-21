@@ -1337,7 +1337,7 @@ define internal i32 @dissect_esp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %49 = getelementptr inbounds i8, ptr %37, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, 1
-  %.not.i = icmp eq i32 %51, %33
+  %.not.i = icmp eq i32 %33, %51
   br i1 %.not.i, label %61, label %52
 
 52:                                               ; preds = %48
@@ -1380,7 +1380,7 @@ check_esp_sequence_info.exit:                     ; preds = %61, %39, %25
   %78 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %77) #17
   %79 = load i32, ptr %75, align 4
   %80 = add i32 %79, 1
-  %81 = icmp ult i32 %80, %66
+  %81 = icmp ugt i32 %66, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %73
@@ -1428,7 +1428,7 @@ proto_item_set_generated.exit.i:                  ; preds = %88, %85, %84
 
 proto_item_set_generated.exit39.i:                ; preds = %99, %96, %proto_item_set_generated.exit.i
   %103 = load i32, ptr %75, align 4
-  %104 = icmp eq i32 %103, %66
+  %104 = icmp eq i32 %66, %103
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %proto_item_set_generated.exit39.i
@@ -1437,7 +1437,7 @@ proto_item_set_generated.exit39.i:                ; preds = %99, %96, %proto_ite
 
 107:                                              ; preds = %proto_item_set_generated.exit39.i
   %108 = add i32 %103, 1
-  %109 = icmp ult i32 %108, %66
+  %109 = icmp ugt i32 %66, %108
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %107

@@ -108,7 +108,7 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = add i64 %19, %2
+  %20 = add i64 %2, %19
   %21 = icmp ult i64 %20, 16
   br i1 %21, label %22, label %27
 
@@ -457,7 +457,7 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = add i64 %11, %2
+  %12 = add i64 %2, %11
   %13 = icmp ult i64 %12, 32
   br i1 %13, label %14, label %20
 
@@ -854,7 +854,7 @@ define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #6 {
 41:                                               ; preds = %28
   %42 = getelementptr inbounds i8, ptr %0, i64 552
   %43 = load i64, ptr %42, align 8
-  %.not.i = icmp eq i64 %43, %29
+  %.not.i = icmp eq i64 %29, %43
   br i1 %.not.i, label %44, label %47
 
 44:                                               ; preds = %41
@@ -1294,7 +1294,7 @@ define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #6 {
 41:                                               ; preds = %28
   %42 = getelementptr inbounds i8, ptr %0, i64 552
   %43 = load i64, ptr %42, align 8
-  %.not.i.i = icmp eq i64 %43, %29
+  %.not.i.i = icmp eq i64 %29, %43
   br i1 %.not.i.i, label %44, label %47
 
 44:                                               ; preds = %41
@@ -1724,7 +1724,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   %15 = getelementptr inbounds i8, ptr %0, i64 512
   %16 = load i32, ptr %15, align 64
   %17 = zext i32 %16 to i64
-  %18 = add i64 %17, %2
+  %18 = add i64 %2, %17
   %19 = icmp ult i64 %18, 257
   br i1 %19, label %20, label %26
 
@@ -2066,7 +2066,7 @@ define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  %.not.i = icmp eq i64 %8, %2
+  %.not.i = icmp eq i64 %2, %8
   br i1 %.not.i, label %XXH3_accumulate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %XXH3_accumulate_512_sse2.exit.i
@@ -2356,7 +2356,7 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   %81 = shl nuw nsw i64 %1, 8
   %82 = xor i32 %.val23.i, %.val22.i
   %83 = zext i32 %82 to i64
-  %84 = add i64 %83, %2
+  %84 = add i64 %2, %83
   %85 = or disjoint i64 %77, %81
   %86 = or disjoint i64 %85, %79
   %87 = or disjoint i64 %86, %80
@@ -2827,7 +2827,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %.val22.i.i = load i32, ptr %111, align 1
   %112 = xor i32 %.val22.i.i, %.val23.i.i
   %113 = zext i32 %112 to i64
-  %114 = add i64 %113, %2
+  %114 = add i64 %2, %113
   %115 = getelementptr inbounds i8, ptr %3, i64 8
   %.val21.i30.i = load i32, ptr %115, align 1
   %116 = getelementptr inbounds i8, ptr %3, i64 12

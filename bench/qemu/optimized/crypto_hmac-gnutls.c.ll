@@ -143,7 +143,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call = tail call i32 @gnutls_hmac(ptr noundef %1, ptr noundef %2, i64 noundef %3) #7
   %inc = add i32 %i.018, 1
   %conv = sext i32 %inc to i64
-  %cmp = icmp ult i64 %conv, %niov
+  %cmp = icmp ugt i64 %niov, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry

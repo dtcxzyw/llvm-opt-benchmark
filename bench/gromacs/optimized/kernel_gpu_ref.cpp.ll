@@ -471,8 +471,8 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %279 = tail call noundef float @erff(float noundef %278) #13
   %280 = fsub float %204, %279
   %281 = load float, ptr %71, align 8
-  %282 = fneg float %281
-  %283 = fmul float %204, %282
+  %282 = fneg float %204
+  %283 = fmul float %281, %282
   %284 = tail call float @llvm.fmuladd.f32(float %280, float %233, float %283)
   %285 = fmul float %237, %284
   br label %286

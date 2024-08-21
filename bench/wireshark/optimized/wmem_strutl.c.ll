@@ -48,7 +48,7 @@ define noalias ptr @wmem_strndup(ptr noundef %0, ptr nocapture noundef readonly 
   store i8 %8, ptr %10, align 1
   %11 = add i32 %.014, 1
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %12, %2
+  %13 = icmp ugt i64 %2, %12
   br i1 %13, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %9, %3

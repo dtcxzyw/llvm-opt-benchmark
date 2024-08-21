@@ -99,7 +99,7 @@ if.end5:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.end5
   %sub = sub i64 %0, %3
-  %cmp8 = icmp ugt i64 %sub, %len
+  %cmp8 = icmp ult i64 %len, %sub
   %buf = getelementptr inbounds i8, ptr %ctx, i64 200
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %3
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -240,7 +240,7 @@ if.end17:                                         ; preds = %if.end
   br i1 %cmp18.not, label %if.end40, label %if.end36
 
 if.end36:                                         ; preds = %if.end17
-  %.outlen = tail call i64 @llvm.umin.i64(i64 %2, i64 %outlen)
+  %.outlen = tail call i64 @llvm.umin.i64(i64 %outlen, i64 %2)
   %buf27 = getelementptr inbounds i8, ptr %ctx, i64 200
   %add.ptr29 = getelementptr inbounds i8, ptr %buf27, i64 %0
   %idx.neg = sub i64 0, %2

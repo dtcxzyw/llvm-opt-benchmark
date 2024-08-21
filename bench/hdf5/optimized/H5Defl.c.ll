@@ -412,7 +412,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 20:                                               ; preds = %16
   %21 = add i64 %18, %.06084.i
-  %22 = icmp ugt i64 %21, %0
+  %22 = icmp ult i64 %0, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20, %16
@@ -629,7 +629,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 
 20:                                               ; preds = %16
   %21 = add i64 %18, %.05780.i
-  %22 = icmp ugt i64 %21, %0
+  %22 = icmp ult i64 %0, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20, %16

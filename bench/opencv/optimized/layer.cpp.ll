@@ -271,7 +271,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #21
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -537,7 +537,7 @@ _ZSt10_ConstructIN2cv3MatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
   %61 = tail call ptr @__cxa_begin_catch(ptr %60) #21
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %53
+  %.not4.i.i.i.i.i.i = icmp eq ptr %53, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %58, %.lr.ph.i.i.i.i.i.i
@@ -1614,7 +1614,7 @@ define void @_ZN2cv3dnn14dnn4_v202405215Layer16forward_fallbackERKNS_11_InputArr
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = sdiv exact i64 %53, 80
-  %55 = icmp ult i64 %54, %47
+  %55 = icmp ugt i64 %47, %54
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %40
@@ -1623,7 +1623,7 @@ define void @_ZN2cv3dnn14dnn4_v202405215Layer16forward_fallbackERKNS_11_InputArr
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit unwind label %81
 
 58:                                               ; preds = %40
-  %59 = icmp ugt i64 %54, %47
+  %59 = icmp ult i64 %47, %54
   br i1 %59, label %60, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
 60:                                               ; preds = %58
@@ -1701,7 +1701,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %56, %58, %60, %_ZSt
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
   %98 = sdiv exact i64 %97, 80
-  %99 = icmp ult i64 %98, %91
+  %99 = icmp ugt i64 %91, %98
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %._crit_edge196
@@ -1710,7 +1710,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %56, %58, %60, %_ZSt
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit60 unwind label %81
 
 102:                                              ; preds = %._crit_edge196
-  %103 = icmp ugt i64 %98, %91
+  %103 = icmp ult i64 %91, %98
   br i1 %103, label %104, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit60
 
 104:                                              ; preds = %102
@@ -1845,7 +1845,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %126, %128
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %151, %152
   %154 = sdiv exact i64 %153, 80
-  %155 = icmp ult i64 %154, %147
+  %155 = icmp ugt i64 %147, %154
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %._crit_edge199
@@ -1854,7 +1854,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %126, %128
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit70 unwind label %81
 
 158:                                              ; preds = %._crit_edge199
-  %159 = icmp ugt i64 %154, %147
+  %159 = icmp ult i64 %147, %154
   br i1 %159, label %160, label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit70
 
 160:                                              ; preds = %158
@@ -2711,7 +2711,7 @@ define noundef zeroext i1 @_ZNK2cv3dnn14dnn4_v202405215Layer15getMemoryShapesERK
   %22 = sub i64 %20, %21
   %23 = sdiv exact i64 %22, 24
   %24 = trunc i64 %23 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %24, i32 %2)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %2, i32 %24)
   %25 = sext i32 %.sroa.speculated to i64
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %10)
   ret i1 false
@@ -2870,7 +2870,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %13
+  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -3028,7 +3028,7 @@ _ZSt10_ConstructIN2cv4UMatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #21
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %27
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %27, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %33, %.lr.ph.i.i.i.i.i.i.i
@@ -3136,7 +3136,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %27
 
 12:                                               ; preds = %3
@@ -3199,7 +3199,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %8
   %32 = sdiv exact i64 %31, 24
-  %33 = icmp ult i64 %32, %1
+  %33 = icmp ugt i64 %1, %32
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %27
@@ -3467,7 +3467,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %12
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %lpad.phi, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #21
-  %.not4.i.i = icmp eq ptr %.018, %0
+  %.not4.i.i = icmp eq ptr %0, %.018
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i

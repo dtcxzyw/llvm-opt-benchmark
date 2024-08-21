@@ -498,7 +498,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i.i:                                ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i.i, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.020.lcssa32.i.i.i, %._crit_edge.thread.i.i.i ], [ %.020.lcssa33.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i.i ]
-  %124 = icmp eq ptr %77, %.sroa.4.0.i.ph.i.i
+  %124 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %77
   br i1 %124, label %132, label %125
 
 125:                                              ; preds = %select.unfold.i.i
@@ -945,7 +945,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116ListDependenciesEPKNS_19cmDepend
   %.01317.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %.01315.i.i.i, %3 ]
   %9 = getelementptr inbounds i8, ptr %.01317.i.i.i, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp ugt ptr %10, %0
+  %11 = icmp ult ptr %0, %10
   %.in.v.i.i.i = select i1 %11, i64 16, i64 24
   %.in.i.i.i = getelementptr i8, ptr %.01317.i.i.i, i64 %.in.v.i.i.i
   %.013.i.i.i = load ptr, ptr %.in.i.i.i, align 8
@@ -976,13 +976,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_116ListDependenciesEPKNS_19cmDepend
 
 select.unfold.i.i:                                ; preds = %16, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.012.lcssa21.i.i.i, %._crit_edge.thread.i.i.i ], [ %.012.lcssa22.i.i.i, %16 ]
-  %19 = icmp eq ptr %8, %.sroa.4.0.i.ph.i.i
+  %19 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %8
   br i1 %19, label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %20
 
 20:                                               ; preds = %select.unfold.i.i
   %21 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp ugt ptr %22, %0
+  %23 = icmp ult ptr %0, %22
   br label %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %20, %select.unfold.i.i
@@ -1036,7 +1036,7 @@ _ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4les
 _ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i
   %40 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = icmp ugt ptr %41, %35
+  %42 = icmp ult ptr %35, %41
   br i1 %42, label %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread, label %58
 
 _ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %33, %_ZNSt8_Rb_treeIPKN12_GLOBAL__N_119cmDependInformationES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNSt3setIPKN12_GLOBAL__N_119cmDependInformationESt4lessIS3_ESaIS3_EE4findERKS3_.exit
@@ -1634,7 +1634,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -2554,7 +2554,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.sroa.12.0.i12.i.i = phi ptr [ %.sroa.12.0.i.i.i, %289 ], [ %.024.lcssa36.i60.i.i.i, %._crit_edge.thread.i59.i.i.i ], [ %.024.lcssa36.i35.i.i.i, %._crit_edge.thread.i34.i.i.i ], [ %.024.lcssa36.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %223, %230 ], [ %.08.lcssa.i.i.i16.i, %268 ], [ %.024.lcssa37.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i.i ], [ %.024.lcssa37.i25.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i27.i.i.i ], [ %.024.lcssa37.i50.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i52.i.i.i ]
   %.sroa.083.0.i11.i.i = phi ptr [ %.sroa.083.0.i.i.i, %289 ], [ null, %._crit_edge.thread.i59.i.i.i ], [ null, %._crit_edge.thread.i34.i.i.i ], [ null, %._crit_edge.thread.i.i.i.i ], [ null, %230 ], [ null, %268 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i27.i.i.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i52.i.i.i ]
   %.not.i.i11.i.i = icmp ne ptr %.sroa.083.0.i11.i.i, null
-  %290 = icmp eq ptr %118, %.sroa.12.0.i12.i.i
+  %290 = icmp eq ptr %.sroa.12.0.i12.i.i, %118
   %or.cond.i.i.i.i = select i1 %.not.i.i11.i.i, i1 true, i1 %290
   br i1 %or.cond.i.i.i.i, label %298, label %291
 
@@ -3379,7 +3379,7 @@ _ZN12_GLOBAL__N_110cmLBDepend10DependWalkEPNS_19cmDependInformationE.exit: ; pre
   %.sroa.082.0160 = phi ptr [ %242, %.preheader ], [ %273, %_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit ]
   %252 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110cmLBDepend20GetDependInformationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(1256) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.082.0160, ptr noundef nonnull align 8 dereferenceable(32) %246)
   call fastcc void @_ZN12_GLOBAL__N_110cmLBDepend25GenerateDependInformationEPNS_19cmDependInformationE(ptr noundef nonnull align 8 dereferenceable(1256) %0, ptr noundef %252)
-  %.not.i77 = icmp eq ptr %252, %1
+  %.not.i77 = icmp eq ptr %1, %252
   br i1 %.not.i77, label %_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit, label %253
 
 253:                                              ; preds = %251
@@ -3391,7 +3391,7 @@ _ZN12_GLOBAL__N_110cmLBDepend10DependWalkEPNS_19cmDependInformationE.exit: ; pre
   %.01317.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.01315.i.i.i.i, %253 ]
   %254 = getelementptr inbounds i8, ptr %.01317.i.i.i.i, i64 32
   %255 = load ptr, ptr %254, align 8
-  %256 = icmp ugt ptr %255, %252
+  %256 = icmp ult ptr %252, %255
   %.in.v.i.i.i.i = select i1 %256, i64 16, i64 24
   %.in.i.i.i.i = getelementptr i8, ptr %.01317.i.i.i.i, i64 %.in.v.i.i.i.i
   %.013.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
@@ -3421,13 +3421,13 @@ _ZN12_GLOBAL__N_110cmLBDepend10DependWalkEPNS_19cmDependInformationE.exit: ; pre
 
 select.unfold.i.i.i:                              ; preds = %260, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.012.lcssa22.i.i.i.i, %260 ]
-  %263 = icmp eq ptr %248, %.sroa.4.0.i.ph.i.i.i
+  %263 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %248
   br i1 %263, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %264
 
 264:                                              ; preds = %select.unfold.i.i.i
   %265 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %266 = load ptr, ptr %265, align 8
-  %267 = icmp ugt ptr %266, %252
+  %267 = icmp ult ptr %252, %266
   br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i: ; preds = %264, %select.unfold.i.i.i
@@ -3796,7 +3796,7 @@ common.resume:                                    ; preds = %15, %46
 32:                                               ; preds = %29
   %.not.i.i = icmp ne ptr %30, null
   %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = icmp eq ptr %33, %31
+  %34 = icmp eq ptr %31, %33
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %34
   br i1 %or.cond.i.i, label %.thread, label %35
 
@@ -3857,7 +3857,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIS5_S5_St4lessIS5_ESaIS6_IS7_S5_EEEESt10_Select1stISE_ESA_SaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4225,7 +4225,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -4279,7 +4279,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4669,7 +4669,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110cmLBDepend13AddDependencyEPNS_19
   %4 = getelementptr inbounds i8, ptr %1, i64 96
   %5 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110cmLBDepend20GetDependInformationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(1256) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
   tail call fastcc void @_ZN12_GLOBAL__N_110cmLBDepend25GenerateDependInformationEPNS_19cmDependInformationE(ptr noundef nonnull align 8 dereferenceable(1256) %0, ptr noundef %5)
-  %.not.i = icmp eq ptr %5, %1
+  %.not.i = icmp eq ptr %1, %5
   br i1 %.not.i, label %_ZN12_GLOBAL__N_119cmDependInformation15AddDependenciesEPS0_.exit, label %6
 
 6:                                                ; preds = %3
@@ -4683,7 +4683,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110cmLBDepend13AddDependencyEPNS_19
   %.01317.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.01315.i.i.i.i, %6 ]
   %9 = getelementptr inbounds i8, ptr %.01317.i.i.i.i, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp ugt ptr %10, %5
+  %11 = icmp ult ptr %5, %10
   %.in.v.i.i.i.i = select i1 %11, i64 16, i64 24
   %.in.i.i.i.i = getelementptr i8, ptr %.01317.i.i.i.i, i64 %.in.v.i.i.i.i
   %.013.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
@@ -4714,13 +4714,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_110cmLBDepend13AddDependencyEPNS_19
 
 select.unfold.i.i.i:                              ; preds = %16, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.012.lcssa21.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.012.lcssa22.i.i.i.i, %16 ]
-  %19 = icmp eq ptr %8, %.sroa.4.0.i.ph.i.i.i
+  %19 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %8
   br i1 %19, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i, label %20
 
 20:                                               ; preds = %select.unfold.i.i.i
   %21 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp ugt ptr %22, %5
+  %23 = icmp ult ptr %5, %22
   br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeIPN12_GLOBAL__N_119cmDependInformationES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i: ; preds = %20, %select.unfold.i.i.i

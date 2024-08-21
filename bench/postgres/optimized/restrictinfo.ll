@@ -466,7 +466,7 @@ define dso_local ptr @extract_actual_clauses(ptr noundef readonly %0, i1 noundef
   %11 = getelementptr inbounds i8, ptr %10, i64 18
   %12 = load i8, ptr %11, align 2
   %13 = trunc i8 %12 to i1
-  %14 = xor i1 %13, %1
+  %14 = xor i1 %1, %13
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %.lr.ph24

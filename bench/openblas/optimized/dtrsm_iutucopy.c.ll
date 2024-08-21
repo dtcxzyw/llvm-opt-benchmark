@@ -17,7 +17,7 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   %11 = shl i64 %7, 7
   %12 = and i64 %1, -16
   %scevgep = getelementptr i8, ptr %2, i64 %11
-  %13 = add i64 %12, %4
+  %13 = add i64 %4, %12
   br label %.loopexit29
 
 .split.us:                                        ; preds = %9, %.loopexit28.us

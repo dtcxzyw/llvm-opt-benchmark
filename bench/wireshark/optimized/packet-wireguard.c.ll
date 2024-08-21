@@ -2237,7 +2237,7 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
   %9 = zext i32 %1 to i64
   %10 = getelementptr i8, ptr %0, i64 %9
   %11 = icmp ne ptr %0, null
-  %12 = icmp ugt ptr %10, %0
+  %12 = icmp ult ptr %0, %10
   %13 = and i1 %11, %12
   br i1 %13, label %.lr.ph95, label %._crit_edge
 

@@ -307,8 +307,8 @@ osc_rdma_btl_accel_support.exit:                  ; preds = %44, %29
 
 71:                                               ; preds = %55
   %72 = ptrtoint ptr %1 to i64
-  %73 = add i64 %2, -1
-  %74 = add i64 %73, %72
+  %73 = add i64 %72, -1
+  %74 = add i64 %73, %2
   %75 = add i64 %74, %24
   %76 = sub nsw i64 0, %24
   %77 = and i64 %75, %76
@@ -323,15 +323,15 @@ osc_rdma_btl_accel_support.exit:                  ; preds = %44, %29
   br i1 %85, label %.thread, label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %71, %tailrecurse.outer.i
-  %.in52.i = phi i32 [ %101, %tailrecurse.outer.i ], [ %81, %71 ]
+  %.in.i = phi i32 [ %101, %tailrecurse.outer.i ], [ %81, %71 ]
   %.tr38.ph50.i = phi i32 [ %.tr3848.i.lcssa, %tailrecurse.outer.i ], [ %81, %71 ]
   %.tr37.ph49.i = phi i32 [ %100, %tailrecurse.outer.i ], [ 0, %71 ]
   %invariant.op.i = add nsw i32 %.tr37.ph49.i, -1
-  %86 = ashr i32 %.in52.i, 1
-  %.pn51.pn.i147 = sext i32 %86 to i64
-  %.pn.pn.i148 = mul i64 %83, %.pn51.pn.i147
-  %.in53.i149 = add i64 %.pn.pn.i148, %84
-  %87 = inttoptr i64 %.in53.i149 to ptr
+  %86 = ashr i32 %.in.i, 1
+  %.pn52.pn.i145 = sext i32 %86 to i64
+  %.pn.pn.i146 = mul i64 %83, %.pn52.pn.i145
+  %.in51.i147 = add i64 %.pn.pn.i146, %84
+  %87 = inttoptr i64 %.in51.i147 to ptr
   %88 = load i64, ptr %87, align 8
   %89 = icmp sgt i64 %88, %78
   br i1 %89, label %tailrecurse.i, label %._crit_edge
@@ -339,10 +339,10 @@ osc_rdma_btl_accel_support.exit:                  ; preds = %44, %29
 90:                                               ; preds = %tailrecurse.i
   %.reass.i = add nsw i32 %invariant.op.i, %95
   %91 = ashr i32 %.reass.i, 1
-  %.pn51.pn.i = sext i32 %91 to i64
-  %.pn.pn.i = mul i64 %83, %.pn51.pn.i
-  %.in53.i = add i64 %.pn.pn.i, %84
-  %92 = inttoptr i64 %.in53.i to ptr
+  %.pn52.pn.i = sext i32 %91 to i64
+  %.pn.pn.i = mul i64 %83, %.pn52.pn.i
+  %.in51.i = add i64 %.pn.pn.i, %84
+  %92 = inttoptr i64 %.in51.i to ptr
   %93 = load i64, ptr %92, align 8
   %94 = icmp sgt i64 %93, %78
   br i1 %94, label %tailrecurse.i, label %._crit_edge.loopexit
@@ -358,25 +358,25 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i92, %90
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.i92
   %.tr3848.i.lcssa = phi i32 [ %.tr38.ph50.i, %.lr.ph.i92 ], [ %96, %._crit_edge.loopexit ]
-  %.lcssa143 = phi i32 [ %86, %.lr.ph.i92 ], [ %91, %._crit_edge.loopexit ]
-  %.lcssa141 = phi ptr [ %87, %.lr.ph.i92 ], [ %92, %._crit_edge.loopexit ]
-  %.lcssa139 = phi i64 [ %88, %.lr.ph.i92 ], [ %93, %._crit_edge.loopexit ]
-  %97 = getelementptr inbounds i8, ptr %.lcssa141, i64 8
+  %.lcssa141 = phi i32 [ %86, %.lr.ph.i92 ], [ %91, %._crit_edge.loopexit ]
+  %.lcssa139 = phi ptr [ %87, %.lr.ph.i92 ], [ %92, %._crit_edge.loopexit ]
+  %.lcssa137 = phi i64 [ %88, %.lr.ph.i92 ], [ %93, %._crit_edge.loopexit ]
+  %97 = getelementptr inbounds i8, ptr %.lcssa139, i64 8
   %98 = load i64, ptr %97, align 8
-  %99 = add i64 %98, %.lcssa139
-  %.not.i93 = icmp slt i64 %99, %77
+  %99 = add i64 %98, %.lcssa137
+  %.not.i93 = icmp sgt i64 %77, %99
   br i1 %.not.i93, label %tailrecurse.outer.i, label %ompi_osc_rdma_find_region_containing.exit
 
 tailrecurse.outer.i:                              ; preds = %._crit_edge
-  %100 = add nsw i32 %.lcssa143, 1
+  %100 = add nsw i32 %.lcssa141, 1
   %101 = add nsw i32 %100, %.tr3848.i.lcssa
-  %.not54.i = icmp slt i32 %.lcssa143, %.tr3848.i.lcssa
-  br i1 %.not54.i, label %.lr.ph.i92, label %.loopexit
+  %.not53.i = icmp slt i32 %.lcssa141, %.tr3848.i.lcssa
+  br i1 %.not53.i, label %.lr.ph.i92, label %.loopexit
 
 ompi_osc_rdma_find_region_containing.exit:        ; preds = %._crit_edge
   %102 = getelementptr inbounds i8, ptr %8, i64 1152
   %103 = load ptr, ptr %102, align 64
-  %104 = sext i32 %.lcssa143 to i64
+  %104 = sext i32 %.lcssa141 to i64
   %105 = getelementptr inbounds ptr, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = call fastcc i32 @ompi_osc_rdma_add_attachment(ptr noundef %106, i64 noundef %72, i64 noundef %2)
@@ -426,52 +426,52 @@ ompi_osc_rdma_find_region_containing.exit:        ; preds = %._crit_edge
   br i1 %.not88, label %161, label %.lr.ph.i97
 
 .thread:                                          ; preds = %71
-  %.not88127 = icmp eq i64 %60, 0
-  br i1 %.not88127, label %161, label %find_insertion_point.exit
+  %.not88125 = icmp eq i64 %60, 0
+  br i1 %.not88125, label %161, label %find_insertion_point.exit
 
-.lr.ph.i97:                                       ; preds = %.loopexit, %tailrecurse.outer.i104
-  %.in52.i98 = phi i32 [ %145, %tailrecurse.outer.i104 ], [ %81, %.loopexit ]
-  %.tr35.ph48.i = phi i32 [ %.tr3543.i, %tailrecurse.outer.i104 ], [ %81, %.loopexit ]
-  %.tr34.ph47.i = phi i32 [ %144, %tailrecurse.outer.i104 ], [ 0, %.loopexit ]
+.lr.ph.i97:                                       ; preds = %.loopexit, %tailrecurse.outer.i103
+  %.in.i98 = phi i32 [ %145, %tailrecurse.outer.i103 ], [ %81, %.loopexit ]
+  %.tr35.ph48.i = phi i32 [ %.tr3543.i, %tailrecurse.outer.i103 ], [ %81, %.loopexit ]
+  %.tr34.ph47.i = phi i32 [ %144, %tailrecurse.outer.i103 ], [ 0, %.loopexit ]
   %invariant.op.i99 = add nsw i32 %.tr34.ph47.i, -1
   br label %132
 
-132:                                              ; preds = %tailrecurse.i106, %.lr.ph.i97
-  %.in.i100 = phi i32 [ %.in52.i98, %.lr.ph.i97 ], [ %.reass.i107, %tailrecurse.i106 ]
-  %.tr3543.i = phi i32 [ %.tr35.ph48.i, %.lr.ph.i97 ], [ %143, %tailrecurse.i106 ]
-  %133 = ashr i32 %.in.i100, 1
-  %.pn51.pn.i101 = sext i32 %133 to i64
-  %.pn.pn.i102 = mul i64 %83, %.pn51.pn.i101
-  %.in53.i103 = add i64 %.pn.pn.i102, %84
-  %134 = inttoptr i64 %.in53.i103 to ptr
+132:                                              ; preds = %tailrecurse.i105, %.lr.ph.i97
+  %.in53.i = phi i32 [ %.in.i98, %.lr.ph.i97 ], [ %.reass.i106, %tailrecurse.i105 ]
+  %.tr3543.i = phi i32 [ %.tr35.ph48.i, %.lr.ph.i97 ], [ %143, %tailrecurse.i105 ]
+  %133 = ashr i32 %.in53.i, 1
+  %.pn52.pn.i100 = sext i32 %133 to i64
+  %.pn.pn.i101 = mul i64 %83, %.pn52.pn.i100
+  %.in51.i102 = add i64 %.pn.pn.i101, %84
+  %134 = inttoptr i64 %.in51.i102 to ptr
   %135 = load i64, ptr %134, align 8
   %136 = icmp sgt i64 %135, %72
-  br i1 %136, label %tailrecurse.i106, label %137
+  br i1 %136, label %tailrecurse.i105, label %137
 
 137:                                              ; preds = %132
   %138 = icmp eq i64 %135, %72
-  br i1 %138, label %139, label %tailrecurse.outer.i104
+  br i1 %138, label %139, label %tailrecurse.outer.i103
 
 139:                                              ; preds = %137
   %140 = getelementptr inbounds i8, ptr %134, i64 8
   %141 = load i64, ptr %140, align 8
   %142 = icmp ugt i64 %141, %83
-  br i1 %142, label %tailrecurse.i106, label %tailrecurse.outer.i104
+  br i1 %142, label %tailrecurse.i105, label %tailrecurse.outer.i103
 
-tailrecurse.i106:                                 ; preds = %139, %132
+tailrecurse.i105:                                 ; preds = %139, %132
   %143 = add nsw i32 %133, -1
-  %.reass.i107 = add nsw i32 %invariant.op.i99, %133
-  %.not54.i108 = icmp sgt i32 %133, %.tr34.ph47.i
-  br i1 %.not54.i108, label %132, label %find_insertion_point.exit
+  %.reass.i106 = add nsw i32 %invariant.op.i99, %133
+  %.not54.i = icmp sgt i32 %133, %.tr34.ph47.i
+  br i1 %.not54.i, label %132, label %find_insertion_point.exit
 
-tailrecurse.outer.i104:                           ; preds = %139, %137
+tailrecurse.outer.i103:                           ; preds = %139, %137
   %144 = add nsw i32 %133, 1
   %145 = add nsw i32 %144, %.tr3543.i
-  %.not.i105 = icmp sgt i32 %.tr3543.i, %133
-  br i1 %.not.i105, label %.lr.ph.i97, label %find_insertion_point.exit
+  %.not.i104 = icmp sgt i32 %.tr3543.i, %133
+  br i1 %.not.i104, label %.lr.ph.i97, label %find_insertion_point.exit
 
-find_insertion_point.exit:                        ; preds = %tailrecurse.outer.i104, %tailrecurse.i106, %.thread
-  %.tr34.ph.lcssa.i = phi i32 [ 0, %.thread ], [ %.tr34.ph47.i, %tailrecurse.i106 ], [ %144, %tailrecurse.outer.i104 ]
+find_insertion_point.exit:                        ; preds = %tailrecurse.outer.i103, %tailrecurse.i105, %.thread
+  %.tr34.ph.lcssa.i = phi i32 [ 0, %.thread ], [ %.tr34.ph47.i, %tailrecurse.i105 ], [ %144, %tailrecurse.outer.i103 ]
   %146 = sext i32 %.tr34.ph.lcssa.i to i64
   %147 = mul i64 %83, %146
   %148 = add i64 %147, %84
@@ -494,7 +494,7 @@ find_insertion_point.exit:                        ; preds = %tailrecurse.outer.i
   br label %161
 
 161:                                              ; preds = %.loopexit, %.thread, %find_insertion_point.exit, %151
-  %.0121 = phi i32 [ %.tr34.ph.lcssa.i, %151 ], [ %.tr34.ph.lcssa.i, %find_insertion_point.exit ], [ 0, %.thread ], [ 0, %.loopexit ]
+  %.0119 = phi i32 [ %.tr34.ph.lcssa.i, %151 ], [ %.tr34.ph.lcssa.i, %find_insertion_point.exit ], [ 0, %.thread ], [ 0, %.loopexit ]
   %.082 = phi ptr [ %149, %151 ], [ %149, %find_insertion_point.exit ], [ %80, %.thread ], [ %80, %.loopexit ]
   store i64 %78, ptr %.082, align 8
   %162 = getelementptr inbounds i8, ptr %.082, i64 8
@@ -503,8 +503,8 @@ find_insertion_point.exit:                        ; preds = %tailrecurse.outer.i
   %164 = call noalias ptr @malloc(i64 noundef %163) #11
   %165 = load i32, ptr @opal_class_init_epoch, align 4
   %166 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_handle_t_class, i64 32), align 8
-  %.not.i109 = icmp eq i32 %165, %166
-  br i1 %.not.i109, label %168, label %167
+  %.not.i107 = icmp eq i32 %165, %166
+  br i1 %.not.i107, label %168, label %167
 
 167:                                              ; preds = %161
   call void @opal_class_initialize(ptr noundef nonnull @ompi_osc_rdma_handle_t_class) #9
@@ -580,8 +580,8 @@ _ompi_osc_rdma_register.exit:                     ; preds = %179
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %198, %201
-  %.0.i111 = phi i32 [ %200, %198 ], [ %204, %201 ]
-  %205 = icmp eq i32 %.0.i111, 0
+  %.0.i109 = phi i32 [ %200, %198 ], [ %204, %201 ]
+  %205 = icmp eq i32 %.0.i109, 0
   br i1 %205, label %206, label %214
 
 206:                                              ; preds = %opal_thread_add_fetch_32.exit
@@ -590,18 +590,18 @@ opal_thread_add_fetch_32.exit:                    ; preds = %198, %201
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr %209, align 8
   %.not6.i = icmp eq ptr %210, null
-  br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i112
+  br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i110
 
-.lr.ph.i112:                                      ; preds = %206, %.lr.ph.i112
-  %211 = phi ptr [ %213, %.lr.ph.i112 ], [ %210, %206 ]
-  %.07.i = phi ptr [ %212, %.lr.ph.i112 ], [ %209, %206 ]
+.lr.ph.i110:                                      ; preds = %206, %.lr.ph.i110
+  %211 = phi ptr [ %213, %.lr.ph.i110 ], [ %210, %206 ]
+  %.07.i = phi ptr [ %212, %.lr.ph.i110 ], [ %209, %206 ]
   call void %211(ptr noundef nonnull %164) #9
   %212 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %213 = load ptr, ptr %212, align 8
-  %.not.i113 = icmp eq ptr %213, null
-  br i1 %.not.i113, label %opal_obj_run_destructors.exit, label %.lr.ph.i112, !llvm.loop !6
+  %.not.i111 = icmp eq ptr %213, null
+  br i1 %.not.i111, label %opal_obj_run_destructors.exit, label %.lr.ph.i110, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i112, %206
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i110, %206
   call void @free(ptr noundef %164) #9
   br label %214
 
@@ -624,7 +624,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i112, %206
   %222 = call fastcc i32 @ompi_osc_rdma_add_attachment(ptr noundef nonnull %164, i64 noundef %72, i64 noundef %2)
   %223 = getelementptr inbounds i8, ptr %8, i64 1152
   %224 = load ptr, ptr %223, align 64
-  %225 = sext i32 %.0121 to i64
+  %225 = sext i32 %.0119 to i64
   %226 = getelementptr inbounds ptr, ptr %224, i64 %225
   store ptr %164, ptr %226, align 8
   %227 = add i64 %61, 4294967296
@@ -640,8 +640,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i112, %206
   %235 = getelementptr inbounds i8, ptr %.0.i, i64 140
   %236 = load volatile i32, ptr %235, align 4
   %237 = and i32 %236, 4
-  %.not17.i114 = icmp eq i32 %237, 0
-  br i1 %.not17.i114, label %238, label %247
+  %.not17.i112 = icmp eq i32 %237, 0
+  br i1 %.not17.i112, label %238, label %247
 
 238:                                              ; preds = %220
   %239 = getelementptr inbounds i8, ptr %.0.i, i64 145
@@ -651,8 +651,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i112, %206
   %243 = getelementptr inbounds i8, ptr %.0.i, i64 64
   %244 = load ptr, ptr %243, align 8
   %245 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef nonnull %8, i8 noundef zeroext %240, ptr noundef %242, i64 noundef %234, ptr noundef %244, i64 noundef -9223372036854775808)
-  %.not.i115 = icmp eq i32 %245, 0
-  br i1 %.not.i115, label %ompi_osc_rdma_lock_release_exclusive.exit116, label %246
+  %.not.i113 = icmp eq i32 %245, 0
+  br i1 %.not.i113, label %ompi_osc_rdma_lock_release_exclusive.exit114, label %246
 
 246:                                              ; preds = %238
   call void @abort() #10
@@ -663,20 +663,20 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i112, %206
   fence seq_cst
   %249 = atomicrmw volatile add ptr %248, i64 -9223372036854775808 monotonic, align 8
   fence seq_cst
-  br label %ompi_osc_rdma_lock_release_exclusive.exit116
+  br label %ompi_osc_rdma_lock_release_exclusive.exit114
 
-ompi_osc_rdma_lock_release_exclusive.exit116:     ; preds = %238, %247
+ompi_osc_rdma_lock_release_exclusive.exit114:     ; preds = %238, %247
   %250 = load i8, ptr @opal_uses_threads, align 1
   %251 = trunc i8 %250 to i1
   br i1 %251, label %252, label %ompi_osc_rdma_lock_release_exclusive.exit
 
-252:                                              ; preds = %ompi_osc_rdma_lock_release_exclusive.exit116
+252:                                              ; preds = %ompi_osc_rdma_lock_release_exclusive.exit114
   %253 = getelementptr inbounds i8, ptr %8, i64 256
   %254 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %253) #9
   br label %ompi_osc_rdma_lock_release_exclusive.exit
 
-ompi_osc_rdma_lock_release_exclusive.exit:        ; preds = %35, %.preheader.i, %32, %129, %120, %252, %ompi_osc_rdma_lock_release_exclusive.exit116, %68, %65, %27, %ompi_osc_rdma_module_peer.exit, %214
-  %.0 = phi i32 [ -104, %214 ], [ -108, %ompi_osc_rdma_module_peer.exit ], [ 0, %27 ], [ -104, %65 ], [ -104, %68 ], [ 0, %ompi_osc_rdma_lock_release_exclusive.exit116 ], [ 0, %252 ], [ %107, %120 ], [ %107, %129 ], [ -8, %32 ], [ -8, %.preheader.i ], [ -8, %35 ]
+ompi_osc_rdma_lock_release_exclusive.exit:        ; preds = %35, %.preheader.i, %32, %129, %120, %252, %ompi_osc_rdma_lock_release_exclusive.exit114, %68, %65, %27, %ompi_osc_rdma_module_peer.exit, %214
+  %.0 = phi i32 [ -104, %214 ], [ -108, %ompi_osc_rdma_module_peer.exit ], [ 0, %27 ], [ -104, %65 ], [ -104, %68 ], [ 0, %ompi_osc_rdma_lock_release_exclusive.exit114 ], [ 0, %252 ], [ %107, %120 ], [ %107, %129 ], [ -8, %32 ], [ -8, %.preheader.i ], [ -8, %35 ]
   ret i32 %.0
 }
 
@@ -1001,14 +1001,14 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
   %24 = getelementptr inbounds i8, ptr %.01422.i, i64 48
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %23
-  %.not17.i = icmp sle i64 %23, %1
-  %27 = icmp sgt i64 %26, %1
+  %.not17.i = icmp sge i64 %1, %23
+  %27 = icmp slt i64 %1, %26
   %or.cond.i = select i1 %.not17.i, i1 %27, i1 false
   br i1 %or.cond.i, label %ompi_osc_rdma_find_conflicting_attachment.exit.thread, label %28
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = icmp sge i64 %23, %17
-  %.not18.i = icmp slt i64 %26, %17
+  %29 = icmp sle i64 %17, %23
+  %.not18.i = icmp sgt i64 %17, %26
   %or.cond19.i = select i1 %29, i1 true, i1 %.not18.i
   br i1 %or.cond19.i, label %20, label %ompi_osc_rdma_find_conflicting_attachment.exit.thread
 
@@ -1777,15 +1777,15 @@ ompi_osc_rdma_refresh_dynamic_region.exit.thread33: ; preds = %112, %ompi_osc_rd
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %tailrecurse.outer.i
-  %.in52.i = phi i32 [ %152, %tailrecurse.outer.i ], [ %136, %.lr.ph.i.preheader ]
+  %.in.i = phi i32 [ %152, %tailrecurse.outer.i ], [ %136, %.lr.ph.i.preheader ]
   %.tr38.ph50.i = phi i32 [ %.tr3848.i.lcssa, %tailrecurse.outer.i ], [ %136, %.lr.ph.i.preheader ]
   %.tr37.ph49.i = phi i32 [ %151, %tailrecurse.outer.i ], [ 0, %.lr.ph.i.preheader ]
   %invariant.op.i = add nsw i32 %.tr37.ph49.i, -1
-  %137 = ashr i32 %.in52.i, 1
-  %.pn51.pn.i49 = sext i32 %137 to i64
-  %.pn.pn.i50 = mul i64 %133, %.pn51.pn.i49
-  %.in53.i51 = add i64 %.pn.pn.i50, %134
-  %138 = inttoptr i64 %.in53.i51 to ptr
+  %137 = ashr i32 %.in.i, 1
+  %.pn52.pn.i49 = sext i32 %137 to i64
+  %.pn.pn.i50 = mul i64 %133, %.pn52.pn.i49
+  %.in51.i51 = add i64 %.pn.pn.i50, %134
+  %138 = inttoptr i64 %.in51.i51 to ptr
   %139 = load i64, ptr %138, align 8
   %140 = icmp sgt i64 %139, %2
   br i1 %140, label %tailrecurse.i, label %._crit_edge
@@ -1793,10 +1793,10 @@ ompi_osc_rdma_refresh_dynamic_region.exit.thread33: ; preds = %112, %ompi_osc_rd
 141:                                              ; preds = %tailrecurse.i
   %.reass.i = add nsw i32 %invariant.op.i, %146
   %142 = ashr i32 %.reass.i, 1
-  %.pn51.pn.i = sext i32 %142 to i64
-  %.pn.pn.i = mul i64 %133, %.pn51.pn.i
-  %.in53.i = add i64 %.pn.pn.i, %134
-  %143 = inttoptr i64 %.in53.i to ptr
+  %.pn52.pn.i = sext i32 %142 to i64
+  %.pn.pn.i = mul i64 %133, %.pn52.pn.i
+  %.in51.i = add i64 %.pn.pn.i, %134
+  %143 = inttoptr i64 %.in51.i to ptr
   %144 = load i64, ptr %143, align 8
   %145 = icmp sgt i64 %144, %2
   br i1 %145, label %tailrecurse.i, label %._crit_edge.loopexit
@@ -1818,14 +1818,14 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %141
   %148 = getelementptr inbounds i8, ptr %.lcssa43, i64 8
   %149 = load i64, ptr %148, align 8
   %150 = add i64 %149, %.lcssa
-  %.not.i29 = icmp slt i64 %150, %8
+  %.not.i29 = icmp sgt i64 %8, %150
   br i1 %.not.i29, label %tailrecurse.outer.i, label %ompi_osc_rdma_find_region_containing.exit
 
 tailrecurse.outer.i:                              ; preds = %._crit_edge
   %151 = add nsw i32 %.lcssa45, 1
   %152 = add nsw i32 %151, %.tr3848.i.lcssa
-  %.not54.i = icmp slt i32 %.lcssa45, %.tr3848.i.lcssa
-  br i1 %.not54.i, label %.lr.ph.i, label %ompi_osc_rdma_find_region_containing.exit
+  %.not53.i = icmp slt i32 %.lcssa45, %.tr3848.i.lcssa
+  br i1 %.not53.i, label %.lr.ph.i, label %ompi_osc_rdma_find_region_containing.exit
 
 ompi_osc_rdma_find_region_containing.exit:        ; preds = %._crit_edge, %tailrecurse.outer.i, %tailrecurse.i, %131
   %.0.i30 = phi ptr [ null, %131 ], [ null, %tailrecurse.i ], [ %.lcssa43, %._crit_edge ], [ null, %tailrecurse.outer.i ]

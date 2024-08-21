@@ -894,7 +894,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %nr1 = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load i64, ptr %nr1, align 8
-  %cmp = icmp ult i64 %0, %nr
+  %cmp = icmp ugt i64 %nr, %0
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end

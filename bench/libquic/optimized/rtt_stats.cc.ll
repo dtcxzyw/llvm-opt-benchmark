@@ -120,7 +120,7 @@ if.end:                                           ; preds = %entry
   %time_offset_.i4 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %time_offset_.i4, align 8
   %cmp.i5 = icmp eq i64 %2, 0
-  %cmp.i.i6 = icmp sgt i64 %2, %send_delta.coerce1
+  %cmp.i.i6 = icmp slt i64 %send_delta.coerce1, %2
   %or.cond62 = or i1 %cmp.i5, %cmp.i.i6
   br i1 %or.cond62, label %if.then26, label %if.end29
 

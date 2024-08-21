@@ -84,7 +84,7 @@ define internal { double, double } @_ZL17tobmerc_s_forward5PJ_LPP8PJconsts(doubl
   %9 = tail call double @cos(double noundef %1) #6
   %10 = getelementptr inbounds i8, ptr %2, i64 488
   %11 = load double, ptr %10, align 8
-  %12 = fmul double %11, %0
+  %12 = fmul double %0, %11
   %13 = fmul double %9, %12
   %14 = fmul double %9, %13
   %15 = tail call double @tan(double noundef %1) #6

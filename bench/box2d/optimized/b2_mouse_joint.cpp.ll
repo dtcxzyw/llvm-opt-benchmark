@@ -215,8 +215,8 @@ entry:
   %y2.i = getelementptr inbounds i8, ptr %this, i64 192
   %20 = load float, ptr %y2.i, align 8
   %sub3.i = fsub float %19, %20
-  %21 = fneg float %call.i
-  %neg.i = fmul float %sub3.i, %21
+  %21 = fneg float %sub3.i
+  %neg.i = fmul float %call.i, %21
   %22 = tail call float @llvm.fmuladd.f32(float %call2.i, float %sub.i, float %neg.i)
   %mul6.i = fmul float %call2.i, %sub3.i
   %23 = tail call float @llvm.fmuladd.f32(float %call.i, float %sub.i, float %mul6.i)
@@ -293,8 +293,8 @@ if.then74:                                        ; preds = %entry
   %mul1.i = fmul float %24, %mul2.i38
   %add.i43 = fadd float %10, %mul.i39
   %add4.i = fadd float %11, %mul1.i
-  %38 = fneg float %23
-  %neg.i46 = fmul float %mul.i36, %38
+  %38 = fneg float %mul.i36
+  %neg.i46 = fmul float %23, %38
   %39 = tail call noundef float @llvm.fmuladd.f32(float %22, float %mul2.i38, float %neg.i46)
   %40 = tail call float @llvm.fmuladd.f32(float %25, float %39, float %mul72)
   br label %if.end86
@@ -411,13 +411,13 @@ if.end:                                           ; preds = %if.then, %entry
   %m_invMassB = getelementptr inbounds i8, ptr %this, i64 196
   %24 = load float, ptr %m_invMassB, align 4
   %mul.i47 = fmul float %sub.i, %24
-  %mul1.i49 = fmul float %sub3.i, %24
+  %mul1.i49 = fmul float %24, %sub3.i
   %add.i52 = fadd float %2, %mul.i47
   %add4.i55 = fadd float %3, %mul1.i49
   %m_invIB = getelementptr inbounds i8, ptr %this, i64 200
   %25 = load float, ptr %m_invIB, align 8
-  %26 = fneg float %5
-  %neg.i = fmul float %sub.i, %26
+  %26 = fneg float %sub.i
+  %neg.i = fmul float %5, %26
   %27 = tail call noundef float @llvm.fmuladd.f32(float %6, float %sub3.i, float %neg.i)
   %28 = tail call float @llvm.fmuladd.f32(float %25, float %27, float %4)
   %29 = load ptr, ptr %velocities, align 8
@@ -461,8 +461,8 @@ entry:
   %3 = load float, ptr %q.i.i, align 4
   %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load float, ptr %y.i.i, align 4
-  %5 = fneg float %3
-  %neg.i.i = fmul float %4, %5
+  %5 = fneg float %4
+  %neg.i.i = fmul float %3, %5
   %6 = tail call float @llvm.fmuladd.f32(float %1, float %2, float %neg.i.i)
   %7 = load float, ptr %m_xf.i, align 4
   %add.i.i = fadd float %7, %6
@@ -481,10 +481,10 @@ define <2 x float> @_ZNK12b2MouseJoint16GetReactionForceEf(ptr nocapture noundef
 entry:
   %m_impulse = getelementptr inbounds i8, ptr %this, i64 156
   %0 = load float, ptr %m_impulse, align 4
-  %mul.i = fmul float %0, %inv_dt
+  %mul.i = fmul float %inv_dt, %0
   %y.i = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load float, ptr %y.i, align 8
-  %mul1.i = fmul float %1, %inv_dt
+  %mul1.i = fmul float %inv_dt, %1
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul1.i, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert.i

@@ -2685,7 +2685,7 @@ define linkonce_odr hidden noundef i32 @_ZN6opencl12PlatformInfo11query_paramEP1
 25:                                               ; preds = %14
   %26 = load i64, ptr %5, align 8
   %27 = load i64, ptr %12, align 8
-  %.not.i = icmp ult i64 %27, %26
+  %.not.i = icmp ugt i64 %26, %27
   br i1 %.not.i, label %29, label %28
 
 28:                                               ; preds = %25
@@ -3156,7 +3156,7 @@ define linkonce_odr hidden noundef i32 @_ZN6opencl10DeviceInfo11query_paramImEEi
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
-  %30 = icmp ult i64 %29, %22
+  %30 = icmp ugt i64 %22, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %21
@@ -3167,7 +3167,7 @@ define linkonce_odr hidden noundef i32 @_ZN6opencl10DeviceInfo11query_paramImEEi
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 33:                                               ; preds = %21
-  %34 = icmp ugt i64 %29, %22
+  %34 = icmp ult i64 %22, %29
   br i1 %34, label %35, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 35:                                               ; preds = %33
@@ -3657,7 +3657,7 @@ define linkonce_odr hidden noundef i32 @_ZN6opencl10DeviceInfo11query_paramIlEEi
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
-  %30 = icmp ult i64 %29, %22
+  %30 = icmp ugt i64 %22, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %21
@@ -3668,7 +3668,7 @@ define linkonce_odr hidden noundef i32 @_ZN6opencl10DeviceInfo11query_paramIlEEi
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 33:                                               ; preds = %21
-  %34 = icmp ugt i64 %29, %22
+  %34 = icmp ult i64 %22, %29
   br i1 %34, label %35, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 35:                                               ; preds = %33

@@ -1513,7 +1513,7 @@ for.body.i:                                       ; preds = %for.end220, %for.in
 exp2.i.noexc:                                     ; preds = %for.body.i
   %conv.i = fptosi double %exp2.i252 to i32
   %mul.i = shl nsw i32 %conv.i, 1
-  %cmp2.not.not.i = icmp sgt i32 %mul.i, %.sroa.speculated
+  %cmp2.not.not.i = icmp slt i32 %.sroa.speculated, %mul.i
   br i1 %cmp2.not.not.i, label %if.then3.i, label %for.inc.i
 
 if.then3.i:                                       ; preds = %exp2.i.noexc
@@ -1889,7 +1889,7 @@ for.body.i291:                                    ; preds = %if.then365, %for.in
 exp2.i.noexc304:                                  ; preds = %for.body.i291
   %conv.i294 = fptosi double %exp2.i305 to i32
   %mul.i295 = shl nsw i32 %conv.i294, 1
-  %cmp2.not.not.i296 = icmp sgt i32 %mul.i295, %lut3dmax.0.ph
+  %cmp2.not.not.i296 = icmp slt i32 %lut3dmax.0.ph, %mul.i295
   br i1 %cmp2.not.not.i296, label %if.then3.i301, label %for.inc.i297
 
 if.then3.i301:                                    ; preds = %exp2.i.noexc304
@@ -3232,7 +3232,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 72
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i.i19
@@ -4074,7 +4074,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i.i19

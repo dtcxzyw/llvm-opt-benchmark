@@ -172,7 +172,7 @@ if.end:                                           ; preds = %entry
   %cmp1 = icmp eq i64 %rem, 0
   %spec.store.select = select i1 %cmp1, i64 16, i64 %rem
   %add = add nuw nsw i64 %spec.store.select, 16
-  %tobool.not = icmp eq i64 %add, %len
+  %tobool.not = icmp eq i64 %len, %add
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -251,7 +251,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %add = or disjoint i64 %rem, 16
-  %tobool.not = icmp eq i64 %add, %len
+  %tobool.not = icmp eq i64 %len, %add
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end3
@@ -327,7 +327,7 @@ if.end:                                           ; preds = %entry
   %cmp1 = icmp eq i64 %rem, 0
   %spec.store.select = select i1 %cmp1, i64 16, i64 %rem
   %add = add nuw nsw i64 %spec.store.select, 16
-  %tobool.not = icmp eq i64 %add, %len
+  %tobool.not = icmp eq i64 %len, %add
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -372,7 +372,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %add = or disjoint i64 %rem, 16
-  %tobool.not = icmp eq i64 %add, %len
+  %tobool.not = icmp eq i64 %len, %add
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end3

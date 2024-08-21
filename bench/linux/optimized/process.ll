@@ -1995,7 +1995,7 @@ define dso_local i64 @__get_wchan(ptr noundef %0) local_unnamed_addr #2 align 16
 25:                                               ; preds = %21
   %26 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !7
   %27 = inttoptr i64 %26 to ptr
-  %28 = icmp eq ptr %27, %0
+  %28 = icmp eq ptr %0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25

@@ -293,7 +293,7 @@ entry:
   %_max_msg_size = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i64, ptr %_max_msg_size, align 8
   %cmp = icmp sgt i64 %0, -1
-  %cmp3 = icmp ult i64 %0, %msg_size_
+  %cmp3 = icmp ugt i64 %msg_size_, %0
   %or.cond = and i1 %cmp, %cmp3
   br i1 %or.cond, label %if.then4, label %if.end9
 
@@ -318,7 +318,7 @@ lor.rhs:                                          ; preds = %if.end9
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %read_pos_ to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp14 = icmp ult i64 %sub.ptr.sub, %msg_size_
+  %cmp14 = icmp ugt i64 %msg_size_, %sub.ptr.sub
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end9, %lor.rhs
@@ -481,7 +481,7 @@ entry:
   store i64 0, ptr %bytes_used_, align 8
   %_read_pos = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_read_pos, align 8
-  %cmp = icmp eq ptr %0, %data_
+  %cmp = icmp eq ptr %data_, %0
   br i1 %cmp, label %do.body, label %while.cond15.preheader
 
 while.cond15.preheader:                           ; preds = %entry
@@ -498,7 +498,7 @@ while.body17.lr.ph:                               ; preds = %while.cond15.prehea
 do.body:                                          ; preds = %entry
   %_to_read = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %_to_read, align 8
-  %cmp2.not = icmp ult i64 %1, %size_
+  %cmp2.not = icmp ugt i64 %size_, %1
   br i1 %cmp2.not, label %if.then3, label %do.end
 
 if.then3:                                         ; preds = %do.body

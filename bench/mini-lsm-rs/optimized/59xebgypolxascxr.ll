@@ -8808,7 +8808,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   %.fca.0.extract = extractvalue { i64, i64 } %45, 0
   %.fca.1.extract = extractvalue { i64, i64 } %45, 1
   %.not.i23 = icmp ne i64 %.fca.0.extract, 0
-  %47 = icmp ugt i64 %.fca.1.extract, %5
+  %47 = icmp ult i64 %5, %.fca.1.extract
   %.0.i24 = select i1 %.not.i23, i1 %47, i1 false
   %spec.select10 = select i1 %.0.i24, i8 1, i8 %.05
   br label %29
@@ -8983,7 +8983,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 69:                                               ; preds = %.noexc8.i
   %70 = getelementptr inbounds i8, ptr %66, i64 -8
   %71 = load i64, ptr %70, align 8, !alias.scope !1023, !noalias !1028, !noundef !14
-  %switch.selectcmp.i.not.i.i = icmp ult i64 %71, %.fca.1.extract.i
+  %switch.selectcmp.i.not.i.i = icmp ugt i64 %.fca.1.extract.i, %71
   br i1 %switch.selectcmp.i.not.i.i, label %72, label %74
 
 72:                                               ; preds = %.noexc9._crit_edge16.i, %69
@@ -10716,7 +10716,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !14
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -10797,8 +10797,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload14.i18 = load i16, ptr %86, align 1, !alias.scope !1236
   %87 = zext i16 %.0.copyload14.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3

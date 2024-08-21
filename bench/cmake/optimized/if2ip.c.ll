@@ -258,7 +258,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %88, %87, %84, %40, 
 95:                                               ; preds = %.lr.ph.split
   %96 = load i16, ptr %94, align 2
   %97 = zext i16 %96 to i32
-  %98 = icmp eq i32 %97, %0
+  %98 = icmp eq i32 %0, %97
   br i1 %98, label %99, label %114
 
 99:                                               ; preds = %95

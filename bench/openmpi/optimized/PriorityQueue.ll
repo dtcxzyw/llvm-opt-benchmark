@@ -144,7 +144,7 @@ declare hidden void @tm_fiboTreeFree(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @PQ_isEmpty(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, %0
+  %4 = icmp eq ptr %0, %3
   %. = zext i1 %4 to i32
   ret i32 %.
 }
@@ -214,7 +214,7 @@ define void @PQ_insert(ptr noundef %0, i32 noundef %1, double noundef %2) local_
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %PQ_insertElement.exit, label %23
 
 PQ_insertElement.exit:                            ; preds = %5
@@ -356,7 +356,7 @@ define void @PQ_increaseElementKey(ptr noundef %0, ptr noundef %1, double nounde
   store i32 0, ptr %4, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load double, ptr %13, align 8
-  %15 = fadd double %14, %2
+  %15 = fadd double %2, %14
   store double %15, ptr %13, align 8
   %16 = load i32, ptr %9, align 8
   %17 = icmp sgt i32 %16, -1
@@ -530,7 +530,7 @@ define void @PQ_increaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) l
   store i32 0, ptr %10, align 4
   %18 = getelementptr inbounds i8, ptr %8, i64 40
   %19 = load double, ptr %18, align 8
-  %20 = fadd double %19, %2
+  %20 = fadd double %2, %19
   store double %20, ptr %18, align 8
   %21 = load i32, ptr %14, align 8
   %22 = icmp sgt i32 %21, -1

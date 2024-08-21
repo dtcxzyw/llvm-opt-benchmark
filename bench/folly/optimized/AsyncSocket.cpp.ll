@@ -11766,7 +11766,7 @@ cleanup.i:                                        ; preds = %if.end23.i, %for.bo
   %prewriteRequest.sroa.1455.20.extract.shift70 = lshr i64 %19, 32
   %20 = or i64 %prewriteRequest.sroa.1455.20.extract.shift70, %19
   %21 = trunc i64 %20 to i32
-  %or.i3774 = or i32 %21, %flags
+  %or.i3774 = or i32 %flags, %21
   br label %if.then
 
 if.then:                                          ; preds = %"_ZZN5folly11AsyncSocket17sendSocketMessageEPK5iovecmNS_10WriteFlagsENS0_15WriteRequestTagEEN3$_0clEv.exit.thread67", %entry
@@ -11782,7 +11782,7 @@ _ZNKR5folly8OptionalImEdeEv.exit:                 ; preds = %for.cond.cleanup19.
   %prewriteRequest.sroa.1455.20.extract.shift = lshr i64 %23, 32
   %24 = or i64 %prewriteRequest.sroa.1455.20.extract.shift, %23
   %25 = trunc i64 %24 to i32
-  %or.i37 = or i32 %25, %flags
+  %or.i37 = or i32 %flags, %25
   %or.i.i = or i32 %or.i37, 1
   %cmp = icmp ult i64 %count, 65
   br i1 %cmp, label %if.then7, label %if.else
@@ -32988,7 +32988,7 @@ ehcleanup98:                                      ; preds = %lpad95, %ehcleanup
 if.else:                                          ; preds = %invoke.cont77
   %42 = load i32, ptr %countWritten, align 4, !tbaa !16
   %conv100 = zext i32 %42 to i64
-  %cmp101 = icmp eq i64 %conv100, %count
+  %cmp101 = icmp eq i64 %count, %conv100
   br i1 %cmp101, label %if.then102, label %if.else123
 
 if.then102:                                       ; preds = %if.else
@@ -41315,7 +41315,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit: ; preds = %if.then25
   %conv27 = sext i32 %nextArg.0247 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i)
   store i64 %nargs, ptr %max.addr.i, align 8, !tbaa !14
-  %cmp.not.i146 = icmp ult i64 %conv27, %nargs
+  %cmp.not.i146 = icmp ugt i64 %nargs, %conv27
   br i1 %cmp.not.i146, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit, label %if.then.i.i147, !prof !18
 
 if.then.i.i147:                                   ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit
@@ -41359,7 +41359,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit154: ; preds = %if.then
   %conv43 = sext i32 %18 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i155)
   store i64 %nargs, ptr %max.addr.i155, align 8, !tbaa !14
-  %cmp.not.i156 = icmp ult i64 %conv43, %nargs
+  %cmp.not.i156 = icmp ugt i64 %nargs, %conv43
   br i1 %cmp.not.i156, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit158, label %if.then.i.i157, !prof !18
 
 if.then.i.i157:                                   ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit154
@@ -41449,7 +41449,7 @@ if.end61:                                         ; preds = %if.end57
   %conv62 = sext i32 %argIndex.0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i173)
   store i64 %nargs, ptr %max.addr.i173, align 8, !tbaa !14
-  %cmp.not.i174 = icmp ult i64 %conv62, %nargs
+  %cmp.not.i174 = icmp ugt i64 %nargs, %conv62
   br i1 %cmp.not.i174, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit176, label %if.then.i.i175, !prof !18
 
 if.then.i.i175:                                   ; preds = %if.end61
@@ -47488,7 +47488,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %conv = zext nneg i32 %0 to i64
-  %cmp5 = icmp ult i64 %conv, %s.coerce1
+  %cmp5 = icmp ugt i64 %s.coerce1, %conv
   br i1 %cmp5, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %land.lhs.true, %for.inc.i

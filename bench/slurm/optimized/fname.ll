@@ -67,7 +67,7 @@ define dso_local noundef ptr @fname_create(ptr nocapture noundef readonly %0, pt
 
 30:                                               ; preds = %25
   %31 = trunc i64 %26 to i32
-  %32 = icmp slt i32 %31, %2
+  %32 = icmp sgt i32 %2, %31
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30

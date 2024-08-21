@@ -764,11 +764,11 @@ define internal { double, double } @_ZL12approx_e_inv5PJ_XYP8PJconsts(double %0,
   %29 = fmul double %22, %28
   %30 = getelementptr inbounds i8, ptr %2, i64 216
   %31 = load double, ptr %30, align 8
-  %32 = fneg double %31
-  %33 = fmul double %21, %32
+  %32 = fneg double %21
+  %33 = fmul double %31, %32
   %34 = tail call double @llvm.fmuladd.f64(double %33, double %21, double 1.000000e+00)
   %35 = tail call double @sqrt(double noundef %34) #13
-  %36 = fmul double %35, %0
+  %36 = fmul double %0, %35
   %37 = load double, ptr %8, align 8
   %38 = fdiv double %36, %37
   %39 = fmul double %26, %34
@@ -845,12 +845,12 @@ define internal { double, double } @_ZL12approx_e_fwd5PJ_LPP8PJconsts(double %0,
   %14 = fdiv double %10, %11
   %15 = select i1 %13, double %14, double 0.000000e+00
   %16 = fmul double %15, %15
-  %17 = fmul double %11, %0
+  %17 = fmul double %0, %11
   %18 = fmul double %17, %17
   %19 = getelementptr inbounds i8, ptr %2, i64 216
   %20 = load double, ptr %19, align 8
-  %21 = fneg double %20
-  %22 = fmul double %10, %21
+  %21 = fneg double %10
+  %22 = fmul double %20, %21
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %10, double 1.000000e+00)
   %24 = tail call double @sqrt(double noundef %23) #13
   %25 = fdiv double %17, %24
@@ -883,7 +883,7 @@ define internal { double, double } @_ZL12approx_e_fwd5PJ_LPP8PJconsts(double %0,
   %52 = load double, ptr %51, align 8
   %53 = fsub double %50, %52
   %54 = fmul double %10, %25
-  %55 = fmul double %54, %0
+  %55 = fmul double %0, %54
   %56 = fmul double %55, 5.000000e-01
   %57 = fmul double %18, 0x3FB5555555555555
   %58 = fsub double 5.000000e+00, %16
@@ -1180,8 +1180,8 @@ define internal { double, double } @_ZL11exact_e_inv5PJ_XYP8PJconsts(double %0, 
 _ZL5clenSPKdiddddPdS1_.exit:                      ; preds = %31
   %40 = fmul double %17, %24
   %41 = fmul double %18, %23
-  %42 = fneg double %41
-  %43 = fmul double %39, %42
+  %42 = fneg double %39
+  %43 = fmul double %41, %42
   %44 = tail call double @llvm.fmuladd.f64(double %40, double %36, double %43)
   %45 = fmul double %41, %36
   %46 = tail call double @llvm.fmuladd.f64(double %40, double %39, double %45)
@@ -1316,8 +1316,8 @@ _ZL5clenSPKdiddddPdS1_.exit:                      ; preds = %41
   br i1 %56, label %68, label %57
 
 57:                                               ; preds = %_ZL5clenSPKdiddddPdS1_.exit
-  %58 = fneg double %51
-  %59 = fmul double %49, %58
+  %58 = fneg double %49
+  %59 = fmul double %51, %58
   %60 = tail call double @llvm.fmuladd.f64(double %50, double %46, double %59)
   %61 = fadd double %22, %60
   %62 = getelementptr inbounds i8, ptr %5, i64 24

@@ -1372,13 +1372,13 @@ Vec_StrPush.exit59:                               ; preds = %.Vec_StrGrow.exit10
   %275 = add nsw i32 %.val, 1
   %276 = getelementptr inbounds i8, ptr %274, i64 4
   %277 = load i32, ptr %276, align 4
-  %.not.i.not.i = icmp sgt i32 %277, %.val
+  %.not.i.not.i = icmp slt i32 %.val, %277
   br i1 %.not.i.not.i, label %Vec_IntFillExtra.exit.i, label %278
 
 278:                                              ; preds = %Vec_StrPush.exit59
   %279 = load i32, ptr %274, align 8
   %280 = shl nsw i32 %279, 1
-  %.not.i = icmp sgt i32 %280, %.val
+  %.not.i = icmp slt i32 %.val, %280
   %.not.i.i.not.i = icmp sgt i32 %279, %.val
   br i1 %.not.i, label %293, label %281
 

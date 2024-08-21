@@ -471,7 +471,7 @@ define internal void @cairogen_textspan(ptr nocapture noundef readonly %0, doubl
   %32 = getelementptr inbounds i8, ptr %3, i64 32
   %33 = load double, ptr %32, align 8
   %34 = fadd double %31, %33
-  %35 = fadd double %34, %2
+  %35 = fadd double %2, %34
   %36 = fneg double %35
   tail call void @cairo_move_to(ptr noundef %9, double noundef %.sroa.0.0, double noundef %36) #14
   tail call void @cairo_save(ptr noundef %9) #14

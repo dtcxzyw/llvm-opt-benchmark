@@ -1167,7 +1167,7 @@ define void @_ZN5faiss9PCAMatrix5trainElPKf(ptr noundef nonnull align 8 derefere
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   %25 = call noundef ptr @_ZN5faiss21fvecs_maybe_subsampleEmPmmPKfbl(i64 noundef %18, ptr noundef nonnull %4, i64 noundef %21, ptr noundef %2, i1 noundef zeroext %24, i64 noundef 1234)
-  %.not267 = icmp eq ptr %25, %2
+  %.not267 = icmp eq ptr %2, %25
   %26 = getelementptr inbounds i8, ptr %0, i64 104
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1927,7 +1927,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit183:            ; preds = %_ZNSt6vectorIdSaIdE
   %332 = ptrtoint ptr %330 to i64
   %333 = sub i64 %331, %332
   %334 = ashr exact i64 %333, 2
-  %335 = icmp ult i64 %334, %327
+  %335 = icmp ugt i64 %327, %334
   br i1 %335, label %336, label %338
 
 336:                                              ; preds = %322
@@ -1940,7 +1940,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit183:            ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit186
 
 338:                                              ; preds = %322
-  %339 = icmp ugt i64 %334, %327
+  %339 = icmp ult i64 %327, %334
   br i1 %339, label %340, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit186
 
 340:                                              ; preds = %338
@@ -2462,7 +2462,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %72, %._crit_edge
   br label %_ZN5faiss20RandomRotationMatrixD2Ev.exit
 
 _ZN5faiss20RandomRotationMatrixD2Ev.exit:         ; preds = %74, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %51
-  %75 = mul i64 %29, %1
+  %75 = mul i64 %1, %29
   %76 = icmp ugt i64 %75, 1152921504606846975
   br i1 %76, label %77, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i111
 
@@ -2941,7 +2941,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %213, %214
   %230 = ptrtoint ptr %228 to i64
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 2
-  %233 = icmp ult i64 %232, %30
+  %233 = icmp ugt i64 %30, %232
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %._crit_edge239
@@ -2950,7 +2950,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %213, %214
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %.loopexit.split-lp
 
 236:                                              ; preds = %._crit_edge239
-  %237 = icmp ugt i64 %232, %30
+  %237 = icmp ult i64 %30, %232
   br i1 %237, label %238, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 238:                                              ; preds = %236
@@ -3275,7 +3275,7 @@ define void @_ZN5faiss12ITQTransform5trainElPKf(ptr noundef nonnull align 8 dere
   %37 = zext nneg i32 %.sroa.speculated to i64
   %38 = sext i32 %33 to i64
   %39 = call noundef ptr @_ZN5faiss21fvecs_maybe_subsampleEmPmmPKfbl(i64 noundef %38, ptr noundef nonnull %4, i64 noundef %37, ptr noundef %2, i1 noundef zeroext false, i64 noundef 1234)
-  %.not91 = icmp eq ptr %39, %2
+  %.not91 = icmp eq ptr %2, %39
   %40 = load i64, ptr %4, align 8
   %41 = load i32, ptr %32, align 8
   %42 = sext i32 %41 to i64
@@ -3707,7 +3707,7 @@ define void @_ZNK5faiss12ITQTransform13apply_noallocElPKfPf(ptr nocapture nounde
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
-  %29 = mul nsw i64 %28, %1
+  %29 = mul nsw i64 %1, %28
   %30 = icmp ugt i64 %29, 4611686018427387903
   %31 = shl i64 %29, 2
   %32 = select i1 %30, i64 -1, i64 %31
@@ -4007,7 +4007,7 @@ define void @_ZN5faiss9OPQMatrix5trainElPKf(ptr noundef nonnull align 8 derefere
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
   %28 = call noundef ptr @_ZN5faiss21fvecs_maybe_subsampleEmPmmPKfbl(i64 noundef %22, ptr noundef nonnull %4, i64 noundef %24, ptr noundef %2, i1 noundef zeroext %27, i64 noundef 1234)
-  %.not327 = icmp eq ptr %28, %2
+  %.not327 = icmp eq ptr %2, %28
   %29 = getelementptr inbounds i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %20, align 8
@@ -4229,7 +4229,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge353, %98
 
 108:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   %109 = mul nuw nsw i64 %32, %32
-  %110 = icmp ult i64 %106, %109
+  %110 = icmp ugt i64 %109, %106
   br i1 %110, label %111, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 111:                                              ; preds = %108
@@ -4272,7 +4272,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = ashr exact i64 %128, 2
-  %130 = icmp ult i64 %129, %123
+  %130 = icmp ugt i64 %123, %129
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %122
@@ -4281,7 +4281,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit145 unwind label %118
 
 133:                                              ; preds = %122
-  %134 = icmp ugt i64 %129, %123
+  %134 = icmp ult i64 %123, %129
   br i1 %134, label %135, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit145
 
 135:                                              ; preds = %133
@@ -5743,7 +5743,7 @@ define noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull a
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = mul nsw i64 %6, %1
+  %7 = mul nsw i64 %1, %6
   %8 = icmp ugt i64 %7, 4611686018427387903
   %9 = shl i64 %7, 2
   %10 = select i1 %8, i64 -1, i64 %9
@@ -6038,7 +6038,7 @@ define void @_ZNK5faiss15LinearTransform19transform_transposeElPKfPf(ptr nocaptu
 
 15:                                               ; preds = %4
   %16 = sext i32 %14 to i64
-  %17 = mul nsw i64 %16, %1
+  %17 = mul nsw i64 %1, %16
   %18 = icmp ugt i64 %17, 4611686018427387903
   %19 = shl i64 %17, 2
   %20 = select i1 %18, i64 -1, i64 %19
@@ -6783,7 +6783,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_13eigEmPdS0_i(i64 noundef %0, ptr n
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %._crit_edge63.us ], [ 0, %.loopexit ]
   %39 = getelementptr inbounds double, ptr %2, i64 %indvars.iv84
   %40 = xor i64 %indvars.iv84, -1
-  %41 = add i64 %40, %0
+  %41 = add i64 %0, %40
   %42 = getelementptr inbounds double, ptr %2, i64 %41
   %43 = load double, ptr %39, align 8
   %44 = load double, ptr %42, align 8
@@ -7596,7 +7596,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !83
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -7680,7 +7680,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !83
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -7957,7 +7957,7 @@ define void @_ZN5faiss12ITQTransformC2Eiib(ptr noundef nonnull align 8 dereferen
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %1, %2
-  %or.cond = or i1 %16, %3
+  %or.cond = or i1 %3, %16
   br i1 %or.cond, label %37, label %17
 
 17:                                               ; preds = %15
@@ -8466,7 +8466,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23, %26
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
   %indvars.iv45 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next46, %.lr.ph39 ]
   %27 = trunc i64 %indvars.iv45 to i32
-  %28 = mul i32 %27, %1
+  %28 = mul i32 %1, %27
   %29 = sdiv i32 %28, %2
   %30 = load ptr, ptr %9, align 8
   %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv45
@@ -8546,7 +8546,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !88
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -8630,7 +8630,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !88
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79

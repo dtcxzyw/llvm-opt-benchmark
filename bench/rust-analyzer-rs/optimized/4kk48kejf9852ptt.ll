@@ -3336,7 +3336,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfol
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %11 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp eq ptr %1, %0
+  %12 = icmp eq ptr %0, %1
   br i1 %12, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %3
@@ -3426,7 +3426,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit9.i.i: ; preds = %20
   %27 = add i64 %21, 1
   store i64 %27, ptr %19, align 8, !alias.scope !651, !noalias !656
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %28 = icmp eq ptr %22, %0
+  %28 = icmp eq ptr %0, %22
   br i1 %28, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h60c0711d487a36f3E.llvm.3757412271146049409.exit", %.._crit_edge_crit_edge
@@ -6193,7 +6193,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1225)
   %11 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp eq ptr %1, %0
+  %12 = icmp eq ptr %0, %1
   br i1 %12, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %3
@@ -6283,7 +6283,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit9.i.i.i: ; preds = %20
   %27 = add i64 %21, 1
   store i64 %27, ptr %19, align 8, !alias.scope !1276, !noalias !1281
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1225
-  %28 = icmp eq ptr %22, %0
+  %28 = icmp eq ptr %0, %22
   br i1 %28, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hf150224fb29e511aE.llvm.3757412271146049409.exit, label %20
 
 29:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit9.i.i.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i

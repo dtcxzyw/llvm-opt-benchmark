@@ -256,7 +256,7 @@ entry:
   %0 = load i32, ptr %dma_regs, align 16
   %and = lshr i32 %0, 7
   %and.lobit = and i32 %and, 1
-  %cmp.not = icmp eq i32 %and.lobit, %dir
+  %cmp.not = icmp eq i32 %dir, %and.lobit
   br i1 %cmp.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %entry

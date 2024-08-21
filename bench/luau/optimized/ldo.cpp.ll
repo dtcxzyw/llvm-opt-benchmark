@@ -340,7 +340,7 @@ define hidden void @_Z14luaD_reallocCIP9lua_Statei(ptr noundef %0, i32 noundef %
 define hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   %5 = add nsw i32 %4, %1
   %6 = shl nsw i32 %4, 1
   %.sink = select i1 %.not, i32 %5, i32 %6
@@ -796,7 +796,7 @@ define internal void @_ZL6resumeP9lua_StatePv(ptr noundef %0, ptr noundef %1) #0
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6

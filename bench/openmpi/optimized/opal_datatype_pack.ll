@@ -973,7 +973,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %285 = load i64, ptr %284, align 8
   %286 = and i64 %285, 1
   %.not3420.i.i = icmp ne i64 %286, 0
-  %287 = icmp ult i64 %134, %.0.i143
+  %287 = icmp ugt i64 %.0.i143, %134
   %or.cond3427.i.i = and i1 %287, %.not3420.i.i
   br i1 %or.cond3427.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %288
 
@@ -1265,7 +1265,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %432 = load i64, ptr %431, align 8
   %433 = and i64 %432, 3
   %.not3415.i.i = icmp ne i64 %433, 0
-  %434 = icmp ult i64 %134, %.0.i143
+  %434 = icmp ugt i64 %.0.i143, %134
   %or.cond3430.i.i = and i1 %434, %.not3415.i.i
   br i1 %or.cond3430.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %435
 
@@ -1557,7 +1557,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %579 = load i64, ptr %578, align 8
   %580 = and i64 %579, 7
   %.not3410.i.i = icmp ne i64 %580, 0
-  %581 = icmp ult i64 %134, %.0.i143
+  %581 = icmp ugt i64 %.0.i143, %134
   %or.cond3433.i.i = and i1 %581, %.not3410.i.i
   br i1 %or.cond3433.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %582
 
@@ -2123,7 +2123,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %864 = load i64, ptr %863, align 8
   %865 = and i64 %864, 1
   %.not3403.i.i = icmp ne i64 %865, 0
-  %866 = icmp ult i64 %134, %.0.i143
+  %866 = icmp ugt i64 %.0.i143, %134
   %or.cond3436.i.i = and i1 %866, %.not3403.i.i
   br i1 %or.cond3436.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %867
 
@@ -2415,7 +2415,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %1011 = load i64, ptr %1010, align 8
   %1012 = and i64 %1011, 3
   %.not3398.i.i = icmp ne i64 %1012, 0
-  %1013 = icmp ult i64 %134, %.0.i143
+  %1013 = icmp ugt i64 %.0.i143, %134
   %or.cond3439.i.i = and i1 %1013, %.not3398.i.i
   br i1 %or.cond3439.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %1014
 
@@ -2707,7 +2707,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %1158 = load i64, ptr %1157, align 8
   %1159 = and i64 %1158, 7
   %.not3393.i.i = icmp ne i64 %1159, 0
-  %1160 = icmp ult i64 %134, %.0.i143
+  %1160 = icmp ugt i64 %.0.i143, %134
   %or.cond3442.i.i = and i1 %1160, %.not3393.i.i
   br i1 %or.cond3442.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %1161
 
@@ -2999,7 +2999,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %1305 = load i64, ptr %1304, align 8
   %1306 = and i64 %1305, 1
   %.not3388.i.i = icmp ne i64 %1306, 0
-  %1307 = icmp ult i64 %134, %.0.i143
+  %1307 = icmp ugt i64 %.0.i143, %134
   %or.cond3445.i.i = and i1 %1307, %.not3388.i.i
   br i1 %or.cond3445.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %1308
 
@@ -3291,7 +3291,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %1452 = load i64, ptr %1451, align 8
   %1453 = and i64 %1452, 3
   %.not3383.i.i = icmp ne i64 %1453, 0
-  %1454 = icmp ult i64 %134, %.0.i143
+  %1454 = icmp ugt i64 %.0.i143, %134
   %or.cond3448.i.i = and i1 %1454, %.not3383.i.i
   br i1 %or.cond3448.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %1455
 
@@ -3583,7 +3583,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %1599 = load i64, ptr %1598, align 8
   %1600 = and i64 %1599, 7
   %.not3378.i.i = icmp ne i64 %1600, 0
-  %1601 = icmp ult i64 %134, %.0.i143
+  %1601 = icmp ugt i64 %.0.i143, %134
   %or.cond3451.i.i = and i1 %1601, %.not3378.i.i
   br i1 %or.cond3451.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %1602
 
@@ -3875,7 +3875,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %1746 = load i64, ptr %1745, align 8
   %1747 = and i64 %1746, 15
   %.not3373.i.i = icmp ne i64 %1747, 0
-  %1748 = icmp ult i64 %134, %.0.i143
+  %1748 = icmp ugt i64 %.0.i143, %134
   %or.cond3454.i.i = and i1 %1748, %.not3373.i.i
   br i1 %or.cond3454.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %1749
 
@@ -4167,7 +4167,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %1893 = load i64, ptr %1892, align 8
   %1894 = and i64 %1893, 1
   %.not3368.i.i = icmp ne i64 %1894, 0
-  %1895 = icmp ult i64 %134, %.0.i143
+  %1895 = icmp ugt i64 %.0.i143, %134
   %or.cond3457.i.i = and i1 %1895, %.not3368.i.i
   br i1 %or.cond3457.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %1896
 
@@ -4459,7 +4459,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %2040 = load i64, ptr %2039, align 8
   %2041 = and i64 %2040, 3
   %.not3363.i.i = icmp ne i64 %2041, 0
-  %2042 = icmp ult i64 %134, %.0.i143
+  %2042 = icmp ugt i64 %.0.i143, %134
   %or.cond3460.i.i = and i1 %2042, %.not3363.i.i
   br i1 %or.cond3460.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %2043
 
@@ -4899,7 +4899,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %2298 = load i64, ptr %2297, align 8
   %2299 = and i64 %2298, 7
   %.not3358.i.i = icmp ne i64 %2299, 0
-  %2300 = icmp ult i64 %134, %.0.i143
+  %2300 = icmp ugt i64 %.0.i143, %134
   %or.cond3463.i.i = and i1 %2300, %.not3358.i.i
   br i1 %or.cond3463.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %2301
 
@@ -5339,7 +5339,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %2556 = load i64, ptr %2555, align 8
   %2557 = and i64 %2556, 15
   %.not3353.i.i = icmp ne i64 %2557, 0
-  %2558 = icmp ult i64 %134, %.0.i143
+  %2558 = icmp ugt i64 %.0.i143, %134
   %or.cond3466.i.i = and i1 %2558, %.not3353.i.i
   br i1 %or.cond3466.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %2559
 
@@ -6090,7 +6090,7 @@ pack_partial_blocklen.exit.thread:                ; preds = %48, %pack_partial_b
   %2989 = load i64, ptr %2988, align 8
   %2990 = and i64 %2989, 3
   %.not3346.i.i = icmp ne i64 %2990, 0
-  %2991 = icmp ult i64 %134, %.0.i143
+  %2991 = icmp ugt i64 %.0.i143, %134
   %or.cond3469.i.i = and i1 %2991, %.not3346.i.i
   br i1 %or.cond3469.i.i, label %opal_datatype_pack_predefined_element.exit.i, label %2992
 

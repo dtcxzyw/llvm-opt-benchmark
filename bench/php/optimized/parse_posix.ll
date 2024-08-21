@@ -1168,7 +1168,7 @@ define internal fastcc i64 @calc_transition(ptr nocapture noundef readonly %0, i
   %30 = srem i32 %29, 12
   %31 = icmp slt i32 %28, 3
   %32 = sext i1 %31 to i64
-  %33 = add nsw i64 %32, %1
+  %33 = add nsw i64 %1, %32
   %34 = trunc i64 %33 to i32
   %.neg = sdiv i32 %34, -100
   %35 = srem i32 %34, 100
@@ -1317,7 +1317,7 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr nocapture noundef rea
   %.028 = phi i64 [ 1, %.lr.ph ], [ %49, %48 ]
   %35 = getelementptr inbounds [6 x i64], ptr %33, i64 0, i64 %.028
   %36 = load i64, ptr %35, align 8
-  %37 = icmp sgt i64 %36, %1
+  %37 = icmp slt i64 %1, %36
   br i1 %37, label %38, label %48
 
 38:                                               ; preds = %34

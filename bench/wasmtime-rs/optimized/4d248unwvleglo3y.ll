@@ -2741,7 +2741,7 @@ define void @_ZN18wasmtime_cli_flags13CommonOptions6config17hf1fc0192bae611afE(p
           to label %.noexc14.i unwind label %.loopexit.i, !noalias !314
 
 91:                                               ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %87, %83
+  %.not.i.i.i.i = icmp eq i64 %83, %87
   br i1 %.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %91, %95
@@ -2807,7 +2807,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %9
   %109 = sub i64 %83, %.016.i
   %110 = load i64, ptr %6, align 8, !alias.scope !332, !noalias !330, !noundef !14
   %111 = sub i64 %110, %108
-  %112 = icmp ult i64 %111, %109
+  %112 = icmp ugt i64 %109, %111
   br i1 %112, label %113, label %334
 
 113:                                              ; preds = %.split.us.i.i.i
@@ -2830,7 +2830,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %9
   %119 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !335, !noalias !340, !noundef !14
   %120 = load i64, ptr %6, align 8, !alias.scope !342, !noalias !340, !noundef !14
   %121 = sub i64 %120, %119
-  %122 = icmp ult i64 %121, %118
+  %122 = icmp ugt i64 %118, %121
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h5ef98bab05aae808E.exit.i"

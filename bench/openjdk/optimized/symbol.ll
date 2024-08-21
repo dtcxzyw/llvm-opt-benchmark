@@ -231,7 +231,7 @@ define hidden noundef zeroext i1 @_ZNK6Symbol13is_star_matchEPKc(ptr nocapture n
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
-  %.not.i.i = icmp eq i32 %10, %7
+  %.not.i.i = icmp eq i32 %7, %10
   br i1 %.not.i.i, label %_ZNK6Symbol16contains_utf8_atEiPKci.exit.i.i, label %_ZNK6Symbol6equalsEPKc.exit
 
 _ZNK6Symbol16contains_utf8_atEiPKci.exit.i.i:     ; preds = %5

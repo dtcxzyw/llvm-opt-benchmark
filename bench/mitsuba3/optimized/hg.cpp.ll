@@ -370,7 +370,7 @@ define weak_odr noundef float @_ZNK7mitsuba15HGPhaseFunctionIfN5drjit6MatrixINS_
   %5 = fmul contract float %4, %4
   %6 = fadd contract float %5, 1.000000e+00
   %7 = fmul contract float %4, 2.000000e+00
-  %8 = fmul contract float %7, %1
+  %8 = fmul contract float %1, %7
   %9 = fadd contract float %6, %8
   %10 = fsub contract float 1.000000e+00, %5
   %11 = fmul contract float %10, 0x3FB45F3060000000

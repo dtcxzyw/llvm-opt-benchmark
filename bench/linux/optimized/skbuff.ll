@@ -4674,7 +4674,7 @@ define dso_local i32 @___pskb_trim(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %180 = sub i64 %178, %179
   %181 = trunc i64 %180 to i32
   %182 = getelementptr inbounds i8, ptr %0, i64 184
-  %183 = add i32 %181, %1
+  %183 = add i32 %1, %181
   store i32 %183, ptr %182, align 8
   br label %184
 
@@ -6952,7 +6952,7 @@ define dso_local noundef ptr @skb_expand_head(ptr noundef %0, i32 noundef %1) #0
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %8, %7
   %10 = trunc i64 %9 to i32
-  %11 = add i32 %10, %1
+  %11 = add i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 188
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 24
@@ -7134,7 +7134,7 @@ define dso_local ptr @skb_copy_expand(ptr nocapture noundef readonly %0, i32 nou
   unreachable
 
 49:                                               ; preds = %39
-  %50 = icmp slt i32 %22, %1
+  %50 = icmp sgt i32 %1, %22
   %51 = sub i32 %1, %22
   %52 = tail call i32 @llvm.smin.i32(i32 %22, i32 %1)
   %53 = select i1 %50, i32 %51, i32 0
@@ -7558,7 +7558,7 @@ define dso_local ptr @skb_pull_data(ptr nocapture noundef %0, i64 noundef %1) #0
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   br i1 %6, label %20, label %7
 
 7:                                                ; preds = %2
@@ -7621,7 +7621,7 @@ define dso_local void @skb_trim(ptr nocapture noundef %0, i32 noundef %1) #0 ali
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 184
-  %21 = add i32 %19, %1
+  %21 = add i32 %1, %19
   store i32 %21, ptr %20, align 8
   br label %22
 
@@ -7763,7 +7763,7 @@ define dso_local i32 @pskb_trim_rcsum_slow(ptr noundef %0, i32 noundef %1) #0 al
   %63 = sub i64 %61, %62
   %64 = trunc i64 %63 to i32
   %65 = getelementptr inbounds i8, ptr %0, i64 184
-  %66 = add i32 %64, %1
+  %66 = add i32 %1, %64
   store i32 %66, ptr %65, align 8
   br label %67
 
@@ -10905,7 +10905,7 @@ define dso_local void @skb_split(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %102 = sub i64 %100, %101
   %103 = trunc i64 %102 to i32
   %104 = getelementptr inbounds i8, ptr %0, i64 184
-  %105 = add i32 %103, %2
+  %105 = add i32 %2, %103
   store i32 %105, ptr %104, align 8
   br label %226
 
@@ -12135,7 +12135,7 @@ define dso_local noundef range(i32 -90, 1) i32 @skb_append_pagefrags(ptr noundef
 
 48:                                               ; preds = %35, %28, %24
   %49 = zext i8 %13 to i64
-  %50 = icmp ult i64 %49, %4
+  %50 = icmp ugt i64 %4, %49
   br i1 %50, label %51, label %95
 
 51:                                               ; preds = %48
@@ -12320,7 +12320,7 @@ define dso_local noundef ptr @skb_segment_list(ptr noundef %0, i64 noundef %1, i
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %31, %30
   %33 = trunc i64 %32 to i32
-  %34 = add i32 %33, %2
+  %34 = add i32 %2, %33
   %35 = zext i32 %34 to i64
   %36 = sub nsw i64 0, %35
   %37 = getelementptr i8, ptr %29, i64 %36
@@ -12375,7 +12375,7 @@ define dso_local noundef ptr @skb_segment_list(ptr noundef %0, i64 noundef %1, i
   %63 = getelementptr inbounds i8, ptr %0, i64 178
   %64 = and i64 %22, 4294967295
   %65 = sub nsw i64 0, %64
-  %66 = add i32 %23, %2
+  %66 = add i32 %2, %23
   %67 = mul i64 %22, -4294967296
   %68 = ashr exact i64 %67, 32
   %69 = zext i32 %66 to i64
@@ -12468,7 +12468,7 @@ define dso_local noundef ptr @skb_segment_list(ptr noundef %0, i64 noundef %1, i
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %129, %128
   %131 = trunc i64 %130 to i32
-  %132 = add i32 %131, %2
+  %132 = add i32 %2, %131
   %133 = zext i32 %132 to i64
   %134 = sub nsw i64 0, %133
   %135 = getelementptr i8, ptr %127, i64 %134
@@ -15851,7 +15851,7 @@ define dso_local noundef ptr @skb_checksum_trimmed(ptr noundef %0, i32 noundef %
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = trunc i64 %14 to i32
-  %16 = add i32 %15, %1
+  %16 = add i32 %1, %15
   %17 = getelementptr inbounds i8, ptr %0, i64 112
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, %16
@@ -16966,7 +16966,7 @@ define dso_local noundef range(i32 -12, 1) i32 @skb_ensure_writable(ptr noundef 
   %41 = ptrtoint ptr %22 to i64
   %42 = sub i64 %40, %41
   %43 = trunc i64 %42 to i32
-  %44 = add i32 %43, %1
+  %44 = add i32 %1, %43
   %45 = getelementptr inbounds i8, ptr %0, i64 122
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
@@ -18679,7 +18679,7 @@ define dso_local noundef ptr @pskb_extract(ptr noundef %0, i32 noundef %1, i32 n
   %28 = sub i64 %26, %27
   %29 = trunc i64 %28 to i32
   %30 = getelementptr inbounds i8, ptr %5, i64 184
-  %31 = add i32 %29, %2
+  %31 = add i32 %2, %29
   store i32 %31, ptr %30, align 8
   br label %33
 

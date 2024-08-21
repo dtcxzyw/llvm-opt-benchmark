@@ -891,7 +891,7 @@ define internal fastcc void @strbuf_setlen(ptr nocapture noundef %sb, i64 nounde
 entry:
   %0 = load i64, ptr %sb, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %cmp = icmp ult i64 %spec.select, %len
+  %cmp = icmp ugt i64 %len, %spec.select
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1016,7 +1016,7 @@ if.then5:                                         ; preds = %get_common_dir.exit
 if.else:                                          ; preds = %get_common_dir.exit
   %12 = load i64, ptr %path, align 8
   %spec.select.i10 = call i64 @llvm.usub.sat.i64(i64 %12, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i10, %11
+  %cmp.i = icmp ugt i64 %11, %spec.select.i10
   br i1 %cmp.i, label %if.then.i16, label %if.end.i
 
 if.then.i16:                                      ; preds = %if.else
@@ -1043,7 +1043,7 @@ strbuf_setlen.exit17:                             ; preds = %if.end.i, %if.then4
 if.end16:                                         ; preds = %strbuf_setlen.exit17, %if.then5
   %15 = load i64, ptr %path, align 8
   %spec.select.i19 = call i64 @llvm.usub.sat.i64(i64 %15, i64 1)
-  %cmp.i20 = icmp ult i64 %spec.select.i19, %11
+  %cmp.i20 = icmp ugt i64 %11, %spec.select.i19
   br i1 %cmp.i20, label %if.then.i27, label %if.end.i21
 
 if.then.i27:                                      ; preds = %if.end16
@@ -1197,7 +1197,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   %11 = load i32, ptr %gitfile_error, align 4
   %12 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %12, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i8, label %if.end.i
 
 if.then.i8:                                       ; preds = %if.end
@@ -2147,7 +2147,7 @@ if.then29:                                        ; preds = %strbuf_setlen.exit
   call void @strbuf_release(ptr noundef nonnull %err) #21
   %30 = load i64, ptr %commondir, align 8
   %spec.select.i26 = call i64 @llvm.usub.sat.i64(i64 %30, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i26, %1
+  %cmp.i = icmp ugt i64 %1, %spec.select.i26
   br i1 %cmp.i, label %if.then.i32, label %if.end.i
 
 if.then.i32:                                      ; preds = %if.then29
@@ -2168,7 +2168,7 @@ if.then4.i30:                                     ; preds = %if.end.i
 strbuf_setlen.exit33:                             ; preds = %if.end.i, %if.then4.i30
   %32 = load i64, ptr %gitdir, align 8
   %spec.select.i34 = call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %cmp.i35 = icmp ult i64 %spec.select.i34, %0
+  %cmp.i35 = icmp ugt i64 %0, %spec.select.i34
   br i1 %cmp.i35, label %if.then.i42, label %if.end.i36
 
 if.then.i42:                                      ; preds = %strbuf_setlen.exit33
@@ -2417,7 +2417,7 @@ if.end59:                                         ; preds = %if.then47, %if.then
   %conv60 = ashr exact i64 %sext, 32
   %28 = load i64, ptr %dir, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %28, i64 1)
-  %cmp.i73 = icmp ult i64 %spec.select.i, %conv60
+  %cmp.i73 = icmp ugt i64 %conv60, %spec.select.i
   br i1 %cmp.i73, label %if.then.i76, label %if.end.i
 
 if.then.i76:                                      ; preds = %if.end59
@@ -2810,7 +2810,7 @@ if.end41.i:                                       ; preds = %if.end35.i
   %.val.i = load i8, ptr %19, align 1
   %cmp.i.i22.i = icmp eq i8 %.val.i, 47
   %conv.i.i23.i = zext i1 %cmp.i.i22.i to i32
-  %cmp44.not.i = icmp ne i32 %conv.i.i23.i, %conv
+  %cmp44.not.i = icmp ne i32 %conv, %conv.i.i23.i
   %inc.i = zext i1 %cmp44.not.i to i64
   %spec.select.i = add i64 %10, %inc.i
   %20 = load i64, ptr @setup_git_directory_gently.cwd, align 8
@@ -2939,7 +2939,7 @@ if.end27.i:                                       ; preds = %if.then21.i
   %.val.i28 = load i8, ptr %38, align 1
   %cmp.i.i.i = icmp eq i8 %.val.i28, 47
   %conv.i.i.i = zext i1 %cmp.i.i.i to i32
-  %cond35.i = call i32 @llvm.smax.i32(i32 %conv.i.i.i, i32 %conv31)
+  %cond35.i = call i32 @llvm.smax.i32(i32 %conv31, i32 %conv.i.i.i)
   %conv36.i29 = zext nneg i32 %cond35.i to i64
   %39 = load i64, ptr @setup_git_directory_gently.cwd, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %39, i64 1)
@@ -4120,7 +4120,7 @@ if.end15:                                         ; preds = %if.else, %separate_
 
 land.lhs.true2.i:                                 ; preds = %if.end15
   %9 = load i32, ptr %1, align 8
-  %cmp3.not.i = icmp eq i32 %9, %hash
+  %cmp3.not.i = icmp eq i32 %hash, %9
   br i1 %cmp3.not.i, label %if.end17.sink.split.i, label %if.then.i26
 
 if.then.i26:                                      ; preds = %land.lhs.true2.i
@@ -4165,7 +4165,7 @@ validate_hash_algorithm.exit:                     ; preds = %if.else8.i, %if.end
 
 land.lhs.true2.i40:                               ; preds = %validate_hash_algorithm.exit
   %11 = load i32, ptr %2, align 4
-  %cmp3.not.i41 = icmp eq i32 %11, %ref_storage_format
+  %cmp3.not.i41 = icmp eq i32 %ref_storage_format, %11
   br i1 %cmp3.not.i41, label %if.end17.sink.split.i37, label %if.then.i42
 
 if.then.i42:                                      ; preds = %land.lhs.true2.i40
@@ -4323,7 +4323,7 @@ if.end15.i.i:                                     ; preds = %strbuf_complete.exi
   %call17.i.i = call i32 @read_repository_format(ptr noundef nonnull %template_format.i.i, ptr noundef %31)
   %32 = load i64, ptr %template_path.i.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %cmp.i.i.i = icmp ult i64 %spec.select.i.i.i, %28
+  %cmp.i.i.i = icmp ugt i64 %28, %spec.select.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i14.i.i, label %if.end.i.i.i
 
 if.then.i14.i.i:                                  ; preds = %if.end15.i.i
@@ -4711,7 +4711,7 @@ if.end24:                                         ; preds = %if.then21, %create_
   call void @safe_create_dir(ptr noundef %74, i32 noundef 1) #21
   %75 = load i64, ptr %path.i, align 8
   %spec.select.i.i60 = call i64 @llvm.usub.sat.i64(i64 %75, i64 1)
-  %cmp.i.i61 = icmp ult i64 %spec.select.i.i60, %73
+  %cmp.i.i61 = icmp ugt i64 %73, %spec.select.i.i60
   br i1 %cmp.i.i61, label %if.then.i.i65, label %if.end.i.i62
 
 if.then.i.i65:                                    ; preds = %if.end24
@@ -4735,7 +4735,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i63, %if
   call void @safe_create_dir(ptr noundef %77, i32 noundef 1) #21
   %78 = load i64, ptr %path.i, align 8
   %spec.select.i3.i = call i64 @llvm.usub.sat.i64(i64 %78, i64 1)
-  %cmp.i4.i = icmp ult i64 %spec.select.i3.i, %73
+  %cmp.i4.i = icmp ugt i64 %73, %spec.select.i3.i
   br i1 %cmp.i4.i, label %if.then.i11.i, label %if.end.i5.i
 
 if.then.i11.i:                                    ; preds = %strbuf_setlen.exit.i
@@ -5266,7 +5266,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call69 = phi ptr [ %call67, %while.body.lr.ph ], [ %call, %while.cond.backedge ]
   %3 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %3, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body
@@ -5287,7 +5287,7 @@ if.then4.i:                                       ; preds = %if.end.i
 strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
   %5 = load i64, ptr %template_path, align 8
   %spec.select.i29 = call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %cmp.i30 = icmp ult i64 %spec.select.i29, %1
+  %cmp.i30 = icmp ugt i64 %1, %spec.select.i29
   br i1 %cmp.i30, label %if.then.i37, label %if.end.i31
 
 if.then.i37:                                      ; preds = %strbuf_setlen.exit

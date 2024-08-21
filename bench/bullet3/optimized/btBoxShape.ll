@@ -765,24 +765,24 @@ entry:
   %sub = xor i32 %and, 1
   %conv = uitofp nneg i32 %sub to float
   %conv6 = uitofp nneg i32 %and to float
-  %3 = fneg float %add.i.i
-  %neg = fmul float %conv6, %3
+  %3 = fneg float %conv6
+  %neg = fmul float %add.i.i, %3
   %4 = tail call float @llvm.fmuladd.f32(float %add.i.i, float %conv, float %neg)
   %and10 = lshr i32 %i, 1
   %shr = and i32 %and10, 1
   %sub11 = xor i32 %shr, 1
   %conv12 = uitofp nneg i32 %sub11 to float
   %conv16 = uitofp nneg i32 %shr to float
-  %5 = fneg float %add8.i.i
-  %neg18 = fmul float %conv16, %5
+  %5 = fneg float %conv16
+  %neg18 = fmul float %add8.i.i, %5
   %6 = tail call float @llvm.fmuladd.f32(float %add8.i.i, float %conv12, float %neg18)
   %and21 = lshr i32 %i, 2
   %shr22 = and i32 %and21, 1
   %sub23 = xor i32 %shr22, 1
   %conv24 = uitofp nneg i32 %sub23 to float
   %conv28 = uitofp nneg i32 %shr22 to float
-  %7 = fneg float %add13.i.i
-  %neg30 = fmul float %conv28, %7
+  %7 = fneg float %conv28
+  %neg30 = fmul float %add13.i.i, %7
   %8 = tail call float @llvm.fmuladd.f32(float %add13.i.i, float %conv24, float %neg30)
   store float %4, ptr %vtx, align 4
   %ref.tmp.sroa.2.0.vtx.sroa_idx = getelementptr inbounds i8, ptr %vtx, i64 4
@@ -852,7 +852,7 @@ entry:
   %halfExtents.sroa.5.0.m_implicitShapeDimensions.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %halfExtents.sroa.5.0.copyload = load float, ptr %halfExtents.sroa.5.0.m_implicitShapeDimensions.i.sroa_idx, align 8
   %0 = load float, ptr %pt, align 4
-  %add = fadd float %halfExtents.sroa.0.0.copyload, %tolerance
+  %add = fadd float %tolerance, %halfExtents.sroa.0.0.copyload
   %cmp = fcmp ugt float %0, %add
   br i1 %cmp, label %land.end, label %land.lhs.true
 
@@ -865,7 +865,7 @@ land.lhs.true:                                    ; preds = %entry
 land.lhs.true7:                                   ; preds = %land.lhs.true
   %arrayidx.i = getelementptr inbounds i8, ptr %pt, i64 4
   %1 = load float, ptr %arrayidx.i, align 4
-  %add10 = fadd float %halfExtents.sroa.3.0.copyload, %tolerance
+  %add10 = fadd float %tolerance, %halfExtents.sroa.3.0.copyload
   %cmp11 = fcmp ugt float %1, %add10
   br i1 %cmp11, label %land.end, label %land.lhs.true12
 
@@ -878,7 +878,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true7
 land.lhs.true18:                                  ; preds = %land.lhs.true12
   %arrayidx.i14 = getelementptr inbounds i8, ptr %pt, i64 8
   %2 = load float, ptr %arrayidx.i14, align 4
-  %add21 = fadd float %halfExtents.sroa.5.0.copyload, %tolerance
+  %add21 = fadd float %tolerance, %halfExtents.sroa.5.0.copyload
   %cmp22 = fcmp ugt float %2, %add21
   br i1 %cmp22, label %land.end, label %land.rhs
 

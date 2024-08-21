@@ -1991,7 +1991,7 @@ fiber_current.exit._crit_edge:                    ; preds = %fiber_current.exit
   unreachable
 
 37:                                               ; preds = %fiber_current.exit._crit_edge
-  %38 = icmp eq ptr %25, %0
+  %38 = icmp eq ptr %0, %25
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37
@@ -3819,7 +3819,7 @@ define internal i64 @fiber_memsize(ptr noundef readonly %0) #0 {
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val, i64 408
   %7 = load ptr, ptr %6, align 8
-  %.not13 = icmp eq ptr %7, %0
+  %.not13 = icmp eq ptr %0, %7
   br i1 %.not13, label %15, label %8
 
 8:                                                ; preds = %4
@@ -4227,7 +4227,7 @@ fiber_stack_release.exit:                         ; preds = %12, %fiber_pool_sta
 59:                                               ; preds = %56
   tail call void @rb_native_mutex_lock(ptr noundef nonnull @jit_cont_lock) #9
   %60 = load ptr, ptr @first_jit_cont, align 8
-  %61 = icmp eq ptr %60, %58
+  %61 = icmp eq ptr %58, %60
   %62 = getelementptr inbounds i8, ptr %58, i64 16
   %63 = load ptr, ptr %62, align 8
   br i1 %61, label %64, label %65

@@ -180,7 +180,7 @@ define dso_local ptr @curl_pushheader_bynum(ptr noundef readonly %0, i64 noundef
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %13, i64 304
   %16 = load i64, ptr %15, align 8
-  %17 = icmp ugt i64 %16, %1
+  %17 = icmp ult i64 %1, %16
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %14
@@ -785,7 +785,7 @@ define internal i64 @cf_h2_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not143, label %30, label %26
 
 26:                                               ; preds = %23
-  %27 = icmp ugt i64 %25, %3
+  %27 = icmp ult i64 %3, %25
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
@@ -1102,7 +1102,7 @@ h2_pri_spec.exit.i:                               ; preds = %91, %88, %85, %82
   br label %188
 
 188:                                              ; preds = %185, %176, %._crit_edge.thread.i
-  %.not138.i = icmp eq i64 %70, %3
+  %.not138.i = icmp eq i64 %3, %70
   br i1 %.not138.i, label %.thread.i, label %189
 
 189:                                              ; preds = %188

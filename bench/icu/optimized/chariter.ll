@@ -111,7 +111,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp6, label %if.end16.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp11 = icmp ult i32 %0, %position
+  %cmp11 = icmp ugt i32 %position, %0
   br i1 %cmp11, label %if.end16.sink.split, label %if.end16
 
 if.end16.sink.split:                              ; preds = %if.else, %if.end
@@ -148,7 +148,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp5, label %if.end15.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp10 = icmp ult i32 %0, %textBegin
+  %cmp10 = icmp ugt i32 %textBegin, %0
   br i1 %cmp10, label %if.end15.sink.split, label %if.end15
 
 if.end15.sink.split:                              ; preds = %if.else, %if.end
@@ -158,11 +158,11 @@ if.end15.sink.split:                              ; preds = %if.else, %if.end
 
 if.end15:                                         ; preds = %if.end15.sink.split, %if.else
   %1 = phi i32 [ %textBegin, %if.else ], [ %.sink, %if.end15.sink.split ]
-  %cmp18 = icmp sgt i32 %1, %textEnd
+  %cmp18 = icmp slt i32 %textEnd, %1
   br i1 %cmp18, label %if.end30.sink.split, label %if.else22
 
 if.else22:                                        ; preds = %if.end15
-  %cmp25 = icmp ult i32 %0, %textEnd
+  %cmp25 = icmp ugt i32 %textEnd, %0
   br i1 %cmp25, label %if.end30.sink.split, label %if.end30
 
 if.end30.sink.split:                              ; preds = %if.else22, %if.end15
@@ -172,11 +172,11 @@ if.end30.sink.split:                              ; preds = %if.else22, %if.end1
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.else22
   %2 = phi i32 [ %textEnd, %if.else22 ], [ %.sink9, %if.end30.sink.split ]
-  %cmp33 = icmp sgt i32 %1, %position
+  %cmp33 = icmp slt i32 %position, %1
   br i1 %cmp33, label %if.end45.sink.split, label %if.else37
 
 if.else37:                                        ; preds = %if.end30
-  %cmp40 = icmp ult i32 %2, %position
+  %cmp40 = icmp ugt i32 %position, %2
   br i1 %cmp40, label %if.end45.sink.split, label %if.end45
 
 if.end45.sink.split:                              ; preds = %if.else37, %if.end30

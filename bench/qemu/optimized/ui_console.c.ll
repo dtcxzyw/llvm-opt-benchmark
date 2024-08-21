@@ -316,7 +316,7 @@ if.end9:                                          ; preds = %if.end
   %2 = load ptr, ptr %gl_block10, align 8
   %tobool11.not = icmp eq ptr %2, null
   %cmp16.not = icmp ne i32 %dec, 1
-  %or.cond.not = and i1 %cmp16.not, %block
+  %or.cond.not = and i1 %block, %cmp16.not
   %or.cond = or i1 %or.cond.not, %tobool11.not
   br i1 %or.cond, label %if.end30, label %lor.lhs.false
 
@@ -1242,7 +1242,7 @@ for.body.preheader:                               ; preds = %if.then6, %if.end
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.preheader ]
   %needs_sync.030 = phi i1 [ %needs_sync.1, %for.inc ], [ false, %for.body.preheader ]
-  %cmp12 = icmp eq i64 %indvars.iv, %num_slot
+  %cmp12 = icmp eq i64 %num_slot, %indvars.iv
   %type. = select i1 %cmp12, i32 %type, i32 1
   %arrayidx16 = getelementptr %struct.touch_slot, ptr %touch_slots, i64 %indvars.iv
   %tracking_id17 = getelementptr inbounds i8, ptr %arrayidx16, i64 8
@@ -1810,11 +1810,11 @@ qemu_console_get_height.exit:                     ; preds = %qemu_console_get_wi
   %cond14 = tail call i32 @llvm.smin.i32(i32 %cond, i32 %retval.0.i)
   %cond20 = tail call i32 @llvm.smin.i32(i32 %cond8, i32 %retval.0.i53)
   %sub = sub i32 %retval.0.i, %cond14
-  %cond26 = tail call i32 @llvm.smin.i32(i32 %sub, i32 %w)
+  %cond26 = tail call i32 @llvm.smin.i32(i32 %w, i32 %sub)
   %sub27 = sub i32 %retval.0.i53, %cond20
-  %cond33 = tail call i32 @llvm.smin.i32(i32 %sub27, i32 %h)
+  %cond33 = tail call i32 @llvm.smin.i32(i32 %h, i32 %sub27)
   %13 = load ptr, ptr @active_console, align 8
-  %cmp.i56 = icmp eq ptr %13, %con
+  %cmp.i56 = icmp eq ptr %con, %13
   br i1 %cmp.i56, label %if.end, label %qemu_console_is_visible.exit
 
 qemu_console_is_visible.exit:                     ; preds = %qemu_console_get_height.exit
@@ -1859,7 +1859,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %20 = load ptr, ptr %con35, align 8
   %tobool36.not = icmp eq ptr %20, null
   %cond41 = select i1 %tobool36.not, ptr %19, ptr %20
-  %cmp42.not = icmp eq ptr %cond41, %con
+  %cmp42.not = icmp eq ptr %con, %cond41
   br i1 %cmp42.not, label %if.end44, label %for.inc
 
 if.end44:                                         ; preds = %for.body
@@ -1974,7 +1974,7 @@ return:                                           ; preds = %if.end3, %entry, %s
 define dso_local zeroext i1 @qemu_console_is_visible(ptr noundef readonly %con) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr @active_console, align 8
-  %cmp = icmp eq ptr %0, %con
+  %cmp = icmp eq ptr %con, %0
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
@@ -2141,7 +2141,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %tobool13.not.us = icmp eq ptr %5, null
   %6 = load ptr, ptr @active_console, align 8
   %cond.us = select i1 %tobool13.not.us, ptr %6, ptr %5
-  %cmp15.not.us = icmp eq ptr %cond.us, %con
+  %cmp15.not.us = icmp eq ptr %con, %cond.us
   br i1 %cmp15.not.us, label %if.end17.us, label %for.inc.us
 
 if.end17.us:                                      ; preds = %for.body.us
@@ -2185,7 +2185,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %12 = load ptr, ptr %con12, align 8
   %tobool13.not = icmp eq ptr %12, null
   %cond = select i1 %tobool13.not, ptr %11, ptr %12
-  %cmp15.not = icmp eq ptr %cond, %con
+  %cmp15.not = icmp eq ptr %con, %cond
   br i1 %cmp15.not, label %if.end17, label %for.inc
 
 if.end17:                                         ; preds = %for.body
@@ -2262,7 +2262,7 @@ if.then5:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %call10 = tail call i32 @qemu_default_pixman_format(i32 noundef 32, i1 noundef zeroext true) #18
-  %cmp11.not = icmp eq i32 %call10, %format
+  %cmp11.not = icmp eq i32 %format, %call10
   br i1 %cmp11.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body, %if.then5, %if.else
@@ -2284,7 +2284,7 @@ entry:
   %ds = getelementptr inbounds i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
   %1 = load ptr, ptr @active_console, align 8
-  %cmp.i = icmp eq ptr %1, %con
+  %cmp.i = icmp eq ptr %con, %1
   br i1 %cmp.i, label %for.cond.preheader, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
@@ -2306,7 +2306,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load ptr, ptr %con1, align 8
   %tobool2.not = icmp eq ptr %4, null
   %cond = select i1 %tobool2.not, ptr %3, ptr %4
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end5, label %for.inc
 
 if.end5:                                          ; preds = %for.body
@@ -2339,7 +2339,7 @@ entry:
   %ds = getelementptr inbounds i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
   %1 = load ptr, ptr @active_console, align 8
-  %cmp.i = icmp eq ptr %1, %con
+  %cmp.i = icmp eq ptr %con, %1
   br i1 %cmp.i, label %for.cond.preheader, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
@@ -2361,7 +2361,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load ptr, ptr %con1, align 8
   %tobool2.not = icmp eq ptr %4, null
   %cond = select i1 %tobool2.not, ptr %3, ptr %4
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end5, label %for.inc
 
 if.end5:                                          ; preds = %for.body
@@ -2394,7 +2394,7 @@ entry:
   %ds = getelementptr inbounds i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
   %1 = load ptr, ptr @active_console, align 8
-  %cmp.i = icmp eq ptr %1, %con
+  %cmp.i = icmp eq ptr %con, %1
   br i1 %cmp.i, label %for.cond.preheader, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
@@ -2416,7 +2416,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load ptr, ptr %con1, align 8
   %tobool2.not = icmp eq ptr %4, null
   %cond = select i1 %tobool2.not, ptr %3, ptr %4
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end5, label %for.inc
 
 if.end5:                                          ; preds = %for.body
@@ -2456,7 +2456,7 @@ entry:
   %cursor_on = getelementptr inbounds i8, ptr %call.i, i64 264
   store i32 %on, ptr %cursor_on, align 8
   %1 = load ptr, ptr @active_console, align 8
-  %cmp.i = icmp eq ptr %1, %c
+  %cmp.i = icmp eq ptr %c, %1
   br i1 %cmp.i, label %for.cond.preheader, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
@@ -2478,7 +2478,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load ptr, ptr %con2, align 8
   %tobool3.not = icmp eq ptr %4, null
   %cond = select i1 %tobool3.not, ptr %3, ptr %4
-  %cmp.not = icmp eq ptr %cond, %c
+  %cmp.not = icmp eq ptr %c, %cond
   br i1 %cmp.not, label %if.end6, label %for.inc
 
 if.end6:                                          ; preds = %for.body
@@ -2517,7 +2517,7 @@ entry:
   %call2 = tail call ptr @cursor_ref(ptr noundef %cursor) #18
   store ptr %call2, ptr %cursor1, align 8
   %2 = load ptr, ptr @active_console, align 8
-  %cmp.i = icmp eq ptr %2, %c
+  %cmp.i = icmp eq ptr %c, %2
   br i1 %cmp.i, label %for.cond.preheader, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
@@ -2539,7 +2539,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %5 = load ptr, ptr %con5, align 8
   %tobool6.not = icmp eq ptr %5, null
   %cond = select i1 %tobool6.not, ptr %4, ptr %5
-  %cmp.not = icmp eq ptr %cond, %c
+  %cmp.not = icmp eq ptr %c, %cond
   br i1 %cmp.not, label %if.end9, label %for.inc
 
 if.end9:                                          ; preds = %for.body
@@ -2687,7 +2687,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %con3, align 8
   %tobool4.not = icmp eq ptr %3, null
   %cond = select i1 %tobool4.not, ptr %2, ptr %3
-  %cmp6.not = icmp eq ptr %cond, %con
+  %cmp6.not = icmp eq ptr %con, %cond
   br i1 %cmp6.not, label %if.end8, label %for.inc
 
 if.end8:                                          ; preds = %for.body
@@ -2756,7 +2756,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %con13, align 8
   %tobool14.not = icmp eq ptr %3, null
   %cond = select i1 %tobool14.not, ptr %2, ptr %3
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
@@ -2808,7 +2808,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %con2, align 8
   %tobool3.not = icmp eq ptr %3, null
   %cond = select i1 %tobool3.not, ptr %2, ptr %3
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
@@ -2856,7 +2856,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = load ptr, ptr %con1, align 8
   %tobool2.not = icmp eq ptr %2, null
   %cond = select i1 %tobool2.not, ptr %1, ptr %2
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
@@ -2904,7 +2904,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = load ptr, ptr %con1, align 8
   %tobool2.not = icmp eq ptr %2, null
   %cond = select i1 %tobool2.not, ptr %1, ptr %2
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
@@ -2952,7 +2952,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = load ptr, ptr %con1, align 8
   %tobool2.not = icmp eq ptr %2, null
   %cond = select i1 %tobool2.not, ptr %1, ptr %2
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
@@ -3044,7 +3044,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %8 = load ptr, ptr %con2, align 8
   %tobool3.not = icmp eq ptr %8, null
   %cond = select i1 %tobool3.not, ptr %7, ptr %8
-  %cmp.not = icmp eq ptr %cond, %con
+  %cmp.not = icmp eq ptr %con, %cond
   br i1 %cmp.not, label %if.end6, label %for.inc
 
 if.end6:                                          ; preds = %for.body
@@ -3497,7 +3497,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %24 = load ptr, ptr %con3.i, align 8
   %tobool4.not.i = icmp eq ptr %24, null
   %cond.i = select i1 %tobool4.not.i, ptr %23, ptr %24
-  %cmp6.not.i = icmp eq ptr %cond.i, %con
+  %cmp6.not.i = icmp eq ptr %con, %cond.i
   br i1 %cmp6.not.i, label %if.end8.i, label %for.inc.i
 
 if.end8.i:                                        ; preds = %for.body.i
@@ -3543,7 +3543,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %call2 = tail call i64 @object_property_get_uint(ptr noundef nonnull %con.07, ptr noundef nonnull @.str.17, ptr noundef nonnull @error_abort) #18
   %conv = trunc i64 %call2 to i32
-  %cmp3.not = icmp eq i32 %conv, %head
+  %cmp3.not = icmp eq i32 %head, %conv
   br i1 %cmp3.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end, %for.body
@@ -3588,7 +3588,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
 if.end.i:                                         ; preds = %for.body.i
   %call2.i = tail call i64 @object_property_get_uint(ptr noundef nonnull %con.07.i, ptr noundef nonnull @.str.17, ptr noundef nonnull @error_abort) #18
   %conv.i = trunc i64 %call2.i to i32
-  %cmp3.not.i = icmp eq i32 %conv.i, %head
+  %cmp3.not.i = icmp eq i32 %head, %conv.i
   br i1 %cmp3.not.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
@@ -3873,7 +3873,7 @@ qemu_console_is_graphic.exit:                     ; preds = %entry, %for.inc
 
 lor.lhs.false:                                    ; preds = %qemu_console_is_graphic.exit
   %0 = load ptr, ptr @active_console, align 8
-  %cmp.i6 = icmp eq ptr %0, %s.012
+  %cmp.i6 = icmp eq ptr %s.012, %0
   br i1 %cmp.i6, label %land.lhs.true.i, label %qemu_console_is_visible.exit
 
 qemu_console_is_visible.exit:                     ; preds = %lor.lhs.false

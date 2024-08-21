@@ -130,12 +130,12 @@ define internal fastcc range(i32 0, 2) i32 @Msat_HeapCheck_rec(ptr nocapture nou
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not15 = icmp sgt i32 %6, %1
+  %.not15 = icmp slt i32 %1, %6
   br i1 %.not15, label %.lr.ph, label %._crit_edge
 
 tailrecurse:                                      ; preds = %28
   %7 = or disjoint i32 %29, 1
-  %.not = icmp sgt i32 %6, %7
+  %.not = icmp slt i32 %7, %6
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
@@ -415,7 +415,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 14:                                               ; preds = %Abc_Clock.exit
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   br i1 %17, label %18, label %Abc_Clock.exit._crit_edge
 
 18:                                               ; preds = %14
@@ -557,7 +557,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   br i1 %17, label %18, label %61
 
 18:                                               ; preds = %12

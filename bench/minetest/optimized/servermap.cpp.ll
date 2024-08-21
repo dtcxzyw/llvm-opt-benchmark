@@ -6421,7 +6421,7 @@ entry:
 cleanup.cont:                                     ; preds = %entry
   %call4 = tail call noundef ptr @_ZN9ServerMap9loadBlockEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(560) %this, i48 %p.coerce)
   %tobool5.not.not = icmp eq ptr %call4, null
-  %brmerge.not = and i1 %tobool5.not.not, %create_blank
+  %brmerge.not = and i1 %create_blank, %tobool5.not.not
   br i1 %brmerge.not, label %if.then12, label %return
 
 if.then12:                                        ; preds = %cleanup.cont

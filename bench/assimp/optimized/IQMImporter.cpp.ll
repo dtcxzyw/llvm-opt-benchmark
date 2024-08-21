@@ -135,7 +135,7 @@ entry:
 if.else:                                          ; preds = %entry
   %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %extension) #16
   %tobool.not = icmp eq i64 %call2, 0
-  %brmerge = or i1 %tobool.not, %checkSig
+  %brmerge = or i1 %checkSig, %tobool.not
   br i1 %brmerge, label %if.then4, label %cleanup27
 
 if.then4:                                         ; preds = %if.else

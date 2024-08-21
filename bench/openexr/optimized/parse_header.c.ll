@@ -3236,7 +3236,7 @@ if.then7:                                         ; preds = %if.end5
   %div = udiv i32 %attrsz, %eltsize
   %rem = urem i32 %attrsz, %eltsize
   %mul = mul nuw nsw i32 %div, %eltsize
-  %cmp8.not = icmp eq i32 %mul, %attrsz
+  %cmp8.not = icmp eq i32 %attrsz, %mul
   br i1 %cmp8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
@@ -3262,7 +3262,7 @@ declare i32 @exr_attr_list_add_by_type(ptr noundef, ptr noundef, ptr noundef, pt
 define internal fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz, i32 noundef %num) unnamed_addr #0 {
 entry:
   %mul = shl nuw nsw i32 %num, 2
-  %cmp.not = icmp eq i32 %mul, %attrsz
+  %cmp.not = icmp eq i32 %attrsz, %mul
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3505,7 +3505,7 @@ return:                                           ; preds = %if.end5, %if.then9,
 define internal fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %attrdata, ptr noundef %aname, ptr noundef %tname, i32 noundef %attrsz, i32 noundef %num) unnamed_addr #0 {
 entry:
   %mul = shl nuw nsw i32 %num, 3
-  %cmp.not = icmp eq i32 %mul, %attrsz
+  %cmp.not = icmp eq i32 %attrsz, %mul
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

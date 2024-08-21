@@ -852,7 +852,7 @@ define noundef ptr @_ZNK9grpc_core10HPackTable17MementoRingBuffer6LookupEj(ptr n
 entry:
   %num_entries_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %num_entries_, align 4
-  %cmp.not = icmp ugt i32 %0, %index
+  %cmp.not = icmp ult i32 %index, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -880,7 +880,7 @@ entry:
   %entries = alloca %"class.std::vector", align 8
   %max_entries_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %max_entries_, align 8
-  %cmp = icmp eq i32 %0, %max_entries
+  %cmp = icmp eq i32 %max_entries, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1260,7 +1260,7 @@ while.body:                                       ; preds = %_ZNK9grpc_core10HPa
   %inc = add nuw i32 %index.06, 1
   tail call void %f.coerce1(ptr %f.coerce0, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i)
   %6 = load i32, ptr %num_entries_.i, align 4
-  %cmp.not.i = icmp ugt i32 %6, %inc
+  %cmp.not.i = icmp ult i32 %inc, %6
   br i1 %cmp.not.i, label %_ZNK9grpc_core10HPackTable17MementoRingBuffer6LookupEj.exit, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %_ZNK9grpc_core10HPackTable17MementoRingBuffer6LookupEj.exit, %while.body, %entry
@@ -1475,7 +1475,7 @@ entry:
 if.end:                                           ; preds = %entry
   %max_bytes_ = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %max_bytes_, align 4
-  %cmp2 = icmp ult i32 %1, %bytes
+  %cmp2 = icmp ugt i32 %bytes, %1
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
@@ -1842,7 +1842,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad17.i.i.i.i.i, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp19.i.i.i.i.i)
   %26 = load i32, ptr %num_entries_.i.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %26, %inc.i
+  %cmp.not.i.i = icmp ult i32 %inc.i, %26
   br i1 %cmp.not.i.i, label %_ZNK9grpc_core10HPackTable17MementoRingBuffer6LookupEj.exit.i, label %nrvo.skipdtor, !llvm.loop !14
 
 lpad:                                             ; preds = %call.i10.i.i.i.i.i.noexc, %if.else.i.i.i.i.i, %call.i.i.i.i.i.i.noexc, %invoke.cont6.i.i.i.i.i
@@ -9165,7 +9165,7 @@ _ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1
 _ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN9grpc_core10HPackTable7MementoESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
-  %cmp.not6.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i11, label %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i22

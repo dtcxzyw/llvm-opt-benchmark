@@ -5487,7 +5487,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %2572 = trunc nuw i64 %2569 to i32
   %2573 = select i1 %2571, i32 %2572, i32 %.133197
   %2574 = sub i32 %.133197, %2573
-  %2575 = icmp ugt i32 %2573, %.132666
+  %2575 = icmp ult i32 %.132666, %2573
   %2576 = zext i32 %.132666 to i64
   br i1 %2575, label %.preheader.i, label %2585
 

@@ -1992,7 +1992,7 @@ invoke.cont7:                                     ; preds = %lor.lhs.false
   %cmp10 = icmp eq i8 %call3.i14, 0
   %ruleSet.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %ruleSet.i, align 8
-  %cmp13 = icmp eq ptr %6, %_ruleSet
+  %cmp13 = icmp eq ptr %_ruleSet, %6
   %.ph = select i1 %cmp10, i1 true, i1 %cmp13
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL26gGreaterGreaterGreaterThan) #11, !srcloc !7
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZL19gGreaterGreaterThan) #11, !srcloc !7
@@ -3182,7 +3182,7 @@ entry:
   %divisor = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %divisor, align 8
   %conv = sitofp i64 %1 to double
-  %mul = fmul double %conv, %newRuleValue
+  %mul = fmul double %newRuleValue, %conv
   ret double %mul
 }
 
@@ -3245,7 +3245,7 @@ entry:
   %conv = sitofp i64 %0 to double
   %call = tail call double @uprv_fmod_75(double noundef %oldRuleValue, double noundef %conv)
   %sub = fsub double %oldRuleValue, %call
-  %add = fadd double %sub, %newRuleValue
+  %add = fadd double %newRuleValue, %sub
   ret double %add
 }
 
@@ -3394,7 +3394,7 @@ define linkonce_odr noundef double @_ZNK6icu_7521NumeratorSubstitution15transfor
 entry:
   %denominator = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load double, ptr %denominator, align 8
-  %mul = fmul double %0, %number
+  %mul = fmul double %number, %0
   %call = tail call double @uprv_round_75(double noundef %mul)
   ret double %call
 }

@@ -66,7 +66,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ugt i64 %conv1, %size
+  %cmp = icmp ult i64 %size, %conv1
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end

@@ -1006,7 +1006,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %delta, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %3 to i32
-  %cmp = icmp ugt i32 %conv, %depth
+  %cmp = icmp ult i32 %depth, %conv
   br i1 %cmp, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %if.end
@@ -1187,7 +1187,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end.i:                                         ; preds = %if.then
   %conv.i = sext i32 %.fr.i to i64
-  %cmp1.i = icmp ugt i64 %conv.i, %size
+  %cmp1.i = icmp ult i64 %size, %conv.i
   br i1 %cmp1.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -1219,7 +1219,7 @@ if.end9.i:                                        ; preds = %if.end4.i
   %add.ptr14.i = getelementptr inbounds i8, ptr %text, i64 %conv.i
   %mul.i = mul nsw i32 %.fr.i, 12
   %conv15.i = sext i32 %mul.i to i64
-  %cmp16.i = icmp ult i64 %conv15.i, %size
+  %cmp16.i = icmp ugt i64 %size, %conv15.i
   br i1 %cmp16.i, label %if.then18.i, label %if.end127.i
 
 if.then18.i:                                      ; preds = %if.end9.i
@@ -1595,7 +1595,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   %67 = load i32, ptr %mind.i13, align 8
   %.fr.i14 = freeze i32 %67
   %conv.i15 = sext i32 %.fr.i14 to i64
-  %cmp.i16 = icmp ugt i64 %conv.i15, %size
+  %cmp.i16 = icmp ult i64 %size, %conv.i15
   br i1 %cmp.i16, label %return, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.else
@@ -1611,7 +1611,7 @@ if.end.i17:                                       ; preds = %if.else
 if.then9.i:                                       ; preds = %if.end.i17
   %mul.i19 = shl i32 %.fr.i14, 2
   %conv13.i = sext i32 %mul.i19 to i64
-  %cmp14.not.i = icmp ugt i64 %conv13.i, %size
+  %cmp14.not.i = icmp ult i64 %size, %conv13.i
   %idx.neg.i20 = sub nsw i64 0, %conv13.i
   %add.ptr19.i21 = getelementptr inbounds i8, ptr %add.ptr.i18, i64 %idx.neg.i20
   %qlim.0.i = select i1 %cmp14.not.i, ptr null, ptr %add.ptr19.i21

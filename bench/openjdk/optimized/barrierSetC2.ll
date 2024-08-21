@@ -275,7 +275,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13BarrierStub
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %9, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = icmp ugt i32 %22, %20
+  %23 = icmp ult i32 %20, %22
   br i1 %23, label %_ZNK10Node_ArrayixEj.exit.i, label %_ZNK10Node_ArrayixEj.exit.thread.i
 
 _ZNK10Node_ArrayixEj.exit.i:                      ; preds = %1
@@ -322,7 +322,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = 
   store i32 0, ptr %48, align 4
   %49 = load i32, ptr %19, align 8
   %50 = load i32, ptr %21, align 8
-  %.not.i.i = icmp ugt i32 %50, %49
+  %.not.i.i = icmp ult i32 %49, %50
   br i1 %.not.i.i, label %_ZN10Node_Array3mapEjP4Node.exit.i, label %51
 
 51:                                               ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i
@@ -383,7 +383,7 @@ define hidden void @_ZN13BarrierStubC2C2EPK8MachNode(ptr nocapture noundef nonnu
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %18, i64 16
   %30 = load i32, ptr %29, align 8
-  %31 = icmp ugt i32 %30, %28
+  %31 = icmp ult i32 %28, %30
   br i1 %31, label %_ZNK10Node_ArrayixEj.exit.i.i, label %_ZNK10Node_ArrayixEj.exit.thread.i.i
 
 _ZNK10Node_ArrayixEj.exit.i.i:                    ; preds = %2
@@ -430,7 +430,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds 
   store i32 0, ptr %56, align 4
   %57 = load i32, ptr %27, align 8
   %58 = load i32, ptr %29, align 8
-  %.not.i.i.i = icmp ugt i32 %58, %57
+  %.not.i.i.i = icmp ult i32 %57, %58
   br i1 %.not.i.i.i, label %_ZN10Node_Array3mapEjP4Node.exit.i.i, label %59
 
 59:                                               ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i
@@ -5337,7 +5337,7 @@ _ZN10Block_ListC2Ev.exit:                         ; preds = %60
   %81 = add i32 %80, 1
   store i32 %81, ptr %63, align 8
   %82 = load i32, ptr %2, align 8
-  %.not.i.i88 = icmp ugt i32 %82, %80
+  %.not.i.i88 = icmp ult i32 %80, %82
   br i1 %.not.i.i88, label %_ZN10Block_List4pushEP5Block.exit, label %83
 
 83:                                               ; preds = %73
@@ -5474,7 +5474,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %134, %138
   %157 = getelementptr inbounds i8, ptr %142, i64 40
   %158 = load i32, ptr %157, align 8
   %159 = load i32, ptr %69, align 8
-  %160 = icmp ugt i32 %159, %158
+  %160 = icmp ult i32 %158, %159
   br i1 %160, label %_ZNK10Node_ArrayixEj.exit.i, label %_ZNK10Node_ArrayixEj.exit.thread.i
 
 _ZNK10Node_ArrayixEj.exit.i:                      ; preds = %156
@@ -5520,7 +5520,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = 
   store i32 0, ptr %184, align 4
   %185 = load i32, ptr %157, align 8
   %186 = load i32, ptr %69, align 8
-  %.not.i.i89 = icmp ugt i32 %186, %185
+  %.not.i.i89 = icmp ult i32 %185, %186
   br i1 %.not.i.i89, label %_ZN10Node_Array3mapEjP4Node.exit.i, label %187
 
 187:                                              ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i
@@ -5729,7 +5729,7 @@ _ZN7RegMask6InsertEi.exit95:                      ; preds = %283
 311:                                              ; preds = %307
   %312 = load i32, ptr %214, align 8
   %313 = load i32, ptr %69, align 8
-  %314 = icmp ugt i32 %313, %312
+  %314 = icmp ult i32 %312, %313
   br i1 %314, label %_ZNK10Node_ArrayixEj.exit.i103, label %_ZNK10Node_ArrayixEj.exit.thread.i97
 
 _ZNK10Node_ArrayixEj.exit.i103:                   ; preds = %311
@@ -5775,7 +5775,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i99: ; preds 
   store i32 0, ptr %338, align 4
   %339 = load i32, ptr %214, align 8
   %340 = load i32, ptr %69, align 8
-  %.not.i.i101 = icmp ugt i32 %340, %339
+  %.not.i.i101 = icmp ult i32 %339, %340
   br i1 %.not.i.i101, label %_ZN10Node_Array3mapEjP4Node.exit.i102, label %341
 
 341:                                              ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i99
@@ -5959,7 +5959,7 @@ _ZN7RegMask2ORERKS_.exit118:                      ; preds = %.lr.ph.i115, %398
   %428 = add i32 %427, 1
   store i32 %428, ptr %63, align 8
   %429 = load i32, ptr %2, align 8
-  %.not.i.i121 = icmp ugt i32 %429, %427
+  %.not.i.i121 = icmp ult i32 %427, %429
   br i1 %.not.i.i121, label %_ZN10Block_List4pushEP5Block.exit122, label %430
 
 430:                                              ; preds = %.lr.ph153

@@ -49,7 +49,7 @@ define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr nocapture nounde
 entry:
   %alloc = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8
-  %cmp = icmp eq i64 %0, %num_bytes
+  %cmp = icmp eq i64 %num_bytes, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -58,7 +58,7 @@ if.end:                                           ; preds = %entry
   %2 = getelementptr i8, ptr %r, i64 24
   %r.val14 = load i64, ptr %2, align 8
   %sub.i = sub i64 %r.val, %r.val14
-  %cmp1 = icmp ugt i64 %sub.i, %num_bytes
+  %cmp1 = icmp ult i64 %num_bytes, %sub.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -70,7 +70,7 @@ if.end8:                                          ; preds = %if.end3
   %3 = load i64, ptr %1, align 8
   %r.val16 = load i64, ptr %2, align 8
   %4 = load ptr, ptr %r, align 8
-  %cmp.i46 = icmp ult i64 %3, %r.val16
+  %cmp.i46 = icmp ugt i64 %r.val16, %3
   br i1 %cmp.i46, label %if.then15, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %if.end8
@@ -82,8 +82,8 @@ if.end.i.lr.ph:                                   ; preds = %if.end8
 for.cond:                                         ; preds = %ring_buf_push.exit
   %add26 = add i64 %spec.select.i, %copied.048
   %add = add i64 %add26, %r.val16
-  %cmp.i = icmp ult i64 %3, %add
-  %cmp2.i = icmp ugt i64 %r.val16, %add
+  %cmp.i = icmp ugt i64 %add, %3
+  %cmp2.i = icmp ult i64 %add, %r.val16
   %or.cond = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond, label %if.then15, label %if.end.i
 
@@ -348,12 +348,12 @@ if.end4:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end4
   %3 = load ptr, ptr %rbuf, align 8
   %4 = load i64, ptr %head_offset.i, align 8
-  %cmp.not.i = icmp ugt i64 %4, %1
+  %cmp.not.i = icmp ult i64 %1, %4
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %if.then6
   %5 = load i64, ptr %ctail_offset.i, align 8
-  %cmp2.i = icmp ugt i64 %5, %1
+  %cmp2.i = icmp ult i64 %1, %5
   br i1 %cmp2.i, label %return, label %ring_buf_get_ptr.exit
 
 ring_buf_get_ptr.exit:                            ; preds = %lor.lhs.false.i
@@ -375,12 +375,12 @@ if.then19:                                        ; preds = %if.end16
   %add25 = add i64 %7, %sub.i
   %8 = load ptr, ptr %rbuf, align 8
   %9 = load i64, ptr %head_offset.i, align 8
-  %cmp.not.i28 = icmp ugt i64 %9, %add25
+  %cmp.not.i28 = icmp ult i64 %add25, %9
   br i1 %cmp.not.i28, label %lor.lhs.false.i30, label %return
 
 lor.lhs.false.i30:                                ; preds = %if.then19
   %10 = load i64, ptr %ctail_offset.i, align 8
-  %cmp2.i32 = icmp ugt i64 %10, %add25
+  %cmp2.i32 = icmp ult i64 %add25, %10
   br i1 %cmp2.i32, label %return, label %ring_buf_get_ptr.exit38
 
 ring_buf_get_ptr.exit38:                          ; preds = %lor.lhs.false.i30
@@ -439,7 +439,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i40
   %alloc.i41 = getelementptr inbounds i8, ptr %qrs, i64 88
   %15 = load i64, ptr %alloc.i41, align 8
   %cmp2.not.i = icmp ne i64 %15, 0
-  %cmp5.i = icmp ult i64 %13, %sub65
+  %cmp5.i = icmp ugt i64 %sub65, %13
   %or.cond.i = select i1 %cmp2.not.i, i1 %cmp5.i, i1 false
   br i1 %or.cond.i, label %if.then6.i, label %if.end30.i
 
@@ -447,7 +447,7 @@ if.then6.i:                                       ; preds = %land.lhs.true.i
   %rem.i42 = urem i64 %13, %15
   %head_offset.i43 = getelementptr inbounds i8, ptr %qrs, i64 96
   %16 = load i64, ptr %head_offset.i43, align 8
-  %cmp9.not.i = icmp ugt i64 %16, %sub65
+  %cmp9.not.i = icmp ult i64 %sub65, %16
   %spec.select.i = select i1 %cmp9.not.i, i64 %add.le, i64 %16
   %sub.i44 = sub i64 %spec.select.i, %13
   %sub15.i = sub i64 %15, %rem.i42
@@ -597,13 +597,13 @@ if.then25:                                        ; preds = %if.end16
   %6 = load ptr, ptr %rbuf, align 8
   %head_offset.i = getelementptr inbounds i8, ptr %qrs, i64 96
   %7 = load i64, ptr %head_offset.i, align 8
-  %cmp.not.i = icmp ugt i64 %7, %3
+  %cmp.not.i = icmp ult i64 %3, %7
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %if.then25
   %ctail_offset.i = getelementptr inbounds i8, ptr %qrs, i64 104
   %8 = load i64, ptr %ctail_offset.i, align 8
-  %cmp2.i = icmp ugt i64 %8, %3
+  %cmp2.i = icmp ult i64 %3, %8
   br i1 %cmp2.i, label %return, label %ring_buf_get_ptr.exit
 
 ring_buf_get_ptr.exit:                            ; preds = %lor.lhs.false.i
@@ -654,7 +654,7 @@ if.end:                                           ; preds = %entry
   %0 = load i64, ptr %end, align 8
   %1 = load i64, ptr %head_range, align 8
   %sub = sub i64 %0, %1
-  %cmp = icmp ult i64 %sub, %read_len
+  %cmp = icmp ugt i64 %read_len, %sub
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -693,7 +693,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %alloc.i = getelementptr inbounds i8, ptr %qrs, i64 88
   %4 = load i64, ptr %alloc.i, align 8
   %cmp2.not.i = icmp ne i64 %4, 0
-  %cmp5.i = icmp ult i64 %2, %sub18
+  %cmp5.i = icmp ugt i64 %sub18, %2
   %or.cond.i = select i1 %cmp2.not.i, i1 %cmp5.i, i1 false
   br i1 %or.cond.i, label %if.then6.i, label %if.end30.i
 
@@ -701,7 +701,7 @@ if.then6.i:                                       ; preds = %land.lhs.true.i
   %rem.i = urem i64 %2, %4
   %head_offset.i = getelementptr inbounds i8, ptr %qrs, i64 96
   %5 = load i64, ptr %head_offset.i, align 8
-  %cmp9.not.i = icmp ugt i64 %5, %sub18
+  %cmp9.not.i = icmp ult i64 %sub18, %5
   %spec.select.i = select i1 %cmp9.not.i, i64 %offset.0, i64 %5
   %sub.i = sub i64 %spec.select.i, %2
   %sub15.i = sub i64 %4, %rem.i
@@ -812,7 +812,7 @@ entry:
   %r.val.i.i = load i64, ptr %1, align 8
   %2 = getelementptr i8, ptr %cb_arg, i64 24
   %r.val2.i.i = load i64, ptr %2, align 8
-  %cmp.i = icmp ugt i64 %r.val2.i.i, %logical_offset
+  %cmp.i = icmp ult i64 %logical_offset, %r.val2.i.i
   br i1 %cmp.i, label %ring_buf_write_at.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry

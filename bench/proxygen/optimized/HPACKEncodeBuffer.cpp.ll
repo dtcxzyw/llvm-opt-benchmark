@@ -204,7 +204,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
 cleanup.done:                                     ; preds = %_ZNK5folly10IOBufQueue5frontEv.exit
   %growthSize_ = getelementptr inbounds i8, ptr %this, i64 120
   %11 = load i32, ptr %growthSize_, align 8
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %11, i32 %headroom)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %headroom, i32 %11)
   %conv = zext i32 %.sroa.speculated to i64
   call void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %buf, i64 noundef %conv)
   %12 = load ptr, ptr %buf, align 8
@@ -398,14 +398,14 @@ cleanup.done:                                     ; preds = %entry
   %arrayidx = getelementptr inbounds [9 x i8], ptr @_ZN8proxygen5HPACKL10NBIT_MASKSE, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %conv25 = zext i8 %3 to i64
-  %cmp26 = icmp ugt i64 %conv25, %value
+  %cmp26 = icmp ult i64 %value, %conv25
   %buf_.i = getelementptr inbounds i8, ptr %this, i64 80
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   br i1 %cmp26, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done
   %4 = trunc i64 %value to i8
-  %conv28 = or i8 %4, %instruction
+  %conv28 = or i8 %instruction, %4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i)
   store i8 %conv28, ptr %byte.addr.i, align 1
   %5 = load ptr, ptr %second.i.i.i.i.i, align 8
@@ -756,7 +756,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
   %shl = shl nuw i32 1, %conv
   %conv33 = zext i32 %call2 to i64
   %3 = trunc i32 %shl to i8
-  %conv36 = or i8 %3, %instruction
+  %conv36 = or i8 %instruction, %3
   %call37 = tail call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmhh(ptr noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %conv33, i8 noundef zeroext %conv36, i8 noundef zeroext %nbit)
   %4 = load ptr, ptr @_ZZN8proxygen17HPACKEncodeBuffer13encodeHuffmanEhhN5folly5RangeIPKcEEE11huffmanTree, align 8
   %buf_ = getelementptr inbounds i8, ptr %this, i64 80

@@ -5065,7 +5065,7 @@ define hidden range(i32 -29440, 1) i32 @mbedtls_ssl_parse_sig_alg_ext(ptr nounde
   %21 = icmp ule ptr %.ptr, %2
   %22 = ptrtoint ptr %.ptr to i64
   %23 = sub i64 %5, %22
-  %24 = icmp uge i64 %23, %17
+  %24 = icmp ule i64 %17, %23
   %narrow.i58.not = and i1 %21, %24
   br i1 %narrow.i58.not, label %26, label %25
 
@@ -7452,7 +7452,7 @@ define hidden range(i32 0, 256) i32 @mbedtls_ssl_tls12_get_preferred_hash_for_si
   %.01216 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 255
-  %16 = icmp eq i32 %15, %1
+  %16 = icmp eq i32 %1, %15
   br i1 %16, label %17, label %8
 
 17:                                               ; preds = %.lr.ph
@@ -7473,14 +7473,14 @@ define hidden range(i32 -1, 1) i32 @mbedtls_ssl_validate_ciphersuite(ptr nocaptu
   %7 = getelementptr inbounds i8, ptr %1, i64 20
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
-  %10 = icmp ugt i32 %9, %3
+  %10 = icmp ult i32 %3, %9
   br i1 %10, label %23, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 22
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
-  %15 = icmp ult i32 %14, %2
+  %15 = icmp ugt i32 %2, %14
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %11
@@ -7672,7 +7672,7 @@ define hidden range(i32 -30720, 1) i32 @mbedtls_ssl_parse_server_name_ext(ptr no
   %18 = icmp ule ptr %.ptr, %2
   %19 = ptrtoint ptr %.ptr to i64
   %20 = sub i64 %5, %19
-  %21 = icmp uge i64 %20, %17
+  %21 = icmp ule i64 %17, %20
   %narrow.i54.not = and i1 %18, %21
   br i1 %narrow.i54.not, label %23, label %22
 
@@ -7713,7 +7713,7 @@ define hidden range(i32 -30720, 1) i32 @mbedtls_ssl_parse_server_name_ext(ptr no
   %38 = zext i8 %37 to i64
   %39 = or disjoint i64 %35, %38
   %40 = add nuw nsw i64 %39, 3
-  %.not67 = icmp ult i64 %28, %40
+  %.not67 = icmp ugt i64 %40, %28
   br i1 %.not67, label %41, label %42
 
 41:                                               ; preds = %31
@@ -7797,7 +7797,7 @@ define hidden range(i32 -30080, 1) i32 @mbedtls_ssl_parse_alpn_ext(ptr noundef %
   %23 = icmp ule ptr %.ptr, %2
   %24 = ptrtoint ptr %.ptr to i64
   %25 = sub i64 %10, %24
-  %26 = icmp uge i64 %25, %22
+  %26 = icmp ule i64 %22, %25
   %narrow.i57.not = and i1 %23, %26
   br i1 %narrow.i57.not, label %28, label %27
 
@@ -7909,7 +7909,7 @@ define hidden range(i32 -27136, 1) i32 @mbedtls_ssl_write_alpn_ext(ptr noundef %
   %12 = ptrtoint ptr %2 to i64
   %13 = ptrtoint ptr %1 to i64
   %14 = sub i64 %12, %13
-  %15 = icmp uge i64 %14, %10
+  %15 = icmp ule i64 %10, %14
   %narrow.i.not = and i1 %11, %15
   br i1 %narrow.i.not, label %16, label %34
 

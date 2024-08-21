@@ -962,10 +962,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule14getSt
 entry:
   %fStartYear = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %fStartYear, align 8
-  %cmp = icmp sgt i32 %0, %year
+  %cmp = icmp slt i32 %year, %0
   %fEndYear = getelementptr inbounds i8, ptr %this, i64 92
   %1 = load i32, ptr %fEndYear, align 4
-  %cmp2 = icmp slt i32 %1, %year
+  %cmp2 = icmp sgt i32 %year, %1
   %or.cond27 = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond27, label %return, label %if.end
 
@@ -1759,7 +1759,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14ge
 entry:
   %fNumStartTimes = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
-  %cmp = icmp sle i32 %0, %index
+  %cmp = icmp sge i32 %index, %0
   %cmp2 = icmp slt i32 %index, 0
   %or.cond = or i1 %cmp2, %cmp
   br i1 %or.cond, label %return, label %if.end

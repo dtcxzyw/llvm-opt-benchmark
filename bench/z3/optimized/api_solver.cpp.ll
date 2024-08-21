@@ -5441,7 +5441,7 @@ invoke.cont8:                                     ; preds = %if.end
           to label %invoke.cont10 unwind label %lpad1
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %cmp = icmp ult i32 %call11, %n
+  %cmp = icmp ugt i32 %n, %call11
   br i1 %cmp, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %invoke.cont10
@@ -6742,7 +6742,7 @@ invoke.cont7:                                     ; preds = %if.end
           to label %invoke.cont8 unwind label %lpad1
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  %cmp.not = icmp eq i32 %call9, %sz
+  %cmp.not = icmp eq i32 %sz, %call9
   br i1 %cmp.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %invoke.cont8

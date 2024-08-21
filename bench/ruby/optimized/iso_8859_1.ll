@@ -95,7 +95,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %1, i64 1
-  %18 = icmp ult ptr %17, %2
+  %18 = icmp ugt ptr %2, %17
   br i1 %18, label %19, label %83
 
 19:                                               ; preds = %16
@@ -132,7 +132,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %1, i64 1
-  %36 = icmp ult ptr %35, %2
+  %36 = icmp ugt ptr %2, %35
   br i1 %36, label %37, label %83
 
 37:                                               ; preds = %34

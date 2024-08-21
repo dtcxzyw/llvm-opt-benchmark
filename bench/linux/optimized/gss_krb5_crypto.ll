@@ -1183,7 +1183,7 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr nocapture noundef readonly %0, i3
   %25 = getelementptr inbounds i8, ptr %24, i64 44
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %2, -16
-  %28 = add i32 %26, %1
+  %28 = add i32 %1, %26
   %29 = sub i32 %27, %28
   %30 = call i32 @xdr_buf_subsegment(ptr noundef %3, ptr noundef nonnull %10, i32 noundef %22, i32 noundef %29) #8
   %31 = call fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %10)
@@ -1581,7 +1581,7 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr nocapture nounde
   %25 = getelementptr inbounds i8, ptr %24, i64 44
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %2, -16
-  %28 = add i32 %26, %1
+  %28 = add i32 %1, %26
   %29 = sub i32 %27, %28
   %30 = call i32 @xdr_buf_subsegment(ptr noundef %3, ptr noundef nonnull %10, i32 noundef %22, i32 noundef %29) #8
   %31 = getelementptr inbounds i8, ptr %9, i64 8

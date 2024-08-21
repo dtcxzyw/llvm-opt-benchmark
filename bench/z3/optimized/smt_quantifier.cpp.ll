@@ -235,7 +235,7 @@ entry:
   %tmp.i = alloca ptr, align 8
   %m_root.i = getelementptr inbounds i8, ptr %en, i64 8
   %0 = load ptr, ptr %m_root.i, align 8
-  %cmp.not63 = icmp eq ptr %0, %en
+  %cmp.not63 = icmp eq ptr %en, %0
   br i1 %cmp.not63, label %for.end28, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -602,16 +602,12 @@ land.lhs.true.i.i:                                ; preds = %if.then91
   %m_names.i.i = getelementptr inbounds i8, ptr %m, i64 608
   %48 = load ptr, ptr %m_names.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %48, null
-  br i1 %cmp.i.i.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
 
-if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %land.lhs.true.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %48, i64 -4
   %49 = load i32, ptr %arrayidx.i.i.i, align 4
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
-
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %if.end.i.i.i, %land.lhs.true.i.i
-  %retval.0.i.i.i = phi i32 [ %49, %if.end.i.i.i ], [ 0, %land.lhs.true.i.i ]
-  %cmp2.i.i = icmp sgt i32 %retval.0.i.i.i, %call89
+  %cmp2.i.i = icmp slt i32 %call89, %49
   br i1 %cmp2.i.i, label %cond.true.i.i, label %_ZNK11ast_manager15get_family_nameEi.exit
 
 cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
@@ -619,8 +615,8 @@ cond.true.i.i:                                    ; preds = %_ZNK6vectorI6symbol
   %arrayidx.i3.i.i = getelementptr inbounds %class.symbol, ptr %48, i64 %idxprom.i.i.i
   br label %_ZNK11ast_manager15get_family_nameEi.exit
 
-_ZNK11ast_manager15get_family_nameEi.exit:        ; preds = %if.then91, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %cond.true.i.i
-  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %if.then91 ]
+_ZNK11ast_manager15get_family_nameEi.exit:        ; preds = %if.then91, %land.lhs.true.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %cond.true.i.i
+  %cond-lvalue.i.i = phi ptr [ %arrayidx.i3.i.i, %cond.true.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i ], [ @_ZN6symbol4nullE, %if.then91 ], [ @_ZN6symbol4nullE, %land.lhs.true.i.i ]
   %50 = load i64, ptr %cond-lvalue.i.i, align 8
   store i64 %50, ptr %theory, align 8
   %call93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
@@ -1229,7 +1225,7 @@ _ZNK3smt18quantifier_manager3imp14get_generationEP10quantifier.exit: ; preds = %
   %7 = load ptr, ptr %m_value.i.i.i, align 8
   %m_generation.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %m_generation.i.i, align 4
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %8, i32 %max_generation)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %max_generation, i32 %8)
   %m_num_instances = getelementptr inbounds i8, ptr %this, i64 1168
   %9 = load i32, ptr %m_num_instances, align 8
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
@@ -3084,7 +3080,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i38, ptr noundef nonnull @.str.14)
   %7 = trunc nuw i64 %indvars.iv85 to i32
   %8 = xor i32 %7, -1
-  %sub10 = add i32 %8, %num_bindings
+  %sub10 = add i32 %num_bindings, %8
   %idxprom = zext i32 %sub10 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %bindings, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
@@ -3248,7 +3244,7 @@ for.body60:                                       ; preds = %for.body60.preheade
 invoke.cont67:                                    ; preds = %for.body60
   %27 = trunc nuw i64 %indvars.iv80 to i32
   %28 = xor i32 %27, -1
-  %sub64 = add i32 %28, %num_bindings
+  %sub64 = add i32 %num_bindings, %28
   %idxprom65 = zext i32 %sub64 to i64
   %arrayidx66 = getelementptr inbounds ptr, ptr %bindings, i64 %idxprom65
   %29 = load ptr, ptr %arrayidx66, align 8

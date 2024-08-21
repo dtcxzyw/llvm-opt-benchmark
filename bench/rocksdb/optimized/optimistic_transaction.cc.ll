@@ -559,7 +559,7 @@ while.cond25.backedge:                            ; preds = %if.end12.i.i.i, %ca
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %3, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %3
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIPN7rocksdb4port5MutexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -691,7 +691,7 @@ invoke.cont69:                                    ; preds = %invoke.cont65
           to label %invoke.cont73 unwind label %lpad59
 
 invoke.cont73:                                    ; preds = %invoke.cont69
-  %cmp.not.i23 = icmp eq ptr %ref.tmp62, %agg.result
+  %cmp.not.i23 = icmp eq ptr %agg.result, %ref.tmp62
   br i1 %cmp.not.i23, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont73

@@ -507,7 +507,7 @@ define range(i32 -101, 1) i32 @CVSpbcgB(ptr noundef %0, i32 noundef %1, i32 noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -522,7 +522,7 @@ define range(i32 -101, 1) i32 @CVSpbcgB(ptr noundef %0, i32 noundef %1, i32 noun
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.029 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.029, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.029, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 

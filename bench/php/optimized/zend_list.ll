@@ -201,7 +201,7 @@ define ptr @zend_fetch_resource2(ptr noundef readonly %0, ptr noundef %1, i32 no
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
@@ -210,7 +210,7 @@ define ptr @zend_fetch_resource2(ptr noundef readonly %0, ptr noundef %1, i32 no
   br label %23
 
 13:                                               ; preds = %6
-  %14 = icmp eq i32 %8, %3
+  %14 = icmp eq i32 %3, %8
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
@@ -245,7 +245,7 @@ define ptr @zend_fetch_resource(ptr nocapture noundef readonly %0, ptr noundef %
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, %2
+  %7 = icmp eq i32 %2, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
@@ -309,7 +309,7 @@ define ptr @zend_fetch_resource_ex(ptr noundef readonly %0, ptr noundef %1, i32 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, %2
+  %24 = icmp eq i32 %2, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
@@ -382,7 +382,7 @@ define ptr @zend_fetch_resource2_ex(ptr noundef readonly %0, ptr noundef %1, i32
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, %2
+  %26 = icmp eq i32 %2, %25
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
@@ -391,7 +391,7 @@ define ptr @zend_fetch_resource2_ex(ptr noundef readonly %0, ptr noundef %1, i32
   br label %zend_fetch_resource2.exit
 
 30:                                               ; preds = %23
-  %31 = icmp eq i32 %25, %3
+  %31 = icmp eq i32 %3, %25
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30

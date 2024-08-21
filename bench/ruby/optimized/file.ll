@@ -2519,7 +2519,7 @@ RSTRING_PTR.exit51:                               ; preds = %49, %57
 
 69:                                               ; preds = %68
   %70 = call ptr @rb_enc_get(i64 noundef %52) #22
-  %.not41 = icmp eq ptr %70, %2
+  %.not41 = icmp eq ptr %2, %70
   br i1 %.not41, label %77, label %71
 
 71:                                               ; preds = %69
@@ -3034,7 +3034,7 @@ define dso_local ptr @ruby_enc_find_extname(ptr noundef nonnull %0, ptr noundef 
 8:                                                ; preds = %6, %4
   %9 = phi i64 [ %5, %4 ], [ %7, %6 ]
   %10 = getelementptr i8, ptr %0, i64 %9
-  %11 = icmp ugt ptr %10, %0
+  %11 = icmp ult ptr %0, %10
   br i1 %11, label %.lr.ph.i, label %rb_enc_path_last_separator.exit.thread
 
 .lr.ph.i:                                         ; preds = %8, %.critedge.thread.i
@@ -6440,7 +6440,7 @@ RSTRING_PTR.exit:                                 ; preds = %51, %55
 
 93:                                               ; preds = %91
   %94 = getelementptr i8, ptr %60, i64 %70
-  %95 = icmp ugt ptr %94, %60
+  %95 = icmp ult ptr %60, %94
   br i1 %95, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %93, %.lr.ph.i
@@ -6617,7 +6617,7 @@ rb_get_path.exit:                                 ; preds = %9, %rbimpl_intern_c
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @rb_enc_get(i64 noundef %20) #22
   %25 = getelementptr i8, ptr %19, i64 %23
-  %26 = icmp ugt ptr %25, %19
+  %26 = icmp ult ptr %19, %25
   br i1 %26, label %.lr.ph.i.i, label %rb_enc_path_last_separator.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %rb_get_path.exit, %.critedge.thread.i.i
@@ -10059,7 +10059,7 @@ chompdirsep.exit:                                 ; preds = %.critedge.thread.i,
 
 125:                                              ; preds = %124
   %126 = call ptr @rb_enc_get(i64 noundef %.pre) #22
-  %.not63 = icmp eq ptr %126, %2
+  %.not63 = icmp eq ptr %2, %126
   br i1 %.not63, label %133, label %127
 
 127:                                              ; preds = %125
@@ -10289,7 +10289,7 @@ check_path_encoding.exit86:                       ; preds = %rb_enc_asciicompat.
   br label %98
 
 84:                                               ; preds = %70
-  %85 = icmp eq i64 %65, %0
+  %85 = icmp eq i64 %0, %65
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %84
@@ -10505,7 +10505,7 @@ define internal fastcc range(i32 -1, 1) i32 @realpath_rec(ptr nocapture noundef 
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %7
   %.lcssa.i = phi i64 [ %.pr.i, %7 ], [ %17, %.lr.ph.i ]
-  %18 = icmp ugt ptr %14, %2
+  %18 = icmp ult ptr %2, %14
   br i1 %18, label %.lr.ph.i131.preheader.lr.ph, label %.loopexit
 
 .lr.ph.i131.preheader.lr.ph:                      ; preds = %rbimpl_intern_const.exit
@@ -11708,12 +11708,12 @@ define internal fastcc void @test_check(i32 noundef %0, i32 noundef %1, ptr noun
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = add i32 %0, 1
-  %.not32 = icmp slt i32 %0, %1
+  %.not32 = icmp sgt i32 %1, %0
   br i1 %.not32, label %7, label %9
 
 7:                                                ; preds = %3
   %.not.i = icmp ne i32 %6, -1
-  %8 = icmp slt i32 %6, %1
+  %8 = icmp sgt i32 %1, %6
   %or.cond.i = and i1 %.not.i, %8
   br i1 %or.cond.i, label %9, label %rb_check_arity.exit.preheader
 

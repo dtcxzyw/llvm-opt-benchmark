@@ -1417,7 +1417,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit: ; preds = %if.then25
   %conv27 = sext i32 %nextArg.0.ph139 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i)
   store i64 %nargs, ptr %max.addr.i, align 8
-  %cmp.i68 = icmp ult i64 %conv27, %nargs
+  %cmp.i68 = icmp ugt i64 %nargs, %conv27
   br i1 %cmp.i68, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit
@@ -1455,7 +1455,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit75: ; preds = %if.then3
   %conv43 = sext i32 %14 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i76)
   store i64 %nargs, ptr %max.addr.i76, align 8
-  %cmp.i77 = icmp ult i64 %conv43, %nargs
+  %cmp.i77 = icmp ugt i64 %nargs, %conv43
   br i1 %cmp.i77, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit79, label %if.then.i.i78
 
 if.then.i.i78:                                    ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit75
@@ -1548,7 +1548,7 @@ if.end61:                                         ; preds = %land.lhs.true, %if.
   %conv62 = sext i32 %argIndex.0104 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max.addr.i90)
   store i64 %nargs, ptr %max.addr.i90, align 8
-  %cmp.i91 = icmp ult i64 %conv62, %nargs
+  %cmp.i91 = icmp ugt i64 %nargs, %conv62
   br i1 %cmp.i91, label %_ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit93, label %if.then.i.i92
 
 if.then.i.i92:                                    ; preds = %if.end61
@@ -2879,7 +2879,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %2, %1
+  %cmp1.i.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
@@ -2970,7 +2970,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i,
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i = icmp ugt i64 %3, %2
+  %cmp1.i.i.i.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i

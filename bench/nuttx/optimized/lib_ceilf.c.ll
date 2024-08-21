@@ -10,7 +10,7 @@ define float @ceilf(float noundef %0) local_unnamed_addr #0 {
   %3 = call float @modff(float noundef %0, ptr noundef nonnull %2) #2
   %4 = fcmp ule float %0, 0.000000e+00
   %.pre = load float, ptr %2, align 4
-  %5 = fcmp ueq float %.pre, %0
+  %5 = fcmp ueq float %0, %.pre
   %or.cond = select i1 %4, i1 true, i1 %5
   %6 = fadd float %.pre, 1.000000e+00
   %7 = select i1 %or.cond, float %.pre, float %6

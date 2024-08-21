@@ -1436,7 +1436,7 @@ define i64 @If_Dec6MinimumBase(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %11 = zext nneg i32 %10 to i64
   %12 = lshr i64 %8, %11
   %13 = xor i64 %7, -1
-  %14 = and i64 %13, %0
+  %14 = and i64 %0, %13
   %.not32.us = icmp ne i64 %12, %14
   %15 = zext i1 %.not32.us to i32
   %.123.us = add nuw nsw i32 %.02235.us, %15
@@ -1458,7 +1458,7 @@ define i64 @If_Dec6MinimumBase(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 %19, %22
   %24 = xor i64 %18, -1
-  %25 = and i64 %24, %0
+  %25 = and i64 %0, %24
   %.not32 = icmp eq i64 %23, %25
   br i1 %.not32, label %33, label %26
 
@@ -1806,7 +1806,7 @@ define i32 @If_Dec6PickBestMux(i64 noundef %0, ptr nocapture noundef writeonly %
   %5 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
   %7 = xor i64 %6, -1
-  %8 = and i64 %7, %0
+  %8 = and i64 %0, %7
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = shl nuw nsw i32 1, %9
   %11 = zext nneg i32 %10 to i64

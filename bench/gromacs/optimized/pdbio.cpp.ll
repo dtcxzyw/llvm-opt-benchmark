@@ -190,14 +190,14 @@ define void @_Z17gmx_write_pdb_boxP8_IO_FILE7PbcTypePA3_Kf(ptr nocapture noundef
   br i1 %29, label %30, label %51
 
 30:                                               ; preds = %9
-  %31 = fneg float %17
-  %32 = fmul float %22, %31
+  %31 = fneg float %22
+  %32 = fmul float %17, %31
   %33 = tail call float @llvm.fmuladd.f32(float %13, float %26, float %32)
-  %34 = fneg float %11
-  %35 = fmul float %26, %34
+  %34 = fneg float %26
+  %35 = fmul float %11, %34
   %36 = tail call float @llvm.fmuladd.f32(float %17, float %20, float %35)
-  %37 = fneg float %13
-  %38 = fmul float %20, %37
+  %37 = fneg float %20
+  %38 = fmul float %13, %37
   %39 = tail call float @llvm.fmuladd.f32(float %11, float %22, float %38)
   %40 = fmul float %36, %36
   %41 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %40)
@@ -238,14 +238,14 @@ define void @_Z17gmx_write_pdb_boxP8_IO_FILE7PbcTypePA3_Kf(ptr nocapture noundef
   br i1 %64, label %65, label %86
 
 65:                                               ; preds = %51
-  %66 = fneg float %61
-  %67 = fmul float %53, %66
+  %66 = fneg float %53
+  %67 = fmul float %61, %66
   %68 = tail call float @llvm.fmuladd.f32(float %57, float %52, float %67)
-  %69 = fneg float %55
-  %70 = fmul float %52, %69
+  %69 = fneg float %52
+  %70 = fmul float %55, %69
   %71 = tail call float @llvm.fmuladd.f32(float %61, float %54, float %70)
-  %72 = fneg float %57
-  %73 = fmul float %54, %72
+  %72 = fneg float %54
+  %73 = fmul float %57, %72
   %74 = tail call float @llvm.fmuladd.f32(float %55, float %53, float %73)
   %75 = fmul float %71, %71
   %76 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %75)
@@ -284,14 +284,14 @@ define void @_Z17gmx_write_pdb_boxP8_IO_FILE7PbcTypePA3_Kf(ptr nocapture noundef
   br i1 %97, label %98, label %.sink.split
 
 98:                                               ; preds = %86
-  %99 = fneg float %87
-  %100 = fmul float %91, %99
+  %99 = fneg float %91
+  %100 = fmul float %87, %99
   %101 = tail call float @llvm.fmuladd.f32(float %88, float %94, float %100)
-  %102 = fneg float %89
-  %103 = fmul float %94, %102
+  %102 = fneg float %94
+  %103 = fmul float %89, %102
   %104 = tail call float @llvm.fmuladd.f32(float %87, float %90, float %103)
-  %105 = fneg float %88
-  %106 = fmul float %90, %105
+  %105 = fneg float %90
+  %106 = fmul float %88, %105
   %107 = tail call float @llvm.fmuladd.f32(float %89, float %91, float %106)
   %108 = fmul float %104, %104
   %109 = tail call float @llvm.fmuladd.f32(float %101, float %101, float %108)
@@ -2130,7 +2130,7 @@ _ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit107: ; preds = %_ZNRSt8optionalI13P
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41)
   %110 = load i32, ptr %3, align 8
-  %.not.i = icmp sgt i32 %110, %.067153221
+  %.not.i = icmp slt i32 %.067153221, %110
   br i1 %.not.i, label %.preheader.preheader.i, label %125
 
 .preheader.preheader.i:                           ; preds = %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit107
@@ -3425,7 +3425,7 @@ common.resume:                                    ; preds = %15, %38
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -3468,7 +3468,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_13PdbRecordTypeESt10_Select1stIS9_EN3gmx13StringCompareESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3

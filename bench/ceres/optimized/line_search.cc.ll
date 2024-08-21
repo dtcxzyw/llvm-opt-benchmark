@@ -624,7 +624,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %31 = getelementptr inbounds double, ptr %19, i64 %.05.i.i.i.i.i.i.i.i.i
   %32 = getelementptr inbounds double, ptr %13, i64 %.05.i.i.i.i.i.i.i.i.i
   %33 = load double, ptr %32, align 8
-  %34 = fmul double %33, %1
+  %34 = fmul double %1, %33
   store double %34, ptr %31, align 8
   %35 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %35, %18
@@ -1468,7 +1468,7 @@ define hidden noundef double @_ZNK5ceres8internal10LineSearch41InterpolatingPoly
 22:                                               ; preds = %7
   %23 = load i32, ptr %1, align 4
   %24 = icmp ne i32 %23, 0
-  %25 = fcmp ult double %.pre, %6
+  %25 = fcmp ugt double %6, %.pre
   %or.cond = select i1 %24, i1 true, i1 %25
   br i1 %or.cond, label %32, label %26
 
@@ -1476,7 +1476,7 @@ define hidden noundef double @_ZNK5ceres8internal10LineSearch41InterpolatingPoly
   %27 = fmul double %.pre, 5.000000e-01
   %28 = fcmp olt double %27, %5
   %29 = select i1 %28, double %5, double %27
-  %30 = fcmp ogt double %29, %6
+  %30 = fcmp olt double %6, %29
   %31 = select i1 %30, double %6, double %29
   br label %_ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EED2Ev.exit
 
@@ -2343,7 +2343,7 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
 186:                                              ; preds = %183
   %187 = load double, ptr %176, align 8
   %188 = load double, ptr %42, align 8
-  %189 = fmul double %188, %3
+  %189 = fmul double %3, %188
   %190 = load double, ptr %20, align 8
   %191 = call double @llvm.fmuladd.f64(double %189, double %190, double %2)
   %192 = fcmp ogt double %187, %191
@@ -5216,7 +5216,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %6, %1
+  %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
@@ -5341,7 +5341,7 @@ _ZNSt16allocator_traitsISaIN5ceres8internal14FunctionSampleEEE9constructIS2_JRKS
 _ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN5ceres8internal14FunctionSampleEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5ceres8internal14FunctionSampleEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %43, %.lr.ph.i.i.i ]
   %44 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 88
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i27
@@ -5533,7 +5533,7 @@ _ZNSt16allocator_traitsISaIN5ceres8internal14FunctionSampleEEE9constructIS2_JRKd
 _ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN5ceres8internal14FunctionSampleEEE9constructIS2_JRKdS7_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN5ceres8internal14FunctionSampleEEE9constructIS2_JRKdS7_EEEvRS3_PT_DpOT0_.exit ], [ %46, %.lr.ph.i.i.i ]
   %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 88
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN5ceres8internal14FunctionSampleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i28

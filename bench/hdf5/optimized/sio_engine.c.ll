@@ -1804,9 +1804,9 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture no
   %4 = getelementptr inbounds i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, -1
-  %7 = icmp sle i32 %6, %0
+  %7 = icmp sge i32 %0, %6
   %8 = load i32, ptr @cont_dim, align 4
-  %.not = icmp eq i32 %8, %0
+  %.not = icmp eq i32 %0, %8
   %or.cond = select i1 %7, i1 true, i1 %.not
   %9 = sext i32 %0 to i64
   %10 = getelementptr inbounds [32 x i64], ptr @buf_offset, i64 0, i64 %9
@@ -2042,9 +2042,9 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %4 = getelementptr inbounds i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, -1
-  %7 = icmp sle i32 %6, %0
+  %7 = icmp sge i32 %0, %6
   %8 = load i32, ptr @cont_dim, align 4
-  %.not = icmp eq i32 %8, %0
+  %.not = icmp eq i32 %0, %8
   %or.cond = select i1 %7, i1 true, i1 %.not
   %9 = sext i32 %0 to i64
   %10 = getelementptr inbounds [32 x i64], ptr @buf_offset, i64 0, i64 %9

@@ -346,7 +346,7 @@ define dso_local noundef range(i32 -5, 1) i32 @intel_gmch_vga_set_state(ptr noun
   %20 = load i16, ptr %3, align 2
   %21 = and i16 %20, 2
   %22 = icmp ne i16 %21, 0
-  %23 = xor i1 %22, %1
+  %23 = xor i1 %1, %22
   br i1 %23, label %38, label %24
 
 24:                                               ; preds = %19

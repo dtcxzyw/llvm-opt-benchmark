@@ -125,7 +125,7 @@ define hidden void @"_ZN15wiggle_generate8wasmtime13generate_func28_$u7b$$u7b$cl
   %7 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !6
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %11, label %15, !prof !8
 
 11:                                               ; preds = %4

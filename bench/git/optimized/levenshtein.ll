@@ -56,7 +56,7 @@ for.body18.us:                                    ; preds = %for.body18.us.prehe
   %row1.081.us = phi ptr [ %call9, %for.body18.us.preheader ], [ %row2.083.us, %for.cond22.for.cond15.loopexit_crit_edge.us ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %1 = trunc i64 %indvars.iv.next133 to i32
-  %2 = mul i32 %1, %d
+  %2 = mul i32 %d, %1
   store i32 %2, ptr %row2.083.us, align 4
   %arrayidx29.us = getelementptr inbounds i8, ptr %string1, i64 %indvars.iv132
   %cmp41.us.not = icmp eq i64 %indvars.iv132, 0
@@ -164,7 +164,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds i32, ptr %call9, i64 %indvars.iv
   %21 = trunc i64 %indvars.iv to i32
-  %22 = mul i32 %21, %a
+  %22 = mul i32 %a, %21
   store i32 %22, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

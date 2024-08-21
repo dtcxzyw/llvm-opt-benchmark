@@ -726,7 +726,7 @@ define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @bus_for_each_drv(ptr noundef %37, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull @__device_attach_driver) #9
   %39 = icmp eq i32 %38, 0
-  %.not = and i1 %39, %1
+  %.not = and i1 %1, %39
   %40 = load i8, ptr %29, align 2, !range !7
   %41 = icmp ne i8 %40, 0
   %.not4 = select i1 %.not, i1 %41, i1 false

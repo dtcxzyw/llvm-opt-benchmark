@@ -1955,7 +1955,7 @@ entry:
   %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i = icmp eq ptr %3, %2
+  %cmp.i = icmp eq ptr %2, %3
   %conv = zext i1 %cmp.i to i64
   %call2 = tail call ptr @PyBool_FromLong(i64 noundef %conv) #8
   ret ptr %call2

@@ -977,7 +977,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE6insertEN
   br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -1297,7 +1297,7 @@ define hidden void @_ZN7nanogui6Widget15remove_child_atEi(ptr nocapture noundef 
   %11 = sub i64 %9, %10
   %12 = lshr exact i64 %11, 3
   %13 = trunc i64 %12 to i32
-  %.not = icmp sgt i32 %13, %1
+  %.not = icmp slt i32 %1, %13
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %4, %2

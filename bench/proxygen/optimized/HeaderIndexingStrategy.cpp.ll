@@ -128,7 +128,7 @@ if.end:                                           ; preds = %sw.bb, %if.end.i.i
 
 if.end3.i.i:                                      ; preds = %if.end
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %value.coerce1, i64 -2
-  %cmp741.i.i = icmp ugt ptr %add.ptr.i1.i, %value.coerce0
+  %cmp741.i.i = icmp ult ptr %value.coerce0, %add.ptr.i1.i
   br i1 %cmp741.i.i, label %while.cond8.preheader.i.i, label %sw.epilog
 
 while.cond8.preheader.i.i:                        ; preds = %if.end3.i.i, %if.end28.i.i

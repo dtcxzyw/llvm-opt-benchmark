@@ -115,7 +115,7 @@ sw.epilog:                                        ; preds = %if.end2, %traverse_
   %nchar.0 = phi i32 [ %shr11, %if.end10 ], [ %shr, %if.end5 ], [ %nchar.2.ph, %traverse_string.exit.thread ], [ %len.addr.0, %if.end2 ]
   %cmp19 = icmp sgt i64 %minsize, 0
   %conv21 = sext i32 %nchar.0 to i64
-  %cmp22 = icmp slt i64 %conv21, %minsize
+  %cmp22 = icmp sgt i64 %minsize, %conv21
   %or.cond = select i1 %cmp19, i1 %cmp22, i1 false
   br i1 %or.cond, label %if.then24, label %if.end27
 
@@ -127,7 +127,7 @@ if.then24:                                        ; preds = %sw.epilog
 
 if.end27:                                         ; preds = %sw.epilog
   %cmp28 = icmp sgt i64 %maxsize, 0
-  %cmp32 = icmp sgt i64 %conv21, %maxsize
+  %cmp32 = icmp slt i64 %maxsize, %conv21
   %or.cond42 = select i1 %cmp28, i1 %cmp32, i1 false
   br i1 %or.cond42, label %if.then34, label %if.end38
 
@@ -217,7 +217,7 @@ if.end82:                                         ; preds = %if.else78
 
 if.end83:                                         ; preds = %if.end82, %if.end77
   %dest.0 = phi ptr [ %1, %if.end77 ], [ %call79, %if.end82 ]
-  %cmp84 = icmp eq i32 %outform.0, %inform
+  %cmp84 = icmp eq i32 %inform, %outform.0
   br i1 %cmp84, label %if.then86, label %if.end91
 
 if.then86:                                        ; preds = %if.end83

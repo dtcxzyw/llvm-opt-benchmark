@@ -326,7 +326,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.65808
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -754,7 +754,7 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %2, %._crit_e
   %40 = load i64, ptr %39, align 8, !noundef !10
   %41 = getelementptr inbounds i8, ptr %38, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !10
-  %.not.i.i.i = icmp ugt i64 %42, %40
+  %.not.i.i.i = icmp ult i64 %40, %42
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 43:                                               ; preds = %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit
@@ -795,7 +795,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %104
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
   %49 = add nuw i64 %40, 1
-  %.not.i5.i70.i = icmp ugt i64 %42, %49
+  %.not.i5.i70.i = icmp ult i64 %49, %42
   br i1 %.not.i5.i70.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i: ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i
@@ -849,7 +849,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %53
   %71 = add nuw i64 %40, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %72 = load i64, ptr %41, align 8, !noundef !10
-  %.not.i.i = icmp ugt i64 %72, %71
+  %.not.i.i = icmp ult i64 %71, %72
   br i1 %.not.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread
 
 73:                                               ; preds = %68
@@ -860,7 +860,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %53
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread: ; preds = %69, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
   %74 = phi i32 [ %70, %69 ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i ], [ %70, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ %36, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ]
   %75 = phi i64 [ %72, %69 ], [ %42, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i ], [ %42, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i ], [ %72, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ %42, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ]
-  %.not.i.i67.i31 = icmp ugt i64 %75, %40
+  %.not.i.i67.i31 = icmp ult i64 %40, %75
   br i1 %.not.i.i67.i31, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33: ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread
@@ -872,7 +872,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33: ; preds = %_ZN6par
 
 80:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i33
   %81 = add nuw i64 %40, 1
-  %.not.i5.i70.i34 = icmp ugt i64 %75, %81
+  %.not.i5.i70.i34 = icmp ult i64 %81, %75
   br i1 %.not.i5.i70.i34, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i35, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i35: ; preds = %80
@@ -921,7 +921,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16: ; preds = %85
   %106 = add nuw i64 %40, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %107 = load i64, ptr %41, align 8, !alias.scope !114, !noundef !10
-  %.not.i.i17 = icmp ugt i64 %107, %106
+  %.not.i.i17 = icmp ult i64 %106, %107
   br i1 %.not.i.i17, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 108:                                              ; preds = %102
@@ -973,7 +973,7 @@ _ZN6parser7grammar5paths8use_path17hcb910adb75381146E.exit: ; preds = %115
   %122 = load i64, ptr %39, align 8, !noundef !10
   %123 = getelementptr inbounds i8, ptr %121, i64 16
   %124 = load i64, ptr %123, align 8, !noundef !10
-  %.not.i.i.i22 = icmp ugt i64 %124, %122
+  %.not.i.i.i22 = icmp ult i64 %122, %124
   br i1 %.not.i.i.i22, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread
 
 125:                                              ; preds = %_ZN6parser7grammar5paths8use_path17hcb910adb75381146E.exit
@@ -993,7 +993,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24: ; preds = %119
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i41: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24
   %130 = add nuw i64 %122, 1
-  %.not.i5.i70.i42 = icmp ugt i64 %124, %130
+  %.not.i5.i70.i42 = icmp ult i64 %130, %124
   br i1 %.not.i5.i70.i42, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43: ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68.i41
@@ -1042,7 +1042,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26: ; preds = %134
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %155 = getelementptr inbounds i8, ptr %153, i64 16
   %156 = load i64, ptr %155, align 8, !alias.scope !123, !noundef !10
-  %.not.i.i.i27 = icmp ugt i64 %156, %154
+  %.not.i.i.i27 = icmp ult i64 %154, %156
   br i1 %.not.i.i.i27, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread
 
 157:                                              ; preds = %148
@@ -1117,7 +1117,7 @@ define hidden void @_ZN6parser7grammar5items8use_item13use_tree_list17ha4b2e4e29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !126, !noundef !10
-  %.not.i.i = icmp ugt i64 %11, %9
+  %.not.i.i = icmp ult i64 %9, %11
   br i1 %.not.i.i, label %_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE.exit, label %_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE.exit.thread
 
 _ZN6parser6parser6Parser6nth_at17h20e46c565405313aE.exit: ; preds = %1
@@ -1336,7 +1336,7 @@ define hidden noundef range(i16 0, 273) i16 @_ZN6parser6parser6Parser7current17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !158, !noundef !10
-  %.not.i.i = icmp ugt i64 %13, %11
+  %.not.i.i = icmp ult i64 %11, %13
   br i1 %.not.i.i, label %14, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit
 
 14:                                               ; preds = %6
@@ -1392,7 +1392,7 @@ define hidden noundef range(i16 0, 273) i16 @_ZN6parser6parser6Parser3nth17hd61d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %17 = getelementptr inbounds i8, ptr %13, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !161, !noundef !10
-  %.not.i = icmp ugt i64 %18, %16
+  %.not.i = icmp ult i64 %16, %18
   br i1 %.not.i, label %19, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit
 
 19:                                               ; preds = %10
@@ -1465,7 +1465,7 @@ define hidden noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !164, !noundef !10
-  %.not.i = icmp ugt i64 %11, %8
+  %.not.i = icmp ult i64 %8, %11
   br i1 %.not.i, label %12, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit
 
 12:                                               ; preds = %9
@@ -1483,7 +1483,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit: ; preds = %9, %12
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %5, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !10
-  %.not.i.i = icmp ugt i64 %21, %8
+  %.not.i.i = icmp ult i64 %8, %21
   br i1 %.not.i.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i: ; preds = %19
@@ -1496,7 +1496,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i: ; preds = %19
 
 27:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i
   %28 = add nuw i64 %8, 1
-  %.not.i5.i = icmp ugt i64 %21, %28
+  %.not.i5.i = icmp ult i64 %28, %21
   br i1 %.not.i5.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i: ; preds = %27
@@ -1531,7 +1531,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i: ; preds = %32
 46:                                               ; preds = %3
   %47 = getelementptr inbounds i8, ptr %5, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !10
-  %.not.i.i51 = icmp ugt i64 %48, %8
+  %.not.i.i51 = icmp ult i64 %8, %48
   br i1 %.not.i.i51, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52: ; preds = %46
@@ -1544,7 +1544,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52: ; preds = %46
 
 54:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i52
   %55 = add nuw i64 %8, 1
-  %.not.i7.i = icmp ugt i64 %48, %55
+  %.not.i7.i = icmp ult i64 %55, %48
   br i1 %.not.i7.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i: ; preds = %54
@@ -1555,7 +1555,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i: ; preds = %54
 
 59:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i
   %60 = add nuw i64 %8, 2
-  %.not.i9.i = icmp ugt i64 %48, %60
+  %.not.i9.i = icmp ult i64 %60, %48
   br i1 %.not.i9.i, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i: ; preds = %59
@@ -1607,7 +1607,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i: ; preds = %77
 87:                                               ; preds = %3
   %88 = getelementptr inbounds i8, ptr %5, i64 16
   %89 = load i64, ptr %88, align 8, !noundef !10
-  %.not.i.i56 = icmp ugt i64 %89, %8
+  %.not.i.i56 = icmp ult i64 %8, %89
   br i1 %.not.i.i56, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57: ; preds = %87
@@ -1620,7 +1620,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57: ; preds = %87
 
 95:                                               ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i57
   %96 = add nuw i64 %8, 1
-  %.not.i7.i59 = icmp ugt i64 %89, %96
+  %.not.i7.i59 = icmp ult i64 %96, %89
   br i1 %.not.i7.i59, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60: ; preds = %95
@@ -1631,7 +1631,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60: ; preds = %95
 
 100:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i60
   %101 = add nuw i64 %8, 2
-  %.not.i9.i61 = icmp ugt i64 %89, %101
+  %.not.i9.i61 = icmp ult i64 %101, %89
   br i1 %.not.i9.i61, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i62: ; preds = %100
@@ -1683,7 +1683,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i65: ; preds = %118
 128:                                              ; preds = %3
   %129 = getelementptr inbounds i8, ptr %5, i64 16
   %130 = load i64, ptr %129, align 8, !noundef !10
-  %.not.i.i67 = icmp ugt i64 %130, %8
+  %.not.i.i67 = icmp ult i64 %8, %130
   br i1 %.not.i.i67, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68: ; preds = %128
@@ -1696,7 +1696,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68: ; preds = %128
 
 136:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i68
   %137 = add nuw i64 %8, 1
-  %.not.i5.i70 = icmp ugt i64 %130, %137
+  %.not.i5.i70 = icmp ult i64 %137, %130
   br i1 %.not.i5.i70, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71: ; preds = %136
@@ -1731,7 +1731,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i72: ; preds = %141
 155:                                              ; preds = %3
   %156 = getelementptr inbounds i8, ptr %5, i64 16
   %157 = load i64, ptr %156, align 8, !noundef !10
-  %.not.i.i74 = icmp ugt i64 %157, %8
+  %.not.i.i74 = icmp ult i64 %8, %157
   br i1 %.not.i.i74, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75: ; preds = %155
@@ -1744,7 +1744,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75: ; preds = %155
 
 163:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i75
   %164 = add nuw i64 %8, 1
-  %.not.i5.i77 = icmp ugt i64 %157, %164
+  %.not.i5.i77 = icmp ult i64 %164, %157
   br i1 %.not.i5.i77, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i78: ; preds = %163
@@ -1779,7 +1779,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i79: ; preds = %168
 182:                                              ; preds = %3
   %183 = getelementptr inbounds i8, ptr %5, i64 16
   %184 = load i64, ptr %183, align 8, !noundef !10
-  %.not.i.i81 = icmp ugt i64 %184, %8
+  %.not.i.i81 = icmp ult i64 %8, %184
   br i1 %.not.i.i81, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82: ; preds = %182
@@ -1792,7 +1792,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82: ; preds = %182
 
 190:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i82
   %191 = add nuw i64 %8, 1
-  %.not.i5.i84 = icmp ugt i64 %184, %191
+  %.not.i5.i84 = icmp ult i64 %191, %184
   br i1 %.not.i5.i84, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i85: ; preds = %190
@@ -1827,7 +1827,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i86: ; preds = %195
 209:                                              ; preds = %3
   %210 = getelementptr inbounds i8, ptr %5, i64 16
   %211 = load i64, ptr %210, align 8, !noundef !10
-  %.not.i.i88 = icmp ugt i64 %211, %8
+  %.not.i.i88 = icmp ult i64 %8, %211
   br i1 %.not.i.i88, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89: ; preds = %209
@@ -1840,7 +1840,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89: ; preds = %209
 
 217:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i89
   %218 = add nuw i64 %8, 1
-  %.not.i5.i91 = icmp ugt i64 %211, %218
+  %.not.i5.i91 = icmp ult i64 %218, %211
   br i1 %.not.i5.i91, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i92: ; preds = %217
@@ -1875,7 +1875,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i93: ; preds = %222
 236:                                              ; preds = %3
   %237 = getelementptr inbounds i8, ptr %5, i64 16
   %238 = load i64, ptr %237, align 8, !noundef !10
-  %.not.i.i95 = icmp ugt i64 %238, %8
+  %.not.i.i95 = icmp ult i64 %8, %238
   br i1 %.not.i.i95, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96: ; preds = %236
@@ -1888,7 +1888,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96: ; preds = %236
 
 244:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i96
   %245 = add nuw i64 %8, 1
-  %.not.i5.i98 = icmp ugt i64 %238, %245
+  %.not.i5.i98 = icmp ult i64 %245, %238
   br i1 %.not.i5.i98, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i99: ; preds = %244
@@ -1923,7 +1923,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i100: ; preds = %249
 263:                                              ; preds = %3
   %264 = getelementptr inbounds i8, ptr %5, i64 16
   %265 = load i64, ptr %264, align 8, !noundef !10
-  %.not.i.i102 = icmp ugt i64 %265, %8
+  %.not.i.i102 = icmp ult i64 %8, %265
   br i1 %.not.i.i102, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103: ; preds = %263
@@ -1936,7 +1936,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103: ; preds = %263
 
 271:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i103
   %272 = add nuw i64 %8, 1
-  %.not.i5.i105 = icmp ugt i64 %265, %272
+  %.not.i5.i105 = icmp ult i64 %272, %265
   br i1 %.not.i5.i105, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i106: ; preds = %271
@@ -1971,7 +1971,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i107: ; preds = %276
 290:                                              ; preds = %3
   %291 = getelementptr inbounds i8, ptr %5, i64 16
   %292 = load i64, ptr %291, align 8, !noundef !10
-  %.not.i.i109 = icmp ugt i64 %292, %8
+  %.not.i.i109 = icmp ult i64 %8, %292
   br i1 %.not.i.i109, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110: ; preds = %290
@@ -1984,7 +1984,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110: ; preds = %290
 
 298:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i110
   %299 = add nuw i64 %8, 1
-  %.not.i5.i112 = icmp ugt i64 %292, %299
+  %.not.i5.i112 = icmp ult i64 %299, %292
   br i1 %.not.i5.i112, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i113: ; preds = %298
@@ -2019,7 +2019,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i114: ; preds = %303
 317:                                              ; preds = %3
   %318 = getelementptr inbounds i8, ptr %5, i64 16
   %319 = load i64, ptr %318, align 8, !noundef !10
-  %.not.i.i116 = icmp ugt i64 %319, %8
+  %.not.i.i116 = icmp ult i64 %8, %319
   br i1 %.not.i.i116, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117: ; preds = %317
@@ -2032,7 +2032,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117: ; preds = %317
 
 325:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i117
   %326 = add nuw i64 %8, 1
-  %.not.i5.i119 = icmp ugt i64 %319, %326
+  %.not.i5.i119 = icmp ult i64 %326, %319
   br i1 %.not.i5.i119, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i120: ; preds = %325
@@ -2067,7 +2067,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i121: ; preds = %330
 344:                                              ; preds = %3
   %345 = getelementptr inbounds i8, ptr %5, i64 16
   %346 = load i64, ptr %345, align 8, !noundef !10
-  %.not.i.i123 = icmp ugt i64 %346, %8
+  %.not.i.i123 = icmp ult i64 %8, %346
   br i1 %.not.i.i123, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124: ; preds = %344
@@ -2080,7 +2080,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124: ; preds = %344
 
 352:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i124
   %353 = add nuw i64 %8, 1
-  %.not.i5.i126 = icmp ugt i64 %346, %353
+  %.not.i5.i126 = icmp ult i64 %353, %346
   br i1 %.not.i5.i126, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i127: ; preds = %352
@@ -2115,7 +2115,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i128: ; preds = %357
 371:                                              ; preds = %3
   %372 = getelementptr inbounds i8, ptr %5, i64 16
   %373 = load i64, ptr %372, align 8, !noundef !10
-  %.not.i.i130 = icmp ugt i64 %373, %8
+  %.not.i.i130 = icmp ult i64 %8, %373
   br i1 %.not.i.i130, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131: ; preds = %371
@@ -2128,7 +2128,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131: ; preds = %371
 
 379:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i131
   %380 = add nuw i64 %8, 1
-  %.not.i5.i133 = icmp ugt i64 %373, %380
+  %.not.i5.i133 = icmp ult i64 %380, %373
   br i1 %.not.i5.i133, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i134: ; preds = %379
@@ -2163,7 +2163,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i135: ; preds = %384
 398:                                              ; preds = %3
   %399 = getelementptr inbounds i8, ptr %5, i64 16
   %400 = load i64, ptr %399, align 8, !noundef !10
-  %.not.i.i137 = icmp ugt i64 %400, %8
+  %.not.i.i137 = icmp ult i64 %8, %400
   br i1 %.not.i.i137, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138: ; preds = %398
@@ -2176,7 +2176,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138: ; preds = %398
 
 406:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i138
   %407 = add nuw i64 %8, 1
-  %.not.i5.i140 = icmp ugt i64 %400, %407
+  %.not.i5.i140 = icmp ult i64 %407, %400
   br i1 %.not.i5.i140, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i141: ; preds = %406
@@ -2211,7 +2211,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i142: ; preds = %411
 425:                                              ; preds = %3
   %426 = getelementptr inbounds i8, ptr %5, i64 16
   %427 = load i64, ptr %426, align 8, !noundef !10
-  %.not.i.i144 = icmp ugt i64 %427, %8
+  %.not.i.i144 = icmp ult i64 %8, %427
   br i1 %.not.i.i144, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145: ; preds = %425
@@ -2224,7 +2224,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145: ; preds = %425
 
 433:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i145
   %434 = add nuw i64 %8, 1
-  %.not.i5.i147 = icmp ugt i64 %427, %434
+  %.not.i5.i147 = icmp ult i64 %434, %427
   br i1 %.not.i5.i147, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i148: ; preds = %433
@@ -2259,7 +2259,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i149: ; preds = %438
 452:                                              ; preds = %3
   %453 = getelementptr inbounds i8, ptr %5, i64 16
   %454 = load i64, ptr %453, align 8, !noundef !10
-  %.not.i.i151 = icmp ugt i64 %454, %8
+  %.not.i.i151 = icmp ult i64 %8, %454
   br i1 %.not.i.i151, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152: ; preds = %452
@@ -2272,7 +2272,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152: ; preds = %452
 
 460:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i152
   %461 = add nuw i64 %8, 1
-  %.not.i5.i154 = icmp ugt i64 %454, %461
+  %.not.i5.i154 = icmp ult i64 %461, %454
   br i1 %.not.i5.i154, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i155: ; preds = %460
@@ -2307,7 +2307,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i156: ; preds = %465
 479:                                              ; preds = %3
   %480 = getelementptr inbounds i8, ptr %5, i64 16
   %481 = load i64, ptr %480, align 8, !noundef !10
-  %.not.i.i158 = icmp ugt i64 %481, %8
+  %.not.i.i158 = icmp ult i64 %8, %481
   br i1 %.not.i.i158, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159: ; preds = %479
@@ -2320,7 +2320,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159: ; preds = %479
 
 487:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i159
   %488 = add nuw i64 %8, 1
-  %.not.i5.i161 = icmp ugt i64 %481, %488
+  %.not.i5.i161 = icmp ult i64 %488, %481
   br i1 %.not.i5.i161, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i162: ; preds = %487
@@ -2355,7 +2355,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i163: ; preds = %492
 506:                                              ; preds = %3
   %507 = getelementptr inbounds i8, ptr %5, i64 16
   %508 = load i64, ptr %507, align 8, !noundef !10
-  %.not.i.i165 = icmp ugt i64 %508, %8
+  %.not.i.i165 = icmp ult i64 %8, %508
   br i1 %.not.i.i165, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166: ; preds = %506
@@ -2368,7 +2368,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166: ; preds = %506
 
 514:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i166
   %515 = add nuw i64 %8, 1
-  %.not.i5.i168 = icmp ugt i64 %508, %515
+  %.not.i5.i168 = icmp ult i64 %515, %508
   br i1 %.not.i5.i168, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i169: ; preds = %514
@@ -2403,7 +2403,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i170: ; preds = %519
 533:                                              ; preds = %3
   %534 = getelementptr inbounds i8, ptr %5, i64 16
   %535 = load i64, ptr %534, align 8, !noundef !10
-  %.not.i.i172 = icmp ugt i64 %535, %8
+  %.not.i.i172 = icmp ult i64 %8, %535
   br i1 %.not.i.i172, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173: ; preds = %533
@@ -2416,7 +2416,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173: ; preds = %533
 
 541:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i173
   %542 = add nuw i64 %8, 1
-  %.not.i5.i175 = icmp ugt i64 %535, %542
+  %.not.i5.i175 = icmp ult i64 %542, %535
   br i1 %.not.i5.i175, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i176: ; preds = %541
@@ -2451,7 +2451,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i177: ; preds = %546
 560:                                              ; preds = %3
   %561 = getelementptr inbounds i8, ptr %5, i64 16
   %562 = load i64, ptr %561, align 8, !noundef !10
-  %.not.i.i179 = icmp ugt i64 %562, %8
+  %.not.i.i179 = icmp ult i64 %8, %562
   br i1 %.not.i.i179, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180: ; preds = %560
@@ -2464,7 +2464,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180: ; preds = %560
 
 568:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i180
   %569 = add nuw i64 %8, 1
-  %.not.i5.i182 = icmp ugt i64 %562, %569
+  %.not.i5.i182 = icmp ult i64 %569, %562
   br i1 %.not.i5.i182, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i183: ; preds = %568
@@ -2499,7 +2499,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i184: ; preds = %573
 587:                                              ; preds = %3
   %588 = getelementptr inbounds i8, ptr %5, i64 16
   %589 = load i64, ptr %588, align 8, !noundef !10
-  %.not.i.i186 = icmp ugt i64 %589, %8
+  %.not.i.i186 = icmp ult i64 %8, %589
   br i1 %.not.i.i186, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187: ; preds = %587
@@ -2512,7 +2512,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187: ; preds = %587
 
 595:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i187
   %596 = add nuw i64 %8, 1
-  %.not.i5.i189 = icmp ugt i64 %589, %596
+  %.not.i5.i189 = icmp ult i64 %596, %589
   br i1 %.not.i5.i189, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i190: ; preds = %595
@@ -2547,7 +2547,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i191: ; preds = %600
 614:                                              ; preds = %3
   %615 = getelementptr inbounds i8, ptr %5, i64 16
   %616 = load i64, ptr %615, align 8, !noundef !10
-  %.not.i.i193 = icmp ugt i64 %616, %8
+  %.not.i.i193 = icmp ult i64 %8, %616
   br i1 %.not.i.i193, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194: ; preds = %614
@@ -2560,7 +2560,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194: ; preds = %614
 
 622:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i194
   %623 = add nuw i64 %8, 1
-  %.not.i5.i196 = icmp ugt i64 %616, %623
+  %.not.i5.i196 = icmp ult i64 %623, %616
   br i1 %.not.i5.i196, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i197: ; preds = %622
@@ -2595,7 +2595,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit.i198: ; preds = %627
 641:                                              ; preds = %3
   %642 = getelementptr inbounds i8, ptr %5, i64 16
   %643 = load i64, ptr %642, align 8, !noundef !10
-  %.not.i.i200 = icmp ugt i64 %643, %8
+  %.not.i.i200 = icmp ult i64 %8, %643
   br i1 %.not.i.i200, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201: ; preds = %641
@@ -2608,7 +2608,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201: ; preds = %641
 
 649:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i201
   %650 = add nuw i64 %8, 1
-  %.not.i7.i203 = icmp ugt i64 %643, %650
+  %.not.i7.i203 = icmp ult i64 %650, %643
   br i1 %.not.i7.i203, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204: ; preds = %649
@@ -2619,7 +2619,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204: ; preds = %649
 
 654:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i204
   %655 = add nuw i64 %8, 2
-  %.not.i9.i205 = icmp ugt i64 %643, %655
+  %.not.i9.i205 = icmp ult i64 %655, %643
   br i1 %.not.i9.i205, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i206: ; preds = %654
@@ -2671,7 +2671,7 @@ _ZN6parser5input5Input8is_joint17hb0a3d6423dc3deddE.exit11.i209: ; preds = %672
 682:                                              ; preds = %3
   %683 = getelementptr inbounds i8, ptr %5, i64 16
   %684 = load i64, ptr %683, align 8, !noundef !10
-  %.not.i.i211 = icmp ugt i64 %684, %8
+  %.not.i.i211 = icmp ult i64 %8, %684
   br i1 %.not.i.i211, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212: ; preds = %682
@@ -2684,7 +2684,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212: ; preds = %682
 
 690:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i212
   %691 = add nuw i64 %8, 1
-  %.not.i7.i214 = icmp ugt i64 %684, %691
+  %.not.i7.i214 = icmp ult i64 %691, %684
   br i1 %.not.i7.i214, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215: ; preds = %690
@@ -2695,7 +2695,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215: ; preds = %690
 
 695:                                              ; preds = %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit8.i215
   %696 = add nuw i64 %8, 2
-  %.not.i9.i216 = icmp ugt i64 %684, %696
+  %.not.i9.i216 = icmp ult i64 %696, %684
   br i1 %.not.i9.i216, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217, label %_ZN6parser6parser6Parser13at_composite217hb1d067bb41300a46E.exit
 
 _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit10.i217: ; preds = %695
@@ -2845,7 +2845,7 @@ define hidden noundef zeroext i1 @_ZN6parser6parser6Parser5at_ts17hf08b800e2db90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !418, !noundef !10
-  %.not.i.i.i = icmp ugt i64 %14, %12
+  %.not.i.i.i = icmp ult i64 %12, %14
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit, label %_ZN6parser9token_set8TokenSet8contains17h30a4f636c2a0b788E.exit
 
 15:                                               ; preds = %2
@@ -2898,7 +2898,7 @@ define hidden noundef zeroext i1 @_ZN6parser6parser6Parser16at_contextual_kw17h3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !425)
   %7 = getelementptr inbounds i8, ptr %4, i64 64
   %8 = load i64, ptr %7, align 8, !alias.scope !425, !noundef !10
-  %.not.i = icmp ugt i64 %8, %6
+  %.not.i = icmp ult i64 %6, %8
   br i1 %.not.i, label %9, label %_ZN6parser5input5Input15contextual_kind17hed87eec67e168dd5E.exit
 
 9:                                                ; preds = %2
@@ -2924,7 +2924,7 @@ define hidden noundef zeroext i1 @_ZN6parser6parser6Parser20nth_at_contextual_kw
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   %9 = getelementptr inbounds i8, ptr %5, i64 64
   %10 = load i64, ptr %9, align 8, !alias.scope !428, !noundef !10
-  %.not.i = icmp ugt i64 %10, %8
+  %.not.i = icmp ult i64 %8, %10
   br i1 %.not.i, label %11, label %_ZN6parser5input5Input15contextual_kind17hed87eec67e168dd5E.exit
 
 11:                                               ; preds = %3
@@ -3100,7 +3100,7 @@ define hidden void @_ZN6parser6parser6Parser8bump_any17haad6ae469b0493f0E(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !460, !noundef !10
-  %.not.i.i = icmp ugt i64 %14, %12
+  %.not.i.i = icmp ult i64 %12, %14
   br i1 %.not.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread
 
 15:                                               ; preds = %1
@@ -3195,7 +3195,7 @@ define hidden void @_ZN6parser6parser6Parser11split_float17h6918f154bc8d16b1E(pt
   tail call void @llvm.experimental.noalias.scope.decl(metadata !474)
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !474, !noundef !10
-  %.not.i.i = icmp ugt i64 %14, %12
+  %.not.i.i = icmp ult i64 %12, %14
   br i1 %.not.i.i, label %17, label %.thread
 
 .body:                                            ; preds = %83, %60, %46, %15, %109
@@ -3488,7 +3488,7 @@ define hidden void @_ZN6parser6parser6Parser10bump_remap17h8de6cdf5da12fe57E(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !530)
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !530, !noundef !10
-  %.not.i.i = icmp ugt i64 %15, %13
+  %.not.i.i = icmp ult i64 %13, %15
   br i1 %.not.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread
 
 16:                                               ; preds = %2
@@ -3742,7 +3742,7 @@ define hidden void @_ZN6parser6parser6Parser11err_recover17hece7c382b6a3361aE(pt
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   %22 = getelementptr inbounds i8, ptr %19, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !579, !noundef !10
-  %.not.i.i.i = icmp ugt i64 %23, %21
+  %.not.i.i.i = icmp ult i64 %21, %23
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 24:                                               ; preds = %4
@@ -3778,7 +3778,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %16,
   store i32 %35, ptr %13, align 8, !noalias !582
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   %36 = load i64, ptr %22, align 8, !alias.scope !585, !noalias !582, !noundef !10
-  %.not.i.i.i.i = icmp ugt i64 %36, %21
+  %.not.i.i.i.i = icmp ult i64 %21, %36
   br i1 %.not.i.i.i.i, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i, label %_ZN6parser6parser6Parser5at_ts17hf08b800e2db90132E.exit
 
 37:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread

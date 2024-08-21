@@ -835,7 +835,7 @@ _ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit: ; 
 
 21:                                               ; preds = %18
   %.not.i.i.i4 = icmp ne ptr %19, null
-  %22 = icmp eq ptr %5, %20
+  %22 = icmp eq ptr %20, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
   br i1 %or.cond.i.i.i, label %.thread.i, label %23
 
@@ -1668,12 +1668,12 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %67, %_ZNSt6vectorIP
   %93 = getelementptr inbounds ptr, ptr %91, i64 %.01839
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8
-  %96 = icmp eq ptr %95, %94
+  %96 = icmp eq ptr %94, %95
   %97 = load ptr, ptr @_ZN11FactPointTo11garbage_ptrE, align 8
-  %98 = icmp eq ptr %97, %94
+  %98 = icmp eq ptr %94, %97
   %or.cond.i = select i1 %96, i1 true, i1 %98
   %99 = load ptr, ptr @_ZN11FactPointTo7tbd_ptrE, align 8
-  %100 = icmp eq ptr %99, %94
+  %100 = icmp eq ptr %94, %99
   %or.cond = select i1 %or.cond.i, i1 true, i1 %100
   br i1 %or.cond, label %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread, label %101
 
@@ -1974,12 +1974,12 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %67, %_ZNSt6vectorIP
   %94 = getelementptr inbounds ptr, ptr %92, i64 %.02344.us
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8
-  %97 = icmp eq ptr %96, %95
+  %97 = icmp eq ptr %95, %96
   %98 = load ptr, ptr @_ZN11FactPointTo11garbage_ptrE, align 8
-  %99 = icmp eq ptr %98, %95
+  %99 = icmp eq ptr %95, %98
   %or.cond.i.us = select i1 %97, i1 true, i1 %99
   %100 = load ptr, ptr @_ZN11FactPointTo7tbd_ptrE, align 8
-  %101 = icmp eq ptr %100, %95
+  %101 = icmp eq ptr %95, %100
   %or.cond.us = select i1 %or.cond.i.us, i1 true, i1 %101
   br i1 %or.cond.us, label %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us, label %102
 
@@ -2018,12 +2018,12 @@ _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread.us: ; preds = %._ZN11Fa
   %115 = getelementptr inbounds ptr, ptr %113, i64 %.02344
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr @_ZN11FactPointTo8null_ptrE, align 8
-  %118 = icmp eq ptr %117, %116
+  %118 = icmp eq ptr %116, %117
   %119 = load ptr, ptr @_ZN11FactPointTo11garbage_ptrE, align 8
-  %120 = icmp eq ptr %119, %116
+  %120 = icmp eq ptr %116, %119
   %or.cond.i = select i1 %118, i1 true, i1 %120
   %121 = load ptr, ptr @_ZN11FactPointTo7tbd_ptrE, align 8
-  %122 = icmp eq ptr %121, %116
+  %122 = icmp eq ptr %116, %121
   %or.cond = select i1 %or.cond.i, i1 true, i1 %122
   br i1 %or.cond, label %_ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread, label %123
 
@@ -3998,7 +3998,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

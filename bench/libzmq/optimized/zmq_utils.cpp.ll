@@ -214,7 +214,7 @@ if.end15:                                         ; preds = %while.body7, %while
   %char_nbr.1 = phi i32 [ %char_nbr.013, %while.body ], [ %1, %while.body7 ]
   %value.1 = phi i32 [ %add, %while.body ], [ 0, %while.body7 ]
   %conv = zext i32 %inc to i64
-  %cmp1 = icmp ult i64 %conv, %size_
+  %cmp1 = icmp ugt i64 %size_, %conv
   br i1 %cmp1, label %while.body, label %while.end16.loopexit, !llvm.loop !6
 
 while.end16.loopexit:                             ; preds = %if.end15

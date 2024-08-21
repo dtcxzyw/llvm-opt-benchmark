@@ -3565,7 +3565,7 @@ define internal fastcc void @add_thresholds(ptr noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_events(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %7 = icmp sgt i32 %6, %1
+  %7 = icmp slt i32 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %27

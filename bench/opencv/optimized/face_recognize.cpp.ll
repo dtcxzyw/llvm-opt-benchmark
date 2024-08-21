@@ -1209,8 +1209,8 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit166: ; preds = %._ZN2cv20MatComm
   call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %11) #18
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #18
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #18
-  %179 = fneg double %113
-  %180 = fmul double %123, %179
+  %179 = fneg double %123
+  %180 = fmul double %113, %179
   %181 = call double @llvm.fmuladd.f64(double %103, double %124, double %180)
   %182 = fcmp olt double %181, 0.000000e+00
   %.sroa.449.0 = select i1 %182, double -1.000000e+00, double 1.000000e+00
@@ -1296,11 +1296,11 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit166: ; preds = %._ZN2cv20MatComm
   %234 = load double, ptr %224, align 8
   %235 = getelementptr inbounds i8, ptr %218, i64 8
   %236 = load double, ptr %235, align 8
-  %237 = fneg double %221
-  %238 = fmul double %219, %237
+  %237 = fneg double %219
+  %238 = fmul double %221, %237
   %239 = call double @llvm.fmuladd.f64(double %222, double %236, double %238)
-  %240 = fneg double %233
-  %241 = fmul double %231, %240
+  %240 = fneg double %231
+  %241 = fmul double %233, %240
   %242 = call double @llvm.fmuladd.f64(double %234, double %230, double %241)
   %243 = fmul double %242, %239
   %244 = fcmp ogt double %243, 0.000000e+00

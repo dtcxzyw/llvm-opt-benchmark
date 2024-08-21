@@ -1227,7 +1227,7 @@ if.end3:                                          ; preds = %if.then7.i, %scan_e
 land.lhs.true2.i:                                 ; preds = %if.end3
   %4 = getelementptr i8, ptr %self.val, i64 16
   %.val.i = load i64, ptr %4, align 8
-  %cmp3.i = icmp eq i64 %.val.i, %retval.0.i420
+  %cmp3.i = icmp eq i64 %retval.0.i420, %.val.i
   br i1 %cmp3.i, label %land.lhs.true4.i, label %if.end.i7
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true2.i
@@ -1751,7 +1751,7 @@ if.end.i.i:                                       ; preds = %skip_optional
   %5 = load i64, ptr %pos.i.i, align 8
   %sub.i.i = sub i64 %4, %5
   %cmp.i.i = icmp slt i64 %3, 0
-  %cmp1.i.i = icmp slt i64 %sub.i.i, %3
+  %cmp1.i.i = icmp sgt i64 %3, %sub.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   %spec.store.select.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
   %size.addr.0.i.i = select i1 %or.cond.i.i, i64 %spec.store.select.i.i, i64 %3
@@ -1763,7 +1763,7 @@ if.end.i.i:                                       ; preds = %skip_optional
 land.lhs.true2.i.i.i:                             ; preds = %if.end.i.i
   %6 = getelementptr i8, ptr %self.val.i.i, i64 16
   %.val.i.i.i = load i64, ptr %6, align 8
-  %cmp3.i.i.i = icmp eq i64 %.val.i.i.i, %size.addr.0.i.i
+  %cmp3.i.i.i = icmp eq i64 %size.addr.0.i.i, %.val.i.i.i
   br i1 %cmp3.i.i.i, label %land.lhs.true4.i.i.i, label %if.end.i.i.i
 
 land.lhs.true4.i.i.i:                             ; preds = %land.lhs.true2.i.i.i
@@ -1907,7 +1907,7 @@ if.end.i:                                         ; preds = %skip_optional
 if.end.i.i:                                       ; preds = %if.end.i
   %sub.i.i = sub i64 %5, %4
   %cmp3.i.i = icmp slt i64 %1, 0
-  %6 = call i64 @llvm.smin.i64(i64 %sub.i.i, i64 %1)
+  %6 = call i64 @llvm.smin.i64(i64 %1, i64 %sub.i.i)
   %len.addr.0.i.i = select i1 %cmp3.i.i, i64 %sub.i.i, i64 %6
   %tobool.not.i.i = icmp eq i64 %len.addr.0.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i6.i, label %if.then7.i.i
@@ -1930,7 +1930,7 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
 land.lhs.true2.i.i:                               ; preds = %if.then7.i.i
   %7 = getelementptr i8, ptr %self.val.i, i64 16
   %.val.i.i = load i64, ptr %7, align 8
-  %cmp3.i11.i = icmp eq i64 %.val.i.i, %retval.0.i3.i
+  %cmp3.i11.i = icmp eq i64 %retval.0.i3.i, %.val.i.i
   br i1 %cmp3.i11.i, label %land.lhs.true4.i.i, label %if.end.i6.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true2.i.i
@@ -2253,7 +2253,7 @@ if.end.i:                                         ; preds = %skip_optional
   %5 = load i64, ptr %pos.i, align 8
   %sub.i = sub i64 %4, %5
   %cmp.i = icmp slt i64 %3, 0
-  %cmp1.i = icmp slt i64 %sub.i, %3
+  %cmp1.i = icmp sgt i64 %3, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp1.i
   %spec.store.select.i = call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   %size.addr.0.i = select i1 %or.cond.i, i64 %spec.store.select.i, i64 %3
@@ -2265,7 +2265,7 @@ if.end.i:                                         ; preds = %skip_optional
 land.lhs.true2.i.i:                               ; preds = %if.end.i
   %6 = getelementptr i8, ptr %self.val.i, i64 16
   %.val.i.i = load i64, ptr %6, align 8
-  %cmp3.i.i = icmp eq i64 %.val.i.i, %size.addr.0.i
+  %cmp3.i.i = icmp eq i64 %size.addr.0.i, %.val.i.i
   br i1 %cmp3.i.i, label %land.lhs.true4.i.i, label %if.end.i.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true2.i.i
@@ -2470,7 +2470,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %pos7.i = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load i64, ptr %pos7.i, align 8
   %sub.i = sub i64 9223372036854775807, %8
-  %cmp8.i = icmp slt i64 %sub.i, %ival.015
+  %cmp8.i = icmp sgt i64 %ival.015, %sub.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end10.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -2486,7 +2486,7 @@ if.then13.i:                                      ; preds = %if.end4.i
   %string_size.i = getelementptr inbounds i8, ptr %self, i64 32
   %10 = load i64, ptr %string_size.i, align 8
   %sub14.i = sub i64 9223372036854775807, %10
-  %cmp15.i = icmp slt i64 %sub14.i, %ival.015
+  %cmp15.i = icmp sgt i64 %ival.015, %sub14.i
   br i1 %cmp15.i, label %if.then16.i, label %if.end17.i
 
 if.then16.i:                                      ; preds = %if.then13.i
@@ -2580,7 +2580,7 @@ if.then5.i:                                       ; preds = %if.end4.i
 if.end7.i:                                        ; preds = %if.end4.i
   %string_size.i = getelementptr inbounds i8, ptr %self, i64 32
   %8 = load i64, ptr %string_size.i, align 8
-  %cmp8.i = icmp sgt i64 %8, %2
+  %cmp8.i = icmp slt i64 %2, %8
   br i1 %cmp8.i, label %if.then9.i, label %if.end15.i
 
 if.then9.i:                                       ; preds = %if.end7.i
@@ -2985,7 +2985,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %div17 = lshr i64 %.val18, 1
-  %cmp1 = icmp ugt i64 %div17, %size
+  %cmp1 = icmp ult i64 %size, %div17
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -2993,7 +2993,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end23
 
 if.else:                                          ; preds = %if.end
-  %cmp3 = icmp ugt i64 %.val18, %size
+  %cmp3 = icmp ult i64 %size, %.val18
   br i1 %cmp3, label %return, label %if.else5
 
 if.else5:                                         ; preds = %if.else

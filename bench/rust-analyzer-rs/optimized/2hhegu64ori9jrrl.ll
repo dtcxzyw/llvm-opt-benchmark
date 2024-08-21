@@ -986,7 +986,7 @@ define internal fastcc void @_ZN10test_utils18try_extract_offset17hc79f1a2791bbc
           to label %71 unwind label %69
 
 26:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %17, %10
-  %27 = icmp ult i64 %13, %.sroa.3.0.i
+  %27 = icmp ugt i64 %.sroa.3.0.i, %13
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
@@ -1047,7 +1047,7 @@ define internal fastcc void @_ZN10test_utils18try_extract_offset17hc79f1a2791bbc
   %53 = getelementptr inbounds i8, ptr %1, i64 %38
   %54 = load i64, ptr %6, align 8, !alias.scope !140, !noalias !147, !noundef !8
   %55 = sub i64 %54, %37
-  %56 = icmp ult i64 %55, %52
+  %56 = icmp ugt i64 %52, %55
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %51
@@ -1597,7 +1597,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit119: ; preds = %5
   %69 = load i64, ptr %.sroa.562.0..sroa_idx, align 8, !alias.scope !207, !noalias !212, !noundef !8
   %70 = load i64, ptr %25, align 8, !alias.scope !214, !noalias !212, !noundef !8
   %71 = sub i64 %70, %69
-  %72 = icmp ult i64 %71, %.sroa.22.0
+  %72 = icmp ugt i64 %.sroa.22.0, %71
   br i1 %72, label %73, label %85
 
 73:                                               ; preds = %68
@@ -1764,7 +1764,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit119: ; preds = %5
   %127 = load i64, ptr %.sroa.562.0..sroa_idx, align 8, !alias.scope !253, !noalias !258, !noundef !8
   %128 = load i64, ptr %25, align 8, !alias.scope !260, !noalias !258, !noundef !8
   %129 = sub i64 %128, %127
-  %130 = icmp ult i64 %129, %.sroa.3.0.i
+  %130 = icmp ugt i64 %.sroa.3.0.i, %129
   br i1 %130, label %131, label %139
 
 131:                                              ; preds = %.thread185
@@ -2240,11 +2240,11 @@ define void @_ZN10test_utils10add_cursor17ha0cac3787ce171adE(ptr noalias nocaptu
   br i1 %7, label %20, label %8
 
 8:                                                ; preds = %4
-  %.not.i.i = icmp ult i64 %6, %2
+  %.not.i.i = icmp ugt i64 %2, %6
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %9
 
 9:                                                ; preds = %8
-  %10 = icmp eq i64 %6, %2
+  %10 = icmp eq i64 %2, %6
   br i1 %10, label %16, label %.invoke
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %8
@@ -2312,11 +2312,11 @@ define void @_ZN10test_utils10add_cursor17ha0cac3787ce171adE(ptr noalias nocaptu
   br i1 %7, label %50, label %39
 
 39:                                               ; preds = %33
-  %.not.i.i15 = icmp ult i64 %6, %2
+  %.not.i.i15 = icmp ugt i64 %2, %6
   br i1 %.not.i.i15, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i17", label %40
 
 40:                                               ; preds = %39
-  %41 = icmp eq i64 %6, %2
+  %41 = icmp eq i64 %2, %6
   %42 = sub nsw i64 %2, %6
   br i1 %41, label %50, label %.invoke
 
@@ -2341,7 +2341,7 @@ define void @_ZN10test_utils10add_cursor17ha0cac3787ce171adE(ptr noalias nocaptu
   %51 = phi i64 [ %46, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i17" ], [ %42, %40 ], [ %2, %33 ]
   %52 = load i64, ptr %5, align 8, !alias.scope !366, !noalias !373, !noundef !8
   %53 = sub i64 %52, %38
-  %54 = icmp ult i64 %53, %51
+  %54 = icmp ugt i64 %51, %53
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %50
@@ -3258,7 +3258,7 @@ define void @_ZN10test_utils19extract_annotations17h088257abe04bfcbdE(ptr noalia
 
 .loopexit234.i:                                   ; preds = %365, %334, %381
   %383 = phi i64 [ %382, %381 ], [ %217, %334 ], [ %217, %365 ]
-  %384 = icmp ugt i64 %383, %287
+  %384 = icmp ult i64 %287, %383
   %or.cond222.i = select i1 %333, i1 %384, i1 false
   br i1 %or.cond222.i, label %385, label %"_ZN10test_utils24extract_line_annotations28_$u7b$$u7b$closure$u7d$$u7d$17hff744304455709bbE.exit.thread.i"
 
@@ -4226,7 +4226,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   %731 = load i64, ptr %730, align 8, !alias.scope !649, !noalias !654, !noundef !8
   %732 = load i64, ptr %729, align 8, !alias.scope !656, !noalias !654, !noundef !8
   %733 = sub i64 %732, %731
-  %734 = icmp ult i64 %733, %728
+  %734 = icmp ugt i64 %728, %733
   br i1 %734, label %735, label %739
 
 735:                                              ; preds = %725
@@ -5044,7 +5044,7 @@ define void @_ZN10test_utils11format_diff17hba53f851820077c7E(ptr noalias nocapt
   %50 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !850, !noalias !855, !noundef !8
   %51 = load i64, ptr %15, align 8, !alias.scope !857, !noalias !855, !noundef !8
   %52 = sub i64 %51, %50
-  %53 = icmp ult i64 %52, %49
+  %53 = icmp ugt i64 %49, %52
   br i1 %53, label %54, label %64
 
 54:                                               ; preds = %47
@@ -5700,7 +5700,7 @@ define internal fastcc void @_ZN10test_utils18normalize_newlines17h43fbf88e56b0b
   %19 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1037, !noalias !1042, !noundef !8
   %20 = load i64, ptr %7, align 8, !alias.scope !1044, !noalias !1042, !noundef !8
   %21 = sub i64 %20, %19
-  %22 = icmp ult i64 %21, %18
+  %22 = icmp ugt i64 %18, %21
   br i1 %22, label %23, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h9c0e743e5d73e351E.exit"
 
 23:                                               ; preds = %17
@@ -5726,7 +5726,7 @@ define internal fastcc void @_ZN10test_utils18normalize_newlines17h43fbf88e56b0b
   %32 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1047, !noalias !1052, !noundef !8
   %33 = load i64, ptr %7, align 8, !alias.scope !1054, !noalias !1052, !noundef !8
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %31
+  %35 = icmp ugt i64 %31, %34
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %27

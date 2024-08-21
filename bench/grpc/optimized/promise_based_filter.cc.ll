@@ -3501,7 +3501,7 @@ sw.bb11:                                          ; preds = %if.end, %if.end
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %sw.bb11, %9
   %10 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %11 = load ptr, ptr %10, align 8
-  %cmp.i = icmp eq ptr %11, %8
+  %cmp.i = icmp eq ptr %8, %11
   br i1 %cmp.i, label %if.then15, label %sw.epilog
 
 if.then15:                                        ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
@@ -3641,7 +3641,7 @@ _ZNSt8optionalIN9grpc_core14promise_detail3SeqINS0_11pipe_detail4NextISt10unique
 _ZNK9grpc_core8Activity10is_currentEv.exit29:     ; preds = %_ZNSt8optionalIN9grpc_core14promise_detail3SeqINS0_11pipe_detail4NextISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEEJZNS0_12PipeReceiverIS9_E4NextEvEUlS_IS9_EE_EEEE5resetEv.exit, %30
   %31 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %32 = load ptr, ptr %31, align 8
-  %cmp.i28 = icmp eq ptr %32, %29
+  %cmp.i28 = icmp eq ptr %29, %32
   br i1 %cmp.i28, label %if.then57, label %sw.epilog
 
 if.then57:                                        ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit29
@@ -23457,7 +23457,7 @@ entry:
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 1, i64 %2
   %shr.i.sink.i = lshr i64 %0, 1
-  %cmp = icmp ult i64 %.sink.i, %new_size
+  %cmp = icmp ugt i64 %new_size, %.sink.i
   br i1 %cmp, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %entry
@@ -23484,7 +23484,7 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core17L
   br label %for.body.preheader.i20
 
 if.else:                                          ; preds = %entry
-  %cmp9 = icmp ult i64 %shr.i.sink.i, %new_size
+  %cmp9 = icmp ugt i64 %new_size, %shr.i.sink.i
   br i1 %cmp9, label %if.then10, label %if.else18
 
 if.then10:                                        ; preds = %if.else
@@ -23690,7 +23690,7 @@ entry:
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 1, i64 %2
   %shr.i.sink.i = lshr i64 %0, 1
-  %cmp = icmp ult i64 %.sink.i, %new_size
+  %cmp = icmp ugt i64 %new_size, %.sink.i
   br i1 %cmp, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %entry
@@ -23717,7 +23717,7 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112b
   br label %for.body.preheader.i20
 
 if.else:                                          ; preds = %entry
-  %cmp9 = icmp ult i64 %shr.i.sink.i, %new_size
+  %cmp9 = icmp ugt i64 %new_size, %shr.i.sink.i
   br i1 %cmp9, label %if.then10, label %if.else18
 
 if.then10:                                        ; preds = %if.else

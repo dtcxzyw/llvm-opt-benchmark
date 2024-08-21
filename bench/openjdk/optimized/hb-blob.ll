@@ -307,7 +307,7 @@ define hidden noundef nonnull ptr @hb_blob_create_sub_blob(ptr noundef %0, i32 n
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %.not = icmp ugt i32 %8, %1
+  %.not = icmp ult i32 %1, %8
   br i1 %.not, label %9, label %hb_blob_create.exit
 
 9:                                                ; preds = %6
@@ -326,7 +326,7 @@ define hidden noundef nonnull ptr @hb_blob_create_sub_blob(ptr noundef %0, i32 n
   %16 = zext i32 %1 to i64
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = sub i32 %8, %1
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %18, i32 %2)
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %2, i32 %18)
   %19 = load atomic i32, ptr %0 monotonic, align 4
   %20 = load atomic i32, ptr %0 monotonic, align 4
   %.not.i7.i.i = icmp eq i32 %20, 0
@@ -1198,7 +1198,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   br i1 %26, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i, label %27
 
 27:                                               ; preds = %24
-  %.not.i.i = icmp ult i32 %23, %25
+  %.not.i.i = icmp ugt i32 %25, %23
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %27, %.preheader.i.i
@@ -1206,7 +1206,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   %28 = lshr i32 %.142.i.i, 1
   %29 = add i32 %.142.i.i, 8
   %30 = add i32 %29, %28
-  %31 = icmp ult i32 %30, %25
+  %31 = icmp ugt i32 %25, %30
   br i1 %31, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !29
 
 .thread.i.i:                                      ; preds = %.preheader.i.i

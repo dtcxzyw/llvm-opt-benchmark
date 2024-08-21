@@ -1868,7 +1868,7 @@ define hidden noundef i64 @"_ZN45_$LT$i64$u20$as$u20$core..ops..arith..Mul$GT$3m
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @"_ZN47_$LT$i32$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hf5937902a14d4c4cE.llvm.15565454694699926178"(i32 noundef %0, i64 noundef %1) unnamed_addr #8 {
   %3 = trunc i64 %1 to i32
-  %4 = add nsw i32 %3, %0
+  %4 = add nsw i32 %0, %3
   ret i32 %4
 }
 
@@ -3226,7 +3226,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h9f59f4d18e29dd
   %31 = add i64 %29, 1
   store i64 %31, ptr %7, align 8, !alias.scope !1122, !noalias !1123
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha9248c052d018df4E.llvm.15565454694699926178.exit", %.._crit_edge_crit_edge
@@ -4013,7 +4013,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 define hidden noundef i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7c7ff87ef64a48deE.llvm.15565454694699926178"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = icmp ne i32 %2, 95
   %5 = zext i1 %4 to i64
-  %6 = add i64 %5, %1
+  %6 = add i64 %1, %5
   ret i64 %6
 }
 
@@ -4491,7 +4491,7 @@ _ZN4core3str11validations15next_code_point17h88410b8e33f22cdfE.llvm.155654546946
   %109 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1544, !noalias !1549, !noundef !11
   %110 = load i64, ptr %12, align 8, !alias.scope !1551, !noalias !1549, !noundef !11
   %111 = sub i64 %110, %109
-  %112 = icmp ult i64 %111, %108
+  %112 = icmp ugt i64 %108, %111
   br i1 %112, label %113, label %124
 
 113:                                              ; preds = %.thread
@@ -4511,7 +4511,7 @@ _ZN4core3str11validations15next_code_point17h88410b8e33f22cdfE.llvm.155654546946
   %119 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1554, !noalias !1559, !noundef !11
   %120 = load i64, ptr %12, align 8, !alias.scope !1561, !noalias !1559, !noundef !11
   %121 = sub i64 %120, %119
-  %122 = icmp ult i64 %121, %118
+  %122 = icmp ugt i64 %118, %121
   br i1 %122, label %123, label %131
 
 123:                                              ; preds = %114
@@ -4545,7 +4545,7 @@ _ZN4core3str11validations15next_code_point17h88410b8e33f22cdfE.llvm.155654546946
   store i64 %136, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1554, !noalias !1559
   %137 = load i64, ptr %12, align 8, !alias.scope !1564, !noalias !1571, !noundef !11
   %138 = sub i64 %137, %136
-  %139 = icmp ult i64 %138, %6
+  %139 = icmp ugt i64 %6, %138
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %131
@@ -4817,7 +4817,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !11
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -4898,8 +4898,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload14.i18 = load i16, ptr %86, align 1, !alias.scope !1631
   %87 = zext i16 %.0.copyload14.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3

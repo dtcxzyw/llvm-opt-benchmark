@@ -592,7 +592,7 @@ _ZN7RSCoder6gfMultEii.exit.us109:                 ; preds = %27, %.lr.ph.split.u
   %51 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv169
   %52 = load i32, ptr %51, align 4
   %53 = xor i32 %52, -1
-  %54 = add i32 %53, %2
+  %54 = add i32 %2, %53
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds [512 x i32], ptr %0, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
@@ -905,7 +905,7 @@ _ZN7RSCoder6gfMultEii.exit91:                     ; preds = %.lr.ph144, %208
 ._crit_edge145:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit91, %191
   %.063.lcssa = phi i32 [ 0, %191 ], [ %220, %_ZN7RSCoder6gfMultEii.exit91 ]
   %221 = xor i32 %194, -1
-  %222 = add i32 %221, %2
+  %222 = add i32 %2, %221
   %or.cond82 = icmp ult i32 %222, %2
   br i1 %or.cond82, label %223, label %252
 

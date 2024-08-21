@@ -739,7 +739,7 @@ do.end9:                                          ; preds = %if.end, %do.body7, 
   %6 = load ptr, ptr %loop10, align 8
   %process_handles = getelementptr inbounds i8, ptr %6, i64 368
   %7 = load ptr, ptr %process_handles, align 8
-  %cmp.i.not = icmp eq ptr %7, %process_handles
+  %cmp.i.not = icmp eq ptr %process_handles, %7
   br i1 %cmp.i.not, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %do.end9

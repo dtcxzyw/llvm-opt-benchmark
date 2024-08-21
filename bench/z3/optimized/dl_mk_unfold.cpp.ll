@@ -124,7 +124,7 @@ entry:
   %s2 = alloca %class.ref_vector, align 8
   %m_uninterp_cnt.i = getelementptr inbounds i8, ptr %r, i64 68
   %0 = load i32, ptr %m_uninterp_cnt.i, align 4
-  %cmp = icmp eq i32 %0, %tail_idx
+  %cmp = icmp eq i32 %tail_idx, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry

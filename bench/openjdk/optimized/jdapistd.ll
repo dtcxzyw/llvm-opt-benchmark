@@ -351,7 +351,7 @@ define hidden i32 @jReadRawData(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %40 = getelementptr inbounds i8, ptr %0, i64 416
   %41 = load i32, ptr %40, align 8
   %42 = mul nsw i32 %41, %39
-  %43 = icmp ugt i32 %42, %2
+  %43 = icmp ult i32 %2, %42
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %37

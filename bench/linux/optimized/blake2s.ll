@@ -27,7 +27,7 @@ define dso_local void @blake2s_update(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %8, label %39, label %9, !prof !5
 
 9:                                                ; preds = %3
-  %10 = icmp ult i64 %7, %2
+  %10 = icmp ugt i64 %2, %7
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9

@@ -165,7 +165,7 @@ if.end11:                                         ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.end11
   %9 = load ptr, ptr @curr_run_ctx, align 8
-  %cmp.i = icmp eq ptr %9, %run_ctx
+  %cmp.i = icmp eq ptr %run_ctx, %9
   br i1 %cmp.i, label %scriptIsTimedout.exit.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %do.end
@@ -505,7 +505,7 @@ scriptIsTimedout.exit:                            ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %scriptIsTimedout.exit
-  %cmp.i = icmp eq ptr %0, %run_ctx
+  %cmp.i = icmp eq ptr %run_ctx, %0
   br i1 %cmp.i, label %cond.end11.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then

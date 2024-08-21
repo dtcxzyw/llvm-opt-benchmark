@@ -327,7 +327,7 @@ entry:
   %shl = shl nuw i32 %sub, 4
   tail call void @umtx_lock_75(ptr noundef null)
   %2 = load ptr, ptr @_ZN6icu_75L11gLockedTextE, align 8
-  %cmp2.not = icmp eq ptr %2, %text
+  %cmp2.not = icmp eq ptr %text, %2
   invoke void @umtx_unlock_75(ptr noundef null)
           to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i
 

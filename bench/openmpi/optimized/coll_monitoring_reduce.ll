@@ -11,7 +11,7 @@ define i32 @mca_coll_monitoring_reduce(ptr noundef %0, ptr noundef %1, i32 nound
   %9 = alloca i64, align 8
   %10 = getelementptr i8, ptr %6, i64 220
   %.val = load i32, ptr %10, align 4
-  %11 = icmp eq i32 %.val, %5
+  %11 = icmp eq i32 %5, %.val
   br i1 %11, label %12, label %71
 
 12:                                               ; preds = %8
@@ -148,7 +148,7 @@ define i32 @mca_coll_monitoring_ireduce(ptr noundef %0, ptr noundef %1, i32 noun
   %10 = alloca i64, align 8
   %11 = getelementptr i8, ptr %6, i64 220
   %.val = load i32, ptr %11, align 4
-  %12 = icmp eq i32 %.val, %5
+  %12 = icmp eq i32 %5, %.val
   br i1 %12, label %13, label %72
 
 13:                                               ; preds = %9

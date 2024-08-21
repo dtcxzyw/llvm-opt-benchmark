@@ -2010,7 +2010,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %153, %slot_getsomea
   %225 = sext i16 %224 to i32
   %226 = getelementptr inbounds i8, ptr %180, i64 6
   %227 = load i16, ptr %226, align 2
-  %228 = icmp slt i16 %227, %224
+  %228 = icmp sgt i16 %224, %227
   br i1 %228, label %slot_getsomeattrs.exit.i.i130, label %ExecGetJunkAttribute.exit131
 
 slot_getsomeattrs.exit.i.i130:                    ; preds = %222
@@ -2065,7 +2065,7 @@ ExecGetJunkAttribute.exit131:                     ; preds = %222, %slot_getsomea
   %255 = sext i16 %253 to i32
   %256 = getelementptr inbounds i8, ptr %180, i64 6
   %257 = load i16, ptr %256, align 2
-  %258 = icmp slt i16 %257, %253
+  %258 = icmp sgt i16 %253, %257
   br i1 %258, label %slot_getsomeattrs.exit.i.i132, label %ExecGetJunkAttribute.exit133
 
 slot_getsomeattrs.exit.i.i132:                    ; preds = %254
@@ -3201,7 +3201,7 @@ thread-pre-split132.i:                            ; preds = %151, %181, %thread-
   %244 = load i16, ptr %48, align 8
   %245 = getelementptr inbounds i8, ptr %237, i64 6
   %246 = load i16, ptr %245, align 2
-  %247 = icmp slt i16 %246, %244
+  %247 = icmp sgt i16 %244, %246
   br i1 %247, label %slot_getsomeattrs.exit.i.i.i, label %ExecGetJunkAttribute.exit.i
 
 slot_getsomeattrs.exit.i.i.i:                     ; preds = %243
@@ -4456,7 +4456,7 @@ define internal fastcc void @ExecInitUpdateProjection(ptr noundef %0, ptr nounde
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %14 to i64
   %18 = getelementptr %struct.ResultRelInfo, ptr %16, i64 %17
-  %.not = icmp eq ptr %18, %1
+  %.not = icmp eq ptr %1, %18
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %2
@@ -5541,7 +5541,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
 64:                                               ; preds = %.critedge
   %65 = getelementptr inbounds i8, ptr %51, i64 224
   %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, %1
+  %67 = icmp eq ptr %1, %66
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %64
@@ -6256,7 +6256,7 @@ define internal fastcc void @ExecBatchInsert(ptr nocapture noundef readonly %0, 
 
 ._crit_edge:                                      ; preds = %29
   %33 = icmp sgt i32 %30, 0
-  %or.cond = and i1 %33, %6
+  %or.cond = and i1 %6, %33
   br i1 %or.cond, label %34, label %._crit_edge.thread
 
 34:                                               ; preds = %._crit_edge

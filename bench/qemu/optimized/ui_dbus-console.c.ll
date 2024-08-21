@@ -718,8 +718,8 @@ if.end:                                           ; preds = %trace_dbus_mouse_se
   %call4 = tail call i32 @qemu_console_get_width(ptr noundef %7, i32 noundef 0) #9
   %8 = load ptr, ptr %con, align 8
   %call7 = tail call i32 @qemu_console_get_height(ptr noundef %8, i32 noundef 0) #9
-  %cmp.not = icmp ugt i32 %call4, %x
-  %cmp8.not = icmp ugt i32 %call7, %y
+  %cmp.not = icmp ult i32 %x, %call4
+  %cmp8.not = icmp ult i32 %y, %call7
   %or.cond = select i1 %cmp.not, i1 %cmp8.not, i1 false
   br i1 %or.cond, label %if.end11, label %if.then9
 

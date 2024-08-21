@@ -106,7 +106,7 @@ lor.rhs.i:                                        ; preds = %entry
 
 getco.exit:                                       ; preds = %entry, %lor.rhs.i
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ar.i)
-  %cmp.i = icmp eq ptr %call.i, %L
+  %cmp.i = icmp eq ptr %L, %call.i
   br i1 %cmp.i, label %auxstatus.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %getco.exit
@@ -195,7 +195,7 @@ lor.rhs.i:                                        ; preds = %entry
 
 getco.exit:                                       ; preds = %entry, %lor.rhs.i
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ar.i)
-  %cmp.i = icmp eq ptr %call.i, %L
+  %cmp.i = icmp eq ptr %L, %call.i
   br i1 %cmp.i, label %auxstatus.exit.thread17, label %if.else.i
 
 if.else.i:                                        ; preds = %getco.exit

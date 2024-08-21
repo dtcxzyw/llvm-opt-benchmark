@@ -55,7 +55,7 @@ entry:
   %cmp.inv = icmp slt i32 %entropy, 0
   %narrow = select i1 %cmp.inv, i32 0, i32 %div12
   %cond = zext nneg i32 %narrow to i64
-  %bytes_needed.0 = tail call i64 @llvm.umax.i64(i64 %cond, i64 %min_len)
+  %bytes_needed.0 = tail call i64 @llvm.umax.i64(i64 %min_len, i64 %cond)
   %bytes_needed.1 = tail call i64 @llvm.umin.i64(i64 %bytes_needed.0, i64 %max_len)
   %call = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %bytes_needed.1, ptr noundef nonnull @.str, i32 noundef 162) #8
   %cmp7 = icmp eq ptr %call, null
@@ -152,7 +152,7 @@ if.then15:                                        ; preds = %rand_drbg_restart.e
 if.end17:                                         ; preds = %if.end5, %rand_drbg_restart.exit
   %strength18 = getelementptr inbounds i8, ptr %drbg, i64 128
   %6 = load i32, ptr %strength18, align 8
-  %cmp19 = icmp ult i32 %6, %strength
+  %cmp19 = icmp ugt i32 %strength, %6
   br i1 %cmp19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end17
@@ -164,7 +164,7 @@ if.then20:                                        ; preds = %if.end17
 if.end21:                                         ; preds = %if.end17
   %max_request = getelementptr inbounds i8, ptr %drbg, i64 136
   %7 = load i64, ptr %max_request, align 8
-  %cmp22 = icmp ult i64 %7, %outlen
+  %cmp22 = icmp ugt i64 %outlen, %7
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.end21
@@ -176,7 +176,7 @@ if.then23:                                        ; preds = %if.end21
 if.end24:                                         ; preds = %if.end21
   %max_adinlen = getelementptr inbounds i8, ptr %drbg, i64 184
   %8 = load i64, ptr %max_adinlen, align 8
-  %cmp25 = icmp ult i64 %8, %adinlen
+  %cmp25 = icmp ugt i64 %adinlen, %8
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end24
@@ -373,7 +373,7 @@ entry:
   store ptr null, ptr %entropy, align 8
   %strength1 = getelementptr inbounds i8, ptr %drbg, i64 128
   %0 = load i32, ptr %strength1, align 8
-  %cmp = icmp ult i32 %0, %strength
+  %cmp = icmp ugt i32 %strength, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -927,7 +927,7 @@ if.end11:                                         ; preds = %if.end, %rand_drbg_
 if.then13:                                        ; preds = %if.end11
   %min_entropylen = getelementptr inbounds i8, ptr %drbg, i64 144
   %5 = load i64, ptr %min_entropylen, align 8
-  %cmp14 = icmp ugt i64 %5, %ent_len
+  %cmp14 = icmp ult i64 %ent_len, %5
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.then13
@@ -940,7 +940,7 @@ if.then15:                                        ; preds = %if.then13
 if.end17:                                         ; preds = %if.then13
   %max_entropylen = getelementptr inbounds i8, ptr %drbg, i64 152
   %6 = load i64, ptr %max_entropylen, align 8
-  %cmp18 = icmp ult i64 %6, %ent_len
+  %cmp18 = icmp ugt i64 %ent_len, %6
   br i1 %cmp18, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end17
@@ -957,7 +957,7 @@ if.end22:                                         ; preds = %if.end17, %if.end11
 if.else:                                          ; preds = %if.end22
   %max_adinlen = getelementptr inbounds i8, ptr %drbg, i64 184
   %7 = load i64, ptr %max_adinlen, align 8
-  %cmp25 = icmp ult i64 %7, %adinlen
+  %cmp25 = icmp ugt i64 %adinlen, %7
   br i1 %cmp25, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.else

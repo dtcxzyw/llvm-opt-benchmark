@@ -302,7 +302,7 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %115, %Vec_IntGrow.e
   %.val.i = load i32, ptr %3, align 4
   %125 = add nsw i32 %.val.i, -1
   %126 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %125, ptr noundef nonnull readonly %1)
-  %.not26 = icmp eq i32 %126, %0
+  %.not26 = icmp eq i32 %0, %126
   br i1 %.not26, label %128, label %127
 
 127:                                              ; preds = %124

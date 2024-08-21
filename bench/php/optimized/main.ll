@@ -4128,7 +4128,7 @@ define internal range(i32 -1, 1) i32 @OnSetFacility(ptr nocapture readnone %0, p
   %37 = load ptr, ptr @zend_known_strings, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 256
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %1
+  %40 = icmp eq ptr %1, %39
   br i1 %40, label %.critedge82.sink.split, label %41
 
 41:                                               ; preds = %.critedge40

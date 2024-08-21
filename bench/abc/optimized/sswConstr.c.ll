@@ -1934,7 +1934,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 190:                                              ; preds = %186
   %191 = load i32, ptr %.0, align 4
-  %192 = icmp sgt i32 %191, %189
+  %192 = icmp slt i32 %189, %191
   br i1 %192, label %Bar_ProgressUpdate.exit, label %193
 
 193:                                              ; preds = %190, %186

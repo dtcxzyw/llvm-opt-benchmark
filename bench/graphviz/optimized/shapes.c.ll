@@ -5571,7 +5571,7 @@ define internal zeroext i1 @poly_inside(ptr noundef %0, double %1, double %2) #0
   %170 = fsub double 0.000000e+00, %.sroa.452.0.copyload
   %171 = fneg double %170
   %172 = fsub double 0.000000e+00, %.sroa.049.0.copyload
-  %173 = fmul double %172, %.sroa.452.0.copyload
+  %173 = fmul double %.sroa.452.0.copyload, %172
   %174 = call double @llvm.fmuladd.f64(double %171, double %.sroa.049.0.copyload, double %173)
   %175 = fmul double %126, %172
   %176 = call double @llvm.fmuladd.f64(double %171, double %123, double %175)
@@ -6236,7 +6236,7 @@ gv_strdup.exit:                                   ; preds = %72
 95:                                               ; preds = %.split.us, %.split.us, %.split.us
   %.0156.ptr.le.le537 = getelementptr inbounds i8, ptr %3, i64 %.0156.idx.ph251.ph
   %.not172 = icmp ne i8 %.us-phi227, 0
-  %brmerge = or i1 %.not172, %2
+  %brmerge = or i1 %2, %.not172
   %96 = and i32 %.0131.ph256, 16
   %.not173 = icmp eq i32 %96, 0
   %or.cond198 = select i1 %brmerge, i1 %.not173, i1 false
@@ -6660,7 +6660,7 @@ define internal fastcc void @resize_reclbl(ptr nocapture noundef %0, double %1, 
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %20, label %12
 
 12:                                               ; preds = %4
@@ -6753,7 +6753,7 @@ define internal fastcc void @pos_reclbl(ptr nocapture noundef %0, double %1, dou
   store double %9, ptr %.sroa.22.0..sroa_idx, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load double, ptr %0, align 8
-  %12 = fadd double %11, %1
+  %12 = fadd double %1, %11
   store double %12, ptr %10, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store double %2, ptr %.sroa.2.0..sroa_idx, align 8

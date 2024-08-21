@@ -161,7 +161,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -441,7 +441,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #19
   %cmp7 = icmp eq ptr %call, null
@@ -2219,7 +2219,7 @@ lor.lhs.false:                                    ; preds = %if.end11
   %4 = load ptr, ptr %fGroupMap, align 8
   %count.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i, align 8
-  %cmp14 = icmp slt i32 %5, %groupNum
+  %cmp14 = icmp sgt i32 %groupNum, %5
   br i1 %cmp14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.end11
@@ -2552,7 +2552,7 @@ lor.lhs.false.i:                                  ; preds = %if.end3.i
   %3 = load ptr, ptr %fGroupMap.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i.i, align 8
-  %cmp6.i = icmp slt i32 %4, %group
+  %cmp6.i = icmp sgt i32 %group, %4
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %lor.lhs.false.i, %if.end3.i
@@ -2670,7 +2670,7 @@ lor.lhs.false:                                    ; preds = %if.end3
   %3 = load ptr, ptr %fGroupMap, align 8
   %count.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i, align 8
-  %cmp6 = icmp slt i32 %4, %group
+  %cmp6 = icmp sgt i32 %group, %4
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end3
@@ -6222,7 +6222,7 @@ if.end.i783:                                      ; preds = %if.then.i
 
 if.end7.i:                                        ; preds = %if.end.i783, %sw.bb916
   %267 = load i64, ptr %fLookLimit, align 8
-  %cmp8.not.i = icmp sgt i64 %267, %262
+  %cmp8.not.i = icmp slt i64 %262, %267
   br i1 %cmp8.not.i, label %if.else.i780, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
@@ -10401,7 +10401,7 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %cmp11 = icmp slt i64 %2, %start
+  %cmp11 = icmp sgt i64 %start, %2
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
@@ -11329,7 +11329,7 @@ if.end.i848:                                      ; preds = %if.then.i
 
 if.end7.i:                                        ; preds = %if.end.i848, %sw.bb375
   %137 = load i64, ptr %fLookLimit, align 8
-  %cmp8.not.i = icmp sgt i64 %137, %132
+  %cmp8.not.i = icmp slt i64 %132, %137
   br i1 %cmp8.not.i, label %if.else.i845, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
@@ -14157,7 +14157,7 @@ lor.lhs.false.i:                                  ; preds = %if.end8.i
   %4 = load ptr, ptr %fGroupMap.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i.i, align 8
-  %cmp11.i = icmp slt i32 %5, %groupNum
+  %cmp11.i = icmp sgt i32 %groupNum, %5
   br i1 %cmp11.i, label %nrvo.skipdtor.sink.split, label %if.end13.i
 
 if.end13.i:                                       ; preds = %lor.lhs.false.i
@@ -14312,7 +14312,7 @@ lor.lhs.false:                                    ; preds = %if.else7
   %4 = load ptr, ptr %fGroupMap, align 8
   %count.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i, align 8
-  %cmp10 = icmp slt i32 %5, %groupNum
+  %cmp10 = icmp sgt i32 %groupNum, %5
   br i1 %cmp10, label %if.then11, label %if.end18
 
 if.then11:                                        ; preds = %lor.lhs.false, %if.else7
@@ -14459,7 +14459,7 @@ lor.lhs.false:                                    ; preds = %if.end8
   %4 = load ptr, ptr %fGroupMap, align 8
   %count.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i, align 8
-  %cmp11 = icmp slt i32 %5, %group
+  %cmp11 = icmp sgt i32 %group, %5
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %lor.lhs.false, %if.end8
@@ -15047,8 +15047,8 @@ if.then14:                                        ; preds = %if.else9.i.i, %if.t
 if.end19:                                         ; preds = %if.then11.if.end19_crit_edge, %if.then14, %if.end9
   %12 = phi i64 [ %.pre32, %if.then11.if.end19_crit_edge ], [ %call16, %if.then14 ], [ %2, %if.end9 ]
   %13 = phi i64 [ %.pre, %if.then11.if.end19_crit_edge ], [ 0, %if.then14 ], [ 0, %if.end9 ]
-  %cmp20 = icmp sgt i64 %13, %start
-  %cmp21 = icmp slt i64 %12, %start
+  %cmp20 = icmp slt i64 %start, %13
+  %cmp21 = icmp sgt i64 %start, %12
   %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
   br i1 %or.cond, label %if.then22, label %if.end23
 
@@ -15400,8 +15400,8 @@ if.then14:                                        ; preds = %if.else9.i.i, %if.t
 if.end19:                                         ; preds = %if.then11.if.end19_crit_edge, %if.then14, %if.end9
   %12 = phi i64 [ %.pre32, %if.then11.if.end19_crit_edge ], [ %call16, %if.then14 ], [ %2, %if.end9 ]
   %13 = phi i64 [ %.pre, %if.then11.if.end19_crit_edge ], [ 0, %if.then14 ], [ 0, %if.end9 ]
-  %cmp20 = icmp sgt i64 %13, %start
-  %cmp21 = icmp slt i64 %12, %start
+  %cmp20 = icmp slt i64 %start, %13
+  %cmp21 = icmp sgt i64 %start, %12
   %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
   br i1 %or.cond, label %if.then22, label %if.end23
 
@@ -15478,8 +15478,8 @@ if.then5:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end, %if.then5
   %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %fInputLength, align 8
-  %cmp7 = icmp slt i64 %3, %regionStart
-  %cmp10 = icmp slt i64 %3, %regionLimit
+  %cmp7 = icmp sgt i64 %regionStart, %3
+  %cmp10 = icmp sgt i64 %regionLimit, %3
   %or.cond = or i1 %cmp7, %cmp10
   br i1 %or.cond, label %if.then11, label %if.end12
 
@@ -15552,7 +15552,7 @@ if.then18:                                        ; preds = %if.end12
   store i64 %regionStart, ptr %fActiveStart, align 8
   %fActiveLimit = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %regionLimit, ptr %fActiveLimit, align 8
-  %cmp20 = icmp sgt i64 %regionStart, %startIndex
+  %cmp20 = icmp slt i64 %startIndex, %regionStart
   %cmp23 = icmp sgt i64 %startIndex, %regionLimit
   %or.cond21 = or i1 %cmp20, %cmp23
   br i1 %or.cond21, label %if.then24, label %if.end25
@@ -15617,8 +15617,8 @@ if.then5.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i
   %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %fInputLength.i, align 8
-  %cmp7.i = icmp slt i64 %3, %start
-  %cmp10.i = icmp slt i64 %3, %limit
+  %cmp7.i = icmp sgt i64 %start, %3
+  %cmp10.i = icmp sgt i64 %limit, %3
   %or.cond.i = or i1 %cmp7.i, %cmp10.i
   br i1 %or.cond.i, label %if.then11.i, label %if.end12.i
 
@@ -16212,7 +16212,7 @@ if.end:                                           ; preds = %entry
   %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   %cmp = icmp slt i64 %position, 0
-  %cmp3 = icmp slt i64 %1, %position
+  %cmp3 = icmp sgt i64 %position, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %if.then4, label %if.end5
 
@@ -16847,7 +16847,7 @@ if.else.i.i:                                      ; preds = %if.end40.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
   %68 = load i32, ptr %capacity.i.i, align 8
-  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %68, i32 %.pre65.i)
+  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.pre65.i, i32 %68)
   %conv.i48.i = sext i32 %spec.select.i.i to i64
   %mul.i49.i = shl nsw i64 %conv.i48.i, 1
   %call.i51.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i49.i) #19
@@ -17165,7 +17165,7 @@ lor.lhs.false.i:                                  ; preds = %if.end8.i
   %4 = load ptr, ptr %fGroupMap.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i.i, align 8
-  %cmp11.i = icmp slt i32 %5, %group
+  %cmp11.i = icmp sgt i32 %group, %5
   br i1 %cmp11.i, label %if.then12.i, label %if.end13.i
 
 if.then12.i:                                      ; preds = %lor.lhs.false.i, %if.end8.i
@@ -17514,7 +17514,7 @@ define noundef signext i8 @_ZN6icu_7512RegexMatcher14isWordBoundaryEl(ptr nocapt
 entry:
   %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %fLookLimit, align 8
-  %cmp.not = icmp sgt i64 %0, %pos
+  %cmp.not = icmp slt i64 %pos, %0
   br i1 %cmp.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -17887,7 +17887,7 @@ if.end:                                           ; preds = %if.then
 if.end7:                                          ; preds = %if.end, %entry
   %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load i64, ptr %fLookLimit, align 8
-  %cmp8.not = icmp sgt i64 %4, %pos
+  %cmp8.not = icmp slt i64 %pos, %4
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end7

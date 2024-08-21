@@ -11997,7 +11997,7 @@ _get_config_list_update.exit:                     ; preds = %8
 
 42:                                               ; preds = %_is_dup_config_record.exit.i, %.lr.ph.i
   %43 = phi ptr [ %41, %.lr.ph.i ], [ %119, %_is_dup_config_record.exit.i ]
-  %44 = icmp eq ptr %43, %22
+  %44 = icmp eq ptr %22, %43
   br i1 %44, label %_is_dup_config_record.exit.i, label %45
 
 45:                                               ; preds = %42

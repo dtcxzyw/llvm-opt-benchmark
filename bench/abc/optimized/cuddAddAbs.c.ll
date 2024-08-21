@@ -35,7 +35,7 @@ define ptr @Cudd_addExistAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 18:                                               ; preds = %tailrecurse.i, %.lr.ph.i
   %.tr911.i = phi ptr [ %2, %.lr.ph.i ], [ %30, %tailrecurse.i ]
-  %19 = icmp eq ptr %16, %.tr911.i
+  %19 = icmp eq ptr %.tr911.i, %16
   br i1 %19, label %addCheckPositiveCube.exit.preheader, label %21
 
 addCheckPositiveCube.exit.preheader:              ; preds = %18
@@ -110,7 +110,7 @@ declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #1
 define ptr @cuddAddExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %123, label %7
 
 7:                                                ; preds = %3
@@ -325,7 +325,7 @@ define ptr @Cudd_addUnivAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 9:                                                ; preds = %tailrecurse.i, %.lr.ph.i
   %.tr911.i = phi ptr [ %2, %.lr.ph.i ], [ %21, %tailrecurse.i ]
-  %10 = icmp eq ptr %7, %.tr911.i
+  %10 = icmp eq ptr %.tr911.i, %7
   br i1 %10, label %addCheckPositiveCube.exit.preheader, label %12
 
 addCheckPositiveCube.exit.preheader:              ; preds = %9
@@ -376,9 +376,9 @@ define ptr @cuddAddUnivAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
-  %9 = icmp eq ptr %5, %1
-  %10 = icmp eq ptr %5, %2
+  %8 = icmp eq ptr %1, %7
+  %9 = icmp eq ptr %1, %5
+  %10 = icmp eq ptr %2, %5
   %11 = or i1 %9, %10
   %or.cond119 = select i1 %8, i1 true, i1 %11
   br i1 %or.cond119, label %134, label %12
@@ -598,7 +598,7 @@ define ptr @Cudd_addOrAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
 
 9:                                                ; preds = %tailrecurse.i, %.lr.ph.i
   %.tr911.i = phi ptr [ %2, %.lr.ph.i ], [ %21, %tailrecurse.i ]
-  %10 = icmp eq ptr %7, %.tr911.i
+  %10 = icmp eq ptr %.tr911.i, %7
   br i1 %10, label %addCheckPositiveCube.exit.preheader, label %12
 
 addCheckPositiveCube.exit.preheader:              ; preds = %9
@@ -650,7 +650,7 @@ define ptr @cuddAddOrAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = load i32, ptr %1, align 8
   %.fr112 = freeze i32 %6
   %7 = icmp eq i32 %.fr112, 2147483647
-  %8 = icmp eq ptr %5, %2
+  %8 = icmp eq ptr %2, %5
   %or.cond109 = select i1 %7, i1 true, i1 %8
   br i1 %or.cond109, label %.loopexit, label %.lr.ph.split.preheader
 
@@ -678,7 +678,7 @@ define ptr @cuddAddOrAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef %
 tailrecurse:                                      ; preds = %13
   %21 = getelementptr inbounds i8, ptr %.tr106110, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %5, %22
+  %23 = icmp eq ptr %22, %5
   br i1 %23, label %.loopexit, label %.lr.ph.split
 
 .thread:                                          ; preds = %13, %.lr.ph.split

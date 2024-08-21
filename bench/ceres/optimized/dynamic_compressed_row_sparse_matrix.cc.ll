@@ -314,7 +314,7 @@ _ZN6google12Check_GEImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
 _ZN6google12Check_GEImplB5cxx11EiiPKc.exit.thread: ; preds = %4, %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 8
-  %33 = icmp sgt i32 %32, %1
+  %33 = icmp slt i32 %1, %32
   br i1 %33, label %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit.thread, label %34
 
 34:                                               ; preds = %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit.thread
@@ -416,7 +416,7 @@ _ZN6google12Check_GEImplB5cxx11EiiPKc.exit14:     ; preds = %_ZN6google22MakeChe
 _ZN6google12Check_GEImplB5cxx11EiiPKc.exit14.thread: ; preds = %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit.thread, %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit14
   %62 = getelementptr inbounds i8, ptr %0, i64 12
   %63 = load i32, ptr %62, align 4
-  %64 = icmp sgt i32 %63, %2
+  %64 = icmp slt i32 %2, %63
   br i1 %64, label %_ZN6google12Check_LTImplB5cxx11EiiPKc.exit19.thread, label %65
 
 65:                                               ; preds = %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit14.thread

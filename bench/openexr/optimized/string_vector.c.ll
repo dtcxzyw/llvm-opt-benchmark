@@ -324,7 +324,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %cmp = icmp sgt i32 %idx, -1
   %.pre = load i32, ptr %sv, align 8
-  %cmp3.not = icmp sgt i32 %.pre, %idx
+  %cmp3.not = icmp slt i32 %idx, %.pre
   %or.cond = select i1 %cmp, i1 %cmp3.not, i1 false
   br i1 %or.cond, label %if.end6, label %if.then4
 
@@ -374,7 +374,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %cmp = icmp sgt i32 %idx, -1
   %.pre = load i32, ptr %sv, align 8
-  %cmp4.not = icmp sgt i32 %.pre, %idx
+  %cmp4.not = icmp slt i32 %idx, %.pre
   %or.cond = select i1 %cmp, i1 %cmp4.not, i1 false
   br i1 %or.cond, label %if.end9, label %if.then5
 
@@ -422,7 +422,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end3.i:                                        ; preds = %if.end.i
   %cmp.i = icmp sgt i32 %idx, -1
   %.pre.i = load i32, ptr %sv, align 8
-  %cmp4.not.i = icmp sgt i32 %.pre.i, %idx
+  %cmp4.not.i = icmp slt i32 %idx, %.pre.i
   %or.cond.i = select i1 %cmp.i, i1 %cmp4.not.i, i1 false
   br i1 %or.cond.i, label %if.end9.i, label %if.then5.i
 
@@ -459,7 +459,7 @@ if.then2.i22:                                     ; preds = %if.end.i6
 if.end3.i8:                                       ; preds = %if.end.i6
   %cmp.i9 = icmp sgt i32 %idx, -1
   %.pre.i10 = load i32, ptr %sv, align 8
-  %cmp4.not.i11 = icmp sgt i32 %.pre.i10, %idx
+  %cmp4.not.i11 = icmp slt i32 %idx, %.pre.i10
   %or.cond.i12 = select i1 %cmp.i9, i1 %cmp4.not.i11, i1 false
   br i1 %or.cond.i12, label %if.end9.i17, label %if.then5.i13
 

@@ -78,7 +78,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end16
 
 if.then3:                                         ; preds = %if.end
-  %cmp4 = icmp eq i32 %0, %level
+  %cmp4 = icmp eq i32 %level, %0
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.then3

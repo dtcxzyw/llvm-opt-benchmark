@@ -1343,7 +1343,7 @@ sw.bb.i:                                          ; preds = %call.i.noexc17
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %cond.i.i.i, i64 %shr.i.i.i.i
   %cmp.i.i.i = icmp ugt i64 %37, 1
   %__last.addr.08.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -32
-  %cmp19.i.i.i = icmp ugt ptr %__last.addr.08.i.i.i, %cond.i.i.i
+  %cmp19.i.i.i = icmp ult ptr %cond.i.i.i, %__last.addr.08.i.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 %cmp19.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %if.end
 
@@ -1545,7 +1545,7 @@ sw.bb:                                            ; preds = %entry
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %cond.i.i, i64 %shr.i.i.i
   %cmp.i.i = icmp ugt i64 %0, 1
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -32
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %cond.i.i
+  %cmp19.i.i = icmp ult ptr %cond.i.i, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %return
 

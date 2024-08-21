@@ -29,7 +29,7 @@ entry:
   %arrayidx.i = getelementptr inbounds [6 x ptr], ptr %edges_.i, i64 0, i64 %conv
   %edge.053 = load ptr, ptr %arrayidx.i, align 8
   %2 = load i64, ptr %edge.053, align 8
-  %cmp.not54 = icmp ugt i64 %2, %n
+  %cmp.not54 = icmp ult i64 %n, %2
   br i1 %cmp.not54, label %while.end41, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -175,7 +175,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %cmp1.i = icmp eq i64 %3, %n
+  %cmp1.i = icmp eq i64 %n, %3
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -591,7 +591,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %rep, align 8
-  %cmp1 = icmp eq i64 %0, %n
+  %cmp1 = icmp eq i64 %n, %0
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end

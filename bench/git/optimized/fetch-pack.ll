@@ -576,7 +576,7 @@ for.body173:                                      ; preds = %for.body173.prehead
   call fastcc void @add_sought_entry(ptr noundef nonnull %sought, ptr noundef nonnull %nr_sought, ptr noundef nonnull %alloc_sought, ptr noundef %51)
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %52 = trunc nuw i64 %indvars.iv.next156 to i32
-  %cmp171 = icmp slt i32 %52, %argc
+  %cmp171 = icmp sgt i32 %argc, %52
   br i1 %cmp171, label %for.body173, label %for.end178, !llvm.loop !8
 
 for.end178:                                       ; preds = %for.body173, %if.then165

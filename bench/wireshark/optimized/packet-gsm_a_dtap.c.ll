@@ -2034,7 +2034,7 @@ switch.lookup:                                    ; preds = %18
   %154 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %153, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #6
   %155 = add i32 %.2, 1
   %156 = sub i32 %155, %3
-  %.not453 = icmp ult i32 %156, %4
+  %.not453 = icmp ugt i32 %4, %156
   br i1 %.not453, label %159, label %157
 
 157:                                              ; preds = %137
@@ -2064,7 +2064,7 @@ switch.lookup:                                    ; preds = %18
   %176 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %162, i32 noundef %173, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef %164, ptr noundef nonnull @.str.150, ptr noundef %175) #6
   %177 = add i32 %.2, 2
   %178 = sub i32 %177, %3
-  %.not455 = icmp ult i32 %178, %4
+  %.not455 = icmp ugt i32 %4, %178
   br i1 %.not455, label %181, label %179
 
 179:                                              ; preds = %160
@@ -2091,7 +2091,7 @@ switch.lookup:                                    ; preds = %18
   %195 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %194, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
   %196 = add i32 %.2, 3
   %197 = sub i32 %196, %3
-  %.not457 = icmp ult i32 %197, %4
+  %.not457 = icmp ugt i32 %4, %197
   br i1 %.not457, label %200, label %198
 
 198:                                              ; preds = %182
@@ -2117,7 +2117,7 @@ switch.lookup:                                    ; preds = %18
   %213 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %203, i32 noundef %210, ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef %205, ptr noundef nonnull @.str.150, ptr noundef %212) #6
   %214 = add i32 %.2, 4
   %215 = sub i32 %214, %3
-  %.not459 = icmp ult i32 %215, %4
+  %.not459 = icmp ugt i32 %4, %215
   br i1 %.not459, label %218, label %216
 
 216:                                              ; preds = %201
@@ -2143,7 +2143,7 @@ switch.lookup:                                    ; preds = %18
   %231 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %221, i32 noundef %228, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef %223, ptr noundef nonnull @.str.150, ptr noundef %230) #6
   %232 = add i32 %.2, 5
   %233 = sub i32 %232, %3
-  %.not461 = icmp ult i32 %233, %4
+  %.not461 = icmp ugt i32 %4, %233
   br i1 %.not461, label %236, label %234
 
 234:                                              ; preds = %219
@@ -2190,7 +2190,7 @@ switch.lookup:                                    ; preds = %18
 262:                                              ; preds = %257, %244
   %263 = add i32 %.2, 6
   %264 = sub i32 %263, %3
-  %.not463 = icmp ult i32 %264, %4
+  %.not463 = icmp ugt i32 %4, %264
   br i1 %.not463, label %267, label %265
 
 265:                                              ; preds = %262
@@ -2226,7 +2226,7 @@ switch.lookup:                                    ; preds = %18
 283:                                              ; preds = %279, %276
   %284 = add i32 %.2, 7
   %285 = sub i32 %284, %3
-  %.not465 = icmp ult i32 %285, %4
+  %.not465 = icmp ugt i32 %4, %285
   br i1 %.not465, label %288, label %286
 
 286:                                              ; preds = %283
@@ -2269,7 +2269,7 @@ switch.lookup:                                    ; preds = %18
   %312 = tail call ptr @proto_tree_add_bits_item(ptr noundef %291, i32 noundef %309, ptr noundef %0, i32 noundef %311, i32 noundef 2, i32 noundef 0) #6
   %313 = add i32 %.2, 8
   %314 = sub i32 %313, %3
-  %.not466 = icmp ult i32 %314, %4
+  %.not466 = icmp ugt i32 %4, %314
   br i1 %.not466, label %317, label %315
 
 315:                                              ; preds = %308
@@ -2298,7 +2298,7 @@ switch.lookup:                                    ; preds = %18
 332:                                              ; preds = %317, %.critedge
   %.1 = phi i32 [ %58, %.critedge ], [ %.3, %317 ]
   %333 = sub i32 %.1, %3
-  %334 = icmp ult i32 %333, %4
+  %334 = icmp ugt i32 %4, %333
   br i1 %334, label %335, label %339
 
 335:                                              ; preds = %332
@@ -2415,7 +2415,7 @@ define internal fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noun
 28:                                               ; preds = %16, %7
   %.046 = phi i32 [ %15, %7 ], [ %27, %16 ]
   %29 = sub i32 %.046, %3
-  %.not49 = icmp ult i32 %29, %4
+  %.not49 = icmp ugt i32 %4, %29
   br i1 %.not49, label %30, label %39
 
 30:                                               ; preds = %28
@@ -2484,7 +2484,7 @@ define hidden zeroext i16 @de_sup_codec_list(ptr noundef %0, ptr noundef %1, ptr
   %29 = zext i8 %.039 to i32
   %30 = add i32 %.1, %29
   %31 = sub i32 %30, %3
-  %32 = icmp ult i32 %31, %4
+  %32 = icmp ugt i32 %4, %31
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %28
@@ -3390,7 +3390,7 @@ define internal zeroext i16 @de_cause(ptr noundef %0, ptr noundef %1, ptr nounde
 
 101:                                              ; preds = %98, %94
   %102 = sub i32 %97, %3
-  %.not145 = icmp ult i32 %102, %4
+  %.not145 = icmp ugt i32 %4, %102
   br i1 %.not145, label %103, label %126
 
 103:                                              ; preds = %101
@@ -3432,7 +3432,7 @@ switch.early.test:                                ; preds = %103
 119:                                              ; preds = %115, %109
   %.1 = phi i32 [ %114, %109 ], [ %118, %115 ]
   %120 = sub i32 %.1, %3
-  %121 = icmp ult i32 %120, %4
+  %121 = icmp ugt i32 %4, %120
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %119
@@ -3525,7 +3525,7 @@ define internal noundef zeroext i16 @de_facility(ptr noundef %0, ptr noundef %1,
   %26 = load i32, ptr %11, align 4
   %27 = add i32 %26, %.023
   %28 = sub i32 %27, %3
-  %29 = icmp ult i32 %28, %4
+  %29 = icmp ugt i32 %4, %28
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
@@ -4240,7 +4240,7 @@ define internal noundef zeroext i16 @de_tp_epc_ue_tl_a_lb_setup(ptr noundef %0, 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i32 [ %3, %7 ], [ %23, %.lr.ph ]
   %25 = sub i32 %.0.lcssa, %3
-  %26 = icmp ult i32 %25, %4
+  %26 = icmp ugt i32 %4, %25
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %._crit_edge
@@ -4602,7 +4602,7 @@ define hidden void @dtap_mm_mm_info(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %11, label %44, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 69, i32 noundef 1, i32 noundef 8, i32 noundef %13, i32 noundef %10, ptr noundef nonnull @.str.184) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -5384,7 +5384,7 @@ define internal void @dtap_cc_setup(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %11, label %206, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 4, i32 noundef 1, i32 noundef 20, i32 noundef %13, i32 noundef %10, ptr noundef nonnull @.str.914) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -5814,7 +5814,7 @@ define internal void @dtap_gcc_setup(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5849,7 +5849,7 @@ define internal void @dtap_gcc_connect(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5950,7 +5950,7 @@ define internal void @dtap_gcc_status(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -5988,12 +5988,12 @@ define internal void @dtap_gcc_get_status(ptr noundef %0, ptr noundef %1, ptr no
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 23, i32 noundef 4, i32 noundef 3, i32 noundef %3, i32 noundef %4, ptr noundef null) #6
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #6
   br label %14
 
@@ -6133,7 +6133,7 @@ define internal void @dtap_bcc_setup(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6168,7 +6168,7 @@ define internal void @dtap_bcc_connect(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6269,7 +6269,7 @@ define internal void @dtap_bcc_status(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6307,12 +6307,12 @@ define internal void @dtap_bcc_get_status(ptr noundef %0, ptr noundef %1, ptr no
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 23, i32 noundef 4, i32 noundef 3, i32 noundef %3, i32 noundef %4, ptr noundef null) #6
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #6
   br label %14
 
@@ -6468,7 +6468,7 @@ define internal void @dtap_cc_alerting(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 30, i32 noundef 1, i32 noundef 39, i32 noundef %13, i32 noundef %10, ptr noundef null) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -6514,7 +6514,7 @@ define internal void @dtap_cc_call_conf(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %11, label %50, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 4, i32 noundef 1, i32 noundef 20, i32 noundef %13, i32 noundef %10, ptr noundef nonnull @.str.914) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -6584,7 +6584,7 @@ define internal void @dtap_cc_call_proceed(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %11, label %50, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 4, i32 noundef 1, i32 noundef 20, i32 noundef %13, i32 noundef %10, ptr noundef nonnull @.str.914) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -6654,7 +6654,7 @@ define internal void @dtap_cc_connect(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %11, label %50, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 30, i32 noundef 1, i32 noundef 39, i32 noundef %13, i32 noundef %10, ptr noundef null) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -6724,7 +6724,7 @@ define internal void @dtap_cc_emerg_setup(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 45, i32 noundef 1, i32 noundef 51, i32 noundef %13, i32 noundef %10, ptr noundef null) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -6769,7 +6769,7 @@ define internal void @dtap_cc_progress(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6813,7 +6813,7 @@ define internal void @dtap_cc_cc_est(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6845,7 +6845,7 @@ define internal void @dtap_cc_cc_est_conf(ptr noundef %0, ptr noundef %1, ptr no
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -48, i32 noundef 1, i32 noundef 43, i32 noundef %3, ptr noundef nonnull @.str.1271) #6
   %9 = zext i16 %8 to i32
-  %10 = add i32 %9, %3
+  %10 = add i32 %3, %9
   %11 = sub nsw i32 %4, %9
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %19
@@ -6917,7 +6917,7 @@ define internal void @dtap_cc_recall(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -6971,12 +6971,12 @@ define internal void @dtap_cc_start_cc(ptr noundef %0, ptr noundef %1, ptr nound
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 21, i32 noundef 1, i32 noundef 21, i32 noundef %3, i32 noundef %4, ptr noundef null) #6
   %9 = zext i16 %8 to i32
-  %.not22 = icmp eq i32 %9, %4
+  %.not22 = icmp eq i32 %4, %9
   br i1 %.not22, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = sub nsw i32 %4, %9
-  %12 = add i32 %9, %3
+  %12 = add i32 %3, %9
   %13 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %12, i32 noundef %11) #6
   br label %14
 
@@ -6997,7 +6997,7 @@ define internal void @dtap_cc_modify(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7065,7 +7065,7 @@ define internal void @dtap_cc_modify_complete(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7125,7 +7125,7 @@ define internal void @dtap_cc_modify_rej(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7199,7 +7199,7 @@ define internal void @dtap_cc_user_info(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7243,7 +7243,7 @@ define internal void @dtap_cc_hold_rej(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7279,7 +7279,7 @@ define internal void @dtap_cc_retrieve_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7315,7 +7315,7 @@ define internal void @dtap_cc_disconnect(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7392,7 +7392,7 @@ define internal void @dtap_cc_release(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %11, label %38, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 8, i32 noundef 1, i32 noundef 27, i32 noundef %13, i32 noundef %10, ptr noundef nonnull @.str.915) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -7446,7 +7446,7 @@ define internal void @dtap_cc_release_complete(ptr noundef %0, ptr noundef %1, p
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %7
-  %13 = add i32 %9, %3
+  %13 = add i32 %3, %9
   %14 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 28, i32 noundef 1, i32 noundef 33, i32 noundef %13, i32 noundef %10, ptr noundef null) #6
   %15 = zext i16 %14 to i32
   %16 = sub nsw i32 %10, %15
@@ -7527,7 +7527,7 @@ define internal void @dtap_cc_notify(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7563,7 +7563,7 @@ define internal void @dtap_cc_status(ptr noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7629,7 +7629,7 @@ define internal void @dtap_cc_start_dtmf(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7665,7 +7665,7 @@ define internal void @dtap_cc_start_dtmf_ack(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7701,7 +7701,7 @@ define internal void @dtap_cc_start_dtmf_rej(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7737,7 +7737,7 @@ define internal void @dtap_cc_facility(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7781,7 +7781,7 @@ define internal void @dtap_mm_imsi_det_ind(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7839,7 +7839,7 @@ define internal void @dtap_mm_loc_upd_acc(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -7931,7 +7931,7 @@ define internal void @dtap_mm_loc_upd_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8197,7 +8197,7 @@ define internal void @dtap_mm_auth_resp(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8241,7 +8241,7 @@ define internal void @dtap_mm_auth_fail(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8312,7 +8312,7 @@ define internal void @dtap_mm_id_resp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8372,7 +8372,7 @@ define internal void @dtap_mm_tmsi_realloc_cmd(ptr noundef %0, ptr noundef %1, p
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8430,7 +8430,7 @@ define internal void @dtap_mm_cm_srvc_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8585,7 +8585,7 @@ define internal void @dtap_mm_cm_srvc_prompt(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8722,7 +8722,7 @@ define internal void @dtap_mm_abort(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8758,7 +8758,7 @@ define internal void @dtap_mm_mm_status(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8796,7 +8796,7 @@ define internal void @dtap_sms_cp_data(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8832,7 +8832,7 @@ define internal void @dtap_sms_cp_error(ptr noundef %0, ptr noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8868,7 +8868,7 @@ define internal void @dtap_ss_register(ptr noundef %0, ptr noundef %1, ptr nound
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8911,7 +8911,7 @@ define internal void @dtap_tp_close_tch_loop_cmd(ptr noundef %0, ptr noundef %1,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -8955,7 +8955,7 @@ define internal void @dtap_tp_open_loop_cmd(ptr noundef %0, ptr noundef %1, ptr 
 
 12:                                               ; preds = %8
   %13 = zext i16 %9 to i32
-  %14 = add i32 %13, %3
+  %14 = add i32 %3, %13
   %15 = sub nsw i32 %4, %13
   %.not27 = icmp eq i32 %15, 0
   br i1 %.not27, label %.thread, label %16
@@ -8982,7 +8982,7 @@ define internal void @dtap_tp_test_interface(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9017,7 +9017,7 @@ define internal void @dtap_tp_multi_slot_loop_cmd(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9052,7 +9052,7 @@ define internal void @dtap_tp_multi_slot_loop_ack(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9087,7 +9087,7 @@ define internal void @dtap_tp_gprs_test_mode_cmd(ptr noundef %0, ptr noundef %1,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9144,7 +9144,7 @@ define internal void @dtap_tp_egprs_start_radio_block_loopback_cmd(ptr noundef %
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9179,7 +9179,7 @@ define internal void @dtap_tp_reset_ms_positioning_stored_information(ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9214,7 +9214,7 @@ define internal void @dtap_tp_close_ue_test_loop(ptr noundef %0, ptr noundef %1,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9249,7 +9249,7 @@ define internal void @dtap_tp_reset_ue_positioning_stored_information(ptr nounde
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9284,7 +9284,7 @@ define internal void @dtap_tp_ue_test_loop_mode_3_rlc_sdu_counter_response(ptr n
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9319,7 +9319,7 @@ define internal void @dtap_tp_epc_close_ue_test_loop(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9512,7 +9512,7 @@ define internal void @dtap_tp_epc_activate_test_mode(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9547,7 +9547,7 @@ define internal void @dtap_tp_epc_reset_ue_positioning_stored_information(ptr no
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9582,7 +9582,7 @@ define internal void @dtap_tp_epc_test_loop_mode_c_mbms_packet_counter_response(
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 
@@ -9617,7 +9617,7 @@ define internal void @dtap_tp_epc_update_ue_location_information(ptr noundef %0,
 
 9:                                                ; preds = %7
   %10 = zext i16 %8 to i32
-  %11 = add i32 %10, %3
+  %11 = add i32 %3, %10
   %12 = sub nsw i32 %4, %10
   br label %16
 

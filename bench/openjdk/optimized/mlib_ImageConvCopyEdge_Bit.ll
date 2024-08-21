@@ -40,7 +40,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
   %26 = shl nuw nsw i32 255, %25
   %27 = and i32 %26, %22
   %28 = sub nsw i32 %.val669, %5
-  %29 = icmp sgt i32 %28, %4
+  %29 = icmp slt i32 %4, %28
   br i1 %29, label %.lr.ph774, label %.loopexit682
 
 .lr.ph774:                                        ; preds = %23
@@ -72,7 +72,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
 
 49:                                               ; preds = %19
   %50 = sub nsw i32 %.val669, %5
-  %51 = icmp sgt i32 %50, %4
+  %51 = icmp slt i32 %4, %50
   br i1 %51, label %.lr.ph759, label %.loopexit682
 
 .lr.ph759:                                        ; preds = %49
@@ -206,7 +206,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
   %121 = shl nuw nsw i32 255, %120
   %122 = and i32 %121, %117
   %123 = sub nsw i32 %.val669, %5
-  %124 = icmp sgt i32 %123, %4
+  %124 = icmp slt i32 %4, %123
   br i1 %124, label %.lr.ph792, label %.loopexit679
 
 .lr.ph792:                                        ; preds = %118
@@ -238,7 +238,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
 
 144:                                              ; preds = %107
   %145 = sub nsw i32 %.val669, %5
-  %146 = icmp sgt i32 %145, %4
+  %146 = icmp slt i32 %4, %145
   br i1 %146, label %.lr.ph777, label %.loopexit679
 
 .lr.ph777:                                        ; preds = %144
@@ -525,7 +525,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
   %289 = and i32 %288, %284
   %290 = sub nsw i32 %.val669, %5
   %invariant.gep711 = getelementptr i8, ptr %.0648, i64 1
-  %291 = icmp sgt i32 %290, %4
+  %291 = icmp slt i32 %4, %290
   br i1 %291, label %.lr.ph715, label %.loopexit691
 
 .lr.ph715:                                        ; preds = %285
@@ -564,7 +564,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
 316:                                              ; preds = %281
   %317 = sub nsw i32 %.val669, %5
   %invariant.gep = getelementptr i8, ptr %.0648, i64 1
-  %318 = icmp sgt i32 %317, %4
+  %318 = icmp slt i32 %4, %317
   br i1 %318, label %.lr.ph, label %.loopexit691
 
 .lr.ph:                                           ; preds = %316
@@ -719,7 +719,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
   %410 = shl nuw nsw i32 255, %409
   %411 = and i32 %410, %406
   %412 = sub nsw i32 %.val669, %5
-  %413 = icmp sgt i32 %412, %4
+  %413 = icmp slt i32 %4, %412
   br i1 %413, label %.lr.ph731, label %.loopexit687
 
 .lr.ph731:                                        ; preds = %407
@@ -757,7 +757,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
 
 439:                                              ; preds = %395
   %440 = sub nsw i32 %.val669, %5
-  %441 = icmp sgt i32 %440, %4
+  %441 = icmp slt i32 %4, %440
   br i1 %441, label %.lr.ph718, label %.loopexit687
 
 .lr.ph718:                                        ; preds = %439

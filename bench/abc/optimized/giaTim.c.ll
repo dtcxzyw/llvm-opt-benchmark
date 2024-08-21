@@ -2858,13 +2858,13 @@ define i32 @Gia_ManLevelWithBoxes(ptr noundef %0) local_unnamed_addr #0 {
   %123 = add nsw i32 %116, 1
   %124 = getelementptr inbounds i8, ptr %.val123, i64 4
   %125 = load i32, ptr %124, align 4
-  %.not.i.not = icmp sgt i32 %125, %116
+  %.not.i.not = icmp slt i32 %116, %125
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %126
 
 126:                                              ; preds = %122
   %127 = load i32, ptr %.val123, align 8
   %128 = shl nsw i32 %127, 1
-  %.not = icmp sgt i32 %128, %116
+  %.not = icmp slt i32 %116, %128
   %.not.i.i.not = icmp sgt i32 %127, %116
   br i1 %.not, label %141, label %129
 
@@ -3430,13 +3430,13 @@ define i32 @Gia_ManLutLevelWithBoxes(ptr noundef %0) local_unnamed_addr #0 {
   %116 = add nsw i32 %109, 1
   %117 = getelementptr inbounds i8, ptr %.val116, i64 4
   %118 = load i32, ptr %117, align 4
-  %.not.i.not = icmp sgt i32 %118, %109
+  %.not.i.not = icmp slt i32 %109, %118
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %119
 
 119:                                              ; preds = %115
   %120 = load i32, ptr %.val116, align 8
   %121 = shl nsw i32 %120, 1
-  %.not145 = icmp sgt i32 %121, %109
+  %.not145 = icmp slt i32 %109, %121
   %.not.i.i.not = icmp sgt i32 %120, %109
   br i1 %.not145, label %134, label %122
 
@@ -5736,13 +5736,13 @@ declare void @Gia_ManQuantSetSuppAnd(ptr noundef, ptr noundef) local_unnamed_add
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

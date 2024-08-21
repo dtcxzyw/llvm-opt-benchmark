@@ -469,7 +469,7 @@ define dso_local void @intel_panel_add_edid_fixed_modes(ptr noundef %0, i1 nound
   %81 = getelementptr i8, ptr %79, i64 -64
   %82 = icmp ne ptr %81, null
   %.not11 = and i1 %80, %82
-  %.not8 = and i1 %.not11, %1
+  %.not8 = and i1 %1, %.not11
   br i1 %.not8, label %83, label %thread-pre-split
 
 83:                                               ; preds = %77

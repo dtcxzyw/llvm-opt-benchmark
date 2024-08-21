@@ -471,7 +471,7 @@ entry:
   %cmp = icmp eq i32 %id, 1
   %call = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   %brmerge.demorgan = and i1 %cmp, %call
-  %brmerge20.demorgan = and i1 %brmerge.demorgan, %fin
+  %brmerge20.demorgan = and i1 %fin, %brmerge.demorgan
   br i1 %brmerge20.demorgan, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %entry

@@ -3604,7 +3604,7 @@ agxblen.exit.i.i:                                 ; preds = %.loopexit
   %.0.i30.i.i = select i1 %.not.i.i.i, i64 %141, i64 31
   %.0.i24.i.i = select i1 %.not.i.i.i, i64 %143, i64 %139
   %144 = sub i64 %.0.i30.i.i, %.0.i24.i.i
-  %145 = icmp ult i64 %144, %137
+  %145 = icmp ugt i64 %137, %144
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %agxblen.exit.i.i
@@ -5822,7 +5822,7 @@ strview.exit:                                     ; preds = %4, %5
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.3.0.i)
   %8 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %7) #27
   %.not.i.i = icmp eq i32 %8, 0
-  %9 = icmp eq i64 %.sroa.3.0.i, %1
+  %9 = icmp eq i64 %1, %.sroa.3.0.i
   %spec.select.i = and i1 %9, %.not.i.i
   ret i1 %spec.select.i
 }

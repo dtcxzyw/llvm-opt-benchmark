@@ -520,7 +520,7 @@ define i32 @mca_base_pvar_register(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 27:                                               ; preds = %24
   %28 = load i32, ptr @pvar_count, align 4
-  %.not.i = icmp sgt i32 %28, %25
+  %.not.i = icmp slt i32 %25, %28
   br i1 %.not.i, label %29, label %mca_base_pvar_get_internal.exit
 
 29:                                               ; preds = %27
@@ -868,7 +868,7 @@ define i32 @mca_base_component_pvar_register(ptr noundef %0, ptr noundef %1, ptr
 ; Function Attrs: nounwind uwtable
 define range(i32 -18, 1) i32 @mca_base_pvar_get(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pvar_count, align 4
-  %.not.i = icmp sgt i32 %3, %0
+  %.not.i = icmp slt i32 %0, %3
   br i1 %.not.i, label %4, label %mca_base_pvar_get_internal.exit
 
 4:                                                ; preds = %2
@@ -918,7 +918,7 @@ mca_base_pvar_get_internal.exit:                  ; preds = %2, %opal_pointer_ar
 ; Function Attrs: nounwind uwtable
 define range(i32 -18, 1) i32 @mca_base_pvar_mark_invalid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @pvar_count, align 4
-  %.not.i = icmp sgt i32 %2, %0
+  %.not.i = icmp slt i32 %0, %2
   br i1 %.not.i, label %3, label %mca_base_pvar_get_internal.exit.thread
 
 3:                                                ; preds = %1
@@ -992,7 +992,7 @@ define i32 @mca_base_pvar_notify(ptr nocapture noundef readonly %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define range(i32 -18, 1) i32 @mca_base_pvar_update_all_handles(i32 noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pvar_count, align 4
-  %.not.i = icmp sgt i32 %3, %0
+  %.not.i = icmp slt i32 %0, %3
   br i1 %.not.i, label %4, label %mca_base_pvar_get_internal.exit.thread
 
 4:                                                ; preds = %2
@@ -1368,7 +1368,7 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
 ; Function Attrs: nounwind uwtable
 define i32 @mca_base_pvar_handle_alloc(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @pvar_count, align 4
-  %.not.i = icmp sgt i32 %6, %1
+  %.not.i = icmp slt i32 %1, %6
   br i1 %.not.i, label %7, label %.thread
 
 7:                                                ; preds = %5
@@ -2049,7 +2049,7 @@ define i32 @mca_base_pvar_dump(i32 noundef %0, ptr nocapture noundef %1, i32 nou
   %9 = alloca ptr, align 8
   store i32 0, ptr %5, align 4
   %10 = load i32, ptr @pvar_count, align 4
-  %.not.i.i = icmp sgt i32 %10, %0
+  %.not.i.i = icmp slt i32 %0, %10
   br i1 %.not.i.i, label %11, label %mca_base_pvar_get.exit.thread
 
 11:                                               ; preds = %3

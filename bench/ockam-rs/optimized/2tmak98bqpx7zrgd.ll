@@ -47903,8 +47903,8 @@ default.unreachable343:                           ; preds = %1693, %1487, %1465,
 
 476:                                              ; preds = %494, %.noexc135.i.i
   %.sroa.9.0.i.i.i.i.i.i = phi i64 [ 0, %.noexc135.i.i ], [ %495, %494 ]
-  %.pn.i.i.i.i = phi i64 [ %472, %.noexc135.i.i ], [ %496, %494 ]
-  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val6.i.i.i
+  %.pn.i.i.i.i.i = phi i64 [ %472, %.noexc135.i.i ], [ %496, %494 ]
+  %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val6.i.i.i
   %477 = getelementptr inbounds i8, ptr %.val5.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i29.i.i.i.i.i = load <16 x i8>, ptr %477, align 1, !noalias !6448
   %478 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i
@@ -47932,7 +47932,7 @@ default.unreachable343:                           ; preds = %1693, %1487, %1465,
   %492 = sub nsw i64 0, %491
   %gep.i.i.i.i.i = getelementptr { i8, [7 x i8], { ptr, ptr } }, ptr %invariant.gep.i.i.i.i.i, i64 %492
   %.val3.i.i.i.i.i.i = load i8, ptr %gep.i.i.i.i.i, align 1, !alias.scope !6456, !noalias !6461, !noundef !5
-  %493 = icmp eq i8 %.val3.i.i.i.i.i.i, %435
+  %493 = icmp eq i8 %435, %.val3.i.i.i.i.i.i
   br i1 %493, label %499, label %480
 
 494:                                              ; preds = %481

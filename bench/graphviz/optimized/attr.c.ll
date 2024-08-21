@@ -42,7 +42,7 @@ define internal void @freesym(ptr noundef %0, ptr nocapture readnone %1) #0 {
 define ptr @agdatadict(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @DataDictName, i32 noundef 0) #7
   %.not = icmp eq ptr %3, null
-  %brmerge.not = and i1 %.not, %1
+  %brmerge.not = and i1 %1, %.not
   br i1 %brmerge.not, label %4, label %24
 
 4:                                                ; preds = %2
@@ -216,7 +216,7 @@ agdictof.exit.i:                                  ; preds = %31, %28, %25, %22, 
   br i1 %.not.i, label %90, label %38
 
 38:                                               ; preds = %agdictof.exit.i
-  %.not82.i = icmp eq ptr %18, %.09
+  %.not82.i = icmp eq ptr %.09, %18
   br i1 %.not82.i, label %44, label %39
 
 39:                                               ; preds = %38
@@ -631,7 +631,7 @@ define void @agraphattr_init(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %1
   %31 = load ptr, ptr @ProtoGraph, align 8
   %.not28.i = icmp eq ptr %31, null
-  %.not29.i = icmp eq ptr %31, %0
+  %.not29.i = icmp eq ptr %0, %31
   %or.cond.i = or i1 %.not28.i, %.not29.i
   br i1 %or.cond.i, label %agmakedatadict.exit, label %32
 

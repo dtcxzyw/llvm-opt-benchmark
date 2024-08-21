@@ -2571,7 +2571,7 @@ define dso_local i64 @copy_page_to_iter(ptr noundef %0, i64 noundef %1, i64 noun
 define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = zext i32 %1 to i64
-  %7 = add i64 %6, %2
+  %7 = add i64 %2, %6
   %8 = icmp uge i64 %7, %2
   %9 = icmp ult i64 %7, 4097
   %10 = and i1 %8, %9
@@ -5754,7 +5754,7 @@ define internal fastcc noundef i32 @copy_compat_iovec_from_user(ptr nocapture no
   store i64 %25, ptr %26, align 8
   %27 = add i32 %13, 1
   %28 = sext i32 %27 to i64
-  %29 = icmp ult i64 %28, %2
+  %29 = icmp ugt i64 %2, %28
   br i1 %29, label %11, label %30, !llvm.loop !117
 
 30:                                               ; preds = %19, %21, %17, %11

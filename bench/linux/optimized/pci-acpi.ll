@@ -1080,7 +1080,7 @@ define dso_local range(i32 -25, 1) i32 @pci_dev_acpi_reset(ptr noundef %0, i1 no
 14:                                               ; preds = %10
   %15 = tail call zeroext i1 @acpi_has_method(ptr noundef nonnull %12, ptr noundef nonnull @.str.1) #9
   %16 = xor i1 %15, true
-  %17 = or i1 %16, %1
+  %17 = or i1 %1, %16
   %18 = select i1 %15, i32 0, i32 -25
   br i1 %17, label %.thread, label %19
 

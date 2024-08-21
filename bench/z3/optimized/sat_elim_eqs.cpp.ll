@@ -1295,7 +1295,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3s
 entry:
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %0 = select i1 %.b, i32 -2, i32 0
-  %cmp.i = icmp eq i32 %0, %l.coerce
+  %cmp.i = icmp eq i32 %l.coerce, %0
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1443,7 +1443,7 @@ _ZN7svectorIN3sat7literalEjEC2EjRKS1_.exit.thread36: ; preds = %_ZNK3sat6solver8
   store ptr null, ptr %to_elim, align 8
   br label %invoke.cont4
 
-while.condthread-pre-split.i.i.i:                 ; preds = %_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i
+while.condthread-pre-split.i.i.i:                 ; preds = %_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i, %while.cond.i.i.i
   call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %roots)
   %.pr.pre.i.i.i = load ptr, ptr %roots, align 8
   br label %while.cond.i.i.i
@@ -1451,16 +1451,12 @@ while.condthread-pre-split.i.i.i:                 ; preds = %_ZNK6vectorIN3sat7l
 while.cond.i.i.i:                                 ; preds = %_ZNK3sat6solver8num_varsEv.exit, %while.condthread-pre-split.i.i.i
   %3 = phi ptr [ %.pr.pre.i.i.i, %while.condthread-pre-split.i.i.i ], [ null, %_ZNK3sat6solver8num_varsEv.exit ]
   %cmp.i10.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i10.i.i.i, label %_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i, label %if.end.i11.i.i.i
+  br i1 %cmp.i10.i.i.i, label %while.condthread-pre-split.i.i.i, label %_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i
 
-if.end.i11.i.i.i:                                 ; preds = %while.cond.i.i.i
+_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %while.cond.i.i.i
   %arrayidx.i12.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load i32, ptr %arrayidx.i12.i.i.i, align 4
-  br label %_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i
-
-_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %if.end.i11.i.i.i, %while.cond.i.i.i
-  %retval.0.i13.i.i.i = phi i32 [ %4, %if.end.i11.i.i.i ], [ 0, %while.cond.i.i.i ]
-  %cmp3.i.i.i = icmp ult i32 %retval.0.i13.i.i.i, %2
+  %cmp3.i.i.i = icmp ugt i32 %2, %4
   br i1 %cmp3.i.i.i, label %while.condthread-pre-split.i.i.i, label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i
@@ -1472,9 +1468,9 @@ while.end.i.i.i:                                  ; preds = %_ZNK6vectorIN3sat7l
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %while.end.i.i.i
-  %it.018.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %5, %while.end.i.i.i ]
-  store i32 %agg.tmp.sroa.0.0.copyload.i.i, ptr %it.018.i.i.i, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i.i, i64 4
+  %it.020.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %5, %while.end.i.i.i ]
+  store i32 %agg.tmp.sroa.0.0.copyload.i.i, ptr %it.020.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.020.i.i.i, i64 4
   %cmp8.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr7.i.i.i
   br i1 %cmp8.not.i.i.i, label %_ZN7svectorIN3sat7literalEjEC2EjRKS1_.exit, label %for.body.i.i.i, !llvm.loop !21
 
@@ -2401,7 +2397,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i32, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i5759 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i5759, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i5759
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
@@ -2481,7 +2477,7 @@ if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph
   %dec.us = add nsw i64 %__parent.061.us, -1
   %add.ptr11.us = getelementptr inbounds %"class.sat::literal", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i32, ptr %add.ptr11.us, align 4
-  %cmp23.i16.not.us = icmp slt i64 %div.i5759, %__parent.061.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
   br i1 %cmp23.i16.not.us, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit56.us, label %while.body.i44.us
 
 while.body.i44.us:                                ; preds = %if.end8.split.us, %while.body.i44.us
@@ -2533,7 +2529,7 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   %dec = add nsw i64 %__parent.061, -1
   %add.ptr11 = getelementptr inbounds %"class.sat::literal", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i32, ptr %add.ptr11, align 4
-  %cmp23.i16.not = icmp slt i64 %div.i5759, %__parent.061
+  %cmp23.i16.not = icmp sgt i64 %__parent.061, %div.i5759
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i44
 
 while.body.i44:                                   ; preds = %if.end8.split, %while.body.i44

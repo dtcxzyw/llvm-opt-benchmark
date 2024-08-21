@@ -17847,7 +17847,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out_data.4, i64 4
@@ -17904,7 +17904,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i24.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i24.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i27.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i27.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   %sub.i.i.i.i.i.i.i28.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i27.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i29.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i28.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
@@ -18745,7 +18745,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out_data.4, i64 4
@@ -18802,7 +18802,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i24.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i24.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i27.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i27.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   %sub.i.i.i.i.i.i.i28.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i27.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i29.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i28.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
@@ -18924,7 +18924,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -18997,7 +18997,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %17, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %17
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %17, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -19325,7 +19325,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = trunc nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out_data.4, i64 4
@@ -19380,7 +19380,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i.i.i.i.i22.i.i.i.i = sdiv i64 %15, 86400000000
   %conv.i.i.i.i.i.i.i.i23.i.i.i.i = trunc nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i25.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i27.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i26.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
@@ -19502,7 +19502,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -19573,7 +19573,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %17, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %17
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %17, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -19899,7 +19899,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000000
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = trunc nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out_data.4, i64 4
@@ -19954,7 +19954,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i.i.i.i.i22.i.i.i.i = sdiv i64 %15, 86400000000000
   %conv.i.i.i.i.i.i.i.i23.i.i.i.i = trunc nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i25.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i27.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i26.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
@@ -20076,7 +20076,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -20147,7 +20147,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %17, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %17
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %17, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -21474,7 +21474,7 @@ for.body14:                                       ; preds = %for.cond11.preheade
   %arrayidx15 = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %i10.0184
   %10 = load i32, ptr %arrayidx15, align 4
   %conv16 = sext i32 %10 to i64
-  %mul = mul nsw i64 %conv16, %factor
+  %mul = mul nsw i64 %factor, %conv16
   %arrayidx17 = getelementptr inbounds i64, ptr %add.ptr.i.i109, i64 %i10.0184
   store i64 %mul, ptr %arrayidx17, align 8
   %inc19 = add nuw nsw i64 %i10.0184, 1
@@ -21564,7 +21564,7 @@ lpad52:                                           ; preds = %invoke.cont
   br label %eh.resume
 
 if.end:                                           ; preds = %for.body37, %land.lhs.true39
-  %mul56 = mul nsw i64 %.pre197, %factor
+  %mul56 = mul nsw i64 %factor, %.pre197
   %arrayidx57 = getelementptr inbounds i64, ptr %add.ptr.i.i109, i64 %i33.0180
   store i64 %mul56, ptr %arrayidx57, align 8
   %inc.i = add nsw i64 %bit_reader.sroa.14.0179, 1
@@ -21658,7 +21658,7 @@ lpad86.body:                                      ; preds = %lpad.i.i, %lpad86
   br label %eh.resume
 
 if.end90:                                         ; preds = %for.body66
-  %mul93 = mul nsw i64 %conv68, %factor
+  %mul93 = mul nsw i64 %factor, %conv68
   %arrayidx94 = getelementptr inbounds i64, ptr %add.ptr.i.i109, i64 %i62.0182
   store i64 %mul93, ptr %arrayidx94, align 8
   %inc96 = add nuw nsw i64 %i62.0182, 1
@@ -22342,7 +22342,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -22401,7 +22401,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i23.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i23.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %sext.i.i.i.i29.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, 32
@@ -22920,7 +22920,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -22979,7 +22979,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i23.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i23.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %sext.i.i.i.i29.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, 32
@@ -23104,7 +23104,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -23179,7 +23179,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %17, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %17
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %17, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -23508,7 +23508,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %7 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 86400000
@@ -23563,7 +23563,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %15 = load i64, ptr %arrayidx.i21.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i22.i.i.i.i = sdiv i64 %15, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i24.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i24.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i
   %sub.i.i.i.i.i.i.i25.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i24.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i26.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, %sub.i.i.i.i.i.i.i25.i.i.i.i
   %mul.i.i.i.i27.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i26.i.i.i.i, 86400000
@@ -23686,7 +23686,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -23757,7 +23757,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %17, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %17
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %17, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -24082,7 +24082,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %7 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 86400000
@@ -24137,7 +24137,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %15 = load i64, ptr %arrayidx.i21.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i22.i.i.i.i = sdiv i64 %15, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i24.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i.i.i24.i.i.i.i = icmp slt i64 %15, %mul.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i
   %sub.i.i.i.i.i.i.i25.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i24.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i26.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i22.i.i.i.i, %sub.i.i.i.i.i.i.i25.i.i.i.i
   %mul.i.i.i.i27.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i26.i.i.i.i, 86400000
@@ -24260,7 +24260,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -24331,7 +24331,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %17, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %17
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %17, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -27915,7 +27915,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 4294880896
@@ -27976,7 +27976,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i31.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 4294880896
@@ -28507,7 +28507,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 4208567296
@@ -28568,7 +28568,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i31.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 4208567296
@@ -28695,7 +28695,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -28772,7 +28772,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -29109,7 +29109,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 3794313216
@@ -29168,7 +29168,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, 3794313216
@@ -29295,7 +29295,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -29370,7 +29370,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -29705,7 +29705,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 1857093632
@@ -29764,7 +29764,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, 1857093632
@@ -29891,7 +29891,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -29966,7 +29966,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -30303,7 +30303,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -30366,7 +30366,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %sext.i.i.i.i31.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 32
@@ -30903,7 +30903,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -30966,7 +30966,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %sext.i.i.i.i31.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 32
@@ -31095,7 +31095,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -31174,7 +31174,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -31513,7 +31513,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, -86400000000
@@ -31572,7 +31572,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, -86400000000
@@ -31699,7 +31699,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -31774,7 +31774,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -32109,7 +32109,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, -86400000000000
@@ -32168,7 +32168,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, -86400000000000
@@ -32295,7 +32295,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -32370,7 +32370,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -32715,7 +32715,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %sext37.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i, 32
@@ -32920,7 +32920,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i29.i.i.i.i = shl i64 %div.i.i.i.i.i28.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i30.i.i.i.i = ashr exact i64 %sext.i.i.i29.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i31.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i30.i.i.i.i, 86400
-  %cmp.i.i.i.i.i32.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i31.i.i.i.i, %32
+  %cmp.i.i.i.i.i32.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i31.i.i.i.i
   %sub.i.i.i.i33.i.i.i.i = sext i1 %cmp.i.i.i.i.i32.i.i.i.i to i64
   %spec.select.i.i.i34.i.i.i.i = add nsw i64 %div.i.i.i.i.i28.i.i.i.i, %sub.i.i.i.i33.i.i.i.i
   %sext37.i35.i.i.i.i = shl i64 %spec.select.i.i.i34.i.i.i.i, 32
@@ -33909,7 +33909,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %sext37.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i, 32
@@ -34114,7 +34114,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i29.i.i.i.i = shl i64 %div.i.i.i.i.i28.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i30.i.i.i.i = ashr exact i64 %sext.i.i.i29.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i31.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i30.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i32.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i31.i.i.i.i, %32
+  %cmp.i.i.i.i.i32.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i31.i.i.i.i
   %sub.i.i.i.i33.i.i.i.i = sext i1 %cmp.i.i.i.i.i32.i.i.i.i to i64
   %spec.select.i.i.i34.i.i.i.i = add nsw i64 %div.i.i.i.i.i28.i.i.i.i, %sub.i.i.i.i33.i.i.i.i
   %sext37.i35.i.i.i.i = shl i64 %spec.select.i.i.i34.i.i.i.i, 32
@@ -34404,7 +34404,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i)
@@ -34625,7 +34625,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i26.i.i.i.i)
   %div.i.i.i.i.i.i.i.i29.i.i.i.i = sdiv i64 %34, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i29.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i31.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i, %34
+  %cmp.i.i.i.i.i.i.i.i31.i.i.i.i = icmp slt i64 %34, %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i
   %sub.i.i.i.i.i.i.i32.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i31.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i33.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i29.i.i.i.i, %sub.i.i.i.i.i.i.i32.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %spec.select.i.i.i.i.i.i33.i.i.i.i)
@@ -35113,7 +35113,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i, -86400000000
@@ -35314,7 +35314,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i27.i.i.i.i)
   %div.i.i.i.i.i28.i.i.i.i = sdiv i64 %32, 86400000000
   %mul.i.i.i.i.i.i.i.i29.i.i.i.i = mul nsw i64 %div.i.i.i.i.i28.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i30.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i29.i.i.i.i, %32
+  %cmp.i.i.i.i.i30.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i29.i.i.i.i
   %sub.i.i.i.i31.i.i.i.i = sext i1 %cmp.i.i.i.i.i30.i.i.i.i to i64
   %spec.select.i.i.i32.i.i.i.i = add nsw i64 %div.i.i.i.i.i28.i.i.i.i, %sub.i.i.i.i31.i.i.i.i
   %mul.i.i.i.neg.i.i.i33.i.i.i.i = mul i64 %spec.select.i.i.i32.i.i.i.i, -86400000000
@@ -35602,7 +35602,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i)
@@ -35819,7 +35819,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i26.i.i.i.i)
   %div.i.i.i.i.i.i.i.i29.i.i.i.i = sdiv i64 %34, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i29.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i31.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i, %34
+  %cmp.i.i.i.i.i.i.i.i31.i.i.i.i = icmp slt i64 %34, %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i
   %sub.i.i.i.i.i.i.i32.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i31.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i33.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i29.i.i.i.i, %sub.i.i.i.i.i.i.i32.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %spec.select.i.i.i.i.i.i33.i.i.i.i)
@@ -36303,7 +36303,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i, -86400000000000
@@ -36504,7 +36504,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i27.i.i.i.i)
   %div.i.i.i.i.i28.i.i.i.i = sdiv i64 %32, 86400000000000
   %mul.i.i.i.i.i.i.i.i29.i.i.i.i = mul nsw i64 %div.i.i.i.i.i28.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i30.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i29.i.i.i.i, %32
+  %cmp.i.i.i.i.i30.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i29.i.i.i.i
   %sub.i.i.i.i31.i.i.i.i = sext i1 %cmp.i.i.i.i.i30.i.i.i.i to i64
   %spec.select.i.i.i32.i.i.i.i = add nsw i64 %div.i.i.i.i.i28.i.i.i.i, %sub.i.i.i.i31.i.i.i.i
   %mul.i.i.i.neg.i.i.i33.i.i.i.i = mul i64 %spec.select.i.i.i32.i.i.i.i, -86400000000000
@@ -36792,7 +36792,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i)
@@ -37009,7 +37009,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i26.i.i.i.i)
   %div.i.i.i.i.i.i.i.i29.i.i.i.i = sdiv i64 %34, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i29.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i31.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i, %34
+  %cmp.i.i.i.i.i.i.i.i31.i.i.i.i = icmp slt i64 %34, %mul.i.i.i.i.i.i.i.i.i.i.i30.i.i.i.i
   %sub.i.i.i.i.i.i.i32.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i31.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i33.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i29.i.i.i.i, %sub.i.i.i.i.i.i.i32.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i26.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %spec.select.i.i.i.i.i.i33.i.i.i.i)
@@ -38597,7 +38597,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -38659,7 +38659,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %sext.i.i.i.i31.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 32
@@ -39193,7 +39193,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -39255,7 +39255,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %sext.i.i.i.i31.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 32
@@ -39383,7 +39383,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -39461,7 +39461,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -39799,7 +39799,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, -86400000000
@@ -39857,7 +39857,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, -86400000000
@@ -39983,7 +39983,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -40057,7 +40057,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -40391,7 +40391,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, -86400000000000
@@ -40449,7 +40449,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, -86400000000000
@@ -40575,7 +40575,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -40649,7 +40649,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -40985,7 +40985,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -41047,7 +41047,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %sext.i.i.i.i31.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 32
@@ -41581,7 +41581,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i.i.i, 32
@@ -41643,7 +41643,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i.i.i.i25.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i25.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i26.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i28.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i27.i.i.i.i
   %sub.i.i.i.i.i.i.i29.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i28.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i30.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i29.i.i.i.i
   %sext.i.i.i.i31.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i30.i.i.i.i, 32
@@ -41771,7 +41771,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -41849,7 +41849,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -42187,7 +42187,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, -86400000000
@@ -42245,7 +42245,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, -86400000000
@@ -42371,7 +42371,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -42445,7 +42445,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -42779,7 +42779,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %8 = load i64, ptr %arrayidx.i.i4.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %8, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %8, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i.i.i.i, -86400000000000
@@ -42837,7 +42837,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %16 = load i64, ptr %arrayidx.i23.i.i.i.i, align 8
   %div.i.i.i.i.i.i.i.i24.i.i.i.i = sdiv i64 %16, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i, %16
+  %cmp.i.i.i.i.i.i.i.i26.i.i.i.i = icmp slt i64 %16, %mul.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i
   %sub.i.i.i.i.i.i.i27.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i26.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i28.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i24.i.i.i.i, %sub.i.i.i.i.i.i.i27.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i29.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i28.i.i.i.i, -86400000000000
@@ -42963,7 +42963,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -43037,7 +43037,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i21.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = sdiv i64 %18, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i, %18
+  %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i = icmp slt i64 %18, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i24.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i25.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i26.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i21.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 %spec.select.i.i.i.i.i.i.i.i.i27.i.i.i.i)
@@ -43381,7 +43381,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 86400
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i, 32
@@ -43580,7 +43580,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i28.i.i.i.i = shl i64 %div.i.i.i.i.i27.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i29.i.i.i.i = ashr exact i64 %sext.i.i.i28.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i30.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i29.i.i.i.i, 86400
-  %cmp.i.i.i.i.i31.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i30.i.i.i.i, %32
+  %cmp.i.i.i.i.i31.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i30.i.i.i.i
   %sub.i.i.i.i32.i.i.i.i = sext i1 %cmp.i.i.i.i.i31.i.i.i.i to i64
   %spec.select.i.i.i33.i.i.i.i = add nsw i64 %div.i.i.i.i.i27.i.i.i.i, %sub.i.i.i.i32.i.i.i.i
   %sext.i34.i.i.i.i = shl i64 %spec.select.i.i.i33.i.i.i.i, 32
@@ -44551,7 +44551,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %sext.i.i.i.i.i.i.i = shl i64 %div.i.i.i.i.i.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %sext.i.i.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i, 32
@@ -44750,7 +44750,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %sext.i.i.i28.i.i.i.i = shl i64 %div.i.i.i.i.i27.i.i.i.i, 32
   %conv.i.i.i.i.i.i.i.i29.i.i.i.i = ashr exact i64 %sext.i.i.i28.i.i.i.i, 32
   %mul.i.i.i.i.i.i.i.i30.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i.i.i.i29.i.i.i.i, 86400000
-  %cmp.i.i.i.i.i31.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i30.i.i.i.i, %32
+  %cmp.i.i.i.i.i31.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i30.i.i.i.i
   %sub.i.i.i.i32.i.i.i.i = sext i1 %cmp.i.i.i.i.i31.i.i.i.i to i64
   %spec.select.i.i.i33.i.i.i.i = add nsw i64 %div.i.i.i.i.i27.i.i.i.i, %sub.i.i.i.i32.i.i.i.i
   %sext.i34.i.i.i.i = shl i64 %spec.select.i.i.i33.i.i.i.i, 32
@@ -45034,7 +45034,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i)
@@ -45249,7 +45249,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i25.i.i.i.i)
   %div.i.i.i.i.i.i.i.i28.i.i.i.i = sdiv i64 %34, 1000
   %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i28.i.i.i.i, 1000
-  %cmp.i.i.i.i.i.i.i.i30.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i, %34
+  %cmp.i.i.i.i.i.i.i.i30.i.i.i.i = icmp slt i64 %34, %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i
   %sub.i.i.i.i.i.i.i31.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i30.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i32.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i28.i.i.i.i, %sub.i.i.i.i.i.i.i31.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i25.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %spec.select.i.i.i.i.i.i32.i.i.i.i)
@@ -45731,7 +45731,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i, -86400000000
@@ -45926,7 +45926,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i26.i.i.i.i)
   %div.i.i.i.i.i27.i.i.i.i = sdiv i64 %32, 86400000000
   %mul.i.i.i.i.i.i.i.i28.i.i.i.i = mul nsw i64 %div.i.i.i.i.i27.i.i.i.i, 86400000000
-  %cmp.i.i.i.i.i29.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i28.i.i.i.i, %32
+  %cmp.i.i.i.i.i29.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i28.i.i.i.i
   %sub.i.i.i.i30.i.i.i.i = sext i1 %cmp.i.i.i.i.i29.i.i.i.i to i64
   %spec.select.i.i.i31.i.i.i.i = add nsw i64 %div.i.i.i.i.i27.i.i.i.i, %sub.i.i.i.i30.i.i.i.i
   %mul.i.i.i.neg.i.i.i32.i.i.i.i = mul i64 %spec.select.i.i.i31.i.i.i.i, -86400000000
@@ -46208,7 +46208,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i)
@@ -46419,7 +46419,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i25.i.i.i.i)
   %div.i.i.i.i.i.i.i.i28.i.i.i.i = sdiv i64 %34, 1000000
   %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i28.i.i.i.i, 1000000
-  %cmp.i.i.i.i.i.i.i.i30.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i, %34
+  %cmp.i.i.i.i.i.i.i.i30.i.i.i.i = icmp slt i64 %34, %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i
   %sub.i.i.i.i.i.i.i31.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i30.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i32.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i28.i.i.i.i, %sub.i.i.i.i.i.i.i31.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i25.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %spec.select.i.i.i.i.i.i32.i.i.i.i)
@@ -46897,7 +46897,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 86400000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %mul.i.i.i.neg.i.i.i.i.i.i.i = mul i64 %spec.select.i.i.i.i.i.i.i, -86400000000000
@@ -47092,7 +47092,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i26.i.i.i.i)
   %div.i.i.i.i.i27.i.i.i.i = sdiv i64 %32, 86400000000000
   %mul.i.i.i.i.i.i.i.i28.i.i.i.i = mul nsw i64 %div.i.i.i.i.i27.i.i.i.i, 86400000000000
-  %cmp.i.i.i.i.i29.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i28.i.i.i.i, %32
+  %cmp.i.i.i.i.i29.i.i.i.i = icmp slt i64 %32, %mul.i.i.i.i.i.i.i.i28.i.i.i.i
   %sub.i.i.i.i30.i.i.i.i = sext i1 %cmp.i.i.i.i.i29.i.i.i.i to i64
   %spec.select.i.i.i31.i.i.i.i = add nsw i64 %div.i.i.i.i.i27.i.i.i.i, %sub.i.i.i.i30.i.i.i.i
   %mul.i.i.i.neg.i.i.i32.i.i.i.i = mul i64 %spec.select.i.i.i31.i.i.i.i, -86400000000000
@@ -47374,7 +47374,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i.i.i.i.i)
   %div.i.i.i.i.i.i.i.i.i.i.i.i = sdiv i64 %7, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp slt i64 %7, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 %spec.select.i.i.i.i.i.i.i.i.i.i)
@@ -47585,7 +47585,7 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %i.i.i.i25.i.i.i.i)
   %div.i.i.i.i.i.i.i.i28.i.i.i.i = sdiv i64 %34, 1000000000
   %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i28.i.i.i.i, 1000000000
-  %cmp.i.i.i.i.i.i.i.i30.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i, %34
+  %cmp.i.i.i.i.i.i.i.i30.i.i.i.i = icmp slt i64 %34, %mul.i.i.i.i.i.i.i.i.i.i.i29.i.i.i.i
   %sub.i.i.i.i.i.i.i31.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i.i30.i.i.i.i to i64
   %spec.select.i.i.i.i.i.i32.i.i.i.i = add nsw i64 %div.i.i.i.i.i.i.i.i28.i.i.i.i, %sub.i.i.i.i.i.i.i31.i.i.i.i
   invoke void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.arrow_vendored::date::sys_info") align 8 %i.i.i.i25.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %spec.select.i.i.i.i.i.i32.i.i.i.i)
@@ -50875,7 +50875,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

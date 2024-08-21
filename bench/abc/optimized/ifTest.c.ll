@@ -1244,7 +1244,7 @@ Vec_IntPush.exit117.us:                           ; preds = %Vec_IntGrow.exit.i1
 
 ._crit_edge.us:                                   ; preds = %.critedge6.us
   %205 = trunc nuw nsw i64 %indvars.iv163 to i32
-  %206 = icmp eq i32 %205, %2
+  %206 = icmp eq i32 %2, %205
   br i1 %206, label %.preheader, label %.critedge6.us.backedge
 
 207:                                              ; preds = %.critedge6.us

@@ -1099,7 +1099,7 @@ formatf.specialized.2.exit:                       ; preds = %.loopexit, %.loopex
   %.0331.i309 = phi i32 [ %.0331.i.ph, %formatf.specialized.2.exit.thread ], [ %.0331.i, %formatf.specialized.2.exit ]
   %.sroa.0.26308 = phi ptr [ %.sroa.0.26.ph, %formatf.specialized.2.exit.thread ], [ %.sroa.0.26, %formatf.specialized.2.exit ]
   %.sroa.49.26307 = phi i64 [ %.sroa.49.26.ph, %formatf.specialized.2.exit.thread ], [ %.sroa.49.26, %formatf.specialized.2.exit ]
-  %420 = icmp eq i64 %.sroa.49.26307, %1
+  %420 = icmp eq i64 %1, %.sroa.49.26307
   br i1 %420, label %421, label %424
 
 421:                                              ; preds = %419

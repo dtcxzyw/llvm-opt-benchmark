@@ -5097,7 +5097,7 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   %243 = getelementptr inbounds i32, ptr %226, i64 %indvars.iv
   %244 = load i32, ptr %243, align 4
   %.not290 = icmp sge i32 %244, %.4238473
-  %245 = icmp sle i32 %.0.i319, %229
+  %245 = icmp sge i32 %229, %.0.i319
   %246 = select i1 %.not290, i1 %245, i1 false
   %247 = zext i1 %246 to i32
   %248 = icmp eq i32 %.0217405, 0
@@ -5190,7 +5190,7 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
 277:                                              ; preds = %273
   %278 = icmp slt i32 %.2215, %.4238473
   %.0.i320 = sub i32 %.5226474, %223
-  %.not341 = icmp sgt i32 %.0.i320, %.2219
+  %.not341 = icmp slt i32 %.2219, %.0.i320
   %or.cond549 = select i1 %278, i1 true, i1 %.not341
   br i1 %or.cond549, label %.thread, label %279
 

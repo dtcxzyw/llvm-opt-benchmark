@@ -1144,7 +1144,7 @@ lookup_fd_head.exit:                              ; preds = %5, %12
   store i32 %19, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %15, i64 36
   %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, %4
+  %22 = icmp eq i32 %4, %21
   br i1 %22, label %47, label %23
 
 23:                                               ; preds = %16
@@ -1256,7 +1256,7 @@ lookup_fd_head.exit:                              ; preds = %5, %12
   store i32 %22, ptr %17, align 8
   %23 = getelementptr inbounds i8, ptr %15, i64 36
   %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, %4
+  %25 = icmp eq i32 %4, %24
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %21
@@ -1611,7 +1611,7 @@ lookup_fd_head.exit:                              ; preds = %15, %21
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %24, i64 24
   %35 = load i32, ptr %34, align 8
-  %.not57 = icmp ult i32 %35, %10
+  %.not57 = icmp ugt i32 %10, %35
   br i1 %.not57, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %33
@@ -1623,13 +1623,13 @@ lookup_fd_head.exit:                              ; preds = %15, %21
   %.04968 = phi ptr [ %.049, %43 ], [ %.04966, %.preheader ]
   %36 = getelementptr inbounds i8, ptr %.04968, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = icmp eq i32 %37, %10
+  %38 = icmp eq i32 %10, %37
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds i8, ptr %.04968, i64 12
   %41 = load i32, ptr %40, align 4
-  %42 = icmp eq i32 %41, %6
+  %42 = icmp eq i32 %6, %41
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %.lr.ph, %39
@@ -1672,7 +1672,7 @@ lookup_fd_head.exit:                              ; preds = %15, %21
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %24, i64 24
   %60 = load i32, ptr %59, align 8
-  %61 = icmp ult i32 %60, %10
+  %61 = icmp ugt i32 %10, %60
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %58
@@ -1687,7 +1687,7 @@ lookup_fd_head.exit:                              ; preds = %15, %21
   br i1 %67, label %68, label %81
 
 68:                                               ; preds = %63
-  %.not65 = icmp ugt i32 %66, %6
+  %.not65 = icmp ult i32 %6, %66
   br i1 %.not65, label %70, label %69
 
 69:                                               ; preds = %68
@@ -1789,7 +1789,7 @@ lookup_fd_head.exit:                              ; preds = %26, %32
 37:                                               ; preds = %lookup_fd_head.exit
   %38 = getelementptr inbounds i8, ptr %3, i64 20
   %39 = load i32, ptr %38, align 4
-  %.not55 = icmp eq i32 %39, %9
+  %.not55 = icmp eq i32 %9, %39
   br i1 %.not55, label %67, label %40
 
 40:                                               ; preds = %37
@@ -1986,7 +1986,7 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
 45:                                               ; preds = %44
   tail call void @g_slice_free1(i64 noundef 32, ptr noundef nonnull %10) #14
   %46 = load i32, ptr %21, align 4
-  %.not162 = icmp ugt i32 %46, %4
+  %.not162 = icmp ult i32 %4, %46
   br i1 %.not162, label %48, label %47
 
 47:                                               ; preds = %45

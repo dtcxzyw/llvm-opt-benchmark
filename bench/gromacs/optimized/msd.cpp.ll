@@ -2179,7 +2179,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE5clearEv.exit: ; preds = %271, %276
 
 288:                                              ; preds = %278
   %289 = add i64 %281, 1
-  %290 = icmp ult i64 %287, %289
+  %290 = icmp ugt i64 %289, %287
   br i1 %290, label %291, label %322
 
 291:                                              ; preds = %288
@@ -2261,7 +2261,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i: ; p
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit
 
 322:                                              ; preds = %288
-  %323 = icmp ugt i64 %287, %289
+  %323 = icmp ult i64 %289, %287
   br i1 %323, label %324, label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit
 
 324:                                              ; preds = %322
@@ -2414,7 +2414,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_17MsdData14MsdColumnProxy9push_backEd.exit:
   br i1 %.not.i68, label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit76, label %385
 
 385:                                              ; preds = %376
-  %386 = icmp ult i64 %384, %374
+  %386 = icmp ugt i64 %374, %384
   br i1 %386, label %387, label %418
 
 387:                                              ; preds = %385
@@ -2496,7 +2496,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i111: 
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit76
 
 418:                                              ; preds = %385
-  %419 = icmp ugt i64 %384, %374
+  %419 = icmp ult i64 %374, %384
   br i1 %419, label %420, label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit76
 
 420:                                              ; preds = %418
@@ -6913,7 +6913,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.thread.i.
 _ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %45
   %.0.lcssa.i.i.i = phi ptr [ %24, %45 ], [ %55, %.lr.ph.i.i.i ]
   %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i27 = icmp eq ptr %6, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i28

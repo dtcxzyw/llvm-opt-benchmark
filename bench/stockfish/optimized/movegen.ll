@@ -4978,7 +4978,7 @@ define dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMo
 
 24:                                               ; preds = %22, %20
   %25 = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %.not2731 = icmp eq ptr %25, %1
+  %.not2731 = icmp eq ptr %1, %25
   br i1 %.not2731, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %43

@@ -12,7 +12,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %d_sum = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load double, ptr %d_sum, align 8
-  %add = fadd double %1, %v
+  %add = fadd double %v, %1
   store double %add, ptr %d_sum, align 8
   %2 = load ptr, ptr %this, align 8
   %d_count = getelementptr inbounds i8, ptr %2, i64 24

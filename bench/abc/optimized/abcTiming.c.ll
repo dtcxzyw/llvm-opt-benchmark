@@ -1385,21 +1385,21 @@ define void @Abc_NtkTimeScale(ptr nocapture noundef readonly %0, float noundef %
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   %8 = load float, ptr %7, align 4
-  %9 = fmul float %8, %1
+  %9 = fmul float %1, %8
   store float %9, ptr %7, align 4
   %10 = load ptr, ptr %3, align 8
   %11 = load float, ptr %10, align 8
-  %12 = fmul float %11, %1
+  %12 = fmul float %1, %11
   store float %12, ptr %10, align 8
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 12
   %15 = load float, ptr %14, align 4
-  %16 = fmul float %15, %1
+  %16 = fmul float %1, %15
   store float %16, ptr %14, align 4
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load float, ptr %18, align 8
-  %20 = fmul float %19, %1
+  %20 = fmul float %1, %19
   store float %20, ptr %18, align 8
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1427,10 +1427,10 @@ define void @Abc_NtkTimeScale(ptr nocapture noundef readonly %0, float noundef %
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 4
   %38 = load float, ptr %37, align 4
-  %39 = fmul float %38, %1
+  %39 = fmul float %1, %38
   store float %39, ptr %37, align 4
   %40 = load float, ptr %36, align 4
-  %41 = fmul float %40, %1
+  %41 = fmul float %1, %40
   store float %41, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %26, align 8
@@ -1471,10 +1471,10 @@ define void @Abc_NtkTimeScale(ptr nocapture noundef readonly %0, float noundef %
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 4
   %62 = load float, ptr %61, align 4
-  %63 = fmul float %62, %1
+  %63 = fmul float %1, %62
   store float %63, ptr %61, align 4
   %64 = load float, ptr %60, align 4
-  %65 = fmul float %64, %1
+  %65 = fmul float %1, %64
   store float %65, ptr %60, align 4
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %.val36 = load ptr, ptr %50, align 8
@@ -4074,13 +4074,13 @@ define i32 @Abc_ObjRequiredLevel(ptr nocapture noundef readonly %0) local_unname
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -4269,13 +4269,13 @@ Vec_IntFill.exit:                                 ; preds = %15, %2
   %41 = add nsw i32 %40, 1
   %42 = getelementptr inbounds i8, ptr %38, i64 4
   %43 = load i32, ptr %42, align 4
-  %.not.i20.not = icmp sgt i32 %43, %40
+  %.not.i20.not = icmp slt i32 %40, %43
   br i1 %.not.i20.not, label %Vec_IntFillExtra.exit, label %44
 
 44:                                               ; preds = %28
   %45 = load i32, ptr %38, align 8
   %46 = shl nsw i32 %45, 1
-  %.not = icmp sgt i32 %46, %40
+  %.not = icmp slt i32 %40, %46
   %.not.i.i21.not = icmp sgt i32 %45, %40
   br i1 %.not, label %59, label %47
 
@@ -5088,13 +5088,13 @@ Vec_VecClear.exit:                                ; preds = %51, %47
   %80 = add nsw i32 %79, 1
   %81 = getelementptr inbounds i8, ptr %77, i64 4
   %82 = load i32, ptr %81, align 4
-  %.not.i77.not = icmp sgt i32 %82, %79
+  %.not.i77.not = icmp slt i32 %79, %82
   br i1 %.not.i77.not, label %Vec_IntFillExtra.exit, label %83
 
 83:                                               ; preds = %.lr.ph158
   %84 = load i32, ptr %77, align 8
   %85 = shl nsw i32 %84, 1
-  %.not140 = icmp sgt i32 %85, %79
+  %.not140 = icmp slt i32 %79, %85
   %.not.i.i.not = icmp sgt i32 %84, %79
   br i1 %.not140, label %98, label %86
 
@@ -5209,13 +5209,13 @@ Vec_IntFillExtra.exit:                            ; preds = %.lr.ph158, %._crit_
   %132 = add nsw i32 %131, 1
   %133 = getelementptr inbounds i8, ptr %129, i64 4
   %134 = load i32, ptr %133, align 4
-  %.not.i84.not = icmp sgt i32 %134, %131
+  %.not.i84.not = icmp slt i32 %131, %134
   br i1 %.not.i84.not, label %Vec_IntFillExtra.exit97, label %135
 
 135:                                              ; preds = %119
   %136 = load i32, ptr %129, align 8
   %137 = shl nsw i32 %136, 1
-  %.not142 = icmp sgt i32 %137, %131
+  %.not142 = icmp slt i32 %131, %137
   %.not.i.i85.not = icmp sgt i32 %136, %131
   br i1 %.not142, label %150, label %138
 
@@ -5332,13 +5332,13 @@ Abc_ObjReverseLevelNew.exit69:                    ; preds = %Vec_IntFillExtra.ex
   %186 = add nsw i32 %185, 1
   %187 = getelementptr inbounds i8, ptr %184, i64 4
   %188 = load i32, ptr %187, align 4
-  %.not.i98.not = icmp sgt i32 %188, %185
+  %.not.i98.not = icmp slt i32 %185, %188
   br i1 %.not.i98.not, label %Vec_IntFillExtra.exit111, label %189
 
 189:                                              ; preds = %Abc_ObjReverseLevelNew.exit69
   %190 = load i32, ptr %184, align 8
   %191 = shl nsw i32 %190, 1
-  %.not144 = icmp sgt i32 %191, %185
+  %.not144 = icmp slt i32 %185, %191
   %.not.i.i99.not = icmp sgt i32 %190, %185
   br i1 %.not144, label %204, label %192
 
@@ -5437,13 +5437,13 @@ Vec_IntFillExtra.exit111:                         ; preds = %Abc_ObjReverseLevel
   %231 = add nsw i32 %230, 1
   %232 = getelementptr inbounds i8, ptr %229, i64 4
   %233 = load i32, ptr %232, align 4
-  %.not.i112.not = icmp sgt i32 %233, %230
+  %.not.i112.not = icmp slt i32 %230, %233
   br i1 %.not.i112.not, label %Vec_IntFillExtra.exit125, label %234
 
 234:                                              ; preds = %Vec_IntFillExtra.exit111
   %235 = load i32, ptr %229, align 8
   %236 = shl nsw i32 %235, 1
-  %.not146 = icmp sgt i32 %236, %230
+  %.not146 = icmp slt i32 %230, %236
   %.not.i.i113.not = icmp sgt i32 %235, %230
   br i1 %.not146, label %249, label %237
 
@@ -5585,13 +5585,13 @@ switch.early.test:                                ; preds = %277
   %294 = add nsw i32 %293, 1
   %295 = getelementptr inbounds i8, ptr %291, i64 4
   %296 = load i32, ptr %295, align 4
-  %.not.i126.not = icmp sgt i32 %296, %293
+  %.not.i126.not = icmp slt i32 %293, %296
   br i1 %.not.i126.not, label %Vec_IntFillExtra.exit139, label %297
 
 297:                                              ; preds = %288
   %298 = load i32, ptr %291, align 8
   %299 = shl nsw i32 %298, 1
-  %.not = icmp sgt i32 %299, %293
+  %.not = icmp slt i32 %293, %299
   %.not.i.i127.not = icmp sgt i32 %298, %293
   br i1 %.not, label %312, label %300
 

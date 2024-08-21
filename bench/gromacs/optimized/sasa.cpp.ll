@@ -5175,7 +5175,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit115.i:     ; preds = %337, %334
 
 377:                                              ; preds = %373
   %378 = load float, ptr %350, align 4
-  %379 = fcmp ogt float %378, %368
+  %379 = fcmp olt float %368, %378
   br i1 %379, label %380, label %381
 
 380:                                              ; preds = %377
@@ -5185,7 +5185,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit115.i:     ; preds = %337, %334
 
 381:                                              ; preds = %377
   %382 = load float, ptr %351, align 4
-  %383 = fcmp ogt float %382, %368
+  %383 = fcmp olt float %368, %382
   br i1 %383, label %384, label %385
 
 384:                                              ; preds = %381
@@ -5237,7 +5237,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_17add_recEPNS1_8t_conectEiif.exit.i.i: ; pr
 403:                                              ; preds = %397
   %404 = getelementptr inbounds i8, ptr %392, i64 8
   %405 = load float, ptr %404, align 4
-  %406 = fcmp ogt float %405, %368
+  %406 = fcmp olt float %368, %405
   br i1 %406, label %407, label %408
 
 407:                                              ; preds = %403
@@ -5248,7 +5248,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_17add_recEPNS1_8t_conectEiif.exit.i.i: ; pr
 408:                                              ; preds = %403
   %409 = getelementptr inbounds i8, ptr %392, i64 12
   %410 = load float, ptr %409, align 4
-  %411 = fcmp ogt float %410, %368
+  %411 = fcmp olt float %368, %410
   br i1 %411, label %412, label %413
 
 412:                                              ; preds = %408

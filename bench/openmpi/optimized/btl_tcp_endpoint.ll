@@ -1476,7 +1476,7 @@ define internal void @mca_btl_tcp_endpoint_recv_handler(i32 noundef %0, i16 sign
   %5 = alloca %struct.mca_btl_base_receive_descriptor_t, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 64
   %7 = load i32, ptr %6, align 8
-  %.not = icmp eq i32 %7, %0
+  %.not = icmp eq i32 %0, %7
   br i1 %.not, label %8, label %251
 
 8:                                                ; preds = %3

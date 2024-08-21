@@ -957,7 +957,7 @@ define hidden void @_ZN5ropey12rope_builder11RopeBuilder15append_internal17h3422
 49:                                               ; preds = %44
   %50 = load i64, ptr %9, align 8, !alias.scope !109, !noalias !118, !noundef !7
   %51 = sub i64 %50, %19
-  %52 = icmp ult i64 %51, %.sroa.3.0
+  %52 = icmp ugt i64 %.sroa.3.0, %51
   br i1 %52, label %53, label %_ZN5ropey12rope_builder11RopeBuilder18get_next_leaf_text17hcd4f5ef3bdda16e2E.exit26.thread91
 
 53:                                               ; preds = %49
@@ -971,7 +971,7 @@ define hidden void @_ZN5ropey12rope_builder11RopeBuilder15append_internal17h3422
 55:                                               ; preds = %54
   %56 = load i64, ptr %9, align 8, !alias.scope !121, !noalias !130, !noundef !7
   %57 = sub i64 %56, %19
-  %58 = icmp ult i64 %57, %.sroa.3.0
+  %58 = icmp ugt i64 %.sroa.3.0, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbe066addc7926930E.exit30"
 
 59:                                               ; preds = %55
@@ -1017,7 +1017,7 @@ select.unfold:                                    ; preds = %91, %45
   %72 = load i64, ptr %10, align 8, !alias.scope !140, !noalias !147, !noundef !7
   %73 = load i64, ptr %9, align 8, !alias.scope !149, !noalias !147, !noundef !7
   %74 = sub i64 %73, %72
-  %75 = icmp ult i64 %74, %.sroa.07.0.i78
+  %75 = icmp ugt i64 %.sroa.07.0.i78, %74
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.exit34"
@@ -1071,7 +1071,7 @@ select.unfold:                                    ; preds = %91, %45
 96:                                               ; preds = %17
   %97 = load i64, ptr %10, align 8, !noundef !7
   %98 = icmp ne i64 %97, 0
-  %brmerge.not = and i1 %98, %3
+  %brmerge.not = and i1 %3, %98
   br i1 %brmerge.not, label %.split15, label %.loopexit
 
 .split15:                                         ; preds = %96
@@ -1682,7 +1682,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i:
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit.i: ; preds = %.lr.ph.i.i.i, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i, %.noexc56
   %207 = phi i64 [ %.pre.i, %.noexc56 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i ], [ %206, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !269
-  %.not.i = icmp ult i64 %207, %188
+  %.not.i = icmp ugt i64 %188, %207
   br i1 %.not.i, label %208, label %226
 
 208:                                              ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit.i
@@ -1792,7 +1792,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i.
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i.i.i, %.noexc62
   %245 = phi i64 [ %.pre.i.i.i, %.noexc62 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i.i.i ], [ %244, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !307
-  %.not.i.i14.i = icmp ult i64 %245, %188
+  %.not.i.i14.i = icmp ugt i64 %188, %245
   br i1 %.not.i.i14.i, label %246, label %_ZN5ropey4rope4Rope13chunk_at_byte17h8290b9e820ea6253E.exit.i
 
 246:                                              ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit.i.i.i
@@ -2077,7 +2077,7 @@ _ZN5ropey4rope4Rope13chunk_at_byte17h8290b9e820ea6253E.exit.i: ; preds = %_ZN5ro
   %368 = load ptr, ptr %43, align 8, !noalias !346, !nonnull !7, !align !350, !noundef !7
   %369 = load i64, ptr %368, align 8, !noalias !351, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !346
-  %370 = icmp ugt i64 %369, %366
+  %370 = icmp ult i64 %366, %369
   br i1 %370, label %372, label %371, !prof !70
 
 371:                                              ; preds = %.noexc68
@@ -2898,7 +2898,7 @@ _ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.e
   %268 = load ptr, ptr %9, align 8, !noalias !509, !nonnull !7, !noundef !7
   %269 = load i64, ptr %256, align 8, !noalias !509, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !509
-  %270 = icmp ugt i64 %269, %.sroa.07.0301
+  %270 = icmp ult i64 %.sroa.07.0301, %269
   br i1 %270, label %271, label %.invoke494, !prof !70
 
 271:                                              ; preds = %.noexc111
@@ -2927,7 +2927,7 @@ _ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.e
   %282 = load ptr, ptr %257, align 8, !noalias !519, !nonnull !7, !align !350, !noundef !7
   %283 = load i64, ptr %282, align 8, !noalias !523, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !519
-  %284 = icmp ugt i64 %283, %.sroa.07.0301
+  %284 = icmp ult i64 %.sroa.07.0301, %283
   br i1 %284, label %293, label %.invoke494, !prof !70
 
 285:                                              ; preds = %276
@@ -2941,7 +2941,7 @@ _ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.e
   %288 = load ptr, ptr %287, align 8, !noalias !524, !nonnull !7, !align !350, !noundef !7
   %289 = load i64, ptr %288, align 8, !noalias !528, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !524
-  %290 = icmp ugt i64 %289, %.sroa.07.0301
+  %290 = icmp ult i64 %.sroa.07.0301, %289
   br i1 %290, label %347, label %.invoke494, !prof !70
 
 .invoke494:                                       ; preds = %.noexc116, %.noexc111, %.noexc118
@@ -3085,7 +3085,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit138: ; preds = %_ZN5r
   %338 = load ptr, ptr %265, align 8, !noalias !553, !nonnull !7, !align !350, !noundef !7
   %339 = load i64, ptr %338, align 8, !noalias !557, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !553
-  %340 = icmp ugt i64 %339, %.sroa.07.0301
+  %340 = icmp ult i64 %.sroa.07.0301, %339
   br i1 %340, label %342, label %341, !prof !70
 
 341:                                              ; preds = %.noexc141

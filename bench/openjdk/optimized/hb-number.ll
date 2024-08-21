@@ -397,7 +397,7 @@ _ZL9strtod_rlPKcPS0_.exit:                        ; preds = %.critedge.i, %87, %
 
 116:                                              ; preds = %_ZL9strtod_rlPKcPS0_.exit
   store ptr %.010, ptr %0, align 8
-  %117 = icmp eq ptr %.010, %1
+  %117 = icmp eq ptr %1, %.010
   %not. = xor i1 %3, true
   %118 = or i1 %117, %not.
   br label %119

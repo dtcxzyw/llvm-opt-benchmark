@@ -407,7 +407,7 @@ define void @Psr_ManRemapBoxes(ptr nocapture noundef readonly %0, ptr nocapture 
 
 44:                                               ; preds = %42
   %.val.i32 = load i32, ptr %12, align 4
-  %.not = icmp slt i32 %.val.i32, %36
+  %.not = icmp sgt i32 %36, %.val.i32
   br i1 %.not, label %Psr_ManNtk.exit, label %45
 
 45:                                               ; preds = %44
@@ -744,7 +744,7 @@ Bac_NtkStartNames.exit:                           ; preds = %23, %Vec_IntGrow.ex
 
 94:                                               ; preds = %92
   %.val.i395 = load i32, ptr %52, align 4
-  %.not672 = icmp slt i32 %.val.i395, %91
+  %.not672 = icmp sgt i32 %91, %.val.i395
   br i1 %.not672, label %Psr_ManNtk.exit.thread, label %Psr_ManNtk.exit
 
 Psr_ManNtk.exit:                                  ; preds = %94
@@ -1353,7 +1353,7 @@ Bac_BoxAlloc.exit404:                             ; preds = %Bac_ObjAlloc.exit48
   tail call void @llvm.assume(i1 %364)
   %365 = getelementptr i8, ptr %357, i64 36
   %.val.i.i = load i32, ptr %365, align 4
-  %.not4.i = icmp sge i32 %.val.i.i, %363
+  %.not4.i = icmp sle i32 %363, %.val.i.i
   tail call void @llvm.assume(i1 %.not4.i)
   %366 = getelementptr inbounds i8, ptr %357, i64 40
   %367 = load ptr, ptr %366, align 8
@@ -1414,13 +1414,13 @@ Bac_BoxAlloc.exit404:                             ; preds = %Bac_ObjAlloc.exit48
   %396 = shl i32 %spec.select.i405, 2
   %397 = sub i32 %394, %.val361
   %398 = load i32, ptr %26, align 4
-  %.not.i.not.i = icmp sgt i32 %398, %395
+  %.not.i.not.i = icmp slt i32 %395, %398
   br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %399
 
 399:                                              ; preds = %392
   %400 = load i32, ptr %7, align 8
   %401 = shl nsw i32 %400, 1
-  %.not.i501 = icmp sgt i32 %401, %395
+  %.not.i501 = icmp slt i32 %395, %401
   %.not.i.i.not.i = icmp sgt i32 %400, %395
   br i1 %.not.i501, label %411, label %402
 
@@ -1987,7 +1987,7 @@ Vec_IntPush.exit:                                 ; preds = %605, %Vec_IntGrow.e
 
 642:                                              ; preds = %638
   %.val.i427 = load i32, ptr %64, align 4
-  %.not671 = icmp slt i32 %.val.i427, %640
+  %.not671 = icmp sgt i32 %640, %.val.i427
   br i1 %.not671, label %Psr_ManNtk.exit429.thread, label %Psr_ManNtk.exit429
 
 Psr_ManNtk.exit429.thread:                        ; preds = %642, %638
@@ -2188,13 +2188,13 @@ Bac_ObjAlloc.exit556:                             ; preds = %.Vec_IntGrow.exit10
   %730 = trunc nuw nsw i64 %661 to i32
   %731 = sub i32 %654, %730
   %732 = load i32, ptr %71, align 4
-  %.not.i.not.i557 = icmp sgt i32 %732, %664
+  %.not.i.not.i557 = icmp slt i32 %664, %732
   br i1 %.not.i.not.i557, label %Vec_IntSetEntry.exit574, label %733
 
 733:                                              ; preds = %728
   %734 = load i32, ptr %70, align 8
   %735 = shl nsw i32 %734, 1
-  %.not.i558 = icmp sgt i32 %735, %664
+  %.not.i558 = icmp slt i32 %664, %735
   %.not.i.i.not.i559 = icmp sgt i32 %734, %664
   br i1 %.not.i558, label %745, label %736
 
@@ -2448,13 +2448,13 @@ Bac_ObjAlloc.exit589:                             ; preds = %.Vec_IntGrow.exit10
   %.5 = phi i32 [ %836, %Bac_ObjAlloc.exit589 ], [ %.3689, %767 ]
   %839 = add nsw i32 %773, 1
   %840 = load i32, ptr %71, align 4
-  %.not.i.not.i590 = icmp sgt i32 %840, %773
+  %.not.i.not.i590 = icmp slt i32 %773, %840
   br i1 %.not.i.not.i590, label %Vec_IntSetEntry.exit607, label %841
 
 841:                                              ; preds = %837
   %842 = load i32, ptr %70, align 8
   %843 = shl nsw i32 %842, 1
-  %.not.i591 = icmp sgt i32 %843, %773
+  %.not.i591 = icmp slt i32 %773, %843
   %.not.i.i.not.i592 = icmp sgt i32 %842, %773
   br i1 %.not.i591, label %853, label %844
 
@@ -2840,13 +2840,13 @@ Bac_ObjAlloc.exit622:                             ; preds = %.Vec_IntGrow.exit10
   %1004 = trunc nuw nsw i64 %881 to i32
   %1005 = sub i32 %874, %1004
   %1006 = load i32, ptr %71, align 4
-  %.not.i.not.i638 = icmp sgt i32 %1006, %884
+  %.not.i.not.i638 = icmp slt i32 %884, %1006
   br i1 %.not.i.not.i638, label %Vec_IntSetEntry.exit655, label %1007
 
 1007:                                             ; preds = %1002
   %1008 = load i32, ptr %70, align 8
   %1009 = shl nsw i32 %1008, 1
-  %.not.i639 = icmp sgt i32 %1009, %884
+  %.not.i639 = icmp slt i32 %884, %1009
   %.not.i.i.not.i640 = icmp sgt i32 %1008, %884
   br i1 %.not.i639, label %1019, label %1010
 
@@ -4446,13 +4446,13 @@ define internal fastcc void @Vec_IntSetEntry(ptr nocapture noundef %0, i32 nound
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i.not = icmp sgt i32 %6, %1
+  %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not, label %22, label %10
 

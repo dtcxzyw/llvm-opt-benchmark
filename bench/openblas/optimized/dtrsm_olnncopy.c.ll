@@ -164,7 +164,7 @@ define noundef i32 @dtrsm_olnncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 .split10.us:                                      ; preds = %92, %70, %.split.split.us.preheader
   %.us-phi = phi ptr [ %5, %.split.split.us.preheader ], [ %71, %70 ], [ %93, %92 ]
   %.us-phi11 = phi ptr [ %scevgep, %.split.split.us.preheader ], [ %72, %70 ], [ %94, %92 ]
-  %98 = add i64 %15, %4
+  %98 = add i64 %4, %15
   br label %99
 
 99:                                               ; preds = %.split10.us, %6

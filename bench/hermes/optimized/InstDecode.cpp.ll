@@ -3527,7 +3527,7 @@ sw.bb10:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i7.i41 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i8.i42 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i9.i43 = sub i64 %sub.ptr.lhs.cast.i7.i41, %sub.ptr.rhs.cast.i8.i42
-  %cmp.i.i44 = icmp ult i64 %sub.ptr.sub.i9.i43, %call.i.i38
+  %cmp.i.i44 = icmp ugt i64 %call.i.i38, %sub.ptr.sub.i9.i43
   br i1 %cmp.i.i44, label %if.then.i.i50, label %if.end.i.i45
 
 if.then.i.i50:                                    ; preds = %sw.bb10
@@ -3591,7 +3591,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, %call.i.i
+  %cmp.i.i = icmp ugt i64 %call.i.i, %sub.ptr.sub.i9.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %for.body

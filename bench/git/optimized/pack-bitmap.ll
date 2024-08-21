@@ -1317,7 +1317,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   br label %corrupt.i
 
 if.end32.i:                                       ; preds = %do.end.i
-  %cmp.not.i.i = icmp ugt i32 %33, %xor_row.0180.i
+  %cmp.not.i.i = icmp ult i32 %xor_row.0180.i, %33
   br i1 %cmp.not.i.i, label %if.end37.i, label %if.then.i44.i
 
 if.then.i44.i:                                    ; preds = %if.end32.i
@@ -3172,7 +3172,7 @@ if.end69.i:                                       ; preds = %st_sub.exit.i, %if.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base_pos.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base_bitmap_pos.i.i)
-  %cmp.not.i41.i = icmp ugt i32 %58, %60
+  %cmp.not.i41.i = icmp ult i32 %60, %58
   br i1 %cmp.not.i41.i, label %if.end.i.i, label %try_partial_reuse.exit.i
 
 if.end.i.i:                                       ; preds = %if.end69.i
@@ -7080,13 +7080,13 @@ bitmap_num_objects.exit:                          ; preds = %entry
   %1 = load ptr, ptr %bitmap_git, align 8
   %num_objects2.i = getelementptr inbounds i8, ptr %1, i64 72
   %retval.0.i = load i32, ptr %num_objects2.i, align 4
-  %cmp = icmp ugt i32 %retval.0.i, %pos
+  %cmp = icmp ult i32 %pos, %retval.0.i
   br i1 %cmp, label %if.else, label %bitmap_num_objects.exit27
 
 bitmap_num_objects.exit.thread:                   ; preds = %entry
   %num_objects.i = getelementptr inbounds i8, ptr %0, i64 60
   %retval.0.i29 = load i32, ptr %num_objects.i, align 4
-  %cmp30 = icmp ugt i32 %retval.0.i29, %pos
+  %cmp30 = icmp ult i32 %pos, %retval.0.i29
   br i1 %cmp30, label %if.then2, label %bitmap_num_objects.exit27
 
 if.then2:                                         ; preds = %bitmap_num_objects.exit.thread

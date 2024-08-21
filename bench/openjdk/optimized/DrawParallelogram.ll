@@ -69,8 +69,8 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
-  %58 = fadd double %.0, %8
-  %59 = fadd double %.0575, %9
+  %58 = fadd double %8, %.0
+  %59 = fadd double %9, %.0575
   %60 = fneg double %8
   %61 = fneg double %9
   br label %62

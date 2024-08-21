@@ -569,7 +569,7 @@ _ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit: ; preds
   %conv = uitofp i64 %3 to double
   %div = fdiv double %conv, 1.000000e+03
   %cmp = fcmp ule double %div.i.i.i, %div
-  %brmerge = or i1 %cmp, %final
+  %brmerge = or i1 %final, %cmp
   %not.cmp = xor i1 %cmp, true
   br i1 %brmerge, label %return, label %if.end8
 
@@ -623,7 +623,7 @@ if.end:                                           ; preds = %entry
   store atomic i64 %4, ptr %rows_processed3 seq_cst, align 8
   %5 = load i64, ptr %total_rows_to_process, align 8, !tbaa !66
   store atomic i64 %5, ptr %total_rows_to_process5 seq_cst, align 8
-  %or.cond45.not = or i1 %call7, %final
+  %or.cond45.not = or i1 %final, %call7
   br i1 %or.cond45.not, label %if.end21, label %cleanup
 
 if.end21:                                         ; preds = %if.end
@@ -671,7 +671,7 @@ _ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit.i: ; pre
   %conv.i = uitofp i64 %13 to double
   %div.i = fdiv double %conv.i, 1.000000e+03
   %cmp.i = fcmp ule double %div.i.i.i.i, %div.i
-  %brmerge.i = or i1 %cmp.i, %final
+  %brmerge.i = or i1 %final, %cmp.i
   br i1 %brmerge.i, label %_ZNK6duckdb11ProgressBar11ShouldPrintEb.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %_ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit.i

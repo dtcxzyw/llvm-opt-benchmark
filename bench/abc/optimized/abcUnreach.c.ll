@@ -579,7 +579,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef %0, pt
   %36 = getelementptr i8, ptr %.val60.val.val, i64 56
   %.val60.val.val.val = load ptr, ptr %36, align 8
   %37 = load i32, ptr %.val60.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %37, %.val61
+  %.not.i.i = icmp slt i32 %.val61, %37
   br i1 %.not.i.i, label %Vec_AttGrow.exit.i.i, label %38
 
 38:                                               ; preds = %22

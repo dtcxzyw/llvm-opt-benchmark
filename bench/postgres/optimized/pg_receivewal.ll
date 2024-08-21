@@ -1280,7 +1280,7 @@ declare zeroext i1 @GetSlotInformation(ptr noundef, ptr noundef, ptr noundef, pt
 define internal noundef zeroext i1 @stop_streaming(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2) #3 {
   %4 = load i32, ptr @verbose, align 4
   %.not = icmp ne i32 %4, 0
-  %brmerge.not = and i1 %.not, %2
+  %brmerge.not = and i1 %2, %.not
   br i1 %brmerge.not, label %5, label %9
 
 5:                                                ; preds = %3

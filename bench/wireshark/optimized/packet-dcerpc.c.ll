@@ -2953,7 +2953,7 @@ define hidden noundef i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, 
   %35 = call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.070, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %12) #16
   %36 = load i64, ptr %12, align 8
   %37 = trunc i64 %36 to i32
-  %38 = mul i32 %37, %6
+  %38 = mul i32 %6, %37
   %39 = getelementptr inbounds i8, ptr %4, i64 32
   %40 = load i32, ptr %39, align 8
   %.not77 = icmp eq i32 %40, 0
@@ -3216,7 +3216,7 @@ define hidden noundef i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %1, p
 
 37:                                               ; preds = %29
   %38 = trunc nuw i64 %34 to i32
-  %39 = mul i32 %38, %6
+  %39 = mul i32 %6, %38
   %40 = getelementptr inbounds i8, ptr %4, i64 32
   %41 = load i32, ptr %40, align 8
   %.not72 = icmp eq i32 %41, 0
@@ -3893,7 +3893,7 @@ define internal fastcc void @add_pointer_to_list(ptr nocapture noundef readonly 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds i8, ptr %12, i64 68
   %24 = load i32, ptr %23, align 4
-  %25 = icmp ult i32 %24, %5
+  %25 = icmp ugt i32 %5, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
@@ -3903,7 +3903,7 @@ define internal fastcc void @add_pointer_to_list(ptr nocapture noundef readonly 
 27:                                               ; preds = %10
   %28 = getelementptr inbounds i8, ptr %12, i64 68
   %29 = load i32, ptr %28, align 4
-  %.not31 = icmp ult i32 %29, %5
+  %.not31 = icmp ugt i32 %5, %29
   br i1 %.not31, label %30, label %50
 
 30:                                               ; preds = %22, %26, %16, %27, %9

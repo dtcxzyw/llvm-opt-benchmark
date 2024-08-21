@@ -9427,10 +9427,10 @@ define void @_ZN8Paintbox12setUndoStackEP7QWidget(ptr noundef nonnull align 8 de
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, %16
+  %27 = icmp eq i32 %16, %26
   %28 = getelementptr inbounds i8, ptr %23, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %1
+  %30 = icmp eq ptr %1, %29
   %31 = select i1 %27, i1 %30, i1 false
   br i1 %31, label %_ZNK5QHashIP7QWidgetP10QUndoStackE8containsERKS1_.exit, label %22, !llvm.loop !5
 
@@ -12246,7 +12246,7 @@ _ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit:  ; preds = %2, %_ZN5QHashIP7QWi
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, %24
+  %36 = icmp eq i32 %24, %35
   %37 = getelementptr inbounds i8, ptr %32, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %19, %38
@@ -12294,7 +12294,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %60, i64 8
   %63 = load i32, ptr %62, align 8
-  %64 = icmp eq i32 %63, %24
+  %64 = icmp eq i32 %24, %63
   %65 = getelementptr inbounds i8, ptr %60, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %58, %66
@@ -12396,7 +12396,7 @@ _ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit:  ; preds = %3, %_ZN5QHashIP7QWi
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, %25
+  %37 = icmp eq i32 %25, %36
   %38 = getelementptr inbounds i8, ptr %33, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %20, %39
@@ -12444,7 +12444,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5
 62:                                               ; preds = %60
   %63 = getelementptr inbounds i8, ptr %61, i64 8
   %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, %25
+  %65 = icmp eq i32 %25, %64
   %66 = getelementptr inbounds i8, ptr %61, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %59, %67
@@ -13828,7 +13828,7 @@ define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable
   br i1 %or.cond.i.us, label %52, label %46
 
 46:                                               ; preds = %40
-  %47 = fcmp ogt float %44, %4
+  %47 = fcmp olt float %4, %44
   %or.cond19.i.us = or i1 %31, %47
   br i1 %or.cond19.i.us, label %48, label %52
 

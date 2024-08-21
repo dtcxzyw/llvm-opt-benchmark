@@ -447,7 +447,7 @@ define i32 @Gia_ManFindFailedPoCex(ptr noundef %0, ptr nocapture noundef readonl
   %45 = getelementptr i8, ptr %.val113, i64 4
   %.val113.val = load i32, ptr %45, align 4
   %46 = sub nsw i32 %.val113.val, %.val112
-  %47 = icmp sgt i32 %46, %2
+  %47 = icmp slt i32 %2, %46
   br i1 %47, label %.lr.ph154, label %._crit_edge
 
 .lr.ph154:                                        ; preds = %.preheader

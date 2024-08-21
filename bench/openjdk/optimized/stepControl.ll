@@ -373,7 +373,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %153 ]
   %150 = getelementptr inbounds %struct.jvmtiLineNumberEntry, ptr %144, i64 %indvars.iv.i
   %151 = load i64, ptr %150, align 8
-  %152 = icmp sgt i64 %151, %142
+  %152 = icmp slt i64 %142, %151
   br i1 %152, label %._crit_edge.loopexit.split.loop.exit.i, label %153
 
 153:                                              ; preds = %.lr.ph.i
@@ -1096,7 +1096,7 @@ getLineNumberTable.exit:                          ; preds = %70, %73, %81
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %103 ]
   %100 = getelementptr inbounds %struct.jvmtiLineNumberEntry, ptr %94, i64 %indvars.iv.i
   %101 = load i64, ptr %100, align 8
-  %102 = icmp sgt i64 %101, %92
+  %102 = icmp slt i64 %92, %101
   br i1 %102, label %._crit_edge.loopexit.split.loop.exit.i, label %103
 
 103:                                              ; preds = %.lr.ph.i

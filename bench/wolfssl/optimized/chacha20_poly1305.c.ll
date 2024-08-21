@@ -48,7 +48,7 @@ if.end11.i:                                       ; preds = %if.end.i
   %aadLen.i = getelementptr inbounds i8, ptr %aead, i64 168
   %1 = load i32, ptr %aadLen.i, align 8
   %sub.i = xor i32 %1, -1
-  %cmp12.i = icmp ult i32 %sub.i, %inAADLen
+  %cmp12.i = icmp ugt i32 %inAADLen, %sub.i
   br i1 %cmp12.i, label %return, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end11.i
@@ -159,7 +159,7 @@ if.end11:                                         ; preds = %if.end
   %aadLen = getelementptr inbounds i8, ptr %aead, i64 168
   %1 = load i32, ptr %aadLen, align 8
   %sub = xor i32 %1, -1
-  %cmp12 = icmp ult i32 %sub, %inAADLen
+  %cmp12 = icmp ugt i32 %inAADLen, %sub
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
@@ -206,7 +206,7 @@ if.end16:                                         ; preds = %if.end
   %dataLen17 = getelementptr inbounds i8, ptr %aead, i64 172
   %1 = load i32, ptr %dataLen17, align 4
   %sub = xor i32 %1, -1
-  %cmp18 = icmp ult i32 %sub, %dataLen
+  %cmp18 = icmp ugt i32 %dataLen, %sub
   br i1 %cmp18, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
@@ -409,7 +409,7 @@ if.end11.i:                                       ; preds = %if.end.i
   %aadLen.i = getelementptr inbounds i8, ptr %aead, i64 168
   %1 = load i32, ptr %aadLen.i, align 8
   %sub.i = xor i32 %1, -1
-  %cmp12.i = icmp ult i32 %sub.i, %inAADLen
+  %cmp12.i = icmp ugt i32 %inAADLen, %sub.i
   br i1 %cmp12.i, label %return, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end11.i

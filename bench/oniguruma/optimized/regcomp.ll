@@ -56,7 +56,7 @@ define dso_local i32 @onig_positive_int_multiply(i32 noundef %0, i32 noundef %1)
 
 5:                                                ; preds = %2
   %6 = sdiv i32 2147483647, %1
-  %7 = icmp sgt i32 %6, %0
+  %7 = icmp slt i32 %0, %6
   %8 = mul nsw i32 %1, %0
   %spec.select = select i1 %7, i32 %8, i32 -1
   br label %9
@@ -184,24 +184,24 @@ define dso_local void @onig_free_body(ptr noundef %0) local_unnamed_addr #5 {
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %9, align 8
-  %.not.i.i = icmp ugt ptr %21, %20
+  %.not.i.i = icmp ult ptr %20, %21
   br i1 %.not.i.i, label %.sink.split.i, label %is_in_string_pool.exit.i
 
 is_in_string_pool.exit.i:                         ; preds = %18
   %22 = load ptr, ptr %10, align 8
-  %.not34.i = icmp ugt ptr %22, %20
+  %.not34.i = icmp ult ptr %20, %22
   br i1 %.not34.i, label %36, label %.sink.split.i
 
 23:                                               ; preds = %11, %11, %11
   %24 = getelementptr inbounds i8, ptr %14, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %9, align 8
-  %.not.i29.i = icmp ugt ptr %26, %25
+  %.not.i29.i = icmp ult ptr %25, %26
   br i1 %.not.i29.i, label %.sink.split.i, label %is_in_string_pool.exit30.i
 
 is_in_string_pool.exit30.i:                       ; preds = %23
   %27 = load ptr, ptr %10, align 8
-  %.not33.i = icmp ugt ptr %27, %25
+  %.not33.i = icmp ult ptr %25, %27
   br i1 %.not33.i, label %36, label %.sink.split.i
 
 28:                                               ; preds = %11, %11
@@ -2656,7 +2656,7 @@ is_anychar_infinite_greedy.exit:                  ; preds = %630
 
 637:                                              ; preds = %is_anychar_infinite_greedy.exit
   %638 = udiv i32 -1, %635
-  %639 = icmp ule i32 %638, %616
+  %639 = icmp uge i32 %616, %638
   %640 = mul i32 %635, %616
   %641 = icmp ugt i32 %640, 10
   %or.cond287 = or i1 %641, %639
@@ -2727,7 +2727,7 @@ is_anychar_infinite_greedy.exit.thread:           ; preds = %637, %630, %626, %6
 
 669:                                              ; preds = %665
   %670 = udiv i32 -1, %667
-  %671 = icmp ule i32 %670, %616
+  %671 = icmp uge i32 %616, %670
   %672 = mul i32 %667, %616
   %673 = icmp ugt i32 %672, 10
   %or.cond289 = or i1 %673, %671
@@ -2996,7 +2996,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %spec.select.i.le361 = select i1 %.not210.i.le380, i32 %616, i32 %798
   %799 = add nuw i32 %616, 1
   %800 = udiv i32 -1, %751
-  %801 = icmp ule i32 %800, %799
+  %801 = icmp uge i32 %799, %800
   %802 = mul i32 %751, %799
   %803 = icmp ugt i32 %802, 10
   %or.cond291 = or i1 %803, %801
@@ -3038,7 +3038,7 @@ compile_tree_n_times.exit:                        ; preds = %840
 816:                                              ; preds = %.lr.ph392, %compile_tree_n_times.exit
   %.0175.i391 = phi i32 [ 0, %.lr.ph392 ], [ %815, %compile_tree_n_times.exit ]
   %817 = sub nsw i32 %806, %.0175.i391
-  %818 = icmp sle i32 %813, %817
+  %818 = icmp sge i32 %817, %813
   %819 = mul nsw i32 %817, %812
   %820 = icmp slt i32 %819, 0
   %or.cond = select i1 %818, i1 true, i1 %820
@@ -5014,7 +5014,7 @@ define internal fastcc range(i32 -11, 1) i32 @fix_unset_addr_list(ptr nocapture 
 define internal fastcc range(i32 -11, 1) i32 @ops_resize(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   br i1 %5, label %30, label %6
 
 6:                                                ; preds = %2
@@ -5540,7 +5540,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_in_code_range(ptr nocapture nounde
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds i32, ptr %4, i64 %8
   %10 = load i32, ptr %9, align 4
-  %11 = icmp ult i32 %10, %1
+  %11 = icmp ugt i32 %1, %10
   %12 = add nuw i32 %6, 1
   %.118 = select i1 %11, i32 %12, i32 %.01719
   %.1 = select i1 %11, i32 %.020, i32 %6
@@ -5557,7 +5557,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_in_code_range(ptr nocapture nounde
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = icmp ule i32 %19, %1
+  %20 = icmp uge i32 %1, %19
   %21 = zext i1 %20 to i32
   br label %22
 
@@ -5595,7 +5595,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc_len(i32 noundef %0, i32
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = icmp ult i32 %19, %1
+  %20 = icmp ugt i32 %1, %19
   %21 = add nuw i32 %15, 1
   %.118.i = select i1 %20, i32 %21, i32 %.01719.i
   %.1.i = select i1 %20, i32 %.020.i, i32 %15
@@ -5612,7 +5612,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc_len(i32 noundef %0, i32
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %13, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = icmp ule i32 %28, %1
+  %29 = icmp uge i32 %1, %28
   %30 = zext i1 %29 to i32
   br label %onig_is_in_code_range.exit
 
@@ -5678,7 +5678,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc(ptr nocapture noundef r
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %21, i64 %25
   %27 = load i32, ptr %26, align 4
-  %28 = icmp ult i32 %27, %1
+  %28 = icmp ugt i32 %1, %27
   %29 = add nuw i32 %23, 1
   %.118.i.i = select i1 %28, i32 %29, i32 %.01719.i.i
   %.1.i.i = select i1 %28, i32 %.020.i.i, i32 %23
@@ -5695,7 +5695,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc(ptr nocapture noundef r
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4
-  %37 = icmp ule i32 %36, %1
+  %37 = icmp uge i32 %1, %36
   %38 = zext i1 %37 to i32
   br label %onig_is_code_in_cc_len.exit
 
@@ -10553,7 +10553,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 84:                                               ; preds = %78
   %85 = udiv i32 -1, %82
-  %86 = icmp ugt i32 %85, %81
+  %86 = icmp ult i32 %81, %85
   %87 = mul i32 %82, %81
   %spec.select.i = select i1 %86, i32 %87, i32 -1
   br label %common.ret187
@@ -11401,7 +11401,7 @@ define internal fastcc i32 @is_exclusive(ptr nocapture noundef readonly %0, ptr 
   %208 = zext i32 %207 to i64
   %209 = getelementptr inbounds i32, ptr %204, i64 %208
   %210 = load i32, ptr %209, align 4
-  %211 = icmp ult i32 %210, %185
+  %211 = icmp ugt i32 %185, %210
   %212 = add nuw i32 %206, 1
   %.118.i.i.i = select i1 %211, i32 %212, i32 %.01719.i.i.i
   %.1.i.i.i = select i1 %211, i32 %.020.i.i.i, i32 %206
@@ -11418,7 +11418,7 @@ define internal fastcc i32 @is_exclusive(ptr nocapture noundef readonly %0, ptr 
   %217 = zext i32 %216 to i64
   %218 = getelementptr inbounds i32, ptr %204, i64 %217
   %219 = load i32, ptr %218, align 4
-  %220 = icmp ule i32 %219, %185
+  %220 = icmp uge i32 %185, %219
   %221 = zext i1 %220 to i32
   br label %onig_is_code_in_cc_len.exit.i
 
@@ -12443,12 +12443,12 @@ distance_multiply.exit.thread.i:                  ; preds = %128
 132:                                              ; preds = %128
   %133 = load i32, ptr %2, align 4
   %134 = udiv i32 -1, %129
-  %135 = icmp ugt i32 %134, %133
+  %135 = icmp ult i32 %133, %134
   %136 = mul i32 %133, %129
   %spec.select.i.i = select i1 %135, i32 %136, i32 -1
   %137 = getelementptr inbounds i8, ptr %2, i64 4
   %138 = load i32, ptr %137, align 4
-  %139 = icmp ugt i32 %134, %138
+  %139 = icmp ult i32 %138, %134
   %140 = mul i32 %138, %129
   %spec.select.i5.i = select i1 %139, i32 %140, i32 -1
   br label %mmcl_multiply.exit
@@ -12477,7 +12477,7 @@ mmcl_multiply.exit:                               ; preds = %distance_multiply.e
 151:                                              ; preds = %147
   %152 = load i32, ptr %2, align 4
   %153 = udiv i32 -1, %148
-  %154 = icmp ugt i32 %153, %152
+  %154 = icmp ult i32 %152, %153
   %155 = mul i32 %152, %148
   %spec.select.i.i224 = select i1 %154, i32 %155, i32 -1
   br label %distance_multiply.exit.i
@@ -12494,7 +12494,7 @@ distance_multiply.exit.i:                         ; preds = %151, %147
 157:                                              ; preds = %distance_multiply.exit.i
   %158 = load i32, ptr %156, align 4
   %159 = udiv i32 -1, %149
-  %160 = icmp ugt i32 %159, %158
+  %160 = icmp ult i32 %158, %159
   %161 = mul i32 %158, %149
   %spec.select.i7.i = select i1 %160, i32 %161, i32 -1
   br label %mmcl_repeat_range_multiply.exit
@@ -13747,7 +13747,7 @@ tailrecurse.backedge:                             ; preds = %401, %401, %280
   %388 = getelementptr inbounds i8, ptr %4, i64 4
   %389 = load i32, ptr %388, align 4
   %390 = udiv i32 -1, %362
-  %391 = icmp ugt i32 %390, %389
+  %391 = icmp ult i32 %389, %390
   %392 = mul i32 %389, %362
   %spec.select.i279 = select i1 %391, i32 %392, i32 -1
   br label %distance_multiply.exit
@@ -13761,7 +13761,7 @@ distance_multiply.exit:                           ; preds = %361, %387, %383
 395:                                              ; preds = %distance_multiply.exit
   %396 = load i32, ptr %4, align 4
   %397 = udiv i32 -1, %393
-  %398 = icmp ugt i32 %397, %396
+  %398 = icmp ult i32 %396, %397
   %399 = mul i32 %396, %393
   %spec.select.i280 = select i1 %398, i32 %399, i32 -1
   br label %distance_multiply.exit282
@@ -14831,7 +14831,7 @@ tailrecurse.backedge:                             ; preds = %78, %78, %61
 
 74:                                               ; preds = %72
   %75 = udiv i32 -1, %73
-  %76 = icmp ugt i32 %75, %71
+  %76 = icmp ult i32 %71, %75
   %77 = mul i32 %73, %71
   %spec.select.i = select i1 %76, i32 %77, i32 -1
   br label %common.ret177
@@ -15212,7 +15212,7 @@ is_anychar_infinite_greedy.exit:                  ; preds = %73
 
 80:                                               ; preds = %is_anychar_infinite_greedy.exit
   %81 = udiv i32 -1, %78
-  %82 = icmp ule i32 %81, %59
+  %82 = icmp uge i32 %59, %81
   %83 = mul i32 %78, %59
   %84 = icmp ugt i32 %83, 10
   %or.cond89 = or i1 %84, %82
@@ -15241,7 +15241,7 @@ is_anychar_infinite_greedy.exit.thread:           ; preds = %80, %73, %69, %66, 
 
 92:                                               ; preds = %88
   %93 = udiv i32 -1, %90
-  %94 = icmp ule i32 %93, %59
+  %94 = icmp uge i32 %59, %93
   %95 = mul i32 %90, %59
   %96 = icmp ugt i32 %95, 10
   %or.cond91 = or i1 %96, %94
@@ -15285,7 +15285,7 @@ len_multiply_cmp.exit65.thread:                   ; preds = %92
 
 111:                                              ; preds = %109
   %112 = udiv i32 -1, %103
-  %113 = icmp ule i32 %112, %.pre118
+  %113 = icmp uge i32 %.pre118, %112
   %114 = mul i32 %103, %.pre118
   %115 = icmp ugt i32 %114, 10
   %or.cond93 = or i1 %115, %113
@@ -15430,7 +15430,7 @@ len_multiply_cmp.exit:                            ; preds = %109, %111
 
 186:                                              ; preds = %181
   %187 = udiv i32 2147483647, %179
-  %188 = icmp sle i32 %187, %183
+  %188 = icmp sge i32 %183, %187
   %189 = mul nsw i32 %183, %179
   %190 = icmp slt i32 %189, 0
   %or.cond = select i1 %188, i1 true, i1 %190

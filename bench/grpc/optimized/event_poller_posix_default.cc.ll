@@ -110,7 +110,7 @@ if.then8.i.i.i:                                   ; preds = %call3.i.i.i.noexc
 
 if.end10.i.i.i:                                   ; preds = %if.then8.i.i.i, %call3.i.i.i.noexc
   %5 = load i64, ptr %it, align 8, !alias.scope !7
-  %cmp.i.i.i.i.i = icmp ult i64 %1, %5
+  %cmp.i.i.i.i.i = icmp ugt i64 %5, %1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
 
 if.then.i.i.i.i.i.invoke:                         ; preds = %if.end10.i.i, %if.end10.i.i.i
@@ -703,7 +703,7 @@ if.then8.i.i:                                     ; preds = %call3.i.i.noexc
 
 if.end10.i.i:                                     ; preds = %if.then8.i.i, %call3.i.i.noexc
   %86 = load i64, ptr %it, align 8, !noalias !15
-  %cmp.i.i.i.i194 = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i190, %86
+  %cmp.i.i.i.i194 = icmp ugt i64 %86, %retval.sroa.0.0.copyload.i.i.i190
   br i1 %cmp.i.i.i.i194, label %if.then.i.i.i.i.i.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if.end10.i.i

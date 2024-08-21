@@ -339,7 +339,7 @@ define hidden i32 @mbedtls_ccm_update_ad(ptr noundef %0, ptr nocapture noundef r
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 136
   %15 = load i64, ptr %14, align 8
-  %16 = icmp ult i64 %15, %2
+  %16 = icmp ugt i64 %2, %15
   br i1 %16, label %73, label %17
 
 17:                                               ; preds = %13
@@ -952,7 +952,7 @@ ccm_auth_crypt.exit:                              ; preds = %19
   %30 = or i32 %.013.i, %29
   %31 = add i8 %.0912.i, 1
   %32 = zext i8 %31 to i64
-  %33 = icmp ult i64 %32, %10
+  %33 = icmp ugt i64 %10, %32
   br i1 %33, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

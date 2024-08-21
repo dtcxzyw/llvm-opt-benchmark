@@ -3884,7 +3884,7 @@ define internal i64 @snd_seq_read(ptr nocapture noundef readonly %0, ptr noundef
 
 13:                                               ; preds = %4
   %14 = ptrtoint ptr %1 to i64
-  %15 = add i64 %14, %2
+  %15 = add i64 %2, %14
   %16 = icmp sgt i64 %15, -1
   %17 = icmp uge i64 %15, %14
   %18 = and i1 %16, %17

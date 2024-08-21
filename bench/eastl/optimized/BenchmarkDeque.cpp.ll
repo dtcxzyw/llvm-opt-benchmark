@@ -2700,7 +2700,7 @@ for.body.i564:                                    ; preds = %_ZNSt15_Deque_itera
   %j.092.i = phi i64 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i557 ], [ %inc.i579, %_ZNSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_EppEv.exit68.i ]
   %it.sroa.0.091.i = phi ptr [ %280, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i557 ], [ %it.sroa.0.3.i, %_ZNSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_EppEv.exit68.i ]
   %it.sroa.34.090.i = phi ptr [ %281, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i557 ], [ %it.sroa.34.3.i, %_ZNSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_EppEv.exit68.i ]
-  %cmp.i.i565 = icmp eq ptr %283, %it.sroa.0.091.i
+  %cmp.i.i565 = icmp eq ptr %it.sroa.0.091.i, %283
   br i1 %cmp.i.i565, label %if.then.i.i604, label %if.else.i.i
 
 if.then.i.i604:                                   ; preds = %for.body.i564
@@ -2779,7 +2779,7 @@ call5.i.i.i.i.i.noexc1236:                        ; preds = %_ZNSt5dequeIN12_GLO
 
 if.else.i.i:                                      ; preds = %for.body.i564
   %294 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp8.i.i = icmp eq ptr %294, %it.sroa.0.091.i
+  %cmp8.i.i = icmp eq ptr %it.sroa.0.091.i, %294
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.else12.i.i
 
 if.then9.i.i:                                     ; preds = %if.else.i.i
@@ -4949,7 +4949,7 @@ _ZNSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_EppEv.exit.i.i.i725: ; 
   br i1 %cmp.i.i14.i, label %if.then.i.i.i791, label %if.else.i.i15.i
 
 if.then.i.i.i791:                                 ; preds = %_ZNSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_EppEv.exit.i.i.i725
-  %cmp.i.i.not.i.i.i792 = icmp eq ptr %515, %it.sroa.0.081.i
+  %cmp.i.i.not.i.i.i792 = icmp eq ptr %it.sroa.0.081.i, %515
   br i1 %cmp.i.i.not.i.i.i792, label %if.end.i.i.i793, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i.i791

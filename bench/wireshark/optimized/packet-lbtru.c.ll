@@ -458,7 +458,7 @@ define hidden ptr @lbtru_transport_add(ptr noundef %0, i16 noundef zeroext %1, i
 16:                                               ; preds = %15, %11
   %17 = getelementptr inbounds i8, ptr %.0, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = icmp ult i32 %18, %3
+  %19 = icmp ugt i32 %3, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
@@ -1292,7 +1292,7 @@ proto_item_set_generated.exit535:                 ; preds = %268, %271, %274
 378:                                              ; preds = %377, %373
   %379 = getelementptr inbounds i8, ptr %371, i64 32
   %380 = load i32, ptr %379, align 8
-  %381 = icmp ult i32 %380, %369
+  %381 = icmp ugt i32 %369, %380
   br i1 %381, label %382, label %383
 
 382:                                              ; preds = %378

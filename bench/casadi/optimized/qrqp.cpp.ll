@@ -6971,7 +6971,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = ashr exact i64 %90, 3
-  %92 = icmp ult i64 %91, %84
+  %92 = icmp ugt i64 %84, %91
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
@@ -6982,7 +6982,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit.i
 
 95:                                               ; preds = %83
-  %96 = icmp ugt i64 %91, %84
+  %96 = icmp ult i64 %84, %91
   br i1 %96, label %97, label %_ZNSt6vectorIxSaIxEE6resizeEm.exit.i
 
 97:                                               ; preds = %95
@@ -8974,7 +8974,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal14get_nominal_inEx
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %2
+  %.not.i.i.i.i = icmp ult i64 %2, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal6nnz_inEx.exit, label %12
 
 12:                                               ; preds = %3
@@ -9034,7 +9034,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal15get_nominal_outE
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %.not.i.i.i.i = icmp ugt i64 %11, %2
+  %.not.i.i.i.i = icmp ult i64 %2, %11
   br i1 %.not.i.i.i.i, label %_ZNK6casadi16FunctionInternal7nnz_outEx.exit, label %12
 
 12:                                               ; preds = %3
@@ -9561,7 +9561,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %11
+  %.not4.i.i.i.i.i.i = icmp eq ptr %11, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -10385,7 +10385,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -10433,7 +10433,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi15PluginInterfaceINS8_5ConicEE6PluginEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -10787,7 +10787,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 8:                                                ; preds = %4
   %.not.i = icmp ne ptr %6, null
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = icmp eq ptr %9, %7
+  %10 = icmp eq ptr %7, %9
   %or.cond.i = select i1 %.not.i, i1 true, i1 %10
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit, label %11
 
@@ -10827,7 +10827,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -11928,7 +11928,7 @@ define linkonce_odr hidden void @_ZN6casadi16casadi_qrqp_flipIdEEvPNS_16casadi_q
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = getelementptr inbounds i8, ptr %17, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = icmp sgt i64 %23, %8
+  %24 = icmp slt i64 %8, %23
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %13
@@ -12322,7 +12322,7 @@ define linkonce_odr hidden void @_ZN6casadi20casadi_qrqp_du_indexIdEEvPNS_16casa
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = getelementptr inbounds i8, ptr %19, i64 16
   %50 = load i64, ptr %49, align 8
-  %51 = icmp sgt i64 %50, %.055
+  %51 = icmp slt i64 %.055, %50
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %42
@@ -12668,7 +12668,7 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_qrqp_kkt_vectorIdEEvPNS_16ca
 
 _ZN6casadi12casadi_clearIdEEvPT_x.exit:           ; preds = %3, %.lr.ph.preheader.i
   %28 = phi i64 [ %9, %3 ], [ %.pre60, %.lr.ph.preheader.i ]
-  %29 = icmp sgt i64 %28, %2
+  %29 = icmp slt i64 %2, %28
   br i1 %29, label %30, label %72
 
 30:                                               ; preds = %_ZN6casadi12casadi_clearIdEEvPT_x.exit
@@ -12838,8 +12838,8 @@ define linkonce_odr hidden void @_ZN6casadi15casadi_qr_solveIdEEvPT_xxPKxPKS1_S4
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i63.us
   %37 = getelementptr inbounds double, ptr %7, i64 %.046.i.us
   %38 = load double, ptr %37, align 8
-  %39 = fneg double %35
-  %40 = fmul double %38, %39
+  %39 = fneg double %38
+  %40 = fmul double %35, %39
   br label %41
 
 41:                                               ; preds = %41, %._crit_edge.i.us
@@ -13050,8 +13050,8 @@ _ZN6casadi13casadi_qr_trsIdEEvPKxPKT_PS3_x.exit:  ; preds = %.loopexit57.i, %._c
 ._crit_edge.us.i:                                 ; preds = %.lr.ph.us.i
   %135 = getelementptr inbounds double, ptr %7, i64 %129
   %136 = load double, ptr %135, align 8
-  %137 = fneg double %157
-  %138 = fmul double %136, %137
+  %137 = fneg double %136
+  %138 = fmul double %157, %137
   br label %140
 
 ._crit_edge45.us.i:                               ; preds = %140, %.lr.ph48.split.us.i
@@ -13426,8 +13426,8 @@ define linkonce_odr hidden void @_ZN6casadi9casadi_qrIdEEvPKxPKT_PS3_S2_S6_S2_S6
 .lr.ph120:                                        ; preds = %._crit_edge117
   %67 = getelementptr inbounds double, ptr %7, i64 %51
   %68 = load double, ptr %67, align 8
-  %69 = fneg double %65
-  %70 = fmul double %68, %69
+  %69 = fneg double %68
+  %70 = fmul double %65, %69
   br label %71
 
 71:                                               ; preds = %.lr.ph120, %71
@@ -14098,7 +14098,7 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit: ; preds = %.lr.ph.s
   %208 = getelementptr inbounds i8, ptr %207, i64 8
   %209 = getelementptr inbounds double, ptr %188, i64 %.2195314
   %210 = load double, ptr %209, align 8
-  %211 = icmp sgt i64 %194, %.2195314
+  %211 = icmp slt i64 %.2195314, %194
   br i1 %211, label %212, label %251
 
 212:                                              ; preds = %187
@@ -14488,7 +14488,7 @@ _ZN6casadi24casadi_qrqp_du_directionIdEEiPNS_16casadi_qrqp_dataIT_EE.exit: ; pre
   %431 = getelementptr inbounds i8, ptr %430, i64 8
   %432 = getelementptr inbounds i8, ptr %427, i64 16
   %433 = load i64, ptr %432, align 8
-  %434 = icmp sgt i64 %433, %.3196322
+  %434 = icmp slt i64 %.3196322, %433
   br i1 %434, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit, label %435
 
 435:                                              ; preds = %424
@@ -14587,7 +14587,7 @@ _ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit: ; pr
   %490 = getelementptr inbounds i8, ptr %489, i64 8
   %491 = getelementptr inbounds i8, ptr %486, i64 16
   %492 = load i64, ptr %491, align 8
-  %493 = icmp sgt i64 %492, %.3196322
+  %493 = icmp slt i64 %.3196322, %492
   br i1 %493, label %_ZN6casadi23casadi_qrqp_enforceableIdEEiPNS_16casadi_qrqp_dataIT_EExx.exit263, label %494
 
 494:                                              ; preds = %483
@@ -16290,7 +16290,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = icmp eq ptr %15, %13
+  %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
@@ -16344,7 +16344,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3

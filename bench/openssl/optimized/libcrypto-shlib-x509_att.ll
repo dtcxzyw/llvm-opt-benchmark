@@ -608,7 +608,7 @@ if.end:                                           ; preds = %X509_ATTRIBUTE_get0
 
 lor.lhs.false3:                                   ; preds = %if.end
   %call4 = tail call i32 @ASN1_TYPE_get(ptr noundef nonnull %call1.i) #3
-  %cmp5.not = icmp eq i32 %call4, %atrtype
+  %cmp5.not = icmp eq i32 %atrtype, %call4
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false3, %if.end

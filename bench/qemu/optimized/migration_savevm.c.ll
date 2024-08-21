@@ -881,13 +881,13 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
 land.lhs.true.i:                                  ; preds = %for.body.i
   %instance_id3.i = getelementptr inbounds i8, ptr %se.019.i, i64 272
   %3 = load i32, ptr %instance_id3.i, align 8
-  %cmp.i = icmp eq i32 %3, %2
+  %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %if.then2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %alias_id.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %4 = load i32, ptr %alias_id.i, align 4
-  %cmp4.i = icmp eq i32 %4, %2
+  %cmp4.i = icmp eq i32 %2, %4
   br i1 %cmp4.i, label %if.then2, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i, %for.body.i
@@ -909,13 +909,13 @@ if.then11.i:                                      ; preds = %land.lhs.true9.i
 land.lhs.true17.i:                                ; preds = %if.then11.i
   %instance_id19.i = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load i32, ptr %instance_id19.i, align 4
-  %cmp20.i = icmp eq i32 %6, %2
+  %cmp20.i = icmp eq i32 %2, %6
   br i1 %cmp20.i, label %if.then2, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %land.lhs.true17.i
   %alias_id22.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %7 = load i32, ptr %alias_id22.i, align 4
-  %cmp23.i = icmp eq i32 %7, %2
+  %cmp23.i = icmp eq i32 %2, %7
   br i1 %cmp23.i, label %if.then2, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false21.i, %if.then11.i, %land.lhs.true9.i, %if.end.i
@@ -1057,7 +1057,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %idxprom.i = zext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %cmp.i = icmp eq ptr %6, %se.011
+  %cmp.i = icmp eq ptr %se.011, %6
   br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
@@ -1142,13 +1142,13 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 land.lhs.true.i:                                  ; preds = %for.body.i
   %instance_id3.i = getelementptr inbounds i8, ptr %se.019.i, i64 272
   %1 = load i32, ptr %instance_id3.i, align 8
-  %cmp.i = icmp eq i32 %1, %instance_id
+  %cmp.i = icmp eq i32 %instance_id, %1
   br i1 %cmp.i, label %if.then, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %alias_id.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %2 = load i32, ptr %alias_id.i, align 4
-  %cmp4.i = icmp eq i32 %2, %instance_id
+  %cmp4.i = icmp eq i32 %instance_id, %2
   br i1 %cmp4.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i, %for.body.i
@@ -1170,13 +1170,13 @@ if.then11.i:                                      ; preds = %land.lhs.true9.i
 land.lhs.true17.i:                                ; preds = %if.then11.i
   %instance_id19.i = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load i32, ptr %instance_id19.i, align 4
-  %cmp20.i = icmp eq i32 %4, %instance_id
+  %cmp20.i = icmp eq i32 %instance_id, %4
   br i1 %cmp20.i, label %if.then, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %land.lhs.true17.i
   %alias_id22.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %5 = load i32, ptr %alias_id22.i, align 4
-  %cmp23.i = icmp eq i32 %5, %instance_id
+  %cmp23.i = icmp eq i32 %instance_id, %5
   br i1 %cmp23.i, label %if.then, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false21.i, %if.then11.i, %land.lhs.true9.i, %if.end.i
@@ -1200,7 +1200,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %idxprom.i = zext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %cmp.i4 = icmp eq ptr %8, %se.019.i
+  %cmp.i4 = icmp eq ptr %se.019.i, %8
   br i1 %cmp.i4, label %if.then.i, label %savevm_state_handler_remove.exit
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
@@ -1259,7 +1259,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %minimum_version_id = getelementptr inbounds i8, ptr %vmsd, i64 16
   %0 = load i32, ptr %minimum_version_id, align 8
-  %cmp1.not = icmp sgt i32 %0, %required_for_version
+  %cmp1.not = icmp slt i32 %required_for_version, %0
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -1562,7 +1562,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %idxprom.i = zext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %cmp.i = icmp eq ptr %5, %se.08
+  %cmp.i = icmp eq ptr %se.08, %5
   br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
@@ -3668,7 +3668,7 @@ trace_savevm_state_complete_precopy.exit:         ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   call void @cpu_synchronize_all_states() #18
   %call.not = xor i1 %call, true
-  %brmerge = or i1 %call.not, %iterable_only
+  %brmerge = or i1 %iterable_only, %call.not
   br i1 %brmerge, label %if.then6, label %if.end12
 
 if.then6:                                         ; preds = %trace_savevm_state_complete_precopy.exit
@@ -4436,13 +4436,13 @@ for.body.i.i:                                     ; preds = %trace_qemu_loadvm_s
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %instance_id3.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 272
   %13 = load i32, ptr %instance_id3.i.i, align 8
-  %cmp.i.i = icmp eq i32 %13, %call3.i
+  %cmp.i.i = icmp eq i32 %call3.i, %13
   br i1 %cmp.i.i, label %if.end16.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
   %alias_id.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 276
   %14 = load i32, ptr %alias_id.i.i, align 4
-  %cmp4.i.i = icmp eq i32 %14, %call3.i
+  %cmp4.i.i = icmp eq i32 %call3.i, %14
   br i1 %cmp4.i.i, label %if.end16.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, %for.body.i.i
@@ -4464,13 +4464,13 @@ if.then11.i.i:                                    ; preds = %land.lhs.true9.i.i
 land.lhs.true17.i.i:                              ; preds = %if.then11.i.i
   %instance_id19.i.i = getelementptr inbounds i8, ptr %15, i64 256
   %16 = load i32, ptr %instance_id19.i.i, align 4
-  %cmp20.i.i = icmp eq i32 %16, %call3.i
+  %cmp20.i.i = icmp eq i32 %call3.i, %16
   br i1 %cmp20.i.i, label %if.end16.i, label %lor.lhs.false21.i.i
 
 lor.lhs.false21.i.i:                              ; preds = %land.lhs.true17.i.i
   %alias_id22.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 276
   %17 = load i32, ptr %alias_id22.i.i, align 4
-  %cmp23.i.i = icmp eq i32 %17, %call3.i
+  %cmp23.i.i = icmp eq i32 %call3.i, %17
   br i1 %cmp23.i.i, label %if.end16.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %lor.lhs.false21.i.i, %if.then11.i.i, %land.lhs.true9.i.i, %if.end.i.i
@@ -6715,7 +6715,7 @@ if.then15:                                        ; preds = %lor.lhs.false, %if.
 
 if.else:                                          ; preds = %lor.lhs.false
   %live.not = xor i1 %live, true
-  %tobool16.not = and i1 %live.not, %has_live
+  %tobool16.not = and i1 %has_live, %live.not
   %or.cond = select i1 %tobool16.not, i1 true, i1 %call
   br i1 %or.cond, label %the_end, label %if.then19
 

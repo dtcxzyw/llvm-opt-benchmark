@@ -1023,7 +1023,7 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   %43 = load i32, ptr %17, align 8
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i64 5, i64 1
-  %46 = icmp ugt i64 %45, %4
+  %46 = icmp ult i64 %4, %45
   br i1 %46, label %._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %14

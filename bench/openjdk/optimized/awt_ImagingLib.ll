@@ -2328,7 +2328,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %92
-  %97 = icmp eq i8 %87, %74
+  %97 = icmp eq i8 %74, %87
   br i1 %97, label %colorMatch.exit.i, label %98
 
 98:                                               ; preds = %96

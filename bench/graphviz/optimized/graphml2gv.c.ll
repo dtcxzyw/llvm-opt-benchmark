@@ -175,7 +175,7 @@ openFile.exit.i:                                  ; preds = %18
 
 49:                                               ; preds = %9
   %50 = load i32, ptr @optind, align 4
-  %.not9.i = icmp eq i32 %50, %0
+  %.not9.i = icmp eq i32 %0, %50
   br i1 %.not9.i, label %54, label %51
 
 51:                                               ; preds = %49

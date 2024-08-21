@@ -699,7 +699,7 @@ define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noun
   %45 = load i8, ptr %29, align 8
   %46 = and i8 %45, 8
   %47 = zext nneg i8 %46 to i32
-  %48 = icmp eq i32 %47, %2
+  %48 = icmp eq i32 %2, %47
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %42
@@ -894,7 +894,7 @@ define dso_local i32 @acpi_release_global_lock(i32 noundef %0) #0 align 16 {
   %2 = icmp ne i32 %0, 0
   %3 = load i16, ptr @acpi_gbl_global_lock_handle, align 2
   %4 = zext i16 %3 to i32
-  %5 = icmp eq i32 %4, %0
+  %5 = icmp eq i32 %0, %4
   %6 = select i1 %2, i1 %5, i1 false
   br i1 %6, label %7, label %10
 

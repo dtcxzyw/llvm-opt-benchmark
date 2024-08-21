@@ -243,7 +243,7 @@ if.then6:                                         ; preds = %if.end4
 if.end7:                                          ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 -8
   %2 = load i64, ptr %add.ptr, align 8
-  %cmp8.not = icmp ult i64 %2, %size
+  %cmp8.not = icmp ugt i64 %size, %2
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7

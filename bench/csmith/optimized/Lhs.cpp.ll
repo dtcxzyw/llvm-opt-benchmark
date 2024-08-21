@@ -291,7 +291,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
 81:                                               ; preds = %80
   %82 = load i32, ptr %1, align 8
   %83 = icmp eq i32 %82, 0
-  %brmerge.not = and i1 %83, %4
+  %brmerge.not = and i1 %4, %83
   br i1 %brmerge.not, label %84, label %95
 
 84:                                               ; preds = %81

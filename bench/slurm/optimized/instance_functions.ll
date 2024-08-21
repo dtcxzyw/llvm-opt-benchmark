@@ -294,7 +294,7 @@ define dso_local i32 @sacctmgr_list_instance(i32 noundef %0, ptr noundef %1) loc
 145:                                              ; preds = %141, %136, %126, %118, %106, %92, %91, %81, %71, %61, %52
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_set_cond.exit, label %36, !llvm.loop !7
 
 _set_cond.exit:                                   ; preds = %145, %33

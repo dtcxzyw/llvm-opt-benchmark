@@ -1082,7 +1082,7 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
   %36 = getelementptr inbounds i8, ptr %34, i64 20
   %37 = load i16, ptr %36, align 4
   %38 = icmp ne i16 %37, -1
-  %39 = icmp sle i16 %37, %25
+  %39 = icmp sge i16 %25, %37
   %narrow.i = and i1 %38, %39
   %40 = zext i1 %narrow.i to i32
   br label %kafka_is_api_version_flexible.exit
@@ -2040,14 +2040,14 @@ define internal fastcc void @kafka_check_supported_api_version(ptr noundef %0, p
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i16, ptr %10, align 8
   %12 = icmp eq i16 %11, -1
-  %13 = icmp sgt i16 %11, %9
+  %13 = icmp slt i16 %9, %11
   %or.cond.i22 = or i1 %12, %13
   br i1 %or.cond.i22, label %kafka_is_api_version_supported.exit.thread, label %kafka_is_api_version_supported.exit
 
 kafka_is_api_version_supported.exit:              ; preds = %7
   %14 = getelementptr inbounds i8, ptr %6, i64 18
   %15 = load i16, ptr %14, align 2
-  %.not25 = icmp slt i16 %15, %9
+  %.not25 = icmp sgt i16 %9, %15
   br i1 %.not25, label %kafka_is_api_version_supported.exit.thread.thread, label %38
 
 kafka_is_api_version_supported.exit.thread.thread: ; preds = %kafka_is_api_version_supported.exit
@@ -9163,7 +9163,7 @@ define internal fastcc noundef i32 @dissect_kafka_message_set(ptr noundef %0, pt
   br label %33
 
 33:                                               ; preds = %30, %6
-  %34 = icmp sgt i32 %27, %3
+  %34 = icmp slt i32 %3, %27
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33
@@ -13674,16 +13674,16 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
   %41 = getelementptr inbounds i8, ptr %32, i64 16
   %42 = load i16, ptr %41, align 8
   %43 = icmp eq i16 %42, -1
-  %44 = icmp sgt i16 %42, %13
+  %44 = icmp slt i16 %13, %42
   %or.cond.i71 = or i1 %43, %44
   br i1 %or.cond.i71, label %49, label %kafka_is_api_version_supported.exit
 
 kafka_is_api_version_supported.exit:              ; preds = %40
   %45 = getelementptr inbounds i8, ptr %32, i64 18
   %46 = load i16, ptr %45, align 2
-  %.not76 = icmp slt i16 %46, %13
-  %47 = icmp sgt i16 %42, %17
-  %.not77 = icmp slt i16 %46, %17
+  %.not76 = icmp sgt i16 %13, %46
+  %47 = icmp slt i16 %17, %42
+  %.not77 = icmp sgt i16 %17, %46
   %48 = or i1 %47, %.not77
   %or.cond78 = select i1 %.not76, i1 true, i1 %48
   br i1 %or.cond78, label %.thread, label %69

@@ -61,7 +61,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i32, ptr %a, align 8
-  %cmp2.not = icmp ugt i32 %0, %n
+  %cmp2.not = icmp ult i32 %n, %0
   br i1 %cmp2.not, label %cond.false, label %return
 
 cond.false:                                       ; preds = %lor.lhs.false
@@ -240,7 +240,7 @@ if.end4:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end4
   %size = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %size, align 4
-  %cmp6 = icmp ult i32 %0, %digits
+  %cmp6 = icmp ugt i32 %digits, %0
   br i1 %cmp6, label %if.end27, label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true

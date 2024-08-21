@@ -138,7 +138,7 @@ define hidden i32 @jWrtScanlines(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %48 = load i32, ptr %18, align 4
   %49 = load i32, ptr %16, align 8
   %50 = sub i32 %48, %49
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %50, i32 %2)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %2, i32 %50)
   store i32 0, ptr %4, align 4
   %51 = getelementptr inbounds i8, ptr %0, i64 440
   %52 = load ptr, ptr %51, align 8
@@ -228,7 +228,7 @@ define hidden i32 @jWrtRawData(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %46 = getelementptr inbounds i8, ptr %0, i64 316
   %47 = load i32, ptr %46, align 4
   %48 = shl nsw i32 %47, 3
-  %49 = icmp ugt i32 %48, %2
+  %49 = icmp ult i32 %2, %48
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %45

@@ -251,7 +251,7 @@ define ptr @Aig_TableLookupTwo(ptr nocapture noundef %0, ptr noundef %1, ptr nou
   %6 = ptrtoint ptr %2 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5
@@ -272,7 +272,7 @@ define ptr @Aig_TableLookupTwo(ptr nocapture noundef %0, ptr noundef %1, ptr nou
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %15
-  %22 = icmp eq ptr %18, %1
+  %22 = icmp eq ptr %1, %18
   br i1 %22, label %Aig_TableLookup.exit, label %23
 
 23:                                               ; preds = %21
@@ -287,7 +287,7 @@ define ptr @Aig_TableLookupTwo(ptr nocapture noundef %0, ptr noundef %1, ptr nou
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
-  %31 = icmp eq ptr %.val28, %2
+  %31 = icmp eq ptr %2, %.val28
   br i1 %31, label %Aig_TableLookup.exit, label %32
 
 32:                                               ; preds = %30

@@ -199,7 +199,7 @@ define range(i32 -1, 1) i32 @H5PB_create(ptr nocapture noundef %0, i64 noundef %
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 1984
   %13 = load i64, ptr %12, align 8
-  %14 = icmp ult i64 %13, %1
+  %14 = icmp ugt i64 %1, %13
   %15 = urem i64 %1, %13
   br i1 %14, label %16, label %18
 
@@ -851,7 +851,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i64, ptr %12, align 8
-  %.not = icmp ugt i64 %13, %3
+  %.not = icmp ult i64 %3, %13
   br i1 %.not, label %33, label %.thread
 
 14:                                               ; preds = %5
@@ -888,7 +888,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 8
   %32 = load i64, ptr %12, align 8
-  %.not364 = icmp ugt i64 %32, %3
+  %.not364 = icmp ult i64 %3, %32
   br i1 %.not364, label %.thread381, label %.loopexit
 
 33:                                               ; preds = %11
@@ -924,7 +924,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %54 = sub i64 %52, %53
   %55 = icmp eq i64 %47, %51
   %spec.store.select = select i1 %55, i64 -1, i64 %51
-  %.not320 = icmp ugt i64 %42, %3
+  %.not320 = icmp ult i64 %3, %42
   br i1 %.not320, label %189, label %56
 
 56:                                               ; preds = %41
@@ -1802,7 +1802,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
-  %.not = icmp ugt i64 %12, %3
+  %.not = icmp ult i64 %3, %12
   br i1 %.not, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %10
@@ -1846,7 +1846,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 
 32:                                               ; preds = %24, %28
   %33 = load i64, ptr %11, align 8
-  %34 = icmp ule i64 %33, %3
+  %34 = icmp uge i64 %3, %33
   %35 = icmp ne i32 %1, 3
   %or.cond3 = and i1 %35, %34
   br i1 %or.cond3, label %.loopexit, label %36
@@ -1886,7 +1886,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %56 = add i64 %reass.sub, 1
   %57 = icmp eq i64 %43, %55
   %spec.store.select = select i1 %57, i64 -1, i64 %55
-  %.not369 = icmp ugt i64 %37, %3
+  %.not369 = icmp ult i64 %3, %37
   %.not436 = icmp eq i64 %56, 0
   br i1 %.not369, label %.thread400, label %.preheader
 

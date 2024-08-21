@@ -542,7 +542,7 @@ entry:
   %m_isSensor = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %m_isSensor, align 2
   %1 = trunc i8 %0 to i1
-  %2 = xor i1 %1, %sensor
+  %2 = xor i1 %sensor, %1
   br i1 %2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

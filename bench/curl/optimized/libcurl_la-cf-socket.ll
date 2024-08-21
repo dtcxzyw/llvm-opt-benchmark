@@ -2606,7 +2606,7 @@ do.end96.i:                                       ; preds = %if.then92.i, %land.
   %60 = load ptr, ptr %59, align 8
   %ai_family98.i = getelementptr inbounds i8, ptr %60, i64 4
   %61 = load i32, ptr %ai_family98.i, align 4
-  %cmp99.not.i = icmp eq i32 %61, %30
+  %cmp99.not.i = icmp eq i32 %30, %61
   br i1 %cmp99.not.i, label %if.then108.i, label %67
 
 if.then108.i:                                     ; preds = %do.end96.i, %if.then54.i, %land.lhs.true46.i

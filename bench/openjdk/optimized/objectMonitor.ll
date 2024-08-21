@@ -398,7 +398,7 @@ define hidden void @_ZN13ObjectMonitor13ExitOnSuspendclEP10JavaThread(ptr nocapt
 define hidden void @_ZN13ObjectMonitor4exitEP10JavaThreadb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load volatile ptr, ptr %4, align 8
-  %.not = icmp eq ptr %5, %1
+  %.not = icmp eq ptr %1, %5
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %3
@@ -1293,7 +1293,7 @@ _ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit: ; preds = %8, %10
   %16 = getelementptr inbounds i8, ptr %0, i64 176
   %17 = load volatile i32, ptr %16, align 8
   %18 = load i32, ptr @_ZN13ObjectMonitor14Knob_SpinLimitE, align 4
-  %19 = icmp sgt i32 %18, %17
+  %19 = icmp slt i32 %17, %18
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %17, i32 1000)
   %20 = add nuw nsw i32 %spec.select.i.i, 100
   %.06.i.i = select i1 %19, i32 %20, i32 %17
@@ -1373,7 +1373,7 @@ _ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit: ; preds = %8, %10
 55:                                               ; preds = %54, %51
   %56 = load volatile i32, ptr %21, align 8
   %57 = load i32, ptr @_ZN13ObjectMonitor14Knob_SpinLimitE, align 4
-  %58 = icmp sgt i32 %57, %56
+  %58 = icmp slt i32 %56, %57
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %56, i32 1000)
   %59 = add nuw nsw i32 %spec.select.i, 100
   %.06.i = select i1 %58, i32 %59, i32 %56
@@ -1829,7 +1829,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit33.thread: ; preds = %111, %89, %87
 127:                                              ; preds = %126, %125
   %128 = getelementptr inbounds i8, ptr %0, i64 144
   %129 = load volatile ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, %3
+  %130 = icmp eq ptr %3, %129
   br i1 %130, label %131, label %_ZN13ObjectMonitor18UnlinkAfterAcquireEP10JavaThreadP12ObjectWaiter.exit
 
 131:                                              ; preds = %127
@@ -2388,7 +2388,7 @@ define hidden void @_ZN13ObjectMonitor18UnlinkAfterAcquireEP10JavaThreadP12Objec
 15:                                               ; preds = %14, %13
   %16 = getelementptr inbounds i8, ptr %0, i64 144
   %17 = load volatile ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %2
+  %18 = icmp eq ptr %2, %17
   br i1 %18, label %19, label %37
 
 19:                                               ; preds = %15
@@ -2581,7 +2581,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit.thread: ; preds = %_ZN13ObjectMoni
 64:                                               ; preds = %63, %62
   %65 = getelementptr inbounds i8, ptr %0, i64 144
   %66 = load volatile ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, %2
+  %67 = icmp eq ptr %2, %66
   br i1 %67, label %68, label %_ZN13ObjectMonitor18UnlinkAfterAcquireEP10JavaThreadP12ObjectWaiter.exit
 
 68:                                               ; preds = %64
@@ -2828,7 +2828,7 @@ declare void @_ZN13PlatformEvent6unparkEv(ptr noundef nonnull align 8 dereferenc
 define hidden noundef i64 @_ZN13ObjectMonitor13complete_exitEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load volatile ptr, ptr %3, align 8
-  %5 = icmp ne ptr %4, %1
+  %5 = icmp ne ptr %1, %4
   %6 = load i32, ptr @LockingMode, align 4
   %7 = icmp ne i32 %6, 2
   %or.cond = select i1 %5, i1 %7, i1 false
@@ -2858,7 +2858,7 @@ _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit: ; preds = %10
 
 17:                                               ; preds = %2, %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit, %8
   %18 = load volatile ptr, ptr %3, align 8
-  %19 = icmp eq ptr %18, %1
+  %19 = icmp eq ptr %1, %18
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %17
@@ -3416,7 +3416,7 @@ _ZN12ObjectWaiter16wait_reenter_endEP13ObjectMonitor.exit: ; preds = %185, %189,
   %215 = add nsw i32 %214, -1
   store volatile i32 %215, ptr %82, align 8
   %.not52 = icmp eq i32 %143, 0
-  %brmerge.not = and i1 %.not52, %2
+  %brmerge.not = and i1 %2, %.not52
   br i1 %brmerge.not, label %216, label %223
 
 216:                                              ; preds = %210
@@ -4122,7 +4122,7 @@ define hidden noundef zeroext i1 @_ZN13ObjectMonitor16short_fixed_spinEP10JavaTh
   %19 = getelementptr inbounds i8, ptr %0, i64 176
   %20 = load volatile i32, ptr %19, align 8
   %21 = load i32, ptr @_ZN13ObjectMonitor14Knob_SpinLimitE, align 4
-  %22 = icmp sgt i32 %21, %20
+  %22 = icmp slt i32 %20, %21
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %20, i32 1000)
   %23 = add nuw nsw i32 %spec.select.i, 100
   %.06.i = select i1 %22, i32 %23, i32 %20
@@ -4628,7 +4628,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -4690,7 +4690,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -4758,7 +4758,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp ugt ptr %24, %2
+  %.not.i = icmp ult ptr %2, %24
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %14
@@ -4808,7 +4808,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %14, %
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i24 = icmp ugt ptr %59, %2
+  %.not.i24 = icmp ult ptr %2, %59
   br i1 %.not.i24, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %49
@@ -4858,7 +4858,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8
-  %.not.i25 = icmp ugt ptr %94, %2
+  %.not.i25 = icmp ult ptr %2, %94
   br i1 %.not.i25, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26: ; preds = %84
@@ -4938,7 +4938,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -5477,7 +5477,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -5539,7 +5539,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50

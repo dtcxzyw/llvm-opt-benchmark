@@ -559,7 +559,7 @@ for.body.i31:                                     ; preds = %_ZN4absl12log_inter
   br i1 %cmp1.i36, label %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46, label %for.body.i31, !llvm.loop !5
 
 _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46: ; preds = %for.body.i31
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %accumulator.tr.lcssa.i20)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %accumulator.tr.lcssa.i20, i64 %sub.i.i)
   %7 = load ptr, ptr %buf, align 8
   %add.ptr.i.i43 = getelementptr inbounds i8, ptr %7, i64 %accumulator.tr.lcssa.i20
   store ptr %add.ptr.i.i43, ptr %buf, align 8

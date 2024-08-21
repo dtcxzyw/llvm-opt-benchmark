@@ -750,7 +750,7 @@ define internal fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6db
 28:                                               ; preds = %25
   %29 = icmp ult i64 %27, %9
   tail call void @llvm.assume(i1 %29)
-  %30 = icmp ult i64 %9, %.0.i.i.i
+  %30 = icmp ugt i64 %.0.i.i.i, %9
   br i1 %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7a8406789308c251E.exit.i.i", label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %22, %28
@@ -1196,7 +1196,7 @@ define internal fastcc void @"_ZN58_$LT$bigdecimal..BigDecimal$u20$as$u20$num_tr
   br label %154
 
 146:                                              ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %142, %.sroa.13.0
+  %.not.i.i.i = icmp eq i64 %.sroa.13.0, %142
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %146, %150
@@ -1365,7 +1365,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %150
   %.sroa.596.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %160, ptr %.sroa.596.0..sroa_idx, align 8
   %198 = sub i64 %195, %160
-  %199 = icmp ult i64 %198, %192
+  %199 = icmp ugt i64 %192, %198
   br i1 %199, label %200, label %206
 
 200:                                              ; preds = %191
@@ -2425,13 +2425,13 @@ define hidden void @_ZN6uu_seq11numberparse25parse_decimal_no_exponent17h30ecf56
   %bcmp.i.i.fr = freeze i32 %bcmp.i.i
   %26 = icmp eq i32 %bcmp.i.i.fr, 0
   %27 = zext i1 %26 to i64
-  %spec.select = add i64 %27, %3
+  %spec.select = add i64 %3, %27
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h890a947ffa893cdaE.exit.thread"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h890a947ffa893cdaE.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h890a947ffa893cdaE.exit", %23
   %28 = phi i64 [ %3, %23 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h890a947ffa893cdaE.exit" ]
   %.neg = xor i64 %3, -1
-  %29 = add i64 %.neg, %2
+  %29 = add i64 %2, %.neg
   %30 = invoke fastcc noundef zeroext i1 @_ZN6uu_seq11numberparse19is_minus_zero_float17hdb2c8edaecb72a37E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %9)
           to label %31 unwind label %43
 
@@ -2501,7 +2501,7 @@ define hidden void @_ZN6uu_seq11numberparse26parse_decimal_and_exponent17h26254b
   %13 = alloca { { { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, i64 }, align 8
   %14 = alloca { i8, [15 x i8] }, align 8
   %.neg = xor i64 %3, -1
-  %15 = add i64 %.neg, %4
+  %15 = add i64 %4, %.neg
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %16 = add i64 %4, 1
   %17 = icmp eq i64 %16, 0

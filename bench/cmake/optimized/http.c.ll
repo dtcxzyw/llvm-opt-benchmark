@@ -832,8 +832,8 @@ define dso_local i32 @Curl_http_write_resp(ptr noundef %0, ptr noundef %1, i64 n
   %14 = load i16, ptr %13, align 1
   %15 = and i16 %14, 1
   %.not20 = icmp eq i16 %15, 0
-  %.not21 = icmp ne i64 %12, %2
-  %brmerge = or i1 %.not21, %3
+  %.not21 = icmp ne i64 %2, %12
+  %brmerge = or i1 %3, %.not21
   %or.cond = select i1 %.not20, i1 %brmerge, i1 false
   br i1 %or.cond, label %16, label %20
 
@@ -1632,7 +1632,7 @@ define dso_local i32 @Curl_http_output_auth(ptr noundef %0, ptr nocapture nounde
 40:                                               ; preds = %37
   %41 = and i32 %38, 8
   %42 = icmp eq i32 %41, 0
-  %43 = xor i1 %42, %5
+  %43 = xor i1 %5, %42
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %40
@@ -2331,7 +2331,7 @@ define dso_local i32 @Curl_buffer_send(ptr noundef %0, ptr noundef %1, ptr nound
 
 31:                                               ; preds = %26
   %.not109 = icmp ne i64 %28, 0
-  %32 = icmp slt i64 %28, %4
+  %32 = icmp sgt i64 %4, %28
   %or.cond = and i1 %.not109, %32
   %.neg110 = sub i64 %28, %4
   %33 = select i1 %or.cond, i64 %.neg110, i64 0
@@ -2350,7 +2350,7 @@ define dso_local i32 @Curl_buffer_send(ptr noundef %0, ptr noundef %1, ptr nound
   %41 = getelementptr inbounds i8, ptr %1, i64 760
   %42 = load i64, ptr %41, align 8
   %.not107 = icmp ne i64 %42, 0
-  %43 = icmp slt i64 %42, %4
+  %43 = icmp sgt i64 %4, %42
   %or.cond117 = and i1 %.not107, %43
   %.neg = sub i64 %42, %4
   %44 = select i1 %or.cond117, i64 %.neg, i64 0
@@ -6043,7 +6043,7 @@ define dso_local range(i32 0, 57) i32 @Curl_bump_headersize(ptr noundef %0, i64 
   %24 = getelementptr inbounds i8, ptr %0, i64 276
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %27 = add i64 %26, %1
+  %27 = add i64 %1, %26
   br label %select.unfold
 
 select.unfold:                                    ; preds = %20, %23
@@ -7910,11 +7910,11 @@ define dso_local i32 @Curl_http_req_to_h2(ptr noundef %0, ptr noundef %1, ptr no
   %69 = getelementptr inbounds [6 x %struct.name_const], ptr @H2_NON_FIELD, i64 0, i64 %.011.i
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8
-  %72 = icmp ugt i64 %71, %67
+  %72 = icmp ult i64 %67, %71
   br i1 %72, label %80, label %73
 
 73:                                               ; preds = %68
-  %74 = icmp eq i64 %71, %67
+  %74 = icmp eq i64 %67, %71
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %73

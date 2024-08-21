@@ -1266,7 +1266,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   %113 = add nuw i64 %.03378.i.i, 1
   %114 = load i64, ptr %20, align 8
-  %115 = icmp ugt i64 %114, %113
+  %115 = icmp ult i64 %113, %114
   br i1 %115, label %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit22.i.i, label %116
 
 116:                                              ; preds = %.lr.ph79.i.i
@@ -2169,7 +2169,7 @@ _ZNK7xgboost6linalg10TensorViewIKfLi2EE5SliceIJNS0_6detail6AllTagEiEEEDaDpOT_.ex
 
 .loopexit12.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i, %.loopexit12.i.loopexit.split.loop.exit, %.loopexit12.i.loopexit.split.loop.exit109, %.loopexit12.i.loopexit.split.loop.exit111, %144, %135, %126
   %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %126 ], [ %.1.i.i.i.i.i.i, %135 ], [ %.2.i.i.i.i.i.i, %144 ], [ %151, %.loopexit12.i.loopexit.split.loop.exit ], [ %152, %.loopexit12.i.loopexit.split.loop.exit109 ], [ %153, %.loopexit12.i.loopexit.split.loop.exit111 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %154 = icmp eq ptr %.028.i.i.i.i.i.i, %54
+  %154 = icmp eq ptr %54, %.028.i.i.i.i.i.i
   br i1 %154, label %.thread.i, label %155
 
 155:                                              ; preds = %.loopexit12.i
@@ -2327,7 +2327,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i: ; preds = %.noexc9.i, %_ZN4dml
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i21.i, %.loopexit.i.loopexit.split.loop.exit, %.loopexit.i.loopexit.split.loop.exit117, %.loopexit.i.loopexit.split.loop.exit119, %206, %201, %196
   %.028.i.i.i.i.i15.i = phi ptr [ %.029.lcssa.i.i.i.i.i12.i, %196 ], [ %.1.i.i.i.i.i16.i, %201 ], [ %.2.i.i.i.i.i13.i, %206 ], [ %209, %.loopexit.i.loopexit.split.loop.exit ], [ %210, %.loopexit.i.loopexit.split.loop.exit117 ], [ %211, %.loopexit.i.loopexit.split.loop.exit119 ], [ %.02943.i.i.i.i.i23.i, %.lr.ph.i.i.i.i.i21.i ]
-  %212 = icmp eq ptr %.028.i.i.i.i.i15.i, %54
+  %212 = icmp eq ptr %54, %.028.i.i.i.i.i15.i
   br i1 %212, label %_ZN7xgboost6linalg6TensorIdLi1EE7ReshapeIJRmETnPNSt9enable_ifIXsr13IsAllIntegralIDpT_EE5valueEvE4typeELPv0EEEvDpOS6_.exit, label %213
 
 213:                                              ; preds = %.loopexit.i
@@ -2572,7 +2572,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %290 = load i64, ptr %18, align 8
-  %291 = icmp ugt i64 %290, %.03378.i.i
+  %291 = icmp ult i64 %.03378.i.i, %290
   br i1 %291, label %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit.i.i, label %292
 
 292:                                              ; preds = %.lr.ph79.i.i
@@ -2581,7 +2581,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit.i.i: ; preds = %.lr.ph79.i.i
   %293 = add nuw i64 %.03378.i.i, 1
-  %294 = icmp ugt i64 %290, %293
+  %294 = icmp ult i64 %293, %290
   br i1 %294, label %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit17.i.i, label %295
 
 295:                                              ; preds = %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit.i.i
@@ -2598,7 +2598,7 @@ _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit17.i.i: ; preds = %_
   %301 = zext i32 %298 to i64
   %302 = mul i64 %76, %301
   %303 = select i1 %80, i64 0, i64 %302
-  %.not8.i.i.i.i = icmp ult i64 %59, %303
+  %.not8.i.i.i.i = icmp ugt i64 %303, %59
   br i1 %.not8.i.i.i.i, label %304, label %305
 
 304:                                              ; preds = %_ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit17.i.i
@@ -3318,7 +3318,7 @@ define void @_ZN7xgboost3ltr8PreCache9InitOnCPUEPKNS_7ContextERKNS_8MetaInfoE(pt
 
 .loopexit14.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i, %.loopexit14.i.loopexit.split.loop.exit, %.loopexit14.i.loopexit.split.loop.exit26, %.loopexit14.i.loopexit.split.loop.exit28, %89, %81, %73
   %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %73 ], [ %.1.i.i.i.i.i.i.i, %81 ], [ %.2.i.i.i.i.i.i.i, %89 ], [ %95, %.loopexit14.i.loopexit.split.loop.exit ], [ %96, %.loopexit14.i.loopexit.split.loop.exit26 ], [ %97, %.loopexit14.i.loopexit.split.loop.exit28 ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  %98 = icmp eq ptr %.028.i.i.i.i.i.i.i, %9
+  %98 = icmp eq ptr %9, %.028.i.i.i.i.i.i.i
   br i1 %98, label %119, label %99
 
 99:                                               ; preds = %.loopexit14.i
@@ -3622,7 +3622,7 @@ define void @_ZN7xgboost3ltr8MAPCache9InitOnCPUEPKNS_7ContextERKNS_8MetaInfoE(pt
 
 .loopexit14.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i, %.loopexit14.i.loopexit.split.loop.exit, %.loopexit14.i.loopexit.split.loop.exit26, %.loopexit14.i.loopexit.split.loop.exit28, %89, %81, %73
   %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %73 ], [ %.1.i.i.i.i.i.i.i, %81 ], [ %.2.i.i.i.i.i.i.i, %89 ], [ %95, %.loopexit14.i.loopexit.split.loop.exit ], [ %96, %.loopexit14.i.loopexit.split.loop.exit26 ], [ %97, %.loopexit14.i.loopexit.split.loop.exit28 ], [ %.02949.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  %98 = icmp eq ptr %.028.i.i.i.i.i.i.i, %9
+  %98 = icmp eq ptr %9, %.028.i.i.i.i.i.i.i
   br i1 %98, label %119, label %99
 
 99:                                               ; preds = %.loopexit14.i
@@ -4138,7 +4138,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -5093,7 +5093,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %27
-  %.not.i.i.i.i = icmp eq ptr %2, %3
+  %.not.i.i.i.i = icmp eq ptr %3, %2
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i, label %.noexc13
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
@@ -6374,7 +6374,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIPmS0_N9__gnu_cxx5__ops1
   %29 = ptrtoint ptr %15 to i64
   %30 = ptrtoint ptr %.1.i.i to i64
   %31 = sub i64 %29, %30
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %.1.i.i, %15
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %15, %.1.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i.i, label %32
 
 32:                                               ; preds = %._crit_edge.i.loopexit.i
@@ -6386,7 +6386,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %32, %._crit_edge.i.
   %34 = ptrtoint ptr %16 to i64
   %35 = ptrtoint ptr %.120.i.i to i64
   %36 = sub i64 %34, %35
-  %.not.i.i.i.i.i21.i.i = icmp eq ptr %.120.i.i, %16
+  %.not.i.i.i.i.i21.i.i = icmp eq ptr %16, %.120.i.i
   br i1 %.not.i.i.i.i.i21.i.i, label %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i, label %37
 
 37:                                               ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i.i
@@ -6404,7 +6404,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   %.020.lcssa.i = phi ptr [ %2, %13 ], [ %38, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i ]
   %.0.lcssa.i = phi ptr [ %0, %13 ], [ %16, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i ]
   %.lcssa51.i = phi i64 [ %9, %13 ], [ %40, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.lcssa51.i, i64 %.073)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.073, i64 %.lcssa51.i)
   %41 = getelementptr inbounds i64, ptr %.0.lcssa.i, i64 %.sroa.speculated.i
   %42 = icmp ne i64 %.sroa.speculated.i, 0
   %43 = icmp ne ptr %41, %1
@@ -6442,7 +6442,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   %57 = ptrtoint ptr %41 to i64
   %58 = ptrtoint ptr %.018.lcssa.i25.i to i64
   %59 = sub i64 %57, %58
-  %.not.i.i.i.i.i.i27.i = icmp eq ptr %.018.lcssa.i25.i, %41
+  %.not.i.i.i.i.i.i27.i = icmp eq ptr %41, %.018.lcssa.i25.i
   br i1 %.not.i.i.i.i.i.i27.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i, label %60
 
 60:                                               ; preds = %._crit_edge.i23.i
@@ -6450,7 +6450,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   br label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i:           ; preds = %60, %._crit_edge.i23.i
-  %.not.i.i.i.i.i21.i29.i = icmp eq ptr %.019.lcssa.i24.i, %1
+  %.not.i.i.i.i.i21.i29.i = icmp eq ptr %1, %.019.lcssa.i24.i
   br i1 %.not.i.i.i.i.i21.i29.i, label %_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEvSC_SC_SI_T1_SJ_.exit, label %61
 
 61:                                               ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i
@@ -6500,7 +6500,7 @@ _ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6comm
   %80 = ptrtoint ptr %66 to i64
   %81 = ptrtoint ptr %.1.i.i35 to i64
   %82 = sub i64 %80, %81
-  %.not.i.i.i.i.i.i.i37 = icmp eq ptr %.1.i.i35, %66
+  %.not.i.i.i.i.i.i.i37 = icmp eq ptr %66, %.1.i.i35
   br i1 %.not.i.i.i.i.i.i.i37, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i.i38, label %83
 
 83:                                               ; preds = %._crit_edge.i.loopexit.i36
@@ -6512,7 +6512,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i.i38:           ; preds = %83, %._crit_edge.i.
   %85 = ptrtoint ptr %67 to i64
   %86 = ptrtoint ptr %.120.i.i33 to i64
   %87 = sub i64 %85, %86
-  %.not.i.i.i.i.i21.i.i39 = icmp eq ptr %.120.i.i33, %67
+  %.not.i.i.i.i.i21.i.i39 = icmp eq ptr %67, %.120.i.i33
   br i1 %.not.i.i.i.i.i21.i.i39, label %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i40, label %88
 
 88:                                               ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i.i38
@@ -6530,7 +6530,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   %.020.lcssa.i43 = phi ptr [ %0, %_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEvSC_SC_SI_T1_SJ_.exit ], [ %89, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i40 ]
   %.0.lcssa.i44 = phi ptr [ %2, %_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEvSC_SC_SI_T1_SJ_.exit ], [ %67, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i40 ]
   %.lcssa51.i45 = phi i64 [ %9, %_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEvSC_SC_SI_T1_SJ_.exit ], [ %91, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEESI_SC_SC_SC_SC_SI_T1_.exit.i40 ]
-  %.sroa.speculated.i46 = tail call i64 @llvm.smin.i64(i64 %.lcssa51.i45, i64 %14)
+  %.sroa.speculated.i46 = tail call i64 @llvm.smin.i64(i64 %14, i64 %.lcssa51.i45)
   %92 = getelementptr inbounds i64, ptr %.0.lcssa.i44, i64 %.sroa.speculated.i46
   %93 = icmp ne i64 %.sroa.speculated.i46, 0
   %94 = icmp ne ptr %92, %10
@@ -6568,7 +6568,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   %108 = ptrtoint ptr %92 to i64
   %109 = ptrtoint ptr %.018.lcssa.i25.i49 to i64
   %110 = sub i64 %108, %109
-  %.not.i.i.i.i.i.i27.i51 = icmp eq ptr %.018.lcssa.i25.i49, %92
+  %.not.i.i.i.i.i.i27.i51 = icmp eq ptr %92, %.018.lcssa.i25.i49
   br i1 %.not.i.i.i.i.i.i27.i51, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i52, label %111
 
 111:                                              ; preds = %._crit_edge.i23.i47
@@ -6576,7 +6576,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   br label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i52
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i52:         ; preds = %111, %._crit_edge.i23.i47
-  %.not.i.i.i.i.i21.i29.i53 = icmp eq ptr %.019.lcssa.i24.i48, %10
+  %.not.i.i.i.i.i21.i29.i53 = icmp eq ptr %10, %.019.lcssa.i24.i48
   br i1 %.not.i.i.i.i.i21.i29.i53, label %_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEvSC_SC_SI_T1_SJ_.exit63, label %112
 
 112:                                              ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28.i52
@@ -6677,7 +6677,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %._crit_edge.i
 
 35:                                               ; preds = %33
   %36 = sub i64 %9, %34
-  %.not.i.i.i.i.i67 = icmp eq ptr %.tr110126, %2
+  %.not.i.i.i.i.i67 = icmp eq ptr %2, %.tr110126
   br i1 %.not.i.i.i.i.i67, label %_ZSt21__move_merge_adaptiveIPmS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEvSC_SC_SI_SI_T1_SJ_.exit, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread:        ; preds = %35
@@ -6721,7 +6721,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread:        ; preds = %35
 
 54:                                               ; preds = %44
   store i64 %48, ptr %53, align 8
-  %55 = icmp eq ptr %.026.i.ph, %.tr125
+  %55 = icmp eq ptr %.tr125, %.026.i.ph
   br i1 %55, label %56, label %.outer, !llvm.loop !148
 
 56:                                               ; preds = %54
@@ -6741,7 +6741,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread:        ; preds = %35
 
 64:                                               ; preds = %44
   store i64 %46, ptr %53, align 8
-  %65 = icmp eq ptr %.024.i69, %5
+  %65 = icmp eq ptr %5, %.024.i69
   br i1 %65, label %_ZSt21__move_merge_adaptiveIPmS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEvSC_SC_SI_SI_T1_SJ_.exit, label %66
 
 66:                                               ; preds = %64
@@ -6867,7 +6867,7 @@ _ZSt13__upper_boundIPmmN9__gnu_cxx5__ops14_Val_comp_iterIZN7xgboost6common7ArgSo
   br label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i90
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i90:             ; preds = %120, %116
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.0107, %.tr110126
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr110126, %.0107
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit.i, label %121
 
 121:                                              ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i90
@@ -6895,14 +6895,14 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit38.i:             ; preds = %126, %_ZSt13move_ba
   br i1 %.not33.i, label %142, label %129
 
 129:                                              ; preds = %128
-  %.not34.i = icmp eq i64 %.0, %.tr112128
+  %.not34.i = icmp eq i64 %.tr112128, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPmS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %130
 
 130:                                              ; preds = %129
   %131 = ptrtoint ptr %.tr110126 to i64
   %132 = ptrtoint ptr %.0107 to i64
   %133 = sub i64 %131, %132
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.0107, %.tr110126
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr110126, %.0107
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit40.i, label %134
 
 134:                                              ; preds = %130
@@ -7137,7 +7137,7 @@ define linkonce_odr void @_ZN14__gnu_parallel18multiseq_partitionIN9__gnu_cxx17_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %27 = icmp eq i64 %25, %2
+  %27 = icmp eq i64 %2, %25
   br i1 %27, label %.preheader, label %33
 
 ._crit_edge.thread:                               ; preds = %6
@@ -7800,7 +7800,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.i.i.i: ; preds = %281
   %283 = getelementptr inbounds i8, ptr %272, i64 8
   %284 = load i64, ptr %283, align 8
-  %285 = icmp sgt i64 %284, %.sroa.23.0.copyload.i.i
+  %285 = icmp slt i64 %.sroa.23.0.copyload.i.i, %284
   br i1 %285, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread.i.i.i, label %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES2_IT_SaISE_EEPKNS7_7ContextET0_SK_T2_EUlRKmSN_E_EEE4pushEOS1_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.i.i.i, %.lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread_crit_edge.i.i.i
@@ -7993,7 +7993,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel21_LexicographicReverseIml
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.i.i363: ; preds = %363
   %365 = getelementptr inbounds i8, ptr %354, i64 8
   %366 = load i64, ptr %365, align 8
-  %367 = icmp sgt i64 %366, %.sroa.24.0.copyload.i.i.i272
+  %367 = icmp slt i64 %.sroa.24.0.copyload.i.i.i272, %366
   br i1 %367, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread.i.i364, label %.noexc274
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread.i.i364: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.i.i363, %.lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread_crit_edge.i.i365
@@ -8154,7 +8154,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i280: ; preds = %_ZNSt6vect
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.i.i.i291: ; preds = %425
   %427 = getelementptr inbounds i8, ptr %416, i64 8
   %428 = load i64, ptr %427, align 8
-  %429 = icmp sgt i64 %428, %.sroa.23.0.copyload.i.i283
+  %429 = icmp slt i64 %.sroa.23.0.copyload.i.i283, %428
   br i1 %429, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread.i.i.i292, label %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES2_IT_SaISE_EEPKNS7_7ContextET0_SK_T2_EUlRKmSN_E_EEE4pushEOS1_.exit312
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread.i.i.i292: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.i.i.i291, %.lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaISC_EEPKNS4_7ContextET0_SI_T2_EUlRKmSL_E_EEEclINS_17__normal_iteratorIPSt4pairImlESB_ISS_SaISS_EEEESS_EEbSC_RSI_.exit.thread_crit_edge.i.i.i294
@@ -9129,7 +9129,7 @@ _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairImlESt6vector
 define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImlESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES5_IT_SaISK_EEPKNSD_7ContextET0_SQ_T2_EUlRKmST_E_EEEEEvSK_SQ_SQ_T1_SR_(ptr %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, ptr %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
@@ -13085,7 +13085,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImPKffSt7greaterIv
 define linkonce_odr noundef i32 @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImPKffSt7greaterIvEEESt6vectorIT_SaIS9_EEPKNS1_7ContextET0_SF_T2_EUlRKmSI_E_E13__init_winnerEj(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   br i1 %.not, label %5, label %37
 
 5:                                                ; preds = %2
@@ -13682,7 +13682,7 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_i
   %28 = ptrtoint ptr %15 to i64
   %29 = ptrtoint ptr %.sroa.015.1.i.i to i64
   %30 = sub i64 %28, %29
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %.sroa.015.1.i.i, %15
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %15, %.sroa.015.1.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i.i, label %31
 
 31:                                               ; preds = %.critedge.i.loopexit.i
@@ -13694,7 +13694,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
   %33 = ptrtoint ptr %16 to i64
   %34 = ptrtoint ptr %.sroa.011.1.i.i to i64
   %35 = sub i64 %33, %34
-  %.not.i.i.i.i.i9.i.i = icmp eq ptr %.sroa.011.1.i.i, %16
+  %.not.i.i.i.i.i9.i.i = icmp eq ptr %16, %.sroa.011.1.i.i
   br i1 %.not.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i, label %36
 
 36:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i.i
@@ -13712,7 +13712,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5_
   %.sroa.046.0.lcssa.i = phi ptr [ %0, %13 ], [ %16, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i ]
   %.0.lcssa.i = phi ptr [ %2, %13 ], [ %37, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i ]
   %.lcssa59.i = phi i64 [ %9, %13 ], [ %39, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.lcssa59.i, i64 %.039)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.039, i64 %.lcssa59.i)
   %40 = getelementptr inbounds i64, ptr %.sroa.046.0.lcssa.i, i64 %.sroa.speculated.i
   %41 = icmp ne i64 %.sroa.speculated.i, 0
   %42 = icmp ne ptr %40, %1
@@ -13750,7 +13750,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5_
   %54 = ptrtoint ptr %40 to i64
   %55 = ptrtoint ptr %.sroa.015.0.lcssa.i19.i to i64
   %56 = sub i64 %54, %55
-  %.not.i.i.i.i.i.i21.i = icmp eq ptr %.sroa.015.0.lcssa.i19.i, %40
+  %.not.i.i.i.i.i.i21.i = icmp eq ptr %40, %.sroa.015.0.lcssa.i19.i
   br i1 %.not.i.i.i.i.i.i21.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22.i, label %57
 
 57:                                               ; preds = %.critedge.i17.i
@@ -13758,7 +13758,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5_
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22.i: ; preds = %57, %.critedge.i17.i
-  %.not.i.i.i.i.i9.i23.i = icmp eq ptr %.sroa.011.0.lcssa.i18.i, %1
+  %.not.i.i.i.i.i9.i23.i = icmp eq ptr %1, %.sroa.011.0.lcssa.i18.i
   br i1 %.not.i.i.i.i.i9.i23.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lNS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEEvSG_SG_SM_T1_SN_.exit, label %58
 
 58:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22.i
@@ -13808,7 +13808,7 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_l
   %77 = ptrtoint ptr %63 to i64
   %78 = ptrtoint ptr %.1.i.i to i64
   %79 = sub i64 %77, %78
-  %.not.i.i.i.i.i.i.i24 = icmp eq ptr %.1.i.i, %63
+  %.not.i.i.i.i.i.i.i24 = icmp eq ptr %63, %.1.i.i
   br i1 %.not.i.i.i.i.i.i.i24, label %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i, label %80
 
 80:                                               ; preds = %._crit_edge.i.loopexit.i
@@ -13820,7 +13820,7 @@ _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
   %82 = ptrtoint ptr %64 to i64
   %83 = ptrtoint ptr %.117.i.i to i64
   %84 = sub i64 %82, %83
-  %.not.i.i.i.i.i18.i.i = icmp eq ptr %.117.i.i, %64
+  %.not.i.i.i.i.i18.i.i = icmp eq ptr %64, %.117.i.i
   br i1 %.not.i.i.i.i.i18.i.i, label %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i, label %85
 
 85:                                               ; preds = %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i.i
@@ -13838,7 +13838,7 @@ _ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5_
   %.0.lcssa.i27 = phi ptr [ %2, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lNS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEEvSG_SG_SM_T1_SN_.exit ], [ %64, %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i ]
   %.sroa.022.0.lcssa.i = phi ptr [ %0, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lNS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEEvSG_SG_SM_T1_SN_.exit ], [ %86, %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i ]
   %.lcssa53.i = phi i64 [ %9, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lNS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEEvSG_SG_SM_T1_SN_.exit ], [ %88, %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEESM_SG_SG_SG_SG_SM_T1_.exit.i ]
-  %.sroa.speculated.i28 = tail call i64 @llvm.smin.i64(i64 %.lcssa53.i, i64 %14)
+  %.sroa.speculated.i28 = tail call i64 @llvm.smin.i64(i64 %14, i64 %.lcssa53.i)
   %89 = getelementptr inbounds i64, ptr %.0.lcssa.i27, i64 %.sroa.speculated.i28
   %90 = icmp ne i64 %.sroa.speculated.i28, 0
   %91 = icmp ne ptr %89, %10
@@ -13876,7 +13876,7 @@ _ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5_
   %105 = ptrtoint ptr %89 to i64
   %106 = ptrtoint ptr %.0.lcssa.i28.i to i64
   %107 = sub i64 %105, %106
-  %.not.i.i.i.i.i.i29.i = icmp eq ptr %.0.lcssa.i28.i, %89
+  %.not.i.i.i.i.i.i29.i = icmp eq ptr %89, %.0.lcssa.i28.i
   br i1 %.not.i.i.i.i.i.i29.i, label %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30.i, label %108
 
 108:                                              ; preds = %._crit_edge.i25.i
@@ -13884,7 +13884,7 @@ _ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5_
   br label %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30.i
 
 _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30.i: ; preds = %108, %._crit_edge.i25.i
-  %.not.i.i.i.i.i18.i31.i = icmp eq ptr %.016.lcssa.i27.i, %10
+  %.not.i.i.i.i.i18.i31.i = icmp eq ptr %10, %.016.lcssa.i27.i
   br i1 %.not.i.i.i.i.i18.i31.i, label %_ZSt17__merge_sort_loopIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEElNS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEEvSG_SG_SM_T1_SN_.exit, label %109
 
 109:                                              ; preds = %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30.i
@@ -13975,7 +13975,7 @@ _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
 
 29:                                               ; preds = %27
   %30 = sub i64 %9, %28
-  %.not.i.i.i.i.i77 = icmp eq ptr %.tr112130, %2
+  %.not.i.i.i.i.i77 = icmp eq ptr %2, %.tr112130
   br i1 %.not.i.i.i.i.i77, label %_ZSt21__move_merge_adaptiveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEES6_NS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEEvSG_SG_SM_SM_T1_SN_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit78.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit78.thread: ; preds = %29
@@ -14019,7 +14019,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
 
 48:                                               ; preds = %38
   store i64 %42, ptr %47, align 8
-  %49 = icmp eq ptr %.sroa.024.0.i.ph, %.tr129
+  %49 = icmp eq ptr %.tr129, %.sroa.024.0.i.ph
   br i1 %49, label %50, label %.outer, !llvm.loop !226
 
 50:                                               ; preds = %48
@@ -14039,7 +14039,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
 
 58:                                               ; preds = %38
   store i64 %40, ptr %47, align 8
-  %59 = icmp eq ptr %.0.i, %5
+  %59 = icmp eq ptr %5, %.0.i
   br i1 %59, label %_ZSt21__move_merge_adaptiveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEES6_NS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES3_IT_SaISG_EEPKNS9_7ContextET0_SM_T2_EUlRKmSP_E_EEEvSG_SG_SM_SM_T1_SN_.exit, label %60
 
 60:                                               ; preds = %58
@@ -14165,7 +14165,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmNS0_5__
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %114, %110
-  %.not.i.i.i.i.i37.i = icmp eq ptr %.sroa.0102.0, %.tr112130
+  %.not.i.i.i.i.i37.i = icmp eq ptr %.tr112130, %.sroa.0102.0
   br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, label %115
 
 115:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i
@@ -14193,14 +14193,14 @@ _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
   br i1 %.not34.i, label %136, label %123
 
 123:                                              ; preds = %122
-  %.not35.i = icmp eq i64 %.0, %.tr114132
+  %.not35.i = icmp eq i64 %.tr114132, %.0
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %124
 
 124:                                              ; preds = %123
   %125 = ptrtoint ptr %.tr112130 to i64
   %126 = ptrtoint ptr %.sroa.0102.0 to i64
   %127 = sub i64 %125, %126
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.sroa.0102.0, %.tr112130
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr112130, %.sroa.0102.0
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit40.i, label %128
 
 128:                                              ; preds = %124
@@ -14497,7 +14497,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %30
-  %.not.i.i.i.i = icmp eq i64 %2, %4
+  %.not.i.i.i.i = icmp eq i64 %4, %2
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i, label %.noexc17
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
@@ -15613,7 +15613,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %._crit_edge.i
 
 42:                                               ; preds = %40
   %43 = sub i64 %9, %41
-  %.not.i.i.i.i.i67 = icmp eq ptr %.tr119135, %2
+  %.not.i.i.i.i.i67 = icmp eq ptr %2, %.tr119135
   br i1 %.not.i.i.i.i.i67, label %_ZSt21__move_merge_adaptiveIPmS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEvSC_SC_SQ_SQ_T1_SR_.exit, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread:        ; preds = %42
@@ -15666,7 +15666,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread:        ; preds = %42
 
 67:                                               ; preds = %51
   store i64 %59, ptr %66, align 8
-  %68 = icmp eq ptr %.026.i.ph, %.tr134
+  %68 = icmp eq ptr %.tr134, %.026.i.ph
   br i1 %68, label %69, label %.outer, !llvm.loop !239
 
 69:                                               ; preds = %67
@@ -15686,7 +15686,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit68.thread:        ; preds = %42
 
 77:                                               ; preds = %51
   store i64 %52, ptr %66, align 8
-  %78 = icmp eq ptr %.024.i69, %5
+  %78 = icmp eq ptr %5, %.024.i69
   br i1 %78, label %_ZSt21__move_merge_adaptiveIPmS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEvSC_SC_SQ_SQ_T1_SR_.exit, label %79
 
 79:                                               ; preds = %77
@@ -15830,7 +15830,7 @@ _ZSt13__upper_boundIPmmN9__gnu_cxx5__ops14_Val_comp_iterIZN7xgboost6common7ArgSo
   br label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i99
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i99:             ; preds = %145, %141
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.0116, %.tr119135
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr119135, %.0116
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit.i, label %146
 
 146:                                              ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i99
@@ -15858,14 +15858,14 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit38.i:             ; preds = %151, %_ZSt13move_ba
   br i1 %.not33.i, label %167, label %154
 
 154:                                              ; preds = %153
-  %.not34.i = icmp eq i64 %.0, %.tr121137
+  %.not34.i = icmp eq i64 %.tr121137, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPmS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %155
 
 155:                                              ; preds = %154
   %156 = ptrtoint ptr %.tr119135 to i64
   %157 = ptrtoint ptr %.0116 to i64
   %158 = sub i64 %156, %157
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.0116, %.tr119135
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr119135, %.0116
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit40.i, label %159
 
 159:                                              ; preds = %155
@@ -16168,7 +16168,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter
   %33 = ptrtoint ptr %12 to i64
   %34 = ptrtoint ptr %.1.i to i64
   %35 = sub i64 %33, %34
-  %.not.i.i.i.i.i.i = icmp eq ptr %.1.i, %12
+  %.not.i.i.i.i.i.i = icmp eq ptr %12, %.1.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i, label %36
 
 36:                                               ; preds = %._crit_edge.i.loopexit
@@ -16180,7 +16180,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %36, %._crit_edge.i.
   %38 = ptrtoint ptr %13 to i64
   %39 = ptrtoint ptr %.120.i to i64
   %40 = sub i64 %38, %39
-  %.not.i.i.i.i.i21.i = icmp eq ptr %.120.i, %13
+  %.not.i.i.i.i.i21.i = icmp eq ptr %13, %.120.i
   br i1 %.not.i.i.i.i.i21.i, label %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEESQ_SC_SC_SC_SC_SQ_T1_.exit, label %41
 
 41:                                               ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i
@@ -16198,7 +16198,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   %.020.lcssa = phi ptr [ %2, %6 ], [ %2, %.lr.ph ], [ %42, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEESQ_SC_SC_SC_SC_SQ_T1_.exit ]
   %.0.lcssa = phi ptr [ %0, %6 ], [ %0, %.lr.ph ], [ %13, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEESQ_SC_SC_SC_SC_SQ_T1_.exit ]
   %.lcssa54 = phi i64 [ %11, %6 ], [ %11, %.lr.ph ], [ %44, %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEESQ_SC_SC_SC_SC_SQ_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.lcssa54, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa54)
   %45 = getelementptr inbounds i64, ptr %.0.lcssa, i64 %.sroa.speculated
   %46 = icmp ne i64 %.sroa.speculated, 0
   %47 = icmp ne ptr %45, %1
@@ -16248,7 +16248,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   %68 = ptrtoint ptr %45 to i64
   %69 = ptrtoint ptr %.018.lcssa.i25 to i64
   %70 = sub i64 %68, %69
-  %.not.i.i.i.i.i.i27 = icmp eq ptr %.018.lcssa.i25, %45
+  %.not.i.i.i.i.i.i27 = icmp eq ptr %45, %.018.lcssa.i25
   br i1 %.not.i.i.i.i.i.i27, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28, label %71
 
 71:                                               ; preds = %._crit_edge.i23
@@ -16256,7 +16256,7 @@ _ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7Arg
   br label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28
 
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28:             ; preds = %71, %._crit_edge.i23
-  %.not.i.i.i.i.i21.i29 = icmp eq ptr %.019.lcssa.i24, %1
+  %.not.i.i.i.i.i21.i29 = icmp eq ptr %1, %.019.lcssa.i24
   br i1 %.not.i.i.i.i.i21.i29, label %_ZSt12__move_mergeIPmS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEESQ_SC_SC_SC_SC_SQ_T1_.exit42, label %72
 
 72:                                               ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i28
@@ -16303,7 +16303,7 @@ define linkonce_odr void @_ZN14__gnu_parallel18multiseq_partitionIN9__gnu_cxx17_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !243
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %27 = icmp eq i64 %25, %2
+  %27 = icmp eq i64 %2, %25
   br i1 %27, label %.preheader, label %33
 
 ._crit_edge.thread:                               ; preds = %6
@@ -16981,7 +16981,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.i.i.i: ; preds = %291
   %293 = getelementptr inbounds i8, ptr %276, i64 8
   %294 = load i64, ptr %293, align 8
-  %295 = icmp sgt i64 %294, %.sroa.23.0.copyload.i.i
+  %295 = icmp slt i64 %.sroa.23.0.copyload.i.i, %294
   br i1 %295, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread.i.i.i, label %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi1EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES2_ISF_SaISF_EEPKNS7_7ContextET0_SS_T2_EUlRKmSV_E_EEE4pushEOS1_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.i.i.i, %.lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread_crit_edge.i.i.i
@@ -17192,7 +17192,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN14__gnu_parallel21_LexicographicReverseIml
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.i.i373: ; preds = %385
   %387 = getelementptr inbounds i8, ptr %370, i64 8
   %388 = load i64, ptr %387, align 8
-  %389 = icmp sgt i64 %388, %.sroa.24.0.copyload.i.i.i270
+  %389 = icmp slt i64 %.sroa.24.0.copyload.i.i.i270, %388
   br i1 %389, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread.i.i374, label %.noexc272
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread.i.i374: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.i.i373, %.lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread_crit_edge.i.i375
@@ -17362,7 +17362,7 @@ _ZNSt6vectorISt4pairImlESaIS1_EE9push_backEOS1_.exit.i278: ; preds = %_ZNSt6vect
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.i.i.i292: ; preds = %453
   %455 = getelementptr inbounds i8, ptr %438, i64 8
   %456 = load i64, ptr %455, align 8
-  %457 = icmp sgt i64 %456, %.sroa.23.0.copyload.i.i281
+  %457 = icmp slt i64 %.sroa.23.0.copyload.i.i281, %456
   br i1 %457, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread.i.i.i293, label %_ZNSt14priority_queueISt4pairImlESt6vectorIS1_SaIS1_EEN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS8_18IndexTransformIterIZNS7_6linalg6cbeginIKfLi1EEEDaRKNSB_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES2_ISF_SaISF_EEPKNS7_7ContextET0_SS_T2_EUlRKmSV_E_EEE4pushEOS1_.exit313
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread.i.i.i293: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.i.i.i292, %.lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valIN14__gnu_parallel21_LexicographicReverseImlZN7xgboost6common7ArgSortImNS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorISC_SaISC_EEPKNS4_7ContextET0_SQ_T2_EUlRKmST_E_EEEclINS_17__normal_iteratorIPSt4pairImlESK_IS10_SaIS10_EEEES10_EEbSC_RSQ_.exit.thread_crit_edge.i.i.i295
@@ -18020,7 +18020,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImlESt6vectorIS3_SaI
 define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImlESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN14__gnu_parallel14_LexicographicImlZN7xgboost6common7ArgSortImNSE_18IndexTransformIterIZNSD_6linalg6cbeginIKfLi1EEEDaRKNSH_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES5_ISL_SaISL_EEPKNSD_7ContextET0_SY_T2_EUlRKmS11_E_EEEEEvSL_SY_SY_T1_SZ_(ptr %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, ptr %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
-  %9 = icmp sgt i64 %8, %1
+  %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
@@ -23218,7 +23218,7 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTrans
 define linkonce_odr noundef i32 @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common7ArgSortImNS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi1EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEESt6vectorIS9_SaIS9_EEPKNS1_7ContextET0_SN_T2_EUlRKmSQ_E_E13__init_winnerEj(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   br i1 %.not, label %5, label %43
 
 5:                                                ; preds = %2
@@ -23769,7 +23769,7 @@ _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
 
 36:                                               ; preds = %34
   %37 = sub i64 %9, %35
-  %.not.i.i.i.i.i77 = icmp eq ptr %.tr121139, %2
+  %.not.i.i.i.i.i77 = icmp eq ptr %2, %.tr121139
   br i1 %.not.i.i.i.i.i77, label %_ZSt21__move_merge_adaptiveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEES6_NS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEEvSH_SH_SU_SU_T1_SV_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit78.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit78.thread: ; preds = %36
@@ -23822,7 +23822,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
 
 61:                                               ; preds = %45
   store i64 %53, ptr %60, align 8
-  %62 = icmp eq ptr %.sroa.024.0.i.ph, %.tr138
+  %62 = icmp eq ptr %.tr138, %.sroa.024.0.i.ph
   br i1 %62, label %63, label %.outer, !llvm.loop !307
 
 63:                                               ; preds = %61
@@ -23842,7 +23842,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
 
 71:                                               ; preds = %45
   store i64 %46, ptr %60, align 8
-  %72 = icmp eq ptr %.0.i, %5
+  %72 = icmp eq ptr %5, %.0.i
   br i1 %72, label %_ZSt21__move_merge_adaptiveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEES6_NS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEEvSH_SH_SU_SU_T1_SV_.exit, label %73
 
 73:                                               ; preds = %71
@@ -23986,7 +23986,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmNS0_5__
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %139, %135
-  %.not.i.i.i.i.i37.i = icmp eq ptr %.sroa.0111.0, %.tr121139
+  %.not.i.i.i.i.i37.i = icmp eq ptr %.tr121139, %.sroa.0111.0
   br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, label %140
 
 140:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i
@@ -24014,14 +24014,14 @@ _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
   br i1 %.not34.i, label %161, label %148
 
 148:                                              ; preds = %147
-  %.not35.i = icmp eq i64 %.0, %.tr123141
+  %.not35.i = icmp eq i64 %.tr123141, %.0
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %149
 
 149:                                              ; preds = %148
   %150 = ptrtoint ptr %.tr121139 to i64
   %151 = ptrtoint ptr %.sroa.0111.0 to i64
   %152 = sub i64 %150, %151
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.sroa.0111.0, %.tr121139
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr121139, %.sroa.0111.0
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit40.i, label %153
 
 153:                                              ; preds = %149
@@ -24324,7 +24324,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
   %32 = ptrtoint ptr %12 to i64
   %33 = ptrtoint ptr %.sroa.015.1.i to i64
   %34 = sub i64 %32, %33
-  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.015.1.i, %12
+  %.not.i.i.i.i.i.i = icmp eq ptr %12, %.sroa.015.1.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i, label %35
 
 35:                                               ; preds = %.critedge.i.loopexit
@@ -24336,7 +24336,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
   %37 = ptrtoint ptr %13 to i64
   %38 = ptrtoint ptr %.sroa.011.1.i to i64
   %39 = sub i64 %37, %38
-  %.not.i.i.i.i.i9.i = icmp eq ptr %.sroa.011.1.i, %13
+  %.not.i.i.i.i.i9.i = icmp eq ptr %13, %.sroa.011.1.i
   br i1 %.not.i.i.i.i.i9.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit, label %40
 
 40:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i
@@ -24354,7 +24354,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5_
   %.sroa.049.0.lcssa = phi ptr [ %0, %6 ], [ %0, %.lr.ph ], [ %13, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit ]
   %.0.lcssa = phi ptr [ %2, %6 ], [ %2, %.lr.ph ], [ %41, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit ]
   %.lcssa62 = phi i64 [ %11, %6 ], [ %11, %.lr.ph ], [ %43, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.lcssa62, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa62)
   %44 = getelementptr inbounds i64, ptr %.sroa.049.0.lcssa, i64 %.sroa.speculated
   %45 = icmp ne i64 %.sroa.speculated, 0
   %46 = icmp ne ptr %44, %1
@@ -24404,7 +24404,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5_
   %65 = ptrtoint ptr %44 to i64
   %66 = ptrtoint ptr %.sroa.015.0.lcssa.i19 to i64
   %67 = sub i64 %65, %66
-  %.not.i.i.i.i.i.i21 = icmp eq ptr %.sroa.015.0.lcssa.i19, %44
+  %.not.i.i.i.i.i.i21 = icmp eq ptr %44, %.sroa.015.0.lcssa.i19
   br i1 %.not.i.i.i.i.i.i21, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22, label %68
 
 68:                                               ; preds = %.critedge.i17
@@ -24412,7 +24412,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5_
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22: ; preds = %68, %.critedge.i17
-  %.not.i.i.i.i.i9.i23 = icmp eq ptr %.sroa.011.0.lcssa.i18, %1
+  %.not.i.i.i.i.i9.i23 = icmp eq ptr %1, %.sroa.011.0.lcssa.i18
   br i1 %.not.i.i.i.i.i9.i23, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_NS0_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit37, label %69
 
 69:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit.i22
@@ -24484,7 +24484,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPmN9__gnu_cxx17__normal_iterat
   %33 = ptrtoint ptr %12 to i64
   %34 = ptrtoint ptr %.1.i to i64
   %35 = sub i64 %33, %34
-  %.not.i.i.i.i.i.i = icmp eq ptr %.1.i, %12
+  %.not.i.i.i.i.i.i = icmp eq ptr %12, %.1.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i, label %36
 
 36:                                               ; preds = %._crit_edge.i.loopexit
@@ -24496,7 +24496,7 @@ _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.ex
   %38 = ptrtoint ptr %13 to i64
   %39 = ptrtoint ptr %.117.i to i64
   %40 = sub i64 %38, %39
-  %.not.i.i.i.i.i18.i = icmp eq ptr %.117.i, %13
+  %.not.i.i.i.i.i18.i = icmp eq ptr %13, %.117.i
   br i1 %.not.i.i.i.i.i18.i, label %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit, label %41
 
 41:                                               ; preds = %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i
@@ -24514,7 +24514,7 @@ _ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5_
   %.0.lcssa = phi ptr [ %0, %6 ], [ %0, %.lr.ph ], [ %13, %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit ]
   %.sroa.022.0.lcssa = phi ptr [ %2, %6 ], [ %2, %.lr.ph ], [ %42, %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit ]
   %.lcssa56 = phi i64 [ %11, %6 ], [ %11, %.lr.ph ], [ %44, %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.lcssa56, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa56)
   %45 = getelementptr inbounds i64, ptr %.0.lcssa, i64 %.sroa.speculated
   %46 = icmp ne i64 %.sroa.speculated, 0
   %47 = icmp ne ptr %45, %1
@@ -24564,7 +24564,7 @@ _ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5_
   %68 = ptrtoint ptr %45 to i64
   %69 = ptrtoint ptr %.0.lcssa.i28 to i64
   %70 = sub i64 %68, %69
-  %.not.i.i.i.i.i.i29 = icmp eq ptr %.0.lcssa.i28, %45
+  %.not.i.i.i.i.i.i29 = icmp eq ptr %45, %.0.lcssa.i28
   br i1 %.not.i.i.i.i.i.i29, label %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30, label %71
 
 71:                                               ; preds = %._crit_edge.i25
@@ -24572,7 +24572,7 @@ _ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5_
   br label %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30
 
 _ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30: ; preds = %71, %._crit_edge.i25
-  %.not.i.i.i.i.i18.i31 = icmp eq ptr %.016.lcssa.i27, %1
+  %.not.i.i.i.i.i18.i31 = icmp eq ptr %1, %.016.lcssa.i27
   br i1 %.not.i.i.i.i.i18.i31, label %_ZSt12__move_mergeIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEENS1_5__ops15_Iter_comp_iterIZN7xgboost6common7ArgSortImNSA_18IndexTransformIterIZNS9_6linalg6cbeginIKfLi1EEEDaRKNSD_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES3_ISH_SaISH_EEPKNS9_7ContextET0_SU_T2_EUlRKmSX_E_EEESU_SH_SH_SH_SH_SU_T1_.exit44, label %72
 
 72:                                               ; preds = %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i30
@@ -26261,7 +26261,7 @@ _ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4
 _ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE5countERS9_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %19 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %20 = load i32, ptr %19, align 4
-  %21 = icmp sle i32 %20, %2
+  %21 = icmp sge i32 %2, %20
   %22 = zext i1 %21 to i64
   store i64 %22, ptr %5, align 8
   store i32 0, ptr %6, align 4
@@ -26378,7 +26378,7 @@ _ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4
 55:                                               ; preds = %_ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i
   %56 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %57 = load i32, ptr %56, align 4
-  %58 = icmp sgt i32 %57, %2
+  %58 = icmp slt i32 %2, %57
   br i1 %58, label %.critedge.i, label %_ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE2atERS9_.exit
 
 .critedge.i:                                      ; preds = %55, %_ZNKSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit.i, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -27279,7 +27279,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -27327,7 +27327,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4dmlc9parameter16FieldAccessEntryEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -28060,7 +28060,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -28108,7 +28108,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -28465,7 +28465,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -28504,7 +28504,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

@@ -4045,7 +4045,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %2 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %2, %0
+  %cmp.i.i.i.i.i.i = icmp eq ptr %0, %2
   br i1 %cmp.i.i.i.i.i.i, label %if.then8.i.i, label %for.cond.i.i.i.i, !llvm.loop !9
 
 if.end15.i.i.i.i:                                 ; preds = %if.end.i.i
@@ -4064,11 +4064,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %7 = load ptr, ptr %6, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %8, %0
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %0, %8
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %0
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, %10
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -4155,7 +4155,7 @@ for.cond.i.i.i.i47:                               ; preds = %for.body.i.i.i.i51,
 for.body.i.i.i.i51:                               ; preds = %for.cond.i.i.i.i47
   %add.ptr.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i49, i64 8
   %24 = load ptr, ptr %add.ptr.i.i.i.i52, align 8
-  %cmp.i.i.i.i.i.i53 = icmp eq ptr %24, %22
+  %cmp.i.i.i.i.i.i53 = icmp eq ptr %22, %24
   br i1 %cmp.i.i.i.i.i.i53, label %if.then8.i.i25, label %for.cond.i.i.i.i47, !llvm.loop !9
 
 if.end15.i.i.i.i6:                                ; preds = %if.end.i.i3
@@ -4174,11 +4174,11 @@ if.end.i.i.i.i.i.i12:                             ; preds = %if.end15.i.i.i.i6
   %29 = load ptr, ptr %28, align 8
   %add.ptr8.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %add.ptr8.i.i.i.i.i.i13, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i14 = icmp eq ptr %30, %22
+  %cmp.i.i.i9.i.i.i.i.i.i14 = icmp eq ptr %22, %30
   br i1 %cmp.i.i.i9.i.i.i.i.i.i14, label %if.then8.i.i25, label %if.end3.i.i.i.i.i.i15
 
 for.cond.i.i.i.i.i.i23:                           ; preds = %lor.lhs.false.i.i.i.i.i.i18
-  %cmp.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %32, %22
+  %cmp.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %22, %32
   br i1 %cmp.i.i.i.i.i.i.i.i.i24, label %if.then8.i.i25, label %if.end3.i.i.i.i.i.i15, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i15:                            ; preds = %if.end.i.i.i.i.i.i12, %for.cond.i.i.i.i.i.i23
@@ -4897,7 +4897,7 @@ _ZN4node6crypto10ByteSource7BuilderC2Em.exit:     ; preds = %if.end
 
 do.body.i:                                        ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit
   %5 = load i64, ptr %len, align 8
-  %cmp.not.i = icmp ult i64 %4, %5
+  %cmp.not.i = icmp ugt i64 %5, %4
   br i1 %cmp.not.i, label %do.body6.i, label %do.end7.i
 
 do.body6.i:                                       ; preds = %do.body.i
@@ -5777,7 +5777,7 @@ _ZN4node6crypto10ByteSource7BuilderC2Em.exit.i:   ; preds = %if.end32.i
 
 do.body.i.i:                                      ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i
   %3 = load i64, ptr %len.i, align 8
-  %cmp.not.i.i = icmp ult i64 %2, %3
+  %cmp.not.i.i = icmp ugt i64 %3, %2
   br i1 %cmp.not.i.i, label %do.body6.i.i, label %do.end7.i.i
 
 do.body6.i.i:                                     ; preds = %do.body.i.i
@@ -9598,7 +9598,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %1, %params_
+  %cmp.i.i.i.i.i.i = icmp eq ptr %params_, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.then8.i.i, label %for.cond.i.i.i.i, !llvm.loop !9
 
 if.end15.i.i.i.i:                                 ; preds = %entry
@@ -9617,11 +9617,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %7, %params_
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %params_, %7
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %params_
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %params_, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -9702,7 +9702,7 @@ for.cond.i.i.i.i45:                               ; preds = %for.body.i.i.i.i49,
 for.body.i.i.i.i49:                               ; preds = %for.cond.i.i.i.i45
   %add.ptr.i.i.i.i50 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i47, i64 8
   %22 = load ptr, ptr %add.ptr.i.i.i.i50, align 8
-  %cmp.i.i.i.i.i.i51 = icmp eq ptr %22, %errors_
+  %cmp.i.i.i.i.i.i51 = icmp eq ptr %errors_, %22
   br i1 %cmp.i.i.i.i.i.i51, label %if.then8.i.i23, label %for.cond.i.i.i.i45, !llvm.loop !9
 
 if.end15.i.i.i.i4:                                ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
@@ -9721,11 +9721,11 @@ if.end.i.i.i.i.i.i10:                             ; preds = %if.end15.i.i.i.i4
   %27 = load ptr, ptr %26, align 8
   %add.ptr8.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %add.ptr8.i.i.i.i.i.i11, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i12 = icmp eq ptr %28, %errors_
+  %cmp.i.i.i9.i.i.i.i.i.i12 = icmp eq ptr %errors_, %28
   br i1 %cmp.i.i.i9.i.i.i.i.i.i12, label %if.then8.i.i23, label %if.end3.i.i.i.i.i.i13
 
 for.cond.i.i.i.i.i.i21:                           ; preds = %lor.lhs.false.i.i.i.i.i.i16
-  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %30, %errors_
+  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %errors_, %30
   br i1 %cmp.i.i.i.i.i.i.i.i.i22, label %if.then8.i.i23, label %if.end3.i.i.i.i.i.i13, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i13:                            ; preds = %if.end.i.i.i.i.i.i10, %for.cond.i.i.i.i.i.i21
@@ -9966,7 +9966,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %2 = load ptr, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %2, %retainer
+  %cmp.i.i.i.i = icmp eq ptr %retainer, %2
   br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !9
 
 if.end15.i.i:                                     ; preds = %entry
@@ -9985,11 +9985,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %7 = load ptr, ptr %6, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %8, %retainer
+  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %retainer, %8
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.then, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %10, %retainer
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %retainer, %10
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !10
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
@@ -10196,7 +10196,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load ptr, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %1, %retainer
+  %cmp.i.i.i.i = icmp eq ptr %retainer, %1
   br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !9
 
 if.end15.i.i:                                     ; preds = %entry
@@ -10214,11 +10214,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %7, %retainer
+  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %retainer, %7
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.then, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %9, %retainer
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %retainer, %9
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !10
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
@@ -10608,7 +10608,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -10895,7 +10895,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -11427,7 +11427,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %1, %key
+  %cmp.i.i.i.i.i.i = icmp eq ptr %key, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.then8.i.i, label %for.cond.i.i.i.i, !llvm.loop !9
 
 if.end15.i.i.i.i:                                 ; preds = %entry
@@ -11446,11 +11446,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %7, %key
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %key, %7
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %key
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %key, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -11619,7 +11619,7 @@ for.cond.i.i.i.i60:                               ; preds = %for.body.i.i.i.i64,
 for.body.i.i.i.i64:                               ; preds = %for.cond.i.i.i.i60
   %add.ptr.i.i.i.i65 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i62, i64 8
   %38 = load ptr, ptr %add.ptr.i.i.i.i65, align 8
-  %cmp.i.i.i.i.i.i66 = icmp eq ptr %38, %params
+  %cmp.i.i.i.i.i.i66 = icmp eq ptr %params, %38
   br i1 %cmp.i.i.i.i.i.i66, label %if.then8.i.i38, label %for.cond.i.i.i.i60, !llvm.loop !9
 
 if.end15.i.i.i.i19:                               ; preds = %if.end
@@ -11638,11 +11638,11 @@ if.end.i.i.i.i.i.i25:                             ; preds = %if.end15.i.i.i.i19
   %43 = load ptr, ptr %42, align 8
   %add.ptr8.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load ptr, ptr %add.ptr8.i.i.i.i.i.i26, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i27 = icmp eq ptr %44, %params
+  %cmp.i.i.i9.i.i.i.i.i.i27 = icmp eq ptr %params, %44
   br i1 %cmp.i.i.i9.i.i.i.i.i.i27, label %if.then8.i.i38, label %if.end3.i.i.i.i.i.i28
 
 for.cond.i.i.i.i.i.i36:                           ; preds = %lor.lhs.false.i.i.i.i.i.i31
-  %cmp.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %46, %params
+  %cmp.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %params, %46
   br i1 %cmp.i.i.i.i.i.i.i.i.i37, label %if.then8.i.i38, label %if.end3.i.i.i.i.i.i28, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i28:                            ; preds = %if.end.i.i.i.i.i.i25, %for.cond.i.i.i.i.i.i36
@@ -11977,7 +11977,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %1, %params_
+  %cmp.i.i.i.i.i.i = icmp eq ptr %params_, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.then8.i.i, label %for.cond.i.i.i.i, !llvm.loop !9
 
 if.end15.i.i.i.i:                                 ; preds = %entry
@@ -11996,11 +11996,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %7, %params_
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %params_, %7
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %params_
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %params_, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -12081,7 +12081,7 @@ for.cond.i.i.i.i45:                               ; preds = %for.body.i.i.i.i49,
 for.body.i.i.i.i49:                               ; preds = %for.cond.i.i.i.i45
   %add.ptr.i.i.i.i50 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i47, i64 8
   %22 = load ptr, ptr %add.ptr.i.i.i.i50, align 8
-  %cmp.i.i.i.i.i.i51 = icmp eq ptr %22, %errors_
+  %cmp.i.i.i.i.i.i51 = icmp eq ptr %errors_, %22
   br i1 %cmp.i.i.i.i.i.i51, label %if.then8.i.i23, label %for.cond.i.i.i.i45, !llvm.loop !9
 
 if.end15.i.i.i.i4:                                ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
@@ -12100,11 +12100,11 @@ if.end.i.i.i.i.i.i10:                             ; preds = %if.end15.i.i.i.i4
   %27 = load ptr, ptr %26, align 8
   %add.ptr8.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %add.ptr8.i.i.i.i.i.i11, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i12 = icmp eq ptr %28, %errors_
+  %cmp.i.i.i9.i.i.i.i.i.i12 = icmp eq ptr %errors_, %28
   br i1 %cmp.i.i.i9.i.i.i.i.i.i12, label %if.then8.i.i23, label %if.end3.i.i.i.i.i.i13
 
 for.cond.i.i.i.i.i.i21:                           ; preds = %lor.lhs.false.i.i.i.i.i.i16
-  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %30, %errors_
+  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %errors_, %30
   br i1 %cmp.i.i.i.i.i.i.i.i.i22, label %if.then8.i.i23, label %if.end3.i.i.i.i.i.i13, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i13:                            ; preds = %if.end.i.i.i.i.i.i10, %for.cond.i.i.i.i.i.i21
@@ -14227,7 +14227,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %1, %params_
+  %cmp.i.i.i.i.i.i = icmp eq ptr %params_, %1
   br i1 %cmp.i.i.i.i.i.i, label %if.then8.i.i, label %for.cond.i.i.i.i, !llvm.loop !9
 
 if.end15.i.i.i.i:                                 ; preds = %entry
@@ -14246,11 +14246,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %7, %params_
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %params_, %7
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %params_
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %params_, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -14331,7 +14331,7 @@ for.cond.i.i.i.i45:                               ; preds = %for.body.i.i.i.i49,
 for.body.i.i.i.i49:                               ; preds = %for.cond.i.i.i.i45
   %add.ptr.i.i.i.i50 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i47, i64 8
   %22 = load ptr, ptr %add.ptr.i.i.i.i50, align 8
-  %cmp.i.i.i.i.i.i51 = icmp eq ptr %22, %errors_
+  %cmp.i.i.i.i.i.i51 = icmp eq ptr %errors_, %22
   br i1 %cmp.i.i.i.i.i.i51, label %if.then8.i.i23, label %for.cond.i.i.i.i45, !llvm.loop !9
 
 if.end15.i.i.i.i4:                                ; preds = %_ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit
@@ -14350,11 +14350,11 @@ if.end.i.i.i.i.i.i10:                             ; preds = %if.end15.i.i.i.i4
   %27 = load ptr, ptr %26, align 8
   %add.ptr8.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %add.ptr8.i.i.i.i.i.i11, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i12 = icmp eq ptr %28, %errors_
+  %cmp.i.i.i9.i.i.i.i.i.i12 = icmp eq ptr %errors_, %28
   br i1 %cmp.i.i.i9.i.i.i.i.i.i12, label %if.then8.i.i23, label %if.end3.i.i.i.i.i.i13
 
 for.cond.i.i.i.i.i.i21:                           ; preds = %lor.lhs.false.i.i.i.i.i.i16
-  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %30, %errors_
+  %cmp.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %errors_, %30
   br i1 %cmp.i.i.i.i.i.i.i.i.i22, label %if.then8.i.i23, label %if.end3.i.i.i.i.i.i13, !llvm.loop !10
 
 if.end3.i.i.i.i.i.i13:                            ; preds = %if.end.i.i.i.i.i.i10, %for.cond.i.i.i.i.i.i21

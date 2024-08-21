@@ -870,7 +870,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i, %if.end.i.i.i
   %12 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
   %13 = load i32, ptr %12, align 4
-  %cmp4.i.i.i = icmp eq i32 %13, %call6
+  %cmp4.i.i.i = icmp eq i32 %call6, %13
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %sw.epilog.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i
@@ -939,7 +939,7 @@ if.end.i.i.i38:                                   ; preds = %sw.epilog.i.i.i48, 
 sw.bb.i.i.i55:                                    ; preds = %if.end.i.i.i38, %if.end.i.i.i38
   %22 = getelementptr inbounds i8, ptr %c.017.i.i.i41, i64 4
   %23 = load i32, ptr %22, align 4
-  %cmp4.i.i.i56 = icmp eq i32 %23, %call6
+  %cmp4.i.i.i56 = icmp eq i32 %call6, %23
   br i1 %cmp4.i.i.i56, label %if.then5.i.i.i57, label %sw.epilog.i.i.i48
 
 if.then5.i.i.i57:                                 ; preds = %sw.bb.i.i.i55
@@ -1051,7 +1051,7 @@ if.end.i.i.i67:                                   ; preds = %sw.epilog.i.i.i74, 
 sw.bb.i.i5.i:                                     ; preds = %if.end.i.i.i67, %if.end.i.i.i67
   %42 = getelementptr inbounds i8, ptr %c.017.i.i.i70, i64 4
   %43 = load i32, ptr %42, align 4
-  %cmp4.i.i.i81 = icmp eq i32 %43, %call6
+  %cmp4.i.i.i81 = icmp eq i32 %call6, %43
   br i1 %cmp4.i.i.i81, label %if.then5.i.i.i82, label %sw.epilog.i.i.i74
 
 if.then5.i.i.i82:                                 ; preds = %sw.bb.i.i5.i

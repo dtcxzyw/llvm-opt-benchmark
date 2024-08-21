@@ -403,7 +403,7 @@ define dso_local noundef zeroext i1 @rq_depth_scale_down(ptr nocapture noundef %
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
-  %9 = and i1 %8, %1
+  %9 = and i1 %1, %8
   %10 = add i32 %7, 1
   %11 = select i1 %9, i32 0, i32 %10
   store i32 %11, ptr %6, align 4

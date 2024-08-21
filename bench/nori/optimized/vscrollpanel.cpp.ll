@@ -231,7 +231,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui12VScrollPanel18mouse_button_eventE
 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %2, 0
-  %or.cond = and i1 %8, %3
+  %or.cond = and i1 %3, %8
   br i1 %or.cond, label %9, label %73
 
 9:                                                ; preds = %7

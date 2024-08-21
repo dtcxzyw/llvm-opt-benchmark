@@ -23,7 +23,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader": ; preds = %14
   %17 = getelementptr inbounds i8, ptr %1, i64 %3
-  %18 = add i64 %11, %2
+  %18 = add i64 %2, %11
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader", %.outer

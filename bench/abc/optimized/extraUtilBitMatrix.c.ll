@@ -24,7 +24,7 @@ define noalias noundef ptr @Extra_BitMatrixStart(i32 noundef %0) local_unnamed_a
   %13 = shl nsw i64 %5, 3
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #15
   store ptr %14, ptr %calloc, align 8
-  %15 = mul nsw i32 %11, %0
+  %15 = mul nsw i32 %0, %11
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 2
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #15

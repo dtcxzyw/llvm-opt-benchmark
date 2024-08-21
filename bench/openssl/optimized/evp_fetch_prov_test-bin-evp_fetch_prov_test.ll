@@ -538,7 +538,7 @@ lor.lhs.false17.i:                                ; preds = %lor.lhs.false11.i
 
 lor.lhs.false21.i:                                ; preds = %lor.lhs.false17.i
   %call22.i = call ptr @EVP_MD_CTX_get0_md(ptr noundef %call.i) #7
-  %cmp23.i = icmp eq ptr %call22.i, %md
+  %cmp23.i = icmp eq ptr %md, %call22.i
   %conv24.i = zext i1 %cmp23.i to i32
   %call27.i = call i32 @test_true(ptr noundef nonnull @.str.32, i32 noundef 70, ptr noundef nonnull @.str.50, i32 noundef %conv24.i) #7
   %tobool28.not.i = icmp ne i32 %call27.i, 0

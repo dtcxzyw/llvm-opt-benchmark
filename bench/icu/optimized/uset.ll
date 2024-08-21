@@ -828,7 +828,7 @@ if.then1:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %call2 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet13getRangeCountEv(ptr noundef nonnull align 8 dereferenceable(200) %uset)
-  %cmp3 = icmp sgt i32 %call2, %itemIndex
+  %cmp3 = icmp slt i32 %itemIndex, %call2
   br i1 %cmp3, label %if.then4, label %if.else7
 
 if.then4:                                         ; preds = %if.else
@@ -926,7 +926,7 @@ if.end5:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end5
   %and7 = and i32 %conv, 32767
   %add = add nuw nsw i32 %and7, 2
-  %cmp8 = icmp ugt i32 %add, %srcLength
+  %cmp8 = icmp ult i32 %srcLength, %add
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.then6
@@ -943,7 +943,7 @@ if.end12:                                         ; preds = %if.then6
   br label %if.end23
 
 if.else:                                          ; preds = %if.end5
-  %cmp17.not = icmp ult i32 %conv, %srcLength
+  %cmp17.not = icmp ugt i32 %srcLength, %conv
   %bmpLength22 = getelementptr inbounds i8, ptr %fillSet, i64 8
   br i1 %cmp17.not, label %if.end21, label %if.then18
 
@@ -1067,7 +1067,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %cmp5 = icmp ugt i32 %conv, %c
+  %cmp5 = icmp ult i32 %c, %conv
   br i1 %cmp5, label %if.end25, label %if.else
 
 if.else:                                          ; preds = %if.then4
@@ -1078,7 +1078,7 @@ if.else:                                          ; preds = %if.then4
   %arrayidx7 = getelementptr inbounds i16, ptr %0, i64 %idxprom
   %3 = load i16, ptr %arrayidx7, align 2
   %conv8 = zext i16 %3 to i32
-  %cmp9 = icmp ugt i32 %conv8, %c
+  %cmp9 = icmp ult i32 %c, %conv8
   br i1 %cmp9, label %for.cond.preheader, label %if.end25
 
 for.cond.preheader:                               ; preds = %if.else
@@ -1097,7 +1097,7 @@ if.else13:                                        ; preds = %if.else13.preheader
   %arrayidx15 = getelementptr inbounds i16, ptr %0, i64 %idxprom14
   %4 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %4 to i32
-  %cmp17 = icmp sgt i32 %conv16, %c
+  %cmp17 = icmp slt i32 %c, %conv16
   %shr.hi.1 = select i1 %cmp17, i32 %shr65, i32 %hi.163
   %lo.0.shr = select i1 %cmp17, i32 %lo.064, i32 %shr65
   %add = add nsw i32 %lo.0.shr, %shr.hi.1

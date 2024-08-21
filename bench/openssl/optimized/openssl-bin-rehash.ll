@@ -925,7 +925,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %type2 = getelementptr inbounds i8, ptr %bp.063, i64 28
   %1 = load i16, ptr %type2, align 4
   %conv3 = zext i16 %1 to i32
-  %cmp = icmp eq i32 %conv3, %type
+  %cmp = icmp eq i32 %type, %conv3
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
@@ -1064,7 +1064,7 @@ if.end81:                                         ; preds = %for.body22.us, %if.
   %ep.1 = phi ptr [ %call59, %if.end79 ], [ %spec.select, %for.end48 ], [ %ep.067.us, %for.body22.us ]
   %old_id83 = getelementptr inbounds i8, ptr %ep.1, i64 16
   %13 = load i16, ptr %old_id83, align 8
-  %cmp85 = icmp ugt i16 %13, %old_id
+  %cmp85 = icmp ult i16 %old_id, %13
   br i1 %cmp85, label %if.then87, label %if.end89
 
 if.then87:                                        ; preds = %if.end81

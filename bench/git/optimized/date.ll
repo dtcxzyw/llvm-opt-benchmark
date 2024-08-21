@@ -704,7 +704,7 @@ if.then12.i.i:                                    ; preds = %if.then.i.i
 if.else.i.i:                                      ; preds = %if.else
   %mul14.i.i = mul i32 %cond6.i.i, -60
   %conv15.i.i = zext nneg i32 %mul14.i.i to i64
-  %cmp16.i.i = icmp ugt i64 %conv15.i.i, %git_time
+  %cmp16.i.i = icmp ult i64 %git_time, %conv15.i.i
   br i1 %cmp16.i.i, label %if.then18.i.i, label %if.else.if.end20_crit_edge.i.i
 
 if.else.if.end20_crit_edge.i.i:                   ; preds = %if.else.i.i
@@ -718,7 +718,7 @@ if.then18.i.i:                                    ; preds = %if.else.i.i
 if.end20.i.i:                                     ; preds = %if.else.if.end20_crit_edge.i.i, %if.then.i.i
   %mul21.pre-phi.i.i = phi i32 [ %.pre.i.i, %if.else.if.end20_crit_edge.i.i ], [ %mul8.i.i, %if.then.i.i ]
   %conv22.i.i = sext i32 %mul21.pre-phi.i.i to i64
-  %add23.i.i = add i64 %conv22.i.i, %git_time
+  %add23.i.i = add i64 %git_time, %conv22.i.i
   %tobool.not.i.i = icmp sgt i64 %add23.i.i, -1
   br i1 %tobool.not.i.i, label %time_to_tm.exit, label %if.then24.i.i
 

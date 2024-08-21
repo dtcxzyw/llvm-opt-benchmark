@@ -1177,7 +1177,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 1072
   %42 = load ptr, ptr %41, align 8
-  %.not137 = icmp eq ptr %42, %2
+  %.not137 = icmp eq ptr %2, %42
   br i1 %.not137, label %116, label %43
 
 43:                                               ; preds = %40
@@ -1543,7 +1543,7 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
 87:                                               ; preds = %85, %73
   %88 = phi double [ %86, %85 ], [ %82, %73 ]
   %89 = load double, ptr %47, align 8
-  %90 = fcmp ogt double %89, %1
+  %90 = fcmp olt double %1, %89
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %87
@@ -4558,7 +4558,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, dou
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %0, i64 688
   %55 = load double, ptr %54, align 8
-  %56 = fcmp oeq double %55, %1
+  %56 = fcmp oeq double %1, %55
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
@@ -4733,7 +4733,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 620
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %2
+  %17 = icmp sgt i32 %2, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14, %12
@@ -4782,7 +4782,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   br label %46
 
 .loopexit:                                        ; preds = %72, %.lr.ph92.preheader, %.preheader
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %indvars.iv.next102 = add nuw i64 %indvars.iv101, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %46
 

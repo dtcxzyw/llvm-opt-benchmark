@@ -406,7 +406,7 @@ entry:
   %data_end = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %data_end, align 8
   %cmp3 = icmp sgt i64 %1, -1
-  %cmp5 = icmp slt i64 %1, %offset
+  %cmp5 = icmp sgt i64 %offset, %1
   %or.cond43 = and i1 %cmp3, %cmp5
   br i1 %or.cond43, label %if.then6, label %if.end45
 
@@ -437,7 +437,7 @@ if.end16:                                         ; preds = %if.then8, %if.then6
   br i1 %cmp17, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16
-  %cmp21.not = icmp slt i64 %6, %offset
+  %cmp21.not = icmp sgt i64 %offset, %6
   br i1 %cmp21.not, label %if.end43, label %if.then23
 
 if.then23:                                        ; preds = %if.then19
@@ -791,7 +791,7 @@ if.end32:                                         ; preds = %if.end27
   %zero_start = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %zero_start, align 8
   %cmp34 = icmp sgt i64 %10, -1
-  %brmerge.not = and i1 %cmp34, %want_merge_zero
+  %brmerge.not = and i1 %want_merge_zero, %cmp34
   br i1 %brmerge.not, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %if.end32
@@ -822,11 +822,11 @@ if.then56:                                        ; preds = %if.end52
 
 land.rhs:                                         ; preds = %if.then56
   %15 = load i64, ptr %zero_start, align 8
-  %cmp60 = icmp sle i64 %15, %offset
+  %cmp60 = icmp sge i64 %offset, %15
   br label %return
 
 if.end62:                                         ; preds = %if.end52
-  %cond73 = tail call i64 @llvm.smin.i64(i64 %14, i64 %offset)
+  %cond73 = tail call i64 @llvm.smin.i64(i64 %offset, i64 %14)
   %cond77 = select i1 %want_merge_zero, i64 %cond73, i64 %14
   %add79 = add i64 %cond77, %conv
   %add79.fr = freeze i64 %add79
@@ -855,7 +855,7 @@ if.then110:                                       ; preds = %if.end62
 
 if.end113:                                        ; preds = %if.end62
   %cmp101 = icmp sle i64 %mul, %offset
-  %20 = and i1 %cmp101, %want_merge_zero
+  %20 = and i1 %want_merge_zero, %cmp101
   store i64 %mul97, ptr %file_end39, align 8
   br label %return
 

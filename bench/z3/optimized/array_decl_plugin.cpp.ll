@@ -1807,7 +1807,7 @@ entry:
   %info = alloca %struct.func_decl_info, align 8
   %m_arity.i = getelementptr inbounds i8, ptr %f, i64 32
   %0 = load i32, ptr %m_arity.i, align 8
-  %cmp.not = icmp eq i32 %0, %arity
+  %cmp.not = icmp eq i32 %arity, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3322,7 +3322,7 @@ if.then4:                                         ; preds = %if.end, %_ZNK4decl1
 
 if.end6:                                          ; preds = %_ZNK17array_decl_plugin13is_array_sortEP4sort.exit
   %add = add i32 %cond.i.ph, 1
-  %cmp7.not = icmp eq i32 %add, %arity
+  %cmp7.not = icmp eq i32 %arity, %add
   br i1 %cmp7.not, label %invoke.cont28.lr.ph, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
@@ -3759,7 +3759,7 @@ _ZNK4decl18get_num_parametersEv.exit:             ; preds = %cond.false.i
   %5 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp5 = icmp ne i32 %5, 0
   %sub = add i32 %5, -1
-  %cmp7.not = icmp ugt i32 %sub, %i
+  %cmp7.not = icmp ult i32 %i, %sub
   %or.cond = and i1 %cmp5, %cmp7.not
   br i1 %or.cond, label %if.end10, label %if.then8
 
@@ -4051,7 +4051,7 @@ _ZNK9parameter7get_astEv.exit:                    ; preds = %if.end46
 _ZNK9parameter7get_astEv.exit36:                  ; preds = %_ZNK9parameter7get_astEv.exit
   %m_bool_sort.i = getelementptr inbounds i8, ptr %21, i64 840
   %22 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i37 = icmp eq ptr %22, %20
+  %cmp.i37 = icmp eq ptr %20, %22
   br i1 %cmp.i37, label %if.end68, label %if.then65
 
 if.then65:                                        ; preds = %_ZNK9parameter7get_astEv.exit, %_ZNK9parameter7get_astEv.exit36
@@ -4597,7 +4597,7 @@ _Z15get_array_rangePK4sort.exit:                  ; preds = %_ZNK4decl18get_num_
   %13 = load ptr, ptr %arrayidx.i.i.i4.i, align 8
   %m_bool_sort.i = getelementptr inbounds i8, ptr %7, i64 840
   %14 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i = icmp eq ptr %14, %13
+  %cmp.i = icmp eq ptr %13, %14
   br i1 %cmp.i, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end, %_ZNK4decl13get_family_idEv.exit.thread.i, %_Z15get_array_rangePK4sort.exit, %_ZNK17array_decl_plugin13is_array_sortEP4sort.exit

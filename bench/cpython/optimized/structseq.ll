@@ -1576,7 +1576,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @_PyStaticType_Dealloc(ptr noundef %interp, ptr noundef %type) #8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %0, %interp
+  %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end

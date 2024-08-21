@@ -3956,7 +3956,7 @@ var_push_dtor_value.exit386:                      ; preds = %106, %108, %129
   %255 = load i32, ptr %254, align 4
   %256 = sub i32 1073741824, %255
   %257 = zext i32 %256 to i64
-  %.not329 = icmp sgt i64 %257, %4
+  %.not329 = icmp slt i64 %4, %257
   br i1 %.not329, label %258, label %finish_nested_data.exit
 
 258:                                              ; preds = %246

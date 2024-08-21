@@ -1349,7 +1349,7 @@ do.end:                                           ; preds = %do.body
   %call114 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %elaborateMessage38) #17
   %cmp.i.i.i = icmp ne ptr %add.ptr.i, %call114
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %call114, i64 -1
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %add.ptr.i
+  %cmp.i110.i.i = icmp ult ptr %add.ptr.i, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
 

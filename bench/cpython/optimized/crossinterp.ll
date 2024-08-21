@@ -952,7 +952,7 @@ entry:
   %call = tail call ptr @_PyThreadState_GetCurrent() #13
   %interp1 = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %interp1, align 8
-  %cmp = icmp eq ptr %0, %interp
+  %cmp = icmp eq ptr %interp, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -978,7 +978,7 @@ entry:
   %call = tail call ptr @_PyThreadState_GetCurrent() #13
   %interp1 = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %interp1, align 8
-  %cmp = icmp eq ptr %0, %interp
+  %cmp = icmp eq ptr %interp, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1571,7 +1571,7 @@ if.end12:                                         ; preds = %if.end6
   %call.i13 = tail call ptr @_PyThreadState_GetCurrent() #13
   %interp1.i14 = getelementptr inbounds i8, ptr %call.i13, i64 16
   %4 = load ptr, ptr %interp1.i14, align 8
-  %cmp.i15 = icmp eq ptr %4, %call
+  %cmp.i15 = icmp eq ptr %call, %4
   br i1 %tobool9.not, label %if.else16, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
@@ -3299,7 +3299,7 @@ if.end4:                                          ; preds = %if.end15.i, %land.l
   %call.i = tail call ptr @PyThreadState_Get() #13
   %interp1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %interp1.i, align 8
-  %cmp.not.i = icmp eq ptr %6, %interp
+  %cmp.not.i = icmp eq ptr %interp, %6
   br i1 %cmp.not.i, label %_enter_session.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end4
@@ -3567,7 +3567,7 @@ entry:
 define hidden void @_PyXI_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %0, %interp
+  %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4028,7 +4028,7 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
 
 _xidregistry_fini.exit:                           ; preds = %Py_XDECREF.exit.i.i, %_fini_not_shareable_error_type.exit, %if.end.i
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %cmp.i.not = icmp eq ptr %9, %interp
+  %cmp.i.not = icmp eq ptr %interp, %9
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_xidregistry_fini.exit

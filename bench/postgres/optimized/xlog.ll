@@ -1464,7 +1464,7 @@ XLogInsertAllowed.exit.thread22:                  ; preds = %RecoveryInProgress.
 
 14:                                               ; preds = %XLogInsertAllowed.exit.thread, %XLogInsertAllowed.exit
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
-  %.not = icmp ult i64 %15, %0
+  %.not = icmp ugt i64 %0, %15
   br i1 %.not, label %16, label %89
 
 16:                                               ; preds = %14
@@ -1498,7 +1498,7 @@ XLogInsertAllowed.exit.thread22:                  ; preds = %RecoveryInProgress.
   %33 = getelementptr inbounds i8, ptr %32, i64 440
   store i8 0, ptr %33, align 8
   %34 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
-  %.not18 = icmp ult i64 %34, %0
+  %.not18 = icmp ugt i64 %0, %34
   br i1 %.not18, label %35, label %.loopexit
 
 35:                                               ; preds = %27
@@ -1514,7 +1514,7 @@ XLogInsertAllowed.exit.thread22:                  ; preds = %RecoveryInProgress.
   %42 = getelementptr inbounds i8, ptr %41, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @LogwrtResult, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   %43 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
-  %.not19 = icmp ult i64 %43, %0
+  %.not19 = icmp ugt i64 %0, %43
   br i1 %.not19, label %44, label %.loopexit.sink.split
 
 44:                                               ; preds = %40
@@ -1625,7 +1625,7 @@ RecoveryInProgress.exit:                          ; preds = %4
 RecoveryInProgress.exit.thread:                   ; preds = %4, %RecoveryInProgress.exit
   %11 = getelementptr inbounds i8, ptr %.pre, i64 308
   %12 = load i32, ptr %11, align 4
-  %.not = icmp eq i32 %12, %3
+  %.not = icmp eq i32 %3, %12
   br i1 %.not, label %.preheader, label %46
 
 .preheader:                                       ; preds = %RecoveryInProgress.exit.thread
@@ -1819,7 +1819,7 @@ define dso_local zeroext i1 @XLogCheckpointNeeded(i64 noundef %0) local_unnamed_
   %7 = add i32 %6, -1
   %8 = sext i32 %7 to i64
   %9 = add i64 %5, %8
-  %.not = icmp ule i64 %9, %0
+  %.not = icmp uge i64 %0, %9
   ret i1 %.not
 }
 
@@ -1928,7 +1928,7 @@ define internal fastcc void @UpdateMinRecoveryPoint(i64 noundef %0, i1 noundef z
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @LocalMinRecoveryPoint, align 8
-  %.not = icmp ult i64 %5, %0
+  %.not = icmp ugt i64 %0, %5
   %or.cond = select i1 %1, i1 true, i1 %.not
   br i1 %or.cond, label %6, label %55
 
@@ -1962,7 +1962,7 @@ define internal fastcc void @UpdateMinRecoveryPoint(i64 noundef %0, i1 noundef z
 
 21:                                               ; preds = %12
   %22 = icmp ult i64 %18, %0
-  %or.cond18 = or i1 %22, %1
+  %or.cond18 = or i1 %1, %22
   br i1 %or.cond18, label %23, label %52
 
 23:                                               ; preds = %21
@@ -2089,7 +2089,7 @@ XLogBytePosToEndRecPtr.exit:                      ; preds = %21, %30, %32
   %37 = mul i64 %19, %36
   %38 = and i64 %.0.i, 4294967295
   %39 = add i64 %37, %38
-  %40 = icmp ult i64 %39, %0
+  %40 = icmp ugt i64 %0, %39
   br i1 %40, label %41, label %51
 
 41:                                               ; preds = %XLogBytePosToEndRecPtr.exit
@@ -2216,7 +2216,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
 
 40:                                               ; preds = %24
   store i64 %29, ptr @LogwrtResult, align 8
-  %41 = icmp ule i64 %29, %0
+  %41 = icmp uge i64 %0, %29
   %42 = add i64 %29, -1
   %43 = load i32, ptr @wal_segment_size, align 4
   %44 = sext i32 %43 to i64
@@ -2282,7 +2282,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %.160 = select i1 %62, i32 %66, i32 %.059
   %.158 = select i1 %62, i32 %.0, i32 %.057
   %67 = add i32 %.056, 1
-  %.not74 = icmp ult i64 %.pre97, %0
+  %.not74 = icmp ugt i64 %0, %.pre97
   %68 = shl i32 %67, 13
   %69 = add i32 %.160, %68
   %70 = icmp uge i32 %69, %.pre98
@@ -2436,7 +2436,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %153 = add i32 %152, -1
   %154 = sext i32 %153 to i64
   %155 = add i64 %151, %154
-  %.not.i.not = icmp ugt i64 %155, %147
+  %.not.i.not = icmp ult i64 %147, %155
   br i1 %.not.i.not, label %182, label %156
 
 156:                                              ; preds = %146
@@ -2477,7 +2477,7 @@ GetRedoRecPtr.exit:                               ; preds = %163, %171
   %178 = add i32 %177, -1
   %179 = sext i32 %178 to i64
   %180 = add i64 %176, %179
-  %.not.i78.not = icmp ugt i64 %180, %173
+  %.not.i78.not = icmp ult i64 %173, %180
   br i1 %.not.i78.not, label %182, label %181
 
 181:                                              ; preds = %GetRedoRecPtr.exit
@@ -2865,8 +2865,8 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   %8 = load ptr, ptr @XLogCtl, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 280
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ule i64 %10, %0
-  %12 = or i1 %11, %2
+  %11 = icmp uge i64 %0, %10
+  %12 = or i1 %2, %11
   br i1 %12, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %3
@@ -2991,7 +2991,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   %85 = load ptr, ptr @XLogCtl, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 280
   %87 = load i64, ptr %86, align 8
-  %.not54 = icmp ugt i64 %87, %0
+  %.not54 = icmp ult i64 %0, %87
   br i1 %.not54, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !33
 
 .split.us:                                        ; preds = %.lr.ph.split, %..split.us.loopexit_crit_edge, %.lr.ph.split.us
@@ -3056,8 +3056,8 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   store volatile i64 %92, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %119, i64 280
   store i64 %92, ptr %123, align 8
-  %124 = icmp ule i64 %92, %0
-  %125 = or i1 %124, %2
+  %124 = icmp uge i64 %0, %92
+  %125 = or i1 %2, %124
   br i1 %125, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !33
 
 .outer._crit_edge:                                ; preds = %.lr.ph.split.us, %.outer, %81, %3
@@ -3097,7 +3097,7 @@ RecoveryInProgress.exit:                          ; preds = %1
   br label %16
 
 16:                                               ; preds = %15, %12, %9
-  %.not8 = icmp ult i64 %10, %0
+  %.not8 = icmp ugt i64 %0, %10
   br i1 %.not8, label %17, label %48
 
 17:                                               ; preds = %16
@@ -3127,7 +3127,7 @@ RecoveryInProgress.exit:                          ; preds = %1
   br label %31
 
 31:                                               ; preds = %30, %22
-  %.not9 = icmp ult i64 %28, %0
+  %.not9 = icmp ugt i64 %0, %28
   br i1 %.not9, label %32, label %48
 
 32:                                               ; preds = %31
@@ -3137,7 +3137,7 @@ RecoveryInProgress.exit:                          ; preds = %1
 
 RecoveryInProgress.exit.thread:                   ; preds = %1, %RecoveryInProgress.exit
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
-  %.not = icmp ult i64 %33, %0
+  %.not = icmp ugt i64 %0, %33
   br i1 %.not, label %34, label %48
 
 34:                                               ; preds = %RecoveryInProgress.exit.thread
@@ -3162,7 +3162,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %1, %RecoveryInProgr
   %46 = getelementptr inbounds i8, ptr %45, i64 440
   store i8 0, ptr %46, align 8
   %47 = load i64, ptr getelementptr inbounds (i8, ptr @LogwrtResult, i64 8), align 8
-  %.not7 = icmp ult i64 %47, %0
+  %.not7 = icmp ugt i64 %0, %47
   br label %48
 
 48:                                               ; preds = %32, %42, %RecoveryInProgress.exit.thread, %31, %18, %16, %17
@@ -3428,7 +3428,7 @@ get_sync_bit.exit:                                ; preds = %4, %23, %23, %23, %
   store i64 %0, ptr %6, align 8
   %100 = load i32, ptr @CheckPointSegments, align 4
   %101 = sext i32 %100 to i64
-  %102 = add i64 %101, %0
+  %102 = add i64 %0, %101
   %103 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef nonnull %6, ptr noundef nonnull %5, i1 noundef zeroext true, i64 noundef %102, i32 noundef %1)
   br i1 %103, label %104, label %106
 
@@ -3551,7 +3551,7 @@ define dso_local void @CheckXLogRemoved(i64 noundef %0, i32 noundef %1) local_un
   %17 = load ptr, ptr @XLogCtl, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 440
   store i8 0, ptr %18, align 8
-  %.not6 = icmp ult i64 %16, %0
+  %.not6 = icmp ugt i64 %0, %16
   br i1 %.not6, label %24, label %19
 
 19:                                               ; preds = %13
@@ -3644,7 +3644,7 @@ define dso_local i64 @XLogGetOldestSegno(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %21 = load i32, ptr %4, align 4
-  %.not8 = icmp eq i32 %21, %0
+  %.not8 = icmp eq i32 %0, %21
   br i1 %.not8, label %IsXLogFileName.exit.outer, label %IsXLogFileName.exit.backedge
 
 IsXLogFileName.exit.backedge:                     ; preds = %16, %13, %8
@@ -11124,7 +11124,7 @@ define internal fastcc ptr @GetXLogBuffer(i64 noundef %0, i32 noundef %1) unname
   %26 = load i32, ptr @wal_segment_size, align 4
   %27 = add i32 %26, -1
   %28 = sext i32 %27 to i64
-  %29 = and i64 %28, %0
+  %29 = and i64 %0, %28
   %30 = icmp ugt i64 %29, 8192
   %31 = add nsw i64 %0, -24
   %spec.select31 = select i1 %30, i64 %31, i64 %0
@@ -11134,7 +11134,7 @@ define internal fastcc ptr @GetXLogBuffer(i64 noundef %0, i32 noundef %1) unname
   %33 = load i32, ptr @wal_segment_size, align 4
   %34 = add i32 %33, -1
   %35 = sext i32 %34 to i64
-  %36 = and i64 %35, %0
+  %36 = and i64 %0, %35
   %37 = icmp ult i64 %36, 8192
   %38 = add nsw i64 %0, -40
   %spec.select = select i1 %37, i64 %38, i64 %0

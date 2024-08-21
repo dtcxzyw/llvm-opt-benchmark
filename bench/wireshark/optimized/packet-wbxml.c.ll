@@ -2611,7 +2611,7 @@ define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %92 = call i32 @mibenum_charset_to_encoding(i32 noundef %.0103122) #4
   %93 = add i32 %87, %85
-  %94 = icmp ugt i32 %93, %87
+  %94 = icmp ult i32 %87, %93
   br i1 %94, label %.lr.ph.i, label %show_wbxml_string_table.exit
 
 .lr.ph.i:                                         ; preds = %91, %.lr.ph.i
@@ -2813,7 +2813,7 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   br i1 %21, label %36, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %22 = icmp ugt i32 %12, %3
+  %22 = icmp ult i32 %3, %12
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -5002,7 +5002,7 @@ define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, p
   %16 = tail call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0) #4
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i32
-  %19 = icmp ugt i32 %10, %3
+  %19 = icmp ult i32 %3, %10
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7

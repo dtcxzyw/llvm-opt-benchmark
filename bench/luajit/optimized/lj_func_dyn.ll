@@ -46,7 +46,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %v = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i64, ptr %v, align 8
   %5 = inttoptr i64 %4 to ptr
-  %cmp4.not = icmp ult ptr %5, %level
+  %cmp4.not = icmp ugt ptr %level, %5
   br i1 %cmp4.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs

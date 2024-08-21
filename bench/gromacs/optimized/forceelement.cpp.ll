@@ -1102,7 +1102,7 @@ define linkonce_odr void @_ZN3gmx12ForceElement3runILb1EEEvldj(ptr noundef nonnu
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 56
   %104 = load i64, ptr %103, align 8
-  %105 = icmp eq i64 %104, %1
+  %105 = icmp eq i64 %1, %104
   %106 = getelementptr inbounds i8, ptr %0, i64 112
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 288

@@ -332,7 +332,7 @@ if.end3:                                          ; preds = %if.end
   %tobool.not.i = icmp eq i32 %maxSymbolValue, 0
   %narrow.i = select i1 %tobool.not.i, i32 512, i32 %add4.i
   %cond.i = zext nneg i32 %narrow.i to i64
-  %cmp4 = icmp ule i64 %cond.i, %bufferSize
+  %cmp4 = icmp uge i64 %bufferSize, %cond.i
   %. = zext i1 %cmp4 to i32
   %call8 = tail call fastcc i64 @FSE_writeNCount_generic(ptr noundef %buffer, i64 noundef %bufferSize, ptr noundef %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, i32 noundef %.)
   br label %return
@@ -693,7 +693,7 @@ for.body:                                         ; preds = %if.end9, %for.inc
   %arrayidx = getelementptr inbounds i32, ptr %count, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %conv18 = zext i32 %2 to i64
-  %cmp19 = icmp eq i64 %conv18, %total
+  %cmp19 = icmp eq i64 %total, %conv18
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %for.body
@@ -1024,7 +1024,7 @@ entry:
   %shr = lshr i64 %srcSize, 7
   %add = add i64 %srcSize, 12
   %add2 = add i64 %add, %shr
-  %cmp.not = icmp ule i64 %add2, %dstSize
+  %cmp.not = icmp uge i64 %dstSize, %add2
   %. = zext i1 %cmp.not to i32
   %call3 = tail call fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, ptr noundef %ct, i32 noundef %.)
   ret i64 %call3

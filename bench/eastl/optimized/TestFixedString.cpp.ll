@@ -1691,7 +1691,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %delete.notnull.i.i.i.i
 
@@ -2021,7 +2021,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -2102,7 +2102,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2141,7 +2141,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -2150,7 +2150,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -2674,7 +2674,7 @@ if.then32:                                        ; preds = %cond.end
   %tobool.not.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i = icmp eq ptr %7, %8
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end38, label %delete.notnull.i.i.i
 
@@ -2775,7 +2775,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2803,7 +2803,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2924,7 +2924,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %delete.notnull.i.i.i.i
 
@@ -3266,7 +3266,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -3347,7 +3347,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 11, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3387,7 +3387,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -3396,7 +3396,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 11
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %if.end.i
@@ -3940,7 +3940,7 @@ if.then32:                                        ; preds = %cond.end
   %tobool.not.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i = icmp eq ptr %7, %8
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end38, label %delete.notnull.i.i.i
 
@@ -4042,7 +4042,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4070,7 +4070,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4191,7 +4191,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %delete.notnull.i.i.i.i
 
@@ -4533,7 +4533,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -4614,7 +4614,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 5, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4654,7 +4654,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -4663,7 +4663,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 5
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %if.end.i
@@ -5207,7 +5207,7 @@ if.then32:                                        ; preds = %cond.end
   %tobool.not.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i = icmp eq ptr %7, %8
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end38, label %delete.notnull.i.i.i
 
@@ -5309,7 +5309,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5337,7 +5337,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -5527,7 +5527,7 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %pCurrent.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i
@@ -6400,7 +6400,7 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %pCurrent.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i
@@ -6834,7 +6834,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6862,7 +6862,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -7049,7 +7049,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
@@ -8006,7 +8006,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %_Z
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
@@ -8448,7 +8448,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -8476,7 +8476,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -8663,7 +8663,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !9
 
 _ZN5eastl10CharStrlenIDiEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
@@ -9620,7 +9620,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %_Z
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !9
 
 _ZN5eastl10CharStrlenIDiEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
@@ -10062,7 +10062,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -10090,7 +10090,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -10224,7 +10224,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -10625,7 +10625,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 
@@ -10717,7 +10717,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10756,7 +10756,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -10765,7 +10765,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -11316,7 +11316,7 @@ if.then32:                                        ; preds = %cond.end
   %tobool.not.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i = icmp eq ptr %7, %8
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end38, label %if.then.i.i
 
@@ -11428,7 +11428,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -11456,7 +11456,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -11603,7 +11603,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -12022,7 +12022,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 
@@ -12114,7 +12114,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 11, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -12154,7 +12154,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -12163,7 +12163,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 11
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %if.end.i
@@ -12734,7 +12734,7 @@ if.then32:                                        ; preds = %cond.end
   %tobool.not.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i = icmp eq ptr %7, %8
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end38, label %if.then.i.i
 
@@ -12848,7 +12848,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -12876,7 +12876,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -13023,7 +13023,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -13442,7 +13442,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 
@@ -13534,7 +13534,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 5, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -13574,7 +13574,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -13583,7 +13583,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 5
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %if.end.i
@@ -14154,7 +14154,7 @@ if.then32:                                        ; preds = %cond.end
   %tobool.not.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i = icmp eq ptr %7, %8
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end38, label %if.then.i.i
 
@@ -14268,7 +14268,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -14296,7 +14296,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -14497,7 +14497,7 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %pCurrent.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i
@@ -15370,7 +15370,7 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %pCurrent.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i
@@ -15804,7 +15804,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -15832,7 +15832,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -16019,7 +16019,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
@@ -16976,7 +16976,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %_Z
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i
@@ -17418,7 +17418,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -17446,7 +17446,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -17633,7 +17633,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !9
 
 _ZN5eastl10CharStrlenIDiEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
@@ -18590,7 +18590,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %_Z
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !9
 
 _ZN5eastl10CharStrlenIDiEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %cmp.not.i.i = icmp eq ptr %pCurrent.0.i.i, %p
+  %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl10CharStrlenIDiEEmPKT_.exit.i
@@ -19032,7 +19032,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -19060,7 +19060,7 @@ entry:
   %conv.i.i.i = zext nneg i8 %0 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, i64 %1, i64 %sub.i.i.i
-  %cmp = icmp ugt i64 %cond.i.i, %n
+  %cmp = icmp ult i64 %n, %cond.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -20995,7 +20995,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -21034,7 +21034,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -21043,7 +21043,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -21248,7 +21248,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont19
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %s8, i64 32
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %14, %13
+  %cmp.not.i.i.i.i.i = icmp eq ptr %13, %14
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit, label %delete.notnull.i.i.i.i.i.i
 
@@ -21338,7 +21338,7 @@ if.then.i.i.i118:                                 ; preds = %invoke.cont40
   %tobool.not.i.i.i.i119 = icmp eq ptr %28, null
   %mpPoolBegin.i.i.i.i.i120 = getelementptr inbounds i8, ptr %sW, i64 32
   %29 = load ptr, ptr %mpPoolBegin.i.i.i.i.i120, align 8
-  %cmp.not.i.i.i.i.i121 = icmp eq ptr %29, %28
+  %cmp.not.i.i.i.i.i121 = icmp eq ptr %28, %29
   %or.cond.i.i.i.i122 = select i1 %tobool.not.i.i.i.i119, i1 true, i1 %cmp.not.i.i.i.i.i121
   br i1 %or.cond.i.i.i.i122, label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit, label %delete.notnull.i.i.i.i.i.i123
 
@@ -21398,7 +21398,7 @@ if.then.i.i2600:                                  ; preds = %lpad.i
   %37 = load ptr, ptr %fsc1, align 8
   %tobool.not.i.i.i2601 = icmp eq ptr %37, null
   %38 = load ptr, ptr %mpPoolBegin.i.i.i.i.i127, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %38, %37
+  %cmp.not.i.i.i.i = icmp eq ptr %37, %38
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i2601, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %eh.resume, label %ehcleanup125.sink.split
 
@@ -21427,7 +21427,7 @@ if.then.i.i2605:                                  ; preds = %lpad.i148
   %42 = load ptr, ptr %fsc2, align 8
   %tobool.not.i.i.i2606 = icmp eq ptr %42, null
   %43 = load ptr, ptr %mpPoolBegin.i.i.i.i.i136, align 8
-  %cmp.not.i.i.i.i2608 = icmp eq ptr %43, %42
+  %cmp.not.i.i.i.i2608 = icmp eq ptr %42, %43
   %or.cond.i.i.i2609 = select i1 %tobool.not.i.i.i2606, i1 true, i1 %cmp.not.i.i.i.i2608
   br i1 %or.cond.i.i.i2609, label %ehcleanup124, label %ehcleanup124.sink.split
 
@@ -21456,7 +21456,7 @@ if.then.i.i2615:                                  ; preds = %lpad.i163
   %47 = load ptr, ptr %fsc3, align 8
   %tobool.not.i.i.i2616 = icmp eq ptr %47, null
   %48 = load ptr, ptr %mpPoolBegin.i.i.i.i.i151, align 8
-  %cmp.not.i.i.i.i2618 = icmp eq ptr %48, %47
+  %cmp.not.i.i.i.i2618 = icmp eq ptr %47, %48
   %or.cond.i.i.i2619 = select i1 %tobool.not.i.i.i2616, i1 true, i1 %cmp.not.i.i.i.i2618
   br i1 %or.cond.i.i.i2619, label %ehcleanup123, label %ehcleanup123.sink.split
 
@@ -21581,7 +21581,7 @@ if.then.i.i2624:                                  ; preds = %lpad.i211
   %70 = load ptr, ptr %fswc1, align 8
   %tobool.not.i.i.i2625 = icmp eq ptr %70, null
   %71 = load ptr, ptr %mpPoolBegin.i.i.i.i.i200, align 8
-  %cmp.not.i.i.i.i2627 = icmp eq ptr %71, %70
+  %cmp.not.i.i.i.i2627 = icmp eq ptr %70, %71
   %or.cond.i.i.i2628 = select i1 %tobool.not.i.i.i2625, i1 true, i1 %cmp.not.i.i.i.i2627
   br i1 %or.cond.i.i.i2628, label %ehcleanup122, label %delete.notnull.i.i.i.i.i2629
 
@@ -21614,7 +21614,7 @@ if.then.i.i2633:                                  ; preds = %lpad.i225
   %75 = load ptr, ptr %fswc2, align 8
   %tobool.not.i.i.i2634 = icmp eq ptr %75, null
   %76 = load ptr, ptr %mpPoolBegin.i.i.i.i.i213, align 8
-  %cmp.not.i.i.i.i2636 = icmp eq ptr %76, %75
+  %cmp.not.i.i.i.i2636 = icmp eq ptr %75, %76
   %or.cond.i.i.i2637 = select i1 %tobool.not.i.i.i2634, i1 true, i1 %cmp.not.i.i.i.i2636
   br i1 %or.cond.i.i.i2637, label %ehcleanup121, label %ehcleanup121.sink.split
 
@@ -21643,7 +21643,7 @@ if.then.i.i2643:                                  ; preds = %lpad.i240
   %80 = load ptr, ptr %fswc3, align 8
   %tobool.not.i.i.i2644 = icmp eq ptr %80, null
   %81 = load ptr, ptr %mpPoolBegin.i.i.i.i.i228, align 8
-  %cmp.not.i.i.i.i2646 = icmp eq ptr %81, %80
+  %cmp.not.i.i.i.i2646 = icmp eq ptr %80, %81
   %or.cond.i.i.i2647 = select i1 %tobool.not.i.i.i2644, i1 true, i1 %cmp.not.i.i.i.i2646
   br i1 %or.cond.i.i.i2647, label %ehcleanup120, label %ehcleanup120.sink.split
 
@@ -21765,7 +21765,7 @@ if.then.i.i2653:                                  ; preds = %lpad.i296
   %103 = load ptr, ptr %fsc81, align 8
   %tobool.not.i.i.i2654 = icmp eq ptr %103, null
   %104 = load ptr, ptr %mpPoolBegin.i.i.i.i.i284, align 8
-  %cmp.not.i.i.i.i2656 = icmp eq ptr %104, %103
+  %cmp.not.i.i.i.i2656 = icmp eq ptr %103, %104
   %or.cond.i.i.i2657 = select i1 %tobool.not.i.i.i2654, i1 true, i1 %cmp.not.i.i.i.i2656
   br i1 %or.cond.i.i.i2657, label %ehcleanup119, label %delete.notnull.i.i.i.i.i2658
 
@@ -21798,7 +21798,7 @@ if.then.i.i2663:                                  ; preds = %lpad.i311
   %108 = load ptr, ptr %fsc82, align 8
   %tobool.not.i.i.i2664 = icmp eq ptr %108, null
   %109 = load ptr, ptr %mpPoolBegin.i.i.i.i.i299, align 8
-  %cmp.not.i.i.i.i2666 = icmp eq ptr %109, %108
+  %cmp.not.i.i.i.i2666 = icmp eq ptr %108, %109
   %or.cond.i.i.i2667 = select i1 %tobool.not.i.i.i2664, i1 true, i1 %cmp.not.i.i.i.i2666
   br i1 %or.cond.i.i.i2667, label %ehcleanup118, label %ehcleanup118.sink.split
 
@@ -21827,7 +21827,7 @@ if.then.i.i2673:                                  ; preds = %lpad.i326
   %113 = load ptr, ptr %fsc83, align 8
   %tobool.not.i.i.i2674 = icmp eq ptr %113, null
   %114 = load ptr, ptr %mpPoolBegin.i.i.i.i.i314, align 8
-  %cmp.not.i.i.i.i2676 = icmp eq ptr %114, %113
+  %cmp.not.i.i.i.i2676 = icmp eq ptr %113, %114
   %or.cond.i.i.i2677 = select i1 %tobool.not.i.i.i2674, i1 true, i1 %cmp.not.i.i.i.i2676
   br i1 %or.cond.i.i.i2677, label %ehcleanup, label %ehcleanup.sink.split
 
@@ -21936,7 +21936,7 @@ if.then.i.i.i376:                                 ; preds = %invoke.cont116
   %134 = load ptr, ptr %fsc83, align 8
   %tobool.not.i.i.i.i377 = icmp eq ptr %134, null
   %135 = load ptr, ptr %mpPoolBegin.i.i.i.i.i314, align 8
-  %cmp.not.i.i.i.i.i379 = icmp eq ptr %135, %134
+  %cmp.not.i.i.i.i.i379 = icmp eq ptr %134, %135
   %or.cond.i.i.i.i380 = select i1 %tobool.not.i.i.i.i377, i1 true, i1 %cmp.not.i.i.i.i.i379
   br i1 %or.cond.i.i.i.i380, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit382, label %delete.notnull.i.i.i.i.i.i381
 
@@ -21953,7 +21953,7 @@ if.then.i.i.i385:                                 ; preds = %_ZN5eastl12fixed_st
   %137 = load ptr, ptr %fsc82, align 8
   %tobool.not.i.i.i.i386 = icmp eq ptr %137, null
   %138 = load ptr, ptr %mpPoolBegin.i.i.i.i.i299, align 8
-  %cmp.not.i.i.i.i.i388 = icmp eq ptr %138, %137
+  %cmp.not.i.i.i.i.i388 = icmp eq ptr %137, %138
   %or.cond.i.i.i.i389 = select i1 %tobool.not.i.i.i.i386, i1 true, i1 %cmp.not.i.i.i.i.i388
   br i1 %or.cond.i.i.i.i389, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit391, label %delete.notnull.i.i.i.i.i.i390
 
@@ -21970,7 +21970,7 @@ if.then.i.i.i394:                                 ; preds = %_ZN5eastl12fixed_st
   %140 = load ptr, ptr %fsc81, align 8
   %tobool.not.i.i.i.i395 = icmp eq ptr %140, null
   %141 = load ptr, ptr %mpPoolBegin.i.i.i.i.i284, align 8
-  %cmp.not.i.i.i.i.i397 = icmp eq ptr %141, %140
+  %cmp.not.i.i.i.i.i397 = icmp eq ptr %140, %141
   %or.cond.i.i.i.i398 = select i1 %tobool.not.i.i.i.i395, i1 true, i1 %cmp.not.i.i.i.i.i397
   br i1 %or.cond.i.i.i.i398, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit400, label %delete.notnull.i.i.i.i.i.i399
 
@@ -21987,7 +21987,7 @@ if.then.i.i.i403:                                 ; preds = %_ZN5eastl12fixed_st
   %143 = load ptr, ptr %fswc3, align 8
   %tobool.not.i.i.i.i404 = icmp eq ptr %143, null
   %144 = load ptr, ptr %mpPoolBegin.i.i.i.i.i228, align 8
-  %cmp.not.i.i.i.i.i406 = icmp eq ptr %144, %143
+  %cmp.not.i.i.i.i.i406 = icmp eq ptr %143, %144
   %or.cond.i.i.i.i407 = select i1 %tobool.not.i.i.i.i404, i1 true, i1 %cmp.not.i.i.i.i.i406
   br i1 %or.cond.i.i.i.i407, label %_ZN5eastl12fixed_stringIwLi64ELb1ENS_9allocatorEED2Ev.exit409, label %delete.notnull.i.i.i.i.i.i408
 
@@ -22004,7 +22004,7 @@ if.then.i.i.i412:                                 ; preds = %_ZN5eastl12fixed_st
   %146 = load ptr, ptr %fswc2, align 8
   %tobool.not.i.i.i.i413 = icmp eq ptr %146, null
   %147 = load ptr, ptr %mpPoolBegin.i.i.i.i.i213, align 8
-  %cmp.not.i.i.i.i.i415 = icmp eq ptr %147, %146
+  %cmp.not.i.i.i.i.i415 = icmp eq ptr %146, %147
   %or.cond.i.i.i.i416 = select i1 %tobool.not.i.i.i.i413, i1 true, i1 %cmp.not.i.i.i.i.i415
   br i1 %or.cond.i.i.i.i416, label %_ZN5eastl12fixed_stringIwLi64ELb1ENS_9allocatorEED2Ev.exit418, label %delete.notnull.i.i.i.i.i.i417
 
@@ -22021,7 +22021,7 @@ if.then.i.i.i421:                                 ; preds = %_ZN5eastl12fixed_st
   %149 = load ptr, ptr %fswc1, align 8
   %tobool.not.i.i.i.i422 = icmp eq ptr %149, null
   %150 = load ptr, ptr %mpPoolBegin.i.i.i.i.i200, align 8
-  %cmp.not.i.i.i.i.i424 = icmp eq ptr %150, %149
+  %cmp.not.i.i.i.i.i424 = icmp eq ptr %149, %150
   %or.cond.i.i.i.i425 = select i1 %tobool.not.i.i.i.i422, i1 true, i1 %cmp.not.i.i.i.i.i424
   br i1 %or.cond.i.i.i.i425, label %_ZN5eastl12fixed_stringIwLi64ELb1ENS_9allocatorEED2Ev.exit427, label %delete.notnull.i.i.i.i.i.i426
 
@@ -22038,7 +22038,7 @@ if.then.i.i.i430:                                 ; preds = %_ZN5eastl12fixed_st
   %152 = load ptr, ptr %fsc3, align 8
   %tobool.not.i.i.i.i431 = icmp eq ptr %152, null
   %153 = load ptr, ptr %mpPoolBegin.i.i.i.i.i151, align 8
-  %cmp.not.i.i.i.i.i433 = icmp eq ptr %153, %152
+  %cmp.not.i.i.i.i.i433 = icmp eq ptr %152, %153
   %or.cond.i.i.i.i434 = select i1 %tobool.not.i.i.i.i431, i1 true, i1 %cmp.not.i.i.i.i.i433
   br i1 %or.cond.i.i.i.i434, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit436, label %delete.notnull.i.i.i.i.i.i435
 
@@ -22055,7 +22055,7 @@ if.then.i.i.i439:                                 ; preds = %_ZN5eastl12fixed_st
   %155 = load ptr, ptr %fsc2, align 8
   %tobool.not.i.i.i.i440 = icmp eq ptr %155, null
   %156 = load ptr, ptr %mpPoolBegin.i.i.i.i.i136, align 8
-  %cmp.not.i.i.i.i.i442 = icmp eq ptr %156, %155
+  %cmp.not.i.i.i.i.i442 = icmp eq ptr %155, %156
   %or.cond.i.i.i.i443 = select i1 %tobool.not.i.i.i.i440, i1 true, i1 %cmp.not.i.i.i.i.i442
   br i1 %or.cond.i.i.i.i443, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit445, label %delete.notnull.i.i.i.i.i.i444
 
@@ -22072,7 +22072,7 @@ if.then.i.i.i448:                                 ; preds = %_ZN5eastl12fixed_st
   %158 = load ptr, ptr %fsc1, align 8
   %tobool.not.i.i.i.i449 = icmp eq ptr %158, null
   %159 = load ptr, ptr %mpPoolBegin.i.i.i.i.i127, align 8
-  %cmp.not.i.i.i.i.i451 = icmp eq ptr %159, %158
+  %cmp.not.i.i.i.i.i451 = icmp eq ptr %158, %159
   %or.cond.i.i.i.i452 = select i1 %tobool.not.i.i.i.i449, i1 true, i1 %cmp.not.i.i.i.i.i451
   br i1 %or.cond.i.i.i.i452, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit, label %delete.notnull.i.i.i.i.i.i453
 
@@ -22179,7 +22179,7 @@ if.then.i.i2683:                                  ; preds = %lpad.i482
   %176 = load ptr, ptr %fs2, align 8
   %tobool.not.i.i.i2684 = icmp eq ptr %176, null
   %177 = load ptr, ptr %mpPoolBegin.i.i.i.i.i473, align 8
-  %cmp.not.i.i.i.i2686 = icmp eq ptr %177, %176
+  %cmp.not.i.i.i.i2686 = icmp eq ptr %176, %177
   %or.cond.i.i.i2687 = select i1 %tobool.not.i.i.i2684, i1 true, i1 %cmp.not.i.i.i.i2686
   br i1 %or.cond.i.i.i2687, label %ehcleanup606, label %delete.notnull.i.i.i.i.i2688
 
@@ -22272,7 +22272,7 @@ if.then.i.i2693:                                  ; preds = %lpad.i521
   %190 = load ptr, ptr %fs3, align 8
   %tobool.not.i.i.i2694 = icmp eq ptr %190, null
   %191 = load ptr, ptr %mpPoolBegin.i.i.i.i.i508, align 8
-  %cmp.not.i.i.i.i2696 = icmp eq ptr %191, %190
+  %cmp.not.i.i.i.i2696 = icmp eq ptr %190, %191
   %or.cond.i.i.i2697 = select i1 %tobool.not.i.i.i2694, i1 true, i1 %cmp.not.i.i.i.i2696
   br i1 %or.cond.i.i.i2697, label %ehcleanup604, label %delete.notnull.i.i.i.i.i2698
 
@@ -22361,7 +22361,7 @@ if.then.i.i2703:                                  ; preds = %lpad.i565
   %206 = load ptr, ptr %fs4, align 8
   %tobool.not.i.i.i2704 = icmp eq ptr %206, null
   %207 = load ptr, ptr %mpPoolBegin.i.i.i.i.i554, align 8
-  %cmp.not.i.i.i.i2706 = icmp eq ptr %207, %206
+  %cmp.not.i.i.i.i2706 = icmp eq ptr %206, %207
   %or.cond.i.i.i2707 = select i1 %tobool.not.i.i.i2704, i1 true, i1 %cmp.not.i.i.i.i2706
   br i1 %or.cond.i.i.i2707, label %ehcleanup603, label %delete.notnull.i.i.i.i.i2708
 
@@ -22438,7 +22438,7 @@ if.then.i.i2713:                                  ; preds = %lpad.i600
   %219 = load ptr, ptr %fs5, align 8
   %tobool.not.i.i.i2714 = icmp eq ptr %219, null
   %220 = load ptr, ptr %mpPoolBegin.i.i.i.i.i597, align 8
-  %cmp.not.i.i.i.i2716 = icmp eq ptr %220, %219
+  %cmp.not.i.i.i.i2716 = icmp eq ptr %219, %220
   %or.cond.i.i.i2717 = select i1 %tobool.not.i.i.i2714, i1 true, i1 %cmp.not.i.i.i.i2716
   br i1 %or.cond.i.i.i2717, label %ehcleanup602, label %delete.notnull.i.i.i.i.i2718
 
@@ -22515,7 +22515,7 @@ if.then.i.i2723:                                  ; preds = %lpad.i644
   %232 = load ptr, ptr %fs6, align 8
   %tobool.not.i.i.i2724 = icmp eq ptr %232, null
   %233 = load ptr, ptr %mpPoolBegin.i.i.i.i.i632, align 8
-  %cmp.not.i.i.i.i2726 = icmp eq ptr %233, %232
+  %cmp.not.i.i.i.i2726 = icmp eq ptr %232, %233
   %or.cond.i.i.i2727 = select i1 %tobool.not.i.i.i2724, i1 true, i1 %cmp.not.i.i.i.i2726
   br i1 %or.cond.i.i.i2727, label %ehcleanup601, label %delete.notnull.i.i.i.i.i2728
 
@@ -22646,7 +22646,7 @@ if.then.i.i2733:                                  ; preds = %lpad.i722
   %254 = load ptr, ptr %fs8, align 8
   %tobool.not.i.i.i2734 = icmp eq ptr %254, null
   %255 = load ptr, ptr %mpPoolBegin.i.i.i.i.i719, align 8
-  %cmp.not.i.i.i.i2736 = icmp eq ptr %255, %254
+  %cmp.not.i.i.i.i2736 = icmp eq ptr %254, %255
   %or.cond.i.i.i2737 = select i1 %tobool.not.i.i.i2734, i1 true, i1 %cmp.not.i.i.i.i2736
   br i1 %or.cond.i.i.i2737, label %ehcleanup599, label %delete.notnull.i.i.i.i.i2738
 
@@ -23227,7 +23227,7 @@ if.then.i.i2743:                                  ; preds = %lpad.i1034
   %351 = load ptr, ptr %a, align 8
   %tobool.not.i.i.i2744 = icmp eq ptr %351, null
   %352 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1022, align 8
-  %cmp.not.i.i.i.i2746 = icmp eq ptr %352, %351
+  %cmp.not.i.i.i.i2746 = icmp eq ptr %351, %352
   %or.cond.i.i.i2747 = select i1 %tobool.not.i.i.i2744, i1 true, i1 %cmp.not.i.i.i.i2746
   br i1 %or.cond.i.i.i2747, label %ehcleanup595, label %delete.notnull.i.i.i.i.i2748
 
@@ -23260,7 +23260,7 @@ if.then.i.i2752:                                  ; preds = %lpad.i1048
   %356 = load ptr, ptr %b, align 8
   %tobool.not.i.i.i2753 = icmp eq ptr %356, null
   %357 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1036, align 8
-  %cmp.not.i.i.i.i2755 = icmp eq ptr %357, %356
+  %cmp.not.i.i.i.i2755 = icmp eq ptr %356, %357
   %or.cond.i.i.i2756 = select i1 %tobool.not.i.i.i2753, i1 true, i1 %cmp.not.i.i.i.i2755
   br i1 %or.cond.i.i.i2756, label %ehcleanup575, label %ehcleanup575.sink.split
 
@@ -23327,7 +23327,7 @@ if.then.i.i.i2761:                                ; preds = %lpad.i1061
   %369 = load ptr, ptr %c, align 8
   %tobool.not.i.i.i.i2762 = icmp eq ptr %369, null
   %370 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i2764 = icmp eq ptr %370, %369
+  %cmp.not.i.i.i.i.i2764 = icmp eq ptr %369, %370
   %or.cond.i.i.i.i2765 = select i1 %tobool.not.i.i.i.i2762, i1 true, i1 %cmp.not.i.i.i.i.i2764
   br i1 %or.cond.i.i.i.i2765, label %ehcleanup574, label %ehcleanup574.sink.split
 
@@ -23383,7 +23383,7 @@ if.then.i.i.i2770:                                ; preds = %lpad.i1099
   %379 = load ptr, ptr %ref.tmp462, align 8
   %tobool.not.i.i.i.i2771 = icmp eq ptr %379, null
   %380 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1087, align 8
-  %cmp.not.i.i.i.i.i2773 = icmp eq ptr %380, %379
+  %cmp.not.i.i.i.i.i2773 = icmp eq ptr %379, %380
   %or.cond.i.i.i.i2774 = select i1 %tobool.not.i.i.i.i2771, i1 true, i1 %cmp.not.i.i.i.i.i2773
   br i1 %or.cond.i.i.i.i2774, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2775
 
@@ -23431,7 +23431,7 @@ if.then.i.i.i1118:                                ; preds = %invoke.cont465
   %387 = load ptr, ptr %ref.tmp462, align 8
   %tobool.not.i.i.i.i1119 = icmp eq ptr %387, null
   %388 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1087, align 8
-  %cmp.not.i.i.i.i.i1121 = icmp eq ptr %388, %387
+  %cmp.not.i.i.i.i.i1121 = icmp eq ptr %387, %388
   %or.cond.i.i.i.i1122 = select i1 %tobool.not.i.i.i.i1119, i1 true, i1 %cmp.not.i.i.i.i.i1121
   br i1 %or.cond.i.i.i.i1122, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit, label %delete.notnull.i.i.i.i.i.i1123
 
@@ -23501,7 +23501,7 @@ if.then.i.i.i2779:                                ; preds = %lpad.i1154
   %399 = load ptr, ptr %ref.tmp472, align 8
   %tobool.not.i.i.i.i2780 = icmp eq ptr %399, null
   %400 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1150, align 8
-  %cmp.not.i.i.i.i.i2782 = icmp eq ptr %400, %399
+  %cmp.not.i.i.i.i.i2782 = icmp eq ptr %399, %400
   %or.cond.i.i.i.i2783 = select i1 %tobool.not.i.i.i.i2780, i1 true, i1 %cmp.not.i.i.i.i.i2782
   br i1 %or.cond.i.i.i.i2783, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2784
 
@@ -23549,7 +23549,7 @@ if.then.i.i.i1188:                                ; preds = %invoke.cont475
   %407 = load ptr, ptr %ref.tmp472, align 8
   %tobool.not.i.i.i.i1189 = icmp eq ptr %407, null
   %408 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1150, align 8
-  %cmp.not.i.i.i.i.i1191 = icmp eq ptr %408, %407
+  %cmp.not.i.i.i.i.i1191 = icmp eq ptr %407, %408
   %or.cond.i.i.i.i1192 = select i1 %tobool.not.i.i.i.i1189, i1 true, i1 %cmp.not.i.i.i.i.i1191
   br i1 %or.cond.i.i.i.i1192, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1194, label %delete.notnull.i.i.i.i.i.i1193
 
@@ -23625,7 +23625,7 @@ if.then.i.i.i1234:                                ; preds = %invoke.cont485
   %tobool.not.i.i.i.i1235 = icmp eq ptr %419, null
   %mpPoolBegin.i.i.i.i.i1236 = getelementptr inbounds i8, ptr %ref.tmp482, i64 32
   %420 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1236, align 8
-  %cmp.not.i.i.i.i.i1237 = icmp eq ptr %420, %419
+  %cmp.not.i.i.i.i.i1237 = icmp eq ptr %419, %420
   %or.cond.i.i.i.i1238 = select i1 %tobool.not.i.i.i.i1235, i1 true, i1 %cmp.not.i.i.i.i.i1237
   br i1 %or.cond.i.i.i.i1238, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1240, label %delete.notnull.i.i.i.i.i.i1239
 
@@ -23693,7 +23693,7 @@ if.then.i.i.i2788:                                ; preds = %lpad.i1271
   %431 = load ptr, ptr %ref.tmp492, align 8
   %tobool.not.i.i.i.i2789 = icmp eq ptr %431, null
   %432 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1261, align 8
-  %cmp.not.i.i.i.i.i2791 = icmp eq ptr %432, %431
+  %cmp.not.i.i.i.i.i2791 = icmp eq ptr %431, %432
   %or.cond.i.i.i.i2792 = select i1 %tobool.not.i.i.i.i2789, i1 true, i1 %cmp.not.i.i.i.i.i2791
   br i1 %or.cond.i.i.i.i2792, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2793
 
@@ -23741,7 +23741,7 @@ if.then.i.i.i1294:                                ; preds = %invoke.cont495
   %439 = load ptr, ptr %ref.tmp492, align 8
   %tobool.not.i.i.i.i1295 = icmp eq ptr %439, null
   %440 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1261, align 8
-  %cmp.not.i.i.i.i.i1297 = icmp eq ptr %440, %439
+  %cmp.not.i.i.i.i.i1297 = icmp eq ptr %439, %440
   %or.cond.i.i.i.i1298 = select i1 %tobool.not.i.i.i.i1295, i1 true, i1 %cmp.not.i.i.i.i.i1297
   br i1 %or.cond.i.i.i.i1298, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1300, label %delete.notnull.i.i.i.i.i.i1299
 
@@ -23821,7 +23821,7 @@ if.then.i.i2798:                                  ; preds = %lpad.i.i
   %454 = load ptr, ptr %ref.tmp502, align 8
   %tobool.not.i.i.i2799 = icmp eq ptr %454, null
   %455 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1329, align 8
-  %cmp.not.i.i.i.i2801 = icmp eq ptr %455, %454
+  %cmp.not.i.i.i.i2801 = icmp eq ptr %454, %455
   %or.cond.i.i.i2802 = select i1 %tobool.not.i.i.i2799, i1 true, i1 %cmp.not.i.i.i.i2801
   br i1 %or.cond.i.i.i2802, label %ehcleanup573, label %delete.notnull.i.i.i.i.i2803
 
@@ -23869,7 +23869,7 @@ if.then.i.i.i1363:                                ; preds = %invoke.cont507
   %462 = load ptr, ptr %ref.tmp502, align 8
   %tobool.not.i.i.i.i1364 = icmp eq ptr %462, null
   %463 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1329, align 8
-  %cmp.not.i.i.i.i.i1366 = icmp eq ptr %463, %462
+  %cmp.not.i.i.i.i.i1366 = icmp eq ptr %462, %463
   %or.cond.i.i.i.i1367 = select i1 %tobool.not.i.i.i.i1364, i1 true, i1 %cmp.not.i.i.i.i.i1366
   br i1 %or.cond.i.i.i.i1367, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1369, label %delete.notnull.i.i.i.i.i.i1368
 
@@ -23940,7 +23940,7 @@ if.then.i.i2808:                                  ; preds = %lpad.i1405
   %473 = load ptr, ptr %a1, align 8
   %tobool.not.i.i.i2809 = icmp eq ptr %473, null
   %474 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1393, align 8
-  %cmp.not.i.i.i.i2811 = icmp eq ptr %474, %473
+  %cmp.not.i.i.i.i2811 = icmp eq ptr %473, %474
   %or.cond.i.i.i2812 = select i1 %tobool.not.i.i.i2809, i1 true, i1 %cmp.not.i.i.i.i2811
   br i1 %or.cond.i.i.i2812, label %ehcleanup573, label %delete.notnull.i.i.i.i.i2813
 
@@ -23973,7 +23973,7 @@ if.then.i.i2818:                                  ; preds = %lpad.i1422
   %478 = load ptr, ptr %b1, align 8
   %tobool.not.i.i.i2819 = icmp eq ptr %478, null
   %479 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1410, align 8
-  %cmp.not.i.i.i.i2821 = icmp eq ptr %479, %478
+  %cmp.not.i.i.i.i2821 = icmp eq ptr %478, %479
   %or.cond.i.i.i2822 = select i1 %tobool.not.i.i.i2819, i1 true, i1 %cmp.not.i.i.i.i2821
   br i1 %or.cond.i.i.i2822, label %ehcleanup572, label %ehcleanup572.sink.split
 
@@ -24029,7 +24029,7 @@ if.then.i.i2828:                                  ; preds = %lpad.i.i1448
   %489 = load ptr, ptr %ref.tmp517, align 8
   %tobool.not.i.i.i2829 = icmp eq ptr %489, null
   %490 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1435, align 8
-  %cmp.not.i.i.i.i2831 = icmp eq ptr %490, %489
+  %cmp.not.i.i.i.i2831 = icmp eq ptr %489, %490
   %or.cond.i.i.i2832 = select i1 %tobool.not.i.i.i2829, i1 true, i1 %cmp.not.i.i.i.i2831
   br i1 %or.cond.i.i.i2832, label %ehcleanup571, label %delete.notnull.i.i.i.i.i2833
 
@@ -24077,7 +24077,7 @@ if.then.i.i.i1473:                                ; preds = %invoke.cont522
   %497 = load ptr, ptr %ref.tmp517, align 8
   %tobool.not.i.i.i.i1474 = icmp eq ptr %497, null
   %498 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1435, align 8
-  %cmp.not.i.i.i.i.i1476 = icmp eq ptr %498, %497
+  %cmp.not.i.i.i.i.i1476 = icmp eq ptr %497, %498
   %or.cond.i.i.i.i1477 = select i1 %tobool.not.i.i.i.i1474, i1 true, i1 %cmp.not.i.i.i.i.i1476
   br i1 %or.cond.i.i.i.i1477, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1479, label %delete.notnull.i.i.i.i.i.i1478
 
@@ -24148,7 +24148,7 @@ if.then.i.i2838:                                  ; preds = %lpad.i1518
   %508 = load ptr, ptr %b2, align 8
   %tobool.not.i.i.i2839 = icmp eq ptr %508, null
   %509 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1506, align 8
-  %cmp.not.i.i.i.i2841 = icmp eq ptr %509, %508
+  %cmp.not.i.i.i.i2841 = icmp eq ptr %508, %509
   %or.cond.i.i.i2842 = select i1 %tobool.not.i.i.i2839, i1 true, i1 %cmp.not.i.i.i.i2841
   br i1 %or.cond.i.i.i2842, label %ehcleanup571, label %delete.notnull.i.i.i.i.i2843
 
@@ -24201,7 +24201,7 @@ if.then.i.i2848:                                  ; preds = %lpad.i.i1544
   %518 = load ptr, ptr %ref.tmp530, align 8
   %tobool.not.i.i.i2849 = icmp eq ptr %518, null
   %519 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1532, align 8
-  %cmp.not.i.i.i.i2851 = icmp eq ptr %519, %518
+  %cmp.not.i.i.i.i2851 = icmp eq ptr %518, %519
   %or.cond.i.i.i2852 = select i1 %tobool.not.i.i.i2849, i1 true, i1 %cmp.not.i.i.i.i2851
   br i1 %or.cond.i.i.i2852, label %ehcleanup570, label %delete.notnull.i.i.i.i.i2853
 
@@ -24249,7 +24249,7 @@ if.then.i.i.i1569:                                ; preds = %invoke.cont535
   %526 = load ptr, ptr %ref.tmp530, align 8
   %tobool.not.i.i.i.i1570 = icmp eq ptr %526, null
   %527 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1532, align 8
-  %cmp.not.i.i.i.i.i1572 = icmp eq ptr %527, %526
+  %cmp.not.i.i.i.i.i1572 = icmp eq ptr %526, %527
   %or.cond.i.i.i.i1573 = select i1 %tobool.not.i.i.i.i1570, i1 true, i1 %cmp.not.i.i.i.i.i1572
   br i1 %or.cond.i.i.i.i1573, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1575, label %delete.notnull.i.i.i.i.i.i1574
 
@@ -24320,7 +24320,7 @@ if.then.i.i2858:                                  ; preds = %lpad.i1614
   %537 = load ptr, ptr %a3, align 8
   %tobool.not.i.i.i2859 = icmp eq ptr %537, null
   %538 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1602, align 8
-  %cmp.not.i.i.i.i2861 = icmp eq ptr %538, %537
+  %cmp.not.i.i.i.i2861 = icmp eq ptr %537, %538
   %or.cond.i.i.i2862 = select i1 %tobool.not.i.i.i2859, i1 true, i1 %cmp.not.i.i.i.i2861
   br i1 %or.cond.i.i.i2862, label %ehcleanup570, label %delete.notnull.i.i.i.i.i2863
 
@@ -24369,7 +24369,7 @@ if.then.i.i2868:                                  ; preds = %lpad.i.i1639
   %545 = load ptr, ptr %ref.tmp543, align 8
   %tobool.not.i.i.i2869 = icmp eq ptr %545, null
   %546 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1626, align 8
-  %cmp.not.i.i.i.i2871 = icmp eq ptr %546, %545
+  %cmp.not.i.i.i.i2871 = icmp eq ptr %545, %546
   %or.cond.i.i.i2872 = select i1 %tobool.not.i.i.i2869, i1 true, i1 %cmp.not.i.i.i.i2871
   br i1 %or.cond.i.i.i2872, label %ehcleanup569, label %delete.notnull.i.i.i.i.i2873
 
@@ -24417,7 +24417,7 @@ if.then.i.i.i1664:                                ; preds = %invoke.cont548
   %553 = load ptr, ptr %ref.tmp543, align 8
   %tobool.not.i.i.i.i1665 = icmp eq ptr %553, null
   %554 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1626, align 8
-  %cmp.not.i.i.i.i.i1667 = icmp eq ptr %554, %553
+  %cmp.not.i.i.i.i.i1667 = icmp eq ptr %553, %554
   %or.cond.i.i.i.i1668 = select i1 %tobool.not.i.i.i.i1665, i1 true, i1 %cmp.not.i.i.i.i.i1667
   br i1 %or.cond.i.i.i.i1668, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1670, label %delete.notnull.i.i.i.i.i.i1669
 
@@ -24488,7 +24488,7 @@ if.then.i.i2878:                                  ; preds = %lpad.i1709
   %564 = load ptr, ptr %a4, align 8
   %tobool.not.i.i.i2879 = icmp eq ptr %564, null
   %565 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1697, align 8
-  %cmp.not.i.i.i.i2881 = icmp eq ptr %565, %564
+  %cmp.not.i.i.i.i2881 = icmp eq ptr %564, %565
   %or.cond.i.i.i2882 = select i1 %tobool.not.i.i.i2879, i1 true, i1 %cmp.not.i.i.i.i2881
   br i1 %or.cond.i.i.i2882, label %ehcleanup569, label %delete.notnull.i.i.i.i.i2883
 
@@ -24542,7 +24542,7 @@ if.then.i.i.i1735:                                ; preds = %invoke.cont561
   %tobool.not.i.i.i.i1736 = icmp eq ptr %572, null
   %mpPoolBegin.i.i.i.i.i1737 = getelementptr inbounds i8, ptr %ref.tmp556, i64 32
   %573 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1737, align 8
-  %cmp.not.i.i.i.i.i1738 = icmp eq ptr %573, %572
+  %cmp.not.i.i.i.i.i1738 = icmp eq ptr %572, %573
   %or.cond.i.i.i.i1739 = select i1 %tobool.not.i.i.i.i1736, i1 true, i1 %cmp.not.i.i.i.i.i1738
   br i1 %or.cond.i.i.i.i1739, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1741, label %delete.notnull.i.i.i.i.i.i1740
 
@@ -24598,7 +24598,7 @@ if.then.i.i.i1770:                                ; preds = %_ZN5eastl12basic_st
   %581 = load ptr, ptr %a4, align 8
   %tobool.not.i.i.i.i1771 = icmp eq ptr %581, null
   %582 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1697, align 8
-  %cmp.not.i.i.i.i.i1773 = icmp eq ptr %582, %581
+  %cmp.not.i.i.i.i.i1773 = icmp eq ptr %581, %582
   %or.cond.i.i.i.i1774 = select i1 %tobool.not.i.i.i.i1771, i1 true, i1 %cmp.not.i.i.i.i.i1773
   br i1 %or.cond.i.i.i.i1774, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1776, label %delete.notnull.i.i.i.i.i.i1775
 
@@ -24615,7 +24615,7 @@ if.then.i.i.i1779:                                ; preds = %_ZN5eastl12fixed_st
   %584 = load ptr, ptr %a3, align 8
   %tobool.not.i.i.i.i1780 = icmp eq ptr %584, null
   %585 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1602, align 8
-  %cmp.not.i.i.i.i.i1782 = icmp eq ptr %585, %584
+  %cmp.not.i.i.i.i.i1782 = icmp eq ptr %584, %585
   %or.cond.i.i.i.i1783 = select i1 %tobool.not.i.i.i.i1780, i1 true, i1 %cmp.not.i.i.i.i.i1782
   br i1 %or.cond.i.i.i.i1783, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1785, label %delete.notnull.i.i.i.i.i.i1784
 
@@ -24632,7 +24632,7 @@ if.then.i.i.i1788:                                ; preds = %_ZN5eastl12fixed_st
   %587 = load ptr, ptr %b2, align 8
   %tobool.not.i.i.i.i1789 = icmp eq ptr %587, null
   %588 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1506, align 8
-  %cmp.not.i.i.i.i.i1791 = icmp eq ptr %588, %587
+  %cmp.not.i.i.i.i.i1791 = icmp eq ptr %587, %588
   %or.cond.i.i.i.i1792 = select i1 %tobool.not.i.i.i.i1789, i1 true, i1 %cmp.not.i.i.i.i.i1791
   br i1 %or.cond.i.i.i.i1792, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1794, label %delete.notnull.i.i.i.i.i.i1793
 
@@ -24649,7 +24649,7 @@ if.then.i.i.i1797:                                ; preds = %_ZN5eastl12fixed_st
   %590 = load ptr, ptr %b1, align 8
   %tobool.not.i.i.i.i1798 = icmp eq ptr %590, null
   %591 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1410, align 8
-  %cmp.not.i.i.i.i.i1800 = icmp eq ptr %591, %590
+  %cmp.not.i.i.i.i.i1800 = icmp eq ptr %590, %591
   %or.cond.i.i.i.i1801 = select i1 %tobool.not.i.i.i.i1798, i1 true, i1 %cmp.not.i.i.i.i.i1800
   br i1 %or.cond.i.i.i.i1801, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1803, label %delete.notnull.i.i.i.i.i.i1802
 
@@ -24666,7 +24666,7 @@ if.then.i.i.i1806:                                ; preds = %_ZN5eastl12fixed_st
   %593 = load ptr, ptr %a1, align 8
   %tobool.not.i.i.i.i1807 = icmp eq ptr %593, null
   %594 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1393, align 8
-  %cmp.not.i.i.i.i.i1809 = icmp eq ptr %594, %593
+  %cmp.not.i.i.i.i.i1809 = icmp eq ptr %593, %594
   %or.cond.i.i.i.i1810 = select i1 %tobool.not.i.i.i.i1807, i1 true, i1 %cmp.not.i.i.i.i.i1809
   br i1 %or.cond.i.i.i.i1810, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1812, label %delete.notnull.i.i.i.i.i.i1811
 
@@ -24683,7 +24683,7 @@ if.then.i.i.i1815:                                ; preds = %_ZN5eastl12fixed_st
   %596 = load ptr, ptr %c, align 8
   %tobool.not.i.i.i.i1816 = icmp eq ptr %596, null
   %597 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i1818 = icmp eq ptr %597, %596
+  %cmp.not.i.i.i.i.i1818 = icmp eq ptr %596, %597
   %or.cond.i.i.i.i1819 = select i1 %tobool.not.i.i.i.i1816, i1 true, i1 %cmp.not.i.i.i.i.i1818
   br i1 %or.cond.i.i.i.i1819, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1821, label %delete.notnull.i.i.i.i.i.i1820
 
@@ -24700,7 +24700,7 @@ if.then.i.i.i1824:                                ; preds = %_ZN5eastl12fixed_st
   %599 = load ptr, ptr %b, align 8
   %tobool.not.i.i.i.i1825 = icmp eq ptr %599, null
   %600 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1036, align 8
-  %cmp.not.i.i.i.i.i1827 = icmp eq ptr %600, %599
+  %cmp.not.i.i.i.i.i1827 = icmp eq ptr %599, %600
   %or.cond.i.i.i.i1828 = select i1 %tobool.not.i.i.i.i1825, i1 true, i1 %cmp.not.i.i.i.i.i1827
   br i1 %or.cond.i.i.i.i1828, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1830, label %delete.notnull.i.i.i.i.i.i1829
 
@@ -24717,7 +24717,7 @@ if.then.i.i.i1833:                                ; preds = %_ZN5eastl12fixed_st
   %602 = load ptr, ptr %a, align 8
   %tobool.not.i.i.i.i1834 = icmp eq ptr %602, null
   %603 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1022, align 8
-  %cmp.not.i.i.i.i.i1836 = icmp eq ptr %603, %602
+  %cmp.not.i.i.i.i.i1836 = icmp eq ptr %602, %603
   %or.cond.i.i.i.i1837 = select i1 %tobool.not.i.i.i.i1834, i1 true, i1 %cmp.not.i.i.i.i.i1836
   br i1 %or.cond.i.i.i.i1837, label %_ZN5eastl12fixed_stringIcLi8ELb1ENS_9allocatorEED2Ev.exit1839, label %delete.notnull.i.i.i.i.i.i1838
 
@@ -24886,7 +24886,7 @@ if.then.i.i.i1928:                                ; preds = %invoke.cont593
   %636 = load ptr, ptr %fs88, align 8
   %tobool.not.i.i.i.i1929 = icmp eq ptr %636, null
   %637 = load ptr, ptr %mpPoolBegin.i.i.i.i.i996, align 8
-  %cmp.not.i.i.i.i.i1931 = icmp eq ptr %637, %636
+  %cmp.not.i.i.i.i.i1931 = icmp eq ptr %636, %637
   %or.cond.i.i.i.i1932 = select i1 %tobool.not.i.i.i.i1929, i1 true, i1 %cmp.not.i.i.i.i.i1931
   br i1 %or.cond.i.i.i.i1932, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1934, label %delete.notnull.i.i.i.i.i.i1933
 
@@ -24904,7 +24904,7 @@ if.then.i.i.i1937:                                ; preds = %_ZN5eastl12fixed_st
   %tobool.not.i.i.i.i1938 = icmp eq ptr %639, null
   %mpPoolBegin.i.i.i.i.i1939 = getelementptr inbounds i8, ptr %fs10, i64 32
   %640 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1939, align 8
-  %cmp.not.i.i.i.i.i1940 = icmp eq ptr %640, %639
+  %cmp.not.i.i.i.i.i1940 = icmp eq ptr %639, %640
   %or.cond.i.i.i.i1941 = select i1 %tobool.not.i.i.i.i1938, i1 true, i1 %cmp.not.i.i.i.i.i1940
   br i1 %or.cond.i.i.i.i1941, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1943, label %delete.notnull.i.i.i.i.i.i1942
 
@@ -24921,7 +24921,7 @@ if.then.i.i.i1946:                                ; preds = %_ZN5eastl12fixed_st
   %642 = load ptr, ptr %fs9, align 8
   %tobool.not.i.i.i.i1947 = icmp eq ptr %642, null
   %643 = load ptr, ptr %mpPoolBegin.i.i.i.i.i754, align 8
-  %cmp.not.i.i.i.i.i1949 = icmp eq ptr %643, %642
+  %cmp.not.i.i.i.i.i1949 = icmp eq ptr %642, %643
   %or.cond.i.i.i.i1950 = select i1 %tobool.not.i.i.i.i1947, i1 true, i1 %cmp.not.i.i.i.i.i1949
   br i1 %or.cond.i.i.i.i1950, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1952, label %delete.notnull.i.i.i.i.i.i1951
 
@@ -24938,7 +24938,7 @@ if.then.i.i.i1955:                                ; preds = %_ZN5eastl12fixed_st
   %645 = load ptr, ptr %fs8, align 8
   %tobool.not.i.i.i.i1956 = icmp eq ptr %645, null
   %646 = load ptr, ptr %mpPoolBegin.i.i.i.i.i719, align 8
-  %cmp.not.i.i.i.i.i1958 = icmp eq ptr %646, %645
+  %cmp.not.i.i.i.i.i1958 = icmp eq ptr %645, %646
   %or.cond.i.i.i.i1959 = select i1 %tobool.not.i.i.i.i1956, i1 true, i1 %cmp.not.i.i.i.i.i1958
   br i1 %or.cond.i.i.i.i1959, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1961, label %delete.notnull.i.i.i.i.i.i1960
 
@@ -24955,7 +24955,7 @@ if.then.i.i.i1964:                                ; preds = %_ZN5eastl12fixed_st
   %648 = load ptr, ptr %fs7, align 8
   %tobool.not.i.i.i.i1965 = icmp eq ptr %648, null
   %649 = load ptr, ptr %mpPoolBegin.i.i.i.i.i677, align 8
-  %cmp.not.i.i.i.i.i1967 = icmp eq ptr %649, %648
+  %cmp.not.i.i.i.i.i1967 = icmp eq ptr %648, %649
   %or.cond.i.i.i.i1968 = select i1 %tobool.not.i.i.i.i1965, i1 true, i1 %cmp.not.i.i.i.i.i1967
   br i1 %or.cond.i.i.i.i1968, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1970, label %delete.notnull.i.i.i.i.i.i1969
 
@@ -24972,7 +24972,7 @@ if.then.i.i.i1973:                                ; preds = %_ZN5eastl12fixed_st
   %651 = load ptr, ptr %fs6, align 8
   %tobool.not.i.i.i.i1974 = icmp eq ptr %651, null
   %652 = load ptr, ptr %mpPoolBegin.i.i.i.i.i632, align 8
-  %cmp.not.i.i.i.i.i1976 = icmp eq ptr %652, %651
+  %cmp.not.i.i.i.i.i1976 = icmp eq ptr %651, %652
   %or.cond.i.i.i.i1977 = select i1 %tobool.not.i.i.i.i1974, i1 true, i1 %cmp.not.i.i.i.i.i1976
   br i1 %or.cond.i.i.i.i1977, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1979, label %delete.notnull.i.i.i.i.i.i1978
 
@@ -24989,7 +24989,7 @@ if.then.i.i.i1982:                                ; preds = %_ZN5eastl12fixed_st
   %654 = load ptr, ptr %fs5, align 8
   %tobool.not.i.i.i.i1983 = icmp eq ptr %654, null
   %655 = load ptr, ptr %mpPoolBegin.i.i.i.i.i597, align 8
-  %cmp.not.i.i.i.i.i1985 = icmp eq ptr %655, %654
+  %cmp.not.i.i.i.i.i1985 = icmp eq ptr %654, %655
   %or.cond.i.i.i.i1986 = select i1 %tobool.not.i.i.i.i1983, i1 true, i1 %cmp.not.i.i.i.i.i1985
   br i1 %or.cond.i.i.i.i1986, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1988, label %delete.notnull.i.i.i.i.i.i1987
 
@@ -25006,7 +25006,7 @@ if.then.i.i.i1991:                                ; preds = %_ZN5eastl12fixed_st
   %657 = load ptr, ptr %fs4, align 8
   %tobool.not.i.i.i.i1992 = icmp eq ptr %657, null
   %658 = load ptr, ptr %mpPoolBegin.i.i.i.i.i554, align 8
-  %cmp.not.i.i.i.i.i1994 = icmp eq ptr %658, %657
+  %cmp.not.i.i.i.i.i1994 = icmp eq ptr %657, %658
   %or.cond.i.i.i.i1995 = select i1 %tobool.not.i.i.i.i1992, i1 true, i1 %cmp.not.i.i.i.i.i1994
   br i1 %or.cond.i.i.i.i1995, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit1997, label %delete.notnull.i.i.i.i.i.i1996
 
@@ -25023,7 +25023,7 @@ if.then.i.i.i2000:                                ; preds = %_ZN5eastl12fixed_st
   %660 = load ptr, ptr %fs3, align 8
   %tobool.not.i.i.i.i2001 = icmp eq ptr %660, null
   %661 = load ptr, ptr %mpPoolBegin.i.i.i.i.i508, align 8
-  %cmp.not.i.i.i.i.i2003 = icmp eq ptr %661, %660
+  %cmp.not.i.i.i.i.i2003 = icmp eq ptr %660, %661
   %or.cond.i.i.i.i2004 = select i1 %tobool.not.i.i.i.i2001, i1 true, i1 %cmp.not.i.i.i.i.i2003
   br i1 %or.cond.i.i.i.i2004, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit2006, label %delete.notnull.i.i.i.i.i.i2005
 
@@ -25040,7 +25040,7 @@ if.then.i.i.i2009:                                ; preds = %_ZN5eastl12fixed_st
   %663 = load ptr, ptr %fs2, align 8
   %tobool.not.i.i.i.i2010 = icmp eq ptr %663, null
   %664 = load ptr, ptr %mpPoolBegin.i.i.i.i.i473, align 8
-  %cmp.not.i.i.i.i.i2012 = icmp eq ptr %664, %663
+  %cmp.not.i.i.i.i.i2012 = icmp eq ptr %663, %664
   %or.cond.i.i.i.i2013 = select i1 %tobool.not.i.i.i.i2010, i1 true, i1 %cmp.not.i.i.i.i.i2012
   br i1 %or.cond.i.i.i.i2013, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit2015, label %delete.notnull.i.i.i.i.i.i2014
 
@@ -25057,7 +25057,7 @@ if.then.i.i.i2018:                                ; preds = %_ZN5eastl12fixed_st
   %666 = load ptr, ptr %fs1, align 8
   %tobool.not.i.i.i.i2019 = icmp eq ptr %666, null
   %667 = load ptr, ptr %mpPoolBegin.i.i.i.i.i456, align 8
-  %cmp.not.i.i.i.i.i2021 = icmp eq ptr %667, %666
+  %cmp.not.i.i.i.i.i2021 = icmp eq ptr %666, %667
   %or.cond.i.i.i.i2022 = select i1 %tobool.not.i.i.i.i2019, i1 true, i1 %cmp.not.i.i.i.i.i2021
   br i1 %or.cond.i.i.i.i2022, label %invoke.cont608, label %delete.notnull.i.i.i.i.i.i2023
 
@@ -25287,7 +25287,7 @@ if.then.i.i.i2144:                                ; preds = %invoke.cont669
   %708 = load ptr, ptr %fs, align 8
   %tobool.not.i.i.i.i2145 = icmp eq ptr %708, null
   %709 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2025, align 8
-  %cmp.not.i.i.i.i.i2147 = icmp eq ptr %709, %708
+  %cmp.not.i.i.i.i.i2147 = icmp eq ptr %708, %709
   %or.cond.i.i.i.i2148 = select i1 %tobool.not.i.i.i.i2145, i1 true, i1 %cmp.not.i.i.i.i.i2147
   br i1 %or.cond.i.i.i.i2148, label %_ZN5eastl12fixed_stringIcLi64ELb1E15MallocAllocatorED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -25351,7 +25351,7 @@ if.then.i.i.i2157:                                ; preds = %invoke.cont680
   %719 = load ptr, ptr %c673, align 8
   %tobool.not.i.i.i.i2158 = icmp eq ptr %719, null
   %720 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2152, align 8
-  %cmp.not.i.i.i.i.i2160 = icmp eq ptr %720, %719
+  %cmp.not.i.i.i.i.i2160 = icmp eq ptr %719, %720
   %or.cond.i.i.i.i2161 = select i1 %tobool.not.i.i.i.i2158, i1 true, i1 %cmp.not.i.i.i.i.i2160
   br i1 %or.cond.i.i.i.i2161, label %_ZN5eastl12fixed_stringIcLi64ELb1E15MallocAllocatorED2Ev.exit2168, label %if.then.i.i.i.i.i2162
 
@@ -25441,7 +25441,7 @@ if.then.i.i.i2214:                                ; preds = %invoke.cont688
   %733 = load ptr, ptr %ts2, align 8
   %tobool.not.i.i.i.i2215 = icmp eq ptr %733, null
   %734 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i2179, align 8
-  %cmp.not.i.i.i.i.i2217 = icmp eq ptr %734, %733
+  %cmp.not.i.i.i.i.i2217 = icmp eq ptr %733, %734
   %or.cond.i.i.i.i2218 = select i1 %tobool.not.i.i.i.i2215, i1 true, i1 %cmp.not.i.i.i.i.i2217
   br i1 %or.cond.i.i.i.i2218, label %_ZN5eastl12fixed_stringIcLi32ELb1E15MallocAllocatorED2Ev.exit, label %if.then.i.i.i.i.i2219
 
@@ -25468,7 +25468,7 @@ if.then.i.i.i2227:                                ; preds = %_ZN5eastl12fixed_st
   %739 = load ptr, ptr %ts1, align 8
   %tobool.not.i.i.i.i2228 = icmp eq ptr %739, null
   %740 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2170, align 8
-  %cmp.not.i.i.i.i.i2230 = icmp eq ptr %740, %739
+  %cmp.not.i.i.i.i.i2230 = icmp eq ptr %739, %740
   %or.cond.i.i.i.i2231 = select i1 %tobool.not.i.i.i.i2228, i1 true, i1 %cmp.not.i.i.i.i.i2230
   br i1 %or.cond.i.i.i.i2231, label %_ZN5eastl12fixed_stringIcLi32ELb1E15MallocAllocatorED2Ev.exit2238, label %if.then.i.i.i.i.i2232
 
@@ -25504,7 +25504,7 @@ if.then.i.i.i2241:                                ; preds = %lpad
   %tobool.not.i.i.i.i2242 = icmp eq ptr %747, null
   %mpPoolBegin.i.i.i.i.i2243 = getelementptr inbounds i8, ptr %s8, i64 32
   %748 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2243, align 8
-  %cmp.not.i.i.i.i.i2244 = icmp eq ptr %748, %747
+  %cmp.not.i.i.i.i.i2244 = icmp eq ptr %747, %748
   %or.cond.i.i.i.i2245 = select i1 %tobool.not.i.i.i.i2242, i1 true, i1 %cmp.not.i.i.i.i.i2244
   br i1 %or.cond.i.i.i.i2245, label %eh.resume, label %delete.notnull.i.i.i.i.i.i2246
 
@@ -25524,7 +25524,7 @@ if.then.i.i.i2250:                                ; preds = %lpad23
   %tobool.not.i.i.i.i2251 = icmp eq ptr %751, null
   %mpPoolBegin.i.i.i.i.i2252 = getelementptr inbounds i8, ptr %sW, i64 32
   %752 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2252, align 8
-  %cmp.not.i.i.i.i.i2253 = icmp eq ptr %752, %751
+  %cmp.not.i.i.i.i.i2253 = icmp eq ptr %751, %752
   %or.cond.i.i.i.i2254 = select i1 %tobool.not.i.i.i.i2251, i1 true, i1 %cmp.not.i.i.i.i.i2253
   br i1 %or.cond.i.i.i.i2254, label %eh.resume, label %delete.notnull.i.i.i.i.i.i2255
 
@@ -25553,7 +25553,7 @@ if.then.i.i.i2259:                                ; preds = %lpad100
   %757 = load ptr, ptr %fsc83, align 8
   %tobool.not.i.i.i.i2260 = icmp eq ptr %757, null
   %758 = load ptr, ptr %mpPoolBegin.i.i.i.i.i314, align 8
-  %cmp.not.i.i.i.i.i2262 = icmp eq ptr %758, %757
+  %cmp.not.i.i.i.i.i2262 = icmp eq ptr %757, %758
   %or.cond.i.i.i.i2263 = select i1 %tobool.not.i.i.i.i2260, i1 true, i1 %cmp.not.i.i.i.i.i2262
   br i1 %or.cond.i.i.i.i2263, label %ehcleanup, label %ehcleanup.sink.split
 
@@ -25574,7 +25574,7 @@ if.then.i.i.i2268:                                ; preds = %ehcleanup
   %760 = load ptr, ptr %fsc82, align 8
   %tobool.not.i.i.i.i2269 = icmp eq ptr %760, null
   %761 = load ptr, ptr %mpPoolBegin.i.i.i.i.i299, align 8
-  %cmp.not.i.i.i.i.i2271 = icmp eq ptr %761, %760
+  %cmp.not.i.i.i.i.i2271 = icmp eq ptr %760, %761
   %or.cond.i.i.i.i2272 = select i1 %tobool.not.i.i.i.i2269, i1 true, i1 %cmp.not.i.i.i.i.i2271
   br i1 %or.cond.i.i.i.i2272, label %ehcleanup118, label %ehcleanup118.sink.split
 
@@ -25595,7 +25595,7 @@ if.then.i.i.i2277:                                ; preds = %ehcleanup118
   %763 = load ptr, ptr %fsc81, align 8
   %tobool.not.i.i.i.i2278 = icmp eq ptr %763, null
   %764 = load ptr, ptr %mpPoolBegin.i.i.i.i.i284, align 8
-  %cmp.not.i.i.i.i.i2280 = icmp eq ptr %764, %763
+  %cmp.not.i.i.i.i.i2280 = icmp eq ptr %763, %764
   %or.cond.i.i.i.i2281 = select i1 %tobool.not.i.i.i.i2278, i1 true, i1 %cmp.not.i.i.i.i.i2280
   br i1 %or.cond.i.i.i.i2281, label %ehcleanup119, label %delete.notnull.i.i.i.i.i.i2282
 
@@ -25613,7 +25613,7 @@ if.then.i.i.i2286:                                ; preds = %ehcleanup119
   %766 = load ptr, ptr %fswc3, align 8
   %tobool.not.i.i.i.i2287 = icmp eq ptr %766, null
   %767 = load ptr, ptr %mpPoolBegin.i.i.i.i.i228, align 8
-  %cmp.not.i.i.i.i.i2289 = icmp eq ptr %767, %766
+  %cmp.not.i.i.i.i.i2289 = icmp eq ptr %766, %767
   %or.cond.i.i.i.i2290 = select i1 %tobool.not.i.i.i.i2287, i1 true, i1 %cmp.not.i.i.i.i.i2289
   br i1 %or.cond.i.i.i.i2290, label %ehcleanup120, label %ehcleanup120.sink.split
 
@@ -25634,7 +25634,7 @@ if.then.i.i.i2295:                                ; preds = %ehcleanup120
   %769 = load ptr, ptr %fswc2, align 8
   %tobool.not.i.i.i.i2296 = icmp eq ptr %769, null
   %770 = load ptr, ptr %mpPoolBegin.i.i.i.i.i213, align 8
-  %cmp.not.i.i.i.i.i2298 = icmp eq ptr %770, %769
+  %cmp.not.i.i.i.i.i2298 = icmp eq ptr %769, %770
   %or.cond.i.i.i.i2299 = select i1 %tobool.not.i.i.i.i2296, i1 true, i1 %cmp.not.i.i.i.i.i2298
   br i1 %or.cond.i.i.i.i2299, label %ehcleanup121, label %ehcleanup121.sink.split
 
@@ -25655,7 +25655,7 @@ if.then.i.i.i2304:                                ; preds = %ehcleanup121
   %772 = load ptr, ptr %fswc1, align 8
   %tobool.not.i.i.i.i2305 = icmp eq ptr %772, null
   %773 = load ptr, ptr %mpPoolBegin.i.i.i.i.i200, align 8
-  %cmp.not.i.i.i.i.i2307 = icmp eq ptr %773, %772
+  %cmp.not.i.i.i.i.i2307 = icmp eq ptr %772, %773
   %or.cond.i.i.i.i2308 = select i1 %tobool.not.i.i.i.i2305, i1 true, i1 %cmp.not.i.i.i.i.i2307
   br i1 %or.cond.i.i.i.i2308, label %ehcleanup122, label %delete.notnull.i.i.i.i.i.i2309
 
@@ -25673,7 +25673,7 @@ if.then.i.i.i2313:                                ; preds = %ehcleanup122
   %775 = load ptr, ptr %fsc3, align 8
   %tobool.not.i.i.i.i2314 = icmp eq ptr %775, null
   %776 = load ptr, ptr %mpPoolBegin.i.i.i.i.i151, align 8
-  %cmp.not.i.i.i.i.i2316 = icmp eq ptr %776, %775
+  %cmp.not.i.i.i.i.i2316 = icmp eq ptr %775, %776
   %or.cond.i.i.i.i2317 = select i1 %tobool.not.i.i.i.i2314, i1 true, i1 %cmp.not.i.i.i.i.i2316
   br i1 %or.cond.i.i.i.i2317, label %ehcleanup123, label %ehcleanup123.sink.split
 
@@ -25694,7 +25694,7 @@ if.then.i.i.i2322:                                ; preds = %ehcleanup123
   %778 = load ptr, ptr %fsc2, align 8
   %tobool.not.i.i.i.i2323 = icmp eq ptr %778, null
   %779 = load ptr, ptr %mpPoolBegin.i.i.i.i.i136, align 8
-  %cmp.not.i.i.i.i.i2325 = icmp eq ptr %779, %778
+  %cmp.not.i.i.i.i.i2325 = icmp eq ptr %778, %779
   %or.cond.i.i.i.i2326 = select i1 %tobool.not.i.i.i.i2323, i1 true, i1 %cmp.not.i.i.i.i.i2325
   br i1 %or.cond.i.i.i.i2326, label %ehcleanup124, label %ehcleanup124.sink.split
 
@@ -25715,7 +25715,7 @@ if.then.i.i.i2331:                                ; preds = %ehcleanup124
   %781 = load ptr, ptr %fsc1, align 8
   %tobool.not.i.i.i.i2332 = icmp eq ptr %781, null
   %782 = load ptr, ptr %mpPoolBegin.i.i.i.i.i127, align 8
-  %cmp.not.i.i.i.i.i2334 = icmp eq ptr %782, %781
+  %cmp.not.i.i.i.i.i2334 = icmp eq ptr %781, %782
   %or.cond.i.i.i.i2335 = select i1 %tobool.not.i.i.i.i2332, i1 true, i1 %cmp.not.i.i.i.i.i2334
   br i1 %or.cond.i.i.i.i2335, label %eh.resume, label %ehcleanup125.sink.split
 
@@ -25801,7 +25801,7 @@ if.then.i.i.i2347:                                ; preds = %lpad464
   %798 = load ptr, ptr %ref.tmp462, align 8
   %tobool.not.i.i.i.i2348 = icmp eq ptr %798, null
   %799 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1087, align 8
-  %cmp.not.i.i.i.i.i2350 = icmp eq ptr %799, %798
+  %cmp.not.i.i.i.i.i2350 = icmp eq ptr %798, %799
   %or.cond.i.i.i.i2351 = select i1 %tobool.not.i.i.i.i2348, i1 true, i1 %cmp.not.i.i.i.i.i2350
   br i1 %or.cond.i.i.i.i2351, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2352
 
@@ -25820,7 +25820,7 @@ if.then.i.i.i2356:                                ; preds = %lpad474
   %802 = load ptr, ptr %ref.tmp472, align 8
   %tobool.not.i.i.i.i2357 = icmp eq ptr %802, null
   %803 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1150, align 8
-  %cmp.not.i.i.i.i.i2359 = icmp eq ptr %803, %802
+  %cmp.not.i.i.i.i.i2359 = icmp eq ptr %802, %803
   %or.cond.i.i.i.i2360 = select i1 %tobool.not.i.i.i.i2357, i1 true, i1 %cmp.not.i.i.i.i.i2359
   br i1 %or.cond.i.i.i.i2360, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2361
 
@@ -25840,7 +25840,7 @@ if.then.i.i.i2365:                                ; preds = %lpad484
   %tobool.not.i.i.i.i2366 = icmp eq ptr %806, null
   %mpPoolBegin.i.i.i.i.i2367 = getelementptr inbounds i8, ptr %ref.tmp482, i64 32
   %807 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2367, align 8
-  %cmp.not.i.i.i.i.i2368 = icmp eq ptr %807, %806
+  %cmp.not.i.i.i.i.i2368 = icmp eq ptr %806, %807
   %or.cond.i.i.i.i2369 = select i1 %tobool.not.i.i.i.i2366, i1 true, i1 %cmp.not.i.i.i.i.i2368
   br i1 %or.cond.i.i.i.i2369, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2370
 
@@ -25859,7 +25859,7 @@ if.then.i.i.i2374:                                ; preds = %lpad494
   %810 = load ptr, ptr %ref.tmp492, align 8
   %tobool.not.i.i.i.i2375 = icmp eq ptr %810, null
   %811 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1261, align 8
-  %cmp.not.i.i.i.i.i2377 = icmp eq ptr %811, %810
+  %cmp.not.i.i.i.i.i2377 = icmp eq ptr %810, %811
   %or.cond.i.i.i.i2378 = select i1 %tobool.not.i.i.i.i2375, i1 true, i1 %cmp.not.i.i.i.i.i2377
   br i1 %or.cond.i.i.i.i2378, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2379
 
@@ -25878,7 +25878,7 @@ if.then.i.i.i2383:                                ; preds = %lpad506
   %814 = load ptr, ptr %ref.tmp502, align 8
   %tobool.not.i.i.i.i2384 = icmp eq ptr %814, null
   %815 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1329, align 8
-  %cmp.not.i.i.i.i.i2386 = icmp eq ptr %815, %814
+  %cmp.not.i.i.i.i.i2386 = icmp eq ptr %814, %815
   %or.cond.i.i.i.i2387 = select i1 %tobool.not.i.i.i.i2384, i1 true, i1 %cmp.not.i.i.i.i.i2386
   br i1 %or.cond.i.i.i.i2387, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2388
 
@@ -25902,7 +25902,7 @@ if.then.i.i.i2392:                                ; preds = %lpad521
   %819 = load ptr, ptr %ref.tmp517, align 8
   %tobool.not.i.i.i.i2393 = icmp eq ptr %819, null
   %820 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1435, align 8
-  %cmp.not.i.i.i.i.i2395 = icmp eq ptr %820, %819
+  %cmp.not.i.i.i.i.i2395 = icmp eq ptr %819, %820
   %or.cond.i.i.i.i2396 = select i1 %tobool.not.i.i.i.i2393, i1 true, i1 %cmp.not.i.i.i.i.i2395
   br i1 %or.cond.i.i.i.i2396, label %ehcleanup571, label %delete.notnull.i.i.i.i.i.i2397
 
@@ -25926,7 +25926,7 @@ if.then.i.i.i2401:                                ; preds = %lpad534
   %824 = load ptr, ptr %ref.tmp530, align 8
   %tobool.not.i.i.i.i2402 = icmp eq ptr %824, null
   %825 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1532, align 8
-  %cmp.not.i.i.i.i.i2404 = icmp eq ptr %825, %824
+  %cmp.not.i.i.i.i.i2404 = icmp eq ptr %824, %825
   %or.cond.i.i.i.i2405 = select i1 %tobool.not.i.i.i.i2402, i1 true, i1 %cmp.not.i.i.i.i.i2404
   br i1 %or.cond.i.i.i.i2405, label %ehcleanup570, label %delete.notnull.i.i.i.i.i.i2406
 
@@ -25950,7 +25950,7 @@ if.then.i.i.i2410:                                ; preds = %lpad547
   %829 = load ptr, ptr %ref.tmp543, align 8
   %tobool.not.i.i.i.i2411 = icmp eq ptr %829, null
   %830 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i1626, align 8
-  %cmp.not.i.i.i.i.i2413 = icmp eq ptr %830, %829
+  %cmp.not.i.i.i.i.i2413 = icmp eq ptr %829, %830
   %or.cond.i.i.i.i2414 = select i1 %tobool.not.i.i.i.i2411, i1 true, i1 %cmp.not.i.i.i.i.i2413
   br i1 %or.cond.i.i.i.i2414, label %ehcleanup569, label %delete.notnull.i.i.i.i.i.i2415
 
@@ -25975,7 +25975,7 @@ if.then.i.i.i2419:                                ; preds = %lpad560
   %tobool.not.i.i.i.i2420 = icmp eq ptr %834, null
   %mpPoolBegin.i.i.i.i.i2421 = getelementptr inbounds i8, ptr %ref.tmp556, i64 32
   %835 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2421, align 8
-  %cmp.not.i.i.i.i.i2422 = icmp eq ptr %835, %834
+  %cmp.not.i.i.i.i.i2422 = icmp eq ptr %834, %835
   %or.cond.i.i.i.i2423 = select i1 %tobool.not.i.i.i.i2420, i1 true, i1 %cmp.not.i.i.i.i.i2422
   br i1 %or.cond.i.i.i.i2423, label %ehcleanup568, label %delete.notnull.i.i.i.i.i.i2424
 
@@ -25994,7 +25994,7 @@ if.then.i.i.i2428:                                ; preds = %ehcleanup568
   %837 = load ptr, ptr %a4, align 8
   %tobool.not.i.i.i.i2429 = icmp eq ptr %837, null
   %838 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1697, align 8
-  %cmp.not.i.i.i.i.i2431 = icmp eq ptr %838, %837
+  %cmp.not.i.i.i.i.i2431 = icmp eq ptr %837, %838
   %or.cond.i.i.i.i2432 = select i1 %tobool.not.i.i.i.i2429, i1 true, i1 %cmp.not.i.i.i.i.i2431
   br i1 %or.cond.i.i.i.i2432, label %ehcleanup569, label %delete.notnull.i.i.i.i.i.i2433
 
@@ -26013,7 +26013,7 @@ if.then.i.i.i2437:                                ; preds = %ehcleanup569
   %840 = load ptr, ptr %a3, align 8
   %tobool.not.i.i.i.i2438 = icmp eq ptr %840, null
   %841 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1602, align 8
-  %cmp.not.i.i.i.i.i2440 = icmp eq ptr %841, %840
+  %cmp.not.i.i.i.i.i2440 = icmp eq ptr %840, %841
   %or.cond.i.i.i.i2441 = select i1 %tobool.not.i.i.i.i2438, i1 true, i1 %cmp.not.i.i.i.i.i2440
   br i1 %or.cond.i.i.i.i2441, label %ehcleanup570, label %delete.notnull.i.i.i.i.i.i2442
 
@@ -26031,7 +26031,7 @@ if.then.i.i.i2446:                                ; preds = %ehcleanup570
   %843 = load ptr, ptr %b2, align 8
   %tobool.not.i.i.i.i2447 = icmp eq ptr %843, null
   %844 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1506, align 8
-  %cmp.not.i.i.i.i.i2449 = icmp eq ptr %844, %843
+  %cmp.not.i.i.i.i.i2449 = icmp eq ptr %843, %844
   %or.cond.i.i.i.i2450 = select i1 %tobool.not.i.i.i.i2447, i1 true, i1 %cmp.not.i.i.i.i.i2449
   br i1 %or.cond.i.i.i.i2450, label %ehcleanup571, label %delete.notnull.i.i.i.i.i.i2451
 
@@ -26049,7 +26049,7 @@ if.then.i.i.i2455:                                ; preds = %ehcleanup571
   %846 = load ptr, ptr %b1, align 8
   %tobool.not.i.i.i.i2456 = icmp eq ptr %846, null
   %847 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1410, align 8
-  %cmp.not.i.i.i.i.i2458 = icmp eq ptr %847, %846
+  %cmp.not.i.i.i.i.i2458 = icmp eq ptr %846, %847
   %or.cond.i.i.i.i2459 = select i1 %tobool.not.i.i.i.i2456, i1 true, i1 %cmp.not.i.i.i.i.i2458
   br i1 %or.cond.i.i.i.i2459, label %ehcleanup572, label %ehcleanup572.sink.split
 
@@ -26070,7 +26070,7 @@ if.then.i.i.i2464:                                ; preds = %ehcleanup572
   %849 = load ptr, ptr %a1, align 8
   %tobool.not.i.i.i.i2465 = icmp eq ptr %849, null
   %850 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1393, align 8
-  %cmp.not.i.i.i.i.i2467 = icmp eq ptr %850, %849
+  %cmp.not.i.i.i.i.i2467 = icmp eq ptr %849, %850
   %or.cond.i.i.i.i2468 = select i1 %tobool.not.i.i.i.i2465, i1 true, i1 %cmp.not.i.i.i.i.i2467
   br i1 %or.cond.i.i.i.i2468, label %ehcleanup573, label %delete.notnull.i.i.i.i.i.i2469
 
@@ -26088,7 +26088,7 @@ if.then.i.i.i2473:                                ; preds = %ehcleanup573
   %852 = load ptr, ptr %c, align 8
   %tobool.not.i.i.i.i2474 = icmp eq ptr %852, null
   %853 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i2476 = icmp eq ptr %853, %852
+  %cmp.not.i.i.i.i.i2476 = icmp eq ptr %852, %853
   %or.cond.i.i.i.i2477 = select i1 %tobool.not.i.i.i.i2474, i1 true, i1 %cmp.not.i.i.i.i.i2476
   br i1 %or.cond.i.i.i.i2477, label %ehcleanup574, label %ehcleanup574.sink.split
 
@@ -26109,7 +26109,7 @@ if.then.i.i.i2482:                                ; preds = %ehcleanup574
   %855 = load ptr, ptr %b, align 8
   %tobool.not.i.i.i.i2483 = icmp eq ptr %855, null
   %856 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1036, align 8
-  %cmp.not.i.i.i.i.i2485 = icmp eq ptr %856, %855
+  %cmp.not.i.i.i.i.i2485 = icmp eq ptr %855, %856
   %or.cond.i.i.i.i2486 = select i1 %tobool.not.i.i.i.i2483, i1 true, i1 %cmp.not.i.i.i.i.i2485
   br i1 %or.cond.i.i.i.i2486, label %ehcleanup575, label %ehcleanup575.sink.split
 
@@ -26130,7 +26130,7 @@ if.then.i.i.i2491:                                ; preds = %ehcleanup575
   %858 = load ptr, ptr %a, align 8
   %tobool.not.i.i.i.i2492 = icmp eq ptr %858, null
   %859 = load ptr, ptr %mpPoolBegin.i.i.i.i.i1022, align 8
-  %cmp.not.i.i.i.i.i2494 = icmp eq ptr %859, %858
+  %cmp.not.i.i.i.i.i2494 = icmp eq ptr %858, %859
   %or.cond.i.i.i.i2495 = select i1 %tobool.not.i.i.i.i2492, i1 true, i1 %cmp.not.i.i.i.i.i2494
   br i1 %or.cond.i.i.i.i2495, label %ehcleanup595, label %delete.notnull.i.i.i.i.i.i2496
 
@@ -26148,7 +26148,7 @@ if.then.i.i.i2500:                                ; preds = %ehcleanup595
   %861 = load ptr, ptr %fs88, align 8
   %tobool.not.i.i.i.i2501 = icmp eq ptr %861, null
   %862 = load ptr, ptr %mpPoolBegin.i.i.i.i.i996, align 8
-  %cmp.not.i.i.i.i.i2503 = icmp eq ptr %862, %861
+  %cmp.not.i.i.i.i.i2503 = icmp eq ptr %861, %862
   %or.cond.i.i.i.i2504 = select i1 %tobool.not.i.i.i.i2501, i1 true, i1 %cmp.not.i.i.i.i.i2503
   br i1 %or.cond.i.i.i.i2504, label %ehcleanup596, label %delete.notnull.i.i.i.i.i.i2505
 
@@ -26167,7 +26167,7 @@ if.then.i.i.i2509:                                ; preds = %ehcleanup596
   %tobool.not.i.i.i.i2510 = icmp eq ptr %864, null
   %mpPoolBegin.i.i.i.i.i2511 = getelementptr inbounds i8, ptr %fs10, i64 32
   %865 = load ptr, ptr %mpPoolBegin.i.i.i.i.i2511, align 8
-  %cmp.not.i.i.i.i.i2512 = icmp eq ptr %865, %864
+  %cmp.not.i.i.i.i.i2512 = icmp eq ptr %864, %865
   %or.cond.i.i.i.i2513 = select i1 %tobool.not.i.i.i.i2510, i1 true, i1 %cmp.not.i.i.i.i.i2512
   br i1 %or.cond.i.i.i.i2513, label %ehcleanup597, label %delete.notnull.i.i.i.i.i.i2514
 
@@ -26185,7 +26185,7 @@ if.then.i.i.i2518:                                ; preds = %ehcleanup597
   %867 = load ptr, ptr %fs9, align 8
   %tobool.not.i.i.i.i2519 = icmp eq ptr %867, null
   %868 = load ptr, ptr %mpPoolBegin.i.i.i.i.i754, align 8
-  %cmp.not.i.i.i.i.i2521 = icmp eq ptr %868, %867
+  %cmp.not.i.i.i.i.i2521 = icmp eq ptr %867, %868
   %or.cond.i.i.i.i2522 = select i1 %tobool.not.i.i.i.i2519, i1 true, i1 %cmp.not.i.i.i.i.i2521
   br i1 %or.cond.i.i.i.i2522, label %ehcleanup598, label %delete.notnull.i.i.i.i.i.i2523
 
@@ -26203,7 +26203,7 @@ if.then.i.i.i2527:                                ; preds = %ehcleanup598
   %870 = load ptr, ptr %fs8, align 8
   %tobool.not.i.i.i.i2528 = icmp eq ptr %870, null
   %871 = load ptr, ptr %mpPoolBegin.i.i.i.i.i719, align 8
-  %cmp.not.i.i.i.i.i2530 = icmp eq ptr %871, %870
+  %cmp.not.i.i.i.i.i2530 = icmp eq ptr %870, %871
   %or.cond.i.i.i.i2531 = select i1 %tobool.not.i.i.i.i2528, i1 true, i1 %cmp.not.i.i.i.i.i2530
   br i1 %or.cond.i.i.i.i2531, label %ehcleanup599, label %delete.notnull.i.i.i.i.i.i2532
 
@@ -26221,7 +26221,7 @@ if.then.i.i.i2536:                                ; preds = %ehcleanup599
   %873 = load ptr, ptr %fs7, align 8
   %tobool.not.i.i.i.i2537 = icmp eq ptr %873, null
   %874 = load ptr, ptr %mpPoolBegin.i.i.i.i.i677, align 8
-  %cmp.not.i.i.i.i.i2539 = icmp eq ptr %874, %873
+  %cmp.not.i.i.i.i.i2539 = icmp eq ptr %873, %874
   %or.cond.i.i.i.i2540 = select i1 %tobool.not.i.i.i.i2537, i1 true, i1 %cmp.not.i.i.i.i.i2539
   br i1 %or.cond.i.i.i.i2540, label %ehcleanup600, label %delete.notnull.i.i.i.i.i.i2541
 
@@ -26239,7 +26239,7 @@ if.then.i.i.i2545:                                ; preds = %ehcleanup600
   %876 = load ptr, ptr %fs6, align 8
   %tobool.not.i.i.i.i2546 = icmp eq ptr %876, null
   %877 = load ptr, ptr %mpPoolBegin.i.i.i.i.i632, align 8
-  %cmp.not.i.i.i.i.i2548 = icmp eq ptr %877, %876
+  %cmp.not.i.i.i.i.i2548 = icmp eq ptr %876, %877
   %or.cond.i.i.i.i2549 = select i1 %tobool.not.i.i.i.i2546, i1 true, i1 %cmp.not.i.i.i.i.i2548
   br i1 %or.cond.i.i.i.i2549, label %ehcleanup601, label %delete.notnull.i.i.i.i.i.i2550
 
@@ -26257,7 +26257,7 @@ if.then.i.i.i2554:                                ; preds = %ehcleanup601
   %879 = load ptr, ptr %fs5, align 8
   %tobool.not.i.i.i.i2555 = icmp eq ptr %879, null
   %880 = load ptr, ptr %mpPoolBegin.i.i.i.i.i597, align 8
-  %cmp.not.i.i.i.i.i2557 = icmp eq ptr %880, %879
+  %cmp.not.i.i.i.i.i2557 = icmp eq ptr %879, %880
   %or.cond.i.i.i.i2558 = select i1 %tobool.not.i.i.i.i2555, i1 true, i1 %cmp.not.i.i.i.i.i2557
   br i1 %or.cond.i.i.i.i2558, label %ehcleanup602, label %delete.notnull.i.i.i.i.i.i2559
 
@@ -26275,7 +26275,7 @@ if.then.i.i.i2563:                                ; preds = %ehcleanup602
   %882 = load ptr, ptr %fs4, align 8
   %tobool.not.i.i.i.i2564 = icmp eq ptr %882, null
   %883 = load ptr, ptr %mpPoolBegin.i.i.i.i.i554, align 8
-  %cmp.not.i.i.i.i.i2566 = icmp eq ptr %883, %882
+  %cmp.not.i.i.i.i.i2566 = icmp eq ptr %882, %883
   %or.cond.i.i.i.i2567 = select i1 %tobool.not.i.i.i.i2564, i1 true, i1 %cmp.not.i.i.i.i.i2566
   br i1 %or.cond.i.i.i.i2567, label %ehcleanup603, label %delete.notnull.i.i.i.i.i.i2568
 
@@ -26293,7 +26293,7 @@ if.then.i.i.i2572:                                ; preds = %ehcleanup603
   %885 = load ptr, ptr %fs3, align 8
   %tobool.not.i.i.i.i2573 = icmp eq ptr %885, null
   %886 = load ptr, ptr %mpPoolBegin.i.i.i.i.i508, align 8
-  %cmp.not.i.i.i.i.i2575 = icmp eq ptr %886, %885
+  %cmp.not.i.i.i.i.i2575 = icmp eq ptr %885, %886
   %or.cond.i.i.i.i2576 = select i1 %tobool.not.i.i.i.i2573, i1 true, i1 %cmp.not.i.i.i.i.i2575
   br i1 %or.cond.i.i.i.i2576, label %ehcleanup604, label %delete.notnull.i.i.i.i.i.i2577
 
@@ -26311,7 +26311,7 @@ if.then.i.i.i2581:                                ; preds = %ehcleanup604
   %888 = load ptr, ptr %fs2, align 8
   %tobool.not.i.i.i.i2582 = icmp eq ptr %888, null
   %889 = load ptr, ptr %mpPoolBegin.i.i.i.i.i473, align 8
-  %cmp.not.i.i.i.i.i2584 = icmp eq ptr %889, %888
+  %cmp.not.i.i.i.i.i2584 = icmp eq ptr %888, %889
   %or.cond.i.i.i.i2585 = select i1 %tobool.not.i.i.i.i2582, i1 true, i1 %cmp.not.i.i.i.i.i2584
   br i1 %or.cond.i.i.i.i2585, label %ehcleanup606, label %delete.notnull.i.i.i.i.i.i2586
 
@@ -26329,7 +26329,7 @@ if.then.i.i.i2590:                                ; preds = %ehcleanup606
   %891 = load ptr, ptr %fs1, align 8
   %tobool.not.i.i.i.i2591 = icmp eq ptr %891, null
   %892 = load ptr, ptr %mpPoolBegin.i.i.i.i.i456, align 8
-  %cmp.not.i.i.i.i.i2593 = icmp eq ptr %892, %891
+  %cmp.not.i.i.i.i.i2593 = icmp eq ptr %891, %892
   %or.cond.i.i.i.i2594 = select i1 %tobool.not.i.i.i.i2591, i1 true, i1 %cmp.not.i.i.i.i.i2593
   br i1 %or.cond.i.i.i.i2594, label %eh.resume, label %delete.notnull.i.i.i.i.i.i2595
 
@@ -26525,7 +26525,7 @@ if.then32:                                        ; preds = %cond.end
   %tobool.not.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i = icmp eq ptr %7, %8
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end38, label %delete.notnull.i.i.i
 
@@ -26567,7 +26567,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -26606,7 +26606,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -26615,7 +26615,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -26672,7 +26672,7 @@ if.then.i.i:                                      ; preds = %entry
   %tobool.not.i.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
@@ -26879,7 +26879,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -26918,7 +26918,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -26927,7 +26927,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -26984,7 +26984,7 @@ if.then.i.i:                                      ; preds = %entry
   %tobool.not.i.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -27025,7 +27025,7 @@ if.then.i.i:                                      ; preds = %entry
   %tobool.not.i.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm32ELm1ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -27062,7 +27062,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %delete.notnull.i.i.i.i
 
@@ -27090,7 +27090,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %delete.notnull.i.i.i.i
 
@@ -27117,7 +27117,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -27185,7 +27185,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %delete.notnull.i.i.i
 
@@ -27223,7 +27223,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -27243,7 +27243,7 @@ if.then.i68:                                      ; preds = %if.then17
   %tobool.not.i.i69 = icmp eq ptr %19, null
   %mpPoolBegin.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load ptr, ptr %mpPoolBegin.i.i.i70, align 8
-  %cmp.not.i.i.i71 = icmp eq ptr %20, %19
+  %cmp.not.i.i.i71 = icmp eq ptr %19, %20
   %or.cond.i.i72 = select i1 %tobool.not.i.i69, i1 true, i1 %cmp.not.i.i.i71
   br i1 %or.cond.i.i72, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm1ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit74, label %delete.notnull.i.i.i.i73
 
@@ -27483,7 +27483,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %11
+  %cmp.not.i.i.i.i.i = icmp eq ptr %11, %12
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIcLi1ELb1ENS_9allocatorEED2Ev.exit, label %delete.notnull.i.i.i.i.i.i
 
@@ -27507,7 +27507,7 @@ if.then.i.i.i26:                                  ; preds = %lpad
   %tobool.not.i.i.i.i27 = icmp eq ptr %15, null
   %mpPoolBegin.i.i.i.i.i28 = getelementptr inbounds i8, ptr %temp, i64 32
   %16 = load ptr, ptr %mpPoolBegin.i.i.i.i.i28, align 8
-  %cmp.not.i.i.i.i.i29 = icmp eq ptr %16, %15
+  %cmp.not.i.i.i.i.i29 = icmp eq ptr %15, %16
   %or.cond.i.i.i.i30 = select i1 %tobool.not.i.i.i.i27, i1 true, i1 %cmp.not.i.i.i.i.i29
   br i1 %or.cond.i.i.i.i30, label %_ZN5eastl12fixed_stringIcLi1ELb1ENS_9allocatorEED2Ev.exit32, label %delete.notnull.i.i.i.i.i.i31
 
@@ -27536,7 +27536,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -27605,7 +27605,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %delete.notnull.i.i.i
 
@@ -27644,7 +27644,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -27664,7 +27664,7 @@ if.then.i68:                                      ; preds = %if.then17
   %tobool.not.i.i69 = icmp eq ptr %19, null
   %mpPoolBegin.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load ptr, ptr %mpPoolBegin.i.i.i70, align 8
-  %cmp.not.i.i.i71 = icmp eq ptr %20, %19
+  %cmp.not.i.i.i71 = icmp eq ptr %19, %20
   %or.cond.i.i72 = select i1 %tobool.not.i.i69, i1 true, i1 %cmp.not.i.i.i71
   br i1 %or.cond.i.i72, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit74, label %delete.notnull.i.i.i.i73
 
@@ -27900,7 +27900,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %11
+  %cmp.not.i.i.i.i.i = icmp eq ptr %11, %12
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIDsLi1ELb1ENS_9allocatorEED2Ev.exit, label %delete.notnull.i.i.i.i.i.i
 
@@ -27924,7 +27924,7 @@ if.then.i.i.i26:                                  ; preds = %lpad
   %tobool.not.i.i.i.i27 = icmp eq ptr %15, null
   %mpPoolBegin.i.i.i.i.i28 = getelementptr inbounds i8, ptr %temp, i64 32
   %16 = load ptr, ptr %mpPoolBegin.i.i.i.i.i28, align 8
-  %cmp.not.i.i.i.i.i29 = icmp eq ptr %16, %15
+  %cmp.not.i.i.i.i.i29 = icmp eq ptr %15, %16
   %or.cond.i.i.i.i30 = select i1 %tobool.not.i.i.i.i27, i1 true, i1 %cmp.not.i.i.i.i.i29
   br i1 %or.cond.i.i.i.i30, label %_ZN5eastl12fixed_stringIDsLi1ELb1ENS_9allocatorEED2Ev.exit32, label %delete.notnull.i.i.i.i.i.i31
 
@@ -27951,7 +27951,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -28020,7 +28020,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %delete.notnull.i.i.i
 
@@ -28059,7 +28059,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -28079,7 +28079,7 @@ if.then.i68:                                      ; preds = %if.then17
   %tobool.not.i.i69 = icmp eq ptr %19, null
   %mpPoolBegin.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load ptr, ptr %mpPoolBegin.i.i.i70, align 8
-  %cmp.not.i.i.i71 = icmp eq ptr %20, %19
+  %cmp.not.i.i.i71 = icmp eq ptr %19, %20
   %or.cond.i.i72 = select i1 %tobool.not.i.i69, i1 true, i1 %cmp.not.i.i.i71
   br i1 %or.cond.i.i72, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit74, label %delete.notnull.i.i.i.i73
 
@@ -28315,7 +28315,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %11
+  %cmp.not.i.i.i.i.i = icmp eq ptr %11, %12
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIDiLi1ELb1ENS_9allocatorEED2Ev.exit, label %delete.notnull.i.i.i.i.i.i
 
@@ -28339,7 +28339,7 @@ if.then.i.i.i26:                                  ; preds = %lpad
   %tobool.not.i.i.i.i27 = icmp eq ptr %15, null
   %mpPoolBegin.i.i.i.i.i28 = getelementptr inbounds i8, ptr %temp, i64 32
   %16 = load ptr, ptr %mpPoolBegin.i.i.i.i.i28, align 8
-  %cmp.not.i.i.i.i.i29 = icmp eq ptr %16, %15
+  %cmp.not.i.i.i.i.i29 = icmp eq ptr %15, %16
   %or.cond.i.i.i.i30 = select i1 %tobool.not.i.i.i.i27, i1 true, i1 %cmp.not.i.i.i.i.i29
   br i1 %or.cond.i.i.i.i30, label %_ZN5eastl12fixed_stringIDiLi1ELb1ENS_9allocatorEED2Ev.exit32, label %delete.notnull.i.i.i.i.i.i31
 
@@ -28402,7 +28402,7 @@ if.then:                                          ; preds = %entry
   %conv.i.i.i39 = zext nneg i8 %7 to i64
   %sub.i.i.i40 = sub nsw i64 23, %conv.i.i.i39
   %cond.i.i41 = select i1 %tobool.i.i.i37, i64 %8, i64 %sub.i.i.i40
-  %cmp.i = icmp ugt i64 %cond.i.i41, %add11
+  %cmp.i = icmp ult i64 %add11, %cond.i.i41
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -28441,7 +28441,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp8.i = icmp ult i64 %cond.i.i41, %add11
+  %cmp8.i = icmp ugt i64 %add11, %cond.i.i41
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
@@ -28484,7 +28484,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv.i.i.i52 = zext nneg i8 %16 to i64
   %sub.i.i.i53 = sub nsw i64 23, %conv.i.i.i52
   %cond.i.i54 = select i1 %tobool.i.i.i50, i64 %17, i64 %sub.i.i.i53
-  %cmp.i55 = icmp ugt i64 %cond.i.i54, %n.0129
+  %cmp.i55 = icmp ult i64 %n.0129, %cond.i.i54
   br i1 %cmp.i55, label %if.then.i61, label %if.else.i56
 
 if.then.i61:                                      ; preds = %for.body
@@ -28523,7 +28523,7 @@ cond.false.i.i.i77:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ult i64 %cond.i.i54, %n.0129
+  %cmp8.i57 = icmp ugt i64 %n.0129, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -28553,7 +28553,7 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
   %conv.i.i.i88 = zext nneg i8 %25 to i64
   %sub.i.i.i89 = sub nsw i64 23, %conv.i.i.i88
   %cond.i.i90 = select i1 %tobool.i.i.i86, i64 %26, i64 %sub.i.i.i89
-  %cmp.i91 = icmp ugt i64 %cond.i.i90, %inc
+  %cmp.i91 = icmp ult i64 %inc, %cond.i.i90
   br i1 %cmp.i91, label %if.then.i97, label %if.else.i92
 
 if.then.i97:                                      ; preds = %if.then30
@@ -28592,7 +28592,7 @@ cond.false.i.i.i113:                              ; preds = %if.then.i.i104
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116
 
 if.else.i92:                                      ; preds = %if.then30
-  %cmp8.i93.not = icmp ugt i64 %cond.i.i90, %n.0129
+  %cmp8.i93.not = icmp ult i64 %n.0129, %cond.i.i90
   br i1 %cmp8.i93.not, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116, label %if.then9.i94
 
 if.then9.i94:                                     ; preds = %if.else.i92
@@ -28904,7 +28904,7 @@ if.then:                                          ; preds = %entry
   %conv.i.i.i39 = zext nneg i8 %7 to i64
   %sub.i.i.i40 = sub nsw i64 11, %conv.i.i.i39
   %cond.i.i41 = select i1 %tobool.i.i.i37, i64 %8, i64 %sub.i.i.i40
-  %cmp.i = icmp ugt i64 %cond.i.i41, %add11
+  %cmp.i = icmp ult i64 %add11, %cond.i.i41
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -28944,7 +28944,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp8.i = icmp ult i64 %cond.i.i41, %add11
+  %cmp8.i = icmp ugt i64 %add11, %cond.i.i41
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
@@ -28987,7 +28987,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv.i.i.i52 = zext nneg i8 %16 to i64
   %sub.i.i.i53 = sub nsw i64 11, %conv.i.i.i52
   %cond.i.i54 = select i1 %tobool.i.i.i50, i64 %17, i64 %sub.i.i.i53
-  %cmp.i55 = icmp ugt i64 %cond.i.i54, %n.0131
+  %cmp.i55 = icmp ult i64 %n.0131, %cond.i.i54
   br i1 %cmp.i55, label %if.then.i61, label %if.else.i56
 
 if.then.i61:                                      ; preds = %for.body
@@ -29027,7 +29027,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ult i64 %cond.i.i54, %n.0131
+  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -29057,7 +29057,7 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
   %conv.i.i.i89 = zext nneg i8 %25 to i64
   %sub.i.i.i90 = sub nsw i64 11, %conv.i.i.i89
   %cond.i.i91 = select i1 %tobool.i.i.i87, i64 %26, i64 %sub.i.i.i90
-  %cmp.i92 = icmp ugt i64 %cond.i.i91, %inc
+  %cmp.i92 = icmp ult i64 %inc, %cond.i.i91
   br i1 %cmp.i92, label %if.then.i98, label %if.else.i93
 
 if.then.i98:                                      ; preds = %if.then30
@@ -29097,7 +29097,7 @@ cond.false.i.i.i115:                              ; preds = %if.then.i.i105
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118
 
 if.else.i93:                                      ; preds = %if.then30
-  %cmp8.i94.not = icmp ugt i64 %cond.i.i91, %n.0131
+  %cmp8.i94.not = icmp ult i64 %n.0131, %cond.i.i91
   br i1 %cmp8.i94.not, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118, label %if.then9.i95
 
 if.then9.i95:                                     ; preds = %if.else.i93
@@ -29411,7 +29411,7 @@ if.then:                                          ; preds = %entry
   %conv.i.i.i39 = zext nneg i8 %7 to i64
   %sub.i.i.i40 = sub nsw i64 5, %conv.i.i.i39
   %cond.i.i41 = select i1 %tobool.i.i.i37, i64 %8, i64 %sub.i.i.i40
-  %cmp.i = icmp ugt i64 %cond.i.i41, %add11
+  %cmp.i = icmp ult i64 %add11, %cond.i.i41
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -29451,7 +29451,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp8.i = icmp ult i64 %cond.i.i41, %add11
+  %cmp8.i = icmp ugt i64 %add11, %cond.i.i41
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
@@ -29494,7 +29494,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv.i.i.i52 = zext nneg i8 %16 to i64
   %sub.i.i.i53 = sub nsw i64 5, %conv.i.i.i52
   %cond.i.i54 = select i1 %tobool.i.i.i50, i64 %17, i64 %sub.i.i.i53
-  %cmp.i55 = icmp ugt i64 %cond.i.i54, %n.0131
+  %cmp.i55 = icmp ult i64 %n.0131, %cond.i.i54
   br i1 %cmp.i55, label %if.then.i61, label %if.else.i56
 
 if.then.i61:                                      ; preds = %for.body
@@ -29534,7 +29534,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ult i64 %cond.i.i54, %n.0131
+  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -29564,7 +29564,7 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
   %conv.i.i.i89 = zext nneg i8 %25 to i64
   %sub.i.i.i90 = sub nsw i64 5, %conv.i.i.i89
   %cond.i.i91 = select i1 %tobool.i.i.i87, i64 %26, i64 %sub.i.i.i90
-  %cmp.i92 = icmp ugt i64 %cond.i.i91, %inc
+  %cmp.i92 = icmp ult i64 %inc, %cond.i.i91
   br i1 %cmp.i92, label %if.then.i98, label %if.else.i93
 
 if.then.i98:                                      ; preds = %if.then30
@@ -29604,7 +29604,7 @@ cond.false.i.i.i115:                              ; preds = %if.then.i.i105
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118
 
 if.else.i93:                                      ; preds = %if.then30
-  %cmp8.i94.not = icmp ugt i64 %cond.i.i91, %n.0131
+  %cmp8.i94.not = icmp ult i64 %n.0131, %cond.i.i91
   br i1 %cmp8.i94.not, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118, label %if.then9.i95
 
 if.then9.i95:                                     ; preds = %if.else.i93
@@ -29880,7 +29880,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -29948,7 +29948,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %if.then.i.i
 
@@ -29989,7 +29989,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 
@@ -30012,7 +30012,7 @@ if.then.i71:                                      ; preds = %if.then17
   %tobool.not.i.i72 = icmp eq ptr %20, null
   %mpPoolBegin.i.i.i73 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %mpPoolBegin.i.i.i73, align 8
-  %cmp.not.i.i.i74 = icmp eq ptr %21, %20
+  %cmp.not.i.i.i74 = icmp eq ptr %20, %21
   %or.cond.i.i75 = select i1 %tobool.not.i.i72, i1 true, i1 %cmp.not.i.i.i74
   br i1 %or.cond.i.i75, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit81, label %if.then.i.i.i76
 
@@ -30246,7 +30246,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 40
   %12 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %11
+  %cmp.not.i.i.i.i.i = icmp eq ptr %11, %12
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIcLi128ELb1E15MallocAllocatorED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -30289,7 +30289,7 @@ if.then.i.i:                                      ; preds = %entry
   %tobool.not.i.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -30328,7 +30328,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -30397,7 +30397,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %if.then.i.i
 
@@ -30440,7 +30440,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 
@@ -30463,7 +30463,7 @@ if.then.i71:                                      ; preds = %if.then17
   %tobool.not.i.i72 = icmp eq ptr %20, null
   %mpPoolBegin.i.i.i73 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %mpPoolBegin.i.i.i73, align 8
-  %cmp.not.i.i.i74 = icmp eq ptr %21, %20
+  %cmp.not.i.i.i74 = icmp eq ptr %20, %21
   %or.cond.i.i75 = select i1 %tobool.not.i.i72, i1 true, i1 %cmp.not.i.i.i74
   br i1 %or.cond.i.i75, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit81, label %if.then.i.i.i76
 
@@ -30700,7 +30700,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 40
   %12 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %11
+  %cmp.not.i.i.i.i.i = icmp eq ptr %11, %12
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIDsLi128ELb1E15MallocAllocatorED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -30743,7 +30743,7 @@ if.then.i.i:                                      ; preds = %entry
   %tobool.not.i.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -30782,7 +30782,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -30851,7 +30851,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %if.then.i.i
 
@@ -30894,7 +30894,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 
@@ -30917,7 +30917,7 @@ if.then.i71:                                      ; preds = %if.then17
   %tobool.not.i.i72 = icmp eq ptr %20, null
   %mpPoolBegin.i.i.i73 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %mpPoolBegin.i.i.i73, align 8
-  %cmp.not.i.i.i74 = icmp eq ptr %21, %20
+  %cmp.not.i.i.i74 = icmp eq ptr %20, %21
   %or.cond.i.i75 = select i1 %tobool.not.i.i72, i1 true, i1 %cmp.not.i.i.i74
   br i1 %or.cond.i.i75, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit81, label %if.then.i.i.i76
 
@@ -31154,7 +31154,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   %mpPoolBegin.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 40
   %12 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %12, %11
+  %cmp.not.i.i.i.i.i = icmp eq ptr %11, %12
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIDiLi128ELb1E15MallocAllocatorED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -31197,7 +31197,7 @@ if.then.i.i:                                      ; preds = %entry
   %tobool.not.i.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -31272,7 +31272,7 @@ if.then:                                          ; preds = %entry
   %conv.i.i.i39 = zext nneg i8 %7 to i64
   %sub.i.i.i40 = sub nsw i64 23, %conv.i.i.i39
   %cond.i.i41 = select i1 %tobool.i.i.i37, i64 %8, i64 %sub.i.i.i40
-  %cmp.i = icmp ugt i64 %cond.i.i41, %add11
+  %cmp.i = icmp ult i64 %add11, %cond.i.i41
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -31311,7 +31311,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp8.i = icmp ult i64 %cond.i.i41, %add11
+  %cmp8.i = icmp ugt i64 %add11, %cond.i.i41
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
@@ -31354,7 +31354,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv.i.i.i52 = zext nneg i8 %16 to i64
   %sub.i.i.i53 = sub nsw i64 23, %conv.i.i.i52
   %cond.i.i54 = select i1 %tobool.i.i.i50, i64 %17, i64 %sub.i.i.i53
-  %cmp.i55 = icmp ugt i64 %cond.i.i54, %n.0129
+  %cmp.i55 = icmp ult i64 %n.0129, %cond.i.i54
   br i1 %cmp.i55, label %if.then.i61, label %if.else.i56
 
 if.then.i61:                                      ; preds = %for.body
@@ -31393,7 +31393,7 @@ cond.false.i.i.i77:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ult i64 %cond.i.i54, %n.0129
+  %cmp8.i57 = icmp ugt i64 %n.0129, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -31423,7 +31423,7 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
   %conv.i.i.i88 = zext nneg i8 %25 to i64
   %sub.i.i.i89 = sub nsw i64 23, %conv.i.i.i88
   %cond.i.i90 = select i1 %tobool.i.i.i86, i64 %26, i64 %sub.i.i.i89
-  %cmp.i91 = icmp ugt i64 %cond.i.i90, %inc
+  %cmp.i91 = icmp ult i64 %inc, %cond.i.i90
   br i1 %cmp.i91, label %if.then.i97, label %if.else.i92
 
 if.then.i97:                                      ; preds = %if.then30
@@ -31462,7 +31462,7 @@ cond.false.i.i.i113:                              ; preds = %if.then.i.i104
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116
 
 if.else.i92:                                      ; preds = %if.then30
-  %cmp8.i93.not = icmp ugt i64 %cond.i.i90, %n.0129
+  %cmp8.i93.not = icmp ult i64 %n.0129, %cond.i.i90
   br i1 %cmp8.i93.not, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116, label %if.then9.i94
 
 if.then9.i94:                                     ; preds = %if.else.i92
@@ -31774,7 +31774,7 @@ if.then:                                          ; preds = %entry
   %conv.i.i.i39 = zext nneg i8 %7 to i64
   %sub.i.i.i40 = sub nsw i64 11, %conv.i.i.i39
   %cond.i.i41 = select i1 %tobool.i.i.i37, i64 %8, i64 %sub.i.i.i40
-  %cmp.i = icmp ugt i64 %cond.i.i41, %add11
+  %cmp.i = icmp ult i64 %add11, %cond.i.i41
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -31814,7 +31814,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp8.i = icmp ult i64 %cond.i.i41, %add11
+  %cmp8.i = icmp ugt i64 %add11, %cond.i.i41
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
@@ -31857,7 +31857,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv.i.i.i52 = zext nneg i8 %16 to i64
   %sub.i.i.i53 = sub nsw i64 11, %conv.i.i.i52
   %cond.i.i54 = select i1 %tobool.i.i.i50, i64 %17, i64 %sub.i.i.i53
-  %cmp.i55 = icmp ugt i64 %cond.i.i54, %n.0131
+  %cmp.i55 = icmp ult i64 %n.0131, %cond.i.i54
   br i1 %cmp.i55, label %if.then.i61, label %if.else.i56
 
 if.then.i61:                                      ; preds = %for.body
@@ -31897,7 +31897,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ult i64 %cond.i.i54, %n.0131
+  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -31927,7 +31927,7 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
   %conv.i.i.i89 = zext nneg i8 %25 to i64
   %sub.i.i.i90 = sub nsw i64 11, %conv.i.i.i89
   %cond.i.i91 = select i1 %tobool.i.i.i87, i64 %26, i64 %sub.i.i.i90
-  %cmp.i92 = icmp ugt i64 %cond.i.i91, %inc
+  %cmp.i92 = icmp ult i64 %inc, %cond.i.i91
   br i1 %cmp.i92, label %if.then.i98, label %if.else.i93
 
 if.then.i98:                                      ; preds = %if.then30
@@ -31967,7 +31967,7 @@ cond.false.i.i.i115:                              ; preds = %if.then.i.i105
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118
 
 if.else.i93:                                      ; preds = %if.then30
-  %cmp8.i94.not = icmp ugt i64 %cond.i.i91, %n.0131
+  %cmp8.i94.not = icmp ult i64 %n.0131, %cond.i.i91
   br i1 %cmp8.i94.not, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118, label %if.then9.i95
 
 if.then9.i95:                                     ; preds = %if.else.i93
@@ -32281,7 +32281,7 @@ if.then:                                          ; preds = %entry
   %conv.i.i.i39 = zext nneg i8 %7 to i64
   %sub.i.i.i40 = sub nsw i64 5, %conv.i.i.i39
   %cond.i.i41 = select i1 %tobool.i.i.i37, i64 %8, i64 %sub.i.i.i40
-  %cmp.i = icmp ugt i64 %cond.i.i41, %add11
+  %cmp.i = icmp ult i64 %add11, %cond.i.i41
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -32321,7 +32321,7 @@ cond.false.i.i.i:                                 ; preds = %if.then.i.i
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %if.then
-  %cmp8.i = icmp ult i64 %cond.i.i41, %add11
+  %cmp8.i = icmp ugt i64 %add11, %cond.i.i41
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
@@ -32364,7 +32364,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv.i.i.i52 = zext nneg i8 %16 to i64
   %sub.i.i.i53 = sub nsw i64 5, %conv.i.i.i52
   %cond.i.i54 = select i1 %tobool.i.i.i50, i64 %17, i64 %sub.i.i.i53
-  %cmp.i55 = icmp ugt i64 %cond.i.i54, %n.0131
+  %cmp.i55 = icmp ult i64 %n.0131, %cond.i.i54
   br i1 %cmp.i55, label %if.then.i61, label %if.else.i56
 
 if.then.i61:                                      ; preds = %for.body
@@ -32404,7 +32404,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ult i64 %cond.i.i54, %n.0131
+  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -32434,7 +32434,7 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
   %conv.i.i.i89 = zext nneg i8 %25 to i64
   %sub.i.i.i90 = sub nsw i64 5, %conv.i.i.i89
   %cond.i.i91 = select i1 %tobool.i.i.i87, i64 %26, i64 %sub.i.i.i90
-  %cmp.i92 = icmp ugt i64 %cond.i.i91, %inc
+  %cmp.i92 = icmp ult i64 %inc, %cond.i.i91
   br i1 %cmp.i92, label %if.then.i98, label %if.else.i93
 
 if.then.i98:                                      ; preds = %if.then30
@@ -32474,7 +32474,7 @@ cond.false.i.i.i115:                              ; preds = %if.then.i.i105
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118
 
 if.else.i93:                                      ; preds = %if.then30
-  %cmp8.i94.not = icmp ugt i64 %cond.i.i91, %n.0131
+  %cmp8.i94.not = icmp ult i64 %n.0131, %cond.i.i91
   br i1 %cmp8.i94.not, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118, label %if.then9.i95
 
 if.then9.i95:                                     ; preds = %if.else.i93
@@ -32750,7 +32750,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -33296,8 +33296,8 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i4.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub5
-  %cmp10.not = icmp ule ptr %spec.select.i, %pEnd
-  %cmp13 = icmp uge ptr %cond.i4.i, %pBegin
+  %cmp10.not = icmp uge ptr %pEnd, %spec.select.i
+  %cmp13 = icmp ule ptr %pBegin, %cond.i4.i
   %or.cond = select i1 %cmp10.not, i1 %cmp13, i1 false
   br i1 %or.cond, label %land.lhs.true, label %if.end
 
@@ -33857,7 +33857,7 @@ entry:
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 5, %conv.i.i
   %cond.i = select i1 %tobool.i.i, i64 %1, i64 %sub.i.i
-  %cmp = icmp ugt i64 %cond.i, %n
+  %cmp = icmp ult i64 %n, %cond.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -33897,7 +33897,7 @@ cond.false.i.i:                                   ; preds = %if.then.i
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %cmp8 = icmp ult i64 %cond.i, %n
+  %cmp8 = icmp ugt i64 %n, %cond.i
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
@@ -33906,7 +33906,7 @@ if.then9:                                         ; preds = %if.else
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 5
-  %cmp4.i = icmp ult i64 %retval.0.i.i, %n
+  %cmp4.i = icmp ugt i64 %n, %retval.0.i.i
   %8 = lshr i64 %7, 56
   %9 = trunc nuw i64 %8 to i8
   br i1 %cmp4.i, label %if.then.i.i, label %if.end.i
@@ -33985,7 +33985,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -34054,7 +34054,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %delete.notnull.i.i.i
 
@@ -34093,7 +34093,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -34113,7 +34113,7 @@ if.then.i68:                                      ; preds = %if.then17
   %tobool.not.i.i69 = icmp eq ptr %19, null
   %mpPoolBegin.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load ptr, ptr %mpPoolBegin.i.i.i70, align 8
-  %cmp.not.i.i.i71 = icmp eq ptr %20, %19
+  %cmp.not.i.i.i71 = icmp eq ptr %19, %20
   %or.cond.i.i72 = select i1 %tobool.not.i.i69, i1 true, i1 %cmp.not.i.i.i71
   br i1 %or.cond.i.i72, label %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit74, label %delete.notnull.i.i.i.i73
 
@@ -34188,7 +34188,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -34289,7 +34289,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -34345,7 +34345,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -34413,7 +34413,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %delete.notnull.i.i.i
 
@@ -34451,7 +34451,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -34471,7 +34471,7 @@ if.then.i68:                                      ; preds = %if.then17
   %tobool.not.i.i69 = icmp eq ptr %19, null
   %mpPoolBegin.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load ptr, ptr %mpPoolBegin.i.i.i70, align 8
-  %cmp.not.i.i.i71 = icmp eq ptr %20, %19
+  %cmp.not.i.i.i71 = icmp eq ptr %19, %20
   %or.cond.i.i72 = select i1 %tobool.not.i.i69, i1 true, i1 %cmp.not.i.i.i71
   br i1 %or.cond.i.i72, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit74, label %delete.notnull.i.i.i.i73
 
@@ -34528,7 +34528,7 @@ if.then.i.i:                                      ; preds = %lpad.i
   %6 = load ptr, ptr %temp, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   %7 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %7, %6
+  %cmp.not.i.i.i.i = icmp eq ptr %6, %7
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %common.resume, label %common.resume.sink.split
 
@@ -34614,7 +34614,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont4
   %19 = load ptr, ptr %temp, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %19, null
   %20 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %20, %19
+  %cmp.not.i.i.i.i.i = icmp eq ptr %19, %20
   %or.cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN5eastl12fixed_stringIcLi64ELb1ENS_9allocatorEED2Ev.exit, label %delete.notnull.i.i.i.i.i.i
 
@@ -34637,7 +34637,7 @@ if.then.i.i.i36:                                  ; preds = %lpad
   %23 = load ptr, ptr %temp, align 8
   %tobool.not.i.i.i.i37 = icmp eq ptr %23, null
   %24 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i39 = icmp eq ptr %24, %23
+  %cmp.not.i.i.i.i.i39 = icmp eq ptr %23, %24
   %or.cond.i.i.i.i40 = select i1 %tobool.not.i.i.i.i37, i1 true, i1 %cmp.not.i.i.i.i.i39
   br i1 %or.cond.i.i.i.i40, label %common.resume, label %common.resume.sink.split
 }
@@ -34700,7 +34700,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -34756,7 +34756,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -34824,7 +34824,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %delete.notnull.i.i.i
 
@@ -34862,7 +34862,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -34882,7 +34882,7 @@ if.then.i68:                                      ; preds = %if.then17
   %tobool.not.i.i69 = icmp eq ptr %19, null
   %mpPoolBegin.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load ptr, ptr %mpPoolBegin.i.i.i70, align 8
-  %cmp.not.i.i.i71 = icmp eq ptr %20, %19
+  %cmp.not.i.i.i71 = icmp eq ptr %19, %20
   %or.cond.i.i72 = select i1 %tobool.not.i.i69, i1 true, i1 %cmp.not.i.i.i71
   br i1 %or.cond.i.i72, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit74, label %delete.notnull.i.i.i.i73
 
@@ -34935,8 +34935,8 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i4.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub5
-  %cmp10.not = icmp ule ptr %spec.select.i, %pEnd
-  %cmp13 = icmp uge ptr %cond.i4.i, %pBegin
+  %cmp10.not = icmp uge ptr %pEnd, %spec.select.i
+  %cmp13 = icmp ule ptr %pBegin, %cond.i4.i
   %or.cond = select i1 %cmp10.not, i1 %cmp13, i1 false
   br i1 %or.cond, label %land.lhs.true, label %if.end
 
@@ -35006,7 +35006,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %13 = load ptr, ptr %stackTemp, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
   %14 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %14, %13
+  %cmp.not.i.i.i.i = icmp eq ptr %13, %14
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %cmp.not.i.i.i.i
   br i1 %or.cond.i.i.i, label %return, label %delete.notnull.i.i.i.i.i
 
@@ -35025,7 +35025,7 @@ if.then.i.i70:                                    ; preds = %lpad
   %17 = load ptr, ptr %stackTemp, align 8
   %tobool.not.i.i.i71 = icmp eq ptr %17, null
   %18 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i73 = icmp eq ptr %18, %17
+  %cmp.not.i.i.i.i73 = icmp eq ptr %17, %18
   %or.cond.i.i.i74 = select i1 %tobool.not.i.i.i71, i1 true, i1 %cmp.not.i.i.i.i73
   br i1 %or.cond.i.i.i74, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEED2Ev.exit76, label %delete.notnull.i.i.i.i.i75
 
@@ -35198,7 +35198,7 @@ if.then.i:                                        ; preds = %if.end87
   %tobool.not.i.i = icmp eq ptr %41, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %42 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %42, %41
+  %cmp.not.i.i.i = icmp eq ptr %41, %42
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE14DeallocateSelfEv.exit, label %delete.notnull.i.i.i.i
 
@@ -35240,7 +35240,7 @@ if.then.i:                                        ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %1, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, %1
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %invoke.cont, label %delete.notnull.i.i.i.i
 
@@ -35267,7 +35267,7 @@ entry:
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %cond.i, %n
+  %cmp5 = icmp ult i64 %n, %cond.i
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.else
@@ -35335,7 +35335,7 @@ if.then21:                                        ; preds = %if.then19
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %mpPoolBegin.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, %spec.select.i
+  %cmp.not.i.i = icmp eq ptr %spec.select.i, %12
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not.i.i
   br i1 %or.cond.i, label %if.end47, label %if.then.i.i
 
@@ -35376,7 +35376,7 @@ if.then.i:                                        ; preds = %if.end32
   %tobool.not.i.i = icmp eq ptr %17, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %18, %17
+  %cmp.not.i.i.i = icmp eq ptr %17, %18
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 
@@ -35399,7 +35399,7 @@ if.then.i71:                                      ; preds = %if.then17
   %tobool.not.i.i72 = icmp eq ptr %20, null
   %mpPoolBegin.i.i.i73 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %mpPoolBegin.i.i.i73, align 8
-  %cmp.not.i.i.i74 = icmp eq ptr %21, %20
+  %cmp.not.i.i.i74 = icmp eq ptr %20, %21
   %or.cond.i.i75 = select i1 %tobool.not.i.i72, i1 true, i1 %cmp.not.i.i.i74
   br i1 %or.cond.i.i75, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm64ELm1ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit81, label %if.then.i.i.i76
 
@@ -35477,7 +35477,7 @@ if.then.i:                                        ; preds = %if.then5
   %tobool.not.i.i = icmp eq ptr %7, null
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %mpPoolBegin.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, %7
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not.i.i.i
   br i1 %or.cond.i.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm32ELm1ELm0ELb1E15MallocAllocatorEEE14DeallocateSelfEv.exit, label %if.then.i.i.i
 

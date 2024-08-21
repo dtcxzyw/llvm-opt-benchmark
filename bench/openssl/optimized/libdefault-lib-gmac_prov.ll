@@ -151,7 +151,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then3:                                         ; preds = %if.end
   %call.i = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %0) #5
   %conv.i = sext i32 %call.i to i64
-  %cmp.not.i = icmp eq i64 %conv.i, %keylen
+  %cmp.not.i = icmp eq i64 %keylen, %conv.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3

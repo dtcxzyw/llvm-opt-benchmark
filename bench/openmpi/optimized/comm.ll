@@ -2276,7 +2276,7 @@ define i32 @ompi_comm_split_type(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %98 = getelementptr inbounds [13 x %struct.ompi_comm_split_type_hw_guided_t], ptr @ompi_comm_split_type_hw_guided_support, i64 0, i64 %indvars.iv.next.i
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
-  %101 = icmp eq i32 %100, %1
+  %101 = icmp eq i32 %1, %100
   br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph, !llvm.loop !18
 
 102:                                              ; preds = %.lr.ph
@@ -3484,7 +3484,7 @@ define i32 @ompi_intercomm_create(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 21:                                               ; preds = %6
   %22 = icmp sgt i32 %1, -1
-  %.not = icmp sgt i32 %.val79.val, %1
+  %.not = icmp slt i32 %1, %.val79.val
   %or.cond78 = select i1 %22, i1 %.not, i1 false
   br i1 %or.cond78, label %23, label %ompi_comm_invalid.exit.thread
 
@@ -3514,7 +3514,7 @@ ompi_comm_invalid.exit:                           ; preds = %25
   %.val = load ptr, ptr %34, align 8
   %35 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %35, align 8
-  %.not69 = icmp sgt i32 %.val.val, %3
+  %.not69 = icmp slt i32 %3, %.val.val
   br i1 %.not69, label %36, label %ompi_comm_invalid.exit.thread
 
 36:                                               ; preds = %23, %33, %6
@@ -4042,7 +4042,7 @@ define i32 @ompi_intercomm_create_from_groups(ptr noundef %0, i32 noundef %1, pt
   store ptr @ompi_mpi_comm_null, ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   store ptr null, ptr %17, align 8
   store ptr @ompi_mpi_comm_null, ptr %7, align 8
   %21 = load ptr, ptr @opal_process_name_print, align 8
@@ -5480,7 +5480,7 @@ define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr n
   %98 = getelementptr inbounds [13 x %struct.ompi_comm_split_type_hw_guided_t], ptr @ompi_comm_split_type_hw_guided_support, i64 0, i64 %indvars.iv.next.i
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
-  %101 = icmp eq i32 %100, %1
+  %101 = icmp eq i32 %1, %100
   br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph79, !llvm.loop !18
 
 102:                                              ; preds = %.lr.ph79

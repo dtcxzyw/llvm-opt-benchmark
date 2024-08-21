@@ -161,7 +161,7 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
   %28 = getelementptr inbounds i8, ptr %22, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = inttoptr i64 %29 to ptr
-  %.not24.i.us = icmp ugt ptr %30, %1
+  %.not24.i.us = icmp ult ptr %1, %30
   br i1 %.not24.i.us, label %37, label %31
 
 31:                                               ; preds = %27
@@ -278,7 +278,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
 90:                                               ; preds = %86
   %91 = load i64, ptr %83, align 8
   %92 = inttoptr i64 %91 to ptr
-  %.not24.i29.us = icmp ugt ptr %92, %1
+  %.not24.i29.us = icmp ult ptr %1, %92
   br i1 %.not24.i29.us, label %98, label %93
 
 93:                                               ; preds = %90

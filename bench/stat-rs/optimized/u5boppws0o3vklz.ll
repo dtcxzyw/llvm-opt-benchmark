@@ -124,7 +124,7 @@ _ZN4core3ops8function6FnOnce9call_once17h219094afbf4db59bE.exit.thread.i9.i.i: ;
   %41 = sub i64 %40, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i
   store i64 %41, ptr %39, align 8, !alias.scope !67
   %42 = sub i64 %5, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i
-  %.not.i.i.not.i.i.i.i = icmp ult i64 %40, %5
+  %.not.i.i.not.i.i.i.i = icmp ugt i64 %5, %40
   br i1 %.not.i.i.not.i.i.i.i, label %43, label %61
 
 43:                                               ; preds = %38, %36
@@ -169,7 +169,7 @@ _ZN4core3ops8function6FnOnce9call_once17h219094afbf4db59bE.exit.thread.i9.i.i: ;
   %57 = sub i64 %56, %.sroa.0.0.sroa.speculated.i.i.i.i33.i.i.i.i
   store i64 %57, ptr %55, align 8, !alias.scope !94
   %58 = sub i64 %.sroa.4.0.i39.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i33.i.i.i.i
-  %.not.i.i34.not.i.i.i.i = icmp ult i64 %56, %.sroa.4.0.i39.i.i.i.i
+  %.not.i.i34.not.i.i.i.i = icmp ugt i64 %.sroa.4.0.i39.i.i.i.i, %56
   br i1 %.not.i.i34.not.i.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h744041c2a221691eE.exit.i", label %.thread12.i
 
 .thread12.i:                                      ; preds = %54
@@ -1599,7 +1599,7 @@ define void @_ZN6statrs8generate16InfinitePeriodic3new17h715fc348c5424f9dE(ptr d
   %10 = fmul double %8, %9
   %11 = fsub double %4, %10
   %12 = frem double %11, %3
-  %13 = fadd double %12, %3
+  %13 = fadd double %3, %12
   %14 = frem double %13, %3
   store double %3, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8

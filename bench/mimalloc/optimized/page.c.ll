@@ -255,9 +255,9 @@ if.then.i:                                        ; preds = %do.body.i
   br i1 %exitcond.i, label %while.body, label %do.cond.i
 
 if.else.i:                                        ; preds = %do.body.i
-  %cmp6.i = icmp ne i32 %conv.i.i, %delay
+  %cmp6.i = icmp ne i32 %delay, %conv.i.i
   %cmp11.i = icmp ne i32 %conv.i.i, 3
-  %or.cond.not.i = or i1 %cmp11.i, %override_never
+  %or.cond.not.i = or i1 %override_never, %cmp11.i
   %or.cond.i = and i1 %cmp6.i, %or.cond.not.i
   br i1 %or.cond.i, label %lor.rhs.i, label %while.end
 
@@ -429,9 +429,9 @@ if.then:                                          ; preds = %do.body
   br i1 %exitcond, label %return, label %do.cond
 
 if.else:                                          ; preds = %do.body
-  %cmp6 = icmp ne i32 %conv.i, %delay
+  %cmp6 = icmp ne i32 %delay, %conv.i
   %cmp11 = icmp ne i32 %conv.i, 3
-  %or.cond.not = or i1 %cmp11, %override_never
+  %or.cond.not = or i1 %override_never, %cmp11
   %or.cond = and i1 %cmp6, %or.cond.not
   br i1 %or.cond, label %lor.rhs, label %return
 
@@ -869,7 +869,7 @@ if.then5.i:                                       ; preds = %if.end.i
 if.end9.i:                                        ; preds = %if.then5.i, %if.end.i
   %last.i = getelementptr inbounds i8, ptr %2, i64 2824
   %12 = load ptr, ptr %last.i, align 8
-  %cmp10.i = icmp eq ptr %12, %page
+  %cmp10.i = icmp eq ptr %page, %12
   br i1 %cmp10.i, label %if.then11.i, label %if.end14.i
 
 if.then11.i:                                      ; preds = %if.end9.i
@@ -879,7 +879,7 @@ if.then11.i:                                      ; preds = %if.end9.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.end9.i
   %14 = load ptr, ptr %arrayidx, align 8
-  %cmp15.i = icmp eq ptr %14, %page
+  %cmp15.i = icmp eq ptr %page, %14
   br i1 %cmp15.i, label %if.then16.i, label %if.end19.i
 
 if.then16.i:                                      ; preds = %if.end14.i
@@ -958,7 +958,7 @@ if.then5.i:                                       ; preds = %if.end.i
 if.end9.i:                                        ; preds = %if.then5.i, %if.end.i
   %last.i = getelementptr inbounds i8, ptr %pq, i64 8
   %7 = load ptr, ptr %last.i, align 8
-  %cmp10.i = icmp eq ptr %7, %page
+  %cmp10.i = icmp eq ptr %page, %7
   br i1 %cmp10.i, label %if.then11.i, label %if.end14.i
 
 if.then11.i:                                      ; preds = %if.end9.i
@@ -968,7 +968,7 @@ if.then11.i:                                      ; preds = %if.end9.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.end9.i
   %9 = load ptr, ptr %pq, align 8
-  %cmp15.i = icmp eq ptr %9, %page
+  %cmp15.i = icmp eq ptr %page, %9
   br i1 %cmp15.i, label %if.then16.i, label %mi_page_queue_remove.exit
 
 if.then16.i:                                      ; preds = %if.end14.i
@@ -1033,7 +1033,7 @@ if.then5.i:                                       ; preds = %if.end.i
 if.end9.i:                                        ; preds = %if.then5.i, %if.end.i
   %last.i = getelementptr inbounds i8, ptr %pq, i64 8
   %7 = load ptr, ptr %last.i, align 8
-  %cmp10.i = icmp eq ptr %7, %page
+  %cmp10.i = icmp eq ptr %page, %7
   br i1 %cmp10.i, label %if.then11.i, label %if.end14.i
 
 if.then11.i:                                      ; preds = %if.end9.i
@@ -1043,7 +1043,7 @@ if.then11.i:                                      ; preds = %if.end9.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.end9.i
   %9 = load ptr, ptr %pq, align 8
-  %cmp15.i = icmp eq ptr %9, %page
+  %cmp15.i = icmp eq ptr %page, %9
   br i1 %cmp15.i, label %if.then16.i, label %mi_page_queue_remove.exit
 
 if.then16.i:                                      ; preds = %if.end14.i
@@ -1226,7 +1226,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end9.i.i:                                      ; preds = %if.then5.i.i, %if.end.i.i
   %last.i.i = getelementptr inbounds i8, ptr %arrayidx.i31, i64 8
   %25 = load ptr, ptr %last.i.i, align 8
-  %cmp10.i.i = icmp eq ptr %25, %page
+  %cmp10.i.i = icmp eq ptr %page, %25
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.end14.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
@@ -1236,7 +1236,7 @@ if.then11.i.i:                                    ; preds = %if.end9.i.i
 
 if.end14.i.i:                                     ; preds = %if.then11.i.i, %if.end9.i.i
   %27 = load ptr, ptr %arrayidx.i31, align 8
-  %cmp15.i.i = icmp eq ptr %27, %page
+  %cmp15.i.i = icmp eq ptr %page, %27
   br i1 %cmp15.i.i, label %if.then16.i.i, label %_mi_page_free.exit
 
 if.then16.i.i:                                    ; preds = %if.end14.i.i
@@ -1305,7 +1305,7 @@ if.then4:                                         ; preds = %if.then
   %bf.set = or disjoint i8 %bf.shl, %bf.clear
   store i8 %bf.set, ptr %retire_expire, align 1
   %cmp14 = icmp eq i8 %bf.shl, 0
-  %or.cond = or i1 %cmp14, %force
+  %or.cond = or i1 %force, %cmp14
   br i1 %or.cond, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.then4
@@ -1345,7 +1345,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end9.i.i:                                      ; preds = %if.then5.i.i, %if.end.i.i
   %last.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load ptr, ptr %last.i.i, align 8
-  %cmp10.i.i = icmp eq ptr %13, %5
+  %cmp10.i.i = icmp eq ptr %5, %13
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.end14.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
@@ -1355,7 +1355,7 @@ if.then11.i.i:                                    ; preds = %if.end9.i.i
 
 if.end14.i.i:                                     ; preds = %if.then11.i.i, %if.end9.i.i
   %15 = load ptr, ptr %arrayidx, align 8
-  %cmp15.i.i = icmp eq ptr %15, %5
+  %cmp15.i.i = icmp eq ptr %5, %15
   br i1 %cmp15.i.i, label %if.then16.i.i, label %_mi_page_free.exit
 
 if.then16.i.i:                                    ; preds = %if.end14.i.i
@@ -1963,7 +1963,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.end.i.i20.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.then5.i.i.i.i, %if.end.i.i20.i.i
   %55 = load ptr, ptr %last.i.i.i.i, align 8
-  %cmp10.i.i.i.i = icmp eq ptr %55, %page.027.i.i
+  %cmp10.i.i.i.i = icmp eq ptr %page.027.i.i, %55
   br i1 %cmp10.i.i.i.i, label %if.then11.i.i.i.i, label %if.end14.i.i.i.i
 
 if.then11.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
@@ -1973,7 +1973,7 @@ if.then11.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %if.then11.i.i.i.i, %if.end9.i.i.i.i
   %57 = load ptr, ptr %arrayidx.i.i25, align 8
-  %cmp15.i.i.i.i = icmp eq ptr %57, %page.027.i.i
+  %cmp15.i.i.i.i = icmp eq ptr %page.027.i.i, %57
   br i1 %cmp15.i.i.i.i, label %if.then16.i.i.i.i, label %if.end19.i.i.i.i
 
 if.then16.i.i.i.i:                                ; preds = %if.end14.i.i.i.i

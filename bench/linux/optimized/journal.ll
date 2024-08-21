@@ -3669,7 +3669,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_used_features(p
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @llvm.bswap.i32(i32 %16)
   %18 = zext i32 %17 to i64
-  %19 = and i64 %18, %1
+  %19 = and i64 %1, %18
   %20 = icmp eq i64 %19, %1
   br i1 %20, label %21, label %35
 
@@ -3678,7 +3678,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_used_features(p
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
   %25 = zext i32 %24 to i64
-  %26 = and i64 %25, %2
+  %26 = and i64 %2, %25
   %27 = icmp eq i64 %26, %2
   br i1 %27, label %28, label %35
 
@@ -3687,7 +3687,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_used_features(p
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
   %32 = zext i32 %31 to i64
-  %33 = and i64 %32, %3
+  %33 = and i64 %3, %32
   %34 = icmp eq i64 %33, %3
   br i1 %34, label %36, label %35
 
@@ -3749,7 +3749,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr noca
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @llvm.bswap.i32(i32 %17)
   %19 = zext i32 %18 to i64
-  %20 = and i64 %19, %1
+  %20 = and i64 %1, %19
   %21 = icmp eq i64 %20, %1
   br i1 %21, label %22, label %36
 
@@ -3758,7 +3758,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr noca
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
   %26 = zext i32 %25 to i64
-  %27 = and i64 %26, %2
+  %27 = and i64 %2, %26
   %28 = icmp eq i64 %27, %2
   br i1 %28, label %29, label %36
 
@@ -3767,7 +3767,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr noca
   %31 = load i32, ptr %30, align 4
   %32 = tail call i32 @llvm.bswap.i32(i32 %31)
   %33 = zext i32 %32 to i64
-  %34 = and i64 %33, %3
+  %34 = and i64 %3, %33
   %35 = icmp eq i64 %34, %3
   br i1 %35, label %.thread1, label %36
 

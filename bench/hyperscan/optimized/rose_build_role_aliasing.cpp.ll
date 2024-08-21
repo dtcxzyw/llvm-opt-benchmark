@@ -750,7 +750,7 @@ _ZN3ue212_GLOBAL__N_116RoseAliasingInfoC2ERKNS_13RoseBuildImplE.exit: ; preds = 
   %15 = load i8, ptr %roseMergeRosesDuringAliasing, align 1, !range !5, !noundef !6
   %and52 = and i8 %15, %14
   %tobool1353 = icmp ne i8 %and52, 0
-  %tobool13 = and i1 %tobool1353, %mergeRoses
+  %tobool13 = and i1 %mergeRoses, %tobool1353
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %candidates) #23
   %16 = getelementptr inbounds i8, ptr %candidates, i64 8
   store i32 0, ptr %16, align 8

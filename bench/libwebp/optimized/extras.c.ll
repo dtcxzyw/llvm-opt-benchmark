@@ -311,7 +311,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = icmp sgt i32 %10, %1
+  %11 = icmp slt i32 %1, %10
   %12 = icmp eq ptr %2, null
   %or.cond3 = or i1 %12, %11
   %13 = add i32 %3, -257
@@ -357,7 +357,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
   %30 = getelementptr inbounds i8, ptr %.03947, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %.not45 = icmp slt i32 %32, %3
+  %.not45 = icmp sgt i32 %3, %32
   br i1 %.not45, label %34, label %33
 
 33:                                               ; preds = %.lr.ph

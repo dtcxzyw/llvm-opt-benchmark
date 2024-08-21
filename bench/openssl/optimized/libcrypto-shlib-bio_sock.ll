@@ -500,7 +500,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call = tail call i64 @time(ptr noundef null) #8
-  %cmp5 = icmp sgt i64 %call, %max_time
+  %cmp5 = icmp slt i64 %max_time, %call
   br i1 %cmp5, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end4

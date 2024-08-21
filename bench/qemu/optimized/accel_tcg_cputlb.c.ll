@@ -322,7 +322,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %while.end6.i
   %cpu.06.in.i = phi i64 [ %1, %while.end6.i ], [ %0, %entry ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
-  %cmp.not.i = icmp eq ptr %cpu.06.i, %src_cpu
+  %cmp.not.i = icmp eq ptr %src_cpu, %cpu.06.i
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -352,7 +352,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %while.end6.i.i
   %cpu.06.in.i.i = phi i64 [ %1, %while.end6.i.i ], [ %0, %entry ]
   %cpu.06.i.i = inttoptr i64 %cpu.06.in.i.i to ptr
-  %cmp.not.i.i = icmp eq ptr %cpu.06.i.i, %src_cpu
+  %cmp.not.i.i = icmp eq ptr %src_cpu, %cpu.06.i.i
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -383,7 +383,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %while.end6.i
   %cpu.06.in.i = phi i64 [ %1, %while.end6.i ], [ %0, %entry ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
-  %cmp.not.i = icmp eq ptr %cpu.06.i, %src_cpu
+  %cmp.not.i = icmp eq ptr %src_cpu, %cpu.06.i
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -415,7 +415,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %while.end6.i.i
   %cpu.06.in.i.i = phi i64 [ %1, %while.end6.i.i ], [ %0, %entry ]
   %cpu.06.i.i = inttoptr i64 %cpu.06.in.i.i to ptr
-  %cmp.not.i.i = icmp eq ptr %cpu.06.i.i, %src_cpu
+  %cmp.not.i.i = icmp eq ptr %src_cpu, %cpu.06.i.i
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -540,21 +540,21 @@ if.else.i:                                        ; preds = %if.then
   %arrayidx1.i.i = getelementptr %union.CPUTLBEntry, ptr %11, i64 %and.i.i.i
   %13 = load i64, ptr %arrayidx1.i.i, align 8
   %and2.i.i.i.i = and i64 %13, -2048
-  %cmp.i.i.i.i = icmp eq i64 %and2.i.i.i.i, %addr
+  %cmp.i.i.i.i = icmp eq i64 %addr, %and2.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then8.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.else.i
   %arrayidx.i.i.i.i.i.i = getelementptr i8, ptr %arrayidx1.i.i, i64 8
   %14 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8
   %and3.i.i.i.i = and i64 %14, -2048
-  %cmp4.i.i.i.i = icmp eq i64 %and3.i.i.i.i, %addr
+  %cmp4.i.i.i.i = icmp eq i64 %addr, %and3.i.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then8.i, label %tlb_hit_page_mask_anyprot.exit.i.i.i
 
 tlb_hit_page_mask_anyprot.exit.i.i.i:             ; preds = %lor.lhs.false.i.i.i.i
   %addr_code.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx1.i.i, i64 16
   %15 = load i64, ptr %addr_code.i.i.i.i, align 8
   %and5.i.i.i.i = and i64 %15, -2048
-  %cmp6.i.i.i.i = icmp eq i64 %and5.i.i.i.i, %addr
+  %cmp6.i.i.i.i = icmp eq i64 %addr, %and5.i.i.i.i
   br i1 %cmp6.i.i.i.i, label %if.then8.i, label %if.end.i
 
 if.then8.i:                                       ; preds = %tlb_hit_page_mask_anyprot.exit.i.i.i, %lor.lhs.false.i.i.i.i, %if.else.i
@@ -574,21 +574,21 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %arrayidx3.i.i.i = getelementptr [16 x %struct.CPUTLBDesc], ptr %d.i, i64 0, i64 %indvars.iv, i32 6, i64 %indvars.iv.i.i.i
   %17 = load i64, ptr %arrayidx3.i.i.i, align 8
   %and2.i.i.i.i.i = and i64 %17, -2048
-  %cmp.i.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i, %addr
+  %cmp.i.i.i.i.i = icmp eq i64 %addr, %and2.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i14.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr i8, ptr %arrayidx3.i.i.i, i64 8
   %18 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i monotonic, align 8
   %and3.i.i.i.i.i = and i64 %18, -2048
-  %cmp4.i.i.i.i.i = icmp eq i64 %and3.i.i.i.i.i, %addr
+  %cmp4.i.i.i.i.i = icmp eq i64 %addr, %and3.i.i.i.i.i
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i14.i, label %tlb_hit_page_mask_anyprot.exit.i.i.i.i
 
 tlb_hit_page_mask_anyprot.exit.i.i.i.i:           ; preds = %lor.lhs.false.i.i.i.i.i
   %addr_code.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i, i64 16
   %19 = load i64, ptr %addr_code.i.i.i.i.i, align 8
   %and5.i.i.i.i.i = and i64 %19, -2048
-  %cmp6.i.i.i.i.i = icmp eq i64 %and5.i.i.i.i.i, %addr
+  %cmp6.i.i.i.i.i = icmp eq i64 %addr, %and5.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %if.then.i.i14.i, label %for.inc.i.i.i
 
 if.then.i.i14.i:                                  ; preds = %tlb_hit_page_mask_anyprot.exit.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %for.body.i.i.i
@@ -725,7 +725,7 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %if.then, %while.end6.i
   %cpu.06.in.i = phi i64 [ %1, %while.end6.i ], [ %0, %if.then ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
-  %cmp.not.i = icmp eq ptr %cpu.06.i, %src_cpu
+  %cmp.not.i = icmp eq ptr %src_cpu, %cpu.06.i
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -748,7 +748,7 @@ while.end:                                        ; preds = %entry
 for.body:                                         ; preds = %while.end, %while.end16
   %dst_cpu.017.in = phi i64 [ %4, %while.end16 ], [ %2, %while.end ]
   %dst_cpu.017 = inttoptr i64 %dst_cpu.017.in to ptr
-  %cmp5.not = icmp eq ptr %dst_cpu.017, %src_cpu
+  %cmp5.not = icmp eq ptr %src_cpu, %dst_cpu.017
   br i1 %cmp5.not, label %while.end16, label %if.then7
 
 if.then7:                                         ; preds = %for.body
@@ -787,7 +787,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %while.end16.i
   %dst_cpu.017.in.i = phi i64 [ %2, %while.end16.i ], [ %0, %entry ]
   %dst_cpu.017.i = inttoptr i64 %dst_cpu.017.in.i to ptr
-  %cmp5.not.i = icmp eq ptr %dst_cpu.017.i, %src
+  %cmp5.not.i = icmp eq ptr %src, %dst_cpu.017.i
   br i1 %cmp5.not.i, label %while.end16.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %for.body.i
@@ -829,7 +829,7 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %if.then, %while.end6.i
   %cpu.06.in.i = phi i64 [ %1, %while.end6.i ], [ %0, %if.then ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
-  %cmp.not.i = icmp eq ptr %cpu.06.i, %src_cpu
+  %cmp.not.i = icmp eq ptr %src_cpu, %cpu.06.i
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -856,7 +856,7 @@ while.end:                                        ; preds = %entry
 for.body:                                         ; preds = %while.end, %while.end20
   %dst_cpu.022.in = phi i64 [ %4, %while.end20 ], [ %2, %while.end ]
   %dst_cpu.022 = inttoptr i64 %dst_cpu.022.in to ptr
-  %cmp9.not = icmp eq ptr %dst_cpu.022, %src_cpu
+  %cmp9.not = icmp eq ptr %src_cpu, %dst_cpu.022
   br i1 %cmp9.not, label %while.end20, label %if.then11
 
 if.then11:                                        ; preds = %for.body
@@ -900,7 +900,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %while.end20.i
   %dst_cpu.022.in.i = phi i64 [ %2, %while.end20.i ], [ %0, %entry ]
   %dst_cpu.022.i = inttoptr i64 %dst_cpu.022.in.i to ptr
-  %cmp9.not.i = icmp eq ptr %dst_cpu.022.i, %src
+  %cmp9.not.i = icmp eq ptr %src, %dst_cpu.022.i
   br i1 %cmp9.not.i, label %while.end20.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %for.body.i
@@ -1134,7 +1134,7 @@ if.then:                                          ; preds = %for.body
   %arrayidx6.i = getelementptr [16 x %struct.CPUTLBDescFast], ptr %f4.i, i64 0, i64 %indvars.iv
   %21 = load i64, ptr %arrayidx6.i, align 16
   %cmp.i = icmp ult i64 %shr.i, %21
-  %cmp9.i = icmp ult i64 %21, %.fr
+  %cmp9.i = icmp ugt i64 %.fr, %21
   %or.cond.i = or i1 %cmp9.i, %cmp.i
   br i1 %or.cond.i, label %do.end.i, label %if.end.i
 
@@ -1366,7 +1366,7 @@ if.then3:                                         ; preds = %if.end
 for.body.i.i:                                     ; preds = %if.then3, %while.end6.i.i
   %cpu.06.in.i.i = phi i64 [ %1, %while.end6.i.i ], [ %0, %if.then3 ]
   %cpu.06.i.i = inttoptr i64 %cpu.06.in.i.i to ptr
-  %cmp.not.i.i = icmp eq ptr %cpu.06.i.i, %src_cpu
+  %cmp.not.i.i = icmp eq ptr %src_cpu, %cpu.06.i.i
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -1402,7 +1402,7 @@ if.end4:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end4, %while.end17
   %dst_cpu.015.in = phi i64 [ %4, %while.end17 ], [ %2, %if.end4 ]
   %dst_cpu.015 = inttoptr i64 %dst_cpu.015.in to ptr
-  %cmp9.not = icmp eq ptr %dst_cpu.015, %src_cpu
+  %cmp9.not = icmp eq ptr %src_cpu, %dst_cpu.015
   br i1 %cmp9.not, label %while.end17, label %if.then11
 
 if.then11:                                        ; preds = %for.body
@@ -1460,7 +1460,7 @@ if.then3:                                         ; preds = %if.end
 for.body.i.i:                                     ; preds = %if.then3, %while.end6.i.i
   %cpu.06.in.i.i = phi i64 [ %1, %while.end6.i.i ], [ %0, %if.then3 ]
   %cpu.06.i.i = inttoptr i64 %cpu.06.in.i.i to ptr
-  %cmp.not.i.i = icmp eq ptr %cpu.06.i.i, %src_cpu
+  %cmp.not.i.i = icmp eq ptr %src_cpu, %cpu.06.i.i
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -1496,7 +1496,7 @@ if.end4:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end4, %while.end17
   %dst_cpu.016.in = phi i64 [ %4, %while.end17 ], [ %2, %if.end4 ]
   %dst_cpu.016 = inttoptr i64 %dst_cpu.016.in to ptr
-  %cmp9.not = icmp eq ptr %dst_cpu.016, %src_cpu
+  %cmp9.not = icmp eq ptr %src_cpu, %dst_cpu.016
   br i1 %cmp9.not, label %while.end17, label %if.then11
 
 if.then11:                                        ; preds = %for.body
@@ -2017,21 +2017,21 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %qemu_
   %arrayidx3.i.i = getelementptr [16 x %struct.CPUTLBDesc], ptr %d, i64 0, i64 %idxprom, i32 6, i64 %indvars.iv.i.i
   %31 = load i64, ptr %arrayidx3.i.i, align 8
   %and2.i.i.i.i = and i64 %31, -2048
-  %cmp.i.i.i.i = icmp eq i64 %and2.i.i.i.i, %and
+  %cmp.i.i.i.i = icmp eq i64 %and, %and2.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %for.body.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr i8, ptr %arrayidx3.i.i, i64 8
   %32 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8
   %and3.i.i.i.i = and i64 %32, -2048
-  %cmp4.i.i.i.i = icmp eq i64 %and3.i.i.i.i, %and
+  %cmp4.i.i.i.i = icmp eq i64 %and, %and3.i.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then.i.i, label %tlb_hit_page_mask_anyprot.exit.i.i.i
 
 tlb_hit_page_mask_anyprot.exit.i.i.i:             ; preds = %lor.lhs.false.i.i.i.i
   %addr_code.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   %33 = load i64, ptr %addr_code.i.i.i.i, align 8
   %and5.i.i.i.i = and i64 %33, -2048
-  %cmp6.i.i.i.i = icmp eq i64 %and5.i.i.i.i, %and
+  %cmp6.i.i.i.i = icmp eq i64 %and, %and5.i.i.i.i
   br i1 %cmp6.i.i.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %tlb_hit_page_mask_anyprot.exit.i.i.i, %lor.lhs.false.i.i.i.i, %for.body.i.i
@@ -2049,21 +2049,21 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %tlb_h
 tlb_flush_vtlb_page_locked.exit:                  ; preds = %for.inc.i.i
   %35 = load i64, ptr %arrayidx1.i, align 8
   %and2.i.i = and i64 %35, -2048
-  %cmp.i.i = icmp eq i64 %and2.i.i, %and
+  %cmp.i.i = icmp eq i64 %and, %and2.i.i
   br i1 %cmp.i.i, label %if.end94, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %tlb_flush_vtlb_page_locked.exit
   %arrayidx.i.i.i.i = getelementptr i8, ptr %arrayidx1.i, i64 8
   %36 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8
   %and3.i.i = and i64 %36, -2048
-  %cmp4.i.i = icmp eq i64 %and3.i.i, %and
+  %cmp4.i.i = icmp eq i64 %and, %and3.i.i
   br i1 %cmp4.i.i, label %if.end94, label %tlb_hit_page_anyprot.exit
 
 tlb_hit_page_anyprot.exit:                        ; preds = %lor.lhs.false.i.i
   %addr_code.i.i = getelementptr inbounds i8, ptr %arrayidx1.i, i64 16
   %37 = load i64, ptr %addr_code.i.i, align 8
   %and5.i.i = and i64 %37, -2048
-  %cmp6.i.i = icmp eq i64 %and5.i.i, %and
+  %cmp6.i.i = icmp eq i64 %and, %and5.i.i
   br i1 %cmp6.i.i, label %if.end94, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %tlb_hit_page_anyprot.exit
@@ -2333,7 +2333,7 @@ land.rhs:                                         ; preds = %entry
 land.end:                                         ; preds = %land.rhs, %entry
   %.not = phi i1 [ true, %entry ], [ %tobool.i, %land.rhs ]
   %and.i40 = and i64 %2, -2048
-  %cmp.i = icmp eq i64 %and.i40, %and
+  %cmp.i = icmp eq i64 %and, %and.i40
   br i1 %cmp.i, label %if.end24, label %if.then
 
 if.then:                                          ; preds = %land.end
@@ -2951,7 +2951,7 @@ entry:
   %2 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
   %and.i18 = and i64 %addr, -4096
   %and.i.i19 = and i64 %2, -2048
-  %cmp.i.i = icmp eq i64 %and.i.i19, %and.i18
+  %cmp.i.i = icmp eq i64 %and.i18, %and.i.i19
   br i1 %cmp.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -11589,7 +11589,7 @@ get_alignment_bits.exit:                          ; preds = %if.then2.i, %if.els
   %notmask = shl nsw i32 -1, %a.0.i
   %sub6 = xor i32 %notmask, -1
   %conv7 = zext nneg i32 %sub6 to i64
-  %and = and i64 %conv7, %addr
+  %and = and i64 %addr, %conv7
   %tobool.not102 = icmp eq i64 %and, 0
   %brmerge = select i1 %cmp4.not, i1 true, i1 %tobool.not102
   br i1 %brmerge, label %if.end13, label %if.then11
@@ -11608,7 +11608,7 @@ if.end13:                                         ; preds = %get_alignment_bits.
   %sub98 = phi i64 [ %sub90, %get_alignment_bits.exit.thread ], [ %sub, %get_alignment_bits.exit ]
   %sub14 = add nsw i32 %size, -1
   %conv15 = zext nneg i32 %sub14 to i64
-  %and16 = and i64 %conv15, %addr
+  %and16 = and i64 %addr, %conv15
   %tobool17.not = icmp eq i64 %and16, 0
   br i1 %tobool17.not, label %if.end25, label %stop_the_world
 
@@ -11626,7 +11626,7 @@ if.end25:                                         ; preds = %if.end13
   %5 = load atomic i64, ptr %arrayidx.i.i66 monotonic, align 8
   %and.i67 = and i64 %addr, -4096
   %and.i.i68 = and i64 %5, -2048
-  %cmp.i.i = icmp eq i64 %and.i.i68, %and.i67
+  %cmp.i.i = icmp eq i64 %and.i67, %and.i.i68
   br i1 %cmp.i.i, label %if.end40, label %if.then30
 
 if.then30:                                        ; preds = %if.end25
@@ -12001,7 +12001,7 @@ entry:
   %window_begin_ns.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load i64, ptr %window_begin_ns.i, align 8
   %add.i = add i64 %0, 100000000
-  %cmp.i = icmp sge i64 %add.i, %now
+  %cmp.i = icmp sle i64 %now, %add.i
   %n_used_entries.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %1 = load i64, ptr %n_used_entries.i, align 8
   %window_max_entries.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
@@ -12288,7 +12288,7 @@ get_alignment_bits.exit:                          ; preds = %entry, %if.then2.i,
   %notmask = shl nsw i32 -1, %a.0.i
   %sub = xor i32 %notmask, -1
   %conv = zext nneg i32 %sub to i64
-  %and = and i64 %conv, %addr
+  %and = and i64 %addr, %conv
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end7, label %if.then5
 
@@ -12513,7 +12513,7 @@ entry:
   %3 = load atomic i64, ptr %arrayidx.i35 monotonic, align 8
   %and.i36 = and i64 %0, -4096
   %and.i.i37 = and i64 %3, -2048
-  %cmp.i.i = icmp eq i64 %and.i.i37, %and.i36
+  %cmp.i.i = icmp eq i64 %and.i36, %and.i.i37
   br i1 %cmp.i.i, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %entry

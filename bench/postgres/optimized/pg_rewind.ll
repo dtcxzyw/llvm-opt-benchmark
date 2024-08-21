@@ -1527,7 +1527,7 @@ define dso_local void @progress_report(i1 noundef zeroext %0) local_unnamed_addr
   %7 = tail call i64 @time(ptr noundef null) #12
   %8 = load i64, ptr @progress_report.last_progress_report, align 8
   %9 = icmp ne i64 %7, %8
-  %brmerge = or i1 %9, %0
+  %brmerge = or i1 %0, %9
   br i1 %brmerge, label %10, label %39
 
 10:                                               ; preds = %6

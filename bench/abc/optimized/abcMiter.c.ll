@@ -2665,7 +2665,7 @@ define ptr @Abc_NtkFrames(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 77:                                               ; preds = %76
   %78 = load i32, ptr %69, align 4
-  %79 = icmp sgt i32 %78, %.2102
+  %79 = icmp slt i32 %.2102, %78
   br i1 %79, label %Extra_ProgressBarUpdate.exit, label %80
 
 80:                                               ; preds = %77, %76
@@ -3759,7 +3759,7 @@ common.ret20:                                     ; preds = %10, %common.ret
   %11 = add nsw i32 %2, -1
   %12 = tail call ptr @Abc_NtkSpecialMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %11, ptr noundef %3, i32 noundef %4)
   %13 = shl nuw i32 1, %11
-  %14 = add nsw i32 %13, %4
+  %14 = add nsw i32 %4, %13
   %15 = tail call ptr @Abc_NtkSpecialMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %11, ptr noundef %3, i32 noundef %14)
   %16 = sext i32 %11 to i64
   %17 = getelementptr inbounds ptr, ptr %1, i64 %16

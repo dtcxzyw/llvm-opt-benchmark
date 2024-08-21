@@ -405,7 +405,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
   %23 = zext i8 %22 to i64
   %24 = or disjoint i64 %20, %23
   %25 = add nuw nsw i64 %24, 34
-  %.not42 = icmp eq i64 %25, %3
+  %.not42 = icmp eq i64 %3, %25
   br i1 %.not42, label %.preheader, label %ssl_ticket_select_key.exit.thread
 
 26:                                               ; preds = %.preheader

@@ -951,7 +951,7 @@ _ZNSt6vectorIN2cv4cuda10DeviceInfoESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt6vec
           to label %22 unwind label %32
 
 22:                                               ; preds = %20
-  %.not = icmp sgt i32 %21, %1
+  %.not = icmp slt i32 %1, %21
   br i1 %.not, label %38, label %23
 
 23:                                               ; preds = %22, %_ZNSt6vectorIN2cv4cuda10DeviceInfoESaIS2_EE7reserveEm.exit
@@ -1009,7 +1009,7 @@ _ZNSt6vectorIN2cv4cuda10DeviceInfoESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt6vec
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %38
-  %40 = icmp sgt i32 %39, %1
+  %40 = icmp slt i32 %1, %39
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %.noexc
@@ -1293,7 +1293,7 @@ _ZNSt6vectorIN2cv4cuda10DeviceInfoESaIS2_EE7reserveEm.exit: ; preds = %13, %_ZNS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %25 = call noundef i32 @_ZN2cv4cuda25getCudaEnabledDeviceCountEv()
-  %26 = icmp sgt i32 %25, %.05
+  %26 = icmp slt i32 %.05, %25
   br i1 %26, label %_ZN2cv4cuda10DeviceInfoC2Ei.exit, label %27
 
 27:                                               ; preds = %.lr.ph
@@ -1580,7 +1580,7 @@ _ZN6cvtest13DeviceManager8instanceEv.exit22:      ; preds = %51, %52, %54
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %56
-  %58 = icmp sgt i32 %57, %37
+  %58 = icmp slt i32 %37, %57
   br i1 %58, label %67, label %59
 
 59:                                               ; preds = %.noexc
@@ -4258,13 +4258,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclINS
   %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i.i.i, i64 -28
   %24 = getelementptr i8, ptr %.sroa.09.0.i.i.i.i, i64 -24
   %.val4.i.i.i.i.i = load float, ptr %24, align 4
-  %25 = fcmp ogt float %.val4.i.i.i.i.i, %.val1.i.i.i.i
+  %25 = fcmp olt float %.val1.i.i.i.i, %.val4.i.i.i.i.i
   br i1 %25, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclIN2cv8KeyPointENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i.i.i, label %26
 
 26:                                               ; preds = %23
   %.val3.i.i.i.i.i = load float, ptr %.sroa.0.0.i.i.i.i, align 4
-  %27 = fcmp oeq float %.val4.i.i.i.i.i, %.val1.i.i.i.i
-  %28 = fcmp ogt float %.val3.i.i.i.i.i, %.val.i.i.i.i
+  %27 = fcmp oeq float %.val1.i.i.i.i, %.val4.i.i.i.i.i
+  %28 = fcmp olt float %.val.i.i.i.i, %.val3.i.i.i.i.i
   %or.cond.i.i.i.i = select i1 %27, i1 %28, i1 false
   br i1 %or.cond.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclIN2cv8KeyPointENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEEEvT_T0_.exit.i.i.i
 
@@ -4307,13 +4307,13 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS
   %.sroa.0.0.i.i16.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i15.i.i, i64 -28
   %32 = getelementptr i8, ptr %.sroa.09.0.i.i15.i.i, i64 -24
   %.val4.i.i.i17.i.i = load float, ptr %32, align 4
-  %33 = fcmp ogt float %.val4.i.i.i17.i.i, %.sroa.3.0.copyload.i.i.i.i
+  %33 = fcmp olt float %.sroa.3.0.copyload.i.i.i.i, %.val4.i.i.i17.i.i
   br i1 %33, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclIN2cv8KeyPointENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i24.i.i, label %34
 
 34:                                               ; preds = %31
   %.val3.i.i.i18.i.i = load float, ptr %.sroa.0.0.i.i16.i.i, align 4
-  %35 = fcmp oeq float %.val4.i.i.i17.i.i, %.sroa.3.0.copyload.i.i.i.i
-  %36 = fcmp ogt float %.val3.i.i.i18.i.i, %.sroa.04.0.copyload.i.i.i.i
+  %35 = fcmp oeq float %.sroa.3.0.copyload.i.i.i.i, %.val4.i.i.i17.i.i
+  %36 = fcmp olt float %.sroa.04.0.copyload.i.i.i.i, %.val3.i.i.i18.i.i
   %or.cond.i.i19.i.i = select i1 %35, i1 %36, i1 false
   br i1 %or.cond.i.i19.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclIN2cv8KeyPointENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i24.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEEEvT_T0_.exit.i20.i.i
 
@@ -4381,13 +4381,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclINS
   %.sroa.0.0.i.i40.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.i.i39.i.i, i64 -28
   %50 = getelementptr i8, ptr %.sroa.09.0.i.i39.i.i, i64 -24
   %.val4.i.i.i41.i.i = load float, ptr %50, align 4
-  %51 = fcmp ogt float %.val4.i.i.i41.i.i, %.val1.i.i33.i.i
+  %51 = fcmp olt float %.val1.i.i33.i.i, %.val4.i.i.i41.i.i
   br i1 %51, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclIN2cv8KeyPointENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i49.i.i, label %52
 
 52:                                               ; preds = %49
   %.val3.i.i.i42.i.i = load float, ptr %.sroa.0.0.i.i40.i.i, align 4
-  %53 = fcmp oeq float %.val4.i.i.i41.i.i, %.val1.i.i33.i.i
-  %54 = fcmp ogt float %.val3.i.i.i42.i.i, %.val.i.i32.i.i
+  %53 = fcmp oeq float %.val1.i.i33.i.i, %.val4.i.i.i41.i.i
+  %54 = fcmp olt float %.val.i.i32.i.i, %.val3.i.i.i42.i.i
   %or.cond.i.i43.i.i = select i1 %53, i1 %54, i1 false
   br i1 %or.cond.i.i43.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclIN2cv8KeyPointENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread.i.i49.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEEEvT_T0_.exit.i44.i.i
 
@@ -5705,7 +5705,7 @@ define linkonce_odr hidden void @_ZN7testing15AssertionResult13AppendMessageERKN
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   %9 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %9, %8
+  %.not.i = icmp eq ptr %8, %9
   br i1 %.not.i, label %_ZN7testing8internal10scoped_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEPS7_.exit, label %10
 
 10:                                               ; preds = %7
@@ -5850,7 +5850,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.sroa.311.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.311.0..sroa.0.0..sroa_idx.i.i.i, i64 20, i1 false)
-  %32 = icmp sgt i64 %25, %.0.i.i.i
+  %32 = icmp slt i64 %.0.i.i.i, %25
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6cvtest12_GLOBAL__N_112KeyPointLessEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread41.i.i.i.i

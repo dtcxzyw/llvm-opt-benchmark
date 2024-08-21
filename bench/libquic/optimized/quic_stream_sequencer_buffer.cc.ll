@@ -497,7 +497,7 @@ land.rhs:                                         ; preds = %while.cond
 while.end:                                        ; preds = %while.cond, %land.rhs
   %_M_storage.i.i71 = getelementptr inbounds i8, ptr %current_gap.sroa.0.0, i64 16
   %2 = load i64, ptr %_M_storage.i.i71, align 8
-  %cmp13 = icmp ugt i64 %2, %starting_offset
+  %cmp13 = icmp ult i64 %starting_offset, %2
   %add = add i64 %call, %starting_offset
   br i1 %cmp13, label %land.lhs.true, label %if.end89
 
@@ -1800,7 +1800,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %3, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -2141,7 +2141,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ugt i64 %1, %offset
+  %cmp.i.i.i.i = icmp ult i64 %offset, %1
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__x.addr.07.i.i.i, ptr %__y.addr.06.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
@@ -2547,7 +2547,7 @@ if.then16:                                        ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %while.end, %if.then16, %entry
-  %cmp = icmp uge i64 %sub.i, %bytes_used
+  %cmp = icmp ule i64 %bytes_used, %sub.i
   ret i1 %cmp
 }
 
@@ -2695,7 +2695,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %3, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -2885,7 +2885,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

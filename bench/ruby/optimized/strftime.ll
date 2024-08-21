@@ -90,17 +90,17 @@ RSTRING_PTR.exit:                                 ; preds = %10, %24
 
 32:                                               ; preds = %31
   %33 = tail call nonnull ptr @rb_usascii_encoding() #10
-  %34 = icmp eq ptr %33, %3
+  %34 = icmp eq ptr %3, %33
   br i1 %34, label %41, label %35
 
 35:                                               ; preds = %32
   %36 = tail call nonnull ptr @rb_ascii8bit_encoding() #10
-  %37 = icmp eq ptr %36, %3
+  %37 = icmp eq ptr %3, %36
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %35
   %39 = tail call ptr @rb_locale_encoding() #10
-  %40 = icmp eq ptr %39, %3
+  %40 = icmp eq ptr %3, %39
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %38, %35, %32
@@ -109,7 +109,7 @@ RSTRING_PTR.exit:                                 ; preds = %10, %24
 42:                                               ; preds = %41, %38, %31
   %.01871 = phi ptr [ null, %41 ], [ %3, %38 ], [ null, %31 ]
   %43 = getelementptr i8, ptr %.sroa.2.0.i, i64 %20
-  %44 = icmp ugt ptr %27, %1
+  %44 = icmp ult ptr %1, %27
   br i1 %44, label %.lr.ph3488, label %ruby_nonempty_memcpy.exit._crit_edge
 
 .lr.ph3488:                                       ; preds = %42

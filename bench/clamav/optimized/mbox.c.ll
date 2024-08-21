@@ -2115,7 +2115,7 @@ define internal fastcc i32 @parseEmailBody(ptr noundef %0, ptr noundef %1, ptr n
   %29 = getelementptr inbounds i8, ptr %12, i64 80
   %30 = load i32, ptr %29, align 8
   %.not605 = icmp ne i32 %30, 0
-  %31 = icmp ult i32 %30, %3
+  %31 = icmp ugt i32 %3, %30
   %or.cond673 = and i1 %.not605, %31
   br i1 %or.cond673, label %32, label %33
 
@@ -2172,7 +2172,7 @@ define internal fastcc i32 @parseEmailBody(ptr noundef %0, ptr noundef %1, ptr n
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds i8, ptr %.07.i773, i64 24
   %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, %43
+  %54 = icmp eq i32 %43, %53
   br i1 %54, label %getMimeTypeStr.exit, label %.lr.ph
 
 getMimeTypeStr.exit:                              ; preds = %51, %.lr.ph, %46
@@ -2195,7 +2195,7 @@ getMimeTypeStr.exit:                              ; preds = %51, %.lr.ph, %46
 63:                                               ; preds = %.lr.ph777
   %64 = getelementptr inbounds i8, ptr %.07.i691776, i64 24
   %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, %59
+  %66 = icmp eq i32 %59, %65
   br i1 %66, label %getEncTypeStr.exit, label %.lr.ph777
 
 getEncTypeStr.exit:                               ; preds = %63, %.lr.ph777, %getMimeTypeStr.exit
@@ -5360,7 +5360,7 @@ define internal fastcc noundef ptr @do_multipart(ptr noundef %0, ptr nocapture n
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr inbounds i8, ptr %.07.i185, i64 24
   %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, %53
+  %60 = icmp eq i32 %53, %59
   br i1 %60, label %getMimeTypeStr.exit, label %.lr.ph
 
 getMimeTypeStr.exit:                              ; preds = %57, %.lr.ph, %52
@@ -5382,7 +5382,7 @@ getMimeTypeStr.exit:                              ; preds = %57, %.lr.ph, %52
 68:                                               ; preds = %.lr.ph189
   %69 = getelementptr inbounds i8, ptr %.07.i180188, i64 24
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, %64
+  %71 = icmp eq i32 %64, %70
   br i1 %71, label %getEncTypeStr.exit, label %.lr.ph189
 
 getEncTypeStr.exit:                               ; preds = %68, %.lr.ph189, %getMimeTypeStr.exit

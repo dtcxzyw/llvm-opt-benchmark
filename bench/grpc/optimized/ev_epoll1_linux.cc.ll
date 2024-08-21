@@ -975,7 +975,7 @@ while.body.i.i:                                   ; preds = %if.then.i, %if.end.
 if.then.i.i:                                      ; preds = %while.body.i.i
   %3 = load ptr, ptr %__to_destroy.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %__first.sroa.0.04.i.i
-  %cmp.i3.i.i.i.i = icmp eq ptr %1, %3
+  %cmp.i3.i.i.i.i = icmp eq ptr %3, %1
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp.i3.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.end.i.i, label %if.end8.i.i.i.i
 

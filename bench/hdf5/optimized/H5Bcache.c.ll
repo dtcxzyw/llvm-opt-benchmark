@@ -120,7 +120,7 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
   br label %234
 
 48:                                               ; preds = %37
-  %49 = icmp ult ptr %.ptr131, %0
+  %49 = icmp ugt ptr %0, %.ptr131
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %48
@@ -557,7 +557,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   %83 = phi ptr [ %81, %77 ], [ %.pre, %._crit_edge ], [ %.pre50, %._crit_edge.thread ]
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %1 to i64
-  %.neg = add i64 %85, %2
+  %.neg = add i64 %2, %85
   %86 = sub i64 %.neg, %84
   call void @llvm.memset.p0.i64(ptr align 1 %83, i8 0, i64 %86, i1 false)
   br label %87

@@ -37,7 +37,7 @@ if.then20:                                        ; preds = %if.then17
 
 lor.rhs:                                          ; preds = %if.then20
   %conv26 = zext nneg i8 %roundIncrement.0 to i64
-  %add = add i64 %conv26, %sig
+  %add = add i64 %sig, %conv26
   %cmp27 = icmp ult i64 %add, 32768
   br label %lor.end
 
@@ -83,7 +83,7 @@ if.else:                                          ; preds = %if.then17
 
 lor.lhs.false43:                                  ; preds = %if.else
   %conv44 = zext nneg i8 %roundIncrement.0 to i64
-  %add45 = add i64 %conv44, %sig
+  %add45 = add i64 %sig, %conv44
   %cmp46 = icmp ugt i64 %add45, 32767
   br i1 %cmp46, label %if.then48, label %if.end59
 

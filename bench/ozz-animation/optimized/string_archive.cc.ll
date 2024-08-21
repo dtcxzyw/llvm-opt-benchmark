@@ -306,7 +306,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacityEv.exit: ; preds = %2, %6
   %10 = load i64, ptr %4, align 8
   %11 = select i1 %5, i64 15, i64 %10
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %12, label %47
 
 12:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacityEv.exit
@@ -319,7 +319,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE8capacit
 
 15:                                               ; preds = %12
   %16 = shl nuw i64 %11, 1
-  %17 = icmp ugt i64 %16, %1
+  %17 = icmp ult i64 %1, %16
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %16, i64 9223372036854775807)
   %.0 = select i1 %17, i64 %spec.store.select.i, i64 %1
   %18 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()

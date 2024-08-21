@@ -21,11 +21,11 @@ define hidden void @nghttp2_ratelim_update(ptr nocapture noundef %rl, i64 nounde
 entry:
   %tstamp1 = getelementptr inbounds i8, ptr %rl, i64 24
   %0 = load i64, ptr %tstamp1, align 8
-  %cmp = icmp eq i64 %0, %tstamp
+  %cmp = icmp eq i64 %tstamp, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp3 = icmp ult i64 %0, %tstamp
+  %cmp3 = icmp ugt i64 %tstamp, %0
   %sub = sub nuw i64 %tstamp, %0
   %d.0 = select i1 %cmp3, i64 %sub, i64 1
   store i64 %tstamp, ptr %tstamp1, align 8

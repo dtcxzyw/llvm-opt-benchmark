@@ -545,8 +545,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !41
   %61 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %54, <4 x float> zeroinitializer, i8 -1)
   %62 = fadd contract <4 x float> %61, %61
-  %63 = fneg contract <4 x float> %61
-  %64 = fmul contract <4 x float> %54, %63
+  %63 = fneg contract <4 x float> %54
+  %64 = fmul contract <4 x float> %61, %63
   %65 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %64, <4 x float> %61, <4 x float> %62)
   %66 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %65, <4 x float> %54, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
@@ -740,8 +740,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !105
   %152 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %145, <4 x float> zeroinitializer, i8 -1)
   %153 = fadd contract <4 x float> %152, %152
-  %154 = fneg contract <4 x float> %152
-  %155 = fmul contract <4 x float> %145, %154
+  %154 = fneg contract <4 x float> %145
+  %155 = fmul contract <4 x float> %152, %154
   %156 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %155, <4 x float> %152, <4 x float> %153)
   %157 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %156, <4 x float> %145, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
@@ -2871,8 +2871,8 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !195
   %23 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %16, <4 x float> zeroinitializer, i8 -1)
   %24 = fadd contract <4 x float> %23, %23
-  %25 = fneg contract <4 x float> %23
-  %26 = fmul contract <4 x float> %16, %25
+  %25 = fneg contract <4 x float> %16
+  %26 = fmul contract <4 x float> %23, %25
   %27 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %26, <4 x float> %23, <4 x float> %24)
   %28 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %27, <4 x float> %16, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)

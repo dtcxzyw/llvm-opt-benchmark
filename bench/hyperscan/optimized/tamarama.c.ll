@@ -258,7 +258,7 @@ do.end.i:                                         ; preds = %for.inc.i, %do.end.
   %indvars.iv.i = phi i64 [ 0, %do.end.preheader.i ], [ %indvars.iv.next.pre-phi.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv.i
   %28 = load i32, ptr %arrayidx.i, align 4
-  %cmp1.not.i = icmp ugt i32 %28, %26
+  %cmp1.not.i = icmp ult i32 %26, %28
   br i1 %cmp1.not.i, label %do.end.for.inc_crit_edge.i, label %land.lhs.true.i
 
 do.end.for.inc_crit_edge.i:                       ; preds = %do.end.i
@@ -273,7 +273,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %29 = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx4.i = getelementptr inbounds i32, ptr %add.ptr, i64 %29
   %30 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp ugt i32 %30, %26
+  %cmp5.i = icmp ult i32 %26, %30
   br i1 %cmp5.i, label %for.end.loopexit.split.loop.exit15.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false.i, %do.end.for.inc_crit_edge.i
@@ -333,7 +333,7 @@ if.end36:                                         ; preds = %do.end
   %add.ptr.i.i66 = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i66, ptr %q2, align 8
   %38 = load i32, ptr %t, align 32
-  %cmp.i = icmp ne i32 %38, %retval.i.0.i
+  %cmp.i = icmp ne i32 %retval.i.0.i, %38
   %cmp1.not.i67 = icmp eq i32 %retval.i.0.i, %activeIdx.0
   %or.cond.i = and i1 %cmp1.not.i67, %cmp.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i
@@ -1443,7 +1443,7 @@ entry:
   %0 = load i32, ptr %arrayidx, align 4
   %1 = load i32, ptr %t, align 32
   %sub1 = add i32 %1, -1
-  %cmp = icmp eq i32 %sub1, %activeIdx
+  %cmp = icmp eq i32 %activeIdx, %sub1
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry

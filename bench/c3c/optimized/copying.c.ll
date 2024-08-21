@@ -633,7 +633,7 @@ copy_expr_list.exit451:                           ; preds = %expand_.exit492, %2
 270:                                              ; preds = %269
   %271 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %272 = load ptr, ptr %271, align 8
-  %273 = icmp eq ptr %272, %267
+  %273 = icmp eq ptr %267, %272
   br i1 %273, label %fixup.exit, label %269, !llvm.loop !11
 
 fixup.exit:                                       ; preds = %270
@@ -1076,7 +1076,7 @@ copy_reg_ref.exit458:                             ; preds = %516
 530:                                              ; preds = %529
   %531 = getelementptr inbounds i8, ptr %.09.i459, i64 -16
   %532 = load ptr, ptr %531, align 8
-  %533 = icmp eq ptr %532, %528
+  %533 = icmp eq ptr %528, %532
   br i1 %533, label %fixup.exit462, label %529, !llvm.loop !11
 
 fixup.exit462:                                    ; preds = %530
@@ -2334,7 +2334,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 202:                                              ; preds = %201
   %203 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, %198
+  %205 = icmp eq ptr %198, %204
   br i1 %205, label %fixup.exit, label %201, !llvm.loop !11
 
 fixup.exit:                                       ; preds = %202
@@ -2723,7 +2723,7 @@ copy_range.exit:                                  ; preds = %278, %281
 429:                                              ; preds = %428
   %430 = getelementptr inbounds i8, ptr %.09.i504, i64 -16
   %431 = load ptr, ptr %430, align 8
-  %432 = icmp eq ptr %431, %425
+  %432 = icmp eq ptr %425, %431
   br i1 %432, label %fixup.exit507, label %428, !llvm.loop !11
 
 fixup.exit507:                                    ; preds = %429
@@ -2763,7 +2763,7 @@ fixup.exit507:                                    ; preds = %429
 448:                                              ; preds = %447
   %449 = getelementptr inbounds i8, ptr %.09.i508, i64 -16
   %450 = load ptr, ptr %449, align 8
-  %451 = icmp eq ptr %450, %444
+  %451 = icmp eq ptr %444, %450
   br i1 %451, label %fixup.exit511, label %447, !llvm.loop !11
 
 fixup.exit511:                                    ; preds = %448
@@ -2930,7 +2930,7 @@ fixup.exit511:                                    ; preds = %448
 549:                                              ; preds = %548
   %550 = getelementptr inbounds i8, ptr %.09.i512, i64 -16
   %551 = load ptr, ptr %550, align 8
-  %552 = icmp eq ptr %551, %545
+  %552 = icmp eq ptr %545, %551
   br i1 %552, label %fixup.exit515, label %548, !llvm.loop !11
 
 fixup.exit515:                                    ; preds = %549
@@ -3044,7 +3044,7 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
 615:                                              ; preds = %614
   %616 = getelementptr inbounds i8, ptr %.09.i516, i64 -16
   %617 = load ptr, ptr %616, align 8
-  %618 = icmp eq ptr %617, %610
+  %618 = icmp eq ptr %610, %617
   br i1 %618, label %fixup.exit519, label %614, !llvm.loop !11
 
 fixup.exit519:                                    ; preds = %615
@@ -5761,7 +5761,7 @@ common.ret1025:                                   ; preds = %11, %copy_attribute
 926:                                              ; preds = %925
   %927 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %928 = load ptr, ptr %927, align 8
-  %929 = icmp eq ptr %928, %923
+  %929 = icmp eq ptr %923, %928
   br i1 %929, label %fixup.exit, label %925, !llvm.loop !11
 
 fixup.exit:                                       ; preds = %926
@@ -5883,7 +5883,7 @@ copy_expr_list.exit393:                           ; preds = %expand_.exit518, %f
 984:                                              ; preds = %983
   %985 = getelementptr inbounds i8, ptr %.09.i394, i64 -16
   %986 = load ptr, ptr %985, align 8
-  %987 = icmp eq ptr %986, %981
+  %987 = icmp eq ptr %981, %986
   br i1 %987, label %fixup.exit397, label %983, !llvm.loop !11
 
 fixup.exit397:                                    ; preds = %984

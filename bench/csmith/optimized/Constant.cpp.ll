@@ -2042,7 +2042,7 @@ define dso_local void @_ZNK8Constant9get_fieldB5cxx11Em(ptr dead_on_unwind noali
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 5
-  %18 = icmp ugt i64 %17, %2
+  %18 = icmp ult i64 %2, %17
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %10

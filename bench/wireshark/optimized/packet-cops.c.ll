@@ -2550,7 +2550,7 @@ redecode_oid.exit.i:                              ; preds = %redecode_oid.exit.l
 
 152:                                              ; preds = %148, %144, %140
   %.0148.i = phi ptr [ %151, %148 ], [ null, %144 ], [ null, %140 ]
-  %153 = icmp ugt i32 %139, %58
+  %153 = icmp ult i32 %58, %139
   br i1 %153, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %152, %183

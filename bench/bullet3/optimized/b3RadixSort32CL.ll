@@ -1028,7 +1028,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %m_workBuffer4, align 8
   %m_size.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %m_size.i.i.i, align 8
-  %cmp3.i.i = icmp ult i64 %2, %0
+  %cmp3.i.i = icmp ugt i64 %0, %2
   br i1 %cmp3.i.i, label %if.end7.i.i, label %_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb.exit.i
 
 if.end7.i.i:                                      ; preds = %if.then
@@ -1755,7 +1755,7 @@ for.end:                                          ; preds = %if.end69, %_ZN13b3O
 if.then77:                                        ; preds = %for.end
   %sext = shl i64 %0, 32
   %conv79 = ashr exact i64 %sext, 32
-  %cmp3.i155 = icmp ult i64 %96, %conv79
+  %cmp3.i155 = icmp ugt i64 %conv79, %96
   br i1 %cmp3.i155, label %if.end7.i158, label %_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb.exit161
 
 if.end7.i158:                                     ; preds = %if.then77
@@ -1770,7 +1770,7 @@ _ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb.exit161: ; preds = %if.then77, %if.en
   %m_size.i.i162 = getelementptr inbounds i8, ptr %97, i64 8
   %98 = load i64, ptr %m_size.i.i162, align 8
   %99 = load i64, ptr %m_size.i, align 8
-  %cmp3.i.i164 = icmp ult i64 %99, %98
+  %cmp3.i.i164 = icmp ugt i64 %98, %99
   br i1 %cmp3.i.i164, label %if.end7.i.i174, label %_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb.exit.i165
 
 if.end7.i.i174:                                   ; preds = %_ZN13b3OpenCLArrayI10b3SortDataE6resizeEmb.exit161
@@ -1856,7 +1856,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %m_workBuffer4a, align 8
   %m_size.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %m_size.i.i.i, align 8
-  %cmp3.i.i = icmp ult i64 %2, %0
+  %cmp3.i.i = icmp ugt i64 %0, %2
   br i1 %cmp3.i.i, label %if.end7.i.i, label %_ZN13b3OpenCLArrayIjE6resizeEmb.exit.i
 
 if.end7.i.i:                                      ; preds = %if.then
@@ -2595,7 +2595,7 @@ for.end:                                          ; preds = %if.end71, %_ZN13b3O
 if.then79:                                        ; preds = %for.end
   %sext = shl i64 %0, 32
   %conv81 = ashr exact i64 %sext, 32
-  %cmp3.i164 = icmp ult i64 %97, %conv81
+  %cmp3.i164 = icmp ugt i64 %conv81, %97
   br i1 %cmp3.i164, label %if.end7.i167, label %_ZN13b3OpenCLArrayIjE6resizeEmb.exit170
 
 if.end7.i167:                                     ; preds = %if.then79
@@ -2610,7 +2610,7 @@ _ZN13b3OpenCLArrayIjE6resizeEmb.exit170:          ; preds = %if.then79, %if.end7
   %m_size.i.i171 = getelementptr inbounds i8, ptr %98, i64 8
   %99 = load i64, ptr %m_size.i.i171, align 8
   %100 = load i64, ptr %m_size.i, align 8
-  %cmp3.i.i173 = icmp ult i64 %100, %99
+  %cmp3.i.i173 = icmp ugt i64 %99, %100
   br i1 %cmp3.i.i173, label %if.end7.i.i183, label %_ZN13b3OpenCLArrayIjE6resizeEmb.exit.i174
 
 if.end7.i.i183:                                   ; preds = %_ZN13b3OpenCLArrayIjE6resizeEmb.exit170

@@ -612,7 +612,7 @@ thread-pre-split:                                 ; preds = %42, %39
 53:                                               ; preds = %51
   %54 = getelementptr inbounds i8, ptr %.0157, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, %2
+  %56 = icmp eq i32 %2, %55
   br i1 %56, label %57, label %181
 
 57:                                               ; preds = %53, %51

@@ -2792,7 +2792,7 @@ define internal fastcc void @__lru_add_drain_all(i1 noundef zeroext %0) unnamed_
   tail call void @mutex_lock(ptr noundef nonnull @__lru_add_drain_all.lock) #12
   %7 = load i32, ptr @__lru_add_drain_all.lru_drain_gen, align 4
   %8 = icmp eq i32 %6, %7
-  %9 = or i1 %8, %0
+  %9 = or i1 %0, %8
   br i1 %9, label %10, label %.thread, !prof !10
 
 10:                                               ; preds = %5

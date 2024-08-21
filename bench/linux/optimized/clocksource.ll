@@ -1654,7 +1654,7 @@ define dso_local noundef i64 @sysfs_get_uname(ptr nocapture noundef readonly %0,
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 10
   %11 = sext i1 %10 to i64
-  %12 = add nsw i64 %11, %2
+  %12 = add nsw i64 %2, %11
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %15, label %14
 
@@ -2553,7 +2553,7 @@ define internal noundef i64 @current_clocksource_store(ptr nocapture readnone %0
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 10
   %12 = sext i1 %11 to i64
-  %13 = add nsw i64 %12, %3
+  %13 = add nsw i64 %3, %12
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %16, label %15
 
@@ -2591,7 +2591,7 @@ define internal noundef i64 @unbind_clocksource_store(ptr nocapture readnone %0,
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 10
   %13 = sext i1 %12 to i64
-  %14 = add nsw i64 %13, %3
+  %14 = add nsw i64 %3, %13
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %17, label %16
 

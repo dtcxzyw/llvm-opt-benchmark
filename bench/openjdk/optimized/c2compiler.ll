@@ -244,8 +244,8 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
   %.023 = phi i8 [ %16, %6 ], [ %.124, %_ZN12ResourceMarkD2Ev.exit ]
   %.022 = phi i8 [ 1, %6 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ]
   %23 = load ptr, ptr %17, align 8
-  %.not79 = icmp eq ptr %23, null
-  br i1 %.not79, label %24, label %84
+  %.not81 = icmp eq ptr %23, null
+  br i1 %.not81, label %24, label %84
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %18, align 8
@@ -302,7 +302,7 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
 
 50:                                               ; preds = %48
   %.not4.i = icmp eq ptr %46, null
-  br i1 %.not4.i, label %_ZNK7Compile17failure_reason_isEPKc.exit49.thread78, label %_ZNK7Compile17failure_reason_isEPKc.exit
+  br i1 %.not4.i, label %_ZNK7Compile17failure_reason_isEPKc.exit49.thread80, label %_ZNK7Compile17failure_reason_isEPKc.exit
 
 _ZNK7Compile17failure_reason_isEPKc.exit:         ; preds = %50
   %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str, ptr noundef nonnull dereferenceable(1) %46) #11
@@ -328,14 +328,14 @@ _ZNK7Compile17failure_reason_isEPKc.exit37.thread: ; preds = %53, %_ZNK7Compile1
 
 57:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit37
   %58 = icmp eq ptr %46, @.str.6
-  br i1 %58, label %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66, label %_ZNK7Compile17failure_reason_isEPKc.exit40
+  br i1 %58, label %_ZNK7Compile17failure_reason_isEPKc.exit40.thread, label %_ZNK7Compile17failure_reason_isEPKc.exit40
 
 _ZNK7Compile17failure_reason_isEPKc.exit40:       ; preds = %57
   %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(40) @.str.6, ptr noundef nonnull dereferenceable(1) %46) #11
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66, label %61
+  br i1 %60, label %_ZNK7Compile17failure_reason_isEPKc.exit40.thread, label %61
 
-_ZNK7Compile17failure_reason_isEPKc.exit40.thread66: ; preds = %57, %_ZNK7Compile17failure_reason_isEPKc.exit40
+_ZNK7Compile17failure_reason_isEPKc.exit40.thread: ; preds = %57, %_ZNK7Compile17failure_reason_isEPKc.exit40
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %47) #10
   br label %78, !llvm.loop !8
 
@@ -354,14 +354,14 @@ _ZNK7Compile17failure_reason_isEPKc.exit43.thread: ; preds = %61, %_ZNK7Compile1
 
 65:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit43
   %66 = icmp eq ptr %46, @.str.5
-  br i1 %66, label %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74, label %_ZNK7Compile17failure_reason_isEPKc.exit46
+  br i1 %66, label %_ZNK7Compile17failure_reason_isEPKc.exit46.thread, label %_ZNK7Compile17failure_reason_isEPKc.exit46
 
 _ZNK7Compile17failure_reason_isEPKc.exit46:       ; preds = %65
   %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.5, ptr noundef nonnull dereferenceable(1) %46) #11
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74, label %69
+  br i1 %68, label %_ZNK7Compile17failure_reason_isEPKc.exit46.thread, label %69
 
-_ZNK7Compile17failure_reason_isEPKc.exit46.thread74: ; preds = %65, %_ZNK7Compile17failure_reason_isEPKc.exit46
+_ZNK7Compile17failure_reason_isEPKc.exit46.thread: ; preds = %65, %_ZNK7Compile17failure_reason_isEPKc.exit46
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %47) #10
   br label %78, !llvm.loop !8
 
@@ -372,22 +372,22 @@ _ZNK7Compile17failure_reason_isEPKc.exit46.thread74: ; preds = %65, %_ZNK7Compil
 _ZNK7Compile17failure_reason_isEPKc.exit49:       ; preds = %69
   %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(24) @.str.8, ptr noundef nonnull dereferenceable(1) %46) #11
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %_ZNK7Compile17failure_reason_isEPKc.exit49.thread, label %_ZNK7Compile17failure_reason_isEPKc.exit49.thread78
+  br i1 %72, label %_ZNK7Compile17failure_reason_isEPKc.exit49.thread, label %_ZNK7Compile17failure_reason_isEPKc.exit49.thread80
 
 _ZNK7Compile17failure_reason_isEPKc.exit49.thread: ; preds = %69, %_ZNK7Compile17failure_reason_isEPKc.exit49
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %47) #10
   br label %78, !llvm.loop !8
 
-_ZNK7Compile17failure_reason_isEPKc.exit49.thread78: ; preds = %50, %_ZNK7Compile17failure_reason_isEPKc.exit49
+_ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %50, %_ZNK7Compile17failure_reason_isEPKc.exit49
   %73 = load i8, ptr %21, align 1
   %74 = trunc i8 %73 to i1
   br i1 %74, label %75, label %76
 
-75:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit49.thread78
+75:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit49.thread80
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %47) #10
   br label %78, !llvm.loop !8
 
-76:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit49.thread78
+76:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit49.thread80
   call void @_ZN5ciEnv14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %47) #10
   br label %77
 
@@ -395,15 +395,15 @@ _ZNK7Compile17failure_reason_isEPKc.exit49.thread78: ; preds = %50, %_ZNK7Compil
   call void @_ZN7Compile19dump_print_inliningEv(ptr noundef nonnull align 8 dereferenceable(2316) %8) #10
   br label %78
 
-78:                                               ; preds = %77, %75, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread, %_ZNK7Compile17failure_reason_isEPKc.exit.thread
-  %.134 = phi i8 [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.033, %75 ], [ %.033, %77 ]
-  %.132 = phi i8 [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.031, %75 ], [ %.031, %77 ]
-  %.130 = phi i8 [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.029, %75 ], [ %.029, %77 ]
-  %.128 = phi i8 [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ 0, %75 ], [ %.027, %77 ]
-  %.126 = phi i8 [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.025, %75 ], [ %.025, %77 ]
-  %.124 = phi i8 [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.023, %75 ], [ %.023, %77 ]
-  %.1 = phi i8 [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.022, %75 ], [ %.022, %77 ]
-  %switch = phi i1 [ true, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread66 ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread74 ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ true, %75 ], [ false, %77 ]
+78:                                               ; preds = %77, %75, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread, %_ZNK7Compile17failure_reason_isEPKc.exit.thread
+  %.134 = phi i8 [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.033, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.033, %75 ], [ %.033, %77 ]
+  %.132 = phi i8 [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.031, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.031, %75 ], [ %.031, %77 ]
+  %.130 = phi i8 [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.029, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.029, %75 ], [ %.029, %77 ]
+  %.128 = phi i8 [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.027, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ 0, %75 ], [ %.027, %77 ]
+  %.126 = phi i8 [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.025, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.025, %75 ], [ %.025, %77 ]
+  %.124 = phi i8 [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.023, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.023, %75 ], [ %.023, %77 ]
+  %.1 = phi i8 [ 0, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ %.022, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ %.022, %75 ], [ %.022, %77 ]
+  %switch = phi i1 [ true, %_ZNK7Compile17failure_reason_isEPKc.exit.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit37.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit40.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit43.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit46.thread ], [ true, %_ZNK7Compile17failure_reason_isEPKc.exit49.thread ], [ true, %75 ], [ false, %77 ]
   call void @_ZN7CompileD1Ev(ptr noundef nonnull align 8 dereferenceable(2316) %8) #10
   %79 = load ptr, ptr %29, align 8
   %.not.i.i.i.i = icmp eq ptr %79, null

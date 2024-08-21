@@ -1127,7 +1127,7 @@ declare ptr @php_pcre2_match_data_create_from_pattern(ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define void @php_pcre_free_match_data(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @mdata, align 8
-  %.not = icmp eq ptr %2, %0
+  %.not = icmp eq ptr %0, %2
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
@@ -1215,7 +1215,7 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
 45:                                               ; preds = %40
   %46 = trunc nuw nsw i64 %44 to i32
   %47 = icmp ult i64 %44, 3
-  %brmerge.not = and i1 %47, %4
+  %brmerge.not = and i1 %4, %47
   br i1 %brmerge.not, label %51, label %48
 
 48:                                               ; preds = %45
@@ -1343,7 +1343,7 @@ free_subpats_table.exit:                          ; preds = %94, %81
 
 97:                                               ; preds = %76, %74
   %.0456 = phi ptr [ %75, %74 ], [ %79, %76 ]
-  %or.cond8 = and i1 %62, %4
+  %or.cond8 = and i1 %4, %62
   %98 = icmp eq i32 %.0447, 1
   %or.cond10 = select i1 %or.cond8, i1 %98, i1 false
   br i1 %or.cond10, label %99, label %.loopexit551
@@ -2418,7 +2418,7 @@ define internal fastcc void @populate_subpat_array(ptr noundef %0, ptr nocapture
   tail call fastcc void @add_offset_pair(ptr noundef %15, ptr noundef null, i64 noundef -1, i64 noundef -1, ptr noundef %30, i64 noundef 1)
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %31 = trunc nsw i64 %indvars.iv.next323 to i32
-  %32 = icmp ult i32 %31, %4
+  %32 = icmp ugt i32 %4, %31
   br i1 %32, label %.lr.ph294, label %.loopexit
 
 33:                                               ; preds = %.lr.ph296, %add_named.exit
@@ -2555,7 +2555,7 @@ add_named.exit:                                   ; preds = %82, %77, %79, %71
   %96 = call ptr @zend_hash_next_index_insert_new(ptr noundef %15, ptr noundef nonnull %12) #23
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %97 = trunc nsw i64 %indvars.iv.next331 to i32
-  %98 = icmp ult i32 %97, %4
+  %98 = icmp ugt i32 %4, %97
   br i1 %98, label %90, label %.loopexit
 
 99:                                               ; preds = %8
@@ -3443,7 +3443,7 @@ preg_get_backref.exit.thread:                     ; preds = %77, %103, %87, %84
 
 186:                                              ; preds = %179
   %187 = getelementptr inbounds i8, ptr %180, i64 %.2465
-  %188 = icmp ugt ptr %75, %4
+  %188 = icmp ult ptr %4, %75
   br i1 %188, label %.lr.ph663, label %.outer._crit_edge
 
 .lr.ph663:                                        ; preds = %186, %.outer.backedge

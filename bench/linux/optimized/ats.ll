@@ -113,7 +113,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_ats(ptr noundef %0, i
   %21 = getelementptr inbounds i8, ptr %0, i64 2018
   %22 = load i8, ptr %21, align 2
   %23 = zext i8 %22 to i32
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   br i1 %24, label %32, label %39
 
 25:                                               ; preds = %17
@@ -568,7 +568,7 @@ define dso_local range(i32 -22, 1) i32 @pci_enable_pasid(ptr noundef %0, i32 nou
   %30 = and i16 %29, 6
   store i16 %30, ptr %3, align 2
   %31 = zext nneg i16 %30 to i32
-  %32 = and i32 %31, %1
+  %32 = and i32 %1, %31
   %33 = icmp eq i32 %32, %1
   br i1 %33, label %34, label %42
 

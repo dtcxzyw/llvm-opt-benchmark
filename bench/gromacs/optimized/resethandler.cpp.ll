@@ -96,7 +96,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 34:                                               ; preds = %32, %30
   store i8 1, ptr %13, align 1
   %35 = fcmp ogt float %6, 0.000000e+00
-  %or.cond = and i1 %35, %4
+  %or.cond = and i1 %4, %35
   br i1 %or.cond, label %36, label %42
 
 36:                                               ; preds = %34
@@ -175,7 +175,7 @@ define noundef zeroext i1 @_ZN3gmx12ResetHandler17resetCountersImplEllRKNS_8MDLo
 
 20:                                               ; preds = %12
   %21 = tail call noundef i64 @_Z25wcycle_get_reset_countersP13gmx_wallcycle(ptr noundef %10)
-  %22 = icmp eq i64 %21, %2
+  %22 = icmp eq i64 %2, %21
   br i1 %22, label %23, label %129
 
 23:                                               ; preds = %20, %12

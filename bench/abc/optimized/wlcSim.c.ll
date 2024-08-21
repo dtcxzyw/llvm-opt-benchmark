@@ -410,7 +410,7 @@ Vec_PtrPush.exit149:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv300 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next301, %332 ]
   %.0104224 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1105.lcssa, %332 ]
   %135 = trunc nuw nsw i64 %indvars.iv300 to i32
-  %136 = mul i32 %135, %2
+  %136 = mul i32 %2, %135
   %137 = zext i32 %136 to i64
   %138 = shl nuw nsw i64 %137, 3
   %139 = load i32, ptr %16, align 8
@@ -436,7 +436,7 @@ Vec_PtrPush.exit149:                              ; preds = %.Vec_PtrGrow.exit11
 
 .split.us.us.preheader:                           ; preds = %.lr.ph222
   %143 = trunc i64 %indvars.iv300 to i32
-  %144 = mul i32 %143, %2
+  %144 = mul i32 %2, %143
   %145 = zext i32 %144 to i64
   br label %.split.us.us.split.us.preheader
 

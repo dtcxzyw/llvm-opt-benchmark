@@ -540,7 +540,7 @@ define range(i32 -1, 1) i32 @wait_fd_readable(i32 noundef %0, i32 noundef %1) lo
   %22 = call i64 @time(ptr noundef null) #10
   %.neg = sub i64 %4, %22
   %23 = trunc i64 %.neg to i32
-  %24 = add i32 %23, %1
+  %24 = add i32 %1, %23
   %25 = mul nsw i32 %24, 1000
   %26 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef %25) #10
   %27 = icmp sgt i32 %26, 0

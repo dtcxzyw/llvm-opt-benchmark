@@ -1219,7 +1219,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_int_serialize(ptr noundef %0, 
   %122 = load ptr, ptr %5, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 1
   %124 = ptrtoint ptr %123 to i64
-  %.neg = add i64 %105, %2
+  %.neg = add i64 %2, %105
   %125 = sub i64 %.neg, %124
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %123, i8 0, i64 %125, i1 false)
   br label %126
@@ -1630,7 +1630,7 @@ define internal range(i32 -1, 1) i32 @H5B2__cache_leaf_serialize(ptr nocapture r
   store i8 %58, ptr %56, align 1
   %59 = getelementptr inbounds i8, ptr %.040.lcssa, i64 4
   %60 = ptrtoint ptr %59 to i64
-  %.neg = add i64 %46, %2
+  %.neg = add i64 %2, %46
   %61 = sub i64 %.neg, %60
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %59, i8 0, i64 %61, i1 false)
   br label %62

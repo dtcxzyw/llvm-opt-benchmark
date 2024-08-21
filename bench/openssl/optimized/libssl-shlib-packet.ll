@@ -36,7 +36,7 @@ land.lhs.true.i:                                  ; preds = %if.end7.i
   br i1 %cmp13.i, label %if.then15.i, label %if.end35.i
 
 if.then15.i:                                      ; preds = %land.lhs.true.i
-  %len..i = tail call i64 @llvm.umax.i64(i64 %5, i64 %len)
+  %len..i = tail call i64 @llvm.umax.i64(i64 %len, i64 %5)
   %mul.i = shl nuw i64 %len..i, 1
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 256)
   %cmp22.inv.i = icmp sgt i64 %len..i, -1
@@ -153,7 +153,7 @@ land.lhs.true:                                    ; preds = %if.end7
   br i1 %cmp13, label %if.then15, label %if.end35
 
 if.then15:                                        ; preds = %land.lhs.true
-  %len. = tail call i64 @llvm.umax.i64(i64 %5, i64 %len)
+  %len. = tail call i64 @llvm.umax.i64(i64 %len, i64 %5)
   %mul = shl nuw i64 %len., 1
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %mul, i64 256)
   %cmp22.inv = icmp sgt i64 %len., -1
@@ -480,7 +480,7 @@ land.lhs.true.i:                                  ; preds = %if.end7.i
   br i1 %cmp13.i, label %if.then15.i, label %if.end35.i
 
 if.then15.i:                                      ; preds = %land.lhs.true.i
-  %len..i = tail call i64 @llvm.umax.i64(i64 %5, i64 %add)
+  %len..i = tail call i64 @llvm.umax.i64(i64 %add, i64 %5)
   %mul.i = shl nuw i64 %len..i, 1
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 256)
   %cmp22.inv.i = icmp sgt i64 %len..i, -1
@@ -576,7 +576,7 @@ if.end:                                           ; preds = %entry
   %mul.i = shl nuw nsw i64 %lenbytes, 3
   %notmask.i = shl nsw i64 -1, %mul.i
   %sub.i = xor i64 %notmask.i, -1
-  %add.i = add nuw nsw i64 %sub.i, %lenbytes
+  %add.i = add nuw nsw i64 %lenbytes, %sub.i
   %retval.0.i = select i1 %or.cond.i, i64 -1, i64 %add.i
   %staticbuf = getelementptr inbounds i8, ptr %pkt, i64 8
   store ptr %buf, ptr %staticbuf, align 8
@@ -679,7 +679,7 @@ if.end:                                           ; preds = %entry
   %mul.i = shl nuw nsw i64 %lenbytes, 3
   %notmask.i = shl nsw i64 -1, %mul.i
   %sub.i = xor i64 %notmask.i, -1
-  %add.i = add nuw nsw i64 %sub.i, %lenbytes
+  %add.i = add nuw nsw i64 %lenbytes, %sub.i
   %retval.0.i = select i1 %or.cond.i, i64 -1, i64 %add.i
   %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   store i64 %retval.0.i, ptr %maxsize, align 8
@@ -768,7 +768,7 @@ entry:
   %mul.i = shl nuw nsw i64 %lenbytes, 3
   %notmask.i = shl nsw i64 -1, %mul.i
   %sub.i = xor i64 %notmask.i, -1
-  %add.i = add nuw nsw i64 %sub.i, %lenbytes
+  %add.i = add nuw nsw i64 %lenbytes, %sub.i
   %retval.0.i = select i1 %or.cond.i, i64 -1, i64 %add.i
   %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt, i8 0, i64 16, i1 false)
@@ -1317,7 +1317,7 @@ for.end:                                          ; preds = %for.cond
 lor.lhs.false:                                    ; preds = %for.end
   %written = getelementptr inbounds i8, ptr %pkt, i64 24
   %3 = load i64, ptr %written, align 8
-  %cmp16 = icmp ugt i64 %3, %maxsize
+  %cmp16 = icmp ult i64 %maxsize, %3
   br i1 %cmp16, label %return, label %if.end19
 
 if.end19:                                         ; preds = %lor.lhs.false

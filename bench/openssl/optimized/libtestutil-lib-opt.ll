@@ -420,7 +420,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   %retval1.i = getelementptr inbounds i8, ptr %ap.04.i, i64 8
   %3 = load i32, ptr %retval1.i, align 8
   %conv.i = sext i32 %3 to i64
-  %and.i = and i64 %conv.i, %flags
+  %and.i = and i64 %flags, %conv.i
   %tobool2.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %if.then.i
 
@@ -457,7 +457,7 @@ for.body.i68:                                     ; preds = %for.inc.i76, %if.th
   %retval1.i70 = getelementptr inbounds i8, ptr %ap.04.i69, i64 8
   %6 = load i32, ptr %retval1.i70, align 8
   %conv.i71 = sext i32 %6 to i64
-  %and.i72 = and i64 %conv.i71, %flags
+  %and.i72 = and i64 %flags, %conv.i71
   %tobool2.not.i73 = icmp eq i64 %and.i72, 0
   br i1 %tobool2.not.i73, label %for.inc.i76, label %if.then.i74
 
@@ -494,7 +494,7 @@ for.body.i82:                                     ; preds = %for.inc.i90, %if.th
   %retval1.i84 = getelementptr inbounds i8, ptr %ap.04.i83, i64 8
   %9 = load i32, ptr %retval1.i84, align 8
   %conv.i85 = sext i32 %9 to i64
-  %and.i86 = and i64 %conv.i85, %flags
+  %and.i86 = and i64 %flags, %conv.i85
   %tobool2.not.i87 = icmp eq i64 %and.i86, 0
   br i1 %tobool2.not.i87, label %for.inc.i90, label %if.then.i88
 
@@ -531,7 +531,7 @@ for.body.i96:                                     ; preds = %for.inc.i104, %if.t
   %retval1.i98 = getelementptr inbounds i8, ptr %ap.04.i97, i64 8
   %12 = load i32, ptr %retval1.i98, align 8
   %conv.i99 = sext i32 %12 to i64
-  %and.i100 = and i64 %conv.i99, %flags
+  %and.i100 = and i64 %flags, %conv.i99
   %tobool2.not.i101 = icmp eq i64 %and.i100, 0
   br i1 %tobool2.not.i101, label %for.inc.i104, label %if.then.i102
 
@@ -582,7 +582,7 @@ for.body.i110:                                    ; preds = %for.inc.i118, %if.t
   %retval1.i112 = getelementptr inbounds i8, ptr %ap.04.i111, i64 8
   %15 = load i32, ptr %retval1.i112, align 8
   %conv.i113 = sext i32 %15 to i64
-  %and.i114 = and i64 %conv.i113, %flags
+  %and.i114 = and i64 %flags, %conv.i113
   %tobool2.not.i115 = icmp eq i64 %and.i114, 0
   br i1 %tobool2.not.i115, label %for.inc.i118, label %if.then.i116
 
@@ -619,7 +619,7 @@ for.body.i124:                                    ; preds = %for.inc.i132, %if.t
   %retval1.i126 = getelementptr inbounds i8, ptr %ap.04.i125, i64 8
   %18 = load i32, ptr %retval1.i126, align 8
   %conv.i127 = sext i32 %18 to i64
-  %and.i128 = and i64 %conv.i127, %flags
+  %and.i128 = and i64 %flags, %conv.i127
   %tobool2.not.i129 = icmp eq i64 %and.i128, 0
   br i1 %tobool2.not.i129, label %for.inc.i132, label %if.then.i130
 
@@ -656,7 +656,7 @@ for.body.i138:                                    ; preds = %for.inc.i146, %if.t
   %retval1.i140 = getelementptr inbounds i8, ptr %ap.04.i139, i64 8
   %21 = load i32, ptr %retval1.i140, align 8
   %conv.i141 = sext i32 %21 to i64
-  %and.i142 = and i64 %conv.i141, %flags
+  %and.i142 = and i64 %flags, %conv.i141
   %tobool2.not.i143 = icmp eq i64 %and.i142, 0
   br i1 %tobool2.not.i143, label %for.inc.i146, label %if.then.i144
 
@@ -693,7 +693,7 @@ for.body.i152:                                    ; preds = %for.inc.i160, %if.t
   %retval1.i154 = getelementptr inbounds i8, ptr %ap.04.i153, i64 8
   %24 = load i32, ptr %retval1.i154, align 8
   %conv.i155 = sext i32 %24 to i64
-  %and.i156 = and i64 %conv.i155, %flags
+  %and.i156 = and i64 %flags, %conv.i155
   %tobool2.not.i157 = icmp eq i64 %and.i156, 0
   br i1 %tobool2.not.i157, label %for.inc.i160, label %if.then.i158
 
@@ -730,7 +730,7 @@ for.body.i166:                                    ; preds = %for.inc.i174, %if.t
   %retval1.i168 = getelementptr inbounds i8, ptr %ap.04.i167, i64 8
   %27 = load i32, ptr %retval1.i168, align 8
   %conv.i169 = sext i32 %27 to i64
-  %and.i170 = and i64 %conv.i169, %flags
+  %and.i170 = and i64 %flags, %conv.i169
   %tobool2.not.i171 = icmp eq i64 %and.i170, 0
   br i1 %tobool2.not.i171, label %for.inc.i174, label %if.then.i172
 
@@ -783,7 +783,7 @@ for.body.i180:                                    ; preds = %for.inc.i188, %if.t
   %retval1.i182 = getelementptr inbounds i8, ptr %ap.04.i181, i64 8
   %31 = load i32, ptr %retval1.i182, align 8
   %conv.i183 = sext i32 %31 to i64
-  %and.i184 = and i64 %conv.i183, %flags
+  %and.i184 = and i64 %flags, %conv.i183
   %tobool2.not.i185 = icmp eq i64 %and.i184, 0
   br i1 %tobool2.not.i185, label %for.inc.i188, label %if.then.i186
 
@@ -887,7 +887,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %retval1 = getelementptr inbounds i8, ptr %ap.04, i64 8
   %1 = load i32, ptr %retval1, align 8
   %conv = sext i32 %1 to i64
-  %and = and i64 %conv, %flags
+  %and = and i64 %flags, %conv
   %tobool2.not = icmp eq i64 %and, 0
   br i1 %tobool2.not, label %for.inc, label %if.then
 
@@ -963,7 +963,7 @@ for.body.i:                                       ; preds = %for.inc.i, %format2
   %retval1.i = getelementptr inbounds i8, ptr %ap.04.i, i64 8
   %1 = load i32, ptr %retval1.i, align 8
   %conv.i = sext i32 %1 to i64
-  %and.i = and i64 %conv.i, %flags
+  %and.i = and i64 %flags, %conv.i
   %tobool2.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %if.then.i
 

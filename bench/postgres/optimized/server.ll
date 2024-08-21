@@ -362,7 +362,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 5096, ptr noundef nonnull @.str.19, ptr noundef %30, ptr noundef %31, ptr noundef nonnull @.str.20, ptr noundef %33, i32 noundef %36, ptr noundef %37, ptr noundef nonnull %spec.select, ptr noundef nonnull %4) #9
   call void @termPQExpBuffer(ptr noundef nonnull %5) #9
   %41 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.20, ptr noundef null, i1 noundef zeroext %1, i1 noundef zeroext false, ptr noundef nonnull @.str, ptr noundef nonnull %3) #9
-  %brmerge = or i1 %41, %1
+  %brmerge = or i1 %1, %41
   br i1 %brmerge, label %42, label %61
 
 42:                                               ; preds = %28

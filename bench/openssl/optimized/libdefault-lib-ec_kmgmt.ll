@@ -2389,7 +2389,7 @@ common_check_sm2.exit:                            ; preds = %land.rhs
   %call1.i = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %call.i) #4
   %cmp2.i = icmp eq i32 %call1.i, 1172
   %conv.i = zext i1 %cmp2.i to i32
-  %tobool.not.i.not = icmp eq i32 %conv.i, %sm2_wanted
+  %tobool.not.i.not = icmp eq i32 %sm2_wanted, %conv.i
   br i1 %tobool.not.i.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %common_check_sm2.exit

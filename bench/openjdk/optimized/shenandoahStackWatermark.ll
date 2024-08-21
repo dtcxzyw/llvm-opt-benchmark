@@ -617,7 +617,7 @@ define linkonce_odr hidden void @_ZN26ShenandoahKeepAliveClosure6do_oopEPP7oopDe
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
-  %.not.i.i.i.i = icmp ugt ptr %18, %3
+  %.not.i.i.i.i = icmp ult ptr %3, %18
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN26ShenandoahKeepAliveClosure11do_oop_workIP7oopDescEEvPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %5

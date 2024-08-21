@@ -392,31 +392,31 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 24
   %233 = load i32, ptr %232, align 8
-  %.not32.us.i.i = icmp eq i32 %233, %32
+  %.not32.us.i.i = icmp eq i32 %32, %233
   br i1 %.not32.us.i.i, label %234, label %250
 
 234:                                              ; preds = %226
   %235 = getelementptr inbounds i8, ptr %231, i64 40
   %236 = load i32, ptr %235, align 8
-  %.not33.us.i.i = icmp eq i32 %236, %47
+  %.not33.us.i.i = icmp eq i32 %47, %236
   br i1 %.not33.us.i.i, label %237, label %250
 
 237:                                              ; preds = %234
   %238 = getelementptr inbounds i8, ptr %231, i64 28
   %239 = load i32, ptr %238, align 4
-  %.not34.us.i.i = icmp eq i32 %239, %38
+  %.not34.us.i.i = icmp eq i32 %38, %239
   br i1 %.not34.us.i.i, label %240, label %250
 
 240:                                              ; preds = %237
   %241 = getelementptr inbounds i8, ptr %231, i64 32
   %242 = load i32, ptr %241, align 8
-  %.not35.us.i.i = icmp eq i32 %242, %40
+  %.not35.us.i.i = icmp eq i32 %40, %242
   br i1 %.not35.us.i.i, label %243, label %250
 
 243:                                              ; preds = %240
   %244 = getelementptr inbounds i8, ptr %231, i64 36
   %245 = load i32, ptr %244, align 4
-  %.not36.us.i.i = icmp eq i32 %245, %36
+  %.not36.us.i.i = icmp eq i32 %36, %245
   br i1 %.not36.us.i.i, label %246, label %250
 
 246:                                              ; preds = %243
@@ -447,31 +447,31 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr inbounds i8, ptr %259, i64 24
   %261 = load i32, ptr %260, align 8
-  %.not32.i.i = icmp eq i32 %261, %32
+  %.not32.i.i = icmp eq i32 %32, %261
   br i1 %.not32.i.i, label %262, label %281
 
 262:                                              ; preds = %.lr.ph25.i.i
   %263 = getelementptr inbounds i8, ptr %259, i64 40
   %264 = load i32, ptr %263, align 8
-  %.not33.i.i = icmp eq i32 %264, %47
+  %.not33.i.i = icmp eq i32 %47, %264
   br i1 %.not33.i.i, label %265, label %281
 
 265:                                              ; preds = %262
   %266 = getelementptr inbounds i8, ptr %259, i64 28
   %267 = load i32, ptr %266, align 4
-  %.not34.i.i = icmp eq i32 %267, %38
+  %.not34.i.i = icmp eq i32 %38, %267
   br i1 %.not34.i.i, label %268, label %281
 
 268:                                              ; preds = %265
   %269 = getelementptr inbounds i8, ptr %259, i64 32
   %270 = load i32, ptr %269, align 8
-  %.not35.i.i = icmp eq i32 %270, %40
+  %.not35.i.i = icmp eq i32 %40, %270
   br i1 %.not35.i.i, label %271, label %281
 
 271:                                              ; preds = %268
   %272 = getelementptr inbounds i8, ptr %259, i64 36
   %273 = load i32, ptr %272, align 4
-  %.not36.i.i = icmp eq i32 %273, %36
+  %.not36.i.i = icmp eq i32 %36, %273
   br i1 %.not36.i.i, label %.critedge.i.i, label %281
 
 .critedge.i.i:                                    ; preds = %271

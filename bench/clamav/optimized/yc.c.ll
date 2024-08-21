@@ -179,7 +179,7 @@ define internal fastcc range(i32 0, 3) i32 @yc_poly_emulator(ptr noundef %0, ptr
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %12, %8
   %14 = trunc i64 %13 to i32
-  %15 = icmp ugt i32 %14, %2
+  %15 = icmp ult i32 %2, %14
   br i1 %15, label %yc_bounds_check.exit, label %17
 
 yc_bounds_check.exit:                             ; preds = %9
@@ -200,7 +200,7 @@ yc_bounds_check.exit:                             ; preds = %9
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %8
   %24 = trunc i64 %23 to i32
-  %25 = icmp ugt i32 %24, %2
+  %25 = icmp ult i32 %2, %24
   br i1 %25, label %yc_bounds_check.exit157, label %27
 
 yc_bounds_check.exit157:                          ; preds = %19
@@ -233,7 +233,7 @@ yc_bounds_check.exit157:                          ; preds = %19
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %8
   %35 = trunc i64 %34 to i32
-  %36 = icmp ugt i32 %35, %2
+  %36 = icmp ult i32 %2, %35
   br i1 %36, label %yc_bounds_check.exit159.thread, label %yc_bounds_check.exit159
 
 yc_bounds_check.exit159.thread:                   ; preds = %29
@@ -279,7 +279,7 @@ yc_bounds_check.exit159:                          ; preds = %29
   %59 = ptrtoint ptr %58 to i64
   %60 = sub i64 %59, %8
   %61 = trunc i64 %60 to i32
-  %62 = icmp ugt i32 %61, %2
+  %62 = icmp ult i32 %2, %61
   br i1 %62, label %yc_bounds_check.exit161, label %64
 
 yc_bounds_check.exit161:                          ; preds = %55
@@ -299,7 +299,7 @@ yc_bounds_check.exit161:                          ; preds = %55
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %71, %8
   %73 = trunc i64 %72 to i32
-  %74 = icmp ugt i32 %73, %2
+  %74 = icmp ult i32 %2, %73
   br i1 %74, label %yc_bounds_check.exit163, label %76
 
 yc_bounds_check.exit163:                          ; preds = %67
@@ -319,7 +319,7 @@ yc_bounds_check.exit163:                          ; preds = %67
   %83 = ptrtoint ptr %82 to i64
   %84 = sub i64 %83, %8
   %85 = trunc i64 %84 to i32
-  %86 = icmp ugt i32 %85, %2
+  %86 = icmp ult i32 %2, %85
   br i1 %86, label %yc_bounds_check.exit165, label %88
 
 yc_bounds_check.exit165:                          ; preds = %79
@@ -337,7 +337,7 @@ yc_bounds_check.exit165:                          ; preds = %79
   %92 = ptrtoint ptr %gep236 to i64
   %93 = sub i64 %92, %8
   %94 = trunc i64 %93 to i32
-  %95 = icmp ugt i32 %94, %2
+  %95 = icmp ult i32 %2, %94
   br i1 %95, label %yc_bounds_check.exit167, label %97
 
 yc_bounds_check.exit167:                          ; preds = %91
@@ -354,7 +354,7 @@ yc_bounds_check.exit167:                          ; preds = %91
   %103 = ptrtoint ptr %102 to i64
   %104 = sub i64 %103, %8
   %105 = trunc i64 %104 to i32
-  %106 = icmp ugt i32 %105, %2
+  %106 = icmp ult i32 %2, %105
   br i1 %99, label %107, label %112
 
 107:                                              ; preds = %97
@@ -388,7 +388,7 @@ yc_bounds_check.exit171:                          ; preds = %112
   %118 = ptrtoint ptr %gep to i64
   %119 = sub i64 %118, %8
   %120 = trunc i64 %119 to i32
-  %121 = icmp ugt i32 %120, %2
+  %121 = icmp ult i32 %2, %120
   br i1 %121, label %yc_bounds_check.exit173, label %123
 
 yc_bounds_check.exit173:                          ; preds = %117

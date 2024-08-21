@@ -7318,7 +7318,7 @@ update_tasks_cpumask.exit:                        ; preds = %112, %100
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @remote_partition_check(i64 %.240.val, i64 %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = xor i64 %.0.val, -1
-  %4 = and i64 %3, %.240.val
+  %4 = and i64 %.240.val, %3
   store i64 %4, ptr %0, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %30, label %6
@@ -7780,7 +7780,7 @@ define internal noundef range(i32 -22, 1) i32 @cpuset_write_s64(ptr noundef %0, 
   %24 = icmp sgt i64 %2, -2
   %25 = load i32, ptr @sched_domain_level_max, align 4
   %26 = sext i32 %25 to i64
-  %27 = icmp sgt i64 %26, %2
+  %27 = icmp slt i64 %2, %26
   %28 = select i1 %24, i1 %27, i1 false
   br i1 %28, label %29, label %44
 
@@ -7788,7 +7788,7 @@ define internal noundef range(i32 -22, 1) i32 @cpuset_write_s64(ptr noundef %0, 
   %30 = getelementptr inbounds i8, ptr %0, i64 296
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
-  %33 = icmp eq i64 %32, %2
+  %33 = icmp eq i64 %2, %32
   br i1 %33, label %44, label %34
 
 34:                                               ; preds = %29

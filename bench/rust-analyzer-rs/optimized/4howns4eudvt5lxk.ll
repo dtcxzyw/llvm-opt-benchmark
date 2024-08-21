@@ -88,7 +88,7 @@ define internal fastcc void @_ZN6parser7grammar11expressions16postfix_dot_expr17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   %32 = load i64, ptr %31, align 8, !alias.scope !6, !noundef !4
-  %.not.i.i = icmp ugt i64 %32, %30
+  %.not.i.i = icmp ult i64 %30, %32
   br i1 %.not.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread
 
 33:                                               ; preds = %4
@@ -123,7 +123,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %25
   %46 = add nuw i64 %30, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %47 = load i64, ptr %31, align 8, !alias.scope !10, !noundef !4
-  %.not.i.i8 = icmp ugt i64 %47, %46
+  %.not.i.i8 = icmp ult i64 %46, %47
   br i1 %.not.i.i8, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.thread
 
 48:                                               ; preds = %43
@@ -165,7 +165,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.thread: ; preds = %44, %_
   %64 = load i64, ptr %29, align 8, !alias.scope !13, !noundef !4
   %65 = getelementptr inbounds i8, ptr %63, i64 16
   %66 = load i64, ptr %65, align 8, !noalias !13, !noundef !4
-  %.not.i.i.i = icmp ugt i64 %66, %64
+  %.not.i.i.i = icmp ult i64 %64, %66
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread.i
 
 67:                                               ; preds = %58
@@ -198,7 +198,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i: ; preds = %61
   %79 = add nuw nsw i32 %59, 2
   store i32 %79, ptr %22, align 8, !alias.scope !13
   %80 = add nuw i64 %64, 1
-  %.not.i.i8.i = icmp ugt i64 %66, %80
+  %.not.i.i8.i = icmp ult i64 %80, %66
   br i1 %.not.i.i8.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.thread.i
 
 81:                                               ; preds = %77
@@ -356,7 +356,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread: ; preds = %_ZN6par
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %131 = getelementptr inbounds i8, ptr %129, i64 16
   %132 = load i64, ptr %131, align 8, !alias.scope !30, !noundef !4
-  %.not.i.i10 = icmp ugt i64 %132, %130
+  %.not.i.i10 = icmp ult i64 %130, %132
   br i1 %.not.i.i10, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit11, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit11.thread
 
 133:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread
@@ -638,7 +638,7 @@ define hidden void @_ZN6parser7grammar11expressions16postfix_dot_expr17hc8bb82ad
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %35 = getelementptr inbounds i8, ptr %31, i64 16
   %36 = load i64, ptr %35, align 8, !alias.scope !55, !noundef !4
-  %.not.i.i = icmp ugt i64 %36, %34
+  %.not.i.i = icmp ult i64 %34, %36
   br i1 %.not.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread
 
 37:                                               ; preds = %24
@@ -673,7 +673,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %28
   %50 = add i64 %33, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %51 = load i64, ptr %35, align 8, !alias.scope !58, !noundef !4
-  %.not.i.i8 = icmp ugt i64 %51, %50
+  %.not.i.i8 = icmp ult i64 %50, %51
   br i1 %.not.i.i8, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.thread
 
 52:                                               ; preds = %47
@@ -724,7 +724,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.thread._ZN6parser6parser6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %72 = getelementptr inbounds i8, ptr %69, i64 16
   %73 = load i64, ptr %72, align 8, !alias.scope !64, !noundef !4
-  %.not.i.i.i = icmp ugt i64 %73, %71
+  %.not.i.i.i = icmp ult i64 %71, %73
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread.i
 
 74:                                               ; preds = %64
@@ -763,7 +763,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread.i: ; preds = %_ZN6p
   %87 = add i64 %70, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %88 = load i64, ptr %72, align 8, !alias.scope !67, !noundef !4
-  %.not.i.i8.i = icmp ugt i64 %88, %87
+  %.not.i.i8.i = icmp ult i64 %87, %88
   br i1 %.not.i.i8.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit9.thread.i
 
 89:                                               ; preds = %84
@@ -962,7 +962,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread: ; preds = %_ZN6par
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %154 = getelementptr inbounds i8, ptr %151, i64 16
   %155 = load i64, ptr %154, align 8, !alias.scope !93, !noundef !4
-  %.not.i.i10 = icmp ugt i64 %155, %153
+  %.not.i.i10 = icmp ult i64 %153, %155
   br i1 %.not.i.i10, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit11, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit11.thread
 
 156:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread
@@ -1432,7 +1432,7 @@ define hidden void @_ZN6parser7grammar5items3adt5union17ha876225d00da0888E(ptr n
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %19 = getelementptr inbounds i8, ptr %6, i64 16
   %20 = load i64, ptr %19, align 8, !alias.scope !173, !noalias !170, !noundef !4
-  %.not.i.i.i = icmp ugt i64 %20, %8
+  %.not.i.i.i = icmp ult i64 %8, %20
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i, label %_ZN6parser6parser6Parser10bump_remap17h8de6cdf5da12fe57E.exit
 
 21:                                               ; preds = %13
@@ -1573,7 +1573,7 @@ _ZN6parser7grammar14generic_params22opt_generic_param_list17h81e26855969835e2E.e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   %22 = getelementptr inbounds i8, ptr %19, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !188, !noundef !4
-  %.not.i.i.i = icmp ugt i64 %23, %21
+  %.not.i.i.i = icmp ult i64 %21, %23
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 24:                                               ; preds = %_ZN6parser7grammar14generic_params22opt_generic_param_list17h81e26855969835e2E.exit
@@ -1705,7 +1705,7 @@ _ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit: ; preds = %34, %.noexc23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %60 = getelementptr inbounds i8, ptr %58, i64 16
   %61 = load i64, ptr %60, align 8, !alias.scope !206, !noundef !4
-  %.not.i.i.i25 = icmp ugt i64 %61, %59
+  %.not.i.i.i25 = icmp ult i64 %59, %61
   br i1 %.not.i.i.i25, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit27, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit27.thread
 
 62:                                               ; preds = %53
@@ -2353,7 +2353,7 @@ _ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit: ; preds = %_ZN6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
   %37 = getelementptr inbounds i8, ptr %34, i64 16
   %38 = load i64, ptr %37, align 8, !alias.scope !317, !noundef !4
-  %.not.i.i.i = icmp ugt i64 %38, %36
+  %.not.i.i.i = icmp ult i64 %36, %38
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 39:                                               ; preds = %27
@@ -3155,7 +3155,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit11.i: ; preds = %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !466)
   %90 = getelementptr inbounds i8, ptr %87, i64 16
   %91 = load i64, ptr %90, align 8, !alias.scope !466, !noalias !465, !noundef !4
-  %.not.i.i.i = icmp ugt i64 %91, %89
+  %.not.i.i.i = icmp ult i64 %89, %91
   br i1 %.not.i.i.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread.i
 
 92:                                               ; preds = %82
@@ -3194,7 +3194,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread.i: ; preds = %_ZN6p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !470)
   %101 = getelementptr inbounds i8, ptr %98, i64 16
   %102 = load i64, ptr %101, align 8, !alias.scope !470, !noalias !465, !noundef !4
-  %.not.i.i12.i = icmp ugt i64 %102, %100
+  %.not.i.i12.i = icmp ult i64 %100, %102
   br i1 %.not.i.i12.i, label %103, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit14.i
 
 103:                                              ; preds = %95
@@ -3267,7 +3267,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit14.i: ; preds = %103, %95
   %130 = add i64 %99, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
   %131 = load i64, ptr %101, align 8, !alias.scope !488, !noalias !465, !noundef !4
-  %.not.i.i17.i = icmp ugt i64 %131, %130
+  %.not.i.i17.i = icmp ult i64 %130, %131
   br i1 %.not.i.i17.i, label %132, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19.i
 
 132:                                              ; preds = %128
@@ -3293,7 +3293,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19.i: ; preds = %132, %128
   %142 = add i64 %99, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
   %143 = load i64, ptr %101, align 8, !alias.scope !492, !noalias !465, !noundef !4
-  %.not.i.i20.i = icmp ugt i64 %143, %142
+  %.not.i.i20.i = icmp ult i64 %142, %143
   br i1 %.not.i.i20.i, label %144, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit22.i
 
 144:                                              ; preds = %140
@@ -3318,7 +3318,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit22.i: ; preds = %144, %140
   store i32 %152, ptr %49, align 8, !alias.scope !461, !noalias !465
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
   %153 = load i64, ptr %101, align 8, !alias.scope !496, !noalias !465, !noundef !4
-  %.not.i.i.i.i = icmp ugt i64 %153, %99
+  %.not.i.i.i.i = icmp ult i64 %99, %153
   br i1 %.not.i.i.i.i, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i, label %_ZN6parser7grammar6params14opt_self_param17h2f9b3d86a67666b7E.exit
 
 154:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit22.i
@@ -3742,7 +3742,7 @@ _ZN6parser7grammar10attributes11outer_attrs17h4fccd505c4aa4f69E.exit84: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !570)
   %255 = getelementptr inbounds i8, ptr %253, i64 16
   %256 = load i64, ptr %255, align 8, !alias.scope !570, !noalias !567, !noundef !4
-  %.not.i.i.i.i86 = icmp ugt i64 %256, %254
+  %.not.i.i.i.i86 = icmp ult i64 %254, %256
   br i1 %.not.i.i.i.i86, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i87, label %270
 
 257:                                              ; preds = %248
@@ -4019,7 +4019,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit33.i: ; preds = %335
   call void @llvm.experimental.noalias.scope.decl(metadata !624)
   %345 = getelementptr inbounds i8, ptr %342, i64 16
   %346 = load i64, ptr %345, align 8, !alias.scope !624, !noalias !581, !noundef !4
-  %.not.i.i.i94 = icmp ugt i64 %346, %344
+  %.not.i.i.i94 = icmp ult i64 %344, %346
   br i1 %.not.i.i.i94, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i95, label %.invoke52.i
 
 347:                                              ; preds = %337
@@ -4286,7 +4286,7 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit121.thread: ; preds = %414,
   call void @llvm.experimental.noalias.scope.decl(metadata !674)
   %432 = getelementptr inbounds i8, ptr %430, i64 16
   %433 = load i64, ptr %432, align 8, !alias.scope !674, !noalias !671, !noundef !4
-  %.not.i.i.i.i124 = icmp ugt i64 %433, %431
+  %.not.i.i.i.i124 = icmp ult i64 %431, %433
   br i1 %.not.i.i.i.i124, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i125, label %447
 
 434:                                              ; preds = %425

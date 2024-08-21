@@ -64,7 +64,7 @@ define internal fastcc range(i32 -1, 1) i32 @pqPutMsgBytes(ptr nocapture noundef
   %4 = getelementptr inbounds i8, ptr %2, i64 932
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = add i64 %6, %1
+  %7 = add i64 %1, %6
   %8 = getelementptr inbounds i8, ptr %2, i64 920
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
@@ -268,7 +268,7 @@ define range(i32 -1, 1) i32 @pqGetnchar(ptr nocapture noundef writeonly %0, i64 
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
   %9 = sext i32 %8 to i64
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %3
@@ -299,7 +299,7 @@ define range(i32 -1, 1) i32 @pqSkipnchar(i64 noundef %0, ptr nocapture noundef %
   %6 = load i32, ptr %5, align 8
   %7 = sub i32 %4, %6
   %8 = sext i32 %7 to i64
-  %9 = icmp ult i64 %8, %0
+  %9 = icmp ugt i64 %0, %8
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
@@ -432,7 +432,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   %3 = getelementptr inbounds i8, ptr %1, i64 920
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %.not = icmp ult i64 %5, %0
+  %.not = icmp ugt i64 %0, %5
   br i1 %.not, label %.preheader, label %31
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -440,7 +440,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   %6 = shl i32 %.0, 1
   %7 = icmp sgt i32 %6, 0
   %8 = sext i32 %6 to i64
-  %9 = icmp ult i64 %8, %0
+  %9 = icmp ugt i64 %0, %8
   %10 = and i1 %7, %9
   br i1 %10, label %.preheader, label %11, !llvm.loop !4
 
@@ -474,7 +474,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   %18 = add i32 %.1, 8192
   %19 = icmp sgt i32 %18, 0
   %20 = sext i32 %18 to i64
-  %21 = icmp ult i64 %20, %0
+  %21 = icmp ugt i64 %0, %20
   %22 = and i1 %19, %21
   br i1 %22, label %17, label %23, !llvm.loop !6
 
@@ -515,7 +515,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   %3 = getelementptr inbounds i8, ptr %1, i64 896
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %.not = icmp ult i64 %5, %0
+  %.not = icmp ugt i64 %0, %5
   br i1 %.not, label %6, label %58
 
 6:                                                ; preds = %2
@@ -642,14 +642,14 @@ define range(i32 -1, 1) i32 @pqPutMsgStart(i8 noundef signext %0, ptr noundef %1
   %6 = add i32 %.0, 4
   %7 = getelementptr inbounds i8, ptr %1, i64 920
   %8 = load i32, ptr %7, align 8
-  %.not.i = icmp ult i32 %8, %6
+  %.not.i = icmp ugt i32 %6, %8
   br i1 %.not.i, label %.preheader.i, label %33
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.0.i = phi i32 [ %9, %.preheader.i ], [ %8, %2 ]
   %9 = shl i32 %.0.i, 1
   %10 = icmp sgt i32 %9, 0
-  %11 = icmp ult i32 %9, %6
+  %11 = icmp ugt i32 %6, %9
   %12 = and i1 %10, %11
   br i1 %12, label %.preheader.i, label %13, !llvm.loop !4
 
@@ -682,7 +682,7 @@ define range(i32 -1, 1) i32 @pqPutMsgStart(i8 noundef signext %0, ptr noundef %1
   %.1.i = phi i32 [ %21, %20 ], [ %.1.i.ph, %.preheader ]
   %21 = add i32 %.1.i, 8192
   %22 = icmp sgt i32 %21, 0
-  %23 = icmp ult i32 %21, %6
+  %23 = icmp ugt i32 %6, %21
   %24 = and i1 %22, %23
   br i1 %24, label %20, label %25, !llvm.loop !6
 
@@ -1359,7 +1359,7 @@ pqSocketPoll.exit.us:                             ; preds = %.preheader.split, %
   store i16 0, ptr %13, align 2
   store i16 %simplifycfg.merge.i, ptr %12, align 4
   %25 = call i64 @time(ptr noundef null) #19
-  %26 = icmp slt i64 %25, %3
+  %26 = icmp sgt i64 %3, %25
   %27 = sub i64 %3, %25
   %28 = trunc i64 %27 to i32
   %29 = mul i32 %28, 1000

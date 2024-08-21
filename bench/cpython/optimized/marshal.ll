@@ -1549,7 +1549,7 @@ if.then17:                                        ; preds = %w_reserve.exit76.th
 
 if.else22:                                        ; preds = %if.else7
   %21 = load ptr, ptr @PyExc_StopIteration, align 8
-  %cmp23 = icmp eq ptr %21, %v
+  %cmp23 = icmp eq ptr %v, %21
   br i1 %cmp23, label %do.body25, label %if.else37
 
 do.body25:                                        ; preds = %if.else22
@@ -2515,7 +2515,7 @@ if.then2:                                         ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp4 = icmp sge i64 %sub.ptr.sub, %needed
+  %cmp4 = icmp sle i64 %needed, %sub.ptr.sub
   %conv = zext i1 %cmp4 to i32
   br label %return
 
@@ -3155,7 +3155,7 @@ if.end194.sink.split.sink.split:                  ; preds = %lor.lhs.false182, %
 if.end194.sink.split:                             ; preds = %if.end194.sink.split.sink.split, %do.body177, %do.body158
   %.sink524 = phi i8 [ 90, %do.body158 ], [ 122, %do.body177 ], [ %.sink524.ph, %if.end194.sink.split.sink.split ]
   %.sink523 = phi ptr [ %54, %do.body158 ], [ %54, %do.body177 ], [ %.pre515, %if.end194.sink.split.sink.split ]
-  %56 = or i8 %.sink524, %flag
+  %56 = or i8 %flag, %.sink524
   %incdec.ptr190 = getelementptr i8, ptr %.sink523, i64 1
   store ptr %incdec.ptr190, ptr %ptr178, align 8
   store i8 %56, ptr %.sink523, align 1
@@ -3212,7 +3212,7 @@ if.end238.sink.split.sink.split:                  ; preds = %lor.lhs.false226, %
 if.end238.sink.split:                             ; preds = %if.end238.sink.split.sink.split, %do.body221, %do.body202
   %.sink527 = phi i8 [ 65, %do.body202 ], [ 97, %do.body221 ], [ %.sink527.ph, %if.end238.sink.split.sink.split ]
   %.sink526 = phi ptr [ %54, %do.body202 ], [ %54, %do.body221 ], [ %.pre513, %if.end238.sink.split.sink.split ]
-  %60 = or i8 %.sink527, %flag
+  %60 = or i8 %flag, %.sink527
   %incdec.ptr234 = getelementptr i8, ptr %.sink526, i64 1
   store ptr %incdec.ptr234, ptr %ptr178, align 8
   store i8 %60, ptr %.sink526, align 1
@@ -3304,7 +3304,7 @@ if.end292.sink.split:                             ; preds = %if.end292.sink.spli
   %.sink530 = phi i8 [ 116, %do.body256 ], [ 117, %do.body275 ], [ %.sink530.ph, %if.end292.sink.split.sink.split ]
   %.sink529 = phi ptr [ %67, %do.body256 ], [ %69, %do.body275 ], [ %.pre517, %if.end292.sink.split.sink.split ]
   %ptr276.sink = phi ptr [ %ptr257, %do.body256 ], [ %ptr276, %do.body275 ], [ %ptr276.sink534, %if.end292.sink.split.sink.split ]
-  %71 = or i8 %.sink530, %flag
+  %71 = or i8 %flag, %.sink530
   %incdec.ptr288 = getelementptr i8, ptr %.sink529, i64 1
   store ptr %incdec.ptr288, ptr %ptr276.sink, align 8
   store i8 %71, ptr %.sink529, align 1
@@ -3596,7 +3596,7 @@ if.end485.sink.split.sink.split:                  ; preds = %lor.lhs.false473, %
 if.end485.sink.split:                             ; preds = %if.end485.sink.split.sink.split, %do.body468, %do.body449
   %.sink533 = phi i8 [ 62, %do.body449 ], [ 60, %do.body468 ], [ %.sink533.ph, %if.end485.sink.split.sink.split ]
   %.sink532 = phi ptr [ %102, %do.body449 ], [ %102, %do.body468 ], [ %.pre505, %if.end485.sink.split.sink.split ]
-  %104 = or i8 %.sink533, %flag
+  %104 = or i8 %flag, %.sink533
   %incdec.ptr481 = getelementptr i8, ptr %.sink532, i64 1
   store ptr %incdec.ptr481, ptr %ptr450, align 8
   store i8 %104, ptr %.sink532, align 1
@@ -4619,7 +4619,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %2 = load ptr, ptr %p, align 8
   %cmp2.not = icmp eq ptr %2, null
-  %cmp11.not = icmp slt i64 %sub.ptr.sub, %n
+  %cmp11.not = icmp sgt i64 %n, %sub.ptr.sub
   br i1 %cmp2.not, label %if.else10, label %if.then3
 
 if.then3:                                         ; preds = %if.end

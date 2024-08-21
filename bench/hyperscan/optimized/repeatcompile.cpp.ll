@@ -421,7 +421,7 @@ invoke.cont93:                                    ; preds = %invoke.cont89
 if.else:                                          ; preds = %invoke.cont89
   %tobool.not.i = icmp eq i32 %retval.0.i, 0
   %spec.select = select i1 %tobool.not.i, i32 %43, i32 %retval.0.i
-  %cmp.not17.i = icmp ult i32 %spec.select, %minPeriod
+  %cmp.not17.i = icmp ugt i32 %minPeriod, %spec.select
   %.pre207 = load ptr, ptr %table, align 8
   br i1 %cmp.not17.i, label %invoke.cont102, label %for.body.i116
 
@@ -648,7 +648,7 @@ if.else:                                          ; preds = %_ZNK3ue25depthcvjEv
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %repeatMin, align 4
   %cmp.i22 = icmp eq i32 %2, 0
-  %3 = or i1 %cmp.i22, %is_reset
+  %3 = or i1 %is_reset, %cmp.i22
   br i1 %3, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end

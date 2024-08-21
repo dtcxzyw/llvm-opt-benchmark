@@ -933,7 +933,7 @@ if.end394:                                        ; preds = %vaarg.end384, %if.e
   %100 = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 0)
   %spec.store.select1.i = select i1 %cmp4.i, i32 0, i32 %100
   %sub13.i = xor i32 %spec.store.select1.i, 2147483647
-  %cmp14.i = icmp sgt i32 %sub13.i, %max.2.fr
+  %cmp14.i = icmp slt i32 %max.2.fr, %sub13.i
   %add.i173 = add nuw nsw i32 %spec.store.select1.i, %max.2.fr
   %spec.select37.i = select i1 %cmp14.i, i32 %add.i173, i32 2147483647
   %cmp1038.i = icmp slt i32 %max.2.fr, 0
@@ -2075,7 +2075,7 @@ do.end:                                           ; preds = %do.body
   %cond48.neg = sext i1 %not.tobool47.not to i32
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix.0) #8
   %2 = trunc i64 %call to i32
-  %.neg70 = add i32 %cond48.neg, %min
+  %.neg70 = add i32 %min, %cond48.neg
   %3 = add i32 %cond45, %2
   %conv52 = sub i32 %.neg70, %3
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %sub42, i32 0)
@@ -2238,7 +2238,7 @@ while.body.i:                                     ; preds = %lor.lhs.false, %whi
   br i1 %tobool.not.i, label %pow_10.exit, label %while.body.i, !llvm.loop !14
 
 pow_10.exit:                                      ; preds = %while.body.i
-  %cmp23 = fcmp ugt double %mul.i, %fvalue
+  %cmp23 = fcmp ult double %fvalue, %mul.i
   br i1 %cmp23, label %if.else25, label %if.end30
 
 if.else25:                                        ; preds = %pow_10.exit, %lor.lhs.false
@@ -2506,7 +2506,7 @@ if.end170:                                        ; preds = %if.end162, %if.then
   %.neg = zext i1 %tobool176.not to i32
   %12 = sub i32 -3, %eplace.0
   %13 = select i1 %cmp131, i32 %12, i32 -1
-  %.neg210 = add i32 %.neg, %min
+  %.neg210 = add i32 %min, %.neg
   %14 = add i32 %max.addr.3, %spec.select166
   %sub175.neg.neg = sub i32 %.neg210, %14
   %.neg209 = add i32 %sub175.neg.neg, %cond.neg.neg.neg

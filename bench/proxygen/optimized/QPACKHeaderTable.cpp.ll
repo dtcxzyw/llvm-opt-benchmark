@@ -1624,7 +1624,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity_, align 8
-  %cmp2 = icmp uge i32 %2, %needed
+  %cmp2 = icmp ule i32 %needed, %2
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1992,7 +1992,7 @@ entry:
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
   %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %insertCount_, align 8
-  %cmp.not.i = icmp ult i32 %0, %absIndex
+  %cmp.not.i = icmp ugt i32 %absIndex, %0
   br i1 %cmp.not.i, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %entry

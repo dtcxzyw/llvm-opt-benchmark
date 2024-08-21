@@ -5543,7 +5543,7 @@ define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err1
 define hidden noundef zeroext i1 @"_ZN4moka9sync_base11invalidator22Predicate$LT$K$C$V$GT$13is_applicable17hc4782c65fbe98d8cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !alias.scope !656, !noalias !659, !noundef !5
-  %switch.selectcmp = icmp uge i64 %4, %1
+  %switch.selectcmp = icmp ule i64 %1, %4
   ret i1 %switch.selectcmp
 }
 
@@ -5818,7 +5818,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   %101 = getelementptr inbounds i8, ptr %.sroa.0.04.i.i.i, i64 48
   %102 = getelementptr inbounds i8, ptr %.sroa.0.04.i.i.i, i64 40
   %103 = load i64, ptr %102, align 8, !alias.scope !715, !noalias !720, !noundef !5
-  %switch.selectcmp.i.not.i.i.i = icmp ult i64 %103, %63
+  %switch.selectcmp.i.not.i.i.i = icmp ugt i64 %63, %103
   br i1 %switch.selectcmp.i.not.i.i.i, label %104, label %105
 
 104:                                              ; preds = %.noexc11.i.i, %.lr.ph.i.i.i
@@ -9874,7 +9874,7 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
 116:                                              ; preds = %106
   %117 = getelementptr inbounds i8, ptr %108, i64 32
   %118 = load i64, ptr %117, align 8, !noalias !5, !noundef !5
-  %119 = icmp ult i64 %118, %112
+  %119 = icmp ugt i64 %112, %118
   br i1 %119, label %.invoke299, label %150
 
 .invoke297:                                       ; preds = %124, %106
@@ -9916,7 +9916,7 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
 137:                                              ; preds = %124
   %138 = getelementptr inbounds i8, ptr %129, i64 32
   %139 = load i64, ptr %138, align 8, !alias.scope !1306, !noalias !1309, !noundef !5
-  %140 = icmp ult i64 %139, %133
+  %140 = icmp ugt i64 %133, %139
   br i1 %140, label %.invoke299, label %141
 
 141:                                              ; preds = %137
@@ -10206,7 +10206,7 @@ define void @"_ZN8mini_lsm3key36Key$LT$alloc..vec..Vec$LT$u8$GT$$GT$6append17ha7
   %5 = load i64, ptr %4, align 8, !alias.scope !1347, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !1350, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h1b42f854d4e0d4c7E.exit"
 
 9:                                                ; preds = %3
@@ -10231,7 +10231,7 @@ define void @"_ZN8mini_lsm3key36Key$LT$alloc..vec..Vec$LT$u8$GT$$GT$14set_from_s
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %4, align 8
   %5 = load i64, ptr %0, align 8, !alias.scope !1353, !noundef !5
-  %6 = icmp ult i64 %5, %2
+  %6 = icmp ugt i64 %2, %5
   br i1 %6, label %7, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h1b42f854d4e0d4c7E.exit"
 
 7:                                                ; preds = %3
@@ -12265,7 +12265,7 @@ define { ptr, i64 } @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$a
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %1
-  %14 = icmp ult i64 %11, %7
+  %14 = icmp ugt i64 %7, %11
   br i1 %14, label %16, label %_ZN8mini_lsm5block8iterator13BlockIterator5value17h3b9fc8f9eaa1f8ebE.exit
 
 15:                                               ; preds = %1
@@ -12317,7 +12317,7 @@ define noundef ptr @"_ZN99_$LT$mini_lsm..table..iterator..SsTableIterator$u20$as
   %8 = load ptr, ptr %7, align 8, !alias.scope !1778, !nonnull !5, !noundef !5
   %9 = getelementptr inbounds i8, ptr %8, i64 56
   %10 = load i64, ptr %9, align 8, !noalias !1778, !noundef !5
-  %.not.i.i = icmp ugt i64 %10, %6
+  %.not.i.i = icmp ult i64 %6, %10
   br i1 %.not.i.i, label %_ZN8mini_lsm5block8iterator13BlockIterator4next17h643fbebe18d89119E.exit, label %_ZN8mini_lsm5block8iterator13BlockIterator4next17h643fbebe18d89119E.exit.thread
 
 _ZN8mini_lsm5block8iterator13BlockIterator4next17h643fbebe18d89119E.exit.thread: ; preds = %1

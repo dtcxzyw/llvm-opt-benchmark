@@ -4796,9 +4796,9 @@ define dso_local range(i32 0, 2) i32 @validate_group(ptr noundef %0, i32 noundef
 ._crit_edge:                                      ; preds = %17, %.preheader
   %22 = tail call i64 @time(ptr noundef null) #17
   %23 = load i32, ptr @validate_group.last_fail_uid, align 4
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   %25 = load ptr, ptr @validate_group.last_fail_part_ptr, align 8
-  %26 = icmp eq ptr %25, %0
+  %26 = icmp eq ptr %0, %25
   %or.cond = select i1 %24, i1 %26, i1 false
   br i1 %or.cond, label %27, label %31
 
@@ -5196,7 +5196,7 @@ define internal range(i32 0, 2) i32 @_find_acct_in_list(ptr noundef readnone %0,
 
 .lr.ph:                                           ; preds = %2, %4
   %.08 = phi ptr [ %8, %4 ], [ %1, %2 ]
-  %3 = icmp eq ptr %.08, %0
+  %3 = icmp eq ptr %0, %.08
   br i1 %3, label %._crit_edge, label %4
 
 4:                                                ; preds = %.lr.ph

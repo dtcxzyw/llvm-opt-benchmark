@@ -172,7 +172,7 @@ if.end18:                                         ; preds = %if.end15
   %9 = load i64, ptr %offset.i, align 8
   %sub.i = sub i64 %8, %9
   %sub..i = tail call i64 @llvm.umin.i64(i64 %7, i64 %sub.i)
-  %cmp19 = icmp ult i64 %sub..i, %bytes_read
+  %cmp19 = icmp ugt i64 %bytes_read, %sub..i
   br i1 %cmp19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end18
@@ -407,7 +407,7 @@ if.end23:                                         ; preds = %if.end20
   %cmp.not.i = icmp ult i64 %add.i, %11
   %max_available.0.i.v = select i1 %cmp.not.i, i64 %add.i, i64 %10
   %max_available.0.i = sub i64 %11, %max_available.0.i.v
-  %cmp24 = icmp ult i64 %max_available.0.i, %bytes_written
+  %cmp24 = icmp ugt i64 %bytes_written, %max_available.0.i
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end23

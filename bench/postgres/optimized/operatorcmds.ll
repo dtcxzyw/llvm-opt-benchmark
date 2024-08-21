@@ -577,13 +577,13 @@ define dso_local void @RemoveOperatorById(i32 noundef %0) local_unnamed_addr #0 
 ._crit_edge:                                      ; preds = %8
   tail call void @OperatorUpd(i32 noundef %0, i32 noundef %16, i32 noundef %18, i1 noundef zeroext true) #6
   %19 = load i32, ptr %15, align 4
-  %20 = icmp eq i32 %19, %0
+  %20 = icmp eq i32 %0, %19
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds i8, ptr %14, i64 96
   %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, %0
+  %24 = icmp eq i32 %0, %23
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21, %._crit_edge

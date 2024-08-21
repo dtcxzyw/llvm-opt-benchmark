@@ -26,7 +26,7 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 no
   %16 = and i32 %0, 56
   %17 = icmp ne i32 %16, 0
   %18 = zext nneg i32 %9 to i64
-  %.not60 = icmp ugt i64 %18, %3
+  %.not60 = icmp ult i64 %3, %18
   %or.cond63 = select i1 %17, i1 true, i1 %.not60
   br i1 %or.cond63, label %24, label %19
 
@@ -80,7 +80,7 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 no
   %40 = xor i8 %39, -128
   store i8 %40, ptr %38, align 1
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #2
-  %41 = icmp ult i64 %18, %6
+  %41 = icmp ugt i64 %6, %18
   br i1 %41, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %36, %.lr.ph75
@@ -438,7 +438,7 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %
 15:                                               ; preds = %11
   call void @KeccakP1600_Initialize(ptr noundef nonnull %8) #2
   %16 = zext nneg i32 %9 to i64
-  %.not4652 = icmp ugt i64 %16, %3
+  %.not4652 = icmp ult i64 %3, %16
   br i1 %.not4652, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
@@ -477,7 +477,7 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %
   %31 = xor i8 %30, -128
   store i8 %31, ptr %29, align 1
   call void @KeccakP1600_Permute_12rounds(ptr noundef nonnull %8) #2
-  %32 = icmp ult i64 %16, %6
+  %32 = icmp ugt i64 %6, %16
   br i1 %32, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %27, %.lr.ph60

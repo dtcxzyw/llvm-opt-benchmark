@@ -3125,7 +3125,7 @@ if.else52:                                        ; preds = %if.then43
 
 land.lhs.true54:                                  ; preds = %if.else52
   %add.i = shl i64 %m.0115, 1
-  %cmp.i74 = icmp sgt i64 %add.i, %i.0.lcssa
+  %cmp.i74 = icmp slt i64 %i.0.lcssa, %add.i
   %cmp1.i = icmp ult i64 %add.i, 1152921504606846975
   %or.cond.i = and i1 %cmp1.i, %cmp.i74
   br i1 %or.cond.i, label %if.then.i, label %_fsum_realloc.exit
@@ -5441,9 +5441,9 @@ _check_long_mult_overflow.exit.us.i:              ; preds = %if.end63.us.i
 if.end67.us.i:                                    ; preds = %_check_long_mult_overflow.exit.us.i, %if.end63.us.i
   %cmp.i151.us.i = icmp sgt i64 %int_total.0.us.i, 0
   %sub.i152.us.i = sub nuw nsw i64 9223372036854775807, %int_total.0.us.i
-  %cmp1.i.us.i = icmp slt i64 %sub.i152.us.i, %mul.i.us.i
+  %cmp1.i.us.i = icmp sgt i64 %mul.i.us.i, %sub.i152.us.i
   %sub2.i.us.i = sub nsw i64 -9223372036854775808, %int_total.0.us.i
-  %cmp3.i.us.i = icmp sgt i64 %sub2.i.us.i, %mul.i.us.i
+  %cmp3.i.us.i = icmp slt i64 %mul.i.us.i, %sub2.i.us.i
   %cond.in.i.us.i = select i1 %cmp.i151.us.i, i1 %cmp1.i.us.i, i1 %cmp3.i.us.i
   br i1 %cond.in.i.us.i, label %finalize_int_path.split.us.i, label %if.then73.us.i
 
@@ -8167,7 +8167,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %3 = tail call double @llvm.floor.f64(double %x)
-  %cmp6 = fcmp oeq double %3, %x
+  %cmp6 = fcmp oeq double %x, %3
   br i1 %cmp6, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %if.end5
@@ -8453,7 +8453,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %3 = tail call double @llvm.floor.f64(double %x)
-  %cmp = fcmp oeq double %3, %x
+  %cmp = fcmp oeq double %x, %3
   %cmp2 = fcmp ole double %x, 2.000000e+00
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %if.then3, label %if.end7
@@ -8908,7 +8908,7 @@ land.lhs.true:                                    ; preds = %if.then
   %arrayidx = getelementptr [35 x i8], ptr @perm_comb_small.fast_comb_limits1, i64 0, i64 %k
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
-  %cmp1.not = icmp ult i64 %conv, %n
+  %cmp1.not = icmp ugt i64 %n, %conv
   br i1 %cmp1.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
@@ -8944,7 +8944,7 @@ if.end:                                           ; preds = %land.lhs.true
 land.lhs.true19:                                  ; preds = %if.end
   %arrayidx20 = getelementptr [14 x i64], ptr @perm_comb_small.fast_comb_limits2, i64 0, i64 %k
   %8 = load i64, ptr %arrayidx20, align 8
-  %cmp21.not = icmp ult i64 %8, %n
+  %cmp21.not = icmp ugt i64 %n, %8
   br i1 %cmp21.not, label %if.end66, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true19
@@ -8974,7 +8974,7 @@ if.else:                                          ; preds = %entry
 land.lhs.true31:                                  ; preds = %if.else
   %arrayidx32 = getelementptr [21 x i64], ptr @perm_comb_small.fast_perm_limits, i64 0, i64 %k
   %9 = load i64, ptr %arrayidx32, align 8
-  %cmp33.not = icmp ult i64 %9, %n
+  %cmp33.not = icmp ugt i64 %n, %9
   br i1 %cmp33.not, label %if.end66, label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true31

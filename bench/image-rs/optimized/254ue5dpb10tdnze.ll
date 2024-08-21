@@ -464,7 +464,7 @@ define hidden noundef float @"_ZN45_$LT$f32$u20$as$u20$core..ops..arith..Sub$GT$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h1b9bc6d71499e045E.llvm.1609853135345852838"(i32 noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = trunc i64 %1 to i32
-  %4 = add nuw i32 %3, %0
+  %4 = add nuw i32 %0, %3
   ret i32 %4
 }
 
@@ -11482,8 +11482,8 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h30f7140e0
   %narrow25 = add nuw nsw i24 %narrow23, %narrow
   %28 = udiv i24 %narrow25, 10000
   %spec.select.i.i.i.i = trunc nuw i24 %28 to i8
-  %29 = icmp ule i32 %9, %22
-  %30 = icmp ule i32 %11, %.sroa.8.139
+  %29 = icmp uge i32 %22, %9
+  %30 = icmp uge i32 %.sroa.8.139, %11
   %or.cond.i.i = or i1 %29, %30
   br i1 %or.cond.i.i, label %31, label %41
 
@@ -11638,8 +11638,8 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17h9f20b8390
   %34 = udiv i32 %33, 10000
   %spec.select.i.i.i.i = trunc nuw i32 %34 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !986)
-  %35 = icmp ule i32 %9, %23
-  %36 = icmp ule i32 %11, %.sroa.8.135
+  %35 = icmp uge i32 %23, %9
+  %36 = icmp uge i32 %.sroa.8.135, %11
   %or.cond.i.i = or i1 %35, %36
   br i1 %or.cond.i.i, label %37, label %47
 
@@ -11810,8 +11810,8 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68
 41:                                               ; preds = %25, %37, %39
   %.0.i.i.i.i = phi float [ 0x47EFFFFFE0000000, %25 ], [ 0xC7EFFFFFE0000000, %37 ], [ %40, %39 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1003)
-  %42 = icmp ule i32 %9, %23
-  %43 = icmp ule i32 %11, %.sroa.8.146
+  %42 = icmp uge i32 %23, %9
+  %43 = icmp uge i32 %.sroa.8.146, %11
   %or.cond.i.i = or i1 %42, %43
   br i1 %or.cond.i.i, label %44, label %54
 
@@ -11986,8 +11986,8 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h1f9
   %.sroa.0.2.insert.shift.i = and i32 %.sroa.513.0.extract.trunc, -65536
   %.sroa.0.2.insert.insert.i = or disjoint i32 %35, %.sroa.0.2.insert.shift.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1021)
-  %36 = icmp ule i32 %9, %23
-  %37 = icmp ule i32 %11, %.sroa.8.141
+  %36 = icmp uge i32 %23, %9
+  %37 = icmp uge i32 %.sroa.8.141, %11
   %or.cond.i.i = or i1 %36, %37
   br i1 %or.cond.i.i, label %38, label %48
 
@@ -12144,8 +12144,8 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h5d2
   %.sroa.0.0.copyload.i.i = load i32, ptr %24, align 2, !noalias !1035
   %26 = add nuw i32 %23, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1039)
-  %27 = icmp ule i32 %9, %23
-  %28 = icmp ule i32 %11, %.sroa.8.139
+  %27 = icmp uge i32 %23, %9
+  %28 = icmp uge i32 %.sroa.8.139, %11
   %or.cond.i.i = or i1 %27, %28
   br i1 %or.cond.i.i, label %29, label %39
 
@@ -12330,8 +12330,8 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4
 41:                                               ; preds = %25, %37, %39
   %.0.i.i.i.i = phi float [ 0x47EFFFFFE0000000, %25 ], [ 0xC7EFFFFFE0000000, %37 ], [ %40, %39 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1056)
-  %42 = icmp ule i32 %9, %23
-  %43 = icmp ule i32 %11, %.sroa.8.148
+  %42 = icmp uge i32 %23, %9
+  %43 = icmp uge i32 %.sroa.8.148, %11
   %or.cond.i.i = or i1 %42, %43
   br i1 %or.cond.i.i, label %44, label %54
 
@@ -12514,8 +12514,8 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h928
   %.sroa.0.1.insert.shift.i = and i16 %tr.sh.diff, -256
   %.sroa.0.1.insert.insert.i = or disjoint i16 %.sroa.0.1.insert.shift.i, %spec.select.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1077)
-  %35 = icmp ule i32 %9, %22
-  %36 = icmp ule i32 %11, %.sroa.8.141
+  %35 = icmp uge i32 %22, %9
+  %36 = icmp uge i32 %.sroa.8.141, %11
   %or.cond.i.i = or i1 %35, %36
   br i1 %or.cond.i.i, label %37, label %47
 
@@ -12676,8 +12676,8 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17hf4e
   %.sroa.0.0.copyload.i.i = load i16, ptr %23, align 1, !noalias !1094
   %25 = add nuw i32 %22, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1098)
-  %26 = icmp ule i32 %9, %22
-  %27 = icmp ule i32 %11, %.sroa.8.139
+  %26 = icmp uge i32 %22, %9
+  %27 = icmp uge i32 %.sroa.8.139, %11
   %or.cond.i.i = or i1 %26, %27
   br i1 %or.cond.i.i, label %28, label %38
 
@@ -13302,8 +13302,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1167)
-  %47 = icmp ule i32 %11, %27
-  %48 = icmp ule i32 %13, %.sroa.8.148
+  %47 = icmp uge i32 %27, %11
+  %48 = icmp uge i32 %.sroa.8.148, %13
   %or.cond.i.i = or i1 %47, %48
   br i1 %or.cond.i.i, label %49, label %59
 
@@ -13503,8 +13503,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
   %.sroa.0.0.copyload.i = load i48, ptr %8, align 8, !noalias !1185
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8), !noalias !1185
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1194)
-  %48 = icmp ule i32 %11, %28
-  %49 = icmp ule i32 %13, %.sroa.8.147
+  %48 = icmp uge i32 %28, %11
+  %49 = icmp uge i32 %.sroa.8.147, %13
   %or.cond.i.i = or i1 %48, %49
   br i1 %or.cond.i.i, label %50, label %60
 
@@ -13710,8 +13710,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr
   %.sroa.0.0.copyload.i = load i24, ptr %8, align 4, !noalias !1215
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8), !noalias !1215
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
-  %47 = icmp ule i32 %11, %27
-  %48 = icmp ule i32 %13, %.sroa.8.147
+  %47 = icmp uge i32 %27, %11
+  %48 = icmp uge i32 %.sroa.8.147, %13
   %or.cond.i.i = or i1 %47, %48
   br i1 %or.cond.i.i, label %49, label %59
 
@@ -13894,8 +13894,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr
 42:                                               ; preds = %29
   %43 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1242)
-  %44 = icmp ule i32 %10, %27
-  %45 = icmp ule i32 %12, %.sroa.8.141
+  %44 = icmp uge i32 %27, %10
+  %45 = icmp uge i32 %.sroa.8.141, %12
   %or.cond.i.i = or i1 %44, %45
   br i1 %or.cond.i.i, label %46, label %56
 
@@ -14084,8 +14084,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1266)
-  %48 = icmp ule i32 %11, %28
-  %49 = icmp ule i32 %13, %.sroa.8.148
+  %48 = icmp uge i32 %28, %11
+  %49 = icmp uge i32 %.sroa.8.148, %13
   %or.cond.i.i = or i1 %48, %49
   br i1 %or.cond.i.i, label %50, label %60
 
@@ -14269,8 +14269,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h9e2d54cade3a4914E(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.015, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false), !noalias !1292
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8), !noalias !1280
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1293)
-  %41 = icmp ule i32 %11, %28
-  %42 = icmp ule i32 %13, %.sroa.8.143
+  %41 = icmp uge i32 %28, %11
+  %42 = icmp uge i32 %.sroa.8.143, %13
   %or.cond.i.i = or i1 %41, %42
   br i1 %or.cond.i.i, label %43, label %53
 
@@ -14454,8 +14454,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hbd6fa2c6dc15acb1E(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.015, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !noalias !1319
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1307
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1320)
-  %41 = icmp ule i32 %11, %28
-  %42 = icmp ule i32 %13, %.sroa.8.141
+  %41 = icmp uge i32 %28, %11
+  %42 = icmp uge i32 %.sroa.8.141, %13
   %or.cond.i.i = or i1 %41, %42
   br i1 %or.cond.i.i, label %43, label %53
 
@@ -14661,8 +14661,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr
   %.sroa.0.0.copyload.i = load i16, ptr %8, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1347)
-  %47 = icmp ule i32 %11, %27
-  %48 = icmp ule i32 %13, %.sroa.8.148
+  %47 = icmp uge i32 %27, %11
+  %48 = icmp uge i32 %.sroa.8.148, %13
   %or.cond.i.i = or i1 %47, %48
   br i1 %or.cond.i.i, label %49, label %59
 
@@ -14849,8 +14849,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17he4e2c7efb5b8c79bE(ptr
 
 41:                                               ; preds = %28
   %42 = fptoui float %.0.in.sroa.speculated.i.i.i.i to i8
-  %43 = icmp ule i32 %10, %26
-  %44 = icmp ule i32 %12, %.sroa.8.141
+  %43 = icmp uge i32 %26, %10
+  %44 = icmp uge i32 %.sroa.8.141, %12
   %or.cond.i.i = or i1 %43, %44
   br i1 %or.cond.i.i, label %45, label %55
 
@@ -15037,8 +15037,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
-  %48 = icmp ule i32 %11, %28
-  %49 = icmp ule i32 %13, %.sroa.8.148
+  %48 = icmp uge i32 %28, %11
+  %49 = icmp uge i32 %.sroa.8.148, %13
   %or.cond.i.i = or i1 %48, %49
   br i1 %or.cond.i.i, label %50, label %60
 
@@ -15218,7 +15218,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
 "_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17h5e1664a62a513614E.exit.i.i": ; preds = %29
   %.sroa.09.0.add.i.i = add nuw nsw i64 %.sroa.09.0.idx12.i.i, 4
   %34 = fptosi float %30 to i32
-  %35 = add i32 %34, %2
+  %35 = add i32 %2, %34
   %36 = icmp sgt i32 %35, 0
   %37 = uitofp i1 %36 to float
   store float %37, ptr %.sroa.09.0.ptr13.i.i, align 4, !alias.scope !1410, !noalias !1413
@@ -15229,8 +15229,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h06d3c5fd6530ba27E(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.018, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !noalias !1416
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1404
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1417)
-  %40 = icmp ule i32 %11, %25
-  %41 = icmp ule i32 %13, %.sroa.8.146
+  %40 = icmp uge i32 %25, %11
+  %41 = icmp uge i32 %.sroa.8.146, %13
   %or.cond.i.i = or i1 %40, %41
   br i1 %or.cond.i.i, label %42, label %52
 
@@ -15410,7 +15410,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
 "_ZN5image8imageops8colorops8brighten28_$u7b$$u7b$closure$u7d$$u7d$17hfa44a6c57d662353E.exit.i.i": ; preds = %29
   %.sroa.07.0.add.i.i = add nuw nsw i64 %.sroa.07.0.idx10.i.i, 4
   %34 = fptosi float %30 to i32
-  %35 = add i32 %34, %2
+  %35 = add i32 %2, %34
   %36 = icmp sgt i32 %35, 0
   %37 = uitofp i1 %36 to float
   store float %37, ptr %.sroa.07.0.ptr11.i.i, align 4, !alias.scope !1437, !noalias !1440
@@ -15421,8 +15421,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h1b3bfe1a6534f1b4E(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.018, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false), !noalias !1443
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8), !noalias !1431
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1444)
-  %40 = icmp ule i32 %11, %25
-  %41 = icmp ule i32 %13, %.sroa.8.148
+  %40 = icmp uge i32 %25, %11
+  %41 = icmp uge i32 %.sroa.8.148, %13
   %or.cond.i.i = or i1 %40, %41
   br i1 %or.cond.i.i, label %42, label %52
 
@@ -15584,12 +15584,12 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h35be5e44376220d5E(ptr
   %.sroa.0.0.copyload.i.i = load i8, ptr %24, align 1, !noalias !1461
   %26 = add nuw i32 %23, 1
   %27 = zext i8 %.sroa.0.0.copyload.i.i to i32
-  %28 = add i32 %27, %2
+  %28 = add i32 %2, %27
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %28, i32 255)
   %.0.in.sroa.speculated.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i, i32 0)
   %29 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i.i to i8
-  %30 = icmp ule i32 %10, %23
-  %31 = icmp ule i32 %12, %.sroa.8.138
+  %30 = icmp uge i32 %23, %10
+  %31 = icmp uge i32 %.sroa.8.138, %12
   %or.cond.i.i = or i1 %30, %31
   br i1 %or.cond.i.i, label %32, label %42
 
@@ -15732,13 +15732,13 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h48e73d165d4f9ba6E(ptr
   %.sroa.0.0.copyload.i.i = load i16, ptr %25, align 2, !noalias !1477
   %27 = add nuw i32 %24, 1
   %28 = zext i16 %.sroa.0.0.copyload.i.i to i32
-  %29 = add i32 %28, %2
+  %29 = add i32 %2, %28
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %29, i32 65535)
   %.0.in.sroa.speculated.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i, i32 0)
   %30 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i.i to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1481)
-  %31 = icmp ule i32 %10, %24
-  %32 = icmp ule i32 %12, %.sroa.8.138
+  %31 = icmp uge i32 %24, %10
+  %32 = icmp uge i32 %.sroa.8.138, %12
   %or.cond.i.i = or i1 %31, %32
   br i1 %or.cond.i.i, label %33, label %43
 
@@ -15891,7 +15891,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
   %.sroa.06.0.ptr10.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.06.0.idx9.i.i
   %28 = load i16, ptr %.sroa.06.0.ptr10.i.i, align 2, !alias.scope !1505, !noalias !1508, !noundef !4
   %29 = zext i16 %28 to i32
-  %30 = add i32 %29, %2
+  %30 = add i32 %2, %29
   %31 = icmp slt i32 %30, 0
   %32 = tail call i32 @llvm.umin.i32(i32 %30, i32 65535)
   %33 = trunc nuw i32 %32 to i16
@@ -15906,8 +15906,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h4ffc8b4fbb746dddE(ptr
   %.sroa.0.0.copyload.i = load i48, ptr %8, align 8, !noalias !1499
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8), !noalias !1499
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1511)
-  %38 = icmp ule i32 %11, %25
-  %39 = icmp ule i32 %13, %.sroa.8.145
+  %38 = icmp uge i32 %25, %11
+  %39 = icmp uge i32 %.sroa.8.145, %13
   %or.cond.i.i = or i1 %38, %39
   br i1 %or.cond.i.i, label %40, label %50
 
@@ -16072,7 +16072,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
   %.sroa.08.0.ptr12.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.08.0.idx11.i.i
   %28 = load i16, ptr %.sroa.08.0.ptr12.i.i, align 2, !alias.scope !1534, !noalias !1537, !noundef !4
   %29 = zext i16 %28 to i32
-  %30 = add i32 %29, %2
+  %30 = add i32 %2, %29
   %31 = icmp slt i32 %30, 0
   %32 = tail call i32 @llvm.umin.i32(i32 %30, i32 65535)
   %33 = trunc nuw i32 %32 to i16
@@ -16087,8 +16087,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h5d0be34efb1e7a17E(ptr
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8, !noalias !1529
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !1529
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1540)
-  %38 = icmp ule i32 %11, %25
-  %39 = icmp ule i32 %13, %.sroa.8.145
+  %38 = icmp uge i32 %25, %11
+  %39 = icmp uge i32 %.sroa.8.145, %13
   %or.cond.i.i = or i1 %38, %39
   br i1 %or.cond.i.i, label %40, label %50
 
@@ -16258,7 +16258,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr
   %.sroa.06.0.ptr10.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.06.0.idx9.i.i
   %27 = load i8, ptr %.sroa.06.0.ptr10.i.i, align 1, !alias.scope !1567, !noalias !1570, !noundef !4
   %28 = zext i8 %27 to i32
-  %29 = add i32 %28, %2
+  %29 = add i32 %2, %28
   %30 = icmp slt i32 %29, 0
   %31 = tail call i32 @llvm.umin.i32(i32 %29, i32 255)
   %32 = trunc nuw i32 %31 to i8
@@ -16273,8 +16273,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h71fa866f45d0547dE(ptr
   %.sroa.0.0.copyload.i = load i24, ptr %8, align 4, !noalias !1561
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8), !noalias !1561
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1573)
-  %37 = icmp ule i32 %11, %24
-  %38 = icmp ule i32 %13, %.sroa.8.145
+  %37 = icmp uge i32 %24, %11
+  %38 = icmp uge i32 %.sroa.8.145, %13
   %or.cond.i.i = or i1 %37, %38
   br i1 %or.cond.i.i, label %39, label %49
 
@@ -16436,15 +16436,15 @@ define hidden void @_ZN5image8imageops8colorops8brighten17h75f48f95ff6b6f5bE(ptr
   %26 = add nuw i32 %23, 1
   %27 = and i16 %.sroa.0.0.copyload.i.i, 255
   %28 = zext nneg i16 %27 to i32
-  %29 = add i32 %28, %2
+  %29 = add i32 %2, %28
   %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %29, i32 255)
   %.0.in.sroa.speculated.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i.i, i32 0)
   %.sroa.0.0.insert.ext.i = trunc nuw nsw i32 %.0.in.sroa.speculated.i.i.i.i to i16
   %.sroa.0.0.insert.mask.i = and i16 %.sroa.0.0.copyload.i.i, -256
   %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.0.0.insert.mask.i, %.sroa.0.0.insert.ext.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1594)
-  %30 = icmp ule i32 %10, %23
-  %31 = icmp ule i32 %12, %.sroa.8.144
+  %30 = icmp uge i32 %23, %10
+  %31 = icmp uge i32 %.sroa.8.144, %12
   %or.cond.i.i = or i1 %30, %31
   br i1 %or.cond.i.i, label %32, label %42
 
@@ -16606,8 +16606,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hdbae2855b93cb8bbE(ptr
   %.sroa.0.0.insert.mask.i = and i32 %.sroa.0.0.copyload.i.i, -65536
   %.sroa.0.0.insert.insert.i = or disjoint i32 %.0.in.sroa.speculated.i.i.i.i, %.sroa.0.0.insert.mask.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1612)
-  %30 = icmp ule i32 %10, %24
-  %31 = icmp ule i32 %12, %.sroa.8.144
+  %30 = icmp uge i32 %24, %10
+  %31 = icmp uge i32 %.sroa.8.144, %12
   %or.cond.i.i = or i1 %30, %31
   br i1 %or.cond.i.i, label %32, label %42
 
@@ -16777,7 +16777,7 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr
   %.sroa.08.0.ptr12.i.i = getelementptr inbounds i8, ptr %8, i64 %.sroa.08.0.idx11.i.i
   %27 = load i8, ptr %.sroa.08.0.ptr12.i.i, align 1, !alias.scope !1638, !noalias !1641, !noundef !4
   %28 = zext i8 %27 to i32
-  %29 = add i32 %28, %2
+  %29 = add i32 %2, %28
   %30 = icmp slt i32 %29, 0
   %31 = tail call i32 @llvm.umin.i32(i32 %29, i32 255)
   %32 = trunc nuw i32 %31 to i8
@@ -16792,8 +16792,8 @@ define hidden void @_ZN5image8imageops8colorops8brighten17hffa7bf9e38c1b685E(ptr
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4, !noalias !1633
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !1633
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1644)
-  %37 = icmp ule i32 %11, %24
-  %38 = icmp ule i32 %13, %.sroa.8.145
+  %37 = icmp uge i32 %24, %11
+  %38 = icmp uge i32 %.sroa.8.145, %13
   %or.cond.i.i = or i1 %37, %38
   br i1 %or.cond.i.i, label %39, label %49
 
@@ -19431,10 +19431,10 @@ define hidden noundef nonnull align 2 dereferenceable(6) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -19508,10 +19508,10 @@ define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -19585,10 +19585,10 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -19653,10 +19653,10 @@ define hidden noundef nonnull align 2 dereferenceable(4) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -19730,10 +19730,10 @@ define hidden noundef nonnull align 1 dereferenceable(4) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -19807,10 +19807,10 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN5image7buffer
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -19884,10 +19884,10 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -19961,10 +19961,10 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN5image7buffer
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -20038,10 +20038,10 @@ define hidden noundef nonnull align 2 dereferenceable(8) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 
@@ -20115,10 +20115,10 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN5image7buffer_
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !4
-  %11 = icmp ule i32 %10, %1
+  %11 = icmp uge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %2
+  %14 = icmp uge i32 %2, %13
   %or.cond.i = select i1 %11, i1 true, i1 %14
   br i1 %or.cond.i, label %15, label %25
 

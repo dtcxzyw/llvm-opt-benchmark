@@ -814,7 +814,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next67 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge.loopexit.split.loop.exit76:             ; preds = %.lr.ph

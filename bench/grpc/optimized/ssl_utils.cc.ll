@@ -956,7 +956,7 @@ declare noundef i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_vi
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_Z24grpc_ssl_cmp_target_nameSt17basic_string_viewIcSt11char_traitsIcEES2_S2_S2_(i64 %target_name.coerce0, ptr nocapture readonly %target_name.coerce1, i64 %other_target_name.coerce0, ptr nocapture readonly %other_target_name.coerce1, i64 %overridden_target_name.coerce0, ptr nocapture readonly %overridden_target_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %other_overridden_target_name) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %target_name.coerce0, i64 %other_target_name.coerce0)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %other_target_name.coerce0, i64 %target_name.coerce0)
   %cmp.i2.i = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.i2.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 
@@ -975,7 +975,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit: ; preds = %entr
 
 if.end:                                           ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
   %agg.tmp1.sroa.0.0.copyload = load i64, ptr %other_overridden_target_name, align 8
-  %.sroa.speculated.i2 = tail call i64 @llvm.umin.i64(i64 %overridden_target_name.coerce0, i64 %agg.tmp1.sroa.0.0.copyload)
+  %.sroa.speculated.i2 = tail call i64 @llvm.umin.i64(i64 %agg.tmp1.sroa.0.0.copyload, i64 %overridden_target_name.coerce0)
   %cmp.i2.i3 = icmp eq i64 %.sroa.speculated.i2, 0
   br i1 %cmp.i2.i3, label %if.then.i9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i4
 
@@ -2568,7 +2568,7 @@ if.then8.i.i.i:                                   ; preds = %call3.i.i.i.noexc
 
 if.end10.i.i.i:                                   ; preds = %if.then8.i.i.i, %call3.i.i.i.noexc
   %3 = load i64, ptr %it, align 8, !alias.scope !26
-  %cmp.i.i.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %cmp.i.i.i.i.i = icmp ugt i64 %3, %retval.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %if.end10.i.i.i
@@ -2641,7 +2641,7 @@ if.then8.i:                                       ; preds = %call3.i.noexc
 
 if.end10.i:                                       ; preds = %if.then8.i, %call3.i.noexc
   %12 = load i64, ptr %it, align 8
-  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i, %12
+  %cmp.i.i.i = icmp ugt i64 %12, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %do.cond
 
 if.then.i.i.i.invoke:                             ; preds = %if.end10.i, %if.end10.i.i.i
@@ -2827,7 +2827,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterI
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i42, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit50, label %for.body.i.i.i.i.i43
 
 for.body.i.i.i.i.i43:                             ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit, %for.body.i.i.i.i.i43
@@ -2927,7 +2927,7 @@ for.body.i.i.i.i86:                               ; preds = %for.body.i.i.i.i86.
   br i1 %cmp.not.i.i.i.i92, label %invoke.cont61, label %for.body.i.i.i.i86, !llvm.loop !33
 
 invoke.cont61:                                    ; preds = %for.body.i.i.i.i86
-  %cmp.i.i.not7.i.i.i.i.i95 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i95 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i95, label %invoke.cont65, label %for.body.i.i.i.i.i96
 
 for.body.i.i.i.i.i96:                             ; preds = %invoke.cont61, %for.body.i.i.i.i.i96

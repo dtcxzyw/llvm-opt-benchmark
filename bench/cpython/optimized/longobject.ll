@@ -11452,7 +11452,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = add nsw i64 %mul.i, 5
   %or.cond = icmp ult i64 %2, 262
   %arrayidx.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %2
-  %cmp7 = icmp eq ptr %arrayidx.i, %self
+  %cmp7 = icmp eq ptr %self, %arrayidx.i
   %or.cond13 = select i1 %or.cond, i1 %cmp7, i1 false
   br i1 %or.cond13, label %if.then9, label %if.end11
 
@@ -11992,7 +11992,7 @@ for.end:                                          ; preds = %for.body, %entry
   %bits_per_char.0.lcssa = phi i32 [ -1, %entry ], [ %inc, %for.body ]
   %conv1 = sext i32 %bits_per_char.0.lcssa to i64
   %div = sdiv i64 9223372036854775778, %conv1
-  %cmp = icmp slt i64 %div, %digits
+  %cmp = icmp sgt i64 %digits, %div
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
@@ -12001,7 +12001,7 @@ if.then:                                          ; preds = %for.end
   br label %return
 
 if.end:                                           ; preds = %for.end
-  %mul = mul i64 %conv1, %digits
+  %mul = mul i64 %digits, %conv1
   %sub = add i64 %mul, 29
   %div4 = sdiv i64 %sub, 30
   %sub.off = add i64 %mul, 58

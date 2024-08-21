@@ -1272,7 +1272,7 @@ declare i32 @dissect_cms_DigestInfo(i1 noundef zeroext, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pkcs12_OCTET_STRING(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #1 {
   %7 = load i32, ptr @hf_pkcs12_salt, align 4
-  %8 = icmp eq i32 %7, %5
+  %8 = icmp eq i32 %5, %7
   %9 = select i1 %8, ptr @salt, ptr null
   %10 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef %9) #8
   ret i32 %10
@@ -1281,7 +1281,7 @@ define internal i32 @dissect_pkcs12_OCTET_STRING(i1 noundef zeroext %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pkcs12_INTEGER(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #1 {
   %7 = load i32, ptr @hf_pkcs12_iterationCount, align 4
-  %8 = icmp eq i32 %7, %5
+  %8 = icmp eq i32 %5, %7
   %9 = select i1 %8, ptr @iteration_count, ptr null
   %10 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef %9) #8
   ret i32 %10

@@ -91,7 +91,7 @@ if.end11.i:                                       ; preds = %if.then6.i, %if.end
   %sub.i = sub i64 %size, %add.i
   %cond.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 4194303)
   store i64 %cond.i, ptr %bytes.i, align 8
-  %cmp1.i = icmp eq i64 %add.i, %size
+  %cmp1.i = icmp eq i64 %size, %add.i
   br i1 %cmp1.i, label %blk_pread_nonzeroes.exit, label %if.end.i
 
 blk_pread_nonzeroes.exit:                         ; preds = %if.end11.i, %if.end8

@@ -4274,7 +4274,7 @@ while.body74:                                     ; preds = %while.cond71
 
 if.else.i:                                        ; preds = %while.body74
   %73 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %73, %72
+  %cmp3.not.i = icmp ugt i32 %72, %73
   %74 = xor i32 %73, -1
   %.sink449 = select i1 %cmp3.not.i, i32 %74, i32 -1
   %sub9.i = add i32 %72, %.sink449
@@ -4971,7 +4971,7 @@ while.body61:                                     ; preds = %while.cond58
 
 if.else.i:                                        ; preds = %while.body61
   %57 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %57, %56
+  %cmp3.not.i = icmp ugt i32 %56, %57
   %58 = xor i32 %57, -1
   %.sink359 = select i1 %cmp3.not.i, i32 %58, i32 -1
   %sub9.i = add i32 %56, %.sink359
@@ -5609,7 +5609,7 @@ while.body61:                                     ; preds = %while.cond58
 
 if.else.i:                                        ; preds = %while.body61
   %35 = load i32, ptr %m_num_patterns.i.i, align 8
-  %cmp3.not.i = icmp ult i32 %35, %34
+  %cmp3.not.i = icmp ugt i32 %34, %35
   %36 = xor i32 %35, -1
   %.sink342 = select i1 %cmp3.not.i, i32 %36, i32 -1
   %sub9.i = add i32 %34, %.sink342

@@ -9856,7 +9856,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
@@ -10209,7 +10209,7 @@ for.end15.loopexit:                               ; preds = %_ZN4absl15random_in
 for.end15:                                        ; preds = %for.end15.loopexit, %for.body7
   %12 = phi i64 [ %.pre, %for.end15.loopexit ], [ %7, %for.body7 ]
   %sub.i = sub i64 256, %12
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %storemerge492)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %storemerge492, i64 %sub.i)
   %sub2.i = sub nsw i64 %storemerge492, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %_ZN4absl15random_internal13randen_engineIhE7discardEm.exit, label %while.body.i
@@ -10702,7 +10702,7 @@ for.end15.loopexit:                               ; preds = %_ZN4absl15random_in
 for.end15:                                        ; preds = %for.end15.loopexit, %for.body7
   %13 = phi i64 [ %.pre, %for.end15.loopexit ], [ %8, %for.body7 ]
   %sub.i = sub i64 128, %13
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %storemerge492)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %storemerge492, i64 %sub.i)
   %sub2.i = sub nsw i64 %storemerge492, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %_ZN4absl15random_internal13randen_engineItE7discardEm.exit, label %while.body.i
@@ -11195,7 +11195,7 @@ for.end15.loopexit:                               ; preds = %_ZN4absl15random_in
 for.end15:                                        ; preds = %for.end15.loopexit, %for.body7
   %13 = phi i64 [ %.pre, %for.end15.loopexit ], [ %8, %for.body7 ]
   %sub.i = sub i64 64, %13
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %storemerge492)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %storemerge492, i64 %sub.i)
   %sub2.i = sub nsw i64 %storemerge492, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %_ZN4absl15random_internal13randen_engineIjE7discardEm.exit, label %while.body.i
@@ -11686,7 +11686,7 @@ for.end15.loopexit:                               ; preds = %_ZN4absl15random_in
 for.end15:                                        ; preds = %for.end15.loopexit, %for.body7
   %13 = phi i64 [ %.pre, %for.end15.loopexit ], [ %8, %for.body7 ]
   %sub.i = sub i64 32, %13
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %storemerge492)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %storemerge492, i64 %sub.i)
   %sub2.i = sub nsw i64 %storemerge492, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %_ZN4absl15random_internal13randen_engineImE7discardEm.exit, label %while.body.i
@@ -14245,7 +14245,7 @@ _ZN4absl15random_internal15ExplicitSeedSeqC2IPKiEET_S5_.exit: ; preds = %for.inc
 invoke.cont:                                      ; preds = %.noexc
   %10 = load i64, ptr %next_.i.i.i, align 8
   %sub.i = sub i64 256, %10
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %discard.081)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %discard.081, i64 %sub.i)
   %sub2.i = sub nsw i64 %discard.081, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %invoke.cont3, label %while.body.i
@@ -15091,7 +15091,7 @@ _ZN4absl15random_internal15ExplicitSeedSeqC2IPKiEET_S5_.exit: ; preds = %for.inc
 invoke.cont:                                      ; preds = %.noexc
   %12 = load i64, ptr %next_.i.i.i, align 8
   %sub.i = sub i64 128, %12
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %discard.081)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %discard.081, i64 %sub.i)
   %sub2.i = sub nsw i64 %discard.081, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %invoke.cont3, label %while.body.i
@@ -15886,7 +15886,7 @@ _ZN4absl15random_internal15ExplicitSeedSeqC2IPKiEET_S5_.exit: ; preds = %for.inc
 invoke.cont:                                      ; preds = %.noexc
   %12 = load i64, ptr %next_.i.i.i, align 8
   %sub.i = sub i64 64, %12
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %discard.081)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %discard.081, i64 %sub.i)
   %sub2.i = sub nsw i64 %discard.081, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %invoke.cont3, label %while.body.i
@@ -16546,7 +16546,7 @@ _ZN4absl15random_internal15ExplicitSeedSeqC2IPKiEET_S5_.exit: ; preds = %for.inc
 invoke.cont:                                      ; preds = %.noexc
   %12 = load i64, ptr %next_.i.i.i, align 8
   %sub.i = sub i64 32, %12
-  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %discard.081)
+  %.sroa.speculated7.i = call i64 @llvm.umin.i64(i64 %discard.081, i64 %sub.i)
   %sub2.i = sub nsw i64 %discard.081, %.sroa.speculated7.i
   %cmp.not15.i = icmp eq i64 %sub2.i, 0
   br i1 %cmp.not15.i, label %invoke.cont3, label %while.body.i

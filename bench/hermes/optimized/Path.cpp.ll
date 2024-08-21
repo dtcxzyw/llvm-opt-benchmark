@@ -1004,7 +1004,7 @@ _ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit38: ; preds = %land.lhs.true25
 if.then29:                                        ; preds = %land.lhs.true25, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit38
   %15 = load i64, ptr %b.sroa.12.0.pos.sroa_idx85, align 8
   %add = add i64 %15, %retval.sroa.6.0.i.i.ph
-  %.sroa.speculated74 = call i64 @llvm.umin.i64(i64 %add, i64 %path.coerce1)
+  %.sroa.speculated74 = call i64 @llvm.umin.i64(i64 %path.coerce1, i64 %add)
   br label %return
 
 if.end:                                           ; preds = %land.end19
@@ -1349,7 +1349,7 @@ define hidden { ptr, i64 } @_ZN4llvh3sys4path13relative_pathENS_9StringRefENS1_5
 entry:
   %call = tail call { ptr, i64 } @_ZN4llvh3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %path.coerce0, i64 %path.coerce1, i32 noundef %style)
   %0 = extractvalue { ptr, i64 } %call, 1
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %path.coerce1)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %path.coerce1, i64 %0)
   %add.ptr.i = getelementptr inbounds i8, ptr %path.coerce0, i64 %.sroa.speculated
   %sub.i = sub i64 %path.coerce1, %.sroa.speculated
   %.fca.0.insert1 = insertvalue { ptr, i64 } poison, ptr %add.ptr.i, 0
@@ -1935,7 +1935,7 @@ define hidden { ptr, i64 } @_ZN4llvh3sys4path11parent_pathENS_9StringRefENS1_5St
 entry:
   %call = tail call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvh9StringRefENS0_3sys4path5StyleE(ptr %path.coerce0, i64 %path.coerce1, i32 noundef %style)
   %cmp = icmp eq i64 %call, -1
-  %.sroa.speculated16 = tail call i64 @llvm.umin.i64(i64 %call, i64 %path.coerce1)
+  %.sroa.speculated16 = tail call i64 @llvm.umin.i64(i64 %path.coerce1, i64 %call)
   %retval.sroa.4.0 = select i1 %cmp, i64 0, i64 %.sroa.speculated16
   %retval.sroa.0.0 = select i1 %cmp, ptr null, ptr %path.coerce0
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
@@ -2804,7 +2804,7 @@ _ZN4llvh11SmallStringILj128EE6appendIPcEEvT_S4_.exit: ; preds = %if.end.i.i32, %
   %19 = trunc i64 %gepdiff to i32
   %conv.i12.i.i38 = add i32 %18, %19
   store i32 %conv.i12.i.i38, ptr %Size.i.i.i.i.i.i, align 8
-  %cmp.i41 = icmp eq ptr %PathHome, %Path
+  %cmp.i41 = icmp eq ptr %Path, %PathHome
   br i1 %cmp.i41, label %_ZN4llvh15SmallVectorImplIcEaSERKS1_.exit, label %if.end.i42
 
 if.end.i42:                                       ; preds = %_ZN4llvh11SmallStringILj128EE6appendIPcEEvT_S4_.exit
@@ -3345,7 +3345,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit
 
 _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %entry, %if.then.i.i.i
-  %.sroa.speculated16.i = call i64 @llvm.umin.i64(i64 %call.i, i64 %1)
+  %.sroa.speculated16.i = call i64 @llvm.umin.i64(i64 %1, i64 %call.i)
   %cmp.i1 = icmp ne i64 %call.i, -1
   %cmp.i2 = icmp ne i64 %.sroa.speculated16.i, 0
   %cmp.i = select i1 %cmp.i1, i1 %cmp.i2, i1 false
@@ -3750,7 +3750,7 @@ entry:
   store i32 16, ptr %Capacity2.i.i.i.i.i.i, align 4, !noalias !52
   %call.i.i = call { ptr, i64 } @_ZN4llvh3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %0, i64 %conv.i, i32 noundef %style), !noalias !52
   %3 = extractvalue { ptr, i64 } %call.i.i, 1
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %3, i64 %conv.i)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %conv.i, i64 %3)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.speculated.i.i
   %sub.i.i.i = sub nsw i64 %conv.i, %.sroa.speculated.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %path.i.i.i), !noalias !55
@@ -4292,7 +4292,7 @@ if.then.i.i.i:                                    ; preds = %if.then1
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.i.i.i, %if.then1, %if.then, %entry
-  %cmp.i = icmp eq ptr %ModelStorage, %ResultPath
+  %cmp.i = icmp eq ptr %ResultPath, %ModelStorage
   br i1 %cmp.i, label %if.end6._ZN4llvh15SmallVectorImplIcEaSERKS1_.exit_crit_edge, label %if.end.i
 
 if.end6._ZN4llvh15SmallVectorImplIcEaSERKS1_.exit_crit_edge: ; preds = %if.end6
@@ -5009,7 +5009,7 @@ _ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit101: ; preds = %land.e
   %conv.i.i.i107 = zext i32 %22 to i64
   %call.i110 = call { ptr, i64 } @_ZN4llvh3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %21, i64 %conv.i.i.i107, i32 noundef 2)
   %23 = extractvalue { ptr, i64 } %call.i110, 1
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %23, i64 %conv.i.i.i107)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %conv.i.i.i107, i64 %23)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 %.sroa.speculated.i
   %sub.i.i = sub nsw i64 %conv.i.i.i107, %.sroa.speculated.i
   store ptr %add.ptr.i.i, ptr %bRelativePath, align 8
@@ -5019,7 +5019,7 @@ _ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit101: ; preds = %land.e
   %agg.tmp50.sroa.2.0.copyload = load i64, ptr %Length.i, align 8
   %call.i111 = call { ptr, i64 } @_ZN4llvh3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %agg.tmp50.sroa.0.0.copyload, i64 %agg.tmp50.sroa.2.0.copyload, i32 noundef 2)
   %25 = extractvalue { ptr, i64 } %call.i111, 1
-  %.sroa.speculated.i112 = call i64 @llvm.umin.i64(i64 %25, i64 %agg.tmp50.sroa.2.0.copyload)
+  %.sroa.speculated.i112 = call i64 @llvm.umin.i64(i64 %agg.tmp50.sroa.2.0.copyload, i64 %25)
   %add.ptr.i.i113 = getelementptr inbounds i8, ptr %agg.tmp50.sroa.0.0.copyload, i64 %.sroa.speculated.i112
   %sub.i.i114 = sub i64 %agg.tmp50.sroa.2.0.copyload, %.sroa.speculated.i112
   store ptr %add.ptr.i.i113, ptr %pRelativePath, align 8
@@ -5138,7 +5138,7 @@ if.then.i:                                        ; preds = %entry
   %call3.i = tail call ptr @__errno_location() #29
   %4 = load i32, ptr %call3.i, align 4
   %cmp4.not.i = icmp eq i32 %4, 17
-  %brmerge.not.i = and i1 %cmp4.not.i, %IgnoreExisting
+  %brmerge.not.i = and i1 %IgnoreExisting, %cmp4.not.i
   br i1 %brmerge.not.i, label %if.end8.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then.i
@@ -5173,7 +5173,7 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fs16cr
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %1, align 8
   %call.i19 = call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvh9StringRefENS0_3sys4path5StyleE(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef 2)
   %cmp.i20 = icmp eq i64 %call.i19, -1
-  %.sroa.speculated16.i = call i64 @llvm.umin.i64(i64 %call.i19, i64 %agg.tmp.sroa.2.0.copyload)
+  %.sroa.speculated16.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload, i64 %call.i19)
   %retval.sroa.4.0.i = select i1 %cmp.i20, i64 0, i64 %.sroa.speculated16.i
   %retval.sroa.0.0.i21 = select i1 %cmp.i20, ptr null, ptr %agg.tmp.sroa.0.0.copyload
   store ptr %retval.sroa.0.0.i21, ptr %Parent, align 8
@@ -5217,7 +5217,7 @@ if.then.i45:                                      ; preds = %if.end14
   %call3.i46 = tail call ptr @__errno_location() #29
   %10 = load i32, ptr %call3.i46, align 4
   %cmp4.not.i47 = icmp eq i32 %10, 17
-  %brmerge.not.i48 = and i1 %cmp4.not.i47, %IgnoreExisting
+  %brmerge.not.i48 = and i1 %IgnoreExisting, %cmp4.not.i47
   br i1 %brmerge.not.i48, label %if.end8.i36, label %cleanup.i38
 
 if.end8.i36:                                      ; preds = %if.then.i45, %if.end14
@@ -5276,7 +5276,7 @@ if.then:                                          ; preds = %entry
   %call3 = tail call ptr @__errno_location() #29
   %1 = load i32, ptr %call3, align 4
   %cmp4.not = icmp eq i32 %1, 17
-  %brmerge.not = and i1 %cmp4.not, %IgnoreExisting
+  %brmerge.not = and i1 %IgnoreExisting, %cmp4.not
   br i1 %brmerge.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.then
@@ -6071,7 +6071,7 @@ entry:
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
   %call.i2 = tail call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvh9StringRefENS0_3sys4path5StyleE(ptr %call.i, i64 %call2.i, i32 noundef 2)
   %cmp.i = icmp eq i64 %call.i2, -1
-  %.sroa.speculated16.i = tail call i64 @llvm.umin.i64(i64 %call.i2, i64 %call2.i)
+  %.sroa.speculated16.i = tail call i64 @llvm.umin.i64(i64 %call2.i, i64 %call.i2)
   %retval.sroa.4.0.i = select i1 %cmp.i, i64 0, i64 %.sroa.speculated16.i
   %retval.sroa.0.0.i = select i1 %cmp.i, ptr null, ptr %call.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStr, i64 16
@@ -7008,7 +7008,7 @@ if.then:                                          ; preds = %entry
   %call3 = tail call ptr @__errno_location() #29
   %1 = load i32, ptr %call3, align 4
   %cmp4.not = icmp eq i32 %1, 2
-  %brmerge.not = and i1 %cmp4.not, %IgnoreNonExisting
+  %brmerge.not = and i1 %IgnoreNonExisting, %cmp4.not
   br i1 %brmerge.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
@@ -7043,7 +7043,7 @@ if.then23:                                        ; preds = %if.end19
   %call24 = tail call ptr @__errno_location() #29
   %4 = load i32, ptr %call24, align 4
   %cmp25.not = icmp eq i32 %4, 2
-  %brmerge3.not = and i1 %cmp25.not, %IgnoreNonExisting
+  %brmerge3.not = and i1 %IgnoreNonExisting, %cmp25.not
   br i1 %brmerge3.not, label %if.end32, label %if.then28
 
 if.then28:                                        ; preds = %if.then23
@@ -8721,7 +8721,7 @@ _ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit: 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %st.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp16.i)
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.i, 0
-  %brmerge = or i1 %cmp.i.not, %IgnoreErrors
+  %brmerge = or i1 %IgnoreErrors, %cmp.i.not
   br i1 %brmerge, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit
@@ -8729,7 +8729,7 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fsL23r
   %40 = extractvalue { i32, ptr } %call3, 0
   %41 = extractvalue { i32, ptr } %call3, 1
   %cmp.i6.not = icmp eq i32 %40, 0
-  %brmerge5 = or i1 %cmp.i6.not, %IgnoreErrors
+  %brmerge5 = or i1 %IgnoreErrors, %cmp.i6.not
   %spec.select = select i1 %brmerge5, ptr %call.i.i, ptr %41
   %spec.select14 = select i1 %IgnoreErrors, i32 0, i32 %40
   br label %return
@@ -9688,7 +9688,7 @@ entry:
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i78 = getelementptr inbounds i8, ptr %0, i64 %conv.i
-  %cmp = icmp eq ptr %add.ptr.i78, %I
+  %cmp = icmp eq ptr %I, %add.ptr.i78
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %To to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %From to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -10272,7 +10272,7 @@ if.then21:                                        ; preds = %_ZNK4llvh5Error3isA
   br i1 %cmp.not.i.i44, label %if.else21.i.i, label %if.then.i.i45
 
 if.then.i.i45:                                    ; preds = %if.then21
-  %cmp.i.i.i = icmp eq ptr %48, %43
+  %cmp.i.i.i = icmp eq ptr %43, %48
   br i1 %cmp.i.i.i, label %if.then9.i.i, label %if.else.i.i46
 
 if.then9.i.i:                                     ; preds = %if.then.i.i45
@@ -10386,7 +10386,7 @@ for.body.i.i.i.i102:                              ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i108: ; preds = %for.body.i.i.i.i102, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i98
   %__cur.0.lcssa.i.i.i.i109 = phi ptr [ %cond.i10.i99, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i98 ], [ %incdec.ptr1.i.i.i.i106, %for.body.i.i.i.i102 ]
   %incdec.ptr.i110 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i109, i64 8
-  %cmp.not5.i.i.i11.i111 = icmp eq ptr %48, %43
+  %cmp.not5.i.i.i11.i111 = icmp eq ptr %43, %48
   br i1 %cmp.not5.i.i.i11.i111, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i118, label %for.body.i.i.i12.i112
 
 for.body.i.i.i12.i112:                            ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i108, %for.body.i.i.i12.i112
@@ -10529,7 +10529,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12

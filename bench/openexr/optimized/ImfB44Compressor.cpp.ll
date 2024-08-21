@@ -82,7 +82,7 @@ lpad.i:                                           ; preds = %if.then.i
   br label %lpad.body
 
 invoke.cont3:                                     ; preds = %land.lhs.true.i, %invoke.cont
-  %mul.i = mul i64 %div18, %numScanLines
+  %mul.i = mul i64 %numScanLines, %div18
   %mul.ov.i21 = icmp slt i64 %mul.i, 0
   br i1 %mul.ov.i21, label %if.then.i22, label %invoke.cont5
 

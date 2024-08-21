@@ -220,7 +220,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i32 %.lcssa.i, ptr %4, align 8
   store i32 %.lcssa11.i, ptr %3, align 8
   %56 = load i32, ptr @H5_optind, align 4
-  %.not34.i = icmp slt i32 %56, %0
+  %.not34.i = icmp sgt i32 %0, %56
   br i1 %.not34.i, label %59, label %57
 
 57:                                               ; preds = %55
@@ -238,7 +238,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr %63, ptr @params_g, align 8
   %64 = add nsw i32 %56, 1
   store i32 %64, ptr @H5_optind, align 4
-  %.not35.i = icmp slt i32 %64, %0
+  %.not35.i = icmp sgt i32 %0, %64
   br i1 %.not35.i, label %.lr.ph33.preheader.i, label %65
 
 65:                                               ; preds = %59

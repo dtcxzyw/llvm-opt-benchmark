@@ -1875,14 +1875,14 @@ define noundef ptr @Abc_SclFindWireLoadModel(ptr nocapture noundef readonly %0, 
   %indvars.iv80 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next81, %34 ]
   %22 = getelementptr inbounds float, ptr %.val49, i64 %indvars.iv80
   %23 = load float, ptr %22, align 4
-  %24 = fcmp ugt float %23, %1
+  %24 = fcmp ult float %1, %23
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %21
   %.val50 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds float, ptr %.val50, i64 %indvars.iv80
   %27 = load float, ptr %26, align 4
-  %28 = fcmp ogt float %27, %1
+  %28 = fcmp olt float %1, %27
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %25
@@ -5050,7 +5050,7 @@ define void @Abc_SclConvertLeakageIntoArea(ptr nocapture noundef readonly %0, fl
   %11 = load float, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 28
   %13 = load float, ptr %12, align 4
-  %14 = fmul float %13, %2
+  %14 = fmul float %2, %13
   %15 = tail call float @llvm.fmuladd.f32(float %1, float %11, float %14)
   store float %15, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5092,7 +5092,7 @@ define void @Abc_SclLibNormalizeSurface(ptr nocapture noundef readonly %0, float
   %.val44 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds float, ptr %.val44, i64 %indvars.iv
   %12 = load float, ptr %11, align 4
-  %13 = fmul float %12, %1
+  %13 = fmul float %1, %12
   store float %13, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val41 = load i32, ptr %4, align 4
@@ -5115,7 +5115,7 @@ define void @Abc_SclLibNormalizeSurface(ptr nocapture noundef readonly %0, float
   %.val43 = load ptr, ptr %9, align 8
   %19 = getelementptr inbounds float, ptr %.val43, i64 %indvars.iv60
   %20 = load float, ptr %19, align 4
-  %21 = fmul float %20, %2
+  %21 = fmul float %2, %20
   store float %21, ptr %19, align 4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %.val40 = load i32, ptr %7, align 4
@@ -5143,7 +5143,7 @@ define void @Abc_SclLibNormalizeSurface(ptr nocapture noundef readonly %0, float
   %.val42 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds float, ptr %.val42, i64 %indvars.iv63
   %32 = load float, ptr %31, align 4
-  %33 = fmul float %32, %1
+  %33 = fmul float %1, %32
   store float %33, ptr %31, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %.val39 = load i32, ptr %27, align 4
@@ -6930,7 +6930,7 @@ Abc_SclClassCellNum.exit:                         ; preds = %.preheader1008
 .critedge:                                        ; preds = %22, %5
   %.066.lcssa = phi i32 [ 0, %5 ], [ %.1, %22 ]
   %.not = icmp eq i32 %3, 0
-  %.not76 = icmp sgt i32 %.066.lcssa, %3
+  %.not76 = icmp slt i32 %3, %.066.lcssa
   %spec.store.select = select i1 %.not76, i32 %3, i32 0
   %.0 = select i1 %.not, i32 0, i32 %spec.store.select
   tail call void @Abc_SclMarkSkippedCells(ptr noundef nonnull %0)
@@ -9072,7 +9072,7 @@ Abc_SclClassCellNum.exit:                         ; preds = %.preheader1014
 .critedge:                                        ; preds = %23, %6
   %.071.lcssa = phi i32 [ 0, %6 ], [ %.1, %23 ]
   %.not = icmp eq i32 %4, 0
-  %.not82 = icmp sgt i32 %.071.lcssa, %4
+  %.not82 = icmp slt i32 %4, %.071.lcssa
   %spec.store.select = select i1 %.not82, i32 %4, i32 0
   %.0 = select i1 %.not, i32 0, i32 %spec.store.select
   tail call void @Abc_SclMarkSkippedCells(ptr noundef nonnull %0)

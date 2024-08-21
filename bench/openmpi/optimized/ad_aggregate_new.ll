@@ -240,7 +240,7 @@ define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 n
   %scevgep = getelementptr i8, ptr %5, i64 %40
   %scevgep31 = getelementptr i8, ptr %6, i64 8
   %scevgep32 = getelementptr i8, ptr %6, i64 %40
-  %bound0 = icmp ugt ptr %scevgep32, %5
+  %bound0 = icmp ult ptr %5, %scevgep32
   %bound1 = icmp ult ptr %scevgep31, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.ph.lver.orig, label %.ph
@@ -382,7 +382,7 @@ define void @ADIOI_Calc_file_realms_user_size(ptr nocapture noundef readonly %0,
   %scevgep = getelementptr i8, ptr %3, i64 %28
   %scevgep20 = getelementptr i8, ptr %4, i64 8
   %scevgep21 = getelementptr i8, ptr %4, i64 %28
-  %bound0 = icmp ugt ptr %scevgep21, %3
+  %bound0 = icmp ult ptr %3, %scevgep21
   %bound1 = icmp ult ptr %scevgep20, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.ph.lver.orig, label %.ph

@@ -102,8 +102,8 @@ define ptr @Cudd_ShortestPath(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %20 = ptrtoint ptr %10 to i64
   %21 = xor i64 %20, 1
   %22 = inttoptr i64 %21 to ptr
-  %23 = icmp eq ptr %22, %1
-  %24 = icmp eq ptr %12, %1
+  %23 = icmp eq ptr %1, %22
+  %24 = icmp eq ptr %1, %12
   %or.cond = select i1 %23, i1 true, i1 %24
   br i1 %or.cond, label %.loopexit.sink.split, label %.preheader
 
@@ -486,8 +486,8 @@ define ptr @Cudd_LargestCube(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %11 = ptrtoint ptr %8 to i64
   %12 = xor i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %1
-  %15 = icmp eq ptr %10, %1
+  %14 = icmp eq ptr %1, %13
+  %15 = icmp eq ptr %1, %10
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %.loopexit.sink.split, label %.preheader
 
@@ -807,8 +807,8 @@ define i32 @Cudd_ShortestLength(ptr nocapture noundef readonly %0, ptr noundef %
   %9 = ptrtoint ptr %6 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
-  %13 = icmp eq ptr %8, %1
+  %12 = icmp eq ptr %1, %11
+  %13 = icmp eq ptr %1, %8
   %or.cond = select i1 %12, i1 true, i1 %13
   br i1 %or.cond, label %25, label %14
 
@@ -881,7 +881,7 @@ define ptr @Cudd_Decreasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 24
   %31 = load ptr, ptr %30, align 8
-  %.not56 = icmp eq ptr %6, %1
+  %.not56 = icmp eq ptr %1, %6
   %32 = ptrtoint ptr %29 to i64
   %33 = xor i64 %32, 1
   %34 = inttoptr i64 %33 to ptr
@@ -967,7 +967,7 @@ define ptr @Cudd_Increasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 define range(i32 0, 2) i32 @Cudd_EquivDC(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %3
+  %7 = icmp eq ptr %3, %6
   %8 = icmp eq ptr %1, %2
   %or.cond = or i1 %8, %7
   br i1 %or.cond, label %103, label %9
@@ -976,17 +976,17 @@ define range(i32 0, 2) i32 @Cudd_EquivDC(ptr noundef %0, ptr noundef %1, ptr nou
   %10 = ptrtoint ptr %6 to i64
   %11 = xor i64 %10, 1
   %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %12, %3
+  %13 = icmp eq ptr %3, %12
   br i1 %13, label %103, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %3
+  %17 = icmp eq ptr %3, %16
   %18 = ptrtoint ptr %2 to i64
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
-  %21 = icmp eq ptr %20, %1
+  %21 = icmp eq ptr %1, %20
   %or.cond116 = or i1 %21, %17
   br i1 %or.cond116, label %103, label %22
 
@@ -1098,7 +1098,7 @@ define range(i32 0, 2) i32 @Cudd_EquivDC(ptr noundef %0, ptr noundef %1, ptr nou
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %59, i64 24
   %90 = load ptr, ptr %89, align 8
-  %.not110 = icmp eq ptr %59, %3
+  %.not110 = icmp eq ptr %3, %59
   br i1 %.not110, label %98, label %91
 
 91:                                               ; preds = %86
@@ -1144,7 +1144,7 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %1, %2
-  %8 = icmp eq ptr %6, %2
+  %8 = icmp eq ptr %2, %6
   %or.cond = select i1 %7, i1 true, i1 %8
   br i1 %or.cond, label %140, label %9
 
@@ -1152,8 +1152,8 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %10 = ptrtoint ptr %6 to i64
   %11 = xor i64 %10, 1
   %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %12, %1
-  %14 = icmp eq ptr %6, %3
+  %13 = icmp eq ptr %1, %12
+  %14 = icmp eq ptr %3, %6
   %or.cond170 = select i1 %13, i1 true, i1 %14
   %15 = icmp eq ptr %3, %1
   %or.cond171 = or i1 %15, %or.cond170
@@ -1163,11 +1163,11 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %17 = ptrtoint ptr %2 to i64
   %18 = xor i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
-  %20 = icmp eq ptr %19, %3
+  %20 = icmp eq ptr %3, %19
   br i1 %20, label %140, label %21
 
 21:                                               ; preds = %16
-  %22 = icmp eq ptr %12, %3
+  %22 = icmp eq ptr %3, %12
   %23 = icmp eq ptr %3, %2
   %or.cond172 = or i1 %23, %22
   br i1 %or.cond172, label %29, label %24
@@ -1176,7 +1176,7 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %25 = ptrtoint ptr %1 to i64
   %26 = xor i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
-  %28 = icmp eq ptr %27, %3
+  %28 = icmp eq ptr %3, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %24, %21
@@ -1184,8 +1184,8 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %140
 
 31:                                               ; preds = %24
-  %32 = icmp eq ptr %12, %2
-  %33 = icmp eq ptr %27, %2
+  %32 = icmp eq ptr %2, %12
+  %33 = icmp eq ptr %2, %27
   %or.cond173 = or i1 %33, %32
   br i1 %or.cond173, label %34, label %36
 
@@ -1194,7 +1194,7 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %140
 
 36:                                               ; preds = %31
-  %37 = icmp eq ptr %6, %1
+  %37 = icmp eq ptr %1, %6
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36

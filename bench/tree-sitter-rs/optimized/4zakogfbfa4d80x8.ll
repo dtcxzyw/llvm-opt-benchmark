@@ -58,9 +58,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store i64 %24, ptr %.fca.1.gep.i, align 8, !noalias !5
   %25 = getelementptr inbounds i8, ptr %1, i64 32
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %.not.i = icmp ult i64 %26, %24
+  %.not.i = icmp ugt i64 %24, %26
   %27 = add i64 %24, 1
-  %.not3.i = icmp ult i64 %27, %19
+  %.not3.i = icmp ugt i64 %19, %27
   %or.cond.i = or i1 %.not3.i, %.not.i
   br i1 %or.cond.i, label %28, label %_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit
 
@@ -333,9 +333,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store i64 %25, ptr %.fca.1.gep.i, align 8, !noalias !65
   %26 = getelementptr inbounds i8, ptr %1, i64 32
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %.not.i = icmp ult i64 %27, %25
+  %.not.i = icmp ugt i64 %25, %27
   %28 = add i64 %25, 1
-  %.not3.i = icmp ult i64 %28, %20
+  %.not3.i = icmp ugt i64 %20, %28
   %or.cond.i = or i1 %.not3.i, %.not.i
   br i1 %or.cond.i, label %29, label %_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit
 

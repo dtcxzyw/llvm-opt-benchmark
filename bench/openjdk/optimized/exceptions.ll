@@ -1476,7 +1476,7 @@ define hidden void @_ZN10Exceptions22wrap_dynamic_exceptionEbP10JavaThread(i1 no
 7:                                                ; preds = %2
   %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE86ELS1_57ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %9 = icmp ne ptr %8, null
-  %10 = and i1 %9, %0
+  %10 = and i1 %0, %9
   %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE86ELS1_22ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %12 = icmp eq ptr %11, null
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #13
@@ -1497,7 +1497,7 @@ define hidden void @_ZN10Exceptions22wrap_dynamic_exceptionEbP10JavaThread(i1 no
   %.sroa.21.0..sroa_idx.i.i.i24 = getelementptr inbounds i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE86ELS1_22ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i24, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE2ELN6LogTag4typeE86ELS3_22ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %4, align 8
-  %.not46 = or i1 %12, %0
+  %.not46 = or i1 %0, %12
   %spec.select = select i1 %.not46, ptr null, ptr %4
   %.0 = select i1 %10, ptr %3, ptr %spec.select
   %17 = load ptr, ptr %5, align 8

@@ -1931,7 +1931,7 @@ _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_manager
   %idxprom.i.i58 = zext i32 %retval.0.i.i56 to i64
   %arrayidx.i.i59 = getelementptr inbounds ptr, ptr %75, i64 %idxprom.i.i58
   %78 = load ptr, ptr %arrayidx.i.i59, align 8
-  %cmp72 = icmp ugt i32 %retval.0.i.i56, %rule_index
+  %cmp72 = icmp ult i32 %rule_index, %retval.0.i.i56
   br i1 %cmp72, label %if.then73, label %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit.i
 
 if.then73:                                        ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit

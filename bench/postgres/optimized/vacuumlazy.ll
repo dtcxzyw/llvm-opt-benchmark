@@ -3006,7 +3006,7 @@ BufferGetPage.exit.i.i:                           ; preds = %139, %133
   %151 = getelementptr inbounds i8, ptr %131, i64 8
   %152 = getelementptr inbounds i8, ptr %131, i64 4
   %153 = load i32, ptr %152, align 4
-  %154 = icmp sgt i32 %153, %.033.i
+  %154 = icmp slt i32 %.033.i, %153
   br i1 %154, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %BufferGetPage.exit.i.i

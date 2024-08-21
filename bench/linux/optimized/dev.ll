@@ -271,7 +271,7 @@ define internal i64 @rtc_dev_ioctl(ptr nocapture noundef readonly %0, i32 nounde
   %22 = getelementptr inbounds i8, ptr %9, i64 948
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = icmp ult i64 %24, %2
+  %25 = icmp ugt i64 %2, %24
   br i1 %25, label %26, label %.thread16
 
 26:                                               ; preds = %21
@@ -675,7 +675,7 @@ define internal i64 @rtc_dev_compat_ioctl(ptr nocapture noundef readonly %0, i32
   %24 = getelementptr inbounds i8, ptr %5, i64 948
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = icmp ult i64 %26, %2
+  %27 = icmp ugt i64 %2, %26
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %23

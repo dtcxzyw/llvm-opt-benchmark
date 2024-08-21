@@ -49,7 +49,7 @@ define i32 @ompi_osc_get_data_blocking(ptr noundef %0, i8 noundef zeroext %1, pt
   store ptr null, ptr %10, align 8
   store volatile i8 0, ptr %11, align 1
   %15 = xor i64 %spec.select, -1
-  %16 = and i64 %15, %3
+  %16 = and i64 %3, %15
   store ptr %5, ptr %12, align 8
   %17 = and i64 %spec.select, %3
   %18 = add i64 %spec.select, %6
@@ -80,7 +80,7 @@ define i32 @ompi_osc_get_data_blocking(ptr noundef %0, i8 noundef zeroext %1, pt
   %.0 = load ptr, ptr %.0.in, align 8
   %36 = getelementptr inbounds i8, ptr %.0, i64 120
   %37 = load i64, ptr %36, align 8
-  %.not55 = icmp ugt i64 %37, %6
+  %.not55 = icmp ult i64 %6, %37
   br i1 %.not55, label %45, label %.preheader69
 
 .preheader69:                                     ; preds = %35, %39
@@ -685,7 +685,7 @@ define i32 @ompi_osc_rdma_put_contig(ptr noundef %0, ptr nocapture noundef reado
   %.0 = load ptr, ptr %.0.in, align 8
   %33 = getelementptr inbounds i8, ptr %.0, i64 128
   %34 = load i64, ptr %33, align 8
-  %35 = icmp ult i64 %34, %5
+  %35 = icmp ugt i64 %5, %34
   br i1 %35, label %36, label %_ompi_osc_rdma_register.exit.thread
 
 36:                                               ; preds = %32
@@ -1425,7 +1425,7 @@ opal_datatype_span.exit:                          ; preds = %17, %21
   %55 = getelementptr inbounds i8, ptr %4, i64 152
   %56 = load i64, ptr %55, align 8
   %57 = sext i32 %48 to i64
-  %58 = mul nsw i64 %57, %5
+  %58 = mul nsw i64 %5, %57
   %59 = add nsw i64 %56, %58
   %60 = add i64 %59, %33
   %61 = add i64 %56, %54
@@ -1668,7 +1668,7 @@ opal_datatype_span.exit:                          ; preds = %17, %21
   %55 = getelementptr inbounds i8, ptr %4, i64 152
   %56 = load i64, ptr %55, align 8
   %57 = sext i32 %48 to i64
-  %58 = mul nsw i64 %57, %5
+  %58 = mul nsw i64 %5, %57
   %59 = add nsw i64 %56, %58
   %60 = add i64 %59, %33
   %61 = add i64 %56, %54
@@ -2704,7 +2704,7 @@ define internal i32 @ompi_osc_rdma_get_contig(ptr noundef %0, ptr noundef %1, i6
   store ptr null, ptr %8, align 8
   store ptr %4, ptr %9, align 8
   %14 = xor i64 %spec.select, -1
-  %15 = and i64 %14, %2
+  %15 = and i64 %2, %14
   %16 = add i64 %5, %2
   %17 = add i64 %16, %spec.select
   %18 = and i64 %17, %14
@@ -2740,12 +2740,12 @@ define internal i32 @ompi_osc_rdma_get_contig(ptr noundef %0, ptr noundef %1, i6
   %.0124 = load ptr, ptr %.0124.in, align 8
   %39 = getelementptr inbounds i8, ptr %.0124, i64 120
   %40 = load i64, ptr %39, align 8
-  %41 = icmp ult i64 %40, %5
+  %41 = icmp ugt i64 %5, %40
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %38
   %43 = ptrtoint ptr %4 to i64
-  %44 = or i64 %43, %2
+  %44 = or i64 %2, %43
   %45 = or i64 %44, %5
   %46 = and i64 %spec.select, %45
   %.not152 = icmp eq i64 %46, 0

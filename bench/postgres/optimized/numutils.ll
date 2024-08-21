@@ -1315,7 +1315,7 @@ define dso_local range(i32 0, 12) i32 @pg_itoa(i16 noundef signext %0, ptr nocap
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = icmp ule i32 %19, %.01115.i
+  %20 = icmp uge i32 %.01115.i, %19
   %21 = zext i1 %20 to i32
   %22 = add nuw nsw i32 %16, %21
   %23 = icmp ugt i32 %.01115.i, 9999
@@ -1430,7 +1430,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr nocapture nou
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
-  %19 = icmp ule i32 %18, %.01115
+  %19 = icmp uge i32 %.01115, %18
   %20 = zext i1 %19 to i32
   %21 = add nuw nsw i32 %15, %20
   %22 = icmp ugt i32 %.01115, 9999
@@ -1547,7 +1547,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture 
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %0
+  %14 = icmp uge i32 %0, %13
   %15 = zext i1 %14 to i32
   %16 = add nuw nsw i32 %10, %15
   %17 = icmp ugt i32 %0, 9999
@@ -1660,7 +1660,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr [20 x i64], ptr @decimalLength64.PowersOfTen, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ule i64 %14, %0
+  %15 = icmp uge i64 %0, %14
   %16 = zext i1 %15 to i32
   %17 = add nuw nsw i32 %11, %16
   %18 = icmp ugt i64 %0, 99999999
@@ -1859,7 +1859,7 @@ define dso_local ptr @pg_ultostr_zeropad(ptr noundef %0, i32 noundef %1, i32 nou
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = icmp ule i32 %23, %1
+  %24 = icmp uge i32 %1, %23
   %25 = zext i1 %24 to i32
   %26 = add nuw nsw i32 %20, %25
   %27 = icmp ugt i32 %1, 9999
@@ -1999,7 +1999,7 @@ define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ule i32 %13, %1
+  %14 = icmp uge i32 %1, %13
   %15 = zext i1 %14 to i32
   %16 = add nuw nsw i32 %10, %15
   %17 = icmp ugt i32 %1, 9999

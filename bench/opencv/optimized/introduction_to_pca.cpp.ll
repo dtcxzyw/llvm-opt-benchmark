@@ -86,8 +86,8 @@ define hidden void @_Z8drawAxisRN2cv3MatENS_6Point_IiEES3_NS_7Scalar_IdEEf(ptr n
   %sqrt = tail call double @llvm.sqrt.f64(double %21)
   %22 = fpext float %4 to double
   %23 = tail call double @cos(double noundef %15) #15
-  %24 = fneg double %sqrt
-  %25 = fmul double %22, %24
+  %24 = fneg double %22
+  %25 = fmul double %sqrt, %24
   %26 = tail call double @llvm.fmuladd.f64(double %25, double %23, double %12)
   %27 = fptosi double %26 to i32
   %28 = tail call double @sin(double noundef %15) #15

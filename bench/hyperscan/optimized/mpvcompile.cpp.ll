@@ -1997,7 +1997,7 @@ if.then.i:                                        ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.12.0.i7.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %16, %do.body8.i.i.i.i ], [ %16, %land.lhs.true.i.i ], [ %call.i.i.i, %if.then32.i.i ], [ %16, %for.body.i.i.i.i.i.i.i.i.i.i.i.i ]
   %retval.sroa.0.0.i6.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ null, %do.body8.i.i.i.i ], [ null, %land.lhs.true.i.i ], [ null, %if.then32.i.i ], [ null, %for.body.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.not.i.i.i9 = icmp ne ptr %retval.sroa.0.0.i6.i, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.12.0.i7.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i7.i, %add.ptr.i.i.i
   %or.cond.i.i.i = or i1 %cmp2.i.i.i, %cmp.not.i.i.i9
   br i1 %or.cond.i.i.i, label %cleanup.i, label %lor.rhs.i.i.i
 
@@ -2674,7 +2674,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp48 = icmp sgt i64 %div, %__holeIndex
+  %cmp48 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp48, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread46

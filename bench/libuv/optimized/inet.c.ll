@@ -37,7 +37,7 @@ sw.bb:                                            ; preds = %entry
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 16, ptr noundef nonnull @inet_ntop4.fmt, i32 noundef %conv.i, i32 noundef %conv2.i, i32 noundef %conv4.i, i32 noundef %conv6.i) #9
   %cmp.i = icmp sgt i32 %call.i, 0
   %conv8.i = zext nneg i32 %call.i to i64
-  %cmp9.not.i = icmp ult i64 %conv8.i, %size
+  %cmp9.not.i = icmp ugt i64 %size, %conv8.i
   %or.cond.i = select i1 %cmp.i, i1 %cmp9.not.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %inet_ntop4.exit
 

@@ -315,7 +315,7 @@ strview_str_eq.exit.i:                            ; preds = %31, %30
   %33 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %.sroa.3.0.i.i.i)
   %34 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef readonly %29, i64 noundef %33) #8
   %.not.i.i.i.i = icmp eq i32 %34, 0
-  %35 = icmp eq i64 %.sroa.3.0.i.i.i, %.tr15.i
+  %35 = icmp eq i64 %.tr15.i, %.sroa.3.0.i.i.i
   %spec.select.i.i.i = and i1 %35, %.not.i.i.i.i
   br i1 %spec.select.i.i.i, label %picfontname.exit, label %24
 
@@ -360,7 +360,7 @@ picfontname.exit:                                 ; preds = %36, %strview_str_eq
   %55 = fdiv double %8, 1.440000e+02
   %56 = fadd double %.sroa.019.0, %55
   %57 = fdiv double %17, 2.160000e+02
-  %58 = fadd double %57, %2
+  %58 = fadd double %2, %57
   %59 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 34) #7
   %60 = load ptr, ptr %3, align 8
   tail call void @gvputs_nonascii(ptr noundef %0, ptr noundef %60) #7

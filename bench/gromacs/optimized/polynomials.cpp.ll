@@ -66,7 +66,7 @@ define noundef float @_Z9LegendrePfj(float noundef %0, i32 noundef %1) local_unn
 
 23:                                               ; preds = %2
   %24 = fmul float %0, %0
-  %25 = fmul float %24, %0
+  %25 = fmul float %0, %24
   %26 = fmul float %25, 6.300000e+01
   %27 = fmul float %25, -7.000000e+01
   %28 = tail call float @llvm.fmuladd.f32(float %26, float %24, float %27)

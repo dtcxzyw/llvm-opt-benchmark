@@ -325,7 +325,7 @@ define i32 @fdt_del_mem_rsv(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 fdt_rw_probe_.exit:                               ; preds = %67, %66
   %68 = tail call i32 @fdt_num_mem_rsv(ptr noundef nonnull %0) #9
-  %.not9 = icmp sgt i32 %68, %1
+  %.not9 = icmp slt i32 %1, %68
   br i1 %.not9, label %69, label %fdt_rw_probe_.exit.thread
 
 69:                                               ; preds = %fdt_rw_probe_.exit
@@ -1499,14 +1499,14 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %103 = zext i8 %102 to i32
   %104 = or disjoint i32 %100, %103
   %105 = add i32 %86, %104
-  %106 = icmp sgt i32 %105, %2
+  %106 = icmp slt i32 %2, %105
   br i1 %106, label %237, label %107
 
 107:                                              ; preds = %84
   %108 = sext i32 %105 to i64
   %109 = getelementptr inbounds i8, ptr %1, i64 %108
   %110 = icmp ugt ptr %109, %0
-  %111 = icmp ugt ptr %23, %1
+  %111 = icmp ult ptr %1, %23
   %or.cond = select i1 %110, i1 %111, i1 false
   br i1 %or.cond, label %112, label %117
 

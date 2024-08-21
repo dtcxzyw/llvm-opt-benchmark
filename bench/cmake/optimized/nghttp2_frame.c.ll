@@ -2067,7 +2067,7 @@ define dso_local noundef i32 @nghttp2_frame_add_pad(ptr nocapture noundef readon
   %17 = tail call i32 @nghttp2_get_uint32(ptr noundef %16) #17
   %18 = lshr i32 %17, 8
   %19 = zext nneg i32 %18 to i64
-  %20 = add i64 %19, %2
+  %20 = add i64 %2, %19
   %21 = load ptr, ptr %8, align 8
   %22 = shl i64 %20, 8
   %23 = getelementptr inbounds i8, ptr %21, i64 3

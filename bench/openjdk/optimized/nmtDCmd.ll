@@ -1316,7 +1316,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %2, %9
   br i1 %10, label %11, label %.preheader
 
 11:                                               ; preds = %6
@@ -1773,7 +1773,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
 8:                                                ; preds = %.lr.ph, %18
   %.08 = phi ptr [ %.06, %.lr.ph ], [ %.0, %18 ]
   %9 = load ptr, ptr %.08, align 8
-  %10 = icmp ult ptr %9, %4
+  %10 = icmp ugt ptr %4, %9
   %11 = select i1 %10, ptr %4, ptr %9
   %12 = getelementptr inbounds i8, ptr %.08, i64 8
   %13 = load i64, ptr %12, align 8
@@ -1865,7 +1865,7 @@ _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %2
+  %34 = icmp eq ptr %2, %33
   br i1 %34, label %35, label %.preheader
 
 35:                                               ; preds = %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21
@@ -1983,7 +1983,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = load ptr, ptr %.0811, align 8
-  %9 = icmp ult ptr %8, %4
+  %9 = icmp ugt ptr %4, %8
   %10 = select i1 %9, ptr %4, ptr %8
   %11 = getelementptr inbounds i8, ptr %.0811, i64 8
   %12 = load i64, ptr %11, align 8
@@ -2002,7 +2002,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
 
 18:                                               ; preds = %.lr.ph19
   %19 = load ptr, ptr %.08, align 8
-  %20 = icmp ult ptr %19, %4
+  %20 = icmp ugt ptr %4, %19
   %21 = select i1 %20, ptr %4, ptr %19
   %22 = getelementptr inbounds i8, ptr %.08, i64 8
   %23 = load i64, ptr %22, align 8
@@ -2442,7 +2442,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %2, %9
   br i1 %10, label %11, label %.preheader
 
 11:                                               ; preds = %6
@@ -2507,7 +2507,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = load ptr, ptr %.0811, align 8
-  %9 = icmp ult ptr %8, %4
+  %9 = icmp ugt ptr %4, %8
   %10 = select i1 %9, ptr %4, ptr %8
   %11 = getelementptr inbounds i8, ptr %.0811, i64 8
   %12 = load i64, ptr %11, align 8
@@ -2526,7 +2526,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
 
 18:                                               ; preds = %.lr.ph19
   %19 = load ptr, ptr %.08, align 8
-  %20 = icmp ult ptr %19, %4
+  %20 = icmp ugt ptr %4, %19
   %21 = select i1 %20, ptr %4, ptr %19
   %22 = getelementptr inbounds i8, ptr %.08, i64 8
   %23 = load i64, ptr %22, align 8
@@ -2824,7 +2824,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
 8:                                                ; preds = %.lr.ph, %18
   %.08 = phi ptr [ %.06, %.lr.ph ], [ %.0, %18 ]
   %9 = load ptr, ptr %.08, align 8
-  %10 = icmp ult ptr %9, %4
+  %10 = icmp ugt ptr %4, %9
   %11 = select i1 %10, ptr %4, ptr %9
   %12 = getelementptr inbounds i8, ptr %.08, i64 8
   %13 = load i64, ptr %12, align 8
@@ -3024,7 +3024,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %2, %9
   br i1 %10, label %11, label %.preheader
 
 11:                                               ; preds = %6

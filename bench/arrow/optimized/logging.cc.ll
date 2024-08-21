@@ -187,7 +187,7 @@ entry:
 define noundef zeroext i1 @_ZN5arrow4util8ArrowLog14IsLevelEnabledENS0_13ArrowLogLevelE(i32 noundef %log_level) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr @_ZN5arrow4util8ArrowLog19severity_threshold_E, align 4
-  %cmp = icmp sle i32 %0, %log_level
+  %cmp = icmp sge i32 %log_level, %0
   ret i1 %cmp
 }
 
@@ -199,7 +199,7 @@ entry:
   store ptr null, ptr %logging_provider_, align 8
   %is_enabled_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr @_ZN5arrow4util8ArrowLog19severity_threshold_E, align 4
-  %cmp = icmp sle i32 %0, %severity
+  %cmp = icmp sge i32 %severity, %0
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %is_enabled_, align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17

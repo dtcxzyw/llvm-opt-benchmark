@@ -163,7 +163,7 @@ define dso_local void @_ZN3MD56updateEPKcj(ptr nocapture noundef nonnull align 4
   %16 = add i32 %15, %13
   store i32 %16, ptr %11, align 4
   %17 = sub nuw nsw i32 64, %7
-  %.not.i = icmp ugt i32 %17, %2
+  %.not.i = icmp ult i32 %2, %17
   br i1 %.not.i, label %28, label %18
 
 18:                                               ; preds = %3
@@ -268,7 +268,7 @@ _ZN3MD56encodeEPhPKjj.exit:                       ; preds = %.lr.ph.i
   %36 = add i32 %35, %33
   store i32 %36, ptr %31, align 4
   %37 = sub nuw nsw i32 64, %25
-  %.not.i = icmp ugt i32 %37, %27
+  %.not.i = icmp ult i32 %27, %37
   br i1 %.not.i, label %48, label %38
 
 38:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit
@@ -1115,7 +1115,7 @@ define dso_local void @_ZN3MD56updateEPKhj(ptr nocapture noundef nonnull align 4
   %16 = add i32 %13, %14
   store i32 %16, ptr %15, align 4
   %17 = sub nuw nsw i32 64, %6
-  %.not = icmp ugt i32 %17, %2
+  %.not = icmp ult i32 %2, %17
   br i1 %.not, label %28, label %18
 
 18:                                               ; preds = %._crit_edge

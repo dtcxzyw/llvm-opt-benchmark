@@ -641,7 +641,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i.i, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i, %28
   %45 = phi i64 [ %.pre, %28 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ], [ %44, %.lr.ph.i.i ]
-  %.not82 = icmp ult i64 %45, %3
+  %.not82 = icmp ugt i64 %3, %45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   br i1 %.not82, label %46, label %47
 
@@ -706,7 +706,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241: ; preds = %.lr.p
   %.pre1957 = phi i8 [ %.pre1957.pre, %50 ], [ %.pre1958, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ], [ %.pre1958, %.lr.ph.i.i232 ]
   %67 = phi i64 [ %.pre1956, %50 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ], [ %66, %.lr.ph.i.i232 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  %68 = icmp eq i64 %67, %3
+  %68 = icmp eq i64 %3, %67
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241, %47
@@ -2943,7 +2943,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i.i, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i, %31
   %48 = phi i64 [ %.pre, %31 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ], [ %47, %.lr.ph.i.i ]
-  %.not125 = icmp ult i64 %48, %3
+  %.not125 = icmp ugt i64 %3, %48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   br i1 %.not125, label %49, label %50
 
@@ -3007,7 +3007,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242: ; preds = %.lr.p
   %.pre1570 = phi i8 [ %.pre1570.pre, %53 ], [ %.pre1571, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ], [ %.pre1571, %.lr.ph.i.i233 ]
   %70 = phi i64 [ %.pre1569, %53 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ], [ %69, %.lr.ph.i.i233 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  %71 = icmp eq i64 %70, %3
+  %71 = icmp eq i64 %3, %70
   br i1 %71, label %74, label %72
 
 72:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242, %50
@@ -4569,7 +4569,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   %830 = load i64, ptr %829, align 8, !noalias !444, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !444
   %831 = sub i64 %.sroa.089.01354, %830
-  %832 = icmp eq i64 %830, %.sroa.089.01354
+  %832 = icmp eq i64 %.sroa.089.01354, %830
   br i1 %832, label %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread, label %833
 
 833:                                              ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge
@@ -4609,7 +4609,7 @@ _ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread: ; pr
   %845 = load i64, ptr %844, align 8, !noalias !450, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !450
   %846 = sub i64 %.sroa.099.01355, %845
-  %847 = icmp eq i64 %845, %.sroa.099.01355
+  %847 = icmp eq i64 %.sroa.099.01355, %845
   br i1 %847, label %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit360.thread, label %848
 
 848:                                              ; preds = %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread
@@ -5193,13 +5193,13 @@ define void @_ZN5ropey5slice9RopeSlice17try_chunk_at_byte17h380fc1cea821b861E(pt
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !7
   %12 = sub i64 %9, %11
-  %.not = icmp ult i64 %12, %2
+  %.not = icmp ugt i64 %2, %12
   br i1 %.not, label %43, label %16
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !7
-  %.not25 = icmp ult i64 %15, %2
+  %.not25 = icmp ugt i64 %2, %15
   br i1 %.not25, label %43, label %53
 
 16:                                               ; preds = %7
@@ -5317,13 +5317,13 @@ define void @_ZN5ropey5slice9RopeSlice17get_chunk_at_char17ha1f875ad87281e3bE(pt
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !7
   %12 = sub i64 %9, %11
-  %.not = icmp ult i64 %12, %2
+  %.not = icmp ugt i64 %2, %12
   br i1 %.not, label %16, label %17
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8, !noundef !7
-  %.not19 = icmp ult i64 %15, %2
+  %.not19 = icmp ugt i64 %2, %15
   br i1 %.not19, label %16, label %54
 
 16:                                               ; preds = %13, %7
@@ -5433,14 +5433,14 @@ define void @_ZN5ropey5slice9RopeSlice23get_chunk_at_line_break17h8cfdaec19e8616
   %11 = load i64, ptr %10, align 8, !noundef !7
   %12 = sub i64 %9, %11
   %13 = add i64 %12, 1
-  %.not = icmp ult i64 %13, %2
+  %.not = icmp ugt i64 %2, %13
   br i1 %.not, label %18, label %19
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !7
   %17 = add i64 %16, 1
-  %.not20 = icmp ult i64 %17, %2
+  %.not20 = icmp ugt i64 %2, %17
   br i1 %.not20, label %18, label %65
 
 18:                                               ; preds = %14, %7
@@ -5465,7 +5465,7 @@ define void @_ZN5ropey5slice9RopeSlice23get_chunk_at_line_break17h8cfdaec19e8616
   br label %34
 
 30:                                               ; preds = %19
-  %31 = icmp eq i64 %13, %2
+  %31 = icmp eq i64 %2, %13
   %32 = load ptr, ptr %5, align 8, !nonnull !7, !noundef !7
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   br i1 %31, label %56, label %54

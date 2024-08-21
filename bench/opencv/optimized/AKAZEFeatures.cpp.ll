@@ -424,7 +424,7 @@ define hidden void @_ZN2cv27generateDescriptorSubsampleERNS_3MatES1_iii(ptr noun
   %29 = alloca %"class.cv::Mat", align 8
   %30 = alloca %"class.cv::Mat", align 8
   %31 = mul nsw i32 %4, 162
-  %.not = icmp slt i32 %31, %2
+  %.not = icmp sgt i32 %2, %31
   br i1 %.not, label %32, label %40
 
 32:                                               ; preds = %5
@@ -723,7 +723,7 @@ _ZN2cv3RNGclEj.exit:                              ; preds = %134, %138
 
 173:                                              ; preds = %168
   %174 = trunc nuw nsw i64 %indvars.iv248 to i32
-  %175 = mul nsw i32 %174, %4
+  %175 = mul nsw i32 %4, %174
   %176 = mul nsw i64 %indvars.iv257, %132
   %177 = load ptr, ptr %125, align 8
   %178 = load ptr, ptr %126, align 8
@@ -861,7 +861,7 @@ _ZN2cv3RNGclEj.exit:                              ; preds = %134, %138
 
 272:                                              ; preds = %267
   %273 = trunc nuw nsw i64 %indvars.iv252 to i32
-  %274 = mul nsw i32 %273, %4
+  %274 = mul nsw i32 %4, %273
   %275 = mul nsw i64 %indvars.iv257, %132
   %276 = load ptr, ptr %125, align 8
   %277 = load ptr, ptr %126, align 8
@@ -3200,7 +3200,7 @@ define hidden void @_ZN2cv13AKAZEFeatures24Find_Scale_Space_ExtremaERSt6vectorIN
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 96
-  %21 = icmp ult i64 %20, %13
+  %21 = icmp ugt i64 %13, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %2
@@ -3209,7 +3209,7 @@ define hidden void @_ZN2cv13AKAZEFeatures24Find_Scale_Space_ExtremaERSt6vectorIN
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %150
 
 24:                                               ; preds = %2
-  %25 = icmp ugt i64 %20, %13
+  %25 = icmp ult i64 %13, %20
   br i1 %25, label %26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %24
@@ -6196,10 +6196,10 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   %.0121175.us.us223.us = phi i32 [ %.2123.us190.us.us, %._crit_edge.split.us192.us.us ], [ 0, %.preheader.lr.ph.split.us.us.us ]
   %.0124174.us.us224.us = phi i32 [ %154, %._crit_edge.split.us192.us.us ], [ %.0105246.us, %.preheader.lr.ph.split.us.us.us ]
   %118 = sitofp i32 %.0124174.us.us224.us to float
-  %119 = fmul float %118, %7
-  %120 = fmul float %119, %8
-  %121 = fmul float %118, %6
-  %122 = fmul float %121, %8
+  %119 = fmul float %7, %118
+  %120 = fmul float %8, %119
+  %121 = fmul float %6, %118
+  %122 = fmul float %8, %121
   br label %123
 
 123:                                              ; preds = %151, %.preheader.us.us221.us
@@ -6207,16 +6207,16 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   %.1122164.us185.us.us = phi i32 [ %.0121175.us.us223.us, %.preheader.us.us221.us ], [ %.2123.us190.us.us, %151 ]
   %.0125163.us186.us.us = phi i32 [ %.0106212.us.us, %.preheader.us.us221.us ], [ %152, %151 ]
   %124 = sitofp i32 %.0125163.us186.us.us to float
-  %125 = fmul float %124, %6
+  %125 = fmul float %6, %124
   %126 = call float @llvm.fmuladd.f32(float %125, float %8, float %120)
-  %127 = fadd float %126, %5
+  %127 = fadd float %5, %126
   %128 = insertelement <4 x float> poison, float %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %128)
   %130 = sub nsw i32 0, %.0125163.us186.us.us
   %131 = sitofp i32 %130 to float
-  %132 = fmul float %131, %7
+  %132 = fmul float %7, %131
   %133 = call float @llvm.fmuladd.f32(float %132, float %8, float %122)
-  %134 = fadd float %133, %4
+  %134 = fadd float %4, %133
   %135 = insertelement <4 x float> poison, float %134, i64 0
   %136 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %135)
   %137 = icmp slt i32 %129, 0
@@ -6264,10 +6264,10 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   %.0121175.us.us.us232.us = phi i32 [ %.2123.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us ], [ 0, %.preheader.lr.ph.split.us.split.us.us.us ]
   %.0124174.us.us.us233.us = phi i32 [ %209, %._crit_edge.split.us.us.us.split.us.us ], [ %.0105246.us, %.preheader.lr.ph.split.us.split.us.us.us ]
   %156 = sitofp i32 %.0124174.us.us.us233.us to float
-  %157 = fmul float %156, %7
-  %158 = fmul float %157, %8
-  %159 = fmul float %156, %6
-  %160 = fmul float %159, %8
+  %157 = fmul float %7, %156
+  %158 = fmul float %8, %157
+  %159 = fmul float %6, %156
+  %160 = fmul float %8, %159
   br label %161
 
 161:                                              ; preds = %206, %.preheader.us.us.us229.us
@@ -6277,16 +6277,16 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   %.1122164.us.us.us.us.us = phi i32 [ %.0121175.us.us.us232.us, %.preheader.us.us.us229.us ], [ %.2123.us.us.us.us.us, %206 ]
   %.0125163.us.us.us.us.us = phi i32 [ %.0106212.us.us, %.preheader.us.us.us229.us ], [ %207, %206 ]
   %162 = sitofp i32 %.0125163.us.us.us.us.us to float
-  %163 = fmul float %162, %6
+  %163 = fmul float %6, %162
   %164 = call float @llvm.fmuladd.f32(float %163, float %8, float %158)
-  %165 = fadd float %164, %5
+  %165 = fadd float %5, %164
   %166 = insertelement <4 x float> poison, float %165, i64 0
   %167 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %166)
   %168 = sub nsw i32 0, %.0125163.us.us.us.us.us
   %169 = sitofp i32 %168 to float
-  %170 = fmul float %169, %7
+  %170 = fmul float %7, %169
   %171 = call float @llvm.fmuladd.f32(float %170, float %8, float %160)
-  %172 = fadd float %171, %4
+  %172 = fadd float %4, %171
   %173 = insertelement <4 x float> poison, float %172, i64 0
   %174 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %173)
   %175 = icmp slt i32 %167, 0
@@ -6319,10 +6319,10 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   %195 = getelementptr inbounds i8, ptr %91, i64 %194
   %196 = getelementptr inbounds float, ptr %195, i64 %184
   %197 = load float, ptr %196, align 4
-  %198 = fmul float %197, %7
+  %198 = fmul float %7, %197
   %199 = call float @llvm.fmuladd.f32(float %192, float %6, float %198)
   %200 = fneg float %192
-  %201 = fmul float %197, %6
+  %201 = fmul float %6, %197
   %202 = call float @llvm.fmuladd.f32(float %200, float %7, float %201)
   %203 = fadd float %.1112166.us.us.us.us.us, %202
   %204 = fadd float %.1117165.us.us.us.us.us, %199
@@ -6349,10 +6349,10 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   %.0121175.us.us.us.us.us = phi i32 [ %.2123.us.us.us.us.us.us.us, %._crit_edge.split.us.us.us.split.us.us.us.us ], [ 0, %.preheader.lr.ph.split.us.split.us.us.us ]
   %.0124174.us.us.us.us.us = phi i32 [ %260, %._crit_edge.split.us.us.us.split.us.us.us.us ], [ %.0105246.us, %.preheader.lr.ph.split.us.split.us.us.us ]
   %211 = sitofp i32 %.0124174.us.us.us.us.us to float
-  %212 = fmul float %211, %7
-  %213 = fmul float %212, %8
-  %214 = fmul float %211, %6
-  %215 = fmul float %214, %8
+  %212 = fmul float %7, %211
+  %213 = fmul float %8, %212
+  %214 = fmul float %6, %211
+  %215 = fmul float %8, %214
   br label %216
 
 216:                                              ; preds = %257, %.preheader.us.us.us.us.us
@@ -6361,16 +6361,16 @@ define hidden void @_ZNK2cv28MLDB_Full_Descriptor_Invoker16MLDB_Fill_ValuesEPfii
   %.1122164.us.us.us.us.us.us.us = phi i32 [ %.0121175.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %.2123.us.us.us.us.us.us.us, %257 ]
   %.0125163.us.us.us.us.us.us.us = phi i32 [ %.0106212.us.us, %.preheader.us.us.us.us.us ], [ %258, %257 ]
   %217 = sitofp i32 %.0125163.us.us.us.us.us.us.us to float
-  %218 = fmul float %217, %6
+  %218 = fmul float %6, %217
   %219 = call float @llvm.fmuladd.f32(float %218, float %8, float %213)
-  %220 = fadd float %219, %5
+  %220 = fadd float %5, %219
   %221 = insertelement <4 x float> poison, float %220, i64 0
   %222 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %221)
   %223 = sub nsw i32 0, %.0125163.us.us.us.us.us.us.us
   %224 = sitofp i32 %223 to float
-  %225 = fmul float %224, %7
+  %225 = fmul float %7, %224
   %226 = call float @llvm.fmuladd.f32(float %225, float %8, float %215)
-  %227 = fadd float %226, %4
+  %227 = fadd float %4, %226
   %228 = insertelement <4 x float> poison, float %227, i64 0
   %229 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %228)
   %230 = icmp slt i32 %222, 0
@@ -8549,7 +8549,7 @@ define linkonce_odr hidden void @_ZNK2cv26ComputeKeypointOrientationclERKNS_5Ran
 
 56:                                               ; preds = %55, %52, %23
   %57 = mul nsw i32 %40, 6
-  %.not36.i.i = icmp sgt i32 %57, %44
+  %.not36.i.i = icmp slt i32 %44, %57
   br i1 %.not36.i.i, label %65, label %58
 
 58:                                               ; preds = %56
@@ -8594,7 +8594,7 @@ define linkonce_odr hidden void @_ZNK2cv26ComputeKeypointOrientationclERKNS_5Ran
   br label %common.resume.i
 
 73:                                               ; preds = %58
-  %.not38.i.i = icmp sgt i32 %57, %49
+  %.not38.i.i = icmp slt i32 %49, %57
   br i1 %.not38.i.i, label %83, label %74
 
 74:                                               ; preds = %73
@@ -9465,7 +9465,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i28
@@ -9707,7 +9707,7 @@ define linkonce_odr hidden void @_ZNK2cv28NonLinearScalarDiffusionStepclERKNS_5R
   %80 = getelementptr inbounds i8, ptr %5, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = add nsw i32 %81, -1
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %82, i32 %14)
+  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %14, i32 %82)
   %83 = icmp slt i32 %.0202.i, %.sroa.speculated.i
   br i1 %83, label %.lr.ph219.i, label %._crit_edge220.i
 
@@ -9862,7 +9862,7 @@ define linkonce_odr hidden void @_ZNK2cv28NonLinearScalarDiffusionStepclERKNS_5R
 ._crit_edge220.i:                                 ; preds = %._crit_edge220.loopexit.i, %79
   %206 = phi i32 [ %81, %79 ], [ %.pre.i, %._crit_edge220.loopexit.i ]
   %.1.lcssa.i = phi i32 [ %.0202.i, %79 ], [ %.sroa.speculated.i, %._crit_edge220.loopexit.i ]
-  %207 = icmp eq i32 %206, %14
+  %207 = icmp eq i32 %14, %206
   br i1 %207, label %208, label %272
 
 208:                                              ; preds = %._crit_edge220.i

@@ -2046,7 +2046,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
 .critedge:                                        ; preds = %.lr.ph, %114, %.loopexit26
   %118 = tail call i64 @schedule_timeout(i64 noundef %94) #14
   %119 = icmp sgt i64 %118, 0
-  %120 = and i1 %119, %2
+  %120 = and i1 %2, %119
   br i1 %120, label %121, label %129
 
 121:                                              ; preds = %.critedge

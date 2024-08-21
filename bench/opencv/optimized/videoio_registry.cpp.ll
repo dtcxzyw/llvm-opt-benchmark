@@ -2451,7 +2451,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds 
   %.01221 = phi i64 [ %54, %53 ], [ 0, %.lr.ph.preheader ]
   %55 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %.pre, i64 %.01221
   %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, %0
+  %57 = icmp eq i32 %0, %56
   br i1 %57, label %58, label %53
 
 58:                                               ; preds = %.lr.ph
@@ -2814,7 +2814,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit: ; preds 
   %.01219 = phi i64 [ %48, %47 ], [ 0, %.lr.ph.preheader ]
   %49 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %.pre, i64 %.01219
   %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, %0
+  %51 = icmp eq i32 %0, %50
   br i1 %51, label %52, label %47
 
 52:                                               ; preds = %.lr.ph
@@ -3119,7 +3119,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndex
   %.01526 = phi i64 [ %68, %67 ], [ 0, %.lr.ph.preheader ]
   %69 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %.pre28, i64 %.01526
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, %1
+  %71 = icmp eq i32 %1, %70
   br i1 %71, label %72, label %67
 
 72:                                               ; preds = %.lr.ph
@@ -3487,7 +3487,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilen
   %.01526 = phi i64 [ %68, %67 ], [ 0, %.lr.ph.preheader ]
   %69 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %.pre28, i64 %.01526
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, %1
+  %71 = icmp eq i32 %1, %70
   br i1 %71, label %72, label %67
 
 72:                                               ; preds = %.lr.ph
@@ -3853,7 +3853,7 @@ _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit:
   %.01526 = phi i64 [ %68, %67 ], [ 0, %.lr.ph.preheader ]
   %69 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %.pre28, i64 %.01526
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, %1
+  %71 = icmp eq i32 %1, %70
   br i1 %71, label %72, label %67
 
 72:                                               ; preds = %.lr.ph
@@ -5475,7 +5475,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE6re
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 40
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -5484,7 +5484,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE6re
   br label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
@@ -6177,7 +6177,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17
@@ -6918,7 +6918,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %7 = alloca %"struct.cv::VideoBackendInfo", align 8
   %8 = add nsw i64 %2, -1
   %9 = sdiv i64 %8, 2
-  %10 = icmp sgt i64 %9, %1
+  %10 = icmp slt i64 %1, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN2cv16VideoBackendInfoaSEOS0_.exit
@@ -8624,7 +8624,7 @@ _ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %46, %.lr.ph.i.i.i.i ]
   %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i17

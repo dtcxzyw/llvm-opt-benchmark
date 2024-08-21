@@ -4228,7 +4228,7 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %.1.us.us.us = phi i32 [ %.097.us.us.us, %62 ], [ %65, %64 ], [ %.097.us.us.us, %43 ]
   %indvars.iv.next178 = add nsw i64 %indvars.iv177, 1
   %lftr.wideiv180 = trunc i64 %indvars.iv.next178 to i32
-  %exitcond181.not = icmp eq i32 %lftr.wideiv180, %5
+  %exitcond181.not = icmp eq i32 %5, %lftr.wideiv180
   br i1 %exitcond181.not, label %._crit_edge.split.us.us.us, label %43, !llvm.loop !37
 
 .lr.ph108.split.us.split:                         ; preds = %.lr.ph108.split.us, %._crit_edge.split.us.us
@@ -4323,7 +4323,7 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %.1.us.us = phi i32 [ %.097.us.us, %97 ], [ %100, %99 ], [ %.097.us.us, %78 ]
   %indvars.iv.next169 = add nsw i64 %indvars.iv168, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next169 to i32
-  %exitcond171.not = icmp eq i32 %lftr.wideiv, %5
+  %exitcond171.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond171.not, label %._crit_edge.split.us.us, label %78, !llvm.loop !37
 
 .lr.ph108.split:                                  ; preds = %.lr.ph108
@@ -4681,7 +4681,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17

@@ -923,7 +923,7 @@ if.then54:                                        ; preds = %do.body.i97
   %call59 = call i64 @quote_c_style(ptr noundef %call58, ptr noundef nonnull %sb, ptr noundef null, i32 noundef 0) #12
   %42 = load i64, ptr %base, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %42, i64 1)
-  %cmp.i108 = icmp ult i64 %spec.select.i, %40
+  %cmp.i108 = icmp ugt i64 %40, %spec.select.i
   br i1 %cmp.i108, label %if.then.i112, label %if.end.i109
 
 if.then.i112:                                     ; preds = %if.then54
@@ -1151,7 +1151,7 @@ if.else:                                          ; preds = %if.end
 if.end8:                                          ; preds = %if.else, %if.then3
   %7 = load i64, ptr %base, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
-  %cmp.i11 = icmp ult i64 %spec.select.i, %0
+  %cmp.i11 = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i11, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end8
@@ -1354,7 +1354,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %6 = load i64, ptr %base, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %baselen
+  %cmp.i = icmp ugt i64 %baselen, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end

@@ -1138,7 +1138,7 @@ freedirs.exit:                                    ; preds = %92, %._crit_edge.i
   %144 = load i8, ptr %143, align 8
   %145 = trunc i8 %144 to i1
   %.not169 = xor i1 %145, true
-  %brmerge = or i1 %.not169, %2
+  %brmerge = or i1 %2, %.not169
   br i1 %brmerge, label %181, label %146
 
 146:                                              ; preds = %142
@@ -1317,7 +1317,7 @@ freedirs.exit:                                    ; preds = %92, %._crit_edge.i
   store i8 %224, ptr %222, align 2
   %225 = or i32 %.5, %1
   %or.cond3.not = icmp ne i32 %225, 0
-  %brmerge171 = or i1 %or.cond3.not, %2
+  %brmerge171 = or i1 %2, %or.cond3.not
   br i1 %brmerge171, label %248, label %226
 
 226:                                              ; preds = %.thread182
@@ -4996,7 +4996,7 @@ define internal fastcc i32 @ftp_state_retr(ptr noundef %0, i64 noundef %1) unnam
   %8 = getelementptr inbounds i8, ptr %0, i64 1712
   %9 = load i64, ptr %8, align 8
   %.not = icmp ne i64 %9, 0
-  %10 = icmp slt i64 %9, %1
+  %10 = icmp sgt i64 %1, %9
   %or.cond = and i1 %.not, %10
   br i1 %or.cond, label %11, label %12
 
@@ -5033,7 +5033,7 @@ define internal fastcc i32 @ftp_state_retr(ptr noundef %0, i64 noundef %1) unnam
 
 25:                                               ; preds = %23
   %26 = sub nsw i64 0, %15
-  %27 = icmp sgt i64 %26, %1
+  %27 = icmp slt i64 %1, %26
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %25
@@ -5047,7 +5047,7 @@ define internal fastcc i32 @ftp_state_retr(ptr noundef %0, i64 noundef %1) unnam
   br label %thread-pre-split
 
 31:                                               ; preds = %23
-  %32 = icmp sgt i64 %15, %1
+  %32 = icmp slt i64 %1, %15
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %31
@@ -5143,12 +5143,12 @@ define internal fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroex
   %10 = getelementptr inbounds i8, ptr %0, i64 4464
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %12, label %14
 
 12:                                               ; preds = %2
   %13 = icmp sgt i64 %11, 0
-  %brmerge73.not = and i1 %13, %1
+  %brmerge73.not = and i1 %1, %13
   br i1 %brmerge73.not, label %.thread, label %64
 
 14:                                               ; preds = %2

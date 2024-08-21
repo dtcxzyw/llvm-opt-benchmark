@@ -1047,7 +1047,7 @@ define ptr @H5FL_blk_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %1, i64 -8
   %6 = load i64, ptr %5, align 8
-  %.not23 = icmp eq i64 %6, %2
+  %.not23 = icmp eq i64 %2, %6
   br i1 %.not23, label %19, label %7
 
 7:                                                ; preds = %4
@@ -1063,7 +1063,7 @@ define ptr @H5FL_blk_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 14:                                               ; preds = %7
   %15 = load i64, ptr %5, align 8
-  %. = tail call i64 @llvm.umin.i64(i64 %15, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %15)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %1, i64 %., i1 false)
   %16 = tail call ptr @H5FL_blk_free(ptr noundef %0, ptr noundef nonnull %1)
   br label %19
@@ -1563,7 +1563,7 @@ define ptr @H5FL_seq_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 -8
   %9 = load i64, ptr %8, align 8
-  %.not23.i = icmp eq i64 %9, %6
+  %.not23.i = icmp eq i64 %6, %9
   br i1 %.not23.i, label %H5FL_blk_realloc.exit, label %10
 
 10:                                               ; preds = %7
@@ -1579,7 +1579,7 @@ define ptr @H5FL_seq_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 17:                                               ; preds = %10
   %18 = load i64, ptr %8, align 8
-  %..i = tail call i64 @llvm.umin.i64(i64 %18, i64 %6)
+  %..i = tail call i64 @llvm.umin.i64(i64 %6, i64 %18)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %1, i64 %..i, i1 false)
   %19 = tail call ptr @H5FL_blk_free(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %H5FL_blk_realloc.exit

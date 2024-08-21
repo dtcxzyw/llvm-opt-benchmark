@@ -920,7 +920,7 @@ _ZNSt3mapIijSt4lessIiESaISt4pairIKijEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKijESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -1296,7 +1296,7 @@ define void @_ZN16FollowStreamText14mouseMoveEventEP11QMouseEvent(ptr noundef no
   %.0811.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %25, %22 ]
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 32
   %27 = load i32, ptr %26, align 4
-  %28 = icmp sgt i32 %27, %16
+  %28 = icmp slt i32 %16, %27
   %.19.i.i.i.i.i = select i1 %28, ptr %.012.i.i.i.i.i, ptr %.0811.i.i.i.i.i
   %.1.in.v.i.i.i.i.i = select i1 %28, i64 16, i64 24
   %.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
@@ -1367,7 +1367,7 @@ define noundef i32 @_ZNK16FollowStreamText15textPosToPacketEi(ptr nocapture noun
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %10, %7 ]
   %11 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
   %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %12, %1
+  %13 = icmp slt i32 %1, %12
   %.19.i.i.i.i = select i1 %13, ptr %.012.i.i.i.i, ptr %.0811.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %13, i64 16, i64 24
   %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
@@ -1444,7 +1444,7 @@ define void @_ZN16FollowStreamText15mousePressEventEP11QMouseEvent(ptr noundef n
   %.0811.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %25, %22 ]
   %26 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 32
   %27 = load i32, ptr %26, align 4
-  %28 = icmp sgt i32 %27, %16
+  %28 = icmp slt i32 %16, %27
   %.19.i.i.i.i.i = select i1 %28, ptr %.012.i.i.i.i.i, ptr %.0811.i.i.i.i.i
   %.1.in.v.i.i.i.i.i = select i1 %28, i64 16, i64 24
   %.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
@@ -1607,7 +1607,7 @@ define noundef i32 @_ZNK16FollowStreamText13currentPacketEv(ptr noundef nonnull 
   %.0811.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %12, %9 ]
   %13 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 32
   %14 = load i32, ptr %13, align 4
-  %15 = icmp sgt i32 %14, %3
+  %15 = icmp slt i32 %3, %14
   %.19.i.i.i.i.i = select i1 %15, ptr %.012.i.i.i.i.i, ptr %.0811.i.i.i.i.i
   %.1.in.v.i.i.i.i.i = select i1 %15, i64 16, i64 24
   %.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i

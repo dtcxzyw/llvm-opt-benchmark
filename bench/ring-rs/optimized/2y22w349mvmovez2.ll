@@ -1038,7 +1038,7 @@ define hidden void @_ZN4ring6digest12BlockContext6finish17h89987615cfa882f5E.llv
   store i64 %13, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %3, ptr %9, align 8
-  %14 = icmp eq i64 %13, %3
+  %14 = icmp eq i64 %3, %13
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %5
@@ -1067,7 +1067,7 @@ define hidden void @_ZN4ring6digest12BlockContext6finish17h89987615cfa882f5E.llv
   %23 = getelementptr inbounds i8, ptr %11, i64 40
   %24 = load i64, ptr %23, align 8, !noundef !16
   %25 = sub i64 %3, %24
-  %.not37 = icmp ugt i64 %25, %4
+  %.not37 = icmp ult i64 %4, %25
   br i1 %.not37, label %38, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit"
 
 26:                                               ; preds = %18
@@ -1075,7 +1075,7 @@ define hidden void @_ZN4ring6digest12BlockContext6finish17h89987615cfa882f5E.llv
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit": ; preds = %20
-  %27 = icmp eq i64 %22, %3
+  %27 = icmp eq i64 %3, %22
   br i1 %27, label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h950101adb719d7c1E.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit"
@@ -1106,7 +1106,7 @@ define hidden void @_ZN4ring6digest12BlockContext6finish17h89987615cfa882f5E.llv
 
 38:                                               ; preds = %20
   %39 = add i64 %3, -8
-  %.not38 = icmp ugt i64 %39, %4
+  %.not38 = icmp ult i64 %4, %39
   br i1 %.not38, label %40, label %43
 
 40:                                               ; preds = %.thread, %38
@@ -1241,7 +1241,7 @@ define void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noun
   %13 = getelementptr inbounds i8, ptr %0, i64 208
   %14 = load i64, ptr %13, align 8, !noundef !16
   %15 = sub i64 %12, %14
-  %16 = icmp ugt i64 %15, %2
+  %16 = icmp ult i64 %2, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %3
@@ -1725,7 +1725,7 @@ define hidden void @_ZN4ring2ec7suite_b5ecdsa13digest_scalar13digest_scalar17h23
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haee67adab7116f68E.llvm.8403485840513791397.exit.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.12309478120345669377.exit"
   %17 = shl nuw nsw i64 %14, 3
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %9)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %17)
   %18 = call noundef zeroext i1 @_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %spec.select.i, ptr noalias noundef nonnull align 8 %5, i64 noundef %14), !noalias !341
   br i1 %18, label %19, label %_ZN4ring2ec7suite_b5ecdsa13digest_scalar14digest_scalar_17h23fcc229f35d0efbE.llvm.12309478120345669377.exit
 
@@ -1770,7 +1770,7 @@ define hidden void @_ZN4ring2ec7suite_b5ecdsa13digest_scalar14digest_scalar_17h2
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haee67adab7116f68E.llvm.8403485840513791397.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.12309478120345669377.exit"
   %11 = shl nuw nsw i64 %8, 3
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %11, i64 %3)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %11)
   %12 = call noundef zeroext i1 @_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %spec.select, ptr noalias noundef nonnull align 8 %5, i64 noundef %8), !noalias !361
   br i1 %12, label %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41212762cd90b282E.llvm.12309478120345669377.exit"
 
@@ -1915,7 +1915,7 @@ define void @_ZN4ring4hmac3Key3new17h22836516a93ccd16E(ptr noalias nocapture nou
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8, !noundef !16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
-  %.not = icmp ult i64 %17, %3
+  %.not = icmp ugt i64 %3, %17
   br i1 %.not, label %18, label %33
 
 18:                                               ; preds = %4

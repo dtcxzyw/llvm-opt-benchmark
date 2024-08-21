@@ -793,7 +793,7 @@ define dso_local zeroext i1 @isolate_lru_page(ptr noundef %0) local_unnamed_addr
   %19 = icmp eq i64 %18, 0
   %20 = add nsw i64 %17, -1
   %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %0
+  %22 = icmp eq ptr %0, %21
   %or.cond = select i1 %19, i1 true, i1 %22
   br i1 %or.cond, label %.thread, label %23
 

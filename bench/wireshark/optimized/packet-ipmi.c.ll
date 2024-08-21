@@ -2616,7 +2616,7 @@ define internal void @get_len_8bit_ascii(ptr nocapture noundef %0, ptr nocapture
 define internal void @parse_8bit_ascii(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = zext i32 %3 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = icmp ugt ptr %6, %0
+  %7 = icmp ult ptr %0, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %16
@@ -2651,7 +2651,7 @@ define internal void @parse_8bit_ascii(ptr noundef writeonly %0, ptr noundef %1,
 define internal void @get_len_unicode(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, i32 %3, i32 noundef %4, i32 noundef %5) #8 {
   %.not = icmp eq i32 %5, 0
   %.sink.v = select i1 %.not, i32 6, i32 3
-  %.sink = mul i32 %.sink.v, %4
+  %.sink = mul i32 %4, %.sink.v
   %7 = zext i1 %.not to i32
   %storemerge = shl i32 %4, %7
   store i32 %.sink, ptr %0, align 4
@@ -2663,7 +2663,7 @@ define internal void @get_len_unicode(ptr nocapture noundef writeonly %0, ptr no
 define internal void @parse_unicode(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = zext i32 %3 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = icmp ugt ptr %6, %0
+  %7 = icmp ult ptr %0, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

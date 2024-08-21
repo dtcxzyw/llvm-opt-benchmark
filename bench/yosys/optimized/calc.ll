@@ -175,7 +175,7 @@ define internal fastcc void @_ZN5YosysL9extend_u0ERNS_5RTLIL5ConstEib(ptr nounde
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %.not = icmp ne ptr %6, %7
-  %brmerge.not = and i1 %.not, %2
+  %brmerge.not = and i1 %2, %.not
   br i1 %brmerge.not, label %8, label %11
 
 8:                                                ; preds = %3
@@ -189,7 +189,7 @@ define internal fastcc void @_ZN5YosysL9extend_u0ERNS_5RTLIL5ConstEib(ptr nounde
   %13 = ptrtoint ptr %7 to i64
   %14 = sub i64 %12, %13
   %15 = trunc i64 %14 to i32
-  %16 = icmp slt i32 %15, %1
+  %16 = icmp sgt i32 %1, %15
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
@@ -267,7 +267,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %23, %
   %45 = ptrtoint ptr %42 to i64
   %46 = sub i64 %44, %45
   %47 = trunc i64 %46 to i32
-  %48 = icmp slt i32 %47, %1
+  %48 = icmp sgt i32 %1, %47
   br i1 %48, label %18, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit, %11
@@ -1318,7 +1318,7 @@ define internal fastcc void @_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPF
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
-  %29 = icmp slt i32 %28, %4
+  %29 = icmp sgt i32 %4, %28
   br i1 %29, label %.lr.ph21, label %._crit_edge22
 
 .lr.ph21:                                         ; preds = %._crit_edge
@@ -1399,7 +1399,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %_
   %58 = ptrtoint ptr %55 to i64
   %59 = sub i64 %57, %58
   %60 = trunc i64 %59 to i32
-  %61 = icmp slt i32 %60, %4
+  %61 = icmp sgt i32 %4, %60
   br i1 %61, label %31, label %._crit_edge22
 
 .loopexit:                                        ; preds = %46
@@ -1478,7 +1478,7 @@ define void @_ZN5Yosys5RTLIL16const_reduce_xorERKNS0_5ConstES3_bbi(ptr dead_on_u
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = icmp slt i32 %26, %5
+  %27 = icmp sgt i32 %5, %26
   br i1 %27, label %.lr.ph21.i, label %_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPFS1_S1_S1_ERKNS0_5ConstEi.exit
 
 .lr.ph21.i:                                       ; preds = %._crit_edge.i
@@ -1559,7 +1559,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNS
   %56 = ptrtoint ptr %53 to i64
   %57 = sub i64 %55, %56
   %58 = trunc i64 %57 to i32
-  %59 = icmp slt i32 %58, %5
+  %59 = icmp sgt i32 %5, %58
   br i1 %59, label %29, label %_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPFS1_S1_S1_ERKNS0_5ConstEi.exit
 
 .loopexit.i:                                      ; preds = %44
@@ -1632,7 +1632,7 @@ define void @_ZN5Yosys5RTLIL17const_reduce_xnorERKNS0_5ConstES3_bbi(ptr dead_on_
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
-  %27 = icmp slt i32 %26, %5
+  %27 = icmp sgt i32 %5, %26
   br i1 %27, label %.lr.ph21.i, label %_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPFS1_S1_S1_ERKNS0_5ConstEi.exit
 
 .lr.ph21.i:                                       ; preds = %._crit_edge.i
@@ -1713,7 +1713,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNS
   %56 = ptrtoint ptr %53 to i64
   %57 = sub i64 %55, %56
   %58 = trunc i64 %57 to i32
-  %59 = icmp slt i32 %58, %5
+  %59 = icmp sgt i32 %5, %58
   br i1 %59, label %29, label %_ZN5YosysL20logic_reduce_wrapperENS_5RTLIL5StateEPFS1_S1_S1_ERKNS0_5ConstEi.exit
 
 .loopexit.i:                                      ; preds = %44
@@ -1795,7 +1795,7 @@ define void @_ZN5Yosys5RTLIL15const_logic_notERKNS0_5ConstES3_bbi(ptr dead_on_un
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = trunc i64 %21 to i32
-  %23 = icmp slt i32 %22, %5
+  %23 = icmp sgt i32 %5, %22
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1876,7 +1876,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %30, %_
   %52 = ptrtoint ptr %49 to i64
   %53 = sub i64 %51, %52
   %54 = trunc i64 %53 to i32
-  %55 = icmp slt i32 %54, %5
+  %55 = icmp sgt i32 %5, %54
   br i1 %55, label %25, label %._crit_edge
 
 56:                                               ; preds = %6
@@ -1946,7 +1946,7 @@ define internal fastcc void @_ZN5YosysL9const2bigERKNS_5RTLIL5ConstEbRi(ptr dead
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = icmp ne i64 %13, 0
-  %or.cond = and i1 %14, %2
+  %or.cond = and i1 %2, %14
   br i1 %or.cond, label %15, label %20
 
 15:                                               ; preds = %4
@@ -2116,7 +2116,7 @@ _ZN5YosysL9logic_andENS_5RTLIL5StateES1_.exit:    ; preds = %6
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = trunc i64 %28 to i32
-  %30 = icmp slt i32 %29, %5
+  %30 = icmp sgt i32 %5, %29
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -2197,7 +2197,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %37, %_
   %59 = ptrtoint ptr %56 to i64
   %60 = sub i64 %58, %59
   %61 = trunc i64 %60 to i32
-  %62 = icmp slt i32 %61, %5
+  %62 = icmp sgt i32 %5, %61
   br i1 %62, label %32, label %._crit_edge
 
 63:                                               ; preds = %6
@@ -2328,7 +2328,7 @@ _ZN5YosysL8logic_orENS_5RTLIL5StateES1_.exit:     ; preds = %11, %17, %20
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
-  %29 = icmp slt i32 %28, %5
+  %29 = icmp sgt i32 %5, %28
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -2409,7 +2409,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %_
   %58 = ptrtoint ptr %55 to i64
   %59 = sub i64 %57, %58
   %60 = trunc i64 %59 to i32
-  %61 = icmp slt i32 %60, %5
+  %61 = icmp sgt i32 %5, %60
   br i1 %61, label %31, label %._crit_edge
 
 62:                                               ; preds = %6
@@ -2944,7 +2944,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %22
   %28 = phi ptr [ %17, %.thread ], [ %24, %22 ]
   store ptr %27, ptr %28, align 8
   %29 = trunc i64 %16 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %29, i32 %5)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %5, i32 %29)
   invoke fastcc void @_ZN5YosysL9extend_u0ERNS_5RTLIL5ConstEib(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %.sroa.speculated, i1 noundef zeroext %3)
           to label %30 unwind label %34
 
@@ -3040,7 +3040,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKS1_.exit:               ; preds = %.thread, %22
   %28 = phi ptr [ %17, %.thread ], [ %24, %22 ]
   store ptr %27, ptr %28, align 8
   %29 = trunc i64 %16 to i32
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %29, i32 %5)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %5, i32 %29)
   invoke fastcc void @_ZN5YosysL9extend_u0ERNS_5RTLIL5ConstEib(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %.sroa.speculated, i1 noundef zeroext %3)
           to label %30 unwind label %34
 
@@ -3130,7 +3130,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
-  %34 = icmp slt i32 %33, %5
+  %34 = icmp sgt i32 %5, %33
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN10BigIntegerD2Ev.exit13
@@ -3211,7 +3211,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   %63 = ptrtoint ptr %60 to i64
   %64 = sub i64 %62, %63
   %65 = trunc i64 %64 to i32
-  %66 = icmp slt i32 %65, %5
+  %66 = icmp sgt i32 %5, %65
   br i1 %66, label %36, label %._crit_edge
 
 67:                                               ; preds = %6
@@ -3320,7 +3320,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
-  %34 = icmp slt i32 %33, %5
+  %34 = icmp sgt i32 %5, %33
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN10BigIntegerD2Ev.exit13
@@ -3401,7 +3401,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   %63 = ptrtoint ptr %60 to i64
   %64 = sub i64 %62, %63
   %65 = trunc i64 %64 to i32
-  %66 = icmp slt i32 %65, %5
+  %66 = icmp sgt i32 %5, %65
   br i1 %66, label %36, label %._crit_edge
 
 67:                                               ; preds = %6
@@ -3616,7 +3616,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
   ]
 
 81:                                               ; preds = %78
-  %.not.i.i35 = icmp ugt i64 %77, %.072
+  %.not.i.i35 = icmp ult i64 %.072, %77
   br i1 %.not.i.i35, label %82, label %.invoke
 
 82:                                               ; preds = %81
@@ -3648,7 +3648,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 95:                                               ; preds = %78
-  %.not.i.i41 = icmp ugt i64 %77, %.072
+  %.not.i.i41 = icmp ult i64 %.072, %77
   br i1 %.not.i.i41, label %96, label %.invoke
 
 96:                                               ; preds = %95
@@ -3659,7 +3659,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i2
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE2atEm.exit40.thread: ; preds = %82, %96
   %100 = phi i8 [ %84, %82 ], [ %98, %96 ]
-  %.not.i.i47 = icmp ugt i64 %77, %.072
+  %.not.i.i47 = icmp ult i64 %.072, %77
   br i1 %.not.i.i47, label %101, label %.invoke
 
 .invoke:                                          ; preds = %81, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE2atEm.exit40.thread, %95
@@ -4065,7 +4065,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
-  %34 = icmp slt i32 %33, %5
+  %34 = icmp sgt i32 %5, %33
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN10BigIntegerD2Ev.exit13
@@ -4146,7 +4146,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   %63 = ptrtoint ptr %60 to i64
   %64 = sub i64 %62, %63
   %65 = trunc i64 %64 to i32
-  %66 = icmp slt i32 %65, %5
+  %66 = icmp sgt i32 %5, %65
   br i1 %66, label %36, label %._crit_edge
 
 67:                                               ; preds = %6
@@ -4255,7 +4255,7 @@ _ZN10BigIntegerD2Ev.exit13:                       ; preds = %_ZN10BigIntegerD2Ev
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
-  %34 = icmp slt i32 %33, %5
+  %34 = icmp sgt i32 %5, %33
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN10BigIntegerD2Ev.exit13
@@ -4336,7 +4336,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %41, %_
   %63 = ptrtoint ptr %60 to i64
   %64 = sub i64 %62, %63
   %65 = trunc i64 %64 to i32
-  %66 = icmp slt i32 %65, %5
+  %66 = icmp sgt i32 %5, %65
   br i1 %66, label %36, label %._crit_edge
 
 67:                                               ; preds = %6
@@ -4607,7 +4607,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   %33 = trunc nuw nsw i64 %indvars.iv32 to i32
   %34 = lshr i32 %33, 6
   %35 = load i32, ptr %9, align 4
-  %.not.i.i21 = icmp ugt i32 %35, %34
+  %.not.i.i21 = icmp ult i32 %34, %35
   br i1 %.not.i.i21, label %36, label %41
 
 36:                                               ; preds = %32
@@ -4652,7 +4652,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = lshr i32 %57, 6
-  %.not.i.i22 = icmp ugt i32 %11, %58
+  %.not.i.i22 = icmp ult i32 %58, %11
   br i1 %.not.i.i22, label %59, label %63
 
 59:                                               ; preds = %56
@@ -10058,7 +10058,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm(ptr
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %38
 
 10:                                               ; preds = %2
@@ -10141,7 +10141,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit35.i: 
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %2
-  %39 = icmp ugt i64 %8, %1
+  %39 = icmp ult i64 %1, %8
   br i1 %39, label %40, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38

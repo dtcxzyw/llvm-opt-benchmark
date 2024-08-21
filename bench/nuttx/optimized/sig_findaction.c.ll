@@ -23,7 +23,7 @@ define ptr @nxsig_find_action(ptr noundef readonly %0, i32 noundef %1) local_unn
   %8 = getelementptr inbounds i8, ptr %.1, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
-  %.not8 = icmp eq i32 %10, %1
+  %.not8 = icmp eq i32 %1, %10
   br i1 %.not8, label %.critedge, label %6, !llvm.loop !6
 
 .critedge:                                        ; preds = %6, %7

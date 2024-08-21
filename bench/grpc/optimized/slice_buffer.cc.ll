@@ -1105,7 +1105,7 @@ if.end3:                                          ; preds = %if.end
   %data = getelementptr i8, ptr %2, i64 -24
   %4 = load i8, ptr %data, align 8
   %conv = zext i8 %4 to i64
-  %add5 = add i64 %conv, %n
+  %add5 = add i64 %n, %conv
   %cmp6 = icmp ugt i64 %add5, 23
   br i1 %cmp6, label %if.end.i, label %if.end8
 
@@ -2040,7 +2040,7 @@ entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %length = getelementptr inbounds i8, ptr %sb, i64 32
   %0 = load i64, ptr %length, align 8
-  %cmp.not = icmp ult i64 %0, %n
+  %cmp.not = icmp ugt i64 %n, %0
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry

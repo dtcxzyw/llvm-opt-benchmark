@@ -444,7 +444,7 @@ compute_weighted_apsp_packed.exit.thread:         ; preds = %6
   %15 = shl nuw nsw i64 %indvar.i, 2
   %scevgep26.i = getelementptr i8, ptr %13, i64 %15
   %16 = xor i32 %indvars34.i, -1
-  %17 = add i32 %16, %1
+  %17 = add i32 %1, %16
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 2
   %20 = add nuw nsw i64 %19, 4
@@ -482,7 +482,7 @@ compute_weighted_apsp_packed.exit:                ; preds = %.lr.ph.i
   %30 = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = trunc i64 %indvars.iv to i32
-  %33 = mul i32 %32, %1
+  %33 = mul i32 %1, %32
   %34 = sub nsw i32 %33, %26
   %35 = getelementptr inbounds i8, ptr %27, i64 16
   br label %36
@@ -713,7 +713,7 @@ define noalias noundef ptr @compute_apsp_artificial_weights_packed(ptr noundef %
   %47 = shl nuw nsw i64 %indvar.i, 2
   %scevgep26.i = getelementptr i8, ptr %46, i64 %47
   %48 = xor i32 %indvars34.i, -1
-  %49 = add i32 %48, %1
+  %49 = add i32 %1, %48
   %50 = zext i32 %49 to i64
   %51 = shl nuw nsw i64 %50, 2
   %52 = add nuw nsw i64 %51, 4
@@ -806,7 +806,7 @@ define noalias noundef ptr @compute_apsp_artificial_weights_packed(ptr noundef %
   store float %89, ptr %90, align 4
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next27.i to i32
-  %exitcond152 = icmp eq i32 %lftr.wideiv, %1
+  %exitcond152 = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond152, label %91, label %86
 
 91:                                               ; preds = %86
@@ -968,7 +968,7 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
   %57 = shl nuw nsw i64 %indvar.i, 2
   %scevgep26.i = getelementptr i8, ptr %54, i64 %57
   %58 = xor i32 %indvars34.i, -1
-  %59 = add i32 %58, %1
+  %59 = add i32 %1, %58
   %60 = zext i32 %59 to i64
   %61 = shl nuw nsw i64 %60, 2
   %62 = add nuw nsw i64 %61, 4
@@ -1010,7 +1010,7 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
   store float %71, ptr %72, align 4
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next27.i to i32
-  %exitcond = icmp eq i32 %lftr.wideiv, %1
+  %exitcond = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond, label %73, label %68
 
 73:                                               ; preds = %68
@@ -1072,7 +1072,7 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
   %96 = zext i1 %19 to i32
   %97 = shl nuw nsw i32 %86, 1
   %98 = tail call i32 @llvm.umax.i32(i32 %97, i32 50)
-  %..i = tail call i32 @llvm.smin.i32(i32 %98, i32 %1)
+  %..i = tail call i32 @llvm.smin.i32(i32 %1, i32 %98)
   store ptr null, ptr %9, align 8
   call void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %..i, ptr noundef nonnull %9, i32 noundef %96) #17
   %99 = load ptr, ptr %9, align 8
@@ -1475,7 +1475,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
 ._crit_edge625.i:                                 ; preds = %.loopexit561.i
   %269 = sext i32 %4 to i64
   %270 = call fastcc ptr @gv_calloc(i64 noundef %269, i64 noundef 8)
-  %271 = mul nsw i32 %86, %4
+  %271 = mul nsw i32 %4, %86
   %272 = sext i32 %271 to i64
   %273 = call fastcc ptr @gv_calloc(i64 noundef %272, i64 noundef 8)
   store ptr %273, ptr %270, align 8
@@ -2107,7 +2107,7 @@ sparse_stress_subspace_majorization_kD.exit:      ; preds = %._crit_edge660.i, %
   %umax = call i64 @llvm.umax.i64(i64 %indvars.iv628, i64 1)
   %510 = trunc nuw nsw i64 %indvars.iv661 to i32
   %511 = xor i32 %510, -1
-  %512 = add nsw i32 %511, %1
+  %512 = add nsw i32 %1, %511
   call void @set_vector_valf(i32 noundef %512, float noundef 0.000000e+00, ptr noundef %490) #17
   br i1 %436, label %.preheader435.lr.ph, label %._crit_edge495
 

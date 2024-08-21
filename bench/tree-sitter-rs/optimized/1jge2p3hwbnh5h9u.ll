@@ -1215,8 +1215,8 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
 
 84:                                               ; preds = %102, %51
   %.sroa.9.0.i.i.i.i.i = phi i64 [ 0, %51 ], [ %103, %102 ]
-  %.pn.i.i.i = phi i64 [ %80, %51 ], [ %104, %102 ]
-  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i, %.val4.i.i
+  %.pn.i.i.i.i = phi i64 [ %80, %51 ], [ %104, %102 ]
+  %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %.val4.i.i
   %85 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %.0.copyload.i30.i.i.i.i = load <16 x i8>, ptr %85, align 1, !noalias !261
   %86 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, %.15.vec.insert.i.i.i.i.i
@@ -1242,7 +1242,7 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
   %97 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { ptr, [3 x i64] }, { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr, { ptr, [12 x i64] }, i64, i64 } } }, ptr %.val.i.i, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -392
   %.val6.i.i.i.i.i = load i64, ptr %98, align 8, !alias.scope !271, !noalias !276, !noundef !4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i.i.i, %45
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %.val6.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %99, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit.backedge.i.i.i.i"
 
 99:                                               ; preds = %.lr.ph.i.i.i.i

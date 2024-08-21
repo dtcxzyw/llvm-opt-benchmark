@@ -1784,7 +1784,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %st
 while.body:                                       ; preds = %land.rhs
   %4 = load i64, ptr %sb, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %4, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %sub
+  %cmp.i = icmp ugt i64 %sub, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body
@@ -7783,7 +7783,7 @@ if.end38:                                         ; preds = %_.exit48, %if.end29
   %sub = add i64 %12, -2
   %13 = load i64, ptr %extra, align 8
   %spec.select.i50 = call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
-  %cmp.i51 = icmp ult i64 %spec.select.i50, %sub
+  %cmp.i51 = icmp ugt i64 %sub, %spec.select.i50
   br i1 %cmp.i51, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end38

@@ -146,7 +146,7 @@ GetHistoBits.exit.i:                              ; preds = %52
   %66 = icmp ugt i32 %41, 4
   %67 = select i1 %66, i32 4, i32 5
   %68 = select i1 %65, i32 6, i32 %67
-  %69 = call i32 @llvm.umin.i32(i32 %68, i32 %63)
+  %69 = call i32 @llvm.umin.i32(i32 %63, i32 %68)
   %70 = getelementptr inbounds i8, ptr %14, i64 72
   store i32 %69, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %14, i64 76
@@ -1448,17 +1448,17 @@ EncodePalette.exit:                               ; preds = %.lr.ph.i, %VP8LPutB
 
 238:                                              ; preds = %.lr.ph.i.i
   %239 = load i32, ptr %75, align 4
-  %240 = icmp eq i32 %239, %237
+  %240 = icmp eq i32 %237, %239
   br i1 %240, label %SearchColorGreedy.exit.i.i, label %241
 
 241:                                              ; preds = %238
   %242 = load i32, ptr %79, align 4
-  %243 = icmp eq i32 %242, %237
+  %243 = icmp eq i32 %237, %242
   br i1 %243, label %SearchColorGreedy.exit.i.i, label %244
 
 244:                                              ; preds = %241
   %245 = load i32, ptr %80, align 4
-  %246 = icmp eq i32 %245, %237
+  %246 = icmp eq i32 %237, %245
   %..i.i.i = select i1 %246, i8 2, i8 3
   br label %SearchColorGreedy.exit.i.i
 

@@ -2406,7 +2406,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8, !alias.scope !316, !noalias !314, !noundef !14
   %33 = sub i64 %32, %30
-  %34 = icmp ult i64 %33, %.sroa.6.0.copyload
+  %34 = icmp ugt i64 %.sroa.6.0.copyload, %33
   br i1 %34, label %35, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit"
 
 35:                                               ; preds = %28
@@ -2510,7 +2510,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %72 = getelementptr inbounds i8, ptr %1, i64 8
   %73 = load i64, ptr %72, align 8, !alias.scope !340, !noalias !338, !noundef !14
   %74 = sub i64 %73, %71
-  %75 = icmp ult i64 %74, %69
+  %75 = icmp ugt i64 %69, %74
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %66
@@ -2552,7 +2552,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %94 = getelementptr inbounds i8, ptr %1, i64 8
   %95 = load i64, ptr %94, align 8, !alias.scope !350, !noalias !348, !noundef !14
   %96 = sub i64 %95, %93
-  %97 = icmp ult i64 %96, %83
+  %97 = icmp ugt i64 %83, %96
   br i1 %97, label %98, label %108
 
 98:                                               ; preds = %91
@@ -2570,7 +2570,7 @@ define hidden void @_ZN11tungstenite8protocol7message14string_collect15StringCol
   %103 = getelementptr inbounds i8, ptr %1, i64 8
   %104 = load i64, ptr %103, align 8, !alias.scope !360, !noalias !358, !noundef !14
   %105 = sub i64 %104, %102
-  %106 = icmp ult i64 %105, %83
+  %106 = icmp ugt i64 %83, %105
   br i1 %106, label %107, label %114
 
 107:                                              ; preds = %99

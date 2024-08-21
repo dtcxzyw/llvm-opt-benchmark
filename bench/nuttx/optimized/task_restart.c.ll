@@ -20,7 +20,7 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
   %5 = load ptr, ptr @g_readytorun, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %55, label %9
 
 9:                                                ; preds = %4

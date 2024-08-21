@@ -258,7 +258,7 @@ entry:
   %0 = load i64, ptr %m_size.i, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %dst, i64 8
   %1 = load i64, ptr %m_size.i.i, align 8
-  %cmp3.i = icmp ult i64 %1, %0
+  %cmp3.i = icmp ugt i64 %0, %1
   br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit
 
 if.end7.i:                                        ; preds = %entry
@@ -274,7 +274,7 @@ _ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit:    ; preds = %entry, %if.end7.i
   %3 = load i64, ptr %m_size.i, align 8
   %m_size.i.i15 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %m_size.i.i15, align 8
-  %cmp3.i16 = icmp ult i64 %4, %3
+  %cmp3.i16 = icmp ugt i64 %3, %4
   br i1 %cmp3.i16, label %if.end7.i19, label %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit22
 
 if.end7.i19:                                      ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb.exit

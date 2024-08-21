@@ -1852,8 +1852,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit230:       ; preds = %471, %474
   %748 = load float, ptr %732, align 4
   %749 = load float, ptr %710, align 4
   %750 = load float, ptr %735, align 4
-  %751 = fneg float %749
-  %752 = fmul float %750, %751
+  %751 = fneg float %750
+  %752 = fmul float %749, %751
   %753 = call float @llvm.fmuladd.f32(float %747, float %748, float %752)
   %754 = load float, ptr %739, align 4
   %755 = call noundef float @hypotf(float noundef %753, float noundef %754) #20
@@ -1912,14 +1912,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit230:       ; preds = %471, %474
   %804 = fpext float %803 to double
   %805 = fmul double %804, 0x404CA5DC1A63C1F8
   %806 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0118, ptr noundef nonnull @.str.72, double noundef %805) #20
-  %807 = fneg float %792
-  %808 = fmul float %798, %807
+  %807 = fneg float %798
+  %808 = fmul float %792, %807
   %809 = call float @llvm.fmuladd.f32(float %791, float %799, float %808)
-  %810 = fneg float %790
-  %811 = fmul float %799, %810
+  %810 = fneg float %799
+  %811 = fmul float %790, %810
   %812 = call float @llvm.fmuladd.f32(float %792, float %797, float %811)
-  %813 = fneg float %791
-  %814 = fmul float %797, %813
+  %813 = fneg float %797
+  %814 = fmul float %791, %813
   %815 = call float @llvm.fmuladd.f32(float %790, float %798, float %814)
   %816 = load float, ptr %710, align 4
   %817 = load float, ptr %712, align 4
@@ -2632,28 +2632,28 @@ define internal fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr nocapture nounde
 .lr.ph:                                           ; preds = %.preheader
   %34 = getelementptr inbounds [3 x ptr], ptr %23, i64 0, i64 %indvars.iv44
   %35 = load float, ptr %28, align 4
-  %36 = fneg float %35
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv
-  %40 = load float, ptr %39, align 4
-  store float %40, ptr %5, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
-  %42 = load float, ptr %41, align 4
-  store float %42, ptr %24, align 4
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
-  %44 = load float, ptr %43, align 4
-  store float %44, ptr %25, align 4
-  %45 = load float, ptr %27, align 4
-  %46 = fmul float %44, %36
-  %47 = tail call float @llvm.fmuladd.f32(float %18, float %45, float %46)
-  %48 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv, i64 %26
+36:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv
+  %39 = load float, ptr %38, align 4
+  store float %39, ptr %5, align 4
+  %40 = getelementptr inbounds i8, ptr %38, i64 4
+  %41 = load float, ptr %40, align 4
+  store float %41, ptr %24, align 4
+  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = load float, ptr %42, align 4
+  store float %43, ptr %25, align 4
+  %44 = load float, ptr %27, align 4
+  %45 = fneg float %43
+  %46 = fmul float %35, %45
+  %47 = tail call float @llvm.fmuladd.f32(float %18, float %44, float %46)
+  %48 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv, i64 %26
   store float %47, ptr %48, align 4
-  %49 = fmul float %18, %44
-  %50 = tail call float @llvm.fmuladd.f32(float %35, float %45, float %49)
+  %49 = fmul float %18, %43
+  %50 = tail call float @llvm.fmuladd.f32(float %35, float %44, float %49)
   %51 = load ptr, ptr %34, align 8
   %52 = getelementptr inbounds [3 x float], ptr %51, i64 %indvars.iv, i64 2
   store float %50, ptr %52, align 4
@@ -2661,9 +2661,9 @@ define internal fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr nocapture nounde
   %53 = load i32, ptr %0, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %37, label %._crit_edge.loopexit, !llvm.loop !22
+  br i1 %55, label %36, label %._crit_edge.loopexit, !llvm.loop !22
 
-._crit_edge.loopexit:                             ; preds = %37
+._crit_edge.loopexit:                             ; preds = %36
   %.pre = load i32, ptr %20, align 4
   br label %._crit_edge
 
@@ -2695,8 +2695,8 @@ define internal fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr nocapture nounde
   %66 = load float, ptr %65, align 4
   %67 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %.pre-phi
   %68 = load float, ptr %67, align 4
-  %69 = fneg float %68
-  %70 = fmul float %60, %69
+  %69 = fneg float %60
+  %70 = fmul float %68, %69
   %71 = tail call float @llvm.fmuladd.f32(float %18, float %66, float %70)
   %72 = getelementptr inbounds float, ptr %1, i64 %.pre-phi
   store float %71, ptr %72, align 4
@@ -2749,7 +2749,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -2817,7 +2817,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

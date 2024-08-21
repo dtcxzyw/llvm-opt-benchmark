@@ -65,7 +65,7 @@ define internal { double, double } @_ZL14tcea_s_inverse5PJ_XYP8PJconsts(double %
   %7 = getelementptr inbounds i8, ptr %2, i64 448
   %8 = load double, ptr %7, align 8
   %9 = fadd double %6, %8
-  %10 = fmul double %5, %0
+  %10 = fmul double %0, %5
   %11 = fneg double %10
   %12 = tail call double @llvm.fmuladd.f64(double %11, double %10, double 1.000000e+00)
   %13 = tail call double @sqrt(double noundef %12) #6

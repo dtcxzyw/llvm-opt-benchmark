@@ -569,7 +569,7 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  %66 = icmp eq ptr %65, %0
+  %66 = icmp eq ptr %0, %65
   br i1 %66, label %67, label %76
 
 67:                                               ; preds = %64
@@ -752,7 +752,7 @@ define dso_local void @ResourceOwnerDelete(ptr noundef %0) local_unnamed_addr #0
 7:                                                ; preds = %._crit_edge
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %0
+  %10 = icmp eq ptr %0, %9
   br i1 %10, label %.loopexit.sink.split.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7, %11
@@ -763,7 +763,7 @@ define dso_local void @ResourceOwnerDelete(ptr noundef %0) local_unnamed_addr #0
 11:                                               ; preds = %.preheader.i
   %12 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %0
+  %14 = icmp eq ptr %0, %13
   br i1 %14, label %.loopexit.sink.split.i.loopexit, label %.preheader.i, !llvm.loop !17
 
 .loopexit.sink.split.i.loopexit:                  ; preds = %11
@@ -804,7 +804,7 @@ define dso_local void @ResourceOwnerNewParent(ptr noundef %0, ptr noundef %1) lo
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   br i1 %7, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %4, %8
@@ -815,7 +815,7 @@ define dso_local void @ResourceOwnerNewParent(ptr noundef %0, ptr noundef %1) lo
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds i8, ptr %.0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.preheader, !llvm.loop !17
 
 12:                                               ; preds = %8
@@ -1006,7 +1006,7 @@ define dso_local void @ResourceOwnerForgetLock(ptr nocapture noundef %0, ptr nou
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %12 = getelementptr [15 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %15, label %9, !llvm.loop !19
 
 15:                                               ; preds = %11

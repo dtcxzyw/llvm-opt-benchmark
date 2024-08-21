@@ -296,13 +296,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %148 = add nsw i32 %1, 1
   %149 = getelementptr inbounds i8, ptr %147, i64 4
   %150 = load i32, ptr %149, align 4
-  %.not.i.not = icmp sgt i32 %150, %1
+  %.not.i.not = icmp slt i32 %1, %150
   br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %151
 
 151:                                              ; preds = %145
   %152 = load i32, ptr %147, align 8
   %153 = shl nsw i32 %152, 1
-  %.not89 = icmp sgt i32 %153, %1
+  %.not89 = icmp slt i32 %1, %153
   %.not.i.i.not = icmp sgt i32 %152, %1
   br i1 %.not89, label %166, label %154
 
@@ -676,11 +676,11 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 74:                                               ; preds = %67, %71
   %.0108.lcssa = phi ptr [ %.0108151, %67 ], [ null, %71 ]
-  %.not123154 = icmp eq ptr %.0.lcssa, %5
+  %.not123154 = icmp eq ptr %5, %.0.lcssa
   br i1 %.not123154, label %.preheader144, label %.preheader148.lr.ph
 
 .preheader148.lr.ph:                              ; preds = %74
-  %.not137152 = icmp eq ptr %.0108.lcssa, %6
+  %.not137152 = icmp eq ptr %6, %.0108.lcssa
   br i1 %.not137152, label %.preheader145.lr.ph, label %.preheader148
 
 .preheader148:                                    ; preds = %.preheader148.lr.ph, %._crit_edge
@@ -723,7 +723,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %83
 
 .preheader144:                                    ; preds = %._crit_edge158, %74, %.preheader145.lr.ph, %.preheader147
-  %.not125164 = icmp eq ptr %.0108.lcssa, %6
+  %.not125164 = icmp eq ptr %6, %.0108.lcssa
   br i1 %.not125164, label %.preheader141, label %.preheader142.lr.ph
 
 .preheader142.lr.ph:                              ; preds = %.preheader144
@@ -2743,7 +2743,7 @@ define range(i32 0, 2) i32 @Cut_CutListVerify(ptr noundef %0) local_unnamed_addr
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %.01127 = phi ptr [ %22, %._crit_edge ], [ %0, %1 ]
-  %.not1324 = icmp eq ptr %.01127, %0
+  %.not1324 = icmp eq ptr %0, %.01127
   br i1 %.not1324, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader

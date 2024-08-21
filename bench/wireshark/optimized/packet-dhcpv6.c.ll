@@ -3552,7 +3552,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %763 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %762, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
   store ptr %763, ptr %11, align 8
   %764 = load i32, ptr @proto_dhcpv6, align 4
-  %765 = icmp eq i32 %764, %6
+  %765 = icmp eq i32 %6, %764
   %766 = add i8 %761, -3
   %or.cond27 = icmp ult i8 %766, 3
   %or.cond = select i1 %765, i1 %or.cond27, i1 false
@@ -4573,7 +4573,7 @@ define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr 
 83:                                               ; preds = %80, %60
   %.sink = phi i32 [ 4, %80 ], [ 34, %60 ]
   %.06073 = phi ptr [ %.06074, %80 ], [ %.0607278, %60 ]
-  %84 = add i32 %.sink, %3
+  %84 = add i32 %3, %.sink
   store i32 0, ptr %7, align 4
   %85 = icmp slt i32 %84, %4
   br i1 %85, label %.lr.ph, label %._crit_edge

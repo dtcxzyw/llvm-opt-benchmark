@@ -4233,7 +4233,7 @@ define internal fastcc void @intel_sdvo_write_infoframe(ptr nocapture noundef re
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.146, i32 noundef %1, i32 noundef %4, i32 noundef %26) #13
   %27 = load i8, ptr %8, align 1
   %28 = zext i8 %27 to i32
-  %29 = icmp ult i32 %28, %4
+  %29 = icmp ugt i32 %4, %28
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %25
@@ -4319,7 +4319,7 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr noc
 14:                                               ; preds = %12
   %15 = load i8, ptr %8, align 1
   %16 = zext i8 %15 to i32
-  %17 = icmp ult i32 %16, %1
+  %17 = icmp ugt i32 %1, %16
   br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %14

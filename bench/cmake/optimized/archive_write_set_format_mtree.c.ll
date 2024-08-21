@@ -2242,7 +2242,7 @@ define internal i64 @archive_write_mtree_data(ptr nocapture noundef readonly %0,
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 120
   %7 = load i64, ptr %6, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %7)
   %8 = sub i64 %7, %spec.select
   store i64 %8, ptr %6, align 8
   %9 = load ptr, ptr %5, align 8

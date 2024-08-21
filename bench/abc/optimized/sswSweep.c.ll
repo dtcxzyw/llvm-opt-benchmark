@@ -85,13 +85,13 @@ define internal fastcc i32 @Ssw_ObjSatNum(ptr nocapture %.32.val, i32 %.36.val) 
   %1 = add nsw i32 %.36.val, 1
   %2 = getelementptr inbounds i8, ptr %.32.val, i64 4
   %3 = load i32, ptr %2, align 4
-  %.not.i.not.i = icmp sgt i32 %3, %.36.val
+  %.not.i.not.i = icmp slt i32 %.36.val, %3
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %4
 
 4:                                                ; preds = %0
   %5 = load i32, ptr %.32.val, align 8
   %6 = shl nsw i32 %5, 1
-  %.not.i = icmp sgt i32 %6, %.36.val
+  %.not.i = icmp slt i32 %.36.val, %6
   %.not.i.i.not.i = icmp sgt i32 %5, %.36.val
   br i1 %.not.i, label %19, label %7
 
@@ -1391,7 +1391,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 141:                                              ; preds = %137
   %142 = load i32, ptr %.0, align 4
-  %143 = icmp sgt i32 %142, %140
+  %143 = icmp slt i32 %140, %142
   br i1 %143, label %Bar_ProgressUpdate.exit, label %144
 
 144:                                              ; preds = %141, %137

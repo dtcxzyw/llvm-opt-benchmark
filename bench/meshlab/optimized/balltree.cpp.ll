@@ -347,7 +347,7 @@ _ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i:          ; preds = %31
   %54 = fsub float %53, %44
   %55 = fcmp olt float %54, %.sroa.9.039
   %.sroa.speculated28.i = select i1 %55, float %54, float %.sroa.9.039
-  %56 = fadd float %45, %44
+  %56 = fadd float %44, %45
   %57 = fcmp olt float %.sroa.12.038, %56
   %.sroa.speculated24.i = select i1 %57, float %56, float %.sroa.12.038
   %58 = fadd float %44, %49
@@ -607,7 +607,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE9buildNodeERNS1_4NodeERSt6vectorIiS
   %61 = fcmp ule double %56, %60
   %62 = getelementptr inbounds i8, ptr %0, i64 52
   %63 = load i32, ptr %62, align 4
-  %.not = icmp sgt i32 %63, %4
+  %.not = icmp slt i32 %4, %63
   %or.cond = select i1 %61, i1 %.not, i1 false
   br i1 %or.cond, label %87, label %64
 
@@ -1534,7 +1534,7 @@ _ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %31
   %54 = fsub double %53, %44
   %55 = fcmp olt double %54, %.sroa.9.039
   %.sroa.speculated28.i = select i1 %55, double %54, double %.sroa.9.039
-  %56 = fadd double %45, %44
+  %56 = fadd double %44, %45
   %57 = fcmp olt double %.sroa.12.038, %56
   %.sroa.speculated24.i = select i1 %57, double %56, double %.sroa.12.038
   %58 = fadd double %44, %49
@@ -1781,7 +1781,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiS
   %58 = fcmp ule double %55, %.sroa.speculated
   %59 = getelementptr inbounds i8, ptr %0, i64 56
   %60 = load i32, ptr %59, align 8
-  %.not = icmp sgt i32 %60, %4
+  %.not = icmp slt i32 %4, %60
   %or.cond = select i1 %58, i1 %.not, i1 false
   br i1 %or.cond, label %84, label %61
 

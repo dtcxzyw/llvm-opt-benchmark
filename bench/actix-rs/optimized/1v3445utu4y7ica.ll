@@ -1013,7 +1013,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h0abf605cfe72ae64E(ptr no
   %31 = sub nuw i64 %28, %29
   %32 = getelementptr inbounds i8, ptr %30, i64 %29
   %33 = sub i64 %26, %27
-  %.not.i.i.i.i.i = icmp ult i64 %33, %31
+  %.not.i.i.i.i.i = icmp ugt i64 %31, %33
   br i1 %.not.i.i.i.i.i, label %34, label %35
 
 34:                                               ; preds = %25
@@ -1029,7 +1029,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h0abf605cfe72ae64E(ptr no
   %39 = load i64, ptr %13, align 8, !alias.scope !127, !noalias !132, !noundef !4
   %40 = load i64, ptr %12, align 8, !alias.scope !127, !noalias !132, !noundef !4
   %41 = sub i64 %39, %40
-  %42 = icmp ult i64 %41, %31
+  %42 = icmp ugt i64 %31, %41
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %35
@@ -1603,7 +1603,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17he29e9eb31f9c6139E(ptr no
   %41 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 %.cast.i
   %42 = load i64, ptr %15, align 8, !alias.scope !250, !noalias !245, !noundef !4
   %43 = sub i64 %42, %30
-  %44 = icmp ult i64 %43, %.0.sroa.speculated.i.i
+  %44 = icmp ugt i64 %.0.sroa.speculated.i.i, %43
   br i1 %44, label %45, label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha9204fb9e57e8a79E.exit.i"
 
 45:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.10144161557925507027.exit.i"
@@ -1782,7 +1782,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hef7d863c6bf20f7eE(ptr no
   %31 = sub nuw i64 %28, %29
   %32 = getelementptr inbounds i8, ptr %30, i64 %29
   %33 = sub i64 %26, %27
-  %.not.i.i.i.i.i = icmp ult i64 %33, %31
+  %.not.i.i.i.i.i = icmp ugt i64 %31, %33
   br i1 %.not.i.i.i.i.i, label %34, label %35
 
 34:                                               ; preds = %25
@@ -1798,7 +1798,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hef7d863c6bf20f7eE(ptr no
   %39 = load i64, ptr %13, align 8, !alias.scope !291, !noalias !296, !noundef !4
   %40 = load i64, ptr %12, align 8, !alias.scope !291, !noalias !296, !noundef !4
   %41 = sub i64 %39, %40
-  %42 = icmp ult i64 %41, %31
+  %42 = icmp ugt i64 %31, %41
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %35
@@ -2974,7 +2974,7 @@ define hidden noalias noundef ptr @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$
   %16 = sub nuw i64 %13, %14
   %17 = getelementptr inbounds i8, ptr %15, i64 %14
   %18 = sub i64 %11, %12
-  %.not.i.i = icmp ult i64 %18, %16
+  %.not.i.i = icmp ugt i64 %16, %18
   br i1 %.not.i.i, label %19, label %20
 
 19:                                               ; preds = %10
@@ -2990,7 +2990,7 @@ define hidden noalias noundef ptr @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$
   %24 = load i64, ptr %9, align 8, !alias.scope !498, !noalias !503, !noundef !4
   %25 = load i64, ptr %8, align 8, !alias.scope !498, !noalias !503, !noundef !4
   %26 = sub i64 %24, %25
-  %27 = icmp ult i64 %26, %16
+  %27 = icmp ugt i64 %16, %26
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %20
@@ -3097,7 +3097,7 @@ define hidden noundef ptr @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$6fini
   %22 = sub nuw i64 %19, %20
   %23 = getelementptr inbounds i8, ptr %21, i64 %20
   %24 = sub i64 %17, %18
-  %.not.i.i.i = icmp ult i64 %24, %22
+  %.not.i.i.i = icmp ugt i64 %22, %24
   br i1 %.not.i.i.i, label %25, label %26
 
 25:                                               ; preds = %16
@@ -3113,7 +3113,7 @@ define hidden noundef ptr @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$6fini
   %30 = load i64, ptr %8, align 8, !alias.scope !511, !noalias !516, !noundef !4
   %31 = load i64, ptr %7, align 8, !alias.scope !511, !noalias !516, !noundef !4
   %32 = sub i64 %30, %31
-  %33 = icmp ult i64 %32, %22
+  %33 = icmp ugt i64 %22, %32
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %26
@@ -5321,12 +5321,12 @@ define hidden noundef i64 @_ZN6brotli3enc7cluster22BrotliHistogramCombine17h5182
   %27 = zext i32 %25 to i64
   %28 = zext i32 %26 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !740)
-  %29 = icmp ult i64 %28, %1
+  %29 = icmp ugt i64 %1, %28
   br i1 %29, label %30, label %.split.us, !prof !646
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %28
-  %32 = icmp ult i64 %27, %1
+  %32 = icmp ugt i64 %1, %27
   br i1 %32, label %33, label %.split202.us, !prof !646
 
 33:                                               ; preds = %30
@@ -5597,12 +5597,12 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit.us.
   %134 = zext i32 %132 to i64
   %135 = zext i32 %133 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !740)
-  %136 = icmp ult i64 %135, %1
+  %136 = icmp ugt i64 %1, %135
   br i1 %136, label %137, label %.split.us, !prof !646
 
 137:                                              ; preds = %131
   %138 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %135
-  %139 = icmp ult i64 %134, %1
+  %139 = icmp ugt i64 %1, %134
   br i1 %139, label %140, label %.split202.us, !prof !646
 
 .split.us:                                        ; preds = %24, %131
@@ -5641,11 +5641,11 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit: ; 
   %154 = load float, ptr %20, align 4, !noundef !4
   %155 = getelementptr inbounds i8, ptr %143, i64 1032
   store float %154, ptr %155, align 8, !alias.scope !752
-  %156 = icmp ult i64 %135, %3
+  %156 = icmp ugt i64 %3, %135
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit
-  %158 = icmp ult i64 %134, %3
+  %158 = icmp ugt i64 %3, %134
   br i1 %158, label %160, label %.split205, !prof !646
 
 159:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit
@@ -5936,12 +5936,12 @@ define hidden noundef i64 @_ZN6brotli3enc7cluster22BrotliHistogramCombine17h738d
   %27 = zext i32 %25 to i64
   %28 = zext i32 %26 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !757)
-  %29 = icmp ult i64 %28, %1
+  %29 = icmp ugt i64 %1, %28
   br i1 %29, label %30, label %.split.us, !prof !646
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %28
-  %32 = icmp ult i64 %27, %1
+  %32 = icmp ugt i64 %1, %27
   br i1 %32, label %33, label %.split202.us, !prof !646
 
 33:                                               ; preds = %30
@@ -6212,12 +6212,12 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit.us.
   %134 = zext i32 %132 to i64
   %135 = zext i32 %133 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !757)
-  %136 = icmp ult i64 %135, %1
+  %136 = icmp ugt i64 %1, %135
   br i1 %136, label %137, label %.split.us, !prof !646
 
 137:                                              ; preds = %131
   %138 = getelementptr inbounds [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %135
-  %139 = icmp ult i64 %134, %1
+  %139 = icmp ugt i64 %1, %134
   br i1 %139, label %140, label %.split202.us, !prof !646
 
 .split.us:                                        ; preds = %24, %131
@@ -6256,11 +6256,11 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit: ; 
   %154 = load float, ptr %20, align 4, !noundef !4
   %155 = getelementptr inbounds i8, ptr %143, i64 2184
   store float %154, ptr %155, align 8, !alias.scope !769
-  %156 = icmp ult i64 %135, %3
+  %156 = icmp ugt i64 %3, %135
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit
-  %158 = icmp ult i64 %134, %3
+  %158 = icmp ugt i64 %3, %134
   br i1 %158, label %160, label %.split205, !prof !646
 
 159:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit
@@ -6551,12 +6551,12 @@ define hidden noundef i64 @_ZN6brotli3enc7cluster22BrotliHistogramCombine17hc9fd
   %27 = zext i32 %25 to i64
   %28 = zext i32 %26 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
-  %29 = icmp ult i64 %28, %1
+  %29 = icmp ugt i64 %1, %28
   br i1 %29, label %30, label %.split.us, !prof !646
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %28
-  %32 = icmp ult i64 %27, %1
+  %32 = icmp ugt i64 %1, %27
   br i1 %32, label %33, label %.split202.us, !prof !646
 
 33:                                               ; preds = %30
@@ -6827,12 +6827,12 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit.us.
   %134 = zext i32 %132 to i64
   %135 = zext i32 %133 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
-  %136 = icmp ult i64 %135, %1
+  %136 = icmp ugt i64 %1, %135
   br i1 %136, label %137, label %.split.us, !prof !646
 
 137:                                              ; preds = %131
   %138 = getelementptr inbounds [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %135
-  %139 = icmp ult i64 %134, %1
+  %139 = icmp ugt i64 %1, %134
   br i1 %139, label %140, label %.split202.us, !prof !646
 
 .split.us:                                        ; preds = %24, %131
@@ -6871,11 +6871,11 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit: ; 
   %154 = load float, ptr %20, align 4, !noundef !4
   %155 = getelementptr inbounds i8, ptr %143, i64 2824
   store float %154, ptr %155, align 8, !alias.scope !785
-  %156 = icmp ult i64 %135, %3
+  %156 = icmp ugt i64 %3, %135
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit
-  %158 = icmp ult i64 %134, %3
+  %158 = icmp ugt i64 %3, %134
   br i1 %158, label %160, label %.split205, !prof !646
 
 159:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit
@@ -7540,7 +7540,7 @@ define hidden void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h30f25034c3
   %135 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %.241129.us.i
   %136 = load i32, ptr %135, align 4, !alias.scope !840, !noalias !842, !noundef !4
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %137, %7
+  %138 = icmp ugt i64 %7, %137
   br i1 %138, label %139, label %.split118.us.i.invoke, !prof !646
 
 139:                                              ; preds = %134
@@ -7581,7 +7581,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit75.us.i:
   %155 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %.241129.i
   %156 = load i32, ptr %155, align 4, !alias.scope !840, !noalias !842, !noundef !4
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %157, %7
+  %158 = icmp ugt i64 %7, %157
   br i1 %158, label %.check.i, label %.split118.us.i.invoke, !prof !646
 
 .check.i:                                         ; preds = %.lr.ph130.split.preheader.i
@@ -7620,7 +7620,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit75.i: ; 
   %176 = getelementptr inbounds [0 x i32], ptr %.sroa.0173.0, i64 0, i64 %.140126.i
   %177 = load i32, ptr %176, align 4, !alias.scope !836, !noalias !859, !noundef !4
   %178 = zext i32 %177 to i64
-  %179 = icmp ult i64 %178, %7
+  %179 = icmp ugt i64 %7, %178
   br i1 %179, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i, label %.split118.us.i.invoke, !prof !646
 
 _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i: ; preds = %175
@@ -7653,7 +7653,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925
 190:                                              ; preds = %187
   %191 = getelementptr inbounds [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %1, i64 0, i64 %.039121.i
   %192 = zext i32 %.037.i to i64
-  %193 = icmp ult i64 %192, %7
+  %193 = icmp ugt i64 %7, %192
   br i1 %193, label %194, label %.split118.us.i.invoke, !prof !646
 
 194:                                              ; preds = %190
@@ -7714,7 +7714,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   %217 = getelementptr inbounds [0 x i32], ptr %.sroa.0173.0, i64 0, i64 %.036115.us.i
   %218 = load i32, ptr %217, align 4, !alias.scope !836, !noalias !859, !noundef !4
   %219 = zext i32 %218 to i64
-  %220 = icmp ult i64 %219, %7
+  %220 = icmp ugt i64 %7, %219
   br i1 %220, label %_ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit67.us.i, label %.split118.us.i.invoke, !prof !646
 
 _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit67.us.i: ; preds = %216
@@ -7745,7 +7745,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit6
   %226 = getelementptr inbounds [0 x i32], ptr %.sroa.0173.0, i64 0, i64 %.036115.i
   %227 = load i32, ptr %226, align 4, !alias.scope !836, !noalias !859, !noundef !4
   %228 = zext i32 %227 to i64
-  %229 = icmp ult i64 %228, %7
+  %229 = icmp ugt i64 %7, %228
   br i1 %229, label %230, label %.split118.us.i.invoke, !prof !646
 
 230:                                              ; preds = %225
@@ -8046,7 +8046,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h229f336966b94628E.exit: ; preds =
   br i1 %319, label %320, label %334
 
 320:                                              ; preds = %316
-  %321 = icmp ult i64 %314, %7
+  %321 = icmp ugt i64 %7, %314
   br i1 %321, label %322, label %.invoke589, !prof !646
 
 322:                                              ; preds = %320
@@ -8788,7 +8788,7 @@ define hidden void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h6183d16ff4
   %135 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %.241129.us.i
   %136 = load i32, ptr %135, align 4, !alias.scope !1049, !noalias !1051, !noundef !4
   %137 = zext i32 %136 to i64
-  %138 = icmp ult i64 %137, %7
+  %138 = icmp ugt i64 %7, %137
   br i1 %138, label %139, label %.split118.us.i.invoke, !prof !646
 
 139:                                              ; preds = %134
@@ -8829,7 +8829,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit75.us.i:
   %155 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %.241129.i
   %156 = load i32, ptr %155, align 4, !alias.scope !1049, !noalias !1051, !noundef !4
   %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %157, %7
+  %158 = icmp ugt i64 %7, %157
   br i1 %158, label %.check.i, label %.split118.us.i.invoke, !prof !646
 
 .check.i:                                         ; preds = %.lr.ph130.split.preheader.i
@@ -8868,7 +8868,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit75.i: ; 
   %176 = getelementptr inbounds [0 x i32], ptr %.sroa.0173.0, i64 0, i64 %.140126.i
   %177 = load i32, ptr %176, align 4, !alias.scope !1045, !noalias !1068, !noundef !4
   %178 = zext i32 %177 to i64
-  %179 = icmp ult i64 %178, %7
+  %179 = icmp ugt i64 %7, %178
   br i1 %179, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i, label %.split118.us.i.invoke, !prof !646
 
 _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i: ; preds = %175
@@ -8901,7 +8901,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925
 190:                                              ; preds = %187
   %191 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %1, i64 0, i64 %.039121.i
   %192 = zext i32 %.037.i to i64
-  %193 = icmp ult i64 %192, %7
+  %193 = icmp ugt i64 %7, %192
   br i1 %193, label %194, label %.split118.us.i.invoke, !prof !646
 
 194:                                              ; preds = %190
@@ -8962,7 +8962,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   %217 = getelementptr inbounds [0 x i32], ptr %.sroa.0173.0, i64 0, i64 %.036115.us.i
   %218 = load i32, ptr %217, align 4, !alias.scope !1045, !noalias !1068, !noundef !4
   %219 = zext i32 %218 to i64
-  %220 = icmp ult i64 %219, %7
+  %220 = icmp ugt i64 %7, %219
   br i1 %220, label %_ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit67.us.i, label %.split118.us.i.invoke, !prof !646
 
 _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit67.us.i: ; preds = %216
@@ -8993,7 +8993,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit6
   %226 = getelementptr inbounds [0 x i32], ptr %.sroa.0173.0, i64 0, i64 %.036115.i
   %227 = load i32, ptr %226, align 4, !alias.scope !1045, !noalias !1068, !noundef !4
   %228 = zext i32 %227 to i64
-  %229 = icmp ult i64 %228, %7
+  %229 = icmp ugt i64 %7, %228
   br i1 %229, label %230, label %.split118.us.i.invoke, !prof !646
 
 230:                                              ; preds = %225
@@ -9294,7 +9294,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h3f935c72a8f22aa8E.exit: ; preds =
   br i1 %319, label %320, label %334
 
 320:                                              ; preds = %316
-  %321 = icmp ult i64 %314, %7
+  %321 = icmp ugt i64 %7, %314
   br i1 %321, label %322, label %.invoke589, !prof !646
 
 322:                                              ; preds = %320
@@ -9625,12 +9625,12 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   %spec.select = tail call i32 @llvm.umax.i32(i32 %5, i32 %4)
   %spec.select64 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
   %15 = zext i32 %spec.select64 to i64
-  %16 = icmp ult i64 %15, %3
+  %16 = icmp ugt i64 %3, %15
   br i1 %16, label %17, label %20, !prof !646
 
 17:                                               ; preds = %14
   %18 = zext i32 %spec.select to i64
-  %19 = icmp ult i64 %18, %3
+  %19 = icmp ugt i64 %3, %18
   br i1 %19, label %21, label %58, !prof !646
 
 20:                                               ; preds = %14
@@ -9695,7 +9695,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
   %54 = fadd float %52, %53
   %55 = fmul float %.04.i, %42
   %56 = fsub float %54, %55
-  %57 = icmp ult i64 %15, %1
+  %57 = icmp ugt i64 %1, %15
   br i1 %57, label %59, label %64, !prof !646
 
 58:                                               ; preds = %17
@@ -9706,7 +9706,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
   %60 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %15
   %61 = getelementptr inbounds i8, ptr %60, i64 1032
   %62 = load float, ptr %61, align 8, !noundef !4
-  %63 = icmp ult i64 %18, %1
+  %63 = icmp ugt i64 %1, %18
   br i1 %63, label %65, label %75, !prof !646
 
 64:                                               ; preds = %_ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit
@@ -9893,12 +9893,12 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   %spec.select = tail call i32 @llvm.umax.i32(i32 %5, i32 %4)
   %spec.select64 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
   %15 = zext i32 %spec.select64 to i64
-  %16 = icmp ult i64 %15, %3
+  %16 = icmp ugt i64 %3, %15
   br i1 %16, label %17, label %20, !prof !646
 
 17:                                               ; preds = %14
   %18 = zext i32 %spec.select to i64
-  %19 = icmp ult i64 %18, %3
+  %19 = icmp ugt i64 %3, %18
   br i1 %19, label %21, label %58, !prof !646
 
 20:                                               ; preds = %14
@@ -9963,7 +9963,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
   %54 = fadd float %52, %53
   %55 = fmul float %.04.i, %42
   %56 = fsub float %54, %55
-  %57 = icmp ult i64 %15, %1
+  %57 = icmp ugt i64 %1, %15
   br i1 %57, label %59, label %64, !prof !646
 
 58:                                               ; preds = %17
@@ -9974,7 +9974,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
   %60 = getelementptr inbounds [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %15
   %61 = getelementptr inbounds i8, ptr %60, i64 2824
   %62 = load float, ptr %61, align 8, !noundef !4
-  %63 = icmp ult i64 %18, %1
+  %63 = icmp ugt i64 %1, %18
   br i1 %63, label %65, label %75, !prof !646
 
 64:                                               ; preds = %_ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit
@@ -10161,12 +10161,12 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   %spec.select = tail call i32 @llvm.umax.i32(i32 %5, i32 %4)
   %spec.select64 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
   %15 = zext i32 %spec.select64 to i64
-  %16 = icmp ult i64 %15, %3
+  %16 = icmp ugt i64 %3, %15
   br i1 %16, label %17, label %20, !prof !646
 
 17:                                               ; preds = %14
   %18 = zext i32 %spec.select to i64
-  %19 = icmp ult i64 %18, %3
+  %19 = icmp ugt i64 %3, %18
   br i1 %19, label %21, label %58, !prof !646
 
 20:                                               ; preds = %14
@@ -10231,7 +10231,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
   %54 = fadd float %52, %53
   %55 = fmul float %.04.i, %42
   %56 = fsub float %54, %55
-  %57 = icmp ult i64 %15, %1
+  %57 = icmp ugt i64 %1, %15
   br i1 %57, label %59, label %64, !prof !646
 
 58:                                               ; preds = %17
@@ -10242,7 +10242,7 @@ _ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit: ; preds = %47,
   %60 = getelementptr inbounds [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %0, i64 0, i64 %15
   %61 = getelementptr inbounds i8, ptr %60, i64 2184
   %62 = load float, ptr %61, align 8, !noundef !4
-  %63 = icmp ult i64 %18, %1
+  %63 = icmp ugt i64 %1, %18
   br i1 %63, label %65, label %75, !prof !646
 
 64:                                               ; preds = %_ZN6brotli3enc7cluster15ClusterCostDiff17h02b3fb935c58492eE.exit
@@ -11514,7 +11514,7 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish1
   %48 = load i64, ptr %21, align 8, !alias.scope !1402, !noalias !1407, !noundef !4
   %49 = load i64, ptr %22, align 8, !alias.scope !1402, !noalias !1407, !noundef !4
   %50 = sub i64 %49, %48
-  %.not.i.i = icmp ult i64 %50, %46
+  %.not.i.i = icmp ugt i64 %46, %50
   br i1 %.not.i.i, label %51, label %52
 
 51:                                               ; preds = %45
@@ -11531,7 +11531,7 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish1
   %56 = load i64, ptr %22, align 8, !alias.scope !1402, !noalias !1407, !noundef !4
   %57 = load i64, ptr %21, align 8, !alias.scope !1402, !noalias !1407, !noundef !4
   %58 = sub i64 %56, %57
-  %59 = icmp ult i64 %58, %46
+  %59 = icmp ugt i64 %46, %58
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %52
@@ -11588,7 +11588,7 @@ define internal fastcc noalias noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W
   %21 = load i64, ptr %9, align 8, !alias.scope !1415, !noalias !1420, !noundef !4
   %22 = load i64, ptr %10, align 8, !alias.scope !1415, !noalias !1420, !noundef !4
   %23 = sub i64 %22, %21
-  %.not.i.i = icmp ult i64 %23, %16
+  %.not.i.i = icmp ugt i64 %16, %23
   br i1 %.not.i.i, label %24, label %25
 
 24:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$7get_mut17h1644a275cdccaf31E.exit"
@@ -11605,7 +11605,7 @@ define internal fastcc noalias noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W
   %29 = load i64, ptr %10, align 8, !alias.scope !1415, !noalias !1420, !noundef !4
   %30 = load i64, ptr %9, align 8, !alias.scope !1415, !noalias !1420, !noundef !4
   %31 = sub i64 %29, %30
-  %32 = icmp ult i64 %31, %16
+  %32 = icmp ugt i64 %16, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %25
@@ -11931,7 +11931,7 @@ define hidden noundef ptr @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$D
   %26 = sub nuw i64 %23, %24
   %27 = getelementptr inbounds i8, ptr %25, i64 %24
   %28 = sub i64 %21, %22
-  %.not.i.i.i = icmp ult i64 %28, %26
+  %.not.i.i.i = icmp ugt i64 %26, %28
   br i1 %.not.i.i.i, label %29, label %30
 
 29:                                               ; preds = %20
@@ -11947,7 +11947,7 @@ define hidden noundef ptr @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$D
   %34 = load i64, ptr %12, align 8, !alias.scope !1455, !noalias !1460, !noundef !4
   %35 = load i64, ptr %11, align 8, !alias.scope !1455, !noalias !1460, !noundef !4
   %36 = sub i64 %34, %35
-  %37 = icmp ult i64 %36, %26
+  %37 = icmp ugt i64 %26, %36
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %30

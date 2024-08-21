@@ -44,7 +44,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %cmp.not.i, label %return, label %while.body.i, !llvm.loop !4
 
 if.else:                                          ; preds = %entry
-  %cmp.not7.i5 = icmp ult i64 %sub, %n
+  %cmp.not7.i5 = icmp ugt i64 %n, %sub
   br i1 %cmp.not7.i5, label %return, label %while.body.i6
 
 while.body.i6:                                    ; preds = %if.else, %if.end.i14

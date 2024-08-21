@@ -1734,7 +1734,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE4TanhEd(double noundef %0)
 define linkonce_odr noundef double @_ZN2mu8MathImplIdE5ASinhEd(double noundef %0) #0 comdat align 2 {
   %2 = tail call double @llvm.fmuladd.f64(double %0, double %0, double 1.000000e+00)
   %sqrt = tail call double @llvm.sqrt.f64(double %2)
-  %3 = fadd double %sqrt, %0
+  %3 = fadd double %0, %sqrt
   %4 = tail call double @log(double noundef %3) #13
   ret double %4
 }
@@ -1743,7 +1743,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE5ASinhEd(double noundef %0
 define linkonce_odr noundef double @_ZN2mu8MathImplIdE5ACoshEd(double noundef %0) #0 comdat align 2 {
   %2 = tail call double @llvm.fmuladd.f64(double %0, double %0, double -1.000000e+00)
   %3 = tail call double @sqrt(double noundef %2) #13
-  %4 = fadd double %3, %0
+  %4 = fadd double %0, %3
   %5 = tail call double @log(double noundef %4) #13
   ret double %5
 }
@@ -2163,7 +2163,7 @@ define noundef double @_ZNK2mu6Parser4DiffEPddd(ptr noundef nonnull align 8 dere
   %12 = tail call double @llvm.fmuladd.f64(double %.0, double 2.000000e+00, double %2)
   store double %12, ptr %1, align 8
   %13 = tail call noundef double @_ZNK2mu10ParserBase4EvalEv(ptr noundef nonnull align 8 dereferenceable(596) %0)
-  %14 = fadd double %.0, %2
+  %14 = fadd double %2, %.0
   store double %14, ptr %1, align 8
   %15 = tail call noundef double @_ZNK2mu10ParserBase4EvalEv(ptr noundef nonnull align 8 dereferenceable(596) %0)
   %16 = fsub double %2, %.0

@@ -236,13 +236,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %p.07 = phi ptr [ %p.0, %for.inc ], [ %p.05, %entry ]
   %space = getelementptr inbounds i8, ptr %p.07, i64 24
-  %cmp.not = icmp ugt ptr %space, %mem
+  %cmp.not = icmp ult ptr %mem, %space
   br i1 %cmp.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %end = getelementptr inbounds i8, ptr %p.07, i64 16
   %0 = load ptr, ptr %end, align 8
-  %cmp1 = icmp ugt ptr %0, %mem
+  %cmp1 = icmp ult ptr %mem, %0
   br i1 %cmp1, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true

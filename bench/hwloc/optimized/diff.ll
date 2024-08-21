@@ -1223,7 +1223,7 @@ define i32 @hwloc_topology_diff_apply(ptr noundef %0, ptr noundef readonly %1, i
   br i1 %18, label %.preheader, label %20
 
 .preheader:                                       ; preds = %.lr.ph
-  %.not2532 = icmp eq ptr %.02130, %1
+  %.not2532 = icmp eq ptr %1, %.02130
   br i1 %.not2532, label %._crit_edge, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %.preheader

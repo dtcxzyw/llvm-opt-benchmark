@@ -154,25 +154,25 @@ define void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_1
 11:                                               ; preds = %3
   %12 = and i32 %10, 16
   %.not20 = icmp eq i32 %12, 0
-  %or.cond = and i1 %.not20, %2
+  %or.cond = and i1 %2, %.not20
   br i1 %or.cond, label %20, label %.critedge
 
 13:                                               ; preds = %3
   %14 = and i32 %10, 4
   %.not19 = icmp eq i32 %14, 0
-  %or.cond23 = and i1 %.not19, %2
+  %or.cond23 = and i1 %2, %.not19
   br i1 %or.cond23, label %20, label %.critedge
 
 15:                                               ; preds = %3
   %16 = and i32 %10, 1
   %.not = icmp eq i32 %16, 0
-  %or.cond24 = and i1 %.not, %2
+  %or.cond24 = and i1 %2, %.not
   br i1 %or.cond24, label %20, label %17
 
 17:                                               ; preds = %15
   %18 = and i32 %10, 2
   %.not18 = icmp eq i32 %18, 0
-  %or.cond25 = or i1 %.not18, %2
+  %or.cond25 = or i1 %2, %.not18
   br i1 %or.cond25, label %.critedge, label %20
 
 19:                                               ; preds = %3
@@ -1030,7 +1030,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
   %13 = getelementptr inbounds [3 x i8], ptr %11, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  %16 = xor i1 %15, %2
+  %16 = xor i1 %2, %15
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %10
@@ -1253,7 +1253,7 @@ _ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11
 _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %36
   %.0.lcssa.i.i.i = phi ptr [ %23, %36 ], [ %48, %.lr.ph.i.i.i ]
   %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i27

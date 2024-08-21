@@ -737,7 +737,7 @@ define range(i32 -1, 1) i32 @H5O__check_msg_marked_test(i64 noundef %0, i1 nound
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 32
   %31 = icmp eq i8 %30, 0
-  %.not = xor i1 %31, %1
+  %.not = xor i1 %1, %31
   br i1 %.not, label %.loopexit, label %32
 
 32:                                               ; preds = %.lr.ph._crit_edge

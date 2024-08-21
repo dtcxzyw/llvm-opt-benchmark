@@ -45,11 +45,11 @@ define hidden noundef zeroext i1 @_ZN17SerialStringDedup22is_candidate_from_mark
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp ule ptr %7, %0
+  %.not.i.i = icmp uge ptr %0, %7
   %8 = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = icmp ugt ptr %10, %0
+  %11 = icmp ult ptr %0, %10
   %12 = select i1 %.not.i.i, i1 %11, i1 false
   br i1 %12, label %13, label %26
 
@@ -77,7 +77,7 @@ _ZNK7oopDesc3ageEv.exit:                          ; preds = %13, %22
   %.0.i = and i32 %.0.in.i, 15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %24 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %25 = icmp ugt i32 %24, %.0.i
+  %25 = icmp ult i32 %.0.i, %24
   br label %26
 
 26:                                               ; preds = %_ZNK7oopDesc3ageEv.exit, %1

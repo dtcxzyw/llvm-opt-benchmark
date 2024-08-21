@@ -618,7 +618,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -701,7 +701,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -2641,7 +2641,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %land
 
 _ZN10ODDLParser12getNextTokenIcEEPT_S2_S2_.exit:  ; preds = %land.rhs.i.i, %while.body.i.i, %if.then8
   %in.addr.0.lcssa.i.i = phi ptr [ %incdec.ptr, %if.then8 ], [ %in.addr.09.i.i, %land.rhs.i.i ], [ %scevgep.i.i, %while.body.i.i ]
-  %cmp.i = icmp eq ptr %in.addr.0.lcssa.i.i, %incdec.ptr
+  %cmp.i = icmp eq ptr %incdec.ptr, %in.addr.0.lcssa.i.i
   %spec.select.idx.i = zext i1 %cmp.i to i64
   %spec.select.i = getelementptr inbounds i8, ptr %in.addr.0.lcssa.i.i, i64 %spec.select.idx.i
   store ptr null, ptr %primData, align 8

@@ -3640,7 +3640,7 @@ define void @Sbd_StoComputeCutsObj(ptr nocapture noundef readonly %0, i32 nounde
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val = load i32, ptr %7, align 4
-  %8 = icmp sgt i32 %.val, %1
+  %8 = icmp slt i32 %1, %.val
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %4

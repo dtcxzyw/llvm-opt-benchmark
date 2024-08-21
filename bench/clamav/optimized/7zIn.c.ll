@@ -897,7 +897,7 @@ define i32 @SzArEx_Extract(ptr nocapture noundef readonly %0, ptr noundef %1, i3
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
-  %.not105 = icmp ugt i32 %15, %2
+  %.not105 = icmp ult i32 %2, %15
   br i1 %.not105, label %16, label %.thread126
 
 16:                                               ; preds = %13
@@ -1610,7 +1610,7 @@ define internal fastcc i32 @SzReadHeader(ptr noundef %0, ptr noundef %1, ptr nou
   %110 = phi ptr [ %87, %91 ], [ %103, %101 ]
   %.promoted37.i.i = phi i64 [ %88, %91 ], [ %102, %101 ]
   %.1.ph.i.i.i = phi i64 [ %98, %91 ], [ %108, %101 ]
-  %111 = icmp ult i64 %.promoted37.i.i, %.1.ph.i.i.i
+  %111 = icmp ugt i64 %.1.ph.i.i.i, %.promoted37.i.i
   br i1 %111, label %SzSkeepData.exit.i.i, label %112
 
 112:                                              ; preds = %.loopexit.i.i.i
@@ -2101,7 +2101,7 @@ SzReadSwitch.exit.i:                              ; preds = %332
 
 354:                                              ; preds = %347
   %355 = load i64, ptr %12, align 8
-  %356 = icmp ult i64 %355, %337
+  %356 = icmp ugt i64 %337, %355
   br i1 %356, label %SzReadHeader2.exit.loopexit118, label %SzSkeepDataSize.exit299.thread.i
 
 SzSkeepDataSize.exit299.thread.i:                 ; preds = %354
@@ -2905,7 +2905,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
   %247 = phi ptr [ %224, %228 ], [ %240, %238 ]
   %248 = phi i64 [ %225, %228 ], [ %239, %238 ]
   %.1.ph.i95.i = phi i64 [ %235, %228 ], [ %245, %238 ]
-  %249 = icmp ult i64 %248, %.1.ph.i95.i
+  %249 = icmp ugt i64 %.1.ph.i95.i, %248
   br i1 %249, label %SzReadID.exit, label %SzSkeepData.exit.i
 
 SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
@@ -3715,7 +3715,7 @@ SzReadNumber32.exit222.i.i:                       ; preds = %.loopexit.i219.i.i,
   %664 = phi ptr [ %641, %645 ], [ %657, %655 ]
   %665 = phi i64 [ %642, %645 ], [ %656, %655 ]
   %.1271.ph.i.i = phi i64 [ %652, %645 ], [ %662, %655 ]
-  %666 = icmp ult i64 %665, %.1271.ph.i.i
+  %666 = icmp ugt i64 %.1271.ph.i.i, %665
   br i1 %666, label %SzGetNextFolderItem.exit.thread.i, label %SzSkeepDataSize.exit230.thread.i.i
 
 SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
@@ -4474,7 +4474,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
   %995 = phi ptr [ %972, %976 ], [ %988, %986 ]
   %996 = phi i64 [ %973, %976 ], [ %987, %986 ]
   %.1.ph.i186.i = phi i64 [ %983, %976 ], [ %993, %986 ]
-  %997 = icmp ult i64 %996, %.1.ph.i186.i
+  %997 = icmp ugt i64 %.1.ph.i186.i, %996
   br i1 %997, label %SzReadSubStreamsInfo.exit.thread, label %SzSkeepData.exit.i87
 
 SzSkeepData.exit.i87:                             ; preds = %.loopexit.i185.i
@@ -4984,7 +4984,7 @@ SzReadID.exit99:                                  ; preds = %SzReadID.exit99.bac
   %1215 = phi ptr [ %1192, %1196 ], [ %1208, %1206 ]
   %1216 = phi i64 [ %1193, %1196 ], [ %1207, %1206 ]
   %.1.ph.i = phi i64 [ %1203, %1196 ], [ %1213, %1206 ]
-  %1217 = icmp ult i64 %1216, %.1.ph.i
+  %1217 = icmp ugt i64 %.1.ph.i, %1216
   br i1 %1217, label %SzReadSubStreamsInfo.exit.thread, label %SzSkeepData.exit
 
 SzSkeepData.exit:                                 ; preds = %.loopexit.i103
@@ -5296,7 +5296,7 @@ define internal fastcc noundef i32 @SzWaitAttribute(ptr nocapture noundef %0, i6
   %69 = phi ptr [ %46, %50 ], [ %62, %60 ]
   %70 = phi i64 [ %47, %50 ], [ %61, %60 ]
   %.1.ph.i = phi i64 [ %57, %50 ], [ %67, %60 ]
-  %71 = icmp ult i64 %70, %.1.ph.i
+  %71 = icmp ugt i64 %.1.ph.i, %70
   br i1 %71, label %SzReadID.exit, label %SzSkeepData.exit
 
 SzSkeepData.exit:                                 ; preds = %.loopexit.i
@@ -5530,7 +5530,7 @@ define internal fastcc noundef i32 @SzSkeepData(ptr nocapture noundef %0) unname
   %35 = phi ptr [ %12, %16 ], [ %28, %26 ]
   %36 = phi i64 [ %13, %16 ], [ %27, %26 ]
   %.1.ph = phi i64 [ %23, %16 ], [ %33, %26 ]
-  %37 = icmp ult i64 %36, %.1.ph
+  %37 = icmp ugt i64 %.1.ph, %36
   br i1 %37, label %SzReadNumber.exit, label %38
 
 38:                                               ; preds = %.loopexit

@@ -743,7 +743,7 @@ lor.lhs.false:                                    ; preds = %_ZNK10model_core16g
   %14 = load ptr, ptr %m, align 8
   %m_false.i = getelementptr inbounds i8, ptr %14, i64 864
   %15 = load ptr, ptr %m_false.i, align 8
-  %cmp.i = icmp eq ptr %15, %13
+  %cmp.i = icmp eq ptr %13, %15
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %for.body.i.i.i.i, %for.inc36.i.i.i.i, %for.body20.i.i.i.i, %for.cond18.preheader.i.i.i.i, %lor.lhs.false, %_ZNK10model_core16get_const_interpEP9func_decl.exit

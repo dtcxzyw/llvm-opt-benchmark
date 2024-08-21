@@ -44,7 +44,7 @@ if.then23:                                        ; preds = %if.end12
   %free = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %free, align 8
   %4 = ptrtoint ptr %3 to i64
-  %add25 = add i64 %4, %offset
+  %add25 = add i64 %offset, %4
   %and = and i64 %add25, %sub
   %cmp26 = icmp eq i64 %and, 0
   %cmp30 = icmp ne ptr %3, null
@@ -95,7 +95,7 @@ if.end36.i:                                       ; preds = %if.else.i, %if.end2
   %cmp7.not.not.i = phi i1 [ true, %if.end20.i ], [ false, %if.else.i ]
   %p6.0.i = phi ptr [ %call23.i, %if.end20.i ], [ %call31.i, %if.else.i ]
   %7 = ptrtoint ptr %p6.0.i to i64
-  %add37.i = add i64 %7, %offset
+  %add37.i = add i64 %offset, %7
   %and38.i = and i64 %add37.i, %sub
   %cmp39.i = icmp eq i64 %and38.i, 0
   %sub43.i = sub i64 %alignment, %and38.i
@@ -127,7 +127,7 @@ if.then49.i:                                      ; preds = %if.end36.i
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.then49.i, %if.end36.i
-  %brmerge.not.i = and i1 %cmp7.not.not.i, %zero
+  %brmerge.not.i = and i1 %zero, %cmp7.not.not.i
   br i1 %brmerge.not.i, label %if.then57.i, label %return
 
 if.then57.i:                                      ; preds = %if.end52.i
@@ -363,18 +363,18 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call i64 @mi_usable_size(ptr noundef nonnull %p) #8
-  %cmp7.not = icmp ult i64 %call6, %newsize
+  %cmp7.not = icmp ugt i64 %newsize, %call6
   br i1 %cmp7.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end5
   %div35 = lshr i64 %call6, 1
   %sub = sub i64 %call6, %div35
-  %cmp8.not = icmp ugt i64 %sub, %newsize
+  %cmp8.not = icmp ult i64 %newsize, %sub
   br i1 %cmp8.not, label %if.else, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %0 = ptrtoint ptr %p to i64
-  %add = add i64 %0, %offset
+  %add = add i64 %offset, %0
   %rem = urem i64 %add, %alignment
   %cmp10 = icmp eq i64 %rem, 0
   br i1 %cmp10, label %return, label %if.else
@@ -385,7 +385,7 @@ if.else:                                          ; preds = %land.lhs.true9, %la
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.else
-  %or.cond = and i1 %cmp7.not, %zero
+  %or.cond = and i1 %zero, %cmp7.not
   br i1 %or.cond, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.then14
@@ -398,7 +398,7 @@ if.then18:                                        ; preds = %if.then14
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %if.then14
-  %cond27 = tail call i64 @llvm.umin.i64(i64 %call6, i64 %newsize)
+  %cond27 = tail call i64 @llvm.umin.i64(i64 %newsize, i64 %call6)
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %p, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr nonnull readonly align 8 %p, i64 %cond27, i1 false)

@@ -3909,7 +3909,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi(ptr noundef 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %3
@@ -3952,7 +3952,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %8
   %27 = ashr exact i64 %26, 2
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %22
@@ -3979,7 +3979,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit, %29
   %.pre-phi27 = phi i64 [ %.pre26, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ %27, %29 ]
   %32 = phi ptr [ %.pre19, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %33 = icmp eq i64 %.pre-phi27, %1
+  %33 = icmp eq i64 %1, %.pre-phi27
   br i1 %33, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %34
 
 34:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
@@ -4386,8 +4386,8 @@ define void @_ZNK22colvarbias_reweightaMD11hist_to_pmfEP18colvar_grid_scalarPKS0
   %13 = getelementptr inbounds i8, ptr %10, i64 64
   %14 = load double, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 392
-  %16 = fneg double %14
-  %17 = fmul double %12, %16
+  %16 = fneg double %12
+  %17 = fmul double %14, %16
   br label %19
 
 .preheader:                                       ; preds = %37
@@ -4583,7 +4583,7 @@ define linkonce_odr noundef double @_ZN18colvar_grid_scalar20gradient_finite_dif
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr double, ptr %58, i64 %.015.lcssa.i.i
   %60 = load double, ptr %59, align 8
-  %.not.i = icmp eq ptr %4, %1
+  %.not.i = icmp eq ptr %1, %4
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEEaSERKS1_.exit, label %61
 
 61:                                               ; preds = %.loopexit117
@@ -4796,7 +4796,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %120, %123
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr double, ptr %158, i64 %.015.lcssa.i.i49
   %160 = load double, ptr %159, align 8
-  %.not.i51 = icmp eq ptr %4, %1
+  %.not.i51 = icmp eq ptr %1, %4
   br i1 %.not.i51, label %_ZNSt6vectorIiSaIiEEaSERKS1_.exit73, label %161
 
 161:                                              ; preds = %.loopexit114

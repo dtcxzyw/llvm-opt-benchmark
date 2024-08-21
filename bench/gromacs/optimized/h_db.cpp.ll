@@ -1284,7 +1284,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.preheader.i: ; preds = %316
   %342 = icmp slt i64 %341, %338
   %343 = getelementptr inbounds i8, ptr %332, i64 %341
   %spec.select.i.i.i.i50 = select i1 %342, ptr %343, ptr %333
-  %.not21.i.i.i51 = icmp eq ptr %spec.select.i.i.i.i50, %332
+  %.not21.i.i.i51 = icmp eq ptr %332, %spec.select.i.i.i.i50
   br i1 %.not21.i.i.i51, label %._crit_edge.i.i.i61, label %.lr.ph.preheader.i.i.i52
 
 .lr.ph.preheader.i.i.i52:                         ; preds = %_ZN21MoleculePatchDatabaseC2EOS_.exit.preheader.i
@@ -1341,7 +1341,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %_ZN21MoleculePatchD
   %366 = icmp slt i64 %365, %362
   %367 = getelementptr inbounds i8, ptr %356, i64 %365
   %spec.select.i.i.i.i = select i1 %366, ptr %367, ptr %357
-  %.not21.i.i.i = icmp eq ptr %spec.select.i.i.i.i, %356
+  %.not21.i.i.i = icmp eq ptr %356, %spec.select.i.i.i.i
   br i1 %.not21.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN21MoleculePatchDatabaseC2EOS_.exit.i
@@ -2039,7 +2039,7 @@ _ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.
 _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit ], [ %84, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ]
   %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 280
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit23, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %_ZSt19__relocate_object_aI21MoleculePatchDatabaseS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i20
@@ -2414,7 +2414,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %101
   %164 = icmp slt i64 %163, %160
   %165 = getelementptr inbounds i8, ptr %154, i64 %163
   %spec.select.i.i.i.i.i.i = select i1 %164, ptr %165, ptr %155
-  %.not21.i.i.i.i.i = icmp eq ptr %spec.select.i.i.i.i.i.i, %154
+  %.not21.i.i.i.i.i = icmp eq ptr %154, %spec.select.i.i.i.i.i.i
   br i1 %.not21.i.i.i.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.i.i", label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %153
@@ -2473,7 +2473,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %101
   %188 = icmp slt i64 %187, %184
   %189 = getelementptr inbounds i8, ptr %178, i64 %187
   %spec.select.i.i.i.i8.i.i = select i1 %188, ptr %189, ptr %179
-  %.not21.i.i.i9.i.i = icmp eq ptr %spec.select.i.i.i.i8.i.i, %178
+  %.not21.i.i.i9.i.i = icmp eq ptr %178, %spec.select.i.i.i.i8.i.i
   br i1 %.not21.i.i.i9.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.i.i", label %.lr.ph.preheader.i.i.i10.i.i
 
 .lr.ph.preheader.i.i.i10.i.i:                     ; preds = %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i"
@@ -2681,7 +2681,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %5 = alloca %struct.MoleculePatchDatabase, align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
-  %8 = icmp sgt i64 %7, %1
+  %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -2933,7 +2933,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL14read_h_db_fileRKNSt10filesyste
   %13 = icmp slt i64 %12, %9
   %14 = getelementptr inbounds i8, ptr %3, i64 %12
   %spec.select.i.i.i = select i1 %13, ptr %14, ptr %4
-  %.not21.i.i = icmp eq ptr %spec.select.i.i.i, %3
+  %.not21.i.i = icmp eq ptr %3, %spec.select.i.i.i
   br i1 %.not21.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %2

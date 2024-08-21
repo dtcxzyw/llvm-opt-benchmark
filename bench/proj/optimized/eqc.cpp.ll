@@ -137,7 +137,7 @@ define internal { double, double } @_ZL13eqc_s_inverse5PJ_XYP8PJconsts(double %0
   %7 = fdiv double %0, %6
   %8 = getelementptr inbounds i8, ptr %2, i64 448
   %9 = load double, ptr %8, align 8
-  %10 = fadd double %9, %1
+  %10 = fadd double %1, %9
   %.fca.0.insert = insertvalue { double, double } poison, double %7, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %10, 1
   ret { double, double } %.fca.1.insert
@@ -148,7 +148,7 @@ define internal { double, double } @_ZL13eqc_s_forward5PJ_LPP8PJconsts(double %0
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, %0
+  %7 = fmul double %0, %6
   %8 = getelementptr inbounds i8, ptr %2, i64 448
   %9 = load double, ptr %8, align 8
   %10 = fsub double %1, %9

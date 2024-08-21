@@ -262,19 +262,19 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen16tryFindLocalNameEPK5Protoii(ptr 
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %10, i64 8
   %17 = load i32, ptr %16, align 8
-  %.not.i = icmp sgt i32 %17, %2
+  %.not.i = icmp slt i32 %2, %17
   br i1 %.not.i, label %22, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %10, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = icmp sgt i32 %20, %2
+  %21 = icmp slt i32 %2, %20
   br i1 %21, label %_ZN4Luau7CodeGenL12tryFindLocalEPK5Protoii.exit, label %22
 
 22:                                               ; preds = %18, %15, %9
@@ -1090,7 +1090,7 @@ _ZN4Luau7CodeGenL17logFunctionHeaderINS0_3X6418AssemblyBuilderX64EEEvRT_P5Proto.
   %257 = getelementptr inbounds i8, ptr %256, i64 16
   %258 = load i8, ptr %257, align 8
   %259 = zext i8 %258 to i32
-  %260 = icmp eq i32 %259, %249
+  %260 = icmp eq i32 %249, %259
   br i1 %260, label %261, label %268
 
 261:                                              ; preds = %255
@@ -1221,19 +1221,19 @@ select.unfold94.i:                                ; preds = %288, %283
   %318 = getelementptr inbounds %struct.LocVar, ptr %316, i64 %indvars.iv.i.i81.i
   %319 = getelementptr inbounds i8, ptr %318, i64 16
   %320 = load i8, ptr %319, align 8
-  %321 = icmp eq i8 %320, %308
+  %321 = icmp eq i8 %308, %320
   br i1 %321, label %322, label %328
 
 322:                                              ; preds = %317
   %323 = getelementptr inbounds i8, ptr %318, i64 8
   %324 = load i32, ptr %323, align 8
-  %.not.i.i84.not.i = icmp slt i32 %324, %311
+  %.not.i.i84.not.i = icmp sgt i32 %311, %324
   br i1 %.not.i.i84.not.i, label %325, label %328
 
 325:                                              ; preds = %322
   %326 = getelementptr inbounds i8, ptr %318, i64 12
   %327 = load i32, ptr %326, align 4
-  %.not101.i = icmp slt i32 %327, %311
+  %.not101.i = icmp sgt i32 %311, %327
   br i1 %.not101.i, label %328, label %_ZN4Luau7CodeGenL12tryFindLocalEPK5Protoii.exit.i85.i
 
 328:                                              ; preds = %325, %322, %317
@@ -1304,7 +1304,7 @@ select.unfold97.i:                                ; preds = %328, %_ZN4Luau7Code
   %354 = getelementptr inbounds i8, ptr %353, i64 16
   %355 = load i8, ptr %354, align 8
   %356 = zext i8 %355 to i32
-  %357 = icmp eq i32 %356, %346
+  %357 = icmp eq i32 %346, %356
   br i1 %357, label %358, label %365
 
 358:                                              ; preds = %352
@@ -1437,19 +1437,19 @@ select.unfold76.i:                                ; preds = %385, %380
   %413 = getelementptr inbounds %struct.LocVar, ptr %411, i64 %indvars.iv.i.i63.i
   %414 = getelementptr inbounds i8, ptr %413, i64 16
   %415 = load i8, ptr %414, align 8
-  %416 = icmp eq i8 %415, %403
+  %416 = icmp eq i8 %403, %415
   br i1 %416, label %417, label %423
 
 417:                                              ; preds = %412
   %418 = getelementptr inbounds i8, ptr %413, i64 8
   %419 = load i32, ptr %418, align 8
-  %.not.i.i66.not.i = icmp slt i32 %419, %406
+  %.not.i.i66.not.i = icmp sgt i32 %406, %419
   br i1 %.not.i.i66.not.i, label %420, label %423
 
 420:                                              ; preds = %417
   %421 = getelementptr inbounds i8, ptr %413, i64 12
   %422 = load i32, ptr %421, align 4
-  %.not82.i = icmp slt i32 %422, %406
+  %.not82.i = icmp sgt i32 %406, %422
   br i1 %.not82.i, label %423, label %_ZN4Luau7CodeGenL12tryFindLocalEPK5Protoii.exit.i67.i
 
 423:                                              ; preds = %420, %417, %412
@@ -2670,7 +2670,7 @@ _ZN4Luau7CodeGenL17logFunctionHeaderINS0_3A6418AssemblyBuilderA64EEEvRT_P5Proto.
   %258 = getelementptr inbounds i8, ptr %257, i64 16
   %259 = load i8, ptr %258, align 8
   %260 = zext i8 %259 to i32
-  %261 = icmp eq i32 %260, %250
+  %261 = icmp eq i32 %250, %260
   br i1 %261, label %262, label %269
 
 262:                                              ; preds = %256
@@ -2801,19 +2801,19 @@ select.unfold94.i:                                ; preds = %289, %284
   %319 = getelementptr inbounds %struct.LocVar, ptr %317, i64 %indvars.iv.i.i81.i
   %320 = getelementptr inbounds i8, ptr %319, i64 16
   %321 = load i8, ptr %320, align 8
-  %322 = icmp eq i8 %321, %309
+  %322 = icmp eq i8 %309, %321
   br i1 %322, label %323, label %329
 
 323:                                              ; preds = %318
   %324 = getelementptr inbounds i8, ptr %319, i64 8
   %325 = load i32, ptr %324, align 8
-  %.not.i.i84.not.i = icmp slt i32 %325, %312
+  %.not.i.i84.not.i = icmp sgt i32 %312, %325
   br i1 %.not.i.i84.not.i, label %326, label %329
 
 326:                                              ; preds = %323
   %327 = getelementptr inbounds i8, ptr %319, i64 12
   %328 = load i32, ptr %327, align 4
-  %.not101.i = icmp slt i32 %328, %312
+  %.not101.i = icmp sgt i32 %312, %328
   br i1 %.not101.i, label %329, label %_ZN4Luau7CodeGenL12tryFindLocalEPK5Protoii.exit.i85.i
 
 329:                                              ; preds = %326, %323, %318
@@ -2884,7 +2884,7 @@ select.unfold97.i:                                ; preds = %329, %_ZN4Luau7Code
   %355 = getelementptr inbounds i8, ptr %354, i64 16
   %356 = load i8, ptr %355, align 8
   %357 = zext i8 %356 to i32
-  %358 = icmp eq i32 %357, %347
+  %358 = icmp eq i32 %347, %357
   br i1 %358, label %359, label %366
 
 359:                                              ; preds = %353
@@ -3017,19 +3017,19 @@ select.unfold76.i:                                ; preds = %386, %381
   %414 = getelementptr inbounds %struct.LocVar, ptr %412, i64 %indvars.iv.i.i63.i
   %415 = getelementptr inbounds i8, ptr %414, i64 16
   %416 = load i8, ptr %415, align 8
-  %417 = icmp eq i8 %416, %404
+  %417 = icmp eq i8 %404, %416
   br i1 %417, label %418, label %424
 
 418:                                              ; preds = %413
   %419 = getelementptr inbounds i8, ptr %414, i64 8
   %420 = load i32, ptr %419, align 8
-  %.not.i.i66.not.i = icmp slt i32 %420, %407
+  %.not.i.i66.not.i = icmp sgt i32 %407, %420
   br i1 %.not.i.i66.not.i, label %421, label %424
 
 421:                                              ; preds = %418
   %422 = getelementptr inbounds i8, ptr %414, i64 12
   %423 = load i32, ptr %422, align 4
-  %.not82.i = icmp slt i32 %423, %407
+  %.not82.i = icmp sgt i32 %407, %423
   br i1 %.not82.i, label %424, label %_ZN4Luau7CodeGenL12tryFindLocalEPK5Protoii.exit.i67.i
 
 424:                                              ; preds = %421, %418, %413
@@ -5359,7 +5359,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IjSaIjEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %41
   %.0.lcssa.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIS_IjSaIjEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i28
@@ -5520,7 +5520,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen13FunctionStatsESaIS2_EE11_M_allocateEm.exit: 
 _ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4Luau7CodeGen13FunctionStatsESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN4Luau7CodeGen13FunctionStatsESaIS2_EE11_M_allocateEm.exit ], [ %48, %.lr.ph.i.i.i ]
   %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 80
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17

@@ -190,7 +190,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %5 = phi ptr [ %3, %for.body.lr.ph ], [ %11, %_ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE12emplace_backIJjRK10aiVector3tIfEEEERS2_DpOT_.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE12emplace_backIJjRK10aiVector3tIfEEEERS2_DpOT_.exit ]
   %6 = trunc nuw i64 %indvars.iv to i32
-  %mul = mul i32 %6, %pElementOffset
+  %mul = mul i32 %pElementOffset, %6
   %idx.ext = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i8, ptr %pPositions, i64 %idx.ext
   %conv6 = add i32 %6, %4
@@ -463,7 +463,7 @@ entry:
   %9 = load float, ptr %z4.i4.i, align 8
   %10 = tail call noundef float @llvm.fmuladd.f32(float %sub5.i.i, float %9, float %8)
   %sub = fsub float %10, %pRadius
-  %add = fadd float %10, %pRadius
+  %add = fadd float %pRadius, %10
   %11 = load ptr, ptr %poResults, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %poResults, i64 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
@@ -946,7 +946,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -955,7 +955,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp6.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp6.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   br i1 %cmp6.i, label %if.then7.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1007,7 +1007,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %16 = call float @llvm.fmuladd.f32(float %sub.i24, float %14, float %mul3.i)
   %17 = load float, ptr %z4.i28, align 8
   %18 = call noundef float @llvm.fmuladd.f32(float %sub5.i, float %17, float %16)
-  %add = fadd float %18, %pRadius
+  %add = fadd float %pRadius, %18
   %19 = load i32, ptr %add.ptr.i23, align 4
   %conv = zext i32 %19 to i64
   %add.ptr.i30 = getelementptr inbounds i32, ptr %6, i64 %conv
@@ -1565,7 +1565,7 @@ while.body.i:                                     ; preds = %_ZSt13__adjust_heap
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp611.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(16) %phi.call.i, i64 16, i1 false)
   %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 16
   %__value.sroa.2.0.copyload.i = load float, ptr %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i, align 4
-  %cmp29.i.i = icmp sgt i64 %div.i1920.i, %__parent.0.i
+  %cmp29.i.i = icmp slt i64 %__parent.0.i, %div.i1920.i
   br i1 %cmp29.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i, %while.body.i.i
@@ -1796,7 +1796,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !39
 
 if.else:                                          ; preds = %if.then4
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
@@ -1880,7 +1880,7 @@ for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !39
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i.i.i.i67
-  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %6, %__position.coerce
+  %tobool.not.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %__position.coerce, %6
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i76, label %invoke.cont60, label %if.then.i.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i.i77:                      ; preds = %invoke.cont57

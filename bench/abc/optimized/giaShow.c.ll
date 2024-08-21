@@ -2471,13 +2471,13 @@ define void @Gia_WriteDotAig(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %167 = add nsw i32 %162, 1
   %168 = getelementptr inbounds i8, ptr %.val552, i64 4
   %169 = load i32, ptr %168, align 4
-  %.not.i610.not = icmp sgt i32 %169, %162
+  %.not.i610.not = icmp slt i32 %162, %169
   br i1 %.not.i610.not, label %Vec_IntFillExtra.exit, label %170
 
 170:                                              ; preds = %165
   %171 = load i32, ptr %.val552, align 8
   %172 = shl nsw i32 %171, 1
-  %.not620 = icmp sgt i32 %172, %162
+  %.not620 = icmp slt i32 %162, %172
   %.not.i.i611.not = icmp sgt i32 %171, %162
   br i1 %.not620, label %185, label %173
 
@@ -4292,13 +4292,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

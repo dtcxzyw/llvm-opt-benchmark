@@ -12539,7 +12539,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit: 
 
 if.then:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit
   %conv.i.i = trunc i64 %5 to i32
-  %and2 = and i32 %conv.i.i, %R
+  %and2 = and i32 %R, %conv.i.i
   br label %return
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit
@@ -12890,7 +12890,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
 _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE28rehash_and_grow_if_necessaryEv.exit: ; preds = %if.then.i, %if.else.i
   %7 = load i64, ptr %capacity_.i.i10, align 8
   %cmp.i.i.i = icmp ult i64 %7, 17
-  %cmp.i.i = icmp ugt i64 %7, %4
+  %cmp.i.i = icmp ult i64 %4, %7
   %8 = and i1 %cmp.i.i.i, %cmp.i.i
   br i1 %8, label %if.end.i, label %if.then.i14
 
@@ -17509,7 +17509,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12
@@ -31414,8 +31414,9 @@ if.else17:                                        ; preds = %if.else
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %5 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %5)
-  %7 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %7
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %7 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %7
   %8 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %6)
   %neg = fneg double %8
   %9 = tail call double @llvm.fmuladd.f64(double %3, double %sub, double %neg)
@@ -31641,8 +31642,9 @@ cond.false23:                                     ; preds = %cond.false
   %add.i = fadd double %call.i, 0x3FFD67F1C864BEB5
   %33 = tail call double @llvm.fmuladd.f64(double %add.i, double 5.000000e-01, double %32)
   %34 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x3FB5555555555555, double %33)
-  %35 = fmul double %div.i, 0xBF66C16C16C16C17
-  %neg3.i = fmul double %div.i, %35
+  %mul.i = fmul double %div.i, 0x3F66C16C16C16C17
+  %35 = fneg double %div.i
+  %neg3.i = fmul double %mul.i, %35
   %36 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %34)
   br label %cond.end25
 
@@ -73680,7 +73682,7 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit: 
 
 if.then:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit
   %conv.i.i = trunc i64 %5 to i16
-  %and713 = and i16 %conv.i.i, %R
+  %and713 = and i16 %R, %conv.i.i
   br label %return
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit
@@ -73974,7 +73976,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit: 
 
 if.then:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit
   %conv.i.i = trunc i64 %5 to i32
-  %and2 = and i32 %conv.i.i, %R
+  %and2 = and i32 %R, %conv.i.i
   br label %return
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit
@@ -98959,7 +98961,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingB
 
 if.then:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingBitGenEEEEEjRT_.exit
   %conv.i.i = trunc i64 %5 to i32
-  %and2 = and i32 %conv.i.i, %R
+  %and2 = and i32 %R, %conv.i.i
   br label %return
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingBitGenEEEEEjRT_.exit
@@ -100605,7 +100607,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13Mocking
 
 if.then:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13MockingBitGenEEEEEjRT_.exit
   %conv.i.i = trunc i64 %5 to i32
-  %and2 = and i32 %conv.i.i, %R
+  %and2 = and i32 %R, %conv.i.i
   br label %return
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13MockingBitGenEEEEEjRT_.exit
@@ -102572,7 +102574,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13Mocki
 
 if.then:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13MockingBitGenEEEEEjRT_.exit
   %conv.i.i = trunc i64 %5 to i32
-  %and2 = and i32 %conv.i.i, %R
+  %and2 = and i32 %R, %conv.i.i
   br label %return
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13MockingBitGenEEEEEjRT_.exit

@@ -459,7 +459,7 @@ declare noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef
 define noundef zeroext i1 @_ZN13RtpAudioGraph13isMyPlottableEP20QCPAbstractPlottable(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   ret i1 %5
 }
 

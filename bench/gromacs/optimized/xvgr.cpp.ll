@@ -2955,7 +2955,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = ashr exact i64 %115, 3
-  %117 = icmp ult i64 %116, %109
+  %117 = icmp ugt i64 %109, %116
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv.exit.i
@@ -2968,7 +2968,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
   br label %128
 
 120:                                              ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv.exit.i
-  %121 = icmp ugt i64 %116, %109
+  %121 = icmp ult i64 %109, %116
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %120

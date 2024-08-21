@@ -247,7 +247,7 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %3
-  %brmerge = or i1 %6, %2
+  %brmerge = or i1 %2, %6
   br i1 %brmerge, label %16, label %13
 
 13:                                               ; preds = %._crit_edge
@@ -498,7 +498,7 @@ BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLo
   %.not47 = icmp eq i64 %.039.lcssa, %2
   %not. = xor i1 %3, true
   %89 = icmp eq i64 %.039.lcssa, 0
-  %brmerge.not = and i1 %89, %4
+  %brmerge.not = and i1 %4, %89
   %90 = or i1 %.not47, %brmerge.not
   %or.cond = select i1 %not., i1 true, i1 %90
   br i1 %or.cond, label %101, label %91

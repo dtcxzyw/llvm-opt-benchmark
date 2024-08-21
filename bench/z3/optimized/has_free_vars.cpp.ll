@@ -527,7 +527,7 @@ sw.bb15:                                          ; preds = %entry
   %m_num_decls.i = getelementptr inbounds i8, ptr %n, i64 20
   %13 = load i32, ptr %m_num_decls.i, align 4
   %sub18 = xor i32 %13, -1
-  %cmp19.not = icmp ult i32 %sub18, %delta
+  %cmp19.not = icmp ugt i32 %delta, %sub18
   br i1 %cmp19.not, label %sw.epilog, label %if.then20
 
 if.then20:                                        ; preds = %sw.bb15

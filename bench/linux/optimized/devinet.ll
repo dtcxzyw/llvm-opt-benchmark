@@ -290,7 +290,7 @@ define dso_local ptr @__ip_dev_find(ptr noundef %0, i32 noundef %1, i1 noundef z
 .loopexit7:                                       ; preds = %19, %43
   %45 = phi ptr [ %44, %43 ], [ %22, %19 ]
   %46 = icmp ne ptr %45, null
-  %47 = and i1 %46, %2
+  %47 = and i1 %2, %46
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %.loopexit7
@@ -1370,7 +1370,7 @@ define dso_local i32 @inet_select_addr(ptr noundef %0, i32 noundef %1, i32 nound
   %97 = load i8, ptr %96, align 4
   %98 = icmp eq i8 %97, -3
   %99 = zext i8 %97 to i32
-  %100 = icmp sgt i32 %99, %2
+  %100 = icmp slt i32 %2, %99
   %101 = or i1 %98, %100
   br i1 %101, label %102, label %106
 

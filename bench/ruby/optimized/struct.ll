@@ -4032,7 +4032,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
 
 50:                                               ; preds = %RARRAY_LENINT.exit
   %.not.i = icmp ne i32 %48, -1
-  %51 = icmp slt i32 %48, %0
+  %51 = icmp sgt i32 %0, %48
   %or.cond.i = and i1 %.not.i, %51
   br i1 %or.cond.i, label %52, label %rb_check_arity.exit
 

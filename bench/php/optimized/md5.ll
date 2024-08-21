@@ -296,7 +296,7 @@ define void @PHP_MD5Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
 17:                                               ; preds = %._crit_edge
   %18 = sub nuw nsw i32 64, %16
   %19 = zext nneg i32 %18 to i64
-  %20 = icmp ugt i64 %19, %2
+  %20 = icmp ult i64 %2, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = zext nneg i32 %16 to i64
   %23 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 %22

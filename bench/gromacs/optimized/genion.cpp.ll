@@ -534,24 +534,24 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %141, %144
   %170 = load float, ptr %169, align 4
   %171 = getelementptr inbounds i8, ptr %19, i64 20
   %172 = load float, ptr %171, align 4
-  %173 = fneg float %170
-  %174 = fmul float %172, %173
+  %173 = fneg float %172
+  %174 = fmul float %170, %173
   %175 = call float @llvm.fmuladd.f32(float %165, float %168, float %174)
   %176 = load float, ptr %163, align 4
   %177 = getelementptr inbounds i8, ptr %19, i64 4
   %178 = load float, ptr %177, align 4
   %179 = getelementptr inbounds i8, ptr %19, i64 8
   %180 = load float, ptr %179, align 8
-  %181 = fmul float %180, %173
-  %182 = call float @llvm.fmuladd.f32(float %178, float %168, float %181)
-  %183 = fneg float %176
-  %184 = fmul float %182, %183
-  %185 = call float @llvm.fmuladd.f32(float %162, float %175, float %184)
-  %186 = load float, ptr %166, align 8
-  %187 = fneg float %165
-  %188 = fmul float %180, %187
+  %181 = fneg float %180
+  %182 = fmul float %170, %181
+  %183 = call float @llvm.fmuladd.f32(float %178, float %168, float %182)
+  %184 = fneg float %183
+  %185 = fmul float %176, %184
+  %186 = call float @llvm.fmuladd.f32(float %162, float %175, float %185)
+  %187 = load float, ptr %166, align 8
+  %188 = fmul float %165, %181
   %189 = call float @llvm.fmuladd.f32(float %178, float %172, float %188)
-  %190 = call noundef float @llvm.fmuladd.f32(float %186, float %189, float %185)
+  %190 = call noundef float @llvm.fmuladd.f32(float %187, float %189, float %186)
   %191 = fmul float %159, %190
   %192 = fpext float %191 to double
   %193 = fmul double %192, 0x44DFE185CA57C517
@@ -1178,7 +1178,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %425 = ashr exact i64 %424, 2
   %426 = zext nneg i32 %418 to i64
   %427 = add nsw i64 %425, %426
-  %428 = icmp ult i64 %425, %427
+  %428 = icmp ugt i64 %427, %425
   br i1 %428, label %429, label %460
 
 429:                                              ; preds = %420
@@ -1269,7 +1269,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %457, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 460:                                              ; preds = %420
-  %461 = icmp ugt i64 %425, %427
+  %461 = icmp ult i64 %427, %425
   br i1 %461, label %462, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 462:                                              ; preds = %460
@@ -3705,7 +3705,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds i32, ptr %0, i64 %.0.us
   %19 = load i32, ptr %phi.call.us, align 4
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -3757,7 +3757,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds i32, ptr %0, i64 %.0
   %43 = load i32, ptr %phi.call, align 4
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i

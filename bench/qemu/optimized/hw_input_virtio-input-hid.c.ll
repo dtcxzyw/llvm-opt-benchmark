@@ -294,9 +294,9 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %bmax.1.i = phi i32 [ %bmax.012.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
-  %inc.i = add nuw i32 %i.011.i, 1
+  %inc.i = add i32 %i.011.i, 1
   %conv.i = sext i32 %inc.i to i64
-  %cmp.i = icmp ult i64 %conv.i, %conv
+  %cmp.i = icmp ugt i64 %conv, %conv.i
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.inc.i

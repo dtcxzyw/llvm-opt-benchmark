@@ -627,7 +627,7 @@ if.end17:                                         ; preds = %if.else
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %call.i
+  %cmp.i.i = icmp ugt i64 %call.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end17
@@ -636,7 +636,7 @@ if.then.i.i:                                      ; preds = %if.end17
   br label %_ZN19OpenColorIO_v2_4dev6ArrayTIfE6resizeEmm.exit
 
 if.else.i.i:                                      ; preds = %if.end17
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %call.i
+  %cmp4.i.i = icmp ult i64 %call.i, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN19OpenColorIO_v2_4dev6ArrayTIfE6resizeEmm.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
@@ -695,7 +695,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %call
+  %cmp.i = icmp ugt i64 %call, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -704,7 +704,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %call
+  %cmp4.i = icmp ult i64 %call, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -2330,7 +2330,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   br i1 %cmp4.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %cmp.i.i = icmp eq ptr %5, %this
+  %cmp.i.i = icmp eq ptr %this, %5
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
@@ -3822,7 +3822,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %2 = load ptr, ptr %m_data.i, align 8
   %add.ptr.i.i = getelementptr inbounds float, ptr %2, i64 %i.05.i
   %3 = load float, ptr %add.ptr.i.i, align 4
-  %mul.i = fmul float %3, %scale
+  %mul.i = fmul float %scale, %3
   store float %mul.i, ptr %add.ptr.i.i, align 4
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %umax.i

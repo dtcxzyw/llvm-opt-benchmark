@@ -1231,7 +1231,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end, %sw.bb2.i, %sw.bb1.i26
   %retval.0.i25.ph = phi i64 [ 24, %sw.bb1.i26 ], [ 32, %sw.bb2.i ], [ 16, %if.end ]
-  %cmp8.not = icmp eq i64 %retval.0.i25.ph, %keylen
+  %cmp8.not = icmp eq i64 %keylen, %retval.0.i25.ph
   br i1 %cmp8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end7

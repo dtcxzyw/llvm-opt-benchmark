@@ -58,7 +58,7 @@ define void @setTraceLevel(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 16), align 8
-  %6 = icmp sgt i32 %5, %1
+  %6 = icmp slt i32 %1, %5
   br i1 %6, label %71, label %7
 
 7:                                                ; preds = %4

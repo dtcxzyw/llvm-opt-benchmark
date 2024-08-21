@@ -824,8 +824,8 @@ define void @_ZNK12colvarmodule10quaternion25position_derivative_innerERKNS_7rve
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %20)
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load double, ptr %28, align 8
-  %30 = fneg double %15
-  %31 = fmul double %29, %30
+  %30 = fneg double %29
+  %31 = fmul double %15, %30
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %12, double %27)
   %33 = getelementptr inbounds i8, ptr %1, i64 16
   %34 = load double, ptr %33, align 8
@@ -835,18 +835,18 @@ define void @_ZNK12colvarmodule10quaternion25position_derivative_innerERKNS_7rve
   %38 = tail call double @llvm.fmuladd.f64(double %37, double %18, double %36)
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load double, ptr %39, align 8
-  %41 = fneg double %23
-  %42 = fmul double %40, %41
+  %41 = fneg double %40
+  %42 = fmul double %23, %41
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %18, double %38)
-  %44 = fneg double %9
-  %45 = fmul double %34, %44
+  %44 = fneg double %34
+  %45 = fmul double %9, %44
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %26, double %43)
   %47 = fmul double %15, %40
   %48 = tail call double @llvm.fmuladd.f64(double %47, double %26, double %46)
   store double %48, ptr %0, align 8
   %49 = fmul double %9, %40
-  %50 = fmul double %40, %30
-  %51 = fmul double %18, %50
+  %50 = fneg double %18
+  %51 = fmul double %47, %50
   %52 = tail call double @llvm.fmuladd.f64(double %49, double %12, double %51)
   %53 = tail call double @llvm.fmuladd.f64(double %42, double %26, double %52)
   %54 = fmul double %15, %34
@@ -855,39 +855,40 @@ define void @_ZNK12colvarmodule10quaternion25position_derivative_innerERKNS_7rve
   %57 = tail call double @llvm.fmuladd.f64(double %56, double %12, double %55)
   %58 = fmul double %9, %34
   %59 = tail call double @llvm.fmuladd.f64(double %58, double %18, double %57)
-  %60 = fmul double %10, %41
-  %61 = tail call double @llvm.fmuladd.f64(double %60, double %18, double %59)
-  %62 = tail call double @llvm.fmuladd.f64(double %37, double %26, double %61)
-  %63 = tail call double @llvm.fmuladd.f64(double %16, double %26, double %62)
-  store double %63, ptr %5, align 8
-  %64 = fmul double %8, -2.000000e+00
-  %65 = fmul double %64, %34
-  %66 = fmul double %18, %54
-  %67 = tail call double @llvm.fmuladd.f64(double %65, double %12, double %66)
-  %68 = fmul double %34, %41
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double %26, double %67)
-  %70 = tail call double @llvm.fmuladd.f64(double %47, double %12, double %69)
-  %71 = tail call double @llvm.fmuladd.f64(double %24, double %12, double %70)
-  %72 = tail call double @llvm.fmuladd.f64(double %49, double %18, double %71)
-  %73 = tail call double @llvm.fmuladd.f64(double %56, double %18, double %72)
-  %74 = fmul double %10, %44
-  %75 = tail call double @llvm.fmuladd.f64(double %74, double %26, double %73)
-  %76 = fmul double %15, %29
-  %77 = tail call double @llvm.fmuladd.f64(double %76, double %26, double %75)
-  store double %77, ptr %6, align 8
-  %78 = fmul double %64, %29
-  %79 = fmul double %18, %31
-  %80 = tail call double @llvm.fmuladd.f64(double %78, double %12, double %79)
-  %81 = tail call double @llvm.fmuladd.f64(double %56, double %26, double %80)
-  %82 = fmul double %10, %30
-  %83 = tail call double @llvm.fmuladd.f64(double %82, double %12, double %81)
-  %84 = fmul double %23, %40
-  %85 = tail call double @llvm.fmuladd.f64(double %84, double %12, double %83)
-  %86 = tail call double @llvm.fmuladd.f64(double %11, double %18, double %85)
-  %87 = tail call double @llvm.fmuladd.f64(double %35, double %18, double %86)
-  %88 = tail call double @llvm.fmuladd.f64(double %49, double %26, double %87)
-  %89 = tail call double @llvm.fmuladd.f64(double %54, double %26, double %88)
-  store double %89, ptr %7, align 8
+  %60 = fneg double %10
+  %61 = fmul double %23, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %61, double %18, double %59)
+  %63 = tail call double @llvm.fmuladd.f64(double %37, double %26, double %62)
+  %64 = tail call double @llvm.fmuladd.f64(double %16, double %26, double %63)
+  store double %64, ptr %5, align 8
+  %65 = fmul double %8, -2.000000e+00
+  %66 = fmul double %65, %34
+  %67 = fmul double %18, %54
+  %68 = tail call double @llvm.fmuladd.f64(double %66, double %12, double %67)
+  %69 = fmul double %23, %44
+  %70 = tail call double @llvm.fmuladd.f64(double %69, double %26, double %68)
+  %71 = tail call double @llvm.fmuladd.f64(double %47, double %12, double %70)
+  %72 = tail call double @llvm.fmuladd.f64(double %24, double %12, double %71)
+  %73 = tail call double @llvm.fmuladd.f64(double %49, double %18, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %56, double %18, double %73)
+  %75 = fmul double %9, %60
+  %76 = tail call double @llvm.fmuladd.f64(double %75, double %26, double %74)
+  %77 = fmul double %15, %29
+  %78 = tail call double @llvm.fmuladd.f64(double %77, double %26, double %76)
+  store double %78, ptr %6, align 8
+  %79 = fmul double %65, %29
+  %80 = fmul double %77, %50
+  %81 = tail call double @llvm.fmuladd.f64(double %79, double %12, double %80)
+  %82 = tail call double @llvm.fmuladd.f64(double %56, double %26, double %81)
+  %83 = fmul double %15, %60
+  %84 = tail call double @llvm.fmuladd.f64(double %83, double %12, double %82)
+  %85 = fmul double %23, %40
+  %86 = tail call double @llvm.fmuladd.f64(double %85, double %12, double %84)
+  %87 = tail call double @llvm.fmuladd.f64(double %11, double %18, double %86)
+  %88 = tail call double @llvm.fmuladd.f64(double %35, double %18, double %87)
+  %89 = tail call double @llvm.fmuladd.f64(double %49, double %26, double %88)
+  %90 = tail call double @llvm.fmuladd.f64(double %54, double %26, double %89)
+  store double %90, ptr %7, align 8
   ret void
 }
 
@@ -4714,7 +4715,7 @@ define linkonce_odr void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -4785,7 +4786,7 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EE13_M_deallocateEPS1_m.exit37
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -4822,7 +4823,7 @@ define linkonce_odr void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %3
@@ -4866,7 +4867,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %.lr
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %8
   %27 = sdiv exact i64 %26, 24
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %22
@@ -10958,7 +10959,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc35
   %.pre-phi77 = phi i64 [ %.pre76, %._crit_edge59.loopexit66 ], [ %15, %26 ], [ %15, %.preheader.lr.ph ]
   %51 = phi ptr [ %.pre68, %._crit_edge59.loopexit66 ], [ %11, %26 ], [ %11, %.preheader.lr.ph ]
   %52 = phi ptr [ %.pre67, %._crit_edge59.loopexit66 ], [ %10, %26 ], [ %10, %.preheader.lr.ph ]
-  %53 = icmp ult i64 %.pre-phi77, %16
+  %53 = icmp ugt i64 %16, %.pre-phi77
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %._crit_edge59
@@ -10967,7 +10968,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc35
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %65
 
 56:                                               ; preds = %._crit_edge59
-  %57 = icmp ugt i64 %.pre-phi77, %16
+  %57 = icmp ult i64 %16, %.pre-phi77
   br i1 %57, label %58, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 58:                                               ; preds = %56
@@ -11004,7 +11005,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %60, %58, %56, %54
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit38
 
 69:                                               ; preds = %8
-  %70 = icmp ult i64 %15, %16
+  %70 = icmp ugt i64 %16, %15
   br i1 %70, label %71, label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 71:                                               ; preds = %69
@@ -11530,7 +11531,7 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef 
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %3
@@ -11573,7 +11574,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %8
   %27 = ashr exact i64 %26, 3
-  %28 = icmp ult i64 %27, %1
+  %28 = icmp ugt i64 %1, %27
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %22
@@ -11600,7 +11601,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.loopexit, %29
   %.pre-phi27 = phi i64 [ %.pre26, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.loopexit ], [ %27, %29 ]
   %32 = phi ptr [ %.pre19, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit.loopexit ], [ %24, %29 ]
-  %33 = icmp eq i64 %.pre-phi27, %1
+  %33 = icmp eq i64 %1, %.pre-phi27
   br i1 %33, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %34
 
 34:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit

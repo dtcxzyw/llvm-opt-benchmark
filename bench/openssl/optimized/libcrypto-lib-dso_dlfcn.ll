@@ -352,7 +352,7 @@ if.then5:                                         ; preds = %if.then1
   br label %return
 
 if.end6:                                          ; preds = %if.then1
-  %cmp7.not = icmp slt i32 %conv, %sz
+  %cmp7.not = icmp sgt i32 %sz, %conv
   %sub = add nsw i32 %sz, -1
   %spec.select9 = select i1 %cmp7.not, i32 %conv, i32 %sub
   %conv12 = sext i32 %spec.select9 to i64

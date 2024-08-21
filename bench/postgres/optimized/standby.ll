@@ -327,7 +327,7 @@ define dso_local void @ResolveRecoveryConflictWithSnapshot(i32 noundef %0, i1 no
   tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %6, i32 noundef 10, i32 noundef 134217771, i1 noundef zeroext true)
   %7 = load i32, ptr @wal_level, align 4
   %8 = icmp sgt i32 %7, 1
-  %brmerge.not = and i1 %8, %1
+  %brmerge.not = and i1 %1, %8
   br i1 %brmerge.not, label %9, label %11
 
 9:                                                ; preds = %5
@@ -565,7 +565,7 @@ define dso_local void @ResolveRecoveryConflictWithSnapshotFullXid(i64 %0, i1 nou
   tail call fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %11, i32 noundef 10, i32 noundef 134217771, i1 noundef zeroext true)
   %12 = load i32, ptr @wal_level, align 4
   %13 = icmp sgt i32 %12, 1
-  %brmerge.not.i = and i1 %13, %1
+  %brmerge.not.i = and i1 %1, %13
   br i1 %brmerge.not.i, label %14, label %ResolveRecoveryConflictWithSnapshot.exit
 
 14:                                               ; preds = %10

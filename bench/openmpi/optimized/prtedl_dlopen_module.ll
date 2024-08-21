@@ -26,7 +26,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   store ptr null, ptr %3, align 8
   %. = select i1 %2, i32 1, i32 257
   %8 = icmp ne ptr %0, null
-  %or.cond = and i1 %8, %1
+  %or.cond = and i1 %1, %8
   br i1 %or.cond, label %9, label %41
 
 9:                                                ; preds = %5

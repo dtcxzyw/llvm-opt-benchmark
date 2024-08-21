@@ -306,7 +306,7 @@ define void @_ZN6uu_yes14prepare_buffer17h11868802ee63e8cfE(ptr noalias noundef 
   %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %20, i64 %19)
   %21 = load i64, ptr %0, align 8, !alias.scope !78, !noundef !31
   %22 = sub i64 %21, %16
-  %23 = icmp ult i64 %22, %spec.select.i.i.i
+  %23 = icmp ugt i64 %spec.select.i.i.i, %22
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281dc547aed22dE.exit"
 
 24:                                               ; preds = %15

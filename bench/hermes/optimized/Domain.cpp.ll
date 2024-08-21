@@ -366,7 +366,7 @@ if.end30:                                         ; preds = %_ZN6hermes2vm16Arra
   %cjsRuntimeModules_ = getelementptr inbounds i8, ptr %12, i64 8
   %capacity_.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load i64, ptr %capacity_.i, align 8
-  %cmp.i89 = icmp ult i64 %13, %add
+  %cmp.i89 = icmp ugt i64 %add, %13
   br i1 %cmp.i89, label %if.then.i91, label %_ZN6hermes2vm14CopyableVectorIPNS0_13RuntimeModuleEE7reserveEm.exit
 
 if.then.i91:                                      ; preds = %if.end30
@@ -702,7 +702,7 @@ if.end176:                                        ; preds = %if.then170
   %cjsRuntimeModules_178 = getelementptr inbounds i8, ptr %50, i64 8
   %capacity_.i159 = getelementptr inbounds i8, ptr %50, i64 24
   %51 = load i64, ptr %capacity_.i159, align 8
-  %cmp.i160 = icmp ult i64 %51, %add157
+  %cmp.i160 = icmp ugt i64 %add157, %51
   br i1 %cmp.i160, label %if.then.i162, label %_ZN6hermes2vm14CopyableVectorIPNS0_13RuntimeModuleEE7reserveEm.exit178
 
 if.then.i162:                                     ; preds = %if.end176

@@ -1767,7 +1767,7 @@ define dso_local i32 @conv_uni_to_8bit(i32 noundef %0) local_unnamed_addr #10 al
   %5 = getelementptr [4 x [256 x i16]], ptr @translations, i64 0, i64 3, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %3

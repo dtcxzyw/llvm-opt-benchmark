@@ -628,7 +628,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %log_verbosity = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i32, ptr %log_verbosity, align 8
-  %cmp2 = icmp slt i32 %1, %level
+  %cmp2 = icmp sgt i32 %level, %1
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
@@ -2516,7 +2516,7 @@ if.end:                                           ; preds = %entry
   %switch.selectcmp.case2 = icmp eq i32 %opt, 24
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %0 = sext i1 %switch.selectcmp to i32
-  %cmp2 = icmp sgt i32 %0, %val
+  %cmp2 = icmp slt i32 %val, %0
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end

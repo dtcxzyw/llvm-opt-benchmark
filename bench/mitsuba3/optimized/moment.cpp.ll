@@ -277,7 +277,7 @@ define weak_odr void @_ZN7mitsuba16MomentIntegratorIfN5drjit6MatrixINS_8Spectrum
 
 42:                                               ; preds = %._crit_edge132
   %43 = load ptr, ptr %18, align 8
-  %.not6.i.i.i.i = icmp eq ptr %43, %41
+  %.not6.i.i.i.i = icmp eq ptr %41, %43
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %42, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i.i
@@ -294,7 +294,7 @@ define weak_odr void @_ZN7mitsuba16MomentIntegratorIfN5drjit6MatrixINS_8Spectrum
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i.i: ; preds = %47, %.lr.ph.i.i.i.i
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #23
-  %.not.i.i.i.i = icmp eq ptr %44, %41
+  %.not.i.i.i.i = icmp eq ptr %41, %44
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i.i
@@ -893,14 +893,14 @@ _ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i67: ; preds = %265, %_ZNSt
 
 283:                                              ; preds = %281
   %284 = load ptr, ptr %20, align 8
-  %.not6.i.i.i.i76 = icmp eq ptr %284, %282
+  %.not6.i.i.i.i76 = icmp eq ptr %282, %284
   br i1 %.not6.i.i.i.i76, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i77
 
 .lr.ph.i.i.i.i77:                                 ; preds = %283, %.lr.ph.i.i.i.i77
   %.07.i.i.i.i78 = phi ptr [ %285, %.lr.ph.i.i.i.i77 ], [ %284, %283 ]
   %285 = getelementptr inbounds i8, ptr %.07.i.i.i.i78, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #23
-  %.not.i.i.i.i79 = icmp eq ptr %285, %282
+  %.not.i.i.i.i79 = icmp eq ptr %282, %285
   br i1 %.not.i.i.i.i79, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i77
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i77
@@ -1118,14 +1118,14 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_t
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %5, %3 ]
   %6 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %.lr.ph.i.i.i
@@ -1151,7 +1151,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i
@@ -1168,7 +1168,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i: ; preds = %9, %.lr.ph.i.i.i
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba3refINS8_6ObjectEEEEEEEE7destroyB8ne190000ISC_TnNS_9enable_ifIXsr13__has_destroyISD_PT_EE5valueEiE4typeELi0EEEvRSD_SI_.exit.i.i.i
@@ -1196,7 +1196,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18S
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6.i.i.i = icmp eq ptr %5, %2
+  %.not6.i.i.i = icmp eq ptr %2, %5
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEEEmEENS_9allocatorISC_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i
@@ -1211,7 +1211,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18S
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i: ; preds = %8, %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %6, %2
+  %.not.i.i.i = icmp eq ptr %2, %6
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEEEmEENS_9allocatorISC_EEE7__clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEEEmEENS_9allocatorISC_EEE7__clearB8ne190000Ev.exit.i.loopexit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i
@@ -1342,16 +1342,16 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %76 = select contract <4 x i1> %71, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, <4 x float> %75
   %77 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %76, <4 x float> zeroinitializer, i8 -1)
   %78 = fadd contract <4 x float> %77, %77
-  %79 = fneg contract <4 x float> %77
-  %80 = fmul contract <4 x float> %76, %79
+  %79 = fneg contract <4 x float> %76
+  %80 = fmul contract <4 x float> %77, %79
   %81 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %80, <4 x float> %77, <4 x float> %78)
   %82 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %81, <4 x float> %76, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %83 = fadd contract <4 x float> %82, %76
   %84 = fmul contract <4 x float> %83, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
   %85 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %84, <4 x float> zeroinitializer, i8 -1)
   %86 = fadd contract <4 x float> %85, %85
-  %87 = fneg contract <4 x float> %85
-  %88 = fmul contract <4 x float> %84, %87
+  %87 = fneg contract <4 x float> %84
+  %88 = fmul contract <4 x float> %85, %87
   %89 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %88, <4 x float> %85, <4 x float> %86)
   %90 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %89, <4 x float> %84, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %91 = fcmp contract oge <4 x float> %56, <float 3.600000e+02, float 3.600000e+02, float 3.600000e+02, float 3.600000e+02>
@@ -1363,8 +1363,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %97 = fcmp contract une <4 x float> %96, zeroinitializer
   %98 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %96, <4 x float> zeroinitializer, i8 -1)
   %99 = fadd contract <4 x float> %98, %98
-  %100 = fneg contract <4 x float> %98
-  %101 = fmul contract <4 x float> %96, %100
+  %100 = fneg contract <4 x float> %96
+  %101 = fmul contract <4 x float> %98, %100
   %102 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %101, <4 x float> %98, <4 x float> %99)
   %103 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %102, <4 x float> %96, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
   %104 = select contract <4 x i1> %97, <4 x float> %103, <4 x float> zeroinitializer
@@ -2437,7 +2437,7 @@ define linkonce_odr void @_ZN7mitsuba16MomentIntegratorIfN5drjit6MatrixINS_8Spec
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
-  %.not6.i.i.i.i = icmp eq ptr %6, %3
+  %.not6.i.i.i.i = icmp eq ptr %3, %6
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEEEmEENS_9allocatorISC_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i.i
@@ -2452,7 +2452,7 @@ define linkonce_odr void @_ZN7mitsuba16MomentIntegratorIfN5drjit6MatrixINS_8Spec
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %7, %3
+  %.not.i.i.i.i = icmp eq ptr %3, %7
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEEEmEENS_9allocatorISC_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEEEmEENS_9allocatorISC_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairIN7mitsuba3refINS3_18SamplingIntegratorIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEEEEEmEEEEE7destroyB8ne190000ISD_TnNS_9enable_ifIXsr13__has_destroyISE_PT_EE5valueEiE4typeELi0EEEvRSE_SJ_.exit.i.i.i.i
@@ -2474,14 +2474,14 @@ _ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6Matrix
 13:                                               ; preds = %_ZNSt3__16vectorINS_4pairIN7mitsuba3refINS2_18SamplingIntegratorIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEEEEmEENS_9allocatorISC_EEED2B8ne190000Ev.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
-  %.not6.i.i.i.i2 = icmp eq ptr %15, %12
+  %.not6.i.i.i.i2 = icmp eq ptr %12, %15
   br i1 %.not6.i.i.i.i2, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i3
 
 .lr.ph.i.i.i.i3:                                  ; preds = %13, %.lr.ph.i.i.i.i3
   %.07.i.i.i.i4 = phi ptr [ %16, %.lr.ph.i.i.i.i3 ], [ %15, %13 ]
   %16 = getelementptr inbounds i8, ptr %.07.i.i.i.i4, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #23
-  %.not.i.i.i.i5 = icmp eq ptr %16, %12
+  %.not.i.i.i.i5 = icmp eq ptr %12, %16
   br i1 %.not.i.i.i.i5, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i3
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i3
@@ -3983,14 +3983,14 @@ define linkonce_odr hidden void @_ZNSt3__128__exception_guard_exceptionsINS_6vec
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
-  %.not6.i.i.i = icmp eq ptr %10, %7
+  %.not6.i.i.i = icmp eq ptr %7, %10
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %10, %8 ]
   %11 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #23
-  %.not.i.i.i = icmp eq ptr %11, %7
+  %.not.i.i.i = icmp eq ptr %7, %11
   br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i.i.i, %8

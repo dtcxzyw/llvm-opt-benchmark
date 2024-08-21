@@ -906,7 +906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit134: ; preds = %_Z
   %134 = getelementptr inbounds i8, ptr %133, i64 %103
   store i8 0, ptr %134, align 1
   %135 = icmp ne i8 %81, 109
-  %or.cond.not = or i1 %135, %3
+  %or.cond.not = or i1 %3, %135
   br i1 %or.cond.not, label %.thread207, label %136
 
 136:                                              ; preds = %130

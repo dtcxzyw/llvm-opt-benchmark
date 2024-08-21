@@ -384,9 +384,9 @@ while.body.i.i:                                   ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i, %3
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -474,9 +474,9 @@ while.body.i:                                     ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %2, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i ]
   %2 = load ptr, ptr %pNodeCurrent.07.i, align 8
   %3 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %3, %pNodeCurrent.07.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i, %3
   %4 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %4, %pNodeCurrent.07.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i, %4
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -734,9 +734,9 @@ while.body.i.i:                                   ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i, %3
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -785,9 +785,9 @@ while.body.i.i:                                   ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i, %3
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -837,9 +837,9 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %3
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -1947,9 +1947,9 @@ while.body.i.i25:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i = phi ptr [ %14, %while.body.lr.ph.i.i ], [ %16, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i ]
   %16 = load ptr, ptr %pNodeCurrent.07.i.i, align 8
   %17 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %17, %pNodeCurrent.07.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i, %17
   %18 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %18, %pNodeCurrent.07.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i, %18
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -2098,9 +2098,9 @@ while.body.i.i1265:                               ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i1266 = phi ptr [ %39, %while.body.lr.ph.i.i1260 ], [ %40, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1271 ]
   %40 = load ptr, ptr %pNodeCurrent.07.i.i1266, align 8
   %41 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i1267 = icmp ule ptr %41, %pNodeCurrent.07.i.i1266
+  %cmp.not.i.i.i.i.i1267 = icmp uge ptr %pNodeCurrent.07.i.i1266, %41
   %42 = load ptr, ptr %mpCapacity.i.i.i.i.i1262, align 8
-  %cmp2.i.i.i.i.i1268 = icmp ugt ptr %42, %pNodeCurrent.07.i.i1266
+  %cmp2.i.i.i.i.i1268 = icmp ult ptr %pNodeCurrent.07.i.i1266, %42
   %or.cond.i.i.i.i.i1269 = select i1 %cmp.not.i.i.i.i.i1267, i1 %cmp2.i.i.i.i.i1268, i1 false
   br i1 %or.cond.i.i.i.i.i1269, label %if.then.i.i.i.i.i1275, label %delete.notnull.i.i.i.i.i.i1270
 
@@ -2165,9 +2165,9 @@ while.body.i.i.i.i:                               ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i.i = phi ptr [ %48, %while.body.lr.ph.i.i.i.i ], [ %49, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i ]
   %49 = load ptr, ptr %pNodeCurrent.07.i.i.i.i, align 8
   %50 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i54 = icmp ule ptr %50, %pNodeCurrent.07.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i54 = icmp uge ptr %pNodeCurrent.07.i.i.i.i, %50
   %51 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i52, align 8
-  %cmp2.i.i.i.i.i.i.i = icmp ugt ptr %51, %pNodeCurrent.07.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i.i, %51
   %or.cond.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i54, i1 %cmp2.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i55, label %delete.notnull.i.i.i.i.i.i.i.i
 
@@ -2520,9 +2520,9 @@ while.body.i.i.i.i160:                            ; preds = %invoke.cont133, %_Z
   %pNodeCurrent.07.i.i.i.i161 = phi ptr [ %96, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i ], [ %95, %invoke.cont133 ]
   %96 = load ptr, ptr %pNodeCurrent.07.i.i.i.i161, align 8
   %97 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i61, align 8
-  %cmp.not.i.i.i.i.i.i.i162 = icmp ule ptr %97, %pNodeCurrent.07.i.i.i.i161
+  %cmp.not.i.i.i.i.i.i.i162 = icmp uge ptr %pNodeCurrent.07.i.i.i.i161, %97
   %98 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i131, align 8
-  %cmp2.i.i.i.i.i.i.i163 = icmp ugt ptr %98, %pNodeCurrent.07.i.i.i.i161
+  %cmp2.i.i.i.i.i.i.i163 = icmp ult ptr %pNodeCurrent.07.i.i.i.i161, %98
   %or.cond.i.i.i.i.i.i.i164 = select i1 %cmp.not.i.i.i.i.i.i.i162, i1 %cmp2.i.i.i.i.i.i.i163, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i164, label %if.then.i.i.i.i.i.i.i168, label %if.else.i.i.i.i.i.i.i165
 
@@ -2848,9 +2848,9 @@ while.body.i.i.i.i269:                            ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i.i270 = phi ptr [ %146, %while.body.lr.ph.i.i.i.i262 ], [ %147, %_ZN5eastl9SListBaseI7Align64NS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i ]
   %147 = load ptr, ptr %pNodeCurrent.07.i.i.i.i270, align 64
   %148 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i174, align 8
-  %cmp.not.i.i.i.i.i.i.i271 = icmp ule ptr %148, %pNodeCurrent.07.i.i.i.i270
+  %cmp.not.i.i.i.i.i.i.i271 = icmp uge ptr %pNodeCurrent.07.i.i.i.i270, %148
   %149 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i264, align 8
-  %cmp2.i.i.i.i.i.i.i272 = icmp ugt ptr %149, %pNodeCurrent.07.i.i.i.i270
+  %cmp2.i.i.i.i.i.i.i272 = icmp ult ptr %pNodeCurrent.07.i.i.i.i270, %149
   %or.cond.i.i.i.i.i.i.i273 = select i1 %cmp.not.i.i.i.i.i.i.i271, i1 %cmp2.i.i.i.i.i.i.i272, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i273, label %if.then.i.i.i.i.i.i.i278, label %if.else.i.i.i.i.i.i.i274
 
@@ -3743,10 +3743,10 @@ invoke.cont289:                                   ; preds = %_ZNK5eastl11fixed_s
   %286 = load ptr, ptr %285, align 8
   store ptr %286, ptr %listInt5222, align 8
   %287 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i441, align 8
-  %cmp.not.i.i.i.i624 = icmp ule ptr %287, %285
+  %cmp.not.i.i.i.i624 = icmp uge ptr %285, %287
   %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %listInt5222, i64 24
   %288 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %288, %285
+  %cmp2.i.i.i.i = icmp ult ptr %285, %288
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i624, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -3801,9 +3801,9 @@ while.body.i.i.i.i644:                            ; preds = %invoke.cont298, %_Z
   %pNodeCurrent.07.i.i.i.i645 = phi ptr [ %296, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i ], [ %295, %invoke.cont298 ]
   %296 = load ptr, ptr %pNodeCurrent.07.i.i.i.i645, align 8
   %297 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i441, align 8
-  %cmp.not.i.i.i.i.i.i.i646 = icmp ule ptr %297, %pNodeCurrent.07.i.i.i.i645
+  %cmp.not.i.i.i.i.i.i.i646 = icmp uge ptr %pNodeCurrent.07.i.i.i.i645, %297
   %298 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i.i647 = icmp ugt ptr %298, %pNodeCurrent.07.i.i.i.i645
+  %cmp2.i.i.i.i.i.i.i647 = icmp ult ptr %pNodeCurrent.07.i.i.i.i645, %298
   %or.cond.i.i.i.i.i.i.i648 = select i1 %cmp.not.i.i.i.i.i.i.i646, i1 %cmp2.i.i.i.i.i.i.i647, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i648, label %if.then.i.i.i.i.i.i.i652, label %delete.notnull.i.i.i.i.i.i.i.i649
 
@@ -4220,9 +4220,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i
   %inc3.i.i.i.i.i.i = add nsw i64 %354, 1
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %355 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i742, align 8
-  %cmp.not.i.i.i.i.i.i.i775 = icmp ule ptr %355, %pNodeCurrent.08.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i775 = icmp uge ptr %pNodeCurrent.08.i.i.i.i, %355
   %356 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i769, align 8
-  %cmp2.i.i.i.i.i.i.i776 = icmp ugt ptr %356, %pNodeCurrent.08.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i776 = icmp ult ptr %pNodeCurrent.08.i.i.i.i, %356
   %or.cond.i.i.i.i.i.i.i777 = select i1 %cmp.not.i.i.i.i.i.i.i775, i1 %cmp2.i.i.i.i.i.i.i776, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i777, label %if.then.i.i.i.i.i.i.i782, label %if.else.i.i.i.i.i.i.i778
 
@@ -4289,9 +4289,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i797: ; preds = %if.then.i.i.i.
   %inc3.i.i.i.i.i.i799 = add nsw i64 %367, 1
   store i64 %inc3.i.i.i.i.i.i799, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %368 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i785, align 8
-  %cmp.not.i.i.i.i.i.i.i800 = icmp ule ptr %368, %pNodeCurrent.08.i.i.i.i792
+  %cmp.not.i.i.i.i.i.i.i800 = icmp uge ptr %pNodeCurrent.08.i.i.i.i792, %368
   %369 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i786, align 8
-  %cmp2.i.i.i.i.i.i.i801 = icmp ugt ptr %369, %pNodeCurrent.08.i.i.i.i792
+  %cmp2.i.i.i.i.i.i.i801 = icmp ult ptr %pNodeCurrent.08.i.i.i.i792, %369
   %or.cond.i.i.i.i.i.i.i802 = select i1 %cmp.not.i.i.i.i.i.i.i800, i1 %cmp2.i.i.i.i.i.i.i801, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i802, label %if.then.i.i.i.i.i.i.i808, label %if.else.i.i.i.i.i.i.i803
 
@@ -4354,9 +4354,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i824: ; preds = %if.then.i.i.i.
   %inc3.i.i.i.i.i.i826 = add nsw i64 %380, 1
   store i64 %inc3.i.i.i.i.i.i826, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %381 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i703, align 8
-  %cmp.not.i.i.i.i.i.i.i827 = icmp ule ptr %381, %pNodeCurrent.08.i.i.i.i819
+  %cmp.not.i.i.i.i.i.i.i827 = icmp uge ptr %pNodeCurrent.08.i.i.i.i819, %381
   %382 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i813, align 8
-  %cmp2.i.i.i.i.i.i.i828 = icmp ugt ptr %382, %pNodeCurrent.08.i.i.i.i819
+  %cmp2.i.i.i.i.i.i.i828 = icmp ult ptr %pNodeCurrent.08.i.i.i.i819, %382
   %or.cond.i.i.i.i.i.i.i829 = select i1 %cmp.not.i.i.i.i.i.i.i827, i1 %cmp2.i.i.i.i.i.i.i828, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i829, label %if.then.i.i.i.i.i.i.i835, label %if.else.i.i.i.i.i.i.i830
 
@@ -4418,9 +4418,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i849: ; preds = %if.then.i.i.i.
   %inc3.i.i.i.i.i.i851 = add nsw i64 %393, 1
   store i64 %inc3.i.i.i.i.i.i851, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %394 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i671, align 8
-  %cmp.not.i.i.i.i.i.i.i852 = icmp ule ptr %394, %pNodeCurrent.08.i.i.i.i844
+  %cmp.not.i.i.i.i.i.i.i852 = icmp uge ptr %pNodeCurrent.08.i.i.i.i844, %394
   %395 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i840, align 8
-  %cmp2.i.i.i.i.i.i.i853 = icmp ugt ptr %395, %pNodeCurrent.08.i.i.i.i844
+  %cmp2.i.i.i.i.i.i.i853 = icmp ult ptr %pNodeCurrent.08.i.i.i.i844, %395
   %or.cond.i.i.i.i.i.i.i854 = select i1 %cmp.not.i.i.i.i.i.i.i852, i1 %cmp2.i.i.i.i.i.i.i853, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i854, label %if.then.i.i.i.i.i.i.i858, label %delete.notnull.i.i.i.i.i.i.i.i855
 
@@ -4474,9 +4474,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i871: ; preds = %if.then.i.i.i.
   %inc3.i.i.i.i.i.i873 = add nsw i64 %403, 1
   store i64 %inc3.i.i.i.i.i.i873, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %404 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i659, align 8
-  %cmp.not.i.i.i.i.i.i.i874 = icmp ule ptr %404, %pNodeCurrent.08.i.i.i.i866
+  %cmp.not.i.i.i.i.i.i.i874 = icmp uge ptr %pNodeCurrent.08.i.i.i.i866, %404
   %405 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i862, align 8
-  %cmp2.i.i.i.i.i.i.i875 = icmp ugt ptr %405, %pNodeCurrent.08.i.i.i.i866
+  %cmp2.i.i.i.i.i.i.i875 = icmp ult ptr %pNodeCurrent.08.i.i.i.i866, %405
   %or.cond.i.i.i.i.i.i.i876 = select i1 %cmp.not.i.i.i.i.i.i.i874, i1 %cmp2.i.i.i.i.i.i.i875, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i876, label %if.then.i.i.i.i.i.i.i881, label %delete.notnull.i.i.i.i.i.i.i.i877
 
@@ -4969,9 +4969,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i1061: ; preds = %if.then.i.i.i
   %inc3.i.i.i.i.i.i1063 = add nsw i64 %481, 1
   store i64 %inc3.i.i.i.i.i.i1063, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %482 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i957, align 8
-  %cmp.not.i.i.i.i.i.i.i1064 = icmp ule ptr %482, %pNodeCurrent.08.i.i.i.i1056
+  %cmp.not.i.i.i.i.i.i.i1064 = icmp uge ptr %pNodeCurrent.08.i.i.i.i1056, %482
   %483 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i1052, align 8
-  %cmp2.i.i.i.i.i.i.i1065 = icmp ugt ptr %483, %pNodeCurrent.08.i.i.i.i1056
+  %cmp2.i.i.i.i.i.i.i1065 = icmp ult ptr %pNodeCurrent.08.i.i.i.i1056, %483
   %or.cond.i.i.i.i.i.i.i1066 = select i1 %cmp.not.i.i.i.i.i.i.i1064, i1 %cmp2.i.i.i.i.i.i.i1065, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i1066, label %if.then.i.i.i.i.i.i.i1071, label %delete.notnull.i.i.i.i.i.i.i.i1067
 
@@ -5025,9 +5025,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i1085: ; preds = %if.then.i.i.i
   %inc3.i.i.i.i.i.i1087 = add nsw i64 %491, 1
   store i64 %inc3.i.i.i.i.i.i1087, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %492 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i888, align 8
-  %cmp.not.i.i.i.i.i.i.i1088 = icmp ule ptr %492, %pNodeCurrent.08.i.i.i.i1080
+  %cmp.not.i.i.i.i.i.i.i1088 = icmp uge ptr %pNodeCurrent.08.i.i.i.i1080, %492
   %493 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i1076, align 8
-  %cmp2.i.i.i.i.i.i.i1089 = icmp ugt ptr %493, %pNodeCurrent.08.i.i.i.i1080
+  %cmp2.i.i.i.i.i.i.i1089 = icmp ult ptr %pNodeCurrent.08.i.i.i.i1080, %493
   %or.cond.i.i.i.i.i.i.i1090 = select i1 %cmp.not.i.i.i.i.i.i.i1088, i1 %cmp2.i.i.i.i.i.i.i1089, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i1090, label %if.then.i.i.i.i.i.i.i1095, label %delete.notnull.i.i.i.i.i.i.i.i1091
 
@@ -5158,9 +5158,9 @@ while.body.i.i.i1107:                             ; preds = %invoke.cont443, %_Z
   %pNodeCurrent.07.i.i.i = phi ptr [ %508, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i ], [ %507, %invoke.cont443 ]
   %508 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 8
   %509 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i1102, align 8
-  %cmp.not.i.i.i.i.i.i1108 = icmp ule ptr %509, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i1108 = icmp uge ptr %pNodeCurrent.07.i.i.i, %509
   %510 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i1282, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %510, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %510
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i1108, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i1110, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -5282,9 +5282,9 @@ while.body.i.i1409:                               ; preds = %if.then.i1402, %_ZN
   %pNodeCurrent.07.i.i1410 = phi ptr [ %524, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1415 ], [ %pNode.0.i1425, %if.then.i1402 ]
   %524 = load ptr, ptr %pNodeCurrent.07.i.i1410, align 8
   %525 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i1102, align 8
-  %cmp.not.i.i.i.i.i1411 = icmp ule ptr %525, %pNodeCurrent.07.i.i1410
+  %cmp.not.i.i.i.i.i1411 = icmp uge ptr %pNodeCurrent.07.i.i1410, %525
   %526 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i1282, align 8
-  %cmp2.i.i.i.i.i1412 = icmp ugt ptr %526, %pNodeCurrent.07.i.i1410
+  %cmp2.i.i.i.i.i1412 = icmp ult ptr %pNodeCurrent.07.i.i1410, %526
   %or.cond.i.i.i.i.i1413 = select i1 %cmp.not.i.i.i.i.i1411, i1 %cmp2.i.i.i.i.i1412, i1 false
   br i1 %or.cond.i.i.i.i.i1413, label %if.then.i.i.i.i.i1419, label %delete.notnull.i.i.i.i.i.i1414
 
@@ -5443,9 +5443,9 @@ while.body.i.i.i.i1142:                           ; preds = %invoke.cont498, %_Z
   %pNodeCurrent.07.i.i.i.i1143 = phi ptr [ %549, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i ], [ %548, %invoke.cont498 ]
   %549 = load ptr, ptr %pNodeCurrent.07.i.i.i.i1143, align 8
   %550 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i1102, align 8
-  %cmp.not.i.i.i.i.i.i.i1144 = icmp ule ptr %550, %pNodeCurrent.07.i.i.i.i1143
+  %cmp.not.i.i.i.i.i.i.i1144 = icmp uge ptr %pNodeCurrent.07.i.i.i.i1143, %550
   %551 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i.i1282, align 8
-  %cmp2.i.i.i.i.i.i.i1145 = icmp ugt ptr %551, %pNodeCurrent.07.i.i.i.i1143
+  %cmp2.i.i.i.i.i.i.i1145 = icmp ult ptr %pNodeCurrent.07.i.i.i.i1143, %551
   %or.cond.i.i.i.i.i.i.i1146 = select i1 %cmp.not.i.i.i.i.i.i.i1144, i1 %cmp2.i.i.i.i.i.i.i1145, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i1146, label %if.then.i.i.i.i.i.i.i1150, label %delete.notnull.i.i.i.i.i.i.i.i1147
 
@@ -5538,9 +5538,9 @@ while.body.i.i.i.i1172:                           ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i.i1173 = phi ptr [ %562, %while.body.lr.ph.i.i.i.i1165 ], [ %563, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i1179 ]
   %563 = load ptr, ptr %pNodeCurrent.07.i.i.i.i1173, align 8
   %564 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i1159, align 8
-  %cmp.not.i.i.i.i.i.i.i1174 = icmp ule ptr %564, %pNodeCurrent.07.i.i.i.i1173
+  %cmp.not.i.i.i.i.i.i.i1174 = icmp uge ptr %pNodeCurrent.07.i.i.i.i1173, %564
   %565 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i1167, align 8
-  %cmp2.i.i.i.i.i.i.i1175 = icmp ugt ptr %565, %pNodeCurrent.07.i.i.i.i1173
+  %cmp2.i.i.i.i.i.i.i1175 = icmp ult ptr %pNodeCurrent.07.i.i.i.i1173, %565
   %or.cond.i.i.i.i.i.i.i1176 = select i1 %cmp.not.i.i.i.i.i.i.i1174, i1 %cmp2.i.i.i.i.i.i.i1175, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i1176, label %if.then.i.i.i.i.i.i.i1182, label %if.else.i.i.i.i.i.i.i1177
 
@@ -5836,9 +5836,9 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %3
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -5895,9 +5895,9 @@ while.body.i:                                     ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %2, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i ]
   %2 = load ptr, ptr %pNodeCurrent.07.i, align 8
   %3 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %3, %pNodeCurrent.07.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i, %3
   %4 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %4, %pNodeCurrent.07.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i, %4
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -6003,9 +6003,9 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %3
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
@@ -6059,9 +6059,9 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl9SListBaseI7Align64NS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 64
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %3
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
@@ -6113,9 +6113,9 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %3
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -6251,9 +6251,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, 
   %inc3.i.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %6 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %6, %pNodeCurrent.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i.i.i, %6
   %7 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %7, %pNodeCurrent.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i.i.i, %7
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
@@ -6324,9 +6324,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, 
   %inc3.i.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %6 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %6, %pNodeCurrent.08.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i.i.i, %6
   %7 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %7, %pNodeCurrent.08.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i.i.i, %7
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -6574,9 +6574,9 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %3
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -6662,9 +6662,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i:   ; preds = %if.then.i.i.i.i, %w
   %inc3.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %6 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %6, %pNodeCurrent.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i.i, %6
   %7 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %7, %pNodeCurrent.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i.i, %7
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -6735,9 +6735,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i:   ; preds = %if.then.i.i.i.i, %w
   %inc3.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %6 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %6, %pNodeCurrent.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i.i, %6
   %7 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %7, %pNodeCurrent.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i.i, %7
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -6781,9 +6781,9 @@ while.body.i.i:                                   ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i, %3
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -6864,9 +6864,9 @@ while.body.i:                                     ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i = phi ptr [ %2, %while.body.lr.ph.i ], [ %3, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i ]
   %3 = load ptr, ptr %pNodeCurrent.07.i, align 8
   %4 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %4, %pNodeCurrent.07.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i, %4
   %5 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %5, %pNodeCurrent.07.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i, %5
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -7002,9 +7002,9 @@ while.body.i:                                     ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i = phi ptr [ %10, %while.body.lr.ph.i ], [ %11, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i ]
   %11 = load ptr, ptr %pNodeCurrent.07.i, align 8
   %12 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %12, %pNodeCurrent.07.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i, %12
   %13 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %13, %pNodeCurrent.07.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i, %13
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -7129,9 +7129,9 @@ while.body.i:                                     ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i = phi ptr [ %3, %while.body.lr.ph.i ], [ %4, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i ]
   %4 = load ptr, ptr %pNodeCurrent.07.i, align 8
   %5 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %5, %pNodeCurrent.07.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i, %5
   %6 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %6, %pNodeCurrent.07.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i, %6
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -7235,9 +7235,9 @@ while.body.i.i.i.i:                               ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i.i
+  %cmp2.i.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i.i, %3
   %or.cond.i.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i
 
@@ -7265,7 +7265,7 @@ _ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEE
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry, %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i
-  %cmp.not.i.i3 = icmp eq ptr %temp, %b
+  %cmp.not.i.i3 = icmp eq ptr %b, %temp
   br i1 %cmp.not.i.i3, label %invoke.cont4, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %invoke.cont
@@ -7284,9 +7284,9 @@ while.body.i.i.i.i11:                             ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i.i12 = phi ptr [ %7, %while.body.lr.ph.i.i.i.i6 ], [ %8, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i17 ]
   %8 = load ptr, ptr %pNodeCurrent.07.i.i.i.i12, align 8
   %9 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i7, align 8
-  %cmp.not.i.i.i.i.i.i.i13 = icmp ule ptr %9, %pNodeCurrent.07.i.i.i.i12
+  %cmp.not.i.i.i.i.i.i.i13 = icmp uge ptr %pNodeCurrent.07.i.i.i.i12, %9
   %10 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i8, align 8
-  %cmp2.i.i.i.i.i.i.i14 = icmp ugt ptr %10, %pNodeCurrent.07.i.i.i.i12
+  %cmp2.i.i.i.i.i.i.i14 = icmp ult ptr %pNodeCurrent.07.i.i.i.i12, %10
   %or.cond.i.i.i.i.i.i.i15 = select i1 %cmp.not.i.i.i.i.i.i.i13, i1 %cmp2.i.i.i.i.i.i.i14, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i15, label %if.then.i.i.i.i.i.i.i21, label %delete.notnull.i.i.i.i.i.i.i.i16
 
@@ -7329,9 +7329,9 @@ while.body.i.i.i.i30:                             ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i.i31 = phi ptr [ %14, %while.body.lr.ph.i.i.i.i25 ], [ %15, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i36 ]
   %15 = load ptr, ptr %pNodeCurrent.07.i.i.i.i31, align 8
   %16 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i.i26, align 8
-  %cmp.not.i.i.i.i.i.i.i32 = icmp ule ptr %16, %pNodeCurrent.07.i.i.i.i31
+  %cmp.not.i.i.i.i.i.i.i32 = icmp uge ptr %pNodeCurrent.07.i.i.i.i31, %16
   %17 = load ptr, ptr %mpCapacity.i.i.i.i.i.i.i27, align 8
-  %cmp2.i.i.i.i.i.i.i33 = icmp ugt ptr %17, %pNodeCurrent.07.i.i.i.i31
+  %cmp2.i.i.i.i.i.i.i33 = icmp ult ptr %pNodeCurrent.07.i.i.i.i31, %17
   %or.cond.i.i.i.i.i.i.i34 = select i1 %cmp.not.i.i.i.i.i.i.i32, i1 %cmp2.i.i.i.i.i.i.i33, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i39, label %delete.notnull.i.i.i.i.i.i.i.i35
 
@@ -7380,9 +7380,9 @@ while.body.i.i.i:                                 ; preds = %_ZN5eastl9SListBase
   %pNodeCurrent.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %1, %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i ]
   %1 = load ptr, ptr %pNodeCurrent.07.i.i.i, align 8
   %2 = load ptr, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp ule ptr %2, %pNodeCurrent.07.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp uge ptr %pNodeCurrent.07.i.i.i, %2
   %3 = load ptr, ptr %mpCapacity.i.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i.i = icmp ugt ptr %3, %pNodeCurrent.07.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult ptr %pNodeCurrent.07.i.i.i, %3
   %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i
 
@@ -7494,7 +7494,7 @@ _ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb0ENS_9allocatorEEE
   br i1 %cmp.i.not.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i, !llvm.loop !17
 
 invoke.cont:                                      ; preds = %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb0ENS_9allocatorEEEE12DoCreateNodeIJRKiEEEPNS_9SListNodeIiEEDpOT_.exit.i.i.i.i.i.i, %for.end.i.i.i.i, %entry
-  %cmp.not.i.i3 = icmp eq ptr %temp, %b
+  %cmp.not.i.i3 = icmp eq ptr %b, %temp
   br i1 %cmp.not.i.i3, label %invoke.cont4, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %invoke.cont
@@ -7651,9 +7651,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i:     ; preds = %if.then.i.i.i, %whi
   %inc3.i.i.i = add nsw i64 %6, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %7 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %7, %pNodeCurrent.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i, %7
   %8 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %8, %pNodeCurrent.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i, %8
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -7850,9 +7850,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i:     ; preds = %if.then.i.i.i, %whi
   %inc3.i.i.i = add nsw i64 %18, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %19 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %19, %pNodeCurrent.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i, %19
   %20 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %20, %pNodeCurrent.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i, %20
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
@@ -8003,9 +8003,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i:     ; preds = %if.then.i.i.i, %whi
   %inc3.i.i.i = add nsw i64 %6, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %7 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %7, %pNodeCurrent.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i, %7
   %8 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %8, %pNodeCurrent.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i, %8
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -8206,9 +8206,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i:     ; preds = %if.then.i.i.i, %whi
   %inc3.i.i.i = add nsw i64 %18, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %19 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %19, %pNodeCurrent.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i, %19
   %20 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %20, %pNodeCurrent.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i, %20
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -8354,9 +8354,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i:   ; preds = %if.then.i.i.i.i, %w
   %inc3.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %6 = load ptr, ptr %mpPoolBegin.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ule ptr %6, %pNodeCurrent.08.i.i
+  %cmp.not.i.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i.i, %6
   %7 = load ptr, ptr %mpCapacity.i.i.i.i.i, align 8
-  %cmp2.i.i.i.i.i = icmp ugt ptr %7, %pNodeCurrent.08.i.i
+  %cmp2.i.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i.i, %7
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -8484,9 +8484,9 @@ _ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i:     ; preds = %if.then.i.i.i, %whi
   %inc3.i.i.i = add nsw i64 %9, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %10 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ule ptr %10, %pNodeCurrent.08.i
+  %cmp.not.i.i.i.i = icmp uge ptr %pNodeCurrent.08.i, %10
   %11 = load ptr, ptr %mpCapacity.i.i.i.i, align 8
-  %cmp2.i.i.i.i = icmp ugt ptr %11, %pNodeCurrent.08.i
+  %cmp2.i.i.i.i = icmp ult ptr %pNodeCurrent.08.i, %11
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 

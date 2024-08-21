@@ -118,13 +118,13 @@ define noundef i32 @Abc_NtkQuantify(ptr noundef %0, i32 noundef %1, i32 noundef 
   %38 = add nsw i32 %.val3.i, 1
   %39 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %40 = load i32, ptr %39, align 4
-  %.not.i.not.i.i.i = icmp sgt i32 %40, %.val3.i
+  %.not.i.not.i.i.i = icmp slt i32 %.val3.i, %40
   br i1 %.not.i.not.i.i.i, label %Abc_NodeIsTravIdCurrent.exit, label %41
 
 41:                                               ; preds = %.lr.ph
   %42 = load i32, ptr %37, align 8
   %43 = shl nsw i32 %42, 1
-  %.not.i.i.i = icmp sgt i32 %43, %.val3.i
+  %.not.i.i.i = icmp slt i32 %.val3.i, %43
   %.not.i.i.not.i.i.i = icmp sgt i32 %42, %.val3.i
   br i1 %.not.i.i.i, label %56, label %44
 
@@ -247,13 +247,13 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %.lr.ph, %._crit_edg
   %94 = add nsw i32 %.val3.i62, 1
   %95 = getelementptr inbounds i8, ptr %.val2.i61, i64 228
   %96 = load i32, ptr %95, align 4
-  %.not.i.not.i.i.i63 = icmp sgt i32 %96, %.val3.i62
+  %.not.i.not.i.i.i63 = icmp slt i32 %.val3.i62, %96
   br i1 %.not.i.not.i.i.i63, label %Abc_NodeIsTravIdCurrent.exit82, label %97
 
 97:                                               ; preds = %83
   %98 = load i32, ptr %93, align 8
   %99 = shl nsw i32 %98, 1
-  %.not.i.i.i64 = icmp sgt i32 %99, %.val3.i62
+  %.not.i.i.i64 = icmp slt i32 %.val3.i62, %99
   %.not.i.i.not.i.i.i65 = icmp sgt i32 %98, %.val3.i62
   br i1 %.not.i.i.i64, label %112, label %100
 
@@ -485,13 +485,13 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %203
   %214 = add nsw i32 %.val3.i108, 1
   %215 = getelementptr inbounds i8, ptr %.val2.i107, i64 228
   %216 = load i32, ptr %215, align 4
-  %.not.i.not.i.i.i109 = icmp sgt i32 %216, %.val3.i108
+  %.not.i.not.i.i.i109 = icmp slt i32 %.val3.i108, %216
   br i1 %.not.i.not.i.i.i109, label %Abc_NodeIsTravIdCurrent.exit128, label %217
 
 217:                                              ; preds = %208
   %218 = load i32, ptr %213, align 8
   %219 = shl nsw i32 %218, 1
-  %.not.i.i.i110 = icmp sgt i32 %219, %.val3.i108
+  %.not.i.i.i110 = icmp slt i32 %.val3.i108, %219
   %.not.i.i.not.i.i.i111 = icmp sgt i32 %218, %.val3.i108
   br i1 %.not.i.i.i110, label %232, label %220
 

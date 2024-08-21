@@ -608,7 +608,7 @@ for.end:                                          ; preds = %while.end, %entry
 land.lhs.true:                                    ; preds = %for.end
   %score32 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load double, ptr %score32, align 8
-  %cmp33 = fcmp oeq double %10, %score
+  %cmp33 = fcmp oeq double %score, %10
   br i1 %cmp33, label %land.lhs.true34, label %return
 
 land.lhs.true34:                                  ; preds = %land.lhs.true
@@ -803,7 +803,7 @@ for.end:                                          ; preds = %while.end, %entry
 land.lhs.true:                                    ; preds = %for.end
   %score31 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load double, ptr %score31, align 8
-  %cmp32 = fcmp oeq double %10, %curscore
+  %cmp32 = fcmp oeq double %curscore, %10
   br i1 %cmp32, label %land.rhs33, label %cond.false
 
 land.rhs33:                                       ; preds = %land.lhs.true
@@ -963,8 +963,8 @@ entry:
   %0 = load i32, ptr %minex, align 8
   %tobool.not = icmp eq i32 %0, 0
   %1 = load double, ptr %spec, align 8
-  %cmp = fcmp olt double %1, %value
-  %cmp2 = fcmp ole double %1, %value
+  %cmp = fcmp ogt double %value, %1
+  %cmp2 = fcmp oge double %value, %1
   %cond.in = select i1 %tobool.not, i1 %cmp2, i1 %cmp
   %cond = zext i1 %cond.in to i32
   ret i32 %cond
@@ -978,8 +978,8 @@ entry:
   %tobool.not = icmp eq i32 %0, 0
   %max1 = getelementptr inbounds i8, ptr %spec, i64 8
   %1 = load double, ptr %max1, align 8
-  %cmp = fcmp ogt double %1, %value
-  %cmp2 = fcmp oge double %1, %value
+  %cmp = fcmp olt double %value, %1
+  %cmp2 = fcmp ole double %value, %1
   %cond.in = select i1 %tobool.not, i1 %cmp2, i1 %cmp
   %cond = zext i1 %cond.in to i32
   ret i32 %cond
@@ -1022,8 +1022,8 @@ lor.lhs.false7:                                   ; preds = %if.end
   %minex.i = getelementptr inbounds i8, ptr %range, i64 16
   %6 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %6, 0
-  %cmp.i = fcmp uge double %0, %5
-  %cmp2.i = fcmp ugt double %0, %5
+  %cmp.i = fcmp ule double %5, %0
+  %cmp2.i = fcmp ult double %5, %0
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %return, label %if.end10
 
@@ -1040,8 +1040,8 @@ lor.lhs.false12:                                  ; preds = %if.end10
   %maxex.i = getelementptr inbounds i8, ptr %range, i64 20
   %10 = load i32, ptr %maxex.i, align 4
   %tobool.not.i15 = icmp eq i32 %10, 0
-  %cmp.i16 = fcmp ogt double %1, %9
-  %cmp2.i17 = fcmp oge double %1, %9
+  %cmp.i16 = fcmp olt double %9, %1
+  %cmp2.i17 = fcmp ole double %9, %1
   %cond.in.i18 = select i1 %tobool.not.i15, i1 %cmp2.i17, i1 %cmp.i16
   %spec.select = zext i1 %cond.in.i18 to i32
   br label %return
@@ -1088,8 +1088,8 @@ lor.lhs.false7.i:                                 ; preds = %if.end.i
   %minex.i.i = getelementptr inbounds i8, ptr %range, i64 16
   %6 = load i32, ptr %minex.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %6, 0
-  %cmp.i.i = fcmp uge double %0, %5
-  %cmp2.i.i = fcmp ugt double %0, %5
+  %cmp.i.i = fcmp ule double %5, %0
+  %cmp2.i.i = fcmp ult double %5, %0
   %cond.in.i.i = select i1 %tobool.not.i.i, i1 %cmp2.i.i, i1 %cmp.i.i
   br i1 %cond.in.i.i, label %return, label %if.end10.i
 
@@ -1106,8 +1106,8 @@ zslIsInRange.exit:                                ; preds = %if.end10.i
   %maxex.i.i = getelementptr inbounds i8, ptr %range, i64 20
   %10 = load i32, ptr %maxex.i.i, align 4
   %tobool.not.i15.i = icmp eq i32 %10, 0
-  %cmp.i16.i = fcmp ule double %1, %9
-  %cmp2.i17.i = fcmp ult double %1, %9
+  %cmp.i16.i = fcmp uge double %9, %1
+  %cmp2.i17.i = fcmp ugt double %9, %1
   %cond.in.i18.i = select i1 %tobool.not.i15.i, i1 %cmp2.i17.i, i1 %cmp.i16.i
   br i1 %cond.in.i18.i, label %return, label %if.end
 
@@ -1127,8 +1127,8 @@ land.rhs:                                         ; preds = %if.end, %while.body
   %edge_rank.0148 = phi i64 [ %add, %while.body ], [ 0, %if.end ]
   %score = getelementptr inbounds i8, ptr %x.0, i64 8
   %13 = load double, ptr %score, align 8
-  %cmp.i73 = fcmp uge double %0, %13
-  %cmp2.i = fcmp ugt double %0, %13
+  %cmp.i73 = fcmp ule double %13, %0
+  %cmp2.i = fcmp ult double %13, %0
   %cond.in.i = select i1 %tobool.not.i.i, i1 %cmp2.i, i1 %cmp.i73
   br i1 %cond.in.i, label %while.body, label %while.end
 
@@ -1182,8 +1182,8 @@ land.rhs26:                                       ; preds = %while.cond20.prehea
   %x.2180 = phi ptr [ %20, %while.body36 ], [ %x.1188, %while.cond20.preheader ]
   %score31 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load double, ptr %score31, align 8
-  %cmp.i76 = fcmp uge double %0, %21
-  %cmp2.i77 = fcmp ugt double %0, %21
+  %cmp.i76 = fcmp ule double %21, %0
+  %cmp2.i77 = fcmp ult double %21, %0
   %cond.in.i78 = select i1 %tobool.not.i.i, i1 %cmp2.i77, i1 %cmp.i76
   br i1 %cond.in.i78, label %while.body36, label %for.inc
 
@@ -1277,8 +1277,8 @@ land.lhs.true:                                    ; preds = %while.end.i, %if.en
   %x.4133 = phi ptr [ %26, %if.end69 ], [ %x.1.i, %while.end.i ]
   %score71 = getelementptr inbounds i8, ptr %x.4133, i64 8
   %30 = load double, ptr %score71, align 8
-  %cmp.i86 = fcmp ule double %1, %30
-  %cmp2.i87 = fcmp ult double %1, %30
+  %cmp.i86 = fcmp uge double %30, %1
+  %cmp2.i87 = fcmp ugt double %30, %1
   %cond.in.i88 = select i1 %tobool.not.i15.i, i1 %cmp2.i87, i1 %cmp.i86
   br i1 %cond.in.i88, label %return, label %if.end146
 
@@ -1299,8 +1299,8 @@ land.rhs89:                                       ; preds = %while.cond83.prehea
   %x.7159 = phi ptr [ %32, %while.body98 ], [ %x.6168, %while.cond83.preheader ]
   %score94 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load double, ptr %score94, align 8
-  %cmp.i93 = fcmp ule double %1, %33
-  %cmp2.i94 = fcmp ult double %1, %33
+  %cmp.i93 = fcmp uge double %33, %1
+  %cmp2.i94 = fcmp ugt double %33, %1
   %cond.in.i95 = select i1 %tobool.not.i15.i, i1 %cmp2.i94, i1 %cmp.i93
   br i1 %cond.in.i95, label %for.inc109, label %while.body98
 
@@ -1399,8 +1399,8 @@ land.lhs.true140:                                 ; preds = %while.end.i114, %fo
   %x.9139 = phi ptr [ %38, %if.end138 ], [ %x.6.lcssa, %for.cond121.preheader ], [ %x.1.i105, %while.end.i114 ]
   %score141 = getelementptr inbounds i8, ptr %x.9139, i64 8
   %43 = load double, ptr %score141, align 8
-  %cmp.i122 = fcmp uge double %0, %43
-  %cmp2.i123 = fcmp ugt double %0, %43
+  %cmp.i122 = fcmp ule double %43, %0
+  %cmp2.i123 = fcmp ult double %43, %0
   %cond.in.i124 = select i1 %tobool.not.i.i, i1 %cmp2.i123, i1 %cmp.i122
   br i1 %cond.in.i124, label %return, label %if.end146
 
@@ -1494,8 +1494,8 @@ land.rhs:                                         ; preds = %while.cond
   %5 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %5, 0
   %6 = load double, ptr %range, align 8
-  %cmp.i = fcmp uge double %6, %4
-  %cmp2.i = fcmp ugt double %6, %4
+  %cmp.i = fcmp ule double %4, %6
+  %cmp2.i = fcmp ult double %4, %6
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %while.cond, label %while.end, !llvm.loop !28
 
@@ -1527,8 +1527,8 @@ land.rhs18:                                       ; preds = %land.rhs18.lr.ph, %
   %9 = load i32, ptr %maxex.i, align 4
   %tobool.not.i20 = icmp eq i32 %9, 0
   %10 = load double, ptr %max1.i, align 8
-  %cmp.i21 = fcmp ule double %10, %8
-  %cmp2.i22 = fcmp ult double %10, %8
+  %cmp.i21 = fcmp uge double %8, %10
+  %cmp2.i22 = fcmp ugt double %8, %10
   %cond.in.i23 = select i1 %tobool.not.i20, i1 %cmp2.i22, i1 %cmp.i21
   br i1 %cond.in.i23, label %while.end28, label %while.body23
 
@@ -1676,7 +1676,7 @@ land.rhs:                                         ; preds = %while.cond.preheade
   %6 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %6, 0
   %7 = load ptr, ptr %range, align 8
-  %cmp.i4.i = icmp eq ptr %7, %5
+  %cmp.i4.i = icmp eq ptr %5, %7
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.rhs
@@ -1684,17 +1684,17 @@ cond.true.i:                                      ; preds = %land.rhs
 
 if.end.i.i:                                       ; preds = %cond.true.i
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i = icmp eq ptr %8, %5
+  %cmp1.i.i = icmp eq ptr %5, %8
   br i1 %cmp1.i.i, label %while.body, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i = icmp eq ptr %9, %7
+  %cmp2.i.i = icmp eq ptr %7, %9
   br i1 %cmp2.i.i, label %while.body, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %cmp5.i.i = icmp eq ptr %9, %5
-  %cmp7.i.i = icmp eq ptr %8, %7
+  %cmp5.i.i = icmp eq ptr %5, %9
+  %cmp7.i.i = icmp eq ptr %7, %8
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp5.i.i
   br i1 %or.cond.i.i, label %while.end, label %zslLexValueGteMin.exit
 
@@ -1703,17 +1703,17 @@ cond.false.i:                                     ; preds = %land.rhs
 
 if.end.i5.i:                                      ; preds = %cond.false.i
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i = icmp eq ptr %10, %5
+  %cmp1.i6.i = icmp eq ptr %5, %10
   br i1 %cmp1.i6.i, label %while.body, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i = icmp eq ptr %11, %7
+  %cmp2.i8.i = icmp eq ptr %7, %11
   br i1 %cmp2.i8.i, label %while.body, label %if.end4.i9.i
 
 if.end4.i9.i:                                     ; preds = %lor.lhs.false.i7.i
-  %cmp5.i10.i = icmp eq ptr %11, %5
-  %cmp7.i11.i = icmp eq ptr %10, %7
+  %cmp5.i10.i = icmp eq ptr %5, %11
+  %cmp7.i11.i = icmp eq ptr %7, %10
   %or.cond.i12.i = or i1 %cmp7.i11.i, %cmp5.i10.i
   br i1 %or.cond.i12.i, label %while.end, label %zslLexValueGteMin.exit
 
@@ -1763,7 +1763,7 @@ land.rhs18:                                       ; preds = %land.rhs18.lr.ph, %
   %16 = load i32, ptr %maxex.i, align 4
   %tobool.not.i20 = icmp eq i32 %16, 0
   %17 = load ptr, ptr %max1.i, align 8
-  %cmp.i4.i21 = icmp eq ptr %17, %15
+  %cmp.i4.i21 = icmp eq ptr %15, %17
   br i1 %tobool.not.i20, label %cond.false.i31, label %cond.true.i22
 
 cond.true.i22:                                    ; preds = %land.rhs18
@@ -1771,17 +1771,17 @@ cond.true.i22:                                    ; preds = %land.rhs18
 
 if.end.i.i23:                                     ; preds = %cond.true.i22
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i24 = icmp eq ptr %18, %15
+  %cmp1.i.i24 = icmp eq ptr %15, %18
   br i1 %cmp1.i.i24, label %while.body23, label %lor.lhs.false.i.i25
 
 lor.lhs.false.i.i25:                              ; preds = %if.end.i.i23
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i26 = icmp eq ptr %19, %17
+  %cmp2.i.i26 = icmp eq ptr %17, %19
   br i1 %cmp2.i.i26, label %while.body23, label %if.end4.i.i27
 
 if.end4.i.i27:                                    ; preds = %lor.lhs.false.i.i25
-  %cmp5.i.i28 = icmp eq ptr %19, %15
-  %cmp7.i.i29 = icmp eq ptr %18, %17
+  %cmp5.i.i28 = icmp eq ptr %15, %19
+  %cmp7.i.i29 = icmp eq ptr %17, %18
   %or.cond.i.i30 = or i1 %cmp7.i.i29, %cmp5.i.i28
   br i1 %or.cond.i.i30, label %while.end29, label %if.end9.i.i
 
@@ -1795,17 +1795,17 @@ cond.false.i31:                                   ; preds = %land.rhs18
 
 if.end.i5.i32:                                    ; preds = %cond.false.i31
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i33 = icmp eq ptr %21, %15
+  %cmp1.i6.i33 = icmp eq ptr %15, %21
   br i1 %cmp1.i6.i33, label %while.body23, label %lor.lhs.false.i7.i34
 
 lor.lhs.false.i7.i34:                             ; preds = %if.end.i5.i32
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i35 = icmp eq ptr %22, %17
+  %cmp2.i8.i35 = icmp eq ptr %17, %22
   br i1 %cmp2.i8.i35, label %while.body23, label %if.end4.i9.i36
 
 if.end4.i9.i36:                                   ; preds = %lor.lhs.false.i7.i34
-  %cmp5.i10.i37 = icmp eq ptr %22, %15
-  %cmp7.i11.i38 = icmp eq ptr %21, %17
+  %cmp5.i10.i37 = icmp eq ptr %15, %22
+  %cmp7.i11.i38 = icmp eq ptr %17, %21
   %or.cond.i12.i39 = or i1 %cmp7.i11.i38, %cmp5.i10.i37
   br i1 %or.cond.i12.i39, label %while.end29, label %if.end9.i13.i
 
@@ -1936,7 +1936,7 @@ entry:
   %0 = load i32, ptr %minex, align 8
   %tobool.not = icmp eq i32 %0, 0
   %1 = load ptr, ptr %spec, align 8
-  %cmp.i4 = icmp eq ptr %1, %value
+  %cmp.i4 = icmp eq ptr %value, %1
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
@@ -1944,17 +1944,17 @@ cond.true:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %cond.true
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i = icmp eq ptr %2, %value
+  %cmp1.i = icmp eq ptr %value, %2
   br i1 %cmp1.i, label %cond.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i = icmp eq ptr %3, %1
+  %cmp2.i = icmp eq ptr %1, %3
   br i1 %cmp2.i, label %cond.end, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
-  %cmp5.i = icmp eq ptr %3, %value
-  %cmp7.i = icmp eq ptr %2, %1
+  %cmp5.i = icmp eq ptr %value, %3
+  %cmp7.i = icmp eq ptr %1, %2
   %or.cond.i = or i1 %cmp7.i, %cmp5.i
   br i1 %or.cond.i, label %cond.end, label %cond.end.sink.split
 
@@ -1963,17 +1963,17 @@ cond.false:                                       ; preds = %entry
 
 if.end.i5:                                        ; preds = %cond.false
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6 = icmp eq ptr %4, %value
+  %cmp1.i6 = icmp eq ptr %value, %4
   br i1 %cmp1.i6, label %cond.end, label %lor.lhs.false.i7
 
 lor.lhs.false.i7:                                 ; preds = %if.end.i5
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8 = icmp eq ptr %5, %1
+  %cmp2.i8 = icmp eq ptr %1, %5
   br i1 %cmp2.i8, label %cond.end, label %if.end4.i9
 
 if.end4.i9:                                       ; preds = %lor.lhs.false.i7
-  %cmp5.i10 = icmp eq ptr %5, %value
-  %cmp7.i11 = icmp eq ptr %4, %1
+  %cmp5.i10 = icmp eq ptr %value, %5
+  %cmp7.i11 = icmp eq ptr %1, %4
   %or.cond.i12 = or i1 %cmp7.i11, %cmp5.i10
   br i1 %or.cond.i12, label %cond.end, label %cond.end.sink.split
 
@@ -1997,7 +1997,7 @@ entry:
   %tobool.not = icmp eq i32 %0, 0
   %max1 = getelementptr inbounds i8, ptr %spec, i64 8
   %1 = load ptr, ptr %max1, align 8
-  %cmp.i4 = icmp eq ptr %1, %value
+  %cmp.i4 = icmp eq ptr %value, %1
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
@@ -2005,17 +2005,17 @@ cond.true:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %cond.true
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i = icmp eq ptr %2, %value
+  %cmp1.i = icmp eq ptr %value, %2
   br i1 %cmp1.i, label %cond.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i = icmp eq ptr %3, %1
+  %cmp2.i = icmp eq ptr %1, %3
   br i1 %cmp2.i, label %cond.end, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
-  %cmp5.i = icmp eq ptr %3, %value
-  %cmp7.i = icmp eq ptr %2, %1
+  %cmp5.i = icmp eq ptr %value, %3
+  %cmp7.i = icmp eq ptr %1, %2
   %or.cond.i = or i1 %cmp7.i, %cmp5.i
   br i1 %or.cond.i, label %cond.end, label %if.end9.i
 
@@ -2029,17 +2029,17 @@ cond.false:                                       ; preds = %entry
 
 if.end.i5:                                        ; preds = %cond.false
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6 = icmp eq ptr %5, %value
+  %cmp1.i6 = icmp eq ptr %value, %5
   br i1 %cmp1.i6, label %cond.end, label %lor.lhs.false.i7
 
 lor.lhs.false.i7:                                 ; preds = %if.end.i5
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8 = icmp eq ptr %6, %1
+  %cmp2.i8 = icmp eq ptr %1, %6
   br i1 %cmp2.i8, label %cond.end, label %if.end4.i9
 
 if.end4.i9:                                       ; preds = %lor.lhs.false.i7
-  %cmp5.i10 = icmp eq ptr %6, %value
-  %cmp7.i11 = icmp eq ptr %5, %1
+  %cmp5.i10 = icmp eq ptr %value, %6
+  %cmp7.i11 = icmp eq ptr %1, %5
   %or.cond.i12 = or i1 %cmp7.i11, %cmp5.i10
   br i1 %or.cond.i12, label %cond.end, label %if.end9.i13
 
@@ -2662,17 +2662,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1 = icmp eq ptr %0, %a
+  %cmp1 = icmp eq ptr %a, %0
   br i1 %cmp1, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2 = icmp eq ptr %1, %b
+  %cmp2 = icmp eq ptr %b, %1
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %cmp5 = icmp eq ptr %1, %a
-  %cmp7 = icmp eq ptr %0, %b
+  %cmp5 = icmp eq ptr %a, %1
+  %cmp7 = icmp eq ptr %b, %0
   %or.cond = or i1 %cmp7, %cmp5
   br i1 %or.cond, label %return, label %if.end9
 
@@ -2696,17 +2696,17 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i = icmp eq ptr %2, %0
+  %cmp1.i = icmp eq ptr %0, %2
   br i1 %cmp1.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i = icmp eq ptr %3, %1
+  %cmp2.i = icmp eq ptr %1, %3
   br i1 %cmp2.i, label %if.end, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
-  %cmp5.i = icmp eq ptr %3, %0
-  %cmp7.i = icmp eq ptr %2, %1
+  %cmp5.i = icmp eq ptr %0, %3
+  %cmp7.i = icmp eq ptr %1, %2
   %or.cond.i = or i1 %cmp7.i, %cmp5.i
   br i1 %or.cond.i, label %return, label %sdscmplex.exit
 
@@ -2743,7 +2743,7 @@ lor.lhs.false6:                                   ; preds = %if.end
   %8 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %8, 0
   %9 = load ptr, ptr %range, align 8
-  %cmp.i4.i = icmp eq ptr %9, %7
+  %cmp.i4.i = icmp eq ptr %7, %9
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lor.lhs.false6
@@ -2751,17 +2751,17 @@ cond.true.i:                                      ; preds = %lor.lhs.false6
 
 if.end.i.i:                                       ; preds = %cond.true.i
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i = icmp eq ptr %10, %7
+  %cmp1.i.i = icmp eq ptr %7, %10
   br i1 %cmp1.i.i, label %return, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i = icmp eq ptr %11, %9
+  %cmp2.i.i = icmp eq ptr %9, %11
   br i1 %cmp2.i.i, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %cmp5.i.i = icmp eq ptr %11, %7
-  %cmp7.i.i = icmp eq ptr %10, %9
+  %cmp5.i.i = icmp eq ptr %7, %11
+  %cmp7.i.i = icmp eq ptr %9, %10
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp5.i.i
   br i1 %or.cond.i.i, label %if.end10, label %zslLexValueGteMin.exit
 
@@ -2770,17 +2770,17 @@ cond.false.i:                                     ; preds = %lor.lhs.false6
 
 if.end.i5.i:                                      ; preds = %cond.false.i
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i = icmp eq ptr %12, %7
+  %cmp1.i6.i = icmp eq ptr %7, %12
   br i1 %cmp1.i6.i, label %return, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i = icmp eq ptr %13, %9
+  %cmp2.i8.i = icmp eq ptr %9, %13
   br i1 %cmp2.i8.i, label %return, label %if.end4.i9.i
 
 if.end4.i9.i:                                     ; preds = %lor.lhs.false.i7.i
-  %cmp5.i10.i = icmp eq ptr %13, %7
-  %cmp7.i11.i = icmp eq ptr %12, %9
+  %cmp5.i10.i = icmp eq ptr %7, %13
+  %cmp7.i11.i = icmp eq ptr %9, %12
   %or.cond.i12.i = or i1 %cmp7.i11.i, %cmp5.i10.i
   br i1 %or.cond.i12.i, label %if.end10, label %zslLexValueGteMin.exit
 
@@ -2803,7 +2803,7 @@ lor.lhs.false12:                                  ; preds = %if.end10
   %17 = load i32, ptr %maxex.i, align 4
   %tobool.not.i12 = icmp eq i32 %17, 0
   %18 = load ptr, ptr %max, align 8
-  %cmp.i4.i13 = icmp eq ptr %18, %16
+  %cmp.i4.i13 = icmp eq ptr %16, %18
   br i1 %tobool.not.i12, label %cond.false.i23, label %cond.true.i14
 
 cond.true.i14:                                    ; preds = %lor.lhs.false12
@@ -2811,17 +2811,17 @@ cond.true.i14:                                    ; preds = %lor.lhs.false12
 
 if.end.i.i15:                                     ; preds = %cond.true.i14
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i16 = icmp eq ptr %19, %16
+  %cmp1.i.i16 = icmp eq ptr %16, %19
   br i1 %cmp1.i.i16, label %return, label %lor.lhs.false.i.i17
 
 lor.lhs.false.i.i17:                              ; preds = %if.end.i.i15
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i18 = icmp eq ptr %20, %18
+  %cmp2.i.i18 = icmp eq ptr %18, %20
   br i1 %cmp2.i.i18, label %return, label %if.end4.i.i19
 
 if.end4.i.i19:                                    ; preds = %lor.lhs.false.i.i17
-  %cmp5.i.i20 = icmp eq ptr %20, %16
-  %cmp7.i.i21 = icmp eq ptr %19, %18
+  %cmp5.i.i20 = icmp eq ptr %16, %20
+  %cmp7.i.i21 = icmp eq ptr %18, %19
   %or.cond.i.i22 = or i1 %cmp7.i.i21, %cmp5.i.i20
   br i1 %or.cond.i.i22, label %zslLexValueLteMax.exit.thread49, label %if.end9.i.i
 
@@ -2835,17 +2835,17 @@ cond.false.i23:                                   ; preds = %lor.lhs.false12
 
 if.end.i5.i24:                                    ; preds = %cond.false.i23
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i25 = icmp eq ptr %22, %16
+  %cmp1.i6.i25 = icmp eq ptr %16, %22
   br i1 %cmp1.i6.i25, label %return, label %lor.lhs.false.i7.i26
 
 lor.lhs.false.i7.i26:                             ; preds = %if.end.i5.i24
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i27 = icmp eq ptr %23, %18
+  %cmp2.i8.i27 = icmp eq ptr %18, %23
   br i1 %cmp2.i8.i27, label %return, label %if.end4.i9.i28
 
 if.end4.i9.i28:                                   ; preds = %lor.lhs.false.i7.i26
-  %cmp5.i10.i29 = icmp eq ptr %23, %16
-  %cmp7.i11.i30 = icmp eq ptr %22, %18
+  %cmp5.i10.i29 = icmp eq ptr %16, %23
+  %cmp7.i11.i30 = icmp eq ptr %18, %22
   %or.cond.i12.i31 = or i1 %cmp7.i11.i30, %cmp5.i10.i29
   br i1 %or.cond.i12.i31, label %zslLexValueLteMax.exit.thread49, label %if.end9.i13.i
 
@@ -2901,7 +2901,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %4 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %4, 0
   %5 = load ptr, ptr %range, align 8
-  %cmp.i4.i = icmp eq ptr %5, %3
+  %cmp.i4.i = icmp eq ptr %3, %5
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.rhs
@@ -2909,17 +2909,17 @@ cond.true.i:                                      ; preds = %land.rhs
 
 if.end.i.i:                                       ; preds = %cond.true.i
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i = icmp eq ptr %6, %3
+  %cmp1.i.i = icmp eq ptr %3, %6
   br i1 %cmp1.i.i, label %while.body, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i = icmp eq ptr %7, %5
+  %cmp2.i.i = icmp eq ptr %5, %7
   br i1 %cmp2.i.i, label %while.body, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %cmp5.i.i = icmp eq ptr %7, %3
-  %cmp7.i.i = icmp eq ptr %6, %5
+  %cmp5.i.i = icmp eq ptr %3, %7
+  %cmp7.i.i = icmp eq ptr %5, %6
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp5.i.i
   br i1 %or.cond.i.i, label %while.end, label %zslLexValueGteMin.exit
 
@@ -2928,17 +2928,17 @@ cond.false.i:                                     ; preds = %land.rhs
 
 if.end.i5.i:                                      ; preds = %cond.false.i
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i = icmp eq ptr %8, %3
+  %cmp1.i6.i = icmp eq ptr %3, %8
   br i1 %cmp1.i6.i, label %while.body, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i = icmp eq ptr %9, %5
+  %cmp2.i8.i = icmp eq ptr %5, %9
   br i1 %cmp2.i8.i, label %while.body, label %if.end4.i9.i
 
 if.end4.i9.i:                                     ; preds = %lor.lhs.false.i7.i
-  %cmp5.i10.i = icmp eq ptr %9, %3
-  %cmp7.i11.i = icmp eq ptr %8, %5
+  %cmp5.i10.i = icmp eq ptr %3, %9
+  %cmp7.i11.i = icmp eq ptr %5, %8
   %or.cond.i12.i = or i1 %cmp7.i11.i, %cmp5.i10.i
   br i1 %or.cond.i12.i, label %while.end, label %zslLexValueGteMin.exit
 
@@ -2999,7 +2999,7 @@ land.rhs26:                                       ; preds = %while.cond20.prehea
   %17 = load i32, ptr %minex.i71, align 8
   %tobool.not.i72 = icmp eq i32 %17, 0
   %18 = load ptr, ptr %range, align 8
-  %cmp.i4.i73 = icmp eq ptr %18, %16
+  %cmp.i4.i73 = icmp eq ptr %16, %18
   br i1 %tobool.not.i72, label %cond.false.i87, label %cond.true.i74
 
 cond.true.i74:                                    ; preds = %land.rhs26
@@ -3007,17 +3007,17 @@ cond.true.i74:                                    ; preds = %land.rhs26
 
 if.end.i.i75:                                     ; preds = %cond.true.i74
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i76 = icmp eq ptr %19, %16
+  %cmp1.i.i76 = icmp eq ptr %16, %19
   br i1 %cmp1.i.i76, label %while.body36, label %lor.lhs.false.i.i77
 
 lor.lhs.false.i.i77:                              ; preds = %if.end.i.i75
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i78 = icmp eq ptr %20, %18
+  %cmp2.i.i78 = icmp eq ptr %18, %20
   br i1 %cmp2.i.i78, label %while.body36, label %if.end4.i.i79
 
 if.end4.i.i79:                                    ; preds = %lor.lhs.false.i.i77
-  %cmp5.i.i80 = icmp eq ptr %20, %16
-  %cmp7.i.i81 = icmp eq ptr %19, %18
+  %cmp5.i.i80 = icmp eq ptr %16, %20
+  %cmp7.i.i81 = icmp eq ptr %18, %19
   %or.cond.i.i82 = or i1 %cmp7.i.i81, %cmp5.i.i80
   br i1 %or.cond.i.i82, label %for.inc, label %zslLexValueGteMin.exit96
 
@@ -3026,17 +3026,17 @@ cond.false.i87:                                   ; preds = %land.rhs26
 
 if.end.i5.i88:                                    ; preds = %cond.false.i87
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i89 = icmp eq ptr %21, %16
+  %cmp1.i6.i89 = icmp eq ptr %16, %21
   br i1 %cmp1.i6.i89, label %while.body36, label %lor.lhs.false.i7.i90
 
 lor.lhs.false.i7.i90:                             ; preds = %if.end.i5.i88
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i91 = icmp eq ptr %22, %18
+  %cmp2.i8.i91 = icmp eq ptr %18, %22
   br i1 %cmp2.i8.i91, label %while.body36, label %if.end4.i9.i92
 
 if.end4.i9.i92:                                   ; preds = %lor.lhs.false.i7.i90
-  %cmp5.i10.i93 = icmp eq ptr %22, %16
-  %cmp7.i11.i94 = icmp eq ptr %21, %18
+  %cmp5.i10.i93 = icmp eq ptr %16, %22
+  %cmp7.i11.i94 = icmp eq ptr %18, %21
   %or.cond.i12.i95 = or i1 %cmp7.i11.i94, %cmp5.i10.i93
   br i1 %or.cond.i12.i95, label %for.inc, label %zslLexValueGteMin.exit96
 
@@ -3146,7 +3146,7 @@ land.lhs.true:                                    ; preds = %while.end.i, %if.en
   %tobool.not.i98 = icmp eq i32 %33, 0
   %max1.i = getelementptr inbounds i8, ptr %range, i64 8
   %34 = load ptr, ptr %max1.i, align 8
-  %cmp.i4.i99 = icmp eq ptr %34, %32
+  %cmp.i4.i99 = icmp eq ptr %32, %34
   br i1 %tobool.not.i98, label %cond.false.i109, label %cond.true.i100
 
 cond.true.i100:                                   ; preds = %land.lhs.true
@@ -3154,17 +3154,17 @@ cond.true.i100:                                   ; preds = %land.lhs.true
 
 if.end.i.i101:                                    ; preds = %cond.true.i100
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i102 = icmp eq ptr %35, %32
+  %cmp1.i.i102 = icmp eq ptr %32, %35
   br i1 %cmp1.i.i102, label %if.end146, label %lor.lhs.false.i.i103
 
 lor.lhs.false.i.i103:                             ; preds = %if.end.i.i101
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i104 = icmp eq ptr %36, %34
+  %cmp2.i.i104 = icmp eq ptr %34, %36
   br i1 %cmp2.i.i104, label %if.end146, label %if.end4.i.i105
 
 if.end4.i.i105:                                   ; preds = %lor.lhs.false.i.i103
-  %cmp5.i.i106 = icmp eq ptr %36, %32
-  %cmp7.i.i107 = icmp eq ptr %35, %34
+  %cmp5.i.i106 = icmp eq ptr %32, %36
+  %cmp7.i.i107 = icmp eq ptr %34, %35
   %or.cond.i.i108 = or i1 %cmp7.i.i107, %cmp5.i.i106
   br i1 %or.cond.i.i108, label %return, label %if.end9.i.i
 
@@ -3178,17 +3178,17 @@ cond.false.i109:                                  ; preds = %land.lhs.true
 
 if.end.i5.i110:                                   ; preds = %cond.false.i109
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i111 = icmp eq ptr %38, %32
+  %cmp1.i6.i111 = icmp eq ptr %32, %38
   br i1 %cmp1.i6.i111, label %if.end146, label %lor.lhs.false.i7.i112
 
 lor.lhs.false.i7.i112:                            ; preds = %if.end.i5.i110
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i113 = icmp eq ptr %39, %34
+  %cmp2.i8.i113 = icmp eq ptr %34, %39
   br i1 %cmp2.i8.i113, label %if.end146, label %if.end4.i9.i114
 
 if.end4.i9.i114:                                  ; preds = %lor.lhs.false.i7.i112
-  %cmp5.i10.i115 = icmp eq ptr %39, %32
-  %cmp7.i11.i116 = icmp eq ptr %38, %34
+  %cmp5.i10.i115 = icmp eq ptr %32, %39
+  %cmp7.i11.i116 = icmp eq ptr %34, %38
   %or.cond.i12.i117 = or i1 %cmp7.i11.i116, %cmp5.i10.i115
   br i1 %or.cond.i12.i117, label %return, label %if.end9.i13.i
 
@@ -3233,7 +3233,7 @@ land.rhs89:                                       ; preds = %while.cond83.prehea
   %46 = load i32, ptr %maxex.i119, align 4
   %tobool.not.i120 = icmp eq i32 %46, 0
   %47 = load ptr, ptr %max1.i121, align 8
-  %cmp.i4.i122 = icmp eq ptr %47, %45
+  %cmp.i4.i122 = icmp eq ptr %45, %47
   br i1 %tobool.not.i120, label %cond.false.i135, label %cond.true.i123
 
 cond.true.i123:                                   ; preds = %land.rhs89
@@ -3241,17 +3241,17 @@ cond.true.i123:                                   ; preds = %land.rhs89
 
 if.end.i.i124:                                    ; preds = %cond.true.i123
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i125 = icmp eq ptr %48, %45
+  %cmp1.i.i125 = icmp eq ptr %45, %48
   br i1 %cmp1.i.i125, label %while.body98, label %lor.lhs.false.i.i126
 
 lor.lhs.false.i.i126:                             ; preds = %if.end.i.i124
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i127 = icmp eq ptr %49, %47
+  %cmp2.i.i127 = icmp eq ptr %47, %49
   br i1 %cmp2.i.i127, label %while.body98, label %if.end4.i.i128
 
 if.end4.i.i128:                                   ; preds = %lor.lhs.false.i.i126
-  %cmp5.i.i129 = icmp eq ptr %49, %45
-  %cmp7.i.i130 = icmp eq ptr %48, %47
+  %cmp5.i.i129 = icmp eq ptr %45, %49
+  %cmp7.i.i130 = icmp eq ptr %47, %48
   %or.cond.i.i131 = or i1 %cmp7.i.i130, %cmp5.i.i129
   br i1 %or.cond.i.i131, label %for.inc109, label %if.end9.i.i132
 
@@ -3265,17 +3265,17 @@ cond.false.i135:                                  ; preds = %land.rhs89
 
 if.end.i5.i136:                                   ; preds = %cond.false.i135
   %51 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i137 = icmp eq ptr %51, %45
+  %cmp1.i6.i137 = icmp eq ptr %45, %51
   br i1 %cmp1.i6.i137, label %while.body98, label %lor.lhs.false.i7.i138
 
 lor.lhs.false.i7.i138:                            ; preds = %if.end.i5.i136
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i139 = icmp eq ptr %52, %47
+  %cmp2.i8.i139 = icmp eq ptr %47, %52
   br i1 %cmp2.i8.i139, label %while.body98, label %if.end4.i9.i140
 
 if.end4.i9.i140:                                  ; preds = %lor.lhs.false.i7.i138
-  %cmp5.i10.i141 = icmp eq ptr %52, %45
-  %cmp7.i11.i142 = icmp eq ptr %51, %47
+  %cmp5.i10.i141 = icmp eq ptr %45, %52
+  %cmp7.i11.i142 = icmp eq ptr %47, %51
   %or.cond.i12.i143 = or i1 %cmp7.i11.i142, %cmp5.i10.i141
   br i1 %or.cond.i12.i143, label %for.inc109, label %if.end9.i13.i144
 
@@ -3395,7 +3395,7 @@ land.lhs.true140:                                 ; preds = %while.end.i164, %fo
   %66 = load i32, ptr %minex.i170, align 8
   %tobool.not.i171 = icmp eq i32 %66, 0
   %67 = load ptr, ptr %range, align 8
-  %cmp.i4.i172 = icmp eq ptr %67, %65
+  %cmp.i4.i172 = icmp eq ptr %65, %67
   br i1 %tobool.not.i171, label %cond.false.i186, label %cond.true.i173
 
 cond.true.i173:                                   ; preds = %land.lhs.true140
@@ -3403,17 +3403,17 @@ cond.true.i173:                                   ; preds = %land.lhs.true140
 
 if.end.i.i174:                                    ; preds = %cond.true.i173
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i175 = icmp eq ptr %68, %65
+  %cmp1.i.i175 = icmp eq ptr %65, %68
   br i1 %cmp1.i.i175, label %return, label %lor.lhs.false.i.i176
 
 lor.lhs.false.i.i176:                             ; preds = %if.end.i.i174
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i177 = icmp eq ptr %69, %67
+  %cmp2.i.i177 = icmp eq ptr %67, %69
   br i1 %cmp2.i.i177, label %return, label %if.end4.i.i178
 
 if.end4.i.i178:                                   ; preds = %lor.lhs.false.i.i176
-  %cmp5.i.i179 = icmp eq ptr %69, %65
-  %cmp7.i.i180 = icmp eq ptr %68, %67
+  %cmp5.i.i179 = icmp eq ptr %65, %69
+  %cmp7.i.i180 = icmp eq ptr %67, %68
   %or.cond.i.i181 = or i1 %cmp7.i.i180, %cmp5.i.i179
   br i1 %or.cond.i.i181, label %if.end146, label %zslLexValueGteMin.exit195
 
@@ -3422,17 +3422,17 @@ cond.false.i186:                                  ; preds = %land.lhs.true140
 
 if.end.i5.i187:                                   ; preds = %cond.false.i186
   %70 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i188 = icmp eq ptr %70, %65
+  %cmp1.i6.i188 = icmp eq ptr %65, %70
   br i1 %cmp1.i6.i188, label %return, label %lor.lhs.false.i7.i189
 
 lor.lhs.false.i7.i189:                            ; preds = %if.end.i5.i187
   %71 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i190 = icmp eq ptr %71, %67
+  %cmp2.i8.i190 = icmp eq ptr %67, %71
   br i1 %cmp2.i8.i190, label %return, label %if.end4.i9.i191
 
 if.end4.i9.i191:                                  ; preds = %lor.lhs.false.i7.i189
-  %cmp5.i10.i192 = icmp eq ptr %71, %65
-  %cmp7.i11.i193 = icmp eq ptr %70, %67
+  %cmp5.i10.i192 = icmp eq ptr %65, %71
+  %cmp7.i11.i193 = icmp eq ptr %67, %70
   %or.cond.i12.i194 = or i1 %cmp7.i11.i193, %cmp5.i10.i192
   br i1 %or.cond.i12.i194, label %if.end146, label %zslLexValueGteMin.exit195
 
@@ -3747,8 +3747,8 @@ zzlGetScore.exit:                                 ; preds = %if.then.i, %if.else
   %6 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %6, 0
   %7 = load double, ptr %range, align 8
-  %cmp.i = fcmp uge double %7, %score.0.i
-  %cmp2.i = fcmp ugt double %7, %score.0.i
+  %cmp.i = fcmp ule double %score.0.i, %7
+  %cmp2.i = fcmp ult double %score.0.i, %7
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %return, label %if.end13
 
@@ -3794,8 +3794,8 @@ zzlGetScore.exit30:                               ; preds = %if.then.i21, %if.el
   %10 = load i32, ptr %maxex.i, align 4
   %tobool.not.i31 = icmp eq i32 %10, 0
   %11 = load double, ptr %max, align 8
-  %cmp.i32 = fcmp ogt double %11, %score.0.i26
-  %cmp2.i33 = fcmp oge double %11, %score.0.i26
+  %cmp.i32 = fcmp olt double %score.0.i26, %11
+  %cmp2.i33 = fcmp ole double %score.0.i26, %11
   %cond.in.i34 = select i1 %tobool.not.i31, i1 %cmp2.i33, i1 %cmp.i32
   %. = zext i1 %cond.in.i34 to i32
   br label %return
@@ -3866,8 +3866,8 @@ zzlGetScore.exit:                                 ; preds = %if.then.i, %if.else
   %2 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %2, 0
   %3 = load double, ptr %range, align 8
-  %cmp.i = fcmp uge double %3, %score.0.i
-  %cmp2.i = fcmp ugt double %3, %score.0.i
+  %cmp.i = fcmp ule double %score.0.i, %3
+  %cmp2.i = fcmp ult double %score.0.i, %3
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %if.end14, label %if.then9
 
@@ -3877,8 +3877,8 @@ if.then9:                                         ; preds = %zzlGetScore.exit
   %tobool.not.i11 = icmp eq i32 %4, 0
   %max1.i = getelementptr inbounds i8, ptr %range, i64 8
   %5 = load double, ptr %max1.i, align 8
-  %cmp.i12 = fcmp ule double %5, %score.0.i
-  %cmp2.i13 = fcmp ult double %5, %score.0.i
+  %cmp.i12 = fcmp uge double %score.0.i, %5
+  %cmp2.i13 = fcmp ugt double %score.0.i, %5
   %cond.in.i14 = select i1 %tobool.not.i11, i1 %cmp2.i13, i1 %cmp.i12
   %.eptr.0 = select i1 %cond.in.i14, ptr null, ptr %eptr.019
   br label %return
@@ -3953,8 +3953,8 @@ zzlGetScore.exit:                                 ; preds = %if.then.i, %if.else
   %2 = load i32, ptr %maxex.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   %3 = load double, ptr %max1.i, align 8
-  %cmp.i = fcmp ule double %3, %score.0.i
-  %cmp2.i = fcmp ult double %3, %score.0.i
+  %cmp.i = fcmp uge double %score.0.i, %3
+  %cmp2.i = fcmp ugt double %score.0.i, %3
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %if.end14, label %if.then9
 
@@ -3963,8 +3963,8 @@ if.then9:                                         ; preds = %zzlGetScore.exit
   %4 = load i32, ptr %minex.i, align 8
   %tobool.not.i14 = icmp eq i32 %4, 0
   %5 = load double, ptr %range, align 8
-  %cmp.i15 = fcmp uge double %5, %score.0.i
-  %cmp2.i16 = fcmp ugt double %5, %score.0.i
+  %cmp.i15 = fcmp ule double %score.0.i, %5
+  %cmp2.i16 = fcmp ult double %score.0.i, %5
   %cond.in.i17 = select i1 %tobool.not.i14, i1 %cmp2.i16, i1 %cmp.i15
   %.eptr.0 = select i1 %cond.in.i17, ptr null, ptr %eptr.024
   br label %return
@@ -4028,7 +4028,7 @@ lpGetObject.exit:                                 ; preds = %if.then.i, %if.else
   %2 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %2, 0
   %3 = load ptr, ptr %spec, align 8
-  %cmp.i4.i = icmp eq ptr %3, %retval.0.i
+  %cmp.i4.i = icmp eq ptr %retval.0.i, %3
   br i1 %tobool.not.i, label %cond.false.i3, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lpGetObject.exit
@@ -4036,17 +4036,17 @@ cond.true.i:                                      ; preds = %lpGetObject.exit
 
 if.end.i.i:                                       ; preds = %cond.true.i
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i = icmp eq ptr %4, %retval.0.i
+  %cmp1.i.i = icmp eq ptr %retval.0.i, %4
   br i1 %cmp1.i.i, label %zslLexValueGteMin.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i = icmp eq ptr %5, %3
+  %cmp2.i.i = icmp eq ptr %3, %5
   br i1 %cmp2.i.i, label %zslLexValueGteMin.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %cmp5.i.i = icmp eq ptr %5, %retval.0.i
-  %cmp7.i.i = icmp eq ptr %4, %3
+  %cmp5.i.i = icmp eq ptr %retval.0.i, %5
+  %cmp7.i.i = icmp eq ptr %3, %4
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp5.i.i
   br i1 %or.cond.i.i, label %zslLexValueGteMin.exit, label %cond.end.sink.split.i
 
@@ -4055,17 +4055,17 @@ cond.false.i3:                                    ; preds = %lpGetObject.exit
 
 if.end.i5.i:                                      ; preds = %cond.false.i3
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i = icmp eq ptr %6, %retval.0.i
+  %cmp1.i6.i = icmp eq ptr %retval.0.i, %6
   br i1 %cmp1.i6.i, label %zslLexValueGteMin.exit, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i = icmp eq ptr %7, %3
+  %cmp2.i8.i = icmp eq ptr %3, %7
   br i1 %cmp2.i8.i, label %zslLexValueGteMin.exit, label %if.end4.i9.i
 
 if.end4.i9.i:                                     ; preds = %lor.lhs.false.i7.i
-  %cmp5.i10.i = icmp eq ptr %7, %retval.0.i
-  %cmp7.i11.i = icmp eq ptr %6, %3
+  %cmp5.i10.i = icmp eq ptr %retval.0.i, %7
+  %cmp7.i11.i = icmp eq ptr %3, %6
   %or.cond.i12.i = or i1 %cmp7.i11.i, %cmp5.i10.i
   br i1 %or.cond.i12.i, label %zslLexValueGteMin.exit, label %cond.end.sink.split.i
 
@@ -4122,7 +4122,7 @@ lpGetObject.exit:                                 ; preds = %if.then.i, %if.else
   %tobool.not.i = icmp eq i32 %2, 0
   %max1.i = getelementptr inbounds i8, ptr %spec, i64 8
   %3 = load ptr, ptr %max1.i, align 8
-  %cmp.i4.i = icmp eq ptr %3, %retval.0.i
+  %cmp.i4.i = icmp eq ptr %retval.0.i, %3
   br i1 %tobool.not.i, label %cond.false.i3, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lpGetObject.exit
@@ -4130,17 +4130,17 @@ cond.true.i:                                      ; preds = %lpGetObject.exit
 
 if.end.i.i:                                       ; preds = %cond.true.i
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i = icmp eq ptr %4, %retval.0.i
+  %cmp1.i.i = icmp eq ptr %retval.0.i, %4
   br i1 %cmp1.i.i, label %zslLexValueLteMax.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i = icmp eq ptr %5, %3
+  %cmp2.i.i = icmp eq ptr %3, %5
   br i1 %cmp2.i.i, label %zslLexValueLteMax.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %cmp5.i.i = icmp eq ptr %5, %retval.0.i
-  %cmp7.i.i = icmp eq ptr %4, %3
+  %cmp5.i.i = icmp eq ptr %retval.0.i, %5
+  %cmp7.i.i = icmp eq ptr %3, %4
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp5.i.i
   br i1 %or.cond.i.i, label %zslLexValueLteMax.exit, label %if.end9.i.i
 
@@ -4154,17 +4154,17 @@ cond.false.i3:                                    ; preds = %lpGetObject.exit
 
 if.end.i5.i:                                      ; preds = %cond.false.i3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i = icmp eq ptr %7, %retval.0.i
+  %cmp1.i6.i = icmp eq ptr %retval.0.i, %7
   br i1 %cmp1.i6.i, label %zslLexValueLteMax.exit, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i = icmp eq ptr %8, %3
+  %cmp2.i8.i = icmp eq ptr %3, %8
   br i1 %cmp2.i8.i, label %zslLexValueLteMax.exit, label %if.end4.i9.i
 
 if.end4.i9.i:                                     ; preds = %lor.lhs.false.i7.i
-  %cmp5.i10.i = icmp eq ptr %8, %retval.0.i
-  %cmp7.i11.i = icmp eq ptr %7, %3
+  %cmp5.i10.i = icmp eq ptr %retval.0.i, %8
+  %cmp7.i11.i = icmp eq ptr %3, %7
   %or.cond.i12.i = or i1 %cmp7.i11.i, %cmp5.i10.i
   br i1 %or.cond.i12.i, label %zslLexValueLteMax.exit, label %if.end9.i13.i
 
@@ -4191,17 +4191,17 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i = icmp eq ptr %2, %0
+  %cmp1.i = icmp eq ptr %0, %2
   br i1 %cmp1.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i = icmp eq ptr %3, %1
+  %cmp2.i = icmp eq ptr %1, %3
   br i1 %cmp2.i, label %if.end, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
-  %cmp5.i = icmp eq ptr %3, %0
-  %cmp7.i = icmp eq ptr %2, %1
+  %cmp5.i = icmp eq ptr %0, %3
+  %cmp7.i = icmp eq ptr %1, %2
   %or.cond.i = or i1 %cmp7.i, %cmp5.i
   br i1 %or.cond.i, label %return, label %sdscmplex.exit
 
@@ -4832,8 +4832,8 @@ zzlGetScore.exit:                                 ; preds = %if.then.i, %if.else
   %3 = load i32, ptr %maxex.i, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   %4 = load double, ptr %max1.i, align 8
-  %cmp.i = fcmp ule double %4, %score.0.i
-  %cmp2.i = fcmp ult double %4, %score.0.i
+  %cmp.i = fcmp uge double %score.0.i, %4
+  %cmp2.i = fcmp ugt double %score.0.i, %4
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %while.end, label %if.then9
 
@@ -4979,9 +4979,9 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 define dso_local ptr @zsetTypeCreate(i64 noundef %size_hint, i64 noundef %val_len_hint) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
-  %cmp.not = icmp ult i64 %0, %size_hint
+  %cmp.not = icmp ugt i64 %size_hint, %0
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5032), align 8
-  %cmp1.not = icmp ult i64 %1, %val_len_hint
+  %cmp1.not = icmp ugt i64 %val_len_hint, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp1.not
   br i1 %or.cond, label %if.end, label %if.then
 
@@ -5015,7 +5015,7 @@ entry:
   %0 = and i32 %bf.load, 240
   %cmp = icmp eq i32 %0, 176
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
-  %cmp1 = icmp ult i64 %1, %size_hint
+  %cmp1 = icmp ugt i64 %size_hint, %1
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -5303,7 +5303,7 @@ if.end:                                           ; preds = %entry
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp1.not = icmp ugt i64 %3, %4
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5032), align 8
-  %cmp2.not = icmp ult i64 %5, %maxelelen
+  %cmp2.not = icmp ugt i64 %maxelelen, %5
   %or.cond = select i1 %cmp1.not, i1 true, i1 %cmp2.not
   br i1 %or.cond, label %if.end5, label %land.lhs.true3
 
@@ -5457,7 +5457,7 @@ if.end20:                                         ; preds = %if.then18
   br i1 %cmp.not, label %if.end26, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %add = fadd double %.pre, %score
+  %add = fadd double %score, %.pre
   %4 = fcmp uno double %add, 0.000000e+00
   br i1 %4, label %if.then23, label %if.end26
 
@@ -5701,7 +5701,7 @@ if.end99:                                         ; preds = %if.then95
   br i1 %cmp.not, label %if.end107, label %if.then102
 
 if.then102:                                       ; preds = %if.end99
-  %add103 = fadd double %33, %score
+  %add103 = fadd double %score, %33
   %34 = fcmp uno double %add103, 0.000000e+00
   br i1 %34, label %if.then104, label %if.end107
 
@@ -8834,12 +8834,12 @@ if.then.i:                                        ; preds = %if.then225
   br i1 %48, label %if.end16.sink.split.i, label %for.inc244
 
 if.then3.i:                                       ; preds = %if.then225
-  %cmp4.i = fcmp ogt double %score.0464, %mul230
+  %cmp4.i = fcmp olt double %mul230, %score.0464
   %val..i = select i1 %cmp4.i, double %mul230, double %score.0464
   br label %for.inc244
 
 if.then7.i:                                       ; preds = %if.then225
-  %cmp8.i = fcmp olt double %score.0464, %mul230
+  %cmp8.i = fcmp ogt double %mul230, %score.0464
   %val.17.i = select i1 %cmp8.i, double %mul230, double %score.0464
   br label %for.inc244
 
@@ -8872,12 +8872,12 @@ if.then.i217:                                     ; preds = %if.then236
   br i1 %51, label %if.end16.sink.split.i214, label %for.inc244
 
 if.then3.i211:                                    ; preds = %if.then236
-  %cmp4.i212 = fcmp ogt double %score.0464, %mul240
+  %cmp4.i212 = fcmp olt double %mul240, %score.0464
   %val..i213 = select i1 %cmp4.i212, double %mul240, double %score.0464
   br label %for.inc244
 
 if.then7.i219:                                    ; preds = %if.then236
-  %cmp8.i220 = fcmp olt double %score.0464, %mul240
+  %cmp8.i220 = fcmp ogt double %mul240, %score.0464
   %val.17.i221 = select i1 %cmp8.i220, double %mul240, double %score.0464
   br label %for.inc244
 
@@ -9396,12 +9396,12 @@ if.then.i363:                                     ; preds = %if.else335
   br i1 %114, label %if.end16.sink.split.i360, label %zunionInterAggregate.exit368
 
 if.then3.i357:                                    ; preds = %if.else335
-  %cmp4.i358 = fcmp ogt double %113, %spec.store.select7
+  %cmp4.i358 = fcmp olt double %spec.store.select7, %113
   %val..i359 = select i1 %cmp4.i358, double %spec.store.select7, double %113
   br label %zunionInterAggregate.exit368
 
 if.then7.i365:                                    ; preds = %if.else335
-  %cmp8.i366 = fcmp olt double %113, %spec.store.select7
+  %cmp8.i366 = fcmp ogt double %spec.store.select7, %113
   %val.17.i367 = select i1 %cmp8.i366, double %spec.store.select7, double %113
   br label %zunionInterAggregate.exit368
 
@@ -10212,7 +10212,7 @@ for.end.i.i:                                      ; preds = %while.end.i.i, %if.
 land.lhs.true.i.i:                                ; preds = %for.end.i.i
   %score32.i.i = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load double, ptr %score32.i.i, align 8
-  %cmp33.i.i = fcmp oeq double %56, %43
+  %cmp33.i.i = fcmp oeq double %43, %56
   br i1 %cmp33.i.i, label %land.lhs.true34.i.i, label %cond.false.i.i
 
 land.lhs.true34.i.i:                              ; preds = %land.lhs.true.i.i
@@ -10349,7 +10349,7 @@ for.inc.i:                                        ; preds = %while.end.i, %for.b
   %cardinality.1.i = phi i32 [ %cardinality.058.i, %for.body.i23 ], [ %.us-phi.i, %while.end.i ]
   %inc32.i = add i32 %j.059.i, 1
   %conv.i = zext nneg i32 %inc32.i to i64
-  %cmp.i = icmp slt i64 %conv.i, %setnum
+  %cmp.i = icmp sgt i64 %setnum, %conv.i
   br i1 %cmp.i, label %for.body.i23, label %for.end.i19, !llvm.loop !74
 
 for.end.i19:                                      ; preds = %for.inc.i, %while.end.i, %while.end.thread.i
@@ -11509,7 +11509,7 @@ if.else9.i:                                       ; preds = %land.lhs.true
 
 zsetLength.exit:                                  ; preds = %if.then.i, %if.then6.i
   %length.0.i = phi i64 [ %conv.i, %if.then.i ], [ %4, %if.then6.i ]
-  %cmp1.not = icmp sgt i64 %length.0.i, %offset
+  %cmp1.not = icmp slt i64 %offset, %length.0.i
   br i1 %cmp1.not, label %zsetLength.exit.if.end_crit_edge, label %if.then
 
 zsetLength.exit.if.end_crit_edge:                 ; preds = %zsetLength.exit
@@ -11678,8 +11678,8 @@ if.then27:                                        ; preds = %zzlGetScore.exit
   %9 = load i32, ptr %minex.i, align 8
   %tobool.not.i = icmp eq i32 %9, 0
   %10 = load double, ptr %range, align 8
-  %cmp.i = fcmp uge double %10, %score.0.i
-  %cmp2.i = fcmp ugt double %10, %score.0.i
+  %cmp.i = fcmp ule double %score.0.i, %10
+  %cmp2.i = fcmp ult double %score.0.i, %10
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %if.end97, label %if.end37
 
@@ -11687,8 +11687,8 @@ if.else32:                                        ; preds = %zzlGetScore.exit
   %11 = load i32, ptr %maxex.i, align 4
   %tobool.not.i72 = icmp eq i32 %11, 0
   %12 = load double, ptr %max1.i, align 8
-  %cmp.i73 = fcmp ule double %12, %score.0.i
-  %cmp2.i74 = fcmp ult double %12, %score.0.i
+  %cmp.i73 = fcmp uge double %score.0.i, %12
+  %cmp2.i74 = fcmp ugt double %score.0.i, %12
   %cond.in.i75 = select i1 %tobool.not.i72, i1 %cmp2.i74, i1 %cmp.i73
   br i1 %cond.in.i75, label %if.end97, label %if.end37
 
@@ -11795,8 +11795,8 @@ while.body70.us:                                  ; preds = %land.rhs66.us
   %20 = load i32, ptr %maxex.i109, align 4
   %tobool.not.i110.us = icmp eq i32 %20, 0
   %21 = load double, ptr %max1.i111, align 8
-  %cmp.i112.us = fcmp ule double %21, %19
-  %cmp2.i113.us = fcmp ult double %21, %19
+  %cmp.i112.us = fcmp uge double %19, %21
+  %cmp2.i113.us = fcmp ugt double %19, %21
   %cond.in.i114.us = select i1 %tobool.not.i110.us, i1 %cmp2.i113.us, i1 %cmp.i112.us
   br i1 %cond.in.i114.us, label %if.end97, label %if.end84.us
 
@@ -11866,8 +11866,8 @@ while.body70:                                     ; preds = %land.rhs66
   %30 = load i32, ptr %minex.i103208, align 8
   %tobool.not.i104 = icmp eq i32 %30, 0
   %31 = load double, ptr %range, align 8
-  %cmp.i105 = fcmp uge double %31, %29
-  %cmp2.i106 = fcmp ugt double %31, %29
+  %cmp.i105 = fcmp ule double %29, %31
+  %cmp2.i106 = fcmp ult double %29, %31
   %cond.in.i107 = select i1 %tobool.not.i104, i1 %cmp2.i106, i1 %cmp.i105
   br i1 %cond.in.i107, label %if.end97, label %if.end84
 
@@ -12078,8 +12078,8 @@ zzlGetScore.exit:                                 ; preds = %if.then.i, %if.else
   %tobool.not.i = icmp eq i32 %9, 0
   %max1.i = getelementptr inbounds i8, ptr %range, i64 8
   %10 = load double, ptr %max1.i, align 8
-  %cmp.i = fcmp ule double %10, %score.0.i
-  %cmp2.i = fcmp ult double %10, %score.0.i
+  %cmp.i = fcmp uge double %score.0.i, %10
+  %cmp2.i = fcmp ugt double %score.0.i, %10
   %cond.in.i = select i1 %tobool.not.i, i1 %cmp2.i, i1 %cmp.i
   br i1 %cond.in.i, label %cond.false, label %while.body.preheader
 
@@ -12124,8 +12124,8 @@ zzlGetScore.exit46:                               ; preds = %if.then.i37, %if.el
   %score.0.i42 = phi double [ %call.i.i41, %if.then.i37 ], [ %conv4.i44, %if.else.i43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vlen.i31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vlong.i32)
-  %cmp.i50 = fcmp ule double %12, %score.0.i42
-  %cmp2.i51 = fcmp ult double %12, %score.0.i42
+  %cmp.i50 = fcmp uge double %score.0.i42, %12
+  %cmp2.i51 = fcmp ugt double %score.0.i42, %12
   %cond.in.i52 = select i1 %tobool.not.i48, i1 %cmp2.i51, i1 %cmp.i50
   br i1 %cond.in.i52, label %if.end58, label %cond.end.i55
 
@@ -12848,7 +12848,7 @@ while.body68.us:                                  ; preds = %land.rhs64.us
   %11 = load i32, ptr %maxex.i, align 4
   %tobool.not.i91.us = icmp eq i32 %11, 0
   %12 = load ptr, ptr %max1.i, align 8
-  %cmp.i4.i92.us = icmp eq ptr %12, %10
+  %cmp.i4.i92.us = icmp eq ptr %10, %12
   br i1 %tobool.not.i91.us, label %cond.false.i104.us, label %cond.true.i93.us
 
 cond.true.i93.us:                                 ; preds = %while.body68.us
@@ -12856,17 +12856,17 @@ cond.true.i93.us:                                 ; preds = %while.body68.us
 
 if.end.i.i94.us:                                  ; preds = %cond.true.i93.us
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i95.us = icmp eq ptr %13, %10
+  %cmp1.i.i95.us = icmp eq ptr %10, %13
   br i1 %cmp1.i.i95.us, label %if.end81.us, label %lor.lhs.false.i.i96.us
 
 lor.lhs.false.i.i96.us:                           ; preds = %if.end.i.i94.us
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i97.us = icmp eq ptr %14, %12
+  %cmp2.i.i97.us = icmp eq ptr %12, %14
   br i1 %cmp2.i.i97.us, label %if.end81.us, label %if.end4.i.i98.us
 
 if.end4.i.i98.us:                                 ; preds = %lor.lhs.false.i.i96.us
-  %cmp5.i.i99.us = icmp eq ptr %14, %10
-  %cmp7.i.i100.us = icmp eq ptr %13, %12
+  %cmp5.i.i99.us = icmp eq ptr %10, %14
+  %cmp7.i.i100.us = icmp eq ptr %12, %13
   %or.cond.i.i101.us = or i1 %cmp7.i.i100.us, %cmp5.i.i99.us
   br i1 %or.cond.i.i101.us, label %if.end95, label %if.end9.i.i.us
 
@@ -12880,17 +12880,17 @@ cond.false.i104.us:                               ; preds = %while.body68.us
 
 if.end.i5.i105.us:                                ; preds = %cond.false.i104.us
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i106.us = icmp eq ptr %16, %10
+  %cmp1.i6.i106.us = icmp eq ptr %10, %16
   br i1 %cmp1.i6.i106.us, label %if.end81.us, label %lor.lhs.false.i7.i107.us
 
 lor.lhs.false.i7.i107.us:                         ; preds = %if.end.i5.i105.us
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i108.us = icmp eq ptr %17, %12
+  %cmp2.i8.i108.us = icmp eq ptr %12, %17
   br i1 %cmp2.i8.i108.us, label %if.end81.us, label %if.end4.i9.i109.us
 
 if.end4.i9.i109.us:                               ; preds = %lor.lhs.false.i7.i107.us
-  %cmp5.i10.i110.us = icmp eq ptr %17, %10
-  %cmp7.i11.i111.us = icmp eq ptr %16, %12
+  %cmp5.i10.i110.us = icmp eq ptr %10, %17
+  %cmp7.i11.i111.us = icmp eq ptr %12, %16
   %or.cond.i12.i112.us = or i1 %cmp7.i11.i111.us, %cmp5.i10.i110.us
   br i1 %or.cond.i12.i112.us, label %if.end95, label %if.end9.i13.i.us
 
@@ -12976,7 +12976,7 @@ while.body68:                                     ; preds = %land.rhs64
   %29 = load i32, ptr %minex.i231, align 8
   %tobool.not.i = icmp eq i32 %29, 0
   %30 = load ptr, ptr %range, align 8
-  %cmp.i4.i = icmp eq ptr %30, %28
+  %cmp.i4.i = icmp eq ptr %28, %30
   br i1 %tobool.not.i, label %cond.false.i90, label %cond.true.i
 
 cond.true.i:                                      ; preds = %while.body68
@@ -12984,17 +12984,17 @@ cond.true.i:                                      ; preds = %while.body68
 
 if.end.i.i:                                       ; preds = %cond.true.i
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i.i = icmp eq ptr %31, %28
+  %cmp1.i.i = icmp eq ptr %28, %31
   br i1 %cmp1.i.i, label %if.end95, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i.i = icmp eq ptr %32, %30
+  %cmp2.i.i = icmp eq ptr %30, %32
   br i1 %cmp2.i.i, label %if.end95, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %cmp5.i.i = icmp eq ptr %32, %28
-  %cmp7.i.i = icmp eq ptr %31, %30
+  %cmp5.i.i = icmp eq ptr %28, %32
+  %cmp7.i.i = icmp eq ptr %30, %31
   %or.cond.i.i = or i1 %cmp7.i.i, %cmp5.i.i
   br i1 %or.cond.i.i, label %if.end81, label %zslLexValueGteMin.exit
 
@@ -13003,17 +13003,17 @@ cond.false.i90:                                   ; preds = %while.body68
 
 if.end.i5.i:                                      ; preds = %cond.false.i90
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81880), align 8
-  %cmp1.i6.i = icmp eq ptr %33, %28
+  %cmp1.i6.i = icmp eq ptr %28, %33
   br i1 %cmp1.i6.i, label %if.end95, label %lor.lhs.false.i7.i
 
 lor.lhs.false.i7.i:                               ; preds = %if.end.i5.i
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 81888), align 8
-  %cmp2.i8.i = icmp eq ptr %34, %30
+  %cmp2.i8.i = icmp eq ptr %30, %34
   br i1 %cmp2.i8.i, label %if.end95, label %if.end4.i9.i
 
 if.end4.i9.i:                                     ; preds = %lor.lhs.false.i7.i
-  %cmp5.i10.i = icmp eq ptr %34, %28
-  %cmp7.i11.i = icmp eq ptr %33, %30
+  %cmp5.i10.i = icmp eq ptr %28, %34
+  %cmp7.i11.i = icmp eq ptr %30, %33
   %or.cond.i12.i = or i1 %cmp7.i11.i, %cmp5.i10.i
   br i1 %or.cond.i12.i, label %if.end81, label %zslLexValueGteMin.exit
 
@@ -14215,7 +14215,7 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.else:                                          ; preds = %if.end14
-  %cond22 = call i64 @llvm.smin.i64(i64 %length.0.i, i64 %count)
+  %cond22 = call i64 @llvm.smin.i64(i64 %count, i64 %length.0.i)
   %call23 = call ptr @createStringObjectFromLongLong(i64 noundef %cond22) #19
   %cmp24 = icmp eq i32 %where, 1
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 472), align 8
@@ -14566,7 +14566,7 @@ land.lhs.true83:                                  ; preds = %if.end70
 if.end90:                                         ; preds = %land.lhs.true83, %if.end70
   %cond81.sink = phi i64 [ %cond81, %if.end70 ], [ %spec.select219, %land.lhs.true83 ]
   tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %cond81.sink) #19
-  %cmp91.not = icmp ugt i64 %length.0.i, %l
+  %cmp91.not = icmp ult i64 %l, %length.0.i
   br i1 %cmp91.not, label %if.end110, label %while.cond94.preheader
 
 while.cond94.preheader:                           ; preds = %if.end90
@@ -14708,7 +14708,7 @@ if.end125:                                        ; preds = %if.then122, %if.the
   %conv127 = trunc i64 %l to i32
   %call128 = tail call i32 @lpRandomPairsUnique(ptr noundef %40, i32 noundef %conv127, ptr noundef %call120, ptr noundef %vals118.0) #19
   %conv129 = zext i32 %call128 to i64
-  %cmp130 = icmp eq i64 %conv129, %l
+  %cmp130 = icmp eq i64 %l, %conv129
   br i1 %cmp130, label %cond.end137, label %cond.false136
 
 cond.false136:                                    ; preds = %if.end125
@@ -15541,7 +15541,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 define internal void @zrangeResultBeginStore(ptr nocapture noundef writeonly %handler, i64 noundef %length) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
-  %cmp.not.i = icmp ult i64 %0, %length
+  %cmp.not.i = icmp ugt i64 %length, %0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry

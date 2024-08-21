@@ -1856,7 +1856,7 @@ define noundef i32 @_ZNK10SearchMenu17nextEnabledActionEiiRK5QListIP7QActionERS2
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sub nsw i32 %10, %12
-  %.not = icmp sgt i32 %13, %2
+  %.not = icmp slt i32 %2, %13
   br i1 %.not, label %14, label %.loopexit
 
 14:                                               ; preds = %7

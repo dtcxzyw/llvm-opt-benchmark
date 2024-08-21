@@ -4318,7 +4318,7 @@ entry:
   %0 = load i64, ptr %capacity_.i, align 8
   %div17 = lshr i64 %0, 1
   %add = add i64 %div17, %0
-  %cmp3 = icmp ult i64 %add, %size
+  %cmp3 = icmp ugt i64 %size, %add
   br i1 %cmp3, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -5015,7 +5015,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE12check_arg_
   store i32 -1, ptr %next_arg_id_.i.i.i.i, align 8
   %num_args_.i.i.i = getelementptr inbounds i8, ptr %9, i64 20
   %11 = load i32, ptr %num_args_.i.i.i, align 4
-  %cmp.not.i.i.i = icmp sgt i32 %11, %index.0
+  %cmp.not.i.i.i = icmp slt i32 %index.0, %11
   br i1 %cmp.not.i.i.i, label %_ZZN3fmt2v96detail23parse_replacement_fieldIcRNS1_21format_string_checkerIcNS1_13error_handlerEJPKcS6_iEEEEEPKT_SB_SB_OT0_EN10id_adapterclEi.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE12check_arg_idEi.exit.i.i.i
@@ -5560,7 +5560,7 @@ _ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE11next_arg_idEv.e
   %13 = load ptr, ptr %context_.i.i.i, align 8, !noalias !45
   %num_args_.i2.i.i.i = getelementptr inbounds i8, ptr %13, i64 20
   %14 = load i32, ptr %num_args_.i2.i.i.i, align 4, !noalias !45
-  %cmp.i.i.i.i = icmp sgt i32 %14, %11
+  %cmp.i.i.i.i = icmp slt i32 %11, %14
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN13width_adapterclEv.exit
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE11next_arg_idEv.exit.i.i.i
@@ -5740,7 +5740,7 @@ _ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE11next_arg_idEv.e
   %14 = load ptr, ptr %context_.i.i.i, align 8, !noalias !48
   %num_args_.i2.i.i.i = getelementptr inbounds i8, ptr %14, i64 20
   %15 = load i32, ptr %num_args_.i2.i.i.i, align 4, !noalias !48
-  %cmp.i.i.i.i = icmp sgt i32 %15, %12
+  %cmp.i.i.i.i = icmp slt i32 %12, %15
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE11next_arg_idEv.exit.i.i.i
@@ -5913,7 +5913,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE12check_arg_
   store i32 -1, ptr %next_arg_id_.i.i.i.i.i, align 8, !noalias !51
   %num_args_.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 20
   %11 = load i32, ptr %num_args_.i.i.i.i, align 4, !noalias !51
-  %cmp.not.i.i.i.i = icmp sgt i32 %11, %index.0
+  %cmp.not.i.i.i.i = icmp slt i32 %index.0, %11
   br i1 %cmp.not.i.i.i.i, label %_ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE12check_arg_idEi.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE12check_arg_idEi.exit.i.i.i.i
@@ -5924,7 +5924,7 @@ _ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE12check_arg_idEi.
   %12 = load ptr, ptr %context_.i.i.i, align 8, !noalias !51
   %num_args_.i3.i.i.i = getelementptr inbounds i8, ptr %12, i64 20
   %13 = load i32, ptr %num_args_.i3.i.i.i, align 4, !noalias !51
-  %cmp.i.i.i.i = icmp sgt i32 %13, %index.0
+  %cmp.i.i.i.i = icmp slt i32 %index.0, %13
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN13width_adapterclEi.exit
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE12check_arg_idEi.exit.i.i.i
@@ -6109,7 +6109,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE12check_arg_
   store i32 -1, ptr %next_arg_id_.i.i.i.i.i, align 8, !noalias !55
   %num_args_.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 20
   %11 = load i32, ptr %num_args_.i.i.i.i, align 4, !noalias !55
-  %cmp.not.i.i.i.i = icmp sgt i32 %11, %index.0
+  %cmp.not.i.i.i.i = icmp slt i32 %index.0, %11
   br i1 %cmp.not.i.i.i.i, label %_ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE12check_arg_idEi.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE12check_arg_idEi.exit.i.i.i.i
@@ -6120,7 +6120,7 @@ _ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE12check_arg_idEi.
   %12 = load ptr, ptr %context_.i.i.i, align 8, !noalias !55
   %num_args_.i3.i.i.i = getelementptr inbounds i8, ptr %12, i64 20
   %13 = load i32, ptr %num_args_.i3.i.i.i, align 4, !noalias !55
-  %cmp.i.i.i.i = icmp sgt i32 %13, %index.0
+  %cmp.i.i.i.i = icmp slt i32 %index.0, %13
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEi.exit
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZN3fmt2v96detail21compile_parse_contextIcNS1_13error_handlerEE12check_arg_idEi.exit.i.i.i

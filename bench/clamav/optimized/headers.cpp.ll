@@ -21,7 +21,7 @@ define void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable
   %3 = getelementptr inbounds i8, ptr %0, i64 8232
   %4 = getelementptr inbounds i8, ptr %0, i64 8248
   %5 = load i64, ptr %4, align 8
-  %6 = icmp ult i64 %5, %1
+  %6 = icmp ugt i64 %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 8240
   store i64 %1, ptr %7, align 8
   br i1 %6, label %8, label %_ZN5ArrayIhE5AllocEm.exit
@@ -30,7 +30,7 @@ define void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable
   %9 = getelementptr inbounds i8, ptr %0, i64 8256
   %10 = load i64, ptr %9, align 8
   %.not.i.i = icmp ne i64 %10, 0
-  %11 = icmp ult i64 %10, %1
+  %11 = icmp ugt i64 %1, %10
   %or.cond.i.i = and i1 %.not.i.i, %11
   br i1 %or.cond.i.i, label %12, label %13
 
@@ -142,7 +142,7 @@ _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %2, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %.not.i.i = icmp ne i64 %11, 0
-  %12 = icmp ult i64 %11, %7
+  %12 = icmp ugt i64 %7, %11
   %or.cond.i.i = and i1 %.not.i.i, %12
   br i1 %or.cond.i.i, label %13, label %14
 

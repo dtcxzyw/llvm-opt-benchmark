@@ -1552,7 +1552,7 @@ define dso_local noundef zeroext i1 @sema_analyse_decl_type(ptr nocapture readno
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr @type_wildcard_optional, align 8
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %14
@@ -9499,7 +9499,7 @@ type_flatten.exit:                                ; preds = %.preheader
   ]
 
 ._crit_edge.i:                                    ; preds = %62
-  %.pre.i = and i1 %9, %6
+  %.pre.i = and i1 %6, %9
   %65 = select i1 %.pre.i, ptr @.str.216, ptr @.str.217
   br label %195
 
@@ -9665,7 +9665,7 @@ type_flatten.exit52.i:                            ; preds = %108
   br label %sema_find_main_type.exit.thread
 
 139:                                              ; preds = %62
-  %brmerge.demorgan.i = and i1 %9, %6
+  %brmerge.demorgan.i = and i1 %6, %9
   br i1 %brmerge.demorgan.i, label %140, label %195
 
 140:                                              ; preds = %139

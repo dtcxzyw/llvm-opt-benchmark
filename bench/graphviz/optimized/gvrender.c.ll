@@ -215,16 +215,16 @@ define { double, double } @gvrender_ptf(ptr nocapture noundef readonly %0, doubl
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %3
-  %15 = fadd double %.sroa.35.0.copyload, %2
+  %15 = fadd double %2, %.sroa.35.0.copyload
   %16 = fneg double %15
   %17 = fmul double %9, %16
-  %18 = fadd double %.sroa.03.0.copyload, %1
+  %18 = fadd double %1, %.sroa.03.0.copyload
   br label %23
 
 19:                                               ; preds = %3
-  %20 = fadd double %.sroa.03.0.copyload, %1
+  %20 = fadd double %1, %.sroa.03.0.copyload
   %21 = fmul double %20, %9
-  %22 = fadd double %.sroa.35.0.copyload, %2
+  %22 = fadd double %2, %.sroa.35.0.copyload
   br label %23
 
 23:                                               ; preds = %19, %14
@@ -790,16 +790,16 @@ define void @gvrender_textspan(ptr noundef %0, double %1, double %2, ptr noundef
   br i1 %.not.i, label %36, label %31
 
 31:                                               ; preds = %20
-  %32 = fadd double %.sroa.35.0.copyload.i, %2
+  %32 = fadd double %2, %.sroa.35.0.copyload.i
   %33 = fneg double %32
   %34 = fmul double %26, %33
-  %35 = fadd double %.sroa.03.0.copyload.i, %1
+  %35 = fadd double %1, %.sroa.03.0.copyload.i
   br label %gvrender_ptf.exit
 
 36:                                               ; preds = %20
-  %37 = fadd double %.sroa.03.0.copyload.i, %1
+  %37 = fadd double %1, %.sroa.03.0.copyload.i
   %38 = fmul double %37, %26
-  %39 = fadd double %.sroa.35.0.copyload.i, %2
+  %39 = fadd double %2, %.sroa.35.0.copyload.i
   br label %gvrender_ptf.exit
 
 gvrender_ptf.exit:                                ; preds = %31, %36

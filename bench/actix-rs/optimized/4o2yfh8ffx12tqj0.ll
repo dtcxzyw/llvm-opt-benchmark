@@ -4888,7 +4888,7 @@ define hidden void @_ZN2h25proto7streams7streams5Inner10recv_reset17h0e68c28f168
   %46 = getelementptr inbounds i8, ptr %1, i64 96
   %47 = getelementptr inbounds i8, ptr %1, i64 248
   %48 = load i32, ptr %47, align 8, !noundef !4
-  %or.cond = icmp ult i32 %48, %3
+  %or.cond = icmp ugt i32 %3, %48
   br i1 %or.cond, label %133, label %.critedge152
 
 49:                                               ; preds = %5
@@ -5687,7 +5687,7 @@ common.resume:                                    ; preds = %72, %43
   %61 = icmp ne i32 %60, 0
   %62 = getelementptr inbounds i8, ptr %0, i64 140
   %63 = load i32, ptr %62, align 4
-  %switch.not.i = icmp ugt i32 %63, %2
+  %switch.not.i = icmp ult i32 %2, %63
   %or.cond = select i1 %61, i1 true, i1 %switch.not.i
   br i1 %or.cond, label %_ZN2h25proto7streams4recv4Recv26maybe_reset_next_stream_id17h4ed5e28a92aa200bE.exit, label %_ZN2h25proto7streams4recv4Recv26maybe_reset_next_stream_id17h4ed5e28a92aa200bE.exit.sink.split
 
@@ -5697,7 +5697,7 @@ common.resume:                                    ; preds = %72, %43
   %67 = icmp ne i32 %66, 0
   %68 = getelementptr inbounds i8, ptr %0, i64 260
   %69 = load i32, ptr %68, align 4
-  %switch.not.i11 = icmp ugt i32 %69, %2
+  %switch.not.i11 = icmp ult i32 %2, %69
   %or.cond29 = select i1 %67, i1 true, i1 %switch.not.i11
   br i1 %or.cond29, label %_ZN2h25proto7streams4recv4Recv26maybe_reset_next_stream_id17h4ed5e28a92aa200bE.exit, label %_ZN2h25proto7streams4recv4Recv26maybe_reset_next_stream_id17h4ed5e28a92aa200bE.exit.sink.split
 

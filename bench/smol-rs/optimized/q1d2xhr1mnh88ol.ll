@@ -648,7 +648,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
   %3 = alloca { ptr, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
@@ -787,7 +787,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he20
   %3 = alloca { ptr, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2

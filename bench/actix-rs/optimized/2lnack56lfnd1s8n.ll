@@ -197,8 +197,8 @@ _ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit: ; preds = %26, %36
 
 49:                                               ; preds = %65, %_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit
   %.sroa.9.0.i.i.i = phi i64 [ 0, %_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit ], [ %66, %65 ]
-  %.pn.i = phi i64 [ %45, %_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit ], [ %67, %65 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val5
+  %.pn.i.i.i = phi i64 [ %45, %_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit ], [ %67, %65 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %50 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i25.i.i = load <16 x i8>, ptr %50, align 1, !noalias !75
   %51 = icmp eq <16 x i8> %.0.copyload.i25.i.i, %.15.vec.insert.i.i.i

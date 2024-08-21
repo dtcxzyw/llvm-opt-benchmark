@@ -2216,7 +2216,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 9:                                                ; preds = %4
   %10 = load i32, ptr @wal_segment_size, align 4
   %11 = sext i32 %10 to i64
-  %12 = mul i64 %11, %1
+  %12 = mul i64 %1, %11
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = getelementptr i8, ptr %13, i64 4736
   %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 1) #15
@@ -2319,7 +2319,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 57:                                               ; preds = %54
   %58 = load i32, ptr %34, align 8
   %.not84.i = icmp ne i32 %58, 0
-  %.not86.i = icmp eq i32 %58, %2
+  %.not86.i = icmp eq i32 %2, %58
   %or.cond.i = or i1 %.not85.i, %.not86.i
   %or.cond126.i = and i1 %.not84.i, %or.cond.i
   br i1 %or.cond126.i, label %59, label %.thread.i

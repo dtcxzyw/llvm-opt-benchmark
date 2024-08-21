@@ -322,7 +322,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %16, i64 44
   %22 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %22, %call17
+  %cmp22.not.i = icmp slt i32 %call17, %22
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -459,7 +459,7 @@ cond.false17:                                     ; preds = %cond.false
 cond.false20:                                     ; preds = %cond.false17
   %highStart = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %highStart, align 4
-  %cmp22.not = icmp sgt i32 %6, %c
+  %cmp22.not = icmp slt i32 %c, %6
   br i1 %cmp22.not, label %cond.false25, label %cond.true23
 
 cond.true23:                                      ; preds = %cond.false20
@@ -847,7 +847,7 @@ land.rhs.i.i:                                     ; preds = %if.else.i.i
   %cmp5.i.i.i = icmp slt i32 %cond.i.i, 0
   %spec.select10.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 0)
   %sub.i.i.i = sub nsw i32 %cond.i.i, %spec.select10.i.i
-  %spec.select11.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i.i)
+  %spec.select11.i.i = call i32 @llvm.smin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select11.i.i
   %16 = and i16 %11, 2
   %tobool.not.i.i.i = icmp eq i16 %16, 0
@@ -972,7 +972,7 @@ land.lhs.true:                                    ; preds = %if.end43
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i.i85, i32 1)
   %sub.i.i = sub nsw i32 %cond.i.i.i.i85, %spec.select.i
-  %spec.select9.i = call i32 @llvm.smin.i32(i32 %sub.i.i, i32 %retval.0.i.i.i92)
+  %spec.select9.i = call i32 @llvm.smin.i32(i32 %retval.0.i.i.i92, i32 %sub.i.i)
   %38 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i96 = icmp slt i16 %38, 0
   %39 = ashr i16 %38, 5
@@ -998,7 +998,7 @@ land.rhs.i.i107:                                  ; preds = %if.else.i3.i
   %cmp5.i.i.i108 = icmp slt i32 %sub.i.i, 0
   %42 = call i32 @llvm.smax.i32(i32 %spec.select.i, i32 0)
   %sub.i.i.i110 = sub nsw i32 %cond.i.i.i.i85, %42
-  %spec.select11.i.i111 = call i32 @llvm.smin.i32(i32 %sub.i.i.i110, i32 %spec.select9.i)
+  %spec.select11.i.i111 = call i32 @llvm.smin.i32(i32 %spec.select9.i, i32 %sub.i.i.i110)
   %srcLength.addr.0.i.i112 = select i1 %cmp5.i.i.i108, i32 0, i32 %spec.select11.i.i111
   %43 = and i16 %30, 2
   %tobool.not.i.i.i113 = icmp eq i16 %43, 0
@@ -1758,7 +1758,7 @@ cond.true.i.i:                                    ; preds = %for.inc.i, %cond.tr
   %indvars.iv.i = phi i64 [ 0, %cond.true.i.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds i64, ptr %4, i64 %indvars.iv.i
   %5 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp4.i = icmp eq i64 %5, %spec.select
+  %cmp4.i = icmp eq i64 %spec.select, %5
   br i1 %cmp4.i, label %return.loopexit.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %cond.true.i.i
@@ -1848,7 +1848,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
   %indvars.iv = phi i64 [ 0, %cond.true.i.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx.i, align 8
-  %cmp4 = icmp eq i64 %2, %ce
+  %cmp4 = icmp eq i64 %ce, %2
   br i1 %cmp4, label %return.loopexit, label %for.inc
 
 for.inc:                                          ; preds = %cond.true.i
@@ -1920,7 +1920,7 @@ for.cond.preheader:                               ; preds = %if.end
 if.then5:                                         ; preds = %if.end
   %reass.sub = sub i32 %end, %start
   %add = add i32 %reass.sub, 1
-  %mul = mul nsw i32 %add, %step
+  %mul = mul nsw i32 %step, %add
   %call6 = tail call noundef i32 @_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %primary, i8 noundef signext %call.i, i32 noundef %mul)
   br label %return
 
@@ -1958,7 +1958,7 @@ cond.true:                                        ; preds = %entry
 cond.false:                                       ; preds = %entry
   %count.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i32, ptr %count.i, align 8
-  %cmp2.i = icmp sgt i32 %1, %shr.i
+  %cmp2.i = icmp slt i32 %shr.i, %1
   br i1 %cmp2.i, label %cond.true.i, label %cond.end
 
 cond.true.i:                                      ; preds = %cond.false
@@ -2082,7 +2082,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %3, i64 44
   %9 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %9, %c
+  %cmp22.not.i = icmp slt i32 %c, %9
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -2320,7 +2320,7 @@ cond.true30:                                      ; preds = %if.then26
 
 cond.false34:                                     ; preds = %if.then26
   %38 = load i32, ptr %count.i.i128, align 8
-  %cmp2.i = icmp sgt i32 %38, %shr.i45
+  %cmp2.i = icmp slt i32 %shr.i45, %38
   br i1 %cmp2.i, label %cond.true.i49, label %return
 
 cond.true.i49:                                    ; preds = %cond.false34
@@ -2360,7 +2360,7 @@ cond.true.i66:                                    ; preds = %sw.bb43
 sw.bb54:                                          ; preds = %while.body
   %shr.i.i = lshr i32 %ce32.188, 13
   %47 = load i32, ptr %count.i.i127, align 8
-  %cmp2.i.i = icmp sgt i32 %47, %shr.i.i
+  %cmp2.i.i = icmp slt i32 %shr.i.i, %47
   br i1 %cmp2.i.i, label %cond.true.i.i, label %_ZNK6icu_7520CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit
 
 cond.true.i.i:                                    ; preds = %sw.bb54
@@ -2428,7 +2428,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
   %indvars.iv = phi i64 [ 0, %cond.true.i.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx.i, align 4
-  %cmp4 = icmp eq i32 %2, %ce32
+  %cmp4 = icmp eq i32 %ce32, %2
   br i1 %cmp4, label %return.loopexit, label %for.inc
 
 for.inc:                                          ; preds = %cond.true.i
@@ -3090,7 +3090,7 @@ if.else.i.i195:                                   ; preds = %invoke.cont212
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 0)
   %cmp5.i.i.i = icmp slt i32 %cond.i6.i, 0
   %sub.i.i.i = sub nsw i32 %cond.i6.i, %spec.select.i.i
-  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i6.i)
+  %spec.select9.i.i = call i32 @llvm.smin.i32(i32 %cond.i6.i, i32 %sub.i.i.i)
   %srcLength.addr.0.i.i = select i1 %cmp5.i.i.i, i32 0, i32 %spec.select9.i.i
   %70 = and i16 %63, 2
   %tobool.not.i.i.i200 = icmp eq i16 %70, 0
@@ -3697,7 +3697,7 @@ cond.true.i.i:                                    ; preds = %for.inc.i, %cond.tr
   %indvars.iv.i = phi i64 [ 0, %cond.true.i.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
   %3 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp4.i = icmp eq i64 %3, %ce
+  %cmp4.i = icmp eq i64 %ce, %3
   br i1 %cmp4.i, label %return.loopexit.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %cond.true.i.i
@@ -4418,7 +4418,7 @@ if.else.i:                                        ; preds = %invoke.cont35
   %shr.i.i.i35 = sext i16 %20 to i32
   %21 = load i32, ptr %fLength.i, align 4
   %cond.i.i37 = select i1 %cmp.i.i.i34, i32 %21, i32 %shr.i.i.i35
-  %cmp3.i = icmp ugt i32 %cond.i.i37, %cond.i
+  %cmp3.i = icmp ult i32 %cond.i, %cond.i.i37
   br i1 %cmp3.i, label %if.then4.i, label %while.cond.backedge
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -4638,7 +4638,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %4, i64 44
   %10 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %10, %1
+  %cmp22.not.i = icmp slt i32 %1, %10
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -4801,7 +4801,7 @@ cond.false17.i:                                   ; preds = %cond.false.i
 cond.false20.i:                                   ; preds = %cond.false17.i
   %highStart.i = getelementptr inbounds i8, ptr %4, i64 44
   %10 = load i32, ptr %highStart.i, align 4
-  %cmp22.not.i = icmp sgt i32 %10, %1
+  %cmp22.not.i = icmp slt i32 %1, %10
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
@@ -4991,7 +4991,7 @@ cond.true.i36:                                    ; preds = %sw.bb23
 
 cond.false.i38:                                   ; preds = %sw.bb23
   %12 = load i32, ptr %count.i.i, align 8
-  %cmp2.i.i = icmp sgt i32 %12, %shr.i.i
+  %cmp2.i.i = icmp slt i32 %shr.i.i, %12
   br i1 %cmp2.i.i, label %cond.end.sink.split.i, label %_ZNK6icu_7520CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit
 
 cond.end.sink.split.i:                            ; preds = %cond.false.i38, %cond.true.i36
@@ -5175,7 +5175,7 @@ cond.true.i.i:                                    ; preds = %for.inc.i, %cond.tr
   %indvars.iv.i = phi i64 [ 0, %cond.true.i.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
   %10 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp4.i = icmp eq i32 %10, %call14
+  %cmp4.i = icmp eq i32 %call14, %10
   br i1 %cmp4.i, label %return.loopexit.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %cond.true.i.i
@@ -6009,7 +6009,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.else7.i.i.i:                                   ; preds = %if.then.i.i
   %sub.i.i.i = sub nuw nsw i32 %cond.i.i15, %spec.select.i.i
-  %12 = call i32 @llvm.umin.i32(i32 %sub.i.i.i, i32 %cond.i.i15)
+  %12 = call i32 @llvm.umin.i32(i32 %cond.i.i15, i32 %sub.i.i.i)
   %cmp.i.not.i = icmp eq i32 %12, 0
   br i1 %cmp.i.not.i, label %invoke.cont17, label %if.then2.i.i
 

@@ -609,7 +609,7 @@ trace_e1000e_rx_has_buffers.exit:                 ; preds = %entry, %land.lhs.tr
   %10 = load i32, ptr %rx_desc_buf_size, align 8
   %mul = mul i32 %10, %div1
   %conv3 = zext i32 %mul to i64
-  %cmp = icmp uge i64 %conv3, %total_size
+  %cmp = icmp ule i64 %total_size, %conv3
   ret i1 %cmp
 }
 
@@ -762,7 +762,7 @@ if.else13:                                        ; preds = %if.end4
 land.lhs.true1.i57:                               ; preds = %if.else13
   %iov_len.i58 = getelementptr inbounds i8, ptr %iov, i64 8
   %8 = load i64, ptr %iov_len.i58, align 8
-  %cmp.not.i59 = icmp ult i64 %8, %iov_ofs.0
+  %cmp.not.i59 = icmp ugt i64 %iov_ofs.0, %8
   %sub.i60 = sub nuw i64 %8, %iov_ofs.0
   %cmp5.not.i61 = icmp ult i64 %sub.i60, 18
   %or.cond13.i62 = select i1 %cmp.not.i59, i1 true, i1 %cmp5.not.i61

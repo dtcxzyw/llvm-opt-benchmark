@@ -629,7 +629,7 @@ define internal fastcc noundef ptr @cacheset_add(ptr nocapture noundef %0, ptr n
 
 75:                                               ; preds = %71
   %76 = icmp sle i64 %72, %73
-  %77 = icmp sgt i64 %63, %2
+  %77 = icmp slt i64 %2, %63
   %or.cond = select i1 %76, i1 %77, i1 false
   br i1 %or.cond, label %78, label %cmp.exit
 
@@ -1022,7 +1022,7 @@ define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly %0, i64 nound
 53:                                               ; preds = %43, %38
   %54 = getelementptr inbounds i8, ptr %40, i64 60
   %55 = load i32, ptr %54, align 4
-  %.not27.i.i = icmp ugt i32 %55, %24
+  %.not27.i.i = icmp ult i32 %24, %55
   br i1 %.not27.i.i, label %56, label %cacheset_lookup.exit.i
 
 56:                                               ; preds = %53, %36
@@ -1139,7 +1139,7 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
   br i1 %23, label %cmp.exit.thread108, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp sgt i64 %11, %1
+  %25 = icmp slt i64 %1, %11
   br i1 %25, label %26, label %cmp.exit
 
 26:                                               ; preds = %8, %18, %24
@@ -1169,7 +1169,7 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
 
 42:                                               ; preds = %38
   %43 = icmp sle i64 %39, %40
-  %44 = icmp sgt i64 %32, %1
+  %44 = icmp slt i64 %1, %32
   %or.cond116 = select i1 %43, i1 %44, i1 false
   br i1 %or.cond116, label %45, label %cmp.exit101
 
@@ -1204,7 +1204,7 @@ cmp.exit101:                                      ; preds = %42, %36, %50
   br label %88
 
 cmp.exit:                                         ; preds = %24
-  %.not115 = icmp ult i64 %11, %1
+  %.not115 = icmp ugt i64 %1, %11
   br i1 %.not115, label %cmp.exit.thread108, label %89
 
 cmp.exit.thread108:                               ; preds = %22, %16, %cmp.exit
@@ -1237,8 +1237,8 @@ cmp.exit.thread108:                               ; preds = %22, %16, %cmp.exit
   br i1 %73, label %cmp.exit104.thread113, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp sle i64 %62, %1
-  %76 = icmp ult i64 %62, %1
+  %75 = icmp sge i64 %1, %62
+  %76 = icmp ugt i64 %1, %62
   %or.cond = and i1 %75, %76
   br i1 %or.cond, label %cmp.exit104.thread113, label %cmp.exit104.thread
 

@@ -339,7 +339,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !12, !noalias !17, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !19, !noalias !17, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9b69e3e95a2089eaE.exit"
 
 9:                                                ; preds = %3
@@ -464,7 +464,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.1157953829240278
   %44 = load i64, ptr %43, align 8, !alias.scope !25, !noalias !30, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !32, !noalias !30, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9b69e3e95a2089eaE.exit"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.11579538292402782382.exit
@@ -2404,7 +2404,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit270.i: ; preds = %75
   %767 = load i64, ptr %114, align 8, !alias.scope !181, !noalias !188, !noundef !5
   %768 = load i64, ptr %1, align 8, !alias.scope !191, !noalias !188, !noundef !5
   %769 = sub i64 %768, %767
-  %770 = icmp ult i64 %769, %766
+  %770 = icmp ugt i64 %766, %769
   br i1 %770, label %771, label %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h25913c731620d82aE.llvm.11579538292402782382.exit272.i"
 
 771:                                              ; preds = %762
@@ -2469,7 +2469,7 @@ _ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit277.i: ; preds =
   %796 = load i64, ptr %114, align 8, !alias.scope !207, !noalias !214, !noundef !5
   %797 = load i64, ptr %1, align 8, !alias.scope !217, !noalias !214, !noundef !5
   %798 = sub i64 %797, %796
-  %799 = icmp ult i64 %798, %795
+  %799 = icmp ugt i64 %795, %798
   br i1 %799, label %800, label %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h25913c731620d82aE.llvm.11579538292402782382.exit279.i"
 
 800:                                              ; preds = %_ZN6chrono5naive4date9NaiveDate7weekday17h4a4c3ff80126069bE.exit277.i
@@ -3853,7 +3853,7 @@ _ZN6chrono6format10formatting14write_hundreds17h003894b3cc128776E.exit.i: ; pred
   %1165 = load i64, ptr %114, align 8, !alias.scope !448, !noalias !455, !noundef !5
   %1166 = load i64, ptr %1, align 8, !alias.scope !458, !noalias !455, !noundef !5
   %1167 = sub i64 %1166, %1165
-  %1168 = icmp ult i64 %1167, %.sroa.3.0
+  %1168 = icmp ugt i64 %.sroa.3.0, %1167
   br i1 %1168, label %1169, label %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h25913c731620d82aE.llvm.11579538292402782382.exit"
 
 1169:                                             ; preds = %1164
@@ -3886,7 +3886,7 @@ _ZN6chrono6format10formatting14write_hundreds17h003894b3cc128776E.exit.i: ; pred
   %1181 = load i64, ptr %114, align 8, !alias.scope !461, !noalias !468, !noundef !5
   %1182 = load i64, ptr %1, align 8, !alias.scope !471, !noalias !468, !noundef !5
   %1183 = sub i64 %1182, %1181
-  %1184 = icmp ult i64 %1183, %1180
+  %1184 = icmp ugt i64 %1180, %1183
   br i1 %1184, label %1185, label %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h25913c731620d82aE.llvm.11579538292402782382.exit126"
 
 1185:                                             ; preds = %1178

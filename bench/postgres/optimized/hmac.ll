@@ -76,7 +76,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 92, i64 %11, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 54, i64 %11, i1 false)
-  %13 = icmp ult i64 %11, %2
+  %13 = icmp ugt i64 %2, %11
   br i1 %13, label %14, label %40
 
 14:                                               ; preds = %5

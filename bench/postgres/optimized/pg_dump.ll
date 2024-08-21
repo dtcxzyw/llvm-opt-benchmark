@@ -24891,7 +24891,7 @@ dumpDomain.exit:                                  ; preds = %464, %439
 653:                                              ; preds = %650
   %654 = getelementptr inbounds i8, ptr %644, i64 12
   %655 = load i32, ptr %654, align 4
-  %656 = icmp ugt i32 %655, %634
+  %656 = icmp ult i32 %634, %655
   br i1 %656, label %657, label %659
 
 657:                                              ; preds = %653
@@ -24899,7 +24899,7 @@ dumpDomain.exit:                                  ; preds = %464, %439
   br label %664
 
 659:                                              ; preds = %653
-  %660 = icmp ult i32 %655, %634
+  %660 = icmp ugt i32 %634, %655
   br i1 %660, label %662, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %659
@@ -24928,7 +24928,7 @@ dumpDomain.exit:                                  ; preds = %464, %439
 668:                                              ; preds = %.lr.ph65.i.i.i
   %669 = getelementptr i8, ptr %.263.i.i.i, i64 -12
   %670 = load i32, ptr %669, align 4
-  %.not53.i.i.i = icmp eq i32 %670, %634
+  %.not53.i.i.i = icmp eq i32 %634, %670
   br i1 %.not53.i.i.i, label %671, label %._crit_edge66.i.i.i
 
 671:                                              ; preds = %668
@@ -24955,7 +24955,7 @@ dumpDomain.exit:                                  ; preds = %464, %439
 678:                                              ; preds = %.lr.ph78.i.i.i
   %679 = getelementptr inbounds i8, ptr %.375.i.i.i, i64 12
   %680 = load i32, ptr %679, align 4
-  %.not56.i.i.i = icmp eq i32 %680, %634
+  %.not56.i.i.i = icmp eq i32 %634, %680
   br i1 %.not56.i.i.i, label %681, label %findComments.exit.i.i
 
 681:                                              ; preds = %678
@@ -27752,7 +27752,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   %1053 = getelementptr %struct.CommentItem, ptr %.04361.i.i.i, i64 %1052
   %1054 = getelementptr inbounds i8, ptr %1053, i64 8
   %1055 = load i32, ptr %1054, align 8
-  %1056 = icmp ugt i32 %1055, %1041
+  %1056 = icmp ult i32 %1041, %1055
   br i1 %1056, label %1057, label %1059
 
 1057:                                             ; preds = %.lr.ph.i.i.i
@@ -27760,7 +27760,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   br label %1074
 
 1059:                                             ; preds = %.lr.ph.i.i.i
-  %1060 = icmp ult i32 %1055, %1041
+  %1060 = icmp ugt i32 %1041, %1055
   br i1 %1060, label %1061, label %1063
 
 1061:                                             ; preds = %1059
@@ -27770,7 +27770,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
 1063:                                             ; preds = %1059
   %1064 = getelementptr inbounds i8, ptr %1053, i64 12
   %1065 = load i32, ptr %1064, align 4
-  %1066 = icmp ugt i32 %1065, %1043
+  %1066 = icmp ult i32 %1043, %1065
   br i1 %1066, label %1067, label %1069
 
 1067:                                             ; preds = %1063
@@ -27778,7 +27778,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   br label %1074
 
 1069:                                             ; preds = %1063
-  %1070 = icmp ult i32 %1065, %1043
+  %1070 = icmp ugt i32 %1043, %1065
   br i1 %1070, label %1072, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %1069
@@ -27801,13 +27801,13 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   %1075 = getelementptr i8, ptr %.263.i.i.i, i64 -24
   %1076 = getelementptr i8, ptr %.263.i.i.i, i64 -16
   %1077 = load i32, ptr %1076, align 8
-  %.not52.i.i.i = icmp eq i32 %1077, %1041
+  %.not52.i.i.i = icmp eq i32 %1041, %1077
   br i1 %.not52.i.i.i, label %1078, label %._crit_edge66.i.i.i
 
 1078:                                             ; preds = %.lr.ph65.i.i.i
   %1079 = getelementptr i8, ptr %.263.i.i.i, i64 -12
   %1080 = load i32, ptr %1079, align 4
-  %.not53.i.i.i = icmp eq i32 %1080, %1043
+  %.not53.i.i.i = icmp eq i32 %1043, %1080
   br i1 %.not53.i.i.i, label %1081, label %._crit_edge66.i.i.i
 
 1081:                                             ; preds = %1078
@@ -27828,13 +27828,13 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   %.375.i.i.i = phi ptr [ %1092, %1091 ], [ %1085, %._crit_edge66.i.i.i ]
   %1086 = getelementptr inbounds i8, ptr %.375.i.i.i, i64 8
   %1087 = load i32, ptr %1086, align 8
-  %.not55.i.i.i = icmp eq i32 %1087, %1041
+  %.not55.i.i.i = icmp eq i32 %1041, %1087
   br i1 %.not55.i.i.i, label %1088, label %findComments.exit.i.i
 
 1088:                                             ; preds = %.lr.ph78.i.i.i
   %1089 = getelementptr inbounds i8, ptr %.375.i.i.i, i64 12
   %1090 = load i32, ptr %1089, align 4
-  %.not56.i.i.i = icmp eq i32 %1090, %1043
+  %.not56.i.i.i = icmp eq i32 %1043, %1090
   br i1 %.not56.i.i.i, label %1091, label %findComments.exit.i.i
 
 1091:                                             ; preds = %1088
@@ -28051,7 +28051,7 @@ dumpTableComment.exit.i:                          ; preds = %1074, %1185, %findC
   %1214 = getelementptr %struct.SecLabelItem, ptr %.04463.i.i.i, i64 %1213
   %1215 = getelementptr inbounds i8, ptr %1214, i64 16
   %1216 = load i32, ptr %1215, align 8
-  %1217 = icmp ugt i32 %1216, %1199
+  %1217 = icmp ult i32 %1199, %1216
   br i1 %1217, label %1218, label %1220
 
 1218:                                             ; preds = %.lr.ph.i.i633.i
@@ -28059,7 +28059,7 @@ dumpTableComment.exit.i:                          ; preds = %1074, %1185, %findC
   br label %1235
 
 1220:                                             ; preds = %.lr.ph.i.i633.i
-  %1221 = icmp ult i32 %1216, %1199
+  %1221 = icmp ugt i32 %1199, %1216
   br i1 %1221, label %1222, label %1224
 
 1222:                                             ; preds = %1220
@@ -28069,7 +28069,7 @@ dumpTableComment.exit.i:                          ; preds = %1074, %1185, %findC
 1224:                                             ; preds = %1220
   %1225 = getelementptr inbounds i8, ptr %1214, i64 20
   %1226 = load i32, ptr %1225, align 4
-  %1227 = icmp ugt i32 %1226, %1201
+  %1227 = icmp ult i32 %1201, %1226
   br i1 %1227, label %1228, label %1230
 
 1228:                                             ; preds = %1224
@@ -28077,7 +28077,7 @@ dumpTableComment.exit.i:                          ; preds = %1074, %1185, %findC
   br label %1235
 
 1230:                                             ; preds = %1224
-  %1231 = icmp ult i32 %1226, %1201
+  %1231 = icmp ugt i32 %1201, %1226
   br i1 %1231, label %1233, label %.preheader.i.i634.i
 
 .preheader.i.i634.i:                              ; preds = %1230
@@ -28100,13 +28100,13 @@ dumpTableComment.exit.i:                          ; preds = %1074, %1185, %findC
   %1236 = getelementptr i8, ptr %.265.i.i.i, i64 -32
   %1237 = getelementptr i8, ptr %.265.i.i.i, i64 -16
   %1238 = load i32, ptr %1237, align 8
-  %.not54.i.i638.i = icmp eq i32 %1238, %1199
+  %.not54.i.i638.i = icmp eq i32 %1199, %1238
   br i1 %.not54.i.i638.i, label %1239, label %._crit_edge68.i.i.i
 
 1239:                                             ; preds = %.lr.ph67.i.i.i
   %1240 = getelementptr i8, ptr %.265.i.i.i, i64 -12
   %1241 = load i32, ptr %1240, align 4
-  %.not55.i.i639.i = icmp eq i32 %1241, %1201
+  %.not55.i.i639.i = icmp eq i32 %1201, %1241
   br i1 %.not55.i.i639.i, label %1242, label %._crit_edge68.i.i.i
 
 1242:                                             ; preds = %1239
@@ -28127,13 +28127,13 @@ dumpTableComment.exit.i:                          ; preds = %1074, %1185, %findC
   %.377.i.i.i = phi ptr [ %1253, %1252 ], [ %1246, %._crit_edge68.i.i.i ]
   %1247 = getelementptr inbounds i8, ptr %.377.i.i.i, i64 16
   %1248 = load i32, ptr %1247, align 8
-  %.not57.i.i.i = icmp eq i32 %1248, %1199
+  %.not57.i.i.i = icmp eq i32 %1199, %1248
   br i1 %.not57.i.i.i, label %1249, label %findSecLabels.exit.i.i
 
 1249:                                             ; preds = %.lr.ph80.i.i.i
   %1250 = getelementptr inbounds i8, ptr %.377.i.i.i, i64 20
   %1251 = load i32, ptr %1250, align 4
-  %.not58.i.i.i = icmp eq i32 %1251, %1201
+  %.not58.i.i.i = icmp eq i32 %1201, %1251
   br i1 %.not58.i.i.i, label %1252, label %findSecLabels.exit.i.i
 
 1252:                                             ; preds = %1249
@@ -28184,7 +28184,7 @@ findSecLabels.exit.i.i:                           ; preds = %1252, %1249, %.lr.p
 
 1279:                                             ; preds = %1277
   %1280 = load i32, ptr %1259, align 8
-  %.not.i48.i.i = icmp slt i32 %1280, %1269
+  %.not.i48.i.i = icmp sgt i32 %1269, %1280
   br i1 %.not.i48.i.i, label %1286, label %1281
 
 1281:                                             ; preds = %1279
@@ -28596,7 +28596,7 @@ define internal fastcc void @dumpConstraint(ptr noundef %0, ptr nocapture nounde
 
 79:                                               ; preds = %.lr.ph265
   %80 = load i32, ptr %67, align 8
-  %.not.i = icmp slt i32 %80, %77
+  %.not.i = icmp sgt i32 %77, %80
   br i1 %.not.i, label %86, label %81
 
 81:                                               ; preds = %79
@@ -28687,7 +28687,7 @@ getAttrName.exit:                                 ; preds = %switch.lookup, %81
 
 123:                                              ; preds = %121
   %124 = load i32, ptr %113, align 8
-  %.not.i228 = icmp slt i32 %124, %119
+  %.not.i228 = icmp sgt i32 %119, %124
   br i1 %.not.i228, label %130, label %125
 
 125:                                              ; preds = %123
@@ -29858,7 +29858,7 @@ define internal fastcc void @binary_upgrade_set_type_oids_by_type_oid(ptr nounde
   %12 = trunc i64 %11 to i32
   tail call void @PQclear(ptr noundef %8) #14
   %.not = icmp eq i32 %12, 0
-  %brmerge.not = and i1 %.not, %3
+  %brmerge.not = and i1 %3, %.not
   br i1 %brmerge.not, label %.preheader46, label %21
 
 .preheader46:                                     ; preds = %5, %.preheader46

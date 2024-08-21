@@ -112,7 +112,7 @@ define range(i32 -1, 1) i32 @H5G__traverse_special(ptr noundef %0, ptr nocapture
 19:                                               ; preds = %6
   %20 = and i32 %2, 1
   %21 = icmp ne i32 %20, 0
-  %brmerge.not = and i1 %21, %3
+  %brmerge.not = and i1 %3, %21
   br i1 %brmerge.not, label %thread-pre-split.thread, label %22
 
 22:                                               ; preds = %19
@@ -222,7 +222,7 @@ thread-pre-split:                                 ; preds = %H5G__traverse_slink
 79:                                               ; preds = %thread-pre-split
   %80 = and i32 %2, 4
   %81 = icmp ne i32 %80, 0
-  %brmerge36.not = and i1 %81, %3
+  %brmerge36.not = and i1 %3, %81
   br i1 %brmerge36.not, label %thread-pre-split.thread, label %82
 
 82:                                               ; preds = %79
@@ -458,7 +458,7 @@ thread-pre-split.thread:                          ; preds = %19, %79, %H5G__trav
 211:                                              ; preds = %thread-pre-split.thread
   %212 = and i32 %2, 2
   %213 = icmp ne i32 %212, 0
-  %brmerge38.not = and i1 %213, %3
+  %brmerge38.not = and i1 %3, %213
   br i1 %brmerge38.not, label %221, label %214
 
 214:                                              ; preds = %211

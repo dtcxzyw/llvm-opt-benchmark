@@ -1054,7 +1054,7 @@ add2dq.exit278:                                   ; preds = %437, %439
 
 461:                                              ; preds = %457
   %462 = load i64, ptr @opn, align 8
-  %.not.i279 = icmp ult i64 %462, %458
+  %.not.i279 = icmp ugt i64 %458, %462
   %.pre396 = load ptr, ptr @ops, align 8
   br i1 %.not.i279, label %463, label %471
 
@@ -1181,7 +1181,7 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @growops(i64 noundef %0) unnamed_addr #0 {
   %2 = load i64, ptr @opn, align 8
-  %.not = icmp ult i64 %2, %0
+  %.not = icmp ugt i64 %0, %2
   br i1 %.not, label %3, label %12
 
 3:                                                ; preds = %1

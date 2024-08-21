@@ -1399,13 +1399,13 @@ define i64 @Dsd_TreeFunc2Truth_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   %5 = ptrtoint ptr %4 to i64
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %common.ret37, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr1823 = phi ptr [ %14, %tailrecurse ], [ %1, %2 ]
   %accumulator.tr22 = phi i64 [ %15, %tailrecurse ], [ 0, %2 ]
-  %9 = icmp eq ptr %4, %.tr1823
+  %9 = icmp eq ptr %.tr1823, %4
   br i1 %9, label %._crit_edge.loopexit, label %10
 
 10:                                               ; preds = %.lr.ph
@@ -1418,7 +1418,7 @@ tailrecurse:                                      ; preds = %10
   %13 = and i64 %11, -2
   %14 = inttoptr i64 %13 to ptr
   %15 = xor i64 %accumulator.tr22, -1
-  %16 = icmp eq ptr %7, %14
+  %16 = icmp eq ptr %14, %7
   br i1 %16, label %._crit_edge.loopexit, label %.lr.ph
 
 common.ret37:                                     ; preds = %._crit_edge.loopexit, %2, %17
@@ -1507,7 +1507,7 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %31 = zext nneg i16 %30 to i32
   %32 = lshr i32 %29, %31
   %33 = and i32 %32, 1
-  %.not93 = icmp eq i32 %33, %3
+  %.not93 = icmp eq i32 %3, %33
   %34 = select i1 %.not93, ptr @.str.3, ptr @.str.2
   %fputs94 = call i32 @fputs(ptr nonnull %34, ptr %0)
   %35 = load i16, ptr %21, align 8
@@ -1791,7 +1791,7 @@ define void @Dsd_NodePrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = icmp ne ptr %6, %1
+  %7 = icmp ne ptr %1, %6
   %8 = zext i1 %7 to i32
   call fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr noundef %6, i32 noundef %8, ptr noundef nonnull @.str.14, i32 noundef 0, ptr noundef nonnull %3)
   ret void

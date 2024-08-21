@@ -936,7 +936,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br label %.lr.ph
 
 .preheader:                                       ; preds = %4
-  %.not54100125 = icmp ult i16 %.0.i, %2
+  %.not54100125 = icmp ugt i16 %2, %.0.i
   br i1 %.not54100125, label %.loopexit, label %.lr.ph102.lr.ph
 
 .lr.ph102.lr.ph:                                  ; preds = %.preheader

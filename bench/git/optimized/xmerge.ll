@@ -241,7 +241,7 @@ land.lhs.true.i:                                  ; preds = %if.then17
   %chg12.i = getelementptr inbounds i8, ptr %c.0601, i64 32
   %17 = load i64, ptr %chg12.i, align 8
   %add.i = add nsw i64 %17, %16
-  %cmp.not.i = icmp slt i64 %add.i, %conv34
+  %cmp.not.i = icmp sgt i64 %conv34, %add.i
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
@@ -250,7 +250,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %chg24.i = getelementptr inbounds i8, ptr %c.0601, i64 40
   %19 = load i64, ptr %chg24.i, align 8
   %add5.i = add nsw i64 %19, %18
-  %cmp6.not.i = icmp slt i64 %add5.i, %conv36
+  %cmp6.not.i = icmp sgt i64 %conv36, %add5.i
   br i1 %cmp6.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %land.lhs.true.i
@@ -361,7 +361,7 @@ land.lhs.true.i206:                               ; preds = %if.then49
   %chg12.i208 = getelementptr inbounds i8, ptr %c.0601, i64 32
   %30 = load i64, ptr %chg12.i208, align 8
   %add.i209 = add nsw i64 %30, %29
-  %cmp.not.i210 = icmp slt i64 %add.i209, %conv68
+  %cmp.not.i210 = icmp sgt i64 %conv68, %add.i209
   br i1 %cmp.not.i210, label %lor.lhs.false.i227, label %if.then.i211
 
 lor.lhs.false.i227:                               ; preds = %land.lhs.true.i206
@@ -370,7 +370,7 @@ lor.lhs.false.i227:                               ; preds = %land.lhs.true.i206
   %chg24.i229 = getelementptr inbounds i8, ptr %c.0601, i64 40
   %32 = load i64, ptr %chg24.i229, align 8
   %add5.i230 = add nsw i64 %32, %31
-  %cmp6.not.i231 = icmp slt i64 %add5.i230, %conv70
+  %cmp6.not.i231 = icmp sgt i64 %conv70, %add5.i230
   br i1 %cmp6.not.i231, label %if.else.i232, label %if.then.i211
 
 if.then.i211:                                     ; preds = %lor.lhs.false.i227, %land.lhs.true.i206
@@ -575,7 +575,7 @@ land.lhs.true.i263:                               ; preds = %if.then105
   %chg12.i265 = getelementptr inbounds i8, ptr %c.0601, i64 32
   %64 = load i64, ptr %chg12.i265, align 8
   %add.i266 = add nsw i64 %64, %63
-  %cmp.not.i267 = icmp slt i64 %add.i266, %conv138
+  %cmp.not.i267 = icmp sgt i64 %conv138, %add.i266
   br i1 %cmp.not.i267, label %lor.lhs.false.i284, label %if.then.i268
 
 lor.lhs.false.i284:                               ; preds = %land.lhs.true.i263
@@ -584,7 +584,7 @@ lor.lhs.false.i284:                               ; preds = %land.lhs.true.i263
   %chg24.i286 = getelementptr inbounds i8, ptr %c.0601, i64 40
   %66 = load i64, ptr %chg24.i286, align 8
   %add5.i287 = add nsw i64 %66, %65
-  %cmp6.not.i288 = icmp slt i64 %add5.i287, %conv144
+  %cmp6.not.i288 = icmp sgt i64 %conv144, %add5.i287
   br i1 %cmp6.not.i288, label %if.else.i289, label %if.then.i268
 
 if.then.i268:                                     ; preds = %lor.lhs.false.i284, %land.lhs.true.i263
@@ -730,7 +730,7 @@ land.lhs.true.i316:                               ; preds = %while.body187
   %chg12.i318 = getelementptr inbounds i8, ptr %c.2623, i64 32
   %84 = load i64, ptr %chg12.i318, align 8
   %add.i319 = add nsw i64 %84, %83
-  %cmp.not.i320 = icmp slt i64 %add.i319, %conv208
+  %cmp.not.i320 = icmp sgt i64 %conv208, %add.i319
   br i1 %cmp.not.i320, label %lor.lhs.false.i337, label %if.then.i321
 
 lor.lhs.false.i337:                               ; preds = %land.lhs.true.i316
@@ -739,7 +739,7 @@ lor.lhs.false.i337:                               ; preds = %land.lhs.true.i316
   %chg24.i339 = getelementptr inbounds i8, ptr %c.2623, i64 40
   %86 = load i64, ptr %chg24.i339, align 8
   %add5.i340 = add nsw i64 %86, %85
-  %cmp6.not.i341 = icmp slt i64 %add5.i340, %conv210
+  %cmp6.not.i341 = icmp sgt i64 %conv210, %add5.i340
   br i1 %cmp6.not.i341, label %if.else.i342, label %if.then.i321
 
 if.then.i321:                                     ; preds = %lor.lhs.false.i337, %land.lhs.true.i316
@@ -851,7 +851,7 @@ land.lhs.true.i369:                               ; preds = %while.body221
   %chg12.i371 = getelementptr inbounds i8, ptr %c.3629, i64 32
   %99 = load i64, ptr %chg12.i371, align 8
   %add.i372 = add nsw i64 %99, %98
-  %cmp.not.i373 = icmp slt i64 %add.i372, %conv245
+  %cmp.not.i373 = icmp sgt i64 %conv245, %add.i372
   br i1 %cmp.not.i373, label %lor.lhs.false.i390, label %if.then.i374
 
 lor.lhs.false.i390:                               ; preds = %land.lhs.true.i369
@@ -860,7 +860,7 @@ lor.lhs.false.i390:                               ; preds = %land.lhs.true.i369
   %chg24.i392 = getelementptr inbounds i8, ptr %c.3629, i64 40
   %101 = load i64, ptr %chg24.i392, align 8
   %add5.i393 = add nsw i64 %101, %100
-  %cmp6.not.i394 = icmp slt i64 %add5.i393, %conv247
+  %cmp6.not.i394 = icmp sgt i64 %conv247, %add5.i393
   br i1 %cmp6.not.i394, label %if.else.i395, label %if.then.i374
 
 if.then.i374:                                     ; preds = %lor.lhs.false.i390, %land.lhs.true.i369

@@ -84,9 +84,9 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %offset_.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %0, i64 %conv.i, i32 1
   %2 = load i64, ptr %offset_.i, align 8
-  %cmp.not.i = icmp ule i64 %2, %offset
+  %cmp.not.i = icmp uge i64 %offset, %2
   %add.i = add i64 %1, %2
-  %cmp10.i = icmp ugt i64 %add.i, %offset
+  %cmp10.i = icmp ult i64 %offset, %add.i
   %or.cond = and i1 %cmp.not.i, %cmp10.i
   br i1 %or.cond, label %if.then, label %if.end11
 
@@ -120,7 +120,7 @@ if.then18:                                        ; preds = %if.end11
   %cursize_.i32 = getelementptr inbounds i8, ptr %add.ptr.i30, i64 24
   %8 = load i64, ptr %cursize_.i32, align 8
   %cond.i = select i1 %cmp.not.i31, i64 %8, i64 %7
-  %cmp2.i = icmp ugt i64 %cond.i, %roundup_len
+  %cmp2.i = icmp ult i64 %roundup_len, %cond.i
   %or.cond.i = select i1 %copy_data_to_new_buffer.0, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %if.end50, label %if.end.i
 
@@ -167,7 +167,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 if.else27:                                        ; preds = %if.end11
   %15 = load i64, ptr %chunk_len, align 8
   %cmp28.not = icmp ne i64 %15, 0
-  %brmerge.not = and i1 %cmp28.not, %refit_tail
+  %brmerge.not = and i1 %refit_tail, %cmp28.not
   br i1 %brmerge.not, label %_ZN7rocksdb13AlignedBuffer9RefitTailEmm.exit, label %if.else36
 
 _ZN7rocksdb13AlignedBuffer9RefitTailEmm.exit:     ; preds = %if.else27
@@ -191,7 +191,7 @@ if.then38:                                        ; preds = %if.else36
   %cursize_.i45 = getelementptr inbounds i8, ptr %add.ptr.i43, i64 24
   %19 = load i64, ptr %cursize_.i45, align 8
   %cond.i46 = select i1 %cmp.not.i44, i64 %19, i64 %18
-  %cmp2.i47 = icmp ugt i64 %cond.i46, %roundup_len
+  %cmp2.i47 = icmp ult i64 %roundup_len, %cond.i46
   %or.cond.i48 = select i1 %copy_data_to_new_buffer.0, i1 %cmp2.i47, i1 false
   br i1 %or.cond.i48, label %if.end50, label %if.end.i49
 
@@ -257,7 +257,7 @@ entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread
 
 _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %entry
@@ -428,7 +428,7 @@ invoke.cont22:                                    ; preds = %invoke.cont11
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %ref.tmp10, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %ref.tmp10
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit, label %_ZN7rocksdb6StatusC2EOS0_.exit.thread
 
 _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %invoke.cont22
@@ -828,7 +828,7 @@ if.then15:                                        ; preds = %_ZN7rocksdb22Random
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then15
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %_ZN7rocksdb6StatusaSEOS0_.exit.thread
 
 _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %invoke.cont
@@ -987,7 +987,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end
   %cmp13.not = icmp ugt i64 %5, %prev_buf_end_offset
-  %or.cond34 = or i1 %cmp13.not, %read_curr_block
+  %or.cond34 = or i1 %read_curr_block, %cmp13.not
   br i1 %or.cond34, label %if.end18, label %if.then14
 
 if.then14:                                        ; preds = %if.end10
@@ -1129,7 +1129,7 @@ if.end:                                           ; preds = %entry
   %offset_ = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %3 = load i64, ptr %offset_, align 8
   %sub = sub i64 %1, %3
-  %cmp.not.i = icmp ugt i64 %3, %1
+  %cmp.not.i = icmp ult i64 %1, %3
   br i1 %cmp.not.i, label %if.end.if.else_crit_edge, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit
 
 if.end.if.else_crit_edge:                         ; preds = %if.end
@@ -1226,7 +1226,7 @@ _ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit: ; pr
   %async_req_len_.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
   %5 = load i64, ptr %async_req_len_.i, align 8
   %add.i = add i64 %5, %4
-  %cmp11.i.not = icmp ugt i64 %add.i, %offset
+  %cmp11.i.not = icmp ult i64 %offset, %add.i
   br i1 %cmp11.i.not, label %if.end, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit
@@ -1273,7 +1273,7 @@ _ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit27: ; 
   %async_req_len_.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i16, i64 48
   %13 = load i64, ptr %async_req_len_.i24, align 8
   %add.i25 = add i64 %13, %12
-  %cmp11.i26.not = icmp ugt i64 %add.i25, %offset
+  %cmp11.i26.not = icmp ult i64 %offset, %add.i25
   br i1 %cmp11.i26.not, label %if.end21, label %if.else.i34
 
 if.else.i34:                                      ; preds = %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit27
@@ -2389,7 +2389,7 @@ _ZN7rocksdb18FilePrefetchBuffer16IsBufferOutdatedEmj.exit: ; preds = %land.lhs.t
   %offset_.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
   %4 = load i64, ptr %offset_.i, align 8
   %add.i = add i64 %4, %3
-  %cmp.i.not = icmp ugt i64 %add.i, %offset
+  %cmp.i.not = icmp ult i64 %offset, %add.i
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN7rocksdb18FilePrefetchBuffer16IsBufferOutdatedEmj.exit
@@ -2419,7 +2419,7 @@ _ZN7rocksdb18FilePrefetchBuffer16IsBufferOutdatedEmj.exit30: ; preds = %land.lhs
   %offset_.i27 = getelementptr inbounds i8, ptr %add.ptr.i.i20, i64 40
   %8 = load i64, ptr %offset_.i27, align 8
   %add.i28 = add i64 %8, %7
-  %cmp.i29.not = icmp ugt i64 %add.i28, %offset
+  %cmp.i29.not = icmp ult i64 %offset, %add.i28
   br i1 %cmp.i29.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %_ZN7rocksdb18FilePrefetchBuffer16IsBufferOutdatedEmj.exit30
@@ -2467,9 +2467,9 @@ if.then37:                                        ; preds = %if.then23
   %cursize_.i.i43 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %10, i64 %conv.i19, i32 0, i32 3
   %16 = load i64, ptr %cursize_.i.i43, align 8
   %cmp.i44 = icmp ne i64 %16, 0
-  %cmp.not.i = icmp ule i64 %14, %offset
+  %cmp.not.i = icmp uge i64 %offset, %14
   %or.cond.not96 = and i1 %cmp.not.i, %cmp.i44
-  %cmp10.i = icmp ugt i64 %add, %offset
+  %cmp10.i = icmp ult i64 %offset, %add
   %or.cond94 = and i1 %cmp10.i, %or.cond.not96
   %add43 = add i64 %length, %offset
   %cmp56 = icmp ugt i64 %add43, %add
@@ -2485,9 +2485,9 @@ if.else:                                          ; preds = %if.then20
 land.lhs.true64:                                  ; preds = %if.else
   %offset_.i62 = getelementptr inbounds i8, ptr %add.ptr.i34, i64 40
   %18 = load i64, ptr %offset_.i62, align 8
-  %cmp.not.i63 = icmp ule i64 %18, %offset
+  %cmp.not.i63 = icmp uge i64 %offset, %18
   %add.i66 = add i64 %17, %18
-  %cmp10.i67 = icmp ugt i64 %add.i66, %offset
+  %cmp10.i67 = icmp ult i64 %offset, %add.i66
   %or.cond = and i1 %cmp.not.i63, %cmp10.i67
   br i1 %or.cond, label %if.end72, label %if.end72.sink.split
 
@@ -2509,14 +2509,14 @@ if.end72:                                         ; preds = %if.end72.sink.split
 land.lhs.true.i77:                                ; preds = %if.end72
   %offset_.i78 = getelementptr inbounds i8, ptr %add.ptr.i72, i64 40
   %21 = load i64, ptr %offset_.i78, align 8
-  %cmp.not.i79 = icmp ugt i64 %21, %offset
+  %cmp.not.i79 = icmp ult i64 %offset, %21
   br i1 %cmp.not.i79, label %if.end94, label %_ZN7rocksdb18FilePrefetchBuffer33IsOffsetInBufferWithAsyncProgressEmj.exit
 
 _ZN7rocksdb18FilePrefetchBuffer33IsOffsetInBufferWithAsyncProgressEmj.exit: ; preds = %land.lhs.true.i77
   %async_req_len_.i = getelementptr inbounds i8, ptr %add.ptr.i72, i64 48
   %22 = load i64, ptr %async_req_len_.i, align 8
   %add.i81 = add i64 %22, %21
-  %cmp12.i = icmp ugt i64 %add.i81, %offset
+  %cmp12.i = icmp ult i64 %offset, %add.i81
   br i1 %cmp12.i, label %if.end94.sink.split, label %if.end94
 
 if.else85:                                        ; preds = %if.end72
@@ -2528,9 +2528,9 @@ if.else85:                                        ; preds = %if.end72
 land.lhs.true87:                                  ; preds = %if.else85
   %offset_.i87 = getelementptr inbounds i8, ptr %add.ptr.i72, i64 40
   %24 = load i64, ptr %offset_.i87, align 8
-  %cmp.not.i88 = icmp ule i64 %24, %offset
+  %cmp.not.i88 = icmp uge i64 %offset, %24
   %add.i91 = add i64 %23, %24
-  %cmp10.i92 = icmp ugt i64 %add.i91, %offset
+  %cmp10.i92 = icmp ult i64 %offset, %add.i91
   %or.cond99 = and i1 %cmp.not.i88, %cmp10.i92
   br i1 %or.cond99, label %if.end94.sink.split, label %if.end94
 
@@ -2859,14 +2859,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
 land.lhs.true.i:                                  ; preds = %invoke.cont2
   %offset_.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %7 = load i64, ptr %offset_.i, align 8
-  %cmp.not.i = icmp ugt i64 %7, %offset
+  %cmp.not.i = icmp ult i64 %offset, %7
   br i1 %cmp.not.i, label %if.end, label %_ZN7rocksdb18FilePrefetchBuffer33IsOffsetInBufferWithAsyncProgressEmj.exit
 
 _ZN7rocksdb18FilePrefetchBuffer33IsOffsetInBufferWithAsyncProgressEmj.exit: ; preds = %land.lhs.true.i
   %async_req_len_.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   %8 = load i64, ptr %async_req_len_.i, align 8
   %add.i = add i64 %8, %7
-  %cmp12.i = icmp ugt i64 %add.i, %offset
+  %cmp12.i = icmp ult i64 %offset, %add.i
   br i1 %cmp12.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN7rocksdb18FilePrefetchBuffer33IsOffsetInBufferWithAsyncProgressEmj.exit
@@ -2914,9 +2914,9 @@ invoke.cont18:                                    ; preds = %if.end
 land.lhs.true20:                                  ; preds = %invoke.cont18
   %offset_.i25 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %12, i64 %conv12.pre-phi, i32 1
   %15 = load i64, ptr %offset_.i25, align 8
-  %cmp.not.i26 = icmp ule i64 %15, %offset
+  %cmp.not.i26 = icmp uge i64 %offset, %15
   %add.i29 = add i64 %14, %15
-  %cmp10.i = icmp ugt i64 %add.i29, %offset
+  %cmp10.i = icmp ult i64 %offset, %add.i29
   %or.cond = and i1 %cmp.not.i26, %cmp10.i
   br i1 %or.cond, label %land.lhs.true24, label %nrvo.skipdtor
 
@@ -3001,7 +3001,7 @@ if.end.i:                                         ; preds = %invoke.cont46
   %offset_.i45 = getelementptr inbounds i8, ptr %add.ptr.i.i44, i64 40
   %31 = load i64, ptr %offset_.i45, align 8
   %sub.i46 = sub i64 %29, %31
-  %cmp.not.i.i47 = icmp ugt i64 %31, %29
+  %cmp.not.i.i47 = icmp ult i64 %29, %31
   br i1 %cmp.not.i.i47, label %if.end.if.else_crit_edge.i, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i
 
 if.end.if.else_crit_edge.i:                       ; preds = %if.end.i
@@ -3227,7 +3227,7 @@ if.end5:                                          ; preds = %if.then4, %_ZN7rock
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.end5
-  %cmp.not.i = icmp eq ptr %ref.tmp, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont7
@@ -3309,7 +3309,7 @@ invoke.cont16:                                    ; preds = %if.end12
 land.lhs.true18:                                  ; preds = %invoke.cont16
   %offset_.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %21 = load i64, ptr %offset_.i, align 8
-  %cmp.not.i41 = icmp ugt i64 %21, %offset
+  %cmp.not.i41 = icmp ult i64 %offset, %21
   br i1 %cmp.not.i41, label %if.else, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit
 
 _ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit: ; preds = %land.lhs.true18
@@ -3395,7 +3395,7 @@ invoke.cont37:                                    ; preds = %if.end30
 land.lhs.true39:                                  ; preds = %invoke.cont37
   %offset_.i53 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %34, i64 %conv.i48, i32 1
   %36 = load i64, ptr %offset_.i53, align 8
-  %cmp.not.i54 = icmp ugt i64 %36, %offset
+  %cmp.not.i54 = icmp ult i64 %offset, %36
   br i1 %cmp.not.i54, label %invoke.cont56, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit60
 
 _ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit60: ; preds = %land.lhs.true39
@@ -3702,7 +3702,7 @@ if.end.i125:                                      ; preds = %if.then94
   %offset_.i128 = getelementptr inbounds i8, ptr %add.ptr.i.i127, i64 40
   %78 = load i64, ptr %offset_.i128, align 8
   %sub.i129 = sub i64 %offset.addr.1, %78
-  %cmp.not.i.i130 = icmp ugt i64 %78, %offset.addr.1
+  %cmp.not.i.i130 = icmp ult i64 %offset.addr.1, %78
   br i1 %cmp.not.i.i130, label %if.else.i136, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i
 
 _ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i: ; preds = %if.end.i125
@@ -3779,7 +3779,7 @@ if.then103:                                       ; preds = %if.end101.thread, %
 
 invoke.cont105:                                   ; preds = %if.then103
   %sub = sub i64 %length, %length.addr.2518
-  %cmp.not.i139 = icmp eq i64 %length.addr.2518, %length
+  %cmp.not.i139 = icmp eq i64 %length, %length.addr.2518
   br i1 %cmp.not.i139, label %if.end120, label %if.then2.i
 
 if.then2.i:                                       ; preds = %invoke.cont105
@@ -3864,7 +3864,7 @@ if.then129:                                       ; preds = %invoke.cont127
           to label %invoke.cont131 unwind label %lpad
 
 invoke.cont131:                                   ; preds = %if.then129
-  %cmp.not.i158 = icmp eq ptr %ref.tmp130, %agg.result
+  %cmp.not.i158 = icmp eq ptr %agg.result, %ref.tmp130
   br i1 %cmp.not.i158, label %_ZN7rocksdb6StatusaSEOS0_.exit177, label %if.then.i159
 
 if.then.i159:                                     ; preds = %invoke.cont131
@@ -4003,7 +4003,7 @@ if.then145:                                       ; preds = %if.end143
           to label %invoke.cont148 unwind label %lpad
 
 invoke.cont148:                                   ; preds = %if.then145
-  %cmp.not.i210 = icmp eq ptr %ref.tmp146, %agg.result
+  %cmp.not.i210 = icmp eq ptr %agg.result, %ref.tmp146
   br i1 %cmp.not.i210, label %_ZN7rocksdb6StatusaSEOS0_.exit229, label %if.then.i211
 
 if.then.i211:                                     ; preds = %invoke.cont148
@@ -4332,7 +4332,7 @@ if.end.i439:                                      ; preds = %if.end192
   %offset_.i442 = getelementptr inbounds i8, ptr %add.ptr.i.i441, i64 40
   %175 = load i64, ptr %offset_.i442, align 8
   %sub.i443 = sub i64 %offset.addr.2516, %175
-  %cmp.not.i.i444 = icmp ugt i64 %175, %offset.addr.2516
+  %cmp.not.i.i444 = icmp ult i64 %offset.addr.2516, %175
   br i1 %cmp.not.i.i444, label %if.end.if.else_crit_edge.i469, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i445
 
 if.end.if.else_crit_edge.i469:                    ; preds = %if.end.i439
@@ -4555,7 +4555,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %min_offset_read_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i64, ptr %min_offset_read_, align 8
-  %cmp = icmp ugt i64 %1, %offset
+  %cmp = icmp ult i64 %offset, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -4576,7 +4576,7 @@ lor.lhs.false:                                    ; preds = %if.end
   %add.ptr.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %4, i64 %conv
   %offset_ = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %5 = load i64, ptr %offset_, align 8
-  %cmp4 = icmp ugt i64 %5, %offset
+  %cmp4 = icmp ult i64 %offset, %5
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false
@@ -4597,7 +4597,7 @@ if.then21:                                        ; preds = %if.then19
   br i1 %for_compaction, label %if.then23, label %invoke.cont29
 
 if.then23:                                        ; preds = %if.then21
-  %.sroa.speculated79 = tail call i64 @llvm.umax.i64(i64 %7, i64 %n)
+  %.sroa.speculated79 = tail call i64 @llvm.umax.i64(i64 %n, i64 %7)
   call void @_ZN7rocksdb18FilePrefetchBuffer8PrefetchERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmm(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %.sroa.speculated79)
   %8 = load i8, ptr %ref.tmp, align 8
   store i8 0, ptr %ref.tmp, align 8
@@ -4610,7 +4610,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   resume { ptr, i32 } %lpad.thr_comm.split-lp106
 
 invoke.cont29:                                    ; preds = %if.then21
-  %cmp10.i = icmp ugt i64 %add17, %offset
+  %cmp10.i = icmp ult i64 %offset, %add17
   br i1 %cmp10.i, label %if.then31, label %if.end46
 
 if.then31:                                        ; preds = %invoke.cont29
@@ -4894,7 +4894,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %min_offset_read_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i64, ptr %min_offset_read_, align 8
-  %cmp = icmp ugt i64 %1, %offset
+  %cmp = icmp ult i64 %offset, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -4949,7 +4949,7 @@ land.lhs.true19:                                  ; preds = %if.end5
   %10 = load ptr, ptr %this, align 8
   %offset_ = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %10, i64 %conv22, i32 1
   %11 = load i64, ptr %offset_, align 8
-  %cmp24 = icmp ugt i64 %11, %offset
+  %cmp24 = icmp ult i64 %offset, %11
   br i1 %cmp24, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true19
@@ -5289,9 +5289,9 @@ lor.lhs.false7:                                   ; preds = %if.end6
 land.lhs.true10:                                  ; preds = %lor.lhs.false7
   %offset_.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %.pre, i64 %conv.i, i32 1
   %7 = load i64, ptr %offset_.i, align 8
-  %cmp.not.i = icmp ule i64 %7, %offset
+  %cmp.not.i = icmp uge i64 %offset, %7
   %add.i = add i64 %6, %7
-  %cmp10.i = icmp ugt i64 %add.i, %offset
+  %cmp10.i = icmp ult i64 %offset, %add.i
   %or.cond214 = and i1 %cmp.not.i, %cmp10.i
   br i1 %or.cond214, label %if.end19, label %if.then13
 
@@ -5330,7 +5330,7 @@ land.lhs.true22:                                  ; preds = %if.end19
   %add.ptr.i.i31 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %9, i64 %conv.i27.pre-phi
   %offset_.i32 = getelementptr inbounds i8, ptr %add.ptr.i.i31, i64 40
   %11 = load i64, ptr %offset_.i32, align 8
-  %cmp.not.i33 = icmp ugt i64 %11, %offset
+  %cmp.not.i33 = icmp ult i64 %offset, %11
   br i1 %cmp.not.i33, label %if.else, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit
 
 _ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit: ; preds = %land.lhs.true22

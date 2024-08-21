@@ -198,7 +198,7 @@ define void @_ZN3zmq7dgram_t16xpipe_terminatedEPNS_6pipe_tE(ptr nocapture nounde
 entry:
   %_pipe = getelementptr inbounds i8, ptr %this, i64 1832
   %0 = load ptr, ptr %_pipe, align 8
-  %cmp = icmp eq ptr %0, %pipe_
+  %cmp = icmp eq ptr %pipe_, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

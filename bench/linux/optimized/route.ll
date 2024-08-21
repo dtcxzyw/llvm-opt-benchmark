@@ -934,7 +934,7 @@ define dso_local void @fib6_select_path(ptr nocapture noundef readonly %0, ptr n
   %13 = getelementptr inbounds i8, ptr %9, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  %16 = or i1 %15, %4
+  %16 = or i1 %4, %15
   br i1 %16, label %.loopexit, label %.thread
 
 17:                                               ; preds = %7
@@ -4060,7 +4060,7 @@ define dso_local ptr @ip6_route_input_lookup(ptr noundef %0, ptr nocapture nound
   %12 = load i16, ptr %11, align 8
   %13 = icmp ne i16 %12, 779
   %14 = zext i1 %13 to i32
-  %15 = or i32 %14, %4
+  %15 = or i32 %4, %14
   br label %16
 
 16:                                               ; preds = %10, %5
@@ -13379,7 +13379,7 @@ define internal fastcc ptr @skb_header_pointer(ptr noundef %0, i32 noundef %1, i
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 116
   %8 = load i32, ptr %7, align 4
-  %9 = add i32 %8, %1
+  %9 = add i32 %1, %8
   %10 = sub i32 %6, %9
   %11 = icmp slt i32 %10, %2
   br i1 %11, label %17, label %12, !prof !10

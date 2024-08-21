@@ -603,7 +603,7 @@ define range(i64 0, 2) i64 @is_primal_infeasible(ptr nocapture noundef readonly 
 60:                                               ; preds = %54, %51, %43
   %61 = load ptr, ptr %48, align 8
   %62 = tail call double @OSQPVectorf_norm_inf(ptr noundef %61) #9
-  %63 = fmul double %28, %1
+  %63 = fmul double %1, %28
   %64 = fcmp olt double %62, %63
   %65 = zext i1 %64 to i64
   br label %66
@@ -699,7 +699,7 @@ define i64 @is_dual_infeasible(ptr nocapture noundef readonly %0, double noundef
 52:                                               ; preds = %46, %43, %35
   %53 = load ptr, ptr %40, align 8
   %54 = tail call double @OSQPVectorf_norm_inf(ptr noundef %53) #9
-  %55 = fmul double %.037, %1
+  %55 = fmul double %1, %.037
   %56 = fmul double %55, %.036
   %57 = fcmp olt double %54, %56
   br i1 %57, label %58, label %84
@@ -738,7 +738,7 @@ define i64 @is_dual_infeasible(ptr nocapture noundef readonly %0, double noundef
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %77, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = fmul double %.036, %1
+  %82 = fmul double %1, %.036
   %83 = tail call i64 @OSQPVectorf_in_reccone(ptr noundef %76, ptr noundef %79, ptr noundef %81, double noundef 1.000000e+26, double noundef %82) #9
   br label %84
 
@@ -1476,7 +1476,7 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly %0, ptr noundef r
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
-  %.not55 = icmp eq i64 %35, %6
+  %.not55 = icmp eq i64 %6, %35
   br i1 %.not55, label %.lr.ph72, label %39
 
 .lr.ph72:                                         ; preds = %33

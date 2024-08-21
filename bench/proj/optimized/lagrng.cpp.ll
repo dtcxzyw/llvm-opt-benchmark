@@ -238,7 +238,7 @@ define internal { double, double } @_ZL16lagrng_s_forward5PJ_LPP8PJconsts(double
   %22 = fmul double %15, %21
   %23 = getelementptr inbounds i8, ptr %5, i64 32
   %24 = load double, ptr %23, align 8
-  %25 = fmul double %24, %0
+  %25 = fmul double %0, %24
   %26 = fdiv double 1.000000e+00, %22
   %27 = fadd double %22, %26
   %28 = tail call double @cos(double noundef %25) #6

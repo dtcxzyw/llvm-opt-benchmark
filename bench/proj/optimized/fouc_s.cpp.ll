@@ -187,7 +187,7 @@ define internal { double, double } @_ZL16fouc_s_s_inverse5PJ_XYP8PJconsts(double
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   %35 = load double, ptr %34, align 8
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %32, double %33)
-  %37 = fmul double %36, %0
+  %37 = fmul double %0, %36
   %38 = fdiv double %37, %32
   %.fca.0.insert = insertvalue { double, double } poison, double %38, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.2, 1
@@ -199,7 +199,7 @@ define internal { double, double } @_ZL16fouc_s_s_forward5PJ_LPP8PJconsts(double
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @cos(double noundef %1) #7
-  %7 = fmul double %6, %0
+  %7 = fmul double %0, %6
   %8 = load double, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load double, ptr %9, align 8

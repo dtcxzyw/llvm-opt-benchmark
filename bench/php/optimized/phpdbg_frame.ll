@@ -453,7 +453,7 @@ define internal fastcc void @phpdbg_append_individual_arg(ptr noundef %0, i32 no
 23:                                               ; preds = %16, %4
   %24 = getelementptr inbounds i8, ptr %2, i64 32
   %25 = load i32, ptr %24, align 8
-  %26 = icmp ugt i32 %25, %1
+  %26 = icmp ult i32 %1, %25
   br i1 %26, label %27, label %67
 
 27:                                               ; preds = %23

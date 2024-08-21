@@ -266,7 +266,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahController19is_alloc_failure_gc
 define hidden void @_ZN20ShenandoahController25handle_alloc_failure_evacEm(ptr noundef nonnull align 8 dereferenceable(1728) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
-  %5 = icmp ult i64 %4, %1
+  %5 = icmp ugt i64 %1, %4
   br i1 %5, label %6, label %_ZN20ShenandoahSharedFlag7try_setEv.exit.i
 
 6:                                                ; preds = %2

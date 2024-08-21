@@ -268,7 +268,7 @@ invoke.cont3:                                     ; preds = %lor.lhs.false
   %call4.not = xor i1 %call4, true
   %2 = load i8, ptr %pos, align 1
   %3 = trunc i8 %2 to i1
-  %4 = xor i1 %3, %polarity
+  %4 = xor i1 %polarity, %3
   %or.cond = select i1 %call4.not, i1 true, i1 %4
   br i1 %or.cond, label %if.end15, label %if.then
 
@@ -892,7 +892,7 @@ entry:
   %1 = load ptr, ptr %m.i.i, align 8
   %m_false.i.i.i = getelementptr inbounds i8, ptr %1, i64 864
   %2 = load ptr, ptr %m_false.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %2, %n
+  %cmp.i.i.i = icmp eq ptr %n, %2
   br i1 %cmp.i.i.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %entry
@@ -935,7 +935,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %cond.true.i.i
   %retval.0.i.i.i.i.i.i = phi i32 [ %11, %if.end.i.i.i.i.i.i ], [ 0, %cond.true.i.i ]
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i.i, %9
+  %cmp.not.i.i.i.i.i = icmp ult i32 %9, %retval.0.i.i.i.i.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 cond.false.i.i:                                   ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.rhs.i.i.i.i, %lor.rhs.i.i
@@ -952,7 +952,7 @@ if.end.i.i.i.i7.i.i:                              ; preds = %cond.false.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i: ; preds = %if.end.i.i.i.i7.i.i, %cond.false.i.i
   %retval.0.i.i.i.i9.i.i = phi i32 [ %14, %if.end.i.i.i.i7.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i.i.i10.i.i = icmp ugt i32 %retval.0.i.i.i.i9.i.i, %12
+  %cmp.not.i.i.i10.i.i = icmp ult i32 %12, %retval.0.i.i.i.i9.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %_ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i, %_ZNK3smt7context14b_internalizedEPK4expr.exit.i.i
@@ -1000,7 +1000,7 @@ entry:
   %1 = load ptr, ptr %m.i.i, align 8
   %m_false.i.i.i = getelementptr inbounds i8, ptr %1, i64 864
   %2 = load ptr, ptr %m_false.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %2, %n
+  %cmp.i.i.i = icmp eq ptr %n, %2
   br i1 %cmp.i.i.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %entry
@@ -1043,7 +1043,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %cond.true.i.i
   %retval.0.i.i.i.i.i.i = phi i32 [ %11, %if.end.i.i.i.i.i.i ], [ 0, %cond.true.i.i ]
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i.i, %9
+  %cmp.not.i.i.i.i.i = icmp ult i32 %9, %retval.0.i.i.i.i.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 cond.false.i.i:                                   ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.rhs.i.i.i.i, %lor.rhs.i.i
@@ -1060,7 +1060,7 @@ if.end.i.i.i.i7.i.i:                              ; preds = %cond.false.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i: ; preds = %if.end.i.i.i.i7.i.i, %cond.false.i.i
   %retval.0.i.i.i.i9.i.i = phi i32 [ %14, %if.end.i.i.i.i7.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i.i.i10.i.i = icmp ugt i32 %retval.0.i.i.i.i9.i.i, %12
+  %cmp.not.i.i.i10.i.i = icmp ult i32 %12, %retval.0.i.i.i.i9.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %_ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i, %_ZNK3smt7context14b_internalizedEPK4expr.exit.i.i
@@ -1210,7 +1210,7 @@ if.end:                                           ; preds = %if.then.i.i, %if.th
   %17 = load ptr, ptr %m.i.i, align 8
   %m_false.i.i.i = getelementptr inbounds i8, ptr %17, i64 864
   %18 = load ptr, ptr %m_false.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %18, %15
+  %cmp.i.i.i = icmp eq ptr %15, %18
   br i1 %cmp.i.i.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.end
@@ -1253,7 +1253,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %cond.true.i.i
   %retval.0.i.i.i.i.i.i = phi i32 [ %27, %if.end.i.i.i.i.i.i ], [ 0, %cond.true.i.i ]
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i.i, %25
+  %cmp.not.i.i.i.i.i = icmp ult i32 %25, %retval.0.i.i.i.i.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 cond.false.i.i:                                   ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.rhs.i.i.i.i, %lor.rhs.i.i
@@ -1270,7 +1270,7 @@ if.end.i.i.i.i7.i.i:                              ; preds = %cond.false.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i: ; preds = %if.end.i.i.i.i7.i.i, %cond.false.i.i
   %retval.0.i.i.i.i9.i.i = phi i32 [ %30, %if.end.i.i.i.i7.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i.i.i10.i.i = icmp ugt i32 %retval.0.i.i.i.i9.i.i, %28
+  %cmp.not.i.i.i10.i.i = icmp ult i32 %28, %retval.0.i.i.i.i9.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %_ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i, %_ZNK3smt7context14b_internalizedEPK4expr.exit.i.i
@@ -1653,7 +1653,7 @@ if.end:                                           ; preds = %for.body, %_ZN3smt2
   %6 = load ptr, ptr %m.i.i, align 8
   %m_false.i.i.i = getelementptr inbounds i8, ptr %6, i64 864
   %7 = load ptr, ptr %m_false.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %7, %1
+  %cmp.i.i.i = icmp eq ptr %1, %7
   br i1 %cmp.i.i.i, label %if.end.i, label %lor.rhs.i.i10
 
 lor.rhs.i.i10:                                    ; preds = %if.end
@@ -1696,7 +1696,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %cond.true.i.i
   %retval.0.i.i.i.i.i.i = phi i32 [ %16, %if.end.i.i.i.i.i.i ], [ 0, %cond.true.i.i ]
-  %cmp.not.i.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i.i, %14
+  %cmp.not.i.i.i.i.i = icmp ult i32 %14, %retval.0.i.i.i.i.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 cond.false.i.i:                                   ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.rhs.i.i.i.i, %lor.rhs.i.i10
@@ -1713,7 +1713,7 @@ if.end.i.i.i.i7.i.i:                              ; preds = %cond.false.i.i
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i: ; preds = %if.end.i.i.i.i7.i.i, %cond.false.i.i
   %retval.0.i.i.i.i9.i.i = phi i32 [ %19, %if.end.i.i.i.i7.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i.i.i10.i.i = icmp ugt i32 %retval.0.i.i.i.i9.i.i, %17
+  %cmp.not.i.i.i10.i.i = icmp ult i32 %17, %retval.0.i.i.i.i9.i.i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %_ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i, %_ZNK3smt7context14b_internalizedEPK4expr.exit.i.i
@@ -1827,7 +1827,7 @@ if.end19:                                         ; preds = %for.body14, %_ZN3sm
   %33 = load ptr, ptr %m.i.i25, align 8
   %m_false.i.i.i26 = getelementptr inbounds i8, ptr %33, i64 864
   %34 = load ptr, ptr %m_false.i.i.i26, align 8
-  %cmp.i.i.i27 = icmp eq ptr %34, %28
+  %cmp.i.i.i27 = icmp eq ptr %28, %34
   br i1 %cmp.i.i.i27, label %if.end.i49, label %lor.rhs.i.i28
 
 lor.rhs.i.i28:                                    ; preds = %if.end19
@@ -1870,7 +1870,7 @@ if.end.i.i.i.i.i.i64:                             ; preds = %cond.true.i.i60
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit.i.i66: ; preds = %if.end.i.i.i.i.i.i64, %cond.true.i.i60
   %retval.0.i.i.i.i.i.i67 = phi i32 [ %43, %if.end.i.i.i.i.i.i64 ], [ 0, %cond.true.i.i60 ]
-  %cmp.not.i.i.i.i.i68 = icmp ugt i32 %retval.0.i.i.i.i.i.i67, %41
+  %cmp.not.i.i.i.i.i68 = icmp ult i32 %41, %retval.0.i.i.i.i.i.i67
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i41
 
 cond.false.i.i33:                                 ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i56, %land.rhs.i.i.i.i52, %lor.rhs.i.i28
@@ -1887,7 +1887,7 @@ if.end.i.i.i.i7.i.i36:                            ; preds = %cond.false.i.i33
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i38: ; preds = %if.end.i.i.i.i7.i.i36, %cond.false.i.i33
   %retval.0.i.i.i.i9.i.i39 = phi i32 [ %46, %if.end.i.i.i.i7.i.i36 ], [ 0, %cond.false.i.i33 ]
-  %cmp.not.i.i.i10.i.i40 = icmp ugt i32 %retval.0.i.i.i.i9.i.i39, %44
+  %cmp.not.i.i.i10.i.i40 = icmp ult i32 %44, %retval.0.i.i.i.i9.i.i39
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i41
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i41: ; preds = %_ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i38, %_ZNK3smt7context14b_internalizedEPK4expr.exit.i.i66
@@ -1997,7 +1997,7 @@ if.end:                                           ; preds = %_ZNK11ast_manager12
   %6 = load ptr, ptr %m.i.i, align 8
   %m_false.i.i.i = getelementptr inbounds i8, ptr %6, i64 864
   %7 = load ptr, ptr %m_false.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %7, %n
+  %cmp.i.i.i = icmp eq ptr %n, %7
   br i1 %cmp.i.i.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.end
@@ -2014,7 +2014,7 @@ if.end.i.i.i.i7.i.i:                              ; preds = %cond.false.i.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %cond.false.i.i, %if.end.i.i.i.i7.i.i
   %retval.0.i.i.i.i9.i.i = phi i32 [ %10, %if.end.i.i.i.i7.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i.i.i10.i.i = icmp ugt i32 %retval.0.i.i.i.i9.i.i, %8
+  %cmp.not.i.i.i10.i.i = icmp ult i32 %8, %retval.0.i.i.i.i9.i.i
   %idxprom.i.i.i.i.i = zext i32 %8 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i.i.i.i.i
   %retval.0.i.i.i.i.i = select i1 %cmp.not.i.i.i10.i.i, ptr %arrayidx.i.i.i.i.i, ptr @_ZN3smtL13null_bool_varE
@@ -2093,7 +2093,7 @@ if.end:                                           ; preds = %if.then.i
   %9 = load ptr, ptr %m.i.i, align 8
   %m_false.i.i.i = getelementptr inbounds i8, ptr %9, i64 864
   %10 = load ptr, ptr %m_false.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %10, %n
+  %cmp.i.i.i = icmp eq ptr %n, %10
   br i1 %cmp.i, label %land.lhs.true, label %land.lhs.true6
 
 land.lhs.true:                                    ; preds = %if.end
@@ -2113,7 +2113,7 @@ if.end.i.i.i.i7.i.i:                              ; preds = %cond.false.i.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %cond.false.i.i, %if.end.i.i.i.i7.i.i
   %retval.0.i.i.i.i9.i.i = phi i32 [ %13, %if.end.i.i.i.i7.i.i ], [ 0, %cond.false.i.i ]
-  %cmp.not.i.i.i10.i.i = icmp ugt i32 %retval.0.i.i.i.i9.i.i, %11
+  %cmp.not.i.i.i10.i.i = icmp ult i32 %11, %retval.0.i.i.i.i9.i.i
   %idxprom.i.i.i.i.i = zext i32 %11 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %12, i64 %idxprom.i.i.i.i.i
   %retval.0.i.i.i.i.i = select i1 %cmp.not.i.i.i10.i.i, ptr %arrayidx.i.i.i.i.i, ptr @_ZN3smtL13null_bool_varE
@@ -2167,7 +2167,7 @@ if.end.i.i.i.i.i.i45:                             ; preds = %cond.true.i.i41
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit.i.i47: ; preds = %if.end.i.i.i.i.i.i45, %cond.true.i.i41
   %retval.0.i.i.i.i.i.i48 = phi i32 [ %23, %if.end.i.i.i.i.i.i45 ], [ 0, %cond.true.i.i41 ]
-  %cmp.not.i.i.i.i.i49 = icmp ugt i32 %retval.0.i.i.i.i.i.i48, %21
+  %cmp.not.i.i.i.i.i49 = icmp ult i32 %21, %retval.0.i.i.i.i.i.i48
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i22
 
 cond.false.i.i14:                                 ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i37, %land.rhs.i.i.i.i33, %lor.rhs.i.i9
@@ -2184,7 +2184,7 @@ if.end.i.i.i.i7.i.i17:                            ; preds = %cond.false.i.i14
 
 _ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i19: ; preds = %if.end.i.i.i.i7.i.i17, %cond.false.i.i14
   %retval.0.i.i.i.i9.i.i20 = phi i32 [ %26, %if.end.i.i.i.i7.i.i17 ], [ 0, %cond.false.i.i14 ]
-  %cmp.not.i.i.i10.i.i21 = icmp ugt i32 %retval.0.i.i.i.i9.i.i20, %24
+  %cmp.not.i.i.i10.i.i21 = icmp ult i32 %24, %retval.0.i.i.i.i9.i.i20
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i22
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i22: ; preds = %_ZNK3smt7context14b_internalizedEPK4expr.exit15.i.i19, %_ZNK3smt7context14b_internalizedEPK4expr.exit.i.i47

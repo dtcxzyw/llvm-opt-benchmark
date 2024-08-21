@@ -42,7 +42,7 @@ define hidden void @VP8InitBitReader(ptr nocapture noundef writeonly %0, ptr nou
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %12, ptr %13, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %14 = icmp ugt ptr %12, %1
+  %14 = icmp ult ptr %1, %12
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %3

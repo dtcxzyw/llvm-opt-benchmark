@@ -459,7 +459,7 @@ define dso_local void @tuplestore_end(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local void @tuplestore_select_read_pointer(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   br i1 %5, label %53, label %6
 
 6:                                                ; preds = %2
@@ -1177,7 +1177,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %57 = getelementptr inbounds i8, ptr %12, i64 4
   %58 = load i8, ptr %57, align 4
   %59 = trunc i8 %58 to i1
-  %brmerge.demorgan = and i1 %59, %1
+  %brmerge.demorgan = and i1 %1, %59
   br i1 %brmerge.demorgan, label %135, label %60
 
 60:                                               ; preds = %56
@@ -1390,7 +1390,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   %23 = load i32, ptr %22, align 8
   %24 = sub i32 %21, %23
   %25 = sext i32 %24 to i64
-  %.not34 = icmp slt i64 %25, %1
+  %.not34 = icmp sgt i64 %1, %25
   br i1 %.not34, label %29, label %26
 
 26:                                               ; preds = %19
@@ -1594,7 +1594,7 @@ define dso_local void @tuplestore_copy_read_pointer(ptr nocapture noundef %0, i3
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, %2
+  %29 = icmp eq i32 %2, %28
   br i1 %29, label %30, label %56
 
 30:                                               ; preds = %26
@@ -1640,7 +1640,7 @@ define dso_local void @tuplestore_copy_read_pointer(ptr nocapture noundef %0, i3
   unreachable
 
 56:                                               ; preds = %26
-  %57 = icmp eq i32 %28, %1
+  %57 = icmp eq i32 %1, %28
   br i1 %57, label %58, label %70
 
 58:                                               ; preds = %56

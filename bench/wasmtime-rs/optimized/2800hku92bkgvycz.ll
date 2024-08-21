@@ -26,7 +26,7 @@ define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..
   %19 = load i64, ptr %18, align 8, !noundef !3
   %20 = or i64 %17, %19
   store i64 %20, ptr %18, align 8
-  %21 = icmp ugt i64 %11, %2
+  %21 = icmp ult i64 %2, %11
   br i1 %21, label %35, label %28
 
 22:                                               ; preds = %3, %28

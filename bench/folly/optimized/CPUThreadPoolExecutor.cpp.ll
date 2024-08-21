@@ -26027,7 +26027,7 @@ entry:
 
 if.end.lr.ph:                                     ; preds = %entry
   %2 = zext i32 %0 to i64
-  %or.cond = or i1 %cmp, %updateSpinCutoff
+  %or.cond = or i1 %updateSpinCutoff, %cmp
   %conv = select i1 %or.cond, i64 20000, i64 %2
   %tobool29.not = icmp eq ptr %absTime, null
   %and.i124 = and i32 %turn, 31

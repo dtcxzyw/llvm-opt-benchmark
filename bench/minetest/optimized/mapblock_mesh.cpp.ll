@@ -830,7 +830,7 @@ entry:
   %bf.clear.i.i = and i8 %retval.sroa.0.0.copyload.i.i.i, 15
   %cond.i.i = tail call noundef i8 @llvm.umax.i8(i8 %bf.clear.i.i, i8 %retval.0.i.i.i)
   %conv.i = zext nneg i8 %cond.i.i to i32
-  %add.i = add nsw i32 %conv.i, %increment
+  %add.i = add nsw i32 %increment, %conv.i
   %cmp.i = icmp slt i32 %add.i, 0
   %3 = tail call i32 @llvm.umin.i32(i32 %add.i, i32 15)
   %4 = load ptr, ptr @light_decode_table, align 8, !tbaa !32
@@ -842,7 +842,7 @@ entry:
   %retval.0.i.i.i17 = select i1 %bf.cast.not.i.i.i, i8 0, i8 %6
   %cond.i.i19 = tail call noundef i8 @llvm.umax.i8(i8 %bf.clear.i.i, i8 %retval.0.i.i.i17)
   %conv.i20 = zext nneg i8 %cond.i.i19 to i32
-  %add.i21 = add nsw i32 %conv.i20, %increment
+  %add.i21 = add nsw i32 %increment, %conv.i20
   %cmp.i22 = icmp slt i32 %add.i21, 0
   %7 = tail call i32 @llvm.umin.i32(i32 %add.i21, i32 15)
   %narrow.i23 = select i1 %cmp.i22, i32 0, i32 %7
@@ -2437,10 +2437,10 @@ if.end33:                                         ; preds = %_ZNSt6vectorIiSaIiE
 invoke.cont52:                                    ; preds = %for.cond.cleanup
   %20 = insertelement <2 x float> poison, float %delta, i64 0
   %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
-  %22 = fmul nsz <2 x float> %21, %normal.coerce0
+  %22 = fmul nsz <2 x float> %normal.coerce0, %21
   %mul3.i.i = fmul nsz float %normal.coerce1, %delta
-  %23 = fadd nsz <2 x float> %22, %origin.coerce0
-  %add6.i = fadd nsz float %mul3.i.i, %origin.coerce1
+  %23 = fadd nsz <2 x float> %origin.coerce0, %22
+  %add6.i = fadd nsz float %origin.coerce1, %mul3.i.i
   %cmp56 = fcmp nsz olt float %candidate_delta.0, 5.000000e+00
   br i1 %cmp56, label %for.body.lr.ph.i, label %if.end70
 
@@ -2644,7 +2644,7 @@ if.end84:                                         ; preds = %invoke.cont73, %for
 
 invoke.cont94:                                    ; preds = %if.end84
   %92 = load float, ptr %coerce.sroa.2.0.normal.sroa_idx, align 8, !tbaa !88
-  %mul3.i.i320 = fmul nsz float %92, %delta
+  %mul3.i.i320 = fmul nsz float %delta, %92
   %93 = load <2 x float>, ptr %normal, align 8, !tbaa !37
   %94 = insertelement <2 x float> poison, float %delta, i64 0
   %95 = shufflevector <2 x float> %94, <2 x float> poison, <2 x i32> zeroinitializer

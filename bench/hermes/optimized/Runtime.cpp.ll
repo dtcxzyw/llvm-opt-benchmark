@@ -4091,7 +4091,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt10un
 
 while.cond.preheader:                             ; preds = %for.body, %if.end
   %11 = load ptr, ptr %runtimeModuleList_, align 8
-  %cmp.i.i109 = icmp eq ptr %11, %runtimeModuleList_
+  %cmp.i.i109 = icmp eq ptr %runtimeModuleList_, %11
   br i1 %cmp.i.i109, label %while.end, label %while.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -4107,7 +4107,7 @@ while.body:                                       ; preds = %while.cond.preheade
   tail call void @_ZN6hermes2vm13RuntimeModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %12) #26
   tail call void @_ZdlPv(ptr noundef %12) #29
   %13 = load ptr, ptr %runtimeModuleList_, align 8
-  %cmp.i.i = icmp eq ptr %13, %runtimeModuleList_
+  %cmp.i.i = icmp eq ptr %runtimeModuleList_, %13
   br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !52
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
@@ -6641,7 +6641,7 @@ _ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE.exit: ; p
   %size_.i.i36 = getelementptr inbounds i8, ptr %49, i64 4
   %50 = load atomic i32, ptr %size_.i.i36 monotonic, align 4
   %div.i = udiv i32 %50, 3
-  %cmp.not.i37 = icmp ugt i32 %div.i, %47
+  %cmp.not.i37 = icmp ult i32 %47, %div.i
   br i1 %cmp.not.i37, label %if.end.i38, label %_ZNK6hermes2vm6Domain18getCJSModuleOffsetERNS0_7RuntimeEj.exit
 
 if.end.i38:                                       ; preds = %_ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE.exit
@@ -6684,7 +6684,7 @@ if.then134:                                       ; preds = %if.else132
   %size_.i.i51 = getelementptr inbounds i8, ptr %57, i64 4
   %58 = load atomic i32, ptr %size_.i.i51 monotonic, align 4
   %div.i52 = udiv i32 %58, 3
-  %cmp.not.i53 = icmp ugt i32 %div.i52, %55
+  %cmp.not.i53 = icmp ult i32 %55, %div.i52
   br i1 %cmp.not.i53, label %if.end.i55, label %_ZNK6hermes2vm6Domain18getCJSModuleOffsetERNS0_7RuntimeEj.exit64
 
 if.end.i55:                                       ; preds = %if.then134
@@ -11584,7 +11584,7 @@ cond.true.i.split.i:                              ; preds = %if.then
   %sub.ptr.lhs.cast.i7.i30 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i8.i31 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i9.i32 = sub i64 %sub.ptr.lhs.cast.i7.i30, %sub.ptr.rhs.cast.i8.i31
-  %cmp.i.i33 = icmp ult i64 %sub.ptr.sub.i9.i32, %call.i.i27
+  %cmp.i.i33 = icmp ugt i64 %call.i.i27, %sub.ptr.sub.i9.i32
   br i1 %cmp.i.i33, label %if.then.i.i39, label %if.end.i.i34
 
 if.then.i.i39:                                    ; preds = %cond.true.i.split.i
@@ -13216,7 +13216,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN6hermes3hbc21SimpleBytecodeBuilder14SimpleFunctionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6hermes3hbc21SimpleBytecodeBuilder14SimpleFunctionESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6hermes3hbc21SimpleBytecodeBuilder14SimpleFunctionESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6hermes3hbc21SimpleBytecodeBuilder14SimpleFunctionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6hermes3hbc21SimpleBytecodeBuilder14SimpleFunctionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -13956,7 +13956,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPN6hermes2vm20CodeCoverageProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPN6hermes2vm20CodeCoverageProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -14150,7 +14150,7 @@ if.end13:                                         ; preds = %for.cond.i, %if.end
   %__n.0 = phi ptr [ %6, %if.end ], [ %17, %for.cond.i ]
   %__bkt.0 = phi i64 [ %rem.i.i.i, %if.end ], [ %rem.i.i.i11, %for.cond.i ]
   %__prev_n.0 = phi ptr [ %__prev_p.06.i.lcssa, %if.end ], [ %__p.010.i, %for.cond.i ]
-  %cmp.i = icmp eq ptr %21, %__prev_n.0
+  %cmp.i = icmp eq ptr %__prev_n.0, %21
   %23 = load ptr, ptr %__n.0, align 8
   %tobool.not.i16 = icmp eq ptr %23, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -14563,7 +14563,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12
@@ -16000,7 +16000,7 @@ if.then:                                          ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
-  %xor.i = xor i64 %conv3.i, %seed
+  %xor.i = xor i64 %seed, %conv3.i
   %xor.i.i = xor i64 %xor.i, %add.i
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
   %shr.i.i = lshr i64 %mul.i.i, 47

@@ -2106,7 +2106,7 @@ define linkonce_odr hidden noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3
   %.1 = phi ptr [ null, %9 ], [ %spec.select35, %11 ]
   %12 = getelementptr inbounds i8, ptr %.132, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %10, %13
+  %14 = icmp eq ptr %13, %10
   %spec.select = select i1 %14, ptr %.132, ptr %.127
   %spec.select35 = select i1 %14, ptr %.130, ptr %.1
   %15 = load ptr, ptr %.132, align 8

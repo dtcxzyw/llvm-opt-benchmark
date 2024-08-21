@@ -799,7 +799,7 @@ _ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit: ; p
   %.not.i = icmp eq i64 %41, 0
   %spec.select = select i1 %.not.i, ptr %.024.i, ptr %.3
   %spec.select52 = select i1 %.not.i, ptr %40, ptr %.1.i
-  %42 = icmp eq ptr %40, %2
+  %42 = icmp eq ptr %2, %40
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %37
@@ -849,7 +849,7 @@ _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
 64:                                               ; preds = %_Z16mark_for_removalI9JfrBufferEPT_S2_.exit
   %65 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %63, ptr nonnull %40, ptr %spec.select) #11, !srcloc !10
   %66 = icmp ne ptr %65, %40
-  %brmerge.not = and i1 %66, %4
+  %brmerge.not = and i1 %4, %66
   br i1 %brmerge.not, label %.preheader61, label %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8IdentityEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit
 
 .preheader61:                                     ; preds = %64, %88
@@ -877,7 +877,7 @@ _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
   %.not.i32 = icmp eq i64 %76, 0
   %spec.select54 = select i1 %.not.i32, ptr %.024.i30, ptr %.6
   %spec.select55 = select i1 %.not.i32, ptr %75, ptr %.1.i29
-  %77 = icmp eq ptr %75, %2
+  %77 = icmp eq ptr %2, %75
   br i1 %77, label %86, label %_ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i
 
 _ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i:       ; preds = %72
@@ -950,7 +950,7 @@ _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8Identity
   %.not.i3876 = icmp eq i64 %109, 0
   %spec.select5877 = select i1 %.not.i3876, ptr %3, ptr %.8
   %spec.select5978 = select i1 %.not.i3876, ptr %108, ptr %.025.i34
-  %110 = icmp eq ptr %108, %2
+  %110 = icmp eq ptr %2, %108
   br i1 %110, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -965,7 +965,7 @@ _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8Identity
   %.not.i38 = icmp eq i64 %116, 0
   %spec.select58 = select i1 %.not.i38, ptr %111, ptr %spec.select5879
   %spec.select59 = select i1 %.not.i38, ptr %115, ptr %spec.select5980
-  %117 = icmp eq ptr %115, %2
+  %117 = icmp eq ptr %2, %115
   br i1 %117, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -1241,7 +1241,7 @@ _Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit: ; preds = %_Z18mark_for_insert
   %.not.i25 = icmp eq i64 %42, 0
   %spec.select26 = select i1 %.not.i25, ptr %3, ptr %.1
   %spec.select2127 = select i1 %.not.i25, ptr %41, ptr %.025.i
-  %43 = icmp eq ptr %41, %4
+  %43 = icmp eq ptr %4, %41
   br i1 %43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit, %.lr.ph
@@ -1256,7 +1256,7 @@ _Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit: ; preds = %_Z18mark_for_insert
   %.not.i = icmp eq i64 %49, 0
   %spec.select = select i1 %.not.i, ptr %44, ptr %spec.select28
   %spec.select21 = select i1 %.not.i, ptr %48, ptr %spec.select2129
-  %50 = icmp eq ptr %48, %4
+  %50 = icmp eq ptr %4, %48
   br i1 %50, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit
@@ -1538,7 +1538,7 @@ define linkonce_odr hidden noundef ptr @_ZN19JfrEpochStorageHostI9JfrBuffer24Jfr
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 448
   %6 = load i64, ptr %5, align 8
-  %.not.i = icmp ult i64 %6, %1
+  %.not.i = icmp ugt i64 %1, %6
   br i1 %.not.i, label %_Z27mspace_acquire_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES3_18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_S6_ELb1EEENT_7NodePtrEmPSB_P6Threadb.exit, label %7
 
 7:                                                ; preds = %3
@@ -1625,7 +1625,7 @@ define linkonce_odr hidden noundef ptr @_Z28mspace_allocate_to_live_listI14JfrMe
 
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i, %.preheader.i.preheader.i.i.i
   %.0.i.i.i.i = phi i64 [ %8, %.preheader.i.i.i.i ], [ %6, %.preheader.i.preheader.i.i.i ]
-  %7 = icmp ult i64 %.0.i.i.i.i, %0
+  %7 = icmp ugt i64 %0, %.0.i.i.i.i
   %8 = shl nuw i64 %.0.i.i.i.i, 1
   br i1 %7, label %.preheader.i.i.i.i, label %_ZL21align_allocation_sizemm.exit.i.i.i, !llvm.loop !49
 

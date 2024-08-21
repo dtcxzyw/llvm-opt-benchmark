@@ -814,7 +814,7 @@ define noundef ptr @_ZN6uu_seq9print_seq17hfc35238b80ce33d2E(ptr noalias nocaptu
   %.not = icmp eq i64 %1, 0
   %37 = add i64 %1, 1
   %.046 = select i1 %.not, i64 0, i64 %37
-  %38 = add i64 %.046, %7
+  %38 = add i64 %7, %.046
   %.045 = select i1 %6, i64 %38, i64 0
   %.sroa.0.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %14, i64 16

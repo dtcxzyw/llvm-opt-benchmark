@@ -1514,7 +1514,7 @@ if.end13:                                         ; preds = %if.end, %lor.lhs.fa
   %3 = load ptr, ptr %fBreakCache, align 8
   %call11 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache7currentEv(ptr noundef nonnull align 8 dereferenceable(832) %3)
   %cmp12 = icmp eq i32 %call11, %offset
-  %cmp15 = icmp slt i32 %conv4, %offset
+  %cmp15 = icmp sgt i32 %offset, %conv4
   %or.cond = and i1 %cmp15, %cmp12
   br i1 %or.cond, label %land.lhs.true16, label %if.end22
 
@@ -1717,7 +1717,7 @@ cond.false.i.i:                                   ; preds = %if.then45.i
 cond.true2.i.i:                                   ; preds = %cond.false.i.i
   %highStart.i.i = getelementptr inbounds i8, ptr %21, i64 24
   %25 = load i32, ptr %highStart.i.i, align 8
-  %cmp3.not.i.i = icmp sgt i32 %25, %c.0.i.ph
+  %cmp3.not.i.i = icmp slt i32 %c.0.i.ph, %25
   br i1 %cmp3.not.i.i, label %cond.false5.i.i, label %cond.true4.i.i
 
 cond.true4.i.i:                                   ; preds = %cond.true2.i.i
@@ -2036,7 +2036,7 @@ cond.false.i.i134:                                ; preds = %if.then45.i130
 cond.true2.i.i146:                                ; preds = %cond.false.i.i134
   %highStart.i.i147 = getelementptr inbounds i8, ptr %63, i64 24
   %67 = load i32, ptr %highStart.i.i147, align 8
-  %cmp3.not.i.i148 = icmp sgt i32 %67, %c.0.i43.ph
+  %cmp3.not.i.i148 = icmp slt i32 %c.0.i43.ph, %67
   br i1 %cmp3.not.i.i148, label %cond.false5.i.i152, label %cond.true4.i.i149
 
 cond.true4.i.i149:                                ; preds = %cond.true2.i.i146
@@ -2357,7 +2357,7 @@ cond.false.i.i254:                                ; preds = %if.then45.i250
 cond.true2.i.i268:                                ; preds = %cond.false.i.i254
   %highStart.i.i269 = getelementptr inbounds i8, ptr %105, i64 24
   %109 = load i32, ptr %highStart.i.i269, align 8
-  %cmp3.not.i.i270 = icmp sgt i32 %109, %c.0.i220.ph
+  %cmp3.not.i.i270 = icmp slt i32 %c.0.i220.ph, %109
   br i1 %cmp3.not.i.i270, label %cond.false5.i.i274, label %cond.true4.i.i271
 
 cond.true4.i.i271:                                ; preds = %cond.true2.i.i268
@@ -2676,7 +2676,7 @@ cond.false.i.i434:                                ; preds = %if.then45.i430
 cond.true2.i.i447:                                ; preds = %cond.false.i.i434
   %highStart.i.i448 = getelementptr inbounds i8, ptr %147, i64 24
   %151 = load i32, ptr %highStart.i.i448, align 8
-  %cmp3.not.i.i449 = icmp sgt i32 %151, %c.0.i343.ph
+  %cmp3.not.i.i449 = icmp slt i32 %c.0.i343.ph, %151
   br i1 %cmp3.not.i.i449, label %cond.false5.i.i453, label %cond.true4.i.i450
 
 cond.true4.i.i450:                                ; preds = %cond.true2.i.i447
@@ -3034,7 +3034,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 cond.true2.i.i:                                   ; preds = %cond.false.i.i
   %highStart.i.i = getelementptr inbounds i8, ptr %23, i64 24
   %27 = load i32, ptr %highStart.i.i, align 8
-  %cmp3.not.i.i = icmp sgt i32 %27, %c.016.i
+  %cmp3.not.i.i = icmp slt i32 %c.016.i, %27
   br i1 %cmp3.not.i.i, label %cond.false5.i.i, label %cond.true4.i.i
 
 cond.true4.i.i:                                   ; preds = %cond.true2.i.i
@@ -3247,7 +3247,7 @@ cond.false.i.i45:                                 ; preds = %for.body.i38
 cond.true2.i.i87:                                 ; preds = %cond.false.i.i45
   %highStart.i.i88 = getelementptr inbounds i8, ptr %59, i64 24
   %63 = load i32, ptr %highStart.i.i88, align 8
-  %cmp3.not.i.i89 = icmp sgt i32 %63, %c.016.i39
+  %cmp3.not.i.i89 = icmp slt i32 %c.016.i39, %63
   br i1 %cmp3.not.i.i89, label %cond.false5.i.i93, label %cond.true4.i.i90
 
 cond.true4.i.i90:                                 ; preds = %cond.true2.i.i87
@@ -3463,7 +3463,7 @@ cond.false.i.i162:                                ; preds = %for.body.i155
 cond.true2.i.i205:                                ; preds = %cond.false.i.i162
   %highStart.i.i206 = getelementptr inbounds i8, ptr %95, i64 24
   %99 = load i32, ptr %highStart.i.i206, align 8
-  %cmp3.not.i.i207 = icmp sgt i32 %99, %c.016.i156
+  %cmp3.not.i.i207 = icmp slt i32 %c.016.i156, %99
   br i1 %cmp3.not.i.i207, label %cond.false5.i.i211, label %cond.true4.i.i208
 
 cond.true4.i.i208:                                ; preds = %cond.true2.i.i205
@@ -3676,7 +3676,7 @@ cond.false.i.i280:                                ; preds = %for.body.i273
 cond.true2.i.i323:                                ; preds = %cond.false.i.i280
   %highStart.i.i324 = getelementptr inbounds i8, ptr %131, i64 24
   %135 = load i32, ptr %highStart.i.i324, align 8
-  %cmp3.not.i.i325 = icmp sgt i32 %135, %c.016.i274
+  %cmp3.not.i.i325 = icmp slt i32 %c.016.i274, %135
   br i1 %cmp3.not.i.i325, label %cond.false5.i.i329, label %cond.true4.i.i326
 
 cond.true4.i.i326:                                ; preds = %cond.true2.i.i323

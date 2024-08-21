@@ -1056,7 +1056,7 @@ _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOB
 
 _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit261, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit263, %sw.bb38.i.i.i.i.i, %sw.bb31.i.i.i.i.i, %sw.bb.i.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb31.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb38.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit261 ], [ %incdec.ptr.i12.i.i.i.i.i.le, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit263 ], [ %__first.sroa.0.045.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i, %shape.val13
+  %cmp.i.i.i = icmp eq ptr %shape.val13, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i
   br i1 %cmp.i.i.i, label %nrvo.skipdtor.thread, label %if.then18.i
 
 if.then18.i:                                      ; preds = %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i
@@ -2058,7 +2058,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #23
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -2450,7 +2450,7 @@ if.else:                                          ; preds = %init.end
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 5
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp4.not = icmp sgt i32 %conv, %i
+  %cmp4.not = icmp slt i32 %i, %conv
   br i1 %cmp4.not, label %cleanup.done, label %cond.false
 
 cond.false:                                       ; preds = %if.else
@@ -4490,7 +4490,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__n
+  %cmp = icmp ugt i64 %__n, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4533,7 +4533,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i11 = ashr exact i64 %sub.ptr.sub.i10, 3
-  %cmp5 = icmp ult i64 %sub.ptr.div.i11, %__n
+  %cmp5 = icmp ugt i64 %__n, %sub.ptr.div.i11
   br i1 %cmp5, label %if.then6, label %if.else19
 
 if.then6:                                         ; preds = %if.else
@@ -4560,7 +4560,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit, %if.then6
   %sub.ptr.div.i18.pre-phi = phi i64 [ %.pre34, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %sub.ptr.div.i11, %if.then6 ]
   %5 = phi ptr [ %.pre29, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %3, %if.then6 ]
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.div.i18.pre-phi, %__n
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, %sub.ptr.div.i18.pre-phi
   br i1 %cmp.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit
@@ -4849,7 +4849,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -4928,7 +4928,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5007,7 +5007,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5086,7 +5086,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5165,7 +5165,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5244,7 +5244,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5323,7 +5323,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5402,7 +5402,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5481,7 +5481,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5560,7 +5560,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -5639,7 +5639,7 @@ entry:
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %sub = add nsw i32 %conv.i, -1
-  %cmp = icmp eq i32 %sub, %dim_index
+  %cmp = icmp eq i32 %dim_index, %sub
   %conv = sext i32 %dim_index to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %conv
   %2 = load i64, ptr %add.ptr.i, align 8

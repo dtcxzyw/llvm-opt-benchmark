@@ -5958,7 +5958,7 @@ define i64 @php_fputcsv(ptr noundef %0, ptr nocapture noundef readonly %1, i8 no
   %.0268349 = phi ptr [ %120, %114 ], [ %.ptr, %.lr.ph ]
   %93 = load i8, ptr %.0268349, align 1
   %94 = sext i8 %93 to i32
-  %95 = icmp eq i32 %94, %4
+  %95 = icmp eq i32 %4, %94
   br i1 %95, label %._crit_edge364, label %96
 
 96:                                               ; preds = %.lr.ph.split
@@ -6915,7 +6915,7 @@ php_fgetcsv_lookup_trailing_spaces.exit435:       ; preds = %104, %._crit_edge.i
   %149 = load i8, ptr %.2345, align 1
   %150 = sext i8 %149 to i32
   %151 = icmp eq i8 %149, %2
-  %152 = icmp eq i32 %150, %3
+  %152 = icmp eq i32 %3, %150
   %or.cond413 = and i1 %.not404, %152
   %spec.select416 = select i1 %or.cond413, i32 1, i32 %.0360
   %.2362 = select i1 %151, i32 2, i32 %spec.select416

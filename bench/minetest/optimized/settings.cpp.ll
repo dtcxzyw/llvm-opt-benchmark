@@ -423,7 +423,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp2.not = icmp sgt i32 %conv, %layer
+  %cmp2.not = icmp slt i32 %layer, %conv
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -700,7 +700,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp7.not = icmp sgt i32 %conv, %layer
+  %cmp7.not = icmp slt i32 %layer, %conv
   br i1 %cmp7.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end
@@ -6550,8 +6550,8 @@ entry:
   %0 = load ptr, ptr %call, align 8, !tbaa !16
   %call.i.i = tail call nsz double @strtod(ptr nocapture noundef nonnull %0, ptr noundef null) #31
   %conv.i = fptrunc double %call.i.i to float
-  %cmp = fcmp nsz olt float %conv.i, %min
-  %cmp3 = fcmp nsz ogt float %conv.i, %max
+  %cmp = fcmp nsz ogt float %min, %conv.i
+  %cmp3 = fcmp nsz olt float %max, %conv.i
   %cond = select nsz i1 %cmp3, float %max, float %conv.i
   %cond7 = select nsz i1 %cmp, float %min, float %cond
   ret float %cond7

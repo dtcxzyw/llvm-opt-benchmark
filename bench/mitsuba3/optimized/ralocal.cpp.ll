@@ -1253,7 +1253,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 430:                                              ; preds = %421
   %431 = and i32 %422, %218
   %432 = icmp eq i32 %431, 0
-  %433 = and i1 %432, %3
+  %433 = and i1 %3, %432
   br i1 %433, label %434, label %443
 
 434:                                              ; preds = %430

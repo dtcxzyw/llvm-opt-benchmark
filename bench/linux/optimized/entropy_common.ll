@@ -663,7 +663,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   br i1 %41, label %.preheader11, label %.loopexit, !llvm.loop !11
 
 42:                                               ; preds = %16
-  %43 = icmp ult i64 %18, %6
+  %43 = icmp ugt i64 %6, %18
   br i1 %43, label %44, label %.thread10
 
 44:                                               ; preds = %42
@@ -808,7 +808,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   br i1 %36, label %.preheader11, label %.loopexit, !llvm.loop !11
 
 37:                                               ; preds = %11
-  %38 = icmp ult i64 %13, %6
+  %38 = icmp ugt i64 %6, %13
   br i1 %38, label %39, label %.thread10
 
 39:                                               ; preds = %37

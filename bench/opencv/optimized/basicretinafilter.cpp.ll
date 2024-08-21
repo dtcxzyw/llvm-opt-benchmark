@@ -2371,7 +2371,7 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter31_squaringHorizontalC
 .preheader.lr.ph:                                 ; preds = %5
   %8 = load i64, ptr %6, align 8
   %9 = trunc i64 %8 to i32
-  %10 = mul i32 %9, %3
+  %10 = mul i32 %3, %9
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds float, ptr %1, i64 %11
   %13 = getelementptr inbounds float, ptr %2, i64 %11
@@ -2911,7 +2911,7 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter37_local_squaringHoriz
 .preheader.lr.ph:                                 ; preds = %6
   %9 = load i64, ptr %7, align 8
   %10 = trunc i64 %9 to i32
-  %11 = mul i32 %10, %3
+  %11 = mul i32 %3, %10
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %1, i64 %12
   %14 = getelementptr inbounds float, ptr %2, i64 %12
@@ -2983,7 +2983,7 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter33_local_horizontalAnt
 .preheader.lr.ph:                                 ; preds = %5
   %8 = load i64, ptr %6, align 8
   %9 = trunc i64 %8 to i32
-  %10 = mul i32 %9, %3
+  %10 = mul i32 %3, %9
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds float, ptr %1, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -4
@@ -3406,7 +3406,7 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter33_horizontalCausalFil
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %5, align 8
   %10 = trunc i64 %9 to i32
-  %11 = mul i32 %10, %2
+  %11 = mul i32 %2, %10
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %8, i64 %12
   %14 = getelementptr inbounds float, ptr %1, i64 %12
@@ -3829,7 +3829,7 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter42_horizontalCausalFil
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %6, align 8
   %11 = trunc i64 %10 to i32
-  %12 = mul i32 %11, %3
+  %12 = mul i32 %3, %11
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds float, ptr %9, i64 %13
   %15 = getelementptr inbounds float, ptr %1, i64 %13

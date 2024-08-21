@@ -1187,7 +1187,7 @@ define hidden void @rtt_delete_unack_from_list(ptr nocapture noundef %0, ptr nou
   br i1 %or.cond, label %6, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = icmp eq ptr %3, %1
+  %7 = icmp eq ptr %1, %3
   br i1 %7, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %6, %8

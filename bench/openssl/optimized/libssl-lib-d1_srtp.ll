@@ -89,7 +89,7 @@ while.body.i:                                     ; preds = %cond.end, %if.end.i
   %1 = phi ptr [ %2, %if.end.i ], [ %0, %cond.end ]
   %p.08.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ @srtp_known_profiles, %cond.end ]
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
-  %cmp.i = icmp eq i64 %call.i, %cond
+  %cmp.i = icmp eq i64 %cond, %call.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i

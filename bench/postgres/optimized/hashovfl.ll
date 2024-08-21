@@ -36,7 +36,7 @@ define dso_local i32 @_hash_ovflblkno_to_bitno(ptr nocapture noundef readonly %0
 6:                                                ; preds = %.lr.ph, %22
   %.021 = phi i32 [ 1, %.lr.ph ], [ %23, %22 ]
   %7 = tail call i32 @_hash_get_totalbuckets(i32 noundef %.021) #6
-  %.not18 = icmp ult i32 %7, %1
+  %.not18 = icmp ugt i32 %1, %7
   br i1 %.not18, label %8, label %._crit_edge
 
 8:                                                ; preds = %6
@@ -1189,7 +1189,7 @@ BufferGetPage.exit162:                            ; preds = %147, %153
   %197 = getelementptr inbounds i8, ptr %11, i64 10
   %198 = zext i1 %196 to i8
   store i8 %198, ptr %197, align 2
-  %199 = icmp eq i32 %.0145, %3
+  %199 = icmp eq i32 %3, %.0145
   %200 = getelementptr inbounds i8, ptr %11, i64 11
   %201 = zext i1 %199 to i8
   store i8 %201, ptr %200, align 1

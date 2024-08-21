@@ -3157,13 +3157,13 @@ define i32 @IDAInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noun
   %15 = getelementptr inbounds i8, ptr %0, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = load double, ptr %16, align 8
-  %18 = fcmp ogt double %17, %3
+  %18 = fcmp olt double %3, %17
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load double, ptr %20, align 8
-  %22 = fcmp olt double %21, %3
+  %22 = fcmp ogt double %3, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19, %14
@@ -3173,7 +3173,7 @@ define i32 @IDAInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noun
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %16, i64 56
   %26 = load i32, ptr %25, align 8
-  %.not = icmp sgt i32 %26, %1
+  %.not = icmp slt i32 %1, %26
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %24
@@ -3188,7 +3188,7 @@ define i32 @IDAInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noun
   %.sink = phi ptr [ %32, %.lr.ph ], [ %29, %28 ]
   %.039 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %30 = load i32, ptr %.039, align 8
-  %31 = icmp eq i32 %30, %1
+  %31 = icmp eq i32 %1, %30
   %32 = getelementptr inbounds i8, ptr %.039, i64 128
   br i1 %31, label %._crit_edge, label %.lr.ph
 
@@ -3331,13 +3331,13 @@ define i32 @IDAInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double nou
   %15 = getelementptr inbounds i8, ptr %0, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = load double, ptr %16, align 8
-  %18 = fcmp ogt double %17, %3
+  %18 = fcmp olt double %3, %17
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load double, ptr %20, align 8
-  %22 = fcmp olt double %21, %3
+  %22 = fcmp ogt double %3, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19, %14
@@ -3357,7 +3357,7 @@ define i32 @IDAInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double nou
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %16, i64 56
   %30 = load i32, ptr %29, align 8
-  %.not45 = icmp sgt i32 %30, %1
+  %.not45 = icmp slt i32 %1, %30
   br i1 %.not45, label %32, label %31
 
 31:                                               ; preds = %28
@@ -3372,7 +3372,7 @@ define i32 @IDAInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double nou
   %.sink = phi ptr [ %36, %.lr.ph ], [ %33, %32 ]
   %.040 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %34 = load i32, ptr %.040, align 8
-  %35 = icmp eq i32 %34, %1
+  %35 = icmp eq i32 %1, %34
   %36 = getelementptr inbounds i8, ptr %.040, i64 128
   br i1 %35, label %._crit_edge, label %.lr.ph
 
@@ -3430,13 +3430,13 @@ define i32 @IDAReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
   %14 = getelementptr inbounds i8, ptr %0, i64 2112
   %15 = load ptr, ptr %14, align 8
   %16 = load double, ptr %15, align 8
-  %17 = fcmp ogt double %16, %2
+  %17 = fcmp olt double %2, %16
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   %20 = load double, ptr %19, align 8
-  %21 = fcmp olt double %20, %2
+  %21 = fcmp ogt double %2, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18, %13
@@ -3446,7 +3446,7 @@ define i32 @IDAReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %15, i64 56
   %25 = load i32, ptr %24, align 8
-  %.not = icmp sgt i32 %25, %1
+  %.not = icmp slt i32 %1, %25
   br i1 %.not, label %27, label %26
 
 26:                                               ; preds = %23
@@ -3461,7 +3461,7 @@ define i32 @IDAReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
   %.sink = phi ptr [ %31, %.lr.ph ], [ %28, %27 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %29 = load i32, ptr %.024, align 8
-  %30 = icmp eq i32 %29, %1
+  %30 = icmp eq i32 %1, %29
   %31 = getelementptr inbounds i8, ptr %.024, i64 128
   br i1 %30, label %._crit_edge, label %.lr.ph
 
@@ -3502,7 +3502,7 @@ define i32 @IDASStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3517,7 +3517,7 @@ define i32 @IDASStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3558,7 +3558,7 @@ define i32 @IDASVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3573,7 +3573,7 @@ define i32 @IDASVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3614,7 +3614,7 @@ define i32 @IDAQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3629,7 +3629,7 @@ define i32 @IDAQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3670,7 +3670,7 @@ define i32 @IDAQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3685,7 +3685,7 @@ define i32 @IDAQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3726,7 +3726,7 @@ define i32 @IDAQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3741,7 +3741,7 @@ define i32 @IDAQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.022 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.022, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.022, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3869,7 +3869,7 @@ define i32 @IDAQuadInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -3884,7 +3884,7 @@ define i32 @IDAQuadInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.021 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.021, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.021, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -3931,7 +3931,7 @@ define i32 @IDAQuadReInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -3946,7 +3946,7 @@ define i32 @IDAQuadReInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -3987,7 +3987,7 @@ define i32 @IDACalcICB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -4003,7 +4003,7 @@ define i32 @IDACalcICB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
 .lr.ph:                                           ; preds = %19, %23
   %.02531 = phi ptr [ %.025, %23 ], [ %.02529, %19 ]
   %21 = load i32, ptr %.02531, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %._crit_edge, label %23
 
 23:                                               ; preds = %.lr.ph
@@ -4071,7 +4071,7 @@ define i32 @IDACalcICBS(ptr noundef %0, i32 noundef %1, double noundef %2, ptr n
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %17, i64 56
   %23 = load i32, ptr %22, align 8
-  %.not49 = icmp sgt i32 %23, %1
+  %.not49 = icmp slt i32 %1, %23
   br i1 %.not49, label %25, label %24
 
 24:                                               ; preds = %21
@@ -4087,7 +4087,7 @@ define i32 @IDACalcICBS(ptr noundef %0, i32 noundef %1, double noundef %2, ptr n
 .lr.ph:                                           ; preds = %25, %29
   %.04557 = phi ptr [ %.045, %29 ], [ %.04555, %25 ]
   %27 = load i32, ptr %.04557, align 8
-  %28 = icmp eq i32 %27, %1
+  %28 = icmp eq i32 %1, %27
   br i1 %28, label %._crit_edge, label %29
 
 29:                                               ; preds = %.lr.ph
@@ -5018,7 +5018,7 @@ define range(i32 -101, 1) i32 @IDAGetB(ptr noundef %0, i32 noundef %1, ptr nocap
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -5033,7 +5033,7 @@ define range(i32 -101, 1) i32 @IDAGetB(ptr noundef %0, i32 noundef %1, ptr nocap
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.0, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.0, i64 128
   br i1 %22, label %._crit_edge, label %.lr.ph
 
@@ -5079,7 +5079,7 @@ define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -5094,7 +5094,7 @@ define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.026 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.026, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.026, i64 128
   br i1 %22, label %._crit_edge, label %.lr.ph
 

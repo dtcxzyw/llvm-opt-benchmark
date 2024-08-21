@@ -12820,13 +12820,13 @@ declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, 
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -15850,7 +15850,7 @@ Mf_ManComputeCuts.exit:                           ; preds = %._crit_edge.i, %55
 100:                                              ; preds = %93
   %101 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.63)
   %.pre.i69 = load ptr, ptr @stdout, align 8
-  %102 = icmp eq ptr %.pre.i69, %101
+  %102 = icmp eq ptr %101, %.pre.i69
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %100, %.thread.i
@@ -16949,15 +16949,15 @@ define internal fastcc i32 @Abc_Tt7Isop(i64 %.0.val, i64 %.8.val, ptr nocapture 
   %14 = phi i64 [ %.pre1, %._crit_edge ], [ %6, %5 ]
   %15 = phi i64 [ %.pre, %._crit_edge ], [ %8, %5 ]
   %16 = xor i64 %15, -1
-  %17 = and i64 %16, %.0.val
+  %17 = and i64 %.0.val, %16
   %18 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %17, i64 noundef %14, i32 noundef 6, ptr noundef nonnull %3)
   %19 = xor i64 %14, -1
-  %20 = and i64 %19, %.8.val
+  %20 = and i64 %.8.val, %19
   %21 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %20, i64 noundef %15, i32 noundef 6, ptr noundef nonnull %3)
   %22 = xor i64 %18, -1
-  %23 = and i64 %22, %.0.val
+  %23 = and i64 %.0.val, %22
   %24 = xor i64 %21, -1
-  %25 = and i64 %24, %.8.val
+  %25 = and i64 %.8.val, %24
   %26 = or i64 %25, %23
   %27 = and i64 %14, %15
   %28 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %26, i64 noundef %27, i32 noundef 6, ptr noundef nonnull %3)

@@ -1268,7 +1268,7 @@ _ZN6google12Check_LEImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
 _ZN6google12Check_LEImplB5cxx11EiiPKc.exit.thread: ; preds = %2, %_ZN6google12Check_LEImplB5cxx11EiiPKc.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8
-  %.not = icmp slt i32 %25, %1
+  %.not = icmp sgt i32 %1, %25
   br i1 %.not, label %26, label %64
 
 26:                                               ; preds = %_ZN6google12Check_LEImplB5cxx11EiiPKc.exit.thread
@@ -1472,7 +1472,7 @@ _ZN6google12Check_GEImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
 _ZN6google12Check_GEImplB5cxx11EiiPKc.exit.thread: ; preds = %2, %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
-  %.not.i.i3 = icmp slt i32 %24, %1
+  %.not.i.i3 = icmp sgt i32 %1, %24
   br i1 %.not.i.i3, label %25, label %_ZN6google12Check_LEImplB5cxx11EiiPKc.exit.thread
 
 25:                                               ; preds = %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit.thread
@@ -2202,13 +2202,13 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread: ; preds = %2, %_ZN6google12Ch
 define hidden void @_ZN5ceres8internal19TripletSparseMatrix6ResizeEii(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %.not35 = icmp sgt i32 %8, %2
+  %.not35 = icmp slt i32 %2, %8
   br i1 %.not35, label %10, label %9
 
 9:                                                ; preds = %6
@@ -3833,7 +3833,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6r
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %4

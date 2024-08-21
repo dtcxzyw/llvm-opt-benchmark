@@ -3334,7 +3334,7 @@ ehcleanup.i:                                      ; preds = %lpad3.i
 
 if.end.i:                                         ; preds = %entry
   %6 = trunc i64 %left.coerce0 to i32
-  %cmp8.i = icmp ugt i32 %6, %right
+  %cmp8.i = icmp ult i32 %right, %6
   br i1 %cmp8.i, label %if.then9.i, label %if.end26.i
 
 if.then9.i:                                       ; preds = %if.end.i

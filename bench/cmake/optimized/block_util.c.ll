@@ -59,7 +59,7 @@ lzma_block_unpadded_size.exit.thread18:           ; preds = %lzma_block_unpadded
   %.pre-phi = phi i32 [ %.pre, %lzma_block_unpadded_size.exit.lzma_block_unpadded_size.exit.thread18_crit_edge ], [ %24, %21 ]
   %28 = add i32 %.pre-phi, %9
   %29 = zext i32 %28 to i64
-  %.not = icmp ult i64 %29, %1
+  %.not = icmp ugt i64 %1, %29
   br i1 %.not, label %30, label %lzma_block_unpadded_size.exit.thread
 
 30:                                               ; preds = %lzma_block_unpadded_size.exit.thread18

@@ -4791,7 +4791,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN13PremitVisitor11rhsReadsLhsEP13AstNodeAss
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 3
   %59 = ashr exact i64 %57, 2
-  %60 = icmp ult i64 %58, %59
+  %60 = icmp ugt i64 %59, %58
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %52
@@ -4804,7 +4804,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN13PremitVisitor11rhsReadsLhsEP13AstNodeAss
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN13PremitVisitor11rhsReadsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 63:                                               ; preds = %52
-  %64 = icmp ugt i64 %58, %59
+  %64 = icmp ult i64 %59, %58
   br i1 %64, label %65, label %_ZZN7AstNode11foreachImplI9AstVarRefZN13PremitVisitor11rhsReadsLhsEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 65:                                               ; preds = %63
@@ -5206,7 +5206,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit:          ; preds = %8, %10
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 3
   %59 = ashr exact i64 %57, 2
-  %60 = icmp ult i64 %58, %59
+  %60 = icmp ugt i64 %59, %58
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %52
@@ -5219,7 +5219,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit:          ; preds = %8, %10
   br label %_ZZN7AstNode13predicateImplI9AstVarRefLb0EZN13PremitVisitor11rhsReadsLhsEP13AstNodeAssignEUlPKS1_E0_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit18
 
 63:                                               ; preds = %52
-  %64 = icmp ugt i64 %58, %59
+  %64 = icmp ult i64 %59, %58
   br i1 %64, label %65, label %_ZZN7AstNode13predicateImplI9AstVarRefLb0EZN13PremitVisitor11rhsReadsLhsEP13AstNodeAssignEUlPKS1_E0_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit18
 
 65:                                               ; preds = %63

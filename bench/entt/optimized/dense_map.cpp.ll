@@ -128151,7 +128151,7 @@ unreachable.i:                                    ; preds = %lpad.i
 invoke.cont18:                                    ; preds = %for.inc.i, %invoke.cont
   %__cur.0.lcssa.i = phi ptr [ %cond.i63, %invoke.cont ], [ %incdec.ptr.i8, %for.inc.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i, i64 56
-  %cmp.i.i.not19.i10 = icmp eq ptr %0, %__position.coerce
+  %cmp.i.i.not19.i10 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.i.i.not19.i10, label %invoke.cont22, label %for.body.i11
 
 for.body.i11:                                     ; preds = %invoke.cont18, %for.inc.i21
@@ -129202,7 +129202,7 @@ unreachable.i:                                    ; preds = %lpad.i
 invoke.cont18:                                    ; preds = %for.inc.i, %invoke.cont
   %__cur.0.lcssa.i = phi ptr [ %cond.i63, %invoke.cont ], [ %incdec.ptr.i8, %for.inc.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i, i64 56
-  %cmp.i.i.not19.i10 = icmp eq ptr %0, %__position.coerce
+  %cmp.i.i.not19.i10 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.i.i.not19.i10, label %invoke.cont22, label %for.body.i11
 
 for.body.i11:                                     ; preds = %invoke.cont18, %for.inc.i23

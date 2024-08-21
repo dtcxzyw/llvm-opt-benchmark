@@ -1132,13 +1132,13 @@ ptSegDistSq.exit:                                 ; preds = %53, %61, %67
 76:                                               ; preds = %ptSegDistSq.exit
   %77 = fadd float %.tr113, %.tr115
   %78 = fmul float %77, 5.000000e-01
-  %79 = fadd float %.tr115, %6
+  %79 = fadd float %6, %.tr115
   %80 = fmul float %79, 5.000000e-01
   %81 = fadd float %78, %80
   %82 = fmul float %81, 5.000000e-01
   %83 = fadd float %.tr114, %.tr116
   %84 = fmul float %83, 5.000000e-01
-  %85 = fadd float %.tr116, %7
+  %85 = fadd float %7, %.tr116
   %86 = fmul float %85, 5.000000e-01
   %87 = fadd float %84, %86
   %88 = fmul float %87, 5.000000e-01
@@ -1331,7 +1331,7 @@ ptSegDistSq.exit:                                 ; preds = %83, %91, %97
   %111 = fmul float %110, 5.000000e-01
   %112 = fadd float %.tr179, %.tr181
   %113 = fmul float %112, 5.000000e-01
-  %114 = fadd float %.tr183, %8
+  %114 = fadd float %8, %.tr183
   %115 = fmul float %114, 5.000000e-01
   %116 = fadd float %113, %111
   %117 = fmul float %116, 5.000000e-01
@@ -1343,7 +1343,7 @@ ptSegDistSq.exit:                                 ; preds = %83, %91, %97
   %123 = fmul float %122, 5.000000e-01
   %124 = fadd float %.tr180, %.tr182
   %125 = fmul float %124, 5.000000e-01
-  %126 = fadd float %.tr184, %9
+  %126 = fadd float %9, %.tr184
   %127 = fmul float %126, 5.000000e-01
   %128 = fadd float %125, %123
   %129 = fmul float %128, 5.000000e-01
@@ -1485,7 +1485,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_intersectClipBox(ptr noundef
 GetSpanData.exit:                                 ; preds = %14
   %19 = getelementptr inbounds i8, ptr %15, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = icmp slt i32 %20, %2
+  %21 = icmp sgt i32 %2, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %GetSpanData.exit
@@ -1495,7 +1495,7 @@ GetSpanData.exit:                                 ; preds = %14
 23:                                               ; preds = %22, %GetSpanData.exit
   %24 = getelementptr inbounds i8, ptr %15, i64 56
   %25 = load i32, ptr %24, align 8
-  %26 = icmp slt i32 %25, %3
+  %26 = icmp sgt i32 %3, %25
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
@@ -1505,7 +1505,7 @@ GetSpanData.exit:                                 ; preds = %14
 28:                                               ; preds = %27, %23
   %29 = getelementptr inbounds i8, ptr %15, i64 60
   %30 = load i32, ptr %29, align 4
-  %31 = icmp sgt i32 %30, %4
+  %31 = icmp slt i32 %4, %30
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
@@ -1515,7 +1515,7 @@ GetSpanData.exit:                                 ; preds = %14
 33:                                               ; preds = %32, %28
   %34 = getelementptr inbounds i8, ptr %15, i64 64
   %35 = load i32, ptr %34, align 8
-  %36 = icmp sgt i32 %35, %5
+  %36 = icmp slt i32 %5, %35
   br i1 %36, label %37, label %ShapeSIIntersectClipBox.exit
 
 37:                                               ; preds = %33
@@ -1530,7 +1530,7 @@ ShapeSIIntersectClipBox.exit:                     ; preds = %18, %13, %37, %33
 define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %1, i64 52
   %8 = load i32, ptr %7, align 4
-  %9 = icmp slt i32 %8, %2
+  %9 = icmp sgt i32 %2, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
@@ -1540,7 +1540,7 @@ define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr noc
 11:                                               ; preds = %10, %6
   %12 = getelementptr inbounds i8, ptr %1, i64 56
   %13 = load i32, ptr %12, align 8
-  %14 = icmp slt i32 %13, %3
+  %14 = icmp sgt i32 %3, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
@@ -1550,7 +1550,7 @@ define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr noc
 16:                                               ; preds = %15, %11
   %17 = getelementptr inbounds i8, ptr %1, i64 60
   %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, %4
+  %19 = icmp slt i32 %4, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
@@ -1560,7 +1560,7 @@ define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr noc
 21:                                               ; preds = %20, %16
   %22 = getelementptr inbounds i8, ptr %1, i64 64
   %23 = load i32, ptr %22, align 8
-  %24 = icmp sgt i32 %23, %5
+  %24 = icmp slt i32 %5, %23
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
@@ -3170,12 +3170,12 @@ GetSpanData.exit:                                 ; preds = %14
   %31 = load float, ptr %30, align 4
   %32 = fadd float %29, %31
   %33 = fmul float %32, 5.000000e-01
-  %34 = fadd float %33, %2
+  %34 = fadd float %2, %33
   %35 = getelementptr inbounds i8, ptr %15, i64 88
   %36 = load float, ptr %35, align 8
   %37 = fadd float %29, %36
   %38 = fmul float %37, 5.000000e-01
-  %39 = fadd float %38, %3
+  %39 = fadd float %3, %38
   store float %28, ptr %30, align 4
   store float %29, ptr %35, align 8
   br label %40
@@ -3349,12 +3349,12 @@ GetSpanData.exit:                                 ; preds = %16
   %31 = fsub float %29, %7
   %32 = getelementptr inbounds i8, ptr %17, i64 84
   %33 = load float, ptr %32, align 4
-  %34 = fadd float %33, %2
+  %34 = fadd float %2, %33
   %35 = getelementptr inbounds i8, ptr %17, i64 88
   %36 = load float, ptr %35, align 8
-  %37 = fadd float %36, %3
-  %38 = fadd float %30, %4
-  %39 = fadd float %31, %5
+  %37 = fadd float %3, %36
+  %38 = fadd float %4, %30
+  %39 = fadd float %5, %31
   store float %30, ptr %32, align 4
   store float %31, ptr %35, align 8
   br label %40
@@ -4109,12 +4109,12 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
   %18 = load float, ptr %17, align 4
   %19 = fadd float %16, %18
   %20 = fmul float %19, 5.000000e-01
-  %21 = fadd float %20, %1
+  %21 = fadd float %1, %20
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = load float, ptr %22, align 8
   %24 = fadd float %16, %23
   %25 = fmul float %24, 5.000000e-01
-  %26 = fadd float %25, %2
+  %26 = fadd float %2, %25
   store float %15, ptr %17, align 4
   store float %16, ptr %22, align 8
   br label %27
@@ -4261,12 +4261,12 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   %18 = fsub float %16, %6
   %19 = getelementptr inbounds i8, ptr %0, i64 84
   %20 = load float, ptr %19, align 4
-  %21 = fadd float %20, %1
+  %21 = fadd float %1, %20
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = load float, ptr %22, align 8
-  %24 = fadd float %23, %2
-  %25 = fadd float %17, %3
-  %26 = fadd float %18, %4
+  %24 = fadd float %2, %23
+  %25 = fadd float %3, %17
+  %26 = fadd float %4, %18
   store float %17, ptr %19, align 4
   store float %18, ptr %22, align 8
   br label %27

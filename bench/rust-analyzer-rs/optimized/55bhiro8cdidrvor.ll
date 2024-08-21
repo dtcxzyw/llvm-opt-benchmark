@@ -1718,7 +1718,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17h5b8d732179991fdeE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -2182,7 +2182,7 @@ define hidden void @_ZN17crossbeam_channel6select17SelectedOperation4recv17hbec6
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noundef !12
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3
@@ -2247,7 +2247,7 @@ define hidden void @_ZN17crossbeam_channel6select17SelectedOperation4recv17hf5e8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noundef !12
-  %8 = icmp eq ptr %7, %2
+  %8 = icmp eq ptr %2, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3

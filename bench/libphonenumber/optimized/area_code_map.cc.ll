@@ -353,11 +353,11 @@ define dso_local noundef range(i32 -1073741825, 1073741824) i32 @_ZNK4i18n12phon
   %9 = load ptr, ptr %5, align 8
   %10 = tail call noundef i32 @_ZNK4i18n12phonenumbers17DefaultMapStorage9GetPrefixEi(ptr noundef nonnull align 8 dereferenceable(44) %9, i32 noundef %8)
   %11 = sext i32 %10 to i64
-  %12 = icmp eq i64 %11, %3
+  %12 = icmp eq i64 %3, %11
   br i1 %12, label %._crit_edge25, label %13
 
 13:                                               ; preds = %6
-  %14 = icmp sgt i64 %11, %3
+  %14 = icmp slt i64 %3, %11
   %15 = add nsw i32 %8, -1
   %16 = add nsw i32 %8, 1
   %.119 = select i1 %14, i32 %15, i32 %.01823

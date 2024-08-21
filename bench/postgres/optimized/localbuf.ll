@@ -624,7 +624,7 @@ define dso_local i32 @ExtendBufferedRelLocal(ptr nocapture noundef readonly byva
   %16 = load i32, ptr @NLocBuffer, align 4
   %17 = load i32, ptr @NLocalPinnedBuffers, align 4
   %18 = sub i32 %16, %17
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %18, i32 %3)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %3, i32 %18)
   br label %LimitAdditionalLocalPins.exit
 
 LimitAdditionalLocalPins.exit:                    ; preds = %15, %13

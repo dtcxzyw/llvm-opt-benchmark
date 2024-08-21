@@ -218,7 +218,7 @@ define i32 @Saig_TsiCountNonXValuedRegisters(ptr nocapture noundef %0, i32 nound
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr i8, ptr %14, i64 4
   %.val = load i32, ptr %15, align 4
-  %16 = icmp sgt i32 %.val, %1
+  %16 = icmp slt i32 %1, %.val
   br i1 %16, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader

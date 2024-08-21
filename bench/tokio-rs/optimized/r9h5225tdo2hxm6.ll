@@ -1153,7 +1153,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.11424
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -11513,7 +11513,7 @@ define hidden { ptr, i64 } @"_ZN5tokio6signal8registry17Registry$LT$S$GT$17regis
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !1837, !noundef !10
-  %.not = icmp ugt i64 %8, %1
+  %.not = icmp ult i64 %1, %8
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %2
@@ -11591,7 +11591,7 @@ define hidden { ptr, i64 } @"_ZN5tokio6signal8registry17Registry$LT$S$GT$17regis
 define hidden void @"_ZN5tokio6signal8registry17Registry$LT$S$GT$12record_event17h6f35a1a3570ff76aE.llvm.11424388141523703806"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !1858, !noundef !10
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %2
@@ -11622,7 +11622,7 @@ define hidden void @_ZN5tokio6signal8registry7Globals12record_event17h1735c98652
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1861)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !1864, !noundef !10
-  %.not.i = icmp ugt i64 %4, %1
+  %.not.i = icmp ult i64 %1, %4
   br i1 %.not.i, label %5, label %"_ZN5tokio6signal8registry17Registry$LT$S$GT$12record_event17h6f35a1a3570ff76aE.llvm.11424388141523703806.exit"
 
 5:                                                ; preds = %2

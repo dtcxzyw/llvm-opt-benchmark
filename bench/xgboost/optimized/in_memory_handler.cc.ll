@@ -689,7 +689,7 @@ define linkonce_odr void @_ZN7xgboost10collective15InMemoryHandler6HandleINS0_16
 
 29:                                               ; preds = %7
   %30 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  %.not = icmp eq ptr %30, %1
+  %.not = icmp eq ptr %1, %30
   br i1 %.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
 
 31:                                               ; preds = %29
@@ -905,7 +905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65: ; 
   %93 = getelementptr inbounds i8, ptr %6, i64 32
   %94 = load i32, ptr %93, align 8
   %95 = sext i32 %94 to i64
-  %96 = mul i64 %95, %2
+  %96 = mul i64 %2, %95
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %90, i64 noundef %96)
           to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -913,7 +913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit65: ; 
   %97 = getelementptr inbounds i8, ptr %6, i64 36
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
-  %100 = mul i64 %99, %2
+  %100 = mul i64 %2, %99
   %101 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %90, i64 noundef %100, i64 noundef %2, ptr noundef %1, i64 noundef %2)
           to label %_ZNK7xgboost10collective16AllgatherFunctorclEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1444,7 +1444,7 @@ define linkonce_odr void @_ZN7xgboost10collective15InMemoryHandler6HandleINS0_17
 
 29:                                               ; preds = %7
   %30 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  %.not = icmp eq ptr %30, %1
+  %.not = icmp eq ptr %1, %30
   br i1 %.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
 
 31:                                               ; preds = %29
@@ -2183,7 +2183,7 @@ define linkonce_odr void @_ZN7xgboost10collective15InMemoryHandler6HandleINS0_16
 
 29:                                               ; preds = %7
   %30 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  %.not = icmp eq ptr %30, %1
+  %.not = icmp eq ptr %1, %30
   br i1 %.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
 
 31:                                               ; preds = %29
@@ -2936,7 +2936,7 @@ define linkonce_odr void @_ZN7xgboost10collective15InMemoryHandler6HandleINS0_16
 
 29:                                               ; preds = %7
   %30 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  %.not = icmp eq ptr %30, %1
+  %.not = icmp eq ptr %1, %30
   br i1 %.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
 
 31:                                               ; preds = %29
@@ -3900,7 +3900,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -4538,7 +4538,7 @@ _ZNSt3mapImSt17basic_string_viewIcSt11char_traitsIcEESt4lessImESaISt4pairIKmS3_E
 
 24:                                               ; preds = %21
   %.not.i.i.i.i = icmp ne ptr %22, null
-  %25 = icmp eq ptr %8, %23
+  %25 = icmp eq ptr %23, %8
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %25
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %26
 
@@ -4582,7 +4582,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt17basic_string_viewIcSt11char_traitsIcEEESt10_Select1stIS6_ESt4lessImESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

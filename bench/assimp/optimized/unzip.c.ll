@@ -3746,7 +3746,7 @@ entry:
 if.end:                                           ; preds = %entry
   %size_comment = getelementptr inbounds i8, ptr %file, i64 112
   %0 = load i64, ptr %size_comment, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %0, i64 %uSizeBuf)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %uSizeBuf, i64 %0)
   %filestream = getelementptr inbounds i8, ptr %file, i64 96
   %1 = load ptr, ptr %filestream, align 8
   %central_pos = getelementptr inbounds i8, ptr %file, i64 152
@@ -3777,7 +3777,7 @@ if.end19:                                         ; preds = %if.end8
 
 land.lhs.true:                                    ; preds = %if.then10, %if.end19
   %6 = load i64, ptr %size_comment, align 8
-  %cmp23 = icmp ult i64 %6, %uSizeBuf
+  %cmp23 = icmp ugt i64 %uSizeBuf, %6
   br i1 %cmp23, label %if.then24, label %if.end27
 
 if.then24:                                        ; preds = %land.lhs.true

@@ -111,7 +111,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %8, %4, %.preheader.
 ompi_mpi_errcode_is_invalid.exit:                 ; preds = %37, %39
   %41 = icmp slt i32 %0, 0
   %42 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
-  %.not.i = icmp slt i32 %42, %0
+  %.not.i = icmp sgt i32 %0, %42
   %or.cond.i = select i1 %41, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %43, label %ompi_mpi_errcode_is_invalid.exit._crit_edge
 

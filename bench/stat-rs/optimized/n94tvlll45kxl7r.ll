@@ -374,7 +374,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 define noundef double @"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h202de6d280eb5f98E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit, label %13
 
 _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit: ; preds = %2
@@ -397,7 +397,7 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
 define noundef double @"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$2sf17ha2b194204426cf97E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   br i1 %.not, label %5, label %17
 
 5:                                                ; preds = %2
@@ -457,7 +457,7 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   %11 = add i64 %.val1, -1
   %12 = getelementptr inbounds [0 x double], ptr %.val, i64 0, i64 %11
   %13 = load double, ptr %12, align 8, !noundef !4
-  %14 = fmul double %13, %1
+  %14 = fmul double %1, %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %.not16.i = icmp slt i64 %11, 0
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
@@ -707,7 +707,7 @@ define noundef double @"_ZN114_$LT$statrs..distribution..categorical..Categorica
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp ugt i64 %6, %1
+  %.not = icmp ult i64 %1, %6
   %7 = getelementptr inbounds double, ptr %4, i64 %1
   %anon.4768d052527bd36a73bfd89d5da159b4.16. = select i1 %.not, ptr %7, ptr @anon.4768d052527bd36a73bfd89d5da159b4.16
   %8 = load double, ptr %anon.4768d052527bd36a73bfd89d5da159b4.16., align 8, !noundef !4
@@ -721,7 +721,7 @@ define noundef double @"_ZN114_$LT$statrs..distribution..categorical..Categorica
   %4 = load ptr, ptr %3, align 8, !alias.scope !70, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !70, !noundef !4
-  %.not.i = icmp ugt i64 %6, %1
+  %.not.i = icmp ult i64 %1, %6
   %7 = getelementptr inbounds double, ptr %4, i64 %1
   %anon.4768d052527bd36a73bfd89d5da159b4.16..i = select i1 %.not.i, ptr %7, ptr @anon.4768d052527bd36a73bfd89d5da159b4.16
   %8 = load double, ptr %anon.4768d052527bd36a73bfd89d5da159b4.16..i, align 8, !noalias !70, !noundef !4
@@ -1028,7 +1028,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..erlang..Erlang$u20$as$u
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load double, ptr %21, align 8, !alias.scope !113, !noundef !4
   %23 = tail call noundef double @llvm.log.f64(double %22)
-  %24 = fmul double %22, %1
+  %24 = fmul double %1, %22
   %25 = fsub double %23, %24
   br label %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit"
 
@@ -1040,7 +1040,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..erlang..Erlang$u20$as$u
   %31 = tail call noundef double @llvm.log.f64(double %1)
   %32 = fmul double %31, %6
   %33 = fadd double %32, %30
-  %34 = fmul double %28, %1
+  %34 = fmul double %1, %28
   %35 = fsub double %33, %34
   %36 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %5), !noalias !113
   %37 = fsub double %35, %36
@@ -1127,7 +1127,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN109_$LT$statrs..distribution..pareto..Pareto$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hb824bf1a43fb5210E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #4 {
   %3 = load double, ptr %0, align 8, !noundef !4
-  %4 = fcmp ogt double %3, %1
+  %4 = fcmp olt double %1, %3
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
@@ -1146,7 +1146,7 @@ define noundef double @"_ZN109_$LT$statrs..distribution..pareto..Pareto$u20$as$u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN109_$LT$statrs..distribution..pareto..Pareto$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$2sf17h6fc6b045a8a248b8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #4 {
   %3 = load double, ptr %0, align 8, !noundef !4
-  %4 = fcmp ogt double %3, %1
+  %4 = fcmp olt double %1, %3
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
@@ -1275,7 +1275,7 @@ define { i64, double } @"_ZN128_$LT$statrs..distribution..pareto..Pareto$u20$as$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN106_$LT$statrs..distribution..pareto..Pareto$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17hac18c569f6726ce4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #4 {
   %3 = load double, ptr %0, align 8, !noundef !4
-  %4 = fcmp ogt double %3, %1
+  %4 = fcmp olt double %1, %3
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %2
@@ -1296,7 +1296,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..pareto..Pareto$u20$as$u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @"_ZN106_$LT$statrs..distribution..pareto..Pareto$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hba317ae1064e6edbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load double, ptr %0, align 8, !noundef !4
-  %4 = fcmp ogt double %3, %1
+  %4 = fcmp olt double %1, %3
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2

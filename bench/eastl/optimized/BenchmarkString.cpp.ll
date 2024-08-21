@@ -413,7 +413,7 @@ if.then.i.i.i4.i:                                 ; preds = %for.body.i71
   br i1 %cmp.i, label %if.end10.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i.i.i4.i
-  %cmp5.i = icmp ugt i64 %cond.i.i2461, %cond.i3.i.i.i.i
+  %cmp5.i = icmp ult i64 %cond.i3.i.i.i.i, %cond.i.i2461
   br i1 %cmp5.i, label %if.then6.i, label %if.end10.i
 
 if.then6.i:                                       ; preds = %if.else.i
@@ -1058,7 +1058,7 @@ if.then.i.i.i4.i150:                              ; preds = %for.body.i125
   br i1 %cmp.i2490, label %if.end10.i2499, label %if.else.i2497
 
 if.else.i2497:                                    ; preds = %if.then.i.i.i4.i150
-  %cmp5.i2498 = icmp ugt i64 %cond.i.i2496, %cond.i3.i.i.i.i153
+  %cmp5.i2498 = icmp ult i64 %cond.i3.i.i.i.i153, %cond.i.i2496
   br i1 %cmp5.i2498, label %if.then6.i2544, label %if.end10.i2499
 
 if.then6.i2544:                                   ; preds = %if.else.i2497
@@ -1438,7 +1438,7 @@ _ZNSt11char_traitsIDsE6lengthEPKDs.exit.i.i:      ; preds = %while.cond.i.i.i224
   %.neg.i223 = mul nsw i64 %indvars.iv.i222, -317
   %sub.i226 = add i64 %.neg.i223, %97
   %103 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp.i.i2.i.i = icmp ult i64 %103, %sub.i226
+  %cmp.i.i2.i.i = icmp ugt i64 %sub.i226, %103
   br i1 %cmp.i.i2.i.i, label %if.then.i.i.i6.i.invoke, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6insertEmPKDs.exit.i
 
 if.then.i.i.i6.i.invoke:                          ; preds = %_ZNSt11char_traitsIDsE6lengthEPKDs.exit.i.i, %for.body.i359, %for.body.i509
@@ -1759,7 +1759,7 @@ for.body.i359:                                    ; preds = %_ZNSt7__cxx1112basi
   %.neg.i361 = mul nsw i64 %indvars.iv.i360, -339
   %sub.i362 = add i64 %.neg.i361, %137
   %142 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp.i.i5.i = icmp ult i64 %142, %sub.i362
+  %cmp.i.i5.i = icmp ugt i64 %sub.i362, %142
   br i1 %cmp.i.i5.i, label %if.then.i.i.i6.i.invoke, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8_M_checkEmPKc.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8_M_checkEmPKc.exit.i.i: ; preds = %for.body.i359
@@ -2211,14 +2211,14 @@ for.body.i509:                                    ; preds = %call3.i.i.noexc, %_
   %.neg.i511 = mul nsw i64 %indvars.iv.i510, -5
   %sub.i512 = add i64 %.neg.i511, %192
   %197 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp.i.i7.i = icmp ult i64 %197, %sub.i512
+  %cmp.i.i7.i = icmp ugt i64 %sub.i512, %197
   br i1 %cmp.i.i7.i, label %if.then.i.i.i6.i.invoke, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7replaceEmmPKDsm.exit.i
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7replaceEmmPKDsm.exit.i: ; preds = %for.body.i509
   %and.i513 = and i64 %indvars.iv.i510, 3
   %add.i514 = add nuw nsw i64 %and.i513, 6
   %sub.i.i.i515 = sub nuw i64 %197, %sub.i512
-  %spec.select.i.i.i516 = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i515, i64 %add.i514)
+  %spec.select.i.i.i516 = call noundef i64 @llvm.umin.i64(i64 %add.i514, i64 %sub.i.i.i515)
   %reass.sub3674 = sub i64 %spec.select.i.i.i516, %197
   %sub3.i.i = add i64 %reass.sub3674, 2305843009213693951
   %cmp.i.i2602 = icmp ult i64 %sub3.i.i, 8
@@ -2246,7 +2246,7 @@ if.then.i2609:                                    ; preds = %_ZNKSt7__cxx1112bas
   %add.ptr.i2610 = getelementptr inbounds i16, ptr %198, i64 %sub.i512
   %200 = add i64 %spec.select.i.i.i516, %sub.i512
   %sub5.i = sub i64 %197, %200
-  %cmp.i.i68.i = icmp ugt ptr %198, %pReplace1_16
+  %cmp.i.i68.i = icmp ult ptr %pReplace1_16, %198
   %add.ptr.i.i2611 = getelementptr inbounds i16, ptr %198, i64 %197
   %cmp.i2.i.i = icmp ult ptr %add.ptr.i.i2611, %pReplace1_16
   %201 = select i1 %cmp.i.i68.i, i1 true, i1 %cmp.i2.i.i
@@ -2326,7 +2326,7 @@ if.then32.i:                                      ; preds = %if.then28.i
   br label %call3.i.i.noexc
 
 if.else33.i:                                      ; preds = %if.then28.i
-  %cmp35.not.i = icmp ugt ptr %add.ptr30.i, %pReplace1_16
+  %cmp35.not.i = icmp ult ptr %pReplace1_16, %add.ptr30.i
   br i1 %cmp35.not.i, label %if.else40.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.else33.i
@@ -2970,7 +2970,7 @@ if.then.i.i.i13.i:                                ; preds = %for.body.i647
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i651: ; preds = %if.then.i.i.i13.i, %for.body.i647
   %268 = load i64, ptr %0, align 8
   %cond.i.i.i652 = select i1 %cmp.i.i.i7.i, i64 7, i64 %268
-  %cmp.not.i.i = icmp ult i64 %cond.i.i.i652, %add.i650
+  %cmp.not.i.i = icmp ugt i64 %add.i650, %cond.i.i.i652
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7reserveEm.exit.i
 
 if.end.i.i:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i651
@@ -2987,7 +2987,7 @@ if.then.i.i12.i.cont:                             ; preds = %if.then.i.i12.i.inv
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i
   %mul.i.i.i656 = shl nuw nsw i64 %cond.i.i.i652, 1
-  %cmp3.i.i9.i = icmp ugt i64 %mul.i.i.i656, %add.i650
+  %cmp3.i.i9.i = icmp ult i64 %add.i650, %mul.i.i.i656
   %spec.store.select.i.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i.i656, i64 2305843009213693951)
   %__res.addr.0.i.i = select i1 %cmp3.i.i9.i, i64 %spec.store.select.i.i.i, i64 %add.i650
   %add.i.i.i657 = shl nuw nsw i64 %__res.addr.0.i.i, 1
@@ -7719,7 +7719,7 @@ if.then:                                          ; preds = %_ZNKSt7__cxx1112bas
   %add.ptr = getelementptr inbounds i16, ptr %1, i64 %__pos
   %4 = add i64 %__len1, %__pos
   %sub5 = sub i64 %0, %4
-  %cmp.i.i68 = icmp ugt ptr %1, %__s
+  %cmp.i.i68 = icmp ult ptr %__s, %1
   %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %0
   %cmp.i2.i = icmp ult ptr %add.ptr.i, %__s
   %5 = select i1 %cmp.i.i68, i1 true, i1 %cmp.i2.i
@@ -7833,7 +7833,7 @@ if.end.i.i83:                                     ; preds = %if.then32
   br label %if.end54
 
 if.else33:                                        ; preds = %if.then28
-  %cmp35.not = icmp ugt ptr %add.ptr30, %__s
+  %cmp35.not = icmp ult ptr %__s, %add.ptr30
   br i1 %cmp35.not, label %if.else40, label %if.then36
 
 if.then36:                                        ; preds = %if.else33
@@ -7948,8 +7948,8 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i4.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub5
-  %cmp10.not = icmp ule ptr %spec.select.i, %pEnd
-  %cmp13 = icmp uge ptr %cond.i4.i, %pBegin
+  %cmp10.not = icmp uge ptr %pEnd, %spec.select.i
+  %cmp13 = icmp ule ptr %pBegin, %cond.i4.i
   %or.cond = select i1 %cmp10.not, i1 %cmp13, i1 false
   br i1 %or.cond, label %land.lhs.true, label %if.end
 
@@ -8263,8 +8263,8 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub5
-  %cmp11.not = icmp ule ptr %spec.select.i, %pEnd
-  %cmp14 = icmp uge ptr %cond.i5.i, %pBegin
+  %cmp11.not = icmp uge ptr %pEnd, %spec.select.i
+  %cmp14 = icmp ule ptr %pBegin, %cond.i5.i
   %or.cond = select i1 %cmp11.not, i1 %cmp14, i1 false
   br i1 %or.cond, label %land.lhs.true, label %if.end
 

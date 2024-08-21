@@ -285,7 +285,7 @@ if.then5:                                         ; preds = %if.else
   unreachable
 
 if.else7:                                         ; preds = %entry
-  %cmp9.not = icmp ugt ptr %0, %ptr
+  %cmp9.not = icmp ult ptr %ptr, %0
   br i1 %cmp9.not, label %for.cond.preheader, label %land.lhs.true
 
 for.cond.preheader:                               ; preds = %land.lhs.true, %if.else7
@@ -295,7 +295,7 @@ land.lhs.true:                                    ; preds = %if.else7
   %szmcarea = getelementptr inbounds i8, ptr %J, i64 3072
   %4 = load i64, ptr %szmcarea, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %4
-  %cmp11 = icmp ugt ptr %add.ptr, %ptr
+  %cmp11 = icmp ult ptr %ptr, %add.ptr
   br i1 %cmp11, label %if.then13, label %for.cond.preheader
 
 if.then13:                                        ; preds = %land.lhs.true
@@ -320,14 +320,14 @@ if.end.i31:                                       ; preds = %if.then.i25
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
   %mc.0 = phi ptr [ %0, %for.cond.preheader ], [ %6, %for.cond.backedge ]
   %6 = load ptr, ptr %mc.0, align 8
-  %cmp15.not = icmp ugt ptr %6, %ptr
+  %cmp15.not = icmp ult ptr %ptr, %6
   br i1 %cmp15.not, label %for.cond.backedge, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %for.cond
   %size18 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %size18, align 8
   %add.ptr19 = getelementptr inbounds i8, ptr %6, i64 %7
-  %cmp20 = icmp ugt ptr %add.ptr19, %ptr
+  %cmp20 = icmp ult ptr %ptr, %add.ptr19
   br i1 %cmp20, label %if.then22, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %land.lhs.true17, %for.cond
@@ -410,7 +410,7 @@ lj_mcode_abort.exit:                              ; preds = %entry, %if.then.i, 
   %shl = shl nsw i64 %conv, 10
   %sub = add nsw i64 %shl, 4095
   %and = and i64 %sub, -4096
-  %cmp = icmp ult i64 %and, %need
+  %cmp = icmp ugt i64 %need, %and
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lj_mcode_abort.exit

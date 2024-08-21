@@ -190,7 +190,7 @@ sub_180:                                          ; preds = %.tail74
   br i1 %57, label %.sink.split, label %58
 
 58:                                               ; preds = %.tail78.thread
-  %.not = icmp eq ptr %13, %1
+  %.not = icmp eq ptr %1, %13
   br i1 %.not, label %61, label %59
 
 59:                                               ; preds = %58

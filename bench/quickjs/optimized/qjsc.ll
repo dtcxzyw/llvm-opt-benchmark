@@ -1139,7 +1139,7 @@ compile_file.exit:                                ; preds = %192, %195, %200
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next228 to i32
-  %exitcond230.not = icmp eq i32 %lftr.wideiv, %0
+  %exitcond230.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond230.not, label %.preheader159, label %166, !llvm.loop !13
 
 201:                                              ; preds = %.lr.ph188

@@ -1945,7 +1945,7 @@ proto_item_set_hidden.exit157:                    ; preds = %proto_item_set_gene
   br label %170
 
 170:                                              ; preds = %169, %proto_item_set_hidden.exit157
-  %171 = icmp ugt i32 %27, %1
+  %171 = icmp ult i32 %1, %27
   br i1 %171, label %.lr.ph310, label %.loopexit263.thread
 
 .lr.ph310:                                        ; preds = %170

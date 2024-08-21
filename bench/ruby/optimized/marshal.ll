@@ -1497,7 +1497,7 @@ w_byte.exit187:                                   ; preds = %132, %137, %142
 146:                                              ; preds = %RB_SYMBOL_P.exit.thread239
   %147 = icmp sgt i32 %2, 0
   %148 = sext i1 %147 to i32
-  %spec.select = add nsw i32 %148, %2
+  %spec.select = add nsw i32 %2, %148
   %149 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 %spec.select, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %12, i64 8
@@ -4038,15 +4038,15 @@ declare void @rb_ivar_foreach(i64 noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @obj_count_ivars(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
   %4 = load i64, ptr @s_encoding_short, align 8
-  %5 = icmp eq i64 %4, %0
+  %5 = icmp eq i64 %0, %4
   %6 = load i64, ptr @s_ruby2_keywords_flag, align 8
-  %7 = icmp eq i64 %6, %0
+  %7 = icmp eq i64 %0, %6
   %or.cond.i = select i1 %5, i1 true, i1 %7
   br i1 %or.cond.i, label %to_be_skipped_id.exit.thread, label %8
 
 8:                                                ; preds = %3
   %9 = tail call i64 @rb_id_encoding() #21
-  %10 = icmp eq i64 %9, %0
+  %10 = icmp eq i64 %0, %9
   br i1 %10, label %to_be_skipped_id.exit.thread, label %to_be_skipped_id.exit
 
 to_be_skipped_id.exit:                            ; preds = %8
@@ -4134,15 +4134,15 @@ define internal noundef i32 @w_obj_each(i64 noundef %0, i64 noundef %1, i64 noun
   %4 = inttoptr i64 %2 to ptr
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr @s_encoding_short, align 8
-  %7 = icmp eq i64 %6, %0
+  %7 = icmp eq i64 %0, %6
   %8 = load i64, ptr @s_ruby2_keywords_flag, align 8
-  %9 = icmp eq i64 %8, %0
+  %9 = icmp eq i64 %0, %8
   %or.cond.i = select i1 %7, i1 true, i1 %9
   br i1 %or.cond.i, label %to_be_skipped_id.exit.thread, label %10
 
 10:                                               ; preds = %3
   %11 = tail call i64 @rb_id_encoding() #21
-  %12 = icmp eq i64 %11, %0
+  %12 = icmp eq i64 %0, %11
   br i1 %12, label %to_be_skipped_id.exit.thread, label %to_be_skipped_id.exit
 
 to_be_skipped_id.exit:                            ; preds = %10
@@ -4152,7 +4152,7 @@ to_be_skipped_id.exit:                            ; preds = %10
 
 to_be_skipped_id.exit.thread:                     ; preds = %10, %3, %to_be_skipped_id.exit
   %14 = load i64, ptr @s_encoding_short, align 8
-  %15 = icmp eq i64 %14, %0
+  %15 = icmp eq i64 %0, %14
   br i1 %15, label %16, label %33
 
 16:                                               ; preds = %to_be_skipped_id.exit.thread
@@ -4200,7 +4200,7 @@ rb_class_of.exit:                                 ; preds = %22, %25, %26, %27, 
 
 33:                                               ; preds = %rb_class_of.exit, %to_be_skipped_id.exit.thread
   %34 = load i64, ptr @s_ruby2_keywords_flag, align 8
-  %35 = icmp eq i64 %34, %0
+  %35 = icmp eq i64 %0, %34
   br i1 %35, label %36, label %63
 
 36:                                               ; preds = %33
@@ -7487,7 +7487,7 @@ RSTRING_PTR.exit:                                 ; preds = %27, %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %40 = getelementptr inbounds i8, ptr %1, i64 16
-  %.not.i = icmp slt i64 %.pre46, %0
+  %.not.i = icmp sgt i64 %0, %.pre46
   br i1 %.not.i, label %52, label %41
 
 41:                                               ; preds = %.critedge._crit_edge

@@ -682,7 +682,7 @@ define void @_ZN3gmx23NoseHooverChainsElement12scheduleTaskEldRKSt8functionIFvS1
   %6 = alloca %"class.std::function.471", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load i64, ptr %7, align 8
-  %9 = icmp eq i64 %8, %1
+  %9 = icmp eq i64 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
@@ -697,7 +697,7 @@ define void @_ZN3gmx23NoseHooverChainsElement12scheduleTaskEldRKSt8functionIFvS1
 
 _Z11do_per_stepll.exit:                           ; preds = %13
   %16 = sext i32 %15 to i64
-  %17 = add nsw i64 %16, %1
+  %17 = add nsw i64 %1, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 60
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
@@ -1340,7 +1340,7 @@ _ZNSt16allocator_traitsISaIN3gmx15NoseHooverGroupEEE9constructIS1_JRiRKfS7_S7_Rf
 _ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx15NoseHooverGroupEEE9constructIS1_JRiRKfS7_S7_RfRNS0_8NhcUsageEEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %28, %_ZNSt16allocator_traitsISaIN3gmx15NoseHooverGroupEEE9constructIS1_JRiRKfS7_S7_RfRNS0_8NhcUsageEEEEvRS2_PT_DpOT0_.exit ], [ %70, %.lr.ph.i.i.i ]
   %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 112
-  %.not10.i.i.i31 = icmp eq ptr %10, %1
+  %.not10.i.i.i31 = icmp eq ptr %1, %10
   br i1 %.not10.i.i.i31, label %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, label %.lr.ph.i.i.i32
 
 .lr.ph.i.i.i32:                                   ; preds = %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i32
@@ -1659,7 +1659,7 @@ _ZNSt16allocator_traitsISaIN3gmx15NoseHooverGroupEEE9constructIS1_JRiRKfRKiS7_Rf
 _ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN3gmx15NoseHooverGroupEEE9constructIS1_JRiRKfRKiS7_RfRNS0_8NhcUsageEEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %28, %_ZNSt16allocator_traitsISaIN3gmx15NoseHooverGroupEEE9constructIS1_JRiRKfRKiS7_RfRNS0_8NhcUsageEEEEvRS2_PT_DpOT0_.exit ], [ %71, %.lr.ph.i.i.i ]
   %72 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 112
-  %.not10.i.i.i31 = icmp eq ptr %10, %1
+  %.not10.i.i.i31 = icmp eq ptr %1, %10
   br i1 %.not10.i.i.i31, label %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, label %.lr.ph.i.i.i32
 
 .lr.ph.i.i.i32:                                   ; preds = %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i32
@@ -2920,7 +2920,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -2994,7 +2994,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrISt3anySt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -3904,7 +3904,7 @@ _ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 define void @_ZN3gmx15NoseHooverGroup14finalizeUpdateEf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, float noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load float, ptr %3, align 8
-  %5 = fadd float %4, %1
+  %5 = fadd float %1, %4
   store float %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load float, ptr %6, align 8
@@ -4978,7 +4978,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -5039,7 +5039,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -6380,7 +6380,7 @@ _ZSt10_ConstructIN3gmx17KeyValueTreeValueEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #26
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17KeyValueTreeValueEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN3gmx17KeyValueTreeValueEEvPT_.exit.i.i.i.i.i.i
@@ -7526,7 +7526,7 @@ define noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr nocapture noundef
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = load float, ptr %7, align 8
-  %9 = fadd float %8, %2
+  %9 = fadd float %2, %8
   store float %9, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load float, ptr %10, align 8
@@ -7812,7 +7812,7 @@ define noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr nocapture noundef
 206:                                              ; preds = %204
   %207 = getelementptr inbounds i8, ptr %0, i64 104
   %208 = load float, ptr %207, align 8
-  %209 = fadd float %208, %2
+  %209 = fadd float %2, %208
   store float %209, ptr %207, align 8
   %210 = getelementptr inbounds i8, ptr %0, i64 16
   %211 = load float, ptr %210, align 8
@@ -7969,7 +7969,7 @@ define void @_ZN3gmx23NoseHooverChainsElement12propagateNhcEv(ptr noundef nonnul
   %46 = getelementptr inbounds i8, ptr %43, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx15NoseHooverGroupESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateIZNKS2_20NoseHooverChainsData24isAtFullCouplingTimeStepEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %45, ptr %47)
-  %49 = icmp eq ptr %48, %47
+  %49 = icmp eq ptr %47, %48
   tail call void @_ZN3gmx8MttkData5scaleEfb(ptr noundef nonnull align 8 dereferenceable(152) %42, float noundef %25, i1 noundef zeroext %49)
   br label %50
 
@@ -7995,7 +7995,7 @@ define void @_ZN3gmx23NoseHooverChainsElement12propagateNhcEv(ptr noundef nonnul
   %62 = getelementptr inbounds i8, ptr %.lcssa, i64 48
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx15NoseHooverGroupESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateIZNKS2_20NoseHooverChainsData24isAtFullCouplingTimeStepEvEUlRKT_E_EEESD_SD_SD_T0_St26random_access_iterator_tag(ptr %61, ptr %63)
-  %65 = icmp eq ptr %64, %63
+  %65 = icmp eq ptr %63, %64
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %59

@@ -2637,11 +2637,11 @@ if.end.i.i.i.i268:                                ; preds = %while.end
   %147 = load ptr, ptr %146, align 8
   %add.ptr8.i.i.i.i269 = getelementptr inbounds i8, ptr %147, i64 8
   %148 = load ptr, ptr %add.ptr8.i.i.i.i269, align 8
-  %cmp.i.i.i9.i.i.i.i270 = icmp eq ptr %148, %this
+  %cmp.i.i.i9.i.i.i.i270 = icmp eq ptr %this, %148
   br i1 %cmp.i.i.i9.i.i.i.i270, label %invoke.cont92, label %if.end3.i.i.i.i271
 
 for.cond.i.i.i.i286:                              ; preds = %lor.lhs.false.i.i.i.i274
-  %cmp.i.i.i.i.i.i.i287 = icmp eq ptr %150, %this
+  %cmp.i.i.i.i.i.i.i287 = icmp eq ptr %this, %150
   br i1 %cmp.i.i.i.i.i.i.i287, label %invoke.cont92, label %if.end3.i.i.i.i271, !llvm.loop !15
 
 if.end3.i.i.i.i271:                               ; preds = %if.end.i.i.i.i268, %for.cond.i.i.i.i286
@@ -3657,7 +3657,7 @@ _ZNSt10_HashtableIPKN4cvc58internal9ProofNodeESt4pairIKS4_St10shared_ptrIS2_EESa
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %15
+  %cmp.i.i.i = icmp eq ptr %15, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt10_HashtableIPKN4cvc58internal9ProofNodeESt4pairIKS4_St10shared_ptrIS2_EESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
@@ -4527,7 +4527,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPKN4cvc58internal9ProofNodeESt4pairIKS4_St10shared_ptrIS2_EESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPKN4cvc58internal9ProofNodeESt4pairIKS4_St10shared_ptrIS2_EESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

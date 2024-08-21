@@ -6044,7 +6044,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @discover_upi_topology(ptr 
   %63 = getelementptr ptr, ptr %62, i64 %58
   %64 = load ptr, ptr %63, align 8
   %65 = trunc i64 %61 to i32
-  %66 = add i32 %65, %2
+  %66 = add i32 %2, %65
   %67 = shl i32 %66, 3
   %68 = and i32 %67, 248
   %69 = or disjoint i32 %68, 1

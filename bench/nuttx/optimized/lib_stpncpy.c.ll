@@ -36,7 +36,7 @@ define ptr @stpncpy(ptr noundef writeonly %0, ptr nocapture noundef readonly %1,
   br i1 %.not1319, label %._crit_edge, label %.lr.ph21.preheader
 
 .lr.ph21.preheader:                               ; preds = %.critedge
-  %10 = add i64 %4, %2
+  %10 = add i64 %2, %4
   %11 = sub i64 %10, %.0.lcssa22.pre-phi
   tail call void @llvm.memset.p0.i64(ptr align 1 %.0.lcssa, i8 0, i64 %11, i1 false)
   br label %._crit_edge

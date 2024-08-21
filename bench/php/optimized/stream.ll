@@ -78,7 +78,7 @@ define internal noundef i64 @phar_stream_write(ptr nocapture noundef readonly %0
   %10 = tail call i32 @_php_stream_seek(ptr noundef %7, i64 noundef %9, i32 noundef 0) #14
   %11 = load ptr, ptr %6, align 8
   %12 = tail call i64 @_php_stream_write(ptr noundef %11, ptr noundef %1, i64 noundef %2) #14
-  %.not = icmp eq i64 %12, %2
+  %.not = icmp eq i64 %2, %12
   br i1 %.not, label %25, label %13
 
 13:                                               ; preds = %3
@@ -180,7 +180,7 @@ define internal i64 @phar_stream_read(ptr nocapture noundef %0, ptr noundef %1, 
   %31 = zext i32 %30 to i64
   %32 = load i64, ptr %23, align 8
   %33 = sub nsw i64 %31, %32
-  %. = tail call i64 @llvm.umin.i64(i64 %33, i64 %2)
+  %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %33)
   %34 = tail call i64 @_php_stream_read(ptr noundef %29, ptr noundef %1, i64 noundef %.) #14
   %35 = load ptr, ptr %21, align 8
   %36 = tail call i64 @_php_stream_tell(ptr noundef %35) #14

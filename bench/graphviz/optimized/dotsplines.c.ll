@@ -4277,8 +4277,8 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   %2277 = fsub double %.sroa.013.0.copyload.i.i, %2251
   %2278 = fsub double %.sroa.9.0.copyload.i.i, %2252
   %2279 = fsub double %2260, %2251
-  %2280 = fneg double %2278
-  %2281 = fmul double %2279, %2280
+  %2280 = fneg double %2279
+  %2281 = fmul double %2278, %2280
   %2282 = call double @llvm.fmuladd.f64(double %2276, double %2277, double %2281)
   %2283 = fcmp ogt double %2282, 0.000000e+00
   %2284 = fmul double %.sroa.010.0.copyload..sroa.3.0.copyload.i.i, 5.000000e-01
@@ -6772,8 +6772,8 @@ define internal fastcc void @makeSimpleFlat(ptr nocapture readonly %.16.val, dou
   %22 = load double, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %11, i64 80
   %24 = load double, ptr %23, align 8
-  %25 = fadd double %22, %.16.val1.32.val
-  %26 = fadd double %24, %.16.val1.40.val
+  %25 = fadd double %.16.val1.32.val, %22
+  %26 = fadd double %.16.val1.40.val, %24
   %27 = icmp sgt i32 %2, 1
   br i1 %27, label %.thread, label %34
 

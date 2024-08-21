@@ -1405,7 +1405,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   %8 = icmp eq i8 %7, 46
   %spec.select = select i1 %8, ptr %6, ptr %4
   %9 = sext i1 %8 to i64
-  %spec.select40 = add i64 %9, %1
+  %spec.select40 = add i64 %1, %9
   %10 = icmp ugt i64 %spec.select40, 253
   br i1 %10, label %.loopexit, label %.thread
 
@@ -1431,11 +1431,11 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   br i1 %.not35, label %.loopexit, label %.thread64
 
 22:                                               ; preds = %13
-  %23 = icmp ugt ptr %.02943, %0
+  %23 = icmp ult ptr %0, %.02943
   br i1 %23, label %.lr.ph.split.us.split, label %.loopexit
 
 .thread64:                                        ; preds = %15
-  %24 = icmp ugt ptr %.02943, %0
+  %24 = icmp ult ptr %0, %.02943
   br i1 %24, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.split.us.split:                            ; preds = %22, %35

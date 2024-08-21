@@ -2095,7 +2095,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   %44 = getelementptr inbounds i8, ptr %22, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
-  %47 = xor i32 %46, %6
+  %47 = xor i32 %6, %46
   %48 = getelementptr inbounds i8, ptr %10, i64 40
   store i32 %47, ptr %48, align 8
   %49 = load i32, ptr %39, align 4
@@ -2124,7 +2124,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   %62 = getelementptr inbounds i8, ptr %22, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
-  %65 = xor i32 %64, %6
+  %65 = xor i32 %6, %64
   %66 = lshr i32 %58, 29
   %67 = icmp ult i32 %58, -1610612736
   br i1 %67, label %.lr.ph, label %._crit_edge
@@ -2151,7 +2151,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   %79 = getelementptr inbounds i8, ptr %22, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
-  %82 = xor i32 %81, %6
+  %82 = xor i32 %6, %81
   %83 = icmp slt i32 %82, %.098123
   br i1 %83, label %84, label %94
 
@@ -2315,7 +2315,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
 149:                                              ; preds = %139
   %150 = getelementptr inbounds i8, ptr %.192.lcssa, i64 16
   %151 = load i32, ptr %150, align 8
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %151, i32 %140)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %140, i32 %151)
   %152 = getelementptr inbounds i8, ptr %.192.lcssa, i64 8
   %153 = load ptr, ptr %152, align 8
   %.not.i = icmp eq ptr %153, null
@@ -3963,7 +3963,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv9MSER_Impl5PixelESaIS2_EE6resi
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -4037,7 +4037,7 @@ _ZNSt12_Vector_baseIN2cv9MSER_Impl5PixelESaIS2_EE13_M_deallocateEPS2_m.exit36.i:
   br label %_ZNSt6vectorIN2cv9MSER_Impl5PixelESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv9MSER_Impl5PixelESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -4372,7 +4372,7 @@ _ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEi
   %45 = load i32, ptr %13, align 8
   %46 = getelementptr inbounds i8, ptr %spec.select46, i64 16
   %47 = load i32, ptr %46, align 8
-  %spec.select.i26 = tail call i32 @llvm.smax.i32(i32 %47, i32 %45)
+  %spec.select.i26 = tail call i32 @llvm.smax.i32(i32 %45, i32 %47)
   %48 = getelementptr inbounds i8, ptr %spec.select46, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not.i27 = icmp eq ptr %49, null
@@ -5011,7 +5011,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -5085,7 +5085,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -5175,7 +5175,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE11_M_allocateEm.exi
 _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE11_M_allocateEm.exit ], [ %40, %.lr.ph.i.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i17
@@ -5672,7 +5672,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIPN2cv8MSCREdgeEN9__gnu_cxx5
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.215.0..sroa_idx.i, i64 16, i1 false)
-  %21 = icmp sgt i64 %13, %.0.i
+  %21 = icmp slt i64 %.0.i, %13
   br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i

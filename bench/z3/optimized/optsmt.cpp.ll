@@ -427,7 +427,7 @@ land.lhs.true31:                                  ; preds = %if.else
   %45 = load ptr, ptr %arrayidx.i.i90, align 8
   %m_true.i = getelementptr inbounds i8, ptr %43, i64 856
   %46 = load ptr, ptr %m_true.i, align 8
-  %cmp.i91 = icmp eq ptr %46, %45
+  %cmp.i91 = icmp eq ptr %45, %46
   br i1 %cmp.i91, label %for.inc, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true31
@@ -8011,7 +8011,7 @@ entry:
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %1, %i
+  %cmp.not = icmp ult i32 %i, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -8055,7 +8055,7 @@ entry:
 _ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not = icmp ugt i32 %1, %i
+  %cmp.not = icmp ult i32 %i, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %_ZNK6vectorI16inf_eps_rationalI12inf_rationalELb1EjE4sizeEv.exit
@@ -8126,7 +8126,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN3refI5modelEaSEPS0_.exit:                      ; preds = %if.end.i, %if.then.i.i, %if.then.i.i.i
   store ptr %0, ptr %mdl, align 8
   %m_labels = getelementptr inbounds i8, ptr %this, i64 104
-  %cmp.i.i = icmp eq ptr %m_labels, %labels
+  %cmp.i.i = icmp eq ptr %labels, %m_labels
   br i1 %cmp.i.i, label %_ZN7svectorI6symboljEaSERKS1_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN3refI5modelEaSEPS0_.exit

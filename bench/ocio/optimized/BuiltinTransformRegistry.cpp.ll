@@ -1035,7 +1035,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp.not = icmp ult i64 %index, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1082,7 +1082,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp.not = icmp ult i64 %index, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1117,7 +1117,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
-  %cmp.not = icmp ugt i64 %sub.ptr.div.i, %index
+  %cmp.not = icmp ult i64 %index, %sub.ptr.div.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1186,7 +1186,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %vtable, align 8
   %call1 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
-  %cmp = icmp ult i64 %call1, %nameIndex
+  %cmp = icmp ugt i64 %nameIndex, %call1
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -1378,7 +1378,7 @@ sw.bb:                                            ; preds = %_ZNSt10shared_ptrIK
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
-  %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %nameIndex
+  %cmp.not.i = icmp ult i64 %nameIndex, %sub.ptr.div.i.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
@@ -1427,7 +1427,7 @@ sw.bb4:                                           ; preds = %_ZNSt10shared_ptrIK
   %sub.ptr.rhs.cast.i.i44 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i43, %sub.ptr.rhs.cast.i.i44
   %sub.ptr.div.i.i46 = sdiv exact i64 %sub.ptr.sub.i.i45, 96
-  %cmp.not.i47 = icmp ugt i64 %sub.ptr.div.i.i46, %nameIndex
+  %cmp.not.i47 = icmp ult i64 %nameIndex, %sub.ptr.div.i.i46
   br i1 %cmp.not.i47, label %if.end.i52, label %if.then.i48
 
 if.then.i48:                                      ; preds = %sw.bb4
@@ -1920,7 +1920,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11
 _ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 96
-  %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37, label %for.body.i.i.i.i19
 
 for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i32
@@ -2229,7 +2229,7 @@ _ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11
 _ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 96
-  %cmp.not5.i.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i.i11, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, label %for.body.i.i.i.i12
 
 for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImpl11BuiltinDataES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i25

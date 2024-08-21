@@ -226,10 +226,10 @@ define noundef i32 @_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLo
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = icmp sle i32 %10, %1
+  %11 = icmp sge i32 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load i32, ptr %12, align 8
-  %.not = icmp sgt i32 %13, %1
+  %.not = icmp slt i32 %1, %13
   %or.cond = select i1 %11, i1 %.not, i1 false
   br i1 %or.cond, label %14, label %24
 
@@ -792,10 +792,10 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEi(ptr nocapt
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = icmp sle i32 %11, %1
+  %12 = icmp sge i32 %1, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = load i32, ptr %13, align 8
-  %.not.i = icmp sgt i32 %14, %1
+  %.not.i = icmp slt i32 %1, %14
   %or.cond.i = select i1 %12, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
@@ -1099,7 +1099,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEi(ptr 
   %4 = alloca %"class.gmx::AnalysisDataPointSetRef", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
@@ -1115,10 +1115,10 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEi(ptr 
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4
-  %18 = icmp sle i32 %17, %1
+  %18 = icmp sge i32 %1, %17
   %19 = getelementptr inbounds i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
-  %.not.i = icmp sgt i32 %20, %1
+  %.not.i = icmp slt i32 %1, %20
   %or.cond.i = select i1 %18, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
@@ -1535,7 +1535,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr nocapture no
 
 9:                                                ; preds = %5
   %10 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %11 = icmp sgt i32 %10, %1
+  %11 = icmp slt i32 %1, %10
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %9, %5
@@ -2084,7 +2084,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeE
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -2155,7 +2155,7 @@ _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit3
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -2478,10 +2478,10 @@ define void @_ZNK3gmx19AnalysisDataStorage15tryGetDataFrameEi(ptr dead_on_unwind
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = icmp sle i32 %12, %2
+  %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds i8, ptr %4, i64 88
   %15 = load i32, ptr %14, align 8
-  %.not.i = icmp sgt i32 %15, %2
+  %.not.i = icmp slt i32 %2, %15
   %or.cond.i = select i1 %13, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
@@ -2540,7 +2540,7 @@ define noundef zeroext i1 @_ZN3gmx19AnalysisDataStorage14requestStorageEi(ptr no
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %5, align 8
-  %8 = icmp sgt i32 %7, %1
+  %8 = icmp slt i32 %1, %7
   br i1 %8, label %9, label %.sink.split
 
 .sink.split:                                      ; preds = %6, %2
@@ -2660,10 +2660,10 @@ define noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataSto
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 4
-  %39 = icmp sle i32 %38, %10
+  %39 = icmp sge i32 %10, %38
   %40 = getelementptr inbounds i8, ptr %6, i64 88
   %41 = load i32, ptr %40, align 8
-  %.not.i = icmp sgt i32 %41, %10
+  %.not.i = icmp slt i32 %10, %41
   %or.cond.i = select i1 %39, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
@@ -3259,10 +3259,10 @@ define noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataSto
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = icmp sle i32 %11, %1
+  %12 = icmp sge i32 %1, %11
   %13 = getelementptr inbounds i8, ptr %3, i64 88
   %14 = load i32, ptr %13, align 8
-  %.not.i = icmp sgt i32 %14, %1
+  %.not.i = icmp slt i32 %1, %14
   %or.cond.i = select i1 %12, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit, label %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 

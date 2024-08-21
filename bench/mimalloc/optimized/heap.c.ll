@@ -495,7 +495,7 @@ if.end.i:                                         ; preds = %for.inc.i.i, %lor.l
 if.end3.i:                                        ; preds = %if.end.i
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %11 = load ptr, ptr %10, align 8
-  %cmp.i18.i = icmp eq ptr %11, %heap
+  %cmp.i18.i = icmp eq ptr %heap, %11
   br i1 %cmp.i18.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end3.i
@@ -608,7 +608,7 @@ if.end.i8:                                        ; preds = %if.end3, %if.else, 
 if.end3.i:                                        ; preds = %if.end.i8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %8 = load ptr, ptr %7, align 8
-  %cmp.i18.i = icmp eq ptr %8, %heap
+  %cmp.i18.i = icmp eq ptr %heap, %8
   br i1 %cmp.i18.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end3.i
@@ -815,7 +815,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 mi_heap_of_block.exit:                            ; preds = %if.end, %if.end.i, %if.end7.i
   %retval.0.i = phi ptr [ %6, %if.end7.i ], [ null, %if.end ], [ null, %if.end.i ]
-  %cmp2 = icmp eq ptr %retval.0.i, %heap
+  %cmp2 = icmp eq ptr %heap, %retval.0.i
   br label %return
 
 return:                                           ; preds = %entry, %mi_heap_of_block.exit
@@ -891,8 +891,8 @@ mi_heap_page_check_owned.exit:                    ; preds = %if.then.i.i, %if.el
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i)
   %mul.i = mul i64 %retval.0.i.i, %conv.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %mul.i
-  %cmp.i5 = icmp ule ptr %call.i.i, %p
-  %cmp4.i = icmp ugt ptr %add.ptr.i, %p
+  %cmp.i5 = icmp uge ptr %p, %call.i.i
+  %cmp4.i = icmp ult ptr %p, %add.ptr.i
   %9 = select i1 %cmp.i5, i1 %cmp4.i, i1 false
   br i1 %9, label %return, label %while.cond.i, !llvm.loop !4
 
@@ -976,8 +976,8 @@ mi_heap_page_check_owned.exit.i:                  ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i.i)
   %mul.i.i = mul i64 %retval.0.i.i.i, %conv.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %mul.i.i
-  %cmp.i5.i = icmp ule ptr %call.i.i.i, %p
-  %cmp4.i.i = icmp ugt ptr %add.ptr.i.i, %p
+  %cmp.i5.i = icmp uge ptr %p, %call.i.i.i
+  %cmp4.i.i = icmp ult ptr %p, %add.ptr.i.i
   %11 = select i1 %cmp.i5.i, i1 %cmp4.i.i, i1 false
   br i1 %11, label %mi_heap_check_owned.exit, label %while.cond.i.i, !llvm.loop !4
 

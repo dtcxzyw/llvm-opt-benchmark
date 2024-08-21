@@ -93,7 +93,7 @@ Psr_ManRangeSizeSignal.exit:                      ; preds = %29, %16, %11, %33, 
   %43 = add nsw i32 %.0.i, %.014
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %3
+  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !4
 
 .critedge:                                        ; preds = %Psr_ManRangeSizeSignal.exit, %4

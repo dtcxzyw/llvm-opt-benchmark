@@ -200,7 +200,7 @@ if.end:                                           ; preds = %entry
   %shl25 = shl nuw i32 %conv24, 24
   %or26 = or disjoint i32 %or22, %shl25
   %tobool.not = icmp eq i32 %enc, 0
-  %cmp242.not257 = icmp ugt i64 %conv, %length
+  %cmp242.not257 = icmp ult i64 %length, %conv
   br i1 %tobool.not, label %while.cond241.preheader, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end

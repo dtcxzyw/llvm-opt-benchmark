@@ -309,7 +309,7 @@ Map_LibraryReadGate.exit.i:                       ; preds = %107, %98
 
 135:                                              ; preds = %._crit_edge84.i
   %136 = load i32, ptr %49, align 4
-  %137 = icmp sgt i32 %136, %134
+  %137 = icmp slt i32 %134, %136
   br i1 %137, label %Extra_ProgressBarUpdate.exit.i, label %138
 
 138:                                              ; preds = %135, %._crit_edge84.i

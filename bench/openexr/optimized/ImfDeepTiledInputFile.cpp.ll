@@ -3487,13 +3487,13 @@ if.end.i:                                         ; preds = %if.end
 if.end6.i:                                        ; preds = %if.end.i
   %numXLevels.i.i = getelementptr inbounds i8, ptr %2, i64 244
   %9 = load i32, ptr %numXLevels.i.i, align 4
-  %cmp8.not.i = icmp sgt i32 %9, %lx
+  %cmp8.not.i = icmp slt i32 %lx, %9
   br i1 %cmp8.not.i, label %_ZNK7Imf_3_218DeepTiledInputFile12isValidLevelEii.exit, label %do.body
 
 _ZNK7Imf_3_218DeepTiledInputFile12isValidLevelEii.exit: ; preds = %if.end6.i
   %numYLevels.i.i = getelementptr inbounds i8, ptr %2, i64 248
   %10 = load i32, ptr %numYLevels.i.i, align 8
-  %cmp11.not.i = icmp sgt i32 %10, %ly
+  %cmp11.not.i = icmp slt i32 %ly, %10
   br i1 %cmp11.not.i, label %if.end25, label %do.body
 
 do.body:                                          ; preds = %if.end6.i, %if.end.i, %if.end, %_ZNK7Imf_3_218DeepTiledInputFile12isValidLevelEii.exit
@@ -3603,13 +3603,13 @@ for.body40.us226.us:                              ; preds = %for.body40.us226.us
   %19 = load ptr, ptr %_data, align 8
   %numXLevels.i.us229.us = getelementptr inbounds i8, ptr %19, i64 244
   %20 = load i32, ptr %numXLevels.i.us229.us, align 4
-  %cmp.i.us230.us = icmp sgt i32 %20, %lx
+  %cmp.i.us230.us = icmp slt i32 %lx, %20
   br i1 %cmp.i.us230.us, label %land.lhs.true3.i.us231.us, label %do.body45
 
 land.lhs.true3.i.us231.us:                        ; preds = %for.body40.us226.us
   %numYLevels.i.us232.us = getelementptr inbounds i8, ptr %19, i64 248
   %21 = load i32, ptr %numYLevels.i.us232.us, align 8
-  %cmp5.i.us233.us = icmp sgt i32 %21, %ly
+  %cmp5.i.us233.us = icmp slt i32 %ly, %21
   br i1 %cmp5.i.us233.us, label %land.lhs.true8.i.us234.us, label %do.body45
 
 land.lhs.true8.i.us234.us:                        ; preds = %land.lhs.true3.i.us231.us
@@ -3617,7 +3617,7 @@ land.lhs.true8.i.us234.us:                        ; preds = %land.lhs.true3.i.us
   %22 = load ptr, ptr %numXTiles.i.us235.us, align 8
   %arrayidx.i.us236.us = getelementptr inbounds i32, ptr %22, i64 %idxprom.i
   %23 = load i32, ptr %arrayidx.i.us236.us, align 4
-  %cmp10.i.us237.us = icmp sgt i32 %23, %dx.0113.us227.us
+  %cmp10.i.us237.us = icmp slt i32 %dx.0113.us227.us, %23
   %or.cond2.i.us239.us = and i1 %cmp12.i.us238.us, %cmp10.i.us237.us
   br i1 %or.cond2.i.us239.us, label %_ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit.us240.us, label %do.body45
 
@@ -3626,7 +3626,7 @@ _ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit.us240.us: ; preds = %lan
   %24 = load ptr, ptr %numYTiles.i.us.us, align 8
   %arrayidx15.i.us.us = getelementptr inbounds i32, ptr %24, i64 %idxprom14.i
   %25 = load i32, ptr %arrayidx15.i.us.us, align 4
-  %cmp16.i.us.us = icmp sgt i32 %25, %dy.0225.us.us.fr
+  %cmp16.i.us.us = icmp slt i32 %dy.0225.us.us.fr, %25
   br i1 %cmp16.i.us.us, label %if.end76.us.us, label %do.body45
 
 if.end76.us.us:                                   ; preds = %_ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit.us240.us
@@ -4450,13 +4450,13 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %numXLevels.i = getelementptr inbounds i8, ptr %1, i64 244
   %3 = load i32, ptr %numXLevels.i, align 4
-  %cmp8.not = icmp sgt i32 %3, %lx
+  %cmp8.not = icmp slt i32 %lx, %3
   br i1 %cmp8.not, label %lor.lhs.false9, label %return
 
 lor.lhs.false9:                                   ; preds = %if.end6
   %numYLevels.i = getelementptr inbounds i8, ptr %1, i64 248
   %4 = load i32, ptr %numYLevels.i, align 8
-  %cmp11.not = icmp sgt i32 %4, %ly
+  %cmp11.not = icmp slt i32 %ly, %4
   br label %return
 
 return:                                           ; preds = %lor.lhs.false9, %if.end6, %if.end, %entry
@@ -4473,7 +4473,7 @@ entry:
   %0 = load ptr, ptr %_data, align 8
   %numXLevels = getelementptr inbounds i8, ptr %0, i64 244
   %1 = load i32, ptr %numXLevels, align 4
-  %cmp = icmp sgt i32 %1, %lx
+  %cmp = icmp slt i32 %lx, %1
   %cmp2 = icmp sgt i32 %lx, -1
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %land.lhs.true3, label %land.end19
@@ -4481,7 +4481,7 @@ entry:
 land.lhs.true3:                                   ; preds = %entry
   %numYLevels = getelementptr inbounds i8, ptr %0, i64 248
   %2 = load i32, ptr %numYLevels, align 8
-  %cmp5 = icmp sgt i32 %2, %ly
+  %cmp5 = icmp slt i32 %ly, %2
   %cmp7 = icmp sgt i32 %ly, -1
   %or.cond1 = and i1 %cmp7, %cmp5
   br i1 %or.cond1, label %land.lhs.true8, label %land.end19
@@ -4492,7 +4492,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true3
   %idxprom = zext nneg i32 %lx to i64
   %arrayidx = getelementptr inbounds i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
-  %cmp10 = icmp sgt i32 %4, %dx
+  %cmp10 = icmp slt i32 %dx, %4
   %cmp12 = icmp sgt i32 %dx, -1
   %or.cond2 = and i1 %cmp12, %cmp10
   br i1 %or.cond2, label %land.rhs, label %land.end19
@@ -4503,7 +4503,7 @@ land.rhs:                                         ; preds = %land.lhs.true8
   %idxprom14 = zext nneg i32 %ly to i64
   %arrayidx15 = getelementptr inbounds i32, ptr %5, i64 %idxprom14
   %6 = load i32, ptr %arrayidx15, align 4
-  %cmp16 = icmp sgt i32 %6, %dy
+  %cmp16 = icmp slt i32 %dy, %6
   %cmp18 = icmp sgt i32 %dy, -1
   %7 = and i1 %cmp18, %cmp16
   br label %land.end19
@@ -4565,7 +4565,7 @@ entry:
   %4 = load ptr, ptr %_data.i, align 8
   %numXLevels.i = getelementptr inbounds i8, ptr %4, i64 244
   %5 = load i32, ptr %numXLevels.i, align 4
-  %cmp.i = icmp sgt i32 %5, %2
+  %cmp.i = icmp slt i32 %2, %5
   %cmp2.i = icmp sgt i32 %2, -1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.then
@@ -4573,7 +4573,7 @@ entry:
 land.lhs.true3.i:                                 ; preds = %entry
   %numYLevels.i = getelementptr inbounds i8, ptr %4, i64 248
   %6 = load i32, ptr %numYLevels.i, align 8
-  %cmp5.i = icmp sgt i32 %6, %3
+  %cmp5.i = icmp slt i32 %3, %6
   %cmp7.i = icmp sgt i32 %3, -1
   %or.cond1.i = and i1 %cmp7.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true8.i, label %if.then
@@ -4584,7 +4584,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i
   %idxprom.i = zext nneg i32 %2 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i
   %8 = load i32, ptr %arrayidx.i, align 4
-  %cmp10.i = icmp sgt i32 %8, %0
+  %cmp10.i = icmp slt i32 %0, %8
   %cmp12.i = icmp sgt i32 %0, -1
   %or.cond2.i = and i1 %cmp12.i, %cmp10.i
   br i1 %or.cond2.i, label %_ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit, label %if.then
@@ -4595,7 +4595,7 @@ _ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit: ; preds = %land.lhs.tru
   %idxprom14.i = zext nneg i32 %3 to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %9, i64 %idxprom14.i
   %10 = load i32, ptr %arrayidx15.i, align 4
-  %cmp16.i = icmp sgt i32 %10, %1
+  %cmp16.i = icmp slt i32 %1, %10
   %cmp18.i = icmp sgt i32 %1, -1
   %11 = and i1 %cmp18.i, %cmp16.i
   br i1 %11, label %if.end, label %if.then
@@ -5455,7 +5455,7 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %_data, align 8
   %numXLevels = getelementptr inbounds i8, ptr %0, i64 244
   %1 = load i32, ptr %numXLevels, align 4
-  %cmp2.not = icmp sgt i32 %1, %lx
+  %cmp2.not = icmp slt i32 %lx, %1
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -5532,7 +5532,7 @@ lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %_data, align 8
   %numYLevels = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i32, ptr %numYLevels, align 8
-  %cmp2.not = icmp sgt i32 %1, %ly
+  %cmp2.not = icmp slt i32 %ly, %1
   br i1 %cmp2.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %lor.lhs.false
@@ -5726,7 +5726,7 @@ entry:
   %0 = load ptr, ptr %_data.i, align 8
   %numXLevels.i = getelementptr inbounds i8, ptr %0, i64 244
   %1 = load i32, ptr %numXLevels.i, align 4
-  %cmp.i = icmp sgt i32 %1, %lx
+  %cmp.i = icmp slt i32 %lx, %1
   %cmp2.i = icmp sgt i32 %lx, -1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %land.lhs.true3.i, label %if.then
@@ -5734,7 +5734,7 @@ entry:
 land.lhs.true3.i:                                 ; preds = %entry
   %numYLevels.i = getelementptr inbounds i8, ptr %0, i64 248
   %2 = load i32, ptr %numYLevels.i, align 8
-  %cmp5.i = icmp sgt i32 %2, %ly
+  %cmp5.i = icmp slt i32 %ly, %2
   %cmp7.i = icmp sgt i32 %ly, -1
   %or.cond1.i = and i1 %cmp7.i, %cmp5.i
   br i1 %or.cond1.i, label %land.lhs.true8.i, label %if.then
@@ -5745,7 +5745,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true3.i
   %idxprom.i = zext nneg i32 %lx to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
-  %cmp10.i = icmp sgt i32 %4, %dx
+  %cmp10.i = icmp slt i32 %dx, %4
   %cmp12.i = icmp sgt i32 %dx, -1
   %or.cond2.i = and i1 %cmp12.i, %cmp10.i
   br i1 %or.cond2.i, label %_ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit, label %if.then
@@ -5756,7 +5756,7 @@ _ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit: ; preds = %land.lhs.tru
   %idxprom14.i = zext nneg i32 %ly to i64
   %arrayidx15.i = getelementptr inbounds i32, ptr %5, i64 %idxprom14.i
   %6 = load i32, ptr %arrayidx15.i, align 4
-  %cmp16.i = icmp sgt i32 %6, %dy
+  %cmp16.i = icmp slt i32 %dy, %6
   %cmp18.i = icmp sgt i32 %dy, -1
   %7 = and i1 %cmp18.i, %cmp16.i
   br i1 %7, label %if.end, label %if.then
@@ -5949,13 +5949,13 @@ if.end.i:                                         ; preds = %invoke.cont5
 if.end6.i:                                        ; preds = %if.end.i
   %numXLevels.i.i = getelementptr inbounds i8, ptr %7, i64 244
   %9 = load i32, ptr %numXLevels.i.i, align 4
-  %cmp8.not.i = icmp sgt i32 %9, %lx
+  %cmp8.not.i = icmp slt i32 %lx, %9
   br i1 %cmp8.not.i, label %_ZNK7Imf_3_218DeepTiledInputFile12isValidLevelEii.exit, label %do.body
 
 _ZNK7Imf_3_218DeepTiledInputFile12isValidLevelEii.exit: ; preds = %if.end6.i
   %numYLevels.i.i = getelementptr inbounds i8, ptr %7, i64 248
   %10 = load i32, ptr %numYLevels.i.i, align 8
-  %cmp11.not.i = icmp sgt i32 %10, %ly
+  %cmp11.not.i = icmp slt i32 %ly, %10
   br i1 %cmp11.not.i, label %if.end, label %do.body
 
 do.body:                                          ; preds = %if.end6.i, %if.end.i, %invoke.cont5, %_ZNK7Imf_3_218DeepTiledInputFile12isValidLevelEii.exit
@@ -6068,13 +6068,13 @@ for.body34.us263.us:                              ; preds = %for.cond32.preheade
   %dx.0187.us264.us = phi i32 [ %inc421.us.us, %for.inc420.us.us ], [ %spec.select139, %for.cond32.preheader.us.us ]
   %numXLevels.i.us265.us = getelementptr inbounds i8, ptr %17, i64 244
   %18 = load i32, ptr %numXLevels.i.us265.us, align 4
-  %cmp.i.us266.us = icmp sgt i32 %18, %lx
+  %cmp.i.us266.us = icmp slt i32 %lx, %18
   br i1 %cmp.i.us266.us, label %land.lhs.true3.i.us267.us, label %do.body37
 
 land.lhs.true3.i.us267.us:                        ; preds = %for.body34.us263.us
   %numYLevels.i.us268.us = getelementptr inbounds i8, ptr %17, i64 248
   %19 = load i32, ptr %numYLevels.i.us268.us, align 8
-  %cmp5.i.us269.us = icmp sgt i32 %19, %ly
+  %cmp5.i.us269.us = icmp slt i32 %ly, %19
   br i1 %cmp5.i.us269.us, label %land.lhs.true8.i.us270.us, label %do.body37
 
 land.lhs.true8.i.us270.us:                        ; preds = %land.lhs.true3.i.us267.us
@@ -6082,7 +6082,7 @@ land.lhs.true8.i.us270.us:                        ; preds = %land.lhs.true3.i.us
   %20 = load ptr, ptr %numXTiles.i.us271.us, align 8
   %arrayidx.i.us272.us = getelementptr inbounds i32, ptr %20, i64 %idxprom.i
   %21 = load i32, ptr %arrayidx.i.us272.us, align 4
-  %cmp10.i.us273.us = icmp sgt i32 %21, %dx.0187.us264.us
+  %cmp10.i.us273.us = icmp slt i32 %dx.0187.us264.us, %21
   %or.cond2.i.us275.us = and i1 %cmp12.i.us274.us, %cmp10.i.us273.us
   br i1 %or.cond2.i.us275.us, label %_ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit.us276.us, label %do.body37
 
@@ -6091,7 +6091,7 @@ _ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit.us276.us: ; preds = %lan
   %22 = load ptr, ptr %numYTiles.i.us.us, align 8
   %arrayidx15.i.us.us = getelementptr inbounds i32, ptr %22, i64 %idxprom14.i
   %23 = load i32, ptr %arrayidx15.i.us.us, align 4
-  %cmp16.i.us.us = icmp sgt i32 %23, %dy.0262.us.us.fr
+  %cmp16.i.us.us = icmp slt i32 %dy.0262.us.us.fr, %23
   br i1 %cmp16.i.us.us, label %if.end68.us.us, label %do.body37
 
 if.end68.us.us:                                   ; preds = %_ZNK7Imf_3_218DeepTiledInputFile11isValidTileEiiii.exit.us276.us

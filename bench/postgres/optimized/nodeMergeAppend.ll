@@ -432,7 +432,7 @@ define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noca
   %26 = load i16, ptr %25, align 2
   %27 = sext i16 %26 to i32
   %28 = load i16, ptr %16, align 2
-  %29 = icmp slt i16 %28, %26
+  %29 = icmp sgt i16 %26, %28
   br i1 %29, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %22
@@ -449,7 +449,7 @@ slot_getattr.exit:                                ; preds = %22, %slot_getsomeat
   %36 = getelementptr i64, ptr %35, i64 %32
   %37 = load i64, ptr %36, align 8
   %38 = load i16, ptr %19, align 2
-  %39 = icmp slt i16 %38, %26
+  %39 = icmp sgt i16 %26, %38
   br i1 %39, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
 
 slot_getsomeattrs.exit.i26:                       ; preds = %slot_getattr.exit

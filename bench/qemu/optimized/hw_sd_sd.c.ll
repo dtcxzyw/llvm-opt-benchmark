@@ -2225,7 +2225,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 define internal fastcc noundef zeroext i1 @address_in_range(ptr nocapture noundef %sd, ptr noundef %desc, i64 noundef %addr, i32 noundef %length) unnamed_addr #0 {
 entry:
   %conv = zext i32 %length to i64
-  %add = add i64 %conv, %addr
+  %add = add i64 %addr, %conv
   %size = getelementptr inbounds i8, ptr %sd, i64 328
   %0 = load i64, ptr %size, align 8
   %cmp = icmp ule i64 %add, %0

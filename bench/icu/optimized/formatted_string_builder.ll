@@ -605,7 +605,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7.i, align 4
-  %cmp8.i = icmp eq i32 %3, %index
+  %cmp8.i = icmp eq i32 %index, %3
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
 
 land.lhs.true9.i:                                 ; preds = %if.else.i
@@ -618,7 +618,7 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %6 = load i32, ptr %fZero11.i, align 8
   %7 = add i32 %6, %index
   %sub14.i = sub i32 %cond.i.i, %7
-  %cmp15.not.i = icmp slt i32 %sub14.i, %cond
+  %cmp15.not.i = icmp sgt i32 %cond, %sub14.i
   br i1 %cmp15.not.i, label %if.else23.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %land.lhs.true9.i
@@ -711,7 +711,7 @@ if.then3:                                         ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true, %if.end
   %fLength7 = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7, align 4
-  %cmp8 = icmp eq i32 %3, %index
+  %cmp8 = icmp eq i32 %index, %3
   br i1 %cmp8, label %land.lhs.true9, label %if.else23
 
 land.lhs.true9:                                   ; preds = %if.else
@@ -724,7 +724,7 @@ land.lhs.true9:                                   ; preds = %if.else
   %6 = load i32, ptr %fZero11, align 8
   %7 = add i32 %6, %index
   %sub14 = sub i32 %cond.i, %7
-  %cmp15.not = icmp slt i32 %sub14, %count
+  %cmp15.not = icmp sgt i32 %count, %sub14
   br i1 %cmp15.not, label %if.else23, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true9
@@ -794,7 +794,7 @@ if.then3.i.i:                                     ; preds = %land.lhs.true.i.i
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
   %fLength7.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %9 = load i32, ptr %fLength7.i.i, align 4
-  %cmp8.i.i = icmp eq i32 %9, %index
+  %cmp8.i.i = icmp eq i32 %index, %9
   br i1 %cmp8.i.i, label %land.lhs.true9.i.i, label %if.else23.i.i
 
 land.lhs.true9.i.i:                               ; preds = %if.else.i.i
@@ -880,7 +880,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7.i, align 4
-  %cmp8.i = icmp eq i32 %3, %index
+  %cmp8.i = icmp eq i32 %index, %3
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
 
 land.lhs.true9.i:                                 ; preds = %if.else.i
@@ -893,7 +893,7 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %6 = load i32, ptr %fZero11.i, align 8
   %7 = add i32 %6, %index
   %sub14.i = sub i32 %cond.i.i, %7
-  %cmp15.not.i = icmp slt i32 %sub14.i, %sub
+  %cmp15.not.i = icmp sgt i32 %sub, %sub14.i
   br i1 %cmp15.not.i, label %if.else23.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %land.lhs.true9.i
@@ -1006,7 +1006,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7.i, align 4
-  %cmp8.i = icmp eq i32 %3, %startThis
+  %cmp8.i = icmp eq i32 %startThis, %3
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
 
 land.lhs.true9.i:                                 ; preds = %if.else.i
@@ -1019,7 +1019,7 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %6 = load i32, ptr %fZero11.i, align 8
   %7 = add i32 %6, %startThis
   %sub14.i = sub i32 %cond.i.i, %7
-  %cmp15.not.i = icmp slt i32 %sub14.i, %sub3
+  %cmp15.not.i = icmp sgt i32 %sub3, %sub14.i
   br i1 %cmp15.not.i, label %if.else23.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %land.lhs.true9.i
@@ -1256,7 +1256,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %fLength7.i, align 4
-  %cmp8.i = icmp eq i32 %4, %index
+  %cmp8.i = icmp eq i32 %index, %4
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
 
 land.lhs.true9.i:                                 ; preds = %if.else.i
@@ -1269,7 +1269,7 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %7 = load i32, ptr %fZero11.i, align 8
   %8 = add i32 %7, %index
   %sub14.i = sub i32 %cond.i.i, %8
-  %cmp15.not.i = icmp slt i32 %sub14.i, %1
+  %cmp15.not.i = icmp sgt i32 %1, %sub14.i
   br i1 %cmp15.not.i, label %if.else23.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %land.lhs.true9.i
@@ -1953,7 +1953,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %0 to i64
   %invariant.gep = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i, i64 %4
   %retval.sroa.0.0.copyload.i8 = load i8, ptr %invariant.gep, align 1
-  %cmp.i9 = icmp eq i8 %retval.sroa.0.0.copyload.i8, %field.coerce
+  %cmp.i9 = icmp eq i8 %field.coerce, %retval.sroa.0.0.copyload.i8
   br i1 %cmp.i9, label %return, label %for.cond
 
 for.cond:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1965,7 +1965,7 @@ for.cond:                                         ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.cond
   %gep = getelementptr %"struct.icu_75::FormattedStringBuilder::Field", ptr %invariant.gep, i64 %indvars.iv.next
   %retval.sroa.0.0.copyload.i = load i8, ptr %gep, align 1
-  %cmp.i = icmp eq i8 %retval.sroa.0.0.copyload.i, %field.coerce
+  %cmp.i = icmp eq i8 %field.coerce, %retval.sroa.0.0.copyload.i
   br i1 %cmp.i, label %return.loopexit, label %for.cond, !llvm.loop !14
 
 return.loopexit:                                  ; preds = %for.body, %for.cond

@@ -1435,7 +1435,7 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit:  ; preds = %entry
   %e_shnum = getelementptr inbounds i8, ptr %1, i64 60
   %2 = load i16, ptr %e_shnum, align 4, !tbaa !70
   %conv = zext i16 %2 to i64
-  %cmp = icmp ugt i64 %conv, %idx
+  %cmp = icmp ult i64 %idx, %conv
   br i1 %cmp, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit18, label %if.then
 
 if.then:                                          ; preds = %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit

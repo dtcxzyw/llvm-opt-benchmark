@@ -450,7 +450,7 @@ define internal i64 @dir_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   %16 = trunc i64 %2 to i32
   %17 = tail call i32 @gzwrite(ptr noundef %15, ptr noundef %1, i32 noundef %16) #12
   %18 = sext i32 %17 to i64
-  %.not25 = icmp eq i64 %18, %2
+  %.not25 = icmp eq i64 %2, %18
   br i1 %.not25, label %26, label %.sink.split
 
 19:                                               ; preds = %3

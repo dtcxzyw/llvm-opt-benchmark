@@ -39,7 +39,7 @@ define void @_ZN5faiss20IndexBinaryFromFloat5trainElPKh(ptr nocapture noundef no
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = mul nsw i64 %6, %1
+  %7 = mul nsw i64 %1, %6
   %8 = icmp ugt i64 %7, 4611686018427387903
   %9 = shl i64 %7, 2
   %10 = select i1 %8, i64 -1, i64 %9
@@ -254,7 +254,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   %indvars.iv69 = phi i64 [ %1, %.lr.ph67 ], [ %indvars.iv.next70, %._crit_edge ]
   %.03066 = phi i64 [ 0, %.lr.ph67 ], [ %90, %._crit_edge ]
   %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv69, i64 32768)
-  %60 = mul i64 %smin, %3
+  %60 = mul i64 %3, %smin
   %61 = sub nsw i64 %1, %.03066
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %61, i64 32768)
   %62 = load i32, ptr %45, align 8

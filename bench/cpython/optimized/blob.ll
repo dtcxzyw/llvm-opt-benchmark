@@ -725,7 +725,7 @@ if.then15.i:                                      ; preds = %if.else.i
   %call.i16.i = call i32 @sqlite3_blob_bytes(ptr noundef %30) #5
   %conv.i17.i = sext i32 %call.i16.i to i64
   %sub.i.i = sub i64 %conv.i17.i, %28
-  %cmp.i18.i = icmp slt i64 %sub.i.i, %call2.i.i18
+  %cmp.i18.i = icmp sgt i64 %call2.i.i18, %sub.i.i
   br i1 %cmp.i18.i, label %if.then.i.i30, label %if.end.i19.i
 
 if.then.i.i30:                                    ; preds = %if.then15.i
@@ -786,7 +786,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   %call.i23.i = call i32 @sqlite3_blob_bytes(ptr noundef %41) #5
   %conv.i24.i = sext i32 %call.i23.i to i64
   %sub.i25.i = sub i64 %conv.i24.i, %40
-  %cmp.i26.i = icmp slt i64 %sub.i25.i, %sub25.i
+  %cmp.i26.i = icmp sgt i64 %sub25.i, %sub.i25.i
   br i1 %cmp.i26.i, label %if.then.i39.i, label %if.end.i27.i
 
 if.then.i39.i:                                    ; preds = %for.end.i
@@ -1047,7 +1047,7 @@ if.end.i:                                         ; preds = %if.end.i.i
   %7 = load i32, ptr %offset.i, align 8
   %sub.i = sub i32 %call1.i, %7
   %cmp.i = icmp slt i32 %length.0, 0
-  %8 = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %length.0)
+  %8 = tail call i32 @llvm.smin.i32(i32 %length.0, i32 %sub.i)
   %length.addr.0.i = select i1 %cmp.i, i32 %sub.i, i32 %8
   %cmp5.i = icmp eq i32 %length.addr.0.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
@@ -1154,7 +1154,7 @@ sw.bb2.i:                                         ; preds = %if.end.i
   %offset3.i = getelementptr inbounds i8, ptr %self, i64 32
   %9 = load i32, ptr %offset3.i, align 8
   %sub.i = sub i32 2147483647, %9
-  %cmp.i = icmp slt i32 %sub.i, %call2
+  %cmp.i = icmp sgt i32 %call2, %sub.i
   br i1 %cmp.i, label %overflow.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %sw.bb2.i
@@ -1163,7 +1163,7 @@ if.end5.i:                                        ; preds = %sw.bb2.i
 
 sw.bb7.i:                                         ; preds = %if.end.i
   %sub8.i = sub i32 2147483647, %call1.i
-  %cmp9.i = icmp slt i32 %sub8.i, %call2
+  %cmp9.i = icmp sgt i32 %call2, %sub8.i
   br i1 %cmp9.i, label %overflow.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %sw.bb7.i
@@ -1291,7 +1291,7 @@ if.end.i:                                         ; preds = %if.end.i.i
   %call.i7.i = call i32 @sqlite3_blob_bytes(ptr noundef nonnull %2) #5
   %conv.i.i = sext i32 %call.i7.i to i64
   %sub.i.i = sub nsw i64 %conv.i.i, %conv.i
-  %cmp.i8.i = icmp slt i64 %sub.i.i, %7
+  %cmp.i8.i = icmp sgt i64 %7, %sub.i.i
   br i1 %cmp.i8.i, label %if.then.i.i, label %if.end.i9.i
 
 if.then.i.i:                                      ; preds = %if.end.i

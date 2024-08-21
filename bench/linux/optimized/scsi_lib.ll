@@ -4187,7 +4187,7 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr nocapture noundef writ
 
 79:                                               ; preds = %77
   %80 = zext i8 %33 to i64
-  %81 = icmp ugt i64 %80, %2
+  %81 = icmp ult i64 %2, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
@@ -4198,7 +4198,7 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr nocapture noundef writ
   %85 = phi i8 [ 2, %82 ], [ %49, %79 ]
   %86 = zext i8 %33 to i32
   %87 = getelementptr i8, ptr %25, i64 4
-  %88 = icmp ult i64 %80, %2
+  %88 = icmp ugt i64 %2, %80
   %89 = select i1 %88, i8 %33, i8 %19
   %90 = zext i8 %89 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %87, i64 %90, i1 false)
@@ -5535,7 +5535,7 @@ define internal void @scsi_mq_put_budget(ptr nocapture noundef readonly %0, i32 
   %6 = load i32, ptr %5, align 4
   %7 = shl nsw i32 -1, %6
   %8 = xor i32 %7, -1
-  %9 = and i32 %8, %1
+  %9 = and i32 %1, %8
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %3, i64 64
   %12 = load ptr, ptr %11, align 8

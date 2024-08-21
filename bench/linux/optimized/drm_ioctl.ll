@@ -691,7 +691,7 @@ define dso_local noundef zeroext i1 @drm_ioctl_flags(i32 noundef %0, ptr nocaptu
   %8 = zext nneg i32 %0 to i64
   %9 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 209, i64 %8) #11, !srcloc !20
   %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, %0
+  %11 = and i32 %0, %10
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr [209 x %struct.drm_ioctl_desc], ptr @drm_ioctls, i64 0, i64 %12, i32 1
   %14 = load i32, ptr %13, align 4

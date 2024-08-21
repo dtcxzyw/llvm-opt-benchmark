@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw(ptr nocapture nounde
   %9 = load ptr, ptr %0, align 8
   %10 = load i64, ptr %8, align 8
   %11 = getelementptr i64, ptr %9, i64 %10
-  %12 = icmp ugt ptr %11, %1
+  %12 = icmp ult ptr %1, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %control_frame_dump.exit

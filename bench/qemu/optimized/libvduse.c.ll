@@ -947,7 +947,7 @@ for.body.i32:                                     ; preds = %for.inc.i, %for.con
 
 if.end3.i:                                        ; preds = %for.body.i32
   %44 = load i64, ptr %arrayidx.i34, align 8
-  %cmp7.not.i = icmp ult i64 %44, %41
+  %cmp7.not.i = icmp ugt i64 %41, %44
   br i1 %cmp7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
@@ -955,7 +955,7 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
   %45 = load i64, ptr %size.i, align 8
   %add.i = add i64 %44, -1
   %sub.i = add i64 %add.i, %45
-  %cmp15.not.i = icmp ugt i64 %sub.i, %42
+  %cmp15.not.i = icmp ult i64 %42, %sub.i
   br i1 %cmp15.not.i, label %for.inc.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %land.lhs.true.i
@@ -2084,14 +2084,14 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %1 = load i64, ptr %arrayidx, align 8
-  %cmp3.not = icmp ugt i64 %1, %iova
+  %cmp3.not = icmp ult i64 %iova, %1
   br i1 %cmp3.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %size, align 8
   %add = add i64 %2, %1
-  %cmp5 = icmp ugt i64 %add, %iova
+  %cmp5 = icmp ult i64 %iova, %add
   br i1 %cmp5, label %if.then6, label %for.inc
 
 if.then6:                                         ; preds = %land.lhs.true

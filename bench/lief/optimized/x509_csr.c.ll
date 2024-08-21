@@ -395,7 +395,7 @@ define hidden i32 @mbedtls_x509_csr_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 10:                                               ; preds = %4
   %11 = zext nneg i32 %8 to i64
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %12, label %63
 
 12:                                               ; preds = %10

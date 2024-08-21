@@ -484,7 +484,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %div.i = udiv i128 %add.i, %conv2.i7
   %conv3.i8 = trunc i128 %div.i to i64
   store i64 %conv3.i8, ptr %arrayidx3, align 8
-  %1 = mul i64 %conv3.i8, %v
+  %1 = mul i64 %v, %conv3.i8
   %conv6.i = sub i64 %add, %1
   %cmp.not = icmp eq i64 %i.0, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !20
@@ -1328,7 +1328,7 @@ if.end:                                           ; preds = %while.body.i, %whil
 
 for.body.preheader:                               ; preds = %if.end
   %6 = xor i64 %div.i, -1
-  %7 = add i64 %6, %slen
+  %7 = add i64 %slen, %6
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -1394,7 +1394,7 @@ while.body.i27:                                   ; preds = %while.cond.i22
 if.end32:                                         ; preds = %while.body.i27, %while.cond.i22, %if.then19, %if.else
   %15 = phi i64 [ %sub77.i, %if.then19 ], [ 0, %if.else ], [ 1, %while.body.i27 ], [ 0, %while.cond.i22 ]
   %sub34 = sub i64 %slen, %div.i
-  %cmp3543.not = icmp eq i64 %div.i, %slen
+  %cmp3543.not = icmp eq i64 %slen, %div.i
   br i1 %cmp3543.not, label %if.end44, label %for.body37.lr.ph
 
 for.body37.lr.ph:                                 ; preds = %if.end32
@@ -1562,7 +1562,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i = or disjoint i128 %shl.i, %conv1.i5
   %div.i = udiv i128 %add.i, %conv2.i6
   %conv3.i7 = trunc i128 %div.i to i64
-  %1 = mul i64 %conv3.i7, %b
+  %1 = mul i64 %b, %conv3.i7
   %conv6.i = sub i64 %add, %1
   store i64 %conv6.i, ptr %arrayidx2, align 8
   %inc3 = add nuw i64 %i.013, 1
@@ -1608,7 +1608,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %div.i = udiv i128 %add.i, %conv2.i8
   %conv3.i9 = trunc i128 %div.i to i64
   store i64 %conv3.i9, ptr %arrayidx3, align 8
-  %1 = mul i64 %conv3.i9, %v
+  %1 = mul i64 %v, %conv3.i9
   %conv6.i = sub i64 %add, %1
   %cmp.not = icmp eq i64 %i.0, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !31

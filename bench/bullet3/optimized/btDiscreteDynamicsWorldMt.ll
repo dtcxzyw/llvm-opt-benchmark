@@ -153,7 +153,7 @@ entry:
   store i32 1, ptr %m_solverType, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %0, %numSolvers
+  %cmp3.i = icmp sgt i32 %numSolvers, %0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRKS1_.exit
 
 if.then4.i:                                       ; preds = %entry
@@ -1258,7 +1258,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry

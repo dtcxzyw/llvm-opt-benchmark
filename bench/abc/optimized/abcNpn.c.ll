@@ -337,7 +337,7 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly %0, i32 noundef %1, i32 noun
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split.preheader
   %9 = and i32 %2, 31
   %10 = shl nuw i32 1, %9
-  %11 = and i32 %10, %1
+  %11 = and i32 %1, %10
   %.not = icmp eq i32 %11, 0
   %12 = select i1 %.not, i32 122, i32 90
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %12)
@@ -370,7 +370,7 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly %0, i32 noundef %1, i32 noun
 ._crit_edge22.critedge:                           ; preds = %3
   %29 = and i32 %2, 31
   %30 = shl nuw i32 1, %29
-  %31 = and i32 %30, %1
+  %31 = and i32 %1, %30
   %.not.c = icmp eq i32 %31, 0
   %32 = select i1 %.not.c, i32 122, i32 90
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %32)

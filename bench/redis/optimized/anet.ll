@@ -1164,7 +1164,7 @@ if.then54:                                        ; preds = %if.then52
   %call55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %ip, i64 noundef %ip_len, ptr noundef nonnull @.str.11) #10
   %cmp56 = icmp sgt i32 %call55, -1
   %conv58 = zext nneg i32 %call55 to i64
-  %cmp59.not = icmp ult i64 %conv58, %ip_len
+  %cmp59.not = icmp ugt i64 %ip_len, %conv58
   %or.cond = select i1 %cmp56, i1 %cmp59.not, i1 false
   br i1 %or.cond, label %if.end63, label %if.then72
 
@@ -1250,8 +1250,8 @@ if.else:                                          ; preds = %entry
 
 if.end13.thread:                                  ; preds = %if.else
   %not = xor i32 %or, -1
-  %and10 = and i32 %not, %read_flags
-  %and12 = and i32 %not, %write_flags
+  %and10 = and i32 %read_flags, %not
+  %and12 = and i32 %write_flags, %not
   br label %if.end19
 
 land.lhs.true15:                                  ; preds = %if.then, %if.then

@@ -291,7 +291,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr
 145:                                              ; preds = %141, %133, %120, %108, %107, %98, %85, %67, %51, %50
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_set_cond.exit, label %29, !llvm.loop !7
 
 _set_cond.exit:                                   ; preds = %145, %26

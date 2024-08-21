@@ -10644,25 +10644,25 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
 460:                                              ; preds = %445
   %461 = getelementptr inbounds i8, ptr %439, i64 48
   %462 = load i32, ptr %461, align 8, !noundef !4
-  %463 = icmp eq i32 %462, %4
+  %463 = icmp eq i32 %4, %462
   br i1 %463, label %472, label %.critedge.i.backedge
 
 464:                                              ; preds = %445
   %465 = getelementptr inbounds i8, ptr %439, i64 48
   %466 = load i32, ptr %465, align 8, !noundef !4
-  %467 = icmp eq i32 %466, %4
+  %467 = icmp eq i32 %4, %466
   br i1 %467, label %477, label %.critedge.i.backedge
 
 468:                                              ; preds = %445
   %469 = getelementptr inbounds i8, ptr %439, i64 48
   %470 = load i32, ptr %469, align 8, !noundef !4
-  %471 = icmp eq i32 %470, %4
+  %471 = icmp eq i32 %4, %470
   br i1 %471, label %481, label %.critedge.i.backedge
 
 472:                                              ; preds = %460
   %473 = getelementptr inbounds i8, ptr %439, i64 40
   %474 = load i64, ptr %473, align 8, !noundef !4
-  %475 = icmp eq i64 %474, %3
+  %475 = icmp eq i64 %3, %474
   br i1 %475, label %476, label %.critedge.i.backedge
 
 476:                                              ; preds = %481, %477, %472
@@ -10672,13 +10672,13 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
 477:                                              ; preds = %464
   %478 = getelementptr inbounds i8, ptr %439, i64 40
   %479 = load i64, ptr %478, align 8, !noundef !4
-  %480 = icmp eq i64 %479, %3
+  %480 = icmp eq i64 %3, %479
   br i1 %480, label %476, label %.critedge.i.backedge
 
 481:                                              ; preds = %468
   %482 = getelementptr inbounds i8, ptr %439, i64 40
   %483 = load i64, ptr %482, align 8, !noundef !4
-  %484 = icmp eq i64 %483, %3
+  %484 = icmp eq i64 %3, %483
   br i1 %484, label %476, label %.critedge.i.backedge
 
 .critedge.i.backedge:                             ; preds = %481, %477, %476, %472, %468, %464, %460, %445

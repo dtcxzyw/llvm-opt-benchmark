@@ -1385,8 +1385,8 @@ define noundef range(i32 -1, 2) i32 @_ZNK2cv8Subdiv2D9isRightOfENS_6Point_IfEEi(
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %15, i64 0
   %31 = fpext float %.sroa.0.0.vec.extract.i to double
   %32 = fsub double %31, %24
-  %33 = fneg double %30
-  %34 = fmul double %32, %33
+  %33 = fneg double %32
+  %34 = fmul double %30, %33
   %35 = tail call noundef double @llvm.fmuladd.f64(double %25, double %28, double %34)
   %36 = fcmp ogt double %35, 0.000000e+00
   %37 = zext i1 %36 to i32
@@ -1775,8 +1775,8 @@ define noundef range(i32 -2, 3) i32 @_ZN2cv8Subdiv2D6locateENS_6Point_IfEERiS3_(
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %71, i64 0
   %87 = fpext float %.sroa.0.0.vec.extract.i.i to double
   %88 = fsub double %87, %80
-  %89 = fneg double %86
-  %90 = fmul double %88, %89
+  %89 = fneg double %88
+  %90 = fmul double %86, %89
   %91 = call noundef double @llvm.fmuladd.f64(double %81, double %84, double %90)
   %92 = fcmp ogt double %91, 0.000000e+00
   %93 = zext i1 %92 to i32
@@ -1841,8 +1841,8 @@ define noundef range(i32 -2, 3) i32 @_ZN2cv8Subdiv2D6locateENS_6Point_IfEERiS3_(
   %.sroa.0.0.vec.extract.i.i123 = extractelement <2 x float> %122, i64 0
   %136 = fpext float %.sroa.0.0.vec.extract.i.i123 to double
   %137 = fsub double %136, %80
-  %138 = fneg double %135
-  %139 = fmul double %137, %138
+  %138 = fneg double %137
+  %139 = fmul double %135, %138
   %140 = call noundef double @llvm.fmuladd.f64(double %131, double %133, double %139)
   %141 = fcmp ogt double %140, 0.000000e+00
   %142 = zext i1 %141 to i32
@@ -1876,8 +1876,8 @@ define noundef range(i32 -2, 3) i32 @_ZN2cv8Subdiv2D6locateENS_6Point_IfEERiS3_(
   %.sroa.0.0.vec.extract.i.i130 = extractelement <2 x float> %152, i64 0
   %166 = fpext float %.sroa.0.0.vec.extract.i.i130 to double
   %167 = fsub double %166, %80
-  %168 = fneg double %165
-  %169 = fmul double %167, %168
+  %168 = fneg double %167
+  %169 = fmul double %165, %168
   %170 = call noundef double @llvm.fmuladd.f64(double %161, double %163, double %169)
   %171 = fcmp ogt double %170, 0.000000e+00
   %172 = zext i1 %171 to i32
@@ -1931,8 +1931,8 @@ define noundef range(i32 -2, 3) i32 @_ZN2cv8Subdiv2D6locateENS_6Point_IfEERiS3_(
   %.sroa.0.0.vec.extract.i.i137 = extractelement <2 x float> %189, i64 0
   %203 = fpext float %.sroa.0.0.vec.extract.i.i137 to double
   %204 = fsub double %203, %130
-  %205 = fneg double %202
-  %206 = fmul double %204, %205
+  %205 = fneg double %204
+  %206 = fmul double %202, %205
   %207 = call noundef double @llvm.fmuladd.f64(double %198, double %200, double %206)
   %208 = fcmp uge double %207, 0.000000e+00
   %209 = xor i32 %.186164, 2
@@ -2016,8 +2016,8 @@ define noundef range(i32 -2, 3) i32 @_ZN2cv8Subdiv2D6locateENS_6Point_IfEERiS3_(
   %261 = fsub double %260, %83
   %262 = fpext float %.sroa.0.0.vec.extract to double
   %263 = fsub double %262, %80
-  %264 = fneg double %261
-  %265 = fmul double %263, %264
+  %264 = fneg double %263
+  %265 = fmul double %261, %264
   %266 = call noundef double @llvm.fmuladd.f64(double %257, double %259, double %265)
   %267 = call double @llvm.fabs.f64(double %266)
   %268 = fcmp olt double %267, 0x3E80000000000000
@@ -2559,8 +2559,8 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %264, i64 0
   %276 = fpext float %.sroa.0.0.vec.extract.i.i to double
   %277 = fsub double %276, %269
-  %278 = fneg double %275
-  %279 = fmul double %277, %278
+  %278 = fneg double %277
+  %279 = fmul double %275, %278
   %280 = call noundef double @llvm.fmuladd.f64(double %270, double %273, double %279)
   %281 = fcmp ogt double %280, 0.000000e+00
   br i1 %281, label %282, label %325
@@ -2578,28 +2578,28 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %289 = fpext float %.sroa.01.4.vec.extract.i.i57 to double
   %290 = fsub double %289, %274
   %291 = fsub double %276, %268
-  %292 = fneg double %290
-  %293 = fmul double %291, %292
+  %292 = fneg double %291
+  %293 = fmul double %290, %292
   %294 = call noundef double @llvm.fmuladd.f64(double %287, double %288, double %293)
   %295 = fmul double %285, %294
   %296 = fmul double %274, %274
   %297 = call double @llvm.fmuladd.f64(double %268, double %268, double %296)
   %298 = fsub double %286, %269
   %299 = fsub double %289, %272
-  %300 = fneg double %299
-  %301 = fmul double %277, %300
-  %302 = call noundef double @llvm.fmuladd.f64(double %298, double %273, double %301)
-  %303 = fneg double %297
-  %304 = call double @llvm.fmuladd.f64(double %303, double %302, double %295)
-  %305 = fmul double %289, %289
-  %306 = call double @llvm.fmuladd.f64(double %286, double %286, double %305)
-  %307 = call double @llvm.fmuladd.f64(double %306, double %280, double %304)
-  %308 = fmul double %271, %271
-  %309 = call double @llvm.fmuladd.f64(double %276, double %276, double %308)
-  %310 = fmul double %298, %278
+  %300 = fmul double %299, %278
+  %301 = call noundef double @llvm.fmuladd.f64(double %298, double %273, double %300)
+  %302 = fneg double %297
+  %303 = call double @llvm.fmuladd.f64(double %302, double %301, double %295)
+  %304 = fmul double %289, %289
+  %305 = call double @llvm.fmuladd.f64(double %286, double %286, double %304)
+  %306 = call double @llvm.fmuladd.f64(double %305, double %280, double %303)
+  %307 = fmul double %271, %271
+  %308 = call double @llvm.fmuladd.f64(double %276, double %276, double %307)
+  %309 = fneg double %298
+  %310 = fmul double %275, %309
   %311 = call noundef double @llvm.fmuladd.f64(double %270, double %299, double %310)
-  %312 = fneg double %309
-  %313 = call double @llvm.fmuladd.f64(double %312, double %311, double %307)
+  %312 = fneg double %308
+  %313 = call double @llvm.fmuladd.f64(double %312, double %311, double %306)
   %314 = fcmp ule double %313, 0x3E50000000000000
   %315 = fcmp olt double %313, 0xBE50000000000000
   %narrow = and i1 %314, %315
@@ -2964,8 +2964,8 @@ _ZN2cv8Subdiv2D12clearVoronoiEv.exit:             ; preds = %39, %._crit_edge.i
   %.sroa.024.4.vec.extract.i = extractelement <2 x float> %85, i64 1
   %101 = fsub float %.sroa.0.4.vec.extract.i, %.sroa.024.4.vec.extract.i
   %102 = fpext float %101 to double
-  %103 = fneg double %100
-  %104 = fmul double %97, %103
+  %103 = fneg double %97
+  %104 = fmul double %103, %100
   %105 = tail call double @llvm.fmuladd.f64(double %95, double %102, double %104)
   %106 = fcmp une double %105, 0.000000e+00
   br i1 %106, label %107, label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit
@@ -2988,13 +2988,13 @@ _ZN2cv8Subdiv2D12clearVoronoiEv.exit:             ; preds = %39, %._crit_edge.i
   %122 = tail call double @llvm.fmuladd.f64(double %95, double %118, double %121)
   %123 = fmul double %122, -5.000000e-01
   %124 = fdiv double 1.000000e+00, %105
-  %125 = fneg double %123
-  %126 = fmul double %125, %102
+  %125 = fneg double %102
+  %126 = fmul double %123, %125
   %127 = tail call double @llvm.fmuladd.f64(double %97, double %115, double %126)
   %128 = fmul double %124, %127
   %129 = fptrunc double %128 to float
-  %130 = fneg double %115
-  %131 = fmul double %95, %130
+  %130 = fneg double %95
+  %131 = fmul double %115, %130
   %132 = tail call double @llvm.fmuladd.f64(double %100, double %123, double %131)
   %133 = fmul double %124, %132
   %134 = fptrunc double %133 to float
@@ -3090,8 +3090,8 @@ _ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit: ; preds = %56, %107
   %.sroa.024.4.vec.extract.i59 = extractelement <2 x float> %186, i64 1
   %202 = fsub float %.sroa.0.4.vec.extract.i58, %.sroa.024.4.vec.extract.i59
   %203 = fpext float %202 to double
-  %204 = fneg double %201
-  %205 = fmul double %198, %204
+  %204 = fneg double %198
+  %205 = fmul double %204, %201
   %206 = tail call double @llvm.fmuladd.f64(double %196, double %203, double %205)
   %207 = fcmp une double %206, 0.000000e+00
   br i1 %207, label %208, label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63
@@ -3114,13 +3114,13 @@ _ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit: ; preds = %56, %107
   %223 = tail call double @llvm.fmuladd.f64(double %196, double %219, double %222)
   %224 = fmul double %223, -5.000000e-01
   %225 = fdiv double 1.000000e+00, %206
-  %226 = fneg double %224
-  %227 = fmul double %226, %203
+  %226 = fneg double %203
+  %227 = fmul double %224, %226
   %228 = tail call double @llvm.fmuladd.f64(double %198, double %216, double %227)
   %229 = fmul double %225, %228
   %230 = fptrunc double %229 to float
-  %231 = fneg double %216
-  %232 = fmul double %196, %231
+  %231 = fneg double %196
+  %232 = fmul double %216, %231
   %233 = tail call double @llvm.fmuladd.f64(double %201, double %224, double %232)
   %234 = fmul double %225, %233
   %235 = fptrunc double %234 to float
@@ -3193,7 +3193,7 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr nocaptur
 15:                                               ; preds = %17, %14
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %197
+  br label %195
 
 17:                                               ; preds = %14, %3
   store i32 0, ptr %5, align 4
@@ -3208,7 +3208,7 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr nocaptur
 
 ._crit_edge136:                                   ; preds = %19
   %.0.pre = load i32, ptr %5, align 4
-  br label %190
+  br label %188
 
 21:                                               ; preds = %19
   store i32 0, ptr %5, align 4
@@ -3250,74 +3250,74 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr nocaptur
   %51 = fpext float %48 to double
   %52 = fpext float %46 to double
   %53 = fpext float %49 to double
-  %54 = fpext float %.sroa.064.0.vec.extract to double
-  %55 = fpext float %.sroa.064.4.vec.extract to double
+  %54 = fneg double %53
+  %55 = fpext float %.sroa.064.0.vec.extract to double
+  %56 = fpext float %.sroa.064.4.vec.extract to double
   br label %.preheader70
 
-.preheader70:                                     ; preds = %.preheader70.lr.ph, %173
-  %.013103 = phi i32 [ 0, %.preheader70.lr.ph ], [ %175, %173 ]
-  %.lcssa9198102 = phi i32 [ %29, %.preheader70.lr.ph ], [ %174, %173 ]
-  %56 = ashr i32 %.lcssa9198102, 2
-  %57 = sext i32 %56 to i64
-  %58 = and i32 %.lcssa9198102, 3
-  %59 = xor i32 %58, 2
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %57, i32 1, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph, label %.preheader70._crit_edge
+.preheader70:                                     ; preds = %.preheader70.lr.ph, %171
+  %.013103 = phi i32 [ 0, %.preheader70.lr.ph ], [ %173, %171 ]
+  %.lcssa9198102 = phi i32 [ %29, %.preheader70.lr.ph ], [ %172, %171 ]
+  %57 = ashr i32 %.lcssa9198102, 2
+  %58 = sext i32 %57 to i64
+  %59 = and i32 %.lcssa9198102, 3
+  %60 = xor i32 %59, 2
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %58, i32 1, i64 %61
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph, label %.preheader70._crit_edge
 
-.preheader70._crit_edge:                          ; preds = %.preheader70, %104
+.preheader70._crit_edge:                          ; preds = %.preheader70, %103
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #31
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %64 unwind label %66
+          to label %65 unwind label %67
 
-64:                                               ; preds = %.preheader70._crit_edge
+65:                                               ; preds = %.preheader70._crit_edge
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_, ptr noundef nonnull @.str.1, i32 noundef 682) #29
-          to label %65 unwind label %68
+          to label %66 unwind label %69
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   unreachable
 
-66:                                               ; preds = %.preheader70._crit_edge
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %.preheader70._crit_edge
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
-68:                                               ; preds = %64
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %65
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #31
-  br label %70
+  br label %71
 
-70:                                               ; preds = %68, %66
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ]
+71:                                               ; preds = %69, %67
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #31
-  br label %197
+  br label %195
 
-.lr.ph:                                           ; preds = %.preheader70, %104
-  %71 = phi i32 [ %120, %104 ], [ %62, %.preheader70 ]
-  %72 = phi i64 [ %116, %104 ], [ %57, %.preheader70 ]
-  %73 = phi i32 [ %114, %104 ], [ %.lcssa9198102, %.preheader70 ]
-  %74 = zext nneg i32 %71 to i64
-  %75 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %74, i32 2
-  %.sroa_idx48 = getelementptr inbounds i8, ptr %75, i64 4
-  %76 = load float, ptr %.sroa_idx48, align 4
-  %77 = load float, ptr %75, align 4
-  %78 = fpext float %77 to double
-  %79 = fsub double %50, %78
-  %80 = fpext float %76 to double
-  %81 = fsub double %52, %80
-  %82 = fneg double %81
-  %83 = fmul double %53, %82
-  %84 = call double @llvm.fmuladd.f64(double %79, double %51, double %83)
+.lr.ph:                                           ; preds = %.preheader70, %103
+  %72 = phi i32 [ %119, %103 ], [ %63, %.preheader70 ]
+  %73 = phi i64 [ %115, %103 ], [ %58, %.preheader70 ]
+  %74 = phi i32 [ %113, %103 ], [ %.lcssa9198102, %.preheader70 ]
+  %75 = zext nneg i32 %72 to i64
+  %76 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %75, i32 2
+  %.sroa_idx48 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = load float, ptr %.sroa_idx48, align 4
+  %78 = load float, ptr %76, align 4
+  %79 = fpext float %78 to double
+  %80 = fsub double %50, %79
+  %81 = fpext float %77 to double
+  %82 = fsub double %52, %81
+  %83 = fmul double %82, %54
+  %84 = call double @llvm.fmuladd.f64(double %80, double %51, double %83)
   %85 = fcmp uge double %84, 0.000000e+00
-  br i1 %85, label %.preheader, label %104
+  br i1 %85, label %.preheader, label %103
 
 .preheader:                                       ; preds = %.lr.ph
-  %86 = ashr i32 %73, 2
+  %86 = ashr i32 %74, 2
   %87 = sext i32 %86 to i64
-  %88 = and i32 %73, 3
+  %88 = and i32 %74, 3
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %87, i32 1, i64 %89
   %91 = load i32, ptr %90, align 4
@@ -3334,179 +3334,177 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr nocaptur
   %97 = fsub double %50, %96
   %98 = fpext float %95 to double
   %99 = fsub double %52, %98
-  %100 = fneg double %99
-  %101 = fmul double %53, %100
-  %102 = call double @llvm.fmuladd.f64(double %97, double %51, double %101)
-  %103 = fcmp olt double %102, 0.000000e+00
-  br i1 %103, label %.lr.ph93._crit_edge, label %.lr.ph179
+  %100 = fmul double %99, %54
+  %101 = call double @llvm.fmuladd.f64(double %97, double %51, double %100)
+  %102 = fcmp olt double %101, 0.000000e+00
+  br i1 %102, label %.lr.ph93._crit_edge, label %.lr.ph179
 
-104:                                              ; preds = %.lr.ph
-  %105 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %72
-  %106 = add i32 %73, 3
-  %107 = and i32 %106, 3
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds [4 x i32], ptr %105, i64 0, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = and i32 %110, -4
-  %112 = add i32 %110, 1
-  %113 = and i32 %112, 3
-  %114 = or disjoint i32 %113, %111
-  %115 = ashr i32 %110, 2
-  %116 = sext i32 %115 to i64
-  %117 = xor i32 %113, 2
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %116, i32 1, i64 %118
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph, label %.preheader70._crit_edge, !llvm.loop !26
+103:                                              ; preds = %.lr.ph
+  %104 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %73
+  %105 = add i32 %74, 3
+  %106 = and i32 %105, 3
+  %107 = zext nneg i32 %106 to i64
+  %108 = getelementptr inbounds [4 x i32], ptr %104, i64 0, i64 %107
+  %109 = load i32, ptr %108, align 4
+  %110 = and i32 %109, -4
+  %111 = add i32 %109, 1
+  %112 = and i32 %111, 3
+  %113 = or disjoint i32 %112, %110
+  %114 = ashr i32 %109, 2
+  %115 = sext i32 %114 to i64
+  %116 = xor i32 %112, 2
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %115, i32 1, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %.lr.ph, label %.preheader70._crit_edge, !llvm.loop !26
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.lr.ph179
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #31
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %122 unwind label %124
+          to label %121 unwind label %123
 
-122:                                              ; preds = %.preheader._crit_edge
+121:                                              ; preds = %.preheader._crit_edge
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_, ptr noundef nonnull @.str.1, i32 noundef 691) #29
-          to label %123 unwind label %126
+          to label %122 unwind label %125
 
-123:                                              ; preds = %122
+122:                                              ; preds = %121
   unreachable
 
-124:                                              ; preds = %.preheader._crit_edge
-  %125 = landingpad { ptr, i32 }
+123:                                              ; preds = %.preheader._crit_edge
+  %124 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %127
 
-126:                                              ; preds = %122
-  %127 = landingpad { ptr, i32 }
+125:                                              ; preds = %121
+  %126 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #31
-  br label %128
+  br label %127
 
-128:                                              ; preds = %126, %124
-  %.pn21 = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ]
+127:                                              ; preds = %125, %123
+  %.pn21 = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #31
-  br label %197
+  br label %195
 
 .lr.ph93:                                         ; preds = %.lr.ph179
-  %129 = zext nneg i32 %153 to i64
-  %.in106 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %129, i32 2
-  %130 = load float, ptr %.in106, align 4
-  %.in = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %129, i32 2, i32 1
-  %131 = load float, ptr %.in, align 4
-  %132 = fpext float %130 to double
-  %133 = fsub double %50, %132
-  %134 = fpext float %131 to double
-  %135 = fsub double %52, %134
-  %136 = fneg double %135
-  %137 = fmul double %53, %136
-  %138 = call double @llvm.fmuladd.f64(double %133, double %51, double %137)
-  %139 = fcmp olt double %138, 0.000000e+00
-  br i1 %139, label %.lr.ph93._crit_edge, label %.lr.ph179, !llvm.loop !27
+  %128 = zext nneg i32 %151 to i64
+  %.in106 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %128, i32 2
+  %129 = load float, ptr %.in106, align 4
+  %.in = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %128, i32 2, i32 1
+  %130 = load float, ptr %.in, align 4
+  %131 = fpext float %129 to double
+  %132 = fsub double %50, %131
+  %133 = fpext float %130 to double
+  %134 = fsub double %52, %133
+  %135 = fmul double %134, %54
+  %136 = call double @llvm.fmuladd.f64(double %132, double %51, double %135)
+  %137 = fcmp olt double %136, 0.000000e+00
+  br i1 %137, label %.lr.ph93._crit_edge, label %.lr.ph179, !llvm.loop !27
 
 .lr.ph179:                                        ; preds = %.lr.ph93.preheader, %.lr.ph93
-  %140 = phi i32 [ %147, %.lr.ph93 ], [ %73, %.lr.ph93.preheader ]
-  %141 = phi i64 [ %149, %.lr.ph93 ], [ %87, %.lr.ph93.preheader ]
-  %142 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %141
-  %143 = and i32 %140, 3
-  %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds [4 x i32], ptr %142, i64 0, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = xor i32 %146, 2
-  %148 = ashr i32 %146, 2
-  %149 = sext i32 %148 to i64
-  %150 = and i32 %147, 3
-  %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %149, i32 1, i64 %151
-  %153 = load i32, ptr %152, align 4
-  %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %.lr.ph93, label %.preheader._crit_edge, !llvm.loop !27
+  %138 = phi i32 [ %145, %.lr.ph93 ], [ %74, %.lr.ph93.preheader ]
+  %139 = phi i64 [ %147, %.lr.ph93 ], [ %87, %.lr.ph93.preheader ]
+  %140 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %139
+  %141 = and i32 %138, 3
+  %142 = zext nneg i32 %141 to i64
+  %143 = getelementptr inbounds [4 x i32], ptr %140, i64 0, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = xor i32 %144, 2
+  %146 = ashr i32 %144, 2
+  %147 = sext i32 %146 to i64
+  %148 = and i32 %145, 3
+  %149 = zext nneg i32 %148 to i64
+  %150 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %147, i32 1, i64 %149
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %.lr.ph93, label %.preheader._crit_edge, !llvm.loop !27
 
 .lr.ph93._crit_edge:                              ; preds = %.lr.ph93, %.lr.ph93.preheader
-  %.lcssa174 = phi i32 [ %88, %.lr.ph93.preheader ], [ %150, %.lr.ph93 ]
-  %.lcssa172 = phi i64 [ %87, %.lr.ph93.preheader ], [ %149, %.lr.ph93 ]
-  %.lcssa169 = phi i32 [ %73, %.lr.ph93.preheader ], [ %147, %.lr.ph93 ]
-  %.lcssa167 = phi float [ %94, %.lr.ph93.preheader ], [ %130, %.lr.ph93 ]
-  %.lcssa165 = phi float [ %95, %.lr.ph93.preheader ], [ %131, %.lr.ph93 ]
-  %.lcssa163 = phi double [ %96, %.lr.ph93.preheader ], [ %132, %.lr.ph93 ]
-  %.lcssa161 = phi double [ %98, %.lr.ph93.preheader ], [ %134, %.lr.ph93 ]
-  %155 = xor i32 %.lcssa174, 2
-  %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %.lcssa172, i32 1, i64 %156
-  %158 = load i32, ptr %157, align 4
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %159, i32 2
-  %161 = load float, ptr %160, align 4
-  %.sroa_idx = getelementptr inbounds i8, ptr %160, i64 4
-  %162 = load float, ptr %.sroa_idx, align 4
-  %163 = fsub float %161, %.lcssa167
-  %164 = fsub float %162, %.lcssa165
-  %165 = fsub double %.lcssa163, %54
-  %166 = fpext float %164 to double
-  %167 = fsub double %.lcssa161, %55
-  %168 = fpext float %163 to double
-  %169 = fneg double %167
-  %170 = fmul double %169, %168
-  %171 = call double @llvm.fmuladd.f64(double %165, double %166, double %170)
-  %172 = fcmp uge double %171, 0.000000e+00
-  br i1 %172, label %176, label %173
+  %.lcssa174 = phi i32 [ %88, %.lr.ph93.preheader ], [ %148, %.lr.ph93 ]
+  %.lcssa172 = phi i64 [ %87, %.lr.ph93.preheader ], [ %147, %.lr.ph93 ]
+  %.lcssa169 = phi i32 [ %74, %.lr.ph93.preheader ], [ %145, %.lr.ph93 ]
+  %.lcssa167 = phi float [ %94, %.lr.ph93.preheader ], [ %129, %.lr.ph93 ]
+  %.lcssa165 = phi float [ %95, %.lr.ph93.preheader ], [ %130, %.lr.ph93 ]
+  %.lcssa163 = phi double [ %96, %.lr.ph93.preheader ], [ %131, %.lr.ph93 ]
+  %.lcssa161 = phi double [ %98, %.lr.ph93.preheader ], [ %133, %.lr.ph93 ]
+  %153 = xor i32 %.lcssa174, 2
+  %154 = zext nneg i32 %153 to i64
+  %155 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %.lcssa172, i32 1, i64 %154
+  %156 = load i32, ptr %155, align 4
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %157, i32 2
+  %159 = load float, ptr %158, align 4
+  %.sroa_idx = getelementptr inbounds i8, ptr %158, i64 4
+  %160 = load float, ptr %.sroa_idx, align 4
+  %161 = fsub float %159, %.lcssa167
+  %162 = fsub float %160, %.lcssa165
+  %163 = fsub double %.lcssa163, %55
+  %164 = fpext float %162 to double
+  %165 = fsub double %.lcssa161, %56
+  %166 = fpext float %161 to double
+  %167 = fneg double %166
+  %168 = fmul double %165, %167
+  %169 = call double @llvm.fmuladd.f64(double %163, double %164, double %168)
+  %170 = fcmp uge double %169, 0.000000e+00
+  br i1 %170, label %174, label %171
 
-173:                                              ; preds = %.lr.ph93._crit_edge
-  %174 = xor i32 %.lcssa169, 2
-  %175 = add nuw nsw i32 %.013103, 1
-  %exitcond.not = icmp eq i32 %175, %36
+171:                                              ; preds = %.lr.ph93._crit_edge
+  %172 = xor i32 %.lcssa169, 2
+  %173 = add nuw nsw i32 %.013103, 1
+  %exitcond.not = icmp eq i32 %173, %36
   br i1 %exitcond.not, label %.thread, label %.preheader70, !llvm.loop !28
 
-.thread:                                          ; preds = %173, %21
-  %.lcssa9198.lcssa = phi i32 [ %29, %21 ], [ %174, %173 ]
+.thread:                                          ; preds = %171, %21
+  %.lcssa9198.lcssa = phi i32 [ %29, %21 ], [ %172, %171 ]
   store i32 %.lcssa9198.lcssa, ptr %6, align 4
-  br label %190
+  br label %188
 
-176:                                              ; preds = %.lr.ph93._crit_edge
+174:                                              ; preds = %.lr.ph93._crit_edge
   store i32 %.lcssa169, ptr %6, align 4
-  %177 = add nsw i32 %.lcssa169, 3
-  %178 = and i32 %177, 3
-  %179 = ashr i32 %.lcssa169, 2
-  %180 = sext i32 %179 to i64
-  %181 = zext nneg i32 %178 to i64
-  %182 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %180, i32 1, i64 %181
-  %183 = load i32, ptr %182, align 4
-  store i32 %183, ptr %5, align 4
-  %184 = icmp ne ptr %2, null
-  %185 = icmp sgt i32 %183, 0
-  %or.cond3 = select i1 %184, i1 %185, i1 false
-  br i1 %or.cond3, label %186, label %190
+  %175 = add nsw i32 %.lcssa169, 3
+  %176 = and i32 %175, 3
+  %177 = ashr i32 %.lcssa169, 2
+  %178 = sext i32 %177 to i64
+  %179 = zext nneg i32 %176 to i64
+  %180 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %178, i32 1, i64 %179
+  %181 = load i32, ptr %180, align 4
+  store i32 %181, ptr %5, align 4
+  %182 = icmp ne ptr %2, null
+  %183 = icmp sgt i32 %181, 0
+  %or.cond3 = select i1 %182, i1 %183, i1 false
+  br i1 %or.cond3, label %184, label %188
 
-186:                                              ; preds = %176
-  %187 = zext nneg i32 %183 to i64
-  %188 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %187, i32 2
-  %189 = load i64, ptr %188, align 4
-  store i64 %189, ptr %2, align 4
-  br label %190
+184:                                              ; preds = %174
+  %185 = zext nneg i32 %181 to i64
+  %186 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %185, i32 2
+  %187 = load i64, ptr %186, align 4
+  store i64 %187, ptr %2, align 4
+  br label %188
 
-190:                                              ; preds = %.thread, %._crit_edge136, %176, %186
-  %.0 = phi i32 [ %.0.pre, %._crit_edge136 ], [ %183, %176 ], [ %183, %186 ], [ 0, %.thread ]
-  %191 = getelementptr inbounds i8, ptr %4, i64 8
-  %192 = load i32, ptr %191, align 8
-  %.not.i = icmp eq i32 %192, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %193
+188:                                              ; preds = %.thread, %._crit_edge136, %174, %184
+  %.0 = phi i32 [ %.0.pre, %._crit_edge136 ], [ %181, %174 ], [ %181, %184 ], [ 0, %.thread ]
+  %189 = getelementptr inbounds i8, ptr %4, i64 8
+  %190 = load i32, ptr %189, align 8
+  %.not.i = icmp eq i32 %190, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %191
 
-193:                                              ; preds = %190
+191:                                              ; preds = %188
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %194
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %192
 
-194:                                              ; preds = %193
-  %195 = landingpad { ptr, i32 }
+192:                                              ; preds = %191
+  %193 = landingpad { ptr, i32 }
           catch ptr null
-  %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #30
+  %194 = extractvalue { ptr, i32 } %193, 0
+  call void @__clang_call_terminate(ptr %194) #30
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %190, %193
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %188, %191
   ret i32 %.0
 
-197:                                              ; preds = %128, %70, %15
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %128 ], [ %.pn, %70 ], [ %16, %15 ]
+195:                                              ; preds = %127, %71, %15
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %127 ], [ %.pn, %71 ], [ %16, %15 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #31
   resume { ptr, i32 } %.pn21.pn
 }
@@ -4943,7 +4941,7 @@ _ZNSt16allocator_traitsISaIN2cv8Subdiv2D8QuadEdgeEEE9constructIS2_JEEEvRS3_PT_Dp
 _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv8Subdiv2D8QuadEdgeEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaIN2cv8Subdiv2D8QuadEdgeEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit ], [ %25, %.lr.ph.i.i.i.i ]
   %26 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i25 = icmp eq ptr %4, %1
+  %.not10.i.i.i.i25 = icmp eq ptr %1, %4
   br i1 %.not10.i.i.i.i25, label %_ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit31, label %.lr.ph.i.i.i.i26
 
 .lr.ph.i.i.i.i26:                                 ; preds = %_ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i26
@@ -5085,7 +5083,7 @@ _ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %2
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit ], [ %30, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38, label %.preheader.i.i.i.i.i29
 
 .preheader.i.i.i.i.i29:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN2cv3VecIfLi4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i35
@@ -5197,7 +5195,7 @@ _ZSt10_ConstructIN2cv3VecIfLi6EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %2
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi6EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN2cv3VecIfLi6EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3VecIfLi6EEESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3VecIfLi6EEESaIS2_EE11_M_allocateEm.exit ], [ %30, %_ZSt10_ConstructIN2cv3VecIfLi6EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
-  %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi6EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38, label %.preheader.i.i.i.i.i29
 
 .preheader.i.i.i.i.i29:                           ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi6EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN2cv3VecIfLi6EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i35
@@ -5358,7 +5356,7 @@ _ZNSt16allocator_traitsISaIN2cv6Point_IfEEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; 
 _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %.loopexit ], [ %52, %.lr.ph.i.i.i.i ]
   %53 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i28

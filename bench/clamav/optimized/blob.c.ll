@@ -440,7 +440,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1
 20:                                               ; preds = %16, %13
   %21 = phi i32 [ %spec.store.select, %16 ], [ %14, %13 ]
   %22 = sext i32 %21 to i64
-  %.not46 = icmp ugt i64 %22, %2
+  %.not46 = icmp ult i64 %2, %22
   br i1 %.not46, label %28, label %23
 
 23:                                               ; preds = %20

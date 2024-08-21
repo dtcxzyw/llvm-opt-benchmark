@@ -1532,7 +1532,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   store ptr %2, ptr %155, align 8
   %156 = load i32, ptr %8, align 16
   %157 = zext i32 %156 to i64
-  %158 = add nsw i64 %157, %3
+  %158 = add nsw i64 %3, %157
   %159 = getelementptr inbounds i8, ptr %146, i64 32
   store i64 %158, ptr %159, align 8
   %160 = getelementptr inbounds i8, ptr %146, i64 40
@@ -1589,7 +1589,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   store ptr %2, ptr %182, align 8
   %183 = load i32, ptr %8, align 16
   %184 = zext i32 %183 to i64
-  %185 = add nsw i64 %184, %3
+  %185 = add nsw i64 %3, %184
   %186 = getelementptr inbounds i8, ptr %173, i64 32
   store i64 %185, ptr %186, align 8
   %187 = getelementptr inbounds i8, ptr %173, i64 40

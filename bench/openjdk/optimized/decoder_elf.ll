@@ -112,7 +112,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i:    ; preds = %_ZNK7ElfFile13same_
 .loopexit:                                        ; preds = %_ZNK7ElfFile13same_elf_fileEPKc.exit.i, %24
   %.015.i.ph = phi ptr [ %18, %24 ], [ %.025.i, %_ZNK7ElfFile13same_elf_fileEPKc.exit.i ]
   %25 = tail call noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr noundef nonnull align 8 dereferenceable(144) %.015.i.ph, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #4
-  %brmerge.not = and i1 %25, %6
+  %brmerge.not = and i1 %6, %25
   br i1 %brmerge.not, label %26, label %_ZN10ElfDecoder12get_elf_fileEPKc.exit
 
 26:                                               ; preds = %.loopexit

@@ -22,7 +22,7 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv
   store i16 %conv, ptr %arrayidx, align 2
   %div = udiv i32 %i.addr.0, %radix
-  %tobool = icmp uge i32 %i.addr.0, %radix
+  %tobool = icmp ule i32 %radix, %i.addr.0
   %cmp3 = icmp slt i64 %indvars.iv.next, %0
   %1 = select i1 %tobool, i1 %cmp3, i1 false
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -30,7 +30,7 @@ do.body:                                          ; preds = %do.body, %entry
 
 while.cond.preheader:                             ; preds = %do.body
   %2 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %cmp428 = icmp slt i32 %2, %minwidth
+  %cmp428 = icmp sgt i32 %minwidth, %2
   br i1 %cmp428, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader

@@ -16,7 +16,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   %6 = getelementptr inbounds i8, ptr %0, i64 26
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %61
 
 9:                                                ; preds = %5
@@ -44,7 +44,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   %21 = getelementptr inbounds i8, ptr %0, i64 28
   %22 = load i16, ptr %21, align 4
   %23 = sext i16 %22 to i32
-  %.not47 = icmp eq i32 %23, %1
+  %.not47 = icmp eq i32 %1, %23
   br i1 %.not47, label %61, label %24
 
 24:                                               ; preds = %20

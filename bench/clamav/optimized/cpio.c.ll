@@ -100,16 +100,16 @@ fmap_readn.exit:                                  ; preds = %8
   %29 = zext nneg i16 %26 to i64
   %30 = getelementptr inbounds i8, ptr %28, i64 88
   %31 = load i64, ptr %30, align 8
-  %.not104 = icmp eq i64 %31, %17
+  %.not104 = icmp eq i64 %17, %31
   br i1 %.not104, label %fmap_readn.exit92, label %32
 
 32:                                               ; preds = %24
-  %33 = icmp ult i64 %31, %17
+  %33 = icmp ugt i64 %17, %31
   br i1 %33, label %fmap_readn.exit.thread.sink.split, label %34
 
 34:                                               ; preds = %32
   %35 = sub nuw i64 %31, %17
-  %spec.select.i90 = call i64 @llvm.umin.i64(i64 %35, i64 %29)
+  %spec.select.i90 = call i64 @llvm.umin.i64(i64 %29, i64 %35)
   %36 = getelementptr inbounds i8, ptr %28, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr %37(ptr noundef nonnull %28, i64 noundef %17, i64 noundef %spec.select.i90, i32 noundef 0) #8
@@ -232,7 +232,7 @@ sanitname.exit:                                   ; preds = %51, %40
   %80 = load ptr, ptr %4, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 88
   %82 = load i64, ptr %81, align 8
-  %or.cond103.not = icmp ugt i64 %82, %.0.be
+  %or.cond103.not = icmp ult i64 %.0.be, %82
   br i1 %or.cond103.not, label %8, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, %32, %34, %20
@@ -332,16 +332,16 @@ fmap_readn.exit:                                  ; preds = %15
   %38 = zext nneg i32 %36 to i64
   %39 = getelementptr inbounds i8, ptr %37, i64 88
   %40 = load i64, ptr %39, align 8
-  %.not54 = icmp eq i64 %40, %24
+  %.not54 = icmp eq i64 %24, %40
   br i1 %.not54, label %fmap_readn.exit48, label %41
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %40, %24
+  %42 = icmp ugt i64 %24, %40
   br i1 %42, label %fmap_readn.exit.thread.sink.split, label %43
 
 43:                                               ; preds = %41
   %44 = sub nuw i64 %40, %24
-  %spec.select.i46 = call i64 @llvm.umin.i64(i64 %44, i64 %38)
+  %spec.select.i46 = call i64 @llvm.umin.i64(i64 %38, i64 %44)
   %45 = getelementptr inbounds i8, ptr %37, i64 104
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr %46(ptr noundef nonnull %37, i64 noundef %24, i64 noundef %spec.select.i46, i32 noundef 0) #8
@@ -445,7 +445,7 @@ sanitname.exit:                                   ; preds = %60, %49
   %88 = load ptr, ptr %7, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 88
   %90 = load i64, ptr %89, align 8
-  %or.cond53.not = icmp ugt i64 %90, %.0.be
+  %or.cond53.not = icmp ult i64 %.0.be, %90
   br i1 %or.cond53.not, label %15, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %69, %fmap_readn.exit48, %41, %43, %29, %28
@@ -546,16 +546,16 @@ fmap_readn.exit:                                  ; preds = %15
   %39 = zext nneg i32 %37 to i64
   %40 = getelementptr inbounds i8, ptr %38, i64 88
   %41 = load i64, ptr %40, align 8
-  %.not71 = icmp eq i64 %41, %24
+  %.not71 = icmp eq i64 %24, %41
   br i1 %.not71, label %fmap_readn.exit65, label %42
 
 42:                                               ; preds = %36
-  %43 = icmp ult i64 %41, %24
+  %43 = icmp ugt i64 %24, %41
   br i1 %43, label %fmap_readn.exit.thread.sink.split, label %44
 
 44:                                               ; preds = %42
   %45 = sub nuw i64 %41, %24
-  %spec.select.i63 = call i64 @llvm.umin.i64(i64 %45, i64 %39)
+  %spec.select.i63 = call i64 @llvm.umin.i64(i64 %39, i64 %45)
   %46 = getelementptr inbounds i8, ptr %38, i64 104
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr %47(ptr noundef nonnull %38, i64 noundef %24, i64 noundef %spec.select.i63, i32 noundef 0) #8
@@ -692,7 +692,7 @@ sanitname.exit:                                   ; preds = %61, %50
   %104 = load ptr, ptr %8, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 88
   %106 = load i64, ptr %105, align 8
-  %or.cond70.not = icmp ugt i64 %106, %.0.be
+  %or.cond70.not = icmp ult i64 %.0.be, %106
   br i1 %or.cond70.not, label %15, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %80, %fmap_readn.exit65, %42, %44, %30, %29, %.critedge

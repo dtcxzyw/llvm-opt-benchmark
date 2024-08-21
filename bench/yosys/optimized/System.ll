@@ -106,7 +106,7 @@ _ZL11memReadPeakv.exit:                           ; preds = %1, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %19 = fcmp une double %.0.i, 0.000000e+00
-  %brmerge = or i1 %19, %0
+  %brmerge = or i1 %0, %19
   br i1 %brmerge, label %22, label %20
 
 20:                                               ; preds = %_ZL11memReadPeakv.exit

@@ -130,7 +130,7 @@ define dso_local ptr @pci_create_slot(ptr noundef %0, i32 noundef %1, ptr nounde
   %13 = getelementptr i8, ptr %10, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i32
-  %16 = icmp eq i32 %15, %1
+  %16 = icmp eq i32 %1, %15
   br i1 %16, label %17, label %8, !llvm.loop !8
 
 17:                                               ; preds = %12

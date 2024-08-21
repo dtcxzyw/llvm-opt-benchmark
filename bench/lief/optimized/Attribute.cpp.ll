@@ -99,7 +99,7 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE(i32 noundef %0) l
 5:                                                ; preds = %1
   %.ptr16.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add13.i.i
   %6 = load i32, ptr %.ptr16.i.i, align 8
-  %.not17.i.i = icmp sgt i32 %6, %0
+  %.not17.i.i = icmp slt i32 %0, %6
   br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %7
 
 7:                                                ; preds = %5

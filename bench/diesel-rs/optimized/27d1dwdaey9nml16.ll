@@ -1310,7 +1310,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17h50f9a0dae4b9be39E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -3558,7 +3558,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !601, !noalias !606, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !608, !noalias !606, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
@@ -3612,7 +3612,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !614, !noalias !619, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !621, !noalias !619, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit"
 
 9:                                                ; preds = %3
@@ -5489,7 +5489,7 @@ default.unreachable1.i:                           ; preds = %10
   %32 = load i64, ptr %31, align 8, !alias.scope !807, !noalias !814, !noundef !4
   %33 = load i64, ptr %.sroa.6.0.i, align 8, !alias.scope !820, !noalias !814, !noundef !4
   %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %29
+  %35 = icmp ugt i64 %29, %34
   br i1 %35, label %36, label %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i"
 
 36:                                               ; preds = %30
@@ -5593,7 +5593,7 @@ default.unreachable:                              ; preds = %3
   %10 = load i64, ptr %9, align 8, !alias.scope !825, !noalias !832, !noundef !4
   %11 = load i64, ptr %.sroa.6.0.i40, align 8, !alias.scope !841, !noalias !832, !noundef !4
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %.val2242
+  %13 = icmp ugt i64 %.val2242, %12
   br i1 %13, label %23, label %27
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit.thread47": ; preds = %3

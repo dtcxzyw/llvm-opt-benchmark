@@ -67,7 +67,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %.092.ph124 = phi i64 [ 0, %8 ], [ %.193, %.outer ]
   %.195.ph123 = phi i32 [ %spec.select, %8 ], [ %27, %.outer ]
   %15 = trunc i64 %.092.ph124 to i32
-  %16 = add i32 %15, %1
+  %16 = add i32 %1, %15
   %17 = sub i32 %16, %.195.ph123
   br label %18
 
@@ -89,7 +89,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %3, i64 %.092104
   %26 = trunc i64 %.092104 to i32
-  %27 = add i32 %26, %1
+  %27 = add i32 %1, %26
   %28 = sub i32 %27, %.195.ph123
   %29 = icmp ugt i32 %28, 5
   br i1 %29, label %.loopexit, label %.preheader

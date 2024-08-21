@@ -1890,7 +1890,7 @@ entry:
   %frombool.i = zext i1 %is_shutdown to i8
   %0 = atomicrmw xchg ptr %shutdown_, i8 %frombool.i seq_cst, align 1
   %tobool3.i.i = trunc i8 %0 to i1
-  %1 = xor i1 %tobool3.i.i, %is_shutdown
+  %1 = xor i1 %is_shutdown, %tobool3.i.i
   br i1 %1, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2175,7 +2175,7 @@ entry:
   %frombool.i = zext i1 %is_forking to i8
   %0 = atomicrmw xchg ptr %forking_, i8 %frombool.i seq_cst, align 1
   %tobool3.i.i = trunc i8 %0 to i1
-  %1 = xor i1 %tobool3.i.i, %is_forking
+  %1 = xor i1 %is_forking, %tobool3.i.i
   br i1 %1, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry

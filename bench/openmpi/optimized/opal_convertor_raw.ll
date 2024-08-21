@@ -230,7 +230,7 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
 127:                                              ; preds = %122
   %128 = load ptr, ptr %124, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 %126
-  %130 = icmp eq ptr %129, %.3209294
+  %130 = icmp eq ptr %.3209294, %129
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %127
@@ -451,7 +451,7 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
 242:                                              ; preds = %236
   %243 = load ptr, ptr %239, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 %241
-  %245 = icmp eq ptr %244, %.7213325
+  %245 = icmp eq ptr %.7213325, %244
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %242

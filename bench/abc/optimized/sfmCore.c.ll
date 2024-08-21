@@ -1181,7 +1181,7 @@ define range(i32 0, 2) i32 @Sfm_NodeResub(ptr noundef %0, i32 noundef %1) local_
   %22 = getelementptr inbounds i32, ptr %.val2.i, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %16, align 8
-  %.not.i = icmp sgt i32 %24, %23
+  %.not.i = icmp slt i32 %23, %24
   br i1 %.not.i, label %Sfm_ObjIsNode.exit.thread, label %Sfm_ObjIsNode.exit
 
 Sfm_ObjIsNode.exit:                               ; preds = %20
@@ -1242,7 +1242,7 @@ Sfm_ObjIsNode.exit.thread:                        ; preds = %.Sfm_ObjIsNode.exit
   %48 = getelementptr inbounds i32, ptr %.val2.i57, i64 %indvars.iv82
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %42, align 8
-  %.not.i58 = icmp sgt i32 %50, %49
+  %.not.i58 = icmp slt i32 %49, %50
   br i1 %.not.i58, label %Sfm_ObjIsNode.exit59.thread, label %Sfm_ObjIsNode.exit59
 
 Sfm_ObjIsNode.exit59:                             ; preds = %46

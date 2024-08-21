@@ -403,7 +403,7 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
 
 151:                                              ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %.088100.i.i = phi ptr [ %.08898.i.i, %.lr.ph.i.i ], [ %.088.i.i, %.loopexit.i.i ]
-  %.not91.i.i = icmp eq ptr %.088100.i.i, %71
+  %.not91.i.i = icmp eq ptr %71, %.088100.i.i
   br i1 %.not91.i.i, label %229, label %152
 
 152:                                              ; preds = %151

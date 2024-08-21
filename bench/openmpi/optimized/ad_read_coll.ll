@@ -1223,7 +1223,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %81 = getelementptr inbounds i64, ptr %79, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = sext i32 %.4319 to i64
-  %84 = mul nsw i64 %83, %16
+  %84 = mul nsw i64 %16, %83
   %85 = add nsw i64 %84, %82
   %86 = load ptr, ptr %33, align 8
   %87 = getelementptr inbounds i64, ptr %86, i64 %80
@@ -1297,7 +1297,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %115 = getelementptr inbounds i64, ptr %113, i64 %114
   %116 = load i64, ptr %115, align 8
   %117 = sext i32 %.7322 to i64
-  %118 = mul nsw i64 %117, %16
+  %118 = mul nsw i64 %16, %117
   %119 = add nsw i64 %118, %116
   %120 = load ptr, ptr %33, align 8
   %121 = getelementptr inbounds i64, ptr %120, i64 %114
@@ -1340,7 +1340,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %138 = getelementptr inbounds i64, ptr %136, i64 %137
   %139 = load i64, ptr %138, align 8
   %140 = sext i32 %.10325 to i64
-  %141 = mul nsw i64 %140, %16
+  %141 = mul nsw i64 %16, %140
   %142 = add nsw i64 %141, %139
   %143 = load ptr, ptr %33, align 8
   %144 = getelementptr inbounds i64, ptr %143, i64 %137
@@ -1417,7 +1417,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %175 = getelementptr inbounds i64, ptr %173, i64 %174
   %176 = load i64, ptr %175, align 8
   %177 = sext i32 %.13328 to i64
-  %178 = mul nsw i64 %177, %16
+  %178 = mul nsw i64 %16, %177
   %179 = add nsw i64 %178, %176
   %180 = load ptr, ptr %33, align 8
   %181 = getelementptr inbounds i64, ptr %180, i64 %174
@@ -1460,7 +1460,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %198 = getelementptr inbounds i64, ptr %196, i64 %197
   %199 = load i64, ptr %198, align 8
   %200 = sext i32 %.16331 to i64
-  %201 = mul nsw i64 %200, %16
+  %201 = mul nsw i64 %16, %200
   %202 = add nsw i64 %201, %199
   %203 = load ptr, ptr %33, align 8
   %204 = getelementptr inbounds i64, ptr %203, i64 %197
@@ -1509,7 +1509,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %223 = getelementptr inbounds i64, ptr %221, i64 %222
   %224 = load i64, ptr %223, align 8
   %225 = sext i32 %.19334 to i64
-  %226 = mul nsw i64 %225, %16
+  %226 = mul nsw i64 %16, %225
   %227 = add nsw i64 %226, %224
   %228 = load ptr, ptr %33, align 8
   %229 = getelementptr inbounds i64, ptr %228, i64 %222
@@ -1556,7 +1556,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %247 = getelementptr inbounds i64, ptr %245, i64 %246
   %248 = load i64, ptr %247, align 8
   %249 = sext i32 %.23338 to i64
-  %250 = mul nsw i64 %249, %16
+  %250 = mul nsw i64 %16, %249
   %251 = add nsw i64 %250, %248
   %252 = load ptr, ptr %33, align 8
   %253 = getelementptr inbounds i64, ptr %252, i64 %246

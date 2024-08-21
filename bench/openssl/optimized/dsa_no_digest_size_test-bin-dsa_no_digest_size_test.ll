@@ -180,7 +180,7 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %lor.lhs.false8
   tail call void @llvm.memset.p0.i64(ptr align 1 %call4, i8 0, i64 %conv3, i1 false)
-  %cmp = icmp slt i32 %div, %len
+  %cmp = icmp sgt i32 %len, %div
   br i1 %cmp, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end

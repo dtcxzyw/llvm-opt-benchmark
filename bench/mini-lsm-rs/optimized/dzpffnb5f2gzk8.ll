@@ -298,7 +298,7 @@ common.resume:                                    ; preds = %41, %20
 
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %.not.i.i = icmp ugt i64 %28, %31
+  %.not.i.i = icmp ult i64 %31, %28
   br i1 %.not.i.i, label %43, label %40
 
 40:                                               ; preds = %39
@@ -493,7 +493,7 @@ common.resume:                                    ; preds = %41, %20
 
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %.not.i.i = icmp ugt i64 %28, %31
+  %.not.i.i = icmp ult i64 %31, %28
   br i1 %.not.i.i, label %43, label %40
 
 40:                                               ; preds = %39
@@ -3526,7 +3526,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17h891d80907ed7870fE.exit.i.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !795)
   %62 = load i64, ptr %5, align 8, !alias.scope !795, !noalias !798, !noundef !4
-  %.not.i = icmp ugt i64 %62, %.015.i
+  %.not.i = icmp ult i64 %.015.i, %62
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he2ad85fd067d9a12E.exit", label %63
 
 63:                                               ; preds = %60
@@ -3575,7 +3575,7 @@ define hidden void @_ZN17crossbeam_channel5waker5Waker10unregister17hb07ae10b5a9
 
 19:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !816)
-  %.not.i = icmp ugt i64 %8, %11
+  %.not.i = icmp ult i64 %11, %8
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he2ad85fd067d9a12E.exit", label %20
 
 20:                                               ; preds = %19
@@ -6220,7 +6220,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.78826329
 
 140:                                              ; preds = %135
   call void @llvm.experimental.noalias.scope.decl(metadata !1282)
-  %.not.i.i = icmp ugt i64 %129, %132
+  %.not.i.i = icmp ult i64 %132, %129
   br i1 %.not.i.i, label %144, label %141
 
 141:                                              ; preds = %140
@@ -6395,7 +6395,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.78826329
 
 206:                                              ; preds = %201
   call void @llvm.experimental.noalias.scope.decl(metadata !1341)
-  %.not.i.i62 = icmp ugt i64 %195, %198
+  %.not.i.i62 = icmp ult i64 %198, %195
   br i1 %.not.i.i62, label %210, label %207
 
 207:                                              ; preds = %206
@@ -8898,7 +8898,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
@@ -8912,7 +8912,7 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14w
 
 12:                                               ; preds = %._crit_edge, %3
   %13 = phi i64 [ %.pre, %._crit_edge ], [ %4, %3 ]
-  %.not = icmp ugt i64 %13, %2
+  %.not = icmp ult i64 %2, %13
   br i1 %.not, label %14, label %20
 
 14:                                               ; preds = %12

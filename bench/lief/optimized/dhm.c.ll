@@ -428,7 +428,7 @@ define hidden range(i32 -2147483648, 2147471104) i32 @mbedtls_dhm_read_public(pt
 
 5:                                                ; preds = %3
   %6 = tail call i64 @mbedtls_mpi_size(ptr noundef %0) #10
-  %7 = icmp ult i64 %6, %2
+  %7 = icmp ugt i64 %2, %6
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
@@ -453,7 +453,7 @@ define hidden i32 @mbedtls_dhm_make_public(ptr noundef %0, i32 noundef %1, ptr n
 
 8:                                                ; preds = %6
   %9 = tail call i64 @mbedtls_mpi_size(ptr noundef %0) #10
-  %10 = icmp ult i64 %9, %3
+  %10 = icmp ugt i64 %3, %9
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %8
@@ -492,7 +492,7 @@ define hidden i32 @mbedtls_dhm_calc_secret(ptr noundef %0, ptr noundef %1, i64 n
 
 11:                                               ; preds = %6
   %12 = tail call i64 @mbedtls_mpi_size(ptr noundef %0) #10
-  %13 = icmp ugt i64 %12, %2
+  %13 = icmp ult i64 %2, %12
   br i1 %13, label %85, label %14
 
 14:                                               ; preds = %11

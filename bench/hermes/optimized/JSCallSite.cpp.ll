@@ -277,7 +277,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %4
+  %cmp.not.i.i.i = icmp ult i64 %4, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -384,7 +384,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %cmp.not.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %4
+  %cmp.not.i.i = icmp ult i64 %4, %sub.ptr.div.i.i.i
   br i1 %cmp.not.i.i, label %_ZNKSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE2atEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -432,7 +432,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %4
+  %cmp.not.i.i.i = icmp ult i64 %4, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -503,7 +503,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %4
+  %cmp.not.i.i.i = icmp ult i64 %4, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -561,7 +561,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %4
+  %cmp.not.i.i.i = icmp ult i64 %4, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -614,7 +614,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %4
+  %cmp.not.i.i.i = icmp ult i64 %4, %sub.ptr.div.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry

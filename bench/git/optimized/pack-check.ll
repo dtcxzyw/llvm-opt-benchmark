@@ -482,7 +482,7 @@ if.end157.i:                                      ; preds = %if.then149.i, %if.e
   %err.4.i = phi i32 [ -1, %if.then129.i ], [ %err.3.i, %if.else147.i ], [ -1, %if.then141.i ], [ -1, %if.then114.i ], [ %or.i, %if.then149.i ]
   %data.1.i = phi ptr [ %call109.i, %if.then129.i ], [ %data.0109113.i, %if.else147.i ], [ null, %if.then141.i ], [ null, %if.then114.i ], [ %spec.select.i, %if.then149.i ]
   %51 = trunc nuw i64 %indvars.iv125.i to i32
-  %add158.i = add i32 %51, %base_count
+  %add158.i = add i32 %base_count, %51
   %and.i = and i32 %add158.i, 1023
   %cmp159.i = icmp eq i32 %and.i, 0
   br i1 %cmp159.i, label %if.then161.i, label %if.end164.i

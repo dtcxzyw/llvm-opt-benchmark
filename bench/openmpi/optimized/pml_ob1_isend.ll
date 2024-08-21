@@ -60,7 +60,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_isend_init(ptr noundef %0, i64 noundef 
   %11 = getelementptr inbounds i8, ptr %10, i64 224
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %.not.i = icmp sgt i32 %13, %3
+  %.not.i = icmp slt i32 %3, %13
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %8
@@ -708,7 +708,7 @@ define i32 @mca_pml_ob1_isend(ptr noundef %0, i64 noundef %1, ptr noundef %2, i3
   %11 = getelementptr inbounds i8, ptr %10, i64 224
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %.not.i = icmp sgt i32 %13, %3
+  %.not.i = icmp slt i32 %3, %13
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %8
@@ -1788,7 +1788,7 @@ define i32 @mca_pml_ob1_send(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   %11 = getelementptr inbounds i8, ptr %10, i64 224
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
-  %.not.i = icmp sgt i32 %13, %3
+  %.not.i = icmp slt i32 %3, %13
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %7

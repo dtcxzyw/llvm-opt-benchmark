@@ -977,12 +977,12 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %if.end9
 
 if.end.i16:                                       ; preds = %lor.lhs.false
-  %cmp1.i17 = icmp eq i64 %1, %retval.0.i38
+  %cmp1.i17 = icmp eq i64 %retval.0.i38, %1
   br i1 %cmp1.i17, label %if.end9, label %if.end3.i18
 
 if.end3.i18:                                      ; preds = %if.end.i16
   %cmp4.not.i = icmp ne i64 %2, 0
-  %cmp6.i20 = icmp ugt i64 %1, %retval.0.i38
+  %cmp6.i20 = icmp ult i64 %retval.0.i38, %1
   %or.cond.i = and i1 %cmp4.not.i, %cmp6.i20
   br i1 %or.cond.i, label %while.end, label %if.end8.i
 
@@ -1033,7 +1033,7 @@ if.end11:                                         ; preds = %if.end9, %while.bod
   %15 = load i64, ptr %len1.i, align 8
   %16 = load i64, ptr %idx2.i, align 8
   %sub.i25 = sub i64 %15, %16
-  %cmp.not.i = icmp ult i64 %sub.i25, %spec.select
+  %cmp.not.i = icmp ugt i64 %spec.select, %sub.i25
   br i1 %cmp.not.i, label %ring_buf_push_pop.exit, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.end11
@@ -1163,12 +1163,12 @@ if.then6.i:                                       ; preds = %if.end.i
   %12 = load i64, ptr %len1.i.i, align 8
   %13 = load i64, ptr %arrayidx, align 8
   %sub.i10.i = sub i64 %12, %13
-  %cmp.not.i.i = icmp ult i64 %sub.i10.i, %spec.select.i
+  %cmp.not.i.i = icmp ugt i64 %spec.select.i, %sub.i10.i
   br i1 %cmp.not.i.i, label %ring_buf_push_pop.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then6.i
   %14 = load i64, ptr %count, align 8
-  %cmp8.not.i.i = icmp ult i64 %14, %spec.select.i
+  %cmp8.not.i.i = icmp ugt i64 %spec.select.i, %14
   br i1 %cmp8.not.i.i, label %ring_buf_push_pop.exit.i, label %if.then38.i.i
 
 if.then38.i.i:                                    ; preds = %if.end.i.i
@@ -1219,11 +1219,11 @@ if.then51:                                        ; preds = %if.then49
 
 if.end65:                                         ; preds = %dgram_pair_read_inner.exit
   %18 = load i64, ptr %hdr, align 8
-  %cmp66 = icmp ult i64 %18, %sz
+  %cmp66 = icmp ugt i64 %sz, %18
   br i1 %cmp66, label %if.end88, label %if.else70
 
 if.else70:                                        ; preds = %if.end65
-  %cmp72 = icmp ugt i64 %18, %sz
+  %cmp72 = icmp ult i64 %sz, %18
   br i1 %cmp72, label %if.then74, label %if.end88
 
 if.then74:                                        ; preds = %if.else70
@@ -1316,12 +1316,12 @@ if.then6:                                         ; preds = %if.end
   %4 = load i64, ptr %len1.i, align 8
   %5 = load i64, ptr %arrayidx.i, align 8
   %sub.i10 = sub i64 %4, %5
-  %cmp.not.i = icmp ult i64 %sub.i10, %spec.select
+  %cmp.not.i = icmp ugt i64 %spec.select, %sub.i10
   br i1 %cmp.not.i, label %ring_buf_push_pop.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
   %6 = load i64, ptr %count11.i, align 8
-  %cmp8.not.i = icmp ult i64 %6, %spec.select
+  %cmp8.not.i = icmp ugt i64 %spec.select, %6
   br i1 %cmp8.not.i, label %ring_buf_push_pop.exit, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.end.i
@@ -1412,14 +1412,14 @@ if.end.i:                                         ; preds = %sw.bb
 if.end.i.i:                                       ; preds = %if.end.i
   %len.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %len.i.i, align 8
-  %cmp1.i.i = icmp eq i64 %3, %spec.store.select.i
+  %cmp1.i.i = icmp eq i64 %spec.store.select.i, %3
   br i1 %cmp1.i.i, label %if.end9.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %count.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %count.i.i, align 8
   %cmp4.not.i.i = icmp ne i64 %4, 0
-  %cmp6.i.i = icmp ugt i64 %3, %spec.store.select.i
+  %cmp6.i.i = icmp ult i64 %spec.store.select.i, %3
   %or.cond.i.i = and i1 %cmp6.i.i, %cmp4.not.i.i
   br i1 %or.cond.i.i, label %return, label %if.end8.i.i
 
@@ -1564,12 +1564,12 @@ if.then6.i.i:                                     ; preds = %if.end.i.i43
   %26 = load i64, ptr %len1.i.i.i, align 8
   %27 = load i64, ptr %arrayidx.i, align 8
   %sub.i10.i.i = sub i64 %26, %27
-  %cmp.not.i.i.i = icmp ult i64 %sub.i10.i.i, %spec.select.i.i
+  %cmp.not.i.i.i = icmp ugt i64 %spec.select.i.i, %sub.i10.i.i
   br i1 %cmp.not.i.i.i, label %ring_buf_push_pop.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then6.i.i
   %28 = load i64, ptr %count.i41, align 8
-  %cmp8.not.i.i.i = icmp ult i64 %28, %spec.select.i.i
+  %cmp8.not.i.i.i = icmp ugt i64 %spec.select.i.i, %28
   br i1 %cmp8.not.i.i.i, label %ring_buf_push_pop.exit.i.i, label %if.then38.i.i.i
 
 if.then38.i.i.i:                                  ; preds = %if.end.i.i.i

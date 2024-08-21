@@ -38918,7 +38918,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   %3 = load i8, ptr %force_checkpoint10, align 1, !range !252
   %tobool11.not = icmp ne i8 %3, 0
   %or.cond49.not55 = select i1 %cmp, i1 true, i1 %tobool11.not
-  %brmerge = or i1 %or.cond49.not55, %force_checkpoint
+  %brmerge = or i1 %force_checkpoint, %or.cond49.not55
   br i1 %brmerge, label %if.then14, label %if.end34
 
 if.then14:                                        ; preds = %if.end

@@ -5376,7 +5376,7 @@ define ptr @php_basename(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2
   %39 = ptrtoint ptr %.1108 to i64
   %40 = ptrtoint ptr %.1110 to i64
   %41 = sub i64 %39, %40
-  %42 = icmp ugt i64 %41, %3
+  %42 = icmp ult i64 %3, %41
   %or.cond = select i1 %.not123, i1 %42, i1 false
   br i1 %or.cond, label %43, label %47
 
@@ -9636,7 +9636,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
   %69 = udiv i64 %49, %41
   %70 = mul i64 %69, %41
   %.recomposed = urem i64 %49, %41
-  %.not.i = icmp ne i64 %70, %49
+  %.not.i = icmp ne i64 %49, %70
   %71 = zext i1 %.not.i to i64
   %spec.select.i = add i64 %69, %71
   %72 = and i64 %49, -8
@@ -9820,7 +9820,7 @@ define internal fastcc void @_zend_substr(ptr nocapture noundef writeonly %0, pt
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = icmp ult i64 %15, %2
+  %16 = icmp ugt i64 %2, %15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
@@ -9847,7 +9847,7 @@ define internal fastcc void @_zend_substr(ptr nocapture noundef writeonly %0, pt
 
 28:                                               ; preds = %21
   %29 = sub i64 %20, %.0106
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %29, i64 %4)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %4, i64 %29)
   br label %32
 
 30:                                               ; preds = %19
@@ -10020,7 +10020,7 @@ thread-pre-split:                                 ; preds = %30
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %35, i64 16
   %45 = load i64, ptr %44, align 8
-  %46 = icmp ult i64 %45, %34
+  %46 = icmp ugt i64 %34, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
@@ -11937,7 +11937,7 @@ define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %
   br i1 %30, label %31, label %43
 
 31:                                               ; preds = %28
-  %.not39 = icmp ugt ptr %.03141, %0
+  %.not39 = icmp ult ptr %0, %.03141
   br i1 %.not39, label %33, label %32
 
 32:                                               ; preds = %31
@@ -12124,7 +12124,7 @@ define ptr @php_str_to_str(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
   br label %.thread668.us750
 
 .split745:                                        ; preds = %10
-  %42 = icmp ult i64 %1, %3
+  %42 = icmp ugt i64 %3, %1
   br i1 %42, label %.thread, label %.lr.ph753
 
 .lr.ph753:                                        ; preds = %.split745, %.thread668
@@ -12182,7 +12182,7 @@ define ptr @php_str_to_str(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
   tail call void @llvm.assume(i1 %65)
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %19, %66
-  %68 = icmp ult i64 %67, %3
+  %68 = icmp ugt i64 %3, %67
   br i1 %68, label %.thread, label %.lr.ph753
 
 69:                                               ; preds = %8
@@ -12256,7 +12256,7 @@ define ptr @php_str_to_str(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
 .split:                                           ; preds = %78
   %102 = icmp sgt i64 %1, -1
   tail call void @llvm.assume(i1 %102)
-  %103 = icmp ult i64 %1, %3
+  %103 = icmp ugt i64 %3, %1
   br i1 %103, label %.thread673.thread, label %.lr.ph718
 
 .lr.ph718:                                        ; preds = %.split, %.thread676
@@ -12315,7 +12315,7 @@ define ptr @php_str_to_str(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
   tail call void @llvm.assume(i1 %127)
   %128 = ptrtoint ptr %125 to i64
   %129 = sub i64 %80, %128
-  %130 = icmp ult i64 %129, %3
+  %130 = icmp ugt i64 %3, %129
   br i1 %130, label %.thread673, label %.lr.ph718
 
 .thread673:                                       ; preds = %.thread676.us, %123, %.thread676, %107, %111, %121
@@ -12412,7 +12412,7 @@ define ptr @php_str_to_str(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
 179:                                              ; preds = %171
   %180 = ptrtoint ptr %.1617 to i64
   %181 = sub i64 %164, %180
-  %182 = icmp ult i64 %181, %3
+  %182 = icmp ugt i64 %3, %181
   br i1 %182, label %.thread681, label %183
 
 183:                                              ; preds = %179
@@ -17605,7 +17605,7 @@ define i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8192
   %.not293 = icmp eq i16 %21, 0
-  %brmerge = or i1 %.not293, %4
+  %brmerge = or i1 %4, %.not293
   br i1 %brmerge, label %24, label %22
 
 22:                                               ; preds = %14
@@ -17697,7 +17697,7 @@ define i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 8192
   %.not345 = icmp eq i16 %55, 0
-  %brmerge348 = or i1 %.not345, %4
+  %brmerge348 = or i1 %4, %.not345
   br i1 %brmerge348, label %56, label %.loopexit365
 
 56:                                               ; preds = %48
@@ -22201,7 +22201,7 @@ define internal fastcc noundef ptr @php_char_to_str_ex(ptr noundef %0, i8 nounde
 define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %2
+  %9 = icmp ult i64 %2, %8
   br i1 %9, label %10, label %197
 
 10:                                               ; preds = %6
@@ -22312,7 +22312,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   tail call void @llvm.assume(i1 %66)
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %14, %67
-  %69 = icmp ult i64 %68, %2
+  %69 = icmp ugt i64 %2, %68
   br i1 %69, label %.thread.thread, label %26
 
 .thread:                                          ; preds = %46, %30, %34, %44
@@ -22364,7 +22364,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   tail call void @llvm.assume(i1 %86)
   %87 = ptrtoint ptr %84 to i64
   %88 = sub i64 %14, %87
-  %89 = icmp ult i64 %88, %2
+  %89 = icmp ugt i64 %2, %88
   br i1 %89, label %.thread448, label %71
 
 .lr.ph.us:                                        ; preds = %71
@@ -22427,7 +22427,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   tail call void @llvm.assume(i1 %114)
   %115 = ptrtoint ptr %112 to i64
   %116 = sub i64 %14, %115
-  %117 = icmp ult i64 %116, %2
+  %117 = icmp ugt i64 %2, %116
   br i1 %117, label %.thread448, label %.lr.ph488.split
 
 .thread448:                                       ; preds = %110, %.thread451, %94, %98, %108, %.thread451.loopexit.us, %71, %72, %82
@@ -22479,7 +22479,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   %145 = ptrtoint ptr %144 to i64
   %146 = icmp sgt i64 %143, -1
   tail call void @llvm.assume(i1 %146)
-  %147 = icmp ult i64 %143, %2
+  %147 = icmp ugt i64 %2, %143
   br i1 %147, label %.thread456, label %.lr.ph511
 
 .lr.ph511:                                        ; preds = %140
@@ -22560,7 +22560,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   tail call void @llvm.assume(i1 %188)
   %189 = ptrtoint ptr %187 to i64
   %190 = sub i64 %145, %189
-  %191 = icmp ult i64 %190, %2
+  %191 = icmp ugt i64 %2, %190
   br i1 %191, label %.thread456, label %158
 
 .thread456:                                       ; preds = %179, %.thread459, %163, %167, %177, %140
@@ -22581,7 +22581,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   br label %.thread.thread
 
 197:                                              ; preds = %6
-  %198 = icmp ult i64 %8, %2
+  %198 = icmp ugt i64 %2, %8
   br i1 %198, label %201, label %199
 
 199:                                              ; preds = %197
@@ -23579,7 +23579,7 @@ define internal fastcc ptr @php_str_to_str_i_ex(ptr noundef %0, ptr noundef %1, 
 
 159:                                              ; preds = %.thread508
   %160 = load i64, ptr %100, align 8
-  %161 = icmp ult i64 %160, %4
+  %161 = icmp ugt i64 %4, %160
   %162 = sub i64 %4, %160
   br i1 %161, label %163, label %172
 

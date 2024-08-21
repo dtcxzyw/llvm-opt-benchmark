@@ -96,7 +96,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
   %.val134 = load ptr, ptr %41, align 8
   %42 = getelementptr i8, ptr %.val134, i64 16
   %.val134.val = load i32, ptr %42, align 8
-  %43 = icmp sle i32 %.val134.val, %6
+  %43 = icmp sge i32 %6, %.val134.val
   %44 = icmp slt i32 %6, 0
   %or.cond7 = or i1 %44, %43
   br i1 %or.cond7, label %.thread, label %45
@@ -153,7 +153,7 @@ ompi_comm_remote_size.exit:                       ; preds = %66
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load i32, ptr %70, align 8
-  %72 = icmp sgt i32 %71, %6
+  %72 = icmp slt i32 %6, %71
   br i1 %72, label %74, label %.thread153
 
 73:                                               ; preds = %66

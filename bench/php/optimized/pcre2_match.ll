@@ -58,7 +58,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %.0740 = phi i64 [ 1, %21 ], [ 0, %17 ]
   %.0726 = phi i64 [ %22, %21 ], [ %2, %17 ]
   %24 = getelementptr inbounds i8, ptr %spec.store.select56, i64 %.0726
-  %25 = icmp ult i64 %.0726, %3
+  %25 = icmp ugt i64 %3, %.0726
   br i1 %25, label %.loopexit1000, label %26
 
 26:                                               ; preds = %23
@@ -158,7 +158,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %or.cond907, label %117, label %85
 
 85:                                               ; preds = %82
-  %86 = icmp sgt i64 %.0726, %3
+  %86 = icmp slt i64 %3, %.0726
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %85
@@ -2304,7 +2304,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   store i64 %281, ptr %282, align 8
   %283 = getelementptr inbounds i8, ptr %4, i64 98
   %284 = load i16, ptr %283, align 2
-  %.not9041 = icmp ugt i16 %284, %2
+  %.not9041 = icmp ult i16 %2, %284
   %285 = zext i16 %284 to i32
   %286 = zext i16 %2 to i32
   %287 = add nuw nsw i32 %286, 1
@@ -27990,7 +27990,7 @@ declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef,
 define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
   %6 = getelementptr inbounds i8, ptr %2, i64 128
   %7 = load i64, ptr %6, align 8
-  %.not = icmp ugt i64 %7, %0
+  %.not = icmp ult i64 %0, %7
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %5

@@ -883,7 +883,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_set_callback_data2(ptr noun
 16:                                               ; preds = %15, %6
   %17 = phi i32 [ 1, %15 ], [ %8, %6 ]
   %18 = add i32 %17, -1
-  %19 = icmp ult i32 %18, %2
+  %19 = icmp ugt i32 %2, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
@@ -920,7 +920,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_add_callback_data(ptr nound
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 224
   %8 = load i32, ptr %7, align 8
-  %9 = icmp ult i32 %8, %2
+  %9 = icmp ugt i32 %2, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
@@ -971,7 +971,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_add_callback_data(ptr nound
   store i64 -1, ptr %33, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %34 = icmp ugt i32 %indvars, %2
+  %34 = icmp ult i32 %2, %indvars
   %35 = trunc nuw i64 %indvars.iv to i32
   br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
@@ -1855,7 +1855,7 @@ client_switch_proxy.exit:                         ; preds = %86, %95, %99
 
 108:                                              ; preds = %49
   %109 = load i64, ptr %12, align 8
-  %110 = icmp ult i64 %109, %1
+  %110 = icmp ugt i64 %1, %109
   br i1 %110, label %111, label %130
 
 111:                                              ; preds = %108
@@ -1995,7 +1995,7 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
   br i1 %.not97.i, label %20, label %12
 
 12:                                               ; preds = %9
-  %..i = tail call i64 @llvm.smin.i64(i64 %11, i64 %1)
+  %..i = tail call i64 @llvm.smin.i64(i64 %1, i64 %11)
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %..i

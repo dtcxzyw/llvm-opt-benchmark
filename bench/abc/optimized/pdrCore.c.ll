@@ -666,7 +666,7 @@ define range(i32 0, 2) i32 @Pdr_ManCheckContainment(ptr nocapture noundef readon
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val19 = load i32, ptr %6, align 4
-  %7 = icmp sgt i32 %.val19, %1
+  %7 = icmp slt i32 %1, %.val19
   br i1 %7, label %.lr.ph25, label %.critedge
 
 .lr.ph25:                                         ; preds = %3
@@ -1062,7 +1062,7 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   %14 = icmp sgt i32 %1, 1
   %.not93113 = icmp slt i32 %1, 1
   %15 = add nsw i32 %1, -1
-  %16 = icmp sgt i32 %13, %1
+  %16 = icmp slt i32 %1, %13
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = getelementptr inbounds i8, ptr %0, i64 192
   %19 = getelementptr inbounds i8, ptr %0, i64 92
@@ -2739,7 +2739,7 @@ Abc_Clock.exit:                                   ; preds = %59, %66
   %72 = load ptr, ptr %11, align 8
   %73 = getelementptr i8, ptr %72, i64 4
   %.val19.i = load i32, ptr %73, align 4
-  %74 = icmp sgt i32 %.val19.i, %69
+  %74 = icmp slt i32 %69, %.val19.i
   br i1 %74, label %.lr.ph25.i, label %.loopexit
 
 .lr.ph25.i:                                       ; preds = %Abc_Clock.exit

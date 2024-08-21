@@ -884,7 +884,7 @@ define range(i32 0, 2) i32 @PQsetvalue(ptr noundef %0, i32 noundef %1, i32 nound
   %9 = icmp sgt i32 %2, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %2
+  %.not9.i = icmp slt i32 %2, %.pre.i
   %or.cond.i = select i1 %9, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %check_field_number.exit.thread
 
@@ -897,7 +897,7 @@ check_field_number.exit.thread:                   ; preds = %8
 check_field_number.exit:                          ; preds = %8
   %12 = icmp slt i32 %1, 0
   %.pre = load i32, ptr %0, align 8
-  %13 = icmp slt i32 %.pre, %1
+  %13 = icmp sgt i32 %1, %.pre
   %or.cond80 = select i1 %12, i1 true, i1 %13
   br i1 %or.cond80, label %14, label %16
 
@@ -907,7 +907,7 @@ check_field_number.exit:                          ; preds = %8
   br label %93
 
 16:                                               ; preds = %check_field_number.exit
-  %17 = icmp eq i32 %.pre, %1
+  %17 = icmp eq i32 %1, %.pre
   br i1 %17, label %18, label %65
 
 18:                                               ; preds = %16
@@ -1307,7 +1307,7 @@ define ptr @pqResultAlloc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2)
   %20 = getelementptr inbounds i8, ptr %0, i64 204
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %.not61 = icmp ult i64 %22, %1
+  %.not61 = icmp ugt i64 %1, %22
   br i1 %.not61, label %33, label %23
 
 23:                                               ; preds = %19
@@ -3396,9 +3396,9 @@ define void @pqCommandQueueAdvance(ptr nocapture noundef %0, i1 noundef zeroext 
 7:                                                ; preds = %3
   %8 = load i32, ptr %5, align 8
   %9 = icmp ne i32 %8, 0
-  %brmerge = or i1 %9, %1
+  %brmerge = or i1 %1, %9
   %10 = icmp ne i32 %8, 4
-  %brmerge13 = or i1 %10, %2
+  %brmerge13 = or i1 %2, %10
   %or.cond = and i1 %brmerge, %brmerge13
   br i1 %or.cond, label %11, label %23
 
@@ -4861,7 +4861,7 @@ define ptr @PQresultErrorField(ptr noundef readonly %0, i32 noundef %1) local_un
   %7 = getelementptr inbounds i8, ptr %.0, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = sext i8 %8 to i32
-  %10 = icmp eq i32 %9, %1
+  %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %5, !llvm.loop !25
 
 11:                                               ; preds = %6
@@ -4926,7 +4926,7 @@ define ptr @PQfname(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %._crit_edge.i
 
@@ -5116,7 +5116,7 @@ define i32 @PQftable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %._crit_edge.i
 
@@ -5152,7 +5152,7 @@ define i32 @PQftablecol(ptr noundef readonly %0, i32 noundef %1) local_unnamed_a
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %._crit_edge.i
 
@@ -5188,7 +5188,7 @@ define i32 @PQfformat(ptr noundef readonly %0, i32 noundef %1) local_unnamed_add
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %._crit_edge.i
 
@@ -5224,7 +5224,7 @@ define i32 @PQftype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %._crit_edge.i
 
@@ -5260,7 +5260,7 @@ define i32 @PQfsize(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %._crit_edge.i
 
@@ -5296,7 +5296,7 @@ define i32 @PQfmod(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_field_number.exit, label %._crit_edge.i
 
@@ -5537,7 +5537,7 @@ define ptr @PQgetvalue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) 
 4:                                                ; preds = %3
   %5 = icmp sgt i32 %1, -1
   %.pre18.i = load i32, ptr %0, align 8
-  %.not16.i = icmp sgt i32 %.pre18.i, %1
+  %.not16.i = icmp slt i32 %1, %.pre18.i
   %or.cond.i = select i1 %5, i1 %.not16.i, i1 false
   br i1 %or.cond.i, label %9, label %6
 
@@ -5551,7 +5551,7 @@ define ptr @PQgetvalue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) 
   %10 = icmp sgt i32 %2, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not17.i = icmp sgt i32 %.pre.i, %2
+  %.not17.i = icmp slt i32 %2, %.pre.i
   %or.cond19.i = select i1 %10, i1 %.not17.i, i1 false
   br i1 %or.cond19.i, label %check_tuple_field_number.exit, label %._crit_edge.i
 
@@ -5585,7 +5585,7 @@ define range(i32 0, -1) i32 @PQgetlength(ptr noundef readonly %0, i32 noundef %1
 4:                                                ; preds = %3
   %5 = icmp sgt i32 %1, -1
   %.pre18.i = load i32, ptr %0, align 8
-  %.not16.i = icmp sgt i32 %.pre18.i, %1
+  %.not16.i = icmp slt i32 %1, %.pre18.i
   %or.cond.i = select i1 %5, i1 %.not16.i, i1 false
   br i1 %or.cond.i, label %9, label %6
 
@@ -5599,7 +5599,7 @@ define range(i32 0, -1) i32 @PQgetlength(ptr noundef readonly %0, i32 noundef %1
   %10 = icmp sgt i32 %2, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not17.i = icmp sgt i32 %.pre.i, %2
+  %.not17.i = icmp slt i32 %2, %.pre.i
   %or.cond19.i = select i1 %10, i1 %.not17.i, i1 false
   br i1 %or.cond19.i, label %check_tuple_field_number.exit, label %._crit_edge.i
 
@@ -5635,7 +5635,7 @@ define range(i32 0, 2) i32 @PQgetisnull(ptr noundef readonly %0, i32 noundef %1,
 4:                                                ; preds = %3
   %5 = icmp sgt i32 %1, -1
   %.pre18.i = load i32, ptr %0, align 8
-  %.not16.i = icmp sgt i32 %.pre18.i, %1
+  %.not16.i = icmp slt i32 %1, %.pre18.i
   %or.cond.i = select i1 %5, i1 %.not16.i, i1 false
   br i1 %or.cond.i, label %9, label %6
 
@@ -5649,7 +5649,7 @@ define range(i32 0, 2) i32 @PQgetisnull(ptr noundef readonly %0, i32 noundef %1,
   %10 = icmp sgt i32 %2, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not17.i = icmp sgt i32 %.pre.i, %2
+  %.not17.i = icmp slt i32 %2, %.pre.i
   %or.cond19.i = select i1 %10, i1 %.not17.i, i1 false
   br i1 %or.cond19.i, label %check_tuple_field_number.exit, label %._crit_edge.i
 
@@ -5701,7 +5701,7 @@ define i32 @PQparamtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_a
   %4 = icmp sgt i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 28
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %.not9.i = icmp sgt i32 %.pre.i, %1
+  %.not9.i = icmp slt i32 %1, %.pre.i
   %or.cond.i = select i1 %4, i1 %.not9.i, i1 false
   br i1 %or.cond.i, label %check_param_number.exit, label %._crit_edge.i
 
@@ -6225,7 +6225,7 @@ define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr
   store i8 %5, ptr %.086, align 1
   %62 = icmp eq i32 %.093.lcssa, 0
   %63 = icmp eq i32 %.091.lcssa, 0
-  %brmerge = or i1 %63, %3
+  %brmerge = or i1 %3, %63
   %or.cond109 = select i1 %62, i1 %brmerge, i1 false
   %sext105 = shl i64 %.lcssa113, 32
   %64 = ashr exact i64 %sext105, 32
@@ -6250,7 +6250,7 @@ define internal fastcc noalias noundef ptr @PQescapeInternal(ptr noundef %0, ptr
   %70 = load i8, ptr %.2131, align 1
   %71 = icmp ne i8 %70, %5
   %72 = icmp ne i8 %70, 92
-  %or.cond.not111 = or i1 %72, %3
+  %or.cond.not111 = or i1 %3, %72
   %or.cond = and i1 %71, %or.cond.not111
   br i1 %or.cond, label %77, label %73
 

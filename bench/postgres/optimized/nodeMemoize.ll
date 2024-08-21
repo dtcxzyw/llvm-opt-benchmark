@@ -497,7 +497,7 @@ memoize_grow.exit.i.i.i:                          ; preds = %161, %memoize_updat
   %.08135.i.i.i = phi i32 [ %225, %234 ], [ 0, %167 ]
   %179 = getelementptr inbounds i8, ptr %178, i64 16
   %180 = load i32, ptr %179, align 8
-  %181 = icmp eq i32 %180, %88
+  %181 = icmp eq i32 %88, %180
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %.lr.ph.i.i.i
@@ -791,7 +791,7 @@ prepare_probe_slot.exit38.i:                      ; preds = %317, %300
   %.0151.i.i.i = phi i32 [ %352, %349 ], [ %333, %prepare_probe_slot.exit38.i ]
   %343 = getelementptr inbounds i8, ptr %342, i64 16
   %344 = load i32, ptr %343, align 8
-  %345 = icmp eq i32 %344, %331
+  %345 = icmp eq i32 %331, %344
   br i1 %345, label %346, label %349
 
 346:                                              ; preds = %.lr.ph.i.i41.i
@@ -1486,7 +1486,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr
   %.0151.i.i = phi i32 [ %67, %64 ], [ %48, %42 ]
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, %46
+  %60 = icmp eq i32 %46, %59
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %.lr.ph.i.i
@@ -1679,7 +1679,7 @@ define internal fastcc zeroext i1 @cache_reduce_memory(ptr noundef %0, ptr nound
   %.0151.i.i = phi i32 [ %134, %131 ], [ %23, %17 ]
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %34, %21
+  %35 = icmp eq i32 %21, %34
   br i1 %35, label %36, label %131
 
 36:                                               ; preds = %.lr.ph.i.i

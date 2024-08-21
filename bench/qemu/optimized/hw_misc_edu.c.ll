@@ -183,7 +183,7 @@ edu_check_range.exit:                             ; preds = %if.then4
   %9 = getelementptr i8, ptr %opaque, i64 7192
   %opaque.val = load i64, ptr %9, align 8
   %and.i = and i64 %opaque.val, %8
-  %cmp.not.i = icmp eq i64 %and.i, %8
+  %cmp.not.i = icmp eq i64 %8, %and.i
   br i1 %cmp.not.i, label %edu_clamp_addr.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %edu_check_range.exit
@@ -226,7 +226,7 @@ edu_check_range.exit32:                           ; preds = %if.else
   %19 = getelementptr i8, ptr %opaque, i64 7192
   %opaque.val23 = load i64, ptr %19, align 8
   %and.i33 = and i64 %opaque.val23, %18
-  %cmp.not.i34 = icmp eq i64 %and.i33, %18
+  %cmp.not.i34 = icmp eq i64 %18, %and.i33
   br i1 %cmp.not.i34, label %edu_clamp_addr.exit38, label %if.then.i35
 
 if.then.i35:                                      ; preds = %edu_check_range.exit32

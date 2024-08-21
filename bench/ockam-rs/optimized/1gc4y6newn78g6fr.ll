@@ -9601,7 +9601,7 @@ _ZN11tungstenite9handshake6server14write_response17h4b7f6d09bfdb8a9cE.exit.i: ; 
   %362 = load i64, ptr %107, align 8, !alias.scope !1348, !noalias !1353, !noundef !11
   %363 = load i64, ptr %78, align 8, !alias.scope !1355, !noalias !1353, !noundef !11
   %364 = sub i64 %363, %362
-  %365 = icmp ult i64 %364, %361
+  %365 = icmp ugt i64 %361, %364
   br i1 %365, label %366, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit"
 
 366:                                              ; preds = %359
@@ -10596,7 +10596,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.30260
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 

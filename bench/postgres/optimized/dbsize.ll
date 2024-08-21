@@ -205,7 +205,7 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
   %3 = alloca [2048 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %.not = icmp eq i32 %5, %0
+  %.not = icmp eq i32 %0, %5
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %1

@@ -24734,7 +24734,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8mips_mmuILi32EE9tlb_matchEjh(ptr 
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 19
   %12 = trunc i32 %11 to i8
-  %13 = icmp eq i8 %12, %2
+  %13 = icmp eq i8 %2, %12
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %6

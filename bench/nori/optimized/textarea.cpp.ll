@@ -1005,7 +1005,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorI
   %46 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %.sroa.02.03.i.i, i64 %45
   %47 = getelementptr i8, ptr %46, i64 4
   %.val.i.i.i = load i32, ptr %47, align 4
-  %48 = icmp sgt i32 %.val.i.i.i, %43
+  %48 = icmp slt i32 %43, %.val.i.i.i
   %49 = getelementptr inbounds i8, ptr %46, i64 64
   %50 = xor i64 %45, -1
   %51 = add nsw i64 %.04.i.i, %50
@@ -1500,7 +1500,7 @@ declare float @nvgText(ptr noundef, float noundef, float noundef, ptr noundef, p
 define hidden noundef zeroext i1 @_ZN7nanogui8TextArea18mouse_button_eventERKNS_5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3, i32 %4) unnamed_addr #4 align 2 {
   %6 = alloca %"struct.nanogui::Array", align 4
   %7 = icmp eq i32 %2, 0
-  %or.cond = and i1 %7, %3
+  %or.cond = and i1 %3, %7
   br i1 %or.cond, label %8, label %28
 
 8:                                                ; preds = %5
@@ -2005,7 +2005,7 @@ _ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit: ; pre
 _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17

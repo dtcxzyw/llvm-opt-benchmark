@@ -835,7 +835,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [4 x double], ptr %this, i64 0, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
-  %mul = fmul double %0, %s
+  %mul = fmul double %s, %0
   store double %mul, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3473,7 +3473,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i)
-  %cmp.not = icmp ugt i64 %call2, %index
+  %cmp.not = icmp ult i64 %index, %call2
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3572,7 +3572,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(48) %m_array.i)
-  %cmp.not = icmp ugt i64 %call2, %index
+  %cmp.not = icmp ult i64 %index, %call2
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4502,7 +4502,7 @@ for.body.i2:                                      ; preds = %for.body.i2, %_ZN19
   %indvars.iv.i = phi i64 [ 0, %_ZN19OpenColorIO_v2_4dev6ArrayTIdE5scaleEd.exit ], [ %indvars.iv.next.i, %for.body.i2 ]
   %arrayidx.i = getelementptr inbounds [4 x double], ptr %m_offsets, i64 0, i64 %indvars.iv.i
   %4 = load double, ptr %arrayidx.i, align 8
-  %mul.i3 = fmul double %4, %outScale
+  %mul.i3 = fmul double %outScale, %4
   store double %mul.i3, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i4 = icmp eq i64 %indvars.iv.next.i, 4
@@ -4587,7 +4587,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %call
+  %cmp.i = icmp ugt i64 %call, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -4596,7 +4596,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %call
+  %cmp4.i = icmp ult i64 %call, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i

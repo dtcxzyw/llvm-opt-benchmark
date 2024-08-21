@@ -102,7 +102,7 @@ if.end:                                           ; preds = %entry
 
 if.then13:                                        ; preds = %if.end
   %cmp14 = icmp ugt i64 %len, 63
-  %add16 = add nuw nsw i64 %conv10, %len
+  %add16 = add nuw nsw i64 %len, %conv10
   %cmp17 = icmp ugt i64 %add16, 63
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp17
   %data20 = getelementptr inbounds i8, ptr %c, i64 24

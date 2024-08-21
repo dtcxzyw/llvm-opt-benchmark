@@ -959,7 +959,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10UpdateDepsEiPNS_4DepsE(ptr nou
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %12 = trunc i64 %11 to i32
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit, label %13
 
 13:                                               ; preds = %3

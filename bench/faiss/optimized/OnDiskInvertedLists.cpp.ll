@@ -1528,7 +1528,7 @@ define noundef ptr @_ZNK5faiss25OnDiskInvertedListsIOHook4readEPNS_8IOReaderEi(p
   %150 = ptrtoint ptr %148 to i64
   %151 = sub i64 %149, %150
   %152 = sdiv exact i64 %151, 24
-  %153 = icmp ult i64 %152, %126
+  %153 = icmp ugt i64 %126, %152
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %144
@@ -1539,7 +1539,7 @@ define noundef ptr @_ZNK5faiss25OnDiskInvertedListsIOHook4readEPNS_8IOReaderEi(p
   br label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit
 
 156:                                              ; preds = %144
-  %157 = icmp ugt i64 %152, %126
+  %157 = icmp ult i64 %126, %152
   br i1 %157, label %158, label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit
 
 158:                                              ; preds = %156
@@ -1725,7 +1725,7 @@ _ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit: ; preds = %154, %156
   %250 = ptrtoint ptr %248 to i64
   %251 = sub i64 %249, %250
   %252 = ashr exact i64 %251, 4
-  %253 = icmp ult i64 %252, %227
+  %253 = icmp ugt i64 %227, %252
   br i1 %253, label %254, label %256
 
 254:                                              ; preds = %245
@@ -1739,7 +1739,7 @@ _ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit: ; preds = %154, %156
   br label %_ZNSt6vectorIN5faiss19OnDiskInvertedLists4SlotESaIS2_EE6resizeEm.exit
 
 256:                                              ; preds = %245
-  %257 = icmp ugt i64 %252, %227
+  %257 = icmp ult i64 %227, %252
   br i1 %257, label %258, label %_ZNSt6vectorIN5faiss19OnDiskInvertedLists4SlotESaIS2_EE6resizeEm.exit
 
 258:                                              ; preds = %256
@@ -1998,7 +1998,7 @@ _ZNSt6vectorIN5faiss19OnDiskInvertedLists4SlotESaIS2_EED2Ev.exit: ; preds = %_ZN
   %373 = ptrtoint ptr %371 to i64
   %374 = ptrtoint ptr %372 to i64
   %375 = sub i64 %373, %374
-  %376 = icmp ult i64 %375, %351
+  %376 = icmp ugt i64 %351, %375
   br i1 %376, label %377, label %402
 
 377:                                              ; preds = %369
@@ -2074,7 +2074,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %399, %_ZNS
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 402:                                              ; preds = %369
-  %403 = icmp ugt i64 %375, %351
+  %403 = icmp ult i64 %351, %375
   br i1 %403, label %404, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 404:                                              ; preds = %402
@@ -2445,7 +2445,7 @@ define noundef ptr @_ZNK5faiss25OnDiskInvertedListsIOHook23read_ArrayInvertedLis
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = sdiv exact i64 %23, 24
-  %25 = icmp ult i64 %24, %3
+  %25 = icmp ugt i64 %3, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %13
@@ -2454,7 +2454,7 @@ define noundef ptr @_ZNK5faiss25OnDiskInvertedListsIOHook23read_ArrayInvertedLis
   br label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit
 
 28:                                               ; preds = %13
-  %29 = icmp ugt i64 %24, %3
+  %29 = icmp ult i64 %3, %24
   br i1 %29, label %30, label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit
 
 30:                                               ; preds = %28
@@ -3271,7 +3271,7 @@ define linkonce_odr void @_ZN5faiss10LockLevels6lock_1Ei(ptr noundef nonnull ali
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   br i1 %21, label %.critedge, label %.preheader, !llvm.loop !15
 
 22:                                               ; preds = %16
@@ -3287,11 +3287,11 @@ define linkonce_odr void @_ZN5faiss10LockLevels6lock_1Ei(ptr noundef nonnull ali
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, %1
+  %32 = icmp eq i32 %1, %31
   br i1 %32, label %.critedge, label %.lr.ph.i.i.i.i.i
 
 33:                                               ; preds = %36
-  %34 = icmp eq i32 %38, %1
+  %34 = icmp eq i32 %1, %38
   br i1 %34, label %.critedge, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %28, %33
@@ -3606,7 +3606,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -3719,7 +3719,7 @@ _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_
   %.017 = phi ptr [ %17, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKi.exit ], [ %39, %37 ]
   %.016 = phi i64 [ %21, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKi.exit ], [ %27, %37 ]
   %.015 = phi ptr [ %.01014.i.lcssa, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeERKi.exit ], [ %.018.i, %37 ]
-  %48 = icmp eq ptr %46, %.015
+  %48 = icmp eq ptr %.015, %46
   %49 = load ptr, ptr %.017, align 8
   %.not18.i = icmp eq ptr %49, null
   br i1 %48, label %50, label %70
@@ -4099,7 +4099,7 @@ define void @_ZN5faiss19OnDiskInvertedLists14update_totsizeEm(ptr noundef nonnul
 
 66:                                               ; preds = %64, %34
   %67 = phi i64 [ %.pre, %64 ], [ %36, %34 ]
-  %68 = icmp ult i64 %67, %1
+  %68 = icmp ugt i64 %1, %67
   br i1 %68, label %69, label %92
 
 69:                                               ; preds = %66
@@ -4346,7 +4346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = sdiv exact i64 %56, 24
-  %58 = icmp ult i64 %57, %1
+  %58 = icmp ugt i64 %1, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %41
@@ -4355,7 +4355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit unwind label %68
 
 61:                                               ; preds = %41
-  %62 = icmp ugt i64 %57, %1
+  %62 = icmp ult i64 %1, %57
   br i1 %62, label %63, label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EE6resizeEm.exit
 
 63:                                               ; preds = %61
@@ -4785,7 +4785,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %39 = load ptr, ptr %31, align 8
   %40 = getelementptr inbounds i8, ptr %21, i64 232
-  %41 = icmp eq ptr %40, %39
+  %41 = icmp eq ptr %39, %40
   br i1 %41, label %_ZN5faiss10LockLevelsD2Ev.exit, label %42
 
 42:                                               ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
@@ -4899,9 +4899,9 @@ define void @_ZN5faiss19OnDiskInvertedLists13resize_lockedEmm(ptr noundef nonnul
   %8 = getelementptr inbounds %"struct.faiss::OnDiskOneList", ptr %7, i64 %1
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
-  %.not = icmp uge i64 %10, %2
+  %.not = icmp ule i64 %2, %10
   %11 = lshr i64 %10, 1
-  %12 = icmp ult i64 %11, %2
+  %12 = icmp ugt i64 %2, %11
   %or.cond = and i1 %.not, %12
   br i1 %or.cond, label %13, label %14
 
@@ -5097,7 +5097,7 @@ define void @_ZN5faiss19OnDiskInvertedLists9free_slotEmm(ptr noundef nonnull ali
   %.063 = phi i64 [ %.065, %22 ], [ 1152921504606846976, %21 ], [ %20, %13 ], [ 1152921504606846976, %6 ]
   %.sroa.034.0.lcssa5762 = phi ptr [ %.sroa.034.0.lcssa, %22 ], [ %.sroa.034.0.lcssa, %21 ], [ %.sroa.034.0.lcssa, %13 ], [ %8, %6 ]
   %.021 = phi i64 [ %24, %22 ], [ 1152921504606846976, %21 ], [ 1152921504606846976, %13 ], [ 1152921504606846976, %6 ]
-  %25 = icmp eq i64 %.063, %1
+  %25 = icmp eq i64 %1, %.063
   br i1 %25, label %26, label %45
 
 26:                                               ; preds = %.thread
@@ -5768,7 +5768,7 @@ define void @_ZN5faiss19OnDiskInvertedLists13crop_invlistsEmm(ptr nocapture noun
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
-  %.not18 = icmp ult i64 %9, %2
+  %.not18 = icmp ugt i64 %2, %9
   br i1 %.not18, label %10, label %26
 
 10:                                               ; preds = %3, %7

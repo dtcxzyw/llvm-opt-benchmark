@@ -163,7 +163,7 @@ define hidden noundef ptr @_ZN18XLoadBarrierStubC26createEPK8MachNode7Address8Re
   %46 = getelementptr inbounds i8, ptr %45, i64 572
   %47 = load i8, ptr %46, align 4
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %73, label %49
+  br i1 %48, label %71, label %49
 
 49:                                               ; preds = %38
   %50 = getelementptr inbounds i8, ptr %43, i64 344
@@ -178,30 +178,29 @@ define hidden noundef ptr @_ZN18XLoadBarrierStubC26createEPK8MachNode7Address8Re
 57:                                               ; preds = %49
   %58 = add nsw i32 %53, 1
   %59 = icmp sgt i32 %53, -1
-  %60 = xor i32 %53, -2147483648
-  %61 = and i32 %60, %58
-  %62 = icmp eq i32 %61, 0
-  %63 = and i1 %59, %62
-  %64 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
-  %65 = sub nuw nsw i32 32, %64
-  %66 = shl nuw i32 1, %65
-  %.0.i.i.i.i = select i1 %63, i32 %58, i32 %66
+  %60 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %58)
+  %61 = icmp ult i32 %60, 2
+  %or.cond.i.i.i.i = select i1 %59, i1 %61, i1 false
+  %62 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
+  %63 = sub nuw nsw i32 32, %62
+  %64 = shl nuw i32 1, %63
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %58, i32 %64
   call void @_ZN26GrowableArrayWithAllocatorIP18XLoadBarrierStubC213GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %52, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP18XLoadBarrierStubC213GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP18XLoadBarrierStubC213GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %49, %57
-  %67 = phi i32 [ %.pre.i, %57 ], [ %53, %49 ]
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %52, align 8
-  %69 = getelementptr inbounds i8, ptr %52, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = sext i32 %67 to i64
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %71
-  store ptr %14, ptr %72, align 8
-  br label %73
+  %65 = phi i32 [ %.pre.i, %57 ], [ %53, %49 ]
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %52, align 8
+  %67 = getelementptr inbounds i8, ptr %52, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = sext i32 %65 to i64
+  %70 = getelementptr inbounds ptr, ptr %68, i64 %69
+  store ptr %14, ptr %70, align 8
+  br label %71
 
-73:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP18XLoadBarrierStubC213GrowableArrayIS1_EE6appendERKS1_.exit, %38
+71:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP18XLoadBarrierStubC213GrowableArrayIS1_EE6appendERKS1_.exit, %38
   ret ptr %14
 }
 
@@ -316,7 +315,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18XLoadBarrie
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %9, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = icmp ugt i32 %22, %20
+  %23 = icmp ult i32 %20, %22
   br i1 %23, label %_ZNK10Node_ArrayixEj.exit.i, label %_ZNK10Node_ArrayixEj.exit.thread.i
 
 _ZNK10Node_ArrayixEj.exit.i:                      ; preds = %1
@@ -358,7 +357,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = 
   store i32 0, ptr %43, align 4
   %44 = load i32, ptr %19, align 8
   %45 = load i32, ptr %21, align 8
-  %.not.i.i = icmp ugt i32 %45, %44
+  %.not.i.i = icmp ult i32 %44, %45
   br i1 %.not.i.i, label %_ZN10Node_Array3mapEjP4Node.exit.i, label %46
 
 46:                                               ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i
@@ -662,7 +661,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %86, %90
   %110 = add i32 %109, 1
   store i32 %110, ptr %68, align 8
   %111 = load i32, ptr %55, align 8
-  %.not.i.i = icmp ugt i32 %111, %109
+  %.not.i.i = icmp ult i32 %109, %111
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %112
 
 112:                                              ; preds = %108
@@ -688,7 +687,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %108, %112
   %122 = add i32 %121, 1
   store i32 %122, ptr %51, align 8
   %123 = load i32, ptr %38, align 8
-  %.not.i.i102 = icmp ugt i32 %123, %121
+  %.not.i.i102 = icmp ult i32 %121, %123
   br i1 %.not.i.i102, label %.sink.split, label %.sink.split.sink.split
 
 124:                                              ; preds = %99, %99, %99
@@ -703,7 +702,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %108, %112
   %130 = add i32 %129, 1
   store i32 %130, ptr %68, align 8
   %131 = load i32, ptr %55, align 8
-  %.not.i.i104 = icmp ugt i32 %131, %129
+  %.not.i.i104 = icmp ult i32 %129, %131
   br i1 %.not.i.i104, label %_ZN9Node_List4pushEP4Node.exit105, label %132
 
 132:                                              ; preds = %128
@@ -722,7 +721,7 @@ _ZN9Node_List4pushEP4Node.exit105:                ; preds = %128, %132
   %138 = add i32 %137, 1
   store i32 %138, ptr %51, align 8
   %139 = load i32, ptr %38, align 8
-  %.not.i.i106 = icmp ugt i32 %139, %137
+  %.not.i.i106 = icmp ult i32 %137, %139
   br i1 %.not.i.i106, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %136, %120
@@ -929,7 +928,7 @@ _ZNK5Block8get_nodeEj.exit.lr.ph.i:               ; preds = %224
   %indvars.iv.i119196 = phi i64 [ %indvars.iv.next.i120, %_ZNK5Block8get_nodeEj.exit.i118 ], [ %228, %_ZNK5Block8get_nodeEj.exit.lr.ph.i ]
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119196, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i120 to i32
-  %exitcond.not.i121 = icmp eq i32 %lftr.wideiv.i, %178
+  %exitcond.not.i121 = icmp eq i32 %178, %lftr.wideiv.i
   br i1 %exitcond.not.i121, label %_ZL19block_has_safepointPK5Blockjj.exit, label %_ZNK5Block8get_nodeEj.exit.i118, !llvm.loop !10
 
 _ZNK5Block8get_nodeEj.exit.i118:                  ; preds = %.lr.ph197
@@ -974,7 +973,7 @@ _ZL19block_has_safepointPK5Blockjj.exit.thread:   ; preds = %224, %_ZL19block_ha
 
 _ZN5Block9dominatesEPS_.exit:                     ; preds = %.lr.ph.i123, %.preheader.i
   %.07.lcssa.i = phi ptr [ %161, %.preheader.i ], [ %252, %.lr.ph.i123 ]
-  %254 = icmp eq ptr %.07.lcssa.i, %196
+  %254 = icmp eq ptr %196, %.07.lcssa.i
   br i1 %254, label %255, label %_ZN12ResourceMarkD2Ev.exit
 
 255:                                              ; preds = %_ZN5Block9dominatesEPS_.exit
@@ -1027,7 +1026,7 @@ _ZN10Block_ListC2Ev.exit131:                      ; preds = %274
   %278 = add i32 %277, 1
   store i32 %278, ptr %75, align 8
   %279 = load i32, ptr %8, align 8
-  %.not.i.i132 = icmp ugt i32 %279, %277
+  %.not.i.i132 = icmp ult i32 %277, %279
   br i1 %.not.i.i132, label %_ZN10Block_List4pushEP5Block.exit, label %280
 
 280:                                              ; preds = %_ZN10Block_ListC2Ev.exit131
@@ -1197,7 +1196,7 @@ _ZL19block_has_safepointPK5Block.exit145.thread170: ; preds = %.lr.ph.i139, %325
   %370 = add i32 %369, 1
   store i32 %370, ptr %75, align 8
   %371 = load i32, ptr %8, align 8
-  %.not.i.i148 = icmp ugt i32 %371, %369
+  %.not.i.i148 = icmp ult i32 %369, %371
   br i1 %.not.i.i148, label %_ZN10Block_List4pushEP5Block.exit149, label %372
 
 372:                                              ; preds = %.lr.ph194
@@ -2108,7 +2107,7 @@ _ZN10Block_ListC2Ev.exit:                         ; preds = %52
   %70 = add i32 %69, 1
   store i32 %70, ptr %55, align 8
   %71 = load i32, ptr %2, align 8
-  %.not.i.i79 = icmp ugt i32 %71, %69
+  %.not.i.i79 = icmp ult i32 %69, %71
   br i1 %.not.i.i79, label %_ZN10Block_List4pushEP5Block.exit, label %72
 
 72:                                               ; preds = %62
@@ -2375,7 +2374,7 @@ _ZN7RegMask6InsertEi.exit80:                      ; preds = %202
   %234 = load i32, ptr %133, align 8
   %235 = getelementptr inbounds i8, ptr %223, i64 16
   %236 = load i32, ptr %235, align 8
-  %237 = icmp ugt i32 %236, %234
+  %237 = icmp ult i32 %234, %236
   br i1 %237, label %_ZNK10Node_ArrayixEj.exit.i, label %_ZNK10Node_ArrayixEj.exit.thread.i
 
 _ZNK10Node_ArrayixEj.exit.i:                      ; preds = %232
@@ -2417,7 +2416,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = 
   store i32 0, ptr %257, align 4
   %258 = load i32, ptr %133, align 8
   %259 = load i32, ptr %235, align 8
-  %.not.i.i81 = icmp ugt i32 %259, %258
+  %.not.i.i81 = icmp ult i32 %258, %259
   br i1 %.not.i.i81, label %_ZN10Node_Array3mapEjP4Node.exit.i, label %260
 
 260:                                              ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i
@@ -2602,7 +2601,7 @@ _ZN7RegMask2ORERKS_.exit96:                       ; preds = %.lr.ph.i93, %318
   %348 = add i32 %347, 1
   store i32 %348, ptr %55, align 8
   %349 = load i32, ptr %2, align 8
-  %.not.i.i99 = icmp ugt i32 %349, %347
+  %.not.i.i99 = icmp ult i32 %347, %349
   br i1 %.not.i.i99, label %_ZN10Block_List4pushEP5Block.exit100, label %350
 
 350:                                              ; preds = %.lr.ph129
@@ -2963,6 +2962,9 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11

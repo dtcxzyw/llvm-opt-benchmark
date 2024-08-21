@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr nocapture noundef readonl
   %35 = getelementptr i8, ptr %.05476, i64 1
   %36 = add i32 %.06172, 1
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %37, %3
+  %38 = icmp ugt i64 %3, %37
   br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

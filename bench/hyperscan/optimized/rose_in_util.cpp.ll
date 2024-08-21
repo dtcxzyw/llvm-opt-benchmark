@@ -10236,7 +10236,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont2
   %4 = load i64, ptr %add.ptr.i21.i.i.i, align 8
   %cmp.i.i22.i.i.i = icmp eq i64 %4, %u.coerce1
   %agg.tmp.sroa.0.0.copyload.i.i.i23.i.i.i = load ptr, ptr %add.ptr20.i.i.i, align 8
-  %cmp.i.i.i.i24.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i23.i.i.i, %u.coerce0
+  %cmp.i.i.i.i24.i.i.i = icmp eq ptr %u.coerce0, %agg.tmp.sroa.0.0.copyload.i.i.i23.i.i.i
   %5 = select i1 %cmp.i.i22.i.i.i, i1 %cmp.i.i.i.i24.i.i.i, i1 false
   br i1 %5, label %invoke.cont44, label %if.end3.i.i.i
 
@@ -10244,7 +10244,7 @@ for.cond.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %cmp.i.i.i.i.i = icmp eq i64 %8, %u.coerce1
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, %u.coerce0
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %u.coerce0, %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i
   %6 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
   br i1 %6, label %invoke.cont44, label %if.end3.i.i.i, !llvm.loop !226
 
@@ -11355,7 +11355,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont2
   %4 = load i64, ptr %add.ptr.i21.i.i.i, align 8
   %cmp.i.i22.i.i.i = icmp eq i64 %4, %u.coerce1
   %agg.tmp.sroa.0.0.copyload.i.i.i23.i.i.i = load ptr, ptr %add.ptr20.i.i.i, align 8
-  %cmp.i.i.i.i24.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i23.i.i.i, %u.coerce0
+  %cmp.i.i.i.i24.i.i.i = icmp eq ptr %u.coerce0, %agg.tmp.sroa.0.0.copyload.i.i.i23.i.i.i
   %5 = select i1 %cmp.i.i22.i.i.i, i1 %cmp.i.i.i.i24.i.i.i, i1 false
   br i1 %5, label %invoke.cont45, label %if.end3.i.i.i
 
@@ -11363,7 +11363,7 @@ for.cond.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %cmp.i.i.i.i.i = icmp eq i64 %8, %u.coerce1
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, %u.coerce0
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %u.coerce0, %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i
   %6 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
   br i1 %6, label %invoke.cont45, label %if.end3.i.i.i, !llvm.loop !226
 

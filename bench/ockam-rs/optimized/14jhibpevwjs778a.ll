@@ -1085,7 +1085,7 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h54a
   %.val = load i64, ptr %2, align 8, !noundef !6
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !6
-  %7 = icmp ugt i64 %6, %.val
+  %7 = icmp ult i64 %.val, %6
   br i1 %7, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit", label %8
 
 8:                                                ; preds = %4
@@ -1324,7 +1324,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
 
 .thread.thread:                                   ; preds = %15, %.thread
   %cond = icmp eq i64 %2, 5
-  %or.cond39 = and i1 %cond, %3
+  %or.cond39 = and i1 %3, %cond
   br i1 %or.cond39, label %.critedge, label %20
 
 .critedge:                                        ; preds = %27, %25, %20, %.thread.thread, %17, %30, %.thread, %15, %4
@@ -1389,7 +1389,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
 
 .thread.thread:                                   ; preds = %15, %.thread
   %cond = icmp eq i64 %2, 5
-  %or.cond39 = and i1 %cond, %3
+  %or.cond39 = and i1 %3, %cond
   br i1 %or.cond39, label %.critedge, label %20
 
 .critedge:                                        ; preds = %27, %25, %20, %.thread.thread, %17, %30, %.thread, %15, %4

@@ -364,7 +364,7 @@ invoke.cont:                                      ; preds = %entry, %if.end6
   call void @_ZN7rocksdb15DecodeSessionIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmS8_(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, ptr noundef nonnull %session_upper, ptr noundef nonnull %session_lower)
   %0 = load i8, ptr %agg.result, align 8
   %cmp.i = icmp ne i8 %0, 0
-  %brmerge.not = and i1 %cmp.i, %force
+  %brmerge.not = and i1 %force, %cmp.i
   br i1 %brmerge.not, label %if.else, label %cleanup
 
 lpad:                                             ; preds = %if.else

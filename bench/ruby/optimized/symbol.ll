@@ -2965,43 +2965,43 @@ define hidden range(i32 0, 2) i32 @rb_id_table_lookup(ptr nocapture noundef read
 
 8:                                                ; preds = %3
   %9 = add nsw i32 %6, -1
-  %10 = and i32 %9, %.0.i.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr %struct.rb_id_item, ptr %12, i64 %13
-  %15 = load i32, ptr %14, align 8
-  %.not18.i = icmp eq i32 %15, %.0.i.i
-  br i1 %.not18.i, label %hash_table_index.exit.thread9, label %.lr.ph.i
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %.01418.i = and i32 %9, %.0.i.i
+  %12 = zext nneg i32 %.01418.i to i64
+  %13 = getelementptr %struct.rb_id_item, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 8
+  %.not19.i = icmp eq i32 %14, %.0.i.i
+  br i1 %.not19.i, label %hash_table_index.exit.thread9, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %8, %19
-  %16 = phi i64 [ %23, %19 ], [ %13, %8 ]
-  %.020.i = phi i32 [ %22, %19 ], [ 1, %8 ]
-  %.01419.i = phi i32 [ %21, %19 ], [ %10, %8 ]
-  %17 = getelementptr %struct.rb_id_item, ptr %12, i64 %16, i32 1
-  %18 = load i32, ptr %17, align 4
-  %.not17.i = icmp eq i32 %18, 0
-  br i1 %.not17.i, label %hash_table_index.exit.thread, label %19
+.lr.ph.i:                                         ; preds = %8, %18
+  %15 = phi i64 [ %21, %18 ], [ %12, %8 ]
+  %.01421.i = phi i32 [ %.014.i, %18 ], [ %.01418.i, %8 ]
+  %.020.i = phi i32 [ %20, %18 ], [ 1, %8 ]
+  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15, i32 1
+  %17 = load i32, ptr %16, align 4
+  %.not17.i = icmp eq i32 %17, 0
+  br i1 %.not17.i, label %hash_table_index.exit.thread, label %18
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = add i32 %.01419.i, %.020.i
-  %21 = and i32 %20, %9
-  %22 = add i32 %.020.i, 1
-  %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr %struct.rb_id_item, ptr %12, i64 %23
-  %25 = load i32, ptr %24, align 8
-  %.not.i = icmp eq i32 %25, %.0.i.i
+18:                                               ; preds = %.lr.ph.i
+  %19 = add i32 %.020.i, %.01421.i
+  %20 = add i32 %.020.i, 1
+  %.014.i = and i32 %19, %9
+  %21 = zext nneg i32 %.014.i to i64
+  %22 = getelementptr %struct.rb_id_item, ptr %11, i64 %21
+  %23 = load i32, ptr %22, align 8
+  %.not.i = icmp eq i32 %23, %.0.i.i
   br i1 %.not.i, label %hash_table_index.exit, label %.lr.ph.i, !llvm.loop !34
 
-hash_table_index.exit:                            ; preds = %19
-  %26 = icmp sgt i32 %21, -1
-  br i1 %26, label %hash_table_index.exit.thread9, label %hash_table_index.exit.thread
+hash_table_index.exit:                            ; preds = %18
+  %24 = icmp sgt i32 %.014.i, -1
+  br i1 %24, label %hash_table_index.exit.thread9, label %hash_table_index.exit.thread
 
 hash_table_index.exit.thread9:                    ; preds = %8, %hash_table_index.exit
-  %.pre-phi = phi i64 [ %13, %8 ], [ %23, %hash_table_index.exit ]
-  %27 = getelementptr %struct.rb_id_item, ptr %12, i64 %.pre-phi, i32 2
-  %28 = load i64, ptr %27, align 8
-  store i64 %28, ptr %2, align 8
+  %.pre-phi = phi i64 [ %12, %8 ], [ %21, %hash_table_index.exit ]
+  %25 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi, i32 2
+  %26 = load i64, ptr %25, align 8
+  store i64 %26, ptr %2, align 8
   br label %hash_table_index.exit.thread
 
 hash_table_index.exit.thread:                     ; preds = %.lr.ph.i, %3, %hash_table_index.exit, %hash_table_index.exit.thread9
@@ -3021,231 +3021,231 @@ define hidden noundef i32 @rb_id_table_insert(ptr nocapture noundef %0, i64 noun
 
 8:                                                ; preds = %3
   %9 = add nsw i32 %6, -1
-  %10 = and i32 %9, %.0.i.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr %struct.rb_id_item, ptr %12, i64 %13
-  %15 = load i32, ptr %14, align 8
-  %.not18.i.i = icmp eq i32 %15, %.0.i.i
-  br i1 %.not18.i.i, label %hash_table_index.exit.thread16.i, label %.lr.ph.i.i
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %.01418.i.i = and i32 %9, %.0.i.i
+  %12 = zext nneg i32 %.01418.i.i to i64
+  %13 = getelementptr %struct.rb_id_item, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 8
+  %.not19.i.i = icmp eq i32 %14, %.0.i.i
+  br i1 %.not19.i.i, label %hash_table_index.exit.thread16.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %8, %19
-  %16 = phi i64 [ %23, %19 ], [ %13, %8 ]
-  %.020.i.i = phi i32 [ %22, %19 ], [ 1, %8 ]
-  %.01419.i.i = phi i32 [ %21, %19 ], [ %10, %8 ]
-  %17 = getelementptr %struct.rb_id_item, ptr %12, i64 %16, i32 1
-  %18 = load i32, ptr %17, align 4
-  %.not17.i.i = icmp eq i32 %18, 0
-  br i1 %.not17.i.i, label %hash_table_index.exit.thread.i, label %19
+.lr.ph.i.i:                                       ; preds = %8, %18
+  %15 = phi i64 [ %21, %18 ], [ %12, %8 ]
+  %.01421.i.i = phi i32 [ %.014.i.i, %18 ], [ %.01418.i.i, %8 ]
+  %.020.i.i = phi i32 [ %20, %18 ], [ 1, %8 ]
+  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15, i32 1
+  %17 = load i32, ptr %16, align 4
+  %.not17.i.i = icmp eq i32 %17, 0
+  br i1 %.not17.i.i, label %hash_table_index.exit.thread.i, label %18
 
-19:                                               ; preds = %.lr.ph.i.i
-  %20 = add i32 %.01419.i.i, %.020.i.i
-  %21 = and i32 %20, %9
-  %22 = add i32 %.020.i.i, 1
-  %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr %struct.rb_id_item, ptr %12, i64 %23
-  %25 = load i32, ptr %24, align 8
-  %.not.i.i = icmp eq i32 %25, %.0.i.i
+18:                                               ; preds = %.lr.ph.i.i
+  %19 = add i32 %.020.i.i, %.01421.i.i
+  %20 = add i32 %.020.i.i, 1
+  %.014.i.i = and i32 %19, %9
+  %21 = zext nneg i32 %.014.i.i to i64
+  %22 = getelementptr %struct.rb_id_item, ptr %11, i64 %21
+  %23 = load i32, ptr %22, align 8
+  %.not.i.i = icmp eq i32 %23, %.0.i.i
   br i1 %.not.i.i, label %hash_table_index.exit.i, label %.lr.ph.i.i, !llvm.loop !34
 
-hash_table_index.exit.i:                          ; preds = %19
-  %26 = icmp sgt i32 %21, -1
-  br i1 %26, label %hash_table_index.exit.thread16.i, label %hash_table_index.exit.thread.i
+hash_table_index.exit.i:                          ; preds = %18
+  %24 = icmp sgt i32 %.014.i.i, -1
+  br i1 %24, label %hash_table_index.exit.thread16.i, label %hash_table_index.exit.thread.i
 
 hash_table_index.exit.thread16.i:                 ; preds = %hash_table_index.exit.i, %8
-  %.pre-phi.i = phi i64 [ %13, %8 ], [ %23, %hash_table_index.exit.i ]
-  %27 = getelementptr %struct.rb_id_item, ptr %12, i64 %.pre-phi.i, i32 2
+  %.pre-phi.i = phi i64 [ %12, %8 ], [ %21, %hash_table_index.exit.i ]
+  %25 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi.i, i32 2
   br label %rb_id_table_insert_key.exit
 
 hash_table_index.exit.thread.i:                   ; preds = %.lr.ph.i.i, %hash_table_index.exit.i, %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i32, ptr %28, align 8
-  %30 = ashr i32 %29, 1
-  %31 = add i32 %30, %29
-  %.not.i9.i = icmp slt i32 %31, %6
-  br i1 %.not.i9.i, label %hash_table_extend.exit.i, label %32
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = ashr i32 %27, 1
+  %29 = add i32 %28, %27
+  %.not.i9.i = icmp slt i32 %29, %6
+  br i1 %.not.i9.i, label %hash_table_extend.exit.i, label %30
 
-32:                                               ; preds = %hash_table_index.exit.thread.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = ashr i32 %34, 1
-  %36 = add i32 %35, %34
-  %37 = ashr i32 %36, 2
-  %38 = ashr i32 %36, 3
-  %39 = or i32 %37, %38
-  %40 = ashr i32 %39, 2
+30:                                               ; preds = %hash_table_index.exit.thread.i
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = ashr i32 %32, 1
+  %34 = add i32 %33, %32
+  %35 = ashr i32 %34, 2
+  %36 = ashr i32 %34, 3
+  %37 = or i32 %35, %36
+  %38 = ashr i32 %37, 2
+  %39 = or i32 %38, %37
+  %40 = ashr i32 %39, 4
   %41 = or i32 %40, %39
-  %42 = ashr i32 %41, 4
+  %42 = ashr i32 %41, 8
   %43 = or i32 %42, %41
-  %44 = ashr i32 %43, 8
+  %44 = ashr i32 %43, 16
   %45 = or i32 %44, %43
-  %46 = ashr i32 %45, 16
-  %47 = or i32 %46, %45
-  %48 = shl nsw i32 %47, 2
-  %49 = add i32 %48, 4
-  %50 = icmp slt i32 %49, %6
-  br i1 %50, label %51, label %65
+  %46 = shl nsw i32 %45, 2
+  %47 = add i32 %46, 4
+  %48 = icmp slt i32 %47, %6
+  br i1 %48, label %49, label %63
 
-51:                                               ; preds = %32
-  %52 = ashr i32 %31, 2
-  %53 = ashr i32 %31, 3
-  %54 = or i32 %52, %53
-  %55 = ashr i32 %54, 2
+49:                                               ; preds = %30
+  %50 = ashr i32 %29, 2
+  %51 = ashr i32 %29, 3
+  %52 = or i32 %50, %51
+  %53 = ashr i32 %52, 2
+  %54 = or i32 %53, %52
+  %55 = ashr i32 %54, 4
   %56 = or i32 %55, %54
-  %57 = ashr i32 %56, 4
+  %57 = ashr i32 %56, 8
   %58 = or i32 %57, %56
-  %59 = ashr i32 %58, 8
+  %59 = ashr i32 %58, 16
   %60 = or i32 %59, %58
-  %61 = ashr i32 %60, 16
-  %62 = or i32 %61, %60
-  %63 = shl nsw i32 %62, 2
-  %64 = add i32 %63, 4
-  br label %65
+  %61 = shl nsw i32 %60, 2
+  %62 = add i32 %61, 4
+  br label %63
 
-65:                                               ; preds = %51, %32
-  %.0.i.i2 = phi i32 [ %64, %51 ], [ %49, %32 ]
-  %66 = sext i32 %.0.i.i2 to i64
-  %67 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %66, i64 noundef 16) #23
-  %68 = load i32, ptr %0, align 8
-  %69 = icmp sgt i32 %68, 0
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %69, label %.lr.ph.i10.i, label %.._crit_edge_crit_edge.i.i
+63:                                               ; preds = %49, %30
+  %.0.i.i2 = phi i32 [ %62, %49 ], [ %47, %30 ]
+  %64 = sext i32 %.0.i.i2 to i64
+  %65 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %64, i64 noundef 16) #23
+  %66 = load i32, ptr %0, align 8
+  %67 = icmp sgt i32 %66, 0
+  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %67, label %.lr.ph.i10.i, label %.._crit_edge_crit_edge.i.i
 
-.._crit_edge_crit_edge.i.i:                       ; preds = %65
-  %.pre.i.i = load ptr, ptr %70, align 8
+.._crit_edge_crit_edge.i.i:                       ; preds = %63
+  %.pre.i.i = load ptr, ptr %68, align 8
   br label %._crit_edge.i.i
 
-.lr.ph.i10.i:                                     ; preds = %65
-  %71 = add i32 %.0.i.i2, -1
-  %72 = zext nneg i32 %68 to i64
-  br label %73
+.lr.ph.i10.i:                                     ; preds = %63
+  %69 = add i32 %.0.i.i2, -1
+  %70 = zext nneg i32 %66 to i64
+  br label %71
 
-73:                                               ; preds = %97, %.lr.ph.i10.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %indvars.iv.next.i.i, %97 ]
-  %.sroa.6.034.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.6.1.i.i, %97 ]
-  %.sroa.4.033.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.4.1.i.i, %97 ]
-  %74 = load ptr, ptr %70, align 8
-  %75 = getelementptr %struct.rb_id_item, ptr %74, i64 %indvars.iv.i.i
-  %76 = load i32, ptr %75, align 8
-  %.not25.i.i = icmp eq i32 %76, 0
-  br i1 %.not25.i.i, label %97, label %77
+71:                                               ; preds = %93, %.lr.ph.i10.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %indvars.iv.next.i.i, %93 ]
+  %.sroa.6.034.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.6.1.i.i, %93 ]
+  %.sroa.4.033.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.4.1.i.i, %93 ]
+  %72 = load ptr, ptr %68, align 8
+  %73 = getelementptr %struct.rb_id_item, ptr %72, i64 %indvars.iv.i.i
+  %74 = load i32, ptr %73, align 8
+  %.not25.i.i = icmp eq i32 %74, 0
+  br i1 %.not25.i.i, label %93, label %75
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %75, i64 8
-  %79 = load i64, ptr %78, align 8
-  %80 = and i32 %76, %71
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr %struct.rb_id_item, ptr %67, i64 %81
-  %83 = load i32, ptr %82, align 8
-  %.not25.i.i.i = icmp eq i32 %83, 0
-  br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %73, i64 8
+  %77 = load i64, ptr %76, align 8
+  %.02025.i.i.i = and i32 %74, %69
+  %78 = sext i32 %.02025.i.i.i to i64
+  %79 = getelementptr %struct.rb_id_item, ptr %65, i64 %78
+  %80 = load i32, ptr %79, align 8
+  %.not26.i.i.i = icmp eq i32 %80, 0
+  br i1 %.not26.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %77, %.lr.ph.i.i.i
-  %84 = phi i64 [ %89, %.lr.ph.i.i.i ], [ %81, %77 ]
-  %.027.i.i.i = phi i32 [ %88, %.lr.ph.i.i.i ], [ 1, %77 ]
-  %.02026.i.i.i = phi i32 [ %87, %.lr.ph.i.i.i ], [ %80, %77 ]
-  %85 = getelementptr %struct.rb_id_item, ptr %67, i64 %84, i32 1
-  store i32 1, ptr %85, align 4
-  %86 = add i32 %.02026.i.i.i, %.027.i.i.i
-  %87 = and i32 %86, %71
-  %88 = add i32 %.027.i.i.i, 1
-  %89 = sext i32 %87 to i64
-  %90 = getelementptr %struct.rb_id_item, ptr %67, i64 %89
-  %91 = load i32, ptr %90, align 8
-  %.not.i.i.i = icmp eq i32 %91, 0
+.lr.ph.i.i.i:                                     ; preds = %75, %.lr.ph.i.i.i
+  %81 = phi i64 [ %85, %.lr.ph.i.i.i ], [ %78, %75 ]
+  %.02028.i.i.i = phi i32 [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02025.i.i.i, %75 ]
+  %.027.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i ], [ 1, %75 ]
+  %82 = getelementptr %struct.rb_id_item, ptr %65, i64 %81, i32 1
+  store i32 1, ptr %82, align 4
+  %83 = add i32 %.027.i.i.i, %.02028.i.i.i
+  %84 = add i32 %.027.i.i.i, 1
+  %.020.i.i.i = and i32 %83, %69
+  %85 = sext i32 %.020.i.i.i to i64
+  %86 = getelementptr %struct.rb_id_item, ptr %65, i64 %85
+  %87 = load i32, ptr %86, align 8
+  %.not.i.i.i = icmp eq i32 %87, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !35
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %77
-  %.lcssa22.i.i.i = phi i64 [ %81, %77 ], [ %89, %.lr.ph.i.i.i ]
-  %.lcssa.i.i.i = phi ptr [ %82, %77 ], [ %90, %.lr.ph.i.i.i ]
-  %92 = add i32 %.sroa.4.033.i.i, 1
-  %93 = getelementptr %struct.rb_id_item, ptr %67, i64 %.lcssa22.i.i.i, i32 1
-  %94 = load i32, ptr %93, align 4
-  %.not21.i.i.i = icmp eq i32 %94, 0
-  %95 = zext i1 %.not21.i.i.i to i32
-  %spec.select.i.i = add i32 %.sroa.6.034.i.i, %95
-  store i32 %76, ptr %.lcssa.i.i.i, align 8
-  %96 = getelementptr %struct.rb_id_item, ptr %67, i64 %.lcssa22.i.i.i, i32 2
-  store i64 %79, ptr %96, align 8
-  br label %97
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %75
+  %.lcssa22.i.i.i = phi i64 [ %78, %75 ], [ %85, %.lr.ph.i.i.i ]
+  %.lcssa.i.i.i = phi ptr [ %79, %75 ], [ %86, %.lr.ph.i.i.i ]
+  %88 = add i32 %.sroa.4.033.i.i, 1
+  %89 = getelementptr %struct.rb_id_item, ptr %65, i64 %.lcssa22.i.i.i, i32 1
+  %90 = load i32, ptr %89, align 4
+  %.not21.i.i.i = icmp eq i32 %90, 0
+  %91 = zext i1 %.not21.i.i.i to i32
+  %spec.select.i.i = add i32 %.sroa.6.034.i.i, %91
+  store i32 %74, ptr %.lcssa.i.i.i, align 8
+  %92 = getelementptr %struct.rb_id_item, ptr %65, i64 %.lcssa22.i.i.i, i32 2
+  store i64 %77, ptr %92, align 8
+  br label %93
 
-97:                                               ; preds = %._crit_edge.i.i.i, %73
-  %.sroa.4.1.i.i = phi i32 [ %.sroa.4.033.i.i, %73 ], [ %92, %._crit_edge.i.i.i ]
-  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.034.i.i, %73 ], [ %spec.select.i.i, %._crit_edge.i.i.i ]
+93:                                               ; preds = %._crit_edge.i.i.i, %71
+  %.sroa.4.1.i.i = phi i32 [ %.sroa.4.033.i.i, %71 ], [ %88, %._crit_edge.i.i.i ]
+  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.034.i.i, %71 ], [ %spec.select.i.i, %._crit_edge.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %72
-  br i1 %exitcond.not.i, label %._crit_edge.i.i, label %73, !llvm.loop !36
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %70
+  br i1 %exitcond.not.i, label %._crit_edge.i.i, label %71, !llvm.loop !36
 
-._crit_edge.i.i:                                  ; preds = %97, %.._crit_edge_crit_edge.i.i
-  %98 = phi ptr [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %74, %97 ]
-  %.sroa.4.0.lcssa.i.i = phi i32 [ 0, %.._crit_edge_crit_edge.i.i ], [ %.sroa.4.1.i.i, %97 ]
-  %.sroa.6.0.lcssa.i.i = phi i32 [ 0, %.._crit_edge_crit_edge.i.i ], [ %.sroa.6.1.i.i, %97 ]
+._crit_edge.i.i:                                  ; preds = %93, %.._crit_edge_crit_edge.i.i
+  %94 = phi ptr [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %72, %93 ]
+  %.sroa.4.0.lcssa.i.i = phi i32 [ 0, %.._crit_edge_crit_edge.i.i ], [ %.sroa.4.1.i.i, %93 ]
+  %.sroa.6.0.lcssa.i.i = phi i32 [ 0, %.._crit_edge_crit_edge.i.i ], [ %.sroa.6.1.i.i, %93 ]
   store i32 %.0.i.i2, ptr %0, align 8
-  store i32 %.sroa.4.0.lcssa.i.i, ptr %33, align 4
-  store i32 %.sroa.6.0.lcssa.i.i, ptr %28, align 8
+  store i32 %.sroa.4.0.lcssa.i.i, ptr %31, align 4
+  store i32 %.sroa.6.0.lcssa.i.i, ptr %26, align 8
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %.sroa.8.0..sroa_idx.i.i, align 4
-  store ptr %67, ptr %70, align 8
-  tail call void @ruby_xfree(ptr noundef %98) #18
+  store ptr %65, ptr %68, align 8
+  tail call void @ruby_xfree(ptr noundef %94) #18
   %.pre.i = load i32, ptr %0, align 8
   br label %hash_table_extend.exit.i
 
 hash_table_extend.exit.i:                         ; preds = %._crit_edge.i.i, %hash_table_index.exit.thread.i
-  %99 = phi i32 [ %6, %hash_table_index.exit.thread.i ], [ %.pre.i, %._crit_edge.i.i ]
-  %100 = add i32 %99, -1
-  %101 = and i32 %100, %.0.i.i
-  %102 = getelementptr inbounds i8, ptr %0, i64 16
-  %103 = load ptr, ptr %102, align 8
-  %104 = sext i32 %101 to i64
-  %105 = getelementptr %struct.rb_id_item, ptr %103, i64 %104
-  %106 = load i32, ptr %105, align 8
-  %.not25.i11.i = icmp eq i32 %106, 0
-  br i1 %.not25.i11.i, label %._crit_edge.i14.i, label %.lr.ph.i12.i
+  %95 = phi i32 [ %6, %hash_table_index.exit.thread.i ], [ %.pre.i, %._crit_edge.i.i ]
+  %96 = add i32 %95, -1
+  %97 = getelementptr inbounds i8, ptr %0, i64 16
+  %.02025.i.i = and i32 %96, %.0.i.i
+  %98 = load ptr, ptr %97, align 8
+  %99 = sext i32 %.02025.i.i to i64
+  %100 = getelementptr %struct.rb_id_item, ptr %98, i64 %99
+  %101 = load i32, ptr %100, align 8
+  %.not26.i.i = icmp eq i32 %101, 0
+  br i1 %.not26.i.i, label %._crit_edge.i14.i, label %.lr.ph.i11.i
 
-.lr.ph.i12.i:                                     ; preds = %hash_table_extend.exit.i, %.lr.ph.i12.i
-  %107 = phi ptr [ %114, %.lr.ph.i12.i ], [ %105, %hash_table_extend.exit.i ]
-  %.027.i.i = phi i32 [ %111, %.lr.ph.i12.i ], [ 1, %hash_table_extend.exit.i ]
-  %.02026.i.i = phi i32 [ %110, %.lr.ph.i12.i ], [ %101, %hash_table_extend.exit.i ]
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
-  store i32 1, ptr %108, align 4
-  %109 = add i32 %.02026.i.i, %.027.i.i
-  %110 = and i32 %109, %100
-  %111 = add i32 %.027.i.i, 1
-  %112 = load ptr, ptr %102, align 8
-  %113 = sext i32 %110 to i64
-  %114 = getelementptr %struct.rb_id_item, ptr %112, i64 %113
-  %115 = load i32, ptr %114, align 8
-  %.not.i13.i = icmp eq i32 %115, 0
-  br i1 %.not.i13.i, label %._crit_edge.i14.i, label %.lr.ph.i12.i, !llvm.loop !35
+.lr.ph.i11.i:                                     ; preds = %hash_table_extend.exit.i, %.lr.ph.i11.i
+  %102 = phi ptr [ %108, %.lr.ph.i11.i ], [ %100, %hash_table_extend.exit.i ]
+  %.02028.i.i = phi i32 [ %.020.i12.i, %.lr.ph.i11.i ], [ %.02025.i.i, %hash_table_extend.exit.i ]
+  %.027.i.i = phi i32 [ %105, %.lr.ph.i11.i ], [ 1, %hash_table_extend.exit.i ]
+  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  store i32 1, ptr %103, align 4
+  %104 = add i32 %.027.i.i, %.02028.i.i
+  %105 = add i32 %.027.i.i, 1
+  %.020.i12.i = and i32 %104, %96
+  %106 = load ptr, ptr %97, align 8
+  %107 = sext i32 %.020.i12.i to i64
+  %108 = getelementptr %struct.rb_id_item, ptr %106, i64 %107
+  %109 = load i32, ptr %108, align 8
+  %.not.i13.i = icmp eq i32 %109, 0
+  br i1 %.not.i13.i, label %._crit_edge.i14.i, label %.lr.ph.i11.i, !llvm.loop !35
 
-._crit_edge.i14.i:                                ; preds = %.lr.ph.i12.i, %hash_table_extend.exit.i
-  %.lcssa23.i.i = phi ptr [ %103, %hash_table_extend.exit.i ], [ %112, %.lr.ph.i12.i ]
-  %.lcssa22.i.i = phi i64 [ %104, %hash_table_extend.exit.i ], [ %113, %.lr.ph.i12.i ]
-  %.lcssa.i.i = phi ptr [ %105, %hash_table_extend.exit.i ], [ %114, %.lr.ph.i12.i ]
-  %116 = getelementptr inbounds i8, ptr %0, i64 4
-  %117 = load i32, ptr %116, align 4
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %116, align 4
-  %119 = getelementptr %struct.rb_id_item, ptr %.lcssa23.i.i, i64 %.lcssa22.i.i, i32 1
-  %120 = load i32, ptr %119, align 4
-  %.not21.i.i = icmp eq i32 %120, 0
-  br i1 %.not21.i.i, label %121, label %hash_table_raw_insert.exit.i
+._crit_edge.i14.i:                                ; preds = %.lr.ph.i11.i, %hash_table_extend.exit.i
+  %.lcssa23.i.i = phi ptr [ %98, %hash_table_extend.exit.i ], [ %106, %.lr.ph.i11.i ]
+  %.lcssa22.i.i = phi i64 [ %99, %hash_table_extend.exit.i ], [ %107, %.lr.ph.i11.i ]
+  %.lcssa.i.i = phi ptr [ %100, %hash_table_extend.exit.i ], [ %108, %.lr.ph.i11.i ]
+  %110 = getelementptr inbounds i8, ptr %0, i64 4
+  %111 = load i32, ptr %110, align 4
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %110, align 4
+  %113 = getelementptr %struct.rb_id_item, ptr %.lcssa23.i.i, i64 %.lcssa22.i.i, i32 1
+  %114 = load i32, ptr %113, align 4
+  %.not21.i.i = icmp eq i32 %114, 0
+  br i1 %.not21.i.i, label %115, label %hash_table_raw_insert.exit.i
 
-121:                                              ; preds = %._crit_edge.i14.i
-  %122 = load i32, ptr %28, align 8
-  %123 = add i32 %122, 1
-  store i32 %123, ptr %28, align 8
+115:                                              ; preds = %._crit_edge.i14.i
+  %116 = load i32, ptr %26, align 8
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %26, align 8
   br label %hash_table_raw_insert.exit.i
 
-hash_table_raw_insert.exit.i:                     ; preds = %121, %._crit_edge.i14.i
+hash_table_raw_insert.exit.i:                     ; preds = %115, %._crit_edge.i14.i
   store i32 %.0.i.i, ptr %.lcssa.i.i, align 8
-  %124 = load ptr, ptr %102, align 8
-  %125 = getelementptr %struct.rb_id_item, ptr %124, i64 %.lcssa22.i.i, i32 2
+  %118 = load ptr, ptr %97, align 8
+  %119 = getelementptr %struct.rb_id_item, ptr %118, i64 %.lcssa22.i.i, i32 2
   br label %rb_id_table_insert_key.exit
 
 rb_id_table_insert_key.exit:                      ; preds = %hash_table_index.exit.thread16.i, %hash_table_raw_insert.exit.i
-  %.sink.i = phi ptr [ %125, %hash_table_raw_insert.exit.i ], [ %27, %hash_table_index.exit.thread16.i ]
+  %.sink.i = phi ptr [ %119, %hash_table_raw_insert.exit.i ], [ %25, %hash_table_index.exit.thread16.i ]
   store i64 %2, ptr %.sink.i, align 8
   ret i32 1
 }
@@ -3262,66 +3262,66 @@ define hidden range(i32 0, 2) i32 @rb_id_table_delete(ptr nocapture noundef %0, 
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %5, -1
-  %9 = and i32 %8, %.0.i.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr %struct.rb_id_item, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 8
-  %.not18.i = icmp eq i32 %14, %.0.i.i
-  br i1 %.not18.i, label %hash_table_index.exit.thread6, label %.lr.ph.i
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %.01418.i = and i32 %8, %.0.i.i
+  %11 = zext nneg i32 %.01418.i to i64
+  %12 = getelementptr %struct.rb_id_item, ptr %10, i64 %11
+  %13 = load i32, ptr %12, align 8
+  %.not19.i = icmp eq i32 %13, %.0.i.i
+  br i1 %.not19.i, label %hash_table_index.exit.thread6, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %7, %18
-  %15 = phi i64 [ %22, %18 ], [ %12, %7 ]
-  %.020.i = phi i32 [ %21, %18 ], [ 1, %7 ]
-  %.01419.i = phi i32 [ %20, %18 ], [ %9, %7 ]
-  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 4
-  %.not17.i = icmp eq i32 %17, 0
-  br i1 %.not17.i, label %hash_delete_index.exit, label %18
+.lr.ph.i:                                         ; preds = %7, %17
+  %14 = phi i64 [ %20, %17 ], [ %11, %7 ]
+  %.01421.i = phi i32 [ %.014.i, %17 ], [ %.01418.i, %7 ]
+  %.020.i = phi i32 [ %19, %17 ], [ 1, %7 ]
+  %15 = getelementptr %struct.rb_id_item, ptr %10, i64 %14, i32 1
+  %16 = load i32, ptr %15, align 4
+  %.not17.i = icmp eq i32 %16, 0
+  br i1 %.not17.i, label %hash_delete_index.exit, label %17
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = add i32 %.01419.i, %.020.i
-  %20 = and i32 %19, %8
-  %21 = add i32 %.020.i, 1
-  %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr %struct.rb_id_item, ptr %11, i64 %22
-  %24 = load i32, ptr %23, align 8
-  %.not.i = icmp eq i32 %24, %.0.i.i
+17:                                               ; preds = %.lr.ph.i
+  %18 = add i32 %.020.i, %.01421.i
+  %19 = add i32 %.020.i, 1
+  %.014.i = and i32 %18, %8
+  %20 = zext nneg i32 %.014.i to i64
+  %21 = getelementptr %struct.rb_id_item, ptr %10, i64 %20
+  %22 = load i32, ptr %21, align 8
+  %.not.i = icmp eq i32 %22, %.0.i.i
   br i1 %.not.i, label %hash_table_index.exit, label %.lr.ph.i, !llvm.loop !34
 
-hash_table_index.exit:                            ; preds = %18
-  %25 = icmp sgt i32 %20, -1
-  br i1 %25, label %hash_table_index.exit.thread6, label %hash_delete_index.exit
+hash_table_index.exit:                            ; preds = %17
+  %23 = icmp sgt i32 %.014.i, -1
+  br i1 %23, label %hash_table_index.exit.thread6, label %hash_delete_index.exit
 
 hash_table_index.exit.thread6:                    ; preds = %7, %hash_table_index.exit
-  %.pre-phi = phi i64 [ %12, %7 ], [ %22, %hash_table_index.exit ]
-  %26 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi, i32 1
-  %27 = load i32, ptr %26, align 4
-  %.not.i4 = icmp eq i32 %27, 0
-  br i1 %.not.i4, label %28, label %32
+  %.pre-phi = phi i64 [ %11, %7 ], [ %20, %hash_table_index.exit ]
+  %24 = getelementptr %struct.rb_id_item, ptr %10, i64 %.pre-phi, i32 1
+  %25 = load i32, ptr %24, align 4
+  %.not.i4 = icmp eq i32 %25, 0
+  br i1 %.not.i4, label %26, label %30
 
-28:                                               ; preds = %hash_table_index.exit.thread6
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = add i32 %30, -1
-  store i32 %31, ptr %29, align 8
-  br label %32
+26:                                               ; preds = %hash_table_index.exit.thread6
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = add i32 %28, -1
+  store i32 %29, ptr %27, align 8
+  br label %30
 
-32:                                               ; preds = %28, %hash_table_index.exit.thread6
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = add i32 %34, -1
-  store i32 %35, ptr %33, align 4
-  %36 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi
-  store i32 0, ptr %36, align 8
-  %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr %struct.rb_id_item, ptr %37, i64 %.pre-phi, i32 2
-  store i64 0, ptr %38, align 8
+30:                                               ; preds = %26, %hash_table_index.exit.thread6
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, -1
+  store i32 %33, ptr %31, align 4
+  %34 = getelementptr %struct.rb_id_item, ptr %10, i64 %.pre-phi
+  store i32 0, ptr %34, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr %struct.rb_id_item, ptr %35, i64 %.pre-phi, i32 2
+  store i64 0, ptr %36, align 8
   br label %hash_delete_index.exit
 
-hash_delete_index.exit:                           ; preds = %.lr.ph.i, %2, %hash_table_index.exit, %32
-  %.0.i = phi i32 [ 1, %32 ], [ 0, %hash_table_index.exit ], [ 0, %2 ], [ 0, %.lr.ph.i ]
+hash_delete_index.exit:                           ; preds = %.lr.ph.i, %2, %hash_table_index.exit, %30
+  %.0.i = phi i32 [ 1, %30 ], [ 0, %hash_table_index.exit ], [ 0, %2 ], [ 0, %.lr.ph.i ]
   ret i32 %.0.i
 }
 

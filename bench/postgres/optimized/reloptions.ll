@@ -1585,7 +1585,7 @@ define dso_local noundef ptr @heap_reloptions(i8 noundef signext %0, i64 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @partitioned_table_reloptions(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp ne i64 %0, 0
-  %or.cond = and i1 %3, %1
+  %or.cond = and i1 %1, %3
   br i1 %or.cond, label %4, label %9
 
 4:                                                ; preds = %2
@@ -2691,7 +2691,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %38 = getelementptr inbounds i8, ptr %23, i64 8
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
-  %brmerge.not.i = and i1 %40, %1
+  %brmerge.not.i = and i1 %1, %40
   br i1 %brmerge.not.i, label %41, label %47
 
 41:                                               ; preds = %37
@@ -2958,7 +2958,7 @@ parse_one_reloption.exit.thread:                  ; preds = %167, %169, %172
 
 parse_one_reloption.exit:                         ; preds = %181, %13, %.thread100.i
   %183 = phi i1 [ %22, %.thread100.i ], [ true, %13 ], [ %182, %181 ]
-  %brmerge.not = and i1 %183, %1
+  %brmerge.not = and i1 %1, %183
   br i1 %brmerge.not, label %184, label %196
 
 184:                                              ; preds = %parse_one_reloption.exit

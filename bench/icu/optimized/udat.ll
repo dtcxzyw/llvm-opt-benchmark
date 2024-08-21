@@ -1702,7 +1702,7 @@ sw.bb78:                                          ; preds = %if.end10
 sw.epilog:                                        ; preds = %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb, %if.end10
   %res.0 = phi ptr [ null, %if.end10 ], [ %call79, %sw.bb78 ], [ %call77, %sw.bb76 ], [ %call75, %sw.bb74 ], [ %call73, %sw.bb72 ], [ %call71, %sw.bb70 ], [ %call69, %sw.bb68 ], [ %call67, %sw.bb66 ], [ %call65, %sw.bb64 ], [ %call63, %sw.bb62 ], [ %call61, %sw.bb60 ], [ %call59, %sw.bb58 ], [ %call57, %sw.bb56 ], [ %call55, %sw.bb54 ], [ %call53, %sw.bb52 ], [ %call51, %sw.bb50 ], [ %call49, %sw.bb48 ], [ %call47, %sw.bb46 ], [ %call45, %sw.bb44 ], [ %call43, %sw.bb42 ], [ %call41, %sw.bb40 ], [ %call39, %sw.bb38 ], [ %call37, %sw.bb36 ], [ %call23, %sw.bb22 ], [ %call21, %sw.bb20 ], [ %call19, %sw.bb18 ], [ %call17, %sw.bb16 ], [ %call15, %sw.bb14 ], [ %call13, %sw.bb12 ], [ %call11, %sw.bb ]
   %9 = load i32, ptr %count, align 4
-  %cmp80 = icmp sgt i32 %9, %index
+  %cmp80 = icmp slt i32 %index, %9
   br i1 %cmp80, label %if.then81, label %return
 
 if.then81:                                        ; preds = %sw.epilog
@@ -2132,7 +2132,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fErasCount = getelementptr inbounds i8, ptr %syms, i64 16
   %1 = load i32, ptr %fErasCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2177,7 +2177,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fEraNamesCount = getelementptr inbounds i8, ptr %syms, i64 32
   %1 = load i32, ptr %fEraNamesCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2222,7 +2222,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fMonthsCount = getelementptr inbounds i8, ptr %syms, i64 64
   %1 = load i32, ptr %fMonthsCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2267,7 +2267,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fShortMonthsCount = getelementptr inbounds i8, ptr %syms, i64 80
   %1 = load i32, ptr %fShortMonthsCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2312,7 +2312,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fNarrowMonthsCount = getelementptr inbounds i8, ptr %syms, i64 96
   %1 = load i32, ptr %fNarrowMonthsCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2357,7 +2357,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneMonthsCount = getelementptr inbounds i8, ptr %syms, i64 112
   %1 = load i32, ptr %fStandaloneMonthsCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2402,7 +2402,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneShortMonthsCount = getelementptr inbounds i8, ptr %syms, i64 128
   %1 = load i32, ptr %fStandaloneShortMonthsCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2447,7 +2447,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneNarrowMonthsCount = getelementptr inbounds i8, ptr %syms, i64 144
   %1 = load i32, ptr %fStandaloneNarrowMonthsCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2492,7 +2492,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 160
   %1 = load i32, ptr %fWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2537,7 +2537,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fShortWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 176
   %1 = load i32, ptr %fShortWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2582,7 +2582,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fShorterWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 192
   %1 = load i32, ptr %fShorterWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2627,7 +2627,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fNarrowWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 208
   %1 = load i32, ptr %fNarrowWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2672,7 +2672,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 224
   %1 = load i32, ptr %fStandaloneWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2717,7 +2717,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneShortWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 240
   %1 = load i32, ptr %fStandaloneShortWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2762,7 +2762,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneShorterWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 256
   %1 = load i32, ptr %fStandaloneShorterWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2807,7 +2807,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneNarrowWeekdaysCount = getelementptr inbounds i8, ptr %syms, i64 272
   %1 = load i32, ptr %fStandaloneNarrowWeekdaysCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2852,7 +2852,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fQuartersCount = getelementptr inbounds i8, ptr %syms, i64 384
   %1 = load i32, ptr %fQuartersCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2897,7 +2897,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fShortQuartersCount = getelementptr inbounds i8, ptr %syms, i64 400
   %1 = load i32, ptr %fShortQuartersCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2942,7 +2942,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fNarrowQuartersCount = getelementptr inbounds i8, ptr %syms, i64 416
   %1 = load i32, ptr %fNarrowQuartersCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2987,7 +2987,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneQuartersCount = getelementptr inbounds i8, ptr %syms, i64 432
   %1 = load i32, ptr %fStandaloneQuartersCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -3032,7 +3032,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneShortQuartersCount = getelementptr inbounds i8, ptr %syms, i64 448
   %1 = load i32, ptr %fStandaloneShortQuartersCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -3077,7 +3077,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fStandaloneNarrowQuartersCount = getelementptr inbounds i8, ptr %syms, i64 464
   %1 = load i32, ptr %fStandaloneNarrowQuartersCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -3122,7 +3122,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fShortYearNamesCount = getelementptr inbounds i8, ptr %syms, i64 496
   %1 = load i32, ptr %fShortYearNamesCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -3167,7 +3167,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %syms, i64 512
   %1 = load i32, ptr %fShortZodiacNamesCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -3212,7 +3212,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %fAmPmsCount = getelementptr inbounds i8, ptr %syms, i64 288
   %1 = load i32, ptr %fAmPmsCount, align 8
-  %cmp1.not.i = icmp sgt i32 %1, %index
+  %cmp1.not.i = icmp slt i32 %index, %1
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i

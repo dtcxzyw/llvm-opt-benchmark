@@ -921,7 +921,7 @@ define hidden void @_ZN12HotSpotJVMCI14compute_offsetERiP5KlassPKcS4_bP10JavaThr
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %34, align 4
   %35 = and i32 %.sroa.0.0.copyload.i.i.i, 8
   %36 = icmp ne i32 %35, 0
-  %37 = xor i1 %36, %4
+  %37 = xor i1 %4, %36
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %33
@@ -10852,7 +10852,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 143:                                              ; preds = %134
   %144 = load ptr, ptr %117, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 960
-  %.not2042 = icmp eq ptr %145, %0
+  %.not2042 = icmp eq ptr %0, %145
   br i1 %.not2042, label %151, label %146
 
 146:                                              ; preds = %143
@@ -10939,7 +10939,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 188:                                              ; preds = %179
   %189 = load ptr, ptr %117, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 960
-  %.not2048 = icmp eq ptr %190, %0
+  %.not2048 = icmp eq ptr %0, %190
   br i1 %.not2048, label %196, label %191
 
 191:                                              ; preds = %188
@@ -11026,7 +11026,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 233:                                              ; preds = %224
   %234 = load ptr, ptr %117, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 960
-  %.not2054 = icmp eq ptr %235, %0
+  %.not2054 = icmp eq ptr %0, %235
   br i1 %.not2054, label %241, label %236
 
 236:                                              ; preds = %233
@@ -11117,7 +11117,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 280:                                              ; preds = %271
   %281 = load ptr, ptr %117, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 960
-  %.not2060 = icmp eq ptr %282, %0
+  %.not2060 = icmp eq ptr %0, %282
   br i1 %.not2060, label %288, label %283
 
 283:                                              ; preds = %280
@@ -11208,7 +11208,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 327:                                              ; preds = %318
   %328 = load ptr, ptr %117, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 960
-  %.not2066 = icmp eq ptr %329, %0
+  %.not2066 = icmp eq ptr %0, %329
   br i1 %.not2066, label %335, label %330
 
 330:                                              ; preds = %327
@@ -11335,7 +11335,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 391:                                              ; preds = %386
   %392 = load ptr, ptr %117, align 8
   %393 = getelementptr inbounds i8, ptr %392, i64 960
-  %.not2072 = icmp eq ptr %393, %0
+  %.not2072 = icmp eq ptr %0, %393
   br i1 %.not2072, label %399, label %394
 
 394:                                              ; preds = %391
@@ -11382,7 +11382,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 416:                                              ; preds = %407
   %417 = load ptr, ptr %117, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 960
-  %.not2078 = icmp eq ptr %418, %0
+  %.not2078 = icmp eq ptr %0, %418
   br i1 %.not2078, label %424, label %419
 
 419:                                              ; preds = %416
@@ -11469,7 +11469,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 461:                                              ; preds = %452
   %462 = load ptr, ptr %117, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 960
-  %.not2084 = icmp eq ptr %463, %0
+  %.not2084 = icmp eq ptr %0, %463
   br i1 %.not2084, label %469, label %464
 
 464:                                              ; preds = %461
@@ -11556,7 +11556,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 506:                                              ; preds = %497
   %507 = load ptr, ptr %117, align 8
   %508 = getelementptr inbounds i8, ptr %507, i64 960
-  %.not2090 = icmp eq ptr %508, %0
+  %.not2090 = icmp eq ptr %0, %508
   br i1 %.not2090, label %514, label %509
 
 509:                                              ; preds = %506
@@ -11649,7 +11649,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 554:                                              ; preds = %545
   %555 = load ptr, ptr %117, align 8
   %556 = getelementptr inbounds i8, ptr %555, i64 960
-  %.not2096 = icmp eq ptr %556, %0
+  %.not2096 = icmp eq ptr %0, %556
   br i1 %.not2096, label %562, label %557
 
 557:                                              ; preds = %554
@@ -11740,7 +11740,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 601:                                              ; preds = %592
   %602 = load ptr, ptr %117, align 8
   %603 = getelementptr inbounds i8, ptr %602, i64 960
-  %.not2102 = icmp eq ptr %603, %0
+  %.not2102 = icmp eq ptr %0, %603
   br i1 %.not2102, label %609, label %604
 
 604:                                              ; preds = %601
@@ -11861,7 +11861,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 662:                                              ; preds = %657
   %663 = load ptr, ptr %117, align 8
   %664 = getelementptr inbounds i8, ptr %663, i64 960
-  %.not2108 = icmp eq ptr %664, %0
+  %.not2108 = icmp eq ptr %0, %664
   br i1 %.not2108, label %670, label %665
 
 665:                                              ; preds = %662
@@ -11908,7 +11908,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 687:                                              ; preds = %678
   %688 = load ptr, ptr %117, align 8
   %689 = getelementptr inbounds i8, ptr %688, i64 960
-  %.not2114 = icmp eq ptr %689, %0
+  %.not2114 = icmp eq ptr %0, %689
   br i1 %.not2114, label %695, label %690
 
 690:                                              ; preds = %687
@@ -11997,7 +11997,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 733:                                              ; preds = %724
   %734 = load ptr, ptr %117, align 8
   %735 = getelementptr inbounds i8, ptr %734, i64 960
-  %.not2120 = icmp eq ptr %735, %0
+  %.not2120 = icmp eq ptr %0, %735
   br i1 %.not2120, label %741, label %736
 
 736:                                              ; preds = %733
@@ -12086,7 +12086,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 779:                                              ; preds = %770
   %780 = load ptr, ptr %117, align 8
   %781 = getelementptr inbounds i8, ptr %780, i64 960
-  %.not2126 = icmp eq ptr %781, %0
+  %.not2126 = icmp eq ptr %0, %781
   br i1 %.not2126, label %787, label %782
 
 782:                                              ; preds = %779
@@ -12211,7 +12211,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 842:                                              ; preds = %837
   %843 = load ptr, ptr %117, align 8
   %844 = getelementptr inbounds i8, ptr %843, i64 960
-  %.not2132 = icmp eq ptr %844, %0
+  %.not2132 = icmp eq ptr %0, %844
   br i1 %.not2132, label %850, label %845
 
 845:                                              ; preds = %842
@@ -12258,7 +12258,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 867:                                              ; preds = %858
   %868 = load ptr, ptr %117, align 8
   %869 = getelementptr inbounds i8, ptr %868, i64 960
-  %.not2138 = icmp eq ptr %869, %0
+  %.not2138 = icmp eq ptr %0, %869
   br i1 %.not2138, label %875, label %870
 
 870:                                              ; preds = %867
@@ -12379,7 +12379,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 928:                                              ; preds = %923
   %929 = load ptr, ptr %117, align 8
   %930 = getelementptr inbounds i8, ptr %929, i64 960
-  %.not2144 = icmp eq ptr %930, %0
+  %.not2144 = icmp eq ptr %0, %930
   br i1 %.not2144, label %936, label %931
 
 931:                                              ; preds = %928
@@ -12426,7 +12426,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 953:                                              ; preds = %944
   %954 = load ptr, ptr %117, align 8
   %955 = getelementptr inbounds i8, ptr %954, i64 960
-  %.not2150 = icmp eq ptr %955, %0
+  %.not2150 = icmp eq ptr %0, %955
   br i1 %.not2150, label %961, label %956
 
 956:                                              ; preds = %953
@@ -12555,7 +12555,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1018:                                             ; preds = %1013
   %1019 = load ptr, ptr %117, align 8
   %1020 = getelementptr inbounds i8, ptr %1019, i64 960
-  %.not2156 = icmp eq ptr %1020, %0
+  %.not2156 = icmp eq ptr %0, %1020
   br i1 %.not2156, label %1026, label %1021
 
 1021:                                             ; preds = %1018
@@ -12602,7 +12602,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1043:                                             ; preds = %1034
   %1044 = load ptr, ptr %117, align 8
   %1045 = getelementptr inbounds i8, ptr %1044, i64 960
-  %.not2162 = icmp eq ptr %1045, %0
+  %.not2162 = icmp eq ptr %0, %1045
   br i1 %.not2162, label %1051, label %1046
 
 1046:                                             ; preds = %1043
@@ -12693,7 +12693,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1090:                                             ; preds = %1081
   %1091 = load ptr, ptr %117, align 8
   %1092 = getelementptr inbounds i8, ptr %1091, i64 960
-  %.not2168 = icmp eq ptr %1092, %0
+  %.not2168 = icmp eq ptr %0, %1092
   br i1 %.not2168, label %1098, label %1093
 
 1093:                                             ; preds = %1090
@@ -12796,7 +12796,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1143:                                             ; preds = %1134
   %1144 = load ptr, ptr %117, align 8
   %1145 = getelementptr inbounds i8, ptr %1144, i64 960
-  %.not2174 = icmp eq ptr %1145, %0
+  %.not2174 = icmp eq ptr %0, %1145
   br i1 %.not2174, label %1151, label %1146
 
 1146:                                             ; preds = %1143
@@ -12887,7 +12887,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1190:                                             ; preds = %1181
   %1191 = load ptr, ptr %117, align 8
   %1192 = getelementptr inbounds i8, ptr %1191, i64 960
-  %.not2180 = icmp eq ptr %1192, %0
+  %.not2180 = icmp eq ptr %0, %1192
   br i1 %.not2180, label %1198, label %1193
 
 1193:                                             ; preds = %1190
@@ -13023,7 +13023,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1267:                                             ; preds = %1262
   %1268 = load ptr, ptr %117, align 8
   %1269 = getelementptr inbounds i8, ptr %1268, i64 960
-  %.not2186 = icmp eq ptr %1269, %0
+  %.not2186 = icmp eq ptr %0, %1269
   br i1 %.not2186, label %1275, label %1270
 
 1270:                                             ; preds = %1267
@@ -13073,7 +13073,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1296:                                             ; preds = %1287
   %1297 = load ptr, ptr %117, align 8
   %1298 = getelementptr inbounds i8, ptr %1297, i64 960
-  %.not2192 = icmp eq ptr %1298, %0
+  %.not2192 = icmp eq ptr %0, %1298
   br i1 %.not2192, label %1304, label %1299
 
 1299:                                             ; preds = %1296
@@ -13158,7 +13158,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1340:                                             ; preds = %1331
   %1341 = load ptr, ptr %117, align 8
   %1342 = getelementptr inbounds i8, ptr %1341, i64 960
-  %.not2198 = icmp eq ptr %1342, %0
+  %.not2198 = icmp eq ptr %0, %1342
   br i1 %.not2198, label %1348, label %1343
 
 1343:                                             ; preds = %1340
@@ -13247,7 +13247,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1386:                                             ; preds = %1377
   %1387 = load ptr, ptr %117, align 8
   %1388 = getelementptr inbounds i8, ptr %1387, i64 960
-  %.not2204 = icmp eq ptr %1388, %0
+  %.not2204 = icmp eq ptr %0, %1388
   br i1 %.not2204, label %1394, label %1389
 
 1389:                                             ; preds = %1386
@@ -13334,7 +13334,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1431:                                             ; preds = %1422
   %1432 = load ptr, ptr %117, align 8
   %1433 = getelementptr inbounds i8, ptr %1432, i64 960
-  %.not2210 = icmp eq ptr %1433, %0
+  %.not2210 = icmp eq ptr %0, %1433
   br i1 %.not2210, label %1439, label %1434
 
 1434:                                             ; preds = %1431
@@ -13451,7 +13451,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1490:                                             ; preds = %1485
   %1491 = load ptr, ptr %117, align 8
   %1492 = getelementptr inbounds i8, ptr %1491, i64 960
-  %.not2216 = icmp eq ptr %1492, %0
+  %.not2216 = icmp eq ptr %0, %1492
   br i1 %.not2216, label %1498, label %1493
 
 1493:                                             ; preds = %1490
@@ -13498,7 +13498,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1515:                                             ; preds = %1506
   %1516 = load ptr, ptr %117, align 8
   %1517 = getelementptr inbounds i8, ptr %1516, i64 960
-  %.not2222 = icmp eq ptr %1517, %0
+  %.not2222 = icmp eq ptr %0, %1517
   br i1 %.not2222, label %1523, label %1518
 
 1518:                                             ; preds = %1515
@@ -13615,7 +13615,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1574:                                             ; preds = %1569
   %1575 = load ptr, ptr %117, align 8
   %1576 = getelementptr inbounds i8, ptr %1575, i64 960
-  %.not2228 = icmp eq ptr %1576, %0
+  %.not2228 = icmp eq ptr %0, %1576
   br i1 %.not2228, label %1582, label %1577
 
 1577:                                             ; preds = %1574
@@ -13662,7 +13662,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1599:                                             ; preds = %1590
   %1600 = load ptr, ptr %117, align 8
   %1601 = getelementptr inbounds i8, ptr %1600, i64 960
-  %.not2234 = icmp eq ptr %1601, %0
+  %.not2234 = icmp eq ptr %0, %1601
   br i1 %.not2234, label %1607, label %1602
 
 1602:                                             ; preds = %1599
@@ -13749,7 +13749,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1644:                                             ; preds = %1635
   %1645 = load ptr, ptr %117, align 8
   %1646 = getelementptr inbounds i8, ptr %1645, i64 960
-  %.not2240 = icmp eq ptr %1646, %0
+  %.not2240 = icmp eq ptr %0, %1646
   br i1 %.not2240, label %1652, label %1647
 
 1647:                                             ; preds = %1644
@@ -13836,7 +13836,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1689:                                             ; preds = %1680
   %1690 = load ptr, ptr %117, align 8
   %1691 = getelementptr inbounds i8, ptr %1690, i64 960
-  %.not2246 = icmp eq ptr %1691, %0
+  %.not2246 = icmp eq ptr %0, %1691
   br i1 %.not2246, label %1697, label %1692
 
 1692:                                             ; preds = %1689
@@ -13937,7 +13937,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1741:                                             ; preds = %1732
   %1742 = load ptr, ptr %117, align 8
   %1743 = getelementptr inbounds i8, ptr %1742, i64 960
-  %.not2252 = icmp eq ptr %1743, %0
+  %.not2252 = icmp eq ptr %0, %1743
   br i1 %.not2252, label %1749, label %1744
 
 1744:                                             ; preds = %1741
@@ -14024,7 +14024,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1786:                                             ; preds = %1777
   %1787 = load ptr, ptr %117, align 8
   %1788 = getelementptr inbounds i8, ptr %1787, i64 960
-  %.not2258 = icmp eq ptr %1788, %0
+  %.not2258 = icmp eq ptr %0, %1788
   br i1 %.not2258, label %1794, label %1789
 
 1789:                                             ; preds = %1786
@@ -14158,7 +14158,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1862:                                             ; preds = %1857
   %1863 = load ptr, ptr %117, align 8
   %1864 = getelementptr inbounds i8, ptr %1863, i64 960
-  %.not2264 = icmp eq ptr %1864, %0
+  %.not2264 = icmp eq ptr %0, %1864
   br i1 %.not2264, label %1870, label %1865
 
 1865:                                             ; preds = %1862
@@ -14256,7 +14256,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1922:                                             ; preds = %1917
   %1923 = load ptr, ptr %117, align 8
   %1924 = getelementptr inbounds i8, ptr %1923, i64 960
-  %.not2270 = icmp eq ptr %1924, %0
+  %.not2270 = icmp eq ptr %0, %1924
   br i1 %.not2270, label %1930, label %1925
 
 1925:                                             ; preds = %1922
@@ -14354,7 +14354,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1982:                                             ; preds = %1977
   %1983 = load ptr, ptr %117, align 8
   %1984 = getelementptr inbounds i8, ptr %1983, i64 960
-  %.not2276 = icmp eq ptr %1984, %0
+  %.not2276 = icmp eq ptr %0, %1984
   br i1 %.not2276, label %1990, label %1985
 
 1985:                                             ; preds = %1982
@@ -14452,7 +14452,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2042:                                             ; preds = %2037
   %2043 = load ptr, ptr %117, align 8
   %2044 = getelementptr inbounds i8, ptr %2043, i64 960
-  %.not2282 = icmp eq ptr %2044, %0
+  %.not2282 = icmp eq ptr %0, %2044
   br i1 %.not2282, label %2050, label %2045
 
 2045:                                             ; preds = %2042
@@ -14550,7 +14550,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2102:                                             ; preds = %2097
   %2103 = load ptr, ptr %117, align 8
   %2104 = getelementptr inbounds i8, ptr %2103, i64 960
-  %.not2288 = icmp eq ptr %2104, %0
+  %.not2288 = icmp eq ptr %0, %2104
   br i1 %.not2288, label %2110, label %2105
 
 2105:                                             ; preds = %2102
@@ -14648,7 +14648,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2162:                                             ; preds = %2157
   %2163 = load ptr, ptr %117, align 8
   %2164 = getelementptr inbounds i8, ptr %2163, i64 960
-  %.not2294 = icmp eq ptr %2164, %0
+  %.not2294 = icmp eq ptr %0, %2164
   br i1 %.not2294, label %2170, label %2165
 
 2165:                                             ; preds = %2162
@@ -14746,7 +14746,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2222:                                             ; preds = %2217
   %2223 = load ptr, ptr %117, align 8
   %2224 = getelementptr inbounds i8, ptr %2223, i64 960
-  %.not2300 = icmp eq ptr %2224, %0
+  %.not2300 = icmp eq ptr %0, %2224
   br i1 %.not2300, label %2230, label %2225
 
 2225:                                             ; preds = %2222
@@ -14844,7 +14844,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2282:                                             ; preds = %2277
   %2283 = load ptr, ptr %117, align 8
   %2284 = getelementptr inbounds i8, ptr %2283, i64 960
-  %.not2306 = icmp eq ptr %2284, %0
+  %.not2306 = icmp eq ptr %0, %2284
   br i1 %.not2306, label %2290, label %2285
 
 2285:                                             ; preds = %2282
@@ -14942,7 +14942,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2342:                                             ; preds = %2337
   %2343 = load ptr, ptr %117, align 8
   %2344 = getelementptr inbounds i8, ptr %2343, i64 960
-  %.not2312 = icmp eq ptr %2344, %0
+  %.not2312 = icmp eq ptr %0, %2344
   br i1 %.not2312, label %2350, label %2345
 
 2345:                                             ; preds = %2342
@@ -14992,7 +14992,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2371:                                             ; preds = %2362
   %2372 = load ptr, ptr %117, align 8
   %2373 = getelementptr inbounds i8, ptr %2372, i64 960
-  %.not2318 = icmp eq ptr %2373, %0
+  %.not2318 = icmp eq ptr %0, %2373
   br i1 %.not2318, label %2379, label %2374
 
 2374:                                             ; preds = %2371
@@ -15107,7 +15107,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2429:                                             ; preds = %2424
   %2430 = load ptr, ptr %117, align 8
   %2431 = getelementptr inbounds i8, ptr %2430, i64 960
-  %.not2324 = icmp eq ptr %2431, %0
+  %.not2324 = icmp eq ptr %0, %2431
   br i1 %.not2324, label %2437, label %2432
 
 2432:                                             ; preds = %2429
@@ -15153,7 +15153,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2454:                                             ; preds = %2445
   %2455 = load ptr, ptr %117, align 8
   %2456 = getelementptr inbounds i8, ptr %2455, i64 960
-  %.not2330 = icmp eq ptr %2456, %0
+  %.not2330 = icmp eq ptr %0, %2456
   br i1 %.not2330, label %2462, label %2457
 
 2457:                                             ; preds = %2454
@@ -15237,7 +15237,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2498:                                             ; preds = %2489
   %2499 = load ptr, ptr %117, align 8
   %2500 = getelementptr inbounds i8, ptr %2499, i64 960
-  %.not2336 = icmp eq ptr %2500, %0
+  %.not2336 = icmp eq ptr %0, %2500
   br i1 %.not2336, label %2506, label %2501
 
 2501:                                             ; preds = %2498
@@ -15321,7 +15321,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2542:                                             ; preds = %2533
   %2543 = load ptr, ptr %117, align 8
   %2544 = getelementptr inbounds i8, ptr %2543, i64 960
-  %.not2342 = icmp eq ptr %2544, %0
+  %.not2342 = icmp eq ptr %0, %2544
   br i1 %.not2342, label %2550, label %2545
 
 2545:                                             ; preds = %2542
@@ -15453,7 +15453,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2617:                                             ; preds = %2612
   %2618 = load ptr, ptr %117, align 8
   %2619 = getelementptr inbounds i8, ptr %2618, i64 960
-  %.not2348 = icmp eq ptr %2619, %0
+  %.not2348 = icmp eq ptr %0, %2619
   br i1 %.not2348, label %2625, label %2620
 
 2620:                                             ; preds = %2617
@@ -15551,7 +15551,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2677:                                             ; preds = %2672
   %2678 = load ptr, ptr %117, align 8
   %2679 = getelementptr inbounds i8, ptr %2678, i64 960
-  %.not2354 = icmp eq ptr %2679, %0
+  %.not2354 = icmp eq ptr %0, %2679
   br i1 %.not2354, label %2685, label %2680
 
 2680:                                             ; preds = %2677
@@ -15601,7 +15601,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2706:                                             ; preds = %2697
   %2707 = load ptr, ptr %117, align 8
   %2708 = getelementptr inbounds i8, ptr %2707, i64 960
-  %.not2360 = icmp eq ptr %2708, %0
+  %.not2360 = icmp eq ptr %0, %2708
   br i1 %.not2360, label %2714, label %2709
 
 2709:                                             ; preds = %2706
@@ -15685,7 +15685,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2750:                                             ; preds = %2741
   %2751 = load ptr, ptr %117, align 8
   %2752 = getelementptr inbounds i8, ptr %2751, i64 960
-  %.not2366 = icmp eq ptr %2752, %0
+  %.not2366 = icmp eq ptr %0, %2752
   br i1 %.not2366, label %2758, label %2753
 
 2753:                                             ; preds = %2750
@@ -15769,7 +15769,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2794:                                             ; preds = %2785
   %2795 = load ptr, ptr %117, align 8
   %2796 = getelementptr inbounds i8, ptr %2795, i64 960
-  %.not2372 = icmp eq ptr %2796, %0
+  %.not2372 = icmp eq ptr %0, %2796
   br i1 %.not2372, label %2802, label %2797
 
 2797:                                             ; preds = %2794
@@ -15901,7 +15901,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2869:                                             ; preds = %2864
   %2870 = load ptr, ptr %117, align 8
   %2871 = getelementptr inbounds i8, ptr %2870, i64 960
-  %.not2378 = icmp eq ptr %2871, %0
+  %.not2378 = icmp eq ptr %0, %2871
   br i1 %.not2378, label %2877, label %2872
 
 2872:                                             ; preds = %2869
@@ -15951,7 +15951,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2898:                                             ; preds = %2889
   %2899 = load ptr, ptr %117, align 8
   %2900 = getelementptr inbounds i8, ptr %2899, i64 960
-  %.not2384 = icmp eq ptr %2900, %0
+  %.not2384 = icmp eq ptr %0, %2900
   br i1 %.not2384, label %2906, label %2901
 
 2901:                                             ; preds = %2898
@@ -16083,7 +16083,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2973:                                             ; preds = %2968
   %2974 = load ptr, ptr %117, align 8
   %2975 = getelementptr inbounds i8, ptr %2974, i64 960
-  %.not2390 = icmp eq ptr %2975, %0
+  %.not2390 = icmp eq ptr %0, %2975
   br i1 %.not2390, label %2981, label %2976
 
 2976:                                             ; preds = %2973
@@ -16181,7 +16181,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3033:                                             ; preds = %3028
   %3034 = load ptr, ptr %117, align 8
   %3035 = getelementptr inbounds i8, ptr %3034, i64 960
-  %.not2396 = icmp eq ptr %3035, %0
+  %.not2396 = icmp eq ptr %0, %3035
   br i1 %.not2396, label %3041, label %3036
 
 3036:                                             ; preds = %3033
@@ -16231,7 +16231,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3062:                                             ; preds = %3053
   %3063 = load ptr, ptr %117, align 8
   %3064 = getelementptr inbounds i8, ptr %3063, i64 960
-  %.not2402 = icmp eq ptr %3064, %0
+  %.not2402 = icmp eq ptr %0, %3064
   br i1 %.not2402, label %3070, label %3065
 
 3065:                                             ; preds = %3062
@@ -16346,7 +16346,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3120:                                             ; preds = %3115
   %3121 = load ptr, ptr %117, align 8
   %3122 = getelementptr inbounds i8, ptr %3121, i64 960
-  %.not2408 = icmp eq ptr %3122, %0
+  %.not2408 = icmp eq ptr %0, %3122
   br i1 %.not2408, label %3128, label %3123
 
 3123:                                             ; preds = %3120
@@ -16392,7 +16392,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3145:                                             ; preds = %3136
   %3146 = load ptr, ptr %117, align 8
   %3147 = getelementptr inbounds i8, ptr %3146, i64 960
-  %.not2414 = icmp eq ptr %3147, %0
+  %.not2414 = icmp eq ptr %0, %3147
   br i1 %.not2414, label %3153, label %3148
 
 3148:                                             ; preds = %3145
@@ -16507,7 +16507,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3203:                                             ; preds = %3198
   %3204 = load ptr, ptr %117, align 8
   %3205 = getelementptr inbounds i8, ptr %3204, i64 960
-  %.not2420 = icmp eq ptr %3205, %0
+  %.not2420 = icmp eq ptr %0, %3205
   br i1 %.not2420, label %3211, label %3206
 
 3206:                                             ; preds = %3203
@@ -16553,7 +16553,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3228:                                             ; preds = %3219
   %3229 = load ptr, ptr %117, align 8
   %3230 = getelementptr inbounds i8, ptr %3229, i64 960
-  %.not2426 = icmp eq ptr %3230, %0
+  %.not2426 = icmp eq ptr %0, %3230
   br i1 %.not2426, label %3236, label %3231
 
 3231:                                             ; preds = %3228
@@ -16668,7 +16668,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3286:                                             ; preds = %3281
   %3287 = load ptr, ptr %117, align 8
   %3288 = getelementptr inbounds i8, ptr %3287, i64 960
-  %.not2432 = icmp eq ptr %3288, %0
+  %.not2432 = icmp eq ptr %0, %3288
   br i1 %.not2432, label %3294, label %3289
 
 3289:                                             ; preds = %3286
@@ -16714,7 +16714,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3311:                                             ; preds = %3302
   %3312 = load ptr, ptr %117, align 8
   %3313 = getelementptr inbounds i8, ptr %3312, i64 960
-  %.not2438 = icmp eq ptr %3313, %0
+  %.not2438 = icmp eq ptr %0, %3313
   br i1 %.not2438, label %3319, label %3314
 
 3314:                                             ; preds = %3311
@@ -16829,7 +16829,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3369:                                             ; preds = %3364
   %3370 = load ptr, ptr %117, align 8
   %3371 = getelementptr inbounds i8, ptr %3370, i64 960
-  %.not2444 = icmp eq ptr %3371, %0
+  %.not2444 = icmp eq ptr %0, %3371
   br i1 %.not2444, label %3377, label %3372
 
 3372:                                             ; preds = %3369
@@ -16875,7 +16875,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3394:                                             ; preds = %3385
   %3395 = load ptr, ptr %117, align 8
   %3396 = getelementptr inbounds i8, ptr %3395, i64 960
-  %.not2450 = icmp eq ptr %3396, %0
+  %.not2450 = icmp eq ptr %0, %3396
   br i1 %.not2450, label %3402, label %3397
 
 3397:                                             ; preds = %3394
@@ -16990,7 +16990,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3452:                                             ; preds = %3447
   %3453 = load ptr, ptr %117, align 8
   %3454 = getelementptr inbounds i8, ptr %3453, i64 960
-  %.not2456 = icmp eq ptr %3454, %0
+  %.not2456 = icmp eq ptr %0, %3454
   br i1 %.not2456, label %3460, label %3455
 
 3455:                                             ; preds = %3452
@@ -17036,7 +17036,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3477:                                             ; preds = %3468
   %3478 = load ptr, ptr %117, align 8
   %3479 = getelementptr inbounds i8, ptr %3478, i64 960
-  %.not2462 = icmp eq ptr %3479, %0
+  %.not2462 = icmp eq ptr %0, %3479
   br i1 %.not2462, label %3485, label %3480
 
 3480:                                             ; preds = %3477
@@ -17151,7 +17151,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3535:                                             ; preds = %3530
   %3536 = load ptr, ptr %117, align 8
   %3537 = getelementptr inbounds i8, ptr %3536, i64 960
-  %.not2468 = icmp eq ptr %3537, %0
+  %.not2468 = icmp eq ptr %0, %3537
   br i1 %.not2468, label %3543, label %3538
 
 3538:                                             ; preds = %3535
@@ -17197,7 +17197,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3560:                                             ; preds = %3551
   %3561 = load ptr, ptr %117, align 8
   %3562 = getelementptr inbounds i8, ptr %3561, i64 960
-  %.not2474 = icmp eq ptr %3562, %0
+  %.not2474 = icmp eq ptr %0, %3562
   br i1 %.not2474, label %3568, label %3563
 
 3563:                                             ; preds = %3560
@@ -17312,7 +17312,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3618:                                             ; preds = %3613
   %3619 = load ptr, ptr %117, align 8
   %3620 = getelementptr inbounds i8, ptr %3619, i64 960
-  %.not2480 = icmp eq ptr %3620, %0
+  %.not2480 = icmp eq ptr %0, %3620
   br i1 %.not2480, label %3626, label %3621
 
 3621:                                             ; preds = %3618
@@ -17358,7 +17358,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3643:                                             ; preds = %3634
   %3644 = load ptr, ptr %117, align 8
   %3645 = getelementptr inbounds i8, ptr %3644, i64 960
-  %.not2486 = icmp eq ptr %3645, %0
+  %.not2486 = icmp eq ptr %0, %3645
   br i1 %.not2486, label %3651, label %3646
 
 3646:                                             ; preds = %3643
@@ -17473,7 +17473,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3701:                                             ; preds = %3696
   %3702 = load ptr, ptr %117, align 8
   %3703 = getelementptr inbounds i8, ptr %3702, i64 960
-  %.not2492 = icmp eq ptr %3703, %0
+  %.not2492 = icmp eq ptr %0, %3703
   br i1 %.not2492, label %3709, label %3704
 
 3704:                                             ; preds = %3701
@@ -17519,7 +17519,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3726:                                             ; preds = %3717
   %3727 = load ptr, ptr %117, align 8
   %3728 = getelementptr inbounds i8, ptr %3727, i64 960
-  %.not2498 = icmp eq ptr %3728, %0
+  %.not2498 = icmp eq ptr %0, %3728
   br i1 %.not2498, label %3734, label %3729
 
 3729:                                             ; preds = %3726
@@ -17634,7 +17634,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3784:                                             ; preds = %3779
   %3785 = load ptr, ptr %117, align 8
   %3786 = getelementptr inbounds i8, ptr %3785, i64 960
-  %.not2504 = icmp eq ptr %3786, %0
+  %.not2504 = icmp eq ptr %0, %3786
   br i1 %.not2504, label %3792, label %3787
 
 3787:                                             ; preds = %3784
@@ -17680,7 +17680,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3809:                                             ; preds = %3800
   %3810 = load ptr, ptr %117, align 8
   %3811 = getelementptr inbounds i8, ptr %3810, i64 960
-  %.not2510 = icmp eq ptr %3811, %0
+  %.not2510 = icmp eq ptr %0, %3811
   br i1 %.not2510, label %3817, label %3812
 
 3812:                                             ; preds = %3809
@@ -17795,7 +17795,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3867:                                             ; preds = %3862
   %3868 = load ptr, ptr %117, align 8
   %3869 = getelementptr inbounds i8, ptr %3868, i64 960
-  %.not2516 = icmp eq ptr %3869, %0
+  %.not2516 = icmp eq ptr %0, %3869
   br i1 %.not2516, label %3875, label %3870
 
 3870:                                             ; preds = %3867
@@ -17842,7 +17842,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3892:                                             ; preds = %3883
   %3893 = load ptr, ptr %117, align 8
   %3894 = getelementptr inbounds i8, ptr %3893, i64 960
-  %.not2522 = icmp eq ptr %3894, %0
+  %.not2522 = icmp eq ptr %0, %3894
   br i1 %.not2522, label %3900, label %3895
 
 3895:                                             ; preds = %3892
@@ -17965,7 +17965,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3954:                                             ; preds = %3949
   %3955 = load ptr, ptr %117, align 8
   %3956 = getelementptr inbounds i8, ptr %3955, i64 960
-  %.not2528 = icmp eq ptr %3956, %0
+  %.not2528 = icmp eq ptr %0, %3956
   br i1 %.not2528, label %3962, label %3957
 
 3957:                                             ; preds = %3954
@@ -18012,7 +18012,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3979:                                             ; preds = %3970
   %3980 = load ptr, ptr %117, align 8
   %3981 = getelementptr inbounds i8, ptr %3980, i64 960
-  %.not2534 = icmp eq ptr %3981, %0
+  %.not2534 = icmp eq ptr %0, %3981
   br i1 %.not2534, label %3987, label %3982
 
 3982:                                             ; preds = %3979
@@ -18131,7 +18131,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4040:                                             ; preds = %4035
   %4041 = load ptr, ptr %117, align 8
   %4042 = getelementptr inbounds i8, ptr %4041, i64 960
-  %.not2540 = icmp eq ptr %4042, %0
+  %.not2540 = icmp eq ptr %0, %4042
   br i1 %.not2540, label %4048, label %4043
 
 4043:                                             ; preds = %4040
@@ -18227,7 +18227,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4098:                                             ; preds = %4093
   %4099 = load ptr, ptr %117, align 8
   %4100 = getelementptr inbounds i8, ptr %4099, i64 960
-  %.not2546 = icmp eq ptr %4100, %0
+  %.not2546 = icmp eq ptr %0, %4100
   br i1 %.not2546, label %4106, label %4101
 
 4101:                                             ; preds = %4098
@@ -18327,7 +18327,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4160:                                             ; preds = %4155
   %4161 = load ptr, ptr %117, align 8
   %4162 = getelementptr inbounds i8, ptr %4161, i64 960
-  %.not2552 = icmp eq ptr %4162, %0
+  %.not2552 = icmp eq ptr %0, %4162
   br i1 %.not2552, label %4168, label %4163
 
 4163:                                             ; preds = %4160
@@ -18427,7 +18427,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4222:                                             ; preds = %4217
   %4223 = load ptr, ptr %117, align 8
   %4224 = getelementptr inbounds i8, ptr %4223, i64 960
-  %.not2558 = icmp eq ptr %4224, %0
+  %.not2558 = icmp eq ptr %0, %4224
   br i1 %.not2558, label %4230, label %4225
 
 4225:                                             ; preds = %4222
@@ -18527,7 +18527,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4284:                                             ; preds = %4279
   %4285 = load ptr, ptr %117, align 8
   %4286 = getelementptr inbounds i8, ptr %4285, i64 960
-  %.not2564 = icmp eq ptr %4286, %0
+  %.not2564 = icmp eq ptr %0, %4286
   br i1 %.not2564, label %4292, label %4287
 
 4287:                                             ; preds = %4284
@@ -18571,7 +18571,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4310:                                             ; preds = %4301
   %4311 = load ptr, ptr %117, align 8
   %4312 = getelementptr inbounds i8, ptr %4311, i64 960
-  %.not2664 = icmp eq ptr %4312, %0
+  %.not2664 = icmp eq ptr %0, %4312
   br i1 %.not2664, label %4318, label %4313
 
 4313:                                             ; preds = %4310
@@ -18612,7 +18612,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4334:                                             ; preds = %4320
   %4335 = load ptr, ptr %117, align 8
   %4336 = getelementptr inbounds i8, ptr %4335, i64 960
-  %.not2662 = icmp eq ptr %4336, %0
+  %.not2662 = icmp eq ptr %0, %4336
   br i1 %.not2662, label %4342, label %4337
 
 4337:                                             ; preds = %4334
@@ -18689,7 +18689,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4373:                                             ; preds = %4368
   %4374 = load ptr, ptr %117, align 8
   %4375 = getelementptr inbounds i8, ptr %4374, i64 960
-  %.not2572 = icmp eq ptr %4375, %0
+  %.not2572 = icmp eq ptr %0, %4375
   br i1 %.not2572, label %4381, label %4376
 
 4376:                                             ; preds = %4373
@@ -18735,7 +18735,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4397:                                             ; preds = %4388
   %4398 = load ptr, ptr %117, align 8
   %4399 = getelementptr inbounds i8, ptr %4398, i64 960
-  %.not2660 = icmp eq ptr %4399, %0
+  %.not2660 = icmp eq ptr %0, %4399
   br i1 %.not2660, label %4405, label %4400
 
 4400:                                             ; preds = %4397
@@ -18776,7 +18776,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4421:                                             ; preds = %4407
   %4422 = load ptr, ptr %117, align 8
   %4423 = getelementptr inbounds i8, ptr %4422, i64 960
-  %.not2658 = icmp eq ptr %4423, %0
+  %.not2658 = icmp eq ptr %0, %4423
   br i1 %.not2658, label %4429, label %4424
 
 4424:                                             ; preds = %4421
@@ -18853,7 +18853,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4460:                                             ; preds = %4455
   %4461 = load ptr, ptr %117, align 8
   %4462 = getelementptr inbounds i8, ptr %4461, i64 960
-  %.not2580 = icmp eq ptr %4462, %0
+  %.not2580 = icmp eq ptr %0, %4462
   br i1 %.not2580, label %4468, label %4463
 
 4463:                                             ; preds = %4460
@@ -18899,7 +18899,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4484:                                             ; preds = %4475
   %4485 = load ptr, ptr %117, align 8
   %4486 = getelementptr inbounds i8, ptr %4485, i64 960
-  %.not2656 = icmp eq ptr %4486, %0
+  %.not2656 = icmp eq ptr %0, %4486
   br i1 %.not2656, label %4492, label %4487
 
 4487:                                             ; preds = %4484
@@ -18940,7 +18940,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4508:                                             ; preds = %4494
   %4509 = load ptr, ptr %117, align 8
   %4510 = getelementptr inbounds i8, ptr %4509, i64 960
-  %.not2654 = icmp eq ptr %4510, %0
+  %.not2654 = icmp eq ptr %0, %4510
   br i1 %.not2654, label %4516, label %4511
 
 4511:                                             ; preds = %4508
@@ -19017,7 +19017,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4547:                                             ; preds = %4542
   %4548 = load ptr, ptr %117, align 8
   %4549 = getelementptr inbounds i8, ptr %4548, i64 960
-  %.not2588 = icmp eq ptr %4549, %0
+  %.not2588 = icmp eq ptr %0, %4549
   br i1 %.not2588, label %4555, label %4550
 
 4550:                                             ; preds = %4547
@@ -19063,7 +19063,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4571:                                             ; preds = %4562
   %4572 = load ptr, ptr %117, align 8
   %4573 = getelementptr inbounds i8, ptr %4572, i64 960
-  %.not2652 = icmp eq ptr %4573, %0
+  %.not2652 = icmp eq ptr %0, %4573
   br i1 %.not2652, label %4579, label %4574
 
 4574:                                             ; preds = %4571
@@ -19104,7 +19104,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4595:                                             ; preds = %4581
   %4596 = load ptr, ptr %117, align 8
   %4597 = getelementptr inbounds i8, ptr %4596, i64 960
-  %.not2650 = icmp eq ptr %4597, %0
+  %.not2650 = icmp eq ptr %0, %4597
   br i1 %.not2650, label %4603, label %4598
 
 4598:                                             ; preds = %4595
@@ -19181,7 +19181,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4634:                                             ; preds = %4629
   %4635 = load ptr, ptr %117, align 8
   %4636 = getelementptr inbounds i8, ptr %4635, i64 960
-  %.not2596 = icmp eq ptr %4636, %0
+  %.not2596 = icmp eq ptr %0, %4636
   br i1 %.not2596, label %4642, label %4637
 
 4637:                                             ; preds = %4634
@@ -19227,7 +19227,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4658:                                             ; preds = %4649
   %4659 = load ptr, ptr %117, align 8
   %4660 = getelementptr inbounds i8, ptr %4659, i64 960
-  %.not2648 = icmp eq ptr %4660, %0
+  %.not2648 = icmp eq ptr %0, %4660
   br i1 %.not2648, label %4666, label %4661
 
 4661:                                             ; preds = %4658
@@ -19268,7 +19268,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4682:                                             ; preds = %4668
   %4683 = load ptr, ptr %117, align 8
   %4684 = getelementptr inbounds i8, ptr %4683, i64 960
-  %.not2646 = icmp eq ptr %4684, %0
+  %.not2646 = icmp eq ptr %0, %4684
   br i1 %.not2646, label %4690, label %4685
 
 4685:                                             ; preds = %4682
@@ -19345,7 +19345,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4721:                                             ; preds = %4716
   %4722 = load ptr, ptr %117, align 8
   %4723 = getelementptr inbounds i8, ptr %4722, i64 960
-  %.not2604 = icmp eq ptr %4723, %0
+  %.not2604 = icmp eq ptr %0, %4723
   br i1 %.not2604, label %4729, label %4724
 
 4724:                                             ; preds = %4721
@@ -19391,7 +19391,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4745:                                             ; preds = %4736
   %4746 = load ptr, ptr %117, align 8
   %4747 = getelementptr inbounds i8, ptr %4746, i64 960
-  %.not2644 = icmp eq ptr %4747, %0
+  %.not2644 = icmp eq ptr %0, %4747
   br i1 %.not2644, label %4753, label %4748
 
 4748:                                             ; preds = %4745
@@ -19432,7 +19432,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4769:                                             ; preds = %4755
   %4770 = load ptr, ptr %117, align 8
   %4771 = getelementptr inbounds i8, ptr %4770, i64 960
-  %.not2642 = icmp eq ptr %4771, %0
+  %.not2642 = icmp eq ptr %0, %4771
   br i1 %.not2642, label %4777, label %4772
 
 4772:                                             ; preds = %4769
@@ -19509,7 +19509,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4808:                                             ; preds = %4803
   %4809 = load ptr, ptr %117, align 8
   %4810 = getelementptr inbounds i8, ptr %4809, i64 960
-  %.not2612 = icmp eq ptr %4810, %0
+  %.not2612 = icmp eq ptr %0, %4810
   br i1 %.not2612, label %4816, label %4811
 
 4811:                                             ; preds = %4808
@@ -19555,7 +19555,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4832:                                             ; preds = %4823
   %4833 = load ptr, ptr %117, align 8
   %4834 = getelementptr inbounds i8, ptr %4833, i64 960
-  %.not2640 = icmp eq ptr %4834, %0
+  %.not2640 = icmp eq ptr %0, %4834
   br i1 %.not2640, label %4840, label %4835
 
 4835:                                             ; preds = %4832
@@ -19596,7 +19596,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4856:                                             ; preds = %4842
   %4857 = load ptr, ptr %117, align 8
   %4858 = getelementptr inbounds i8, ptr %4857, i64 960
-  %.not2638 = icmp eq ptr %4858, %0
+  %.not2638 = icmp eq ptr %0, %4858
   br i1 %.not2638, label %4864, label %4859
 
 4859:                                             ; preds = %4856
@@ -19673,7 +19673,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4895:                                             ; preds = %4890
   %4896 = load ptr, ptr %117, align 8
   %4897 = getelementptr inbounds i8, ptr %4896, i64 960
-  %.not2620 = icmp eq ptr %4897, %0
+  %.not2620 = icmp eq ptr %0, %4897
   br i1 %.not2620, label %4903, label %4898
 
 4898:                                             ; preds = %4895
@@ -19719,7 +19719,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4919:                                             ; preds = %4910
   %4920 = load ptr, ptr %117, align 8
   %4921 = getelementptr inbounds i8, ptr %4920, i64 960
-  %.not2636 = icmp eq ptr %4921, %0
+  %.not2636 = icmp eq ptr %0, %4921
   br i1 %.not2636, label %4927, label %4922
 
 4922:                                             ; preds = %4919
@@ -19760,7 +19760,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4943:                                             ; preds = %4929
   %4944 = load ptr, ptr %117, align 8
   %4945 = getelementptr inbounds i8, ptr %4944, i64 960
-  %.not2634 = icmp eq ptr %4945, %0
+  %.not2634 = icmp eq ptr %0, %4945
   br i1 %.not2634, label %4951, label %4946
 
 4946:                                             ; preds = %4943
@@ -19837,7 +19837,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4982:                                             ; preds = %4977
   %4983 = load ptr, ptr %117, align 8
   %4984 = getelementptr inbounds i8, ptr %4983, i64 960
-  %.not2628 = icmp eq ptr %4984, %0
+  %.not2628 = icmp eq ptr %0, %4984
   br i1 %.not2628, label %4990, label %4985
 
 4985:                                             ; preds = %4982
@@ -19883,7 +19883,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 5006:                                             ; preds = %4997
   %5007 = load ptr, ptr %117, align 8
   %5008 = getelementptr inbounds i8, ptr %5007, i64 960
-  %.not2632 = icmp eq ptr %5008, %0
+  %.not2632 = icmp eq ptr %0, %5008
   br i1 %.not2632, label %5014, label %5009
 
 5009:                                             ; preds = %5006
@@ -20050,7 +20050,7 @@ define hidden void @_ZN8JNIJVMCI16register_nativesEP7JNIEnv_(ptr noundef %0) loc
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 960
-  %.not = icmp eq ptr %7, %0
+  %.not = icmp eq ptr %0, %7
   br i1 %.not, label %_ZL26register_natives_for_classP7JNIEnv_P7_jclassPKcPK15JNINativeMethodi.exit10, label %8
 
 8:                                                ; preds = %1
@@ -37628,7 +37628,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -37690,7 +37690,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -37767,7 +37767,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -38306,7 +38306,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %3
+  %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -38368,7 +38368,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %60, %39
+  %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
@@ -38962,7 +38962,7 @@ _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -38981,7 +38981,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -39000,7 +39000,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -39019,7 +39019,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -39066,7 +39066,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -39119,7 +39119,7 @@ _ZN11XBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE3ELm286822EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -39130,7 +39130,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -39139,7 +39139,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -39148,7 +39148,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
@@ -39157,7 +39157,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -39181,7 +39181,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -39224,7 +39224,7 @@ _ZN11XBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE3ELm286790EE18oop_access_barrierEP7oopDescl(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = add nsw i64 %3, %1
+  %4 = add nsw i64 %1, %3
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %5, i64 noundef %6)
@@ -39274,7 +39274,7 @@ _ZN14AccessInternal15BarrierResolverILm286790EPFvP7oopDesclS2_ELNS_11BarrierType
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = icmp eq ptr %2, null
@@ -39303,7 +39303,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp eq ptr %2, null
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -39322,7 +39322,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1264
@@ -39386,7 +39386,7 @@ _ZN16ModRefBarrierSet13AccessBarrierILm286822E12G1BarrierSetE20oop_store_in_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E16oop_store_commonI9narrowOopEEvPT_P7oopDesc(ptr noundef %6, ptr noundef %2)
   ret void
@@ -39395,7 +39395,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp eq ptr %2, null
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -39414,7 +39414,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286822ES1_EELNS_11BarrierTypeE1ELm286822EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEPV8zpointerb(ptr noundef %6, i1 noundef zeroext false)
   %7 = ptrtoint ptr %2 to i64
@@ -39462,7 +39462,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2868
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i = icmp ugt ptr %23, %1
+  %.not.i.i.i.i = icmp ult ptr %1, %23
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %13
@@ -39771,7 +39771,7 @@ declare noundef i64 @_ZN8ZBarrier20heap_store_slow_pathEPV8zpointer8zaddressS0_b
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   store ptr %2, ptr %6, align 8
@@ -39790,7 +39790,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   store ptr %2, ptr %6, align 8
   ret void
@@ -39799,7 +39799,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1264
@@ -39845,7 +39845,7 @@ _ZN16ModRefBarrierSet13AccessBarrierILm286790E12G1BarrierSetE20oop_store_in_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E16oop_store_commonIP7oopDescEEvPT_S4_(ptr noundef %6, ptr noundef %2)
   ret void
@@ -39854,7 +39854,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN20She
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   store ptr %2, ptr %6, align 8
   ret void
@@ -39863,7 +39863,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm286790ES1_EELNS_11BarrierTypeE1ELm286790EE18oop_access_barrierEP7oopDesclS7_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = add nsw i64 %4, %1
+  %5 = add nsw i64 %1, %4
   %6 = inttoptr i64 %5 to ptr
   tail call void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEPV8zpointerb(ptr noundef %6, i1 noundef zeroext false)
   %7 = ptrtoint ptr %2 to i64
@@ -39909,7 +39909,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2867
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i = icmp ugt ptr %23, %1
+  %.not.i.i.i.i = icmp ult ptr %1, %23
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %13
@@ -39972,7 +39972,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds ptr, ptr %66, i64 %64
   %68 = load ptr, ptr %67, align 8
-  %.not.i.i.i.i7 = icmp ugt ptr %68, %56
+  %.not.i.i.i.i7 = icmp ult ptr %56, %68
   br i1 %.not.i.i.i.i7, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i8, label %_ZN20ShenandoahBarrierSet12satb_barrierILm286790EP7oopDescEEvPT0_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i8: ; preds = %58

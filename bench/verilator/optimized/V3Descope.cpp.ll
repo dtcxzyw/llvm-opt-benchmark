@@ -3920,7 +3920,7 @@ _ZN7AstNode9privateIsI8AstClassP13AstNodeModuleEEbPKS_.exit: ; preds = %74
 _ZN7AstNode9privateIsI8AstClassP13AstNodeModuleEEbPKS_.exit.thread: ; preds = %74, %_ZN7AstNode9privateIsI8AstClassP13AstNodeModuleEEbPKS_.exit
   %91 = getelementptr inbounds i8, ptr %1, i64 48
   %92 = load ptr, ptr %91, align 8
-  %93 = icmp ne ptr %92, %2
+  %93 = icmp ne ptr %2, %92
   %or.cond.not = select i1 %16, i1 true, i1 %93
   br i1 %or.cond.not, label %106, label %94
 
@@ -4068,7 +4068,7 @@ _ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_
 17:                                               ; preds = %_ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i
   %18 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp ugt ptr %19, %2
+  %20 = icmp ult ptr %2, %19
   br i1 %20, label %.critedge.i, label %_ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit
 
 .critedge.i:                                      ; preds = %17, %_ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i, %3
@@ -4282,7 +4282,7 @@ _ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_
 17:                                               ; preds = %_ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i
   %18 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp ugt ptr %19, %2
+  %20 = icmp ult ptr %2, %19
   br i1 %20, label %.critedge.i, label %_ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit
 
 .critedge.i:                                      ; preds = %17, %_ZNSt3mapIPK8AstScopeN14DescopeVisitor12ScopeSelfPtrESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.i, %3
@@ -4612,7 +4612,7 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i.i.i.i.i.i: ; preds = %24, %21
   %42 = load ptr, ptr %6, align 8
   %.not.i.i = icmp ne ptr %39, null
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = icmp eq ptr %43, %40
+  %44 = icmp eq ptr %40, %43
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %44
   br i1 %or.cond.i.i, label %.thread, label %45
 
@@ -4651,7 +4651,7 @@ _ZNSt8_Rb_treeIPK8AstScopeSt4pairIKS2_N14DescopeVisitor12ScopeSelfPtrEESt10_Sele
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK8AstScopeSt4pairIKS2_N14DescopeVisitor12ScopeSelfPtrEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -5117,7 +5117,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %16 = icmp eq ptr %9, %.0712.i
+  %16 = icmp eq ptr %.0712.i, %9
   br i1 %16, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P8AstCFuncESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit, label %17
 
 17:                                               ; preds = %.loopexit

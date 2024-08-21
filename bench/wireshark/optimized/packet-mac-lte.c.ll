@@ -8337,7 +8337,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %590, %588, %587, %.
 663:                                              ; preds = %658
   %664 = getelementptr inbounds i8, ptr %661, i64 32
   %665 = load i32, ptr %664, align 8
-  %666 = icmp eq i32 %665, %636
+  %666 = icmp eq i32 %636, %665
   br i1 %666, label %667, label %733
 
 667:                                              ; preds = %663

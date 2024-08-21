@@ -5288,9 +5288,9 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 1633:                                             ; preds = %1627
   %1634 = getelementptr inbounds i8, ptr %0, i64 44
   %1635 = load i32, ptr %1634, align 4
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %1635, i32 %.21027)
-  %.1.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 %.21032)
-  %.2.i = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 %4)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.21027, i32 %1635)
+  %.1.i = tail call i32 @llvm.smax.i32(i32 %.21032, i32 %spec.select.i)
+  %.2.i = tail call i32 @llvm.smax.i32(i32 %4, i32 %.1.i)
   %.not3739.i = icmp slt i32 %1632, %.2.i
   %.pre.i.pre3466 = load ptr, ptr %0, align 8
   br i1 %.not3739.i, label %_ir_fold_cse.exit.thread, label %.lr.ph.i
@@ -11603,7 +11603,7 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %7 = icmp slt i32 %6, %5
+  %7 = icmp sgt i32 %5, %6
   %.pre.i.i.pre27 = load ptr, ptr %0, align 8
   br i1 %7, label %.lr.ph.i, label %ir_find_aliasing_load.exit.thread
 
@@ -11636,7 +11636,7 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %19 = getelementptr inbounds i8, ptr %16, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %23, label %ir_check_partial_aliasing.exit.thread55.i
 
 23:                                               ; preds = %18
@@ -11659,7 +11659,7 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   br i1 %37, label %38, label %60
 
 38:                                               ; preds = %27
-  %39 = icmp eq i32 %35, %1
+  %39 = icmp eq i32 %1, %35
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %38
@@ -11751,7 +11751,7 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   br i1 %99, label %ir_find_aliasing_load.exit.thread, label %100
 
 100:                                              ; preds = %92
-  %101 = icmp eq i32 %35, %1
+  %101 = icmp eq i32 %1, %35
   br i1 %101, label %ir_check_partial_aliasing.exit.thread55.i, label %102
 
 102:                                              ; preds = %100

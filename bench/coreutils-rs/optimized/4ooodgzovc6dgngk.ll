@@ -92,7 +92,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %34 = load i64, ptr %10, align 8, !alias.scope !6, !noalias !11, !noundef !4
   %35 = load i64, ptr %3, align 8, !alias.scope !13, !noalias !11, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %16
+  %37 = icmp ugt i64 %16, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit"
 
 38:                                               ; preds = %33
@@ -132,7 +132,7 @@ default.unreachable:                              ; preds = %.lr.ph
   %52 = load i64, ptr %10, align 8, !alias.scope !23, !noalias !28, !noundef !4
   %53 = load i64, ptr %3, align 8, !alias.scope !30, !noalias !28, !noundef !4
   %54 = sub i64 %53, %52
-  %.not = icmp ugt i64 %54, %46
+  %.not = icmp ult i64 %46, %54
   br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit13", label %55
 
 55:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41b93b830701d463E.exit"
@@ -647,7 +647,7 @@ default.unreachable:                              ; preds = %39
   %55 = load i64, ptr %54, align 8, !alias.scope !93, !noalias !98, !noundef !4
   %56 = load i64, ptr %2, align 8, !alias.scope !134, !noalias !98, !noundef !4
   %57 = sub i64 %56, %55
-  %58 = icmp ult i64 %57, %.cast10.i
+  %58 = icmp ugt i64 %.cast10.i, %57
   br i1 %58, label %.noexc5, label %62
 
 .noexc5:                                          ; preds = %53
@@ -2295,7 +2295,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
   %73 = load i64, ptr %8, align 8, !alias.scope !417, !noalias !422, !noundef !4
   %74 = load i64, ptr %6, align 8, !alias.scope !424, !noalias !422, !noundef !4
   %75 = sub i64 %74, %73
-  %76 = icmp ult i64 %75, %69
+  %76 = icmp ugt i64 %69, %75
   br i1 %76, label %77, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit.i.i"
 
 77:                                               ; preds = %72
@@ -2347,7 +2347,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
   %91 = load i64, ptr %8, align 8, !alias.scope !427, !noalias !432, !noundef !4
   %92 = load i64, ptr %6, align 8, !alias.scope !434, !noalias !432, !noundef !4
   %93 = sub i64 %92, %91
-  %.not.i.i = icmp ugt i64 %93, %85
+  %.not.i.i = icmp ult i64 %85, %93
   br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h11f09c7c6f4f5419E.exit13.i.i", label %94
 
 94:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41b93b830701d463E.exit.i.i"
@@ -2381,7 +2381,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
   br i1 %104, label %110, label %105
 
 105:                                              ; preds = %101
-  %106 = icmp ult i64 %.val5.i54.fr.i.i, %.sink102.i.i
+  %106 = icmp ugt i64 %.sink102.i.i, %.val5.i54.fr.i.i
   br i1 %106, label %107, label %"_ZN3std2io5impls63_$LT$impl$u20$std..io..BufRead$u20$for$u20$$RF$$u5b$u8$u5d$$GT$7consume17h2c16439de7ecbd6cE.exit.i.i.i"
 
 107:                                              ; preds = %105

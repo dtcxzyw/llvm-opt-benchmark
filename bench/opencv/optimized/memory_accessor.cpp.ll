@@ -387,7 +387,7 @@ _ZN3ade14MemoryAccessor7onErrorEPKc.exit:         ; preds = %7, %_ZNKSt8function
   %.sroa.05.010.i = phi ptr [ %.sroa.05.0.i, %_ZN3ade14MemoryAccessor12SavedHandles7abandonEPNS_21IMemoryAccessListenerE.exit.i ], [ %.sroa.05.08.i, %_ZN3ade14MemoryAccessor7onErrorEPKc.exit ]
   %13 = getelementptr inbounds i8, ptr %.sroa.05.010.i, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
@@ -406,7 +406,7 @@ _ZN3ade14MemoryAccessor7onErrorEPKc.exit:         ; preds = %7, %_ZNKSt8function
 .lr.ph.i.i:                                       ; preds = %18, %27
   %.sroa.07.011.i.i = phi ptr [ %28, %27 ], [ %20, %18 ]
   %23 = load ptr, ptr %.sroa.07.011.i.i, align 8
-  %24 = icmp eq ptr %23, %1
+  %24 = icmp eq ptr %1, %23
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph.i.i
@@ -546,7 +546,7 @@ define hidden void @_ZN3ade14MemoryAccessor22abandonListenerHandlesEPNS_21IMemor
   %.sroa.05.010 = phi ptr [ %.sroa.05.0, %_ZN3ade14MemoryAccessor12SavedHandles7abandonEPNS_21IMemoryAccessListenerE.exit ], [ %.sroa.05.08, %2 ]
   %4 = getelementptr inbounds i8, ptr %.sroa.05.010, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph
@@ -565,7 +565,7 @@ define hidden void @_ZN3ade14MemoryAccessor22abandonListenerHandlesEPNS_21IMemor
 .lr.ph.i:                                         ; preds = %9, %18
   %.sroa.07.011.i = phi ptr [ %19, %18 ], [ %11, %9 ]
   %14 = load ptr, ptr %.sroa.07.011.i, align 8
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
@@ -714,7 +714,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN3ade14MemoryAccessor12SavedHandles7abandonEPNS_21IMemoryAccessListenerE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = icmp eq ptr %3, %1
+  %4 = icmp eq ptr %1, %3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
@@ -733,7 +733,7 @@ define hidden void @_ZN3ade14MemoryAccessor12SavedHandles7abandonEPNS_21IMemoryA
 .lr.ph:                                           ; preds = %7, %16
   %.sroa.07.011 = phi ptr [ %17, %16 ], [ %9, %7 ]
   %12 = load ptr, ptr %.sroa.07.011, align 8
-  %13 = icmp eq ptr %12, %1
+  %13 = icmp eq ptr %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph
@@ -1348,7 +1348,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIvN3ade21IMemoryAccessListener19AccessHandleDe
 _ZNSt6vectorISt10unique_ptrIvN3ade21IMemoryAccessListener19AccessHandleDeleterEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIvN3ade21IMemoryAccessListener19AccessHandleDeleterEESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIvN3ade21IMemoryAccessListener19AccessHandleDeleterEESaIS4_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
   %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIvN3ade21IMemoryAccessListener19AccessHandleDeleterEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIvN3ade21IMemoryAccessListener19AccessHandleDeleterEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i17

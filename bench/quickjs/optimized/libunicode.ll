@@ -115,7 +115,7 @@ define dso_local range(i32 1, 4) i32 @lre_case_conv(ptr nocapture noundef writeo
   %15 = getelementptr [370 x i32], ptr @case_conv_table1, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 15
-  %18 = icmp ugt i32 %17, %1
+  %18 = icmp ult i32 %1, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.preheader
@@ -126,7 +126,7 @@ define dso_local range(i32 1, 4) i32 @lre_case_conv(ptr nocapture noundef writeo
   %22 = lshr i32 %16, 8
   %23 = and i32 %22, 127
   %24 = add nuw nsw i32 %23, %17
-  %.not38 = icmp ugt i32 %24, %1
+  %.not38 = icmp ult i32 %1, %24
   br i1 %.not38, label %27, label %25
 
 25:                                               ; preds = %21
@@ -189,7 +189,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr nocapture no
 
 22:                                               ; preds = %5, %5, %5, %5
   %23 = and i32 %12, 1
-  %24 = icmp eq i32 %23, %2
+  %24 = icmp eq i32 %2, %23
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
@@ -446,7 +446,7 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
   %15 = getelementptr [370 x i32], ptr @case_conv_table1, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 15
-  %18 = icmp ugt i32 %17, %0
+  %18 = icmp ult i32 %0, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.preheader
@@ -457,7 +457,7 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
   %22 = lshr i32 %16, 8
   %23 = and i32 %22, 127
   %24 = add nuw nsw i32 %23, %17
-  %.not37 = icmp ugt i32 %24, %0
+  %.not37 = icmp ult i32 %0, %24
   br i1 %.not37, label %27, label %25
 
 25:                                               ; preds = %21
@@ -530,7 +530,7 @@ define dso_local range(i32 0, 2) i32 @lre_is_cased(i32 noundef %0) local_unnamed
   %6 = getelementptr [370 x i32], ptr @case_conv_table1, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 15
-  %9 = icmp ugt i32 %8, %0
+  %9 = icmp ult i32 %0, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
@@ -541,7 +541,7 @@ define dso_local range(i32 0, 2) i32 @lre_is_cased(i32 noundef %0) local_unnamed
   %13 = lshr i32 %7, 8
   %14 = and i32 %13, 127
   %15 = add nuw nsw i32 %14, %8
-  %.not21 = icmp ugt i32 %15, %0
+  %.not21 = icmp ult i32 %0, %15
   br i1 %.not21, label %.loopexit, label %16
 
 16:                                               ; preds = %12
@@ -573,7 +573,7 @@ define internal fastcc range(i32 0, 2) i32 @lre_is_in_table(i32 noundef %0, ptr 
   %8 = shl nuw nsw i32 %7, 16
   %.masked.i = and i32 %8, 2031616
   %9 = or disjoint i32 %.masked.i, %6
-  %10 = icmp ugt i32 %9, %0
+  %10 = icmp ult i32 %0, %9
   br i1 %10, label %get_index_pos.exit.thread41, label %11
 
 11:                                               ; preds = %4
@@ -588,7 +588,7 @@ define internal fastcc range(i32 0, 2) i32 @lre_is_in_table(i32 noundef %0, ptr 
   %18 = zext i8 %.val33.i to i32
   %19 = shl nuw nsw i32 %18, 16
   %20 = or disjoint i32 %19, %17
-  %.not.i = icmp ugt i32 %20, %0
+  %.not.i = icmp ult i32 %0, %20
   br i1 %.not.i, label %.preheader.i, label %get_index_pos.exit.thread
 
 .preheader.i:                                     ; preds = %11
@@ -611,7 +611,7 @@ define internal fastcc range(i32 0, 2) i32 @lre_is_in_table(i32 noundef %0, ptr 
   %30 = shl nuw nsw i32 %29, 16
   %.masked39.i = and i32 %30, 2031616
   %31 = or disjoint i32 %.masked39.i, %28
-  %32 = icmp ugt i32 %31, %0
+  %32 = icmp ult i32 %0, %31
   %.028..i = select i1 %32, i32 %.02840.i, i32 %23
   %..027.i = select i1 %32, i32 %23, i32 %.02741.i
   %33 = sub i32 %..027.i, %.028..i
@@ -659,7 +659,7 @@ get_index_pos.exit.thread41:                      ; preds = %4, %get_index_pos.e
   %56 = lshr i32 %53, 3
   %57 = add i32 %.037, 1
   %58 = add i32 %57, %56
-  %59 = icmp ugt i32 %58, %0
+  %59 = icmp ult i32 %0, %58
   br i1 %59, label %get_index_pos.exit.thread, label %60
 
 60:                                               ; preds = %55
@@ -709,7 +709,7 @@ get_index_pos.exit.thread41:                      ; preds = %4, %get_index_pos.e
   %.138 = phi i32 [ %64, %60 ], [ %69, %67 ], [ %78, %74 ], [ %89, %80 ]
   %.128 = phi i32 [ %61, %60 ], [ %.027, %67 ], [ %.027, %74 ], [ %.027, %80 ]
   %.1 = phi ptr [ %51, %60 ], [ %51, %67 ], [ %79, %74 ], [ %90, %80 ]
-  %92 = icmp ugt i32 %.138, %0
+  %92 = icmp ult i32 %0, %.138
   br i1 %92, label %get_index_pos.exit.thread, label %93
 
 93:                                               ; preds = %91
@@ -761,7 +761,7 @@ define dso_local void @cr_free(ptr nocapture noundef readonly %0) local_unnamed_
 define dso_local range(i32 -1, 1) i32 @cr_realloc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = icmp slt i32 %4, %1
+  %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
@@ -795,7 +795,7 @@ define dso_local range(i32 -1, 1) i32 @cr_copy(ptr nocapture noundef %0, ptr noc
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = icmp slt i32 %5, %3
+  %6 = icmp sgt i32 %3, %5
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
@@ -955,7 +955,7 @@ define dso_local range(i32 -1, 1) i32 @cr_op(ptr nocapture noundef %0, ptr nocap
 
 51:                                               ; preds = %49
   %52 = add i32 %47, 1
-  %53 = icmp slt i32 %50, %52
+  %53 = icmp sgt i32 %52, %50
   %.pre61 = load ptr, ptr %10, align 8
   br i1 %53, label %54, label %cr_add_point.exit.thread
 
@@ -1086,7 +1086,7 @@ define dso_local range(i32 -1, 1) i32 @cr_invert(ptr nocapture noundef %0) local
   %3 = add i32 %2, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = icmp slt i32 %5, %3
+  %6 = icmp sgt i32 %3, %5
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
@@ -1332,7 +1332,7 @@ define dso_local i32 @unicode_normalize(ptr nocapture noundef writeonly %0, ptr 
   %49 = shl nuw nsw i32 %48, 16
   %.masked39.i.i.i = and i32 %49, 2031616
   %50 = or disjoint i32 %.masked39.i.i.i, %47
-  %51 = icmp ugt i32 %50, %37
+  %51 = icmp ult i32 %37, %50
   %.028..i.i.i = select i1 %51, i32 %.02840.i.i.i, i32 %42
   %..027.i.i.i = select i1 %51, i32 %42, i32 %.02741.i.i.i
   %52 = sub i32 %..027.i.i.i, %.028..i.i.i
@@ -1410,7 +1410,7 @@ get_index_pos.exit.thread41.i.i:                  ; preds = %get_index_pos.exit.
   %spec.select.i.i = getelementptr i8, ptr %.1.i.i, i64 %spec.select.idx.i.i
   %98 = add i32 %.037.i.i, 1
   %99 = add i32 %98, %.030.i.i
-  %100 = icmp ugt i32 %99, %37
+  %100 = icmp ult i32 %37, %99
   br i1 %100, label %101, label %69
 
 101:                                              ; preds = %96
@@ -1480,7 +1480,7 @@ unicode_get_cc.exit.i:                            ; preds = %107, %103
   %127 = shl nuw nsw i32 %126, 16
   %.masked39.i.i42.i = and i32 %127, 2031616
   %128 = or disjoint i32 %.masked39.i.i42.i, %125
-  %129 = icmp ugt i32 %128, %116
+  %129 = icmp ult i32 %116, %128
   %.028..i.i43.i = select i1 %129, i32 %.02840.i.i39.i, i32 %120
   %..027.i.i44.i = select i1 %129, i32 %120, i32 %.02741.i.i38.i
   %130 = sub i32 %..027.i.i44.i, %.028..i.i43.i
@@ -1558,7 +1558,7 @@ get_index_pos.exit.thread41.i49.i:                ; preds = %get_index_pos.exit.
   %spec.select.i57.i = getelementptr i8, ptr %.1.i55.i, i64 %spec.select.idx.i56.i
   %176 = add i32 %.037.i52.i, 1
   %177 = add i32 %176, %.030.i54.i
-  %178 = icmp ugt i32 %177, %116
+  %178 = icmp ult i32 %116, %177
   br i1 %178, label %179, label %147
 
 179:                                              ; preds = %174
@@ -1719,7 +1719,7 @@ sort_cc.exit:                                     ; preds = %unicode_get_cc.exit
   %258 = call fastcc i32 @unicode_decomp_entry(ptr noundef nonnull %7, i32 noundef %257, i32 noundef %247, i32 noundef %252, i32 noundef %254, i32 noundef %256)
   %259 = load i32, ptr %7, align 4
   %260 = sub i32 %216, %259
-  %261 = icmp eq i32 %259, %216
+  %261 = icmp eq i32 %216, %259
   %262 = load i32, ptr %204, align 4
   %263 = sub i32 %207, %262
   %.0.i.i75 = select i1 %261, i32 %263, i32 %260
@@ -1843,7 +1843,7 @@ define internal fastcc void @to_nfd_rec(ptr noundef %0, ptr nocapture noundef re
   %30 = getelementptr [699 x i32], ptr @unicode_decomp_table1, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = lshr i32 %31, 14
-  %33 = icmp ugt i32 %32, %12
+  %33 = icmp ult i32 %12, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.preheader
@@ -1854,7 +1854,7 @@ define internal fastcc void @to_nfd_rec(ptr noundef %0, ptr nocapture noundef re
   %37 = lshr i32 %31, 7
   %38 = and i32 %37, 127
   %39 = add nuw nsw i32 %38, %32
-  %.not29.i = icmp ugt i32 %39, %12
+  %.not29.i = icmp ult i32 %12, %39
   br i1 %.not29.i, label %42, label %40
 
 40:                                               ; preds = %36
@@ -1863,7 +1863,7 @@ define internal fastcc void @to_nfd_rec(ptr noundef %0, ptr nocapture noundef re
 
 42:                                               ; preds = %36
   %43 = and i32 %31, 1
-  %44 = icmp ugt i32 %43, %3
+  %44 = icmp ult i32 %3, %43
   br i1 %44, label %unicode_decomp_char.exit.thread, label %unicode_decomp_char.exit
 
 45:                                               ; preds = %40, %34
@@ -1924,7 +1924,7 @@ define internal fastcc i32 @unicode_get_cc(i32 noundef %0) unnamed_addr #2 {
   %12 = shl nuw nsw i32 %11, 16
   %.masked39.i = and i32 %12, 2031616
   %13 = or disjoint i32 %.masked39.i, %10
-  %14 = icmp ugt i32 %13, %0
+  %14 = icmp ult i32 %0, %13
   %.028..i = select i1 %14, i32 %.02840.i, i32 %5
   %..027.i = select i1 %14, i32 %5, i32 %.02741.i
   %15 = sub i32 %..027.i, %.028..i
@@ -2002,7 +2002,7 @@ get_index_pos.exit.thread41:                      ; preds = %1, %get_index_pos.e
   %spec.select = getelementptr i8, ptr %.1, i64 %spec.select.idx
   %61 = add i32 %.037, 1
   %62 = add i32 %61, %.030
-  %63 = icmp ugt i32 %62, %0
+  %63 = icmp ult i32 %0, %62
   br i1 %63, label %64, label %32
 
 64:                                               ; preds = %59
@@ -2437,7 +2437,7 @@ cr_add_interval.exit145.thread:                   ; preds = %169, %172
 
 186:                                              ; preds = %.split.us, %.split.us
   %187 = add i32 %.us-phi269, 2
-  %188 = icmp slt i32 %.us-phi270, %187
+  %188 = icmp sgt i32 %187, %.us-phi270
   br i1 %188, label %189, label %._crit_edge.i146
 
 189:                                              ; preds = %186
@@ -2677,7 +2677,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr nocapture noun
   %32 = add i32 %26, 2
   %33 = getelementptr inbounds i8, ptr %5, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = icmp slt i32 %34, %32
+  %35 = icmp sgt i32 %32, %34
   br i1 %35, label %36, label %._crit_edge.i
 
 36:                                               ; preds = %31
@@ -4167,7 +4167,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr nocapture noundef %0,
   %131 = load i32, ptr %3, align 16
   %132 = getelementptr inbounds i8, ptr %0, i64 4
   %133 = load i32, ptr %132, align 4
-  %134 = icmp slt i32 %133, %131
+  %134 = icmp sgt i32 %131, %133
   br i1 %134, label %135, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %130

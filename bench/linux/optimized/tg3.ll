@@ -16480,7 +16480,7 @@ select.unfold:                                    ; preds = %533, %635
   %1054 = getelementptr inbounds i8, ptr %0, i64 4769
   %1055 = load i8, ptr %1054, align 1
   %1056 = icmp ne i8 %1055, 1
-  %1057 = or i1 %1056, %1
+  %1057 = or i1 %1, %1056
   br i1 %1057, label %1062, label %1058
 
 1058:                                             ; preds = %1049
@@ -16961,7 +16961,7 @@ select.unfold:                                    ; preds = %533, %635
   %1367 = load i32, ptr %9, align 4
   %1368 = and i32 %1367, 4
   %1369 = icmp eq i32 %1368, 0
-  %1370 = or i1 %1369, %1
+  %1370 = or i1 %1, %1369
   br i1 %1370, label %1372, label %1374
 
 1371:                                             ; preds = %1358, %1354, %1344
@@ -18794,7 +18794,7 @@ define internal fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef %1, i1 n
 49:                                               ; preds = %46, %41
   %50 = phi i32 [ %36, %41 ], [ 1000, %46 ]
   %51 = icmp ne i32 %50, 1000
-  %52 = or i1 %51, %2
+  %52 = or i1 %2, %51
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %49
@@ -19149,7 +19149,7 @@ define internal fastcc void @tg3_phy_toggle_apd(ptr noundef %0, i1 noundef zeroe
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, -4096
   %50 = icmp eq i32 %49, 91766784
-  %51 = and i1 %50, %1
+  %51 = and i1 %1, %50
   %52 = select i1 %51, i32 37917, i32 37919
   %53 = getelementptr inbounds i8, ptr %0, i64 4900
   %54 = load i8, ptr %53, align 4
@@ -27131,7 +27131,7 @@ define internal fastcc range(i32 -22, 1) i32 @tg3_nvram_read(ptr noundef %0, i32
   %15 = and i32 %14, 1644101632
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = or disjoint i32 %15, %1
+  %18 = or disjoint i32 %1, %15
   %19 = or disjoint i32 %18, -2113929216
   tail call void %17(ptr noundef %0, i32 noundef 26680, i32 noundef %19) #26
   br label %20
@@ -30318,7 +30318,7 @@ define internal fastcc zeroext i1 @tg3_tx_frag_set(ptr nocapture noundef readonl
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %8
-  %28 = add i32 %17, %4
+  %28 = add i32 %4, %17
   %29 = and i32 %6, 16383
   %30 = add i32 %28, %29
   %31 = icmp ult i32 %30, %17

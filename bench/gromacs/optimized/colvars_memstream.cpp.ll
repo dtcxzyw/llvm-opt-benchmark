@@ -54,7 +54,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
@@ -137,7 +137,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
-  %41 = icmp ugt i64 %8, %1
+  %41 = icmp ult i64 %1, %8
   br i1 %41, label %42, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 42:                                               ; preds = %40
@@ -437,7 +437,7 @@ define void @_ZN12colvarmodule13memory_stream11read_objectINSt7__cxx1112basic_st
   %19 = add i64 %9, 8
   store i64 %19, ptr %8, align 8
   %20 = sub i64 %7, %19
-  %.not = icmp ult i64 %20, %.0.copyload
+  %.not = icmp ugt i64 %.0.copyload, %20
   br i1 %.not, label %26, label %21
 
 21:                                               ; preds = %12
@@ -489,7 +489,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZrsINSt7__cxx1112basic_
   %19 = add i64 %9, 8
   store i64 %19, ptr %8, align 8
   %20 = sub i64 %7, %19
-  %.not.i = icmp ult i64 %20, %.0.copyload.i
+  %.not.i = icmp ugt i64 %.0.copyload.i, %20
   br i1 %.not.i, label %26, label %21
 
 21:                                               ; preds = %12
@@ -548,7 +548,7 @@ define void @_ZN12colvarmodule13memory_stream11read_objectINS_8vector1dIdEEEEvRT
   store i64 %19, ptr %8, align 8
   %20 = shl i64 %.0.copyload.i, 3
   %21 = sub i64 %7, %19
-  %.not.i = icmp ult i64 %21, %20
+  %.not.i = icmp ugt i64 %20, %21
   br i1 %.not.i, label %46, label %22
 
 22:                                               ; preds = %12
@@ -559,7 +559,7 @@ define void @_ZN12colvarmodule13memory_stream11read_objectINS_8vector1dIdEEEEvRT
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
-  %30 = icmp ult i64 %29, %.0.copyload.i
+  %30 = icmp ugt i64 %.0.copyload.i, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %22
@@ -569,7 +569,7 @@ define void @_ZN12colvarmodule13memory_stream11read_objectINS_8vector1dIdEEEEvRT
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 33:                                               ; preds = %22
-  %34 = icmp ugt i64 %29, %.0.copyload.i
+  %34 = icmp ult i64 %.0.copyload.i, %29
   br i1 %34, label %35, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 35:                                               ; preds = %33
@@ -733,7 +733,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZrsIN12colvarmodule8vec
   store i64 %19, ptr %8, align 8
   %20 = shl i64 %.0.copyload.i, 3
   %21 = sub i64 %7, %19
-  %.not.i = icmp ult i64 %21, %20
+  %.not.i = icmp ugt i64 %20, %21
   br i1 %.not.i, label %46, label %22
 
 22:                                               ; preds = %12
@@ -744,7 +744,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZrsIN12colvarmodule8vec
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
-  %30 = icmp ult i64 %29, %.0.copyload.i
+  %30 = icmp ugt i64 %.0.copyload.i, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %22
@@ -754,7 +754,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZrsIN12colvarmodule8vec
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 33:                                               ; preds = %22
-  %34 = icmp ugt i64 %29, %.0.copyload.i
+  %34 = icmp ult i64 %.0.copyload.i, %29
   br i1 %34, label %35, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 35:                                               ; preds = %33

@@ -127,7 +127,7 @@ define dso_local noundef ptr @_ZN4pstd3pmr25monotonic_buffer_resource11do_alloca
 entry:
   %block_size = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %block_size, align 16
-  %cmp = icmp ult i64 %0, %bytes
+  %cmp = icmp ugt i64 %bytes, %0
   br i1 %cmp, label %_ZN4pstd3pmr15memory_resource8allocateEmm.exit, label %if.end
 
 _ZN4pstd3pmr15memory_resource8allocateEmm.exit:   ; preds = %entry
@@ -304,7 +304,7 @@ define linkonce_odr dso_local void @_ZN4pstd3pmr25monotonic_buffer_resource13do_
 entry:
   %block_size = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %block_size, align 16
-  %cmp = icmp uge i64 %0, %bytes
+  %cmp = icmp ule i64 %bytes, %0
   %tobool.not.i = icmp eq ptr %p, null
   %or.cond = or i1 %tobool.not.i, %cmp
   br i1 %or.cond, label %if.end, label %if.end.i

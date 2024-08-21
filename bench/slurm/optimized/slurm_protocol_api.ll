@@ -199,7 +199,7 @@ define void @convert_num_unit2(double noundef %0, ptr nocapture noundef writeonl
   %.04869 = phi i32 [ %3, %.preheader63 ], [ %19, %17 ]
   %18 = fmul double %.070, %16
   %19 = add nsw i32 %.04869, -1
-  %20 = icmp sgt i32 %19, %4
+  %20 = icmp slt i32 %4, %19
   br i1 %20, label %17, label %.critedge, !llvm.loop !6
 
 21:                                               ; preds = %14
@@ -232,7 +232,7 @@ define void @convert_num_unit2(double noundef %0, ptr nocapture noundef writeonl
   %32 = and i32 %6, 1
   %.not60 = icmp eq i32 %32, 0
   %33 = sitofp i32 %5 to double
-  %34 = fcmp ugt double %33, %0
+  %34 = fcmp ult double %0, %33
   br i1 %.not60, label %.preheader, label %.preheader61
 
 .preheader61:                                     ; preds = %31
@@ -373,7 +373,7 @@ get_unit_type.exit:                               ; preds = %4
   br i1 %10, label %get_unit_type.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %get_unit_type.exit
-  %11 = icmp sgt i32 %9, %0
+  %11 = icmp slt i32 %0, %9
   br i1 %11, label %.lr.ph, label %get_unit_type.exit.thread
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -566,7 +566,7 @@ get_unit_type.exit.i.i:                           ; preds = %62
   br i1 %68, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %get_unit_type.exit.i.i
-  %69 = icmp sgt i32 %67, %59
+  %69 = icmp slt i32 %59, %67
   br i1 %69, label %.lr.ph.i.i, label %81
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -1094,7 +1094,7 @@ define i32 @slurm_open_controller_conn_spec(i32 noundef %0, ptr noundef %1) loca
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %14, align 8
-  %.not27 = icmp ult i32 %22, %0
+  %.not27 = icmp ugt i32 %0, %22
   br i1 %.not27, label %_remap_slurmctld_errno.exit.thread, label %23
 
 23:                                               ; preds = %21
@@ -1886,7 +1886,7 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
 
 43:                                               ; preds = %36
   %44 = mul nuw nsw i32 %40, 10000
-  %45 = icmp ult i32 %44, %2
+  %45 = icmp ugt i32 %2, %44
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %43

@@ -2397,7 +2397,7 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
   %21 = select i1 %18, i1 true, i1 %20
   %22 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %23 = zext i16 %22 to i32
-  %24 = icmp eq i32 %23, %1
+  %24 = icmp eq i32 %1, %23
   %25 = select i1 %21, i1 true, i1 %24
   br i1 %25, label %63, label %26
 

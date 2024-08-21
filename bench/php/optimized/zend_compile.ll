@@ -13425,7 +13425,7 @@ thread-pre-split:                                 ; preds = %279
   %.sroa.0197.4525532 = phi ptr [ %.sroa.0197.4, %.thread ], [ %.0456, %319 ]
   %331 = phi i32 [ %326, %.thread ], [ 0, %319 ]
   %332 = and i1 %.not, %.not493534
-  %brmerge514.demorgan = and i1 %332, %1
+  %brmerge514.demorgan = and i1 %1, %332
   br i1 %brmerge514.demorgan, label %333, label %.thread.thread.thread
 
 333:                                              ; preds = %.thread.thread
@@ -13437,7 +13437,7 @@ thread-pre-split:                                 ; preds = %279
   %.sroa.0197.4525532544 = phi ptr [ %.sroa.0197.4525532, %.thread.thread ], [ %.sroa.0197.4525532, %333 ], [ %.0455, %._crit_edge ]
   %.sroa.12.4524533543 = phi i32 [ %.sroa.12.4524533, %.thread.thread ], [ %.sroa.12.4524533, %333 ], [ 5767168, %._crit_edge ]
   %.not.not545 = xor i1 %.not, true
-  %brmerge516 = or i1 %.not.not545, %1
+  %brmerge516 = or i1 %1, %.not.not545
   %335 = or i32 %.sroa.12.4524533543, 2
   %336 = and i32 %335, 262143
   %.sroa.12.5 = select i1 %brmerge516, i32 %335, i32 %.sroa.12.4524533543
@@ -14048,7 +14048,7 @@ define internal fastcc void @zend_compile_static_var_common(ptr noundef %0, ptr 
   %21 = load ptr, ptr @zend_known_strings, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 152
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %0
+  %24 = icmp eq ptr %0, %23
   br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %18
@@ -14129,7 +14129,7 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %3
   %65 = ptrtoint ptr %63 to i64
   %66 = sub i64 %64, %65
   %67 = trunc i64 %66 to i32
-  %68 = or i32 %67, %2
+  %68 = or i32 %2, %67
   store i32 %68, ptr %55, align 4
   ret void
 }
@@ -22465,7 +22465,7 @@ define internal fastcc ptr @zend_delayed_compile_end(i32 noundef %0) unnamed_add
   %3 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 440)) #28
   %4 = icmp uge i32 %3, %0
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp ugt i32 %3, %0
+  %5 = icmp ult i32 %0, %3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %1
@@ -26291,7 +26291,7 @@ zend_try_compile_special_func_ex.exit.thread37:   ; preds = %134
   %158 = load ptr, ptr @zend_known_strings, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 552
   %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, %1
+  %161 = icmp eq ptr %1, %160
   br i1 %161, label %.critedge51.i, label %162
 
 162:                                              ; preds = %.critedge49.i
@@ -31887,7 +31887,7 @@ define internal fastcc noundef ptr @zend_get_compatible_func_or_null(ptr noundef
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 24), align 8
-  %12 = icmp eq ptr %11, %0
+  %12 = icmp eq ptr %0, %11
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
@@ -32604,7 +32604,7 @@ zend_compile_expr.exit61:                         ; preds = %.split50
   unreachable
 
 97:                                               ; preds = %92
-  %.not.i62 = icmp eq i16 %94, %3
+  %.not.i62 = icmp eq i16 %3, %94
   br i1 %.not.i62, label %zend_verify_list_assign_target.exit, label %98
 
 98:                                               ; preds = %97

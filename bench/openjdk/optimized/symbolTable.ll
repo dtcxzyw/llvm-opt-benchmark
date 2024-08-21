@@ -964,7 +964,7 @@ _ZNK19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE10get_bucketEm.exit.i
   %45 = getelementptr inbounds i8, ptr %.019.i.i, i64 12
   %46 = load i16, ptr %45, align 4
   %47 = zext i16 %46 to i32
-  %.not.i.i.i.i5 = icmp eq i32 %47, %1
+  %.not.i.i.i.i5 = icmp eq i32 %1, %47
   br i1 %.not.i.i.i.i5, label %_ZNK6Symbol6equalsEPKci.exit.i.i.i, label %_ZN17SymbolTableLookup6equalsEP6Symbol.exit.thread.i.i
 
 _ZNK6Symbol6equalsEPKci.exit.i.i.i:               ; preds = %42
@@ -1093,7 +1093,7 @@ _ZL18hash_shared_symbolPKci.exit:                 ; preds = %.lr.ph.i.i, %6, %9
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i32
-  %.not.i.i.i = icmp eq i32 %36, %1
+  %.not.i.i.i = icmp eq i32 %1, %36
   br i1 %.not.i.i.i, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i, label %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit
 
 _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i: ; preds = %29
@@ -1131,7 +1131,7 @@ _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i: ; preds = %29
   %57 = getelementptr inbounds i8, ptr %56, i64 4
   %58 = load i16, ptr %57, align 4
   %59 = zext i16 %58 to i32
-  %.not.i.i25.i = icmp eq i32 %59, %1
+  %.not.i.i25.i = icmp eq i32 %1, %59
   br i1 %.not.i.i25.i, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.thread.i
 
 _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i: ; preds = %52
@@ -1178,7 +1178,7 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   %85 = load i16, ptr %84, align 4
   %86 = zext i16 %85 to i32
-  %.not.i.i.i21 = icmp eq i32 %86, %1
+  %.not.i.i.i21 = icmp eq i32 %1, %86
   br i1 %.not.i.i.i21, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13
 
 _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22: ; preds = %79
@@ -1216,7 +1216,7 @@ _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22: ; preds = %79
   %107 = getelementptr inbounds i8, ptr %106, i64 4
   %108 = load i16, ptr %107, align 4
   %109 = zext i16 %108 to i32
-  %.not.i.i25.i18 = icmp eq i32 %109, %1
+  %.not.i.i25.i18 = icmp eq i32 %1, %109
   br i1 %.not.i.i25.i18, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19, label %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.thread.i17
 
 _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19: ; preds = %102
@@ -1987,7 +1987,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %30, %28, %7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11SymbolTable11new_symbolsEP15ClassLoaderDataRK18constantPoolHandleiPPKcPiS8_Pj(ptr noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 align 2 {
   %8 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   %10 = icmp sgt i32 %2, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5437,13 +5437,13 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
   %57 = inttoptr i64 %56 to ptr
   br label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %.lr.ph.i39.preheader, %113
-  %.062 = phi ptr [ %storemerge.i, %113 ], [ %57, %.lr.ph.i39.preheader ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.3, %113 ], [ 0, %.lr.ph.i39.preheader ]
-  %.sroa.7.2 = phi i32 [ %.sroa.7.3, %113 ], [ 0, %.lr.ph.i39.preheader ]
-  %.sroa.13.2 = phi ptr [ %.sroa.13.3, %113 ], [ null, %.lr.ph.i39.preheader ]
-  %.022.i = phi i64 [ %.1.i40, %113 ], [ 0, %.lr.ph.i39.preheader ]
-  %.01421.i = phi ptr [ %.115.i, %113 ], [ %23, %.lr.ph.i39.preheader ]
+.lr.ph.i39:                                       ; preds = %.lr.ph.i39.preheader, %111
+  %.062 = phi ptr [ %storemerge.i, %111 ], [ %57, %.lr.ph.i39.preheader ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.3, %111 ], [ 0, %.lr.ph.i39.preheader ]
+  %.sroa.7.2 = phi i32 [ %.sroa.7.3, %111 ], [ 0, %.lr.ph.i39.preheader ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.3, %111 ], [ null, %.lr.ph.i39.preheader ]
+  %.022.i = phi i64 [ %.1.i40, %111 ], [ 0, %.lr.ph.i39.preheader ]
+  %.01421.i = phi ptr [ %.115.i, %111 ], [ %23, %.lr.ph.i39.preheader ]
   %58 = getelementptr inbounds i8, ptr %.062, i64 8
   %59 = load i64, ptr %4, align 8
   %60 = add i64 %59, 1
@@ -5451,7 +5451,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
   %61 = load volatile i32, ptr %58, align 4
   %62 = and i32 %61, 65535
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %111
+  br i1 %63, label %64, label %109
 
 64:                                               ; preds = %.lr.ph.i39
   %65 = icmp ult i64 %.022.i, 256
@@ -5459,7 +5459,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds ptr, ptr %8, i64 %.022.i
-  br label %101
+  br label %99
 
 68:                                               ; preds = %64
   %69 = icmp ult i64 %.022.i, 2147483647
@@ -5478,241 +5478,240 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
 
 75:                                               ; preds = %72
   %76 = icmp sgt i32 %.sroa.0.2, -1
-  %77 = xor i32 %.sroa.0.2, -2147483648
-  %78 = and i32 %77, %74
-  %79 = icmp eq i32 %78, 0
-  %80 = and i1 %76, %79
-  %81 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
-  %82 = sub nuw nsw i32 32, %81
-  %83 = shl nuw i32 1, %82
-  %.0.i.i.i.i = select i1 %80, i32 %74, i32 %83
-  %84 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i, i32 noundef 8, i8 noundef zeroext 11) #18
-  %85 = icmp sgt i32 %.sroa.0.2, 0
-  br i1 %85, label %.lr.ph.i.i.i.preheader, label %.preheader15.i.i.i
+  %77 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %74)
+  %78 = icmp ult i32 %77, 2
+  %or.cond.i.i.i.i = select i1 %76, i1 %78, i1 false
+  %79 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
+  %80 = sub nuw nsw i32 32, %79
+  %81 = shl nuw i32 1, %80
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %74, i32 %81
+  %82 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i, i32 noundef 8, i8 noundef zeroext 11) #18
+  %83 = icmp sgt i32 %.sroa.0.2, 0
+  br i1 %83, label %.lr.ph.i.i.i.preheader, label %.preheader15.i.i.i
 
 .lr.ph.i.i.i.preheader:                           ; preds = %75
-  %86 = zext nneg i32 %.sroa.0.2 to i64
+  %84 = zext nneg i32 %.sroa.0.2 to i64
   br label %.lr.ph.i.i.i
 
 .preheader15.i.i.i:                               ; preds = %.lr.ph.i.i.i, %75
   %.0.lcssa.i.i.i = phi i32 [ 0, %75 ], [ %.sroa.0.2, %.lr.ph.i.i.i ]
-  %87 = icmp slt i32 %.0.lcssa.i.i.i, %.0.i.i.i.i
-  br i1 %87, label %.lr.ph18.preheader.i.i.i, label %.preheader.i.i.i
+  %85 = icmp slt i32 %.0.lcssa.i.i.i, %.0.i.i.i.i
+  br i1 %85, label %.lr.ph18.preheader.i.i.i, label %.preheader.i.i.i
 
 .lr.ph18.preheader.i.i.i:                         ; preds = %.preheader15.i.i.i
-  %88 = zext nneg i32 %.0.lcssa.i.i.i to i64
-  %89 = shl nuw nsw i64 %88, 3
-  %scevgep = getelementptr i8, ptr %84, i64 %89
-  %90 = xor i32 %.0.lcssa.i.i.i, -1
-  %91 = add i32 %.0.i.i.i.i, %90
-  %92 = zext i32 %91 to i64
-  %93 = shl nuw nsw i64 %92, 3
-  %94 = add nuw nsw i64 %93, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %94, i1 false)
+  %86 = zext nneg i32 %.0.lcssa.i.i.i to i64
+  %87 = shl nuw nsw i64 %86, 3
+  %scevgep = getelementptr i8, ptr %82, i64 %87
+  %88 = xor i32 %.0.lcssa.i.i.i, -1
+  %89 = add i32 %.0.i.i.i.i, %88
+  %90 = zext i32 %89 to i64
+  %91 = shl nuw nsw i64 %90, 3
+  %92 = add nuw nsw i64 %91, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %92, i1 false)
   br label %.preheader.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
-  %95 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv.i.i.i
-  %96 = getelementptr inbounds ptr, ptr %.sroa.13.2, i64 %indvars.iv.i.i.i
-  %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr %95, align 8
+  %93 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv.i.i.i
+  %94 = getelementptr inbounds ptr, ptr %.sroa.13.2, i64 %indvars.iv.i.i.i
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %93, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i, %86
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i, %84
   br i1 %exitcond.not, label %.preheader15.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !52
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.preheader.i.i.i, %.preheader15.i.i.i
   %.not.i.i.i44 = icmp eq ptr %.sroa.13.2, null
-  br i1 %.not.i.i.i44, label %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit, label %98
+  br i1 %.not.i.i.i44, label %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit, label %96
 
-98:                                               ; preds = %.preheader.i.i.i
+96:                                               ; preds = %.preheader.i.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.13.2) #18
   br label %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit
 
-_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit: ; preds = %72, %.preheader.i.i.i, %98
-  %.sroa.7.7 = phi i32 [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i.i, %98 ], [ %.sroa.7.2, %72 ]
-  %.sroa.13.7 = phi ptr [ %84, %.preheader.i.i.i ], [ %84, %98 ], [ %.sroa.13.2, %72 ]
-  %99 = sext i32 %.sroa.0.2 to i64
-  %100 = getelementptr inbounds ptr, ptr %.sroa.13.7, i64 %99
-  br label %101
+_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit: ; preds = %72, %.preheader.i.i.i, %96
+  %.sroa.7.7 = phi i32 [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i.i, %96 ], [ %.sroa.7.2, %72 ]
+  %.sroa.13.7 = phi ptr [ %82, %.preheader.i.i.i ], [ %82, %96 ], [ %.sroa.13.2, %72 ]
+  %97 = sext i32 %.sroa.0.2 to i64
+  %98 = getelementptr inbounds ptr, ptr %.sroa.13.7, i64 %97
+  br label %99
 
-101:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit, %66
-  %.sink = phi ptr [ %100, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %67, %66 ]
+99:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit, %66
+  %.sink = phi ptr [ %98, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %67, %66 ]
   %.sroa.0.4 = phi i32 [ %74, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %.sroa.0.2, %66 ]
   %.sroa.7.4 = phi i32 [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %.sroa.7.2, %66 ]
   %.sroa.13.4 = phi ptr [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ], [ %.sroa.13.2, %66 ]
   store ptr %.062, ptr %.sink, align 8
-  %102 = add nuw i64 %.022.i, 1
-  %103 = load volatile ptr, ptr %.062, align 8
+  %100 = add nuw i64 %.022.i, 1
+  %101 = load volatile ptr, ptr %.062, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  %104 = load volatile ptr, ptr %.01421.i, align 8
-  %105 = ptrtoint ptr %103 to i64
-  %106 = and i64 %105, -4
-  %107 = ptrtoint ptr %104 to i64
-  %108 = and i64 %107, 3
-  %109 = or disjoint i64 %108, %106
-  %110 = inttoptr i64 %109 to ptr
+  %102 = load volatile ptr, ptr %.01421.i, align 8
+  %103 = ptrtoint ptr %101 to i64
+  %104 = and i64 %103, -4
+  %105 = ptrtoint ptr %102 to i64
+  %106 = and i64 %105, 3
+  %107 = or disjoint i64 %106, %104
+  %108 = inttoptr i64 %107 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  store volatile ptr %110, ptr %.01421.i, align 8
-  br label %113
+  store volatile ptr %108, ptr %.01421.i, align 8
+  br label %111
 
-111:                                              ; preds = %.lr.ph.i39
-  %112 = load volatile ptr, ptr %.062, align 8
+109:                                              ; preds = %.lr.ph.i39
+  %110 = load volatile ptr, ptr %.062, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  br label %113
+  br label %111
 
-113:                                              ; preds = %111, %101
-  %.sroa.0.3 = phi i32 [ %.sroa.0.4, %101 ], [ %.sroa.0.2, %111 ]
-  %.sroa.7.3 = phi i32 [ %.sroa.7.4, %101 ], [ %.sroa.7.2, %111 ]
-  %.sroa.13.3 = phi ptr [ %.sroa.13.4, %101 ], [ %.sroa.13.2, %111 ]
-  %storemerge.i = phi ptr [ %103, %101 ], [ %112, %111 ]
-  %.115.i = phi ptr [ %.01421.i, %101 ], [ %.062, %111 ]
-  %.1.i40 = phi i64 [ %102, %101 ], [ %.022.i, %111 ]
+111:                                              ; preds = %109, %99
+  %.sroa.0.3 = phi i32 [ %.sroa.0.4, %99 ], [ %.sroa.0.2, %109 ]
+  %.sroa.7.3 = phi i32 [ %.sroa.7.4, %99 ], [ %.sroa.7.2, %109 ]
+  %.sroa.13.3 = phi ptr [ %.sroa.13.4, %99 ], [ %.sroa.13.2, %109 ]
+  %storemerge.i = phi ptr [ %101, %99 ], [ %110, %109 ]
+  %.115.i = phi ptr [ %.01421.i, %99 ], [ %.062, %109 ]
+  %.1.i40 = phi i64 [ %100, %99 ], [ %.022.i, %109 ]
   %.not.i = icmp eq ptr %storemerge.i, null
   br i1 %.not.i, label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE18delete_check_nodesI22SymbolTableDeleteCheckEEmPNS2_6BucketERT_mPPNS2_4NodeER18GrowableArrayCHeapISA_LS1_11EE.exit, label %.lr.ph.i39, !llvm.loop !53
 
-_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE18delete_check_nodesI22SymbolTableDeleteCheckEEmPNS2_6BucketERT_mPPNS2_4NodeER18GrowableArrayCHeapISA_LS1_11EE.exit: ; preds = %113, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit
-  %.sroa.7.5 = phi i32 [ 0, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit ], [ %.sroa.7.3, %113 ]
-  %.sroa.13.5 = phi ptr [ null, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit ], [ %.sroa.13.3, %113 ]
-  %.0.lcssa.i = phi i64 [ 0, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit ], [ %.1.i40, %113 ]
-  %114 = load volatile ptr, ptr %23, align 8
+_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE18delete_check_nodesI22SymbolTableDeleteCheckEEmPNS2_6BucketERT_mPPNS2_4NodeER18GrowableArrayCHeapISA_LS1_11EE.exit: ; preds = %111, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit
+  %.sroa.7.5 = phi i32 [ 0, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit ], [ %.sroa.7.3, %111 ]
+  %.sroa.13.5 = phi ptr [ null, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit ], [ %.sroa.13.3, %111 ]
+  %.0.lcssa.i = phi i64 [ 0, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit ], [ %.1.i40, %111 ]
+  %112 = load volatile ptr, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  %115 = ptrtoint ptr %114 to i64
-  %116 = and i64 %115, -4
-  %117 = inttoptr i64 %116 to ptr
+  %113 = ptrtoint ptr %112 to i64
+  %114 = and i64 %113, -4
+  %115 = inttoptr i64 %114 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  store volatile ptr %117, ptr %23, align 8
-  br i1 %6, label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit.sink.split, label %118
+  store volatile ptr %115, ptr %23, align 8
+  br i1 %6, label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit.sink.split, label %116
 
-118:                                              ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE18delete_check_nodesI22SymbolTableDeleteCheckEEmPNS2_6BucketERT_mPPNS2_4NodeER18GrowableArrayCHeapISA_LS1_11EE.exit
+116:                                              ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE18delete_check_nodesI22SymbolTableDeleteCheckEEmPNS2_6BucketERT_mPPNS2_4NodeER18GrowableArrayCHeapISA_LS1_11EE.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  %119 = load volatile ptr, ptr %20, align 8
+  %117 = load volatile ptr, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  %120 = icmp eq ptr %119, %1
-  br i1 %120, label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit, label %121
+  %118 = icmp eq ptr %117, %1
+  br i1 %118, label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit, label %119
 
-121:                                              ; preds = %118
+119:                                              ; preds = %116
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   store volatile ptr %1, ptr %20, align 8
   br label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit.sink.split
 
-_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit.sink.split: ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE18delete_check_nodesI22SymbolTableDeleteCheckEEmPNS2_6BucketERT_mPPNS2_4NodeER18GrowableArrayCHeapISA_LS1_11EE.exit, %121
+_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit.sink.split: ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE18delete_check_nodesI22SymbolTableDeleteCheckEEmPNS2_6BucketERT_mPPNS2_4NodeER18GrowableArrayCHeapISA_LS1_11EE.exit, %119
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #18
   br label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit
 
-_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit: ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit.sink.split, %118
+_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit: ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit.sink.split, %116
   %.not = icmp eq i64 %.0.lcssa.i, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit
-  %.03465 = phi i64 [ %163, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit ], [ 0, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit ]
-  %122 = icmp ult i64 %.03465, 256
-  %123 = getelementptr inbounds [256 x ptr], ptr %8, i64 0, i64 %.03465
-  %124 = shl i64 %.03465, 32
-  %sext = add i64 %124, -1099511627776
-  %125 = ashr exact i64 %sext, 32
-  %126 = getelementptr inbounds ptr, ptr %.sroa.13.5, i64 %125
-  %127 = select i1 %122, ptr %123, ptr %126
-  %128 = load i64, ptr %5, align 8
-  %129 = add i64 %128, 1
-  store i64 %129, ptr %5, align 8
-  %130 = load ptr, ptr %127, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
-  %132 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
-  %133 = trunc i8 %132 to i1
-  br i1 %133, label %_ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit, label %134
+  %.03465 = phi i64 [ %161, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit ], [ 0, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit ]
+  %120 = icmp ult i64 %.03465, 256
+  %121 = getelementptr inbounds [256 x ptr], ptr %8, i64 0, i64 %.03465
+  %122 = shl i64 %.03465, 32
+  %sext = add i64 %122, -1099511627776
+  %123 = ashr exact i64 %sext, 32
+  %124 = getelementptr inbounds ptr, ptr %.sroa.13.5, i64 %123
+  %125 = select i1 %120, ptr %121, ptr %124
+  %126 = load i64, ptr %5, align 8
+  %127 = add i64 %126, 1
+  store i64 %127, ptr %5, align 8
+  %128 = load ptr, ptr %125, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %_ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit, label %132
 
-134:                                              ; preds = %.lr.ph
-  %135 = load volatile i32, ptr %131, align 4
-  %136 = and i32 %135, 65535
-  %137 = icmp eq i32 %136, 1
-  br i1 %137, label %138, label %139
+132:                                              ; preds = %.lr.ph
+  %133 = load volatile i32, ptr %129, align 4
+  %134 = and i32 %133, 65535
+  %135 = icmp eq i32 %134, 1
+  br i1 %135, label %136, label %137
 
-138:                                              ; preds = %134
-  tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %131) #18
-  br label %139
+136:                                              ; preds = %132
+  tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %129) #18
+  br label %137
 
-139:                                              ; preds = %138, %134
-  %140 = load volatile i32, ptr %131, align 4
-  %141 = and i32 %140, 65535
-  %.not.i46 = icmp eq i32 %141, 65535
-  br i1 %.not.i46, label %143, label %142
+137:                                              ; preds = %136, %132
+  %138 = load volatile i32, ptr %129, align 4
+  %139 = and i32 %138, 65535
+  %.not.i46 = icmp eq i32 %139, 65535
+  br i1 %.not.i46, label %141, label %140
 
-142:                                              ; preds = %139
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %130) #18
+140:                                              ; preds = %137
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %128) #18
   br label %_ZN11MutexLockerD2Ev.exit.i
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr @SymbolArena_lock, align 8
-  %.not.i.i.i47 = icmp eq ptr %144, null
-  br i1 %.not.i.i.i47, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %145
+141:                                              ; preds = %137
+  %142 = load ptr, ptr @SymbolArena_lock, align 8
+  %.not.i.i.i47 = icmp eq ptr %142, null
+  br i1 %.not.i.i.i47, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %143
 
-145:                                              ; preds = %143
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %144) #18
+143:                                              ; preds = %141
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %142) #18
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %143, %145
-  %146 = load ptr, ptr @_ZN11SymbolTable6_arenaE, align 8
-  %147 = getelementptr inbounds i8, ptr %130, i64 12
-  %148 = load i16, ptr %147, align 4
-  %149 = icmp ugt i16 %148, 2
-  %150 = zext i16 %148 to i64
-  %151 = add nuw nsw i64 %150, 14
-  %152 = select i1 %149, i64 %151, i64 16
-  %153 = getelementptr inbounds i8, ptr %130, i64 %152
-  %154 = getelementptr inbounds i8, ptr %146, i64 32
-  %155 = load ptr, ptr %154, align 8
-  %156 = icmp eq ptr %153, %155
-  br i1 %156, label %157, label %_ZN5Arena5AfreeEPvm.exit.i
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %141, %143
+  %144 = load ptr, ptr @_ZN11SymbolTable6_arenaE, align 8
+  %145 = getelementptr inbounds i8, ptr %128, i64 12
+  %146 = load i16, ptr %145, align 4
+  %147 = icmp ugt i16 %146, 2
+  %148 = zext i16 %146 to i64
+  %149 = add nuw nsw i64 %148, 14
+  %150 = select i1 %147, i64 %149, i64 16
+  %151 = getelementptr inbounds i8, ptr %128, i64 %150
+  %152 = getelementptr inbounds i8, ptr %144, i64 32
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %151, %153
+  br i1 %154, label %155, label %_ZN5Arena5AfreeEPvm.exit.i
 
-157:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
-  store ptr %130, ptr %154, align 8
+155:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
+  store ptr %128, ptr %152, align 8
   br label %_ZN5Arena5AfreeEPvm.exit.i
 
-_ZN5Arena5AfreeEPvm.exit.i:                       ; preds = %157, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
-  br i1 %.not.i.i.i47, label %_ZN11MutexLockerD2Ev.exit.i, label %158
+_ZN5Arena5AfreeEPvm.exit.i:                       ; preds = %155, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
+  br i1 %.not.i.i.i47, label %_ZN11MutexLockerD2Ev.exit.i, label %156
 
-158:                                              ; preds = %_ZN5Arena5AfreeEPvm.exit.i
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %144) #18
+156:                                              ; preds = %_ZN5Arena5AfreeEPvm.exit.i
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %142) #18
   br label %_ZN11MutexLockerD2Ev.exit.i
 
-_ZN11MutexLockerD2Ev.exit.i:                      ; preds = %158, %_ZN5Arena5AfreeEPvm.exit.i, %142
-  %159 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull @_ZL16_symbols_removed) #18, !srcloc !9
-  %160 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull @_ZL12_items_count) #18, !srcloc !9
+_ZN11MutexLockerD2Ev.exit.i:                      ; preds = %156, %_ZN5Arena5AfreeEPvm.exit.i, %140
+  %157 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull @_ZL16_symbols_removed) #18, !srcloc !9
+  %158 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull @_ZL12_items_count) #18, !srcloc !9
   br label %_ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit
 
 _ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit: ; preds = %.lr.ph, %_ZN11MutexLockerD2Ev.exit.i
-  %161 = load ptr, ptr %0, align 8
-  %.not.i41 = icmp eq ptr %161, null
-  br i1 %.not.i41, label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit, label %162
+  %159 = load ptr, ptr %0, align 8
+  %.not.i41 = icmp eq ptr %159, null
+  br i1 %.not.i41, label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit, label %160
 
-162:                                              ; preds = %_ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit
-  tail call void @_ZN19TableRateStatistics6removeEv(ptr noundef nonnull align 8 dereferenceable(64) %161) #18
+160:                                              ; preds = %_ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit
+  tail call void @_ZN19TableRateStatistics6removeEv(ptr noundef nonnull align 8 dereferenceable(64) %159) #18
   br label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit
 
-_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit: ; preds = %_ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit, %162
-  %163 = add nuw i64 %.03465, 1
-  %exitcond73.not = icmp eq i64 %163, %.0.lcssa.i
+_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit: ; preds = %_ZN17SymbolTableConfig9free_nodeEPvS0_R6Symbol.exit, %160
+  %161 = add nuw i64 %.03465, 1
+  %exitcond73.not = icmp eq i64 %161, %.0.lcssa.i
   br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit
-  %164 = load volatile i64, ptr %11, align 8
-  %165 = and i64 %164, 1
-  %166 = icmp eq i64 %165, 0
-  br i1 %166, label %167, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43
+  %162 = load volatile i64, ptr %11, align 8
+  %163 = and i64 %162, 1
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %165, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43
 
-167:                                              ; preds = %._crit_edge
-  %168 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
-  %169 = or i64 %168, 1
+165:                                              ; preds = %._crit_edge
+  %166 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %167 = or i64 %166, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43
 
-_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43: ; preds = %._crit_edge, %167
-  %.0.i42 = phi i64 [ %169, %167 ], [ %164, %._crit_edge ]
-  %170 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i42, ptr nonnull %11) #18, !srcloc !10
-  %171 = icmp eq i32 %.sroa.7.5, 0
+_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43: ; preds = %._crit_edge, %165
+  %.0.i42 = phi i64 [ %167, %165 ], [ %162, %._crit_edge ]
+  %168 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i42, ptr nonnull %11) #18, !srcloc !10
+  %169 = icmp eq i32 %.sroa.7.5, 0
   %.not.i.i.i = icmp eq ptr %.sroa.13.5, null
-  %or.cond = select i1 %171, i1 true, i1 %.not.i.i.i
+  %or.cond = select i1 %169, i1 true, i1 %.not.i.i.i
   br i1 %or.cond, label %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeELS2_11EED2Ev.exit, label %.loopexit.thread.i.i.i
 
 .loopexit.thread.i.i.i:                           ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43
@@ -5720,7 +5719,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit43: ; preds = %._crit_ed
   br label %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeELS2_11EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeELS2_11EED2Ev.exit: ; preds = %35, %21, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %164, %.loopexit.thread.i.i.i ], [ %164, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43 ], [ %.070, %21 ], [ %.070, %35 ]
+  %.1 = phi i64 [ %162, %.loopexit.thread.i.i.i ], [ %162, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43 ], [ %.070, %21 ], [ %.070, %35 ]
   %exitcond74.not = icmp eq i64 %24, %3
   br i1 %exitcond74.not, label %._crit_edge72, label %21, !llvm.loop !55
 
@@ -5902,6 +5901,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16

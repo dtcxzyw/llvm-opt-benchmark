@@ -256,13 +256,13 @@ define void @If_LibBoxAdd(ptr nocapture noundef %0, ptr noundef %1) local_unname
 8:                                                ; preds = %2
   %9 = shl nsw i32 %4, 1
   %10 = add nsw i32 %9, 10
-  %.not.i = icmp slt i32 %.val, %10
+  %.not.i = icmp sgt i32 %10, %.val
   br i1 %.not.i, label %11, label %Vec_PtrFillExtra.exit
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %6, align 8
   %13 = shl nsw i32 %12, 1
-  %14 = icmp slt i32 %13, %10
+  %14 = icmp sgt i32 %10, %13
   %.not.i.i = icmp slt i32 %12, %10
   br i1 %14, label %15, label %27
 

@@ -1289,7 +1289,7 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   %add.i13 = select i1 %cmp.i.not, i64 0, i64 8
   %shr.i14 = add i64 %add.i13, %length
   %mul = and i64 %shr.i14, -8
-  %cmp15 = icmp sgt i64 %mul, %length
+  %cmp15 = icmp slt i64 %length, %mul
   br i1 %cmp15, label %for.body, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit
 
 for.body:                                         ; preds = %invoke.cont8, %for.body
@@ -1378,7 +1378,7 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   %add.i13 = select i1 %cmp.i.not, i64 0, i64 8
   %shr.i14 = add i64 %add.i13, %length
   %mul = and i64 %shr.i14, -8
-  %cmp15 = icmp sgt i64 %mul, %length
+  %cmp15 = icmp slt i64 %length, %mul
   br i1 %cmp15, label %for.body, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit
 
 for.body:                                         ; preds = %invoke.cont8, %for.body
@@ -2447,7 +2447,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %add.i = add nsw i64 %rem, %length
+  %add.i = add nsw i64 %length, %rem
   %shr.i.i = ashr i64 %add.i, 3
   %and.i.i = and i64 %add.i, 7
   %cmp.i.i = icmp ne i64 %and.i.i, 0
@@ -3005,7 +3005,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %add.i = add nsw i64 %rem, %length
+  %add.i = add nsw i64 %length, %rem
   %shr.i.i = ashr i64 %add.i, 3
   %and.i.i = and i64 %add.i, 7
   %cmp.i.i = icmp ne i64 %and.i.i, 0
@@ -3563,7 +3563,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %add.i = add nsw i64 %rem, %length
+  %add.i = add nsw i64 %length, %rem
   %shr.i.i = ashr i64 %add.i, 3
   %and.i.i = and i64 %add.i, 7
   %cmp.i.i = icmp ne i64 %and.i.i, 0
@@ -4121,7 +4121,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %add.i = add nsw i64 %rem, %length
+  %add.i = add nsw i64 %length, %rem
   %shr.i.i = ashr i64 %add.i, 3
   %and.i.i = and i64 %add.i, 7
   %cmp.i.i = icmp ne i64 %and.i.i, 0
@@ -4683,7 +4683,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %add.i = add nsw i64 %rem, %length
+  %add.i = add nsw i64 %length, %rem
   %shr.i.i = ashr i64 %add.i, 3
   %and.i.i = and i64 %add.i, 7
   %cmp.i.i = icmp ne i64 %and.i.i, 0

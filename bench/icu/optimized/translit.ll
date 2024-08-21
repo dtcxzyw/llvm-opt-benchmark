@@ -185,7 +185,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -465,7 +465,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #20
   %cmp7 = icmp eq ptr %call, null
@@ -941,7 +941,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
   %contextLimit.i = getelementptr inbounds i8, ptr %index, i64 4
   %5 = load i32, ptr %contextLimit.i, align 4
   %cmp8.i = icmp slt i32 %5, %4
-  %cmp10.i.not = icmp sgt i32 %5, %call.i
+  %cmp10.i.not = icmp slt i32 %call.i, %5
   %or.cond = or i1 %cmp8.i, %cmp10.i.not
   br i1 %or.cond, label %if.then5, label %if.end6
 
@@ -1059,7 +1059,7 @@ lor.lhs.false6.i.i:                               ; preds = %lor.lhs.false3.i.i
   %contextLimit.i.i = getelementptr inbounds i8, ptr %index, i64 4
   %5 = load i32, ptr %contextLimit.i.i, align 4
   %cmp8.i.i = icmp slt i32 %5, %4
-  %cmp10.i.not.i = icmp sgt i32 %5, %call.i.i
+  %cmp10.i.not.i = icmp slt i32 %call.i.i, %5
   %or.cond.i = or i1 %cmp8.i.i, %cmp10.i.not.i
   br i1 %or.cond.i, label %if.then5.i, label %if.end6.i
 
@@ -1119,7 +1119,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
   %contextLimit.i = getelementptr inbounds i8, ptr %index, i64 4
   %4 = load i32, ptr %contextLimit.i, align 4
   %cmp8.i = icmp slt i32 %4, %3
-  %cmp10.i.not = icmp sgt i32 %4, %call.i
+  %cmp10.i.not = icmp slt i32 %call.i, %4
   %or.cond = or i1 %cmp8.i, %cmp10.i.not
   br i1 %or.cond, label %return, label %if.end
 
@@ -2666,7 +2666,7 @@ if.then.i.i:                                      ; preds = %invoke.cont31
 
 if.else7.i.i.i:                                   ; preds = %if.then.i.i
   %sub.i.i.i = sub nuw nsw i32 %cond.i.i, %spec.select.i.i
-  %15 = call i32 @llvm.umin.i32(i32 %sub.i.i.i, i32 %cond.i.i)
+  %15 = call i32 @llvm.umin.i32(i32 %cond.i.i, i32 %sub.i.i.i)
   %cmp.i.not.i = icmp eq i32 %15, 0
   br i1 %cmp.i.not.i, label %if.end38, label %if.then2.i.i
 
@@ -4158,7 +4158,7 @@ cond.end:                                         ; preds = %dynamic_cast.notnul
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(104) %1)
   %cmp3 = icmp sgt i32 %index, -1
-  %cmp4.not = icmp sgt i32 %call2, %index
+  %cmp4.not = icmp slt i32 %index, %call2
   %or.cond = and i1 %cmp3, %cmp4.not
   br i1 %or.cond, label %if.else, label %if.then5
 

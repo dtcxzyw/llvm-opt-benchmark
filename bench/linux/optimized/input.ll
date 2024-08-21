@@ -3644,7 +3644,7 @@ define dso_local i32 @input_get_new_minor(i32 noundef %0, i32 noundef %1, i1 nou
   %7 = add i32 %6, %1
   %8 = tail call i32 @ida_alloc_range(ptr noundef nonnull @input_ida, i32 noundef %0, i32 noundef %7, i32 noundef 3264) #19
   %9 = icmp slt i32 %8, 0
-  %10 = and i1 %9, %2
+  %10 = and i1 %2, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %5, %3

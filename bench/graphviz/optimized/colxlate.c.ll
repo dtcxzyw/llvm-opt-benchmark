@@ -2737,7 +2737,7 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly %1
   %68 = fdiv double %67, %61
   %69 = fsub double %59, %52
   %70 = fdiv double %69, %61
-  %71 = fcmp oeq double %59, %46
+  %71 = fcmp oeq double %46, %59
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %64
@@ -2745,7 +2745,7 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly %1
   br label %84
 
 74:                                               ; preds = %64
-  %75 = fcmp oeq double %59, %49
+  %75 = fcmp oeq double %49, %59
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %74
@@ -2754,7 +2754,7 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly %1
   br label %84
 
 79:                                               ; preds = %74
-  %80 = fcmp oeq double %59, %52
+  %80 = fcmp oeq double %52, %59
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %79

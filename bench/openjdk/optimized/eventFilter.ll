@@ -1104,7 +1104,7 @@ define hidden zeroext i8 @eventFilterRestricted_isBreakpointInClass(ptr noundef 
 define hidden range(i32 0, 203) i32 @eventFilter_setConditionalFilter(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %3
@@ -1129,7 +1129,7 @@ define hidden range(i32 0, 513) i32 @eventFilter_setCountFilter(ptr nocapture no
   %7 = getelementptr inbounds [10000 x %struct.Filter_], ptr %5, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %3
@@ -1155,7 +1155,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setThreadOnlyFilter(ptr noundef
   %8 = getelementptr inbounds [10000 x %struct.Filter_], ptr %6, i64 0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %10, %1
+  %.not = icmp slt i32 %1, %10
   br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %3
@@ -1185,7 +1185,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setLocationOnlyFilter(ptr nound
   %10 = getelementptr inbounds [10000 x %struct.Filter_], ptr %8, i64 0, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %13, label %19
 
 13:                                               ; preds = %5
@@ -1222,7 +1222,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setFieldOnlyFilter(ptr noundef 
   %9 = getelementptr inbounds [10000 x %struct.Filter_], ptr %7, i64 0, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %11, %1
+  %.not = icmp slt i32 %1, %11
   br i1 %.not, label %12, label %18
 
 12:                                               ; preds = %4
@@ -1253,7 +1253,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setClassOnlyFilter(ptr noundef 
   %8 = getelementptr inbounds [10000 x %struct.Filter_], ptr %6, i64 0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %10, %1
+  %.not = icmp slt i32 %1, %10
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %3
@@ -1284,7 +1284,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setExceptionOnlyFilter(ptr noun
   %10 = getelementptr inbounds [10000 x %struct.Filter_], ptr %8, i64 0, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %13, label %21
 
 13:                                               ; preds = %5
@@ -1324,7 +1324,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setInstanceOnlyFilter(ptr nound
   %8 = getelementptr inbounds [10000 x %struct.Filter_], ptr %6, i64 0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %10, %1
+  %.not = icmp slt i32 %1, %10
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %3
@@ -1353,7 +1353,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setClassMatchFilter(ptr nocaptu
   %7 = getelementptr inbounds [10000 x %struct.Filter_], ptr %5, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %3
@@ -1381,7 +1381,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setClassExcludeFilter(ptr nocap
   %7 = getelementptr inbounds [10000 x %struct.Filter_], ptr %5, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %3
@@ -1410,7 +1410,7 @@ define hidden i32 @eventFilter_setStepFilter(ptr noundef %0, i32 noundef %1, ptr
   %10 = getelementptr inbounds [10000 x %struct.Filter_], ptr %8, i64 0, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %7, align 8
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %13, label %23
 
 13:                                               ; preds = %5
@@ -1455,7 +1455,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setSourceNameMatchFilter(ptr no
   %7 = getelementptr inbounds [10000 x %struct.Filter_], ptr %5, i64 0, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %3
@@ -1481,7 +1481,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setPlatformThreadsOnlyFilter(pt
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [10000 x %struct.Filter_], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %3, align 8
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %2

@@ -379,7 +379,7 @@ define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_gucid_threshold
 10:                                               ; preds = %6
   %11 = tail call i32 @intel_guc_sched_disable_gucid_threshold_max(ptr noundef %0) #6
   %12 = sext i32 %11 to i64
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   %14 = getelementptr inbounds i8, ptr %0, i64 1256
   br i1 %13, label %15, label %17
 

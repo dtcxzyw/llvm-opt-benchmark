@@ -3464,7 +3464,7 @@ Vec_IntSelectSortCostLit.exit.i:                  ; preds = %._crit_edge.i.i
   br i1 %513, label %.preheader.lr.ph.i.i, label %503, !llvm.loop !38
 
 .preheader.lr.ph.i.i:                             ; preds = %505
-  %.not9420.not.i.not.i = icmp sgt i32 %.012.in.i.i.i, %.val52139.i
+  %.not9420.not.i.not.i = icmp slt i32 %.val52139.i, %.012.in.i.i.i
   br i1 %.not9420.not.i.not.i, label %._crit_edge53.thread.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %.preheader.lr.ph.i.i
@@ -4520,13 +4520,13 @@ define internal fastcc i32 @Gia_ObjLevelId(ptr nocapture %.160.val, i32 noundef 
   %2 = add nsw i32 %0, 1
   %3 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not.i.not.i = icmp sgt i32 %4, %0
+  %.not.i.not.i = icmp slt i32 %0, %4
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %.160.val, align 8
   %7 = shl nsw i32 %6, 1
-  %.not.i = icmp sgt i32 %7, %0
+  %.not.i = icmp slt i32 %0, %7
   %.not.i.i.not.i = icmp sgt i32 %6, %0
   br i1 %.not.i, label %20, label %8
 

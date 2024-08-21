@@ -5129,7 +5129,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr nocapture noundef
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %7, label %42
 
 7:                                                ; preds = %4

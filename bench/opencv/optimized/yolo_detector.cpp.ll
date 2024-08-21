@@ -1767,7 +1767,7 @@ define hidden void @_Z14drawPredictionifiiiiRN2cv3MatE(i32 noundef %0, float nou
   %31 = sub i64 %29, %30
   %32 = lshr exact i64 %31, 5
   %33 = trunc i64 %32 to i32
-  %34 = icmp sgt i32 %33, %0
+  %34 = icmp slt i32 %0, %33
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %28
@@ -1844,14 +1844,14 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.sroa.026.0.extract.trunc = trunc i64 %57 to i32
   %.sroa.227.0.extract.shift = lshr i64 %57, 32
   %.sroa.227.0.extract.trunc = trunc nuw i64 %.sroa.227.0.extract.shift to i32
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.sroa.227.0.extract.trunc, i32 %3)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %3, i32 %.sroa.227.0.extract.trunc)
   %59 = getelementptr inbounds i8, ptr %16, i64 8
   %60 = getelementptr inbounds i8, ptr %16, i64 16
   store i64 0, ptr %60, align 8
   store i32 50397184, ptr %16, align 8
   store ptr %6, ptr %59, align 8
   %61 = sub nsw i32 %.sroa.speculated, %.sroa.227.0.extract.trunc
-  %62 = add nsw i32 %.sroa.026.0.extract.trunc, %2
+  %62 = add nsw i32 %2, %.sroa.026.0.extract.trunc
   %63 = load i32, ptr %15, align 4
   %64 = add nsw i32 %63, %.sroa.speculated
   store double 2.550000e+02, ptr %17, align 8, !alias.scope !27
@@ -5251,7 +5251,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27

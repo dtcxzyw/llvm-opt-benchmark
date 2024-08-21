@@ -1417,7 +1417,7 @@ qobject_check_type.exit:                          ; preds = %if.then11
   %4 = load ptr, ptr %h, align 8
   %tobool18.not = icmp ne ptr %4, null
   %tobool21 = icmp ne ptr %call17, null
-  %5 = and i1 %tobool18.not, %consume
+  %5 = and i1 %consume, %tobool18.not
   %or.cond24 = select i1 %5, i1 %tobool21, i1 false
   br i1 %or.cond24, label %if.then22, label %return
 

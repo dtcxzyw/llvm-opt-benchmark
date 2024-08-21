@@ -71,7 +71,7 @@ define internal i64 @sparc_code(ptr nocapture readnone %0, i32 noundef %1, i1 no
   %37 = or disjoint i32 %32, %36
   %38 = shl i32 %37, 2
   %39 = trunc i64 %.04245.us to i32
-  %40 = add i32 %39, %1
+  %40 = add i32 %1, %39
   %.0.us = add i32 %38, %40
   %41 = lshr i32 %.0.us, 2
   %42 = shl i32 %.0.us, 7
@@ -144,7 +144,7 @@ define internal i64 @sparc_code(ptr nocapture readnone %0, i32 noundef %1, i1 no
   %87 = or disjoint i32 %82, %86
   %88 = shl i32 %87, 2
   %89 = trunc i64 %.04245 to i32
-  %90 = add i32 %89, %1
+  %90 = add i32 %1, %89
   %.0 = sub i32 %88, %90
   %91 = lshr i32 %.0, 2
   %92 = shl i32 %.0, 7

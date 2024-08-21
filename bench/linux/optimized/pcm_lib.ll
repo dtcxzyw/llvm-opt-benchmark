@@ -4927,11 +4927,11 @@ define internal i32 @interleaved_copy(ptr noundef %0, i64 noundef %1, ptr nounde
   %12 = getelementptr inbounds i8, ptr %11, i64 160
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = mul i64 %14, %1
+  %15 = mul i64 %1, %14
   %16 = sdiv i64 %15, 8
-  %17 = mul i64 %14, %3
+  %17 = mul i64 %3, %14
   %18 = sdiv i64 %17, 8
-  %19 = mul i64 %14, %4
+  %19 = mul i64 %4, %14
   %20 = sdiv i64 %19, 8
   %21 = getelementptr i8, ptr %2, i64 %18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #20
@@ -4978,11 +4978,11 @@ define internal range(i32 -2147483648, 1) i32 @noninterleaved_copy(ptr noundef %
   %14 = getelementptr inbounds i8, ptr %11, i64 164
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
-  %17 = mul i64 %16, %3
+  %17 = mul i64 %3, %16
   %18 = sdiv i64 %17, 8
-  %19 = mul i64 %16, %4
+  %19 = mul i64 %4, %16
   %20 = sdiv i64 %19, 8
-  %21 = mul i64 %16, %1
+  %21 = mul i64 %1, %16
   %22 = sdiv i64 %21, 8
   %23 = icmp sgt i32 %13, 0
   br i1 %23, label %24, label %.loopexit

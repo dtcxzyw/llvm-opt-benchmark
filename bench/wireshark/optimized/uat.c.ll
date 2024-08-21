@@ -1984,7 +1984,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   %6 = tail call noalias ptr @g_malloc0(i64 noundef %5) #18
   %7 = zext i32 %1 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
-  %9 = icmp ugt ptr %8, %0
+  %9 = icmp ult ptr %0, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -2181,7 +2181,7 @@ define hidden noalias ptr @uat_esc(ptr noundef readonly %0, i32 noundef %1) loca
   %6 = or disjoint i32 %5, 1
   %7 = zext i32 %6 to i64
   %8 = tail call noalias ptr @g_malloc0(i64 noundef %7) #18
-  %9 = icmp ugt ptr %4, %0
+  %9 = icmp ult ptr %0, %4
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2

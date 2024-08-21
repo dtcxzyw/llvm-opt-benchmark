@@ -955,9 +955,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store i64 %22, ptr %23, align 8, !noalias !125
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   %25 = load i64, ptr %24, align 8, !alias.scope !125, !noundef !4
-  %.not.i = icmp ult i64 %25, %22
+  %.not.i = icmp ugt i64 %22, %25
   %26 = add i64 %22, 1
-  %.not4.i = icmp ult i64 %26, %17
+  %.not4.i = icmp ugt i64 %17, %26
   %or.cond.i = or i1 %.not4.i, %.not.i
   br i1 %or.cond.i, label %27, label %_ZN14regex_automata4util6search5Input8set_span17h77aedb0a5511365fE.exit
 
@@ -1033,9 +1033,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store i64 %25, ptr %26, align 8, !noalias !134
   %27 = getelementptr inbounds i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8, !noundef !4
-  %.not.i = icmp ult i64 %28, %25
+  %.not.i = icmp ugt i64 %25, %28
   %29 = add i64 %25, 1
-  %.not4.i = icmp ult i64 %29, %20
+  %.not4.i = icmp ugt i64 %20, %29
   %or.cond.i = or i1 %.not4.i, %.not.i
   br i1 %or.cond.i, label %30, label %_ZN14regex_automata4util6search5Input8set_span17h77aedb0a5511365fE.exit
 
@@ -5137,9 +5137,9 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h3106f2148d8a6e64E.ex
   store i64 %.sroa.8.0.i.i.i.i, ptr %9, align 8, !noalias !619
   store i64 %113, ptr %82, align 8, !noalias !619
   %114 = load i64, ptr %.sroa.02.sroa.7.0..sroa_idx, align 8, !alias.scope !620, !noalias !615, !noundef !4
-  %.not.i.i.i.i.i = icmp ult i64 %114, %113
+  %.not.i.i.i.i.i = icmp ugt i64 %113, %114
   %115 = add i64 %113, 1
-  %.not4.i.i.i.i.i = icmp ult i64 %115, %.sroa.8.0.i.i.i.i
+  %.not4.i.i.i.i.i = icmp ugt i64 %.sroa.8.0.i.i.i.i, %115
   %or.cond.i.i.i.i.i = or i1 %.not4.i.i.i.i.i, %.not.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %116, label %_ZN14regex_automata4util6search5Input8set_span17h77aedb0a5511365fE.exit.i.i.i.i
 

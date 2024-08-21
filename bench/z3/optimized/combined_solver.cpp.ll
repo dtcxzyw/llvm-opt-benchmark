@@ -1125,7 +1125,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %cmp = icmp ugt i32 %call2, %idx
+  %cmp = icmp ult i32 %idx, %call2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

@@ -1592,7 +1592,7 @@ define internal noundef i32 @dissect_wccp2_security_info(ptr noundef %0, i32 nou
 
 18:                                               ; preds = %8, %6, %13
   %.sink = phi i32 [ -20, %13 ], [ -4, %6 ], [ -4, %8 ]
-  %19 = add i32 %.sink, %2
+  %19 = add i32 %2, %.sink
   ret i32 %19
 }
 
@@ -2356,7 +2356,7 @@ define internal i32 @dissect_wccp2_capability_info(ptr noundef %0, i32 noundef %
   %24 = load ptr, ptr %7, align 8
   %25 = add nuw nsw i32 %22, 4
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %25) #7
-  %26 = icmp ugt i32 %25, %.019
+  %26 = icmp ult i32 %.019, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %10
@@ -2911,7 +2911,7 @@ define internal i32 @dissect_wccp2_assignment_map(ptr noundef %0, i32 noundef %1
   %8 = icmp slt i32 %7, 0
   %9 = sub i32 %2, %7
   %10 = add i32 %9, %1
-  %.not = icmp sgt i32 %10, %1
+  %.not = icmp slt i32 %1, %10
   %11 = select i1 %8, i1 true, i1 %.not
   %.0 = select i1 %11, i32 %7, i32 %9
   ret i32 %.0
@@ -3211,8 +3211,8 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
 
 59:                                               ; preds = %57, %43
   %60 = icmp ugt i32 %54, %51
-  %61 = add nsw i32 %2, -16
-  %62 = icmp eq i32 %61, %51
+  %61 = add nuw nsw i32 %51, 16
+  %62 = icmp eq i32 %2, %61
   %or.cond.i = select i1 %60, i1 %62, i1 false
   br i1 %or.cond.i, label %63, label %65
 
@@ -3398,7 +3398,7 @@ define internal fastcc i32 @dissect_wccp2_mask_assignment_data_element(ptr nound
 11:                                               ; preds = %5
   %12 = sub nsw i32 %2, %9
   %13 = add i32 %12, %1
-  %.not = icmp sgt i32 %13, %1
+  %.not = icmp slt i32 %1, %13
   br i1 %.not, label %14, label %29
 
 14:                                               ; preds = %11
@@ -3479,7 +3479,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
 25:                                               ; preds = %.lr.ph
   %26 = sub nsw i32 %.03835, %23
   %27 = add i32 %26, %.03736
-  %.not.i = icmp sgt i32 %27, %.03736
+  %.not.i = icmp slt i32 %.03736, %27
   br i1 %.not.i, label %28, label %dissect_wccp2_mask_value_set_element.exit
 
 28:                                               ; preds = %25
@@ -3866,7 +3866,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
 
 25:                                               ; preds = %.lr.ph
   %26 = add i32 %23, %.03620
-  %.not.i = icmp sgt i32 %26, %.03620
+  %.not.i = icmp slt i32 %.03620, %26
   br i1 %.not.i, label %27, label %dissect_wccp2_alternate_mask_value_set_element.exit
 
 27:                                               ; preds = %25

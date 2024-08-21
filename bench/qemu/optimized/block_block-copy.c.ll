@@ -1727,12 +1727,12 @@ entry:
   %req = getelementptr inbounds i8, ptr %task, i64 48
   %bytes = getelementptr inbounds i8, ptr %task, i64 56
   %1 = load i64, ptr %bytes, align 8
-  %cmp = icmp eq i64 %1, %new_bytes
+  %cmp = icmp eq i64 %new_bytes, %1
   br i1 %cmp, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp5 = icmp sgt i64 %new_bytes, 0
-  %cmp8 = icmp sgt i64 %1, %new_bytes
+  %cmp8 = icmp slt i64 %new_bytes, %1
   %or.cond = and i1 %cmp5, %cmp8
   br i1 %or.cond, label %if.end10, label %if.else
 
@@ -2000,7 +2000,7 @@ if.else14:                                        ; preds = %if.end9
   unreachable
 
 if.end15:                                         ; preds = %if.end9
-  %cmp17 = icmp ugt i64 %0, %offset
+  %cmp17 = icmp ult i64 %offset, %0
   br i1 %cmp17, label %if.end20, label %if.else19
 
 if.else19:                                        ; preds = %if.end15

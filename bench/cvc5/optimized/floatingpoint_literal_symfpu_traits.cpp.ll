@@ -1679,7 +1679,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.cvc5::internal::BitVector", align 8
   %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %cmp = icmp ult i32 %call.i, %newSize
+  %cmp = icmp ugt i32 %newSize, %call.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1724,13 +1724,13 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit: ; preds
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ugt i32 %call.i, %newSize
+  %cmp2 = icmp ult i32 %newSize, %call.i
   br i1 %cmp2, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
   %call.i.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !25
   %5 = xor i32 %call.i, -1
-  %6 = add i32 %5, %newSize
+  %6 = add i32 %newSize, %5
   %sub2.i = add i32 %6, %call.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !25
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2.i, i32 noundef 0), !noalias !28
@@ -3054,7 +3054,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.cvc5::internal::BitVector", align 8
   %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %cmp = icmp ult i32 %call.i, %newSize
+  %cmp = icmp ugt i32 %newSize, %call.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3099,13 +3099,13 @@ _ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit: ; preds
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ugt i32 %call.i, %newSize
+  %cmp2 = icmp ult i32 %newSize, %call.i
   br i1 %cmp2, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
   %call.i.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !58
   %5 = xor i32 %call.i, -1
-  %6 = add i32 %5, %newSize
+  %6 = add i32 %newSize, %5
   %sub2.i = add i32 %6, %call.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !58
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2.i, i32 noundef 0), !noalias !61

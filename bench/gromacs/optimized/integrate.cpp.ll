@@ -73,7 +73,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
   %18 = load float, ptr %17, align 4
   %19 = trunc nuw nsw i64 %indvars.iv60 to i32
   %20 = uitofp nneg i32 %19 to float
-  %21 = fmul float %20, %2
+  %21 = fmul float %2, %20
   %22 = fpext float %21 to double
   %23 = fpext float %18 to double
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %22, double noundef %23) #12
@@ -105,7 +105,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
 
 36:                                               ; preds = %.lr.ph.split.split
   %37 = uitofp nneg i32 %33 to float
-  %38 = fmul float %37, %2
+  %38 = fmul float %2, %37
   %39 = fpext float %38 to double
   %40 = fpext float %32 to double
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %39, double noundef %40) #12
@@ -150,7 +150,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph54.split.us ], [ 0, %.lr.ph54 ]
   %52 = trunc nuw nsw i64 %indvars.iv75 to i32
   %53 = uitofp nneg i32 %52 to float
-  %54 = fmul float %53, %2
+  %54 = fmul float %2, %53
   %55 = fpext float %54 to double
   %56 = getelementptr inbounds float, ptr %4, i64 %indvars.iv75
   %57 = load float, ptr %56, align 4
@@ -169,7 +169,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
 
 63:                                               ; preds = %.lr.ph54.split
   %64 = uitofp nneg i32 %60 to float
-  %65 = fmul float %64, %2
+  %65 = fmul float %2, %64
   %66 = fpext float %65 to double
   %67 = getelementptr inbounds float, ptr %4, i64 %indvars.iv70
   %68 = load float, ptr %67, align 4

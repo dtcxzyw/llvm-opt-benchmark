@@ -451,7 +451,7 @@ define range(i32 -1, 1) i32 @H5HF_insert(ptr nocapture noundef readonly %0, i64 
   %16 = getelementptr inbounds i8, ptr %15, i64 392
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %18, %1
+  %19 = icmp ugt i64 %1, %18
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %10
@@ -468,7 +468,7 @@ define range(i32 -1, 1) i32 @H5HF_insert(ptr nocapture noundef readonly %0, i64 
 27:                                               ; preds = %10
   %28 = getelementptr inbounds i8, ptr %15, i64 688
   %29 = load i64, ptr %28, align 8
-  %.not = icmp ult i64 %29, %1
+  %.not = icmp ugt i64 %1, %29
   br i1 %.not, label %37, label %30
 
 30:                                               ; preds = %27

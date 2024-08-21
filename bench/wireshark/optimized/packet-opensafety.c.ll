@@ -4575,7 +4575,7 @@ dissect_data_payload.exit.i:                      ; preds = %1630, %1625
 dissect_opensafety_spdo_message.exit:             ; preds = %1624, %dissect_data_payload.exit.i
   %1633 = getelementptr inbounds i8, ptr %0, i64 36
   %1634 = load i8, ptr %1633, align 4
-  %.not99 = icmp eq i8 %1634, %6
+  %.not99 = icmp eq i8 %6, %1634
   br i1 %.not99, label %1644, label %1635
 
 1635:                                             ; preds = %dissect_opensafety_spdo_message.exit

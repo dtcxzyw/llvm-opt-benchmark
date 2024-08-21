@@ -7513,7 +7513,7 @@ set_tds_version.exit:                             ; preds = %24, %28
   ]
 
 77:                                               ; preds = %75
-  %..i = call i32 @llvm.umin.i32(i32 %76, i32 %71)
+  %..i = call i32 @llvm.umin.i32(i32 %71, i32 %76)
   br label %81
 
 78:                                               ; preds = %74
@@ -7525,7 +7525,7 @@ set_tds_version.exit:                             ; preds = %24, %28
   ]
 
 80:                                               ; preds = %78
-  %.41.i = call i32 @llvm.umin.i32(i32 %79, i32 %71)
+  %.41.i = call i32 @llvm.umin.i32(i32 %71, i32 %79)
   br label %81
 
 81:                                               ; preds = %80, %78, %78, %77, %75, %75
@@ -9596,7 +9596,7 @@ tds5_check_cursor_name.exit:                      ; preds = %45, %42, %38, %28, 
   %64 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %59, i32 noundef %60, i32 noundef %61, ptr noundef nonnull @tds_curinfo_hf_fields, i32 noundef %63) #11
   %65 = add i32 %.0, 3
   %66 = load i32, ptr %6, align 4
-  %67 = add i32 %66, %2
+  %67 = add i32 %2, %66
   %68 = sub i32 %.0, %67
   %69 = icmp eq i32 %68, -5
   br i1 %69, label %70, label %76

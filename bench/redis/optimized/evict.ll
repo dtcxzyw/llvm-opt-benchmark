@@ -525,7 +525,7 @@ if.end:                                           ; preds = %entry
   %div10 = fdiv double 1.000000e+00, %1
   %cmp11 = fcmp olt double %div, %div10
   %inc = zext i1 %cmp11 to i8
-  %counter.addr.0 = add nuw i8 %inc, %counter
+  %counter.addr.0 = add nuw i8 %counter, %inc
   br label %return
 
 return:                                           ; preds = %entry, %if.end

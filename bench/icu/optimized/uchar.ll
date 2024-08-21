@@ -608,7 +608,7 @@ cond.end40:                                       ; preds = %cond.end40.sink.spl
   %arrayidx43 = getelementptr inbounds i16, ptr @_ZL22propsVectorsTrie_index, i64 %cond41
   %5 = load i16, ptr %arrayidx43, align 2
   %conv44 = zext i16 %5 to i32
-  %add45 = add nsw i32 %conv44, %column
+  %add45 = add nsw i32 %column, %conv44
   %idxprom46 = sext i32 %add45 to i64
   %arrayidx47 = getelementptr inbounds [7260 x i32], ptr @_ZL12propsVectors, i64 0, i64 %idxprom46
   %6 = load i32, ptr %arrayidx47, align 4
@@ -2393,7 +2393,7 @@ entry:
   %0 = add i8 %radix, -2
   %cmp = icmp ult i8 %0, 35
   %conv = sext i8 %radix to i32
-  %cmp4.not = icmp ugt i32 %conv, %digit
+  %cmp4.not = icmp ult i32 %digit, %conv
   %or.cond = and i1 %cmp, %cmp4.not
   br i1 %or.cond, label %if.else, label %return
 
@@ -2731,7 +2731,7 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %co
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %u_getUnicodeProperties_75.exit
-  %cmp2 = icmp eq i32 %or.i, %sc
+  %cmp2 = icmp eq i32 %sc, %or.i
   br label %return
 
 if.end:                                           ; preds = %u_getUnicodeProperties_75.exit
@@ -2756,13 +2756,13 @@ while.cond:                                       ; preds = %if.end8, %while.con
   %scx.1 = phi ptr [ %incdec.ptr, %while.cond ], [ %scx.0, %if.end8 ]
   %8 = load i16, ptr %scx.1, align 2
   %conv12 = zext i16 %8 to i32
-  %cmp13 = icmp ult i32 %conv12, %sc
+  %cmp13 = icmp ugt i32 %sc, %conv12
   %incdec.ptr = getelementptr inbounds i8, ptr %scx.1, i64 2
   br i1 %cmp13, label %while.cond, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.cond
   %and15 = and i32 %conv12, 32767
-  %cmp16 = icmp eq i32 %and15, %sc
+  %cmp16 = icmp eq i32 %sc, %and15
   br label %return
 
 return:                                           ; preds = %if.end8, %while.end, %if.then

@@ -1779,7 +1779,7 @@ invoke.cont13:                                    ; preds = %entry
   %6 = load ptr, ptr %seq.i, align 8
   %m_char.i.i = getelementptr inbounds i8, ptr %6, i64 64
   %7 = load ptr, ptr %m_char.i.i, align 8
-  %cmp.i.i = icmp eq ptr %7, %s
+  %cmp.i.i = icmp eq ptr %s, %7
   br label %return
 
 if.then.i8:                                       ; preds = %if.then
@@ -1789,7 +1789,7 @@ if.then.i8:                                       ; preds = %if.then
   %8 = load ptr, ptr %seq.i14, align 8
   %m_char.i.i15 = getelementptr inbounds i8, ptr %8, i64 64
   %9 = load ptr, ptr %m_char.i.i15, align 8
-  %cmp.i.i16 = icmp eq ptr %9, %s
+  %cmp.i.i16 = icmp eq ptr %s, %9
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %return
 
@@ -1911,7 +1911,7 @@ _ZNK9parameter7get_astEv.exit.i:                  ; preds = %land.rhs.i
   %20 = load ptr, ptr %17, align 8
   %m_char.i.i = getelementptr inbounds i8, ptr %19, i64 64
   %21 = load ptr, ptr %m_char.i.i, align 8
-  %cmp.i.i = icmp eq ptr %21, %20
+  %cmp.i.i = icmp eq ptr %20, %21
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %_ZNK9parameter7get_astEv.exit.i, %_ZNK8seq_util6is_seqEP4sort.exit.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %if.end

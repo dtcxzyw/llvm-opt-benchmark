@@ -112,7 +112,7 @@ define i64 @H5Tget_member_offset(i64 noundef %0, i32 noundef %1) local_unnamed_a
 35:                                               ; preds = %26
   %36 = getelementptr inbounds i8, ptr %28, i64 52
   %37 = load i32, ptr %36, align 4
-  %.not16 = icmp ugt i32 %37, %1
+  %.not16 = icmp ult i32 %1, %37
   br i1 %.not16, label %43, label %38
 
 38:                                               ; preds = %35
@@ -223,7 +223,7 @@ define i32 @H5Tget_member_class(i64 noundef %0, i32 noundef %1) local_unnamed_ad
 35:                                               ; preds = %26
   %36 = getelementptr inbounds i8, ptr %28, i64 52
   %37 = load i32, ptr %36, align 4
-  %.not20 = icmp ugt i32 %37, %1
+  %.not20 = icmp ult i32 %1, %37
   br i1 %.not20, label %42, label %38
 
 38:                                               ; preds = %35
@@ -326,7 +326,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tget_member_type(i64 noundef %
 35:                                               ; preds = %26
   %36 = getelementptr inbounds i8, ptr %28, i64 52
   %37 = load i32, ptr %36, align 4
-  %.not29 = icmp ugt i32 %37, %1
+  %.not29 = icmp ult i32 %1, %37
   br i1 %.not29, label %42, label %38
 
 38:                                               ; preds = %35
@@ -631,7 +631,7 @@ define range(i32 -1, 1) i32 @H5T__insert(ptr noundef %0, ptr noundef %1, i64 nou
   %indvars.iv102 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next103, %47 ]
   %34 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %31, i64 %indvars.iv102, i32 1
   %35 = load i64, ptr %34, align 8
-  %.not81 = icmp uge i64 %35, %2
+  %.not81 = icmp ule i64 %2, %35
   %36 = icmp ugt i64 %32, %35
   %or.cond = select i1 %.not81, i1 %36, i1 false
   br i1 %or.cond, label %43, label %37

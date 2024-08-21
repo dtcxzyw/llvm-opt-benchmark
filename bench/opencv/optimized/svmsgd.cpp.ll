@@ -923,14 +923,14 @@ _ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %30
   br label %71
 
 40:                                               ; preds = %24
-  %41 = fmul float %29, %3
+  %41 = fmul float %3, %29
   %42 = fpext float %41 to double
   invoke void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %10, double noundef %42, ptr noundef nonnull align 8 dereferenceable(96) %4)
           to label %43 unwind label %36
 
 43:                                               ; preds = %40
   %44 = sitofp i32 %19 to float
-  %45 = fmul float %44, %3
+  %45 = fmul float %3, %44
   %46 = fpext float %45 to double
   invoke void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %11, double noundef %46, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %47 unwind label %62

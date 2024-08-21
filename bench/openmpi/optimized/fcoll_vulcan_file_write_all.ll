@@ -1882,11 +1882,11 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %85 = tail call double @llvm.ceil.f64(double %84)
   %86 = fptosi double %85 to i32
   %87 = add nsw i32 %86, -1
-  %88 = icmp sgt i32 %87, %0
+  %88 = icmp slt i32 %0, %87
   br i1 %88, label %97, label %89
 
 89:                                               ; preds = %.loopexit570
-  %90 = icmp eq i32 %87, %0
+  %90 = icmp eq i32 %0, %87
   br i1 %90, label %91, label %.thread
 
 91:                                               ; preds = %89

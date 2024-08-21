@@ -4251,7 +4251,7 @@ entry:
   %0 = load ptr, ptr %private_, align 8
   %input_capacity = getelementptr inbounds i8, ptr %0, i64 1552
   %1 = load i32, ptr %input_capacity, align 8
-  %cmp = icmp ult i32 %1, %new_blocksize
+  %cmp = icmp ugt i32 %new_blocksize, %1
   br i1 %cmp, label %land.lhs.true, label %if.then408
 
 land.lhs.true:                                    ; preds = %entry
@@ -6544,7 +6544,7 @@ if.end:                                           ; preds = %entry
   %sh_prom = zext nneg i32 %2 to i64
   %notmask = shl nsw i64 -1, %sh_prom
   %sub = xor i64 %notmask, -1
-  %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %value)
+  %cond = tail call i64 @llvm.umin.i64(i64 %value, i64 %sub)
   %total_samples_estimate = getelementptr inbounds i8, ptr %0, i64 592
   store i64 %cond, ptr %total_samples_estimate, align 8
   br label %return
@@ -10075,7 +10075,7 @@ for.body256:                                      ; preds = %for.body256.lr.ph, 
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %qlp_coeff.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %quantization.i)
   %sub.i184 = sub i32 %128, %lpc_order.0255
-  %spec.select.i211 = call i32 @llvm.umin.i32(i32 %sub2.i, i32 %qlp_coeff_precision.0245)
+  %spec.select.i211 = call i32 @llvm.umin.i32(i32 %qlp_coeff_precision.0245, i32 %sub2.i)
   %qlp_coeff_precision.addr.0.i = select i1 %cmp226, i32 %spec.select.i211, i32 %qlp_coeff_precision.0245
   %call7.i = call i32 @FLAC__lpc_quantize_coefficients(ptr noundef nonnull %arrayidx266, i32 noundef %lpc_order.0255, i32 noundef %qlp_coeff_precision.addr.0.i, ptr noundef nonnull %qlp_coeff.i, ptr noundef nonnull %quantization.i) #24
   %cmp8.not.i = icmp eq i32 %call7.i, 0
@@ -10334,7 +10334,7 @@ define internal fastcc i32 @find_best_partition_order_(ptr nocapture noundef rea
 entry:
   %add = add i32 %predictor_order, %residual_samples
   %call = tail call i32 @FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order(i32 noundef %max_partition_order, i32 noundef %add, i32 noundef %predictor_order) #24
-  %cond = tail call i32 @llvm.umin.i32(i32 %call, i32 %min_partition_order)
+  %cond = tail call i32 @llvm.umin.i32(i32 %min_partition_order, i32 %call)
   %local_precompute_partition_info_sums = getelementptr inbounds i8, ptr %private_, i64 2448
   %0 = load ptr, ptr %local_precompute_partition_info_sums, align 8
   tail call void %0(ptr noundef %residual, ptr noundef %abs_residual_partition_sums, i32 noundef %residual_samples, i32 noundef %predictor_order, i32 noundef %cond, i32 noundef %call, i32 noundef %bps) #24

@@ -113,7 +113,7 @@ _ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit: 
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  %cmp = icmp eq i32 %bf.cast.i, %k
+  %cmp = icmp eq i32 %k, %bf.cast.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit
@@ -236,7 +236,7 @@ cleanup.action:                                   ; preds = %if.then13.i.i.i53.c
   %bf.load.i63 = load i16, ptr %d_kind.i62, align 8
   %bf.clear.i64 = and i16 %bf.load.i63, 1023
   %bf.cast.i65 = zext nneg i16 %bf.clear.i64 to i32
-  %cmp17 = icmp eq i32 %bf.cast.i65, %notK
+  %cmp17 = icmp eq i32 %notK, %bf.cast.i65
   %13 = and i64 %bf.load.i.i66, 1152920405095219200
   %cmp.not.i.i67 = icmp eq i64 %13, 1152920405095219200
   br i1 %cmp.not.i.i67, label %cleanup.done, label %if.then.i.i68

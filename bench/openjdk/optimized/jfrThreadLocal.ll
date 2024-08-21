@@ -1488,7 +1488,7 @@ declare noundef i64 @_ZN16ThreadIdentifier4nextEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JfrThreadLocal21on_set_current_threadEP10JavaThreadP7oopDesc(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #13
-  %.not = icmp eq ptr %3, %1
+  %.not = icmp eq ptr %1, %3
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2

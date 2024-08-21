@@ -523,7 +523,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %buffer to i64
   %sub.ptr.sub.neg = add i64 %sub.ptr.rhs.cast, 8192
   %sub = sub i64 %sub.ptr.sub.neg, %sub.ptr.lhs.cast
-  %cmp.not = icmp ult i64 %sub, %l
+  %cmp.not = icmp ugt i64 %l, %sub
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry

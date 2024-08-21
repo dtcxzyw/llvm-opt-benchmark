@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_Z27dd_make_local_group_indicesPK11gmx_ga2la_tiPiS2_PS2_S2_S2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %8, %2
+  %.not = icmp eq ptr %2, %8
   br i1 %.not, label %12, label %.preheader
 
 .preheader:                                       ; preds = %7

@@ -236,7 +236,7 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef %1, 
   %27 = add i32 %.03642.i, 1
   store i32 65534, ptr %19, align 4
   %28 = zext i32 %27 to i64
-  %.not.i = icmp ult i64 %28, %2
+  %.not.i = icmp ugt i64 %2, %28
   br i1 %.not.i, label %._crit_edge.i, label %_ZL13CharToWideMapPKcPwmRb.exit
 
 ._crit_edge.i:                                    ; preds = %26
@@ -269,7 +269,7 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef %1, 
   %.2.i = phi i1 [ true, %29 ], [ %.044.i, %35 ]
   %.3.i = add i32 %.3.in.i, 1
   %42 = zext i32 %.3.i to i64
-  %43 = icmp ult i64 %42, %2
+  %43 = icmp ugt i64 %2, %42
   br i1 %43, label %.lr.ph.i, label %_ZL13CharToWideMapPKcPwmRb.exit, !llvm.loop !6
 
 _ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %.lr.ph.i, %22, %26, %41

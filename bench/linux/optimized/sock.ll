@@ -9831,7 +9831,7 @@ define dso_local zeroext i1 @sk_busy_loop_end(ptr noundef %0, i64 noundef %1) #0
 
 27:                                               ; preds = %23
   %28 = zext i32 %25 to i64
-  %29 = add i64 %28, %1
+  %29 = add i64 %1, %28
   %30 = tail call i64 @local_clock() #22
   %31 = lshr i64 %30, 10
   %32 = sub i64 %29, %31

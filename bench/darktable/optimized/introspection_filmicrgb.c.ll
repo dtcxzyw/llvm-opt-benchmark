@@ -553,7 +553,7 @@ define internal fastcc void @convert_to_spline_v3(ptr nocapture noundef %0) unna
 74:                                               ; preds = %59
   %75 = fsub reassoc nsz arcp contract afn float %19, %36
   %76 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %75, float 0.000000e+00)
-  %77 = fmul reassoc nsz arcp contract afn float %60, %34
+  %77 = fmul reassoc nsz arcp contract afn float %34, %60
   %78 = fadd reassoc nsz arcp contract afn float %77, %62
   %79 = fsub reassoc nsz arcp contract afn float %19, %78
   %80 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %79, float 0x3EE4F8B580000000)
@@ -11089,7 +11089,7 @@ filmic_spline.exit:                               ; preds = %550, %563, %573, %5
   %1560 = call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %1542)
   %1561 = call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %1551)
   %1562 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1560, float %1561)
-  %1563 = fmul reassoc nsz arcp contract afn float %1559, %1562
+  %1563 = fmul reassoc nsz arcp contract afn float %1562, %1559
   %1564 = fadd reassoc nsz arcp contract afn float %1532, %1563
   %1565 = fsub reassoc nsz arcp contract afn float %1535, %1564
   %1566 = fmul reassoc nsz arcp contract afn float %1559, %1550
@@ -12556,7 +12556,7 @@ define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef reado
 8:                                                ; preds = %6
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 64) ]
   %9 = trunc nsw i64 %4 to i32
-  %10 = icmp sgt i32 %9, %5
+  %10 = icmp slt i32 %5, %9
   %11 = add nsw i32 %9, -1
   %12 = add i32 %11, %5
   %13 = shl nsw i64 %3, 2
@@ -12823,7 +12823,7 @@ define internal fastcc void @blur_2D_Bspline(ptr noalias nocapture noundef reado
   br i1 %236, label %.loopexit15, label %.preheader14, !llvm.loop !418
 
 .loopexit15:                                      ; preds = %.preheader14, %187, %160
-  %237 = mul nsw i64 %82, %3
+  %237 = mul nsw i64 %3, %82
   br i1 %27, label %.preheader18, label %238
 
 .preheader18:                                     ; preds = %356, %238, %.loopexit15
@@ -14699,7 +14699,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
   %27 = add i64 %indvars.iv, %26
   %28 = trunc i64 %23 to i32
   %29 = xor i32 %28, -1
-  %30 = add i32 %29, %2
+  %30 = add i32 %2, %29
   %31 = sub i32 %14, %28
   %32 = zext i32 %31 to i64
   %33 = add nuw nsw i64 %32, 1
@@ -14865,7 +14865,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
   %160 = select i1 %158, i32 %159, i32 %147
   %161 = add nuw nsw i64 %108, 4
   %162 = trunc i64 %161 to i32
-  %163 = icmp eq i32 %162, %2
+  %163 = icmp eq i32 %2, %162
   br i1 %163, label %.loopexit35, label %.preheader34
 
 .loopexit31:                                      ; preds = %213, %.loopexit33
@@ -14971,7 +14971,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
   store double %233, ptr %231, align 8, !tbaa !320
   %234 = add nuw nsw i64 %214, 4
   %235 = trunc i64 %234 to i32
-  %236 = icmp eq i32 %235, %2
+  %236 = icmp eq i32 %2, %235
   br i1 %236, label %.loopexit31, label %213
 
 .preheader27:                                     ; preds = %.loopexit30, %.preheader27
@@ -15005,7 +15005,7 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
   store double %254, ptr %255, align 8, !tbaa !320
   %257 = add nuw nsw i64 %237, 4
   %258 = trunc i64 %257 to i32
-  %259 = icmp eq i32 %258, %2
+  %259 = icmp eq i32 %2, %258
   br i1 %259, label %.loopexit28, label %.preheader27, !llvm.loop !435
 
 .loopexit28:                                      ; preds = %.preheader27, %.loopexit30, %192, %.loopexit31
@@ -15143,13 +15143,13 @@ define internal fastcc void @gauss_solve(ptr nocapture noundef %0, ptr nocapture
   store double %363, ptr %361, align 8, !tbaa !320
   %364 = add nuw nsw i64 %332, 4
   %365 = trunc i64 %364 to i32
-  %366 = icmp eq i32 %365, %2
+  %366 = icmp eq i32 %2, %365
   br i1 %366, label %.loopexit23, label %.preheader22, !llvm.loop !446
 
 .loopexit23:                                      ; preds = %.preheader22, %.loopexit25, %310
   %367 = add nuw nsw i64 %273, 1
   %lftr.wideiv = trunc i64 %367 to i32
-  %exitcond = icmp eq i32 %lftr.wideiv, %2
+  %exitcond = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond, label %.loopexit26, label %272
 
 .loopexit26:                                      ; preds = %.loopexit23, %89

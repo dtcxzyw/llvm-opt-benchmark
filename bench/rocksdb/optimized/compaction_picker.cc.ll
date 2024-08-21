@@ -345,7 +345,7 @@ land.lhs.true:                                    ; preds = %if.end
   %num_non_empty_levels_.i = getelementptr inbounds i8, ptr %vstorage, i64 20
   %1 = load i32, ptr %num_non_empty_levels_.i, align 4
   %sub = add nsw i32 %1, -1
-  %cmp1.not = icmp sgt i32 %sub, %level
+  %cmp1.not = icmp slt i32 %level, %sub
   br i1 %cmp1.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
@@ -392,7 +392,7 @@ if.end:                                           ; preds = %entry
   %num_non_empty_levels_.i = getelementptr inbounds i8, ptr %vstorage, i64 20
   %0 = load i32, ptr %num_non_empty_levels_.i, align 4
   %sub = add nsw i32 %0, -1
-  %cmp.not = icmp sgt i32 %sub, %level
+  %cmp.not = icmp slt i32 %level, %sub
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
@@ -472,7 +472,7 @@ _ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equ
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %compactions_in_progress_, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
+  %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIPN7rocksdb10CompactionESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -1340,7 +1340,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %num_non_empty_levels_.i.i = getelementptr inbounds i8, ptr %vstorage, i64 20
   %5 = load i32, ptr %num_non_empty_levels_.i.i, align 4
   %sub.i = add nsw i32 %5, -1
-  %cmp1.not.i = icmp sgt i32 %sub.i, %output_level
+  %cmp1.not.i = icmp slt i32 %output_level, %sub.i
   br i1 %cmp1.not.i, label %if.end4.i, label %if.end8
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %if.end
@@ -1387,7 +1387,7 @@ invoke.cont:                                      ; preds = %if.end8
   %num_non_empty_levels_.i.i16 = getelementptr inbounds i8, ptr %vstorage, i64 20
   %12 = load i32, ptr %num_non_empty_levels_.i.i16, align 4, !noalias !11
   %sub.i17 = add nsw i32 %12, -1
-  %cmp.not.i18 = icmp sgt i32 %sub.i17, %output_level
+  %cmp.not.i18 = icmp slt i32 %output_level, %sub.i17
   br i1 %cmp.not.i18, label %if.end4.i20, label %land.lhs.true.i19
 
 land.lhs.true.i19:                                ; preds = %invoke.cont
@@ -1766,7 +1766,7 @@ while.body.i.i.i:                                 ; preds = %if.then6, %while.bo
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.then6 ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %4 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ugt ptr %4, %c
+  %cmp.i.i.i.i = icmp ult ptr %c, %4
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -1797,13 +1797,13 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i6.i.i, align 8
-  %cmp.i.i7.i.i = icmp ugt ptr %7, %c
+  %cmp.i.i7.i.i = icmp ult ptr %c, %7
   br label %_ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
@@ -2048,7 +2048,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.not.i.i.i.i35, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE20_M_get_previous_nodeEmPNS1_10_Hash_nodeImLb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !19
 
 _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE20_M_get_previous_nodeEmPNS1_10_Hash_nodeImLb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
-  %cmp.i.i.i.i36 = icmp eq ptr %28, %__prev_n.0.i.i.i.i
+  %cmp.i.i.i.i36 = icmp eq ptr %__prev_n.0.i.i.i.i, %28
   %30 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
   %tobool.not.i.i.i.i37 = icmp eq ptr %30, null
   br i1 %cmp.i.i.i.i36, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -3260,7 +3260,7 @@ entry:
   %agg.tmp296 = alloca %"class.std::vector.202", align 8
   %agg.tmp317 = alloca %"class.std::vector.0", align 8
   %0 = load i32, ptr @_ZN7rocksdb16ColumnFamilyData17kCompactAllLevelsE, align 4
-  %cmp = icmp eq i32 %0, %input_level
+  %cmp = icmp eq i32 %input_level, %0
   br i1 %cmp, label %if.then, label %if.end68
 
 if.then:                                          ; preds = %entry
@@ -3557,7 +3557,7 @@ land.lhs.true.i:                                  ; preds = %invoke.cont54
   %num_non_empty_levels_.i.i = getelementptr inbounds i8, ptr %vstorage, i64 20
   %41 = load i32, ptr %num_non_empty_levels_.i.i, align 4
   %sub.i = add nsw i32 %41, -1
-  %cmp1.not.i = icmp sgt i32 %sub.i, %output_level
+  %cmp1.not.i = icmp slt i32 %output_level, %sub.i
   br i1 %cmp1.not.i, label %if.end4.i, label %invoke.cont56
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %invoke.cont54
@@ -3591,7 +3591,7 @@ invoke.cont56:                                    ; preds = %if.else.i156, %if.t
   %num_non_empty_levels_.i.i157 = getelementptr inbounds i8, ptr %vstorage, i64 20
   %46 = load i32, ptr %num_non_empty_levels_.i.i157, align 4, !noalias !30
   %sub.i158 = add nsw i32 %46, -1
-  %cmp.not.i159 = icmp sgt i32 %sub.i158, %output_level
+  %cmp.not.i159 = icmp slt i32 %output_level, %sub.i158
   br i1 %cmp.not.i159, label %if.end4.i161, label %land.lhs.true.i160
 
 land.lhs.true.i160:                               ; preds = %invoke.cont56
@@ -3827,7 +3827,7 @@ for.body98:                                       ; preds = %for.cond93
   %file_size.i = getelementptr inbounds i8, ptr %73, i64 16
   %74 = load i64, ptr %file_size.i, align 8
   %75 = load i32, ptr %num_non_empty_levels_.i, align 4
-  %cmp114 = icmp sgt i32 %75, %output_level
+  %cmp114 = icmp slt i32 %output_level, %75
   br i1 %cmp114, label %if.then115, label %if.end135
 
 if.then115:                                       ; preds = %for.body98
@@ -3888,7 +3888,7 @@ if.then139:                                       ; preds = %if.end135
   %sub.ptr.rhs.cast.i.i223 = ptrtoint ptr %84 to i64
   %sub.ptr.sub.i.i224 = sub i64 %sub.ptr.lhs.cast.i.i222, %sub.ptr.rhs.cast.i.i223
   %sub.ptr.div.i.i225 = ashr exact i64 %sub.ptr.sub.i.i224, 3
-  %cmp.i226.not = icmp ugt i64 %sub.ptr.div.i.i225, %i.0
+  %cmp.i226.not = icmp ult i64 %i.0, %sub.ptr.div.i.i225
   br i1 %cmp.i226.not, label %if.else.i227, label %if.then.i229
 
 if.then.i229:                                     ; preds = %if.then139
@@ -3981,7 +3981,7 @@ _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit3
   br label %if.end147
 
 if.else.i227:                                     ; preds = %if.then139
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i225, %add94
+  %cmp4.i = icmp ult i64 %add94, %sub.ptr.div.i.i225
   br i1 %cmp4.i, label %if.then5.i, label %if.end147
 
 if.then5.i:                                       ; preds = %if.else.i227
@@ -4238,7 +4238,7 @@ if.end228:                                        ; preds = %if.else225, %if.the
   %files.i288 = getelementptr inbounds i8, ptr %output_level_inputs, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %files.i288, i8 0, i64 48, i1 false)
   %108 = load i32, ptr @_ZN7rocksdb16ColumnFamilyData19kCompactToBaseLevelE, align 4
-  %cmp229 = icmp eq i32 %108, %output_level
+  %cmp229 = icmp eq i32 %output_level, %108
   br i1 %cmp229, label %if.then230, label %if.end234
 
 if.then230:                                       ; preds = %if.end228
@@ -4254,7 +4254,7 @@ lpad231:                                          ; preds = %if.then237
 if.end234:                                        ; preds = %if.then230, %if.end228
   %output_level.addr.0 = phi i32 [ %109, %if.then230 ], [ %output_level, %if.end228 ]
   store i32 %output_level.addr.0, ptr %output_level_inputs, align 8
-  %cmp236.not = icmp eq i32 %output_level.addr.0, %input_level
+  %cmp236.not = icmp eq i32 %input_level, %output_level.addr.0
   br i1 %cmp236.not, label %if.end242, label %if.then237
 
 if.then237:                                       ; preds = %if.end234
@@ -4514,7 +4514,7 @@ invoke.cont306:                                   ; preds = %invoke.cont293
   %num_non_empty_levels_.i.i339 = getelementptr inbounds i8, ptr %vstorage, i64 20
   %145 = load i32, ptr %num_non_empty_levels_.i.i339, align 4, !noalias !37
   %sub.i340 = add nsw i32 %145, -1
-  %cmp.not.i341 = icmp sgt i32 %sub.i340, %output_level.addr.0
+  %cmp.not.i341 = icmp slt i32 %output_level.addr.0, %sub.i340
   br i1 %cmp.not.i341, label %if.end4.i345, label %land.lhs.true.i342
 
 land.lhs.true.i342:                               ; preds = %invoke.cont306
@@ -5928,7 +5928,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %cmp.not = icmp sgt i32 %conv, %output_level
+  %cmp.not = icmp slt i32 %output_level, %conv
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6037,7 +6037,7 @@ if.end:                                           ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %10 = load ptr, ptr %vfn, align 8
   %call23 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %cmp24 = icmp slt i32 %call23, %output_level
+  %cmp24 = icmp sgt i32 %output_level, %call23
   br i1 %cmp24, label %if.then25, label %if.end41
 
 if.then25:                                        ; preds = %if.end
@@ -6126,7 +6126,7 @@ if.then58:                                        ; preds = %invoke.cont56
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i, label %cleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then58
@@ -7844,7 +7844,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb20CompactionInputFilesESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN7rocksdb20CompactionInputFilesESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12
@@ -7988,7 +7988,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
@@ -8379,7 +8379,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -8683,7 +8683,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPN7rocksdb10CompactionES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -8776,8 +8776,8 @@ _ZNSt8_Rb_treeIPN7rocksdb10CompactionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i.i1, align 8
-  %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
+  %cmp.i.i2 = icmp eq ptr %retval.sroa.0.0.i, %7
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i, %add.ptr.i.i
   %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i3
 
@@ -8921,7 +8921,7 @@ if.end13:                                         ; preds = %for.cond.i, %if.end
   %__n.0 = phi ptr [ %6, %if.end ], [ %17, %for.cond.i ]
   %__bkt.0 = phi i64 [ %rem.i.i.i, %if.end ], [ %rem.i.i.i11, %for.cond.i ]
   %__prev_n.0 = phi ptr [ %__prev_p.06.i.lcssa, %if.end ], [ %__p.010.i, %for.cond.i ]
-  %cmp.i = icmp eq ptr %21, %__prev_n.0
+  %cmp.i = icmp eq ptr %__prev_n.0, %21
   %23 = load ptr, ptr %__n.0, align 8
   %tobool.not.i16 = icmp eq ptr %23, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i

@@ -4773,7 +4773,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
@@ -5937,7 +5937,7 @@ pg_aclmask.exit:                                  ; preds = %33, %37, %39, %41, 
 
 97:                                               ; preds = %pg_aclmask.exit, %96, %30
   %98 = lshr i64 %1, 32
-  %99 = and i64 %98, %3
+  %99 = and i64 %3, %98
   %100 = icmp eq i64 %99, 0
   br i1 %0, label %101, label %127
 
@@ -5969,7 +5969,7 @@ pg_aclmask.exit:                                  ; preds = %33, %37, %39, %41, 
 
 114:                                              ; preds = %101
   %.not61 = icmp eq i64 %99, %3
-  %or.cond62 = or i1 %.not61, %2
+  %or.cond62 = or i1 %2, %.not61
   br i1 %or.cond62, label %153, label %115
 
 115:                                              ; preds = %114
@@ -6023,7 +6023,7 @@ pg_aclmask.exit:                                  ; preds = %33, %37, %39, %41, 
 
 140:                                              ; preds = %127
   %.not = icmp eq i64 %99, %3
-  %or.cond63 = or i1 %.not, %2
+  %or.cond63 = or i1 %2, %.not
   br i1 %or.cond63, label %153, label %141
 
 141:                                              ; preds = %140
@@ -6071,11 +6071,11 @@ define internal fastcc ptr @merge_acl_with_grant(ptr noundef %0, i1 noundef zero
   %13 = and i1 %1, %2
   %14 = getelementptr inbounds i8, ptr %9, i64 4
   %.not29 = xor i1 %2, true
-  %brmerge = or i1 %.not29, %1
+  %brmerge = or i1 %1, %.not29
   %15 = and i64 %5, 4294967295
   %16 = select i1 %brmerge, i64 %15, i64 0
   %.not30 = xor i1 %1, true
-  %brmerge31 = or i1 %.not30, %2
+  %brmerge31 = or i1 %2, %.not30
   %17 = shl i64 %5, 32
   %18 = select i1 %brmerge31, i64 %17, i64 0
   %19 = or disjoint i64 %16, %18

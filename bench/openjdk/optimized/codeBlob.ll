@@ -2955,7 +2955,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %21
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = icmp ugt ptr %28, %1
+  %29 = icmp ult ptr %1, %28
   %30 = select i1 %.not.i.i, i1 %29, i1 false
   br i1 %30, label %31, label %_ZN19TemplateInterpreter8containsEPh.exit.thread
 
@@ -3009,7 +3009,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %21, %_ZN19TemplateI
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %53, i64 %57
-  %59 = icmp ugt ptr %58, %1
+  %59 = icmp ult ptr %1, %58
   %60 = select i1 %.not.i.i61, i1 %59, i1 false
   br i1 %60, label %_ZN12StubRoutines8containsEPh.exit.thread, label %61
 
@@ -3024,7 +3024,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %21, %_ZN19TemplateI
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %62, i64 %66
-  %68 = icmp ugt ptr %67, %1
+  %68 = icmp ult ptr %1, %67
   %69 = select i1 %.not.i10.i, i1 %68, i1 false
   br i1 %69, label %_ZN12StubRoutines8containsEPh.exit.thread, label %70
 
@@ -3039,7 +3039,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %21, %_ZN19TemplateI
   %74 = load i32, ptr %73, align 8
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %71, i64 %75
-  %77 = icmp ugt ptr %76, %1
+  %77 = icmp ult ptr %1, %76
   %78 = select i1 %.not.i11.i, i1 %77, i1 false
   br i1 %78, label %_ZN12StubRoutines8containsEPh.exit.thread, label %79
 
@@ -3054,7 +3054,7 @@ _ZN12StubRoutines8containsEPh.exit:               ; preds = %79
   %82 = load i32, ptr %81, align 8
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %80, i64 %83
-  %85 = icmp ugt ptr %84, %1
+  %85 = icmp ult ptr %1, %84
   %86 = select i1 %.not.i12.i, i1 %85, i1 false
   br i1 %86, label %_ZN12StubRoutines8containsEPh.exit.thread, label %_ZN12StubRoutines8containsEPh.exit.thread65
 
@@ -3127,7 +3127,7 @@ thread-pre-split:                                 ; preds = %_ZN12StubRoutines8c
   tail call void %129(ptr noundef nonnull align 8 dereferenceable(88) %126, ptr noundef nonnull %2) #10
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
   %130 = load ptr, ptr @tty, align 8
-  %131 = icmp eq ptr %130, %2
+  %131 = icmp eq ptr %2, %130
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %124

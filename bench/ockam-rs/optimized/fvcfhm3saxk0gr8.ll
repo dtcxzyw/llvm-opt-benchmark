@@ -3052,7 +3052,7 @@ common.resume:                                    ; preds = %84, %658, %251
 299:                                              ; preds = %.noexc17.i
   %300 = getelementptr inbounds i8, ptr %297, i64 8
   %301 = load i64, ptr %300, align 8, !noalias !367
-  %302 = icmp ugt i64 %301, %290
+  %302 = icmp ult i64 %290, %301
   br i1 %302, label %.thread.i, label %303
 
 303:                                              ; preds = %299
@@ -3099,7 +3099,7 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.i.i: ; preds = %.noexc20.i
   %321 = getelementptr inbounds i8, ptr %318, i64 24
   %322 = load i64, ptr %321, align 8, !noalias !379
-  %323 = icmp ult i64 %322, %290
+  %323 = icmp ugt i64 %290, %322
   br i1 %323, label %.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h8e5e6f797f91655bE.exit.i.i, %.noexc20.i, %.noexc19.i, %.noexc18.i, %.noexc17.i

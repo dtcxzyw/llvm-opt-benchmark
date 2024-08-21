@@ -68,7 +68,7 @@ define void @PHP_MD4Update(ptr nocapture noundef %0, ptr nocapture noundef reado
   store i32 %18, ptr %17, align 4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
-  %.not = icmp ugt i64 %20, %2
+  %.not = icmp ult i64 %2, %20
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -159,7 +159,7 @@ Encode.exit:                                      ; preds = %.lr.ph.i
   %35 = add i32 %34, %32
   store i32 %35, ptr %30, align 4
   %36 = sub nuw nsw i32 64, %23
-  %.not.i = icmp ugt i32 %36, %25
+  %.not.i = icmp ult i32 %25, %36
   br i1 %.not.i, label %48, label %37
 
 37:                                               ; preds = %Encode.exit
@@ -281,7 +281,7 @@ define void @PHP_MD2Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef
 
 7:                                                ; preds = %3
   %8 = zext i8 %6 to i64
-  %9 = add i64 %8, %2
+  %9 = add i64 %2, %8
   %10 = icmp ult i64 %9, 16
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = getelementptr inbounds i8, ptr %11, i64 %8

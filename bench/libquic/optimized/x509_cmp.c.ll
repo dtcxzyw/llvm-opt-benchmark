@@ -1057,7 +1057,7 @@ if.then33:                                        ; preds = %for.body, %if.end.i
   %rv.0114129 = phi i32 [ 57, %land.lhs.true.i ], [ 58, %if.end4.i ], [ 60, %if.then18.i ], [ 60, %if.then7.i ], [ 57, %if.end.i32 ], [ 57, %if.end.i68 ], [ 59, %if.then7.i79 ], [ 60, %if.end12.i80 ], [ 59, %if.then18.i74 ], [ 60, %if.end23.i75 ], [ 58, %if.end4.i72 ], [ 57, %land.lhs.true.i64 ], [ 57, %if.end.i47 ], [ 58, %if.end4.i51 ], [ 59, %if.then18.i53 ], [ 60, %if.end23.i ], [ 59, %if.then7.i57 ], [ 60, %if.end12.i ], [ 57, %land.lhs.true.i43 ], [ 56, %for.body ]
   %i.1116128 = phi i64 [ 0, %land.lhs.true.i ], [ 0, %if.end4.i ], [ 0, %if.then18.i ], [ 0, %if.then7.i ], [ 0, %if.end.i32 ], [ %i.2.lcssa, %if.end.i68 ], [ %i.2.lcssa, %if.then7.i79 ], [ %i.2.lcssa, %if.end12.i80 ], [ %i.2.lcssa, %if.then18.i74 ], [ %i.2.lcssa, %if.end23.i75 ], [ %i.2.lcssa, %if.end4.i72 ], [ %i.2.lcssa, %land.lhs.true.i64 ], [ %i.2175, %land.lhs.true.i43 ], [ %i.2175, %if.end12.i ], [ %i.2175, %if.then7.i57 ], [ %i.2175, %if.end23.i ], [ %i.2175, %if.then18.i53 ], [ %i.2175, %if.end4.i51 ], [ %i.2175, %if.end.i47 ], [ %i.2175, %for.body ]
   tail call void @EVP_PKEY_free(ptr noundef nonnull %pk.1159.sink) #8
-  %cmp41.not = icmp eq i64 %tflags.0112130, %flags
+  %cmp41.not = icmp eq i64 %flags, %tflags.0112130
   %spec.select29 = select i1 %cmp41.not, i32 60, i32 61
   %14 = add nsw i32 %rv.0114129, -59
   %spec.select215 = select i1 %cmp35, i32 %spec.select29, i32 %rv.0114129

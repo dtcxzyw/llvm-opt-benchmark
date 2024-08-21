@@ -351,7 +351,7 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   %.0153200 = phi i64 [ 0, %.lr.ph ], [ %146, %ZDICT_countEStats.exit ]
   %58 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv226
   %59 = load i64, ptr %58, align 8
-  %.0.i = call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %59)
+  %.0.i = call i64 @llvm.umin.i64(i64 %59, i64 %spec.select.i)
   %60 = call i64 @ZSTD_compressBegin_usingCDict_deprecated(ptr noundef %44, ptr noundef %43) #15
   %61 = icmp ult i64 %60, -119
   br i1 %61, label %68, label %62
@@ -1622,7 +1622,7 @@ ZDICT_analyzePos.exit.i.i:                        ; preds = %._crit_edge345.i.i.
   %.03544.i140.i.i = phi i32 [ %340, %ZDICT_removeDictItem.exit.i.i.i ], [ %336, %.preheader.i105.preheader.i.i ]
   %342 = load i32, ptr %31, align 4
   %343 = add i32 %342, -1
-  %344 = icmp ugt i32 %343, %.03544.i140.i.i
+  %344 = icmp ult i32 %.03544.i140.i.i, %343
   br i1 %344, label %.lr.ph.preheader.i.i.i.i, label %ZDICT_removeDictItem.exit.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %.preheader.i.i.i.i
@@ -1941,7 +1941,7 @@ ZDICT_dictSize.exit200.thread.critedge.i:         ; preds = %388
   %502 = load i32, ptr %501, align 4
   %503 = add i32 %502, %.0138236.i
   %504 = zext i32 %503 to i64
-  %505 = icmp ugt i64 %504, %1
+  %505 = icmp ult i64 %1, %504
   br i1 %505, label %._crit_edge.i, label %506
 
 506:                                              ; preds = %.lr.ph238.i
@@ -2089,7 +2089,7 @@ define internal fastcc i64 @ZDICT_addEntropyTablesFromBuffer_advanced(ptr nounde
   br label %44
 
 44:                                               ; preds = %42, %30
-  %45 = tail call i64 @llvm.umin.i64(i64 %40, i64 %2)
+  %45 = tail call i64 @llvm.umin.i64(i64 %2, i64 %40)
   br label %46
 
 46:                                               ; preds = %.critedge, %44

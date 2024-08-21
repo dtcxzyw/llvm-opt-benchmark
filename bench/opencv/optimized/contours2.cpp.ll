@@ -595,7 +595,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %68
   %203 = ptrtoint ptr %201 to i64
   %204 = sub i64 %202, %203
   %205 = sdiv exact i64 %204, 24
-  %206 = icmp ult i64 %205, %199
+  %206 = icmp ugt i64 %199, %205
   br i1 %206, label %207, label %209
 
 207:                                              ; preds = %192
@@ -604,7 +604,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %68
           to label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit unwind label %275
 
 209:                                              ; preds = %192
-  %210 = icmp ugt i64 %205, %199
+  %210 = icmp ult i64 %199, %205
   br i1 %210, label %211, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit
 
 211:                                              ; preds = %209

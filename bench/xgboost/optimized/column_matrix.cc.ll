@@ -624,7 +624,7 @@ _ZNK7xgboost16GHistIndexMatrix16GetFeatureCountsEPm.exit: ; preds = %.loopexit.i
 
 .lr.ph135:                                        ; preds = %_ZNK7xgboost16GHistIndexMatrix16GetFeatureCountsEPm.exit
   %180 = uitofp i64 %spec.select.i to double
-  %181 = fmul double %180, %2
+  %181 = fmul double %2, %180
   br label %182
 
 182:                                              ; preds = %.lr.ph135, %182
@@ -4372,7 +4372,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -5456,7 +5456,7 @@ define linkonce_odr void @_ZN7xgboost6common14MallocResource6ResizeILb0EEEvmSt4b
 8:                                                ; preds = %3
   tail call void @free(ptr noundef %7) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %45
+  br label %49
 
 9:                                                ; preds = %3
   %10 = tail call ptr @realloc(ptr noundef %7, i64 noundef %1) #29
@@ -5520,57 +5520,66 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %46 unwind label %47
+          to label %50 unwind label %51
 
 31:                                               ; preds = %28, %11
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit, label %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i
+  br i1 %34, label %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread, label %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i
+
+_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread: ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %40
 
 _ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i: ; preds = %31
-  %35 = load ptr, ptr %6, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %35, i64 %33, i1 false)
+  %36 = load ptr, ptr %6, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %36, i64 %33, i1 false)
   br label %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit
 
-_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit:        ; preds = %._ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit_crit_edge, %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i, %31
-  %36 = phi i64 [ %.pre, %._ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit_crit_edge ], [ 0, %31 ], [ %33, %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i ]
-  %.0152124 = phi ptr [ %10, %._ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit_crit_edge ], [ %12, %31 ], [ %12, %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
-  %38 = icmp eq i64 %36, %1
-  br i1 %38, label %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit, label %39
+_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit:        ; preds = %._ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit_crit_edge, %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i
+  %37 = phi i64 [ %.pre, %._ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit_crit_edge ], [ %33, %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i ]
+  %.0152124 = phi ptr [ %10, %._ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit_crit_edge ], [ %12, %_ZSt8__copy_nIPSt4bytemS1_ET1_T_T0_S2_St26random_access_iterator_tag.exit.i ]
+  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = icmp eq i64 %1, %37
+  br i1 %39, label %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit, label %40
 
-39:                                               ; preds = %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit
-  %40 = sub i64 %1, %36
-  %41 = getelementptr inbounds i8, ptr %.0152124, i64 %36
-  call void @llvm.memset.p0.i64(ptr align 1 %41, i8 %2, i64 %40, i1 false)
+40:                                               ; preds = %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit
+  %41 = phi ptr [ %35, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread ], [ %38, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ]
+  %.015212427 = phi ptr [ %12, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread ], [ %.0152124, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ]
+  %42 = phi i64 [ 0, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread ], [ %37, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ]
+  %43 = sub i64 %1, %42
+  %44 = getelementptr inbounds i8, ptr %.015212427, i64 %42
+  call void @llvm.memset.p0.i64(ptr align 1 %44, i8 %2, i64 %43, i1 false)
   br label %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
 
-_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit:      ; preds = %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit, %39
-  br i1 %.not, label %42, label %44
+_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit:      ; preds = %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit, %40
+  %45 = phi ptr [ %38, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ], [ %41, %40 ]
+  %.015212428 = phi ptr [ %.0152124, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ], [ %.015212427, %40 ]
+  br i1 %.not, label %46, label %48
 
-42:                                               ; preds = %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
-  %43 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %43) #8
+46:                                               ; preds = %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
+  %47 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %47) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %44
+  br label %48
 
-44:                                               ; preds = %42, %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
-  store ptr %.0152124, ptr %6, align 8
-  store i64 %1, ptr %37, align 8
-  br label %45
+48:                                               ; preds = %46, %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
+  store ptr %.015212428, ptr %6, align 8
+  store i64 %1, ptr %45, align 8
+  br label %49
 
-45:                                               ; preds = %44, %8
+49:                                               ; preds = %48, %8
   ret void
 
-46:                                               ; preds = %29
+50:                                               ; preds = %29
   resume { ptr, i32 } %30
 
-47:                                               ; preds = %29
-  %48 = landingpad { ptr, i32 }
+51:                                               ; preds = %29
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #27
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #27
   unreachable
 }
 

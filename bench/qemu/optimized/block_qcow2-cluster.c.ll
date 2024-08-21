@@ -156,7 +156,7 @@ entry:
   %l1_size = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %l1_size, align 8
   %conv = sext i32 %1 to i64
-  %cmp.not = icmp ugt i64 %conv, %exact_size
+  %cmp.not = icmp ult i64 %exact_size, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -279,7 +279,7 @@ entry:
   %l1_size = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %l1_size, align 8
   %conv = sext i32 %1 to i64
-  %cmp.not = icmp ult i64 %conv, %min_size
+  %cmp.not = icmp ugt i64 %min_size, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -292,7 +292,7 @@ if.end5:                                          ; preds = %if.end
 if.else:                                          ; preds = %if.end5
   %cmp9 = icmp eq i32 %1, 0
   %spec.store.select = select i1 %cmp9, i64 1, i64 %conv
-  %cmp1373 = icmp ult i64 %spec.store.select, %min_size
+  %cmp1373 = icmp ugt i64 %min_size, %spec.store.select
   br i1 %cmp1373, label %while.body, label %if.end15
 
 while.body:                                       ; preds = %if.else, %while.body
@@ -300,7 +300,7 @@ while.body:                                       ; preds = %if.else, %while.bod
   %mul = mul nuw nsw i64 %new_l1_size.174, 3
   %sub = add nuw nsw i64 %mul, 1
   %div72 = lshr i64 %sub, 1
-  %cmp13 = icmp ult i64 %div72, %min_size
+  %cmp13 = icmp ugt i64 %min_size, %div72
   br i1 %cmp13, label %while.body, label %if.end15, !llvm.loop !7
 
 if.end15:                                         ; preds = %while.body, %if.else, %if.end5
@@ -578,7 +578,7 @@ entry:
   %.val = load i32, ptr %1, align 4
   %sub.i = add i32 %.val, -1
   %conv.i = zext i32 %sub.i to i64
-  %and.i = and i64 %conv.i, %offset
+  %and.i = and i64 %offset, %conv.i
   %2 = load i32, ptr %bytes, align 4
   %conv1 = zext i32 %2 to i64
   %add = add nuw nsw i64 %and.i, %conv1
@@ -1062,7 +1062,7 @@ qcow2_get_cluster_type.exit:                      ; preds = %entry, %if.then3.i,
   %retval.0.i = phi i32 [ 4, %entry ], [ %..i, %if.then3.i ], [ 3, %if.else7.i ], [ %spec.select.i, %if.then10.i ]
   %subclusters_per_cluster = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %subclusters_per_cluster, align 4
-  %cmp = icmp ugt i32 %4, %sc_index
+  %cmp = icmp ult i32 %sc_index, %4
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %qcow2_get_cluster_type.exit
@@ -2654,7 +2654,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %sub.i = add i64 %add3.i, %add4.i.i
   %and.i = and i64 %sub.i, %sub6.i
-  %cmp8.not.i = icmp ugt i64 %and.i, %add
+  %cmp8.not.i = icmp ult i64 %add, %and.i
   br i1 %cmp8.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -2665,7 +2665,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp13.not.i = icmp ugt i64 %add.i, %add.i.i
-  %cmp17.not.i = icmp ugt i64 %add4.i.i, %add
+  %cmp17.not.i = icmp ult i64 %add, %add4.i.i
   %or.cond.i = select i1 %cmp13.not.i, i1 %cmp17.not.i, i1 false
   br i1 %or.cond.i, label %if.end20.i, label %for.inc.i
 
@@ -2830,7 +2830,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 lor.lhs.false:                                    ; preds = %for.body
   %sub = add i64 %add3, %add4.i
   %and = and i64 %sub, %sub6
-  %cmp8.not = icmp ugt i64 %and, %guest_offset
+  %cmp8.not = icmp ult i64 %guest_offset, %and
   br i1 %cmp8.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -2841,7 +2841,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end
   %cmp13.not = icmp ugt i64 %add, %add.i
-  %cmp17.not = icmp ugt i64 %add4.i, %guest_offset
+  %cmp17.not = icmp ult i64 %guest_offset, %add4.i
   %or.cond = select i1 %cmp13.not, i1 %cmp17.not, i1 false
   br i1 %or.cond, label %if.end20, label %for.inc
 
@@ -2952,7 +2952,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %trace_qcow2_handle_copied.exit, %lor.lhs.false
   %12 = getelementptr i8, ptr %0, i64 4
-  %and.i72 = and i64 %.pre100, %guest_offset
+  %and.i72 = and i64 %guest_offset, %.pre100
   %13 = load i64, ptr %bytes, align 8
   %.val65 = load i32, ptr %0, align 8
   %add = add i64 %13, %.pre100
@@ -3072,7 +3072,7 @@ if.end43:                                         ; preds = %if.end35
   %conv44 = zext i32 %mul to i64
   %sub.i86 = add i32 %30, -1
   %conv.i87 = sext i32 %sub.i86 to i64
-  %and.i88 = and i64 %conv.i87, %guest_offset
+  %and.i88 = and i64 %guest_offset, %conv.i87
   %sub46 = sub i64 %conv44, %and.i88
   %cond53 = tail call i64 @llvm.umin.i64(i64 %29, i64 %sub46)
   store i64 %cond53, ptr %bytes, align 8
@@ -3103,7 +3103,7 @@ if.then69:                                        ; preds = %if.end58
   %.val = load i32, ptr %12, align 4
   %sub.i89 = add i32 %.val, -1
   %conv.i90 = sext i32 %sub.i89 to i64
-  %and.i91 = and i64 %conv.i90, %guest_offset
+  %and.i91 = and i64 %guest_offset, %conv.i90
   %add71 = add i64 %and.i91, %and
   store i64 %add71, ptr %host_offset, align 8
   br label %return
@@ -3188,7 +3188,7 @@ if.end17:                                         ; preds = %if.end
   %sub.i = add i32 %.val49, -1
   %conv.i = sext i32 %sub.i to i64
   %add = add i64 %9, %conv.i
-  %and.i = and i64 %conv.i, %guest_offset
+  %and.i = and i64 %guest_offset, %conv.i
   %add.i = add i64 %add, %and.i
   %shr.i = lshr i64 %add.i, %sh_prom.i
   %sub = sub i32 %.val51, %conv1.i
@@ -3251,7 +3251,7 @@ if.end46:                                         ; preds = %if.end41
   %.val48 = load i32, ptr %10, align 4
   %sub.i62 = add i32 %.val48, -1
   %conv.i63 = sext i32 %sub.i62 to i64
-  %and.i64 = and i64 %conv.i63, %guest_offset
+  %and.i64 = and i64 %guest_offset, %conv.i63
   %add48 = add i64 %and.i64, %18
   %19 = load i32, ptr %0, align 8
   %sh_prom50 = zext nneg i32 %19 to i64
@@ -3267,7 +3267,7 @@ if.end46:                                         ; preds = %if.end41
   %.val = load i32, ptr %10, align 4
   %sub.i68 = add i32 %.val, -1
   %conv.i69 = sext i32 %sub.i68 to i64
-  %and.i70 = and i64 %conv.i69, %guest_offset
+  %and.i70 = and i64 %guest_offset, %conv.i69
   %sub65 = sub i64 %conv63, %and.i70
   %cond72 = tail call i64 @llvm.umin.i64(i64 %20, i64 %sub65)
   store i64 %cond72, ptr %bytes, align 8
@@ -3336,7 +3336,7 @@ if.end11:                                         ; preds = %if.end, %lor.lhs.fa
   %.val = load i32, ptr %0, align 8
   %sub.i = add i32 %1, -1
   %conv.i = sext i32 %sub.i to i64
-  %add.i = add i64 %conv.i, %bytes
+  %add.i = add i64 %bytes, %conv.i
   %sh_prom.i = zext nneg i32 %.val to i64
   %shr.i = lshr i64 %add.i, %sh_prom.i
   %cache_discards = getelementptr inbounds i8, ptr %0, i64 424
@@ -3372,7 +3372,7 @@ if.end.i:                                         ; preds = %while.body
   %6 = load i32, ptr %l2_index.i, align 4
   %sub.i21 = sub i32 %5, %6
   %conv.i22 = sext i32 %sub.i21 to i64
-  %cond.i = call i64 @llvm.umin.i64(i64 %conv.i22, i64 %nb_clusters.033)
+  %cond.i = call i64 @llvm.umin.i64(i64 %nb_clusters.033, i64 %conv.i22)
   %cmp3.i = icmp ult i64 %cond.i, 2147483648
   br i1 %cmp3.i, label %for.cond.preheader.i, label %if.else.i
 
@@ -3629,7 +3629,7 @@ if.end6:                                          ; preds = %if.end, %entry
   %.val68 = load i32, ptr %4, align 8
   %sub.i = add i32 %.val68, -1
   %conv.i = sext i32 %sub.i to i64
-  %and.i74 = and i64 %conv.i, %offset
+  %and.i74 = and i64 %offset, %conv.i
   %cmp8 = icmp eq i64 %and.i74, 0
   br i1 %cmp8, label %if.end11, label %if.else10
 
@@ -3798,7 +3798,7 @@ entry:
   %3 = trunc i64 %shr.i to i32
   %conv1.i = and i32 %sub.i, %3
   %cmp.not = icmp ne i32 %nb_subclusters, 0
-  %cmp1 = icmp ugt i32 %.val26, %nb_subclusters
+  %cmp1 = icmp ult i32 %nb_subclusters, %.val26
   %or.cond = select i1 %cmp.not, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.end, label %if.else
 
@@ -3820,7 +3820,7 @@ if.end6:                                          ; preds = %if.end
   %.val30 = load i32, ptr %4, align 8
   %sub.i31 = add i32 %.val30, -1
   %conv.i = sext i32 %sub.i31 to i64
-  %and.i = and i64 %conv.i, %offset
+  %and.i = and i64 %offset, %conv.i
   %cmp8 = icmp eq i64 %and.i, 0
   br i1 %cmp8, label %if.end11, label %if.else10
 
@@ -3943,7 +3943,7 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %l2_index, align 4
   %sub = sub i32 %1, %2
   %conv = sext i32 %sub to i64
-  %cond = tail call i64 @llvm.umin.i64(i64 %conv, i64 %nb_clusters)
+  %cond = tail call i64 @llvm.umin.i64(i64 %nb_clusters, i64 %conv)
   %cmp3 = icmp ult i64 %cond, 2147483648
   br i1 %cmp3, label %for.cond.preheader, label %if.else
 
@@ -4300,7 +4300,7 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %l1_table1 = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %l1_table1, align 8
-  %cmp = icmp eq ptr %1, %l1_table
+  %cmp = icmp eq ptr %l1_table, %1
   store ptr null, ptr %l2_slice, align 8
   %2 = getelementptr i8, ptr %0, i64 360
   %.val114 = load i64, ptr %2, align 8
@@ -4883,7 +4883,7 @@ if.else:                                          ; preds = %if.end7
 
 if.end10:                                         ; preds = %if.end7
   %conv = zext i32 %offset_in_cluster to i64
-  %add = add nuw i64 %conv, %src_cluster_offset
+  %add = add nuw i64 %src_cluster_offset, %conv
   %cmp11 = icmp sgt i64 %add, -1
   br i1 %cmp11, label %if.end15, label %if.else14
 
@@ -4934,7 +4934,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext i32 %offset_in_cluster to i64
-  %add = add i64 %conv, %cluster_offset
+  %add = add i64 %cluster_offset, %conv
   %call = tail call i32 @qcow2_pre_write_overlap_check(ptr noundef nonnull %bs, i32 noundef 0, i64 noundef %add, i64 noundef %1, i1 noundef zeroext true) #13
   %cmp2 = icmp slt i32 %call, 0
   br i1 %cmp2, label %return, label %do.body
@@ -5052,7 +5052,7 @@ for.inc.us.us:                                    ; preds = %cluster_needs_new_a
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %indvars.iv80 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next81, %for.inc.us ]
   %11 = trunc nuw nsw i64 %indvars.iv80 to i32
-  %add.us = add i32 %11, %l2_index
+  %add.us = add i32 %l2_index, %11
   %idxprom.i17.us = sext i32 %add.us to i64
   %arrayidx.i18.us = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17.us
   %12 = load i64, ptr %arrayidx.i18.us, align 8
@@ -5140,7 +5140,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end12 ]
   %expected_offset.021 = phi i64 [ %and, %for.body.preheader ], [ %add14, %if.end12 ]
   %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %add = add i32 %19, %l2_index
+  %add = add i32 %l2_index, %19
   %idxprom.i17 = sext i32 %add to i64
   %arrayidx.i18 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17
   %20 = load i64, ptr %arrayidx.i18, align 8
@@ -5609,7 +5609,7 @@ if.end153:                                        ; preds = %if.else140, %sw.bb1
   %.val140 = load i32, ptr %3, align 4
   %not.i = sub i32 0, %.val140
   %conv.i205 = sext i32 %not.i to i64
-  %and.i206 = and i64 %conv.i205, %guest_offset
+  %and.i206 = and i64 %guest_offset, %conv.i205
   %.compoundliteral.sroa.5.3.dependent_requests.sroa_idx227 = getelementptr inbounds i8, ptr %.compoundliteral.sroa.5, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.5.3.dependent_requests.sroa_idx227, i8 0, i64 16, i1 false)
   %sub160 = sub i32 %conv, %cow_start_from.0
@@ -5738,7 +5738,7 @@ if.then:                                          ; preds = %trace_qcow2_do_allo
   %.val.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre = sub i32 0, %.val.pre
   %.pre42 = sext i32 %.pre to i64
-  %.pre43 = and i64 %.pre42, %guest_offset
+  %.pre43 = and i64 %guest_offset, %.pre42
   %cmp4 = icmp eq i64 %11, %.pre43
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
   br i1 %or.cond, label %if.end, label %if.else

@@ -259,7 +259,7 @@ define noundef zeroext i1 @_ZN4toku8treenode16add_shared_ownerEm(ptr nocapture n
 entry:
   %m_txnid = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i64, ptr %m_txnid, align 8
-  %cmp = icmp ne i64 %0, %txnid
+  %cmp = icmp ne i64 %txnid, %0
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -303,7 +303,7 @@ while.body.i.i.i6:                                ; preds = %if.end9, %while.bod
   %__x.021.i.i.i7 = phi ptr [ %__x.0.i.i.i12, %while.body.i.i.i6 ], [ %__x.019.i.i.i3, %if.end9 ]
   %_M_storage.i.i.i.i.i8 = getelementptr inbounds i8, ptr %__x.021.i.i.i7, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i.i8, align 8
-  %cmp.i.i.i.i9 = icmp ugt i64 %4, %txnid
+  %cmp.i.i.i.i9 = icmp ult i64 %txnid, %4
   %cond.in.v.i.i.i10 = select i1 %cmp.i.i.i.i9, i64 16, i64 24
   %cond.in.i.i.i11 = getelementptr inbounds i8, ptr %__x.021.i.i.i7, i64 %cond.in.v.i.i.i10
   %__x.0.i.i.i12 = load ptr, ptr %cond.in.i.i.i11, align 8
@@ -334,13 +334,13 @@ if.end12.i.i.i15:                                 ; preds = %if.else.i.i.i38, %w
 
 if.then.i.i23:                                    ; preds = %if.end12.i.i.i15, %if.then.i.i.i34
   %retval.sroa.4.0.i.ph.i.i24 = phi ptr [ %__y.0.lcssa25.i.i.i35, %if.then.i.i.i34 ], [ %__y.0.lcssa26.i.i.i16, %if.end12.i.i.i15 ]
-  %cmp2.i.i.i25 = icmp eq ptr %add.ptr.i.i.i.i2, %retval.sroa.4.0.i.ph.i.i24
+  %cmp2.i.i.i25 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i24, %add.ptr.i.i.i.i2
   br i1 %cmp2.i.i.i25, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i29, label %lor.rhs.i.i.i26
 
 lor.rhs.i.i.i26:                                  ; preds = %if.then.i.i23
   %_M_storage.i.i.i.i6.i.i27 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i24, i64 32
   %7 = load i64, ptr %_M_storage.i.i.i.i6.i.i27, align 8
-  %cmp.i.i7.i.i28 = icmp ugt i64 %7, %txnid
+  %cmp.i.i7.i.i28 = icmp ult i64 %txnid, %7
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i29
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i29: ; preds = %lor.rhs.i.i.i26, %if.then.i.i23
@@ -1553,7 +1553,7 @@ if.then38:                                        ; preds = %if.end37
 
 if.end39:                                         ; preds = %if.else31, %if.else, %if.then38, %if.end37
   %new_root.0125 = phi ptr [ %new_root.0, %if.then38 ], [ %new_root.0, %if.end37 ], [ %20, %if.else31 ], [ %4, %if.else ]
-  %cmp40.not = icmp eq ptr %new_root.0125, %this
+  %cmp40.not = icmp eq ptr %this, %new_root.0125
   br i1 %cmp40.not, label %if.end42, label %if.then41
 
 if.then41:                                        ; preds = %if.end39
@@ -1706,8 +1706,8 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds 
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i.i1, align 8
-  %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
+  %cmp.i.i2 = icmp eq ptr %retval.sroa.0.0.i, %7
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i, %add.ptr.i.i
   %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i3
 

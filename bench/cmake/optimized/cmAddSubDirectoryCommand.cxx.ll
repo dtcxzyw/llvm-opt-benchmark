@@ -493,7 +493,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %174 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %158) #11
   %175 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
   %176 = extractvalue { i64, ptr } %175, 0
-  %177 = icmp ult i64 %176, %.041
+  %177 = icmp ugt i64 %.041, %176
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %173

@@ -75,7 +75,7 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
-  %.not54 = icmp ugt i64 %29, %2
+  %.not54 = icmp ult i64 %2, %29
   br i1 %.not54, label %40, label %30
 
 30:                                               ; preds = %27

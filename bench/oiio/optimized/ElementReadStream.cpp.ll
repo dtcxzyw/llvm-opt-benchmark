@@ -61,7 +61,7 @@ entry:
   %imageOffset.i = getelementptr inbounds i8, ptr %dpxHeader, i64 4
   %0 = load i32, ptr %imageOffset.i, align 4
   %conv = zext i32 %0 to i64
-  %add = add nsw i64 %conv, %offset
+  %add = add nsw i64 %offset, %conv
   %fd = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fd, align 8
   %vtable = load ptr, ptr %1, align 8
@@ -234,7 +234,7 @@ entry:
   %imageOffset.i = getelementptr inbounds i8, ptr %dpxHeader, i64 4
   %0 = load i32, ptr %imageOffset.i, align 4
   %conv = zext i32 %0 to i64
-  %add = add nsw i64 %conv, %offset
+  %add = add nsw i64 %offset, %conv
   %fd = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fd, align 8
   %vtable = load ptr, ptr %1, align 8

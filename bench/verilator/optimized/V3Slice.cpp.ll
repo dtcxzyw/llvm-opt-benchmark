@@ -5354,7 +5354,7 @@ _ZNK8AstRange13elementsConstEv.exit:              ; preds = %_ZNK8AstRange9leftC
   %54 = phi i32 [ %53, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i6.i ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i3.i ], [ 0, %49 ]
   %55 = tail call noundef i32 @llvm.smax.i32(i32 %32, i32 %40)
   %56 = tail call noundef i32 @llvm.smin.i32(i32 %47, i32 %54)
-  %57 = add i32 %56, %2
+  %57 = add i32 %2, %56
   %58 = sub i32 %55, %57
   br label %59
 

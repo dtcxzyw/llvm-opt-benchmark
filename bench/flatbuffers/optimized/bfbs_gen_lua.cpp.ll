@@ -2695,7 +2695,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i
@@ -2754,7 +2754,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %keywords_, align 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %7
+  %cmp.i.i.i.i.i = icmp eq ptr %7, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i
@@ -3456,7 +3456,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -3778,7 +3778,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
@@ -5311,7 +5311,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -5341,7 +5341,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -5361,7 +5361,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -5386,7 +5386,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
@@ -5400,7 +5400,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i27 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i27, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i27
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -5413,7 +5413,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i34 = and i64 %sub.ptr.sub.i.i33, 3
   %cmp.i.i.i.i35 = icmp ne i64 %and.i.i.i.i34, 0
   %.not.i.i.i38 = select i1 %cmp.i.i.i.i35, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i42.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i33
+  %cmp3.i.i.i.i42.not = icmp ugt i64 %sub.ptr.sub.i.i33, %sub.i.i.i.i
   %or.cond261 = or i1 %.not.i.i.i38, %cmp3.i.i.i.i42.not
   br i1 %or.cond261, label %land.end, label %if.end.i.i43
 
@@ -5429,9 +5429,9 @@ if.end.i.i43:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN10reflection6ObjectEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i43
   %mul.i.i = shl nuw nsw i64 %conv.i.i44, 2
   %add.i.i46 = add nuw nsw i64 %mul.i.i, 4
-  %cmp.i.i.i47 = icmp ugt i64 %2, %add.i.i46
+  %cmp.i.i.i47 = icmp ult i64 %add.i.i46, %2
   %sub.i.i.i48 = sub nuw i64 %2, %add.i.i46
-  %cmp3.i.i.i49 = icmp uge i64 %sub.i.i.i48, %sub.ptr.sub.i.i33
+  %cmp3.i.i.i49 = icmp ule i64 %sub.ptr.sub.i.i33, %sub.i.i.i48
   %21 = select i1 %cmp.i.i.i47, i1 %cmp3.i.i.i49, i1 false
   br i1 %21, label %for.cond.preheader.i, label %land.end
 
@@ -5502,7 +5502,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i.i85: ; preds = %land.rhs.i74
   %31 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i.i87 = icmp ugt i64 %31, 4
   %sub.i.i.i.i.i88 = add i64 %31, -4
-  %cmp3.i.i.i.i.i89 = icmp uge i64 %sub.i.i.i.i.i88, %add.i.i79
+  %cmp3.i.i.i.i.i89 = icmp ule i64 %add.i.i79, %sub.i.i.i.i.i88
   %32 = and i1 %cmp.i2.i.i.i.i87, %cmp3.i.i.i.i.i89
   br i1 %32, label %if.end.i.i.i90, label %land.end
 
@@ -5516,7 +5516,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit98: ; pre
   %conv.i.i.i94 = zext nneg i32 %33 to i64
   %add.i.i.i95 = add i64 %add.i.i79, %conv.i.i.i94
   %sub.i.i.i.i96 = add i64 %31, -1
-  %cmp3.i.not.i.i.i97.not = icmp ult i64 %sub.i.i.i.i96, %add.i.i.i95
+  %cmp3.i.not.i.i.i97.not = icmp ugt i64 %add.i.i.i95, %sub.i.i.i.i96
   br i1 %cmp3.i.not.i.i.i97.not, label %land.end, label %lor.rhs.i113
 
 lor.rhs.i113:                                     ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit98
@@ -5529,7 +5529,7 @@ lor.rhs.i113:                                     ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i117 = and i64 %sub.ptr.sub.i.i116, 3
   %cmp.i.i.i.i118 = icmp ne i64 %and.i.i.i.i117, 0
   %.not.i.i.i121 = select i1 %cmp.i.i.i.i118, i1 %tobool.i.i.i.i.i83, i1 false
-  %cmp3.i.i.i.i126.not = icmp ult i64 %sub.i.i.i.i.i88, %sub.ptr.sub.i.i116
+  %cmp3.i.i.i.i126.not = icmp ugt i64 %sub.ptr.sub.i.i116, %sub.i.i.i.i.i88
   %or.cond262 = or i1 %.not.i.i.i121, %cmp3.i.i.i.i126.not
   br i1 %or.cond262, label %land.end, label %if.end.i.i127
 
@@ -5545,9 +5545,9 @@ if.end.i.i127:                                    ; preds = %lor.rhs.i113
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN10reflection4EnumEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i127
   %mul.i.i133 = shl nuw nsw i64 %conv.i.i130, 2
   %add.i.i134 = add nuw nsw i64 %mul.i.i133, 4
-  %cmp.i.i.i135 = icmp ugt i64 %31, %add.i.i134
+  %cmp.i.i.i135 = icmp ult i64 %add.i.i134, %31
   %sub.i.i.i136 = sub nuw i64 %31, %add.i.i134
-  %cmp3.i.i.i137 = icmp uge i64 %sub.i.i.i136, %sub.ptr.sub.i.i116
+  %cmp3.i.i.i137 = icmp ule i64 %sub.ptr.sub.i.i116, %sub.i.i.i136
   %37 = select i1 %cmp.i.i.i135, i1 %cmp3.i.i.i137, i1 false
   br i1 %37, label %_ZNK10reflection6Schema5enumsEv.exit151, label %land.end
 
@@ -5797,7 +5797,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %land.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -5827,7 +5827,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i: ; preds = %land.rhs
   %5 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %5, 4
   %sub.i.i.i.i = add i64 %5, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %add.i
+  %cmp3.i.i.i.i = icmp ule i64 %add.i, %sub.i.i.i.i
   %6 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %6, label %if.end.i.i, label %land.end
 
@@ -5841,7 +5841,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   %conv.i.i = zext nneg i32 %7 to i64
   %add.i.i = add i64 %add.i, %conv.i.i
   %sub.i.i.i = add i64 %5, -1
-  %cmp3.i.not.i.i = icmp uge i64 %sub.i.i.i, %add.i.i
+  %cmp3.i.not.i.i = icmp ule i64 %add.i.i, %sub.i.i.i
   br label %land.end
 
 land.end:                                         ; preds = %if.end9.i.i, %if.end.i.i, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i, %land.rhs, %entry, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit
@@ -5895,7 +5895,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %lor.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -5925,7 +5925,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i: ; preds = %lor.rhs
   %5 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %5, 4
   %sub.i.i.i.i = add i64 %5, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %add.i
+  %cmp3.i.i.i.i = icmp ule i64 %add.i, %sub.i.i.i.i
   %6 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %6, label %if.end.i.i, label %lor.end
 
@@ -5939,7 +5939,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   %conv.i.i = zext nneg i32 %7 to i64
   %add.i.i = add i64 %add.i, %conv.i.i
   %sub.i.i.i = add i64 %5, -1
-  %cmp3.i.not.i.i = icmp uge i64 %sub.i.i.i, %add.i.i
+  %cmp3.i.not.i.i = icmp ule i64 %add.i.i, %sub.i.i.i
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end9.i.i, %if.end.i.i, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i, %lor.rhs, %entry, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit
@@ -5971,7 +5971,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %lor.rhs
   %2 = load i64, ptr %size_.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.ptr.sub.i
+  %cmp3.i.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i.i
   %3 = and i1 %cmp.i2.i.i, %cmp3.i.i.i
   br i1 %3, label %if.end.i, label %lor.end
 
@@ -5986,12 +5986,12 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %if.end.i
   %add.i = add nuw nsw i64 %conv.i, 4
   %add8.i = add i64 %add.i, %sub.ptr.sub.i
-  %cmp.i.i = icmp ule i64 %2, %add.i
+  %cmp.i.i = icmp uge i64 %add.i, %2
   %sub.i.i = sub nuw i64 %2, %add.i
-  %cmp3.i.i = icmp ult i64 %sub.i.i, %sub.ptr.sub.i
+  %cmp3.i.i = icmp ugt i64 %sub.ptr.sub.i, %sub.i.i
   %.not6 = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i
   %sub.i = add i64 %2, -1
-  %cmp3.i.not = icmp ult i64 %sub.i, %add8.i
+  %cmp3.i.not = icmp ugt i64 %add8.i, %sub.i
   %or.cond = or i1 %.not6, %cmp3.i.not
   br i1 %or.cond, label %lor.end, label %land.rhs
 
@@ -6030,7 +6030,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %lor.rhs
   %2 = load i64, ptr %size_.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.ptr.sub.i
+  %cmp3.i.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i.i
   %3 = and i1 %cmp.i2.i.i, %cmp3.i.i.i
   br i1 %3, label %if.end.i, label %lor.end
 
@@ -6046,9 +6046,9 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
 if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add.i = add nuw nsw i64 %mul.i, 4
-  %cmp.i.i = icmp ugt i64 %2, %add.i
+  %cmp.i.i = icmp ult i64 %add.i, %2
   %sub.i.i = sub nuw i64 %2, %add.i
-  %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
+  %cmp3.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i
   %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
@@ -6103,7 +6103,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %lor.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -6134,7 +6134,7 @@ land.rhs.i:                                       ; preds = %lor.rhs
   %5 = load i64, ptr %size_.i.i, align 8
   %cmp.i2.i = icmp ugt i64 %5, 8
   %sub.i3.i = add i64 %5, -8
-  %cmp3.i.i = icmp uge i64 %sub.i3.i, %add.i
+  %cmp3.i.i = icmp ule i64 %add.i, %sub.i3.i
   %6 = and i1 %cmp.i2.i, %cmp3.i.i
   br label %lor.end
 
@@ -6167,7 +6167,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %lor.rhs
   %2 = load i64, ptr %size_.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.ptr.sub.i
+  %cmp3.i.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i.i
   %3 = and i1 %cmp.i2.i.i, %cmp3.i.i.i
   br i1 %3, label %if.end.i, label %lor.end
 
@@ -6183,9 +6183,9 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
 if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add.i = add nuw nsw i64 %mul.i, 4
-  %cmp.i.i = icmp ugt i64 %2, %add.i
+  %cmp.i.i = icmp ult i64 %add.i, %2
   %sub.i.i = sub nuw i64 %2, %add.i
-  %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
+  %cmp3.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i
   %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
@@ -6252,7 +6252,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -6282,7 +6282,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -6302,7 +6302,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -6327,7 +6327,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond232 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond232, label %land.end, label %if.end.i.i.i
 
@@ -6341,7 +6341,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i24 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i24, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i24
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -6354,7 +6354,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i31 = and i64 %sub.ptr.sub.i.i30, 3
   %cmp.i.i.i.i32 = icmp ne i64 %and.i.i.i.i31, 0
   %.not.i.i.i35 = select i1 %cmp.i.i.i.i32, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i39.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i30
+  %cmp3.i.i.i.i39.not = icmp ugt i64 %sub.ptr.sub.i.i30, %sub.i.i.i.i
   %or.cond233 = or i1 %.not.i.i.i35, %cmp3.i.i.i.i39.not
   br i1 %or.cond233, label %land.end, label %if.end.i.i40
 
@@ -6369,11 +6369,11 @@ if.end.i.i40:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i40
   %add.i.i43 = add nuw nsw i64 %conv.i.i41, 4
   %add8.i.i = add i64 %add.i.i43, %sub.ptr.sub.i.i30
-  %cmp.i.i.i44 = icmp ule i64 %2, %add.i.i43
+  %cmp.i.i.i44 = icmp uge i64 %add.i.i43, %2
   %sub.i.i.i45 = sub nuw i64 %2, %add.i.i43
-  %cmp3.i.i.i46 = icmp ult i64 %sub.i.i.i45, %sub.ptr.sub.i.i30
+  %cmp3.i.i.i46 = icmp ugt i64 %sub.ptr.sub.i.i30, %sub.i.i.i45
   %.not6.i = select i1 %cmp.i.i.i44, i1 true, i1 %cmp3.i.i.i46
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i24, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i24
   %or.cond.i48 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i48, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -6397,7 +6397,7 @@ land.rhs.i57:                                     ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i63 = and i64 %add.i.i62, 3
   %cmp.i.i.i.i.i64 = icmp ne i64 %and.i.i.i.i.i63, 0
   %.not.i.i.i.i67 = select i1 %cmp.i.i.i.i.i64, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i72.not = icmp ult i64 %sub.i.i.i.i, %add.i.i62
+  %cmp3.i.i.i.i.i72.not = icmp ugt i64 %add.i.i62, %sub.i.i.i.i
   %or.cond234 = or i1 %.not.i.i.i.i67, %cmp3.i.i.i.i.i72.not
   br i1 %or.cond234, label %land.end, label %if.end.i.i.i73
 
@@ -6407,7 +6407,7 @@ if.end.i.i.i73:                                   ; preds = %land.rhs.i57
   %or.cond.i.i.i75 = icmp slt i32 %23, 1
   %conv.i.i.i77 = zext nneg i32 %23 to i64
   %add.i.i.i78 = add i64 %add.i.i62, %conv.i.i.i77
-  %cmp3.i.not.i.i.i80.not = icmp ult i64 %sub.i.i.i.i24, %add.i.i.i78
+  %cmp3.i.not.i.i.i80.not = icmp ugt i64 %add.i.i.i78, %sub.i.i.i.i24
   %or.cond235 = select i1 %or.cond.i.i.i75, i1 true, i1 %cmp3.i.not.i.i.i80.not
   br i1 %or.cond235, label %land.end, label %lor.rhs.i96
 
@@ -6421,7 +6421,7 @@ lor.rhs.i96:                                      ; preds = %if.end.i.i.i73
   %and.i.i.i.i100 = and i64 %sub.ptr.sub.i.i99, 3
   %cmp.i.i.i.i101 = icmp ne i64 %and.i.i.i.i100, 0
   %.not.i.i.i104 = select i1 %cmp.i.i.i.i101, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i109.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i99
+  %cmp3.i.i.i.i109.not = icmp ugt i64 %sub.ptr.sub.i.i99, %sub.i.i.i.i
   %or.cond236 = or i1 %.not.i.i.i104, %cmp3.i.i.i.i109.not
   br i1 %or.cond236, label %land.end, label %if.end.i.i110
 
@@ -6437,9 +6437,9 @@ if.end.i.i110:                                    ; preds = %lor.rhs.i96
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN10reflection5FieldEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i110
   %mul.i.i = shl nuw nsw i64 %conv.i.i112, 2
   %add.i.i114 = add nuw nsw i64 %mul.i.i, 4
-  %cmp.i.i.i115 = icmp ugt i64 %2, %add.i.i114
+  %cmp.i.i.i115 = icmp ult i64 %add.i.i114, %2
   %sub.i.i.i116 = sub nuw i64 %2, %add.i.i114
-  %cmp3.i.i.i117 = icmp uge i64 %sub.i.i.i116, %sub.ptr.sub.i.i99
+  %cmp3.i.i.i117 = icmp ule i64 %sub.ptr.sub.i.i99, %sub.i.i.i116
   %27 = select i1 %cmp.i.i.i115, i1 %cmp3.i.i.i117, i1 false
   br i1 %27, label %for.cond.preheader.i, label %land.end
 
@@ -6502,7 +6502,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit: ; preds = %_ZNK
   %36 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %36, 1
   %sub.i3.i.i = add i64 %36, -1
-  %cmp3.i.i.i152 = icmp uge i64 %sub.i3.i.i, %add.i.i148
+  %cmp3.i.i.i152 = icmp ule i64 %add.i.i148, %sub.i3.i.i
   %37 = and i1 %cmp.i2.i.i, %cmp3.i.i.i152
   br i1 %37, label %land.lhs.true16, label %land.end
 
@@ -6685,7 +6685,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %lor.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -6716,7 +6716,7 @@ land.rhs.i:                                       ; preds = %lor.rhs
   %5 = load i64, ptr %size_.i.i, align 8
   %cmp.i2.i = icmp ugt i64 %5, 4
   %sub.i3.i = add i64 %5, -4
-  %cmp3.i.i = icmp uge i64 %sub.i3.i, %add.i
+  %cmp3.i.i = icmp ule i64 %add.i, %sub.i3.i
   %6 = and i1 %cmp.i2.i, %cmp3.i.i
   br label %lor.end
 
@@ -6749,7 +6749,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %lor.rhs
   %2 = load i64, ptr %size_.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.ptr.sub.i
+  %cmp3.i.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i.i
   %3 = and i1 %cmp.i2.i.i, %cmp3.i.i.i
   br i1 %3, label %if.end.i, label %lor.end
 
@@ -6765,9 +6765,9 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
 if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add.i = add nuw nsw i64 %mul.i, 4
-  %cmp.i.i = icmp ugt i64 %2, %add.i
+  %cmp.i.i = icmp ult i64 %add.i, %2
   %sub.i.i = sub nuw i64 %2, %add.i
-  %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
+  %cmp3.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i
   %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
@@ -6838,7 +6838,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %lor.rhs
   %2 = load i64, ptr %size_.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.ptr.sub.i
+  %cmp3.i.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i.i
   %3 = and i1 %cmp.i2.i.i, %cmp3.i.i.i
   br i1 %3, label %if.end.i, label %lor.end
 
@@ -6854,9 +6854,9 @@ if.end.i:                                         ; preds = %_ZNK11flatbuffers8V
 if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add.i = add nuw nsw i64 %mul.i, 4
-  %cmp.i.i = icmp ugt i64 %2, %add.i
+  %cmp.i.i = icmp ult i64 %add.i, %2
   %sub.i.i = sub nuw i64 %2, %add.i
-  %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
+  %cmp3.i.i = icmp ule i64 %sub.ptr.sub.i, %sub.i.i
   %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
@@ -6908,7 +6908,7 @@ for.body.us13:                                    ; preds = %for.body.lr.ph.spli
   %add.ptr2.i.i.us19 = getelementptr inbounds i8, ptr %add.ptr.i1.i.us17, i64 %idx.ext1.i.i.us18
   %sub.ptr.lhs.cast.i.i.us20 = ptrtoint ptr %add.ptr2.i.i.us19 to i64
   %sub.ptr.sub.i.i.us21 = sub i64 %sub.ptr.lhs.cast.i.i.us20, %sub.ptr.rhs.cast.i.i
-  %cmp3.i.i.i.i.us.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i.us21
+  %cmp3.i.i.i.i.us.not = icmp ugt i64 %sub.ptr.sub.i.i.us21, %sub.i.i.i.i
   br i1 %cmp3.i.i.i.i.us.not, label %return, label %if.end.i.i.us
 
 for.cond.us:                                      ; preds = %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us
@@ -6925,11 +6925,11 @@ if.end.i.i.us:                                    ; preds = %for.body.us13
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us: ; preds = %if.end.i.i.us
   %add.i.i.us = add nuw nsw i64 %conv.i.i.us, 4
   %add8.i.i.us = add i64 %add.i.i.us, %sub.ptr.sub.i.i.us21
-  %cmp.i.i.i.us = icmp ule i64 %.fr, %add.i.i.us
+  %cmp.i.i.i.us = icmp uge i64 %add.i.i.us, %.fr
   %sub.i.i.i.us = sub nuw i64 %.fr, %add.i.i.us
-  %cmp3.i.i.i.us = icmp ult i64 %sub.i.i.i.us, %sub.ptr.sub.i.i.us21
+  %cmp3.i.i.i.us = icmp ugt i64 %sub.ptr.sub.i.i.us21, %sub.i.i.i.us
   %.not6.i.us = select i1 %cmp.i.i.i.us, i1 true, i1 %cmp3.i.i.i.us
-  %cmp3.i.not.i.us = icmp ult i64 %sub.i.i, %add8.i.i.us
+  %cmp3.i.not.i.us = icmp ugt i64 %add8.i.i.us, %sub.i.i
   %or.cond.i.us = or i1 %cmp3.i.not.i.us, %.not6.i.us
   br i1 %or.cond.i.us, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us
 
@@ -6956,7 +6956,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %and.i.i.i.i = and i64 %sub.ptr.sub.i.i, 3
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %or.cond = and i1 %cmp.i.i.i.i, %cmp3.i.i.i.i
   br i1 %or.cond, label %if.end.i.i, label %return
 
@@ -6969,11 +6969,11 @@ if.end.i.i:                                       ; preds = %for.body
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i
   %add.i.i = add nuw nsw i64 %conv.i.i, 4
   %add8.i.i = add i64 %add.i.i, %sub.ptr.sub.i.i
-  %cmp.i.i.i = icmp ule i64 %.fr, %add.i.i
+  %cmp.i.i.i = icmp uge i64 %add.i.i, %.fr
   %sub.i.i.i = sub nuw i64 %.fr, %add.i.i
-  %cmp3.i.i.i = icmp ult i64 %sub.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.i.i.i
   %.not6.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.i.i.i
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i
   %or.cond.i = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -7008,7 +7008,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -7038,7 +7038,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -7058,7 +7058,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -7083,7 +7083,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond302 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond302, label %land.end, label %if.end.i.i.i
 
@@ -7097,7 +7097,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i28 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i28, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i28
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -7110,7 +7110,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i35 = and i64 %sub.ptr.sub.i.i34, 3
   %cmp.i.i.i.i36 = icmp ne i64 %and.i.i.i.i35, 0
   %.not.i.i.i39 = select i1 %cmp.i.i.i.i36, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i43.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i34
+  %cmp3.i.i.i.i43.not = icmp ugt i64 %sub.ptr.sub.i.i34, %sub.i.i.i.i
   %or.cond303 = or i1 %.not.i.i.i39, %cmp3.i.i.i.i43.not
   br i1 %or.cond303, label %land.end, label %if.end.i.i44
 
@@ -7125,11 +7125,11 @@ if.end.i.i44:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i44
   %add.i.i47 = add nuw nsw i64 %conv.i.i45, 4
   %add8.i.i = add i64 %add.i.i47, %sub.ptr.sub.i.i34
-  %cmp.i.i.i48 = icmp ule i64 %2, %add.i.i47
+  %cmp.i.i.i48 = icmp uge i64 %add.i.i47, %2
   %sub.i.i.i49 = sub nuw i64 %2, %add.i.i47
-  %cmp3.i.i.i50 = icmp ult i64 %sub.i.i.i49, %sub.ptr.sub.i.i34
+  %cmp3.i.i.i50 = icmp ugt i64 %sub.ptr.sub.i.i34, %sub.i.i.i49
   %.not6.i = select i1 %cmp.i.i.i48, i1 true, i1 %cmp3.i.i.i50
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i28, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i28
   %or.cond.i52 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i52, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -7153,7 +7153,7 @@ land.rhs.i61:                                     ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i67 = and i64 %add.i.i66, 3
   %cmp.i.i.i.i.i68 = icmp ne i64 %and.i.i.i.i.i67, 0
   %.not.i.i.i.i71 = select i1 %cmp.i.i.i.i.i68, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i76.not = icmp ult i64 %sub.i.i.i.i, %add.i.i66
+  %cmp3.i.i.i.i.i76.not = icmp ugt i64 %add.i.i66, %sub.i.i.i.i
   %or.cond304 = or i1 %.not.i.i.i.i71, %cmp3.i.i.i.i.i76.not
   br i1 %or.cond304, label %land.end, label %if.end.i.i.i77
 
@@ -7163,7 +7163,7 @@ if.end.i.i.i77:                                   ; preds = %land.rhs.i61
   %or.cond.i.i.i79 = icmp slt i32 %23, 1
   %conv.i.i.i81 = zext nneg i32 %23 to i64
   %add.i.i.i82 = add i64 %add.i.i66, %conv.i.i.i81
-  %cmp3.i.not.i.i.i84.not = icmp ult i64 %sub.i.i.i.i28, %add.i.i.i82
+  %cmp3.i.not.i.i.i84.not = icmp ugt i64 %add.i.i.i82, %sub.i.i.i.i28
   %or.cond305 = select i1 %or.cond.i.i.i79, i1 true, i1 %cmp3.i.not.i.i.i84.not
   br i1 %or.cond305, label %land.end, label %_ZN11flatbuffers8Verifier11VerifyTableIN10reflection4TypeEEEbPKT_.exit
 
@@ -7177,9 +7177,9 @@ _ZN11flatbuffers8Verifier11VerifyTableIN10reflection4TypeEEEbPKT_.exit: ; preds 
 
 land.lhs.true11:                                  ; preds = %_ZN11flatbuffers8Verifier11VerifyTableIN10reflection4TypeEEEbPKT_.exit
   %.pre = load i32, ptr %this, align 4
-  %.pre300 = sext i32 %.pre to i64
-  %.pre301 = sub nsw i64 0, %.pre300
-  %add.ptr.i.i.i103 = getelementptr inbounds i8, ptr %this, i64 %.pre301
+  %.pre298 = sext i32 %.pre to i64
+  %.pre299 = sub nsw i64 0, %.pre298
+  %add.ptr.i.i.i103 = getelementptr inbounds i8, ptr %this, i64 %.pre299
   %25 = load i16, ptr %add.ptr.i.i.i103, align 2
   %cmp.i.i104 = icmp ugt i16 %25, 8
   br i1 %cmp.i.i104, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i105, label %land.lhs.true13
@@ -7207,7 +7207,7 @@ _ZNK11flatbuffers5Table11VerifyFieldItEEbRKNS_8VerifierEtm.exit: ; preds = %lor.
   %29 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %29, 2
   %sub.i3.i.i = add i64 %29, -2
-  %cmp3.i.i.i117 = icmp uge i64 %sub.i3.i.i, %add.i.i113
+  %cmp3.i.i.i117 = icmp ule i64 %add.i.i113, %sub.i3.i.i
   %30 = and i1 %cmp.i2.i.i, %cmp3.i.i.i117
   br i1 %30, label %land.lhs.true13, label %land.end
 
@@ -7247,7 +7247,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit: ; preds = %_ZNK
   %35 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i138 = icmp ugt i64 %35, 1
   %sub.i3.i.i139 = add i64 %35, -1
-  %cmp3.i.i.i140 = icmp uge i64 %sub.i3.i.i139, %add.i.i130
+  %cmp3.i.i.i140 = icmp ule i64 %add.i.i130, %sub.i3.i.i139
   %36 = and i1 %cmp.i2.i.i138, %cmp3.i.i.i140
   br i1 %36, label %land.lhs.true21, label %land.end
 
@@ -7270,7 +7270,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit164: ; preds = %_
   %39 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i161 = icmp ugt i64 %39, 1
   %sub.i3.i.i162 = add i64 %39, -1
-  %cmp3.i.i.i163 = icmp uge i64 %sub.i3.i.i162, %add.i.i153
+  %cmp3.i.i.i163 = icmp ule i64 %add.i.i153, %sub.i3.i.i162
   %40 = and i1 %cmp.i2.i.i161, %cmp3.i.i.i163
   br i1 %40, label %land.lhs.true23, label %land.end
 
@@ -7293,7 +7293,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit188: ; preds = %_
   %43 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i185 = icmp ugt i64 %43, 1
   %sub.i3.i.i186 = add i64 %43, -1
-  %cmp3.i.i.i187 = icmp uge i64 %sub.i3.i.i186, %add.i.i177
+  %cmp3.i.i.i187 = icmp ule i64 %add.i.i177, %sub.i3.i.i186
   %44 = and i1 %cmp.i2.i.i185, %cmp3.i.i.i187
   br i1 %44, label %land.lhs.true25, label %land.end
 
@@ -7441,7 +7441,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit266: ; preds = %_
   %65 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i263 = icmp ugt i64 %65, 1
   %sub.i3.i.i264 = add i64 %65, -1
-  %cmp3.i.i.i265 = icmp uge i64 %sub.i3.i.i264, %add.i.i255
+  %cmp3.i.i.i265 = icmp ule i64 %add.i.i255, %sub.i3.i.i264
   %66 = and i1 %cmp.i2.i.i263, %cmp3.i.i.i265
   br i1 %66, label %land.lhs.true43, label %land.end
 
@@ -7473,7 +7473,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit290: ; preds = %_
   %71 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i287 = icmp ugt i64 %71, 1
   %sub.i3.i.i288 = add i64 %71, -1
-  %cmp3.i.i.i289 = icmp uge i64 %sub.i3.i.i288, %add.i.i279
+  %cmp3.i.i.i289 = icmp ule i64 %add.i.i279, %sub.i3.i.i288
   %72 = and i1 %cmp.i2.i.i287, %cmp3.i.i.i289
   br i1 %72, label %land.rhs, label %land.end
 
@@ -7496,7 +7496,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %lor.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -7527,7 +7527,7 @@ land.rhs.i:                                       ; preds = %lor.rhs
   %5 = load i64, ptr %size_.i.i, align 8
   %cmp.i2.i = icmp ugt i64 %5, 2
   %sub.i3.i = add i64 %5, -2
-  %cmp3.i.i = icmp uge i64 %sub.i3.i, %add.i
+  %cmp3.i.i = icmp ule i64 %add.i, %sub.i3.i
   %6 = and i1 %cmp.i2.i, %cmp3.i.i
   br label %lor.end
 
@@ -7544,7 +7544,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %lor.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -7575,7 +7575,7 @@ land.rhs.i:                                       ; preds = %lor.rhs
   %5 = load i64, ptr %size_.i.i, align 8
   %cmp.i2.i = icmp ugt i64 %5, 8
   %sub.i3.i = add i64 %5, -8
-  %cmp3.i.i = icmp uge i64 %sub.i3.i, %add.i
+  %cmp3.i.i = icmp ule i64 %add.i, %sub.i3.i
   %6 = and i1 %cmp.i2.i, %cmp3.i.i
   br label %lor.end
 
@@ -7592,7 +7592,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %lor.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -7623,7 +7623,7 @@ land.rhs.i:                                       ; preds = %lor.rhs
   %5 = load i64, ptr %size_.i.i, align 8
   %cmp.i2.i = icmp ugt i64 %5, 8
   %sub.i3.i = add i64 %5, -8
-  %cmp3.i.i = icmp uge i64 %sub.i3.i, %add.i
+  %cmp3.i.i = icmp ule i64 %add.i, %sub.i3.i
   %6 = and i1 %cmp.i2.i, %cmp3.i.i
   br label %lor.end
 
@@ -7652,7 +7652,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -7682,7 +7682,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -7702,7 +7702,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -7725,7 +7725,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit: ; preds = %_ZNK
   %conv.i.i13 = zext i16 %16 to i64
   %add.i.i = add i64 %sub.ptr.sub.i.i, %conv.i.i13
   %sub.i3.i.i = add i64 %2, -1
-  %cmp3.i.i.i17.not = icmp ult i64 %sub.i3.i.i, %add.i.i
+  %cmp3.i.i.i17.not = icmp ugt i64 %add.i.i, %sub.i3.i.i
   br i1 %cmp3.i.i.i17.not, label %land.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit
@@ -7742,7 +7742,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit40: ; preds = %_Z
   %conv.i.i29 = zext i16 %17 to i64
   %add.i.i30 = add i64 %sub.ptr.sub.i.i, %conv.i.i29
   %sub.i3.i.i38 = add i64 %2, -1
-  %cmp3.i.i.i39.not = icmp ult i64 %sub.i3.i.i38, %add.i.i30
+  %cmp3.i.i.i39.not = icmp ugt i64 %add.i.i30, %sub.i3.i.i38
   br i1 %cmp3.i.i.i39.not, label %land.end, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i22, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit40
@@ -7761,7 +7761,7 @@ lor.rhs.i48:                                      ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i54 = and i64 %add.i.i53, 3
   %cmp.i.i.i55 = icmp ne i64 %and.i.i.i54, 0
   %.not.i.i = select i1 %cmp.i.i.i55, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i62.not = icmp ult i64 %sub.i.i.i.i, %add.i.i53
+  %cmp3.i.i.i62.not = icmp ugt i64 %add.i.i53, %sub.i.i.i.i
   %or.cond = or i1 %.not.i.i, %cmp3.i.i.i62.not
   br i1 %or.cond, label %land.end, label %land.lhs.true7
 
@@ -7781,7 +7781,7 @@ lor.rhs.i70:                                      ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i76 = and i64 %add.i.i75, 1
   %cmp.i.i.i77 = icmp ne i64 %and.i.i.i76, 0
   %.not.i.i80 = select i1 %cmp.i.i.i77, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i85 = icmp ult i64 %sub.i.i15.i.i, %add.i.i75
+  %cmp3.i.i.i85 = icmp ugt i64 %add.i.i75, %sub.i.i15.i.i
   %or.cond117.not = or i1 %cmp3.i.i.i85, %.not.i.i80
   br i1 %or.cond117.not, label %land.end, label %land.lhs.true9
 
@@ -7801,7 +7801,7 @@ lor.rhs.i93:                                      ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i99 = and i64 %add.i.i98, 3
   %cmp.i.i.i100 = icmp ne i64 %and.i.i.i99, 0
   %.not.i.i103 = select i1 %cmp.i.i.i100, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i108.not = icmp ult i64 %sub.i.i.i.i, %add.i.i98
+  %cmp3.i.i.i108.not = icmp ugt i64 %add.i.i98, %sub.i.i.i.i
   %or.cond118 = or i1 %.not.i.i103, %cmp3.i.i.i108.not
   br i1 %or.cond118, label %land.end, label %land.lhs.true11
 
@@ -7828,7 +7828,7 @@ entry:
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.neg.i.i
   %1 = load i16, ptr %add.ptr.i.i, align 2
-  %cmp.i = icmp ugt i16 %1, %field
+  %cmp.i = icmp ult i16 %field, %1
   br i1 %cmp.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit, label %lor.end
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit: ; preds = %entry
@@ -7859,7 +7859,7 @@ land.rhs.i:                                       ; preds = %lor.rhs
   %5 = load i64, ptr %size_.i.i, align 8
   %cmp.i2.i = icmp ugt i64 %5, 4
   %sub.i3.i = add i64 %5, -4
-  %cmp3.i.i = icmp uge i64 %sub.i3.i, %add.i
+  %cmp3.i.i = icmp ule i64 %add.i, %sub.i3.i
   %6 = and i1 %cmp.i2.i, %cmp3.i.i
   br label %lor.end
 
@@ -7888,7 +7888,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -7918,7 +7918,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -7938,7 +7938,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -7963,7 +7963,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
@@ -7977,7 +7977,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i12 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i12, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i12
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -7990,7 +7990,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i19 = and i64 %sub.ptr.sub.i.i18, 3
   %cmp.i.i.i.i20 = icmp ne i64 %and.i.i.i.i19, 0
   %.not.i.i.i23 = select i1 %cmp.i.i.i.i20, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i27.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i18
+  %cmp3.i.i.i.i27.not = icmp ugt i64 %sub.ptr.sub.i.i18, %sub.i.i.i.i
   %or.cond124 = or i1 %.not.i.i.i23, %cmp3.i.i.i.i27.not
   br i1 %or.cond124, label %land.end, label %if.end.i.i28
 
@@ -8005,11 +8005,11 @@ if.end.i.i28:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i28
   %add.i.i31 = add nuw nsw i64 %conv.i.i29, 4
   %add8.i.i = add i64 %add.i.i31, %sub.ptr.sub.i.i18
-  %cmp.i.i.i32 = icmp ule i64 %2, %add.i.i31
+  %cmp.i.i.i32 = icmp uge i64 %add.i.i31, %2
   %sub.i.i.i33 = sub nuw i64 %2, %add.i.i31
-  %cmp3.i.i.i34 = icmp ult i64 %sub.i.i.i33, %sub.ptr.sub.i.i18
+  %cmp3.i.i.i34 = icmp ugt i64 %sub.ptr.sub.i.i18, %sub.i.i.i33
   %.not6.i = select i1 %cmp.i.i.i32, i1 true, i1 %cmp3.i.i.i34
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i12, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i12
   %or.cond.i36 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i36, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -8035,7 +8035,7 @@ lor.rhs.i45:                                      ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i51 = and i64 %add.i.i50, 3
   %cmp.i.i.i.i.i52 = icmp ne i64 %and.i.i.i.i.i51, 0
   %.not.i.i.i.i55 = select i1 %cmp.i.i.i.i.i52, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i60.not = icmp ult i64 %sub.i.i.i.i, %add.i.i50
+  %cmp3.i.i.i.i.i60.not = icmp ugt i64 %add.i.i50, %sub.i.i.i.i
   %or.cond125 = or i1 %.not.i.i.i.i55, %cmp3.i.i.i.i.i60.not
   br i1 %or.cond125, label %land.end, label %if.end.i.i.i61
 
@@ -8045,7 +8045,7 @@ if.end.i.i.i61:                                   ; preds = %lor.rhs.i45
   %or.cond.i.i.i62 = icmp slt i32 %23, 1
   %conv.i.i.i64 = zext nneg i32 %23 to i64
   %add.i.i.i65 = add i64 %add.i.i50, %conv.i.i.i64
-  %cmp3.i.not.i.i.i67.not = icmp ult i64 %sub.i.i.i.i12, %add.i.i.i65
+  %cmp3.i.not.i.i.i67.not = icmp ugt i64 %add.i.i.i65, %sub.i.i.i.i12
   %or.cond126 = select i1 %or.cond.i.i.i62, i1 true, i1 %cmp3.i.not.i.i.i67.not
   br i1 %or.cond126, label %land.end, label %lor.rhs.i82
 
@@ -8060,7 +8060,7 @@ lor.rhs.i82:                                      ; preds = %if.end.i.i.i61
   %and.i.i.i.i86 = and i64 %sub.ptr.sub.i.i85, 3
   %cmp.i.i.i.i87 = icmp ne i64 %and.i.i.i.i86, 0
   %.not.i.i.i90 = select i1 %cmp.i.i.i.i87, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i95.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i85
+  %cmp3.i.i.i.i95.not = icmp ugt i64 %sub.ptr.sub.i.i85, %sub.i.i.i.i
   %or.cond127 = or i1 %.not.i.i.i90, %cmp3.i.i.i.i95.not
   br i1 %or.cond127, label %land.end, label %if.end.i.i96
 
@@ -8075,11 +8075,11 @@ if.end.i.i96:                                     ; preds = %lor.rhs.i82
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i100: ; preds = %if.end.i.i96
   %add.i.i101 = add nuw nsw i64 %conv.i.i98, 4
   %add8.i.i102 = add i64 %add.i.i101, %sub.ptr.sub.i.i85
-  %cmp.i.i.i103 = icmp ule i64 %2, %add.i.i101
+  %cmp.i.i.i103 = icmp uge i64 %add.i.i101, %2
   %sub.i.i.i104 = sub nuw i64 %2, %add.i.i101
-  %cmp3.i.i.i105 = icmp ult i64 %sub.i.i.i104, %sub.ptr.sub.i.i85
+  %cmp3.i.i.i105 = icmp ugt i64 %sub.ptr.sub.i.i85, %sub.i.i.i104
   %.not6.i106 = select i1 %cmp.i.i.i103, i1 true, i1 %cmp3.i.i.i105
-  %cmp3.i.not.i108 = icmp ult i64 %sub.i.i.i.i12, %add8.i.i102
+  %cmp3.i.not.i108 = icmp ugt i64 %add8.i.i102, %sub.i.i.i.i12
   %or.cond.i109 = or i1 %cmp3.i.not.i108, %.not6.i106
   br i1 %or.cond.i109, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit113
 
@@ -8118,7 +8118,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -8148,7 +8148,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -8168,7 +8168,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -8193,7 +8193,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond249 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond249, label %land.end, label %if.end.i.i.i
 
@@ -8207,7 +8207,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i24 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i24, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i24
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -8220,7 +8220,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i31 = and i64 %sub.ptr.sub.i.i30, 3
   %cmp.i.i.i.i32 = icmp ne i64 %and.i.i.i.i31, 0
   %.not.i.i.i35 = select i1 %cmp.i.i.i.i32, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i39.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i30
+  %cmp3.i.i.i.i39.not = icmp ugt i64 %sub.ptr.sub.i.i30, %sub.i.i.i.i
   %or.cond250 = or i1 %.not.i.i.i35, %cmp3.i.i.i.i39.not
   br i1 %or.cond250, label %land.end, label %if.end.i.i40
 
@@ -8235,11 +8235,11 @@ if.end.i.i40:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i40
   %add.i.i43 = add nuw nsw i64 %conv.i.i41, 4
   %add8.i.i = add i64 %add.i.i43, %sub.ptr.sub.i.i30
-  %cmp.i.i.i44 = icmp ule i64 %2, %add.i.i43
+  %cmp.i.i.i44 = icmp uge i64 %add.i.i43, %2
   %sub.i.i.i45 = sub nuw i64 %2, %add.i.i43
-  %cmp3.i.i.i46 = icmp ult i64 %sub.i.i.i45, %sub.ptr.sub.i.i30
+  %cmp3.i.i.i46 = icmp ugt i64 %sub.ptr.sub.i.i30, %sub.i.i.i45
   %.not6.i = select i1 %cmp.i.i.i44, i1 true, i1 %cmp3.i.i.i46
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i24, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i24
   %or.cond.i48 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i48, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -8263,7 +8263,7 @@ land.rhs.i57:                                     ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i63 = and i64 %add.i.i62, 3
   %cmp.i.i.i.i.i64 = icmp ne i64 %and.i.i.i.i.i63, 0
   %.not.i.i.i.i67 = select i1 %cmp.i.i.i.i.i64, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i72.not = icmp ult i64 %sub.i.i.i.i, %add.i.i62
+  %cmp3.i.i.i.i.i72.not = icmp ugt i64 %add.i.i62, %sub.i.i.i.i
   %or.cond251 = or i1 %.not.i.i.i.i67, %cmp3.i.i.i.i.i72.not
   br i1 %or.cond251, label %land.end, label %if.end.i.i.i73
 
@@ -8273,7 +8273,7 @@ if.end.i.i.i73:                                   ; preds = %land.rhs.i57
   %or.cond.i.i.i75 = icmp slt i32 %23, 1
   %conv.i.i.i77 = zext nneg i32 %23 to i64
   %add.i.i.i78 = add i64 %add.i.i62, %conv.i.i.i77
-  %cmp3.i.not.i.i.i80.not = icmp ult i64 %sub.i.i.i.i24, %add.i.i.i78
+  %cmp3.i.not.i.i.i80.not = icmp ugt i64 %add.i.i.i78, %sub.i.i.i.i24
   %or.cond252 = select i1 %or.cond.i.i.i75, i1 true, i1 %cmp3.i.not.i.i.i80.not
   br i1 %or.cond252, label %land.end, label %lor.rhs.i96
 
@@ -8287,7 +8287,7 @@ lor.rhs.i96:                                      ; preds = %if.end.i.i.i73
   %and.i.i.i.i100 = and i64 %sub.ptr.sub.i.i99, 3
   %cmp.i.i.i.i101 = icmp ne i64 %and.i.i.i.i100, 0
   %.not.i.i.i104 = select i1 %cmp.i.i.i.i101, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i109.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i99
+  %cmp3.i.i.i.i109.not = icmp ugt i64 %sub.ptr.sub.i.i99, %sub.i.i.i.i
   %or.cond253 = or i1 %.not.i.i.i104, %cmp3.i.i.i.i109.not
   br i1 %or.cond253, label %land.end, label %if.end.i.i110
 
@@ -8303,9 +8303,9 @@ if.end.i.i110:                                    ; preds = %lor.rhs.i96
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN10reflection7EnumValEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i110
   %mul.i.i = shl nuw nsw i64 %conv.i.i112, 2
   %add.i.i114 = add nuw nsw i64 %mul.i.i, 4
-  %cmp.i.i.i115 = icmp ugt i64 %2, %add.i.i114
+  %cmp.i.i.i115 = icmp ult i64 %add.i.i114, %2
   %sub.i.i.i116 = sub nuw i64 %2, %add.i.i114
-  %cmp3.i.i.i117 = icmp uge i64 %sub.i.i.i116, %sub.ptr.sub.i.i99
+  %cmp3.i.i.i117 = icmp ule i64 %sub.ptr.sub.i.i99, %sub.i.i.i116
   %27 = select i1 %cmp.i.i.i115, i1 %cmp3.i.i.i117, i1 false
   br i1 %27, label %for.cond.preheader.i, label %land.end
 
@@ -8368,7 +8368,7 @@ _ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit: ; preds = %_ZNK
   %36 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i = icmp ugt i64 %36, 1
   %sub.i3.i.i = add i64 %36, -1
-  %cmp3.i.i.i152 = icmp uge i64 %sub.i3.i.i, %add.i.i148
+  %cmp3.i.i.i152 = icmp ule i64 %add.i.i148, %sub.i3.i.i
   %37 = and i1 %cmp.i2.i.i, %cmp3.i.i.i152
   br i1 %37, label %land.lhs.true16, label %land.end
 
@@ -8583,7 +8583,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -8613,7 +8613,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -8633,7 +8633,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -8658,7 +8658,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
@@ -8672,7 +8672,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i19 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i19, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i19
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -8685,7 +8685,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i26 = and i64 %sub.ptr.sub.i.i25, 3
   %cmp.i.i.i.i27 = icmp ne i64 %and.i.i.i.i26, 0
   %.not.i.i.i30 = select i1 %cmp.i.i.i.i27, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i34.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i25
+  %cmp3.i.i.i.i34.not = icmp ugt i64 %sub.ptr.sub.i.i25, %sub.i.i.i.i
   %or.cond172 = or i1 %.not.i.i.i30, %cmp3.i.i.i.i34.not
   br i1 %or.cond172, label %land.end, label %if.end.i.i35
 
@@ -8700,11 +8700,11 @@ if.end.i.i35:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i35
   %add.i.i38 = add nuw nsw i64 %conv.i.i36, 4
   %add8.i.i = add i64 %add.i.i38, %sub.ptr.sub.i.i25
-  %cmp.i.i.i39 = icmp ule i64 %2, %add.i.i38
+  %cmp.i.i.i39 = icmp uge i64 %add.i.i38, %2
   %sub.i.i.i40 = sub nuw i64 %2, %add.i.i38
-  %cmp3.i.i.i41 = icmp ult i64 %sub.i.i.i40, %sub.ptr.sub.i.i25
+  %cmp3.i.i.i41 = icmp ugt i64 %sub.ptr.sub.i.i25, %sub.i.i.i40
   %.not6.i = select i1 %cmp.i.i.i39, i1 true, i1 %cmp3.i.i.i41
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i19, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i19
   %or.cond.i43 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i43, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -8735,7 +8735,7 @@ lor.rhs.i52:                                      ; preds = %_ZNK11flatbuffers5T
 _ZNK11flatbuffers5Table11VerifyFieldIlEEbRKNS_8VerifierEtm.exit: ; preds = %lor.rhs.i52
   %cmp.i2.i.i = icmp ugt i64 %2, 8
   %sub.i3.i.i = add i64 %2, -8
-  %cmp3.i.i.i61 = icmp uge i64 %sub.i3.i.i, %add.i.i57
+  %cmp3.i.i.i61 = icmp ule i64 %add.i.i57, %sub.i3.i.i
   %23 = and i1 %cmp.i2.i.i, %cmp3.i.i.i61
   br i1 %23, label %land.lhs.true8, label %land.end
 
@@ -8755,7 +8755,7 @@ lor.rhs.i69:                                      ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i75 = and i64 %add.i.i74, 3
   %cmp.i.i.i.i.i76 = icmp ne i64 %and.i.i.i.i.i75, 0
   %.not.i.i.i.i79 = select i1 %cmp.i.i.i.i.i76, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i84.not = icmp ult i64 %sub.i.i.i.i, %add.i.i74
+  %cmp3.i.i.i.i.i84.not = icmp ugt i64 %add.i.i74, %sub.i.i.i.i
   %or.cond173 = or i1 %.not.i.i.i.i79, %cmp3.i.i.i.i.i84.not
   br i1 %or.cond173, label %land.end, label %if.end.i.i.i85
 
@@ -8765,7 +8765,7 @@ if.end.i.i.i85:                                   ; preds = %lor.rhs.i69
   %or.cond.i.i.i86 = icmp slt i32 %25, 1
   %conv.i.i.i88 = zext nneg i32 %25 to i64
   %add.i.i.i89 = add i64 %add.i.i74, %conv.i.i.i88
-  %cmp3.i.not.i.i.i91.not = icmp ult i64 %sub.i.i.i.i19, %add.i.i.i89
+  %cmp3.i.not.i.i.i91.not = icmp ugt i64 %add.i.i.i89, %sub.i.i.i.i19
   %or.cond174 = select i1 %or.cond.i.i.i86, i1 true, i1 %cmp3.i.not.i.i.i91.not
   br i1 %or.cond174, label %land.end, label %_ZN11flatbuffers8Verifier11VerifyTableIN10reflection4TypeEEEbPKT_.exit
 
@@ -8929,7 +8929,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -8959,7 +8959,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -8979,7 +8979,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -9004,7 +9004,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
@@ -9018,7 +9018,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i21 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i21, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i21
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -9031,7 +9031,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i28 = and i64 %sub.ptr.sub.i.i27, 3
   %cmp.i.i.i.i29 = icmp ne i64 %and.i.i.i.i28, 0
   %.not.i.i.i32 = select i1 %cmp.i.i.i.i29, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i36.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i27
+  %cmp3.i.i.i.i36.not = icmp ugt i64 %sub.ptr.sub.i.i27, %sub.i.i.i.i
   %or.cond212 = or i1 %.not.i.i.i32, %cmp3.i.i.i.i36.not
   br i1 %or.cond212, label %land.end, label %if.end.i.i37
 
@@ -9046,11 +9046,11 @@ if.end.i.i37:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i37
   %add.i.i40 = add nuw nsw i64 %conv.i.i38, 4
   %add8.i.i = add i64 %add.i.i40, %sub.ptr.sub.i.i27
-  %cmp.i.i.i41 = icmp ule i64 %2, %add.i.i40
+  %cmp.i.i.i41 = icmp uge i64 %add.i.i40, %2
   %sub.i.i.i42 = sub nuw i64 %2, %add.i.i40
-  %cmp3.i.i.i43 = icmp ult i64 %sub.i.i.i42, %sub.ptr.sub.i.i27
+  %cmp3.i.i.i43 = icmp ugt i64 %sub.ptr.sub.i.i27, %sub.i.i.i42
   %.not6.i = select i1 %cmp.i.i.i41, i1 true, i1 %cmp3.i.i.i43
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i21, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i21
   %or.cond.i45 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i45, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -9076,7 +9076,7 @@ lor.rhs.i54:                                      ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i60 = and i64 %add.i.i59, 3
   %cmp.i.i.i.i.i61 = icmp ne i64 %and.i.i.i.i.i60, 0
   %.not.i.i.i.i64 = select i1 %cmp.i.i.i.i.i61, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i69.not = icmp ult i64 %sub.i.i.i.i, %add.i.i59
+  %cmp3.i.i.i.i.i69.not = icmp ugt i64 %add.i.i59, %sub.i.i.i.i
   %or.cond213 = or i1 %.not.i.i.i.i64, %cmp3.i.i.i.i.i69.not
   br i1 %or.cond213, label %land.end, label %if.end.i.i.i70
 
@@ -9086,7 +9086,7 @@ if.end.i.i.i70:                                   ; preds = %lor.rhs.i54
   %or.cond.i.i.i71 = icmp slt i32 %23, 1
   %conv.i.i.i73 = zext nneg i32 %23 to i64
   %add.i.i.i74 = add i64 %add.i.i59, %conv.i.i.i73
-  %cmp3.i.not.i.i.i76.not = icmp ult i64 %sub.i.i.i.i21, %add.i.i.i74
+  %cmp3.i.not.i.i.i76.not = icmp ugt i64 %add.i.i.i74, %sub.i.i.i.i21
   %or.cond214 = select i1 %or.cond.i.i.i71, i1 true, i1 %cmp3.i.not.i.i.i76.not
   br i1 %or.cond214, label %land.end, label %lor.rhs.i91
 
@@ -9101,7 +9101,7 @@ lor.rhs.i91:                                      ; preds = %if.end.i.i.i70
   %and.i.i.i.i95 = and i64 %sub.ptr.sub.i.i94, 3
   %cmp.i.i.i.i96 = icmp ne i64 %and.i.i.i.i95, 0
   %.not.i.i.i99 = select i1 %cmp.i.i.i.i96, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i104.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i94
+  %cmp3.i.i.i.i104.not = icmp ugt i64 %sub.ptr.sub.i.i94, %sub.i.i.i.i
   %or.cond215 = or i1 %.not.i.i.i99, %cmp3.i.i.i.i104.not
   br i1 %or.cond215, label %land.end, label %if.end.i.i105
 
@@ -9117,9 +9117,9 @@ if.end.i.i105:                                    ; preds = %lor.rhs.i91
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN10reflection7RPCCallEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i105
   %mul.i.i = shl nuw nsw i64 %conv.i.i107, 2
   %add.i.i109 = add nuw nsw i64 %mul.i.i, 4
-  %cmp.i.i.i110 = icmp ugt i64 %2, %add.i.i109
+  %cmp.i.i.i110 = icmp ult i64 %add.i.i109, %2
   %sub.i.i.i111 = sub nuw i64 %2, %add.i.i109
-  %cmp3.i.i.i112 = icmp uge i64 %sub.i.i.i111, %sub.ptr.sub.i.i94
+  %cmp3.i.i.i112 = icmp ule i64 %sub.ptr.sub.i.i94, %sub.i.i.i111
   %27 = select i1 %cmp.i.i.i110, i1 %cmp3.i.i.i112, i1 false
   br i1 %27, label %for.cond.preheader.i, label %land.end
 
@@ -9338,7 +9338,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -9368,7 +9368,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -9388,7 +9388,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -9413,7 +9413,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond206 = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond206, label %land.end, label %if.end.i.i.i
 
@@ -9427,7 +9427,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i20 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i20, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i20
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -9440,7 +9440,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i27 = and i64 %sub.ptr.sub.i.i26, 3
   %cmp.i.i.i.i28 = icmp ne i64 %and.i.i.i.i27, 0
   %.not.i.i.i31 = select i1 %cmp.i.i.i.i28, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i35.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i26
+  %cmp3.i.i.i.i35.not = icmp ugt i64 %sub.ptr.sub.i.i26, %sub.i.i.i.i
   %or.cond207 = or i1 %.not.i.i.i31, %cmp3.i.i.i.i35.not
   br i1 %or.cond207, label %land.end, label %if.end.i.i36
 
@@ -9455,11 +9455,11 @@ if.end.i.i36:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i36
   %add.i.i39 = add nuw nsw i64 %conv.i.i37, 4
   %add8.i.i = add i64 %add.i.i39, %sub.ptr.sub.i.i26
-  %cmp.i.i.i40 = icmp ule i64 %2, %add.i.i39
+  %cmp.i.i.i40 = icmp uge i64 %add.i.i39, %2
   %sub.i.i.i41 = sub nuw i64 %2, %add.i.i39
-  %cmp3.i.i.i42 = icmp ult i64 %sub.i.i.i41, %sub.ptr.sub.i.i26
+  %cmp3.i.i.i42 = icmp ugt i64 %sub.ptr.sub.i.i26, %sub.i.i.i41
   %.not6.i = select i1 %cmp.i.i.i40, i1 true, i1 %cmp3.i.i.i42
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i20, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i20
   %or.cond.i44 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i44, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -9483,7 +9483,7 @@ land.rhs.i53:                                     ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i59 = and i64 %add.i.i58, 3
   %cmp.i.i.i.i.i60 = icmp ne i64 %and.i.i.i.i.i59, 0
   %.not.i.i.i.i63 = select i1 %cmp.i.i.i.i.i60, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i68.not = icmp ult i64 %sub.i.i.i.i, %add.i.i58
+  %cmp3.i.i.i.i.i68.not = icmp ugt i64 %add.i.i58, %sub.i.i.i.i
   %or.cond208 = or i1 %.not.i.i.i.i63, %cmp3.i.i.i.i.i68.not
   br i1 %or.cond208, label %land.end, label %if.end.i.i.i69
 
@@ -9493,7 +9493,7 @@ if.end.i.i.i69:                                   ; preds = %land.rhs.i53
   %or.cond.i.i.i71 = icmp slt i32 %23, 1
   %conv.i.i.i73 = zext nneg i32 %23 to i64
   %add.i.i.i74 = add i64 %add.i.i58, %conv.i.i.i73
-  %cmp3.i.not.i.i.i76.not = icmp ult i64 %sub.i.i.i.i20, %add.i.i.i74
+  %cmp3.i.not.i.i.i76.not = icmp ugt i64 %add.i.i.i74, %sub.i.i.i.i20
   %or.cond209 = select i1 %or.cond.i.i.i71, i1 true, i1 %cmp3.i.not.i.i.i76.not
   br i1 %or.cond209, label %land.end, label %_ZN11flatbuffers8Verifier11VerifyTableIN10reflection6ObjectEEEbPKT_.exit
 
@@ -9537,7 +9537,7 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i.i111: ; preds = %land.rhs.i100
   %29 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i.i113 = icmp ugt i64 %29, 4
   %sub.i.i.i.i.i114 = add i64 %29, -4
-  %cmp3.i.i.i.i.i115 = icmp uge i64 %sub.i.i.i.i.i114, %add.i.i105
+  %cmp3.i.i.i.i.i115 = icmp ule i64 %add.i.i105, %sub.i.i.i.i.i114
   %30 = and i1 %cmp.i2.i.i.i.i113, %cmp3.i.i.i.i.i115
   br i1 %30, label %if.end.i.i.i116, label %land.end
 
@@ -9551,7 +9551,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit124: ; pr
   %conv.i.i.i120 = zext nneg i32 %31 to i64
   %add.i.i.i121 = add i64 %add.i.i105, %conv.i.i.i120
   %sub.i.i.i.i122 = add i64 %29, -1
-  %cmp3.i.not.i.i.i123.not = icmp ult i64 %sub.i.i.i.i122, %add.i.i.i121
+  %cmp3.i.not.i.i.i123.not = icmp ugt i64 %add.i.i.i121, %sub.i.i.i.i122
   br i1 %cmp3.i.not.i.i.i123.not, label %land.end, label %_ZN11flatbuffers8Verifier11VerifyTableIN10reflection6ObjectEEEbPKT_.exit141
 
 _ZN11flatbuffers8Verifier11VerifyTableIN10reflection6ObjectEEEbPKT_.exit141: ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit124
@@ -9713,7 +9713,7 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %entry
   %2 = load i64, ptr %size_.i.i.i.i, align 8
   %cmp.i2.i.i.i = icmp ugt i64 %2, 4
   %sub.i.i.i.i = add i64 %2, -4
-  %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
+  %cmp3.i.i.i.i = icmp ule i64 %sub.ptr.sub.i.i, %sub.i.i.i.i
   %3 = and i1 %cmp.i2.i.i.i, %cmp3.i.i.i.i
   br i1 %3, label %if.end.i.i, label %land.end
 
@@ -9743,7 +9743,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i.i8.i.i = icmp ne i64 %and.i.i7.i.i, 0
   %.not.i11.i.i = select i1 %cmp.i.i8.i.i, i1 %tobool.i.i.i.i, i1 false
   %sub.i.i15.i.i = add i64 %2, -2
-  %cmp3.i.i16.not.i.i = icmp ult i64 %sub.i.i15.i.i, %sub.i.i
+  %cmp3.i.i16.not.i.i = icmp ugt i64 %sub.i.i, %sub.i.i15.i.i
   %or.cond.i = select i1 %.not.i11.i.i, i1 true, i1 %cmp3.i.i16.not.i.i
   br i1 %or.cond.i, label %land.end, label %land.lhs.true5.i.i
 
@@ -9763,7 +9763,7 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
   %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
-  %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
+  %cmp3.i.i.i = icmp ule i64 %sub.i.i, %sub.i.i.i
   %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
@@ -9788,7 +9788,7 @@ land.rhs.i:                                       ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i = and i64 %add.i.i, 3
   %cmp.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i, 0
   %.not.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i.not = icmp ult i64 %sub.i.i.i.i, %add.i.i
+  %cmp3.i.i.i.i.i.not = icmp ugt i64 %add.i.i, %sub.i.i.i.i
   %or.cond = or i1 %.not.i.i.i.i, %cmp3.i.i.i.i.i.not
   br i1 %or.cond, label %land.end, label %if.end.i.i.i
 
@@ -9802,7 +9802,7 @@ _ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit: ; preds
   %conv.i.i.i = zext nneg i32 %17 to i64
   %add.i.i.i = add i64 %add.i.i, %conv.i.i.i
   %sub.i.i.i.i13 = add i64 %2, -1
-  %cmp3.i.not.i.i.i.not = icmp ult i64 %sub.i.i.i.i13, %add.i.i.i
+  %cmp3.i.not.i.i.i.not = icmp ugt i64 %add.i.i.i, %sub.i.i.i.i13
   br i1 %cmp3.i.not.i.i.i.not, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5Table20VerifyOffsetRequiredIjEEbRKNS_8VerifierEt.exit
@@ -9815,7 +9815,7 @@ lor.rhs.i:                                        ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i20 = and i64 %sub.ptr.sub.i.i19, 3
   %cmp.i.i.i.i21 = icmp ne i64 %and.i.i.i.i20, 0
   %.not.i.i.i24 = select i1 %cmp.i.i.i.i21, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i28.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i19
+  %cmp3.i.i.i.i28.not = icmp ugt i64 %sub.ptr.sub.i.i19, %sub.i.i.i.i
   %or.cond130 = or i1 %.not.i.i.i24, %cmp3.i.i.i.i28.not
   br i1 %or.cond130, label %land.end, label %if.end.i.i29
 
@@ -9830,11 +9830,11 @@ if.end.i.i29:                                     ; preds = %lor.rhs.i
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %if.end.i.i29
   %add.i.i32 = add nuw nsw i64 %conv.i.i30, 4
   %add8.i.i = add i64 %add.i.i32, %sub.ptr.sub.i.i19
-  %cmp.i.i.i33 = icmp ule i64 %2, %add.i.i32
+  %cmp.i.i.i33 = icmp uge i64 %add.i.i32, %2
   %sub.i.i.i34 = sub nuw i64 %2, %add.i.i32
-  %cmp3.i.i.i35 = icmp ult i64 %sub.i.i.i34, %sub.ptr.sub.i.i19
+  %cmp3.i.i.i35 = icmp ugt i64 %sub.ptr.sub.i.i19, %sub.i.i.i34
   %.not6.i = select i1 %cmp.i.i.i33, i1 true, i1 %cmp3.i.i.i35
-  %cmp3.i.not.i = icmp ult i64 %sub.i.i.i.i13, %add8.i.i
+  %cmp3.i.not.i = icmp ugt i64 %add8.i.i, %sub.i.i.i.i13
   %or.cond.i37 = or i1 %cmp3.i.not.i, %.not6.i
   br i1 %or.cond.i37, label %land.end, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
@@ -9860,7 +9860,7 @@ lor.rhs.i46:                                      ; preds = %_ZNK11flatbuffers5T
   %and.i.i.i.i.i52 = and i64 %add.i.i51, 3
   %cmp.i.i.i.i.i53 = icmp ne i64 %and.i.i.i.i.i52, 0
   %.not.i.i.i.i56 = select i1 %cmp.i.i.i.i.i53, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i.i61.not = icmp ult i64 %sub.i.i.i.i, %add.i.i51
+  %cmp3.i.i.i.i.i61.not = icmp ugt i64 %add.i.i51, %sub.i.i.i.i
   %or.cond131 = or i1 %.not.i.i.i.i56, %cmp3.i.i.i.i.i61.not
   br i1 %or.cond131, label %land.end, label %if.end.i.i.i62
 
@@ -9870,7 +9870,7 @@ if.end.i.i.i62:                                   ; preds = %lor.rhs.i46
   %or.cond.i.i.i63 = icmp slt i32 %23, 1
   %conv.i.i.i65 = zext nneg i32 %23 to i64
   %add.i.i.i66 = add i64 %add.i.i51, %conv.i.i.i65
-  %cmp3.i.not.i.i.i68.not = icmp ult i64 %sub.i.i.i.i13, %add.i.i.i66
+  %cmp3.i.not.i.i.i68.not = icmp ugt i64 %add.i.i.i66, %sub.i.i.i.i13
   %or.cond132 = select i1 %or.cond.i.i.i63, i1 true, i1 %cmp3.i.not.i.i.i68.not
   br i1 %or.cond132, label %land.end, label %lor.rhs.i83
 
@@ -9885,7 +9885,7 @@ lor.rhs.i83:                                      ; preds = %if.end.i.i.i62
   %and.i.i.i.i87 = and i64 %sub.ptr.sub.i.i86, 3
   %cmp.i.i.i.i88 = icmp ne i64 %and.i.i.i.i87, 0
   %.not.i.i.i91 = select i1 %cmp.i.i.i.i88, i1 %tobool.i.i.i.i, i1 false
-  %cmp3.i.i.i.i96.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i86
+  %cmp3.i.i.i.i96.not = icmp ugt i64 %sub.ptr.sub.i.i86, %sub.i.i.i.i
   %or.cond133 = or i1 %.not.i.i.i91, %cmp3.i.i.i.i96.not
   br i1 %or.cond133, label %land.end, label %if.end.i.i97
 
@@ -9901,9 +9901,9 @@ if.end.i.i97:                                     ; preds = %lor.rhs.i83
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetINS_6StringEEEjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %if.end.i.i97
   %mul.i.i = shl nuw nsw i64 %conv.i.i99, 2
   %add.i.i101 = add nuw nsw i64 %mul.i.i, 4
-  %cmp.i.i.i102 = icmp ugt i64 %2, %add.i.i101
+  %cmp.i.i.i102 = icmp ult i64 %add.i.i101, %2
   %sub.i.i.i103 = sub nuw i64 %2, %add.i.i101
-  %cmp3.i.i.i104 = icmp uge i64 %sub.i.i.i103, %sub.ptr.sub.i.i86
+  %cmp3.i.i.i104 = icmp ule i64 %sub.ptr.sub.i.i86, %sub.i.i.i103
   %27 = select i1 %cmp.i.i.i102, i1 %cmp3.i.i.i104, i1 false
   br i1 %27, label %cond.true.i.i.i113, label %land.end
 
@@ -13845,7 +13845,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %1
+  %cmp2.i.i = icmp eq ptr %1, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -13900,7 +13900,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -15466,7 +15466,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZNK10reflection4Ty
   %idx.ext3.i.i.i.i.i = zext i32 %131 to i64
   %add.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i40.i, i64 %idx.ext3.i.i.i.i.i
   %132 = load i32, ptr %add.ptr4.i.i.i.i.i, align 4
-  %cmp5.not.i.i = icmp sgt i32 %132, %126
+  %cmp5.not.i.i = icmp slt i32 %126, %132
   br i1 %cmp5.not.i.i, label %if.end226, label %cleanup
 
 lpad211:                                          ; preds = %invoke.cont210
@@ -16008,7 +16008,7 @@ lor.lhs.false2.i.i.i:                             ; preds = %_ZNK10reflection4Ty
   %idx.ext3.i.i.i.i.i.i = zext i32 %203 to i64
   %add.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i27.i.i, i64 %idx.ext3.i.i.i.i.i.i
   %204 = load i32, ptr %add.ptr4.i.i.i.i.i.i, align 4
-  %cmp5.not.i.i.i = icmp sgt i32 %204, %198
+  %cmp5.not.i.i.i = icmp slt i32 %198, %204
   br i1 %cmp5.not.i.i.i, label %_ZNK10reflection6Schema7objectsEv.exit16.i.i.i, label %_ZNK11flatbuffers17BaseBfbsGenerator16GetObjectByIndexEi.exit.i.i
 
 _ZNK10reflection6Schema7objectsEv.exit16.i.i.i:   ; preds = %lor.lhs.false2.i.i.i
@@ -17043,7 +17043,7 @@ lor.lhs.false2.i.i:                               ; preds = %_ZNK10reflection4Ty
   %idx.ext3.i.i.i.i.i = zext i32 %25 to i64
   %add.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i40.i, i64 %idx.ext3.i.i.i.i.i
   %26 = load i32, ptr %add.ptr4.i.i.i.i.i, align 4, !noalias !149
-  %cmp5.not.i.i = icmp sgt i32 %26, %20
+  %cmp5.not.i.i = icmp slt i32 %20, %26
   br i1 %cmp5.not.i.i, label %_ZNK10reflection6Schema7objectsEv.exit16.i.i, label %_ZNK11flatbuffers17BaseBfbsGenerator9GetObjectEPKN10reflection4TypeEb.exit
 
 _ZNK10reflection6Schema7objectsEv.exit16.i.i:     ; preds = %lor.lhs.false2.i.i
@@ -17561,7 +17561,7 @@ lor.lhs.false2.i:                                 ; preds = %invoke.cont12
   %idx.ext3.i.i.i.i = zext i32 %23 to i64
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i64, i64 %idx.ext3.i.i.i.i
   %24 = load i32, ptr %add.ptr4.i.i.i.i, align 4
-  %cmp5.not.i = icmp sgt i32 %24, %18
+  %cmp5.not.i = icmp slt i32 %18, %24
   br i1 %cmp5.not.i, label %_ZNK10reflection6Schema7objectsEv.exit16.i, label %invoke.cont14
 
 _ZNK10reflection6Schema7objectsEv.exit16.i:       ; preds = %lor.lhs.false2.i
@@ -17693,7 +17693,7 @@ lor.lhs.false2.i111:                              ; preds = %invoke.cont24
   %idx.ext3.i.i.i.i120 = zext i32 %45 to i64
   %add.ptr4.i.i.i.i121 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i119, i64 %idx.ext3.i.i.i.i120
   %46 = load i32, ptr %add.ptr4.i.i.i.i121, align 4
-  %cmp5.not.i122 = icmp sgt i32 %46, %40
+  %cmp5.not.i122 = icmp slt i32 %40, %46
   br i1 %cmp5.not.i122, label %_ZNK10reflection6Schema5enumsEv.exit16.i, label %invoke.cont26
 
 _ZNK10reflection6Schema5enumsEv.exit16.i:         ; preds = %lor.lhs.false2.i111
@@ -18599,7 +18599,7 @@ lor.lhs.false2.i.i.i.i.i:                         ; preds = %_ZNK10reflection4Ty
   %idx.ext3.i.i.i.i.i.i.i.i = zext i32 %22 to i64
   %add.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i40.i.i.i.i, i64 %idx.ext3.i.i.i.i.i.i.i.i
   %23 = load i32, ptr %add.ptr4.i.i.i.i.i.i.i.i, align 4
-  %cmp5.not.i.i.i.i.i = icmp sgt i32 %23, %17
+  %cmp5.not.i.i.i.i.i = icmp slt i32 %17, %23
   br i1 %cmp5.not.i.i.i.i.i, label %_ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i.i, label %_ZNK11flatbuffers17BaseBfbsGenerator9GetObjectEPKN10reflection4TypeEb.exit.i.i.i
 
 _ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i.i: ; preds = %lor.lhs.false2.i.i.i.i.i
@@ -19055,7 +19055,7 @@ lor.lhs.false2.i.i.i.i.i:                         ; preds = %_ZNK10reflection4Ty
   %idx.ext3.i.i.i.i.i.i.i.i = zext i32 %31 to i64
   %add.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i40.i.i.i.i, i64 %idx.ext3.i.i.i.i.i.i.i.i
   %32 = load i32, ptr %add.ptr4.i.i.i.i.i.i.i.i, align 4
-  %cmp5.not.i.i.i.i.i = icmp sgt i32 %32, %26
+  %cmp5.not.i.i.i.i.i = icmp slt i32 %26, %32
   br i1 %cmp5.not.i.i.i.i.i, label %_ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i.i, label %_ZNK11flatbuffers17BaseBfbsGenerator9GetObjectEPKN10reflection4TypeEb.exit.i.i.i
 
 _ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i.i: ; preds = %lor.lhs.false2.i.i.i.i.i
@@ -19966,7 +19966,7 @@ lor.lhs.false2.i.i.i.i.i:                         ; preds = %_ZNK10reflection4Ty
   %idx.ext3.i.i.i.i.i.i.i.i = zext i32 %46 to i64
   %add.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i27.i.i.i.i, i64 %idx.ext3.i.i.i.i.i.i.i.i
   %47 = load i32, ptr %add.ptr4.i.i.i.i.i.i.i.i, align 4
-  %cmp5.not.i.i.i.i.i = icmp sgt i32 %47, %41
+  %cmp5.not.i.i.i.i.i = icmp slt i32 %41, %47
   br i1 %cmp5.not.i.i.i.i.i, label %_ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i.i, label %_ZNK11flatbuffers17BaseBfbsGenerator16GetObjectByIndexEi.exit.i.i.i.i
 
 _ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i.i: ; preds = %lor.lhs.false2.i.i.i.i.i
@@ -20064,7 +20064,7 @@ lor.lhs.false2.i.i.i.i:                           ; preds = %invoke.cont115.i.i.
   %idx.ext3.i.i.i.i.i.i.i = zext i32 %63 to i64
   %add.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i192.i.i.i, i64 %idx.ext3.i.i.i.i.i.i.i
   %64 = load i32, ptr %add.ptr4.i.i.i.i.i.i.i, align 4
-  %cmp5.not.i.i.i.i = icmp sgt i32 %64, %58
+  %cmp5.not.i.i.i.i = icmp slt i32 %58, %64
   br i1 %cmp5.not.i.i.i.i, label %_ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i, label %invoke.cont117.i.i.i
 
 _ZNK10reflection6Schema7objectsEv.exit16.i.i.i.i: ; preds = %lor.lhs.false2.i.i.i.i

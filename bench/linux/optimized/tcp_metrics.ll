@@ -497,7 +497,7 @@ define internal fastcc ptr @tcp_get_metrics(ptr nocapture noundef readonly %0, p
   %102 = icmp eq ptr %101, inttoptr (i64 1 to ptr)
   %103 = select i1 %102, ptr null, ptr %101
   %104 = icmp eq ptr %103, null
-  %105 = and i1 %104, %2
+  %105 = and i1 %2, %104
   br i1 %105, label %106, label %194
 
 106:                                              ; preds = %.loopexit23

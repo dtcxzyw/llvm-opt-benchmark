@@ -346,7 +346,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
 79:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i", %74, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i"
   %80 = getelementptr inbounds i8, ptr %.val36174, i64 %.0103172
   %81 = icmp ult i64 %64, %.val35
-  %or.cond = and i1 %81, %1
+  %or.cond = and i1 %1, %81
   br i1 %or.cond, label %82, label %.loopexit
 
 82:                                               ; preds = %79
@@ -366,7 +366,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   br i1 %88, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread7.i.i.i", label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5426e88a82bd9f70E.exit19.i.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5426e88a82bd9f70E.exit19.i.i.i.i.i": ; preds = %.lr.ph.i.i
-  %89 = icmp ne ptr %86, %80
+  %89 = icmp ne ptr %80, %86
   call void @llvm.assume(i1 %89)
   %90 = getelementptr inbounds i8, ptr %85, i64 -2
   %91 = load i8, ptr %90, align 1, !alias.scope !47, !noalias !50, !noundef !5
@@ -380,7 +380,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5426e88a82bd9f70E.exit21.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5426e88a82bd9f70E.exit19.i.i.i.i.i"
-  %96 = icmp ne ptr %90, %80
+  %96 = icmp ne ptr %80, %90
   call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds i8, ptr %85, i64 -3
   %98 = load i8, ptr %97, align 1, !alias.scope !47, !noalias !50, !noundef !5
@@ -390,7 +390,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   br i1 %101, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5426e88a82bd9f70E.exit23.i.i.i.i.i", label %111
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5426e88a82bd9f70E.exit23.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5426e88a82bd9f70E.exit21.i.i.i.i.i"
-  %102 = icmp ne ptr %97, %80
+  %102 = icmp ne ptr %80, %97
   call void @llvm.assume(i1 %102)
   %103 = getelementptr inbounds i8, ptr %85, i64 -4
   %104 = load i8, ptr %103, align 1, !alias.scope !47, !noalias !50, !noundef !5
@@ -477,7 +477,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   br i1 %145, label %148, label %146
 
 146:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i, %126, %124, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i.i"
-  %147 = icmp eq ptr %.sink.i.i.i, %80
+  %147 = icmp eq ptr %80, %.sink.i.i.i
   br i1 %147, label %.loopexit, label %.lr.ph.i.i
 
 .loopexit:                                        ; preds = %146, %117, %79, %154, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i52", %82
@@ -1099,7 +1099,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %18
   %202 = load i64, ptr %.sroa.442.0..sroa_idx43, align 8, !alias.scope !160, !noalias !165, !noundef !5
   %203 = load i64, ptr %20, align 8, !alias.scope !167, !noalias !165, !noundef !5
   %204 = sub i64 %203, %202
-  %205 = icmp ult i64 %204, %201
+  %205 = icmp ugt i64 %201, %204
   br i1 %205, label %206, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h48025144759d9b0aE.exit.i"
 
 206:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i

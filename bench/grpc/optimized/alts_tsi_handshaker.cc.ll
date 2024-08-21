@@ -827,7 +827,7 @@ do.end:                                           ; preds = %entry
 cond.end:                                         ; preds = %do.end
   %1 = load i8, ptr %data2, align 8
   %conv = zext i8 %1 to i64
-  %cmp4 = icmp eq i64 %conv, %bytes_consumed
+  %cmp4 = icmp eq i64 %bytes_consumed, %conv
   br i1 %cmp4, label %return, label %cond.end16
 
 cond.end.thread:                                  ; preds = %do.end

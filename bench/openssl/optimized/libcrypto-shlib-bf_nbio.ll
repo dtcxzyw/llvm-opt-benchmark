@@ -43,7 +43,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end12.thread:                                  ; preds = %if.end4
   store i32 0, ptr %lwn, align 4
-  %spec.select18 = tail call i32 @llvm.umin.i32(i32 %2, i32 %inl)
+  %spec.select18 = tail call i32 @llvm.umin.i32(i32 %inl, i32 %2)
   br label %if.else20
 
 if.else:                                          ; preds = %if.end4
@@ -55,7 +55,7 @@ if.end12:                                         ; preds = %if.else
   %3 = load i8, ptr %n, align 1
   %4 = and i8 %3, 7
   %and = zext nneg i8 %4 to i32
-  %spec.select = call i32 @llvm.umin.i32(i32 %and, i32 %inl)
+  %spec.select = call i32 @llvm.umin.i32(i32 %inl, i32 %and)
   %cmp17 = icmp eq i8 %4, 0
   br i1 %cmp17, label %if.then19, label %if.else20
 
@@ -113,7 +113,7 @@ if.then13:                                        ; preds = %if.end6
 
 if.else:                                          ; preds = %if.end6
   %and = zext nneg i8 %2 to i32
-  %spec.select = call i32 @llvm.smin.i32(i32 %and, i32 %outl)
+  %spec.select = call i32 @llvm.smin.i32(i32 %outl, i32 %and)
   %3 = load ptr, ptr %next_bio, align 8
   %call15 = call i32 @BIO_read(ptr noundef %3, ptr noundef nonnull %out, i32 noundef %spec.select) #4
   %cmp16 = icmp slt i32 %call15, 0

@@ -2097,7 +2097,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$9ends_with
   tail call void @llvm.experimental.noalias.scope.decl(metadata !524)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !524, !noalias !527, !noundef !4
-  %.not.i.i = icmp ugt i64 %5, %1
+  %.not.i.i = icmp ult i64 %1, %5
   br i1 %.not.i.i, label %"_ZN73_$LT$$RF$alloc..string..String$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17hde943fb291dd8c2dE.llvm.16583572650426848933.exit", label %6
 
 6:                                                ; preds = %3
@@ -2417,7 +2417,7 @@ define hidden { i64, i64 } @_ZN5serde3ser17iterator_len_hint17hc7a07702b7c56578E
 define hidden noundef zeroext i1 @"_ZN73_$LT$$RF$alloc..string..String$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17hde943fb291dd8c2dE.llvm.16583572650426848933"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %.not.i = icmp ugt i64 %5, %2
+  %.not.i = icmp ult i64 %2, %5
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17ha92ef88794e63621E.exit", label %6
 
 6:                                                ; preds = %3

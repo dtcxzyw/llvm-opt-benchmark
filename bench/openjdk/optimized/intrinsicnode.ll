@@ -72,7 +72,7 @@ define hidden noundef ptr @_ZN16StrIntrinsicNode5IdealEP8PhaseGVNb(ptr noundef n
   %10 = getelementptr inbounds i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
-  %brmerge.not = and i1 %12, %2
+  %brmerge.not = and i1 %2, %12
   br i1 %brmerge.not, label %14, label %40
 
 13:                                               ; preds = %5

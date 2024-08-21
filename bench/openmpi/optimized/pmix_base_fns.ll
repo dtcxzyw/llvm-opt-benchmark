@@ -804,7 +804,7 @@ define range(i32 -13, 1) i32 @opal_pmix_convert_jobid(ptr noundef %0, i32 nounde
   %.011 = phi ptr [ %.0, %8 ], [ %.09, %2 ]
   %3 = getelementptr inbounds i8, ptr %.011, i64 296
   %4 = load i32, ptr %3, align 8
-  %5 = icmp eq i32 %4, %1
+  %5 = icmp eq i32 %1, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph
@@ -1342,7 +1342,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   %.011.i = phi ptr [ %.0.i, %43 ], [ %.09.i, %36 ]
   %40 = getelementptr inbounds i8, ptr %.011.i, i64 296
   %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %41, %39
+  %42 = icmp eq i32 %39, %41
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %.lr.ph.i28

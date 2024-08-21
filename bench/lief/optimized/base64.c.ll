@@ -34,7 +34,7 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
 
 16:                                               ; preds = %8
   %17 = shl nuw i64 %13, 2
-  %18 = icmp uge i64 %17, %1
+  %18 = icmp ule i64 %1, %17
   %19 = icmp eq ptr %0, null
   %or.cond = or i1 %19, %18
   br i1 %or.cond, label %20, label %22
@@ -260,7 +260,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %52 = sub i64 %47, %45
   %53 = add i64 %52, %51
   %54 = icmp eq ptr %0, null
-  %55 = icmp ugt i64 %53, %1
+  %55 = icmp ult i64 %1, %53
   %or.cond = select i1 %54, i1 true, i1 %55
   br i1 %or.cond, label %.loopexit.sink.split, label %.preheader
 

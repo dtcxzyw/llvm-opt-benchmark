@@ -149,7 +149,7 @@ define void @_ZN5faiss24ProductAdditiveQuantizer5trainEmPKf(ptr noundef nonnull 
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 2
-  %38 = icmp ult i64 %37, %31
+  %38 = icmp ugt i64 %31, %37
   br i1 %38, label %39, label %71
 
 39:                                               ; preds = %24
@@ -241,7 +241,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i: ; preds = %68, %_ZNSt6v
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 71:                                               ; preds = %24
-  %72 = icmp ugt i64 %37, %31
+  %72 = icmp ult i64 %31, %37
   br i1 %72, label %73, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 73:                                               ; preds = %71
@@ -394,7 +394,7 @@ _ZN5faiss24ProductAdditiveQuantizer5trainEmPKf.omp_outlined.exit: ; preds = %79,
   %144 = ptrtoint ptr %142 to i64
   %145 = sub i64 %143, %144
   %146 = ashr exact i64 %145, 2
-  %147 = icmp ult i64 %146, %137
+  %147 = icmp ugt i64 %137, %146
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %._crit_edge101
@@ -413,7 +413,7 @@ _ZN5faiss24ProductAdditiveQuantizer5trainEmPKf.omp_outlined.exit: ; preds = %79,
   %153 = phi ptr [ %125, %._crit_edge101.thread ], [ %141, %._crit_edge101 ]
   %154 = phi ptr [ %124, %._crit_edge101.thread ], [ %140, %._crit_edge101 ]
   %.027.lcssa110 = phi i64 [ 0, %._crit_edge101.thread ], [ %137, %._crit_edge101 ]
-  %155 = icmp ugt i64 %151, %.027.lcssa110
+  %155 = icmp ult i64 %.027.lcssa110, %151
   br i1 %155, label %156, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit34
 
 156:                                              ; preds = %150
@@ -1374,7 +1374,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %25, %_ZSt22__uninit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit: ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit
@@ -1439,7 +1439,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorImSaIm
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit
@@ -1675,7 +1675,7 @@ define void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_codesEPKfPim
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 2
-  %42 = icmp ult i64 %41, %35
+  %42 = icmp ugt i64 %35, %41
   br i1 %42, label %43, label %74
 
 43:                                               ; preds = %28
@@ -1760,7 +1760,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i: ; preds = %71, %_ZNSt6v
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 74:                                               ; preds = %28
-  %75 = icmp ugt i64 %41, %35
+  %75 = icmp ult i64 %35, %41
   br i1 %75, label %76, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 76:                                               ; preds = %74
@@ -1783,7 +1783,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %78, %76, %74, %_ZNS
   %86 = ptrtoint ptr %84 to i64
   %87 = ptrtoint ptr %85 to i64
   %88 = sub i64 %86, %87
-  %89 = icmp ult i64 %88, %83
+  %89 = icmp ugt i64 %83, %88
   br i1 %89, label %90, label %118
 
 90:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -1871,7 +1871,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %115, %_ZNS
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
 118:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %119 = icmp ugt i64 %88, %83
+  %119 = icmp ult i64 %83, %88
   br i1 %119, label %120, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
 120:                                              ; preds = %118

@@ -1180,7 +1180,7 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
 21:                                               ; preds = %19
   %22 = load i8, ptr %5, align 1
   %23 = zext i8 %22 to i32
-  %24 = icmp ugt i32 %23, %3
+  %24 = icmp ult i32 %3, %23
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %21

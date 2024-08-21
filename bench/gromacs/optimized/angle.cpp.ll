@@ -2755,7 +2755,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_15Angle18initFromSelectionsERKSt6vectorINS_
   %246 = ptrtoint ptr %244 to i64
   %247 = sub i64 %245, %246
   %248 = sdiv exact i64 %247, 24
-  %249 = icmp ult i64 %248, %241
+  %249 = icmp ugt i64 %241, %248
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %234
@@ -2764,7 +2764,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_15Angle18initFromSelectionsERKSt6vectorINS_
   br label %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE6resizeEm.exit
 
 252:                                              ; preds = %234
-  %253 = icmp ugt i64 %248, %241
+  %253 = icmp ult i64 %241, %248
   br i1 %253, label %254, label %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE6resizeEm.exit
 
 254:                                              ; preds = %252
@@ -4310,14 +4310,14 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositi
   %294 = phi float [ %.pre185, %._crit_edge182 ], [ %283, %274 ]
   %295 = phi float [ %.pre184, %._crit_edge182 ], [ %289, %274 ]
   %296 = phi float [ %.pre183, %._crit_edge182 ], [ %280, %274 ]
-  %297 = fneg float %294
-  %298 = fmul float %293, %297
+  %297 = fneg float %293
+  %298 = fmul float %294, %297
   %299 = call float @llvm.fmuladd.f32(float %296, float %295, float %298)
-  %300 = fneg float %291
-  %301 = fmul float %295, %300
+  %300 = fneg float %295
+  %301 = fmul float %291, %300
   %302 = call float @llvm.fmuladd.f32(float %294, float %292, float %301)
-  %303 = fneg float %296
-  %304 = fmul float %292, %303
+  %303 = fneg float %292
+  %304 = fmul float %296, %303
   %305 = call float @llvm.fmuladd.f32(float %291, float %293, float %304)
   %306 = fmul float %302, %302
   %307 = call float @llvm.fmuladd.f32(float %299, float %299, float %306)
@@ -4399,38 +4399,38 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositi
   %346 = phi float [ %.pre175, %._crit_edge172 ], [ %326, %317 ]
   %347 = phi float [ %.pre174, %._crit_edge172 ], [ %332, %317 ]
   %348 = phi float [ %.pre173, %._crit_edge172 ], [ %323, %317 ]
-  %349 = fneg float %346
-  %350 = fmul float %345, %349
+  %349 = fneg float %345
+  %350 = fmul float %346, %349
   %351 = call float @llvm.fmuladd.f32(float %348, float %347, float %350)
   store float %351, ptr %13, align 4
-  %352 = fneg float %343
-  %353 = fmul float %347, %352
+  %352 = fneg float %347
+  %353 = fmul float %343, %352
   %354 = call float @llvm.fmuladd.f32(float %346, float %344, float %353)
   store float %354, ptr %182, align 4
-  %355 = fneg float %348
-  %356 = fmul float %344, %355
+  %355 = fneg float %344
+  %356 = fmul float %348, %355
   %357 = call float @llvm.fmuladd.f32(float %343, float %345, float %356)
   store float %357, ptr %183, align 4
-  %358 = fneg float %347
-  %359 = fmul float %341, %358
+  %358 = fneg float %341
+  %359 = fmul float %347, %358
   %360 = call float @llvm.fmuladd.f32(float %345, float %342, float %359)
   store float %360, ptr %14, align 4
-  %361 = fneg float %344
-  %362 = fmul float %342, %361
+  %361 = fneg float %342
+  %362 = fmul float %344, %361
   %363 = call float @llvm.fmuladd.f32(float %347, float %340, float %362)
   store float %363, ptr %168, align 4
-  %364 = fneg float %345
-  %365 = fmul float %340, %364
+  %364 = fneg float %340
+  %365 = fmul float %345, %364
   %366 = call float @llvm.fmuladd.f32(float %344, float %341, float %365)
   store float %366, ptr %169, align 4
-  %367 = fneg float %357
-  %368 = fmul float %363, %367
+  %367 = fneg float %363
+  %368 = fmul float %357, %367
   %369 = call float @llvm.fmuladd.f32(float %354, float %366, float %368)
-  %370 = fneg float %351
-  %371 = fmul float %366, %370
+  %370 = fneg float %366
+  %371 = fmul float %351, %370
   %372 = call float @llvm.fmuladd.f32(float %357, float %360, float %371)
-  %373 = fneg float %354
-  %374 = fmul float %360, %373
+  %373 = fneg float %360
+  %374 = fmul float %354, %373
   %375 = call float @llvm.fmuladd.f32(float %351, float %363, float %374)
   %376 = fmul float %372, %372
   %377 = call float @llvm.fmuladd.f32(float %369, float %369, float %376)
@@ -4623,16 +4623,16 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_121AnglePositionIterator19getCurrentPositi
   %464 = load float, ptr %169, align 4
   %465 = load float, ptr %183, align 4
   %466 = load float, ptr %168, align 4
-  %467 = fneg float %465
-  %468 = fmul float %466, %467
+  %467 = fneg float %466
+  %468 = fmul float %465, %467
   %469 = call float @llvm.fmuladd.f32(float %463, float %464, float %468)
   %470 = load float, ptr %14, align 4
   %471 = load float, ptr %13, align 4
-  %472 = fneg float %471
-  %473 = fmul float %464, %472
+  %472 = fneg float %464
+  %473 = fmul float %471, %472
   %474 = call float @llvm.fmuladd.f32(float %465, float %470, float %473)
-  %475 = fneg float %463
-  %476 = fmul float %470, %475
+  %475 = fneg float %470
+  %476 = fmul float %463, %475
   %477 = call float @llvm.fmuladd.f32(float %471, float %466, float %476)
   %478 = fmul float %474, %474
   %479 = call float @llvm.fmuladd.f32(float %469, float %469, float %478)
@@ -7226,7 +7226,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -7294,7 +7294,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -7688,17 +7688,17 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_18calc_vecEiPA
   %77 = phi float [ %63, %50 ], [ %.pre37, %48 ]
   %78 = phi float [ %72, %50 ], [ %.pre35, %48 ]
   %79 = phi float [ %58, %50 ], [ %.pre, %48 ]
-  %80 = fneg float %77
-  %81 = fmul float %76, %80
+  %80 = fneg float %76
+  %81 = fmul float %77, %80
   %82 = call float @llvm.fmuladd.f32(float %79, float %78, float %81)
   store float %82, ptr %3, align 4
-  %83 = fneg float %74
-  %84 = fmul float %78, %83
+  %83 = fneg float %78
+  %84 = fmul float %74, %83
   %85 = call float @llvm.fmuladd.f32(float %77, float %75, float %84)
   %86 = getelementptr inbounds i8, ptr %3, i64 4
   store float %85, ptr %86, align 4
-  %87 = fneg float %79
-  %88 = fmul float %75, %87
+  %87 = fneg float %75
+  %88 = fmul float %79, %87
   %89 = call float @llvm.fmuladd.f32(float %74, float %76, float %88)
   %90 = getelementptr inbounds i8, ptr %3, i64 8
   store float %89, ptr %90, align 4

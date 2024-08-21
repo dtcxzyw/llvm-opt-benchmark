@@ -302,7 +302,7 @@ define internal fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757
   %42 = load i64, ptr %0, align 8, !alias.scope !40, !noalias !43, !noundef !5
   %43 = load i64, ptr %7, align 8, !alias.scope !40, !noalias !43, !noundef !5
   %44 = sub i64 %42, %43
-  %45 = icmp ugt i64 %44, %40
+  %45 = icmp ult i64 %40, %44
   br i1 %45, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit23.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit23"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit23.thread": ; preds = %39
@@ -502,7 +502,7 @@ define hidden noundef ptr @_ZN7uu_join5State7combine17hbe6e8602686d80c6E(ptr noa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !77, !noalias !80, !noundef !5
-  %16 = icmp ugt i64 %15, %13
+  %16 = icmp ult i64 %13, %15
   br i1 %16, label %17, label %.lr.ph
 
 17:                                               ; preds = %9
@@ -592,7 +592,7 @@ define hidden noundef ptr @_ZN7uu_join5State7combine17hbe6e8602686d80c6E(ptr noa
   %64 = load i64, ptr %1, align 8, !alias.scope !95, !noalias !96, !noundef !5
   %65 = load i64, ptr %45, align 8, !alias.scope !95, !noalias !96, !noundef !5
   %66 = sub i64 %64, %65
-  %67 = icmp ugt i64 %66, %.sroa.33.0.i
+  %67 = icmp ult i64 %.sroa.33.0.i, %66
   br i1 %67, label %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread.us.us, label %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us
 
 _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us: ; preds = %62
@@ -745,7 +745,7 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
 131:                                              ; preds = %123
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %132 = load i64, ptr %93, align 8, !alias.scope !127, !noalias !130, !noundef !5
-  %133 = icmp ugt i64 %132, %127
+  %133 = icmp ult i64 %127, %132
   br i1 %133, label %134, label %"_ZN7uu_join5State7combine28_$u7b$$u7b$closure$u7d$$u7d$17hf7f8eb98870b862bE.exit.i"
 
 134:                                              ; preds = %131
@@ -779,7 +779,7 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
 149:                                              ; preds = %129
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %150 = load i64, ptr %101, align 8, !alias.scope !135, !noalias !130, !noundef !5
-  %151 = icmp ugt i64 %150, %127
+  %151 = icmp ult i64 %127, %150
   br i1 %151, label %152, label %"_ZN7uu_join5State7combine28_$u7b$$u7b$closure$u7d$$u7d$17hf7f8eb98870b862bE.exit.i"
 
 152:                                              ; preds = %149
@@ -820,7 +820,7 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
   %168 = load i64, ptr %1, align 8, !alias.scope !145, !noalias !146, !noundef !5
   %169 = load i64, ptr %45, align 8, !alias.scope !145, !noalias !146, !noundef !5
   %170 = sub i64 %168, %169
-  %171 = icmp ugt i64 %170, %.sroa.3.0.i
+  %171 = icmp ult i64 %.sroa.3.0.i, %170
   br i1 %171, label %174, label %172
 
 172:                                              ; preds = %"_ZN7uu_join5State7combine28_$u7b$$u7b$closure$u7d$$u7d$17hf7f8eb98870b862bE.exit.i"
@@ -1113,7 +1113,7 @@ define hidden noundef ptr @_ZN7uu_join5State10print_line17h6f9e97174e2507ffE.llv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !167, !noundef !5
-  %14 = icmp ugt i64 %13, %11
+  %14 = icmp ult i64 %11, %13
   br i1 %14, label %15, label %_ZN7uu_join4Line9get_field17h79dc743dc583b057E.exit
 
 15:                                               ; preds = %9
@@ -1163,7 +1163,7 @@ _ZN7uu_join4Line9get_field17h79dc743dc583b057E.exit: ; preds = %9, %"_ZN106_$LT$
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i64, ptr %37, align 8, !alias.scope !179, !noalias !180, !noundef !5
   %39 = sub i64 %36, %38
-  %40 = icmp ugt i64 %39, %.sroa.33.0.i
+  %40 = icmp ult i64 %.sroa.33.0.i, %39
   br i1 %40, label %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread, label %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit
 
 _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.thread: ; preds = %_ZN7uu_join4Line9get_field17h79dc743dc583b057E.exit
@@ -1194,7 +1194,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
   %54 = load i64, ptr %53, align 8, !alias.scope !190, !noalias !193
   %55 = getelementptr inbounds i8, ptr %2, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !188, !noalias !194
-  %57 = icmp ugt i64 %56, %54
+  %57 = icmp ult i64 %54, %56
   %58 = getelementptr inbounds i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !188, !noalias !194, !nonnull !5
   %60 = getelementptr inbounds [0 x { i64, i64 }], ptr %59, i64 0, i64 %54
@@ -1294,7 +1294,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
 105:                                              ; preds = %101
   %106 = getelementptr inbounds i8, ptr %88, i64 8
   %107 = load i64, ptr %106, align 8, !alias.scope !205, !noalias !204, !noundef !5
-  %108 = icmp ugt i64 %56, %107
+  %108 = icmp ult i64 %107, %56
   br i1 %108, label %109, label %"_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i"
 
 109:                                              ; preds = %105
@@ -1332,7 +1332,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
   %122 = load i64, ptr %1, align 8, !alias.scope !223, !noalias !224, !noundef !5
   %123 = load i64, ptr %51, align 8, !alias.scope !223, !noalias !224, !noundef !5
   %124 = sub i64 %122, %123
-  %125 = icmp ugt i64 %124, %.sroa.3.0.i27
+  %125 = icmp ult i64 %.sroa.3.0.i27, %124
   br i1 %125, label %128, label %126
 
 126:                                              ; preds = %"_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i"

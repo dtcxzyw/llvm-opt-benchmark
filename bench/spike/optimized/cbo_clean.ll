@@ -340,7 +340,7 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 0, %8
-  %10 = and i64 %9, %1
+  %10 = and i64 %1, %9
   %.not66 = icmp eq i64 %8, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 

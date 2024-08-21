@@ -88,7 +88,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %entry
   %1 = phi i64 [ %spec.store.select.i.i, %if.then.i.i ], [ %0, %entry ]
-  %cmp.i.i = icmp ult i64 %1, %size
+  %cmp.i.i = icmp ugt i64 %size, %1
   br i1 %cmp.i.i, label %if.then4.i.i, label %if.end.i
 
 if.then4.i.i:                                     ; preds = %if.end3.i.i
@@ -144,7 +144,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.end3.i.i.i:                                    ; preds = %if.then.i.i.i, %if.end.i
   %1 = phi i64 [ %spec.store.select.i.i.i, %if.then.i.i.i ], [ %0, %if.end.i ]
-  %cmp.i.i.not.i = icmp ugt i64 %1, %size
+  %cmp.i.i.not.i = icmp ult i64 %size, %1
   br i1 %cmp.i.i.not.i, label %if.end6.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end3.i.i.i
@@ -191,7 +191,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 
 if.end3.i.i.i:                                    ; preds = %if.then.i.i.i, %if.end.i
   %1 = phi i64 [ %spec.store.select.i.i.i, %if.then.i.i.i ], [ %0, %if.end.i ]
-  %cmp.i.i.not.i = icmp ugt i64 %1, %size
+  %cmp.i.i.not.i = icmp ult i64 %size, %1
   br i1 %cmp.i.i.not.i, label %if.end6.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end3.i.i.i
@@ -242,7 +242,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %if.end.i.i
   %1 = phi i64 [ %spec.store.select.i.i.i.i, %if.then.i.i.i.i ], [ %0, %if.end.i.i ]
-  %cmp.i.i.not.i.i = icmp ugt i64 %1, %len
+  %cmp.i.i.not.i.i = icmp ult i64 %len, %1
   br i1 %cmp.i.i.not.i.i, label %if.end6.i.i.i, label %if.then4.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.end3.i.i.i.i
@@ -299,7 +299,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
 
 if.end3.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
   %1 = phi i64 [ %spec.store.select.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %0, %if.end.i.i.i ]
-  %cmp.i.i.not.i.i.i = icmp ugt i64 %1, %cond
+  %cmp.i.i.not.i.i.i = icmp ult i64 %cond, %1
   br i1 %cmp.i.i.not.i.i.i, label %if.end6.i.i.i.i, label %if.then4.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.end3.i.i.i.i.i
@@ -394,7 +394,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end3.i:                                        ; preds = %if.then.i, %if.end
   %2 = phi i64 [ %spec.store.select.i, %if.then.i ], [ %1, %if.end ]
-  %cmp.i = icmp ult i64 %2, %size
+  %cmp.i = icmp ugt i64 %size, %2
   br i1 %cmp.i, label %if.then4.i, label %memory_limit_check.exit
 
 if.then4.i:                                       ; preds = %if.end3.i
@@ -451,7 +451,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end3.i:                                        ; preds = %if.then.i, %if.end
   %1 = phi i64 [ %spec.store.select.i, %if.then.i ], [ %0, %if.end ]
-  %cmp.i = icmp ult i64 %1, %mul
+  %cmp.i = icmp ugt i64 %mul, %1
   br i1 %cmp.i, label %if.then4.i, label %memory_limit_check.exit
 
 if.then4.i:                                       ; preds = %if.end3.i
@@ -1584,7 +1584,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call to i64
-  %cmp3.not = icmp ult i64 %conv, %max
+  %cmp3.not = icmp ugt i64 %max, %conv
   br i1 %cmp3.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end

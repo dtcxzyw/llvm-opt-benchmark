@@ -2306,7 +2306,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hdda8ab77f414e716E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !294, !noundef !4
-  %.not.i.i = icmp eq i64 %5, %1
+  %.not.i.i = icmp eq i64 %1, %5
   br i1 %.not.i.i, label %6, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.14171400993280223970.exit"
 
 6:                                                ; preds = %3
@@ -4093,7 +4093,7 @@ common.resume.i:                                  ; preds = %245, %200, %65
   %100 = getelementptr inbounds i8, ptr %.sroa.0.0120.i, i64 184
   %101 = load i16, ptr %100, align 8, !noalias !664
   %102 = zext i16 %101 to i64
-  %103 = icmp eq i64 %.sroa.5.0119.i, %.sroa.8.0117.i
+  %103 = icmp eq i64 %.sroa.8.0117.i, %.sroa.5.0119.i
   br i1 %103, label %105, label %104
 
 104:                                              ; preds = %.lr.ph.i
@@ -4341,7 +4341,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hd1156f3ca0ae23d5E.exit.i18.i.i
   %218 = add nuw nsw i64 %203, 2
   %219 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 192
   %220 = add nsw i64 %.sroa.7.0.i.i, 2
-  %221 = icmp ult i64 %220, %218
+  %221 = icmp ugt i64 %218, %220
   br i1 %221, label %222, label %_ZN5alloc11collections5btree4node12slice_insert17h524c8709e1d43415E.exit.i19.i.i
 
 222:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hd1156f3ca0ae23d5E.exit.i18.i.i
@@ -4432,7 +4432,7 @@ _ZN5alloc11collections5btree3mem7replace17h8f53064215585abcE.exit.i.i: ; preds =
   store ptr %242, ptr %.val14, align 8, !alias.scope !725, !noalias !722
   store i64 %251, ptr %240, align 8, !alias.scope !725, !noalias !722
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !722
-  %253 = icmp eq i64 %241, %.sroa.8.0.lcssa.i
+  %253 = icmp eq i64 %.sroa.8.0.lcssa.i, %241
   br i1 %253, label %255, label %254
 
 254:                                              ; preds = %_ZN5alloc11collections5btree3mem7replace17h8f53064215585abcE.exit.i.i
@@ -4806,7 +4806,7 @@ define hidden noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5b
   store ptr %122, ptr %.val17, align 8, !alias.scope !815, !noalias !811
   store i64 %136, ptr %120, align 8, !alias.scope !815, !noalias !811
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !811
-  %139 = icmp eq i64 %121, %.sroa.12.0.lcssa.i
+  %139 = icmp eq i64 %.sroa.12.0.lcssa.i, %121
   br i1 %139, label %143, label %.invoke.i.i.i
 
 .invoke.i.i.i:                                    ; preds = %143, %132
@@ -4858,7 +4858,7 @@ define hidden noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5b
   %155 = getelementptr inbounds i8, ptr %.sroa.0.0193.i, i64 272
   %156 = load i16, ptr %155, align 8, !noalias !808
   %157 = zext i16 %156 to i64
-  %158 = icmp eq i64 %.sroa.51.0192.i, %.sroa.12.0190.i
+  %158 = icmp eq i64 %.sroa.12.0190.i, %.sroa.51.0192.i
   br i1 %158, label %160, label %159
 
 159:                                              ; preds = %.lr.ph.i
@@ -5144,7 +5144,7 @@ define hidden noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5b
   %287 = add nuw nsw i64 %271, 2
   %288 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 280
   %289 = add nsw i64 %.sroa.7.0.i.i, 2
-  %290 = icmp ult i64 %289, %287
+  %290 = icmp ugt i64 %287, %289
   br i1 %290, label %291, label %296
 
 291:                                              ; preds = %284
@@ -5644,7 +5644,7 @@ define hidden noundef align 8 dereferenceable(64) ptr @"_ZN5alloc11collections5b
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !986
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !986
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.03.sroa.4.0..sroa_idx.i, i64 64, i1 false), !noalias !921
-  %151 = icmp eq i64 %133, %.lcssa101.i
+  %151 = icmp eq i64 %.lcssa101.i, %133
   br i1 %151, label %155, label %.invoke.i.i.i
 
 .invoke.i.i.i:                                    ; preds = %155, %144
@@ -5709,7 +5709,7 @@ define hidden noundef align 8 dereferenceable(64) ptr @"_ZN5alloc11collections5b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17.i, i64 56, i1 false), !noalias !921
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1002)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.sroa.5.i)
-  %173 = icmp eq i64 %167, %168
+  %173 = icmp eq i64 %168, %167
   br i1 %173, label %175, label %174
 
 174:                                              ; preds = %165
@@ -6012,7 +6012,7 @@ define hidden noundef align 8 dereferenceable(64) ptr @"_ZN5alloc11collections5b
   %297 = add nuw nsw i64 %282, 2
   %298 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 808
   %299 = add nsw i64 %.sroa.7.0.i.i, 2
-  %300 = icmp ult i64 %299, %297
+  %300 = icmp ugt i64 %297, %299
   br i1 %300, label %301, label %306
 
 301:                                              ; preds = %295

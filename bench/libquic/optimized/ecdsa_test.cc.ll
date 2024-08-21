@@ -1217,7 +1217,7 @@ sw.bb2:                                           ; preds = %entry
 
 sw.epilog:                                        ; preds = %if.then.i, %invoke.cont, %sw.bb2
   %actual_result.0 = phi i32 [ %call3, %sw.bb2 ], [ %call1, %invoke.cont ], [ %call1, %if.then.i ]
-  %cmp = icmp eq i32 %actual_result.0, %expected_result
+  %cmp = icmp eq i32 %expected_result, %actual_result.0
   br label %return
 
 return:                                           ; preds = %sw.bb, %sw.epilog

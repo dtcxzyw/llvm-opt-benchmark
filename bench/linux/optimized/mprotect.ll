@@ -1793,7 +1793,7 @@ define internal fastcc i32 @do_mprotect_pkey(i64 noundef %0, i64 noundef %1, i64
   %55 = getelementptr inbounds i8, ptr %47, i64 1118
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
-  %58 = icmp eq i32 %57, %3
+  %58 = icmp eq i32 %3, %57
   br i1 %58, label %180, label %59
 
 59:                                               ; preds = %54

@@ -318,7 +318,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr nocapture noundef readonly %0, ptr
   store double %36, ptr %27, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %37 = trunc nuw i64 %indvars.iv.next63 to i32
-  %38 = icmp slt i32 %37, %3
+  %38 = icmp sgt i32 %3, %37
   br i1 %38, label %28, label %._crit_edge49, !llvm.loop !14
 
 ._crit_edge49:                                    ; preds = %28, %.preheader.._crit_edge49_crit_edge

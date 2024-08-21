@@ -167,7 +167,7 @@ if.end:                                           ; preds = %if.then, %entry
   %max5 = getelementptr inbounds i8, ptr %ts.0, i64 4
   %2 = load i32, ptr %max5, align 4
   %conv = zext i32 %2 to i64
-  %cmp6 = icmp slt i64 %conv, %latency
+  %cmp6 = icmp sgt i64 %latency, %conv
   br i1 %cmp6, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end
@@ -191,7 +191,7 @@ if.then17:                                        ; preds = %if.end11
   %latency21 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %latency21, align 4
   %conv22 = zext i32 %5 to i64
-  %cmp23 = icmp slt i64 %conv22, %latency
+  %cmp23 = icmp sgt i64 %latency, %conv22
   br i1 %cmp23, label %if.then25, label %if.end51
 
 if.then25:                                        ; preds = %if.then17
@@ -1893,7 +1893,7 @@ if.end:                                           ; preds = %entry
   store i64 %add, ptr %sum, align 8
   %max = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i64, ptr %max, align 8
-  %cmp1 = icmp ult i64 %2, %duration
+  %cmp1 = icmp ugt i64 %duration, %2
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end

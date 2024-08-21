@@ -220,7 +220,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.59146
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -4256,7 +4256,7 @@ _ZN4core3ops8function5FnMut8call_mut17h640dbde9362ea1e0E.llvm.591469556003304376
 
 277:                                              ; preds = %274
   %278 = add i64 %275, -1
-  %279 = icmp ugt i64 %.pre.pre, %278
+  %279 = icmp ult i64 %278, %.pre.pre
   %280 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.pre334.pre, i64 %278
   br i1 %279, label %284, label %.thread230
 
@@ -5391,7 +5391,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %25 = ptrtoint ptr %.sroa.0.0.i to i64
   %26 = sub nuw i64 %24, %25
   %27 = lshr exact i64 %26, 5
-  %.not.i.not = icmp ugt i64 %27, %11
+  %.not.i.not = icmp ult i64 %11, %27
   %28 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.sroa.0.0.i, i64 %11
   br i1 %.not.i.not, label %30, label %60
 
@@ -5585,7 +5585,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %27 = ptrtoint ptr %.sroa.0.0.i to i64
   %28 = sub nuw i64 %26, %27
   %29 = lshr exact i64 %28, 5
-  %.not.i.not = icmp ugt i64 %29, %12
+  %.not.i.not = icmp ult i64 %12, %29
   %30 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.sroa.0.0.i, i64 %12
   br i1 %.not.i.not, label %32, label %63
 
@@ -6374,7 +6374,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.thread: ; p
 _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit: ; preds = %19, %27, %31
   %.0.i = phi i64 [ %.0.i.i1.i, %31 ], [ %30, %27 ], [ %.0.i.i.i, %19 ]
   %40 = add i64 %.0.i, %14
-  %.not = icmp ult i64 %40, %2
+  %.not = icmp ugt i64 %2, %40
   br i1 %.not, label %53, label %41
 
 41:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit
@@ -6643,7 +6643,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit18: ; preds = %14
   %.0.i16 = phi i64 [ %.0.i.i1.i15, %149 ], [ %148, %145 ], [ %.0.i.i.i17, %137 ]
   %158 = icmp uge i64 %.032, %2
   %159 = add i64 %.0.i16, %.032
-  %.not7 = icmp ult i64 %159, %2
+  %.not7 = icmp ugt i64 %2, %159
   %or.cond9 = or i1 %158, %.not7
   br i1 %or.cond9, label %160, label %164
 

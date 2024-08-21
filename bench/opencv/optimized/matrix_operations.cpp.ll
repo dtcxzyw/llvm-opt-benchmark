@@ -2988,16 +2988,16 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %86 = load float, ptr %85, align 4
   %87 = getelementptr inbounds float, ptr %68, i64 %80
   %88 = load float, ptr %87, align 4
-  %89 = fneg float %86
-  %90 = fmul float %88, %89
+  %89 = fneg float %88
+  %90 = fmul float %86, %89
   %91 = call float @llvm.fmuladd.f32(float %82, float %84, float %90)
   store float %91, ptr %70, align 4
   %92 = load float, ptr %85, align 4
   %93 = load float, ptr %68, align 4
   %94 = load float, ptr %66, align 4
   %95 = load float, ptr %83, align 4
-  %96 = fneg float %94
-  %97 = fmul float %95, %96
+  %96 = fneg float %95
+  %97 = fmul float %94, %96
   %98 = call float @llvm.fmuladd.f32(float %92, float %93, float %97)
   %99 = getelementptr inbounds i8, ptr %70, i64 4
   store float %98, ptr %99, align 4
@@ -3005,8 +3005,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %101 = load float, ptr %87, align 4
   %102 = load float, ptr %81, align 4
   %103 = load float, ptr %68, align 4
-  %104 = fneg float %102
-  %105 = fmul float %103, %104
+  %104 = fneg float %103
+  %105 = fmul float %102, %104
   %106 = call float @llvm.fmuladd.f32(float %100, float %101, float %105)
   %107 = getelementptr inbounds i8, ptr %70, i64 8
   store float %106, ptr %107, align 4
@@ -3039,16 +3039,16 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %130 = load double, ptr %129, align 8
   %131 = getelementptr inbounds double, ptr %112, i64 %124
   %132 = load double, ptr %131, align 8
-  %133 = fneg double %130
-  %134 = fmul double %132, %133
+  %133 = fneg double %132
+  %134 = fmul double %130, %133
   %135 = call double @llvm.fmuladd.f64(double %126, double %128, double %134)
   store double %135, ptr %114, align 8
   %136 = load double, ptr %129, align 8
   %137 = load double, ptr %112, align 8
   %138 = load double, ptr %110, align 8
   %139 = load double, ptr %127, align 8
-  %140 = fneg double %138
-  %141 = fmul double %139, %140
+  %140 = fneg double %139
+  %141 = fmul double %138, %140
   %142 = call double @llvm.fmuladd.f64(double %136, double %137, double %141)
   %143 = getelementptr inbounds i8, ptr %114, i64 8
   store double %142, ptr %143, align 8
@@ -3056,8 +3056,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   %145 = load double, ptr %131, align 8
   %146 = load double, ptr %125, align 8
   %147 = load double, ptr %112, align 8
-  %148 = fneg double %146
-  %149 = fmul double %147, %148
+  %148 = fneg double %147
+  %149 = fmul double %146, %148
   %150 = call double @llvm.fmuladd.f64(double %144, double %145, double %149)
   %151 = getelementptr inbounds i8, ptr %114, i64 16
   store double %150, ptr %151, align 8
@@ -26203,7 +26203,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPhN9__gnu_cxx5__ops15_Iter_le
   %11 = load i8, ptr %10, align 1
   %12 = add nsw i64 %6, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ugt i64 %13, %9
+  %14 = icmp ult i64 %9, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -26283,7 +26283,7 @@ _ZSt13__adjust_heapIPhlhN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %50 = add nsw i64 %.032.us, -1
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
-  %.not.us = icmp slt i64 %13, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %13
   br i1 %.not.us, label %_ZSt13__adjust_heapIPhlhN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -26335,7 +26335,7 @@ _ZSt13__adjust_heapIPhlhN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %72 = add nsw i64 %.032, -1
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = load i8, ptr %73, align 1
-  %.not = icmp slt i64 %13, %.032
+  %.not = icmp sgt i64 %.032, %13
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -26753,7 +26753,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPaN9__gnu_cxx5__ops15_Iter_le
   %11 = load i8, ptr %10, align 1
   %12 = add nsw i64 %6, -1
   %13 = lshr i64 %12, 1
-  %14 = icmp ugt i64 %13, %9
+  %14 = icmp ult i64 %9, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -26833,7 +26833,7 @@ _ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %50 = add nsw i64 %.032.us, -1
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
-  %.not.us = icmp slt i64 %13, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %13
   br i1 %.not.us, label %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -26885,7 +26885,7 @@ _ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %72 = add nsw i64 %.032, -1
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = load i8, ptr %73, align 1
-  %.not = icmp slt i64 %13, %.032
+  %.not = icmp sgt i64 %.032, %13
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -27304,7 +27304,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPtN9__gnu_cxx5__ops15_Iter_le
   %12 = load i16, ptr %11, align 2
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -27384,7 +27384,7 @@ _ZSt13__adjust_heapIPtltN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds i16, ptr %0, i64 %51
   %53 = load i16, ptr %52, align 2
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPtltN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -27436,7 +27436,7 @@ _ZSt13__adjust_heapIPtltN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -27855,7 +27855,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPsN9__gnu_cxx5__ops15_Iter_le
   %12 = load i16, ptr %11, align 2
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -27935,7 +27935,7 @@ _ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds i16, ptr %0, i64 %51
   %53 = load i16, ptr %52, align 2
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -27987,7 +27987,7 @@ _ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -28406,7 +28406,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -28486,7 +28486,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds i32, ptr %0, i64 %51
   %53 = load i32, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -28538,7 +28538,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds i32, ptr %0, i64 %73
   %75 = load i32, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -28957,7 +28957,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_le
   %12 = load float, ptr %11, align 4
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -29037,7 +29037,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds float, ptr %0, i64 %51
   %53 = load float, ptr %52, align 4
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -29089,7 +29089,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds float, ptr %0, i64 %73
   %75 = load float, ptr %74, align 4
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -29508,7 +29508,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_le
   %12 = load double, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -29588,7 +29588,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %51 = add nsw i64 %.032.us, -1
   %52 = getelementptr inbounds double, ptr %0, i64 %51
   %53 = load double, ptr %52, align 8
-  %.not.us = icmp slt i64 %14, %.032.us
+  %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
 
 .lr.ph.i23.us:                                    ; preds = %.split13.us, %.lr.ph.i23.us
@@ -29640,7 +29640,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %73 = add nsw i64 %.032, -1
   %74 = getelementptr inbounds double, ptr %0, i64 %73
   %75 = load double, ptr %74, align 8
-  %.not = icmp slt i64 %14, %.032
+  %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.split13, %.lr.ph.i23
@@ -30351,7 +30351,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -30447,7 +30447,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIhEE
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIhEEEEEvT_T0_S9_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -30515,7 +30515,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIhEE
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26
@@ -31241,7 +31241,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -31337,7 +31337,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIaEE
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIaEEEEEvT_T0_S9_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -31405,7 +31405,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIaEE
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26
@@ -32131,7 +32131,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -32227,7 +32227,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxItEE
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxItEEEEEvT_T0_S9_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -32295,7 +32295,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxItEE
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26
@@ -33021,7 +33021,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -33117,7 +33117,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIsEE
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIsEEEEEvT_T0_S9_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -33185,7 +33185,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIsEE
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26
@@ -33911,7 +33911,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -34007,7 +34007,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIiEE
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIiEEEEEvT_T0_S9_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -34075,7 +34075,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIiEE
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26
@@ -34801,7 +34801,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -34897,7 +34897,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIfEE
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIfEEEEEvT_T0_S9_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -34965,7 +34965,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIfEE
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26
@@ -35691,7 +35691,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_co
   %.sroa.0.0.copyload13 = load ptr, ptr %2, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1
-  %15 = icmp ugt i64 %14, %10
+  %15 = icmp ult i64 %10, %14
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -35787,7 +35787,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIdEE
   %65 = getelementptr inbounds i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %14, %.035.us
+  %.not.us = icmp sgt i64 %.035.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIdEEEEEvT_T0_S9_T1_T2_.exit29.us, label %.lr.ph.i26.us
 
 .lr.ph.i26.us:                                    ; preds = %.split15.us, %.lr.ph.i26.us
@@ -35855,7 +35855,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIdEE
   %100 = getelementptr inbounds i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %14, %.035
+  %.not = icmp sgt i64 %.035, %14
   br i1 %.not, label %._crit_edge.i18, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.split15, %.lr.ph.i26

@@ -17460,7 +17460,7 @@ if.then9:                                         ; preds = %for.end
   %call12 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %fmt) #20
   %cmp.i.i.i = icmp ne ptr %call10, %call12
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %call12, i64 -1
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %call10
+  %cmp.i110.i.i = icmp ult ptr %call10, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %if.end17
 

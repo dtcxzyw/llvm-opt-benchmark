@@ -701,7 +701,7 @@ _ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5Error
   %.5 = phi ptr [ %.4, %238 ], [ %.3, %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit91 ], [ %.0149, %121 ], [ %.1, %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit ], [ %.2, %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit86 ], [ null, %177 ], [ null, %180 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %5
+  %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit87
@@ -852,28 +852,28 @@ define void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor33consume_long
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = alloca %"class.cxx20::expected.48", align 8
   %19 = icmp ugt i64 %2, 2
-  br i1 %19, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %97
+  br i1 %19, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %4
   %20 = add i64 %2, -2
   %21 = getelementptr inbounds i8, ptr %3, i64 2
   %22 = tail call ptr @memchr(ptr noundef nonnull %21, i32 noundef 61, i64 noundef %20) #18
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %.thread49, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
+  br i1 %.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.thread, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %3 to i64
   %25 = sub i64 %23, %24
   %.not = icmp eq i64 %25, -1
-  br i1 %.not, label %.thread49, label %26
+  br i1 %.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.thread, label %26
 
 26:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %27 = add i64 %25, -2
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %20, i64 %27)
   %28 = add nuw i64 %25, 1
-  %.not51 = icmp ult i64 %25, %2
-  br i1 %.not51, label %29, label %.invoke
+  %.not49 = icmp ult i64 %25, %2
+  br i1 %.not49, label %29, label %.invoke
 
 29:                                               ; preds = %26
   %30 = sub nuw i64 %2, %28
@@ -1045,25 +1045,25 @@ _ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5Error
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #18
   br label %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit33
 
-97:                                               ; preds = %4
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %4
   %.not50 = icmp eq i64 %2, 2
-  br i1 %.not50, label %.thread49, label %.invoke
+  br i1 %.not50, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.thread, label %.invoke
 
-.invoke:                                          ; preds = %97, %26
-  %98 = phi i64 [ %28, %26 ], [ 2, %97 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, i64 noundef %98, i64 noundef %2) #15
+.invoke:                                          ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, %26
+  %97 = phi i64 [ %28, %26 ], [ 2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ]
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, i64 noundef %97, i64 noundef %2) #15
           to label %.cont unwind label %100
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.thread49:                                        ; preds = %97, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i
-  %.pre-phi = phi i64 [ %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ %20, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 0, %97 ]
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.thread: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
+  %98 = add i64 %2, -2
   %99 = getelementptr inbounds i8, ptr %3, i64 2
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor19consume_long_optionESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected.48") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 %.pre-phi, ptr nonnull %99) #18
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor19consume_long_optionESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected.48") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 %98, ptr nonnull %99) #18
   br label %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit33
 
-_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit33: ; preds = %95, %92, %.thread49
+_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit33: ; preds = %95, %92, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.thread
   ret void
 
 100:                                              ; preds = %.invoke, %79, %77, %64, %62, %47, %35
@@ -1855,7 +1855,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit._crit_edge:
           to label %34 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 34:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit._crit_edge
-  %35 = icmp ugt i64 %22, %28
+  %35 = icmp ult i64 %28, %22
   br i1 %35, label %.lr.ph.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.thread
 
 .lr.ph.i:                                         ; preds = %34, %39
@@ -1876,7 +1876,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit: ; pre
   br i1 %.not126, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.thread, label %42
 
 42:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
-  %43 = icmp ult i64 %22, %.06.i
+  %43 = icmp ugt i64 %.06.i, %22
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %42
@@ -2490,7 +2490,7 @@ _ZSt7advanceIPPKcmEvRT_T0_.exit:                  ; preds = %22
 _ZSt4copyIPPKcS2_ET0_T_S4_S3_.exit18:             ; preds = %_ZSt7advanceIPPKcmEvRT_T0_.exit, %34
   %35 = phi ptr [ %24, %_ZSt7advanceIPPKcmEvRT_T0_.exit ], [ %.pre26, %34 ]
   %36 = sub i64 %4, %33
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, %2
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, %32
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPPKcS2_S1_ET0_T_S4_S3_RSaIT1_E.exit, label %37
 
 37:                                               ; preds = %_ZSt4copyIPPKcS2_ET0_T_S4_S3_.exit18
@@ -2595,7 +2595,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
 .split.us.i.i:                                    ; preds = %29, %39
   %32 = phi i64 [ %41, %39 ], [ %.pre22.i.i, %29 ]
   %.0.us.i.i = phi ptr [ %38, %39 ], [ %30, %29 ]
-  %33 = icmp eq i64 %32, %19
+  %33 = icmp eq i64 %19, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %.split.us.i.i
@@ -2619,7 +2619,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
 .split.i.i:                                       ; preds = %29, %51
   %43 = phi i64 [ %53, %51 ], [ %.pre22.i.i, %29 ]
   %.0.i.i = phi ptr [ %50, %51 ], [ %30, %29 ]
-  %44 = icmp eq i64 %43, %19
+  %44 = icmp eq i64 %19, %43
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %.split.i.i

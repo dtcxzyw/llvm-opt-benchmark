@@ -206,16 +206,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i16 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #8 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load float, ptr %7, align 4
-  %9 = fmul float %8, %2
+  %9 = fmul float %2, %8
   %10 = tail call noundef float @llvm.floor.f32(float %9)
   %11 = fptosi float %10 to i32
-  %12 = fmul float %8, %3
+  %12 = fmul float %3, %8
   %13 = tail call noundef float @llvm.floor.f32(float %12)
   %14 = fptosi float %13 to i32
-  %15 = fmul float %8, %4
+  %15 = fmul float %4, %8
   %16 = tail call noundef float @llvm.floor.f32(float %15)
   %17 = fptosi float %16 to i32
-  %18 = fmul float %8, %5
+  %18 = fmul float %5, %8
   %19 = tail call noundef float @llvm.floor.f32(float %18)
   %20 = fptosi float %19 to i32
   %21 = getelementptr inbounds i8, ptr %0, i64 36
@@ -316,16 +316,16 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull al
 define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = load float, ptr %8, align 4
-  %10 = fmul float %9, %1
+  %10 = fmul float %1, %9
   %11 = tail call noundef float @llvm.floor.f32(float %10)
   %12 = fptosi float %11 to i32
-  %13 = fmul float %9, %2
+  %13 = fmul float %2, %9
   %14 = tail call noundef float @llvm.floor.f32(float %13)
   %15 = fptosi float %14 to i32
-  %16 = fmul float %9, %3
+  %16 = fmul float %3, %9
   %17 = tail call noundef float @llvm.floor.f32(float %16)
   %18 = fptosi float %17 to i32
-  %19 = fmul float %9, %4
+  %19 = fmul float %4, %9
   %20 = tail call noundef float @llvm.floor.f32(float %19)
   %21 = fptosi float %20 to i32
   %.not70 = icmp sgt i32 %15, %21
@@ -462,14 +462,14 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr nocapture nound
   %20 = getelementptr inbounds i8, ptr %19, i64 2
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i32
-  %23 = icmp eq i32 %22, %1
+  %23 = icmp eq i32 %1, %22
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %19, i64 4
   %26 = load i16, ptr %25, align 2
   %27 = sext i16 %26 to i32
-  %28 = icmp eq i32 %27, %2
+  %28 = icmp eq i32 %2, %27
   %29 = zext i1 %28 to i32
   %spec.select = add nsw i32 %.015, %29
   br label %30

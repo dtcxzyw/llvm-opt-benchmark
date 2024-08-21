@@ -605,7 +605,7 @@ X509_ATTRIBUTE_get0_type.exit.i:                  ; preds = %if.then4.i.i, %if.e
 
 if.end.i34:                                       ; preds = %X509_ATTRIBUTE_get0_type.exit.i
   %call1.i = tail call i32 @ASN1_TYPE_get(ptr noundef nonnull %retval.0.i.i) #4
-  %cmp.not.i = icmp eq i32 %call1.i, %type
+  %cmp.not.i = icmp eq i32 %type, %call1.i
   br i1 %cmp.not.i, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i34
@@ -673,7 +673,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 X509_ATTRIBUTE_count.exit.i:                      ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %..i.i, %if.end.i.i ]
-  %cmp1.not.i = icmp sgt i32 %retval.0.i.i, %idx
+  %cmp1.not.i = icmp slt i32 %idx, %retval.0.i.i
   br i1 %cmp1.not.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %X509_ATTRIBUTE_count.exit.i
@@ -694,7 +694,7 @@ X509_ATTRIBUTE_get0_type.exit:                    ; preds = %if.end3.i, %if.then
 
 if.end:                                           ; preds = %X509_ATTRIBUTE_get0_type.exit
   %call1 = tail call i32 @ASN1_TYPE_get(ptr noundef nonnull %retval.0.i) #4
-  %cmp.not = icmp eq i32 %call1, %atrtype
+  %cmp.not = icmp eq i32 %atrtype, %call1
   br i1 %cmp.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -888,7 +888,7 @@ if.end.i:                                         ; preds = %if.end
 
 X509_ATTRIBUTE_count.exit:                        ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %..i, %if.end.i ]
-  %cmp1.not = icmp sgt i32 %retval.0.i, %idx
+  %cmp1.not = icmp slt i32 %idx, %retval.0.i
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %X509_ATTRIBUTE_count.exit

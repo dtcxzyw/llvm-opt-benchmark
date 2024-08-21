@@ -3313,7 +3313,7 @@ define range(i32 -1, 1) i32 @H5SM_table_debug(ptr noundef %0, i64 noundef %1, pt
   br i1 %10, label %15, label %12
 
 12:                                               ; preds = %7
-  %.not = icmp eq i32 %11, %5
+  %.not = icmp eq i32 %5, %11
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %12
@@ -3327,7 +3327,7 @@ define range(i32 -1, 1) i32 @H5SM_table_debug(ptr noundef %0, i64 noundef %1, pt
   br i1 %16, label %21, label %18
 
 18:                                               ; preds = %15
-  %.not84 = icmp eq i32 %17, %6
+  %.not84 = icmp eq i32 %6, %17
   br i1 %.not84, label %21, label %19
 
 19:                                               ; preds = %18
@@ -4410,7 +4410,7 @@ declare ptr @H5O_protect(ptr noundef, i32 noundef, i1 noundef zeroext) local_unn
 define internal range(i32 -1, 2) i32 @H5SM__read_iter_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, %2
+  %8 = icmp eq i32 %2, %7
   br i1 %8, label %9, label %35
 
 9:                                                ; preds = %5

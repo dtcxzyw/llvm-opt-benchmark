@@ -1074,7 +1074,7 @@ entry:
   %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   %h3_baller = getelementptr inbounds i8, ptr %0, i64 40
-  %cmp.not = icmp eq ptr %h3_baller, %winner
+  %cmp.not = icmp eq ptr %winner, %h3_baller
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1098,7 +1098,7 @@ cf_hc_baller_reset.exit:                          ; preds = %if.then, %if.then.i
 
 if.end:                                           ; preds = %cf_hc_baller_reset.exit, %entry
   %h21_baller = getelementptr inbounds i8, ptr %0, i64 88
-  %cmp3.not = icmp eq ptr %h21_baller, %winner
+  %cmp3.not = icmp eq ptr %winner, %h21_baller
   br i1 %cmp3.not, label %do.body7, label %if.then4
 
 if.then4:                                         ; preds = %if.end

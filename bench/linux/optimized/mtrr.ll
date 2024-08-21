@@ -236,7 +236,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
 101:                                              ; preds = %97
   %102 = load i8, ptr %9, align 1
   %103 = zext i8 %102 to i32
-  %104 = icmp eq i32 %103, %2
+  %104 = icmp eq i32 %2, %103
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %101
@@ -262,7 +262,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
 119:                                              ; preds = %93
   %120 = load i8, ptr %9, align 1
   %121 = zext i8 %120 to i32
-  %122 = icmp eq i32 %121, %2
+  %122 = icmp eq i32 %2, %121
   br i1 %122, label %136, label %123
 
 123:                                              ; preds = %119

@@ -259,9 +259,9 @@ define internal { double, double } @_ZL14airy_s_forward5PJ_LPP8PJconsts(double %
   %59 = load double, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %5, i64 8
   %61 = load double, ptr %60, align 8
-  %62 = fneg double %61
-  %63 = fmul double %12, %62
-  %64 = fmul double %7, %63
+  %62 = fmul double %12, %61
+  %63 = fneg double %7
+  %64 = fmul double %62, %63
   %65 = tail call double @llvm.fmuladd.f64(double %59, double %11, double %64)
   %66 = fmul double %.055, %65
   br label %97

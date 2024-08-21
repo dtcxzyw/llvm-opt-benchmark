@@ -1383,7 +1383,7 @@ define void @Exp_PrintLitVerilog(ptr nocapture noundef %0, i32 noundef %1, ptr n
 
 10:                                               ; preds = %5
   %11 = shl nsw i32 %1, 1
-  %12 = icmp sgt i32 %11, %4
+  %12 = icmp slt i32 %4, %11
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %10
@@ -1435,7 +1435,7 @@ define void @Exp_PrintVerilog(ptr nocapture noundef %0, i32 noundef %1, ptr noca
 
 15:                                               ; preds = %4
   %16 = shl nsw i32 %1, 1
-  %17 = icmp sgt i32 %16, %10
+  %17 = icmp slt i32 %10, %16
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %15
@@ -3573,7 +3573,7 @@ define void @Mio_DeriveTruthTable(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %Exp_Truth6Lit.exit.i
 
 24:                                               ; preds = %19
-  %25 = icmp sgt i32 %18, %22
+  %25 = icmp slt i32 %22, %18
   %26 = and i32 %22, 1
   %.not17.i.i = icmp eq i32 %26, 0
   br i1 %25, label %27, label %39
@@ -3630,7 +3630,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %47, %40, %34, %28, 
   br label %Exp_Truth6Lit.exit31.i
 
 57:                                               ; preds = %Exp_Truth6Lit.exit.i
-  %58 = icmp sgt i32 %18, %55
+  %58 = icmp slt i32 %55, %18
   %59 = and i32 %55, 1
   %.not17.i30.i = icmp eq i32 %59, 0
   br i1 %58, label %60, label %72
@@ -3697,7 +3697,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %80, %73, %67, %61, 
 
 93:                                               ; preds = %._crit_edge.i
   %94 = shl nsw i32 %2, 1
-  %95 = icmp sgt i32 %94, %91
+  %95 = icmp slt i32 %91, %94
   %96 = and i32 %91, 1
   %.not17.i33.i = icmp eq i32 %96, 0
   br i1 %95, label %97, label %109
@@ -4047,7 +4047,7 @@ define void @Mio_LibraryShiftDelay(ptr noundef %0, double noundef %1) local_unna
   %.01419 = phi ptr [ %18, %._crit_edge ], [ %3, %2 ]
   %4 = getelementptr inbounds i8, ptr %.01419, i64 80
   %5 = load double, ptr %4, align 8
-  %6 = fadd double %5, %1
+  %6 = fadd double %1, %5
   store double %6, ptr %4, align 8
   %7 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %.01419) #30
   %.not1516 = icmp eq ptr %7, null
@@ -4057,15 +4057,15 @@ define void @Mio_LibraryShiftDelay(ptr noundef %0, double noundef %1) local_unna
   %.017 = phi ptr [ %17, %.lr.ph ], [ %7, %.lr.ph21 ]
   %8 = getelementptr inbounds i8, ptr %.017, i64 32
   %9 = load double, ptr %8, align 8
-  %10 = fadd double %9, %1
+  %10 = fadd double %1, %9
   store double %10, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %.017, i64 48
   %12 = load double, ptr %11, align 8
-  %13 = fadd double %12, %1
+  %13 = fadd double %1, %12
   store double %13, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %.017, i64 64
   %15 = load double, ptr %14, align 8
-  %16 = fadd double %15, %1
+  %16 = fadd double %1, %15
   store double %16, ptr %14, align 8
   %17 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.017) #30
   %.not15 = icmp eq ptr %17, null
@@ -4277,7 +4277,7 @@ define void @Nf_ManPrepareGate(i32 noundef %0, i64 noundef %1, ptr nocapture nou
   %10 = phi i1 [ true, %.preheader.lr.ph.us.us.preheader ], [ false, %._crit_edge30.split.us.us.us ]
   %indvars.iv47 = phi i64 [ 0, %.preheader.lr.ph.us.us.preheader ], [ 1, %._crit_edge30.split.us.us.us ]
   %11 = sub nsw i64 0, %indvars.iv47
-  %12 = xor i64 %11, %1
+  %12 = xor i64 %1, %11
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us

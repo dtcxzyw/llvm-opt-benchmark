@@ -5623,7 +5623,7 @@ invoke.cont8:                                     ; preds = %invoke.cont8.prehea
   %15 = phi ptr [ %.pre, %invoke.cont8.backedge ], [ %9, %invoke.cont8.preheader ]
   %i.0.in64 = phi i64 [ %i.0.in64.be, %invoke.cont8.backedge ], [ %add.i.i, %invoke.cont8.preheader ]
   %i.0 = trunc i64 %i.0.in64 to i32
-  %and = and i32 %i.0, %mask
+  %and = and i32 %mask, %i.0
   %shl = shl i32 %and, %mul
   %cmp.i.not61 = icmp eq ptr %15, %0
   br i1 %cmp.i.not61, label %if.end.i.i, label %invoke.cont20

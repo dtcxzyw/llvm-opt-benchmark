@@ -84,7 +84,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %2
   %21 = load i32, ptr @optind, align 4
-  %.not8.i = icmp eq i32 %21, %0
+  %.not8.i = icmp eq i32 %0, %21
   br i1 %.not8.i, label %.init.exit_crit_edge, label %22
 
 .init.exit_crit_edge:                             ; preds = %20

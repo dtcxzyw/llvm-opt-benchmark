@@ -17514,7 +17514,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %for.body
-  %cmp19.i.i = icmp ugt ptr %e.017, %0
+  %cmp19.i.i = icmp ult ptr %0, %e.017
   br i1 %cmp19.i.i, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
@@ -17642,7 +17642,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body
-  %cmp19.i.i = icmp ugt ptr %e.017, %0
+  %cmp19.i.i = icmp ult ptr %0, %e.017
   br i1 %cmp19.i.i, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
@@ -17763,7 +17763,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.body
-  %cmp19.i.i = icmp ugt ptr %e.017, %0
+  %cmp19.i.i = icmp ult ptr %0, %e.017
   br i1 %cmp19.i.i, label %while.body.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
@@ -25835,7 +25835,7 @@ _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArra
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit148, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit150, %sw.bb.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb27.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb22.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb27.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit148 ], [ %incdec.ptr9.i.i.i.i.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit150 ], [ %__first.addr.049.i.i.i.i, %for.body.i.i.i.i ]
-  %cmp.i = icmp eq ptr %retval.0.i.i.i.i, %add.ptr.i
+  %cmp.i = icmp eq ptr %add.ptr.i, %retval.0.i.i.i.i
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb27.i.i.i.i, %for.end.i.i.i.i, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
@@ -25947,7 +25947,7 @@ _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArra
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit: ; preds = %for.body.i.i.i.i29, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit156, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit158, %sw.bb.i.i.i.i23, %sw.bb22.i.i.i.i18, %sw.bb27.i.i.i.i12
   %retval.0.i.i.i.i15 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i10, %sw.bb.i.i.i.i23 ], [ %__first.addr.1.i.i.i.i19, %sw.bb22.i.i.i.i18 ], [ %__first.addr.2.i.i.i.i13, %sw.bb27.i.i.i.i12 ], [ %incdec.ptr.i.i.i.i34.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i38.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit156 ], [ %incdec.ptr9.i.i.i.i42.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit158 ], [ %__first.addr.049.i.i.i.i31, %for.body.i.i.i.i29 ]
-  %cmp.i16 = icmp eq ptr %retval.0.i.i.i.i15, %add.ptr.i
+  %cmp.i16 = icmp eq ptr %add.ptr.i, %retval.0.i.i.i.i15
   br i1 %cmp.i16, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %sw.bb27.i.i.i.i12, %for.end.i.i.i.i8, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
@@ -26059,7 +26059,7 @@ _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArra
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit: ; preds = %for.body.i.i.i.i80, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit164, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit166, %sw.bb.i.i.i.i74, %sw.bb22.i.i.i.i69, %sw.bb27.i.i.i.i63
   %retval.0.i.i.i.i66 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i61, %sw.bb.i.i.i.i74 ], [ %__first.addr.1.i.i.i.i70, %sw.bb22.i.i.i.i69 ], [ %__first.addr.2.i.i.i.i64, %sw.bb27.i.i.i.i63 ], [ %incdec.ptr.i.i.i.i85.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i89.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit164 ], [ %incdec.ptr9.i.i.i.i93.le, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit166 ], [ %__first.addr.049.i.i.i.i82, %for.body.i.i.i.i80 ]
-  %cmp.i67 = icmp eq ptr %retval.0.i.i.i.i66, %add.ptr.i
+  %cmp.i67 = icmp eq ptr %add.ptr.i, %retval.0.i.i.i.i66
   br i1 %cmp.i67, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %sw.bb27.i.i.i.i63, %for.end.i.i.i.i59, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit

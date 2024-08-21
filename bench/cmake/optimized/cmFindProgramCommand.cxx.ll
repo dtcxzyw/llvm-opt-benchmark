@@ -753,7 +753,7 @@ _ZN19cmFindProgramHelper7AddNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %32 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 32:                                               ; preds = %._crit_edge
-  %.not24 = icmp eq ptr %31, %30
+  %.not24 = icmp eq ptr %30, %31
   br i1 %.not24, label %33, label %.invoke
 
 33:                                               ; preds = %32
@@ -777,7 +777,7 @@ _ZN19cmFindProgramHelper7AddNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %43 unwind label %.loopexit
 
 43:                                               ; preds = %.lr.ph35
-  %.not26 = icmp eq ptr %42, %41
+  %.not26 = icmp eq ptr %41, %42
   br i1 %.not26, label %38, label %.invoke
 
 .invoke:                                          ; preds = %43, %32
@@ -910,7 +910,7 @@ _ZN19cmFindProgramHelper7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %32 unwind label %.loopexit.split-lp.loopexit
 
 32:                                               ; preds = %_ZN19cmFindProgramHelper7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.not24 = icmp eq ptr %31, %29
+  %.not24 = icmp eq ptr %29, %31
   br i1 %.not24, label %35, label %.invoke
 
 33:                                               ; preds = %2
@@ -953,7 +953,7 @@ _ZN19cmFindProgramHelper7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %43 unwind label %.loopexit
 
 43:                                               ; preds = %.lr.ph
-  %.not26 = icmp eq ptr %42, %41
+  %.not26 = icmp eq ptr %41, %42
   br i1 %.not26, label %38, label %.invoke
 
 .invoke:                                          ; preds = %32, %43
@@ -1636,7 +1636,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %25, %.lr.ph.i.i.i ]
   %26 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i15 = icmp eq ptr %4, %1
+  %.not10.i.i.i15 = icmp eq ptr %1, %4
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i16
@@ -1729,7 +1729,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -1927,7 +1927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %16 unwind label %21
 
 16:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %17 = icmp ne ptr %15, %14
+  %17 = icmp ne ptr %14, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
@@ -2376,7 +2376,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   store ptr %3, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   store ptr %.sroa.050.075, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   %21 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmFindProgramHelper21CheckDirectoryForNameERKS7_SH_EUlSH_E_EEET_SK_SK_T0_St26random_access_iterator_tag(ptr %19, ptr %20, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.211") align 8 %11)
-  %.not61 = icmp eq ptr %21, %20
+  %.not61 = icmp eq ptr %20, %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br i1 %.not61, label %22, label %.loopexit
 
@@ -2389,7 +2389,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   store ptr %3, ptr %.sroa.2.0..sroa_idx.i.i.i16, align 8
   store ptr %23, ptr %.sroa.3.0..sroa_idx.i.i.i17, align 8
   %26 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmFindProgramHelper21CheckDirectoryForNameERKS7_SH_EUlSH_E_EEET_SK_SK_T0_St26random_access_iterator_tag(ptr %24, ptr %25, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.211") align 8 %10)
-  %.not62 = icmp eq ptr %26, %25
+  %.not62 = icmp eq ptr %25, %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br i1 %.not62, label %27, label %.loopexit.loopexit.split.loop.exit
 
@@ -2402,7 +2402,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   store ptr %3, ptr %.sroa.2.0..sroa_idx.i.i.i18, align 8
   store ptr %28, ptr %.sroa.3.0..sroa_idx.i.i.i19, align 8
   %31 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmFindProgramHelper21CheckDirectoryForNameERKS7_SH_EUlSH_E_EEET_SK_SK_T0_St26random_access_iterator_tag(ptr %29, ptr %30, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.211") align 8 %9)
-  %.not63 = icmp eq ptr %31, %30
+  %.not63 = icmp eq ptr %30, %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br i1 %.not63, label %32, label %.loopexit.loopexit.split.loop.exit83
 
@@ -2415,7 +2415,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   store ptr %3, ptr %.sroa.2.0..sroa_idx.i.i.i20, align 8
   store ptr %33, ptr %.sroa.3.0..sroa_idx.i.i.i21, align 8
   %36 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmFindProgramHelper21CheckDirectoryForNameERKS7_SH_EUlSH_E_EEET_SK_SK_T0_St26random_access_iterator_tag(ptr %34, ptr %35, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.211") align 8 %8)
-  %.not64 = icmp eq ptr %36, %35
+  %.not64 = icmp eq ptr %35, %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br i1 %.not64, label %37, label %.loopexit.loopexit.split.loop.exit85
 
@@ -2451,7 +2451,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   %.sroa.3.0..sroa_idx.i.i.i23 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %.sroa.050.0.lcssa, ptr %.sroa.3.0..sroa_idx.i.i.i23, align 8
   %46 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmFindProgramHelper21CheckDirectoryForNameERKS7_SH_EUlSH_E_EEET_SK_SK_T0_St26random_access_iterator_tag(ptr %43, ptr %45, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.211") align 8 %7)
-  %.not = icmp eq ptr %46, %45
+  %.not = icmp eq ptr %45, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br i1 %.not, label %47, label %.loopexit
 
@@ -2471,7 +2471,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   %.sroa.3.0..sroa_idx.i.i.i25 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %.sroa.050.1, ptr %.sroa.3.0..sroa_idx.i.i.i25, align 8
   %53 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmFindProgramHelper21CheckDirectoryForNameERKS7_SH_EUlSH_E_EEET_SK_SK_T0_St26random_access_iterator_tag(ptr %50, ptr %52, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.211") align 8 %6)
-  %.not59 = icmp eq ptr %53, %52
+  %.not59 = icmp eq ptr %52, %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br i1 %.not59, label %54, label %.loopexit
 
@@ -2491,7 +2491,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   %.sroa.3.0..sroa_idx.i.i.i27 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %.sroa.050.2, ptr %.sroa.3.0..sroa_idx.i.i.i27, align 8
   %60 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN19cmFindProgramHelper21CheckDirectoryForNameERKS7_SH_EUlSH_E_EEET_SK_SK_T0_St26random_access_iterator_tag(ptr %57, ptr %59, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.211") align 8 %5)
-  %.not60 = icmp eq ptr %60, %59
+  %.not60 = icmp eq ptr %59, %60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %spec.select = select i1 %.not60, ptr %1, ptr %.sroa.050.2
   br label %.loopexit

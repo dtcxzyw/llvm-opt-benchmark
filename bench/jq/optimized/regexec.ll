@@ -210,7 +210,7 @@ define range(i32 -30, 1) i32 @onig_region_set(ptr nocapture noundef %0, i32 noun
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %0, align 8
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %onig_region_resize.exit, label %8
 
 8:                                                ; preds = %6
@@ -1492,7 +1492,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
 
 132:                                              ; preds = %127
   %133 = icmp ule ptr %128, %1
-  %.not293 = icmp ult ptr %128, %3
+  %.not293 = icmp ugt ptr %3, %128
   %or.cond311 = or i1 %133, %.not293
   br i1 %or.cond311, label %195, label %90
 
@@ -3752,7 +3752,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %1074, label %1075, label %1086
 
 1075:                                             ; preds = %1070
-  %1076 = icmp ugt ptr %.01449, %1
+  %1076 = icmp ult ptr %1, %.01449
   br i1 %1076, label %1077, label %1115
 
 1077:                                             ; preds = %1075
@@ -5138,7 +5138,7 @@ string_cmp_ic.exit1977.thread:                    ; preds = %.lr.ph2219, %.lr.ph
   %1807 = getelementptr inbounds i8, ptr %.pn7.us.i, i64 -28
   %1808 = load i32, ptr %1807, align 4
   %1809 = load i32, ptr %1791, align 4
-  %1810 = icmp eq i32 %1809, %1808
+  %1810 = icmp eq i32 %1808, %1809
   br i1 %1810, label %backref_check_at_nested_level.exit, label %mem_is_in_memp.exit.thread.us.i
 
 mem_is_in_memp.exit.thread.us.i:                  ; preds = %.lr.ph.preheader.i.us.i, %1804, %1802, %1800
@@ -5193,7 +5193,7 @@ mem_is_in_memp.exit.thread.us.i:                  ; preds = %.lr.ph.preheader.i.
   %indvars.iv.i.us.i1994 = phi i64 [ 0, %.lr.ph.preheader.i.us.i1992 ], [ %indvars.iv.next.i.us.i1995, %1828 ]
   %1825 = getelementptr inbounds i32, ptr %1811, i64 %indvars.iv.i.us.i1994
   %1826 = load i32, ptr %1825, align 4
-  %1827 = icmp eq i32 %1826, %1824
+  %1827 = icmp eq i32 %1824, %1826
   br i1 %1827, label %backref_check_at_nested_level.exit, label %1828
 
 1828:                                             ; preds = %.lr.ph.i.us.i1993
@@ -8698,7 +8698,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
 
 162:                                              ; preds = %154
   %163 = icmp ule ptr %157, %1
-  %.not375 = icmp ult ptr %157, %3
+  %.not375 = icmp ugt ptr %3, %157
   %or.cond402 = or i1 %163, %.not375
   br i1 %or.cond402, label %200, label %82
 
@@ -9697,7 +9697,7 @@ define range(i32 -30, 1) i32 @onig_regset_replace(ptr nocapture noundef %0, i32 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %5
@@ -9759,7 +9759,7 @@ history_root_free.exit.i:                         ; preds = %31, %27
 onig_region_free.exit:                            ; preds = %10, %history_root_free.exit.i
   %32 = phi i32 [ %7, %10 ], [ %.pre, %history_root_free.exit.i ]
   %33 = add nsw i32 %32, -1
-  %34 = icmp sgt i32 %33, %1
+  %34 = icmp slt i32 %1, %33
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %onig_region_free.exit, %.lr.ph
@@ -10022,7 +10022,7 @@ define ptr @onig_regset_get_regex(ptr nocapture noundef readonly %0, i32 noundef
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %4
@@ -10045,7 +10045,7 @@ define ptr @onig_regset_get_region(ptr nocapture noundef readonly %0, i32 nounde
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %4
@@ -11922,7 +11922,7 @@ define internal fastcc range(i32 0, 2) i32 @backref_match_at_nested_level(ptr no
   %indvars.iv.i54.us.us = phi i64 [ 0, %.lr.ph.preheader.i51.us.us ], [ %indvars.iv.next.i55.us.us, %26 ]
   %23 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i54.us.us
   %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, %22
+  %25 = icmp eq i32 %22, %24
   br i1 %25, label %mem_is_in_memp.exit57.us.us, label %26
 
 26:                                               ; preds = %.lr.ph.i53.us.us
@@ -11944,7 +11944,7 @@ mem_is_in_memp.exit57.us.us:                      ; preds = %.lr.ph.i53.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.preheader.i.us.us ], [ %indvars.iv.next.i.us.us, %34 ]
   %31 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i.us.us
   %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, %30
+  %33 = icmp eq i32 %30, %32
   br i1 %33, label %mem_is_in_memp.exit.us.us, label %34
 
 34:                                               ; preds = %.lr.ph.i.us.us
@@ -12088,7 +12088,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search(ptr nocapture noundef
   %43 = getelementptr inbounds i8, ptr %2, i64 %.neg32.i
   %44 = icmp ugt ptr %43, %4
   %spec.select.i = select i1 %44, ptr %4, ptr %43
-  %45 = icmp ugt ptr %spec.select.i, %.2
+  %45 = icmp ult ptr %.2, %spec.select.i
   br i1 %45, label %.lr.ph.i, label %slow_search.exit.thread
 
 .lr.ph.i:                                         ; preds = %37, %55
@@ -12213,7 +12213,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search(ptr nocapture noundef
   %113 = sub nsw i64 0, %111
   %114 = getelementptr inbounds i8, ptr %2, i64 %113
   %.040.i115 = select i1 %112, ptr %114, ptr %4
-  %115 = icmp ugt ptr %.040.i115, %.2
+  %115 = icmp ult ptr %.2, %.040.i115
   br i1 %115, label %.lr.ph50.i, label %slow_search.exit.thread
 
 .lr.ph50.i:                                       ; preds = %103

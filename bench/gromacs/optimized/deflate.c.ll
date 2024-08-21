@@ -502,7 +502,7 @@ define range(i32 -2, 1) i32 @deflateSetDictionary(ptr noundef %0, ptr noundef %1
   store i32 0, ptr %11, align 4
   %21 = getelementptr inbounds i8, ptr %7, i64 68
   %22 = load i32, ptr %21, align 4
-  %.not88 = icmp ugt i32 %22, %2
+  %.not88 = icmp ult i32 %2, %22
   br i1 %.not88, label %51, label %28
 
 .thread91.thread:                                 ; preds = %16
@@ -513,7 +513,7 @@ define range(i32 -2, 1) i32 @deflateSetDictionary(ptr noundef %0, ptr noundef %1
   store i32 0, ptr %11, align 4
   %26 = getelementptr inbounds i8, ptr %7, i64 68
   %27 = load i32, ptr %26, align 4
-  %.not8894 = icmp ugt i32 %27, %2
+  %.not8894 = icmp ult i32 %2, %27
   br i1 %.not8894, label %51, label %.thread95
 
 28:                                               ; preds = %.thread91
@@ -1171,7 +1171,7 @@ define i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   %13 = getelementptr inbounds i8, ptr %7, i64 180
   %14 = getelementptr inbounds i8, ptr %7, i64 184
   %15 = load i32, ptr %14, align 8
-  %.not = icmp eq i32 %15, %2
+  %.not = icmp eq i32 %2, %15
   br i1 %.not, label %16, label %24
 
 16:                                               ; preds = %12

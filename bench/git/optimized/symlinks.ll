@@ -118,7 +118,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
   %conv = trunc i64 %3 to i32
-  %cmp.i = icmp sgt i32 %conv, %len
+  %cmp.i = icmp slt i32 %len, %conv
   %cond.i = tail call i32 @llvm.smin.i32(i32 %len, i32 %conv)
   %cmp128.i = icmp sgt i32 %cond.i, 0
   br i1 %cmp128.i, label %land.rhs.preheader.i, label %land.lhs.true.i
@@ -148,7 +148,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 land.lhs.true.i:                                  ; preds = %while.body.i, %if.end
   %match_len.0.lcssa.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %while.body.i ]
   %i.0.lcssa.i = phi i32 [ 0, %if.end ], [ %cond.i, %while.body.i ]
-  %cmp14.i = icmp slt i32 %conv, %len
+  %cmp14.i = icmp sgt i32 %len, %conv
   br i1 %cmp14.i, label %land.lhs.true16.i, label %lor.lhs.false.i
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
@@ -170,7 +170,7 @@ land.lhs.true24.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp28.i, label %if.then33.i, label %longest_path_match.exit
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false.i
-  %cmp31.old.i = icmp eq i32 %conv, %len
+  %cmp31.old.i = icmp eq i32 %len, %conv
   br i1 %cmp31.old.i, label %if.then33.i, label %longest_path_match.exit
 
 if.then33.i:                                      ; preds = %lor.lhs.false30.i, %land.lhs.true24.i, %land.lhs.true16.i
@@ -438,7 +438,7 @@ if.else:                                          ; preds = %lor.lhs.false
   %len7 = getelementptr inbounds i8, ptr %cache, i64 8
   %4 = load i64, ptr %len7, align 8
   %conv = trunc i64 %4 to i32
-  %cmp.i = icmp sgt i32 %conv, %len
+  %cmp.i = icmp slt i32 %len, %conv
   %cond.i = tail call i32 @llvm.smin.i32(i32 %len, i32 %conv)
   %cmp128.i = icmp sgt i32 %cond.i, 0
   br i1 %cmp128.i, label %land.rhs.preheader.i, label %land.lhs.true.i
@@ -471,7 +471,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i, %if.e
   %match_len.0.lcssa.i = phi i32 [ 0, %if.else ], [ %spec.select.i, %while.body.i ]
   %match_len_prev.0.lcssa.i = phi i32 [ 0, %if.else ], [ %spec.select24.i, %while.body.i ]
   %i.0.lcssa.i = phi i32 [ 0, %if.else ], [ %cond.i, %while.body.i ]
-  %cmp14.i = icmp slt i32 %conv, %len
+  %cmp14.i = icmp sgt i32 %len, %conv
   br i1 %cmp14.i, label %land.lhs.true16.i, label %lor.lhs.false.i
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
@@ -493,7 +493,7 @@ land.lhs.true24.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp28.i, label %if.then33.i, label %longest_path_match.exit
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false.i
-  %cmp31.old.i = icmp eq i32 %conv, %len
+  %cmp31.old.i = icmp eq i32 %len, %conv
   br i1 %cmp31.old.i, label %if.then33.i, label %longest_path_match.exit
 
 if.then33.i:                                      ; preds = %lor.lhs.false30.i, %land.lhs.true24.i, %land.lhs.true16.i
@@ -525,7 +525,7 @@ if.end21:                                         ; preds = %land.lhs.true14, %l
   %and22 = and i32 %track_flags, 1
   store i32 %and22, ptr %ret_flags, align 4
   %tobool23.not = icmp ne i32 %and22, 0
-  %cmp25 = icmp eq i32 %last_slash.1, %len
+  %cmp25 = icmp eq i32 %len, %last_slash.1
   %or.cond76 = select i1 %tobool23.not, i1 %cmp25, i1 false
   br i1 %or.cond76, label %return, label %if.end29
 
@@ -655,7 +655,7 @@ land.rhs:                                         ; preds = %do.body
 
 do.end:                                           ; preds = %land.rhs
   %30 = trunc nsw i64 %indvars.iv.next117 to i32
-  %cmp54.not.not = icmp slt i32 %30, %len
+  %cmp54.not.not = icmp sgt i32 %len, %30
   br i1 %cmp54.not.not, label %if.end60, label %while.end
 
 if.end60:                                         ; preds = %do.end
@@ -665,7 +665,7 @@ if.end60:                                         ; preds = %do.end
   %idxprom63 = ashr exact i64 %sext150, 32
   %arrayidx64 = getelementptr inbounds i8, ptr %32, i64 %idxprom63
   store i8 0, ptr %arrayidx64, align 1
-  %cmp65.not.not = icmp slt i32 %31, %prefix_len_stat_func
+  %cmp65.not.not = icmp sgt i32 %prefix_len_stat_func, %31
   %33 = load ptr, ptr %buf44, align 8
   br i1 %cmp65.not.not, label %if.then67, label %if.else71
 

@@ -45,7 +45,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = sub nuw nsw i32 64, %conv
   %conv2 = zext nneg i32 %sub to i64
-  %cmp = icmp ugt i64 %conv2, %len
+  %cmp = icmp ult i64 %len, %conv2
   %conv5 = trunc nuw nsw i64 %len to i32
   %spec.select = select i1 %cmp, i32 %conv5, i32 %sub
   %buf = getelementptr inbounds i8, ptr %ctx, i64 44

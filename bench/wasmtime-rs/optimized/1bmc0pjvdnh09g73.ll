@@ -233,7 +233,7 @@ define hidden noundef ptr @"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$f
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %1, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !23, !noalias !27
   store ptr %7, ptr %0, align 8, !alias.scope !17, !noalias !20
   store i64 %8, ptr %4, align 8, !alias.scope !17, !noalias !20
-  %.not = icmp ult i64 %5, %2
+  %.not = icmp ugt i64 %2, %5
   %.anon.09e90edf43d250f664dd687a08bfc1c9.13.llvm.14258815958238736712 = select i1 %.not, ptr @anon.09e90edf43d250f664dd687a08bfc1c9.13.llvm.14258815958238736712, ptr null
   ret ptr %.anon.09e90edf43d250f664dd687a08bfc1c9.13.llvm.14258815958238736712
 }
@@ -776,7 +776,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h7a0d425d20d49f59E.exit: ; preds = %.
 
 157:                                              ; preds = %151, %.thread19.i
   %.sroa.4.0.i46.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %152, %151 ]
-  %158 = icmp ugt i64 %125, %.sroa.4.0.i46.ph
+  %158 = icmp ult i64 %.sroa.4.0.i46.ph, %125
   br i1 %158, label %160, label %159
 
 159:                                              ; preds = %157
@@ -790,7 +790,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h7a0d425d20d49f59E.exit: ; preds = %.
   %163 = getelementptr inbounds i8, ptr %161, i64 8
   %164 = load i64, ptr %163, align 8, !noundef !4
   %165 = add nuw i64 %.sroa.4.0.i46.ph, 1
-  %166 = icmp ugt i64 %125, %165
+  %166 = icmp ult i64 %165, %125
   br i1 %166, label %169, label %167
 
 167:                                              ; preds = %160
@@ -854,7 +854,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h7a0d425d20d49f59E.exit: ; preds = %.
   %186 = getelementptr inbounds i64, ptr %185, i64 %162
   %187 = getelementptr inbounds i64, ptr %0, i64 %174
   %188 = sub i64 %184, %162
-  %.not.i55 = icmp ult i64 %188, %162
+  %.not.i55 = icmp ugt i64 %162, %188
   %189 = icmp sgt i64 %162, 0
   br i1 %.not.i55, label %190, label %194
 
@@ -892,8 +892,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h7a0d425d20d49f59E.exit: ; preds = %.
   %204 = getelementptr inbounds i8, ptr %.02725.i, i64 -8
   %205 = load i64, ptr %.026.i, align 8
   store i64 %205, ptr %204, align 8, !alias.scope !82
-  %206 = icmp ugt ptr %201, %185
-  %207 = icmp ugt ptr %203, %14
+  %206 = icmp ult ptr %185, %201
+  %207 = icmp ult ptr %14, %203
   %or.cond.i59 = select i1 %206, i1 %207, i1 false
   br i1 %or.cond.i59, label %.lr.ph26.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h38d5d76186a5b008E.exit"
 
@@ -1420,7 +1420,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h8a392099e7e7250aE.exit: ; preds = %.
 
 161:                                              ; preds = %155, %.thread19.i
   %.sroa.4.0.i46.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %156, %155 ]
-  %162 = icmp ugt i64 %129, %.sroa.4.0.i46.ph
+  %162 = icmp ult i64 %.sroa.4.0.i46.ph, %129
   br i1 %162, label %164, label %163
 
 163:                                              ; preds = %161
@@ -1434,7 +1434,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h8a392099e7e7250aE.exit: ; preds = %.
   %167 = getelementptr inbounds i8, ptr %165, i64 8
   %168 = load i64, ptr %167, align 8, !noundef !4
   %169 = add nuw i64 %.sroa.4.0.i46.ph, 1
-  %170 = icmp ugt i64 %129, %169
+  %170 = icmp ult i64 %169, %129
   br i1 %170, label %173, label %171
 
 171:                                              ; preds = %164
@@ -1498,7 +1498,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h8a392099e7e7250aE.exit: ; preds = %.
   %190 = getelementptr inbounds { i64, { i8, [63 x i8] } }, ptr %189, i64 %166
   %191 = getelementptr inbounds { i64, { i8, [63 x i8] } }, ptr %0, i64 %178
   %192 = sub i64 %188, %166
-  %.not.i55 = icmp ult i64 %192, %166
+  %.not.i55 = icmp ugt i64 %166, %192
   %193 = icmp sgt i64 %166, 0
   br i1 %.not.i55, label %194, label %198
 
@@ -1535,8 +1535,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h8a392099e7e7250aE.exit: ; preds = %.
   %.026.i = select i1 %204, ptr %205, ptr %207
   %208 = getelementptr inbounds i8, ptr %.02723.i, i64 -72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %208, ptr noundef nonnull align 8 dereferenceable(72) %.026.i, i64 72, i1 false)
-  %209 = icmp ugt ptr %205, %189
-  %210 = icmp ugt ptr %207, %14
+  %209 = icmp ult ptr %189, %205
+  %210 = icmp ult ptr %14, %207
   %or.cond.i59 = select i1 %209, i1 %210, i1 false
   br i1 %or.cond.i59, label %.lr.ph24.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h13653c98c5aa73beE.exit"
 
@@ -2064,7 +2064,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h1797c8f38114646dE.exit: ; preds = %.
 
 169:                                              ; preds = %163, %.thread19.i
   %.sroa.4.0.i46.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %164, %163 ]
-  %170 = icmp ugt i64 %137, %.sroa.4.0.i46.ph
+  %170 = icmp ult i64 %.sroa.4.0.i46.ph, %137
   br i1 %170, label %172, label %171
 
 171:                                              ; preds = %169
@@ -2078,7 +2078,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h1797c8f38114646dE.exit: ; preds = %.
   %175 = getelementptr inbounds i8, ptr %173, i64 8
   %176 = load i64, ptr %175, align 8, !noundef !4
   %177 = add nuw i64 %.sroa.4.0.i46.ph, 1
-  %178 = icmp ugt i64 %137, %177
+  %178 = icmp ult i64 %177, %137
   br i1 %178, label %181, label %179
 
 179:                                              ; preds = %172
@@ -2142,7 +2142,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h1797c8f38114646dE.exit: ; preds = %.
   %198 = getelementptr inbounds ptr, ptr %197, i64 %174
   %199 = getelementptr inbounds ptr, ptr %0, i64 %186
   %200 = sub i64 %196, %174
-  %.not.i55 = icmp ult i64 %200, %174
+  %.not.i55 = icmp ugt i64 %174, %200
   %201 = icmp sgt i64 %174, 0
   br i1 %.not.i55, label %202, label %206
 
@@ -2182,8 +2182,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h1797c8f38114646dE.exit: ; preds = %.
   %218 = getelementptr inbounds i8, ptr %.02725.i, i64 -8
   %219 = load i64, ptr %.026.i, align 8
   store i64 %219, ptr %218, align 8, !alias.scope !219
-  %220 = icmp ugt ptr %215, %197
-  %221 = icmp ugt ptr %217, %14
+  %220 = icmp ult ptr %197, %215
+  %221 = icmp ult ptr %14, %217
   %or.cond.i59 = select i1 %220, i1 %221, i1 false
   br i1 %or.cond.i59, label %.lr.ph26.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h853111980157b740E.exit"
 
@@ -2722,7 +2722,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h5f598d6a051d2639E.exit: ; preds = %_
 
 164:                                              ; preds = %158, %.thread19.i
   %.sroa.4.0.i46.ph = phi i64 [ %.pre-phi.i, %.thread19.i ], [ %159, %158 ]
-  %165 = icmp ugt i64 %132, %.sroa.4.0.i46.ph
+  %165 = icmp ult i64 %.sroa.4.0.i46.ph, %132
   br i1 %165, label %167, label %166
 
 166:                                              ; preds = %164
@@ -2736,7 +2736,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h5f598d6a051d2639E.exit: ; preds = %_
   %170 = getelementptr inbounds i8, ptr %168, i64 8
   %171 = load i64, ptr %170, align 8, !noundef !4
   %172 = add nuw i64 %.sroa.4.0.i46.ph, 1
-  %173 = icmp ugt i64 %132, %172
+  %173 = icmp ult i64 %172, %132
   br i1 %173, label %176, label %174
 
 174:                                              ; preds = %167
@@ -2800,7 +2800,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h5f598d6a051d2639E.exit: ; preds = %_
   %193 = getelementptr inbounds { { i8, [39 x i8] }, i64, i16, i8, [5 x i8] }, ptr %192, i64 %169
   %194 = getelementptr inbounds { { i8, [39 x i8] }, i64, i16, i8, [5 x i8] }, ptr %0, i64 %181
   %195 = sub i64 %191, %169
-  %.not.i55 = icmp ult i64 %195, %169
+  %.not.i55 = icmp ugt i64 %169, %195
   %196 = icmp sgt i64 %169, 0
   br i1 %.not.i55, label %197, label %201
 
@@ -2837,8 +2837,8 @@ _ZN4core5slice4sort20provide_sorted_batch17h5f598d6a051d2639E.exit: ; preds = %_
   %.026.i = select i1 %207, ptr %208, ptr %210
   %211 = getelementptr inbounds i8, ptr %.02723.i, i64 -56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %211, ptr noundef nonnull align 8 dereferenceable(56) %.026.i, i64 56, i1 false)
-  %212 = icmp ugt ptr %208, %192
-  %213 = icmp ugt ptr %210, %14
+  %212 = icmp ult ptr %192, %208
+  %213 = icmp ult ptr %14, %210
   %or.cond.i59 = select i1 %212, i1 %213, i1 false
   br i1 %or.cond.i59, label %.lr.ph24.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h238433ba619f96eeE.exit"
 
@@ -5461,7 +5461,7 @@ switch.lookup:
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 4
   %switch.downshift = lshr i48 133144903688, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i16
-  %.not = icmp eq i16 %switch.masked, %2
+  %.not = icmp eq i16 %2, %switch.masked
   br i1 %.not, label %9, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread
 
 8:                                                ; preds = %9
@@ -5494,7 +5494,7 @@ switch.lookup:
   %23 = load i64, ptr %22, align 8, !alias.scope !514, !noalias !521, !noundef !4
   %24 = load i64, ptr %21, align 8, !alias.scope !524, !noalias !521, !noundef !4
   %25 = sub i64 %24, %23
-  %26 = icmp ult i64 %25, %20
+  %26 = icmp ugt i64 %20, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %17
@@ -8482,7 +8482,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817h4afea6
   %31 = load i64, ptr %30, align 8, !alias.scope !1352, !noalias !1359, !noundef !4
   %32 = load i64, ptr %0, align 8, !alias.scope !1362, !noalias !1359, !noundef !4
   %33 = sub i64 %32, %31
-  %.not = icmp ugt i64 %33, %.01932.i
+  %.not = icmp ult i64 %.01932.i, %33
   br i1 %.not, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit", label %34
 
 34:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"
@@ -8593,7 +8593,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817hb83e66
   %32 = load i64, ptr %31, align 8, !alias.scope !1391, !noalias !1398, !noundef !4
   %33 = load i64, ptr %30, align 8, !alias.scope !1401, !noalias !1398, !noundef !4
   %34 = sub i64 %33, %32
-  %.not = icmp ugt i64 %34, %.01932.i
+  %.not = icmp ult i64 %.01932.i, %34
   br i1 %.not, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit", label %35
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"
@@ -8701,7 +8701,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h28306e
   %32 = load i64, ptr %31, align 8, !alias.scope !1430, !noalias !1437, !noundef !4
   %33 = load i64, ptr %0, align 8, !alias.scope !1440, !noalias !1437, !noundef !4
   %34 = sub i64 %33, %32
-  %.not = icmp ugt i64 %34, %.01526.i
+  %.not = icmp ult i64 %.01526.i, %34
   br i1 %.not, label %"_ZN125_$LT$wasmtime_cranelift..obj..UnwindInfoBuilder..write_systemv_unwind_info..MyVec$u20$as$u20$gimli..write..writer..Writer$GT$5write17h3164552663168fb5E.exit", label %35
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"
@@ -8810,7 +8810,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h82bb31
   %33 = load i64, ptr %32, align 8, !alias.scope !1469, !noalias !1476, !noundef !4
   %34 = load i64, ptr %31, align 8, !alias.scope !1479, !noalias !1476, !noundef !4
   %35 = sub i64 %34, %33
-  %.not = icmp ugt i64 %35, %.01526.i
+  %.not = icmp ult i64 %.01526.i, %35
   br i1 %.not, label %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$5write17h2d0dcfc273b888feE.exit", label %36
 
 36:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h871d2dcc48eab4f0E.llvm.14258815958238736712.exit"

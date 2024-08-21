@@ -299,14 +299,14 @@ if.end4:                                          ; preds = %entry, %if.then
   %cmp.i = icmp ugt i64 %ad_len_, -225
   %cmp3.i = icmp ugt i64 %m_len_, -225
   %or.cond.i = or i1 %cmp3.i, %cmp.i
-  %cmp5.i = icmp ugt i64 %div9.i, %ad_len_
+  %cmp5.i = icmp ult i64 %ad_len_, %div9.i
   %or.cond11.i = or i1 %or.cond.i, %cmp5.i
   br i1 %or.cond11.i, label %if.then6, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.end4
   %add1.i = add nuw i64 %m_len_, 15
   %div210.i = lshr i64 %add1.i, 4
-  %cmp7.i = icmp ugt i64 %div210.i, %m_len_
+  %cmp7.i = icmp ult i64 %m_len_, %div210.i
   %cmp9.i = icmp ugt i64 %m_len_, 68719476688
   %or.cond1.i = or i1 %cmp9.i, %cmp7.i
   br i1 %or.cond1.i, label %if.then6, label %required_blocks.exit
@@ -1365,7 +1365,7 @@ encrypt.exit.i:                                   ; preds = %for.body.i564.i
   %231 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %227, <2 x i64> %230)
   store <2 x i64> %231, ptr %mac, align 1
   %sub253.i = sub i64 %m_len_, %i.6.lcssa.i
-  %cmp254.not.i = icmp eq i64 %i.6.lcssa.i, %m_len_
+  %cmp254.not.i = icmp eq i64 %m_len_, %i.6.lcssa.i
   br i1 %cmp254.not.i, label %if.else.i, label %for.end264.i
 
 for.end264.i:                                     ; preds = %encrypt.exit.i
@@ -1534,14 +1534,14 @@ if.then3:                                         ; preds = %entry
   %cmp.i.i = icmp ugt i64 %ad_len_, -225
   %cmp3.i.i = icmp ugt i64 %c_len_, -225
   %or.cond.i.i = or i1 %cmp3.i.i, %cmp.i.i
-  %cmp5.i.i = icmp ugt i64 %div9.i.i, %ad_len_
+  %cmp5.i.i = icmp ult i64 %ad_len_, %div9.i.i
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp5.i.i
   br i1 %or.cond11.i.i, label %crypto_aead_aes256gcm_verify_mac.exit, label %lor.lhs.false6.i.i
 
 lor.lhs.false6.i.i:                               ; preds = %if.then3
   %add1.i.i = add nuw i64 %c_len_, 15
   %div210.i.i = lshr i64 %add1.i.i, 4
-  %cmp7.i.i = icmp ugt i64 %div210.i.i, %c_len_
+  %cmp7.i.i = icmp ult i64 %c_len_, %div210.i.i
   %cmp9.i.i = icmp ugt i64 %c_len_, 68719476688
   %or.cond1.i.i = or i1 %cmp9.i.i, %cmp7.i.i
   br i1 %or.cond1.i.i, label %crypto_aead_aes256gcm_verify_mac.exit, label %required_blocks.exit.i
@@ -1638,14 +1638,14 @@ if.end4:                                          ; preds = %entry
   %cmp.i = icmp ugt i64 %ad_len_, -225
   %cmp3.i = icmp ugt i64 %c_len_, -225
   %or.cond.i = or i1 %cmp3.i, %cmp.i
-  %cmp5.i = icmp ugt i64 %div9.i, %ad_len_
+  %cmp5.i = icmp ult i64 %ad_len_, %div9.i
   %or.cond11.i = or i1 %or.cond.i, %cmp5.i
   br i1 %or.cond11.i, label %return, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %if.end4
   %add1.i = add nuw i64 %c_len_, 15
   %div210.i = lshr i64 %add1.i, 4
-  %cmp7.i = icmp ugt i64 %div210.i, %c_len_
+  %cmp7.i = icmp ult i64 %c_len_, %div210.i
   %cmp9.i = icmp ugt i64 %c_len_, 68719476688
   %or.cond1.i = or i1 %cmp9.i, %cmp7.i
   br i1 %or.cond1.i, label %return, label %required_blocks.exit
@@ -2423,7 +2423,7 @@ encrypt.exit.i30:                                 ; preds = %for.body.i387.i
   %181 = load <2 x i64>, ptr %arrayidx6.i.i31, align 16
   %182 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %178, <2 x i64> %181)
   %sub178.i = sub i64 %c_len_, %i.4.lcssa.i
-  %cmp179.not.i = icmp eq i64 %i.4.lcssa.i, %c_len_
+  %cmp179.not.i = icmp eq i64 %c_len_, %i.4.lcssa.i
   br i1 %cmp179.not.i, label %if.else.i, label %for.cond190.preheader.i
 
 for.cond190.preheader.i:                          ; preds = %encrypt.exit.i30

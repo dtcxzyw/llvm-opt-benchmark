@@ -564,7 +564,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false), !noalias !109
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %36 = load ptr, ptr %27, align 8, !alias.scope !117, !noalias !120, !noundef !35
-  %37 = icmp eq ptr %36, %12
+  %37 = icmp eq ptr %12, %36
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %35
@@ -647,7 +647,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %54 = getelementptr inbounds i8, ptr %7, i64 8
   %55 = load ptr, ptr %54, align 8, !alias.scope !123, !noalias !126, !noundef !35
-  %56 = icmp eq ptr %55, %0
+  %56 = icmp eq ptr %0, %55
   br i1 %56, label %62, label %57
 
 57:                                               ; preds = %53
@@ -873,7 +873,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %31 = getelementptr inbounds i8, ptr %8, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !161, !noalias !164, !noundef !35
-  %33 = icmp eq ptr %32, %12
+  %33 = icmp eq ptr %12, %32
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %30
@@ -945,7 +945,7 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17hdb34e2eb08497d94E.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !167)
   %53 = getelementptr inbounds i8, ptr %7, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !167, !noalias !170, !noundef !35
-  %55 = icmp eq ptr %54, %0
+  %55 = icmp eq ptr %0, %54
   br i1 %55, label %61, label %56
 
 56:                                               ; preds = %52

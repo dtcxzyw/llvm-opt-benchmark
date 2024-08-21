@@ -2168,8 +2168,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %offset.sroa.16.0.extract.shift = lshr i64 %2, 32
   %offset.sroa.16.0.extract.trunc = trunc nuw i64 %offset.sroa.16.0.extract.shift to i32
   %tobool8 = icmp ne ptr %clip, null
-  %or.cond = or i1 %tobool8, %vcenter
-  %or.cond114 = or i1 %or.cond, %hcenter
+  %or.cond = or i1 %vcenter, %tobool8
+  %or.cond114 = or i1 %hcenter, %or.cond
   br i1 %or.cond114, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end

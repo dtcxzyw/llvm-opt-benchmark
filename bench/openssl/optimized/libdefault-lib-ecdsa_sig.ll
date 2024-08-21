@@ -87,14 +87,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp ugt i64 %conv, %sigsize
+  %cmp5 = icmp ult i64 %sigsize, %conv
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
   %mdsize = getelementptr inbounds i8, ptr %vctx, i64 352
   %1 = load i64, ptr %mdsize, align 8
   %cmp9.not = icmp eq i64 %1, 0
-  %cmp12.not = icmp eq i64 %1, %tbslen
+  %cmp12.not = icmp eq i64 %tbslen, %1
   %or.cond = or i1 %cmp9.not, %cmp12.not
   br i1 %or.cond, label %if.end15, label %return
 
@@ -161,7 +161,7 @@ lor.lhs.false:                                    ; preds = %entry
   %mdsize = getelementptr inbounds i8, ptr %vctx, i64 352
   %0 = load i64, ptr %mdsize, align 8
   %cmp.not = icmp eq i64 %0, 0
-  %cmp2.not = icmp eq i64 %0, %tbslen
+  %cmp2.not = icmp eq i64 %tbslen, %0
   %or.cond = or i1 %cmp.not, %cmp2.not
   br i1 %or.cond, label %if.end, label %return
 

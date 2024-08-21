@@ -47,7 +47,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %.val4.i.i = load i64, ptr %17, align 8, !alias.scope !15, !noalias !16, !noundef !4
   %18 = sub nuw i64 %.val4.i.i, %.val.i.i
-  %19 = icmp ult i64 %12, %18
+  %19 = icmp ugt i64 %18, %12
   br i1 %19, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h533a17c280bd7afeE.exit.i.i"
 
 20:                                               ; preds = %11
@@ -294,13 +294,13 @@ define hidden { i32, i32 } @_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb79928
   br i1 %.not.i, label %13, label %14
 
 13:                                               ; preds = %12
-  %.not5.i = icmp eq ptr %.sroa.5.0, %0
+  %.not5.i = icmp eq ptr %0, %.sroa.5.0
   br i1 %.not5.i, label %.loopexit, label %19
 
 14:                                               ; preds = %12
   %15 = ptrtoint ptr %.sroa.5.0 to i64
   %16 = sub nuw i64 %15, %9
-  %.not.i.i.i.i = icmp ugt i64 %16, %.sroa.10.020
+  %.not.i.i.i.i = icmp ult i64 %.sroa.10.020, %16
   %17 = sub nsw i64 0, %.sroa.10.020
   %18 = getelementptr inbounds i8, ptr %.sroa.5.0, i64 %17
   br i1 %.not.i.i.i.i, label %19, label %.loopexit
@@ -366,13 +366,13 @@ define hidden void @_ZN6memchr6memmem13FinderBuilder13build_reverse17hd639ef99ee
   br i1 %.not.i.i.i, label %25, label %26
 
 25:                                               ; preds = %24
-  %.not5.i.i.i = icmp eq ptr %.sroa.5.0.i.i, %2
+  %.not5.i.i.i = icmp eq ptr %2, %.sroa.5.0.i.i
   br i1 %.not5.i.i.i, label %_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b8385E.llvm.1100051835029668662.exit, label %31
 
 26:                                               ; preds = %24
   %27 = ptrtoint ptr %.sroa.5.0.i.i to i64
   %28 = sub nuw i64 %27, %23
-  %.not.i.i.i.i.i.i = icmp ugt i64 %28, %.sroa.10.020.i.i
+  %.not.i.i.i.i.i.i = icmp ult i64 %.sroa.10.020.i.i, %28
   %29 = sub nsw i64 0, %.sroa.10.020.i.i
   %30 = getelementptr inbounds i8, ptr %.sroa.5.0.i.i, i64 %29
   br i1 %.not.i.i.i.i.i.i, label %31, label %_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b8385E.llvm.1100051835029668662.exit
@@ -471,13 +471,13 @@ define hidden void @_ZN6memchr6memmem8searcher11SearcherRev3new17h101baef20c6b83
   br i1 %.not.i.i, label %25, label %26
 
 25:                                               ; preds = %24
-  %.not5.i.i = icmp eq ptr %.sroa.5.0.i, %1
+  %.not5.i.i = icmp eq ptr %1, %.sroa.5.0.i
   br i1 %.not5.i.i, label %_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb799283b77cd3e98E.llvm.1100051835029668662.exit, label %31
 
 26:                                               ; preds = %24
   %27 = ptrtoint ptr %.sroa.5.0.i to i64
   %28 = sub nuw i64 %27, %23
-  %.not.i.i.i.i.i = icmp ugt i64 %28, %.sroa.10.020.i
+  %.not.i.i.i.i.i = icmp ult i64 %.sroa.10.020.i, %28
   %29 = sub nsw i64 0, %.sroa.10.020.i
   %30 = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 %29
   br i1 %.not.i.i.i.i.i, label %31, label %_ZN6memchr4arch3all9rabinkarp9FinderRev3new17hb799283b77cd3e98E.llvm.1100051835029668662.exit

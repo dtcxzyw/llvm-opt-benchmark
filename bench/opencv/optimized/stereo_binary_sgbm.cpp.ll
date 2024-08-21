@@ -3288,7 +3288,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo20StereoBinarySGBMImpl5setP2Ei(ptr
   %16 = getelementptr inbounds i8, ptr %0, i64 262476
   %17 = load i32, ptr %16, align 4
   %18 = shl nsw i32 %17, 1
-  %.not = icmp sgt i32 %18, %1
+  %.not = icmp slt i32 %1, %18
   br i1 %.not, label %19, label %26
 
 19:                                               ; preds = %15

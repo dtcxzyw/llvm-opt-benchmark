@@ -52,7 +52,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call, %cond.true ], [ %call3, %cond.false ]
-  %add4 = add i32 %spec.select, %n
+  %add4 = add i32 %n, %spec.select
   %cmp11 = icmp slt i32 %spec.select, %add4
   br i1 %cmp11, label %for.body.preheader, label %for.end
 

@@ -2134,10 +2134,10 @@ define internal fastcc float @find_nearest_on_curve_t(<2 x float> noundef %0, <2
   %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
   %31 = insertelement <2 x float> poison, float %21, i64 0
   %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
-  %33 = fmul reassoc nsz arcp contract afn <2 x float> %28, %2
-  %34 = fmul reassoc nsz arcp contract afn <2 x float> %32, %1
+  %33 = fmul reassoc nsz arcp contract afn <2 x float> %2, %28
+  %34 = fmul reassoc nsz arcp contract afn <2 x float> %1, %32
   %35 = fadd reassoc nsz arcp contract afn <2 x float> %33, %34
-  %36 = fmul reassoc nsz arcp contract afn <2 x float> %30, %0
+  %36 = fmul reassoc nsz arcp contract afn <2 x float> %0, %30
   %37 = fadd reassoc nsz arcp contract afn <2 x float> %35, %36
   %reass.add6 = fsub reassoc nsz arcp contract afn <2 x float> %.reass, %37
   %38 = fadd reassoc nsz arcp contract afn <2 x float> %reass.add6, %4
@@ -2542,7 +2542,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br label %1276
 
 102:                                              ; preds = %1329
-  %103 = fmul reassoc nsz arcp contract afn float %24, %6
+  %103 = fmul reassoc nsz arcp contract afn float %6, %24
   %104 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %103
   %105 = call ptr @g_list_reverse(ptr noundef %1330) #29
   %106 = load ptr, ptr %13, align 16, !tbaa !122

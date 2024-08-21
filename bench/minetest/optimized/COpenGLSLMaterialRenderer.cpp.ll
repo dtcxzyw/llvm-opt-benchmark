@@ -2322,7 +2322,7 @@ entry:
   %MaterialType6 = getelementptr inbounds i8, ptr %lastMaterial, i64 128
   %4 = load i32, ptr %MaterialType6, align 8, !tbaa !91
   %cmp7.not = icmp ne i32 %3, %4
-  %brmerge = or i1 %cmp7.not, %resetAllRenderstates
+  %brmerge = or i1 %resetAllRenderstates, %cmp7.not
   br i1 %brmerge, label %if.then8, label %if.end21
 
 if.then8:                                         ; preds = %entry

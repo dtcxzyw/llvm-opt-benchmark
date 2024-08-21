@@ -681,7 +681,7 @@ erf_if_mapping_create.exit.i:                     ; preds = %92
   %118 = add nuw nsw i32 %117, 3
   %119 = and i32 %118, 131068
   %120 = add nuw nsw i32 %119, 4
-  %121 = icmp ugt i32 %120, %109
+  %121 = icmp ult i32 %109, %120
   br i1 %121, label %.outer._crit_edge.i, label %122
 
 122:                                              ; preds = %108
@@ -811,7 +811,7 @@ erf_if_mapping_create.exit.i:                     ; preds = %92
   %190 = add nuw nsw i32 %189, 3
   %191 = and i32 %190, 131068
   %192 = add nuw nsw i32 %191, 4
-  %193 = icmp ugt i32 %192, %179
+  %193 = icmp ult i32 %179, %192
   br i1 %193, label %erf_meta_read_tag.exit121.thread.i, label %194
 
 194:                                              ; preds = %182
@@ -884,7 +884,7 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
   %229 = add nuw nsw i32 %228, 3
   %230 = and i32 %229, 131068
   %231 = add nuw nsw i32 %230, 4
-  %232 = icmp ugt i32 %231, %220
+  %232 = icmp ult i32 %220, %231
   br i1 %232, label %.critedge.i.i, label %233
 
 233:                                              ; preds = %.lr.ph.i123.i
@@ -1040,7 +1040,7 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
   %303 = add nuw nsw i32 %302, 3
   %304 = and i32 %303, 131068
   %305 = add nuw nsw i32 %304, 4
-  %306 = icmp ugt i32 %305, %294
+  %306 = icmp ult i32 %294, %305
   br i1 %306, label %.critedge.i136.i, label %307
 
 307:                                              ; preds = %.lr.ph.i129.i
@@ -1305,7 +1305,7 @@ populate_capture_host_info.exit.i:                ; preds = %287, %285
   %420 = add nuw nsw i32 %419, 3
   %421 = and i32 %420, 131068
   %422 = add nuw nsw i32 %421, 4
-  %423 = icmp ugt i32 %422, %411
+  %423 = icmp ult i32 %411, %422
   br i1 %423, label %.critedge.loopexit.i.i, label %424
 
 424:                                              ; preds = %.lr.ph.i145.i
@@ -1447,7 +1447,7 @@ populate_capture_host_info.exit.i:                ; preds = %287, %285
   %503 = add nuw nsw i32 %502, 3
   %504 = and i32 %503, 131068
   %505 = add nuw nsw i32 %504, 4
-  %506 = icmp ugt i32 %505, %179
+  %506 = icmp ult i32 %179, %505
   br i1 %506, label %.critedge.thread.i.i, label %.lr.ph247.i
 
 507:                                              ; preds = %572
@@ -1463,7 +1463,7 @@ populate_capture_host_info.exit.i:                ; preds = %287, %285
   %515 = add nuw nsw i32 %514, 3
   %516 = and i32 %515, 131068
   %517 = add nuw nsw i32 %516, 4
-  %518 = icmp ugt i32 %517, %575
+  %518 = icmp ult i32 %575, %517
   br i1 %518, label %.critedge.i164.i, label %.lr.ph247.i, !llvm.loop !15
 
 .lr.ph247.i:                                      ; preds = %.lr.ph.i156.i, %507
@@ -1640,7 +1640,7 @@ populate_capture_host_info.exit.i:                ; preds = %287, %285
   %627 = add nuw nsw i32 %626, 3
   %628 = and i32 %627, 131068
   %629 = add nuw nsw i32 %628, 4
-  %630 = icmp ugt i32 %629, %612
+  %630 = icmp ult i32 %612, %629
   br i1 %630, label %.critedge2.i.i, label %.lr.ph258.i
 
 631:                                              ; preds = %814
@@ -1656,7 +1656,7 @@ populate_capture_host_info.exit.i:                ; preds = %287, %285
   %639 = add nuw nsw i32 %638, 3
   %640 = and i32 %639, 131068
   %641 = add nuw nsw i32 %640, 4
-  %642 = icmp ugt i32 %641, %819
+  %642 = icmp ult i32 %819, %641
   br i1 %642, label %.critedge2.i.loopexit.i, label %.lr.ph258.i, !llvm.loop !16
 
 .lr.ph258.i:                                      ; preds = %.lr.ph239.i.i, %631
@@ -2181,7 +2181,7 @@ populate_module_info.exit.i:                      ; preds = %875, %populate_inte
   %907 = add nuw nsw i32 %906, 3
   %908 = and i32 %907, 131068
   %909 = add nuw nsw i32 %908, 4
-  %910 = icmp ugt i32 %909, %.132.i.i
+  %910 = icmp ult i32 %.132.i.i, %909
   br i1 %910, label %.critedge.i174.i, label %911
 
 911:                                              ; preds = %.lr.ph.i166.i
@@ -2314,7 +2314,7 @@ populate_module_info.exit.i:                      ; preds = %875, %populate_inte
   %986 = add nuw nsw i32 %985, 3
   %987 = and i32 %986, 131068
   %988 = add nuw nsw i32 %987, 4
-  %989 = icmp ugt i32 %988, %.457.i.i
+  %989 = icmp ult i32 %.457.i.i, %988
   br i1 %989, label %.critedge2.i176.i, label %990
 
 990:                                              ; preds = %978
@@ -4473,7 +4473,7 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %129, %._crit_edge.i
   %228 = add nuw nsw i32 %227, 3
   %229 = and i32 %228, 131068
   %230 = add nuw nsw i32 %229, 4
-  %231 = icmp ugt i32 %230, %.sroa.5.038.i
+  %231 = icmp ult i32 %.sroa.5.038.i, %230
   br i1 %231, label %.thread20.i, label %232
 
 232:                                              ; preds = %.lr.ph.i189

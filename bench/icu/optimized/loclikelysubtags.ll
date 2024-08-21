@@ -238,7 +238,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -518,7 +518,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #15
   %cmp7 = icmp eq ptr %call, null
@@ -822,7 +822,7 @@ if.then.i11.i:                                    ; preds = %invoke.cont.i.i
   %shr.i.i.i.i.i.i = sext i16 %11 to i32
   %12 = load i32, ptr %fLength.i.i.i.i, align 4
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i32 %12, i32 %shr.i.i.i.i.i.i
-  %cmp.i.i.i.i = icmp ugt i32 %cond.i.i.i.i.i, %add.i.i
+  %cmp.i.i.i.i = icmp ult i32 %add.i.i, %cond.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i11.i
@@ -3627,7 +3627,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %c.0 = load i8, ptr %c.0.in, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %1 = trunc nsw i64 %indvars.iv.next to i32
-  %cmp4.not = icmp eq i32 %1, %s.coerce1
+  %cmp4.not = icmp eq i32 %s.coerce1, %1
   br i1 %cmp4.not, label %if.else11, label %if.then5
 
 if.then5:                                         ; preds = %for.cond
@@ -5301,7 +5301,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 if.then5.i:                                       ; preds = %if.then3.i
   %2 = load i32, ptr %capacity.i, align 8
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
   %length.addr.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %cond)
   %3 = load ptr, ptr %fPool, align 8
   %conv12.i = sext i32 %length.addr.1.i to i64

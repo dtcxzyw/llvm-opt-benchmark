@@ -258,13 +258,13 @@ _ZN10JfrPostBox7depositEi.exit:                   ; preds = %10
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #10
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load volatile i64, ptr %19, align 8
-  %.not11 = icmp ult i64 %20, %18
+  %.not11 = icmp ugt i64 %18, %20
   br i1 %.not11, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN10JfrPostBox7depositEi.exit, %_ZN13MonitorLocker4waitEl.exit
   %21 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %7, i64 noundef 0) #10
   %22 = load volatile i64, ptr %19, align 8
-  %.not = icmp ult i64 %22, %18
+  %.not = icmp ugt i64 %18, %22
   br i1 %.not, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !10
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN10JfrPostBox7depositEi.exit
@@ -318,7 +318,7 @@ declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferencea
 define hidden noundef zeroext i1 @_ZNK10JfrPostBox20is_message_processedEm(ptr noundef nonnull align 8 dereferenceable(21) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
-  %5 = icmp uge i64 %4, %1
+  %5 = icmp ule i64 %1, %4
   ret i1 %5
 }
 

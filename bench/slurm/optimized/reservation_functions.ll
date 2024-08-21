@@ -368,7 +368,7 @@ _set_cond.exit.us:                                ; preds = %45, %40
 188:                                              ; preds = %184, %183, %175, %165, %156, %141, %129, %128, %125, %118, %108, %94
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
+  %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_set_cond.exit, label %69, !llvm.loop !9
 
 _set_cond.exit:                                   ; preds = %188, %66, %90

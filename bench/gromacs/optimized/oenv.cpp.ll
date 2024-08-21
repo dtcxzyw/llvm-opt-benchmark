@@ -442,7 +442,7 @@ define noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr nocaptur
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %5
   %7 = load float, ptr %6, align 4
-  %8 = fmul float %7, %1
+  %8 = fmul float %1, %7
   ret float %8
 }
 

@@ -251,8 +251,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9ha
 
 43:                                               ; preds = %61, %10
   %.sroa.9.0.i.i.i = phi i64 [ 0, %10 ], [ %62, %61 ]
-  %.pn.i = phi i64 [ %39, %10 ], [ %63, %61 ]
-  %.sroa.01.0.i.i.i = and i64 %.pn.i, %.val4
+  %.pn.i.i = phi i64 [ %39, %10 ], [ %63, %61 ]
+  %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %.val4
   %44 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i30.i.i = load <16 x i8>, ptr %44, align 1, !noalias !94
   %45 = icmp eq <16 x i8> %.0.copyload.i30.i.i, %.15.vec.insert.i.i.i
@@ -278,7 +278,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9ha
   %56 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, ptr, i64 } }, ptr %.val, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -288
   %.val6.i.i.i = load i64, ptr %57, align 8, !alias.scope !104, !noalias !109, !noundef !5
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i, %2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %2, %.val6.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %58, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb7847d10f3f862f1E.exit.backedge.i.i"
 
 58:                                               ; preds = %.lr.ph.i.i
@@ -941,7 +941,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   %125 = load i64, ptr %84, align 8, !noundef !5
   %126 = load i64, ptr %62, align 8, !alias.scope !221, !noalias !228, !noundef !5
   %127 = sub i64 %126, %120
-  %128 = icmp ult i64 %127, %125
+  %128 = icmp ugt i64 %125, %127
   br i1 %128, label %129, label %166
 
 129:                                              ; preds = %123

@@ -1059,7 +1059,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
 71:                                               ; preds = %70
   %72 = load i32, ptr %47, align 4
   %73 = zext i32 %72 to i64
-  %74 = add i64 %73, %2
+  %74 = add i64 %2, %73
   %75 = icmp sgt i64 %74, -1
   %76 = icmp uge i64 %74, %2
   %77 = and i1 %75, %76
@@ -1113,7 +1113,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
 102:                                              ; preds = %99
   %103 = load i32, ptr %47, align 4
   %104 = zext i32 %103 to i64
-  %105 = add i64 %104, %2
+  %105 = add i64 %2, %104
   %106 = icmp sgt i64 %105, -1
   %107 = icmp uge i64 %105, %2
   %108 = and i1 %106, %107

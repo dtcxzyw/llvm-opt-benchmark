@@ -121,242 +121,239 @@ define hidden void @_ZN13MemoryService17set_universe_heapEP13CollectedHeap(ptr n
   %28 = load ptr, ptr %23, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i
   %30 = load i32, ptr %24, align 4
-  %.not12.i.i = icmp sgt i32 %30, %27
+  %.not12.i.i = icmp slt i32 %27, %30
   %.pre.i = add nsw i32 %27, 1
   br i1 %.not12.i.i, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i, label %31
 
 31:                                               ; preds = %26
   %32 = icmp sgt i32 %27, -1
-  %33 = xor i32 %27, -2147483648
-  %34 = and i32 %33, %.pre.i
-  %35 = icmp eq i32 %34, 0
-  %36 = and i1 %32, %35
-  %37 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.pre.i, i1 true)
-  %38 = sub nuw nsw i32 32, %37
-  %39 = shl nuw i32 1, %38
-  %.0.i.i.i.i.i = select i1 %36, i32 %.pre.i, i32 %39
+  %33 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.pre.i)
+  %34 = icmp ult i32 %33, 2
+  %or.cond.i.i.i.i.i = select i1 %32, i1 %34, i1 false
+  %35 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.pre.i, i1 true)
+  %36 = sub nuw nsw i32 32, %35
+  %37 = shl nuw i32 1, %36
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %.pre.i, i32 %37
   call void @_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %20, align 8
-  %40 = icmp slt i32 %.pre.i.i, %27
-  br i1 %40, label %.lr.ph.i.i, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i
+  %38 = icmp slt i32 %.pre.i.i, %27
+  br i1 %38, label %.lr.ph.i.i, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %31
-  %41 = sext i32 %.pre.i.i to i64
+  %39 = sext i32 %.pre.i.i to i64
   %wide.trip.count.i.i = sext i32 %27 to i64
-  br label %42
+  br label %40
 
-42:                                               ; preds = %42, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = load ptr, ptr %25, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i.i
-  store ptr null, ptr %44, align 8
+40:                                               ; preds = %40, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %39, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %40 ]
+  %41 = load ptr, ptr %25, align 8
+  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i.i
+  store ptr null, ptr %42, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i, label %42, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i, label %40, !llvm.loop !6
 
-_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i: ; preds = %42, %31, %26
+_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i: ; preds = %40, %31, %26
   store i32 %.pre.i, ptr %20, align 8
-  %45 = load ptr, ptr %29, align 8
-  %46 = load ptr, ptr %25, align 8
-  %47 = sext i32 %27 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
-  store ptr %45, ptr %48, align 8
+  %43 = load ptr, ptr %29, align 8
+  %44 = load ptr, ptr %25, align 8
+  %45 = sext i32 %27 to i64
+  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  store ptr %43, ptr %46, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %49 = load i32, ptr %2, align 8
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next.i, %50
-  br i1 %51, label %26, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit, !llvm.loop !8
+  %47 = load i32, ptr %2, align 8
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next.i, %48
+  br i1 %49, label %26, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit, !llvm.loop !8
 
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i, %1
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20GcThreadCountClosure, i64 16), ptr %3, align 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 0, ptr %52, align 8
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 352
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %3) #8
-  %56 = load i32, ptr %52, align 8
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 240
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr dead_on_unwind nonnull writable sret(%class.GrowableArray.3) align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %0) #8
-  %60 = load i32, ptr %4, align 8
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph, label %._crit_edge
+  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 0, ptr %50, align 8
+  %51 = load ptr, ptr %0, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 352
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %3) #8
+  %54 = load i32, ptr %50, align 8
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 240
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr dead_on_unwind nonnull writable sret(%class.GrowableArray.3) align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %0) #8
+  %58 = load i32, ptr %4, align 8
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit
-  %62 = getelementptr inbounds i8, ptr %4, i64 8
-  %63 = icmp sgt i32 %56, 0
-  br i1 %63, label %.lr.ph.split.us, label %.lr.ph.split
+  %60 = getelementptr inbounds i8, ptr %4, i64 8
+  %61 = icmp sgt i32 %54, 0
+  br i1 %61, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us ], [ 0, %.lr.ph ]
-  %64 = load ptr, ptr %62, align 8
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv37
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 176
-  store i32 %56, ptr %67, align 8
-  call void @_ZN15GCMemoryManager23initialize_gc_stat_infoEv(ptr noundef nonnull align 8 dereferenceable(191) %66) #8
-  %68 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
-  %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %68, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %69, %71
-  br i1 %72, label %73, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us
+  %62 = load ptr, ptr %60, align 8
+  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv37
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 176
+  store i32 %54, ptr %65, align 8
+  call void @_ZN15GCMemoryManager23initialize_gc_stat_infoEv(ptr noundef nonnull align 8 dereferenceable(191) %64) #8
+  %66 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
+  %67 = load i32, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %66, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp eq i32 %67, %69
+  br i1 %70, label %71, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us
 
-73:                                               ; preds = %.lr.ph.split.us
-  %74 = add nsw i32 %69, 1
-  %75 = icmp sgt i32 %69, -1
-  %76 = xor i32 %69, -2147483648
-  %77 = and i32 %76, %74
-  %78 = icmp eq i32 %77, 0
-  %79 = and i1 %75, %78
-  %80 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
-  %81 = sub nuw nsw i32 32, %80
-  %82 = shl nuw i32 1, %81
-  %.0.i.i.i.i.us = select i1 %79, i32 %74, i32 %82
-  call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %68, i32 noundef %.0.i.i.i.i.us)
-  %.pre.i11.us = load i32, ptr %68, align 8
+71:                                               ; preds = %.lr.ph.split.us
+  %72 = add nsw i32 %67, 1
+  %73 = icmp sgt i32 %67, -1
+  %74 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %72)
+  %75 = icmp ult i32 %74, 2
+  %or.cond.i.i.i.i.us = select i1 %73, i1 %75, i1 false
+  %76 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %72, i1 true)
+  %77 = sub nuw nsw i32 32, %76
+  %78 = shl nuw i32 1, %77
+  %.0.i.i.i.i.us = select i1 %or.cond.i.i.i.i.us, i32 %72, i32 %78
+  call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef %.0.i.i.i.i.us)
+  %.pre.i11.us = load i32, ptr %66, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us
 
-_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us: ; preds = %73, %.lr.ph.split.us
-  %83 = phi i32 [ %.pre.i11.us, %73 ], [ %69, %.lr.ph.split.us ]
-  %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %68, align 8
-  %85 = getelementptr inbounds i8, ptr %68, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = sext i32 %83 to i64
-  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
-  store ptr %66, ptr %88, align 8
+_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us: ; preds = %71, %.lr.ph.split.us
+  %79 = phi i32 [ %.pre.i11.us, %71 ], [ %67, %.lr.ph.split.us ]
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %66, align 8
+  %81 = getelementptr inbounds i8, ptr %66, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = sext i32 %79 to i64
+  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
+  store ptr %64, ptr %84, align 8
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %89 = load i32, ptr %4, align 8
-  %90 = sext i32 %89 to i64
-  %91 = icmp slt i64 %indvars.iv.next38, %90
-  br i1 %91, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
+  %85 = load i32, ptr %4, align 8
+  %86 = sext i32 %85 to i64
+  %87 = icmp slt i64 %indvars.iv.next38, %86
+  br i1 %87, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit ], [ 0, %.lr.ph ]
-  %92 = load ptr, ptr %62, align 8
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv
-  %94 = load ptr, ptr %93, align 8
-  call void @_ZN15GCMemoryManager23initialize_gc_stat_infoEv(ptr noundef nonnull align 8 dereferenceable(191) %94) #8
-  %95 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %95, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = icmp eq i32 %96, %98
-  br i1 %99, label %100, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
+  %88 = load ptr, ptr %60, align 8
+  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv
+  %90 = load ptr, ptr %89, align 8
+  call void @_ZN15GCMemoryManager23initialize_gc_stat_infoEv(ptr noundef nonnull align 8 dereferenceable(191) %90) #8
+  %91 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
+  %92 = load i32, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %91, i64 4
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp eq i32 %92, %94
+  br i1 %95, label %96, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
 
-100:                                              ; preds = %.lr.ph.split
-  %101 = add nsw i32 %96, 1
-  %102 = icmp sgt i32 %96, -1
-  %103 = xor i32 %96, -2147483648
-  %104 = and i32 %103, %101
-  %105 = icmp eq i32 %104, 0
-  %106 = and i1 %102, %105
-  %107 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %101, i1 true)
-  %108 = sub nuw nsw i32 32, %107
-  %109 = shl nuw i32 1, %108
-  %.0.i.i.i.i = select i1 %106, i32 %101, i32 %109
-  call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %95, i32 noundef %.0.i.i.i.i)
-  %.pre.i11 = load i32, ptr %95, align 8
+96:                                               ; preds = %.lr.ph.split
+  %97 = add nsw i32 %92, 1
+  %98 = icmp sgt i32 %92, -1
+  %99 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %97)
+  %100 = icmp ult i32 %99, 2
+  %or.cond.i.i.i.i = select i1 %98, i1 %100, i1 false
+  %101 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %97, i1 true)
+  %102 = sub nuw nsw i32 32, %101
+  %103 = shl nuw i32 1, %102
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %97, i32 %103
+  call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %91, i32 noundef %.0.i.i.i.i)
+  %.pre.i11 = load i32, ptr %91, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.lr.ph.split, %100
-  %110 = phi i32 [ %.pre.i11, %100 ], [ %96, %.lr.ph.split ]
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %95, align 8
-  %112 = getelementptr inbounds i8, ptr %95, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = sext i32 %110 to i64
-  %115 = getelementptr inbounds ptr, ptr %113, i64 %114
-  store ptr %94, ptr %115, align 8
+_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.lr.ph.split, %96
+  %104 = phi i32 [ %.pre.i11, %96 ], [ %92, %.lr.ph.split ]
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %91, align 8
+  %106 = getelementptr inbounds i8, ptr %91, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = sext i32 %104 to i64
+  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  store ptr %90, ptr %109, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %116 = load i32, ptr %4, align 8
-  %117 = sext i32 %116 to i64
-  %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+  %110 = load i32, ptr %4, align 8
+  %111 = sext i32 %110 to i64
+  %112 = icmp slt i64 %indvars.iv.next, %111
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit
-  %119 = getelementptr inbounds i8, ptr %4, i64 16
-  %120 = load i64, ptr %119, align 8
-  %121 = and i64 %120, 1
-  %.not.i = icmp eq i64 %121, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit, label %122
+  %113 = getelementptr inbounds i8, ptr %4, i64 16
+  %114 = load i64, ptr %113, align 8
+  %115 = and i64 %114, 1
+  %.not.i = icmp eq i64 %115, 0
+  br i1 %.not.i, label %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit, label %116
 
-122:                                              ; preds = %._crit_edge
+116:                                              ; preds = %._crit_edge
   store i32 0, ptr %4, align 8
-  %123 = getelementptr inbounds i8, ptr %4, i64 4
-  %124 = load i32, ptr %123, align 4
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit, label %.loopexit.i
+  %117 = getelementptr inbounds i8, ptr %4, i64 4
+  %118 = load i32, ptr %117, align 4
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %4, i64 8
-  %127 = load ptr, ptr %126, align 8
-  store i32 0, ptr %123, align 4
-  %.not.i13 = icmp eq ptr %127, null
+.loopexit.i:                                      ; preds = %116
+  %120 = getelementptr inbounds i8, ptr %4, i64 8
+  %121 = load ptr, ptr %120, align 8
+  store i32 0, ptr %117, align 4
+  %.not.i13 = icmp eq ptr %121, null
   br i1 %.not.i13, label %_ZN13GrowableArrayIP15GCMemoryManagerE10deallocateEPS1_.exit.i, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %127) #8
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %121) #8
   br label %_ZN13GrowableArrayIP15GCMemoryManagerE10deallocateEPS1_.exit.i
 
 _ZN13GrowableArrayIP15GCMemoryManagerE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
-  store ptr null, ptr %126, align 8
+  store ptr null, ptr %120, align 8
   br label %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit
 
-_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit:  ; preds = %_ZN13GrowableArrayIP15GCMemoryManagerE10deallocateEPS1_.exit.i, %122, %._crit_edge
-  %128 = getelementptr inbounds i8, ptr %2, i64 16
-  %129 = load i64, ptr %128, align 8
-  %130 = and i64 %129, 1
-  %.not.i12 = icmp eq i64 %130, 0
-  br i1 %.not.i12, label %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit, label %131
+_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit:  ; preds = %_ZN13GrowableArrayIP15GCMemoryManagerE10deallocateEPS1_.exit.i, %116, %._crit_edge
+  %122 = getelementptr inbounds i8, ptr %2, i64 16
+  %123 = load i64, ptr %122, align 8
+  %124 = and i64 %123, 1
+  %.not.i12 = icmp eq i64 %124, 0
+  br i1 %.not.i12, label %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit, label %125
 
-131:                                              ; preds = %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit
+125:                                              ; preds = %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit
   store i32 0, ptr %2, align 8
-  %132 = getelementptr inbounds i8, ptr %2, i64 4
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit, label %.loopexit.i17
+  %126 = getelementptr inbounds i8, ptr %2, i64 4
+  %127 = load i32, ptr %126, align 4
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit, label %.loopexit.i17
 
-.loopexit.i17:                                    ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %2, i64 8
-  %136 = load ptr, ptr %135, align 8
-  store i32 0, ptr %132, align 4
-  %.not.i18 = icmp eq ptr %136, null
+.loopexit.i17:                                    ; preds = %125
+  %129 = getelementptr inbounds i8, ptr %2, i64 8
+  %130 = load ptr, ptr %129, align 8
+  store i32 0, ptr %126, align 4
+  %.not.i18 = icmp eq ptr %130, null
   br i1 %.not.i18, label %_ZN13GrowableArrayIP10MemoryPoolE10deallocateEPS1_.exit.i, label %.loopexit.thread.i19
 
 .loopexit.thread.i19:                             ; preds = %.loopexit.i17
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %136) #8
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %130) #8
   br label %_ZN13GrowableArrayIP10MemoryPoolE10deallocateEPS1_.exit.i
 
 _ZN13GrowableArrayIP10MemoryPoolE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thread.i19, %.loopexit.i17
-  store ptr null, ptr %135, align 8
+  store ptr null, ptr %129, align 8
   br label %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit
 
-_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit:       ; preds = %_ZN13GrowableArrayIP10MemoryPoolE10deallocateEPS1_.exit.i, %131, %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit
-  %137 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %137, null
-  br i1 %.not.i.i.i.i, label %139, label %138
+_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit:       ; preds = %_ZN13GrowableArrayIP10MemoryPoolE10deallocateEPS1_.exit.i, %125, %_ZN13GrowableArrayIP15GCMemoryManagerED2Ev.exit
+  %131 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %131, null
+  br i1 %.not.i.i.i.i, label %133, label %132
 
-138:                                              ; preds = %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit
+132:                                              ; preds = %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #8
-  br label %139
+  br label %133
 
-139:                                              ; preds = %138, %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit
-  %140 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %140, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %141
+133:                                              ; preds = %132, %_ZN13GrowableArrayIP10MemoryPoolED2Ev.exit
+  %134 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %134, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %135
 
-141:                                              ; preds = %139
+135:                                              ; preds = %133
   store ptr %10, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %139, %141
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %133, %135
   ret void
 }
 
@@ -376,102 +373,99 @@ define hidden void @_ZN13MemoryService25add_code_heap_memory_poolEP8CodeHeapPKc(
 9:                                                ; preds = %2
   %10 = add nsw i32 %5, 1
   %11 = icmp sgt i32 %5, -1
-  %12 = xor i32 %5, -2147483648
-  %13 = and i32 %12, %10
-  %14 = icmp eq i32 %13, 0
-  %15 = and i1 %11, %14
-  %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
-  %17 = sub nuw nsw i32 32, %16
-  %18 = shl nuw i32 1, %17
-  %.0.i.i.i.i = select i1 %15, i32 %10, i32 %18
+  %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
+  %13 = icmp ult i32 %12, 2
+  %or.cond.i.i.i.i = select i1 %11, i1 %13, i1 false
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
+  %15 = sub nuw nsw i32 32, %14
+  %16 = shl nuw i32 1, %15
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %10, i32 %16
   tail call void @_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %4, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %2, %9
-  %19 = phi i32 [ %.pre.i, %9 ], [ %5, %2 ]
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = sext i32 %19 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
-  store ptr %3, ptr %24, align 8
-  %25 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 4
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %30, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit6
+  %17 = phi i32 [ %.pre.i, %9 ], [ %5, %2 ]
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = sext i32 %17 to i64
+  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  store ptr %3, ptr %22, align 8
+  %23 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %28, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit7
 
-30:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
-  %31 = add nsw i32 %26, 1
-  %32 = icmp sgt i32 %26, -1
-  %33 = xor i32 %26, -2147483648
-  %34 = and i32 %33, %31
-  %35 = icmp eq i32 %34, 0
-  %36 = and i1 %32, %35
-  %37 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
-  %38 = sub nuw nsw i32 32, %37
-  %39 = shl nuw i32 1, %38
-  %.0.i.i.i.i4 = select i1 %36, i32 %31, i32 %39
-  tail call void @_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.0.i.i.i.i4)
-  %.pre.i5 = load i32, ptr %25, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit6
+28:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
+  %29 = add nsw i32 %24, 1
+  %30 = icmp sgt i32 %24, -1
+  %31 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
+  %32 = icmp ult i32 %31, 2
+  %or.cond.i.i.i.i4 = select i1 %30, i1 %32, i1 false
+  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
+  %34 = sub nuw nsw i32 32, %33
+  %35 = shl nuw i32 1, %34
+  %.0.i.i.i.i5 = select i1 %or.cond.i.i.i.i4, i32 %29, i32 %35
+  tail call void @_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef %.0.i.i.i.i5)
+  %.pre.i6 = load i32, ptr %23, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit7
 
-_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit6: ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit, %30
-  %40 = phi i32 [ %.pre.i5, %30 ], [ %26, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %25, align 8
-  %42 = getelementptr inbounds i8, ptr %25, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %40 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  store ptr %3, ptr %45, align 8
-  %46 = load ptr, ptr @_ZN13MemoryService19_code_cache_managerE, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %72
+_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit7: ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit, %28
+  %36 = phi i32 [ %.pre.i6, %28 ], [ %24, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %23, align 8
+  %38 = getelementptr inbounds i8, ptr %23, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = sext i32 %36 to i64
+  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  store ptr %3, ptr %41, align 8
+  %42 = load ptr, ptr @_ZN13MemoryService19_code_cache_managerE, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %66
 
-48:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit6
-  %49 = tail call noundef ptr @_ZN13MemoryManager29get_code_cache_memory_managerEv() #8
-  store ptr %49, ptr @_ZN13MemoryService19_code_cache_managerE, align 8
-  %50 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
-  %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %51, %53
-  br i1 %54, label %55, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
+44:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit7
+  %45 = tail call noundef ptr @_ZN13MemoryManager29get_code_cache_memory_managerEv() #8
+  store ptr %45, ptr @_ZN13MemoryService19_code_cache_managerE, align 8
+  %46 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %46, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %47, %49
+  br i1 %50, label %51, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
 
-55:                                               ; preds = %48
-  %56 = add nsw i32 %51, 1
-  %57 = icmp sgt i32 %51, -1
-  %58 = xor i32 %51, -2147483648
-  %59 = and i32 %58, %56
-  %60 = icmp eq i32 %59, 0
-  %61 = and i1 %57, %60
-  %62 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
-  %63 = sub nuw nsw i32 32, %62
-  %64 = shl nuw i32 1, %63
-  %.0.i.i.i.i7 = select i1 %61, i32 %56, i32 %64
-  tail call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %.0.i.i.i.i7)
-  %.pre.i8 = load i32, ptr %50, align 8
+51:                                               ; preds = %44
+  %52 = add nsw i32 %47, 1
+  %53 = icmp sgt i32 %47, -1
+  %54 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %52)
+  %55 = icmp ult i32 %54, 2
+  %or.cond.i.i.i.i8 = select i1 %53, i1 %55, i1 false
+  %56 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
+  %57 = sub nuw nsw i32 32, %56
+  %58 = shl nuw i32 1, %57
+  %.0.i.i.i.i9 = select i1 %or.cond.i.i.i.i8, i32 %52, i32 %58
+  tail call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef %.0.i.i.i.i9)
+  %.pre.i10 = load i32, ptr %46, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %48, %55
-  %65 = phi i32 [ %.pre.i8, %55 ], [ %51, %48 ]
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %50, align 8
-  %67 = load ptr, ptr @_ZN13MemoryService19_code_cache_managerE, align 8
-  %68 = getelementptr inbounds i8, ptr %50, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = sext i32 %65 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
-  store ptr %67, ptr %71, align 8
-  br label %72
+_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %44, %51
+  %59 = phi i32 [ %.pre.i10, %51 ], [ %47, %44 ]
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %46, align 8
+  %61 = load ptr, ptr @_ZN13MemoryService19_code_cache_managerE, align 8
+  %62 = getelementptr inbounds i8, ptr %46, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = sext i32 %59 to i64
+  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  store ptr %61, ptr %65, align 8
+  br label %66
 
-72:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit6
-  %73 = phi ptr [ %67, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %46, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit6 ]
-  %74 = tail call noundef i32 @_ZN13MemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(113) %73, ptr noundef nonnull %3) #8
+66:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit7
+  %67 = phi ptr [ %61, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %42, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit7 ]
+  %68 = tail call noundef i32 @_ZN13MemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(113) %67, ptr noundef nonnull %3) #8
   ret void
 }
 
@@ -498,103 +492,100 @@ define hidden void @_ZN13MemoryService26add_metaspace_memory_poolsEv() local_unn
 9:                                                ; preds = %0
   %10 = add nsw i32 %5, 1
   %11 = icmp sgt i32 %5, -1
-  %12 = xor i32 %5, -2147483648
-  %13 = and i32 %12, %10
-  %14 = icmp eq i32 %13, 0
-  %15 = and i1 %11, %14
-  %16 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
-  %17 = sub nuw nsw i32 32, %16
-  %18 = shl nuw i32 1, %17
-  %.0.i.i.i.i = select i1 %15, i32 %10, i32 %18
+  %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
+  %13 = icmp ult i32 %12, 2
+  %or.cond.i.i.i.i = select i1 %11, i1 %13, i1 false
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
+  %15 = sub nuw nsw i32 32, %14
+  %16 = shl nuw i32 1, %15
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %10, i32 %16
   tail call void @_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %4, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %0, %9
-  %19 = phi i32 [ %.pre.i, %9 ], [ %5, %0 ]
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %4, align 8
-  %21 = load ptr, ptr @_ZN13MemoryService15_metaspace_poolE, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %19 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
-  store ptr %21, ptr %25, align 8
-  %26 = load i8, ptr @UseCompressedClassPointers, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %53
+  %17 = phi i32 [ %.pre.i, %9 ], [ %5, %0 ]
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %4, align 8
+  %19 = load ptr, ptr @_ZN13MemoryService15_metaspace_poolE, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = sext i32 %17 to i64
+  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  store ptr %19, ptr %23, align 8
+  %24 = load i8, ptr @UseCompressedClassPointers, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %49
 
-28:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
-  %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 208, i8 noundef zeroext 9, i32 noundef 0) #8
-  tail call void @_ZN24CompressedKlassSpacePoolC1Ev(ptr noundef nonnull align 8 dereferenceable(201) %29) #8
-  store ptr %29, ptr @_ZN13MemoryService22_compressed_class_poolE, align 8
-  %30 = tail call noundef i32 @_ZN13MemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %29) #8
-  %31 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %32, %34
-  br i1 %35, label %36, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit8
+26:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
+  %27 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 208, i8 noundef zeroext 9, i32 noundef 0) #8
+  tail call void @_ZN24CompressedKlassSpacePoolC1Ev(ptr noundef nonnull align 8 dereferenceable(201) %27) #8
+  store ptr %27, ptr @_ZN13MemoryService22_compressed_class_poolE, align 8
+  %28 = tail call noundef i32 @_ZN13MemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %27) #8
+  %29 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %30, %32
+  br i1 %33, label %34, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9
 
-36:                                               ; preds = %28
-  %37 = add nsw i32 %32, 1
-  %38 = icmp sgt i32 %32, -1
-  %39 = xor i32 %32, -2147483648
-  %40 = and i32 %39, %37
-  %41 = icmp eq i32 %40, 0
-  %42 = and i1 %38, %41
-  %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %37, i1 true)
-  %44 = sub nuw nsw i32 32, %43
-  %45 = shl nuw i32 1, %44
-  %.0.i.i.i.i6 = select i1 %42, i32 %37, i32 %45
-  tail call void @_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef %.0.i.i.i.i6)
-  %.pre.i7 = load i32, ptr %31, align 8
-  br label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit8
+34:                                               ; preds = %26
+  %35 = add nsw i32 %30, 1
+  %36 = icmp sgt i32 %30, -1
+  %37 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %35)
+  %38 = icmp ult i32 %37, 2
+  %or.cond.i.i.i.i6 = select i1 %36, i1 %38, i1 false
+  %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
+  %40 = sub nuw nsw i32 32, %39
+  %41 = shl nuw i32 1, %40
+  %.0.i.i.i.i7 = select i1 %or.cond.i.i.i.i6, i32 %35, i32 %41
+  tail call void @_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef %.0.i.i.i.i7)
+  %.pre.i8 = load i32, ptr %29, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9
 
-_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit8: ; preds = %28, %36
-  %46 = phi i32 [ %.pre.i7, %36 ], [ %32, %28 ]
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %31, align 8
-  %48 = load ptr, ptr @_ZN13MemoryService22_compressed_class_poolE, align 8
-  %49 = getelementptr inbounds i8, ptr %31, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = sext i32 %46 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
-  store ptr %48, ptr %52, align 8
-  br label %53
+_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9: ; preds = %26, %34
+  %42 = phi i32 [ %.pre.i8, %34 ], [ %30, %26 ]
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %29, align 8
+  %44 = load ptr, ptr @_ZN13MemoryService22_compressed_class_poolE, align 8
+  %45 = getelementptr inbounds i8, ptr %29, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = sext i32 %42 to i64
+  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  store ptr %44, ptr %48, align 8
+  br label %49
 
-53:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit8, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
-  %54 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %55, %57
-  br i1 %58, label %59, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
+49:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit
+  %50 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
+  %51 = load i32, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %50, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %51, %53
+  br i1 %54, label %55, label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
 
-59:                                               ; preds = %53
-  %60 = add nsw i32 %55, 1
-  %61 = icmp sgt i32 %55, -1
-  %62 = xor i32 %55, -2147483648
-  %63 = and i32 %62, %60
-  %64 = icmp eq i32 %63, 0
-  %65 = and i1 %61, %64
-  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %60, i1 true)
-  %67 = sub nuw nsw i32 32, %66
-  %68 = shl nuw i32 1, %67
-  %.0.i.i.i.i9 = select i1 %65, i32 %60, i32 %68
-  tail call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %54, i32 noundef %.0.i.i.i.i9)
-  %.pre.i10 = load i32, ptr %54, align 8
+55:                                               ; preds = %49
+  %56 = add nsw i32 %51, 1
+  %57 = icmp sgt i32 %51, -1
+  %58 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %56)
+  %59 = icmp ult i32 %58, 2
+  %or.cond.i.i.i.i10 = select i1 %57, i1 %59, i1 false
+  %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
+  %61 = sub nuw nsw i32 32, %60
+  %62 = shl nuw i32 1, %61
+  %.0.i.i.i.i11 = select i1 %or.cond.i.i.i.i10, i32 %56, i32 %62
+  tail call void @_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %.0.i.i.i.i11)
+  %.pre.i12 = load i32, ptr %50, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %53, %59
-  %69 = phi i32 [ %.pre.i10, %59 ], [ %55, %53 ]
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %54, align 8
-  %71 = getelementptr inbounds i8, ptr %54, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = sext i32 %69 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
-  store ptr %1, ptr %74, align 8
+_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %49, %55
+  %63 = phi i32 [ %.pre.i12, %55 ], [ %51, %49 ]
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %50, align 8
+  %65 = getelementptr inbounds i8, ptr %50, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = sext i32 %63 to i64
+  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  store ptr %1, ptr %68, align 8
   ret void
 }
 
@@ -1412,6 +1403,9 @@ __cxx_global_var_init.6.exit:                     ; preds = %__cxx_global_var_in
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7

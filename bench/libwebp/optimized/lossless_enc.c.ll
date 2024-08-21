@@ -881,7 +881,7 @@ define internal float @FastLog2Slow_C(i32 noundef %0) #7 {
   %14 = fpext float %11 to double
   %notmask = shl nsw i32 -1, %5
   %15 = xor i32 %notmask, -1
-  %16 = and i32 %15, %0
+  %16 = and i32 %0, %15
   %17 = mul nuw nsw i32 %16, 23
   %18 = lshr i32 %17, 4
   %19 = uitofp nneg i32 %18 to double
@@ -915,7 +915,7 @@ define internal float @FastSLog2Slow_C(i32 noundef %0) #7 {
   %7 = lshr i32 %0, %5
   %notmask = shl nsw i32 -1, %5
   %8 = xor i32 %notmask, -1
-  %9 = and i32 %8, %0
+  %9 = and i32 %0, %8
   %10 = mul nuw nsw i32 %9, 23
   %11 = lshr i32 %10, 4
   %12 = zext nneg i32 %7 to i64

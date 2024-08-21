@@ -29,7 +29,7 @@ define void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(p
   %14 = shl i32 %.tr.i, 3
   %15 = add i32 %14, %9
   %16 = add nsw i32 %15, %4
-  %.sroa.speculated27 = tail call i32 @llvm.smax.i32(i32 %16, i32 %2)
+  %.sroa.speculated27 = tail call i32 @llvm.smax.i32(i32 %2, i32 %16)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %17 = sdiv i32 %.sroa.speculated27, %16
   tail call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.speculated27, i32 noundef %.sroa.speculated)

@@ -5488,7 +5488,7 @@ define internal range(i32 0, 3) i32 @executeComparison(ptr nocapture noundef rea
 66:                                               ; preds = %63
   %67 = tail call ptr @pg_server_to_any(ptr noundef %55, i32 noundef %56, i32 noundef 6) #11
   %68 = tail call ptr @pg_server_to_any(ptr noundef %59, i32 noundef %60, i32 noundef 6) #11
-  %69 = icmp ne ptr %67, %55
+  %69 = icmp ne ptr %55, %67
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %66
@@ -5498,7 +5498,7 @@ define internal range(i32 0, 3) i32 @executeComparison(ptr nocapture noundef rea
 
 73:                                               ; preds = %70, %66
   %74 = phi i32 [ %72, %70 ], [ %56, %66 ]
-  %75 = icmp ne ptr %68, %59
+  %75 = icmp ne ptr %59, %68
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %73

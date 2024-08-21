@@ -2175,7 +2175,7 @@ define internal noundef i32 @simple_write_end(ptr nocapture readnone %0, ptr noc
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %4 to i64
-  %41 = add i64 %40, %2
+  %41 = add i64 %2, %40
   %42 = load volatile i64, ptr %36, align 8
   %43 = and i64 %42, 8
   %44 = icmp eq i64 %43, 0

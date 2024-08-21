@@ -764,14 +764,14 @@ define void @_ZN5RarVM9SetMemoryEmPhm(ptr nocapture noundef nonnull readonly ali
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
-  %.not = icmp eq ptr %8, %2
+  %.not = icmp eq ptr %2, %8
   %.not14 = icmp eq i64 %3, 0
   %or.cond = or i1 %.not14, %.not
   br i1 %or.cond, label %12, label %9
 
 9:                                                ; preds = %6
   %10 = sub nuw nsw i64 262144, %1
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %3)
+  %11 = tail call i64 @llvm.umin.i64(i64 %3, i64 %10)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %8, ptr align 1 %2, i64 %11, i1 false)
   br label %12
 

@@ -7203,8 +7203,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %48 = load ptr, ptr %1, align 8
   %49 = load i64, ptr %6, align 8
   %50 = mul nsw i64 %49, %.076107
-  %51 = getelementptr double, ptr %48, i64 %50
-  %52 = getelementptr double, ptr %51, i64 %.077105
+  %51 = getelementptr double, ptr %48, i64 %.077105
+  %52 = getelementptr double, ptr %51, i64 %50
   %53 = load double, ptr %52, align 8
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %32, double noundef %53)
           to label %55 unwind label %61
@@ -7310,8 +7310,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %105 = load ptr, ptr %1, align 8
   %106 = load i64, ptr %6, align 8
   %107 = mul nsw i64 %106, %.0109.us.us
-  %108 = getelementptr double, ptr %105, i64 %107
-  %109 = getelementptr double, ptr %108, i64 %.072115.us
+  %108 = getelementptr double, ptr %105, i64 %.072115.us
+  %109 = getelementptr double, ptr %108, i64 %107
   %110 = load double, ptr %109, align 8
   %111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %110)
   %112 = add nuw nsw i64 %.0109.us.us, 1
@@ -7366,8 +7366,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %144 = load ptr, ptr %1, align 8
   %145 = load i64, ptr %6, align 8
   %146 = mul nsw i64 %145, %.0109
-  %147 = getelementptr double, ptr %144, i64 %146
-  %148 = getelementptr double, ptr %147, i64 %.072115
+  %147 = getelementptr double, ptr %144, i64 %.072115
+  %148 = getelementptr double, ptr %147, i64 %146
   %149 = load double, ptr %148, align 8
   %150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %149)
   %151 = add nuw nsw i64 %.0109, 1
@@ -7661,7 +7661,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopI
 
 17:                                               ; preds = %14
   %18 = sdiv i64 9223372036854775807, %9
-  %19 = icmp slt i64 %18, %7
+  %19 = icmp sgt i64 %7, %18
   br i1 %19, label %.noexc, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
 
 .noexc:                                           ; preds = %17
@@ -7722,7 +7722,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6r
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
-  %.not = icmp eq i64 %9, %1
+  %.not = icmp eq i64 %1, %9
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %4
@@ -8382,7 +8382,7 @@ _ZNSt12_Vector_baseIN5ceres8internal14CompressedListESaIS2_EE11_M_allocateEm.exi
 _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN5ceres8internal14CompressedListESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseIN5ceres8internal14CompressedListESaIS2_EE11_M_allocateEm.exit ], [ %42, %.lr.ph.i.i.i ]
   %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
-  %.not10.i.i.i15 = icmp eq ptr %4, %1
+  %.not10.i.i.i15 = icmp eq ptr %1, %4
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i16

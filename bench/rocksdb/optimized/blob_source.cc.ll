@@ -1404,7 +1404,7 @@ if.end:                                           ; preds = %if.then17, %invoke.
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i26 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i26 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i26, label %cleanup96, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -1508,7 +1508,7 @@ _ZN7rocksdb6StatusD2Ev.exit50:                    ; preds = %invoke.cont27, %_ZN
   %state_.i.i51 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i51, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i52 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i52 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i52, label %cleanup96, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %_ZN7rocksdb6StatusD2Ev.exit50
@@ -1609,7 +1609,7 @@ if.then36:                                        ; preds = %invoke.cont34
   %state_.i.i92 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i92, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i93 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i93 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i93, label %cleanup95.critedge, label %cleanup95.critedge.sink.split
 
 lpad31:                                           ; preds = %if.then44, %cond.end61, %if.end29
@@ -1623,7 +1623,7 @@ if.end37:                                         ; preds = %invoke.cont34
   %66 = load ptr, ptr %value_.i, align 8
   %compression_type_.i = getelementptr inbounds i8, ptr %66, i64 16
   %67 = load i8, ptr %compression_type_.i, align 8
-  %cmp43.not = icmp eq i8 %67, %compression_type
+  %cmp43.not = icmp eq i8 %compression_type, %67
   br i1 %cmp43.not, label %if.end50, label %if.then44
 
 if.then44:                                        ; preds = %if.end37
@@ -1712,7 +1712,7 @@ if.then70:                                        ; preds = %invoke.cont68
   %state_.i.i139 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i139, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i140 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i140 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i140, label %cleanup95.critedge, label %cleanup95.critedge.sink.split
 
 if.end71:                                         ; preds = %invoke.cont68
@@ -1857,7 +1857,7 @@ if.end94:                                         ; preds = %_ZN7rocksdb13Pinnab
   %state_.i.i188 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i188, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
-  %cmp.not.i.i189 = icmp eq ptr %s, %agg.result
+  %cmp.not.i.i189 = icmp eq ptr %agg.result, %s
   br i1 %cmp.not.i.i189, label %cleanup95, label %if.then.i.i190
 
 if.then.i.i190:                                   ; preds = %if.end94
@@ -2343,7 +2343,7 @@ invoke.cont4.i.i.i.i:                             ; preds = %invoke.cont5.i.i.i.
   %retval.0.i.i.i43.i.i.i.i.i = select i1 %cmp.i.i.i40.i.i.i.i.i, ptr %arrayidx.i.i.i41.i.i.i.i.i, ptr %add.ptr.i.i.i.i42.i.i.i.i.i
   %14 = getelementptr i8, ptr %retval.0.i.i.i43.i.i.i.i.i, i64 8
   %call.val.i44.i.i.i.i.i = load i64, ptr %14, align 8
-  %cmp.i.i545.i.i.i.i.i = icmp ugt i64 %call.val.i44.i.i.i.i.i, %__val.sroa.2.0.copyload.i.i.i.i.i
+  %cmp.i.i545.i.i.i.i.i = icmp ult i64 %__val.sroa.2.0.copyload.i.i.i.i.i, %call.val.i44.i.i.i.i.i
   br i1 %cmp.i.i545.i.i.i.i.i, label %invoke.cont6.i.i.i.i.i, label %invoke.cont5.i.i.i.i
 
 invoke.cont6.i.i.i.i.i:                           ; preds = %invoke.cont4.i.i.i.i, %invoke.cont6.i.i.i.i.i
@@ -2368,7 +2368,7 @@ invoke.cont6.i.i.i.i.i:                           ; preds = %invoke.cont4.i.i.i.
   %retval.0.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i
   %20 = getelementptr i8, ptr %retval.0.i.i.i.i.i.i.i.i, i64 8
   %call.val.i.i.i.i.i.i = load i64, ptr %20, align 8
-  %cmp.i.i5.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i.i, %__val.sroa.2.0.copyload.i.i.i.i.i
+  %cmp.i.i5.i.i.i.i.i = icmp ult i64 %__val.sroa.2.0.copyload.i.i.i.i.i, %call.val.i.i.i.i.i.i
   br i1 %cmp.i.i5.i.i.i.i.i, label %invoke.cont6.i.i.i.i.i, label %invoke.cont5.i.i.i.i, !llvm.loop !26
 
 invoke.cont5.i.i.i.i:                             ; preds = %invoke.cont6.i.i.i.i.i, %invoke.cont4.i.i.i.i
@@ -4934,7 +4934,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15Bl
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp72 = icmp sgt i64 %div, %__holeIndex
+  %cmp72 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp72, label %invoke.cont11.lr.ph, label %while.end
 
 invoke.cont11.lr.ph:                              ; preds = %entry
@@ -5208,7 +5208,7 @@ invoke.cont23:                                    ; preds = %invoke.cont4
   %retval.0.i.i.i43.i = select i1 %cmp.i.i.i40.i, ptr %arrayidx.i.i.i41.i, ptr %add.ptr.i.i.i.i42.i
   %20 = getelementptr i8, ptr %retval.0.i.i.i43.i, i64 8
   %call.val.i44.i = load i64, ptr %20, align 8
-  %cmp.i.i545.i = icmp ugt i64 %call.val.i44.i, %call.val.i
+  %cmp.i.i545.i = icmp ult i64 %call.val.i, %call.val.i44.i
   br i1 %cmp.i.i545.i, label %invoke.cont6.i, label %invoke.cont24
 
 invoke.cont6.i:                                   ; preds = %invoke.cont23, %invoke.cont6.i
@@ -5233,7 +5233,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont23, %inv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %arrayidx.i.i.i.i, ptr %add.ptr.i.i.i.i.i
   %26 = getelementptr i8, ptr %retval.0.i.i.i.i, i64 8
   %call.val.i.i = load i64, ptr %26, align 8
-  %cmp.i.i5.i = icmp ugt i64 %call.val.i.i, %call.val.i
+  %cmp.i.i5.i = icmp ult i64 %call.val.i, %call.val.i.i
   br i1 %cmp.i.i5.i, label %invoke.cont6.i, label %invoke.cont24, !llvm.loop !26
 
 invoke.cont24:                                    ; preds = %invoke.cont6.i, %invoke.cont23

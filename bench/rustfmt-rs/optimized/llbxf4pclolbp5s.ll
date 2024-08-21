@@ -2894,7 +2894,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %15 = getelementptr inbounds i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !noalias !5, !nonnull !5, !align !68, !noundef !5
   %17 = trunc i64 %11 to i32
-  %18 = add i32 %17, %4
+  %18 = add i32 %4, %17
   %19 = add i32 %18, 1
   %20 = trunc i64 %14 to i32
   %21 = sub i32 %19, %20
@@ -4365,7 +4365,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17h5968bd2c372bbcf0E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.not = xor i1 %4, true
-  %brmerge = or i1 %.not, %3
+  %brmerge = or i1 %3, %.not
   br i1 %brmerge, label %.preheader, label %13
 
 .preheader:                                       ; preds = %5
@@ -4753,7 +4753,7 @@ define hidden void @"_ZN114_$LT$fluent_bundle..args..FluentArgs$u20$as$u20$core.
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h641ab964cda51883E.llvm.6776338100628702967.exit.i.i": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h641ab964cda51883E.llvm.6776338100628702967.exit.i_crit_edge.i", %.loopexit.i
   %48 = phi ptr [ %.pre.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h641ab964cda51883E.llvm.6776338100628702967.exit.i_crit_edge.i" ], [ %25, %.loopexit.i ]
   %49 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [14 x i64] } }, ptr %48, i64 %.sroa.3.0.i.i.i
-  %50 = icmp ugt i64 %26, %.sroa.3.0.i.i.i
+  %50 = icmp ult i64 %.sroa.3.0.i.i.i, %26
   br i1 %50, label %54, label %52
 
 .loopexit:                                        ; preds = %47
@@ -4772,7 +4772,7 @@ define hidden void @"_ZN114_$LT$fluent_bundle..args..FluentArgs$u20$as$u20$core.
           to label %.body unwind label %60, !noalias !603
 
 52:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h641ab964cda51883E.llvm.6776338100628702967.exit.i.i"
-  %53 = icmp eq i64 %26, %.sroa.3.0.i.i.i
+  %53 = icmp eq i64 %.sroa.3.0.i.i.i, %26
   br i1 %53, label %62, label %58
 
 54:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h641ab964cda51883E.llvm.6776338100628702967.exit.i.i"
@@ -8901,7 +8901,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117hf40ea9300502eef6E.llvm.13158
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %15, label %10
 
@@ -23682,7 +23682,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$rustc_span..source_map..Spanned$L
 define hidden noundef nonnull align 8 dereferenceable(144) ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h115efdec56f54a84E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf781d32f018d50ebE.llvm.13158159170862922693.exit", label %7, !prof !3984
 
 7:                                                ; preds = %3

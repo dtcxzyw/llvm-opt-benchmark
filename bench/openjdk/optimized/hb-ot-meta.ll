@@ -339,7 +339,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4meta13accelerator_t15reference_e
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %40, %43
-  %45 = icmp eq i32 %44, %1
+  %45 = icmp eq i32 %1, %44
   br i1 %45, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %.lr.ph.i.i
 
 46:                                               ; preds = %.lr.ph.i.i
@@ -361,7 +361,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4meta13accelerator_t15reference_e
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %60, %63
-  %65 = icmp eq i32 %64, %1
+  %65 = icmp eq i32 %1, %64
   br i1 %65, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %46

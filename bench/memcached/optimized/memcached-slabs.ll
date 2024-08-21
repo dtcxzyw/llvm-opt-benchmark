@@ -107,7 +107,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %arrayidx = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 8
   %conv4 = zext i32 %4 to i64
-  %cmp5 = icmp ult i64 %conv4, %size
+  %cmp5 = icmp ugt i64 %size, %conv4
   br i1 %cmp5, label %while.body, label %return.loopexit.split.loop.exit6
 
 while.body:                                       ; preds = %while.cond
@@ -268,7 +268,7 @@ entry:
   %add = add i32 %0, 48
   store i64 %limit, ptr @mem_limit, align 8
   %cmp = icmp eq ptr %mem_base_external, null
-  %or.cond = and i1 %cmp, %prealloc
+  %or.cond = and i1 %prealloc, %cmp
   br i1 %or.cond, label %if.then, label %if.else8
 
 if.then:                                          ; preds = %entry
@@ -382,7 +382,7 @@ if.else:                                          ; preds = %alloc_large_chunk.e
 
 if.else8:                                         ; preds = %entry
   %cmp12 = icmp ne ptr %mem_base_external, null
-  %or.cond1 = and i1 %cmp12, %prealloc
+  %or.cond1 = and i1 %prealloc, %cmp12
   br i1 %or.cond1, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %if.else8
@@ -431,7 +431,7 @@ if.end40.us:                                      ; preds = %while.body.us
   %perslab.us = getelementptr inbounds i8, ptr %arrayidx48.us, i64 4
   store i32 %div53.us, ptr %perslab.us, align 4
   %conv59.us = uitofp i32 %size.2.us to double
-  %mul.us = fmul double %conv59.us, %factor
+  %mul.us = fmul double %factor, %conv59.us
   %conv60.us = fptoui double %mul.us to i32
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp62.us = icmp sgt i32 %17, 1
@@ -522,7 +522,7 @@ if.then95:                                        ; preds = %if.then93
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then93, %if.then95, %if.end90
-  %brmerge = or i1 %do_slab_prealloc.0.not, %reuse_mem
+  %brmerge = or i1 %reuse_mem, %do_slab_prealloc.0.not
   br i1 %brmerge, label %if.end103, label %if.then101
 
 if.then101:                                       ; preds = %if.end97
@@ -1269,7 +1269,7 @@ lor.lhs.false.i:                                  ; preds = %if.end6.i
   %cmp8.i = icmp sgt i32 %src.addr.0.i, %3
   %cmp10.i = icmp slt i32 %dst, 0
   %or.cond.i = or i1 %cmp10.i, %cmp8.i
-  %cmp12.i = icmp slt i32 %3, %dst
+  %cmp12.i = icmp sgt i32 %dst, %3
   %or.cond10.i = or i1 %cmp12.i, %or.cond.i
   br i1 %or.cond10.i, label %do_slabs_reassign.exit, label %if.end14.i
 

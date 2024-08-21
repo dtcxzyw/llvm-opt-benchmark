@@ -234,7 +234,7 @@ if.end19:                                         ; preds = %if.then15
   br label %return
 
 if.end20:                                         ; preds = %if.else
-  %cmp21 = icmp ugt i64 %conv, %outsize
+  %cmp21 = icmp ult i64 %outsize, %conv
   br i1 %cmp21, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end20

@@ -521,7 +521,7 @@ common.resume:                                    ; preds = %.body, %144, %157
   br i1 %165, label %.preheader.i, label %167, !llvm.loop !6
 
 167:                                              ; preds = %.preheader.i
-  %168 = icmp sgt i32 %.043.i, %.
+  %168 = icmp slt i32 %., %.043.i
   br i1 %168, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %169
 
 169:                                              ; preds = %167
@@ -582,7 +582,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i: ; preds = %_ZNK3gmx7CpuI
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, %185, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
   %.0.i.i = phi i32 [ 16, %.thread.i.i ], [ 32, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i ], [ 24, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i ], [ 32, %187 ], [ 32, %185 ]
-  %191 = icmp slt i32 %.0.i.i, %.
+  %191 = icmp sgt i32 %., %.0.i.i
   br i1 %191, label %.critedge.i.preheader, label %192
 
 192:                                              ; preds = %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
@@ -686,7 +686,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i: ; preds = %_ZNK3gmx7Cp
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %228, %226, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
   %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %228 ], [ 16, %226 ]
-  %.not.i = icmp slt i32 %.0.i51.i, %.
+  %.not.i = icmp sgt i32 %., %.0.i51.i
   %..i = select i1 %.not.i, i32 %., i32 1
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
@@ -1937,7 +1937,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17

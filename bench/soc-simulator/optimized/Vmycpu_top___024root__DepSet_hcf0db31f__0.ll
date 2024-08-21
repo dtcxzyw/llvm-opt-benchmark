@@ -12370,7 +12370,7 @@ define internal noundef i64 @_ZL13VL_EXTENDS_QQiim(i32 %0, i32 noundef %1, i64 n
   %6 = shl nuw i64 1, %5
   %7 = and i64 %6, %2
   %8 = sub i64 0, %7
-  %9 = or i64 %8, %2
+  %9 = or i64 %2, %8
   ret i64 %9
 }
 

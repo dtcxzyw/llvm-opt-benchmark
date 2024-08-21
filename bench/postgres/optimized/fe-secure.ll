@@ -286,7 +286,7 @@ define void @pq_reset_sigpipe(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
   %7 = tail call ptr @__errno_location() #8
   %8 = load i32, ptr %7, align 4
   %.not3 = xor i1 %2, true
-  %brmerge = or i1 %.not3, %1
+  %brmerge = or i1 %1, %.not3
   br i1 %brmerge, label %18, label %9
 
 9:                                                ; preds = %3

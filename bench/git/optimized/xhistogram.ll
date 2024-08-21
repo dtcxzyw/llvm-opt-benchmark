@@ -154,7 +154,7 @@ if.end25.i:                                       ; preds = %if.end19.i
   store i32 %line1.addr.085, ptr %ptr_shift.i, align 4
   store i32 64, ptr %max_chain_length.i, align 4
   %ptr.048.i.i = add i32 %add, -1
-  %cmp.not49.i.i = icmp ult i32 %ptr.048.i.i, %line1.addr.085
+  %cmp.not49.i.i = icmp ugt i32 %line1.addr.085, %ptr.048.i.i
   br i1 %cmp.not49.i.i, label %if.end29.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end25.i, %for.inc.i.i
@@ -247,7 +247,7 @@ for.inc.i.i:                                      ; preds = %if.end49.i.i, %if.t
   %arrayidx41.i.i = getelementptr inbounds ptr, ptr %21, i64 %idxprom40.i.i
   store ptr %rec.047.lcssa.sink.i.i, ptr %arrayidx41.i.i, align 8
   %ptr.0.i.i = add i32 %ptr.051.i.i, -1
-  %cmp.not.i.i = icmp ult i32 %ptr.0.i.i, %line1.addr.085
+  %cmp.not.i.i = icmp ugt i32 %line1.addr.085, %ptr.0.i.i
   br i1 %cmp.not.i.i, label %if.end29.loopexit.i, label %for.body.i.i, !llvm.loop !9
 
 if.end29.loopexit.i:                              ; preds = %for.inc.i.i
@@ -303,8 +303,8 @@ for.body.i:                                       ; preds = %try_lcs.exit.i, %fo
   br i1 %tobool.not130.i.i, label %try_lcs.exit.i, label %for.body.lr.ph.i22.i
 
 for.body.lr.ph.i22.i:                             ; preds = %for.body.i
-  %cmp53107.i.i = icmp ugt i32 %b_ptr.069.i, %line2.addr.087
-  %cmp93118.i.i = icmp ugt i32 %sub92.i.i, %b_ptr.069.i
+  %cmp53107.i.i = icmp ult i32 %line2.addr.087, %b_ptr.069.i
+  %cmp93118.i.i = icmp ult i32 %b_ptr.069.i, %sub92.i.i
   %34 = zext i32 %b_ptr.069.i to i64
   %has_common46.i.promoted.i = load i32, ptr %has_common46.i.i, align 4
   %arrayidx41.i28.i = getelementptr inbounds ptr, ptr %.pre, i64 %idxprom.i14.i
@@ -381,7 +381,7 @@ for.cond47.i.i:                                   ; preds = %while.cond152.i.i, 
   %arrayidx50.i.i = getelementptr inbounds i32, ptr %29, i64 %idxprom49.i.i
   %51 = load i32, ptr %arrayidx50.i.i, align 4
   %52 = load i32, ptr %cnt.i27.i, align 4
-  %cmp52106.i.i = icmp ugt i32 %as.0.i.i, %line1.addr.085
+  %cmp52106.i.i = icmp ult i32 %line1.addr.085, %as.0.i.i
   %or.cond108.i.i = and i1 %cmp53107.i.i, %cmp52106.i.i
   br i1 %or.cond108.i.i, label %land.rhs.lr.ph.i.i, label %while.end.i34.i
 

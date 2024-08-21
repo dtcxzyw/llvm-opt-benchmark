@@ -316,7 +316,7 @@ if.end42:                                         ; preds = %if.then35, %do.body
 
 if.else57:                                        ; preds = %if.end29
   %call58 = tail call ptr @sysbus_get_default() #5
-  %cmp59 = icmp eq ptr %call58, %bus
+  %cmp59 = icmp eq ptr %bus, %call58
   br i1 %cmp59, label %if.end64, label %if.else62
 
 if.else62:                                        ; preds = %if.else57

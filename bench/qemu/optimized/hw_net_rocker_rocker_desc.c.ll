@@ -74,7 +74,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #8
   %buf_size = getelementptr inbounds i8, ptr %info, i64 48
   %2 = load i64, ptr %buf_size, align 8
-  %cmp = icmp ult i64 %2, %tlv_size
+  %cmp = icmp ugt i64 %tlv_size, %2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -136,36 +136,33 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @desc_ring_set_size(ptr noundef %ring, i32 noundef %size) local_unnamed_addr #1 {
 entry:
-  %0 = add i32 %size, -65537
-  %or.cond = icmp ult i32 %0, -65535
-  br i1 %or.cond, label %return, label %lor.lhs.false2
+  %0 = add i32 %size, -2
+  %or.cond = icmp ult i32 %0, 65535
+  %1 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %size)
+  %tobool.not = icmp ult i32 %1, 2
+  %or.cond24 = select i1 %or.cond, i1 %tobool.not, i1 false
+  br i1 %or.cond24, label %for.cond.preheader, label %return
 
-lor.lhs.false2:                                   ; preds = %entry
-  %sub = add nuw nsw i32 %size, 131071
-  %and = and i32 %sub, %size
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %for.cond.preheader, label %return
-
-for.cond.preheader:                               ; preds = %lor.lhs.false2
+for.cond.preheader:                               ; preds = %entry
   %size3 = getelementptr inbounds i8, ptr %ring, i64 8
-  %1 = load i32, ptr %size3, align 8
-  %cmp424.not = icmp eq i32 %1, 0
-  br i1 %cmp424.not, label %for.end, label %for.body.lr.ph
+  %2 = load i32, ptr %size3, align 8
+  %cmp425.not = icmp eq i32 %2, 0
+  br i1 %cmp425.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %info = getelementptr inbounds i8, ptr %ring, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.025 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %2 = load ptr, ptr %info, align 8
-  %idxprom = sext i32 %i.025 to i64
-  %buf = getelementptr %struct.desc_info, ptr %2, i64 %idxprom, i32 2
-  %3 = load ptr, ptr %buf, align 8
-  tail call void @g_free(ptr noundef %3) #8
-  %inc = add nuw i32 %i.025, 1
-  %4 = load i32, ptr %size3, align 8
-  %cmp4 = icmp ult i32 %inc, %4
+  %i.026 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %3 = load ptr, ptr %info, align 8
+  %idxprom = sext i32 %i.026 to i64
+  %buf = getelementptr %struct.desc_info, ptr %3, i64 %idxprom, i32 2
+  %4 = load ptr, ptr %buf, align 8
+  tail call void @g_free(ptr noundef %4) #8
+  %inc = add nuw i32 %i.026, 1
+  %5 = load i32, ptr %size3, align 8
+  %cmp4 = icmp ult i32 %inc, %5
   br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -175,27 +172,26 @@ for.end:                                          ; preds = %for.body, %for.cond
   %head = getelementptr inbounds i8, ptr %ring, i64 12
   store i32 0, ptr %head, align 4
   %info6 = getelementptr inbounds i8, ptr %ring, i64 40
-  %5 = load ptr, ptr %info6, align 8
+  %6 = load ptr, ptr %info6, align 8
   %conv = zext nneg i32 %size to i64
-  %call7 = tail call ptr @g_realloc_n(ptr noundef %5, i64 noundef %conv, i64 noundef 56) #8
+  %call7 = tail call ptr @g_realloc_n(ptr noundef %6, i64 noundef %conv, i64 noundef 56) #8
   store ptr %call7, ptr %info6, align 8
   %mul = mul nuw nsw i64 %conv, 56
   tail call void @llvm.memset.p0.i64(ptr align 8 %call7, i8 0, i64 %mul, i1 false)
-  %cmp1226.not = icmp eq i32 %size, 0
-  br i1 %cmp1226.not, label %return, label %for.body14
+  %cmp1227.not = icmp eq i32 %size, 0
+  br i1 %cmp1227.not, label %return, label %for.body14
 
 for.body14:                                       ; preds = %for.end, %for.body14
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body14 ], [ 0, %for.end ]
-  %6 = load ptr, ptr %info6, align 8
-  %arrayidx17 = getelementptr %struct.desc_info, ptr %6, i64 %indvars.iv
+  %7 = load ptr, ptr %info6, align 8
+  %arrayidx17 = getelementptr %struct.desc_info, ptr %7, i64 %indvars.iv
   store ptr %ring, ptr %arrayidx17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %return, label %for.body14, !llvm.loop !8
 
-return:                                           ; preds = %for.body14, %for.end, %entry, %lor.lhs.false2
-  %retval.0 = phi i1 [ false, %lor.lhs.false2 ], [ false, %entry ], [ true, %for.end ], [ true, %for.body14 ]
-  ret i1 %retval.0
+return:                                           ; preds = %for.body14, %for.end, %entry
+  ret i1 %or.cond24
 }
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
@@ -321,7 +317,7 @@ entry:
 if.end:                                           ; preds = %entry
   %size = getelementptr inbounds i8, ptr %ring, i64 8
   %3 = load i32, ptr %size, align 8
-  %cmp.not = icmp ugt i32 %3, %new
+  %cmp.not = icmp ult i32 %new, %3
   br i1 %cmp.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
@@ -329,16 +325,16 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp7, label %land.lhs.true, label %lor.lhs.false10
 
 land.lhs.true:                                    ; preds = %if.end6
-  %cmp8.not = icmp ule i32 %0, %new
-  %cmp9 = icmp ugt i32 %1, %new
+  %cmp8.not = icmp uge i32 %new, %0
+  %cmp9 = icmp ult i32 %new, %1
   %or.cond = select i1 %cmp8.not, i1 true, i1 %cmp9
   br i1 %or.cond, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %land.lhs.true, %if.end6
   %cmp11 = icmp ugt i32 %1, %0
-  %cmp13.not = icmp ule i32 %0, %new
+  %cmp13.not = icmp uge i32 %new, %0
   %or.cond30.not34 = and i1 %cmp13.not, %cmp11
-  %cmp15 = icmp ugt i32 %1, %new
+  %cmp15 = icmp ult i32 %new, %1
   %or.cond31 = and i1 %cmp15, %or.cond30.not34
   br i1 %or.cond31, label %return, label %if.end24
 
@@ -347,7 +343,7 @@ if.end24:                                         ; preds = %lor.lhs.false10
   %consume.i = getelementptr inbounds i8, ptr %ring, i64 56
   %4 = load ptr, ptr %consume.i, align 8
   %tobool.not.i32 = icmp eq ptr %4, null
-  %cmp.not16.i = icmp eq i32 %0, %new
+  %cmp.not16.i = icmp eq i32 %new, %0
   %or.cond33 = select i1 %tobool.not.i32, i1 true, i1 %cmp.not16.i
   br i1 %or.cond33, label %return, label %while.body.lr.ph.i
 
@@ -518,6 +514,9 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7

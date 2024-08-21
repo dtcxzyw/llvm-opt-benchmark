@@ -2369,7 +2369,7 @@ if.then:                                          ; preds = %StoreVarLenUint8.ex
   %arrayidx = getelementptr inbounds i32, ptr %arena, i64 %sub1
   store i32 %conv9, ptr %arrayidx, align 4
   store i32 1, ptr %arena, align 4
-  %cmp1175 = icmp ugt i64 %add, %context_bits
+  %cmp1175 = icmp ult i64 %context_bits, %add
   br i1 %cmp1175, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.then, %for.body
@@ -2857,7 +2857,7 @@ if.then13:                                        ; preds = %for.end
 
 if.end16:                                         ; preds = %if.then13, %for.end
   %conv17 = zext nneg i32 %cond.i80.i to i64
-  %add = add i64 %conv17, %num_clusters
+  %add = add i64 %num_clusters, %conv17
   tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %arena, i64 noundef %add, i64 noundef %add, ptr noundef %tree, ptr noundef nonnull %depths2, ptr noundef nonnull %bits4, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   %.pre111 = load i64, ptr %storage_ix, align 8
   br i1 %cmp796.not115, label %for.end43, label %for.body23

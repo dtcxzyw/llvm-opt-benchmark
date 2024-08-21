@@ -1415,7 +1415,7 @@ _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.
   %564 = sub i64 %562, %563
   %565 = lshr exact i64 %564, 2
   %566 = trunc i64 %565 to i32
-  %567 = icmp sgt i32 %566, %19
+  %567 = icmp slt i32 %19, %566
   br i1 %567, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %575
@@ -1615,7 +1615,7 @@ _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit:
   %.0.i = phi i32 [ %583, %590 ], [ %600, %631 ], [ %600, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %657, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   %658 = icmp slt i32 %.0.i, 0
-  %or.cond.not = or i1 %658, %5
+  %or.cond.not = or i1 %5, %658
   br i1 %or.cond.not, label %_ZL18append_interactionP15InteractionListiN3gmx8ArrayRefIKiEE.exit, label %659
 
 659:                                              ; preds = %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit
@@ -1924,7 +1924,7 @@ define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_check
   br label %31
 
 21:                                               ; preds = %4
-  %22 = icmp slt i32 %8, %1
+  %22 = icmp sgt i32 %1, %8
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %21

@@ -283,7 +283,7 @@ define hidden noundef i64 @"_ZN46_$LT$u64$u20$as$u20$core..default..Default$GT$7
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i32 @"_ZN47_$LT$i32$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hf5937902a14d4c4cE.llvm.7363024586935657205"(i32 noundef %0, i64 noundef %1) unnamed_addr #8 {
   %3 = trunc i64 %1 to i32
-  %4 = add nsw i32 %3, %0
+  %4 = add nsw i32 %0, %3
   ret i32 %4
 }
 
@@ -2027,7 +2027,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %6
 
 _ZN4ring2ec7suite_b11private_key29check_scalar_big_endian_bytes17h7a3e9280305f9823E.exit.i.i.i: ; preds = %84
   %88 = shl nuw nsw i64 %85, 3
-  %.not.i.i = icmp eq i64 %88, %77
+  %.not.i.i = icmp eq i64 %77, %88
   br i1 %.not.i.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haee67adab7116f68E.llvm.9292951165861561203.exit.i.i", label %_ZN4ring2ec7suite_b3ops32parse_big_endian_fixed_consttime17hddc19fd40b2826c8E.exit.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haee67adab7116f68E.llvm.9292951165861561203.exit.i.i": ; preds = %_ZN4ring2ec7suite_b11private_key29check_scalar_big_endian_bytes17h7a3e9280305f9823E.exit.i.i.i
@@ -2198,7 +2198,7 @@ _ZN4ring2ec7suite_b3ops22elem_reduced_to_scalar17h6b2521de08437421E.exit.i: ; pr
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = load i64, ptr %129, align 8, !alias.scope !619, !noalias !622, !noundef !9
   %131 = shl i64 %130, 3
-  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %131, i64 %125)
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %125, i64 %131)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9), !noalias !625
   call void @_ZN4ring2ec7suite_b3ops60scalar_parse_big_endian_partially_reduced_variable_consttime17hbdfc0a3fbc2dcaadE(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(272) %128, ptr noalias noundef nonnull readonly align 1 %67, i64 noundef %spec.select.i.i.i), !noalias !626
   call void @llvm.experimental.noalias.scope.decl(metadata !627)
@@ -2442,7 +2442,7 @@ _ZN4ring6digest7Context6finish17ha820283835585a81E.exit: ; preds = %"_ZN106_$LT$
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit16": ; preds = %_ZN4ring6digest7Context6finish17ha820283835585a81E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !682)
   call void @llvm.experimental.noalias.scope.decl(metadata !685)
-  %.not.i = icmp eq i64 %54, %2
+  %.not.i = icmp eq i64 %2, %54
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit", label %57
 
 57:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit16"

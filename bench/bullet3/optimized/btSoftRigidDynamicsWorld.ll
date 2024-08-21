@@ -235,7 +235,7 @@ entry:
   store i32 %clampCells, ptr %m_clampCells, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
-  %cmp3.i = icmp slt i32 %0, %hashsize
+  %cmp3.i = icmp sgt i32 %hashsize, %0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIPN11btSparseSdfILi3EE4CellEE6resizeEiRKS3_.exit
 
 if.then4.i:                                       ; preds = %entry
@@ -727,7 +727,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %6 = load ptr, ptr %m_softBodySolver, align 8
   %m_timeScale.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load float, ptr %m_timeScale.i.i, align 8
-  %mul.i = fmul float %7, %timeStep
+  %mul.i = fmul float %timeStep, %7
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %8 = load ptr, ptr %vfn.i, align 8
@@ -794,7 +794,7 @@ if.end:                                           ; preds = %if.then, %entry
   %2 = load ptr, ptr %m_softBodySolver, align 8
   %m_timeScale.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load float, ptr %m_timeScale.i, align 8
-  %mul = fmul float %3, %timeStep
+  %mul = fmul float %timeStep, %3
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8

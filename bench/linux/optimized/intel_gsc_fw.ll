@@ -96,7 +96,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   %20 = load i32, ptr %19, align 1
   %21 = add i32 %20, %18
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %22, %2
+  %23 = icmp ult i64 %2, %22
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %16

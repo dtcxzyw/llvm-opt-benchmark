@@ -1099,7 +1099,7 @@ if.then11:                                        ; preds = %if.end
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.then11
-  %cmp.not.i52 = icmp eq ptr %ref.tmp, %s
+  %cmp.not.i52 = icmp eq ptr %s, %ref.tmp
   br i1 %cmp.not.i52, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i53
 
 if.then.i53:                                      ; preds = %invoke.cont25
@@ -1203,7 +1203,7 @@ cond.end40:                                       ; preds = %invoke.cont.i, %ini
           to label %invoke.cont47 unwind label %lpad24
 
 invoke.cont47:                                    ; preds = %cond.end40
-  %cmp.not.i56 = icmp eq ptr %ref.tmp41, %s
+  %cmp.not.i56 = icmp eq ptr %s, %ref.tmp41
   br i1 %cmp.not.i56, label %_ZN7rocksdb6StatusaSEOS0_.exit74, label %if.then.i57
 
 if.then.i57:                                      ; preds = %invoke.cont47
@@ -1294,7 +1294,7 @@ invoke.cont51:                                    ; preds = %invoke.cont.i82, %i
           to label %invoke.cont58 unwind label %lpad50
 
 invoke.cont58:                                    ; preds = %invoke.cont51
-  %cmp.not.i84 = icmp eq ptr %ref.tmp49, %s
+  %cmp.not.i84 = icmp eq ptr %s, %ref.tmp49
   br i1 %cmp.not.i84, label %_ZN7rocksdb6StatusaSEOS0_.exit102, label %if.then.i85
 
 if.then.i85:                                      ; preds = %invoke.cont58
@@ -1363,7 +1363,7 @@ lpad50:                                           ; preds = %if.then5.i, %if.the
 if.end60:                                         ; preds = %cleanup.thread, %_ZN7rocksdb6StatusD2Ev.exit106
   %55 = load i8, ptr %s, align 8
   %cmp.i107 = icmp eq i8 %55, 13
-  %brmerge.not = and i1 %cmp.i107, %async_read
+  %brmerge.not = and i1 %async_read, %cmp.i107
   br i1 %brmerge.not, label %cleanup126, label %if.end66
 
 if.end66:                                         ; preds = %if.end60
@@ -3217,7 +3217,7 @@ if.else17:                                        ; preds = %if.else
   %result.0.copyload.i.i.i = load i64, ptr %add.ptr2.i.i, align 1
   %buf_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %9 = load i64, ptr %buf_size_.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %9, %8
+  %cmp.i.i.i = icmp ugt i64 %8, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEmNS_9ValueTypeEPS2_.exit
 
 if.then.i.i.i:                                    ; preds = %if.else17

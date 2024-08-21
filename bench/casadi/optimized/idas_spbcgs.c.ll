@@ -556,7 +556,7 @@ define range(i32 -101, 1) i32 @IDASpbcgB(ptr noundef %0, i32 noundef %1, i32 nou
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -572,7 +572,7 @@ define range(i32 -101, 1) i32 @IDASpbcgB(ptr noundef %0, i32 noundef %1, i32 nou
 .lr.ph:                                           ; preds = %17, %21
   %.02836 = phi ptr [ %.028, %21 ], [ %.02834, %17 ]
   %19 = load i32, ptr %.02836, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   br i1 %20, label %._crit_edge, label %21
 
 21:                                               ; preds = %.lr.ph

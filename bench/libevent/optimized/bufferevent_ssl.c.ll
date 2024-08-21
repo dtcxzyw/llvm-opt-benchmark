@@ -2154,7 +2154,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i64 @bufferevent_get_read_max_(ptr noundef nonnull %bev_ssl) #7
   %conv = trunc i64 %call to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %conv, i32 %n_to_read)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %n_to_read, i32 %conv)
   %conv9 = sext i32 %spec.select to i64
   %call10 = call i32 @evbuffer_reserve_space(ptr noundef %0, i64 noundef %conv9, ptr noundef nonnull %space, i32 noundef 2) #7
   %cmp11 = icmp slt i32 %call10, 0

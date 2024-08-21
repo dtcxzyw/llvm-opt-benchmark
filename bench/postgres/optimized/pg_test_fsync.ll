@@ -215,7 +215,7 @@ sub_119.i:                                        ; preds = %.tail.thread.i
 
 57:                                               ; preds = %.tail17.thread.i
   %58 = load i32, ptr @optind, align 4
-  %59 = icmp slt i32 %58, %0
+  %59 = icmp sgt i32 %0, %58
   br i1 %59, label %60, label %handle_args.exit
 
 60:                                               ; preds = %57

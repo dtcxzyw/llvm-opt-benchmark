@@ -865,7 +865,7 @@ entry:
   %conv.i.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i.i, i64 %4, i64 %sub.i.i.i.i
-  %cmp.not.i.i = icmp ult i64 %cond.i.i.i, %cond.i.i
+  %cmp.not.i.i = icmp ugt i64 %cond.i.i, %cond.i.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -1847,7 +1847,7 @@ if.then10:                                        ; preds = %if.then7
   %conv.i.i.i.i12 = zext nneg i8 %14 to i64
   %sub.i.i.i.i13 = sub nsw i64 23, %conv.i.i.i.i12
   %cond.i.i.i14 = select i1 %tobool.i.i.i.i, i64 %13, i64 %sub.i.i.i.i13
-  %cmp.not.i.i = icmp ult i64 %cond.i.i.i14, %sub.ptr.sub
+  %cmp.not.i.i = icmp ugt i64 %sub.ptr.sub, %cond.i.i.i14
   %15 = load ptr, ptr %sNameCurrent, align 8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i15
 
@@ -1978,7 +1978,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i, i64 %nTestArrayCapacity)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %nTestArrayCapacity, i64 %sub.ptr.div.i)
   %mul = shl i64 %spec.select, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %pTestArray, i8 0, i64 %mul, i1 false)
   %cmp518.not = icmp eq i64 %spec.select, 0

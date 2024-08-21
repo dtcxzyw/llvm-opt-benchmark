@@ -132,7 +132,7 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
 18:                                               ; preds = %16
   %.val = load ptr, ptr %1, align 8, !nonnull !67, !align !71, !noundef !67
   %.val2.i = load i8, ptr %.val, align 1, !noundef !67
-  %19 = icmp eq i8 %.val2.i, %.sroa.6.0
+  %19 = icmp eq i8 %.sroa.6.0, %.val2.i
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %18, %16
@@ -193,7 +193,7 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
 18:                                               ; preds = %16
   %.val = load ptr, ptr %1, align 8, !nonnull !67, !align !71, !noundef !67
   %.val2.i = load i8, ptr %.val, align 1, !noundef !67
-  %19 = icmp eq i8 %.val2.i, %.sroa.6.0
+  %19 = icmp eq i8 %.sroa.6.0, %.val2.i
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %18, %16

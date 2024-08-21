@@ -6,9 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @mlib_ImageClippingMxN(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = xor i32 %9, -1
-  %13 = add i32 %12, %7
+  %13 = add i32 %7, %12
   %14 = xor i32 %10, -1
-  %15 = add i32 %14, %8
+  %15 = add i32 %8, %14
   %16 = icmp eq ptr %5, null
   %17 = icmp eq ptr %6, null
   %or.cond127 = or i1 %16, %17

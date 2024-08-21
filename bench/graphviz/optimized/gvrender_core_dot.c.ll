@@ -1945,7 +1945,7 @@ agxblen.exit.i.i40:                               ; preds = %105, %agxbsizeof.ex
   br label %agxbput.exit46
 
 agxbput.exit46:                                   ; preds = %114, %119
-  %126 = fadd double %103, %2
+  %126 = fadd double %2, %103
   %switch.selectcmp32 = icmp eq i8 %78, 108
   %switch.selectcmp = icmp eq i8 %78, 114
   %switch.select = zext i1 %switch.selectcmp to i32
@@ -3276,7 +3276,7 @@ agxblen.exit.i.i48:                               ; preds = %118
   %.0.i30.i.i49 = select i1 %.not.i.i.i46, i64 %122, i64 31
   %.0.i24.i.i50 = select i1 %.not.i.i.i46, i64 %123, i64 %121
   %124 = sub i64 %.0.i30.i.i49, %.0.i24.i.i50
-  %125 = icmp ult i64 %124, %119
+  %125 = icmp ugt i64 %119, %124
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %agxblen.exit.i.i48

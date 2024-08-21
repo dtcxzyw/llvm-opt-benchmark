@@ -800,9 +800,9 @@ define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly 
   %32 = fsub reassoc nsz arcp contract afn float %19, %24
   %33 = fmul reassoc nsz arcp contract afn float %32, %1
   %34 = fmul reassoc nsz arcp contract afn float %3, %3
-  %35 = fmul reassoc nsz arcp contract afn float %34, %5
+  %35 = fmul reassoc nsz arcp contract afn float %5, %34
   %36 = fmul reassoc nsz arcp contract afn float %3, %2
-  %37 = fmul reassoc nsz arcp contract afn float %36, %6
+  %37 = fmul reassoc nsz arcp contract afn float %6, %36
   %38 = fsub reassoc nsz arcp contract afn float %35, %37
   %39 = fmul reassoc nsz arcp contract afn float %38, %4
   %40 = fadd reassoc nsz arcp contract afn float %33, %39
@@ -833,7 +833,7 @@ define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly 
   %reass.mul = fmul reassoc nsz arcp contract afn float %reass.add, %53
   %62 = fmul reassoc nsz arcp contract afn float %4, %1
   %63 = fneg reassoc nsz arcp contract afn float %2
-  %64 = fmul reassoc nsz arcp contract afn float %63, %6
+  %64 = fmul reassoc nsz arcp contract afn float %6, %63
   %65 = fsub reassoc nsz arcp contract afn float %64, %23
   %66 = fmul reassoc nsz arcp contract afn float %65, %62
   %67 = fmul reassoc nsz arcp contract afn float %1, %1
@@ -856,7 +856,7 @@ define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly 
   %82 = fmul reassoc nsz arcp contract afn float %2, 2.000000e+00
   %83 = fmul reassoc nsz arcp contract afn float %17, %82
   %84 = fmul reassoc nsz arcp contract afn float %2, %2
-  %85 = fmul reassoc nsz arcp contract afn float %84, %6
+  %85 = fmul reassoc nsz arcp contract afn float %6, %84
   %86 = fmul reassoc nsz arcp contract afn float %85, %6
   %87 = fmul reassoc nsz arcp contract afn float %82, %3
   %88 = fmul reassoc nsz arcp contract afn float %15, %87
@@ -867,7 +867,7 @@ define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly 
   %93 = fmul reassoc nsz arcp contract afn float %92, %4
   %94 = fmul reassoc nsz arcp contract afn float %5, %5
   %95 = fsub reassoc nsz arcp contract afn float %94, %15
-  %96 = fmul reassoc nsz arcp contract afn float %67, %6
+  %96 = fmul reassoc nsz arcp contract afn float %6, %67
   %97 = fmul reassoc nsz arcp contract afn float %96, %95
   %98 = fmul reassoc nsz arcp contract afn float %37, -2.000000e+00
   %99 = fadd reassoc nsz arcp contract afn float %98, %35
@@ -887,7 +887,7 @@ define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly 
   %113 = fmul reassoc nsz arcp contract afn float %36, %3
   %114 = fmul reassoc nsz arcp contract afn float %113, %5
   %115 = fmul reassoc nsz arcp contract afn float %84, %3
-  %116 = fmul reassoc nsz arcp contract afn float %115, %6
+  %116 = fmul reassoc nsz arcp contract afn float %6, %115
   %117 = fsub reassoc nsz arcp contract afn float %114, %116
   %118 = fmul reassoc nsz arcp contract afn float %117, %59
   %119 = fadd reassoc nsz arcp contract afn float %112, %118
@@ -895,27 +895,26 @@ define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly 
   %121 = fdiv reassoc nsz arcp contract afn float %104, %120
   store float %121, ptr %11, align 4, !tbaa !11
   %122 = fmul reassoc nsz arcp contract afn float %3, 2.000000e+00
-  %123 = fneg reassoc nsz arcp contract afn float %122
-  %124 = fmul reassoc nsz arcp contract afn float %123, %5
-  %125 = fmul reassoc nsz arcp contract afn float %124, %6
-  %126 = fadd reassoc nsz arcp contract afn float %125, %105
-  %127 = fadd reassoc nsz arcp contract afn float %126, %19
-  %128 = fmul reassoc nsz arcp contract afn float %127, %67
-  %129 = fmul reassoc nsz arcp contract afn float %122, %3
-  %130 = fsub reassoc nsz arcp contract afn float %129, %87
-  %131 = fmul reassoc nsz arcp contract afn float %5, %4
-  %132 = fmul reassoc nsz arcp contract afn float %131, %130
-  %133 = fsub reassoc nsz arcp contract afn float %115, %113
-  %134 = fmul reassoc nsz arcp contract afn float %133, %59
-  %135 = fmul reassoc nsz arcp contract afn float %14, %84
-  %136 = fadd reassoc nsz arcp contract afn float %88, %132
-  %137 = fadd reassoc nsz arcp contract afn float %89, %135
-  %138 = fsub reassoc nsz arcp contract afn float %136, %137
-  %139 = fmul reassoc nsz arcp contract afn float %138, %1
-  %140 = fadd reassoc nsz arcp contract afn float %128, %134
-  %141 = fadd reassoc nsz arcp contract afn float %140, %139
-  %142 = fdiv reassoc nsz arcp contract afn float %141, %120
-  store float %142, ptr %12, align 4, !tbaa !11
+  %123 = fmul reassoc nsz arcp contract afn float %5, %122
+  %124 = fmul reassoc nsz arcp contract afn float %6, %123
+  %125 = fsub reassoc nsz arcp contract afn float %105, %124
+  %126 = fadd reassoc nsz arcp contract afn float %125, %19
+  %127 = fmul reassoc nsz arcp contract afn float %126, %67
+  %128 = fmul reassoc nsz arcp contract afn float %122, %3
+  %129 = fsub reassoc nsz arcp contract afn float %128, %87
+  %130 = fmul reassoc nsz arcp contract afn float %5, %4
+  %131 = fmul reassoc nsz arcp contract afn float %130, %129
+  %132 = fsub reassoc nsz arcp contract afn float %115, %113
+  %133 = fmul reassoc nsz arcp contract afn float %132, %59
+  %134 = fmul reassoc nsz arcp contract afn float %84, %14
+  %135 = fadd reassoc nsz arcp contract afn float %88, %131
+  %136 = fadd reassoc nsz arcp contract afn float %89, %134
+  %137 = fsub reassoc nsz arcp contract afn float %135, %136
+  %138 = fmul reassoc nsz arcp contract afn float %137, %1
+  %139 = fadd reassoc nsz arcp contract afn float %127, %133
+  %140 = fadd reassoc nsz arcp contract afn float %139, %138
+  %141 = fdiv reassoc nsz arcp contract afn float %140, %120
+  store float %141, ptr %12, align 4, !tbaa !11
   ret void
 }
 
@@ -1490,7 +1489,7 @@ define void @distort_mask(ptr nocapture noundef readnone %0, ptr nocapture nound
   %107 = load float, ptr %12, align 4
   %108 = load float, ptr %13, align 4
   %109 = fmul reassoc nsz arcp contract afn float %106, %103
-  %110 = fmul reassoc nsz arcp contract afn float %105, %104
+  %110 = fmul reassoc nsz arcp contract afn float %104, %105
   %111 = fsub reassoc nsz arcp contract afn float %109, %110
   %112 = getelementptr inbounds i8, ptr %4, i64 4
   %113 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3081,7 +3080,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %114 = load float, ptr %12, align 4
   %115 = load float, ptr %13, align 4
   %116 = fmul reassoc nsz arcp contract afn float %113, %110
-  %117 = fmul reassoc nsz arcp contract afn float %112, %111
+  %117 = fmul reassoc nsz arcp contract afn float %111, %112
   %118 = fsub reassoc nsz arcp contract afn float %116, %117
   %119 = getelementptr inbounds i8, ptr %4, i64 4
   %120 = getelementptr inbounds i8, ptr %4, i64 12

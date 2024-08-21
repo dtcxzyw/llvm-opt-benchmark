@@ -53,7 +53,7 @@ define internal void @pmix_list_destruct(ptr noundef %0) #2 {
 define noundef zeroext i1 @pmix_list_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   %5 = load volatile i64, ptr %4, align 8
-  %.not = icmp sgt i64 %5, %2
+  %.not = icmp slt i64 %2, %5
   br i1 %.not, label %6, label %30
 
 6:                                                ; preds = %3
@@ -125,7 +125,7 @@ define void @pmix_list_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 120
-  %.not.i = icmp eq ptr %7, %1
+  %.not.i = icmp eq ptr %1, %7
   br i1 %.not.i, label %pmix_list_transfer.exit, label %8
 
 8:                                                ; preds = %6

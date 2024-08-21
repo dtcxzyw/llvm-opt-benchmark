@@ -84,7 +84,7 @@ define internal { double, double } @_ZL15putp2_s_forward5PJ_LPP8PJconsts(double 
   %6 = fmul double %1, %1
   %7 = tail call double @llvm.fmuladd.f64(double %6, double 4.629200e-03, double 0x3F82A2C63E125F53)
   %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double 6.157090e-01)
-  %9 = fmul double %8, %1
+  %9 = fmul double %1, %8
   br label %10
 
 10:                                               ; preds = %10, %3

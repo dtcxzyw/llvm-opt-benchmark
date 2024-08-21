@@ -1618,7 +1618,7 @@ define dso_local i32 @get_cast_oid(i32 noundef %0, i32 noundef %1, i1 noundef ze
   %5 = zext i32 %1 to i64
   %6 = tail call i32 @GetSysCacheOid(i32 noundef 12, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
   %.not = icmp ne i32 %6, 0
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %13, label %7
 
 7:                                                ; preds = %3
@@ -4266,7 +4266,7 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
 .split.us:                                        ; preds = %5
   %15 = load i16, ptr %12, align 2
   %16 = sext i16 %15 to i32
-  %17 = icmp eq i32 %16, %2
+  %17 = icmp eq i32 %2, %16
   br i1 %17, label %.split75.us, label %.lr.ph
 
 18:                                               ; preds = %.lr.ph
@@ -4274,7 +4274,7 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
   %19 = getelementptr i16, ptr %12, i64 %indvars.iv.next92
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i32
-  %22 = icmp eq i32 %21, %2
+  %22 = icmp eq i32 %2, %21
   br i1 %22, label %.split75.us.loopexit, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.split.us, %18
@@ -4288,7 +4288,7 @@ define dso_local zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i3
   %24 = getelementptr i16, ptr %12, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i32
-  %27 = icmp eq i32 %26, %2
+  %27 = icmp eq i32 %2, %26
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %.split
@@ -4653,7 +4653,7 @@ define dso_local i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) l
   %12 = getelementptr inbounds i8, ptr %11, i64 10
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
-  %15 = icmp slt i32 %14, %1
+  %15 = icmp sgt i32 %1, %14
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %5
@@ -4762,7 +4762,7 @@ define dso_local i32 @get_publication_oid(ptr noundef %0, i1 noundef zeroext %1)
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 46, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
   %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %9, label %5
 
 5:                                                ; preds = %2
@@ -4818,7 +4818,7 @@ define dso_local i32 @get_subscription_oid(ptr noundef %0, i1 noundef zeroext %1
   %5 = ptrtoint ptr %0 to i64
   %6 = tail call i32 @GetSysCacheOid(i32 noundef 64, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
   %.not = icmp ne i32 %6, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %11, label %7
 
 7:                                                ; preds = %2

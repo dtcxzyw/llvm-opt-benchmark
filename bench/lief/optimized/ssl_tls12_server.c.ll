@@ -3545,7 +3545,7 @@ define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(pt
   %7 = getelementptr inbounds i8, ptr %0, i64 448
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
-  %.not18 = icmp eq i64 %9, %2
+  %.not18 = icmp eq i64 %2, %9
   br i1 %.not18, label %10, label %17
 
 10:                                               ; preds = %6

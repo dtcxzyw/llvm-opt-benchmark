@@ -1786,7 +1786,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEE
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.0", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -2653,7 +2653,7 @@ while.body.i.i1:                                  ; preds = %_ZN5eastl8multimapI
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit: ; preds = %while.body.i.i1
   %mpNodeLeft.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %mpNodeLeft.i, align 8, !noalias !83
-  %cmp.i = icmp ne ptr %4, %pRangeEnd.1.i.i
+  %cmp.i = icmp ne ptr %pRangeEnd.1.i.i, %4
   %cmp5.i = icmp ne ptr %pRangeEnd.1.i13.i, %this
   %5 = select i1 %cmp.i, i1 true, i1 %cmp5.i
   br i1 %5, label %while.cond.preheader.i, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.if.end.i_crit_edge
@@ -2661,7 +2661,7 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.thread30: ; preds = %_ZN5eastl8multimapIiiNS_4lessIiEENS_9allocatorEE11equal_rangeERKi.exit
   %mpNodeLeft.i32 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %mpNodeLeft.i32, align 8, !noalias !83
-  %cmp.i33 = icmp ne ptr %6, %pRangeEnd.1.i.i
+  %cmp.i33 = icmp ne ptr %pRangeEnd.1.i.i, %6
   %cmp5.i34 = icmp ne ptr %pRangeEnd.1.i13.i, %this
   %7 = select i1 %cmp.i33, i1 true, i1 %cmp5.i34
   br i1 %7, label %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS3_PKS3_RSB_EESE_.exit, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.if.end.i_crit_edge
@@ -2675,7 +2675,7 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.thread: ; preds = %entry
   %mpNodeLeft.i16 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %mpNodeLeft.i16, align 8, !noalias !86
-  %cmp.i17.not = icmp eq ptr %8, %this
+  %cmp.i17.not = icmp eq ptr %this, %8
   br i1 %cmp.i17.not, label %if.end.i, label %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS3_PKS3_RSB_EESE_.exit
 
 while.cond.preheader.i:                           ; preds = %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit
@@ -3852,7 +3852,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.17", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -4779,7 +4779,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1
 entry:
   %mpNodeLeft = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpNodeLeft, align 8
-  %cmp = icmp ne ptr %0, %first.coerce
+  %cmp = icmp ne ptr %first.coerce, %0
   %cmp5 = icmp ne ptr %last.coerce, %this
   %1 = select i1 %cmp, i1 true, i1 %cmp5
   br i1 %1, label %while.cond.preheader, label %if.end
@@ -6387,7 +6387,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i120
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i120 ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %4, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %4
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -12343,7 +12343,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont59, %whi
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !410
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp2.i.i.i = icmp eq ptr %4, %__x.07.i.i.i
+  %cmp2.i.i.i = icmp eq ptr %__x.07.i.i.i, %4
   %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE15_M_insert_equalIS2_EESt17_Rb_tree_iteratorIS2_EOT_.exit.i
 
@@ -15212,7 +15212,7 @@ while.body.i.i:                                   ; preds = %invoke.cont73, %whi
   br i1 %cmp.not.i.i1753, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i, label %while.body.i.i, !llvm.loop !601
 
 _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i: ; preds = %while.body.i.i
-  %cmp2.i.i = icmp eq ptr %4, %__x.07.i.i
+  %cmp2.i.i = icmp eq ptr %__x.07.i.i, %4
   %spec.select.i = or i1 %cmp2.i.i, %cmp.i.i.i.i1752
   br label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i
 
@@ -19063,7 +19063,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i177
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i177 ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -19414,8 +19414,8 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE11equal_rangeER
   %retval.sroa.3.0.i.i1347 = phi ptr [ %__y.040.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1345 ], [ %0, %invoke.cont77 ], [ %__y.addr.1.i28.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %63 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %64 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i2.i = icmp eq ptr %64, %retval.sroa.0.0.i.i1346
-  %cmp.i1.i.i = icmp eq ptr %0, %retval.sroa.3.0.i.i1347
+  %cmp.i.i2.i = icmp eq ptr %retval.sroa.0.0.i.i1346, %64
+  %cmp.i1.i.i = icmp eq ptr %retval.sroa.3.0.i.i1347, %0
   %or.cond.i = select i1 %cmp.i.i2.i, i1 %cmp.i1.i.i, i1 false
   br i1 %or.cond.i, label %if.then.i.i1350, label %if.else.i3.i
 
@@ -19815,7 +19815,7 @@ if.end9.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp10.i.i, label %if.then11.i.i, label %for.cond.i.i, !llvm.loop !692
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %cmp19.i20.i.i = icmp ugt ptr %valueArrayInsert.sroa.29.2.pn, %valueArrayInsert.sroa.0.8
+  %cmp19.i20.i.i = icmp ult ptr %valueArrayInsert.sroa.0.8, %valueArrayInsert.sroa.29.2.pn
   br i1 %cmp19.i20.i.i, label %while.body.i21.i.i, label %if.end189
 
 while.body.i21.i.i:                               ; preds = %if.then11.i.i, %while.body.i21.i.i
@@ -19951,7 +19951,7 @@ if.end12.i.i.i398:                                ; preds = %if.else.i.i.i420, %
 
 if.then.i.i406:                                   ; preds = %if.end12.i.i.i398, %if.then.i.i.i416
   %retval.sroa.4.0.i.ph.i.i407 = phi ptr [ %__y.0.lcssa25.i.i.i417, %if.then.i.i.i416 ], [ %__y.0.lcssa26.i.i.i399, %if.end12.i.i.i398 ]
-  %cmp2.i.i.i408 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i.i407
+  %cmp2.i.i.i408 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i407, %0
   br i1 %cmp2.i.i.i408, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i412, label %lor.rhs.i.i.i409
 
 lor.rhs.i.i.i409:                                 ; preds = %if.then.i.i406
@@ -20275,8 +20275,8 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE11equal_rangeER
   %retval.sroa.0.0.i.i1392 = phi ptr [ %__y.addr.0.lcssa.i.i.i1379, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1378 ], [ %0, %invoke.cont163 ], [ %__y.addr.0.lcssa.i.i.i1379, %while.body.i23.i.i1381 ], [ %__y.1.i.i1414, %if.end19.i.i1412 ]
   %retval.sroa.3.0.i.i1393 = phi ptr [ %__y.040.i.i1359, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1378 ], [ %0, %invoke.cont163 ], [ %__y.addr.1.i28.i.i1386, %while.body.i23.i.i1381 ], [ %__y.1.i.i1414, %if.end19.i.i1412 ]
   %157 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i2.i1396 = icmp eq ptr %157, %retval.sroa.0.0.i.i1392
-  %cmp.i1.i.i1397 = icmp eq ptr %0, %retval.sroa.3.0.i.i1393
+  %cmp.i.i2.i1396 = icmp eq ptr %retval.sroa.0.0.i.i1392, %157
+  %cmp.i1.i.i1397 = icmp eq ptr %retval.sroa.3.0.i.i1393, %0
   %or.cond.i1398 = select i1 %cmp.i.i2.i1396, i1 %cmp.i1.i.i1397, i1 false
   br i1 %or.cond.i1398, label %if.then.i.i1408, label %if.else.i3.i1399
 
@@ -21074,7 +21074,7 @@ if.end12.i.i.i814:                                ; preds = %if.else.i.i.i836, %
 
 if.then.i.i822:                                   ; preds = %if.end12.i.i.i814, %if.then.i.i.i832
   %retval.sroa.4.0.i.ph.i.i823 = phi ptr [ %__y.0.lcssa25.i.i.i833, %if.then.i.i.i832 ], [ %__y.0.lcssa26.i.i.i815, %if.end12.i.i.i814 ]
-  %cmp2.i.i.i824 = icmp eq ptr %200, %retval.sroa.4.0.i.ph.i.i823
+  %cmp2.i.i.i824 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i823, %200
   br i1 %cmp2.i.i.i824, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i828, label %lor.rhs.i.i.i825
 
 lor.rhs.i.i.i825:                                 ; preds = %if.then.i.i822
@@ -21196,7 +21196,7 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont305
 
 if.then.i.i.i862:                                 ; preds = %call3.i.i.i.noexc
   %cmp.not.i.i.i.i863 = icmp ne ptr %225, null
-  %cmp2.i.i.i.i = icmp eq ptr %200, %226
+  %cmp2.i.i.i.i = icmp eq ptr %226, %200
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i863, %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i.i, label %lor.rhs.i.i.i.i
 
@@ -21277,7 +21277,7 @@ call3.i.i.i.noexc888:                             ; preds = %invoke.cont344
 
 if.then.i.i.i875:                                 ; preds = %call3.i.i.i.noexc888
   %cmp.not.i.i.i.i876 = icmp ne ptr %237, null
-  %cmp2.i.i.i.i878 = icmp eq ptr %200, %238
+  %cmp2.i.i.i.i878 = icmp eq ptr %238, %200
   %or.cond.i.i.i.i879 = or i1 %cmp.not.i.i.i.i876, %cmp2.i.i.i.i878
   br i1 %or.cond.i.i.i.i879, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i.i883, label %lor.rhs.i.i.i.i880
 
@@ -21507,7 +21507,7 @@ call3.i.i.i.noexc1007:                            ; preds = %invoke.cont413
 
 if.then.i.i.i994:                                 ; preds = %call3.i.i.i.noexc1007
   %cmp.not.i.i.i.i995 = icmp ne ptr %261, null
-  %cmp2.i.i.i.i997 = icmp eq ptr %200, %262
+  %cmp2.i.i.i.i997 = icmp eq ptr %262, %200
   %or.cond.i.i.i.i998 = or i1 %cmp.not.i.i.i.i995, %cmp2.i.i.i.i997
   br i1 %or.cond.i.i.i.i998, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i.i1002, label %lor.rhs.i.i.i.i999
 
@@ -21674,7 +21674,7 @@ call3.i.i.i.noexc1090:                            ; preds = %invoke.cont470
 
 if.then.i.i.i1077:                                ; preds = %call3.i.i.i.noexc1090
   %cmp.not.i.i.i.i1078 = icmp ne ptr %280, null
-  %cmp2.i.i.i.i1080 = icmp eq ptr %200, %281
+  %cmp2.i.i.i.i1080 = icmp eq ptr %281, %200
   %or.cond.i.i.i.i1081 = or i1 %cmp.not.i.i.i.i1078, %cmp2.i.i.i.i1080
   br i1 %or.cond.i.i.i.i1081, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i.i1085, label %lor.rhs.i.i.i.i1082
 
@@ -21796,7 +21796,7 @@ invoke.cont507:                                   ; preds = %if.end16.i1139, %la
   %storemerge.i1138 = phi ptr [ %call194, %if.end16.i1139 ], [ %pRangeEnd.1.i1130, %land.rhs.i1135 ]
   %mpNodeLeft.i = getelementptr inbounds i8, ptr %call194, i64 8
   %295 = load ptr, ptr %mpNodeLeft.i, align 8, !noalias !749
-  %cmp.i1141 = icmp ne ptr %295, %storemerge.i1116
+  %cmp.i1141 = icmp ne ptr %storemerge.i1116, %295
   %cmp5.i = icmp ne ptr %storemerge.i1138, %call194
   %296 = select i1 %cmp.i1141, i1 true, i1 %cmp5.i
   br i1 %296, label %while.cond.preheader.i, label %if.end.i1142
@@ -21903,8 +21903,8 @@ invoke.cont521:                                   ; preds = %invoke.cont515, %lo
   %retval.sroa.0.0.i.i11751564 = phi ptr [ %retval.sroa.0.0.i.i1175, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1191 ], [ %retval.sroa.0.0.i.i1175, %lor.lhs.false.i.i1193 ], [ %200, %invoke.cont515 ]
   %retval.sroa.0.0.i.i1197 = phi ptr [ %200, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1191 ], [ %spec.select.i.i1196, %lor.lhs.false.i.i1193 ], [ %200, %invoke.cont515 ]
   %303 = load ptr, ptr %_M_left.i.i.i.i.i642, align 8
-  %cmp.i.i.i.i1199 = icmp eq ptr %303, %retval.sroa.0.0.i.i11751564
-  %cmp.i1.i.i.i = icmp eq ptr %200, %retval.sroa.0.0.i.i1197
+  %cmp.i.i.i.i1199 = icmp eq ptr %retval.sroa.0.0.i.i11751564, %303
+  %cmp.i1.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i1197, %200
   %or.cond = select i1 %cmp.i.i.i.i1199, i1 %cmp.i1.i.i.i, i1 false
   br i1 %or.cond, label %if.then.i.i.i1206, label %if.else.i.i.i1200
 
@@ -23104,7 +23104,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
 
 if.then.i3631:                                    ; preds = %if.end12.i.i, %if.then.i.i3635
   %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa24.i.i, %if.then.i.i3635 ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
-  %cmp2.i.i = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %0
   br i1 %cmp2.i.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i3631
@@ -23638,8 +23638,8 @@ _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_
   %retval.sroa.3.0.i.i.i = phi ptr [ %__y.040.i.i.i, %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i ], [ %0, %invoke.cont87 ], [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
   %173 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %174 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i3640 = icmp eq ptr %174, %retval.sroa.0.0.i.i.i
-  %cmp.i1.i = icmp eq ptr %0, %retval.sroa.3.0.i.i.i
+  %cmp.i.i3640 = icmp eq ptr %retval.sroa.0.0.i.i.i, %174
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i.i.i, %0
   %or.cond3953 = select i1 %cmp.i.i3640, i1 %cmp.i1.i, i1 false
   br i1 %or.cond3953, label %if.then.i3650, label %if.else.i3641
 
@@ -24413,7 +24413,7 @@ if.end12.i.i3748:                                 ; preds = %if.else.i.i3789, %w
 
 if.then.i3756:                                    ; preds = %if.end12.i.i3748, %if.then.i.i3785
   %retval.sroa.4.0.i.ph.i3757 = phi ptr [ %__y.0.lcssa24.i.i3786, %if.then.i.i3785 ], [ %__y.0.lcssa25.i.i3749, %if.end12.i.i3748 ]
-  %cmp2.i.i3758 = icmp eq ptr %0, %retval.sroa.4.0.i.ph.i3757
+  %cmp2.i.i3758 = icmp eq ptr %retval.sroa.4.0.i.ph.i3757, %0
   br i1 %cmp2.i.i3758, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i3762, label %lor.rhs.i.i3759
 
 lor.rhs.i.i3759:                                  ; preds = %if.then.i3756
@@ -24842,8 +24842,8 @@ _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_
   %retval.sroa.0.0.i.i.i738 = phi ptr [ %__y.addr.0.lcssa.i.i.i.i725, %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i724 ], [ %0, %invoke.cont180 ], [ %__y.addr.0.lcssa.i.i.i.i725, %while.body.i23.i.i.i727 ], [ %__y.1.i.i.i744, %if.end19.i.i.i742 ]
   %retval.sroa.3.0.i.i.i739 = phi ptr [ %__y.040.i.i.i705, %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i724 ], [ %0, %invoke.cont180 ], [ %__y.addr.1.i28.i.i.i732, %while.body.i23.i.i.i727 ], [ %__y.1.i.i.i744, %if.end19.i.i.i742 ]
   %348 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i3797 = icmp eq ptr %348, %retval.sroa.0.0.i.i.i738
-  %cmp.i1.i3824 = icmp eq ptr %0, %retval.sroa.3.0.i.i.i739
+  %cmp.i.i3797 = icmp eq ptr %retval.sroa.0.0.i.i.i738, %348
+  %cmp.i1.i3824 = icmp eq ptr %retval.sroa.3.0.i.i.i739, %0
   %or.cond3954 = select i1 %cmp.i.i3797, i1 %cmp.i1.i3824, i1 false
   br i1 %or.cond3954, label %if.then.i3825, label %if.else.i3798
 
@@ -29108,7 +29108,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont40, %whi
   br i1 %cmp.not.i.i.i174, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !410
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp2.i.i.i = icmp eq ptr %0, %__x.07.i.i.i
+  %cmp2.i.i.i = icmp eq ptr %__x.07.i.i.i, %0
   %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i173
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE15_M_insert_equalIS2_EESt17_Rb_tree_iteratorIS2_EOT_.exit.i
 
@@ -29383,7 +29383,7 @@ call.i.i.i.i.noexc:                               ; preds = %while.body.i.i1.i
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.i: ; preds = %call.i.i.i.i.noexc
   %52 = load ptr, ptr %mpNodeLeft109.i, align 8, !noalias !893
-  %cmp.i.i199 = icmp ne ptr %52, %pRangeEnd.1.i.i.i
+  %cmp.i.i199 = icmp ne ptr %pRangeEnd.1.i.i.i, %52
   %cmp5.i.i = icmp ne ptr %pRangeEnd.1.i13.i.i, %call
   %53 = select i1 %cmp.i.i199, i1 true, i1 %cmp5.i.i
   br i1 %53, label %while.body.i.i, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.i._ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.if.end.i_crit_edge.i_crit_edge
@@ -29394,14 +29394,14 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.thread30.i: ; preds = %_ZN5eastl8multimapIiiNS_4lessIiEENS_9allocatorEE11equal_rangeERKi.exit.i
   %54 = load ptr, ptr %mpNodeLeft109.i, align 8, !noalias !893
-  %cmp.i33.i = icmp ne ptr %54, %pRangeEnd.1.i.i.i
+  %cmp.i33.i = icmp ne ptr %pRangeEnd.1.i.i.i, %54
   %cmp5.i34.i = icmp ne ptr %pRangeEnd.1.i.i.i, %call
   %55 = or i1 %cmp.i33.i, %cmp5.i34.i
   br i1 %55, label %invoke.cont74, label %if.end.i.i
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.thread.i: ; preds = %for.body70
   %56 = load ptr, ptr %mpNodeLeft109.i, align 8, !noalias !896
-  %cmp.i17.not.i = icmp eq ptr %56, %call
+  %cmp.i17.not.i = icmp eq ptr %call, %56
   br i1 %cmp.i17.not.i, label %if.end.i.i, label %invoke.cont74
 
 while.body.i.i:                                   ; preds = %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS3_PKS3_RSB_EE.exit.i.i
@@ -29516,8 +29516,8 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE11equal_rangeER
   %retval.sroa.3.0.i.i = phi ptr [ %__y.040.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1354 ], [ %0, %invoke.cont74 ], [ %__y.addr.1.i28.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %65 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %66 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i2.i = icmp eq ptr %66, %retval.sroa.0.0.i.i1355
-  %cmp.i1.i.i = icmp eq ptr %0, %retval.sroa.3.0.i.i
+  %cmp.i.i2.i = icmp eq ptr %retval.sroa.0.0.i.i1355, %66
+  %cmp.i1.i.i = icmp eq ptr %retval.sroa.3.0.i.i, %0
   %or.cond.i = select i1 %cmp.i.i2.i, i1 %cmp.i1.i.i, i1 false
   br i1 %or.cond.i, label %if.then.i.i, label %if.else.i3.i
 
@@ -29918,7 +29918,7 @@ if.end9.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp10.i.i, label %if.then11.i.i, label %for.cond.i.i, !llvm.loop !692
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %cmp19.i20.i.i = icmp ugt ptr %valueArrayInsert.sroa.29.2.pn, %valueArrayInsert.sroa.0.8
+  %cmp19.i20.i.i = icmp ult ptr %valueArrayInsert.sroa.0.8, %valueArrayInsert.sroa.29.2.pn
   br i1 %cmp19.i20.i.i, label %while.body.i21.i.i, label %if.end185
 
 while.body.i21.i.i:                               ; preds = %if.then11.i.i, %while.body.i21.i.i
@@ -30005,7 +30005,7 @@ while.body.i.i.i372:                              ; preds = %invoke.cont132, %wh
   br i1 %cmp.not.i.i.i379, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i380, label %while.body.i.i.i372, !llvm.loop !410
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i380: ; preds = %while.body.i.i.i372
-  %cmp2.i.i.i381 = icmp eq ptr %0, %__x.07.i.i.i373
+  %cmp2.i.i.i381 = icmp eq ptr %__x.07.i.i.i373, %0
   %spec.select.i.i382 = or i1 %cmp2.i.i.i381, %cmp.i.i.i.i375
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE15_M_insert_equalIS2_EESt17_Rb_tree_iteratorIS2_EOT_.exit.i383
 
@@ -30253,7 +30253,7 @@ call.i.i.i.i.noexc538:                            ; preds = %while.body.i.i1.i50
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.i507: ; preds = %call.i.i.i.i.noexc538
   %148 = load ptr, ptr %mpNodeLeft109.i392, align 8, !noalias !927
-  %cmp.i.i509 = icmp ne ptr %148, %pRangeEnd.1.i.i.i487
+  %cmp.i.i509 = icmp ne ptr %pRangeEnd.1.i.i.i487, %148
   %cmp5.i.i510 = icmp ne ptr %pRangeEnd.1.i13.i.i498, %call
   %149 = select i1 %cmp.i.i509, i1 true, i1 %cmp5.i.i510
   br i1 %149, label %while.body.i.i524, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.i507._ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.if.end.i_crit_edge.i511_crit_edge
@@ -30264,14 +30264,14 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.thread30.i531: ; preds = %_ZN5eastl8multimapIiiNS_4lessIiEENS_9allocatorEE11equal_rangeERKi.exit.i501
   %150 = load ptr, ptr %mpNodeLeft109.i392, align 8, !noalias !927
-  %cmp.i33.i533 = icmp ne ptr %150, %pRangeEnd.1.i.i.i487
+  %cmp.i33.i533 = icmp ne ptr %pRangeEnd.1.i.i.i487, %150
   %cmp5.i34.i534 = icmp ne ptr %pRangeEnd.1.i.i.i487, %call
   %151 = or i1 %cmp.i33.i533, %cmp5.i34.i534
   br i1 %151, label %invoke.cont159, label %if.end.i.i515
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.thread.i535: ; preds = %for.body155
   %152 = load ptr, ptr %mpNodeLeft109.i392, align 8, !noalias !930
-  %cmp.i17.not.i537 = icmp eq ptr %152, %call
+  %cmp.i17.not.i537 = icmp eq ptr %call, %152
   br i1 %cmp.i17.not.i537, label %if.end.i.i515, label %invoke.cont159
 
 while.body.i.i524:                                ; preds = %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIKiiEEPS4_RS4_EEEENS_15iterator_traitsIT_E15difference_typeES9_S9_.exit.i507, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS3_PKS3_RSB_EE.exit.i.i529
@@ -30383,8 +30383,8 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE11equal_rangeER
   %retval.sroa.0.0.i.i1399 = phi ptr [ %__y.addr.0.lcssa.i.i.i1386, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1385 ], [ %0, %invoke.cont159 ], [ %__y.addr.0.lcssa.i.i.i1386, %while.body.i23.i.i1388 ], [ %__y.1.i.i1421, %if.end19.i.i1419 ]
   %retval.sroa.3.0.i.i1400 = phi ptr [ %__y.040.i.i1366, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1385 ], [ %0, %invoke.cont159 ], [ %__y.addr.1.i28.i.i1393, %while.body.i23.i.i1388 ], [ %__y.1.i.i1421, %if.end19.i.i1419 ]
   %161 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i2.i1403 = icmp eq ptr %161, %retval.sroa.0.0.i.i1399
-  %cmp.i1.i.i1404 = icmp eq ptr %0, %retval.sroa.3.0.i.i1400
+  %cmp.i.i2.i1403 = icmp eq ptr %retval.sroa.0.0.i.i1399, %161
+  %cmp.i1.i.i1404 = icmp eq ptr %retval.sroa.3.0.i.i1400, %0
   %or.cond.i1405 = select i1 %cmp.i.i2.i1403, i1 %cmp.i1.i.i1404, i1 false
   br i1 %or.cond.i1405, label %if.then.i.i1415, label %if.else.i3.i1406
 
@@ -31117,7 +31117,7 @@ while.body.i.i.i.i816:                            ; preds = %call5.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %invoke.cont2.i.i.i, label %while.body.i.i.i.i816, !llvm.loop !410
 
 invoke.cont2.i.i.i:                               ; preds = %while.body.i.i.i.i816
-  %cmp2.i.i.i.i.i = icmp eq ptr %204, %__x.07.i.i.i.i
+  %cmp2.i.i.i.i.i = icmp eq ptr %__x.07.i.i.i.i, %204
   %spec.select.i.i.i818 = or i1 %cmp2.i.i.i.i.i, %cmp.i.i.i.i.i817
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE16_M_emplace_equalIJRS0_IiiEEEESt17_Rb_tree_iteratorIS2_EDpOT_.exit.i.i
 
@@ -31208,7 +31208,7 @@ while.body.i.i.i850:                              ; preds = %invoke.cont271, %wh
   br i1 %cmp.not.i.i.i857, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i858, label %while.body.i.i.i850, !llvm.loop !410
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE23_M_get_insert_equal_posERS1_.exit.i.i858: ; preds = %while.body.i.i.i850
-  %cmp2.i.i.i859 = icmp eq ptr %204, %__x.07.i.i.i851
+  %cmp2.i.i.i859 = icmp eq ptr %__x.07.i.i.i851, %204
   %spec.select.i.i860 = or i1 %cmp2.i.i.i859, %cmp.i.i.i.i853
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE15_M_insert_equalIS2_EESt17_Rb_tree_iteratorIS2_EOT_.exit.i861
 
@@ -31794,7 +31794,7 @@ invoke.cont505:                                   ; preds = %if.end16.i1114, %la
   %storemerge.i1113 = phi ptr [ %call190, %if.end16.i1114 ], [ %pRangeEnd.1.i1105, %land.rhs.i1110 ]
   %mpNodeLeft.i = getelementptr inbounds i8, ptr %call190, i64 8
   %274 = load ptr, ptr %mpNodeLeft.i, align 8, !noalias !978
-  %cmp.i1116 = icmp ne ptr %274, %storemerge.i1091
+  %cmp.i1116 = icmp ne ptr %storemerge.i1091, %274
   %cmp5.i = icmp ne ptr %storemerge.i1113, %call190
   %275 = select i1 %cmp.i1116, i1 true, i1 %cmp5.i
   br i1 %275, label %while.cond.preheader.i, label %if.end.i1117
@@ -31901,8 +31901,8 @@ invoke.cont519:                                   ; preds = %invoke.cont513, %lo
   %retval.sroa.0.0.i.i11471548 = phi ptr [ %retval.sroa.0.0.i.i1147, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1163 ], [ %retval.sroa.0.0.i.i1147, %lor.lhs.false.i.i1165 ], [ %204, %invoke.cont513 ]
   %retval.sroa.0.0.i.i1169 = phi ptr [ %204, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i1163 ], [ %spec.select.i.i1168, %lor.lhs.false.i.i1165 ], [ %204, %invoke.cont513 ]
   %282 = load ptr, ptr %_M_left.i.i.i.i.i646, align 8
-  %cmp.i.i.i.i1171 = icmp eq ptr %282, %retval.sroa.0.0.i.i11471548
-  %cmp.i1.i.i.i = icmp eq ptr %204, %retval.sroa.0.0.i.i1169
+  %cmp.i.i.i.i1171 = icmp eq ptr %retval.sroa.0.0.i.i11471548, %282
+  %cmp.i1.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i1169, %204
   %or.cond = select i1 %cmp.i.i.i.i1171, i1 %cmp.i1.i.i.i, i1 false
   br i1 %or.cond, label %if.then.i.i.i1175, label %if.else.i.i.i
 
@@ -33136,7 +33136,7 @@ while.body.i.i3617:                               ; preds = %invoke.cont47, %whi
   br i1 %cmp.not.i.i3619, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i, label %while.body.i.i3617, !llvm.loop !601
 
 _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i: ; preds = %while.body.i.i3617
-  %cmp2.i.i = icmp eq ptr %0, %__x.07.i.i
+  %cmp2.i.i = icmp eq ptr %__x.07.i.i, %0
   %spec.select.i = or i1 %cmp2.i.i, %cmp.i.i.i.i3618
   br label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i
 
@@ -33566,7 +33566,7 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK10TestObjectS3_EEPS5_RS5_EEEEN
   %pRangeEnd.0.lcssa.i18.i7.i = phi ptr [ %pRangeEnd.1.i.i.i, %_ZN5eastl8multimapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit.i ], [ %call, %for.body80 ], [ %pRangeEnd.1.i.i.i, %call.i.i.i.i.noexc ]
   %n.0.lcssa.i.i.i = phi i64 [ 0, %_ZN5eastl8multimapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit.i ], [ 0, %for.body80 ], [ %inc.i.i.i, %call.i.i.i.i.noexc ]
   %150 = load ptr, ptr %mpNodeLeft109.i, align 8, !noalias !1036
-  %cmp.i3625 = icmp ne ptr %150, %pRangeEnd.0.lcssa.i18.i7.i
+  %cmp.i3625 = icmp ne ptr %pRangeEnd.0.lcssa.i18.i7.i, %150
   %cmp5.i = icmp ne ptr %pRangeEnd.0.lcssa.i16.i8.i, %call
   %151 = select i1 %cmp.i3625, i1 true, i1 %cmp5.i
   br i1 %151, label %while.cond.preheader.i, label %if.end.i3626
@@ -33708,8 +33708,8 @@ _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_
   %retval.sroa.3.0.i.i.i = phi ptr [ %__y.040.i.i.i, %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i ], [ %0, %invoke.cont84 ], [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
   %166 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %167 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i3638 = icmp eq ptr %167, %retval.sroa.0.0.i.i.i
-  %cmp.i1.i = icmp eq ptr %0, %retval.sroa.3.0.i.i.i
+  %cmp.i.i3638 = icmp eq ptr %retval.sroa.0.0.i.i.i, %167
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i.i.i, %0
   %or.cond3989 = select i1 %cmp.i.i3638, i1 %cmp.i1.i, i1 false
   br i1 %or.cond3989, label %if.then.i3648, label %if.else.i3639
 
@@ -34427,7 +34427,7 @@ while.body.i.i3720:                               ; preds = %invoke.cont149, %wh
   br i1 %cmp.not.i.i3727, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i3728, label %while.body.i.i3720, !llvm.loop !601
 
 _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i3728: ; preds = %while.body.i.i3720
-  %cmp2.i.i3729 = icmp eq ptr %0, %__x.07.i.i3721
+  %cmp2.i.i3729 = icmp eq ptr %__x.07.i.i3721, %0
   %spec.select.i3730 = or i1 %cmp2.i.i3729, %cmp.i.i.i.i3723
   br label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i3731
 
@@ -34751,7 +34751,7 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK10TestObjectS3_EEPS5_RS5_EEEEN
   %pRangeEnd.0.lcssa.i16.i8.i689 = phi ptr [ %pRangeEnd.1.i.i.i668, %_ZN5eastl8multimapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit.i682 ], [ %call, %for.body172 ], [ %pRangeEnd.1.i13.i.i679, %call.i.i.i.i.noexc692 ]
   %pRangeEnd.0.lcssa.i18.i7.i690 = phi ptr [ %pRangeEnd.1.i.i.i668, %_ZN5eastl8multimapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit.i682 ], [ %call, %for.body172 ], [ %pRangeEnd.1.i.i.i668, %call.i.i.i.i.noexc692 ]
   %318 = load ptr, ptr %mpNodeLeft109.i572, align 8, !noalias !1064
-  %cmp.i3758 = icmp ne ptr %318, %pRangeEnd.0.lcssa.i18.i7.i690
+  %cmp.i3758 = icmp ne ptr %pRangeEnd.0.lcssa.i18.i7.i690, %318
   %cmp5.i3759 = icmp ne ptr %pRangeEnd.0.lcssa.i16.i8.i689, %call
   %319 = select i1 %cmp.i3758, i1 true, i1 %cmp5.i3759
   br i1 %319, label %while.cond.preheader.i3765, label %if.end.i3760
@@ -34892,8 +34892,8 @@ _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_
   %retval.sroa.0.0.i.i.i736 = phi ptr [ %__y.addr.0.lcssa.i.i.i.i723, %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i722 ], [ %0, %invoke.cont176 ], [ %__y.addr.0.lcssa.i.i.i.i723, %while.body.i23.i.i.i725 ], [ %__y.1.i.i.i742, %if.end19.i.i.i740 ]
   %retval.sroa.3.0.i.i.i737 = phi ptr [ %__y.040.i.i.i703, %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i722 ], [ %0, %invoke.cont176 ], [ %__y.addr.1.i28.i.i.i730, %while.body.i23.i.i.i725 ], [ %__y.1.i.i.i742, %if.end19.i.i.i740 ]
   %334 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i3791 = icmp eq ptr %334, %retval.sroa.0.0.i.i.i736
-  %cmp.i1.i3818 = icmp eq ptr %0, %retval.sroa.3.0.i.i.i737
+  %cmp.i.i3791 = icmp eq ptr %retval.sroa.0.0.i.i.i736, %334
+  %cmp.i1.i3818 = icmp eq ptr %retval.sroa.3.0.i.i.i737, %0
   %or.cond3990 = select i1 %cmp.i.i3791, i1 %cmp.i1.i3818, i1 false
   br i1 %or.cond3990, label %if.then.i3819, label %if.else.i3792
 
@@ -36046,7 +36046,7 @@ while.body.i.i3831:                               ; preds = %invoke.cont341, %wh
   br i1 %cmp.not.i.i3838, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i3839, label %while.body.i.i3831, !llvm.loop !601
 
 _ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i3839: ; preds = %while.body.i.i3831
-  %cmp2.i.i3840 = icmp eq ptr %389, %__x.07.i.i3832
+  %cmp2.i.i3840 = icmp eq ptr %__x.07.i.i3832, %389
   %spec.select.i3841 = or i1 %cmp2.i.i3840, %cmp.i.i.i.i3834
   br label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i3842
 
@@ -39014,7 +39014,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa24.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa25.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %7, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %7
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -41801,7 +41801,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont61, %whi
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i, label %while.body.i.i.i, !llvm.loop !1225
 
 _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp2.i.i.i = icmp eq ptr %7, %__x.07.i.i.i
+  %cmp2.i.i.i = icmp eq ptr %__x.07.i.i.i, %7
   %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i.i125
   br label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE15_M_insert_equalIS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit.i
 
@@ -44895,7 +44895,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont43, %whi
   br i1 %cmp.not.i.i.i174, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i, label %while.body.i.i.i, !llvm.loop !1225
 
 _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i: ; preds = %while.body.i.i.i
-  %cmp2.i.i.i = icmp eq ptr %1, %__x.07.i.i.i
+  %cmp2.i.i.i = icmp eq ptr %__x.07.i.i.i, %1
   %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i.i173
   br label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE15_M_insert_equalIS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit.i
 
@@ -45170,7 +45170,7 @@ call.i.i.i.i.noexc:                               ; preds = %while.body.i.i1.i
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.i: ; preds = %call.i.i.i.i.noexc
   %47 = load ptr, ptr %mpNodeLeft.i.i.i, align 8, !noalias !1451
-  %cmp.i.i200 = icmp ne ptr %47, %pRangeEnd.1.i.i.i
+  %cmp.i.i200 = icmp ne ptr %pRangeEnd.1.i.i.i, %47
   %cmp5.i.i = icmp ne ptr %pRangeEnd.1.i13.i.i, %call
   %48 = select i1 %cmp.i.i200, i1 true, i1 %cmp5.i.i
   br i1 %48, label %while.body.i.i, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.i._ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.if.end.i_crit_edge.i_crit_edge
@@ -45181,14 +45181,14 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.thread30.i: ; preds = %_ZN5eastl8multimapI7Align64S1_NS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit.i
   %49 = load ptr, ptr %mpNodeLeft.i.i.i, align 8, !noalias !1451
-  %cmp.i33.i = icmp ne ptr %49, %pRangeEnd.1.i.i.i
+  %cmp.i33.i = icmp ne ptr %pRangeEnd.1.i.i.i, %49
   %cmp5.i34.i = icmp ne ptr %pRangeEnd.1.i.i.i, %call
   %50 = or i1 %cmp.i33.i, %cmp5.i34.i
   br i1 %50, label %invoke.cont79, label %if.end.i.i
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.thread.i: ; preds = %for.body74
   %51 = load ptr, ptr %mpNodeLeft.i.i.i, align 8, !noalias !1454
-  %cmp.i17.not.i = icmp eq ptr %51, %call
+  %cmp.i17.not.i = icmp eq ptr %call, %51
   br i1 %cmp.i17.not.i, label %if.end.i.i, label %invoke.cont79
 
 while.body.i.i:                                   ; preds = %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.i, %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EE.exit.i.i
@@ -45303,8 +45303,8 @@ _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE11
   %retval.sroa.3.0.i.i = phi ptr [ %__y.040.i.i, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1368 ], [ %1, %invoke.cont79 ], [ %__y.addr.1.i28.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %60 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %61 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i.i1370 = icmp eq ptr %61, %retval.sroa.0.0.i.i1369
-  %cmp.i1.i.i = icmp eq ptr %1, %retval.sroa.3.0.i.i
+  %cmp.i.i.i1370 = icmp eq ptr %retval.sroa.0.0.i.i1369, %61
+  %cmp.i1.i.i = icmp eq ptr %retval.sroa.3.0.i.i, %1
   %or.cond.i = select i1 %cmp.i.i.i1370, i1 %cmp.i1.i.i, i1 false
   br i1 %or.cond.i, label %if.then.i.i, label %if.else.i2.i
 
@@ -45707,7 +45707,7 @@ if.end9.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp10.i.i, label %if.then11.i.i, label %for.cond.i.i, !llvm.loop !1469
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %cmp19.i18.i.i = icmp ugt ptr %valueArrayInsert.sroa.29.2.pn, %valueArrayInsert.sroa.0.8
+  %cmp19.i18.i.i = icmp ult ptr %valueArrayInsert.sroa.0.8, %valueArrayInsert.sroa.29.2.pn
   br i1 %cmp19.i18.i.i, label %while.body.i19.i.i, label %if.end193
 
 while.body.i19.i.i:                               ; preds = %if.then11.i.i, %while.body.i19.i.i
@@ -45798,7 +45798,7 @@ while.body.i.i.i375:                              ; preds = %invoke.cont139, %wh
   br i1 %cmp.not.i.i.i382, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i383, label %while.body.i.i.i375, !llvm.loop !1225
 
 _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i383: ; preds = %while.body.i.i.i375
-  %cmp2.i.i.i384 = icmp eq ptr %1, %__x.07.i.i.i376
+  %cmp2.i.i.i384 = icmp eq ptr %__x.07.i.i.i376, %1
   %spec.select.i.i385 = or i1 %cmp2.i.i.i384, %cmp.i.i.i.i.i378
   br label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE15_M_insert_equalIS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit.i386
 
@@ -46046,7 +46046,7 @@ call.i.i.i.i.noexc541:                            ; preds = %while.body.i.i1.i50
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.i510: ; preds = %call.i.i.i.i.noexc541
   %139 = load ptr, ptr %mpNodeLeft.i.i.i, align 8, !noalias !1493
-  %cmp.i.i512 = icmp ne ptr %139, %pRangeEnd.1.i.i.i490
+  %cmp.i.i512 = icmp ne ptr %pRangeEnd.1.i.i.i490, %139
   %cmp5.i.i513 = icmp ne ptr %pRangeEnd.1.i13.i.i501, %call
   %140 = select i1 %cmp.i.i512, i1 true, i1 %cmp5.i.i513
   br i1 %140, label %while.body.i.i527, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.i510._ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.if.end.i_crit_edge.i514_crit_edge
@@ -46057,14 +46057,14 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.thread30.i534: ; preds = %_ZN5eastl8multimapI7Align64S1_NS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit.i504
   %141 = load ptr, ptr %mpNodeLeft.i.i.i, align 8, !noalias !1493
-  %cmp.i33.i536 = icmp ne ptr %141, %pRangeEnd.1.i.i.i490
+  %cmp.i33.i536 = icmp ne ptr %pRangeEnd.1.i.i.i490, %141
   %cmp5.i34.i537 = icmp ne ptr %pRangeEnd.1.i.i.i490, %call
   %142 = or i1 %cmp.i33.i536, %cmp5.i34.i537
   br i1 %142, label %invoke.cont167, label %if.end.i.i518
 
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.thread.i538: ; preds = %for.body162
   %143 = load ptr, ptr %mpNodeLeft.i.i.i, align 8, !noalias !1496
-  %cmp.i17.not.i540 = icmp eq ptr %143, %call
+  %cmp.i17.not.i540 = icmp eq ptr %call, %143
   br i1 %cmp.i17.not.i540, label %if.end.i.i518, label %invoke.cont167
 
 while.body.i.i527:                                ; preds = %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.i510, %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EE.exit.i.i532
@@ -46176,8 +46176,8 @@ _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE11
   %retval.sroa.0.0.i.i1414 = phi ptr [ %__y.addr.0.lcssa.i.i.i1401, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1400 ], [ %1, %invoke.cont167 ], [ %__y.addr.0.lcssa.i.i.i1401, %while.body.i23.i.i1403 ], [ %__y.1.i.i1436, %if.end19.i.i1434 ]
   %retval.sroa.3.0.i.i1415 = phi ptr [ %__y.040.i.i1381, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1400 ], [ %1, %invoke.cont167 ], [ %__y.addr.1.i28.i.i1408, %while.body.i23.i.i1403 ], [ %__y.1.i.i1436, %if.end19.i.i1434 ]
   %152 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i.i1418 = icmp eq ptr %152, %retval.sroa.0.0.i.i1414
-  %cmp.i1.i.i1419 = icmp eq ptr %1, %retval.sroa.3.0.i.i1415
+  %cmp.i.i.i1418 = icmp eq ptr %retval.sroa.0.0.i.i1414, %152
+  %cmp.i1.i.i1419 = icmp eq ptr %retval.sroa.3.0.i.i1415, %1
   %or.cond.i1420 = select i1 %cmp.i.i.i1418, i1 %cmp.i1.i.i1419, i1 false
   br i1 %or.cond.i1420, label %if.then.i.i1430, label %if.else.i2.i1421
 
@@ -46947,7 +46947,7 @@ while.body.i.i.i.i822:                            ; preds = %while.body.i.i.i.i8
   br i1 %cmp.not.i.i.i.i, label %invoke.cont2.i.i.i, label %while.body.i.i.i.i822, !llvm.loop !1225
 
 invoke.cont2.i.i.i:                               ; preds = %while.body.i.i.i.i822
-  %cmp2.i.i.i.i.i = icmp eq ptr %196, %__x.07.i.i.i.i
+  %cmp2.i.i.i.i.i = icmp eq ptr %__x.07.i.i.i.i, %196
   %spec.select.i.i.i824 = or i1 %cmp2.i.i.i.i.i, %cmp.i.i.i.i.i.i823
   br label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE16_M_emplace_equalIJRS1_IS0_S0_EEEESt17_Rb_tree_iteratorIS3_EDpOT_.exit.i.i
 
@@ -47036,7 +47036,7 @@ while.body.i.i.i856:                              ; preds = %invoke.cont288, %wh
   br i1 %cmp.not.i.i.i863, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i864, label %while.body.i.i.i856, !llvm.loop !1225
 
 _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE23_M_get_insert_equal_posERS2_.exit.i.i864: ; preds = %while.body.i.i.i856
-  %cmp2.i.i.i865 = icmp eq ptr %196, %__x.07.i.i.i857
+  %cmp2.i.i.i865 = icmp eq ptr %__x.07.i.i.i857, %196
   %spec.select.i.i866 = or i1 %cmp2.i.i.i865, %cmp.i.i.i.i.i859
   br label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE15_M_insert_equalIS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit.i867
 
@@ -47624,7 +47624,7 @@ if.end16.i1129:                                   ; preds = %land.rhs.i1125, %wh
 invoke.cont573:                                   ; preds = %if.end16.i1129, %land.rhs.i1125
   %storemerge.i1128 = phi ptr [ %call198, %if.end16.i1129 ], [ %pRangeEnd.1.i1120, %land.rhs.i1125 ]
   %261 = load ptr, ptr %mpNodeLeft.i.i.i649, align 8, !noalias !1545
-  %cmp.i1131 = icmp ne ptr %261, %storemerge.i1106
+  %cmp.i1131 = icmp ne ptr %storemerge.i1106, %261
   %cmp5.i = icmp ne ptr %storemerge.i1128, %call198
   %262 = select i1 %cmp.i1131, i1 true, i1 %cmp5.i
   br i1 %262, label %while.cond.preheader.i, label %if.end.i1132
@@ -47730,8 +47730,8 @@ invoke.cont589:                                   ; preds = %invoke.cont581, %lo
   %retval.sroa.0.0.i.i11631567 = phi ptr [ %retval.sroa.0.0.i.i1163, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1179 ], [ %retval.sroa.0.0.i.i1163, %lor.lhs.false.i.i1181 ], [ %196, %invoke.cont581 ]
   %retval.sroa.0.0.i.i1185 = phi ptr [ %196, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1179 ], [ %spec.select.i.i1184, %lor.lhs.false.i.i1181 ], [ %196, %invoke.cont581 ]
   %269 = load ptr, ptr %_M_left.i.i.i.i.i652, align 8
-  %cmp.i.i.i.i1187 = icmp eq ptr %269, %retval.sroa.0.0.i.i11631567
-  %cmp.i1.i.i.i = icmp eq ptr %196, %retval.sroa.0.0.i.i1185
+  %cmp.i.i.i.i1187 = icmp eq ptr %retval.sroa.0.0.i.i11631567, %269
+  %cmp.i1.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i1185, %196
   %or.cond = select i1 %cmp.i.i.i.i1187, i1 %cmp.i1.i.i.i, i1 false
   br i1 %or.cond, label %if.then.i.i.i1191, label %if.else.i.i.i
 
@@ -48785,7 +48785,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i173
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa24.i.i.i, %if.then.i.i.i173 ], [ %__y.0.lcssa25.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %1, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %1
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -49136,8 +49136,8 @@ _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE11
   %retval.sroa.3.0.i.i1344 = phi ptr [ %__y.040.i.i, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1342 ], [ %1, %invoke.cont76 ], [ %__y.addr.1.i28.i.i, %while.body.i23.i.i ], [ %__y.1.i.i, %if.end19.i.i ]
   %58 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %59 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i.i1345 = icmp eq ptr %59, %retval.sroa.0.0.i.i1343
-  %cmp.i1.i.i = icmp eq ptr %1, %retval.sroa.3.0.i.i1344
+  %cmp.i.i.i1345 = icmp eq ptr %retval.sroa.0.0.i.i1343, %59
+  %cmp.i1.i.i = icmp eq ptr %retval.sroa.3.0.i.i1344, %1
   %or.cond.i = select i1 %cmp.i.i.i1345, i1 %cmp.i1.i.i, i1 false
   br i1 %or.cond.i, label %if.then.i.i1348, label %if.else.i2.i
 
@@ -49540,7 +49540,7 @@ if.end9.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp10.i.i, label %if.then11.i.i, label %for.cond.i.i, !llvm.loop !1469
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %cmp19.i18.i.i = icmp ugt ptr %valueArrayInsert.sroa.29.2.pn, %valueArrayInsert.sroa.0.8
+  %cmp19.i18.i.i = icmp ult ptr %valueArrayInsert.sroa.0.8, %valueArrayInsert.sroa.29.2.pn
   br i1 %cmp19.i18.i.i, label %while.body.i19.i.i, label %if.end187
 
 while.body.i19.i.i:                               ; preds = %if.then11.i.i, %while.body.i19.i.i
@@ -49680,7 +49680,7 @@ if.end12.i.i.i355:                                ; preds = %if.else.i.i.i377, %
 
 if.then.i.i363:                                   ; preds = %if.end12.i.i.i355, %if.then.i.i.i373
   %retval.sroa.4.0.i.ph.i.i364 = phi ptr [ %__y.0.lcssa24.i.i.i374, %if.then.i.i.i373 ], [ %__y.0.lcssa25.i.i.i356, %if.end12.i.i.i355 ]
-  %cmp2.i.i.i365 = icmp eq ptr %1, %retval.sroa.4.0.i.ph.i.i364
+  %cmp2.i.i.i365 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i364, %1
   br i1 %cmp2.i.i.i365, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i369, label %lor.rhs.i.i.i366
 
 lor.rhs.i.i.i366:                                 ; preds = %if.then.i.i363
@@ -50004,8 +50004,8 @@ _ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE11
   %retval.sroa.0.0.i.i1435 = phi ptr [ %__y.addr.0.lcssa.i.i.i1422, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1421 ], [ %1, %invoke.cont161 ], [ %__y.addr.0.lcssa.i.i.i1422, %while.body.i23.i.i1424 ], [ %__y.1.i.i1457, %if.end19.i.i1455 ]
   %retval.sroa.3.0.i.i1436 = phi ptr [ %__y.040.i.i1402, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1421 ], [ %1, %invoke.cont161 ], [ %__y.addr.1.i28.i.i1429, %while.body.i23.i.i1424 ], [ %__y.1.i.i1457, %if.end19.i.i1455 ]
   %148 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.i.i1439 = icmp eq ptr %148, %retval.sroa.0.0.i.i1435
-  %cmp.i1.i.i1440 = icmp eq ptr %1, %retval.sroa.3.0.i.i1436
+  %cmp.i.i.i1439 = icmp eq ptr %retval.sroa.0.0.i.i1435, %148
+  %cmp.i1.i.i1440 = icmp eq ptr %retval.sroa.3.0.i.i1436, %1
   %or.cond.i1441 = select i1 %cmp.i.i.i1439, i1 %cmp.i1.i.i1440, i1 false
   br i1 %or.cond.i1441, label %if.then.i.i1451, label %if.else.i2.i1442
 
@@ -50837,7 +50837,7 @@ if.end12.i.i.i773:                                ; preds = %if.else.i.i.i795, %
 
 if.then.i.i781:                                   ; preds = %if.end12.i.i.i773, %if.then.i.i.i791
   %retval.sroa.4.0.i.ph.i.i782 = phi ptr [ %__y.0.lcssa24.i.i.i792, %if.then.i.i.i791 ], [ %__y.0.lcssa25.i.i.i774, %if.end12.i.i.i773 ]
-  %cmp2.i.i.i783 = icmp eq ptr %192, %retval.sroa.4.0.i.ph.i.i782
+  %cmp2.i.i.i783 = icmp eq ptr %retval.sroa.4.0.i.ph.i.i782, %192
   br i1 %cmp2.i.i.i783, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i787, label %lor.rhs.i.i.i784
 
 lor.rhs.i.i.i784:                                 ; preds = %if.then.i.i781
@@ -50962,7 +50962,7 @@ call3.i.i.i.noexc:                                ; preds = %invoke.cont318
 
 if.then.i.i.i821:                                 ; preds = %call3.i.i.i.noexc
   %cmp.not.i.i.i.i = icmp ne ptr %214, null
-  %cmp2.i.i.i.i = icmp eq ptr %192, %215
+  %cmp2.i.i.i.i = icmp eq ptr %215, %192
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i, label %lor.rhs.i.i.i.i
 
@@ -51043,7 +51043,7 @@ call3.i.i.i.noexc847:                             ; preds = %invoke.cont365
 
 if.then.i.i.i834:                                 ; preds = %call3.i.i.i.noexc847
   %cmp.not.i.i.i.i835 = icmp ne ptr %225, null
-  %cmp2.i.i.i.i837 = icmp eq ptr %192, %226
+  %cmp2.i.i.i.i837 = icmp eq ptr %226, %192
   %or.cond.i.i.i.i838 = or i1 %cmp.not.i.i.i.i835, %cmp2.i.i.i.i837
   br i1 %or.cond.i.i.i.i838, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i842, label %lor.rhs.i.i.i.i839
 
@@ -51272,7 +51272,7 @@ call3.i.i.i.noexc968:                             ; preds = %invoke.cont446
 
 if.then.i.i.i955:                                 ; preds = %call3.i.i.i.noexc968
   %cmp.not.i.i.i.i956 = icmp ne ptr %248, null
-  %cmp2.i.i.i.i958 = icmp eq ptr %192, %249
+  %cmp2.i.i.i.i958 = icmp eq ptr %249, %192
   %or.cond.i.i.i.i959 = or i1 %cmp.not.i.i.i.i956, %cmp2.i.i.i.i958
   br i1 %or.cond.i.i.i.i959, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i963, label %lor.rhs.i.i.i.i960
 
@@ -51439,7 +51439,7 @@ call3.i.i.i.noexc1053:                            ; preds = %invoke.cont513
 
 if.then.i.i.i1040:                                ; preds = %call3.i.i.i.noexc1053
   %cmp.not.i.i.i.i1041 = icmp ne ptr %266, null
-  %cmp2.i.i.i.i1043 = icmp eq ptr %192, %267
+  %cmp2.i.i.i.i1043 = icmp eq ptr %267, %192
   %or.cond.i.i.i.i1044 = or i1 %cmp.not.i.i.i.i1041, %cmp2.i.i.i.i1043
   br i1 %or.cond.i.i.i.i1044, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i1048, label %lor.rhs.i.i.i.i1045
 
@@ -51560,7 +51560,7 @@ if.end16.i1104:                                   ; preds = %land.rhs.i1100, %wh
 invoke.cont558:                                   ; preds = %if.end16.i1104, %land.rhs.i1100
   %storemerge.i1103 = phi ptr [ %call192, %if.end16.i1104 ], [ %pRangeEnd.1.i1095, %land.rhs.i1100 ]
   %280 = load ptr, ptr %mpNodeLeft.i.i.i598, align 8, !noalias !1664
-  %cmp.i1106 = icmp ne ptr %280, %storemerge.i1081
+  %cmp.i1106 = icmp ne ptr %storemerge.i1081, %280
   %cmp5.i = icmp ne ptr %storemerge.i1103, %call192
   %281 = select i1 %cmp.i1106, i1 true, i1 %cmp5.i
   br i1 %281, label %while.cond.preheader.i, label %if.end.i1107
@@ -51666,8 +51666,8 @@ invoke.cont574:                                   ; preds = %invoke.cont566, %lo
   %retval.sroa.0.0.i.i11401595 = phi ptr [ %retval.sroa.0.0.i.i1140, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1156 ], [ %retval.sroa.0.0.i.i1140, %lor.lhs.false.i.i1158 ], [ %192, %invoke.cont566 ]
   %retval.sroa.0.0.i.i1162 = phi ptr [ %192, %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i1156 ], [ %spec.select.i.i1161, %lor.lhs.false.i.i1158 ], [ %192, %invoke.cont566 ]
   %288 = load ptr, ptr %_M_left.i.i.i.i.i601, align 8
-  %cmp.i.i.i.i1164 = icmp eq ptr %288, %retval.sroa.0.0.i.i11401595
-  %cmp.i1.i.i.i = icmp eq ptr %192, %retval.sroa.0.0.i.i1162
+  %cmp.i.i.i.i1164 = icmp eq ptr %retval.sroa.0.0.i.i11401595, %288
+  %cmp.i1.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i1162, %192
   %or.cond = select i1 %cmp.i.i.i.i1164, i1 %cmp.i1.i.i.i, i1 false
   br i1 %or.cond, label %if.then.i.i.i1171, label %if.else.i.i.i1165
 
@@ -75370,7 +75370,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
 
 if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i6 ], [ %1, %land.lhs.true.i ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %0, %retval.sroa.12.0.i.ph
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i.ph, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IRS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -75643,7 +75643,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #1 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -76842,7 +76842,7 @@ entry:
   store i32 0, ptr %second3.i.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3121)
   %cmp.i = icmp eq ptr %pNodeParent, %this
-  %or.cond.i = or i1 %cmp.i, %bForceToLeft
+  %or.cond.i = or i1 %bForceToLeft, %cmp.i
   br i1 %or.cond.i, label %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %entry
@@ -76910,7 +76910,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa24.i, %if.then.i ], [ %__y.0.lcssa25.i, %if.end12.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -77250,7 +77250,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp.not.i = icmp ne ptr %0, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp2.i = icmp eq ptr %1, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   %.pre.i = load i32, ptr %__v, align 8
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IRS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit, label %lor.rhs.i
@@ -77318,7 +77318,7 @@ return:                                           ; preds = %entry, %_ZNSt8_Rb_t
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__k) local_unnamed_addr #1 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -78398,7 +78398,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { ptr, ptr } %call3, 0
   %cmp.not.i = icmp ne ptr %1, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %0
+  %cmp2.i = icmp eq ptr %0, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IRS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
 
@@ -78441,7 +78441,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.i6, label %while.end.i, label %while.body.i, !llvm.loop !3132
 
 while.end.i:                                      ; preds = %while.body.i
-  %cmp.i6.i = icmp eq ptr %add.ptr.i.i4, %__x.09.i
+  %cmp.i6.i = icmp eq ptr %__x.09.i, %add.ptr.i.i4
   %cmp.i.i.i = icmp sge i32 %7, %6
   %spec.select = or i1 %cmp.i6.i, %cmp.i.i.i
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE21_M_insert_equal_lowerIRS2_EESt17_Rb_tree_iteratorIS2_EOT_.exit
@@ -78469,7 +78469,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIiSt4
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE28_M_get_insert_hint_equal_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #1 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -79064,7 +79064,7 @@ entry:
   store i32 0, ptr %second3.i.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3141)
   %cmp.i = icmp eq ptr %pNodeParent, %this
-  %or.cond.i = or i1 %cmp.i, %bForceToLeft
+  %or.cond.i = or i1 %bForceToLeft, %cmp.i
   br i1 %or.cond.i, label %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS4_EE.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %entry
@@ -79098,7 +79098,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { ptr, ptr } %call3, 0
   %cmp.not.i = icmp ne ptr %1, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %0
+  %cmp2.i = icmp eq ptr %0, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   %.pre.i = load i32, ptr %__v, align 8
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IRS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit, label %lor.rhs.i
@@ -79170,7 +79170,7 @@ return:                                           ; preds = %if.end, %_ZNSt8_Rb_
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE28_M_get_insert_hint_equal_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__k) local_unnamed_addr #1 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -79305,7 +79305,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !3144
 
 while.end:                                        ; preds = %while.body
-  %cmp.i = icmp eq ptr %add.ptr.i, %__x.08
+  %cmp.i = icmp eq ptr %__x.08, %add.ptr.i
   br i1 %cmp.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE15_M_insert_lowerIRS3_EESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseOT_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %while.end
@@ -79612,7 +79612,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa25.i, %if.then.i ], [ %__y.0.lcssa26.i, %if.end12.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -79647,7 +79647,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEE
 entry:
   %0 = load i32, ptr %value, align 4
   %1 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %1, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %1
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -80026,7 +80026,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1
 entry:
   %mpNodeLeft = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpNodeLeft, align 8
-  %cmp = icmp ne ptr %0, %first.coerce
+  %cmp = icmp ne ptr %first.coerce, %0
   %cmp5 = icmp ne ptr %last.coerce, %this
   %1 = select i1 %cmp, i1 true, i1 %cmp5
   br i1 %1, label %while.cond.preheader, label %if.end
@@ -80392,12 +80392,12 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ES
 entry:
   %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i, align 8
-  %cmp.i = icmp eq ptr %0, %__first.coerce
+  %cmp.i = icmp eq ptr %__first.coerce, %0
   br i1 %cmp.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp.i1 = icmp eq ptr %add.ptr.i, %__last.coerce
+  %cmp.i1 = icmp eq ptr %__last.coerce, %add.ptr.i
   br i1 %cmp.i1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.rhs
@@ -80652,7 +80652,7 @@ if.end9:                                          ; preds = %for.cond
   br i1 %cmp10, label %if.then11, label %for.cond, !llvm.loop !3174
 
 if.then11:                                        ; preds = %if.end9
-  %cmp19.i19 = icmp ugt ptr %incdec.ptr4.ptr, %__first
+  %cmp19.i19 = icmp ult ptr %__first, %incdec.ptr4.ptr
   br i1 %cmp19.i19, label %_ZN10TestObjectaSEOS_.exit.i.i.preheader.i20, label %return
 
 _ZN10TestObjectaSEOS_.exit.i.i.preheader.i20:     ; preds = %if.then11
@@ -81379,7 +81379,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa24.i, %if.then.i ], [ %__y.0.lcssa25.i, %if.end12.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -81461,7 +81461,7 @@ entry:
   %mId.i = getelementptr inbounds i8, ptr %key, i64 8
   store i64 %inc5.i, ptr %mId.i, align 8
   %6 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %6, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %6
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -81574,7 +81574,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp.not.i = icmp ne ptr %0, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %1
+  %cmp2.i = icmp eq ptr %1, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   %.pre.i = load i32, ptr %__v, align 8
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
@@ -81647,7 +81647,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEE
 entry:
   %0 = load i32, ptr %value, align 4
   %1 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %1, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %1
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -81767,7 +81767,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { ptr, ptr } %call3, 0
   %cmp.not.i = icmp ne ptr %1, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %0
+  %cmp2.i = icmp eq ptr %0, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit, label %lor.rhs.i
 
@@ -81810,7 +81810,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.i6, label %while.end.i, label %while.body.i, !llvm.loop !3195
 
 while.end.i:                                      ; preds = %while.body.i
-  %cmp.i6.i = icmp eq ptr %add.ptr.i.i4, %__x.09.i
+  %cmp.i6.i = icmp eq ptr %__x.09.i, %add.ptr.i.i4
   %cmp.i.i.i = icmp sge i32 %7, %6
   %spec.select = or i1 %cmp.i6.i, %cmp.i.i.i
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE21_M_insert_equal_lowerIS2_EESt17_Rb_tree_iteratorIS2_EOT_.exit
@@ -81985,7 +81985,7 @@ while.body.i.i:                                   ; preds = %for.body, %while.bo
   br i1 %cmp.not.i.i, label %invoke.cont2.i, label %while.body.i.i, !llvm.loop !601
 
 invoke.cont2.i:                                   ; preds = %while.body.i.i
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %__x.07.i.i
+  %cmp2.i.i.i = icmp eq ptr %__x.07.i.i, %add.ptr.i.i.i
   %spec.select.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE16_M_emplace_equalIJRS1_IS0_S0_EEEESt17_Rb_tree_iteratorIS3_EDpOT_.exit
 
@@ -82031,7 +82031,7 @@ entry:
   %mId.i = getelementptr inbounds i8, ptr %key, i64 8
   store i64 %inc5.i, ptr %mId.i, align 8
   %6 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %6, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %6
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -82139,7 +82139,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { ptr, ptr } %call3, 0
   %cmp.not.i = icmp ne ptr %1, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %0
+  %cmp2.i = icmp eq ptr %0, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   %.pre.i = load i32, ptr %__v, align 8
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
@@ -82233,7 +82233,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !3200
 
 while.end:                                        ; preds = %while.body
-  %cmp.i = icmp eq ptr %add.ptr.i, %__x.08
+  %cmp.i = icmp eq ptr %__x.08, %add.ptr.i
   br i1 %cmp.i, label %_ZNSt8_Rb_treeI10TestObjectSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE15_M_insert_lowerIS3_EESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseOT_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %while.end
@@ -82606,7 +82606,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
 
 if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa24.i.i, %if.then.i.i6 ], [ %1, %land.lhs.true.i ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %0, %retval.sroa.12.0.i.ph
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i.ph, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IRS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -82937,7 +82937,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 64 dereferenceable(4) %__k) local_unnamed_addr #1 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -84081,7 +84081,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { ptr, ptr } %call3, 0
   %cmp.not.i = icmp ne ptr %1, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %0
+  %cmp2.i = icmp eq ptr %0, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IRS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit, label %lor.rhs.i
 
@@ -84124,7 +84124,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.i6, label %while.end.i, label %while.body.i, !llvm.loop !3214
 
 while.end.i:                                      ; preds = %while.body.i
-  %cmp.i.i = icmp eq ptr %add.ptr.i.i4, %__x.08.i
+  %cmp.i.i = icmp eq ptr %__x.08.i, %add.ptr.i.i4
   %cmp.i.i.i.i = icmp sge i32 %6, %5
   %spec.select = or i1 %cmp.i.i, %cmp.i.i.i.i
   br label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE21_M_insert_equal_lowerIRS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit
@@ -84152,7 +84152,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeI7Ali
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE28_M_get_insert_hint_equal_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 64 dereferenceable(4) %__k) local_unnamed_addr #1 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -84447,7 +84447,7 @@ while.body.i.i1:                                  ; preds = %_ZN5eastl8multimapI
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit: ; preds = %while.body.i.i1
   %mpNodeLeft.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %mpNodeLeft.i, align 8, !noalias !3225
-  %cmp.i = icmp ne ptr %4, %pRangeEnd.1.i.i
+  %cmp.i = icmp ne ptr %pRangeEnd.1.i.i, %4
   %cmp5.i = icmp ne ptr %pRangeEnd.1.i13.i, %this
   %5 = select i1 %cmp.i, i1 true, i1 %cmp5.i
   br i1 %5, label %while.cond.preheader.i, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.if.end.i_crit_edge
@@ -84455,7 +84455,7 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.thread30: ; preds = %_ZN5eastl8multimapI7Align64S1_NS_4lessIS1_EENS_9allocatorEE11equal_rangeERKS1_.exit
   %mpNodeLeft.i32 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %mpNodeLeft.i32, align 8, !noalias !3225
-  %cmp.i33 = icmp ne ptr %6, %pRangeEnd.1.i.i
+  %cmp.i33 = icmp ne ptr %pRangeEnd.1.i.i, %6
   %cmp5.i34 = icmp ne ptr %pRangeEnd.1.i13.i, %this
   %7 = select i1 %cmp.i33, i1 true, i1 %cmp5.i34
   br i1 %7, label %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EESF_.exit, label %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.if.end.i_crit_edge
@@ -84469,7 +84469,7 @@ _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15
 _ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit.thread: ; preds = %entry
   %mpNodeLeft.i16 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %mpNodeLeft.i16, align 8, !noalias !3228
-  %cmp.i17.not = icmp eq ptr %8, %this
+  %cmp.i17.not = icmp eq ptr %this, %8
   br i1 %cmp.i17.not, label %if.end.i, label %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE5eraseENS_15rbtree_iteratorIS4_PKS4_RSC_EESF_.exit
 
 while.cond.preheader.i:                           ; preds = %_ZN5eastl8distanceINS_15rbtree_iteratorINS_4pairIK7Align64S3_EEPS5_RS5_EEEENS_15iterator_traitsIT_E15difference_typeESA_SA_.exit
@@ -84521,7 +84521,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EEN
 entry:
   %key.sroa.0.0.copyload = load i32, ptr %value, align 64
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -84639,7 +84639,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { ptr, ptr } %call3, 0
   %cmp.not.i = icmp ne ptr %1, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %0
+  %cmp2.i = icmp eq ptr %0, %add.ptr.i.i
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %lor.rhs.i
 
@@ -84682,7 +84682,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.i6, label %while.end.i, label %while.body.i, !llvm.loop !3248
 
 while.end.i:                                      ; preds = %while.body.i
-  %cmp.i.i = icmp eq ptr %add.ptr.i.i4, %__x.08.i
+  %cmp.i.i = icmp eq ptr %__x.08.i, %add.ptr.i.i4
   %cmp.i.i.i.i = icmp sge i32 %6, %5
   %spec.select = or i1 %cmp.i.i, %cmp.i.i.i.i
   br label %_ZNSt8_Rb_treeI7Align64St4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE21_M_insert_equal_lowerIS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit
@@ -84853,7 +84853,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa24.i, %if.then.i ], [ %__y.0.lcssa25.i, %if.end12.i ]
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
@@ -84973,7 +84973,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EEN
 entry:
   %key.sroa.0.0.copyload = load i32, ptr %value, align 64
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -85988,7 +85988,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EEN
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.175", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -86578,7 +86578,7 @@ entry:
   %ref.tmp = alloca %"struct.eastl::pair.238", align 8
   %0 = load i32, ptr %value, align 8
   %1 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %1, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %1
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -86834,7 +86834,7 @@ entry:
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -87373,7 +87373,7 @@ entry:
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -87535,7 +87535,7 @@ entry:
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store i32 0, ptr %args1, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -87701,7 +87701,7 @@ entry:
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -87863,7 +87863,7 @@ entry:
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -88336,7 +88336,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEEN
 entry:
   %0 = load i32, ptr %value, align 8
   %1 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %1, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %1
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -88467,7 +88467,7 @@ entry:
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -88534,7 +88534,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
   %spec.select.i = zext i1 %cmp.i.i.i12 to i32
   br label %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit
 
-_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then13.i, %if.then, %if.end, %lor.lhs.false2.i
+_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
   tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !3417
@@ -88577,7 +88577,7 @@ entry:
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -88644,7 +88644,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
   %spec.select.i = zext i1 %cmp.i.i.i12 to i32
   br label %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit
 
-_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then13.i, %if.then, %if.end, %lor.lhs.false2.i
+_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
   tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !3420
@@ -88688,7 +88688,7 @@ entry:
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store i32 0, ptr %args1, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -88759,7 +88759,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
   %spec.select.i = zext i1 %cmp.i.i.i12 to i32
   br label %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit
 
-_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then13.i, %if.then, %if.end, %lor.lhs.false2.i
+_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
   tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !3423
@@ -88803,7 +88803,7 @@ entry:
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc4.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -88870,7 +88870,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
   %spec.select.i = zext i1 %cmp.i.i.i12 to i32
   br label %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit
 
-_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then13.i, %if.then, %if.end, %lor.lhs.false2.i
+_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
   tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !3426
@@ -88914,7 +88914,7 @@ entry:
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   %7 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %7, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %7
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
@@ -88981,7 +88981,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end
   %spec.select.i = zext i1 %cmp.i.i.i12 to i32
   br label %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit
 
-_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then13.i, %if.then, %if.end, %lor.lhs.false2.i
+_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS2_PNS_11rbtree_nodeIS4_EE.exit: ; preds = %if.then, %if.then13.i, %if.end, %lor.lhs.false2.i
   %pPosition.023 = phi ptr [ %pPosition.0, %if.end ], [ %pPosition.0, %lor.lhs.false2.i ], [ %this, %if.then ], [ %call.i.i, %if.then13.i ]
   %side.0.i = phi i32 [ 0, %if.end ], [ %spec.select.i, %lor.lhs.false2.i ], [ 0, %if.then ], [ 0, %if.then13.i ]
   tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %pPosition.023, ptr noundef nonnull %this, i32 noundef %side.0.i), !noalias !3429
@@ -89056,7 +89056,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeIiNS_4pairIKi11NonCopyableEE
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.273", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -89346,7 +89346,7 @@ if.else:                                          ; preds = %land.rhs.i
   %17 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i = add nsw i64 %17, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i11 = icmp eq ptr %second, %obj
+  %cmp.not.i11 = icmp eq ptr %obj, %second
   br i1 %cmp.not.i11, label %_ZN10TestObjectaSEOS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -89488,7 +89488,7 @@ if.else:                                          ; preds = %land.rhs.i
   %17 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %17, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i11 = icmp eq ptr %second, %obj
+  %cmp.not.i11 = icmp eq ptr %obj, %second
   br i1 %cmp.not.i11, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -89623,7 +89623,7 @@ if.else:                                          ; preds = %land.rhs.i
   %17 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %17, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i11 = icmp eq ptr %second, %obj
+  %cmp.not.i11 = icmp eq ptr %obj, %second
   br i1 %cmp.not.i11, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -89757,7 +89757,7 @@ if.else:                                          ; preds = %land.rhs.i
   %17 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i = add nsw i64 %17, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i11 = icmp eq ptr %second, %obj
+  %cmp.not.i11 = icmp eq ptr %obj, %second
   br i1 %cmp.not.i11, label %_ZN10TestObjectaSEOS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -90001,7 +90001,7 @@ define linkonce_odr dso_local void @_ZN5eastl3mapIi10TestObjectNS_4lessIiEENS_9a
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.238", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %hint.coerce
+  %cmp.i = icmp ne ptr %hint.coerce, %0
   %cmp4.i = icmp ne ptr %hint.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -90100,7 +90100,7 @@ define linkonce_odr dso_local void @_ZN5eastl3mapIi10TestObjectNS_4lessIiEENS_9a
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.238", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %hint.coerce
+  %cmp.i = icmp ne ptr %hint.coerce, %0
   %cmp4.i = icmp ne ptr %hint.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -90206,7 +90206,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeIPiNS_4pairIKS1_iEENS_4lessI
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.290", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i
@@ -90461,7 +90461,7 @@ define linkonce_odr dso_local void @_ZN5eastl6rbtreeIiNS_4pairIKi23MoveOnlyTypeD
 entry:
   %ref.tmp = alloca %"struct.eastl::pair.298", align 8
   %0 = load ptr, ptr %this, align 8
-  %cmp.i = icmp ne ptr %0, %position.coerce
+  %cmp.i = icmp ne ptr %position.coerce, %0
   %cmp4.i = icmp ne ptr %position.coerce, %this
   %or.cond.i = and i1 %cmp4.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %if.end24.i

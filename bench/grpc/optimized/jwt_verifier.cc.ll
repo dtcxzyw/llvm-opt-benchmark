@@ -3254,12 +3254,12 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i157
 
 if.then.i.i.i106.i:                               ; preds = %if.end11.i.i.i
   %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i101103.i
-  %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %agg.tmp104.sroa.0.0.copyload.i
+  %cmp1.i.i.i.i = icmp sgt i64 %agg.tmp104.sroa.0.0.copyload.i, %sub.i.i.i.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont107.i, label %if.end7.i.i.i.i
 
 if.else.i.i.i105.i:                               ; preds = %if.end11.i.i.i
   %sub3.i.i.i.i = sub nsw i64 -9223372036854775808, %call.i101103.i
-  %cmp4.i.i.i.i = icmp sgt i64 %sub3.i.i.i.i, %agg.tmp104.sroa.0.0.copyload.i
+  %cmp4.i.i.i.i = icmp slt i64 %agg.tmp104.sroa.0.0.copyload.i, %sub3.i.i.i.i
   br i1 %cmp4.i.i.i.i, label %invoke.cont107.i, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i105.i, %if.then.i.i.i106.i
@@ -6827,12 +6827,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i82:                                  ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i79
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp68.sroa.0.0.copyload
+  %cmp1.i.i.i = icmp sgt i64 %agg.tmp68.sroa.0.0.copyload, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %invoke.cont71, label %if.end7.i.i.i
 
 if.else.i.i.i81:                                  ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call.i79
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %agg.tmp68.sroa.0.0.copyload
+  %cmp4.i.i.i = icmp slt i64 %agg.tmp68.sroa.0.0.copyload, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %invoke.cont71, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i81, %if.then.i.i.i82

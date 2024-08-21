@@ -814,7 +814,7 @@ entry:
   %buf_pos = getelementptr inbounds i8, ptr %hw, i64 200
   %3 = load i64, ptr %buf_pos, align 8
   %add.ptr2 = getelementptr i8, ptr %2, i64 %3
-  %cmp = icmp eq ptr %add.ptr2, %buf
+  %cmp = icmp eq ptr %buf, %add.ptr2
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry

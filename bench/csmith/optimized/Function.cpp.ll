@@ -499,7 +499,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
   %111 = call ptr @__cxa_begin_catch(ptr %110) #21
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %104
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %104, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %108, %.lr.ph.i.i.i.i.i.i.i
@@ -1050,7 +1050,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
   %259 = call ptr @__cxa_begin_catch(ptr %258) #21
-  %.not4.i.i.i.i.i.i.i367 = icmp eq ptr %.016.i.i.i.i.i365, %252
+  %.not4.i.i.i.i.i.i.i367 = icmp eq ptr %252, %.016.i.i.i.i.i365
   br i1 %.not4.i.i.i.i.i.i.i367, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i371, label %.lr.ph.i.i.i.i.i.i.i368
 
 .lr.ph.i.i.i.i.i.i.i368:                          ; preds = %256, %.lr.ph.i.i.i.i.i.i.i368
@@ -1298,7 +1298,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %334 = extractvalue { ptr, i32 } %333, 0
   %335 = call ptr @__cxa_begin_catch(ptr %334) #21
-  %.not4.i.i.i.i.i.i.i382 = icmp eq ptr %.016.i.i.i.i.i380, %328
+  %.not4.i.i.i.i.i.i.i382 = icmp eq ptr %328, %.016.i.i.i.i.i380
   br i1 %.not4.i.i.i.i.i.i.i382, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i386, label %.lr.ph.i.i.i.i.i.i.i383
 
 .lr.ph.i.i.i.i.i.i.i383:                          ; preds = %332, %.lr.ph.i.i.i.i.i.i.i383
@@ -1549,7 +1549,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %410 = extractvalue { ptr, i32 } %409, 0
   %411 = call ptr @__cxa_begin_catch(ptr %410) #21
-  %.not4.i.i.i.i.i.i.i397 = icmp eq ptr %.016.i.i.i.i.i395, %404
+  %.not4.i.i.i.i.i.i.i397 = icmp eq ptr %404, %.016.i.i.i.i.i395
   br i1 %.not4.i.i.i.i.i.i.i397, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i.i401, label %.lr.ph.i.i.i.i.i.i.i398
 
 .lr.ph.i.i.i.i.i.i.i398:                          ; preds = %408, %.lr.ph.i.i.i.i.i.i.i398
@@ -7115,7 +7115,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_St6vec
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -7162,7 +7162,7 @@ _ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_St6vectorIPK4FactSaIS8_EEESt10_Select1stI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_St6vectorIPK4FactSaIS8_EEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -7466,7 +7466,7 @@ common.resume:                                    ; preds = %17, %41
 29:                                               ; preds = %26
   %.not.i.i = icmp ne ptr %27, null
   %30 = getelementptr inbounds i8, ptr %0, i64 8
-  %31 = icmp eq ptr %30, %28
+  %31 = icmp eq ptr %28, %30
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %31
   br i1 %or.cond.i.i, label %.thread, label %32
 
@@ -7505,7 +7505,7 @@ _ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_6EffectESt10_Select1stIS6_ESt4lessIS2_ESa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK9StatementSt4pairIKS2_6EffectESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

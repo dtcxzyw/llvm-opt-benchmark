@@ -349,7 +349,7 @@ entry:
   br i1 %normalize, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp.not.i = icmp eq ptr %addr_normalized, %resolved_addr
+  %cmp.not.i = icmp eq ptr %resolved_addr, %addr_normalized
   br i1 %cmp.not.i, label %if.then.i, label %do.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true
@@ -916,7 +916,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp.not.i = icmp eq ptr %addr_normalized, %resolved_addr
+  %cmp.not.i = icmp eq ptr %resolved_addr, %addr_normalized
   br i1 %cmp.not.i, label %if.then.i, label %do.end.i
 
 if.then.i:                                        ; preds = %if.end

@@ -355,7 +355,7 @@ define noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr nound
 41:                                               ; preds = %26, %30, %33, %36, %39
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %42 = trunc nuw i64 %indvars.iv.next44 to i32
-  %43 = icmp slt i32 %42, %1
+  %43 = icmp sgt i32 %1, %42
   br i1 %43, label %22, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %22, %39, %41, %.preheader, %3, %16
@@ -8293,7 +8293,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ugt i64 %15, %12
+  %16 = icmp ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -8381,7 +8381,7 @@ _ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRK
   %52 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %51
   %.sroa.02.0.copyload18.us = load i64, ptr %52, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %15, %.041.us
+  %.not.us = icmp sgt i64 %.041.us, %15
   br i1 %.not.us, label %._crit_edge.i21.us.thread, label %.lr.ph.i32.us
 
 ._crit_edge.i21.us.thread:                        ; preds = %.split17.us
@@ -8445,7 +8445,7 @@ _ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRK
   %72 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %71
   %.sroa.02.0.copyload18 = load i64, ptr %72, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %15, %.041
+  %.not = icmp sgt i64 %.041, %15
   br i1 %.not, label %._crit_edge.i21, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.split17, %.lr.ph.i32
@@ -9020,7 +9020,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_
   %.sroa.0.0.copyload15 = load ptr, ptr %2, align 8
   %14 = add nsw i64 %9, -1
   %15 = lshr i64 %14, 1
-  %16 = icmp ugt i64 %15, %12
+  %16 = icmp ult i64 %12, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
@@ -9109,7 +9109,7 @@ _ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRK
   %53 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %52
   %.sroa.02.0.copyload18.us = load <2 x float>, ptr %53, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
-  %.not.us = icmp slt i64 %15, %.041.us
+  %.not.us = icmp sgt i64 %.041.us, %15
   br i1 %.not.us, label %._crit_edge.i21.us.thread, label %.lr.ph.i32.us
 
 ._crit_edge.i21.us.thread:                        ; preds = %.split17.us
@@ -9175,7 +9175,7 @@ _ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRK
   %75 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %74
   %.sroa.02.0.copyload18 = load <2 x float>, ptr %75, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
-  %.not = icmp slt i64 %15, %.041
+  %.not = icmp sgt i64 %.041, %15
   br i1 %.not, label %._crit_edge.i21, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.split17, %.lr.ph.i32

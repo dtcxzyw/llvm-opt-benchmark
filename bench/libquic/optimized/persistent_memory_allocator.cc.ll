@@ -549,7 +549,7 @@ land.rhs:                                         ; preds = %land.lhs.true5
 lor.lhs.false10:                                  ; preds = %land.rhs
   %rem11 = urem i64 %size, %page_size
   %cmp12 = icmp eq i64 %rem11, 0
-  %spec.select = or i1 %cmp12, %readonly
+  %spec.select = or i1 %readonly, %cmp12
   br label %land.end
 
 land.end:                                         ; preds = %lor.lhs.false10, %land.lhs.true5, %land.rhs, %land.lhs.true, %entry
@@ -610,7 +610,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true5.i
 _ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit: ; preds = %land.rhs.i
   %rem11.i = urem i64 %size, %page_size
   %cmp12.i = icmp eq i64 %rem11.i, 0
-  %spec.select.i = or i1 %cmp12.i, %readonly
+  %spec.select.i = or i1 %readonly, %cmp12.i
   br i1 %spec.select.i, label %cleanup.done, label %cond.false7
 
 cond.false7:                                      ; preds = %land.lhs.true5.i, %entry, %land.lhs.true.i, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit
@@ -2581,7 +2581,7 @@ land.lhs.true.i:                                  ; preds = %entry
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %rem6.i = and i64 %1, 7
   %cmp7.i = icmp eq i64 %rem6.i, 0
-  %brmerge.i = or i1 %cmp7.i, %read_only
+  %brmerge.i = or i1 %read_only, %cmp7.i
   br label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit
 
 _ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit: ; preds = %land.lhs.true5.i, %entry, %land.lhs.true.i

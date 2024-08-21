@@ -427,7 +427,7 @@ define internal fastcc void @add_map_entry(i64 noundef %0, i64 noundef %1, i8 no
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %35
-  %42 = icmp eq i8 %32, %2
+  %42 = icmp eq i8 %2, %32
   %43 = select i1 %42, i8 %2, i8 0
   br label %44
 
@@ -2099,7 +2099,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %0
   %20 = trunc i16 %13 to i8
-  %21 = icmp eq i8 %20, %2
+  %21 = icmp eq i8 %2, %20
   %22 = and i1 %21, %19
   br label %23
 
@@ -2123,7 +2123,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
   %36 = load i64, ptr %30, align 8
   %37 = icmp eq i64 %36, %1
   %38 = trunc i16 %32 to i8
-  %39 = icmp eq i8 %38, %2
+  %39 = icmp eq i8 %2, %38
   %40 = and i1 %39, %37
   %41 = and i1 %24, %40
   br i1 %41, label %42, label %55

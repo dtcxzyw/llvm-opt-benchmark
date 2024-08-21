@@ -653,7 +653,7 @@ overlap2D.exit.i:                                 ; preds = %218
   %226 = getelementptr inbounds i8, ptr %220, i64 8
   %227 = load double, ptr %226, align 8
   %228 = fadd double %227, 0x3EB0C6F7A0B5ED8D
-  %229 = fcmp ult double %228, %225
+  %229 = fcmp ugt double %225, %228
   br i1 %229, label %overlap4D.exit.thread, label %230
 
 230:                                              ; preds = %overlap2D.exit.i
@@ -669,7 +669,7 @@ overlap2D.exit.i:                                 ; preds = %218
   %238 = getelementptr inbounds i8, ptr %220, i64 24
   %239 = load double, ptr %238, align 8
   %240 = fadd double %239, 0x3EB0C6F7A0B5ED8D
-  %241 = fcmp ult double %240, %237
+  %241 = fcmp ugt double %237, %240
   br i1 %241, label %overlap4D.exit.thread, label %389
 
 242:                                              ; preds = %215
@@ -686,7 +686,7 @@ contain2D.exit.i:                                 ; preds = %242
   %250 = load double, ptr %192, align 8
   %251 = load double, ptr %244, align 8
   %252 = fadd double %251, 0x3EB0C6F7A0B5ED8D
-  %253 = fcmp ult double %252, %250
+  %253 = fcmp ugt double %250, %252
   br i1 %253, label %overlap4D.exit.thread, label %254
 
 254:                                              ; preds = %contain2D.exit.i
@@ -702,7 +702,7 @@ contain2D.exit.i:                                 ; preds = %242
   %262 = load double, ptr %208, align 8
   %263 = load double, ptr %261, align 8
   %264 = fadd double %263, 0x3EB0C6F7A0B5ED8D
-  %265 = fcmp ult double %264, %262
+  %265 = fcmp ugt double %262, %264
   br i1 %265, label %overlap4D.exit.thread, label %389
 
 266:                                              ; preds = %215, %215
@@ -712,7 +712,7 @@ contain2D.exit.i:                                 ; preds = %242
   %270 = getelementptr inbounds i8, ptr %268, i64 8
   %271 = load double, ptr %270, align 8
   %272 = fadd double %271, 0x3EB0C6F7A0B5ED8D
-  %273 = fcmp ult double %272, %269
+  %273 = fcmp ugt double %269, %272
   br i1 %273, label %overlap4D.exit.thread, label %274
 
 274:                                              ; preds = %266
@@ -724,7 +724,7 @@ contain2D.exit.i:                                 ; preds = %242
 
 279:                                              ; preds = %274
   %280 = load double, ptr %214, align 8
-  %281 = fcmp ult double %272, %280
+  %281 = fcmp ugt double %280, %272
   br i1 %281, label %overlap4D.exit.thread, label %contained2D.exit.i
 
 contained2D.exit.i:                               ; preds = %279
@@ -738,7 +738,7 @@ contained2D.exit.i:                               ; preds = %279
   %287 = getelementptr inbounds i8, ptr %268, i64 24
   %288 = load double, ptr %287, align 8
   %289 = fadd double %288, 0x3EB0C6F7A0B5ED8D
-  %290 = fcmp ult double %289, %286
+  %290 = fcmp ugt double %286, %289
   br i1 %290, label %overlap4D.exit.thread, label %291
 
 291:                                              ; preds = %285
@@ -751,7 +751,7 @@ contained2D.exit.i:                               ; preds = %279
 
 297:                                              ; preds = %291
   %298 = load double, ptr %209, align 8
-  %299 = fcmp ult double %289, %298
+  %299 = fcmp ugt double %298, %289
   br i1 %299, label %overlap4D.exit.thread, label %300
 
 300:                                              ; preds = %297
@@ -782,12 +782,12 @@ contained2D.exit.i:                               ; preds = %279
   %.val143 = load double, ptr %317, align 8
   %318 = load double, ptr %192, align 8
   %319 = fadd double %.val143, 0x3EB0C6F7A0B5ED8D
-  %320 = fcmp ult double %319, %318
+  %320 = fcmp ugt double %318, %319
   br i1 %320, label %overlap4D.exit.thread, label %321
 
 321:                                              ; preds = %314
   %322 = load double, ptr %214, align 8
-  %323 = fcmp ult double %319, %322
+  %323 = fcmp ugt double %322, %319
   br i1 %323, label %overlap4D.exit.thread, label %389
 
 324:                                              ; preds = %215
@@ -797,12 +797,12 @@ contained2D.exit.i:                               ; preds = %279
   %.val144 = load double, ptr %327, align 8
   %328 = load double, ptr %212, align 8
   %329 = fadd double %.val144, 0x3EB0C6F7A0B5ED8D
-  %330 = fcmp olt double %329, %328
+  %330 = fcmp ogt double %328, %329
   br i1 %330, label %331, label %overlap4D.exit.thread
 
 331:                                              ; preds = %324
   %332 = load double, ptr %213, align 8
-  %333 = fcmp olt double %329, %332
+  %333 = fcmp ogt double %332, %329
   br i1 %333, label %389, label %overlap4D.exit.thread
 
 334:                                              ; preds = %215
@@ -827,12 +827,12 @@ contained2D.exit.i:                               ; preds = %279
   %.val146 = load double, ptr %347, align 8
   %348 = load double, ptr %210, align 8
   %349 = fadd double %.val146, 0x3EB0C6F7A0B5ED8D
-  %350 = fcmp olt double %349, %348
+  %350 = fcmp ogt double %348, %349
   br i1 %350, label %351, label %overlap4D.exit.thread
 
 351:                                              ; preds = %344
   %352 = load double, ptr %211, align 8
-  %353 = fcmp olt double %349, %352
+  %353 = fcmp ogt double %352, %349
   br i1 %353, label %389, label %overlap4D.exit.thread
 
 354:                                              ; preds = %215
@@ -874,7 +874,7 @@ contained2D.exit.i:                               ; preds = %279
   %.val149 = load double, ptr %379, align 8
   %380 = load double, ptr %208, align 8
   %381 = fadd double %.val149, 0x3EB0C6F7A0B5ED8D
-  %382 = fcmp ult double %381, %380
+  %382 = fcmp ugt double %380, %381
   br i1 %382, label %overlap4D.exit.thread, label %overlap4D.exit
 
 383:                                              ; preds = %215
@@ -887,7 +887,7 @@ contained2D.exit.i:                               ; preds = %279
 
 overlap4D.exit:                                   ; preds = %376
   %387 = load double, ptr %209, align 8
-  %388 = fcmp ult double %381, %387
+  %388 = fcmp ugt double %387, %381
   br i1 %388, label %overlap4D.exit.thread, label %389
 
 389:                                              ; preds = %372, %361, %351, %340, %331, %321, %310, %300, %260, %236, %overlap4D.exit

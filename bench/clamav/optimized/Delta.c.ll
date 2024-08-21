@@ -59,7 +59,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
   %17 = icmp eq i32 %.0.lcssa, %1
   %spec.store.select = select i1 %17, i32 0, i32 %.0.lcssa
   %18 = zext i32 %spec.store.select to i64
-  %.not.i30 = icmp eq i32 %spec.store.select, %1
+  %.not.i30 = icmp eq i32 %1, %spec.store.select
   br i1 %.not.i30, label %MyMemCpy.exit37, label %.lr.ph.preheader.i31
 
 .lr.ph.preheader.i31:                             ; preds = %._crit_edge
@@ -135,7 +135,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
   %17 = icmp eq i32 %.025.lcssa, %1
   %spec.store.select = select i1 %17, i32 0, i32 %.025.lcssa
   %18 = zext i32 %spec.store.select to i64
-  %.not.i28 = icmp eq i32 %spec.store.select, %1
+  %.not.i28 = icmp eq i32 %1, %spec.store.select
   br i1 %.not.i28, label %MyMemCpy.exit35, label %.lr.ph.preheader.i29
 
 .lr.ph.preheader.i29:                             ; preds = %._crit_edge

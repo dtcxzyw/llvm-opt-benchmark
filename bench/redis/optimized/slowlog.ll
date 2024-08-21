@@ -323,7 +323,7 @@ entry:
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1.not = icmp sgt i64 %0, %duration
+  %cmp1.not = icmp slt i64 %duration, %0
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end

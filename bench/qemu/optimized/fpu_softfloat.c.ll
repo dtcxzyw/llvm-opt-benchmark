@@ -500,7 +500,7 @@ float16a_unpack_canonical.exit76:                 ; preds = %if.then8.i.i75, %if
   %14 = phi i32 [ 0, %if.then8.i.i75 ], [ 0, %if.then10.i.i73 ], [ %add.i.i72, %frac64_normalize.exit.i.i68 ], [ %sub37.i.i60, %if.then33.i.i59 ], [ 31, %if.then47.i.i58 ], [ 31, %if.else49.i.i54 ]
   %.pr.i.pre = phi i8 [ 1, %if.then8.i.i75 ], [ 1, %if.then10.i.i73 ], [ 2, %frac64_normalize.exit.i.i68 ], [ 2, %if.then33.i.i59 ], [ 3, %if.then47.i.i58 ], [ %conv53.i.i57, %if.else49.i.i54 ]
   %15 = trunc nuw i16 %f.lobit.i.i42 to i1
-  %tobool3.i = xor i1 %15, %subtract
+  %tobool3.i = xor i1 %subtract, %15
   %frombool4.i = zext i1 %tobool3.i to i8
   %conv5.i = zext nneg i8 %7 to i32
   %shl.i = shl nuw nsw i32 1, %conv5.i
@@ -1401,7 +1401,7 @@ float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if
   %10 = phi i32 [ 0, %if.then8.i.i30 ], [ 0, %if.then10.i.i28 ], [ %add.i.i27, %frac64_normalize.exit.i.i24 ], [ %sub37.i.i32, %if.then33.i.i31 ], [ 2047, %if.then47.i.i18 ], [ 2047, %if.else49.i.i14 ]
   %11 = phi i8 [ 1, %if.then8.i.i30 ], [ 1, %if.then10.i.i28 ], [ 2, %frac64_normalize.exit.i.i24 ], [ 2, %if.then33.i.i31 ], [ 3, %if.then47.i.i18 ], [ %conv53.i.i17, %if.else49.i.i14 ]
   %12 = trunc nuw i64 %f.lobit.i.i4 to i1
-  %tobool3.i = xor i1 %12, %subtract
+  %tobool3.i = xor i1 %subtract, %12
   %frombool4.i = zext i1 %tobool3.i to i8
   %conv5.i = zext nneg i8 %5 to i32
   %shl.i = shl nuw nsw i32 1, %conv5.i
@@ -1936,7 +1936,7 @@ parts64_canonicalize.exit86:                      ; preds = %if.then8.i85, %if.t
   %14 = phi i32 [ %conv.i.i51, %if.then8.i85 ], [ %conv.i.i51, %if.then10.i83 ], [ %add.i82, %frac64_normalize.exit.i78 ], [ %sub37.i69, %if.then33.i68 ], [ %conv.i.i51, %if.then47.i67 ], [ %conv.i.i51, %if.else49.i63 ]
   %.pr.i.pre = phi i8 [ 1, %if.then8.i85 ], [ 1, %if.then10.i83 ], [ 2, %frac64_normalize.exit.i78 ], [ 2, %if.then33.i68 ], [ 3, %if.then47.i67 ], [ %conv53.i66, %if.else49.i63 ]
   %15 = trunc nuw i16 %f.lobit.i49 to i1
-  %tobool3.i = xor i1 %15, %subtract
+  %tobool3.i = xor i1 %subtract, %15
   %frombool4.i = zext i1 %tobool3.i to i8
   %conv5.i = zext nneg i8 %7 to i32
   %shl.i = shl nuw nsw i32 1, %conv5.i
@@ -2352,7 +2352,7 @@ entry:
   call fastcc void @parts128_canonicalize(ptr noundef nonnull %pb, ptr noundef %status, ptr noundef nonnull @float128_params)
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i52, align 1
   %3 = trunc i8 %2 to i1
-  %tobool3.i = xor i1 %3, %subtract
+  %tobool3.i = xor i1 %subtract, %3
   %frombool4.i = zext i1 %tobool3.i to i8
   %4 = load i8, ptr %pa, align 8
   %conv5.i = zext nneg i8 %4 to i32
@@ -2755,7 +2755,7 @@ if.end:                                           ; preds = %if.then10.i, %if.el
   %9 = phi i8 [ %.pre132, %if.then10.i ], [ %cond17.i, %if.else.i7 ]
   %10 = phi i8 [ %.pre131, %if.then10.i ], [ %frombool.i92, %if.else.i7 ]
   %11 = trunc i8 %10 to i1
-  %tobool3.i = xor i1 %11, %subtract
+  %tobool3.i = xor i1 %subtract, %11
   %frombool4.i = zext i1 %tobool3.i to i8
   %12 = load i8, ptr %pa, align 8
   %conv5.i = zext nneg i8 %12 to i32
@@ -31453,7 +31453,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb5
   %roundMask.0 = phi i64 [ 1099511627775, %sw.bb5 ], [ 2047, %entry ]
   %cmp6 = icmp ne i64 %zSig1, 0
   %conv8 = zext i1 %cmp6 to i64
-  %or = or i64 %conv8, %zSig0
+  %or = or i64 %zSig0, %conv8
   switch i8 %0, label %sw.default21 [
     i8 0, label %sw.epilog22
     i8 4, label %sw.epilog22
@@ -31598,7 +31598,7 @@ if.end80:                                         ; preds = %if.then79, %if.end7
   %cmp82 = icmp ult i64 %add81, %roundIncrement.1
   %spec.select89 = select i1 %cmp82, i64 -9223372036854775808, i64 %add81
   %inc = zext i1 %cmp82 to i32
-  %spec.select90 = add nuw nsw i32 %inc, %zExp
+  %spec.select90 = add nuw nsw i32 %zExp, %inc
   %add86 = add nuw nsw i64 %roundMask.0, 1
   %shl90 = shl nuw nsw i64 %and, 1
   %cmp91 = icmp eq i64 %shl90, %add86
@@ -31638,7 +31638,7 @@ sw.bb110:                                         ; preds = %precision80
 
 sw.bb114:                                         ; preds = %precision80
   %tobool118 = icmp ne i64 %zSig1, 0
-  %10 = and i1 %tobool118, %zSign
+  %10 = and i1 %zSign, %tobool118
   %frombool120 = zext i1 %10 to i8
   br label %sw.epilog122
 
@@ -31736,7 +31736,7 @@ if.else10.i:                                      ; preds = %lor.end177
 if.then13.i:                                      ; preds = %if.else10.i
   %cmp14.i = icmp ne i64 %zSig1, 0
   %conv16.i = zext i1 %cmp14.i to i64
-  %or17.i = or i64 %conv16.i, %zSig0
+  %or17.i = or i64 %zSig0, %conv16.i
   br label %shift64ExtraRightJamming.exit
 
 if.else18.i:                                      ; preds = %if.else10.i
@@ -32409,7 +32409,7 @@ parts64_canonicalize.exit87:                      ; preds = %if.then8.i86, %if.t
   %10 = phi i32 [ %and.i9.i52, %if.then8.i86 ], [ %and.i9.i52, %if.then10.i84 ], [ %add.i83, %frac64_normalize.exit.i79 ], [ %sub37.i70, %if.then33.i69 ], [ %and.i9.i52, %if.then47.i68 ], [ %and.i9.i52, %if.else49.i64 ]
   %.pr.i.pre = phi i8 [ 1, %if.then8.i86 ], [ 1, %if.then10.i84 ], [ 2, %frac64_normalize.exit.i79 ], [ 2, %if.then33.i69 ], [ 3, %if.then47.i68 ], [ %conv53.i67, %if.else49.i64 ]
   %11 = trunc nuw i32 %f.lobit.i49 to i1
-  %tobool3.i = xor i1 %11, %subtract
+  %tobool3.i = xor i1 %subtract, %11
   %frombool4.i = zext i1 %tobool3.i to i8
   %conv5.i = zext nneg i8 %5 to i32
   %shl.i = shl nuw nsw i32 1, %conv5.i
@@ -32934,7 +32934,7 @@ parts64_canonicalize.exit87:                      ; preds = %if.then8.i86, %if.t
   %10 = phi i32 [ 0, %if.then8.i86 ], [ 0, %if.then10.i84 ], [ %add.i83, %frac64_normalize.exit.i79 ], [ %sub37.i70, %if.then33.i69 ], [ 2047, %if.then47.i68 ], [ 2047, %if.else49.i64 ]
   %.pr.i.pre = phi i8 [ 1, %if.then8.i86 ], [ 1, %if.then10.i84 ], [ 2, %frac64_normalize.exit.i79 ], [ 2, %if.then33.i69 ], [ 3, %if.then47.i68 ], [ %conv53.i67, %if.else49.i64 ]
   %11 = trunc nuw i64 %f.lobit.i49 to i1
-  %tobool3.i = xor i1 %11, %subtract
+  %tobool3.i = xor i1 %subtract, %11
   %frombool4.i = zext i1 %tobool3.i to i8
   %conv5.i = zext nneg i8 %5 to i32
   %shl.i = shl nuw nsw i32 1, %conv5.i
@@ -35478,7 +35478,7 @@ if.then:                                          ; preds = %lt128.exit
 if.end:                                           ; preds = %entry, %if.then
   %a0.0 = phi i64 [ %shr, %if.then ], [ %0, %entry ]
   %a1.0 = phi i64 [ %3, %if.then ], [ %1, %entry ]
-  %cmp.not.i = icmp ult i64 %a0.0, %b.8.val
+  %cmp.not.i = icmp ugt i64 %b.8.val, %a0.0
   br i1 %cmp.not.i, label %if.end.i, label %if.end.estimateDiv128To64.exit_crit_edge
 
 if.end.estimateDiv128To64.exit_crit_edge:         ; preds = %lt128.exit, %if.end
@@ -35615,7 +35615,7 @@ while.end:                                        ; preds = %while.body, %estima
   %q0.0.lcssa = phi i64 [ %retval.0.i, %estimateDiv128To64.exit ], [ %dec, %while.body ]
   %r1.0.lcssa = phi i64 [ %r1.016, %estimateDiv128To64.exit ], [ %r1.0, %while.body ]
   %r2.0.lcssa = phi i64 [ %r2.017, %estimateDiv128To64.exit ], [ %r2.0, %while.body ]
-  %cmp.not.i37 = icmp ult i64 %r1.0.lcssa, %b.8.val
+  %cmp.not.i37 = icmp ugt i64 %b.8.val, %r1.0.lcssa
   br i1 %cmp.not.i37, label %if.end.i39, label %estimateDiv128To64.exit78
 
 if.end.i39:                                       ; preds = %while.end

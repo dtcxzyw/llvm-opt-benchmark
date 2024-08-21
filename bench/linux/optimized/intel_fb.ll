@@ -927,7 +927,7 @@ define dso_local i32 @main_to_ccs_plane(ptr nocapture noundef readonly %0, i32 n
   %27 = load i8, ptr %26, align 1
   %28 = lshr i8 %27, 1
   %29 = zext nneg i8 %28 to i32
-  %30 = icmp sgt i32 %29, %1
+  %30 = icmp slt i32 %1, %29
   br i1 %30, label %46, label %31, !prof !30
 
 31:                                               ; preds = %23, %15
@@ -964,7 +964,7 @@ define dso_local i32 @main_to_ccs_plane(ptr nocapture noundef readonly %0, i32 n
   %50 = load i8, ptr %49, align 1
   %51 = lshr i8 %50, 1
   %52 = zext nneg i8 %51 to i32
-  %53 = add i32 %52, %1
+  %53 = add i32 %1, %52
   ret i32 %53
 }
 
@@ -1011,7 +1011,7 @@ define dso_local i32 @skl_ccs_to_main_plane(ptr nocapture noundef readonly %0, i
   %25 = load i8, ptr %24, align 1
   %26 = lshr i8 %25, 1
   %27 = zext nneg i8 %26 to i32
-  %28 = icmp sgt i32 %27, %1
+  %28 = icmp slt i32 %1, %27
   br i1 %28, label %29, label %44, !prof !19
 
 29:                                               ; preds = %21, %15
@@ -3631,7 +3631,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr nocapture noundef readonly
   %88 = getelementptr [4 x i8], ptr %87, i64 0, i64 %12
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
-  %91 = mul i32 %90, %5
+  %91 = mul i32 %5, %90
   %92 = getelementptr inbounds i8, ptr %81, i64 2632
   %93 = load i16, ptr %92, align 8
   %94 = icmp eq i16 %93, 2

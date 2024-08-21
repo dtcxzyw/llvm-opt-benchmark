@@ -1182,7 +1182,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_Z15rearrange_atomsP12reduced_atomP10t_trxframePKiiPK10t_topologybP20gmx_structurefactors(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   %8 = icmp sgt i32 %3, 0
-  %or.cond = and i1 %8, %5
+  %or.cond = and i1 %5, %8
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7
@@ -2504,7 +2504,7 @@ define noundef ptr @_Z26gmx_structurefactors_tableP20gmx_structurefactorsfffi(pt
   %indvars.iv48 = phi i64 [ 0, %.lr.ph.split.us44.preheader ], [ %indvars.iv.next49, %.lr.ph.split.us44 ]
   %27 = trunc nuw nsw i64 %indvars.iv48 to i32
   %28 = uitofp nneg i32 %27 to float
-  %29 = fmul float %28, %2
+  %29 = fmul float %2, %28
   %30 = fpext float %29 to double
   %31 = fdiv double %30, %14
   %32 = tail call noundef double @_Z4CMSFP20gmx_structurefactorsiidd(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %.reass.us, double noundef %15, double noundef %31)
@@ -2524,7 +2524,7 @@ define noundef ptr @_Z26gmx_structurefactors_tableP20gmx_structurefactorsfffi(pt
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %_Z4CMSFP20gmx_structurefactorsiidd.exit.us.us ], [ 0, %.lr.ph.us ]
   %36 = trunc nuw nsw i64 %indvars.iv53 to i32
   %37 = uitofp nneg i32 %36 to float
-  %38 = fmul float %37, %2
+  %38 = fmul float %2, %37
   %39 = fpext float %38 to double
   %40 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 621, i64 noundef 4, i64 noundef 4)
   %41 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.1, i32 noundef 622, i64 noundef 4, i64 noundef 4)

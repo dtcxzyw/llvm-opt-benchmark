@@ -1444,7 +1444,7 @@ define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly
   %24 = add i32 %23, %21
   store i32 %24, ptr %22, align 4
   %25 = zext i32 %24 to i64
-  %26 = icmp ult i64 %25, %1
+  %26 = icmp ugt i64 %1, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %3

@@ -1535,7 +1535,7 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit175: ; preds = %.noexc174, %_
   %514 = ptrtoint ptr %512 to i64
   %515 = sub i64 %513, %514
   %516 = sdiv exact i64 %515, 24
-  %.not.i.i = icmp ugt i64 %516, %.048297
+  %.not.i.i = icmp ult i64 %.048297, %516
   br i1 %.not.i.i, label %518, label %517
 
 517:                                              ; preds = %510

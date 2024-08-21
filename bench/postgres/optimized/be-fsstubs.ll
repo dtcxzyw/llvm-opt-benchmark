@@ -224,7 +224,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local i32 @lo_read(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %0, -1
   %5 = load i32, ptr @cookies_size, align 4
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   %or.cond = select i1 %4, i1 %.not, i1 false
   br i1 %or.cond, label %6, label %12
 
@@ -270,7 +270,7 @@ declare i32 @inv_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 define dso_local i32 @lo_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %0, -1
   %5 = load i32, ptr @cookies_size, align 4
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   %or.cond = select i1 %4, i1 %.not, i1 false
   br i1 %or.cond, label %6, label %12
 
@@ -890,7 +890,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_truncate(
 define internal fastcc void @lo_truncate_internal(i32 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = icmp sgt i32 %0, -1
   %4 = load i32, ptr @cookies_size, align 4
-  %.not = icmp sgt i32 %4, %0
+  %.not = icmp slt i32 %0, %4
   %or.cond = select i1 %3, i1 %.not, i1 false
   br i1 %or.cond, label %5, label %11
 

@@ -459,7 +459,7 @@ land.lhs.true:                                    ; preds = %if.end
 if.then7:                                         ; preds = %land.lhs.true
   %ivlen1.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %1 = load i64, ptr %ivlen1.i, align 8
-  %cmp.i = icmp ne i64 %1, %ivlen
+  %cmp.i = icmp ne i64 %ivlen, %1
   %cmp2.i = icmp ugt i64 %ivlen, 16
   %or.cond.i = or i1 %cmp2.i, %cmp.i
   br i1 %or.cond.i, label %ossl_cipher_generic_initiv.exit.thread, label %ossl_cipher_generic_initiv.exit
@@ -512,7 +512,7 @@ if.then32:                                        ; preds = %if.end30
 
 if.then38:                                        ; preds = %if.then32
   %6 = load i64, ptr %keylen39, align 8
-  %cmp40.not = icmp eq i64 %6, %keylen
+  %cmp40.not = icmp eq i64 %keylen, %6
   br i1 %cmp40.not, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %if.then38
@@ -608,7 +608,7 @@ if.then18:                                        ; preds = %if.end12
   %rem = urem i64 %inl, %0
   %sub = sub i64 %0, %rem
   %add = add i64 %sub, %inl
-  %cmp19 = icmp ugt i64 %add, %outsize
+  %cmp19 = icmp ult i64 %outsize, %add
   br i1 %cmp19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.then18
@@ -634,7 +634,7 @@ if.end24:                                         ; preds = %if.end21
   br i1 %cmp27, label %if.then29, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end24
-  %cmp3992 = icmp ugt i64 %add, %inl
+  %cmp3992 = icmp ult i64 %inl, %add
   br i1 %cmp3992, label %for.body, label %if.end43
 
 if.then29:                                        ; preds = %if.end24
@@ -740,7 +740,7 @@ if.then73:                                        ; preds = %if.end70
 
 if.else76:                                        ; preds = %if.end70
   %not = sub i64 0, %0
-  %and = and i64 %not, %inl
+  %and = and i64 %inl, %not
   br label %if.end78
 
 if.end78:                                         ; preds = %if.else76, %if.then73
@@ -759,7 +759,7 @@ land.lhs.true82:                                  ; preds = %if.end78
   br i1 %or.cond85, label %if.then98, label %if.end113
 
 if.then98:                                        ; preds = %land.lhs.true82
-  %cmp99 = icmp ugt i64 %0, %outsize
+  %cmp99 = icmp ult i64 %outsize, %0
   br i1 %cmp99, label %if.then101, label %if.end102
 
 if.then101:                                       ; preds = %if.then98
@@ -821,7 +821,7 @@ if.end141:                                        ; preds = %if.then132
 if.end143:                                        ; preds = %if.end141, %if.then116
   %nextblocks.2 = phi i64 [ %nextblocks.0, %if.then116 ], [ %sub142, %if.end141 ]
   %add144 = add i64 %nextblocks.2, %outlint.0
-  %cmp145 = icmp ugt i64 %add144, %outsize
+  %cmp145 = icmp ult i64 %outsize, %add144
   br i1 %cmp145, label %if.then147, label %if.end149
 
 if.then147:                                       ; preds = %if.end143
@@ -972,7 +972,7 @@ if.then23:                                        ; preds = %if.else20
   br label %return
 
 if.end26:                                         ; preds = %if.else20, %if.then16
-  %cmp27 = icmp ugt i64 %0, %outsize
+  %cmp27 = icmp ult i64 %outsize, %0
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end26
@@ -1055,7 +1055,7 @@ land.lhs.true66:                                  ; preds = %if.end60
 
 if.end73:                                         ; preds = %land.lhs.true66, %if.end60
   %10 = load i64, ptr %bufsz38, align 8
-  %cmp75 = icmp ugt i64 %10, %outsize
+  %cmp75 = icmp ult i64 %outsize, %10
   br i1 %cmp75, label %if.then76, label %if.end77
 
 if.then76:                                        ; preds = %if.end73
@@ -1157,12 +1157,12 @@ if.then17:                                        ; preds = %if.then15
   %arrayidx = getelementptr i8, ptr %6, i64 -1
   %7 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %7 to i64
-  %cmp19.not.not = icmp ult i64 %conv, %inl
+  %cmp19.not.not = icmp ugt i64 %inl, %conv
   br i1 %cmp19.not.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then17
   %add.neg = xor i64 %conv, -1
-  %sub33 = add i64 %add.neg, %inl
+  %sub33 = add i64 %inl, %add.neg
   store i64 %sub33, ptr %outl, align 8
   br label %if.end34
 
@@ -1410,7 +1410,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_initiv(ptr nocapture noundef %ct
 entry:
   %ivlen1 = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i64, ptr %ivlen1, align 8
-  %cmp = icmp ne i64 %0, %ivlen
+  %cmp = icmp ne i64 %ivlen, %0
   %cmp2 = icmp ugt i64 %ivlen, 16
   %or.cond = or i1 %cmp2, %cmp
   br i1 %or.cond, label %if.then, label %if.end

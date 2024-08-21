@@ -1134,7 +1134,7 @@ entry:
   %head_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %head_, align 8, !tbaa !26
   %cmp.i.not = icmp ne ptr %0, null
-  %brmerge.not = and i1 %cmp.i.not, %pack
+  %brmerge.not = and i1 %pack, %cmp.i.not
   br i1 %brmerge.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

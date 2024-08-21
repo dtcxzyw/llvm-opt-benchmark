@@ -85,7 +85,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %9 = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds [15 x i64], ptr %gapLengths.i, i64 0, i64 %9
   %10 = load i64, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp slt i64 %10, %sub24
+  %cmp2.i = icmp sgt i64 %sub24, %10
   br i1 %cmp2.i, label %while.cond.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %land.rhs.i, %while.cond.i
@@ -158,7 +158,7 @@ if.end30:                                         ; preds = %if.end30.lr.ph, %fo
   %16 = load i64, ptr %arrayidx.i47, align 8
   %sub32 = sub nsw i64 %maxLength.068, %16
   %mul33 = shl nuw nsw i32 %num.069, 1
-  %cmp34 = icmp slt i32 %mul33, %length
+  %cmp34 = icmp sgt i32 %length, %mul33
   br i1 %cmp34, label %land.lhs.true, label %for.inc42
 
 land.lhs.true:                                    ; preds = %if.end30
@@ -176,7 +176,7 @@ for.inc42:                                        ; preds = %if.end30, %land.lhs
 
 for.end45:                                        ; preds = %land.lhs.true
   %sub46 = add nsw i32 %num.069, -1
-  %cmp.i49.not = icmp slt i32 %gaps.val.pre, %num.069
+  %cmp.i49.not = icmp sgt i32 %num.069, %gaps.val.pre
   br i1 %cmp.i49.not, label %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit, label %if.then.i50
 
 if.then.i50:                                      ; preds = %for.end45
@@ -210,7 +210,7 @@ for.body.i.us:                                    ; preds = %for.inc.i.us, %for.
   %minValue.09.i.us = phi i32 [ 0, %for.body52.us ], [ %minValue.1.i.us, %for.inc.i.us ]
   %arrayidx.i54.us = getelementptr inbounds [15 x i32], ptr %gapStarts.i52, i64 0, i64 %indvars.iv.i53.us
   %18 = load i32, ptr %arrayidx.i54.us, align 4
-  %cmp4.i.us = icmp sgt i32 %18, %minValue.072.us
+  %cmp4.i.us = icmp slt i32 %minValue.072.us, %18
   br i1 %cmp4.i.us, label %land.lhs.true.i.us, label %for.inc.i.us
 
 land.lhs.true.i.us:                               ; preds = %for.body.i.us

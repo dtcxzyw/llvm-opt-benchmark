@@ -16,7 +16,7 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %7 = fcmp ugt double %6, %0
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load double, ptr %8, align 8
-  %10 = fcmp ult double %9, %0
+  %10 = fcmp ugt double %0, %9
   %or.cond = select i1 %7, i1 true, i1 %10
   br i1 %or.cond, label %.thread114, label %11
 
@@ -26,16 +26,16 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %14 = fcmp ole double %13, %1
   %15 = getelementptr inbounds i8, ptr %4, i64 24
   %16 = load double, ptr %15, align 8
-  %17 = fcmp oge double %16, %1
+  %17 = fcmp ole double %1, %16
   %18 = select i1 %14, i1 %17, i1 false
   %19 = fcmp ugt double %6, %2
-  %20 = fcmp ult double %9, %2
+  %20 = fcmp ugt double %2, %9
   %or.cond76 = select i1 %19, i1 true, i1 %20
   br i1 %or.cond76, label %._crit_edge, label %30
 
 .thread114:                                       ; preds = %5
   %21 = fcmp ugt double %6, %2
-  %22 = fcmp ult double %9, %2
+  %22 = fcmp ugt double %2, %9
   %or.cond76115 = select i1 %21, i1 true, i1 %22
   br i1 %or.cond76115, label %.thread, label %.thread114._crit_edge
 
@@ -45,7 +45,7 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %25 = fcmp ole double %24, %3
   %26 = getelementptr inbounds i8, ptr %4, i64 24
   %27 = load double, ptr %26, align 8
-  %28 = fcmp oge double %27, %3
+  %28 = fcmp ole double %3, %27
   %29 = select i1 %25, i1 %28, i1 false
   br i1 %29, label %95, label %.thread
 
@@ -54,7 +54,7 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
 
 30:                                               ; preds = %11
   %31 = fcmp ole double %13, %3
-  %32 = fcmp oge double %16, %3
+  %32 = fcmp ole double %3, %16
   %33 = select i1 %31, i1 %32, i1 false
   %34 = xor i1 %18, %33
   br i1 %34, label %95, label %35
@@ -70,8 +70,8 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
 37:                                               ; preds = %.thread
   %38 = getelementptr inbounds i8, ptr %4, i64 8
   %39 = load double, ptr %38, align 8
-  %40 = fcmp ole double %39, %1
-  %41 = fcmp ugt double %39, %3
+  %40 = fcmp oge double %1, %39
+  %41 = fcmp ult double %3, %39
   %.not78 = xor i1 %40, %41
   %or.cond80 = or i1 %7, %.not78
   %or.cond83 = select i1 %or.cond80, i1 true, i1 %10
@@ -82,8 +82,8 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   br i1 %43, label %44, label %53
 
 44:                                               ; preds = %42
-  %45 = fcmp ole double %6, %0
-  %46 = fcmp ugt double %6, %2
+  %45 = fcmp oge double %0, %6
+  %46 = fcmp ult double %2, %6
   %.not84 = xor i1 %45, %46
   %47 = getelementptr inbounds i8, ptr %4, i64 8
   %48 = load double, ptr %47, align 8
@@ -91,7 +91,7 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %or.cond87 = select i1 %.not84, i1 true, i1 %49
   %50 = getelementptr inbounds i8, ptr %4, i64 24
   %51 = load double, ptr %50, align 8
-  %52 = fcmp ult double %51, %1
+  %52 = fcmp ugt double %1, %51
   %or.cond90 = select i1 %or.cond87, i1 true, i1 %52
   br i1 %or.cond90, label %94, label %95
 
@@ -133,7 +133,7 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %78 = tail call double @llvm.maxnum.f64(double %1, double %3)
   %79 = fsub double %64, %1
   %80 = fdiv double %79, %56
-  %81 = fadd double %80, %0
+  %81 = fadd double %0, %80
   %82 = fcmp ugt double %6, %81
   %83 = fcmp ugt double %81, %9
   %or.cond104 = select i1 %82, i1 true, i1 %83
@@ -280,13 +280,13 @@ define void @flip_rec_boxf(ptr dead_on_unwind noalias nocapture writable writeon
   %12 = load double, ptr %11, align 8
   %13 = load double, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = fadd double %12, %2
+  %15 = fadd double %2, %12
   store double %15, ptr %0, align 8
-  %16 = fadd double %13, %3
+  %16 = fadd double %3, %13
   store double %16, ptr %14, align 8
-  %17 = fadd double %7, %2
+  %17 = fadd double %2, %7
   store double %17, ptr %8, align 8
-  %18 = fadd double %9, %3
+  %18 = fadd double %3, %9
   store double %18, ptr %10, align 8
   ret void
 }
@@ -297,8 +297,8 @@ define double @ptToLine2(double %0, double %1, double %2, double %3, double %4, 
   %8 = fsub double %3, %1
   %9 = fsub double %5, %1
   %10 = fsub double %4, %0
-  %11 = fneg double %10
-  %12 = fmul double %8, %11
+  %11 = fneg double %8
+  %12 = fmul double %10, %11
   %13 = tail call double @llvm.fmuladd.f64(double %9, double %7, double %12)
   %14 = fmul double %13, %13
   %15 = fcmp olt double %14, 1.000000e-10
@@ -323,9 +323,9 @@ define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, doub
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %9
-  %20 = fmul double %12, %5
+  %20 = fmul double %5, %12
   %21 = tail call double @llvm.fmuladd.f64(double %14, double %4, double %20)
-  %22 = fmul double %12, %1
+  %22 = fmul double %1, %12
   %23 = tail call double @llvm.fmuladd.f64(double %14, double %0, double %22)
   %24 = fsub double %23, %21
   %25 = fdiv double %24, %16

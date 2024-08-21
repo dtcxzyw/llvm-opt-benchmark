@@ -2027,7 +2027,7 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %10, label %case_insensitive_strcmp.exit.thread30.i, label %11
 
 11:                                               ; preds = %.lr.ph52.i
-  %12 = icmp eq ptr %9, %1
+  %12 = icmp eq ptr %1, %9
   br i1 %12, label %get_object_item.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11
@@ -2120,7 +2120,7 @@ define internal fastcc ptr @get_object_item(ptr noundef readonly %0, ptr noundef
   br i1 %17, label %case_insensitive_strcmp.exit.thread30, label %18
 
 18:                                               ; preds = %.lr.ph52
-  %19 = icmp eq ptr %16, %1
+  %19 = icmp eq ptr %1, %16
   br i1 %19, label %.critedge.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %18
@@ -2229,7 +2229,7 @@ define range(i32 0, 2) i32 @cJSON_HasObjectItem(ptr noundef readonly %0, ptr nou
   br i1 %10, label %case_insensitive_strcmp.exit.thread30.i.i, label %11
 
 11:                                               ; preds = %.lr.ph52.i.i
-  %12 = icmp eq ptr %9, %1
+  %12 = icmp eq ptr %1, %9
   br i1 %12, label %cJSON_GetObjectItem.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %11
@@ -2481,7 +2481,7 @@ create_reference.exit:                            ; preds = %5
   %9 = or i32 %8, 256
   store i32 %9, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %10 = icmp eq ptr %6, %0
+  %10 = icmp eq ptr %0, %6
   br i1 %10, label %add_item_to_array.exit, label %11
 
 11:                                               ; preds = %create_reference.exit
@@ -2541,7 +2541,7 @@ create_reference.exit:                            ; preds = %7
   %12 = or i32 %11, 256
   store i32 %12, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %13 = icmp eq ptr %8, %0
+  %13 = icmp eq ptr %0, %8
   br i1 %13, label %add_item_to_object.exit, label %14
 
 14:                                               ; preds = %create_reference.exit
@@ -2619,7 +2619,7 @@ cJSON_CreateNull.exit:                            ; preds = %2
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
-  %7 = icmp eq ptr %3, %0
+  %7 = icmp eq ptr %0, %3
   %8 = or i1 %or.cond.i, %7
   br i1 %8, label %cJSON_CreateNull.exit.thread, label %9
 
@@ -2721,7 +2721,7 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
-  %7 = icmp eq ptr %3, %0
+  %7 = icmp eq ptr %0, %3
   %8 = or i1 %or.cond.i, %7
   br i1 %8, label %cJSON_CreateTrue.exit.thread, label %9
 
@@ -2823,7 +2823,7 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
-  %7 = icmp eq ptr %3, %0
+  %7 = icmp eq ptr %0, %3
   %8 = or i1 %or.cond.i, %7
   br i1 %8, label %cJSON_CreateFalse.exit.thread, label %9
 
@@ -2927,7 +2927,7 @@ cJSON_CreateBool.exit:                            ; preds = %3
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond.i = or i1 %7, %8
-  %9 = icmp eq ptr %4, %0
+  %9 = icmp eq ptr %0, %4
   %10 = or i1 %or.cond.i, %9
   br i1 %10, label %cJSON_CreateBool.exit.thread, label %11
 
@@ -3048,7 +3048,7 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   %14 = icmp eq ptr %0, null
   %15 = icmp eq ptr %1, null
   %or.cond.i = or i1 %14, %15
-  %16 = icmp eq ptr %4, %0
+  %16 = icmp eq ptr %0, %4
   %17 = or i1 %or.cond.i, %16
   br i1 %17, label %cJSON_CreateNumber.exit.thread, label %18
 
@@ -3194,7 +3194,7 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
   %or.cond.i = or i1 %17, %18
   %19 = icmp eq ptr %.0.i, null
   %or.cond3.i = or i1 %or.cond.i, %19
-  %20 = icmp eq ptr %.0.i, %0
+  %20 = icmp eq ptr %0, %.0.i
   %or.cond34.i = or i1 %20, %or.cond3.i
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %21
 
@@ -3346,7 +3346,7 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
   %or.cond.i = or i1 %17, %18
   %19 = icmp eq ptr %.0.i, null
   %or.cond3.i = or i1 %or.cond.i, %19
-  %20 = icmp eq ptr %.0.i, %0
+  %20 = icmp eq ptr %0, %.0.i
   %or.cond34.i = or i1 %20, %or.cond3.i
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %21
 
@@ -3471,7 +3471,7 @@ cJSON_CreateObject.exit:                          ; preds = %2
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
-  %7 = icmp eq ptr %3, %0
+  %7 = icmp eq ptr %0, %3
   %8 = or i1 %or.cond.i, %7
   br i1 %8, label %cJSON_CreateObject.exit.thread, label %9
 
@@ -3573,7 +3573,7 @@ cJSON_CreateArray.exit:                           ; preds = %2
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.i = or i1 %5, %6
-  %7 = icmp eq ptr %3, %0
+  %7 = icmp eq ptr %0, %3
   %8 = or i1 %or.cond.i, %7
   br i1 %8, label %cJSON_CreateArray.exit.thread, label %9
 
@@ -3671,7 +3671,7 @@ define noundef ptr @cJSON_DetachItemViaPointer(ptr noundef %0, ptr noundef %1) l
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %7, %1
+  %.not = icmp eq ptr %1, %7
   %.pre = load ptr, ptr %1, align 8
   br i1 %.not, label %11, label %8
 
@@ -3694,7 +3694,7 @@ define noundef ptr @cJSON_DetachItemViaPointer(ptr noundef %0, ptr noundef %1) l
 
 16:                                               ; preds = %12, %11
   %17 = load ptr, ptr %6, align 8
-  %18 = icmp eq ptr %17, %1
+  %18 = icmp eq ptr %1, %17
   %19 = load ptr, ptr %1, align 8
   br i1 %18, label %20, label %21
 
@@ -3750,7 +3750,7 @@ get_array_item.exit:                              ; preds = %8
 
 14:                                               ; preds = %get_array_item.exit
   %15 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %15, %.0.i
+  %.not.i = icmp eq ptr %.0.i, %15
   %.pre.i = load ptr, ptr %.0.i, align 8
   br i1 %.not.i, label %19, label %16
 
@@ -3773,7 +3773,7 @@ get_array_item.exit:                              ; preds = %8
 
 24:                                               ; preds = %20, %19
   %25 = load ptr, ptr %7, align 8
-  %26 = icmp eq ptr %25, %.0.i
+  %26 = icmp eq ptr %.0.i, %25
   %27 = load ptr, ptr %.0.i, align 8
   br i1 %26, label %28, label %29
 
@@ -3829,7 +3829,7 @@ get_array_item.exit.i:                            ; preds = %8
 
 14:                                               ; preds = %get_array_item.exit.i
   %15 = load ptr, ptr %7, align 8
-  %.not.i.i = icmp eq ptr %15, %.0.i.i
+  %.not.i.i = icmp eq ptr %.0.i.i, %15
   %.pre.i.i = load ptr, ptr %.0.i.i, align 8
   br i1 %.not.i.i, label %19, label %16
 
@@ -3852,7 +3852,7 @@ get_array_item.exit.i:                            ; preds = %8
 
 24:                                               ; preds = %20, %19
   %25 = load ptr, ptr %7, align 8
-  %26 = icmp eq ptr %25, %.0.i.i
+  %26 = icmp eq ptr %.0.i.i, %25
   %27 = load ptr, ptr %.0.i.i, align 8
   br i1 %26, label %28, label %29
 
@@ -3902,7 +3902,7 @@ define ptr @cJSON_DetachItemFromObject(ptr noundef %0, ptr noundef readonly %1) 
   br i1 %10, label %case_insensitive_strcmp.exit.thread30.i.i, label %11
 
 11:                                               ; preds = %.lr.ph52.i.i
-  %12 = icmp eq ptr %9, %1
+  %12 = icmp eq ptr %1, %9
   br i1 %12, label %cJSON_GetObjectItem.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %11
@@ -3946,7 +3946,7 @@ case_insensitive_strcmp.exit.thread30.i.i:        ; preds = %case_insensitive_st
   br i1 %.not23.i.i, label %cJSON_DetachItemViaPointer.exit, label %.lr.ph52.i.i
 
 cJSON_GetObjectItem.exit:                         ; preds = %case_insensitive_strcmp.exit.i.i, %11, %.lr.ph.i.i.i
-  %.not.i = icmp eq ptr %7, %.251.i.i
+  %.not.i = icmp eq ptr %.251.i.i, %7
   %.pre.i = load ptr, ptr %.251.i.i, align 8
   br i1 %.not.i, label %36, label %33
 
@@ -3969,7 +3969,7 @@ cJSON_GetObjectItem.exit:                         ; preds = %case_insensitive_st
 
 41:                                               ; preds = %37, %36
   %42 = load ptr, ptr %6, align 8
-  %43 = icmp eq ptr %42, %.251.i.i
+  %43 = icmp eq ptr %.251.i.i, %42
   %44 = load ptr, ptr %.251.i.i, align 8
   br i1 %43, label %45, label %46
 
@@ -4028,7 +4028,7 @@ define ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef %0, ptr noundef 
   br i1 %.not25.i.i, label %cJSON_DetachItemViaPointer.exit, label %.lr.ph.i.i
 
 cJSON_GetObjectItemCaseSensitive.exit:            ; preds = %10
-  %.not.i = icmp eq ptr %7, %.049.i.i
+  %.not.i = icmp eq ptr %.049.i.i, %7
   %.pre.i = load ptr, ptr %.049.i.i, align 8
   br i1 %.not.i, label %17, label %14
 
@@ -4051,7 +4051,7 @@ cJSON_GetObjectItemCaseSensitive.exit:            ; preds = %10
 
 22:                                               ; preds = %18, %17
   %23 = load ptr, ptr %6, align 8
-  %24 = icmp eq ptr %23, %.049.i.i
+  %24 = icmp eq ptr %.049.i.i, %23
   %25 = load ptr, ptr %.049.i.i, align 8
   br i1 %24, label %26, label %27
 
@@ -4117,7 +4117,7 @@ define void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef %0, ptr noundef
   br i1 %.not25.i.i.i, label %cJSON_DetachItemFromObjectCaseSensitive.exit, label %.lr.ph.i.i.i
 
 cJSON_GetObjectItemCaseSensitive.exit.i:          ; preds = %10
-  %.not.i.i = icmp eq ptr %7, %.049.i.i.i
+  %.not.i.i = icmp eq ptr %.049.i.i.i, %7
   %.pre.i.i = load ptr, ptr %.049.i.i.i, align 8
   br i1 %.not.i.i, label %17, label %14
 
@@ -4140,7 +4140,7 @@ cJSON_GetObjectItemCaseSensitive.exit.i:          ; preds = %10
 
 22:                                               ; preds = %18, %17
   %23 = load ptr, ptr %6, align 8
-  %24 = icmp eq ptr %23, %.049.i.i.i
+  %24 = icmp eq ptr %.049.i.i.i, %23
   %25 = load ptr, ptr %.049.i.i.i, align 8
   br i1 %24, label %26, label %27
 
@@ -4379,7 +4379,7 @@ get_array_item.exit:                              ; preds = %9
   br i1 %or.cond3.i, label %cJSON_ReplaceItemViaPointer.exit, label %18
 
 18:                                               ; preds = %get_array_item.exit
-  %19 = icmp eq ptr %.0.i, %2
+  %19 = icmp eq ptr %2, %.0.i
   br i1 %19, label %cJSON_ReplaceItemViaPointer.exit, label %20
 
 20:                                               ; preds = %18
@@ -4510,7 +4510,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   br i1 %or.cond3.i, label %cJSON_ReplaceItemViaPointer.exit, label %34
 
 34:                                               ; preds = %29
-  %35 = icmp eq ptr %27, %2
+  %35 = icmp eq ptr %2, %27
   br i1 %35, label %cJSON_ReplaceItemViaPointer.exit, label %36
 
 36:                                               ; preds = %34

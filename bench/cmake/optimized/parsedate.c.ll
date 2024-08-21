@@ -358,7 +358,7 @@ match_time.exit.thread:                           ; preds = %66, %78, %81, %oneo
   %130 = icmp eq i64 %128, 4
   %131 = icmp slt i32 %124, 1401
   %or.cond8 = select i1 %130, i1 %131, i1 false
-  %132 = icmp ugt ptr %.2233, %0
+  %132 = icmp ult ptr %0, %.2233
   %or.cond184 = and i1 %132, %or.cond8
   br i1 %or.cond184, label %133, label %._crit_edge330
 

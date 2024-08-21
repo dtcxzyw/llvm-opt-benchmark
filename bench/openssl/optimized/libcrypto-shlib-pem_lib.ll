@@ -63,7 +63,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %userdata) #9
   %conv = trunc i64 %call to i32
-  %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %num)
+  %cond = tail call i32 @llvm.smin.i32(i32 %num, i32 %conv)
   %conv2 = sext i32 %cond to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 1 %userdata, i64 %conv2, i1 false)
   br label %return

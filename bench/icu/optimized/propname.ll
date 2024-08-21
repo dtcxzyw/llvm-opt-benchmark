@@ -248,11 +248,11 @@ for.body:                                         ; preds = %entry, %if.end8
   %arrayidx2 = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom1
   %1 = load i32, ptr %arrayidx2, align 4
   %add3 = add nsw i32 %i.013, 2
-  %cmp4 = icmp sgt i32 %0, %property
+  %cmp4 = icmp slt i32 %property, %0
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %cmp5 = icmp sgt i32 %1, %property
+  %cmp5 = icmp slt i32 %property, %1
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
@@ -304,11 +304,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx8 = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom7
   %2 = load i32, ptr %arrayidx8, align 4
   %add9 = add nsw i32 %valueMapIndex.addr.032, 2
-  %cmp10 = icmp sgt i32 %1, %value
+  %cmp10 = icmp slt i32 %value, %1
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %for.body
-  %cmp13 = icmp sgt i32 %2, %value
+  %cmp13 = icmp slt i32 %value, %2
   br i1 %cmp13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
@@ -334,11 +334,11 @@ do.body:                                          ; preds = %do.cond, %if.else
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.cond ], [ %3, %if.else ]
   %arrayidx24 = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx24, align 4
-  %cmp25 = icmp sgt i32 %5, %value
+  %cmp25 = icmp slt i32 %value, %5
   br i1 %cmp25, label %return, label %if.end27
 
 if.end27:                                         ; preds = %do.body
-  %cmp28 = icmp eq i32 %5, %value
+  %cmp28 = icmp eq i32 %value, %5
   br i1 %cmp28, label %if.then29, label %do.cond
 
 if.then29:                                        ; preds = %if.end27
@@ -373,7 +373,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i8, ptr %nameGroup, align 1
   %conv = sext i8 %0 to i32
-  %cmp1.not = icmp sgt i32 %conv, %nameIndex
+  %cmp1.not = icmp slt i32 %nameIndex, %conv
   br i1 %cmp1.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
@@ -484,11 +484,11 @@ for.body.i:                                       ; preds = %if.end8.i, %entry
   %arrayidx2.i = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom1.i
   %1 = load i32, ptr %arrayidx2.i, align 4
   %add3.i = add nsw i32 %i.013.i, 2
-  %cmp4.i = icmp sgt i32 %0, %property
+  %cmp4.i = icmp slt i32 %property, %0
   br i1 %cmp4.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp5.i = icmp sgt i32 %1, %property
+  %cmp5.i = icmp slt i32 %property, %1
   br i1 %cmp5.i, label %_ZN6icu_7512PropNameData12findPropertyEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
@@ -518,7 +518,7 @@ if.end:                                           ; preds = %_ZN6icu_7512PropNam
 lor.lhs.false.i:                                  ; preds = %if.end
   %3 = load i8, ptr %add.ptr, align 1
   %conv.i = sext i8 %3 to i32
-  %cmp1.not.i = icmp sgt i32 %conv.i, %nameChoice
+  %cmp1.not.i = icmp slt i32 %nameChoice, %conv.i
   br i1 %cmp1.not.i, label %for.cond.preheader.i, label %return
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
@@ -564,11 +564,11 @@ for.body.i:                                       ; preds = %if.end8.i, %entry
   %arrayidx2.i = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom1.i
   %1 = load i32, ptr %arrayidx2.i, align 4
   %add3.i = add nsw i32 %i.013.i, 2
-  %cmp4.i = icmp sgt i32 %0, %property
+  %cmp4.i = icmp slt i32 %property, %0
   br i1 %cmp4.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp5.i = icmp sgt i32 %1, %property
+  %cmp5.i = icmp slt i32 %property, %1
   br i1 %cmp5.i, label %_ZN6icu_7512PropNameData12findPropertyEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
@@ -618,11 +618,11 @@ for.body.i8:                                      ; preds = %for.cond.preheader.
   %arrayidx8.i = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom7.i
   %5 = load i32, ptr %arrayidx8.i, align 4
   %add9.i = add nsw i32 %valueMapIndex.addr.032.i, 2
-  %cmp10.i = icmp sgt i32 %4, %value
+  %cmp10.i = icmp slt i32 %value, %4
   br i1 %cmp10.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %for.body.i8
-  %cmp13.i = icmp sgt i32 %5, %value
+  %cmp13.i = icmp slt i32 %value, %5
   br i1 %cmp13.i, label %if.then14.i, label %if.end18.i
 
 if.then14.i:                                      ; preds = %if.end12.i
@@ -648,11 +648,11 @@ do.body.i:                                        ; preds = %do.cond.i, %if.else
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %do.cond.i ], [ %6, %if.else.i ]
   %arrayidx24.i = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %indvars.iv.i
   %8 = load i32, ptr %arrayidx24.i, align 4
-  %cmp25.i = icmp sgt i32 %8, %value
+  %cmp25.i = icmp slt i32 %value, %8
   br i1 %cmp25.i, label %return, label %if.end27.i
 
 if.end27.i:                                       ; preds = %do.body.i
-  %cmp28.i = icmp eq i32 %8, %value
+  %cmp28.i = icmp eq i32 %value, %8
   br i1 %cmp28.i, label %if.then29.i, label %do.cond.i
 
 if.then29.i:                                      ; preds = %if.end27.i
@@ -683,7 +683,7 @@ if.end4:                                          ; preds = %_ZN6icu_7512PropNam
 lor.lhs.false.i:                                  ; preds = %if.end4
   %11 = load i8, ptr %add.ptr, align 1
   %conv.i = sext i8 %11 to i32
-  %cmp1.not.i = icmp sgt i32 %conv.i, %nameChoice
+  %cmp1.not.i = icmp slt i32 %nameChoice, %conv.i
   br i1 %cmp1.not.i, label %for.cond.preheader.i15, label %return
 
 for.cond.preheader.i15:                           ; preds = %lor.lhs.false.i
@@ -847,11 +847,11 @@ for.body.i:                                       ; preds = %if.end8.i, %entry
   %arrayidx2.i = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom1.i
   %1 = load i32, ptr %arrayidx2.i, align 4
   %add3.i = add nsw i32 %i.013.i, 2
-  %cmp4.i = icmp sgt i32 %0, %property
+  %cmp4.i = icmp slt i32 %property, %0
   br i1 %cmp4.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp5.i = icmp sgt i32 %1, %property
+  %cmp5.i = icmp slt i32 %property, %1
   br i1 %cmp5.i, label %_ZN6icu_7512PropNameData12findPropertyEi.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
@@ -905,11 +905,11 @@ for.body.i.i:                                     ; preds = %if.end8.i.i, %entry
   %arrayidx2.i.i = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom1.i.i
   %1 = load i32, ptr %arrayidx2.i.i, align 4
   %add3.i.i = add nsw i32 %i.013.i.i, 2
-  %cmp4.i.i = icmp sgt i32 %0, %property
+  %cmp4.i.i = icmp slt i32 %property, %0
   br i1 %cmp4.i.i, label %_ZN6icu_7512PropNameData15getPropertyNameEii.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %cmp5.i.i = icmp sgt i32 %1, %property
+  %cmp5.i.i = icmp slt i32 %property, %1
   br i1 %cmp5.i.i, label %_ZN6icu_7512PropNameData12findPropertyEi.exit.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
@@ -939,7 +939,7 @@ if.end.i:                                         ; preds = %_ZN6icu_7512PropNam
 lor.lhs.false.i.i:                                ; preds = %if.end.i
   %3 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i = sext i8 %3 to i32
-  %cmp1.not.i.i = icmp sgt i32 %conv.i.i, %nameChoice
+  %cmp1.not.i.i = icmp slt i32 %nameChoice, %conv.i.i
   br i1 %cmp1.not.i.i, label %for.cond.preheader.i.i, label %_ZN6icu_7512PropNameData15getPropertyNameEii.exit
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
@@ -999,11 +999,11 @@ for.body.i.i:                                     ; preds = %if.end8.i.i, %entry
   %arrayidx2.i.i = getelementptr inbounds [1436 x i32], ptr @_ZN6icu_7512PropNameData9valueMapsE, i64 0, i64 %idxprom1.i.i
   %1 = load i32, ptr %arrayidx2.i.i, align 4
   %add3.i.i = add nsw i32 %i.013.i.i, 2
-  %cmp4.i.i = icmp sgt i32 %0, %property
+  %cmp4.i.i = icmp slt i32 %property, %0
   br i1 %cmp4.i.i, label %_ZN6icu_7512PropNameData20getPropertyValueEnumEiPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %cmp5.i.i = icmp sgt i32 %1, %property
+  %cmp5.i.i = icmp slt i32 %property, %1
   br i1 %cmp5.i.i, label %_ZN6icu_7512PropNameData12findPropertyEi.exit.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i

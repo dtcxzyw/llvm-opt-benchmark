@@ -1295,7 +1295,7 @@ sw.bb:                                            ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %sw.bb
   %call = tail call ptr @EVP_md_null() #7
-  %cmp1 = icmp eq ptr %call, %p2
+  %cmp1 = icmp eq ptr %p2, %call
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false

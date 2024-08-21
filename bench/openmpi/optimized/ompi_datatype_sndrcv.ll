@@ -108,7 +108,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %39
   %60 = mul i64 %59, %47
   %61 = getelementptr inbounds i8, ptr %9, i64 8
   %62 = trunc i64 %60 to i32
-  %63 = icmp sgt i32 %62, %4
+  %63 = icmp slt i32 %4, %62
   %64 = sext i32 %4 to i64
   %spec.select = select i1 %63, i64 %64, i64 %60
   store i64 %spec.select, ptr %61, align 8
@@ -191,7 +191,7 @@ opal_obj_run_constructors.exit72:                 ; preds = %.lr.ph.i69, %84
   %104 = mul i64 %103, %92
   %105 = getelementptr inbounds i8, ptr %9, i64 8
   %106 = trunc i64 %104 to i32
-  %107 = icmp sgt i32 %106, %1
+  %107 = icmp slt i32 %1, %106
   %108 = sext i32 %1 to i64
   %spec.select63 = select i1 %107, i64 %108, i64 %104
   store i64 %spec.select63, ptr %105, align 8

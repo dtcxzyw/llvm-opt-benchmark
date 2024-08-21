@@ -2111,7 +2111,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   %515 = load i16, ptr %514, align 8
   %516 = zext i16 %515 to i64
   %517 = add nsw i64 %513, %516
-  %518 = icmp slt i64 %517, %65
+  %518 = icmp sgt i64 %65, %517
   br i1 %518, label %519, label %552
 
 519:                                              ; preds = %511

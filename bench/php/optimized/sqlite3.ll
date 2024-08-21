@@ -8880,7 +8880,7 @@ define internal range(i32 0, 2) i32 @php_sqlite3_compare_stmt_free(ptr nocapture
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   %11 = zext i1 %10 to i32
   br label %12
 

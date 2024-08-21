@@ -677,7 +677,7 @@ Fxu_CreateCoversFirstCube.exit54:                 ; preds = %38, %39, %32
   %63 = add nsw i32 %62, %.170
   %64 = add nsw i32 %63, 1
   %65 = add nsw i32 %62, %61
-  %66 = icmp sgt i32 %65, %64
+  %66 = icmp slt i32 %64, %65
   br i1 %66, label %.lr.ph.i56, label %Fxu_CreateCoversFirstCube.exit62
 
 .lr.ph.i56:                                       ; preds = %60
@@ -917,7 +917,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %95 = tail call ptr @Abc_SopStart(ptr noundef %94, i32 noundef %.077.lcssa, i32 noundef %.val) #12
   %96 = getelementptr inbounds i8, ptr %1, i64 88
   %97 = load i32, ptr %96, align 8
-  %98 = icmp sgt i32 %97, %2
+  %98 = icmp slt i32 %2, %97
   br i1 %98, label %99, label %110
 
 99:                                               ; preds = %._crit_edge116

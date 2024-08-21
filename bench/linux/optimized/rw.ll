@@ -1298,7 +1298,7 @@ define internal fastcc noundef range(i32 -529, 1) i32 @kiocb_done(ptr noundef %0
   %34 = getelementptr inbounds i8, ptr %0, i64 80
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %37 = icmp eq i64 %36, %1
+  %37 = icmp eq i64 %1, %36
   br i1 %37, label %47, label %38, !prof !8
 
 38:                                               ; preds = %33
@@ -2567,7 +2567,7 @@ define dso_local i32 @io_do_iopoll(ptr noundef %0, i1 noundef zeroext %1) local_
   %8 = getelementptr inbounds i8, ptr %0, i64 368
   %9 = load i8, ptr %8, align 16, !range !11, !noundef !12
   %10 = icmp ne i8 %9, 0
-  %11 = or i1 %10, %1
+  %11 = or i1 %1, %10
   %12 = zext i1 %11 to i32
   br label %16
 
@@ -2795,7 +2795,7 @@ define internal void @io_complete_rw(ptr noundef %0, i64 noundef %1) #0 align 16
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = icmp eq i64 %14, %1
+  %15 = icmp eq i64 %1, %14
   br i1 %15, label %._crit_edge, label %16, !prof !8
 
 ._crit_edge:                                      ; preds = %11
@@ -3013,7 +3013,7 @@ define internal void @io_complete_rw_iopoll(ptr noundef %0, i64 noundef %1) #0 a
   %38 = getelementptr inbounds i8, ptr %0, i64 80
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = icmp eq i64 %40, %1
+  %41 = icmp eq i64 %1, %40
   br i1 %41, label %52, label %42, !prof !8
 
 42:                                               ; preds = %37

@@ -968,7 +968,7 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
   %31 = getelementptr i8, ptr %16, i64 -88
   %32 = load i16, ptr %31, align 8
   %33 = zext i16 %32 to i32
-  %34 = icmp eq i32 %33, %1
+  %34 = icmp eq i32 %1, %33
   br i1 %34, label %35, label %117
 
 35:                                               ; preds = %30
@@ -1019,7 +1019,7 @@ define dso_local void @inet_twsk_purge(ptr nocapture noundef readonly %0, i32 no
   %61 = getelementptr i8, ptr %16, i64 -88
   %62 = load i16, ptr %61, align 8
   %63 = zext i16 %62 to i32
-  %64 = icmp eq i32 %63, %1
+  %64 = icmp eq i32 %1, %63
   br i1 %64, label %65, label %71, !prof !7
 
 65:                                               ; preds = %60

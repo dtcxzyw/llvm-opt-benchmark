@@ -578,7 +578,7 @@ define internal fastcc ptr @fdt_grab_space_(ptr noundef %0, i64 noundef %1) unna
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load i8, ptr %21, align 1
   %23 = sext i32 %20 to i64
-  %24 = add i64 %23, %1
+  %24 = add i64 %1, %23
   %25 = icmp ult i64 %24, %23
   br i1 %25, label %90, label %26
 

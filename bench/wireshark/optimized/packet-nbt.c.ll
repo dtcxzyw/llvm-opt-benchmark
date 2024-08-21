@@ -1923,7 +1923,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
   %45 = call ptr @get_ascii_string(ptr noundef %42, ptr noundef nonnull %.076, i32 noundef %44) #8
   %46 = call i64 @g_strlcat(ptr noundef %3, ptr noundef %45, i64 noundef %37) #8
   %47 = trunc i64 %46 to i32
-  %.not85 = icmp slt i32 %47, %4
+  %.not85 = icmp sgt i32 %4, %47
   br i1 %.not85, label %52, label %48
 
 48:                                               ; preds = %41

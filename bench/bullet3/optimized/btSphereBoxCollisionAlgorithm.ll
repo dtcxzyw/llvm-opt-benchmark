@@ -337,8 +337,8 @@ entry:
   %fneg25 = fneg float %26
   %cmp.i45 = fcmp olt float %.sroa.speculated146, %fneg25
   %.sroa.speculated = select i1 %cmp.i45, float %fneg25, float %.sroa.speculated146
-  %add = fadd float %call3, %fRadius
-  %add28 = fadd float %add, %maxContactDistance
+  %add = fadd float %fRadius, %call3
+  %add28 = fadd float %maxContactDistance, %add
   %sub.i = fsub float %19, %.sroa.speculated100
   %sub8.i = fsub float %21, %.sroa.speculated98
   %sub14.i = fsub float %23, %.sroa.speculated

@@ -401,7 +401,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hdb7
   %86 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !73, !noalias !78, !noundef !4
   %87 = load i64, ptr %7, align 8, !alias.scope !80, !noalias !78, !noundef !4
   %88 = sub i64 %87, %86
-  %89 = icmp ult i64 %88, %85
+  %89 = icmp ugt i64 %85, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %.loopexit252
@@ -658,7 +658,7 @@ _ZN4core3str11validations15next_code_point17h06894b136316ac8aE.exit.thread.i.i.i
   %199 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !111, !noalias !116, !noundef !4
   %200 = load i64, ptr %7, align 8, !alias.scope !118, !noalias !116, !noundef !4
   %201 = sub i64 %200, %199
-  %202 = icmp ult i64 %201, %198
+  %202 = icmp ugt i64 %198, %201
   br i1 %202, label %203, label %217
 
 203:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h5e2843cce8f1d317E.exit.thread"
@@ -681,7 +681,7 @@ _ZN4core3str11validations15next_code_point17h06894b136316ac8aE.exit.thread.i.i.i
   %209 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !73, !noalias !78, !noundef !4
   %210 = load i64, ptr %7, align 8, !alias.scope !80, !noalias !78, !noundef !4
   %211 = sub i64 %210, %209
-  %212 = icmp ult i64 %211, %208
+  %212 = icmp ugt i64 %208, %211
   br i1 %212, label %213, label %224
 
 213:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h5e2843cce8f1d317E.exit"
@@ -2269,7 +2269,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %120
 
 208:                                              ; preds = %._crit_edge
   %209 = load i64, ptr %172, align 8, !noundef !4
-  %210 = icmp ult i64 %209, %374
+  %210 = icmp ugt i64 %374, %209
   br i1 %210, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h503b53fd68c319e3E.exit", label %211
 
 211:                                              ; preds = %208
@@ -2959,7 +2959,7 @@ split:                                            ; preds = %"_ZN5alloc3vec16Vec
 472:                                              ; preds = %458
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   %473 = load i64, ptr %172, align 8, !noundef !4
-  %474 = icmp ult i64 %473, %.3136
+  %474 = icmp ugt i64 %.3136, %473
   br i1 %474, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h503b53fd68c319e3E.exit232", label %475
 
 475:                                              ; preds = %472

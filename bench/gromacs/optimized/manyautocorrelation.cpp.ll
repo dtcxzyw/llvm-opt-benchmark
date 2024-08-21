@@ -228,7 +228,7 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 2
-  %60 = icmp ult i64 %59, %52
+  %60 = icmp ugt i64 %52, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %.lr.ph
@@ -237,7 +237,7 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 63:                                               ; preds = %.lr.ph
-  %64 = icmp ugt i64 %59, %52
+  %64 = icmp ult i64 %52, %59
   br i1 %64, label %65, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 65:                                               ; preds = %63
@@ -273,7 +273,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %61, %63, %65, %67
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 2
-  %81 = icmp ult i64 %80, %73
+  %81 = icmp ugt i64 %73, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %.lr.ph60
@@ -282,7 +282,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %61, %63, %65, %67
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 84:                                               ; preds = %.lr.ph60
-  %85 = icmp ugt i64 %80, %73
+  %85 = icmp ult i64 %73, %80
   br i1 %85, label %86, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 86:                                               ; preds = %84
@@ -612,7 +612,7 @@ define internal void @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE.omp_outl
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 2
-  %40 = icmp ult i64 %39, %32
+  %40 = icmp ugt i64 %32, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %30
@@ -626,7 +626,7 @@ define internal void @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE.omp_outl
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 43:                                               ; preds = %30
-  %44 = icmp ugt i64 %39, %32
+  %44 = icmp ult i64 %32, %39
   br i1 %44, label %45, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
 45:                                               ; preds = %43
@@ -648,7 +648,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 2
-  %55 = icmp ult i64 %54, %.pre-phi
+  %55 = icmp ugt i64 %.pre-phi, %54
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
@@ -657,7 +657,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit39 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-  %59 = icmp ugt i64 %54, %.pre-phi
+  %59 = icmp ult i64 %.pre-phi, %54
   br i1 %59, label %60, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit39
 
 60:                                               ; preds = %58
@@ -1088,7 +1088,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -1172,7 +1172,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !13
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79

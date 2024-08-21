@@ -14789,17 +14789,17 @@ define internal void @lemon_sprintf(ptr nocapture noundef writeonly %0, ptr noca
   %.071.i.ph = phi i32 [ %283, %lemon_addtext.exit127.i ], [ 0, %2 ]
   br label %9
 
-9:                                                ; preds = %.outer, %._crit_edge290.i
-  %.073.i = phi i32 [ %.pre.i, %._crit_edge290.i ], [ %.071.i.ph, %.outer ]
+9:                                                ; preds = %.outer, %._crit_edge284.i
+  %.073.i = phi i32 [ %.pre.i, %._crit_edge284.i ], [ %.071.i.ph, %.outer ]
   %10 = sext i32 %.073.i to i64
   %11 = getelementptr i8, ptr %1, i64 %10
   %12 = load i8, ptr %11, align 1
-  switch i8 %12, label %._crit_edge290.i [
+  switch i8 %12, label %._crit_edge284.i [
     i8 0, label %284
     i8 37, label %13
   ]
 
-._crit_edge290.i:                                 ; preds = %9
+._crit_edge284.i:                                 ; preds = %9
   %.pre.i = add i32 %.073.i, 1
   br label %9, !llvm.loop !206
 
@@ -14835,36 +14835,36 @@ define internal void @lemon_sprintf(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !208
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.loopexit.i.i, %13
-  %.022.i230.i = phi i32 [ %.123.i.i, %.loopexit.i.i ], [ %16, %13 ], [ %.123.i.i, %.lr.ph.i.i ]
+  %.022.i288.i = phi i32 [ %.123.i.i, %.loopexit.i.i ], [ %16, %13 ], [ %.123.i.i, %.lr.ph.i.i ]
   %.4227.i = phi i32 [ %.0224.i.ph, %.loopexit.i.i ], [ %.0224.i.ph, %13 ], [ %23, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %.loopexit.i.i ], [ 0, %13 ], [ %.123.i.i, %.lr.ph.i.i ]
-  %28 = icmp eq i32 %.022.i230.i, 0
+  %28 = icmp eq i32 %.022.i288.i, 0
   br i1 %28, label %lemon_addtext.exit.i, label %29
 
 29:                                               ; preds = %._crit_edge.i.i
   %30 = sext i32 %.4227.i to i64
   %31 = getelementptr i8, ptr %0, i64 %30
-  %32 = sext i32 %.022.i230.i to i64
+  %32 = sext i32 %.022.i288.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr readonly align 1 %15, i64 %32, i1 false)
-  %33 = add i32 %.4227.i, %.022.i230.i
+  %33 = add i32 %.4227.i, %.022.i288.i
   %34 = sub i32 0, %.0.lcssa.i.i
-  %35 = icmp slt i32 %.022.i230.i, %34
-  br i1 %35, label %.lr.ph28.i.preheader.i, label %._crit_edge29.i.i
+  %35 = icmp slt i32 %.022.i288.i, %34
+  br i1 %35, label %.lr.ph28.i.i.preheader, label %._crit_edge29.i.i
 
-.lr.ph28.i.preheader.i:                           ; preds = %29
-  %36 = sub i32 0, %.022.i230.i
+.lr.ph28.i.i.preheader:                           ; preds = %29
+  %36 = sub i32 0, %.022.i288.i
   br label %.lr.ph28.i.i
 
-.lr.ph28.i.i:                                     ; preds = %.lr.ph28.i.i, %.lr.ph28.i.preheader.i
-  %.6.i = phi i32 [ %37, %.lr.ph28.i.i ], [ %33, %.lr.ph28.i.preheader.i ]
-  %.126.i.i = phi i32 [ %40, %.lr.ph28.i.i ], [ %.0.lcssa.i.i, %.lr.ph28.i.preheader.i ]
+.lr.ph28.i.i:                                     ; preds = %.lr.ph28.i.i.preheader, %.lr.ph28.i.i
+  %.6.i = phi i32 [ %37, %.lr.ph28.i.i ], [ %33, %.lr.ph28.i.i.preheader ]
+  %.126.i.i = phi i32 [ %40, %.lr.ph28.i.i ], [ %.0.lcssa.i.i, %.lr.ph28.i.i.preheader ]
   %37 = add i32 %.6.i, 1
   %38 = sext i32 %.6.i to i64
   %39 = getelementptr i8, ptr %0, i64 %38
   store i8 32, ptr %39, align 1
   %40 = add i32 %.126.i.i, 1
-  %exitcond.not.i = icmp eq i32 %40, %36
-  br i1 %exitcond.not.i, label %._crit_edge29.i.i, label %.lr.ph28.i.i, !llvm.loop !209
+  %exitcond.not = icmp eq i32 %40, %36
+  br i1 %exitcond.not, label %._crit_edge29.i.i, label %.lr.ph28.i.i, !llvm.loop !209
 
 ._crit_edge29.i.i:                                ; preds = %.lr.ph28.i.i, %29
   %.5228.i = phi i32 [ %33, %29 ], [ %37, %.lr.ph28.i.i ]
@@ -14889,7 +14889,7 @@ lemon_addtext.exit.i:                             ; preds = %._crit_edge29.i.i, 
   br i1 %.not85.i, label %53, label %lemon_addtext.exit._crit_edge.i
 
 lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.i
-  %.pre291.i = add i32 %.073.i, 2
+  %.pre285.i = add i32 %.073.i, 2
   br label %64
 
 53:                                               ; preds = %lemon_addtext.exit.i
@@ -14909,9 +14909,9 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   br i1 %.not86.i, label %.thread.i, label %64
 
 64:                                               ; preds = %55, %lemon_addtext.exit._crit_edge.i
-  %.pre-phi292.i = phi i32 [ %.pre291.i, %lemon_addtext.exit._crit_edge.i ], [ %56, %55 ]
+  %.pre-phi286.i = phi i32 [ %.pre285.i, %lemon_addtext.exit._crit_edge.i ], [ %56, %55 ]
   %65 = icmp eq i8 %46, 45
-  %spec.select.i = select i1 %65, i32 %.pre-phi292.i, i32 %43
+  %spec.select.i = select i1 %65, i32 %.pre-phi286.i, i32 %43
   %66 = sext i32 %spec.select.i to i64
   %67 = getelementptr i8, ptr %1, i64 %66
   %68 = load i8, ptr %67, align 1
@@ -14919,15 +14919,15 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %70 = getelementptr i16, ptr %48, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 2048
-  %.not87255.i = icmp eq i16 %72, 0
-  br i1 %.not87255.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not87251.i = icmp eq i16 %72, 0
+  br i1 %.not87251.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %64, %.lr.ph.i
   %73 = phi i8 [ %81, %.lr.ph.i ], [ %68, %64 ]
-  %.168257.i = phi i32 [ %78, %.lr.ph.i ], [ 0, %64 ]
-  %.3256.i = phi i32 [ %75, %.lr.ph.i ], [ %spec.select.i, %64 ]
-  %74 = mul i32 %.168257.i, 10
-  %75 = add i32 %.3256.i, 1
+  %.168253.i = phi i32 [ %78, %.lr.ph.i ], [ 0, %64 ]
+  %.3252.i = phi i32 [ %75, %.lr.ph.i ], [ %spec.select.i, %64 ]
+  %74 = mul i32 %.168253.i, 10
+  %75 = add i32 %.3252.i, 1
   %76 = sext i8 %73 to i32
   %77 = add nsw i32 %76, -48
   %78 = add i32 %77, %74
@@ -14944,14 +14944,14 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %64
   %.3.lcssa.i = phi i32 [ %spec.select.i, %64 ], [ %75, %.lr.ph.i ]
   %.168.lcssa.i = phi i32 [ 0, %64 ], [ %78, %.lr.ph.i ]
-  %.lcssa240.i = phi i8 [ %68, %64 ], [ %81, %.lr.ph.i ]
+  %.lcssa236.i = phi i8 [ %68, %64 ], [ %81, %.lr.ph.i ]
   %86 = sub i32 0, %.168.lcssa.i
   %spec.select88.i = select i1 %65, i32 %86, i32 %.168.lcssa.i
   br label %87
 
 87:                                               ; preds = %._crit_edge.i, %53
   %.174.i = phi i32 [ %.3.lcssa.i, %._crit_edge.i ], [ %43, %53 ]
-  %.069.in.i = phi i8 [ %.lcssa240.i, %._crit_edge.i ], [ %46, %53 ]
+  %.069.in.i = phi i8 [ %.lcssa236.i, %._crit_edge.i ], [ %46, %53 ]
   %.067.i = phi i32 [ %spec.select88.i, %._crit_edge.i ], [ 0, %53 ]
   switch i8 %.069.in.i, label %.thread.i [
     i8 100, label %88
@@ -15011,8 +15011,8 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %113 = getelementptr i8, ptr %0, i64 %112
   store i8 45, ptr %113, align 1
   %114 = add i32 %.8.i, 1
-  %notsub236.i = add i32 %.067.i, -1
-  %115 = icmp slt i32 %notsub236.i, -2
+  %notsub232.i = add i32 %.067.i, -1
+  %115 = icmp slt i32 %notsub232.i, -2
   br i1 %115, label %.lr.ph28.i94.i, label %.loopexit.i
 
 .lr.ph28.i94.i:                                   ; preds = %._crit_edge.i91.i, %.lr.ph28.i94.i
@@ -15023,12 +15023,12 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %118 = getelementptr i8, ptr %0, i64 %117
   store i8 32, ptr %118, align 1
   %119 = add nuw nsw i32 %.126.i95.i, 1
-  %exitcond288.not.i = icmp eq i32 %119, -1
-  br i1 %exitcond288.not.i, label %.loopexit.i, label %.lr.ph28.i94.i, !llvm.loop !209
+  %exitcond283.not.i = icmp eq i32 %119, -1
+  br i1 %exitcond283.not.i, label %.loopexit.i, label %.lr.ph28.i94.i, !llvm.loop !209
 
 120:                                              ; preds = %96
   %121 = icmp eq i32 %100, 0
-  br i1 %121, label %122, label %.lr.ph263.preheader.i
+  br i1 %121, label %122, label %.lr.ph259.preheader.i
 
 122:                                              ; preds = %120
   %123 = icmp sgt i32 %.067.i, 1
@@ -15050,7 +15050,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %130 = getelementptr i8, ptr %0, i64 %129
   store i8 48, ptr %130, align 1
   %131 = add i32 %.15.i, 2
-  br label %.thread305.i
+  br label %.thread301.i
 
 ._crit_edge.i103.i:                               ; preds = %122
   %132 = sext i32 %.8.i to i64
@@ -15059,7 +15059,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %134 = add i32 %.8.i, 1
   %notsub.i = add i32 %.067.i, -1
   %135 = icmp slt i32 %notsub.i, -2
-  br i1 %135, label %.lr.ph28.i106.i, label %.thread305.i
+  br i1 %135, label %.lr.ph28.i106.i, label %.thread301.i
 
 .lr.ph28.i106.i:                                  ; preds = %._crit_edge.i103.i, %.lr.ph28.i106.i
   %.14.i = phi i32 [ %136, %.lr.ph28.i106.i ], [ %134, %._crit_edge.i103.i ]
@@ -15069,10 +15069,10 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %138 = getelementptr i8, ptr %0, i64 %137
   store i8 32, ptr %138, align 1
   %139 = add nuw nsw i32 %.126.i107.i, 1
-  %exitcond287.not.i = icmp eq i32 %139, -1
-  br i1 %exitcond287.not.i, label %.thread305.i, label %.lr.ph28.i106.i, !llvm.loop !209
+  %exitcond.not.i = icmp eq i32 %139, -1
+  br i1 %exitcond.not.i, label %.thread301.i, label %.lr.ph28.i106.i, !llvm.loop !209
 
-.thread305.i:                                     ; preds = %.lr.ph28.i106.i, %._crit_edge.i103.i, %._crit_edge.i103.thread.i
+.thread301.i:                                     ; preds = %.lr.ph28.i106.i, %._crit_edge.i103.i, %._crit_edge.i103.thread.i
   %.16.i = phi i32 [ %134, %._crit_edge.i103.i ], [ %131, %._crit_edge.i103.thread.i ], [ %136, %.lr.ph28.i106.i ]
   %140 = sext i32 %.16.i to i64
   %141 = getelementptr i8, ptr %0, i64 %140
@@ -15086,35 +15086,35 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   store i8 0, ptr %143, align 1
   %144 = sub i32 0, %100
   %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.lr.ph263.preheader.i, label %.loopexit.i113.i
+  br i1 %145, label %.lr.ph259.preheader.i, label %.loopexit.i113.i
 
-.lr.ph263.preheader.i:                            ; preds = %.loopexit.i, %120
-  %.0304.i = phi i32 [ %144, %.loopexit.i ], [ %100, %120 ]
-  %.1225303.i = phi i32 [ %.12.i, %.loopexit.i ], [ %.8.i, %120 ]
-  br label %.lr.ph263.i
+.lr.ph259.preheader.i:                            ; preds = %.loopexit.i, %120
+  %.0300.i = phi i32 [ %144, %.loopexit.i ], [ %100, %120 ]
+  %.1225299.i = phi i32 [ %.12.i, %.loopexit.i ], [ %.8.i, %120 ]
+  br label %.lr.ph259.i
 
-.lr.ph263.i:                                      ; preds = %.lr.ph263.i, %.lr.ph263.preheader.i
-  %.1261.i = phi i32 [ %153, %.lr.ph263.i ], [ %.0304.i, %.lr.ph263.preheader.i ]
-  %.070260.i = phi i32 [ %146, %.lr.ph263.i ], [ 0, %.lr.ph263.preheader.i ]
-  %146 = add i32 %.070260.i, 1
-  %147 = urem i32 %.1261.i, 10
+.lr.ph259.i:                                      ; preds = %.lr.ph259.i, %.lr.ph259.preheader.i
+  %.1257.i = phi i32 [ %153, %.lr.ph259.i ], [ %.0300.i, %.lr.ph259.preheader.i ]
+  %.070256.i = phi i32 [ %146, %.lr.ph259.i ], [ 0, %.lr.ph259.preheader.i ]
+  %146 = add i32 %.070256.i, 1
+  %147 = urem i32 %.1257.i, 10
   %148 = trunc nuw nsw i32 %147 to i8
   %149 = or disjoint i8 %148, 48
   %150 = sext i32 %146 to i64
   %151 = sub nsw i64 50, %150
   %152 = getelementptr [50 x i8], ptr %3, i64 0, i64 %151
   store i8 %149, ptr %152, align 1
-  %153 = udiv i32 %.1261.i, 10
-  %.not.i = icmp ult i32 %.1261.i, 10
-  br i1 %.not.i, label %._crit_edge264.i, label %.lr.ph263.i, !llvm.loop !211
+  %153 = udiv i32 %.1257.i, 10
+  %.not.i = icmp ult i32 %.1257.i, 10
+  br i1 %.not.i, label %._crit_edge260.i, label %.lr.ph259.i, !llvm.loop !211
 
-._crit_edge264.i:                                 ; preds = %.lr.ph263.i
+._crit_edge260.i:                                 ; preds = %.lr.ph259.i
   %154 = getelementptr [50 x i8], ptr %3, i64 0, i64 %151
   %155 = icmp slt i32 %146, 0
   br i1 %155, label %.preheader.i124.i, label %.loopexit.i113.i
 
-.preheader.i124.i:                                ; preds = %._crit_edge264.i, %.preheader.i124.i
-  %.123.i125.i = phi i32 [ %159, %.preheader.i124.i ], [ 0, %._crit_edge264.i ]
+.preheader.i124.i:                                ; preds = %._crit_edge260.i, %.preheader.i124.i
+  %.123.i125.i = phi i32 [ %159, %.preheader.i124.i ], [ 0, %._crit_edge260.i ]
   %156 = sext i32 %.123.i125.i to i64
   %157 = getelementptr i8, ptr %154, i64 %156
   %158 = load i8, ptr %157, align 1
@@ -15122,15 +15122,15 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %159 = add i32 %.123.i125.i, 1
   br i1 %.not.i126.i, label %.loopexit.i113.i, label %.preheader.i124.i, !llvm.loop !207
 
-.loopexit.i113.i:                                 ; preds = %.preheader.i124.i, %._crit_edge264.i, %.loopexit.i, %.thread305.i
-  %160 = phi ptr [ %154, %._crit_edge264.i ], [ %7, %.thread305.i ], [ %7, %.loopexit.i ], [ %154, %.preheader.i124.i ]
-  %.1225302311.i = phi i32 [ %.1225303.i, %._crit_edge264.i ], [ %.16.i, %.thread305.i ], [ %.12.i, %.loopexit.i ], [ %.1225303.i, %.preheader.i124.i ]
-  %.022.i114.i = phi i32 [ %146, %._crit_edge264.i ], [ 0, %.thread305.i ], [ 0, %.loopexit.i ], [ %.123.i125.i, %.preheader.i124.i ]
-  %161 = icmp slt i32 %.022.i114.i, %.067.i
+.loopexit.i113.i:                                 ; preds = %.preheader.i124.i, %._crit_edge260.i, %.loopexit.i, %.thread301.i
+  %160 = phi ptr [ %154, %._crit_edge260.i ], [ %7, %.thread301.i ], [ %7, %.loopexit.i ], [ %154, %.preheader.i124.i ]
+  %.1225298307.i = phi i32 [ %.1225299.i, %._crit_edge260.i ], [ %.16.i, %.thread301.i ], [ %.12.i, %.loopexit.i ], [ %.1225299.i, %.preheader.i124.i ]
+  %.022.i114.i = phi i32 [ %146, %._crit_edge260.i ], [ 0, %.thread301.i ], [ 0, %.loopexit.i ], [ %.123.i125.i, %.preheader.i124.i ]
+  %161 = icmp sgt i32 %.067.i, %.022.i114.i
   br i1 %161, label %.lr.ph.i122.i, label %._crit_edge.i115.i
 
 .lr.ph.i122.i:                                    ; preds = %.loopexit.i113.i, %.lr.ph.i122.i
-  %.20.i = phi i32 [ %162, %.lr.ph.i122.i ], [ %.1225302311.i, %.loopexit.i113.i ]
+  %.20.i = phi i32 [ %162, %.lr.ph.i122.i ], [ %.1225298307.i, %.loopexit.i113.i ]
   %.025.i123.i = phi i32 [ %165, %.lr.ph.i122.i ], [ %.067.i, %.loopexit.i113.i ]
   %162 = add i32 %.20.i, 1
   %163 = sext i32 %.20.i to i64
@@ -15141,7 +15141,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   br i1 %166, label %.lr.ph.i122.i, label %._crit_edge.i115.i, !llvm.loop !208
 
 ._crit_edge.i115.i:                               ; preds = %.lr.ph.i122.i, %.loopexit.i113.i
-  %.17.i = phi i32 [ %.1225302311.i, %.loopexit.i113.i ], [ %162, %.lr.ph.i122.i ]
+  %.17.i = phi i32 [ %.1225298307.i, %.loopexit.i113.i ], [ %162, %.lr.ph.i122.i ]
   %.0.lcssa.i116.i = phi i32 [ %.067.i, %.loopexit.i113.i ], [ %.022.i114.i, %.lr.ph.i122.i ]
   %167 = icmp eq i32 %.022.i114.i, 0
   br i1 %167, label %lemon_addtext.exit127.i, label %168
@@ -15201,7 +15201,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   br i1 %.not.i130.i, label %.loopexit.i131.i, label %.preheader.i128.i, !llvm.loop !207
 
 .loopexit.i131.i:                                 ; preds = %.preheader.i128.i
-  %198 = icmp slt i32 %.123.i129.i, %.067.i
+  %198 = icmp sgt i32 %.067.i, %.123.i129.i
   br i1 %198, label %.lr.ph.i140.i, label %._crit_edge.i133.i
 
 .lr.ph.i140.i:                                    ; preds = %.loopexit.i131.i, %.lr.ph.i140.i
@@ -15252,9 +15252,9 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
 221:                                              ; preds = %217
   %222 = add i32 %.174.i, 2
   %223 = icmp ult i32 %.ph28, 41
-  br i1 %223, label %226, label %.thread312.i
+  br i1 %223, label %226, label %.thread308.i
 
-.thread312.i:                                     ; preds = %221
+.thread308.i:                                     ; preds = %221
   %224 = getelementptr i8, ptr %.ph, i64 8
   store ptr %224, ptr %5, align 8
   %225 = load i32, ptr %.ph, align 4
@@ -15276,10 +15276,10 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   store i32 %235, ptr %4, align 16
   br label %241
 
-236:                                              ; preds = %226, %.thread312.i
-  %237 = phi ptr [ %224, %.thread312.i ], [ %.ph, %226 ]
-  %238 = phi i32 [ %.ph28, %.thread312.i ], [ %229, %226 ]
-  %239 = phi i32 [ %225, %.thread312.i ], [ %230, %226 ]
+236:                                              ; preds = %226, %.thread308.i
+  %237 = phi ptr [ %224, %.thread308.i ], [ %.ph, %226 ]
+  %238 = phi i32 [ %.ph28, %.thread308.i ], [ %229, %226 ]
+  %239 = phi i32 [ %225, %.thread308.i ], [ %230, %226 ]
   %240 = getelementptr i8, ptr %237, i64 8
   store ptr %240, ptr %5, align 8
   br label %241
@@ -15304,7 +15304,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
 
 .loopexit.i143.i:                                 ; preds = %.preheader.i154.i, %241
   %.022.i144.i = phi i32 [ %244, %241 ], [ %.123.i155.i, %.preheader.i154.i ]
-  %252 = icmp slt i32 %.022.i144.i, %.067.i
+  %252 = icmp sgt i32 %.067.i, %.022.i144.i
   br i1 %252, label %.lr.ph.i152.i, label %._crit_edge.i145.i
 
 .lr.ph.i152.i:                                    ; preds = %.loopexit.i143.i, %.lr.ph.i152.i
@@ -15409,36 +15409,36 @@ lemon_addtext.exit127.i:                          ; preds = %lemon_addtext.exit1
   br i1 %298, label %.lr.ph.i179.i, label %._crit_edge.i172.i, !llvm.loop !208
 
 ._crit_edge.i172.i:                               ; preds = %.lr.ph.i179.i, %.loopexit.i170.i, %284
-  %.022.i171235.i = phi i32 [ %.123.i182.i, %.loopexit.i170.i ], [ %287, %284 ], [ %.123.i182.i, %.lr.ph.i179.i ]
+  %.022.i171310.i = phi i32 [ %.123.i182.i, %.loopexit.i170.i ], [ %287, %284 ], [ %.123.i182.i, %.lr.ph.i179.i ]
   %.34.i = phi i32 [ %.0224.i.ph, %.loopexit.i170.i ], [ %.0224.i.ph, %284 ], [ %294, %.lr.ph.i179.i ]
   %.0.lcssa.i173.i = phi i32 [ 0, %.loopexit.i170.i ], [ 0, %284 ], [ %.123.i182.i, %.lr.ph.i179.i ]
-  %299 = icmp eq i32 %.022.i171235.i, 0
+  %299 = icmp eq i32 %.022.i171310.i, 0
   br i1 %299, label %lemon_vsprintf.exit, label %300
 
 300:                                              ; preds = %._crit_edge.i172.i
   %301 = sext i32 %.34.i to i64
   %302 = getelementptr i8, ptr %0, i64 %301
-  %303 = sext i32 %.022.i171235.i to i64
+  %303 = sext i32 %.022.i171310.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %302, ptr readonly align 1 %286, i64 %303, i1 false)
-  %304 = add i32 %.34.i, %.022.i171235.i
+  %304 = add i32 %.34.i, %.022.i171310.i
   %305 = sub i32 0, %.0.lcssa.i173.i
-  %306 = icmp slt i32 %.022.i171235.i, %305
-  br i1 %306, label %.lr.ph28.i175.preheader.i, label %._crit_edge29.i174.i
+  %306 = icmp slt i32 %.022.i171310.i, %305
+  br i1 %306, label %.lr.ph28.i175.i.preheader, label %._crit_edge29.i174.i
 
-.lr.ph28.i175.preheader.i:                        ; preds = %300
-  %307 = sub i32 0, %.022.i171235.i
+.lr.ph28.i175.i.preheader:                        ; preds = %300
+  %307 = sub i32 0, %.022.i171310.i
   br label %.lr.ph28.i175.i
 
-.lr.ph28.i175.i:                                  ; preds = %.lr.ph28.i175.i, %.lr.ph28.i175.preheader.i
-  %.36.i = phi i32 [ %308, %.lr.ph28.i175.i ], [ %304, %.lr.ph28.i175.preheader.i ]
-  %.126.i176.i = phi i32 [ %311, %.lr.ph28.i175.i ], [ %.0.lcssa.i173.i, %.lr.ph28.i175.preheader.i ]
+.lr.ph28.i175.i:                                  ; preds = %.lr.ph28.i175.i.preheader, %.lr.ph28.i175.i
+  %.36.i = phi i32 [ %308, %.lr.ph28.i175.i ], [ %304, %.lr.ph28.i175.i.preheader ]
+  %.126.i176.i = phi i32 [ %311, %.lr.ph28.i175.i ], [ %.0.lcssa.i173.i, %.lr.ph28.i175.i.preheader ]
   %308 = add i32 %.36.i, 1
   %309 = sext i32 %.36.i to i64
   %310 = getelementptr i8, ptr %0, i64 %309
   store i8 32, ptr %310, align 1
   %311 = add i32 %.126.i176.i, 1
-  %exitcond289.not.i = icmp eq i32 %311, %307
-  br i1 %exitcond289.not.i, label %._crit_edge29.i174.i, label %.lr.ph28.i175.i, !llvm.loop !209
+  %exitcond52.not = icmp eq i32 %311, %307
+  br i1 %exitcond52.not, label %._crit_edge29.i174.i, label %.lr.ph28.i175.i, !llvm.loop !209
 
 ._crit_edge29.i174.i:                             ; preds = %.lr.ph28.i175.i, %300
   %.35.i = phi i32 [ %304, %300 ], [ %308, %.lr.ph28.i175.i ]
@@ -18316,7 +18316,7 @@ define hidden ptr @Symbol_Nth(i32 noundef %0) local_unnamed_addr #19 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
-  %.not = icmp slt i32 %7, %0
+  %.not = icmp sgt i32 %0, %7
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %5

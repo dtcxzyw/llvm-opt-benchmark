@@ -27,13 +27,13 @@ define dso_local range(i32 -2, 1) i32 @set_max_field(ptr noundef %0, i32 noundef
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   br i1 %17, label %39, label %21
 
 .critedge:                                        ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, %1
+  %20 = icmp slt i32 %1, %19
   br i1 %20, label %39, label %21
 
 21:                                               ; preds = %14, %.critedge, %5

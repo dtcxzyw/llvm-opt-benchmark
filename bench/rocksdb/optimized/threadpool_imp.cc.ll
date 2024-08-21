@@ -408,7 +408,7 @@ invoke.cont:                                      ; preds = %while.cond2
   %cmp.i.i = icmp slt i32 %4, %conv.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
-  %cmp.i = icmp eq i64 %sub.i, %thread_id
+  %cmp.i = icmp eq i64 %thread_id, %sub.i
   %5 = select i1 %cmp.i.i, i1 %cmp.i, i1 false
   br i1 %5, label %if.then19, label %land.rhs
 
@@ -871,9 +871,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 if.end:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %total_threads_limit_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %total_threads_limit_, align 8
-  %cmp = icmp slt i32 %1, %num
-  %cmp3 = icmp sgt i32 %1, %num
-  %brmerge.not = and i1 %cmp3, %allow_reduce
+  %cmp = icmp sgt i32 %num, %1
+  %cmp3 = icmp slt i32 %num, %1
+  %brmerge.not = and i1 %allow_reduce, %cmp3
   %or.cond = or i1 %cmp, %brmerge.not
   br i1 %or.cond, label %if.then5, label %cleanup
 
@@ -1574,7 +1574,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %it.sroa.13.054 = phi ptr [ %.pre64, %while.body.lr.ph ], [ %it.sroa.13.1, %if.end15 ]
   %it.sroa.0.053 = phi ptr [ %0, %while.body.lr.ph ], [ %it.sroa.0.1, %if.end15 ]
   %3 = load ptr, ptr %it.sroa.0.053, align 8
-  %cmp = icmp eq ptr %3, %arg
+  %cmp = icmp eq ptr %arg, %3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
@@ -1975,7 +1975,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %entry
 if.end.i:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %total_threads_limit_.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %total_threads_limit_.i, align 8
-  %or.cond.i.not = icmp eq i32 %2, %num
+  %or.cond.i.not = icmp eq i32 %num, %2
   br i1 %or.cond.i.not, label %_ZN7rocksdb14ThreadPoolImpl4Impl28SetBackgroundThreadsInternalEib.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
@@ -2101,7 +2101,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %entry
 if.end.i:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %total_threads_limit_.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %total_threads_limit_.i, align 8
-  %cmp.i = icmp slt i32 %2, %num
+  %cmp.i = icmp sgt i32 %num, %2
   br i1 %cmp.i, label %if.then5.i, label %_ZN7rocksdb14ThreadPoolImpl4Impl28SetBackgroundThreadsInternalEib.exit
 
 if.then5.i:                                       ; preds = %if.end.i
@@ -2578,7 +2578,7 @@ _ZN7rocksdb14ThreadPoolImpl4Impl14ReserveThreadsEi.exit: ; preds = %entry
   %2 = load i32, ptr %reserved_threads_.i, align 8
   %sub.i = sub nsw i32 %1, %2
   %3 = tail call i32 @llvm.smax.i32(i32 %sub.i, i32 0)
-  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %3, i32 %threads_to_be_reserved)
+  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %threads_to_be_reserved, i32 %3)
   %add.i = add nsw i32 %.sroa.speculated.i, %2
   store i32 %add.i, ptr %reserved_threads_.i, align 8
   %call1.i.i.i.i5.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mu_.i) #23
@@ -2602,7 +2602,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN7rocksdb14ThreadPoolImpl4Impl14ReleaseThreadsEi.exit: ; preds = %entry
   %reserved_threads_.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %reserved_threads_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %1, i32 %threads_to_be_released)
+  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %threads_to_be_released, i32 %1)
   %sub.i = sub nsw i32 %1, %.sroa.speculated.i
   store i32 %sub.i, ptr %reserved_threads_.i, align 8
   %bgsignal_.i.i = getelementptr inbounds i8, ptr %0, i64 168
@@ -2698,7 +2698,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #23
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN7rocksdb14ThreadPoolImpl4Impl6BGItemESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
@@ -3263,7 +3263,7 @@ _ZSt19__relocate_object_aISt8functionIFvvEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ;
 _ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aISt8functionIFvvEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaISt8functionIFvvEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt8functionIFvvEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aISt8functionIFvvEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %_ZSt19__relocate_object_aISt8functionIFvvEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i21

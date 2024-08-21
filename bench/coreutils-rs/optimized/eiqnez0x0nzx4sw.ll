@@ -330,7 +330,7 @@ define hidden noundef ptr @"_ZN6uucore8features6format15Format$LT$F$GT$3fmt17hb6
   %10 = load i64, ptr %9, align 8, !alias.scope !36, !noalias !43, !noundef !16
   %11 = load i64, ptr %1, align 8, !alias.scope !48, !noalias !43, !noundef !16
   %12 = sub i64 %11, %10
-  %13 = icmp ult i64 %12, %8
+  %13 = icmp ugt i64 %8, %12
   br i1 %13, label %14, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h897b11c4187adea9E.exit"
 
 14:                                               ; preds = %3
@@ -365,7 +365,7 @@ define hidden noundef ptr @"_ZN6uucore8features6format15Format$LT$F$GT$3fmt17hb6
   %33 = load i64, ptr %32, align 8, !alias.scope !51, !noalias !58, !noundef !16
   %34 = load i64, ptr %.val30, align 8, !alias.scope !63, !noalias !58, !noundef !16
   %35 = sub i64 %34, %33
-  %36 = icmp ult i64 %35, %31
+  %36 = icmp ugt i64 %31, %35
   br i1 %36, label %37, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h897b11c4187adea9E.exit32"
 
 37:                                               ; preds = %27

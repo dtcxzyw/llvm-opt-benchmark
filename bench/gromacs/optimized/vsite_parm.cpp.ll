@@ -1641,16 +1641,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit136.i:
   %.sroa.0.018.i.i = phi ptr [ %603, %602 ], [ %511, %.noexc98 ]
   %592 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 4
   %593 = load i32, ptr %592, align 4
-  %594 = icmp eq i32 %593, %589
+  %594 = icmp eq i32 %589, %593
   %595 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 8
   %596 = load i32, ptr %595, align 4
-  %597 = icmp eq i32 %596, %591
+  %597 = icmp eq i32 %591, %596
   %or.cond21.i.i = select i1 %594, i1 %597, i1 false
   br i1 %or.cond21.i.i, label %600, label %.lr.ph._crit_edge.i.i
 
 .lr.ph._crit_edge.i.i:                            ; preds = %.lr.ph.i.i
-  %598 = icmp eq i32 %596, %589
-  %599 = icmp eq i32 %593, %591
+  %598 = icmp eq i32 %589, %596
+  %599 = icmp eq i32 %591, %593
   %or.cond.i.i95 = and i1 %599, %598
   br i1 %or.cond.i.i95, label %600, label %602
 
@@ -1681,16 +1681,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i: ; preds
   %.sroa.0.018.i139.i = phi ptr [ %619, %618 ], [ %511, %.noexc100 ]
   %608 = getelementptr inbounds i8, ptr %.sroa.0.018.i139.i, i64 4
   %609 = load i32, ptr %608, align 4
-  %610 = icmp eq i32 %609, %605
+  %610 = icmp eq i32 %605, %609
   %611 = getelementptr inbounds i8, ptr %.sroa.0.018.i139.i, i64 8
   %612 = load i32, ptr %611, align 4
-  %613 = icmp eq i32 %612, %607
+  %613 = icmp eq i32 %607, %612
   %or.cond21.i140.i = select i1 %610, i1 %613, i1 false
   br i1 %or.cond21.i140.i, label %616, label %.lr.ph._crit_edge.i141.i
 
 .lr.ph._crit_edge.i141.i:                         ; preds = %.lr.ph.i138.i
-  %614 = icmp eq i32 %612, %605
-  %615 = icmp eq i32 %609, %607
+  %614 = icmp eq i32 %605, %612
+  %615 = icmp eq i32 %607, %609
   %or.cond.i142.i = and i1 %615, %614
   br i1 %or.cond.i142.i, label %616, label %618
 
@@ -1745,16 +1745,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.thread.
   %.sroa.0.018.i148.i = phi ptr [ %648, %647 ], [ %511, %.noexc104 ]
   %637 = getelementptr inbounds i8, ptr %.sroa.0.018.i148.i, i64 4
   %638 = load i32, ptr %637, align 4
-  %639 = icmp eq i32 %638, %633
+  %639 = icmp eq i32 %633, %638
   %640 = getelementptr inbounds i8, ptr %.sroa.0.018.i148.i, i64 8
   %641 = load i32, ptr %640, align 4
-  %642 = icmp eq i32 %641, %635
+  %642 = icmp eq i32 %635, %641
   %or.cond21.i149.i = select i1 %639, i1 %642, i1 false
   br i1 %or.cond21.i149.i, label %645, label %.lr.ph._crit_edge.i150.i
 
 .lr.ph._crit_edge.i150.i:                         ; preds = %.lr.ph.i147.i
-  %643 = icmp eq i32 %641, %633
-  %644 = icmp eq i32 %638, %635
+  %643 = icmp eq i32 %633, %641
+  %644 = icmp eq i32 %635, %638
   %or.cond.i151.i = and i1 %644, %643
   br i1 %or.cond.i151.i, label %645, label %647
 
@@ -1780,16 +1780,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit154.thread.
   %.sroa.0.018.i157.i = phi ptr [ %662, %661 ], [ %511, %.noexc106 ]
   %651 = getelementptr inbounds i8, ptr %.sroa.0.018.i157.i, i64 4
   %652 = load i32, ptr %651, align 4
-  %653 = icmp eq i32 %652, %650
+  %653 = icmp eq i32 %650, %652
   %654 = getelementptr inbounds i8, ptr %.sroa.0.018.i157.i, i64 8
   %655 = load i32, ptr %654, align 4
-  %656 = icmp eq i32 %655, %631
+  %656 = icmp eq i32 %631, %655
   %or.cond21.i158.i = select i1 %653, i1 %656, i1 false
   br i1 %or.cond21.i158.i, label %659, label %.lr.ph._crit_edge.i159.i
 
 .lr.ph._crit_edge.i159.i:                         ; preds = %.lr.ph.i156.i
-  %657 = icmp eq i32 %655, %650
-  %658 = icmp eq i32 %652, %631
+  %657 = icmp eq i32 %650, %655
+  %658 = icmp eq i32 %631, %652
   %or.cond.i160.i = and i1 %658, %657
   br i1 %or.cond.i160.i, label %659, label %661
 
@@ -1918,16 +1918,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit163.i: ; pr
   %.sroa.0.018.i166.i = phi ptr [ %712, %711 ], [ %511, %.noexc108 ]
   %701 = getelementptr inbounds i8, ptr %.sroa.0.018.i166.i, i64 4
   %702 = load i32, ptr %701, align 4
-  %703 = icmp eq i32 %702, %631
+  %703 = icmp eq i32 %631, %702
   %704 = getelementptr inbounds i8, ptr %.sroa.0.018.i166.i, i64 8
   %705 = load i32, ptr %704, align 4
-  %706 = icmp eq i32 %705, %700
+  %706 = icmp eq i32 %700, %705
   %or.cond21.i167.i = select i1 %703, i1 %706, i1 false
   br i1 %or.cond21.i167.i, label %709, label %.lr.ph._crit_edge.i168.i
 
 .lr.ph._crit_edge.i168.i:                         ; preds = %.lr.ph.i165.i
-  %707 = icmp eq i32 %705, %631
-  %708 = icmp eq i32 %702, %700
+  %707 = icmp eq i32 %631, %705
+  %708 = icmp eq i32 %700, %702
   %or.cond.i169.i = and i1 %708, %707
   br i1 %or.cond.i169.i, label %709, label %711
 
@@ -1959,32 +1959,32 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit172.i: ; pr
   %.sroa.0.022.i.i = phi ptr [ %743, %742 ], [ %513, %.noexc110 ]
   %717 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i, i64 4
   %718 = load i32, ptr %717, align 4
-  %719 = icmp eq i32 %718, %714
+  %719 = icmp eq i32 %714, %718
   br i1 %719, label %720, label %728
 
 720:                                              ; preds = %.lr.ph.i173.i
   %721 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i, i64 8
   %722 = load i32, ptr %721, align 4
-  %723 = icmp eq i32 %722, %631
+  %723 = icmp eq i32 %631, %722
   br i1 %723, label %724, label %728
 
 724:                                              ; preds = %720
   %725 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i, i64 12
   %726 = load i32, ptr %725, align 4
-  %727 = icmp eq i32 %726, %716
+  %727 = icmp eq i32 %716, %726
   br i1 %727, label %737, label %728
 
 728:                                              ; preds = %724, %720, %.lr.ph.i173.i
   %729 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i, i64 12
   %730 = load i32, ptr %729, align 4
-  %731 = icmp eq i32 %730, %714
+  %731 = icmp eq i32 %714, %730
   br i1 %731, label %732, label %742
 
 732:                                              ; preds = %728
   %733 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i, i64 8
   %734 = load i32, ptr %733, align 4
-  %735 = icmp eq i32 %734, %631
-  %736 = icmp eq i32 %718, %716
+  %735 = icmp eq i32 %631, %734
+  %736 = icmp eq i32 %716, %718
   %or.cond.i176.i = and i1 %736, %735
   br i1 %or.cond.i176.i, label %737, label %742
 
@@ -2087,16 +2087,16 @@ _ZL17calc_vsite3_paramP22PreprocessingAtomTypesP17InteractionOfTypeP7t_atomsN3gm
   %.sroa.0.018.i.i118 = phi ptr [ %787, %786 ], [ %768, %.noexc131 ]
   %776 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i118, i64 4
   %777 = load i32, ptr %776, align 4
-  %778 = icmp eq i32 %777, %773
+  %778 = icmp eq i32 %773, %777
   %779 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i118, i64 8
   %780 = load i32, ptr %779, align 4
-  %781 = icmp eq i32 %780, %775
+  %781 = icmp eq i32 %775, %780
   %or.cond21.i.i119 = select i1 %778, i1 %781, i1 false
   br i1 %or.cond21.i.i119, label %784, label %.lr.ph._crit_edge.i.i120
 
 .lr.ph._crit_edge.i.i120:                         ; preds = %.lr.ph.i.i117
-  %782 = icmp eq i32 %780, %773
-  %783 = icmp eq i32 %777, %775
+  %782 = icmp eq i32 %773, %780
+  %783 = icmp eq i32 %775, %777
   %or.cond.i.i121 = and i1 %783, %782
   br i1 %or.cond.i.i121, label %784, label %786
 
@@ -2127,16 +2127,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i123: ; pr
   %.sroa.0.018.i34.i = phi ptr [ %803, %802 ], [ %768, %.noexc133 ]
   %792 = getelementptr inbounds i8, ptr %.sroa.0.018.i34.i, i64 4
   %793 = load i32, ptr %792, align 4
-  %794 = icmp eq i32 %793, %789
+  %794 = icmp eq i32 %789, %793
   %795 = getelementptr inbounds i8, ptr %.sroa.0.018.i34.i, i64 8
   %796 = load i32, ptr %795, align 4
-  %797 = icmp eq i32 %796, %791
+  %797 = icmp eq i32 %791, %796
   %or.cond21.i35.i = select i1 %794, i1 %797, i1 false
   br i1 %or.cond21.i35.i, label %800, label %.lr.ph._crit_edge.i36.i
 
 .lr.ph._crit_edge.i36.i:                          ; preds = %.lr.ph.i33.i
-  %798 = icmp eq i32 %796, %789
-  %799 = icmp eq i32 %793, %791
+  %798 = icmp eq i32 %789, %796
+  %799 = icmp eq i32 %791, %793
   %or.cond.i37.i = and i1 %799, %798
   br i1 %or.cond.i37.i, label %800, label %802
 
@@ -2167,16 +2167,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit40.i: ; pre
   %.sroa.0.018.i43.i = phi ptr [ %819, %818 ], [ %768, %.noexc135 ]
   %808 = getelementptr inbounds i8, ptr %.sroa.0.018.i43.i, i64 4
   %809 = load i32, ptr %808, align 4
-  %810 = icmp eq i32 %809, %805
+  %810 = icmp eq i32 %805, %809
   %811 = getelementptr inbounds i8, ptr %.sroa.0.018.i43.i, i64 8
   %812 = load i32, ptr %811, align 4
-  %813 = icmp eq i32 %812, %807
+  %813 = icmp eq i32 %807, %812
   %or.cond21.i44.i = select i1 %810, i1 %813, i1 false
   br i1 %or.cond21.i44.i, label %816, label %.lr.ph._crit_edge.i45.i
 
 .lr.ph._crit_edge.i45.i:                          ; preds = %.lr.ph.i42.i
-  %814 = icmp eq i32 %812, %805
-  %815 = icmp eq i32 %809, %807
+  %814 = icmp eq i32 %805, %812
+  %815 = icmp eq i32 %807, %809
   %or.cond.i46.i = and i1 %815, %814
   br i1 %or.cond.i46.i, label %816, label %818
 
@@ -2213,32 +2213,32 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit49.i: ; pre
   %.sroa.0.022.i.i126 = phi ptr [ %852, %851 ], [ %770, %.noexc138 ]
   %826 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i126, i64 4
   %827 = load i32, ptr %826, align 4
-  %828 = icmp eq i32 %827, %821
+  %828 = icmp eq i32 %821, %827
   br i1 %828, label %829, label %837
 
 829:                                              ; preds = %.lr.ph.i50.i
   %830 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i126, i64 8
   %831 = load i32, ptr %830, align 4
-  %832 = icmp eq i32 %831, %823
+  %832 = icmp eq i32 %823, %831
   br i1 %832, label %833, label %837
 
 833:                                              ; preds = %829
   %834 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i126, i64 12
   %835 = load i32, ptr %834, align 4
-  %836 = icmp eq i32 %835, %825
+  %836 = icmp eq i32 %825, %835
   br i1 %836, label %846, label %837
 
 837:                                              ; preds = %833, %829, %.lr.ph.i50.i
   %838 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i126, i64 12
   %839 = load i32, ptr %838, align 4
-  %840 = icmp eq i32 %839, %821
+  %840 = icmp eq i32 %821, %839
   br i1 %840, label %841, label %851
 
 841:                                              ; preds = %837
   %842 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i126, i64 8
   %843 = load i32, ptr %842, align 4
-  %844 = icmp eq i32 %843, %823
-  %845 = icmp eq i32 %827, %825
+  %844 = icmp eq i32 %823, %843
+  %845 = icmp eq i32 %825, %827
   %or.cond.i53.i = and i1 %845, %844
   br i1 %or.cond.i53.i, label %846, label %851
 
@@ -2277,32 +2277,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i127: ; preds = 
   %.sroa.0.022.i56.i = phi ptr [ %885, %884 ], [ %770, %.noexc141 ]
   %859 = getelementptr inbounds i8, ptr %.sroa.0.022.i56.i, i64 4
   %860 = load i32, ptr %859, align 4
-  %861 = icmp eq i32 %860, %854
+  %861 = icmp eq i32 %854, %860
   br i1 %861, label %862, label %870
 
 862:                                              ; preds = %.lr.ph.i55.i
   %863 = getelementptr inbounds i8, ptr %.sroa.0.022.i56.i, i64 8
   %864 = load i32, ptr %863, align 4
-  %865 = icmp eq i32 %864, %856
+  %865 = icmp eq i32 %856, %864
   br i1 %865, label %866, label %870
 
 866:                                              ; preds = %862
   %867 = getelementptr inbounds i8, ptr %.sroa.0.022.i56.i, i64 12
   %868 = load i32, ptr %867, align 4
-  %869 = icmp eq i32 %868, %858
+  %869 = icmp eq i32 %858, %868
   br i1 %869, label %879, label %870
 
 870:                                              ; preds = %866, %862, %.lr.ph.i55.i
   %871 = getelementptr inbounds i8, ptr %.sroa.0.022.i56.i, i64 12
   %872 = load i32, ptr %871, align 4
-  %873 = icmp eq i32 %872, %854
+  %873 = icmp eq i32 %854, %872
   br i1 %873, label %874, label %884
 
 874:                                              ; preds = %870
   %875 = getelementptr inbounds i8, ptr %.sroa.0.022.i56.i, i64 8
   %876 = load i32, ptr %875, align 4
-  %877 = icmp eq i32 %876, %856
-  %878 = icmp eq i32 %860, %858
+  %877 = icmp eq i32 %856, %876
+  %878 = icmp eq i32 %858, %860
   %or.cond.i59.i = and i1 %878, %877
   br i1 %or.cond.i59.i, label %879, label %884
 
@@ -2371,16 +2371,16 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit60.i: ; preds = %
   %.sroa.0.018.i.i146 = phi ptr [ %921, %920 ], [ %899, %.noexc158 ]
   %910 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i146, i64 4
   %911 = load i32, ptr %910, align 4
-  %912 = icmp eq i32 %911, %907
+  %912 = icmp eq i32 %907, %911
   %913 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i146, i64 8
   %914 = load i32, ptr %913, align 4
-  %915 = icmp eq i32 %914, %909
+  %915 = icmp eq i32 %909, %914
   %or.cond21.i.i147 = select i1 %912, i1 %915, i1 false
   br i1 %or.cond21.i.i147, label %918, label %.lr.ph._crit_edge.i.i148
 
 .lr.ph._crit_edge.i.i148:                         ; preds = %.lr.ph.i.i145
-  %916 = icmp eq i32 %914, %907
-  %917 = icmp eq i32 %911, %909
+  %916 = icmp eq i32 %907, %914
+  %917 = icmp eq i32 %909, %911
   %or.cond.i.i149 = and i1 %917, %916
   br i1 %or.cond.i.i149, label %918, label %920
 
@@ -2417,32 +2417,32 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i151: ; pr
   %.sroa.0.022.i.i154 = phi ptr [ %954, %953 ], [ %901, %.noexc161 ]
   %928 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i154, i64 4
   %929 = load i32, ptr %928, align 4
-  %930 = icmp eq i32 %929, %923
+  %930 = icmp eq i32 %923, %929
   br i1 %930, label %931, label %939
 
 931:                                              ; preds = %.lr.ph.i15.i
   %932 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i154, i64 8
   %933 = load i32, ptr %932, align 4
-  %934 = icmp eq i32 %933, %925
+  %934 = icmp eq i32 %925, %933
   br i1 %934, label %935, label %939
 
 935:                                              ; preds = %931
   %936 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i154, i64 12
   %937 = load i32, ptr %936, align 4
-  %938 = icmp eq i32 %937, %927
+  %938 = icmp eq i32 %927, %937
   br i1 %938, label %948, label %939
 
 939:                                              ; preds = %935, %931, %.lr.ph.i15.i
   %940 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i154, i64 12
   %941 = load i32, ptr %940, align 4
-  %942 = icmp eq i32 %941, %923
+  %942 = icmp eq i32 %923, %941
   br i1 %942, label %943, label %953
 
 943:                                              ; preds = %939
   %944 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i154, i64 8
   %945 = load i32, ptr %944, align 4
-  %946 = icmp eq i32 %945, %925
-  %947 = icmp eq i32 %929, %927
+  %946 = icmp eq i32 %925, %945
+  %947 = icmp eq i32 %927, %929
   %or.cond.i18.i = and i1 %947, %946
   br i1 %or.cond.i18.i, label %948, label %953
 
@@ -2766,16 +2766,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit190.i:
   %.sroa.0.018.i.i176 = phi ptr [ %1060, %1059 ], [ %966, %.noexc192 ]
   %1049 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176, i64 4
   %1050 = load i32, ptr %1049, align 4
-  %1051 = icmp eq i32 %1050, %1046
+  %1051 = icmp eq i32 %1046, %1050
   %1052 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176, i64 8
   %1053 = load i32, ptr %1052, align 4
-  %1054 = icmp eq i32 %1053, %1048
+  %1054 = icmp eq i32 %1048, %1053
   %or.cond21.i.i177 = select i1 %1051, i1 %1054, i1 false
   br i1 %or.cond21.i.i177, label %1057, label %.lr.ph._crit_edge.i.i178
 
 .lr.ph._crit_edge.i.i178:                         ; preds = %.lr.ph.i.i175
-  %1055 = icmp eq i32 %1053, %1046
-  %1056 = icmp eq i32 %1050, %1048
+  %1055 = icmp eq i32 %1046, %1053
+  %1056 = icmp eq i32 %1048, %1050
   %or.cond.i.i179 = and i1 %1056, %1055
   br i1 %or.cond.i.i179, label %1057, label %1059
 
@@ -2806,16 +2806,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i181: ; pr
   %.sroa.0.018.i193.i = phi ptr [ %1076, %1075 ], [ %966, %.noexc194 ]
   %1065 = getelementptr inbounds i8, ptr %.sroa.0.018.i193.i, i64 4
   %1066 = load i32, ptr %1065, align 4
-  %1067 = icmp eq i32 %1066, %1062
+  %1067 = icmp eq i32 %1062, %1066
   %1068 = getelementptr inbounds i8, ptr %.sroa.0.018.i193.i, i64 8
   %1069 = load i32, ptr %1068, align 4
-  %1070 = icmp eq i32 %1069, %1064
+  %1070 = icmp eq i32 %1064, %1069
   %or.cond21.i194.i = select i1 %1067, i1 %1070, i1 false
   br i1 %or.cond21.i194.i, label %1073, label %.lr.ph._crit_edge.i195.i
 
 .lr.ph._crit_edge.i195.i:                         ; preds = %.lr.ph.i192.i
-  %1071 = icmp eq i32 %1069, %1062
-  %1072 = icmp eq i32 %1066, %1064
+  %1071 = icmp eq i32 %1062, %1069
+  %1072 = icmp eq i32 %1064, %1066
   %or.cond.i196.i = and i1 %1072, %1071
   br i1 %or.cond.i196.i, label %1073, label %1075
 
@@ -2862,16 +2862,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit199.i: ; pr
   %.sroa.0.018.i202.i = phi ptr [ %1100, %1099 ], [ %966, %.noexc198 ]
   %1089 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 4
   %1090 = load i32, ptr %1089, align 4
-  %1091 = icmp eq i32 %1090, %1086
+  %1091 = icmp eq i32 %1086, %1090
   %1092 = getelementptr inbounds i8, ptr %.sroa.0.018.i202.i, i64 8
   %1093 = load i32, ptr %1092, align 4
-  %1094 = icmp eq i32 %1093, %1088
+  %1094 = icmp eq i32 %1088, %1093
   %or.cond21.i203.i = select i1 %1091, i1 %1094, i1 false
   br i1 %or.cond21.i203.i, label %1097, label %.lr.ph._crit_edge.i204.i
 
 .lr.ph._crit_edge.i204.i:                         ; preds = %.lr.ph.i201.i
-  %1095 = icmp eq i32 %1093, %1086
-  %1096 = icmp eq i32 %1090, %1088
+  %1095 = icmp eq i32 %1086, %1093
+  %1096 = icmp eq i32 %1088, %1090
   %or.cond.i205.i = and i1 %1096, %1095
   br i1 %or.cond.i205.i, label %1097, label %1099
 
@@ -2897,16 +2897,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit199.i: ; pr
   %.sroa.0.018.i211.i = phi ptr [ %1114, %1113 ], [ %966, %.noexc199 ]
   %1103 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 4
   %1104 = load i32, ptr %1103, align 4
-  %1105 = icmp eq i32 %1104, %1102
+  %1105 = icmp eq i32 %1102, %1104
   %1106 = getelementptr inbounds i8, ptr %.sroa.0.018.i211.i, i64 8
   %1107 = load i32, ptr %1106, align 4
-  %1108 = icmp eq i32 %1107, %1084
+  %1108 = icmp eq i32 %1084, %1107
   %or.cond21.i212.i = select i1 %1105, i1 %1108, i1 false
   br i1 %or.cond21.i212.i, label %1111, label %.lr.ph._crit_edge.i213.i
 
 .lr.ph._crit_edge.i213.i:                         ; preds = %.lr.ph.i210.i
-  %1109 = icmp eq i32 %1107, %1102
-  %1110 = icmp eq i32 %1104, %1084
+  %1109 = icmp eq i32 %1102, %1107
+  %1110 = icmp eq i32 %1084, %1104
   %or.cond.i214.i = and i1 %1110, %1109
   br i1 %or.cond.i214.i, label %1111, label %1113
 
@@ -2940,16 +2940,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit217.thread.
   %.sroa.0.018.i220.i = phi ptr [ %1130, %1129 ], [ %966, %.noexc202 ]
   %1119 = getelementptr inbounds i8, ptr %.sroa.0.018.i220.i, i64 4
   %1120 = load i32, ptr %1119, align 4
-  %1121 = icmp eq i32 %1120, %1084
+  %1121 = icmp eq i32 %1084, %1120
   %1122 = getelementptr inbounds i8, ptr %.sroa.0.018.i220.i, i64 8
   %1123 = load i32, ptr %1122, align 4
-  %1124 = icmp eq i32 %1123, %1118
+  %1124 = icmp eq i32 %1118, %1123
   %or.cond21.i221.i = select i1 %1121, i1 %1124, i1 false
   br i1 %or.cond21.i221.i, label %1127, label %.lr.ph._crit_edge.i222.i
 
 .lr.ph._crit_edge.i222.i:                         ; preds = %.lr.ph.i219.i
-  %1125 = icmp eq i32 %1123, %1084
-  %1126 = icmp eq i32 %1120, %1118
+  %1125 = icmp eq i32 %1084, %1123
+  %1126 = icmp eq i32 %1118, %1120
   %or.cond.i223.i = and i1 %1126, %1125
   br i1 %or.cond.i223.i, label %1127, label %1129
 
@@ -2983,32 +2983,32 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit226.i: ; pr
   %.sroa.0.022.i.i185 = phi ptr [ %1161, %1160 ], [ %968, %.noexc204 ]
   %1135 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i185, i64 4
   %1136 = load i32, ptr %1135, align 4
-  %1137 = icmp eq i32 %1136, %1132
+  %1137 = icmp eq i32 %1132, %1136
   br i1 %1137, label %1138, label %1146
 
 1138:                                             ; preds = %.lr.ph.i227.i
   %1139 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i185, i64 8
   %1140 = load i32, ptr %1139, align 4
-  %1141 = icmp eq i32 %1140, %1084
+  %1141 = icmp eq i32 %1084, %1140
   br i1 %1141, label %1142, label %1146
 
 1142:                                             ; preds = %1138
   %1143 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i185, i64 12
   %1144 = load i32, ptr %1143, align 4
-  %1145 = icmp eq i32 %1144, %1134
+  %1145 = icmp eq i32 %1134, %1144
   br i1 %1145, label %1155, label %1146
 
 1146:                                             ; preds = %1142, %1138, %.lr.ph.i227.i
   %1147 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i185, i64 12
   %1148 = load i32, ptr %1147, align 4
-  %1149 = icmp eq i32 %1148, %1132
+  %1149 = icmp eq i32 %1132, %1148
   br i1 %1149, label %1150, label %1160
 
 1150:                                             ; preds = %1146
   %1151 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i185, i64 8
   %1152 = load i32, ptr %1151, align 4
-  %1153 = icmp eq i32 %1152, %1084
-  %1154 = icmp eq i32 %1136, %1134
+  %1153 = icmp eq i32 %1084, %1152
+  %1154 = icmp eq i32 %1134, %1136
   %or.cond.i230.i = and i1 %1154, %1153
   br i1 %or.cond.i230.i, label %1155, label %1160
 
@@ -3153,16 +3153,16 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i186: ; preds = 
   %.sroa.0.018.i233.i = phi ptr [ %1229, %1228 ], [ %966, %.noexc208 ]
   %1218 = getelementptr inbounds i8, ptr %.sroa.0.018.i233.i, i64 4
   %1219 = load i32, ptr %1218, align 4
-  %1220 = icmp eq i32 %1219, %1215
+  %1220 = icmp eq i32 %1215, %1219
   %1221 = getelementptr inbounds i8, ptr %.sroa.0.018.i233.i, i64 8
   %1222 = load i32, ptr %1221, align 4
-  %1223 = icmp eq i32 %1222, %1217
+  %1223 = icmp eq i32 %1217, %1222
   %or.cond21.i234.i = select i1 %1220, i1 %1223, i1 false
   br i1 %or.cond21.i234.i, label %1226, label %.lr.ph._crit_edge.i235.i
 
 .lr.ph._crit_edge.i235.i:                         ; preds = %.lr.ph.i232.i
-  %1224 = icmp eq i32 %1222, %1215
-  %1225 = icmp eq i32 %1219, %1217
+  %1224 = icmp eq i32 %1215, %1222
+  %1225 = icmp eq i32 %1217, %1219
   %or.cond.i236.i = and i1 %1225, %1224
   br i1 %or.cond.i236.i, label %1226, label %1228
 
@@ -3199,32 +3199,32 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit239.i: ; pr
   %.sroa.0.022.i242.i = phi ptr [ %1262, %1261 ], [ %968, %.noexc211 ]
   %1236 = getelementptr inbounds i8, ptr %.sroa.0.022.i242.i, i64 4
   %1237 = load i32, ptr %1236, align 4
-  %1238 = icmp eq i32 %1237, %1231
+  %1238 = icmp eq i32 %1231, %1237
   br i1 %1238, label %1239, label %1247
 
 1239:                                             ; preds = %.lr.ph.i241.i
   %1240 = getelementptr inbounds i8, ptr %.sroa.0.022.i242.i, i64 8
   %1241 = load i32, ptr %1240, align 4
-  %1242 = icmp eq i32 %1241, %1233
+  %1242 = icmp eq i32 %1233, %1241
   br i1 %1242, label %1243, label %1247
 
 1243:                                             ; preds = %1239
   %1244 = getelementptr inbounds i8, ptr %.sroa.0.022.i242.i, i64 12
   %1245 = load i32, ptr %1244, align 4
-  %1246 = icmp eq i32 %1245, %1235
+  %1246 = icmp eq i32 %1235, %1245
   br i1 %1246, label %1256, label %1247
 
 1247:                                             ; preds = %1243, %1239, %.lr.ph.i241.i
   %1248 = getelementptr inbounds i8, ptr %.sroa.0.022.i242.i, i64 12
   %1249 = load i32, ptr %1248, align 4
-  %1250 = icmp eq i32 %1249, %1231
+  %1250 = icmp eq i32 %1231, %1249
   br i1 %1250, label %1251, label %1261
 
 1251:                                             ; preds = %1247
   %1252 = getelementptr inbounds i8, ptr %.sroa.0.022.i242.i, i64 8
   %1253 = load i32, ptr %1252, align 4
-  %1254 = icmp eq i32 %1253, %1233
-  %1255 = icmp eq i32 %1237, %1235
+  %1254 = icmp eq i32 %1233, %1253
+  %1255 = icmp eq i32 %1235, %1237
   %or.cond.i245.i = and i1 %1255, %1254
   br i1 %or.cond.i245.i, label %1256, label %1261
 
@@ -3263,32 +3263,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit246.i: ; preds = 
   %.sroa.0.022.i249.i = phi ptr [ %1295, %1294 ], [ %968, %.noexc214 ]
   %1269 = getelementptr inbounds i8, ptr %.sroa.0.022.i249.i, i64 4
   %1270 = load i32, ptr %1269, align 4
-  %1271 = icmp eq i32 %1270, %1264
+  %1271 = icmp eq i32 %1264, %1270
   br i1 %1271, label %1272, label %1280
 
 1272:                                             ; preds = %.lr.ph.i248.i
   %1273 = getelementptr inbounds i8, ptr %.sroa.0.022.i249.i, i64 8
   %1274 = load i32, ptr %1273, align 4
-  %1275 = icmp eq i32 %1274, %1266
+  %1275 = icmp eq i32 %1266, %1274
   br i1 %1275, label %1276, label %1280
 
 1276:                                             ; preds = %1272
   %1277 = getelementptr inbounds i8, ptr %.sroa.0.022.i249.i, i64 12
   %1278 = load i32, ptr %1277, align 4
-  %1279 = icmp eq i32 %1278, %1268
+  %1279 = icmp eq i32 %1268, %1278
   br i1 %1279, label %1289, label %1280
 
 1280:                                             ; preds = %1276, %1272, %.lr.ph.i248.i
   %1281 = getelementptr inbounds i8, ptr %.sroa.0.022.i249.i, i64 12
   %1282 = load i32, ptr %1281, align 4
-  %1283 = icmp eq i32 %1282, %1264
+  %1283 = icmp eq i32 %1264, %1282
   br i1 %1283, label %1284, label %1294
 
 1284:                                             ; preds = %1280
   %1285 = getelementptr inbounds i8, ptr %.sroa.0.022.i249.i, i64 8
   %1286 = load i32, ptr %1285, align 4
-  %1287 = icmp eq i32 %1286, %1266
-  %1288 = icmp eq i32 %1270, %1268
+  %1287 = icmp eq i32 %1266, %1286
+  %1288 = icmp eq i32 %1268, %1270
   %or.cond.i252.i = and i1 %1288, %1287
   br i1 %or.cond.i252.i, label %1289, label %1294
 
@@ -3327,32 +3327,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit253.i: ; preds = 
   %.sroa.0.022.i256.i = phi ptr [ %1328, %1327 ], [ %968, %.noexc217 ]
   %1302 = getelementptr inbounds i8, ptr %.sroa.0.022.i256.i, i64 4
   %1303 = load i32, ptr %1302, align 4
-  %1304 = icmp eq i32 %1303, %1297
+  %1304 = icmp eq i32 %1297, %1303
   br i1 %1304, label %1305, label %1313
 
 1305:                                             ; preds = %.lr.ph.i255.i
   %1306 = getelementptr inbounds i8, ptr %.sroa.0.022.i256.i, i64 8
   %1307 = load i32, ptr %1306, align 4
-  %1308 = icmp eq i32 %1307, %1299
+  %1308 = icmp eq i32 %1299, %1307
   br i1 %1308, label %1309, label %1313
 
 1309:                                             ; preds = %1305
   %1310 = getelementptr inbounds i8, ptr %.sroa.0.022.i256.i, i64 12
   %1311 = load i32, ptr %1310, align 4
-  %1312 = icmp eq i32 %1311, %1301
+  %1312 = icmp eq i32 %1301, %1311
   br i1 %1312, label %1322, label %1313
 
 1313:                                             ; preds = %1309, %1305, %.lr.ph.i255.i
   %1314 = getelementptr inbounds i8, ptr %.sroa.0.022.i256.i, i64 12
   %1315 = load i32, ptr %1314, align 4
-  %1316 = icmp eq i32 %1315, %1297
+  %1316 = icmp eq i32 %1297, %1315
   br i1 %1316, label %1317, label %1327
 
 1317:                                             ; preds = %1313
   %1318 = getelementptr inbounds i8, ptr %.sroa.0.022.i256.i, i64 8
   %1319 = load i32, ptr %1318, align 4
-  %1320 = icmp eq i32 %1319, %1299
-  %1321 = icmp eq i32 %1303, %1301
+  %1320 = icmp eq i32 %1299, %1319
+  %1321 = icmp eq i32 %1301, %1303
   %or.cond.i259.i = and i1 %1321, %1320
   br i1 %or.cond.i259.i, label %1322, label %1327
 
@@ -3403,10 +3403,10 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i: ; preds = 
   %1359 = fdiv float %1358, %.0.i198.i
   %1360 = fmul float %.0.i238.i, %.0.i238.i
   %1361 = fmul float %1337, %1337
-  %1362 = call noundef float @cosf(float noundef %.0.i258.i) #23
-  %1363 = fmul float %1337, -2.000000e+00
-  %1364 = fmul float %1363, %1339
-  %1365 = call float @llvm.fmuladd.f32(float %1364, float %1362, float %1361)
+  %1362 = fmul float %1337, 2.000000e+00
+  %1363 = call noundef float @cosf(float noundef %.0.i258.i) #23
+  %1364 = fmul float %1362, %1341
+  %1365 = call float @llvm.fmuladd.f32(float %1364, float %1363, float %1361)
   %1366 = fmul float %1339, %1339
   %1367 = fadd float %1366, %1365
   %1368 = call noundef float @sinf(float noundef %.0.i258.i) #23
@@ -3479,16 +3479,16 @@ _ZL20calc_vsite3out_paramP22PreprocessingAtomTypesP17InteractionOfTypeP7t_atomsN
   %.sroa.0.018.i.i223 = phi ptr [ %1404, %1403 ], [ %1385, %.noexc239 ]
   %1393 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i223, i64 4
   %1394 = load i32, ptr %1393, align 4
-  %1395 = icmp eq i32 %1394, %1390
+  %1395 = icmp eq i32 %1390, %1394
   %1396 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i223, i64 8
   %1397 = load i32, ptr %1396, align 4
-  %1398 = icmp eq i32 %1397, %1392
+  %1398 = icmp eq i32 %1392, %1397
   %or.cond21.i.i224 = select i1 %1395, i1 %1398, i1 false
   br i1 %or.cond21.i.i224, label %1401, label %.lr.ph._crit_edge.i.i225
 
 .lr.ph._crit_edge.i.i225:                         ; preds = %.lr.ph.i.i222
-  %1399 = icmp eq i32 %1397, %1390
-  %1400 = icmp eq i32 %1394, %1392
+  %1399 = icmp eq i32 %1390, %1397
+  %1400 = icmp eq i32 %1392, %1394
   %or.cond.i.i226 = and i1 %1400, %1399
   br i1 %or.cond.i.i226, label %1401, label %1403
 
@@ -3519,16 +3519,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i228: ; pr
   %.sroa.0.018.i118.i = phi ptr [ %1420, %1419 ], [ %1385, %.noexc241 ]
   %1409 = getelementptr inbounds i8, ptr %.sroa.0.018.i118.i, i64 4
   %1410 = load i32, ptr %1409, align 4
-  %1411 = icmp eq i32 %1410, %1406
+  %1411 = icmp eq i32 %1406, %1410
   %1412 = getelementptr inbounds i8, ptr %.sroa.0.018.i118.i, i64 8
   %1413 = load i32, ptr %1412, align 4
-  %1414 = icmp eq i32 %1413, %1408
+  %1414 = icmp eq i32 %1408, %1413
   %or.cond21.i119.i = select i1 %1411, i1 %1414, i1 false
   br i1 %or.cond21.i119.i, label %1417, label %.lr.ph._crit_edge.i120.i
 
 .lr.ph._crit_edge.i120.i:                         ; preds = %.lr.ph.i117.i
-  %1415 = icmp eq i32 %1413, %1406
-  %1416 = icmp eq i32 %1410, %1408
+  %1415 = icmp eq i32 %1406, %1413
+  %1416 = icmp eq i32 %1408, %1410
   %or.cond.i121.i = and i1 %1416, %1415
   br i1 %or.cond.i121.i, label %1417, label %1419
 
@@ -3559,16 +3559,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit124.i: ; pr
   %.sroa.0.018.i127.i = phi ptr [ %1436, %1435 ], [ %1385, %.noexc243 ]
   %1425 = getelementptr inbounds i8, ptr %.sroa.0.018.i127.i, i64 4
   %1426 = load i32, ptr %1425, align 4
-  %1427 = icmp eq i32 %1426, %1422
+  %1427 = icmp eq i32 %1422, %1426
   %1428 = getelementptr inbounds i8, ptr %.sroa.0.018.i127.i, i64 8
   %1429 = load i32, ptr %1428, align 4
-  %1430 = icmp eq i32 %1429, %1424
+  %1430 = icmp eq i32 %1424, %1429
   %or.cond21.i128.i = select i1 %1427, i1 %1430, i1 false
   br i1 %or.cond21.i128.i, label %1433, label %.lr.ph._crit_edge.i129.i
 
 .lr.ph._crit_edge.i129.i:                         ; preds = %.lr.ph.i126.i
-  %1431 = icmp eq i32 %1429, %1422
-  %1432 = icmp eq i32 %1426, %1424
+  %1431 = icmp eq i32 %1422, %1429
+  %1432 = icmp eq i32 %1424, %1426
   %or.cond.i130.i = and i1 %1432, %1431
   br i1 %or.cond.i130.i, label %1433, label %1435
 
@@ -3599,16 +3599,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit133.i: ; pr
   %.sroa.0.018.i136.i = phi ptr [ %1452, %1451 ], [ %1385, %.noexc245 ]
   %1441 = getelementptr inbounds i8, ptr %.sroa.0.018.i136.i, i64 4
   %1442 = load i32, ptr %1441, align 4
-  %1443 = icmp eq i32 %1442, %1438
+  %1443 = icmp eq i32 %1438, %1442
   %1444 = getelementptr inbounds i8, ptr %.sroa.0.018.i136.i, i64 8
   %1445 = load i32, ptr %1444, align 4
-  %1446 = icmp eq i32 %1445, %1440
+  %1446 = icmp eq i32 %1440, %1445
   %or.cond21.i137.i = select i1 %1443, i1 %1446, i1 false
   br i1 %or.cond21.i137.i, label %1449, label %.lr.ph._crit_edge.i138.i
 
 .lr.ph._crit_edge.i138.i:                         ; preds = %.lr.ph.i135.i
-  %1447 = icmp eq i32 %1445, %1438
-  %1448 = icmp eq i32 %1442, %1440
+  %1447 = icmp eq i32 %1438, %1445
+  %1448 = icmp eq i32 %1440, %1442
   %or.cond.i139.i = and i1 %1448, %1447
   br i1 %or.cond.i139.i, label %1449, label %1451
 
@@ -3645,32 +3645,32 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit142.i: ; pr
   %.sroa.0.022.i.i231 = phi ptr [ %1485, %1484 ], [ %1387, %.noexc248 ]
   %1459 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i231, i64 4
   %1460 = load i32, ptr %1459, align 4
-  %1461 = icmp eq i32 %1460, %1454
+  %1461 = icmp eq i32 %1454, %1460
   br i1 %1461, label %1462, label %1470
 
 1462:                                             ; preds = %.lr.ph.i143.i
   %1463 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i231, i64 8
   %1464 = load i32, ptr %1463, align 4
-  %1465 = icmp eq i32 %1464, %1456
+  %1465 = icmp eq i32 %1456, %1464
   br i1 %1465, label %1466, label %1470
 
 1466:                                             ; preds = %1462
   %1467 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i231, i64 12
   %1468 = load i32, ptr %1467, align 4
-  %1469 = icmp eq i32 %1468, %1458
+  %1469 = icmp eq i32 %1458, %1468
   br i1 %1469, label %1479, label %1470
 
 1470:                                             ; preds = %1466, %1462, %.lr.ph.i143.i
   %1471 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i231, i64 12
   %1472 = load i32, ptr %1471, align 4
-  %1473 = icmp eq i32 %1472, %1454
+  %1473 = icmp eq i32 %1454, %1472
   br i1 %1473, label %1474, label %1484
 
 1474:                                             ; preds = %1470
   %1475 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i231, i64 8
   %1476 = load i32, ptr %1475, align 4
-  %1477 = icmp eq i32 %1476, %1456
-  %1478 = icmp eq i32 %1460, %1458
+  %1477 = icmp eq i32 %1456, %1476
+  %1478 = icmp eq i32 %1458, %1460
   %or.cond.i146.i = and i1 %1478, %1477
   br i1 %or.cond.i146.i, label %1479, label %1484
 
@@ -3709,32 +3709,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i232: ; preds = 
   %.sroa.0.022.i149.i = phi ptr [ %1518, %1517 ], [ %1387, %.noexc251 ]
   %1492 = getelementptr inbounds i8, ptr %.sroa.0.022.i149.i, i64 4
   %1493 = load i32, ptr %1492, align 4
-  %1494 = icmp eq i32 %1493, %1487
+  %1494 = icmp eq i32 %1487, %1493
   br i1 %1494, label %1495, label %1503
 
 1495:                                             ; preds = %.lr.ph.i148.i
   %1496 = getelementptr inbounds i8, ptr %.sroa.0.022.i149.i, i64 8
   %1497 = load i32, ptr %1496, align 4
-  %1498 = icmp eq i32 %1497, %1489
+  %1498 = icmp eq i32 %1489, %1497
   br i1 %1498, label %1499, label %1503
 
 1499:                                             ; preds = %1495
   %1500 = getelementptr inbounds i8, ptr %.sroa.0.022.i149.i, i64 12
   %1501 = load i32, ptr %1500, align 4
-  %1502 = icmp eq i32 %1501, %1491
+  %1502 = icmp eq i32 %1491, %1501
   br i1 %1502, label %1512, label %1503
 
 1503:                                             ; preds = %1499, %1495, %.lr.ph.i148.i
   %1504 = getelementptr inbounds i8, ptr %.sroa.0.022.i149.i, i64 12
   %1505 = load i32, ptr %1504, align 4
-  %1506 = icmp eq i32 %1505, %1487
+  %1506 = icmp eq i32 %1487, %1505
   br i1 %1506, label %1507, label %1517
 
 1507:                                             ; preds = %1503
   %1508 = getelementptr inbounds i8, ptr %.sroa.0.022.i149.i, i64 8
   %1509 = load i32, ptr %1508, align 4
-  %1510 = icmp eq i32 %1509, %1489
-  %1511 = icmp eq i32 %1493, %1491
+  %1510 = icmp eq i32 %1489, %1509
+  %1511 = icmp eq i32 %1491, %1493
   %or.cond.i152.i = and i1 %1511, %1510
   br i1 %or.cond.i152.i, label %1512, label %1517
 
@@ -3773,32 +3773,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit153.i: ; preds = 
   %.sroa.0.022.i156.i = phi ptr [ %1551, %1550 ], [ %1387, %.noexc254 ]
   %1525 = getelementptr inbounds i8, ptr %.sroa.0.022.i156.i, i64 4
   %1526 = load i32, ptr %1525, align 4
-  %1527 = icmp eq i32 %1526, %1520
+  %1527 = icmp eq i32 %1520, %1526
   br i1 %1527, label %1528, label %1536
 
 1528:                                             ; preds = %.lr.ph.i155.i
   %1529 = getelementptr inbounds i8, ptr %.sroa.0.022.i156.i, i64 8
   %1530 = load i32, ptr %1529, align 4
-  %1531 = icmp eq i32 %1530, %1522
+  %1531 = icmp eq i32 %1522, %1530
   br i1 %1531, label %1532, label %1536
 
 1532:                                             ; preds = %1528
   %1533 = getelementptr inbounds i8, ptr %.sroa.0.022.i156.i, i64 12
   %1534 = load i32, ptr %1533, align 4
-  %1535 = icmp eq i32 %1534, %1524
+  %1535 = icmp eq i32 %1524, %1534
   br i1 %1535, label %1545, label %1536
 
 1536:                                             ; preds = %1532, %1528, %.lr.ph.i155.i
   %1537 = getelementptr inbounds i8, ptr %.sroa.0.022.i156.i, i64 12
   %1538 = load i32, ptr %1537, align 4
-  %1539 = icmp eq i32 %1538, %1520
+  %1539 = icmp eq i32 %1520, %1538
   br i1 %1539, label %1540, label %1550
 
 1540:                                             ; preds = %1536
   %1541 = getelementptr inbounds i8, ptr %.sroa.0.022.i156.i, i64 8
   %1542 = load i32, ptr %1541, align 4
-  %1543 = icmp eq i32 %1542, %1522
-  %1544 = icmp eq i32 %1526, %1524
+  %1543 = icmp eq i32 %1522, %1542
+  %1544 = icmp eq i32 %1524, %1526
   %or.cond.i159.i = and i1 %1544, %1543
   br i1 %or.cond.i159.i, label %1545, label %1550
 
@@ -3837,32 +3837,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit160.i: ; preds = 
   %.sroa.0.022.i163.i = phi ptr [ %1584, %1583 ], [ %1387, %.noexc257 ]
   %1558 = getelementptr inbounds i8, ptr %.sroa.0.022.i163.i, i64 4
   %1559 = load i32, ptr %1558, align 4
-  %1560 = icmp eq i32 %1559, %1553
+  %1560 = icmp eq i32 %1553, %1559
   br i1 %1560, label %1561, label %1569
 
 1561:                                             ; preds = %.lr.ph.i162.i
   %1562 = getelementptr inbounds i8, ptr %.sroa.0.022.i163.i, i64 8
   %1563 = load i32, ptr %1562, align 4
-  %1564 = icmp eq i32 %1563, %1555
+  %1564 = icmp eq i32 %1555, %1563
   br i1 %1564, label %1565, label %1569
 
 1565:                                             ; preds = %1561
   %1566 = getelementptr inbounds i8, ptr %.sroa.0.022.i163.i, i64 12
   %1567 = load i32, ptr %1566, align 4
-  %1568 = icmp eq i32 %1567, %1557
+  %1568 = icmp eq i32 %1557, %1567
   br i1 %1568, label %1578, label %1569
 
 1569:                                             ; preds = %1565, %1561, %.lr.ph.i162.i
   %1570 = getelementptr inbounds i8, ptr %.sroa.0.022.i163.i, i64 12
   %1571 = load i32, ptr %1570, align 4
-  %1572 = icmp eq i32 %1571, %1553
+  %1572 = icmp eq i32 %1553, %1571
   br i1 %1572, label %1573, label %1583
 
 1573:                                             ; preds = %1569
   %1574 = getelementptr inbounds i8, ptr %.sroa.0.022.i163.i, i64 8
   %1575 = load i32, ptr %1574, align 4
-  %1576 = icmp eq i32 %1575, %1555
-  %1577 = icmp eq i32 %1559, %1557
+  %1576 = icmp eq i32 %1555, %1575
+  %1577 = icmp eq i32 %1557, %1559
   %or.cond.i166.i = and i1 %1577, %1576
   br i1 %or.cond.i166.i, label %1578, label %1583
 
@@ -3901,32 +3901,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit167.i: ; preds = 
   %.sroa.0.022.i170.i = phi ptr [ %1617, %1616 ], [ %1387, %.noexc260 ]
   %1591 = getelementptr inbounds i8, ptr %.sroa.0.022.i170.i, i64 4
   %1592 = load i32, ptr %1591, align 4
-  %1593 = icmp eq i32 %1592, %1586
+  %1593 = icmp eq i32 %1586, %1592
   br i1 %1593, label %1594, label %1602
 
 1594:                                             ; preds = %.lr.ph.i169.i
   %1595 = getelementptr inbounds i8, ptr %.sroa.0.022.i170.i, i64 8
   %1596 = load i32, ptr %1595, align 4
-  %1597 = icmp eq i32 %1596, %1588
+  %1597 = icmp eq i32 %1588, %1596
   br i1 %1597, label %1598, label %1602
 
 1598:                                             ; preds = %1594
   %1599 = getelementptr inbounds i8, ptr %.sroa.0.022.i170.i, i64 12
   %1600 = load i32, ptr %1599, align 4
-  %1601 = icmp eq i32 %1600, %1590
+  %1601 = icmp eq i32 %1590, %1600
   br i1 %1601, label %1611, label %1602
 
 1602:                                             ; preds = %1598, %1594, %.lr.ph.i169.i
   %1603 = getelementptr inbounds i8, ptr %.sroa.0.022.i170.i, i64 12
   %1604 = load i32, ptr %1603, align 4
-  %1605 = icmp eq i32 %1604, %1586
+  %1605 = icmp eq i32 %1586, %1604
   br i1 %1605, label %1606, label %1616
 
 1606:                                             ; preds = %1602
   %1607 = getelementptr inbounds i8, ptr %.sroa.0.022.i170.i, i64 8
   %1608 = load i32, ptr %1607, align 4
-  %1609 = icmp eq i32 %1608, %1588
-  %1610 = icmp eq i32 %1592, %1590
+  %1609 = icmp eq i32 %1588, %1608
+  %1610 = icmp eq i32 %1590, %1592
   %or.cond.i173.i = and i1 %1610, %1609
   br i1 %or.cond.i173.i, label %1611, label %1616
 
@@ -4074,8 +4074,8 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %1668
   %1690 = fmul float %1648, %1648
   %1691 = fsub float 1.000000e+00, %1690
   %1692 = call noundef float @sqrtf(float noundef %1691) #23
-  %1693 = fneg float %.0.i123.i
-  %1694 = fmul float %1628, %1693
+  %1693 = fneg float %1628
+  %1694 = fmul float %.0.i123.i, %1693
   %1695 = call float @llvm.fmuladd.f32(float %1686, float %1639, float %1694)
   %1696 = fmul float %1686, %1689
   %1697 = call float @llvm.fmuladd.f32(float %1685, float %1648, float %1694)
@@ -4129,16 +4129,16 @@ _ZL19calc_vsite4fd_paramP17InteractionOfTypeN3gmx8ArrayRefIK22VsiteBondedInterac
   %.sroa.0.018.i.i269 = phi ptr [ %1728, %1727 ], [ %1709, %.noexc288 ]
   %1717 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i269, i64 4
   %1718 = load i32, ptr %1717, align 4
-  %1719 = icmp eq i32 %1718, %1714
+  %1719 = icmp eq i32 %1714, %1718
   %1720 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i269, i64 8
   %1721 = load i32, ptr %1720, align 4
-  %1722 = icmp eq i32 %1721, %1716
+  %1722 = icmp eq i32 %1716, %1721
   %or.cond21.i.i270 = select i1 %1719, i1 %1722, i1 false
   br i1 %or.cond21.i.i270, label %1725, label %.lr.ph._crit_edge.i.i271
 
 .lr.ph._crit_edge.i.i271:                         ; preds = %.lr.ph.i.i268
-  %1723 = icmp eq i32 %1721, %1714
-  %1724 = icmp eq i32 %1718, %1716
+  %1723 = icmp eq i32 %1714, %1721
+  %1724 = icmp eq i32 %1716, %1718
   %or.cond.i.i272 = and i1 %1724, %1723
   br i1 %or.cond.i.i272, label %1725, label %1727
 
@@ -4169,16 +4169,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit.i274: ; pr
   %.sroa.0.018.i66.i = phi ptr [ %1744, %1743 ], [ %1709, %.noexc290 ]
   %1733 = getelementptr inbounds i8, ptr %.sroa.0.018.i66.i, i64 4
   %1734 = load i32, ptr %1733, align 4
-  %1735 = icmp eq i32 %1734, %1730
+  %1735 = icmp eq i32 %1730, %1734
   %1736 = getelementptr inbounds i8, ptr %.sroa.0.018.i66.i, i64 8
   %1737 = load i32, ptr %1736, align 4
-  %1738 = icmp eq i32 %1737, %1732
+  %1738 = icmp eq i32 %1732, %1737
   %or.cond21.i67.i = select i1 %1735, i1 %1738, i1 false
   br i1 %or.cond21.i67.i, label %1741, label %.lr.ph._crit_edge.i68.i
 
 .lr.ph._crit_edge.i68.i:                          ; preds = %.lr.ph.i65.i
-  %1739 = icmp eq i32 %1737, %1730
-  %1740 = icmp eq i32 %1734, %1732
+  %1739 = icmp eq i32 %1730, %1737
+  %1740 = icmp eq i32 %1732, %1734
   %or.cond.i69.i = and i1 %1740, %1739
   br i1 %or.cond.i69.i, label %1741, label %1743
 
@@ -4209,16 +4209,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit72.i: ; pre
   %.sroa.0.018.i75.i = phi ptr [ %1760, %1759 ], [ %1709, %.noexc292 ]
   %1749 = getelementptr inbounds i8, ptr %.sroa.0.018.i75.i, i64 4
   %1750 = load i32, ptr %1749, align 4
-  %1751 = icmp eq i32 %1750, %1746
+  %1751 = icmp eq i32 %1746, %1750
   %1752 = getelementptr inbounds i8, ptr %.sroa.0.018.i75.i, i64 8
   %1753 = load i32, ptr %1752, align 4
-  %1754 = icmp eq i32 %1753, %1748
+  %1754 = icmp eq i32 %1748, %1753
   %or.cond21.i76.i = select i1 %1751, i1 %1754, i1 false
   br i1 %or.cond21.i76.i, label %1757, label %.lr.ph._crit_edge.i77.i
 
 .lr.ph._crit_edge.i77.i:                          ; preds = %.lr.ph.i74.i
-  %1755 = icmp eq i32 %1753, %1746
-  %1756 = icmp eq i32 %1750, %1748
+  %1755 = icmp eq i32 %1746, %1753
+  %1756 = icmp eq i32 %1748, %1750
   %or.cond.i78.i = and i1 %1756, %1755
   br i1 %or.cond.i78.i, label %1757, label %1759
 
@@ -4249,16 +4249,16 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit81.i: ; pre
   %.sroa.0.018.i84.i = phi ptr [ %1776, %1775 ], [ %1709, %.noexc294 ]
   %1765 = getelementptr inbounds i8, ptr %.sroa.0.018.i84.i, i64 4
   %1766 = load i32, ptr %1765, align 4
-  %1767 = icmp eq i32 %1766, %1762
+  %1767 = icmp eq i32 %1762, %1766
   %1768 = getelementptr inbounds i8, ptr %.sroa.0.018.i84.i, i64 8
   %1769 = load i32, ptr %1768, align 4
-  %1770 = icmp eq i32 %1769, %1764
+  %1770 = icmp eq i32 %1764, %1769
   %or.cond21.i85.i = select i1 %1767, i1 %1770, i1 false
   br i1 %or.cond21.i85.i, label %1773, label %.lr.ph._crit_edge.i86.i
 
 .lr.ph._crit_edge.i86.i:                          ; preds = %.lr.ph.i83.i
-  %1771 = icmp eq i32 %1769, %1762
-  %1772 = icmp eq i32 %1766, %1764
+  %1771 = icmp eq i32 %1762, %1769
+  %1772 = icmp eq i32 %1764, %1766
   %or.cond.i87.i = and i1 %1772, %1771
   br i1 %or.cond.i87.i, label %1773, label %1775
 
@@ -4295,32 +4295,32 @@ _ZL15get_bond_lengthN3gmx8ArrayRefIK22VsiteBondedInteractionEEii.exit90.i: ; pre
   %.sroa.0.022.i.i277 = phi ptr [ %1809, %1808 ], [ %1711, %.noexc297 ]
   %1783 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i277, i64 4
   %1784 = load i32, ptr %1783, align 4
-  %1785 = icmp eq i32 %1784, %1778
+  %1785 = icmp eq i32 %1778, %1784
   br i1 %1785, label %1786, label %1794
 
 1786:                                             ; preds = %.lr.ph.i91.i
   %1787 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i277, i64 8
   %1788 = load i32, ptr %1787, align 4
-  %1789 = icmp eq i32 %1788, %1780
+  %1789 = icmp eq i32 %1780, %1788
   br i1 %1789, label %1790, label %1794
 
 1790:                                             ; preds = %1786
   %1791 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i277, i64 12
   %1792 = load i32, ptr %1791, align 4
-  %1793 = icmp eq i32 %1792, %1782
+  %1793 = icmp eq i32 %1782, %1792
   br i1 %1793, label %1803, label %1794
 
 1794:                                             ; preds = %1790, %1786, %.lr.ph.i91.i
   %1795 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i277, i64 12
   %1796 = load i32, ptr %1795, align 4
-  %1797 = icmp eq i32 %1796, %1778
+  %1797 = icmp eq i32 %1778, %1796
   br i1 %1797, label %1798, label %1808
 
 1798:                                             ; preds = %1794
   %1799 = getelementptr inbounds i8, ptr %.sroa.0.022.i.i277, i64 8
   %1800 = load i32, ptr %1799, align 4
-  %1801 = icmp eq i32 %1800, %1780
-  %1802 = icmp eq i32 %1784, %1782
+  %1801 = icmp eq i32 %1780, %1800
+  %1802 = icmp eq i32 %1782, %1784
   %or.cond.i94.i = and i1 %1802, %1801
   br i1 %or.cond.i94.i, label %1803, label %1808
 
@@ -4359,32 +4359,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit.i278: ; preds = 
   %.sroa.0.022.i97.i = phi ptr [ %1842, %1841 ], [ %1711, %.noexc300 ]
   %1816 = getelementptr inbounds i8, ptr %.sroa.0.022.i97.i, i64 4
   %1817 = load i32, ptr %1816, align 4
-  %1818 = icmp eq i32 %1817, %1811
+  %1818 = icmp eq i32 %1811, %1817
   br i1 %1818, label %1819, label %1827
 
 1819:                                             ; preds = %.lr.ph.i96.i
   %1820 = getelementptr inbounds i8, ptr %.sroa.0.022.i97.i, i64 8
   %1821 = load i32, ptr %1820, align 4
-  %1822 = icmp eq i32 %1821, %1813
+  %1822 = icmp eq i32 %1813, %1821
   br i1 %1822, label %1823, label %1827
 
 1823:                                             ; preds = %1819
   %1824 = getelementptr inbounds i8, ptr %.sroa.0.022.i97.i, i64 12
   %1825 = load i32, ptr %1824, align 4
-  %1826 = icmp eq i32 %1825, %1815
+  %1826 = icmp eq i32 %1815, %1825
   br i1 %1826, label %1836, label %1827
 
 1827:                                             ; preds = %1823, %1819, %.lr.ph.i96.i
   %1828 = getelementptr inbounds i8, ptr %.sroa.0.022.i97.i, i64 12
   %1829 = load i32, ptr %1828, align 4
-  %1830 = icmp eq i32 %1829, %1811
+  %1830 = icmp eq i32 %1811, %1829
   br i1 %1830, label %1831, label %1841
 
 1831:                                             ; preds = %1827
   %1832 = getelementptr inbounds i8, ptr %.sroa.0.022.i97.i, i64 8
   %1833 = load i32, ptr %1832, align 4
-  %1834 = icmp eq i32 %1833, %1813
-  %1835 = icmp eq i32 %1817, %1815
+  %1834 = icmp eq i32 %1813, %1833
+  %1835 = icmp eq i32 %1815, %1817
   %or.cond.i100.i = and i1 %1835, %1834
   br i1 %or.cond.i100.i, label %1836, label %1841
 
@@ -4423,32 +4423,32 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit101.i: ; preds = 
   %.sroa.0.022.i104.i = phi ptr [ %1875, %1874 ], [ %1711, %.noexc303 ]
   %1849 = getelementptr inbounds i8, ptr %.sroa.0.022.i104.i, i64 4
   %1850 = load i32, ptr %1849, align 4
-  %1851 = icmp eq i32 %1850, %1844
+  %1851 = icmp eq i32 %1844, %1850
   br i1 %1851, label %1852, label %1860
 
 1852:                                             ; preds = %.lr.ph.i103.i
   %1853 = getelementptr inbounds i8, ptr %.sroa.0.022.i104.i, i64 8
   %1854 = load i32, ptr %1853, align 4
-  %1855 = icmp eq i32 %1854, %1846
+  %1855 = icmp eq i32 %1846, %1854
   br i1 %1855, label %1856, label %1860
 
 1856:                                             ; preds = %1852
   %1857 = getelementptr inbounds i8, ptr %.sroa.0.022.i104.i, i64 12
   %1858 = load i32, ptr %1857, align 4
-  %1859 = icmp eq i32 %1858, %1848
+  %1859 = icmp eq i32 %1848, %1858
   br i1 %1859, label %1869, label %1860
 
 1860:                                             ; preds = %1856, %1852, %.lr.ph.i103.i
   %1861 = getelementptr inbounds i8, ptr %.sroa.0.022.i104.i, i64 12
   %1862 = load i32, ptr %1861, align 4
-  %1863 = icmp eq i32 %1862, %1844
+  %1863 = icmp eq i32 %1844, %1862
   br i1 %1863, label %1864, label %1874
 
 1864:                                             ; preds = %1860
   %1865 = getelementptr inbounds i8, ptr %.sroa.0.022.i104.i, i64 8
   %1866 = load i32, ptr %1865, align 4
-  %1867 = icmp eq i32 %1866, %1846
-  %1868 = icmp eq i32 %1850, %1848
+  %1867 = icmp eq i32 %1846, %1866
+  %1868 = icmp eq i32 %1848, %1850
   %or.cond.i107.i = and i1 %1868, %1867
   br i1 %or.cond.i107.i, label %1869, label %1874
 
@@ -8215,7 +8215,7 @@ _ZSt19__relocate_object_aI17InteractionOfTypeS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i:
 _ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt19__relocate_object_aI17InteractionOfTypeS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaI17InteractionOfTypeEE9constructIS0_JRS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaI17InteractionOfTypeEE9constructIS0_JRS0_EEEvRS1_PT_DpOT0_.exit ], [ %66, %_ZSt19__relocate_object_aI17InteractionOfTypeS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ]
   %67 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 104
-  %.not10.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %_ZSt19__relocate_object_aI17InteractionOfTypeS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i32

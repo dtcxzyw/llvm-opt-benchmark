@@ -68,7 +68,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %add = add i64 %0, 16
-  %cmp3.not = icmp eq i64 %add, %inl
+  %cmp3.not = icmp eq i64 %inl, %add
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then2
@@ -267,7 +267,7 @@ if.end33:                                         ; preds = %if.end5, %if.then24
   br i1 %cmp34.not, label %if.end100.thread, label %if.then35
 
 if.end100.thread:                                 ; preds = %if.end33
-  %cmp102.not108 = icmp eq i64 %0, %inl
+  %cmp102.not108 = icmp eq i64 %inl, %0
   br label %if.then103
 
 if.then35:                                        ; preds = %if.end33
@@ -316,7 +316,7 @@ if.end61:                                         ; preds = %if.end56, %if.else
 
 if.else65:                                        ; preds = %if.end61
   %add66 = add i64 %0, 16
-  %cmp67.not = icmp eq i64 %add66, %inl
+  %cmp67.not = icmp eq i64 %inl, %add66
   br i1 %cmp67.not, label %if.end70, label %err
 
 if.end70:                                         ; preds = %if.end61, %if.else65
@@ -352,7 +352,7 @@ if.end100:                                        ; preds = %if.else85, %if.then
   %18 = load i64, ptr %text96, align 8
   %add97 = add i64 %18, %plen.1
   store i64 %add97, ptr %text96, align 8
-  %cmp102.not = icmp eq i64 %plen.1, %inl
+  %cmp102.not = icmp eq i64 %inl, %plen.1
   br i1 %cmp102.not, label %err, label %if.end100.if.then103_crit_edge
 
 if.end100.if.then103_crit_edge:                   ; preds = %if.end100

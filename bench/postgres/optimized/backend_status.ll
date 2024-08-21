@@ -700,7 +700,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
 
 50:                                               ; preds = %47, %44, %41, %36
   %51 = load volatile i32, ptr %38, align 8
-  %.not45 = icmp eq i32 %51, %0
+  %.not45 = icmp eq i32 %0, %51
   br i1 %.not45, label %67, label %52
 
 52:                                               ; preds = %50
@@ -803,7 +803,7 @@ define dso_local void @pgstat_report_query_id(i64 noundef %0, i1 noundef zeroext
   %8 = getelementptr inbounds i8, ptr %3, i64 424
   %9 = load volatile i64, ptr %8, align 8
   %.not6 = icmp eq i64 %9, 0
-  %brmerge = or i1 %.not6, %1
+  %brmerge = or i1 %1, %.not6
   br i1 %brmerge, label %10, label %19
 
 10:                                               ; preds = %7
@@ -1028,7 +1028,7 @@ define dso_local noundef ptr @pgstat_get_crashed_backend_activity(i32 noundef %0
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @llvm.smin.i32(i32 %15, i32 %2)
+  %28 = tail call i32 @llvm.smin.i32(i32 %2, i32 %15)
   %29 = sext i32 %28 to i64
   tail call void @ascii_safe_strlcpy(ptr noundef %1, ptr noundef nonnull %14, i64 noundef %29) #11
   br label %.loopexit
@@ -1264,7 +1264,7 @@ define dso_local ptr @pgstat_get_local_beentry_by_index(i32 noundef %0) local_un
   tail call fastcc void @pgstat_read_current_status()
   %2 = icmp slt i32 %0, 1
   %3 = load i32, ptr @localNumBackends, align 4
-  %4 = icmp slt i32 %3, %0
+  %4 = icmp sgt i32 %0, %3
   %or.cond = select i1 %2, i1 true, i1 %4
   %5 = load ptr, ptr @localBackendStatusTable, align 8
   %6 = zext nneg i32 %0 to i64

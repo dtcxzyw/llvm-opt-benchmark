@@ -768,7 +768,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %29, %_ZSt22__uninit
 _ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit: ; preds = %.lr.ph.i, %36
   %40 = phi ptr [ %10, %36 ], [ %39, %.lr.ph.i ]
   store ptr %40, ptr %9, align 8
-  %.not13.i.i68 = icmp eq ptr %10, %1
+  %.not13.i.i68 = icmp eq ptr %1, %10
   br i1 %.not13.i.i68, label %_ZSt22__uninitialized_move_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit74.thread, label %.lr.ph.i.i69
 
 _ZSt22__uninitialized_move_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit74.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit
@@ -867,7 +867,7 @@ _ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEE
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i91, %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit89
   %.0.lcssa.i.i95 = phi ptr [ %68, %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit89 ], [ %74, %.lr.ph.i.i91 ]
   %75 = getelementptr float, ptr %.0.lcssa.i.i95, i64 %2
-  %.not13.i.i96 = icmp eq ptr %10, %1
+  %.not13.i.i96 = icmp eq ptr %1, %10
   br i1 %.not13.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit102, label %.lr.ph.i.i97
 
 .lr.ph.i.i97:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i97
@@ -1502,7 +1502,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %32, %22
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 2
-  %44 = icmp ult i64 %43, %30
+  %44 = icmp ugt i64 %30, %43
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.noexc
@@ -1517,7 +1517,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %32, %22
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
 
 47:                                               ; preds = %.noexc
-  %48 = icmp ugt i64 %43, %30
+  %48 = icmp ult i64 %30, %43
   br i1 %48, label %49, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
 
 49:                                               ; preds = %47
@@ -2573,7 +2573,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -2641,7 +2641,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -2762,13 +2762,13 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   %69 = getelementptr inbounds i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %.fr1.i.i = freeze i32 %70
-  %71 = icmp sgt i32 %.fr1.i.i, %.0151
+  %71 = icmp slt i32 %.0151, %.fr1.i.i
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i8, ptr %68, i64 8
   %74 = load i32, ptr %73, align 4
-  %.not.i.i = icmp sgt i32 %74, %.0151
+  %.not.i.i = icmp slt i32 %.0151, %74
   br i1 %.not.i.i, label %79, label %75
 
 75:                                               ; preds = %72, %66
@@ -3750,7 +3750,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %28, %_ZSt22__uninit
 _ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit: ; preds = %.lr.ph.i, %35
   %39 = phi ptr [ %9, %35 ], [ %38, %.lr.ph.i ]
   store ptr %39, ptr %8, align 8
-  %.not13.i.i68 = icmp eq ptr %9, %1
+  %.not13.i.i68 = icmp eq ptr %1, %9
   br i1 %.not13.i.i68, label %_ZSt22__uninitialized_move_aIPfS0_N3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET0_T_S6_S5_RT1_.exit74.thread, label %.lr.ph.i.i69
 
 _ZSt22__uninitialized_move_aIPfS0_N3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET0_T_S6_S5_RT1_.exit74.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit
@@ -3849,7 +3849,7 @@ _ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_23AlignedAllocationPolic
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i91, %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit89
   %.0.lcssa.i.i95 = phi ptr [ %67, %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit89 ], [ %73, %.lr.ph.i.i91 ]
   %74 = getelementptr float, ptr %.0.lcssa.i.i95, i64 %2
-  %.not13.i.i96 = icmp eq ptr %9, %1
+  %.not13.i.i96 = icmp eq ptr %1, %9
   br i1 %.not13.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET0_T_S6_S5_RT1_.exit102, label %.lr.ph.i.i97
 
 .lr.ph.i.i97:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i97
@@ -4198,7 +4198,7 @@ define void @_Z14update_mdatomsP9t_mdatomsf(ptr noundef %0, float noundef %1) lo
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 644
   %11 = load float, ptr %10, align 4
-  %12 = fcmp une float %11, %1
+  %12 = fcmp une float %1, %11
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %9

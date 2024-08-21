@@ -1662,7 +1662,7 @@ if.then.i:                                        ; preds = %for.end
   br i1 %cmp.i27, label %if.end6.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp4.i = fcmp olt double %call1.i, %13
+  %cmp4.i = fcmp ogt double %13, %call1.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1695,7 +1695,7 @@ if.then.i32:                                      ; preds = %_ZN6icu_7517util64_
   br i1 %cmp.i35, label %if.end6.i38, label %if.else.i36
 
 if.else.i36:                                      ; preds = %if.then.i32
-  %cmp4.i37 = fcmp olt double %call1.i33, %call10
+  %cmp4.i37 = fcmp ogt double %call10, %call1.i33
   br i1 %cmp4.i37, label %if.then5.i47, label %if.end6.i38
 
 if.then5.i47:                                     ; preds = %if.else.i36
@@ -1771,7 +1771,7 @@ land.lhs.true:                                    ; preds = %for.end31
 
 cond.true.i70:                                    ; preds = %land.lhs.true
   %conv47 = sitofp i64 %19 to double
-  %mul48 = fmul double %conv47, %number
+  %mul48 = fmul double %number, %conv47
   %cmp49 = fcmp olt double %mul48, 5.000000e-01
   %cmp50 = fcmp oge double %mul48, 2.000000e+00
   %or.cond = or i1 %cmp49, %cmp50
@@ -1814,11 +1814,11 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call double @uprv_maxMantissa_75()
   %fneg = fneg double %call1
-  %cmp = fcmp ogt double %fneg, %d
+  %cmp = fcmp olt double %d, %fneg
   br i1 %cmp, label %if.end6, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %cmp4 = fcmp olt double %call1, %d
+  %cmp4 = fcmp ogt double %d, %call1
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -1981,11 +1981,11 @@ if.then.i:                                        ; preds = %call.i.noexc
 
 call1.i.noexc:                                    ; preds = %if.then.i
   %fneg.i = fneg double %call1.i35
-  %cmp.i = fcmp ogt double %fneg.i, %upperBound
+  %cmp.i = fcmp olt double %upperBound, %fneg.i
   br i1 %cmp.i, label %if.end6.i, label %if.else.i
 
 if.else.i:                                        ; preds = %call1.i.noexc
-  %cmp4.i = fcmp olt double %call1.i35, %upperBound
+  %cmp4.i = fcmp ogt double %upperBound, %call1.i35
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.else.i

@@ -2152,7 +2152,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
   %25 = load ptr, ptr %val, align 8
   %m_true.i = getelementptr inbounds i8, ptr %24, i64 856
   %26 = load ptr, ptr %m_true.i, align 8
-  %cmp.i38 = icmp eq ptr %26, %25
+  %cmp.i38 = icmp eq ptr %25, %26
   br i1 %cmp.i38, label %if.then58, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %invoke.cont45
@@ -2164,7 +2164,7 @@ invoke.cont52:                                    ; preds = %lor.lhs.false51
   %28 = load ptr, ptr %val, align 8
   %m_false.i = getelementptr inbounds i8, ptr %27, i64 864
   %29 = load ptr, ptr %m_false.i, align 8
-  %cmp.i41 = icmp eq ptr %29, %28
+  %cmp.i41 = icmp eq ptr %28, %29
   br i1 %cmp.i41, label %if.then58, label %if.end108
 
 if.then58:                                        ; preds = %invoke.cont52, %invoke.cont45
@@ -2286,7 +2286,7 @@ invoke.cont98:                                    ; preds = %invoke.cont96
   %41 = load ptr, ptr %val, align 8
   %m_true.i50 = getelementptr inbounds i8, ptr %40, i64 856
   %42 = load ptr, ptr %m_true.i50, align 8
-  %cmp.i51 = icmp eq ptr %42, %41
+  %cmp.i51 = icmp eq ptr %41, %42
   %cond = select i1 %cmp.i51, ptr @.str.55, ptr @.str.56
   %call105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call97, ptr noundef nonnull %cond)
           to label %invoke.cont104 unwind label %lpad44
@@ -7931,7 +7931,7 @@ entry:
   %__cmp = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 1
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp27 = icmp sgt i64 %div, %__holeIndex
+  %cmp27 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp27, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit

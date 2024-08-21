@@ -183,7 +183,7 @@ define noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr nocapture noundef nonn
   %5 = load i32, ptr %4, align 4
   %notmask.i = shl nsw i32 -1, %5
   %6 = xor i32 %notmask.i, -1
-  %7 = and i32 %6, %1
+  %7 = and i32 %1, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 84
   %9 = load i32, ptr %8, align 4
   %.not11 = icmp slt i32 %7, %9
@@ -751,7 +751,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
   %7 = load i32, ptr %6, align 4
   %notmask.i = shl nsw i32 -1, %7
   %8 = xor i32 %notmask.i, -1
-  %9 = and i32 %8, %1
+  %9 = and i32 %1, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = getelementptr inbounds i8, ptr %0, i64 84
   %12 = load i32, ptr %11, align 4
@@ -2045,7 +2045,7 @@ define noundef i32 @_ZN11dtTileCache16buildNavMeshTileEjP9dtNavMesh(ptr nocaptur
   %21 = load i32, ptr %20, align 4
   %notmask.i = shl nsw i32 -1, %21
   %22 = xor i32 %notmask.i, -1
-  %23 = and i32 %22, %1
+  %23 = and i32 %1, %22
   %24 = getelementptr inbounds i8, ptr %0, i64 84
   %25 = load i32, ptr %24, align 4
   %26 = icmp ugt i32 %23, %25

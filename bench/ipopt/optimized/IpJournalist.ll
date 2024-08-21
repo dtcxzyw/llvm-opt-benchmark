@@ -211,7 +211,7 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 
 .lr.ph.preheader:                                 ; preds = %.preheader53
   %12 = sext i32 %.04669 to i64
-  %13 = add i32 %.04669, %4
+  %13 = add i32 %4, %.04669
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
@@ -1621,7 +1621,7 @@ _ZNSt12_Vector_baseIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE11_M_allocateEm.exit
 _ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %36, %30
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %30 ], [ %38, %36 ]
   %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %.not13.i.i.i.i.i29 = icmp eq ptr %5, %1
+  %.not13.i.i.i.i.i29 = icmp eq ptr %1, %5
   br i1 %.not13.i.i.i.i.i29, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit38, label %.lr.ph.i.i.i.i.i30
 
 .lr.ph.i.i.i.i.i30:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %57

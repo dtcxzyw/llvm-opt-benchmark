@@ -4391,7 +4391,7 @@ define dso_local ptr @XML_GetBuffer(ptr noundef %0, i32 noundef %1) local_unname
 39:                                               ; preds = %31, %32, %35
   %40 = phi i64 [ %38, %35 ], [ 0, %32 ], [ 0, %31 ]
   %41 = trunc i64 %40 to i32
-  %42 = add i32 %41, %1
+  %42 = add i32 %1, %41
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %46
 
@@ -5189,7 +5189,7 @@ define dso_local void @XML_DefaultCurrent(ptr noundef %0) local_unnamed_addr #0 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds i8, ptr %0, i64 288
   %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, %15
+  %24 = icmp eq ptr %15, %23
   %25 = getelementptr inbounds i8, ptr %0, i64 520
   %26 = getelementptr inbounds i8, ptr %0, i64 528
   %.022.i = select i1 %24, ptr %25, ptr %12
@@ -5313,7 +5313,7 @@ define internal fastcc void @reportDefault(ptr nocapture noundef %0, ptr noundef
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 288
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
@@ -6386,7 +6386,7 @@ poolAppend.exit.i:                                ; preds = %321
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i790.i ], [ %indvars.iv.next.i.i, %341 ]
   %343 = getelementptr inbounds %struct.DEFAULT_ATTRIBUTE, ptr %340, i64 %indvars.iv.i.i
   %344 = load ptr, ptr %343, align 8
-  %345 = icmp eq ptr %344, %333
+  %345 = icmp eq ptr %333, %344
   br i1 %345, label %defineAttribute.exit.i, label %341
 
 ._crit_edge.i788.i:                               ; preds = %341, %.preheader.i.i
@@ -6671,7 +6671,7 @@ poolClear.exit796.i:                              ; preds = %.lr.ph.i793.i, %427
   %indvars.iv.i814.i = phi i64 [ 0, %.lr.ph.i812.i ], [ %indvars.iv.next.i815.i, %470 ]
   %472 = getelementptr inbounds %struct.DEFAULT_ATTRIBUTE, ptr %469, i64 %indvars.iv.i814.i
   %473 = load ptr, ptr %472, align 8
-  %474 = icmp eq ptr %473, %462
+  %474 = icmp eq ptr %462, %473
   br i1 %474, label %defineAttribute.exit817.i, label %470
 
 ._crit_edge53.i803.i:                             ; preds = %470, %456
@@ -6985,7 +6985,7 @@ poolAppend.exit.i836.i:                           ; preds = %584
 
 608:                                              ; preds = %604
   %609 = load ptr, ptr %23, align 8
-  %610 = icmp eq ptr %609, %.0563.i
+  %610 = icmp eq ptr %.0563.i, %609
   br i1 %610, label %611, label %storeEntityValue.exit.i
 
 611:                                              ; preds = %608
@@ -7030,7 +7030,7 @@ poolAppend.exit.i836.i:                           ; preds = %584
 
 625:                                              ; preds = %575
   %626 = load ptr, ptr %23, align 8
-  %627 = icmp eq ptr %626, %.0563.i
+  %627 = icmp eq ptr %.0563.i, %626
   br i1 %627, label %628, label %storeEntityValue.exit.i
 
 628:                                              ; preds = %625
@@ -7039,7 +7039,7 @@ poolAppend.exit.i836.i:                           ; preds = %584
 
 629:                                              ; preds = %575
   %630 = load ptr, ptr %23, align 8
-  %631 = icmp eq ptr %630, %.0563.i
+  %631 = icmp eq ptr %.0563.i, %630
   br i1 %631, label %632, label %storeEntityValue.exit.i
 
 632:                                              ; preds = %629
@@ -7049,7 +7049,7 @@ poolAppend.exit.i836.i:                           ; preds = %584
 
 634:                                              ; preds = %575
   %635 = load ptr, ptr %23, align 8
-  %636 = icmp eq ptr %635, %.0563.i
+  %636 = icmp eq ptr %.0563.i, %635
   br i1 %636, label %637, label %storeEntityValue.exit.i
 
 637:                                              ; preds = %634
@@ -8545,7 +8545,7 @@ build_model.exit.thread989.i:                     ; preds = %.loopexit.i952.i, %
 
 1301:                                             ; preds = %1297
   %1302 = load ptr, ptr %23, align 8
-  %1303 = icmp eq ptr %1302, %.0563.i
+  %1303 = icmp eq ptr %.0563.i, %1302
   br i1 %1303, label %1307, label %1304
 
 1304:                                             ; preds = %1301
@@ -10329,7 +10329,7 @@ define internal fastcc range(i32 0, 2) i32 @reportProcessingInstruction(ptr noun
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 288
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %17
@@ -10646,7 +10646,7 @@ define internal fastcc range(i32 0, 2) i32 @reportComment(ptr noundef %0, ptr no
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 288
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %1
+  %19 = icmp eq ptr %1, %18
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
@@ -10905,7 +10905,7 @@ define internal fastcc i32 @doContent(ptr noundef %0, i32 noundef %1, ptr nounde
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 288
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %2
+  %45 = icmp eq ptr %2, %44
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %7
@@ -11134,7 +11134,7 @@ define internal fastcc i32 @doContent(ptr noundef %0, i32 noundef %1, ptr nounde
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr %43, align 8
-  %163 = icmp eq ptr %162, %2
+  %163 = icmp eq ptr %2, %162
   br i1 %163, label %167, label %164
 
 164:                                              ; preds = %161
@@ -12072,7 +12072,7 @@ getContext.exit:                                  ; preds = %476, %._crit_edge17
 
 595:                                              ; preds = %591
   %596 = load ptr, ptr %43, align 8
-  %597 = icmp eq ptr %596, %2
+  %597 = icmp eq ptr %2, %596
   br i1 %597, label %601, label %598
 
 598:                                              ; preds = %595
@@ -12316,7 +12316,7 @@ poolStoreString.exit522:                          ; preds = %650, %._crit_edge.i
 
 699:                                              ; preds = %695
   %700 = load ptr, ptr %43, align 8
-  %701 = icmp eq ptr %700, %2
+  %701 = icmp eq ptr %2, %700
   br i1 %701, label %705, label %702
 
 702:                                              ; preds = %699
@@ -12577,7 +12577,7 @@ freeBindings.exit545:                             ; preds = %740, %poolClear.exi
 
 820:                                              ; preds = %816
   %821 = load ptr, ptr %43, align 8
-  %822 = icmp eq ptr %821, %2
+  %822 = icmp eq ptr %2, %821
   br i1 %822, label %826, label %823
 
 823:                                              ; preds = %820
@@ -12720,7 +12720,7 @@ reportDefault.exit550:                            ; preds = %827, %843
 
 893:                                              ; preds = %889
   %894 = load ptr, ptr %43, align 8
-  %895 = icmp eq ptr %894, %2
+  %895 = icmp eq ptr %2, %894
   br i1 %895, label %899, label %896
 
 896:                                              ; preds = %893
@@ -12796,7 +12796,7 @@ reportDefault.exit555:                            ; preds = %900, %916
 
 931:                                              ; preds = %928
   %932 = load ptr, ptr %43, align 8
-  %933 = icmp eq ptr %932, %2
+  %933 = icmp eq ptr %2, %932
   br i1 %933, label %937, label %934
 
 934:                                              ; preds = %931
@@ -12871,7 +12871,7 @@ reportDefault.exit560:                            ; preds = %938, %954
 
 969:                                              ; preds = %966
   %970 = load ptr, ptr %43, align 8
-  %971 = icmp eq ptr %970, %2
+  %971 = icmp eq ptr %2, %970
   br i1 %971, label %975, label %972
 
 972:                                              ; preds = %969
@@ -13073,7 +13073,7 @@ reportDefault.exit565:                            ; preds = %976, %992
 
 1072:                                             ; preds = %1069
   %1073 = load ptr, ptr %43, align 8
-  %1074 = icmp eq ptr %1073, %2
+  %1074 = icmp eq ptr %2, %1073
   br i1 %1074, label %1078, label %1075
 
 1075:                                             ; preds = %1072
@@ -13150,7 +13150,7 @@ reportDefault.exit570:                            ; preds = %1079, %1095
 
 1112:                                             ; preds = %1109
   %1113 = load ptr, ptr %43, align 8
-  %1114 = icmp eq ptr %1113, %2
+  %1114 = icmp eq ptr %2, %1113
   br i1 %1114, label %1118, label %1115
 
 1115:                                             ; preds = %1112
@@ -13456,7 +13456,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %76, %7
 139:                                              ; preds = %135
   %140 = getelementptr inbounds i8, ptr %0, i64 288
   %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %141, %1
+  %142 = icmp eq ptr %1, %141
   br i1 %142, label %143, label %poolCopyString.exit.thread
 
 143:                                              ; preds = %139
@@ -14694,7 +14694,7 @@ define internal fastcc range(i32 0, 36) i32 @doCdataSection(ptr nocapture nounde
   store ptr %17, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 288
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %1
+  %20 = icmp eq ptr %1, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %6
@@ -14772,7 +14772,7 @@ define internal fastcc range(i32 0, 36) i32 @doCdataSection(ptr nocapture nounde
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %18, align 8
-  %58 = icmp eq ptr %57, %1
+  %58 = icmp eq ptr %1, %57
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %56
@@ -14857,7 +14857,7 @@ reportDefault.exit:                               ; preds = %63, %79
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %18, align 8
-  %100 = icmp eq ptr %99, %1
+  %100 = icmp eq ptr %1, %99
   br i1 %100, label %104, label %101
 
 101:                                              ; preds = %98
@@ -14968,7 +14968,7 @@ reportDefault.exit75:                             ; preds = %105, %121
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr %18, align 8
-  %160 = icmp eq ptr %159, %1
+  %160 = icmp eq ptr %1, %159
   br i1 %160, label %164, label %161
 
 161:                                              ; preds = %158
@@ -15669,7 +15669,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0
   %172 = getelementptr inbounds i8, ptr %0, i64 648
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 264
-  %175 = icmp eq ptr %174, %1
+  %175 = icmp eq ptr %1, %174
   br i1 %175, label %177, label %176
 
 176:                                              ; preds = %171, %164
@@ -16104,7 +16104,7 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
   %23 = getelementptr inbounds i8, ptr %12, i64 16
   %24 = getelementptr inbounds i8, ptr %12, i64 8
   %25 = getelementptr inbounds i8, ptr %12, i64 160
-  %26 = icmp eq ptr %25, %5
+  %26 = icmp eq ptr %5, %25
   %27 = getelementptr inbounds i8, ptr %12, i64 257
   %28 = getelementptr inbounds i8, ptr %12, i64 258
   %29 = getelementptr inbounds i8, ptr %0, i64 544
@@ -16134,7 +16134,7 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %0, i64 288
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %1
+  %39 = icmp eq ptr %1, %38
   br i1 %39, label %40, label %poolStoreString.exit.thread
 
 40:                                               ; preds = %36
@@ -16146,7 +16146,7 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %0, i64 288
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, %1
+  %46 = icmp eq ptr %1, %45
   br i1 %46, label %47, label %poolStoreString.exit.thread
 
 47:                                               ; preds = %43
@@ -16163,7 +16163,7 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %0, i64 288
   %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, %1
+  %56 = icmp eq ptr %1, %55
   br i1 %56, label %57, label %poolStoreString.exit.thread
 
 57:                                               ; preds = %53
@@ -16535,7 +16535,7 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
 219:                                              ; preds = %216
   %220 = getelementptr inbounds i8, ptr %0, i64 288
   %221 = load ptr, ptr %220, align 8
-  %222 = icmp eq ptr %221, %1
+  %222 = icmp eq ptr %1, %221
   br i1 %222, label %223, label %poolStoreString.exit.thread
 
 223:                                              ; preds = %219
@@ -16552,7 +16552,7 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
 228:                                              ; preds = %225
   %229 = getelementptr inbounds i8, ptr %0, i64 288
   %230 = load ptr, ptr %229, align 8
-  %231 = icmp eq ptr %230, %1
+  %231 = icmp eq ptr %1, %230
   br i1 %231, label %232, label %poolStoreString.exit.thread
 
 232:                                              ; preds = %228
@@ -16569,7 +16569,7 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
 237:                                              ; preds = %234
   %238 = getelementptr inbounds i8, ptr %0, i64 288
   %239 = load ptr, ptr %238, align 8
-  %240 = icmp eq ptr %239, %1
+  %240 = icmp eq ptr %1, %239
   br i1 %240, label %241, label %poolStoreString.exit.thread
 
 241:                                              ; preds = %237
@@ -16592,7 +16592,7 @@ lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %
 250:                                              ; preds = %33
   %251 = getelementptr inbounds i8, ptr %0, i64 288
   %252 = load ptr, ptr %251, align 8
-  %253 = icmp eq ptr %252, %1
+  %253 = icmp eq ptr %1, %252
   br i1 %253, label %254, label %poolStoreString.exit.thread
 
 254:                                              ; preds = %250

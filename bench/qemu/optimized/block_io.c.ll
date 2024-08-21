@@ -780,12 +780,12 @@ if.then17:                                        ; preds = %if.end15
 
 land.lhs.true24:                                  ; preds = %if.then17
   %call.i = tail call ptr @qemu_get_current_aio_context() #15
-  %cmp.i22 = icmp eq ptr %call.i, %call20
+  %cmp.i22 = icmp eq ptr %call20, %call.i
   br i1 %cmp.i22, label %while.cond.preheader, label %if.end.i23
 
 if.end.i23:                                       ; preds = %land.lhs.true24
   %call1.i = tail call ptr @qemu_get_aio_context() #15
-  %cmp2.i = icmp eq ptr %call1.i, %call20
+  %cmp2.i = icmp eq ptr %call20, %call1.i
   br i1 %cmp2.i, label %if.then3.i, label %if.else29
 
 if.then3.i:                                       ; preds = %if.end.i23
@@ -1455,7 +1455,7 @@ if.else:                                          ; preds = %entry
   %conv = sext i32 %0 to i64
   %1 = srem i64 %offset, %conv
   %mul = sub nsw i64 %offset, %1
-  %add = add i64 %conv, %bytes
+  %add = add i64 %bytes, %conv
   %add3 = add i64 %add, %1
   %add3.fr = freeze i64 %add3
   %sub4 = add i64 %add3.fr, -1
@@ -1618,7 +1618,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 if.end9.i:                                        ; preds = %if.end6.i
   %sub.i = sub nuw nsw i64 9223372035781033984, %4
-  %cmp10.i = icmp ult i64 %sub.i, %3
+  %cmp10.i = icmp ugt i64 %3, %sub.i
   br i1 %cmp10.i, label %if.then11.i, label %bdrv_check_qiov_request.exit
 
 if.then11.i:                                      ; preds = %if.end9.i
@@ -1631,7 +1631,7 @@ bdrv_check_qiov_request.exit:                     ; preds = %if.end9.i, %if.then
   %overlap_bytes.i.i = getelementptr inbounds i8, ptr %req.015.i, i64 40
   %6 = load i64, ptr %overlap_bytes.i.i, align 8
   %add.i.i = add i64 %6, %5
-  %cmp.not.i.i = icmp sgt i64 %add.i.i, %3
+  %cmp.not.i.i = icmp slt i64 %3, %add.i.i
   %add2.i.i = add i64 %4, %3
   %cmp3.not.i.i = icmp slt i64 %5, %add2.i.i
   %retval.0.i.i = and i1 %cmp3.not.i.i, %cmp.not.i.i
@@ -1722,7 +1722,7 @@ if.then8:                                         ; preds = %if.end6
 
 if.end9:                                          ; preds = %if.end6
   %sub = sub nuw nsw i64 9223372035781033984, %bytes
-  %cmp10 = icmp ult i64 %sub, %offset
+  %cmp10 = icmp ugt i64 %offset, %sub
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end9
@@ -1736,7 +1736,7 @@ if.end12:                                         ; preds = %if.end9
 if.end14:                                         ; preds = %if.end12
   %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %0 = load i64, ptr %size, align 8
-  %cmp15 = icmp ult i64 %0, %qiov_offset
+  %cmp15 = icmp ugt i64 %qiov_offset, %0
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end14
@@ -1745,7 +1745,7 @@ if.then16:                                        ; preds = %if.end14
 
 if.end18:                                         ; preds = %if.end14
   %sub20 = sub nuw i64 %0, %qiov_offset
-  %cmp21 = icmp ult i64 %sub20, %bytes
+  %cmp21 = icmp ugt i64 %bytes, %sub20
   br i1 %cmp21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end18
@@ -2809,8 +2809,8 @@ if.end69:                                         ; preds = %if.end64
   %sub78 = add i64 %sub, %cond77
   %sub79 = sub i64 0, %align
   %and80 = and i64 %sub78, %sub79
-  %cmp81.not = icmp slt i64 %and80, %bytes
-  %cmp84.not = icmp slt i64 %mul, %bytes
+  %cmp81.not = icmp sgt i64 %bytes, %and80
+  %cmp84.not = icmp sgt i64 %bytes, %mul
   %or.cond96 = select i1 %cmp81.not, i1 true, i1 %cmp84.not
   br i1 %or.cond96, label %if.end88, label %if.then86
 
@@ -3318,7 +3318,7 @@ lor.lhs.false:                                    ; preds = %bdrv_make_request_s
   br i1 %tobool7, label %if.then9, label %if.end29
 
 if.then9:                                         ; preds = %bdrv_make_request_serialising.exit, %lor.lhs.false
-  %and10 = and i64 %sub4.i.i, %offset
+  %and10 = and i64 %offset, %sub4.i.i
   %tobool12 = trunc i8 %14 to i1
   %buf_len = getelementptr inbounds i8, ptr %pad, i64 8
   %15 = load i64, ptr %buf_len, align 8
@@ -3735,7 +3735,7 @@ if.then59:                                        ; preds = %if.else56
   br label %if.end108
 
 if.else61:                                        ; preds = %if.else56
-  %cmp63.not = icmp slt i64 %mul, %bytes
+  %cmp63.not = icmp sgt i64 %bytes, %mul
   tail call void @bdrv_co_debug_event(ptr noundef nonnull %0, i32 noundef 39) #15
   br i1 %cmp63.not, label %if.else67, label %if.then65
 
@@ -4263,7 +4263,7 @@ if.then1:                                         ; preds = %if.end
   br label %early_out
 
 if.end2:                                          ; preds = %if.end
-  %cmp3.not = icmp sgt i64 %call, %offset
+  %cmp3.not = icmp slt i64 %offset, %call
   br i1 %cmp3.not, label %if.end6, label %early_out
 
 if.end6:                                          ; preds = %if.end2
@@ -4544,7 +4544,7 @@ if.else162:                                       ; preds = %bdrv_cow_bs.exit
 if.end177.thread:                                 ; preds = %if.else162
   %call165 = call i64 @bdrv_co_getlength(ptr noundef nonnull %27) #15
   %cmp166 = icmp slt i64 %call165, 0
-  %cmp169.not = icmp sgt i64 %call165, %offset
+  %cmp169.not = icmp slt i64 %offset, %call165
   %or.cond118 = or i1 %cmp166, %cmp169.not
   %or172 = or disjoint i32 %ret.2135, 2
   %spec.select125 = select i1 %or.cond118, i32 %ret.2135, i32 %or172
@@ -5457,7 +5457,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %l
   %overlap_bytes.i.i = getelementptr inbounds i8, ptr %req.015.i, i64 40
   %19 = load i64, ptr %overlap_bytes.i.i, align 8
   %add.i.i = add i64 %19, %18
-  %cmp.not.i.i = icmp sgt i64 %add.i.i, %16
+  %cmp.not.i.i = icmp slt i64 %16, %add.i.i
   %add2.i.i = add i64 %17, %16
   %cmp3.not.i.i = icmp slt i64 %18, %add2.i.i
   %retval.0.i.i = and i1 %cmp3.not.i.i, %cmp.not.i.i
@@ -6485,7 +6485,7 @@ tracked_request_begin.exit:                       ; preds = %if.end15, %if.then.
   %le_prev19.i = getelementptr inbounds i8, ptr %req, i64 56
   store ptr %tracked_requests.i, ptr %le_prev19.i, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %reqs_lock.i, ptr noundef nonnull @.str.1, i32 noundef 659) #15
-  %tobool22 = icmp ult i64 %call8, %offset
+  %tobool22 = icmp ugt i64 %offset, %call8
   br i1 %tobool22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %tracked_request_begin.exit
@@ -7013,7 +7013,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   %overlap_bytes.i = getelementptr inbounds i8, ptr %req.015, i64 40
   %6 = load i64, ptr %overlap_bytes.i, align 8
   %add.i = add i64 %6, %5
-  %cmp.not.i = icmp sgt i64 %add.i, %3
+  %cmp.not.i = icmp slt i64 %3, %add.i
   %add2.i = add i64 %4, %3
   %cmp3.not.i = icmp slt i64 %5, %add2.i
   %retval.0.i = and i1 %cmp3.not.i, %cmp.not.i
@@ -7227,7 +7227,7 @@ if.else.i:                                        ; preds = %if.end
   %conv.i = sext i32 %4 to i64
   %5 = srem i64 %offset, %conv.i
   %mul.i = sub nsw i64 %offset, %5
-  %add.i = add i64 %conv.i, %bytes
+  %add.i = add i64 %bytes, %conv.i
   %add3.i = add i64 %add.i, %5
   %add3.fr.i = freeze i64 %add3.i
   %sub4.i = add i64 %add3.fr.i, -1
@@ -7503,7 +7503,7 @@ entry:
   %supported_read_flags = getelementptr inbounds i8, ptr %bs, i64 16584
   %1 = load i32, ptr %supported_read_flags, align 8
   %not = xor i32 %1, -1
-  %and = and i32 %not, %flags
+  %and = and i32 %flags, %not
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.else
 
@@ -7535,7 +7535,7 @@ if.end9:                                          ; preds = %if.end4
 lor.lhs.false:                                    ; preds = %if.end9
   %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %6 = load i64, ptr %size, align 8
-  %cmp10.not = icmp eq i64 %6, %bytes
+  %cmp10.not = icmp eq i64 %bytes, %6
   br i1 %cmp10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %lor.lhs.false, %if.end9
@@ -7932,7 +7932,7 @@ if.end14:                                         ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end14
   %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %6 = load i64, ptr %size, align 8
-  %cmp15.not = icmp eq i64 %6, %bytes
+  %cmp15.not = icmp eq i64 %bytes, %6
   br i1 %cmp15.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end14

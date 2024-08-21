@@ -1047,7 +1047,7 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef
   %29 = add i64 %28, %26
   %30 = add i64 %29, %17
   %31 = sub i64 %30, %27
-  %32 = icmp ugt i64 %31, %1
+  %32 = icmp ult i64 %1, %31
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %2
@@ -1919,7 +1919,7 @@ _ZNSt11_Deque_baseIhSaIhEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #16
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i

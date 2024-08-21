@@ -4191,7 +4191,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i: ; preds = %._crit_edge.
 
 31:                                               ; preds = %29
   %32 = sub i64 %10, %30
-  %.not.i.i.i.i.i69 = icmp eq ptr %.tr105124, %2
+  %.not.i.i.i.i.i69 = icmp eq ptr %2, %.tr105124
   br i1 %.not.i.i.i.i.i69, label %_ZSt21__move_merge_adaptiveIPPN3ozz7options6OptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread
 
 _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %31
@@ -4230,7 +4230,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %31
 45:                                               ; preds = %40
   %46 = load ptr, ptr %.026.i.ph, align 8
   store ptr %46, ptr %44, align 8
-  %47 = icmp eq ptr %.026.i.ph, %.tr122
+  %47 = icmp eq ptr %.tr122, %.026.i.ph
   br i1 %47, label %48, label %.outer, !llvm.loop !33
 
 48:                                               ; preds = %45
@@ -4251,7 +4251,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %31
 56:                                               ; preds = %40
   %57 = load ptr, ptr %.024.i71, align 8
   store ptr %57, ptr %44, align 8
-  %58 = icmp eq ptr %.024.i71, %5
+  %58 = icmp eq ptr %5, %.024.i71
   br i1 %58, label %_ZSt21__move_merge_adaptiveIPPN3ozz7options6OptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %59
 
 59:                                               ; preds = %56
@@ -4359,7 +4359,7 @@ _ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterI
   br label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89
 
 _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89: ; preds = %103, %99
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.0102, %.tr105124
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr105124, %.0102
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i, label %104
 
 104:                                              ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89
@@ -4387,14 +4387,14 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i: ; preds = %109, %_ZSt
   br i1 %.not33.i, label %125, label %112
 
 112:                                              ; preds = %111
-  %.not34.i = icmp eq i64 %.0, %.tr107126
+  %.not34.i = icmp eq i64 %.tr107126, %.0
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %113
 
 113:                                              ; preds = %112
   %114 = ptrtoint ptr %.tr105124 to i64
   %115 = ptrtoint ptr %.0102 to i64
   %116 = sub i64 %114, %115
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.0102, %.tr105124
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr105124, %.0102
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit40.i, label %117
 
 117:                                              ; preds = %113

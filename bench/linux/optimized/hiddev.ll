@@ -476,7 +476,7 @@ define internal i64 @hiddev_read(ptr nocapture noundef readonly %0, ptr noundef 
   %18 = icmp eq i32 %17, 0
   %19 = select i1 %18, i32 8, i32 24
   %20 = zext nneg i32 %19 to i64
-  %21 = icmp ugt i64 %20, %2
+  %21 = icmp ult i64 %2, %20
   br i1 %21, label %128, label %22
 
 22:                                               ; preds = %4
@@ -495,7 +495,7 @@ define internal i64 @hiddev_read(ptr nocapture noundef readonly %0, ptr noundef 
   %.pre = load i32, ptr %27, align 8
   %.pre12 = load i32, ptr %28, align 4
   %33 = zext nneg i32 %19 to i64
-  %34 = icmp ugt i64 %33, %2
+  %34 = icmp ult i64 %2, %33
   br label %35
 
 35:                                               ; preds = %.loopexit, %26
@@ -589,7 +589,7 @@ define internal i64 @hiddev_read(ptr nocapture noundef readonly %0, ptr noundef 
 .preheader:                                       ; preds = %115
   %78 = add i32 %116, %19
   %79 = sext i32 %78 to i64
-  %80 = icmp ugt i64 %79, %2
+  %80 = icmp ult i64 %2, %79
   br i1 %80, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.thread5, %.preheader
@@ -794,7 +794,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   %30 = getelementptr inbounds i8, ptr %19, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %32, %2
+  %33 = icmp ult i64 %2, %32
   br i1 %33, label %34, label %hiddev_ioctl_string.exit
 
 34:                                               ; preds = %29

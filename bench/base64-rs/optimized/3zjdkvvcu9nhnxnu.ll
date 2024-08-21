@@ -103,7 +103,7 @@ define noundef zeroext i1 @"_ZN85_$LT$base64..chunked_encoder..StringSink$u20$as
   %15 = load i64, ptr %14, align 8, !alias.scope !11, !noalias !16, !noundef !4
   %16 = load i64, ptr %6, align 8, !alias.scope !18, !noalias !16, !noundef !4
   %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %17, %13
+  %18 = icmp ugt i64 %13, %17
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h7806e598d0c29468E.exit"
 
 19:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit"

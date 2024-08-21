@@ -464,7 +464,7 @@ while.body71.i.i:                                 ; preds = %while.cond68.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body71.i.i
   %32 = load i32, ptr %m_num_patterns.i.i.i.i, align 8
-  %cmp3.not.i.i.i = icmp ult i32 %32, %31
+  %cmp3.not.i.i.i = icmp ugt i32 %31, %32
   %33 = xor i32 %32, -1
   %.sink389.i.i = select i1 %cmp3.not.i.i.i, i32 %33, i32 -1
   %sub9.i.i.i = add i32 %.sink389.i.i, %31
@@ -1132,7 +1132,7 @@ while.body61.i.i:                                 ; preds = %while.cond58.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body61.i.i
   %34 = load i32, ptr %m_num_patterns.i.i.i.i, align 8
-  %cmp3.not.i.i.i = icmp ult i32 %34, %33
+  %cmp3.not.i.i.i = icmp ugt i32 %33, %34
   %35 = xor i32 %34, -1
   %.sink361.i.i = select i1 %cmp3.not.i.i.i, i32 %35, i32 -1
   %sub9.i.i.i = add i32 %.sink361.i.i, %33
@@ -1587,7 +1587,7 @@ invoke.cont17.i.i:                                ; preds = %invoke.cont15.i.i
   br i1 %call18.i.i, label %if.end20.i.i, label %while.cond.backedge.i.i
 
 if.end20.i.i:                                     ; preds = %invoke.cont17.i.i
-  %cmp.i58.i.i = icmp eq ptr %7, %s1
+  %cmp.i58.i.i = icmp eq ptr %s1, %7
   br i1 %cmp.i58.i.i, label %if.then.i59.i.i, label %invoke.cont23.invoke.i.i
 
 if.then.i59.i.i:                                  ; preds = %if.end20.i.i

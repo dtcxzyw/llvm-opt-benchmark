@@ -6029,7 +6029,7 @@ define hidden void @_Z8drawPredifiiiiRN2cv3MatE(i32 noundef %0, float noundef %1
   %31 = sub i64 %29, %30
   %32 = lshr exact i64 %31, 5
   %33 = trunc i64 %32 to i32
-  %34 = icmp sgt i32 %33, %0
+  %34 = icmp slt i32 %0, %33
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %28
@@ -6106,14 +6106,14 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.sroa.026.0.extract.trunc = trunc i64 %57 to i32
   %.sroa.227.0.extract.shift = lshr i64 %57, 32
   %.sroa.227.0.extract.trunc = trunc nuw i64 %.sroa.227.0.extract.shift to i32
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.sroa.227.0.extract.trunc, i32 %3)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %3, i32 %.sroa.227.0.extract.trunc)
   %59 = getelementptr inbounds i8, ptr %16, i64 8
   %60 = getelementptr inbounds i8, ptr %16, i64 16
   store i64 0, ptr %60, align 8
   store i32 50397184, ptr %16, align 8
   store ptr %6, ptr %59, align 8
   %61 = sub nsw i32 %.sroa.speculated, %.sroa.227.0.extract.trunc
-  %62 = add nsw i32 %.sroa.026.0.extract.trunc, %2
+  %62 = add nsw i32 %2, %.sroa.026.0.extract.trunc
   %63 = load i32, ptr %15, align 4
   %64 = add nsw i32 %63, %.sroa.speculated
   store double 2.550000e+02, ptr %17, align 8, !alias.scope !76
@@ -6684,7 +6684,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27
@@ -6823,7 +6823,7 @@ _ZNSt11_Deque_baseIN2cv3MatESaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #21
-  %24 = icmp ugt ptr %.011.i, %15
+  %24 = icmp ult ptr %15, %.011.i
   br i1 %24, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv3MatESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
@@ -7344,7 +7344,7 @@ _ZNSt11_Deque_baseISt6vectorIN2cv3MatESaIS2_EESaIS4_EE16_M_allocate_nodeEv.exit.
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseISt6vectorIN2cv3MatESaIS2_EESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -7981,7 +7981,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i54.i.i.i.i.i: ; preds
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
   %237 = call ptr @__cxa_begin_catch(ptr %236) #21
-  %.not4.i.i.i.i.i.i.i47.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i.i.i.i.i.i.i, %226
+  %.not4.i.i.i.i.i.i.i47.i.i.i.i.i = icmp eq ptr %226, %.014.i.i.i.i.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i47.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i51.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i:                 ; preds = %234, %.lr.ph.i.i.i.i.i.i.i48.i.i.i.i.i
@@ -8897,7 +8897,7 @@ _ZNSt11_Deque_baseIN2cv10AsyncArrayESaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #21
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN2cv10AsyncArrayESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -9613,7 +9613,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #21
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.i
@@ -9917,7 +9917,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIiSt4pairIKiSt6vectorImSaImEEES
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -9964,7 +9964,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt6vectorImSaImEEESt10_Select1stIS5_ESt4lessIiESaIS5_E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiSt6vectorImSaImEEESt10_Select1stIS5_ESt4lessIiESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

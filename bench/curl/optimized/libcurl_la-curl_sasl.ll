@@ -53,7 +53,7 @@ for.body.us:                                      ; preds = %entry, %for.inc.us
   %arrayidx28.us = phi ptr [ %arrayidx.us, %for.inc.us ], [ @mechtable, %entry ]
   %len3.us = getelementptr inbounds i8, ptr %arrayidx28.us, i64 8
   %1 = load i64, ptr %len3.us, align 8
-  %cmp.not.us = icmp ugt i64 %1, %maxlen
+  %cmp.not.us = icmp ult i64 %maxlen, %1
   br i1 %cmp.not.us, label %for.inc.us, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %for.body.us
@@ -62,7 +62,7 @@ land.lhs.true.us:                                 ; preds = %for.body.us
   br i1 %tobool10.not.us, label %if.then.us, label %for.inc.us
 
 if.then.us:                                       ; preds = %land.lhs.true.us
-  %cmp19.us = icmp eq i64 %1, %maxlen
+  %cmp19.us = icmp eq i64 %maxlen, %1
   br i1 %cmp19.us, label %return.sink.split, label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.then.us
@@ -95,7 +95,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx28 = phi ptr [ %arrayidx, %for.inc ], [ @mechtable, %entry ]
   %len3 = getelementptr inbounds i8, ptr %arrayidx28, i64 8
   %7 = load i64, ptr %len3, align 8
-  %cmp.not = icmp ugt i64 %7, %maxlen
+  %cmp.not = icmp ult i64 %maxlen, %7
   br i1 %cmp.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
@@ -105,7 +105,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   store i64 %7, ptr %len, align 8
-  %cmp19 = icmp eq i64 %7, %maxlen
+  %cmp19 = icmp eq i64 %maxlen, %7
   br i1 %cmp19, label %return.sink.split, label %if.end23
 
 if.end23:                                         ; preds = %if.then
@@ -179,7 +179,7 @@ for.body.i:                                       ; preds = %if.end6, %for.inc.i
   %arrayidx28.i = phi ptr [ %arrayidx.i, %for.inc.i ], [ @mechtable, %if.end6 ]
   %len3.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 8
   %1 = load i64, ptr %len3.i, align 8
-  %cmp.not.i = icmp ugt i64 %1, %len
+  %cmp.not.i = icmp ult i64 %len, %1
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -188,7 +188,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %tobool10.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %cmp19.i = icmp eq i64 %1, %len
+  %cmp19.i = icmp eq i64 %len, %1
   br i1 %cmp19.i, label %Curl_sasl_decode_mech.exit, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then.i
@@ -736,7 +736,7 @@ if.then:                                          ; preds = %cond.end
   %6 = load ptr, ptr %sasl, align 8
   %finalcode = getelementptr inbounds i8, ptr %6, i64 52
   %7 = load i32, ptr %finalcode, align 4
-  %cmp10.not = icmp eq i32 %7, %code
+  %cmp10.not = icmp eq i32 %code, %7
   %spec.select = select i1 %cmp10.not, i32 0, i32 67
   store i32 2, ptr %progress, align 4
   store i32 0, ptr %state, align 8
@@ -746,7 +746,7 @@ land.lhs.true17:                                  ; preds = %cond.end
   %8 = load ptr, ptr %sasl, align 8
   %contcode = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load i32, ptr %contcode, align 8
-  %cmp19.not = icmp eq i32 %9, %code
+  %cmp19.not = icmp eq i32 %code, %9
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true17
@@ -890,7 +890,7 @@ sw.bb85:                                          ; preds = %cond.end.sw.bb85_cr
   %32 = phi ptr [ %.pre, %cond.end.sw.bb85_crit_edge ], [ %8, %if.end21 ]
   %finalcode87 = getelementptr inbounds i8, ptr %32, i64 52
   %33 = load i32, ptr %finalcode87, align 4
-  %cmp88 = icmp eq i32 %33, %code
+  %cmp88 = icmp eq i32 %code, %33
   br i1 %cmp88, label %if.then90, label %if.else91
 
 if.then90:                                        ; preds = %sw.bb85
@@ -901,7 +901,7 @@ if.then90:                                        ; preds = %sw.bb85
 if.else91:                                        ; preds = %sw.bb85
   %contcode93 = getelementptr inbounds i8, ptr %32, i64 48
   %34 = load i32, ptr %contcode93, align 8
-  %cmp94 = icmp eq i32 %34, %code
+  %cmp94 = icmp eq i32 %code, %34
   br i1 %cmp94, label %if.then96, label %if.else97
 
 if.then96:                                        ; preds = %if.else91

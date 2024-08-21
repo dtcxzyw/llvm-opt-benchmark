@@ -140,7 +140,7 @@ SuiteSparse_malloc.exit:                          ; preds = %12
 19:                                               ; preds = %17
   %20 = tail call ptr @realloc(ptr noundef nonnull %3, i64 noundef %6) #11
   %21 = icmp ne ptr %20, null
-  %22 = icmp ult i64 %spec.store.select2, %1
+  %22 = icmp ugt i64 %1, %spec.store.select2
   %spec.select = or i1 %21, %22
   %spec.select30 = select i1 %21, ptr %20, ptr %3
   br label %23

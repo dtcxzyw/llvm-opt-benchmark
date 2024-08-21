@@ -2071,7 +2071,7 @@ define dso_local ptr @jsonpath_yy_create_buffer(ptr noundef %0, i32 noundef %1) 
   store i32 1, ptr %13, align 8
   %14 = tail call ptr @__errno_location() #18
   %15 = load i32, ptr %14, align 4
-  %.pre.i = load ptr, ptr @yy_buffer_stack, align 8
+  %.pr.pre.i = load ptr, ptr @yy_buffer_stack, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 0, ptr %16, align 4
   store i8 0, ptr %9, align 1
@@ -2085,59 +2085,55 @@ define dso_local ptr @jsonpath_yy_create_buffer(ptr noundef %0, i32 noundef %1) 
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 0, ptr %22, align 8
-  %.not10.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not10.i.i, label %jsonpath_yy_flush_buffer.exit.i.thread, label %23
+  %.not10.i.i = icmp eq ptr %.pr.pre.i, null
+  br i1 %.not10.i.i, label %jsonpath_yy_flush_buffer.exit.thread.i, label %24
 
-23:                                               ; preds = %12
-  %24 = load i64, ptr @yy_buffer_stack_top, align 8
-  %25 = getelementptr ptr, ptr %.pre.i, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %3
-  br i1 %27, label %jsonpath_yy_flush_buffer.exit.thread.i, label %jsonpath_yy_flush_buffer.exit.i
-
-jsonpath_yy_flush_buffer.exit.i.thread:           ; preds = %12
+jsonpath_yy_flush_buffer.exit.thread.i:           ; preds = %12
   store ptr %0, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %28, align 4
-  br label %38
+  %23 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %23, align 4
+  br label %.thread.i
 
-jsonpath_yy_flush_buffer.exit.thread.i:           ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %26, i64 28
-  %30 = load i32, ptr %29, align 4
-  store i32 %30, ptr @yy_n_chars, align 4
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr @yy_c_buf_p, align 8
-  store ptr %32, ptr @jsonpath_yytext, align 8
-  %33 = load ptr, ptr %25, align 8
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr @jsonpath_yyin, align 8
-  %35 = load i8, ptr %32, align 1
-  store i8 %35, ptr @yy_hold_char, align 1
-  br label %jsonpath_yy_flush_buffer.exit.i
+24:                                               ; preds = %12
+  %25 = load i64, ptr @yy_buffer_stack_top, align 8
+  %26 = getelementptr ptr, ptr %.pr.pre.i, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %3, %27
+  br i1 %28, label %29, label %37
 
-jsonpath_yy_flush_buffer.exit.i:                  ; preds = %23, %jsonpath_yy_flush_buffer.exit.thread.i
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %27, i64 28
+  %31 = load i32, ptr %30, align 4
+  store i32 %31, ptr @yy_n_chars, align 4
+  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr @yy_c_buf_p, align 8
+  store ptr %33, ptr @jsonpath_yytext, align 8
+  %34 = load ptr, ptr %26, align 8
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr @jsonpath_yyin, align 8
+  %36 = load i8, ptr %33, align 1
+  store i8 %36, ptr @yy_hold_char, align 1
+  br label %37
+
+37:                                               ; preds = %24, %29
   store ptr %0, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1, ptr %36, align 4
-  %37 = load ptr, ptr %25, align 8
-  br label %38
+  %38 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1, ptr %38, align 4
+  %39 = load ptr, ptr %26, align 8
+  %.not9.i = icmp eq ptr %3, %39
+  br i1 %.not9.i, label %jsonpath_yy_init_buffer.exit, label %.thread.i
 
-38:                                               ; preds = %jsonpath_yy_flush_buffer.exit.i.thread, %jsonpath_yy_flush_buffer.exit.i
-  %39 = phi ptr [ %37, %jsonpath_yy_flush_buffer.exit.i ], [ null, %jsonpath_yy_flush_buffer.exit.i.thread ]
-  %.not9.i = icmp eq ptr %39, %3
-  br i1 %.not9.i, label %jsonpath_yy_init_buffer.exit, label %40
-
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 0, ptr %42, align 8
+.thread.i:                                        ; preds = %37, %jsonpath_yy_flush_buffer.exit.thread.i
+  %40 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 0, ptr %41, align 8
   br label %jsonpath_yy_init_buffer.exit
 
-jsonpath_yy_init_buffer.exit:                     ; preds = %38, %40
-  %43 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %43, align 4
+jsonpath_yy_init_buffer.exit:                     ; preds = %37, %.thread.i
+  %42 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 0, ptr %42, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }
@@ -2509,71 +2505,66 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %11
   store i32 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %27, i64 56
   store i32 0, ptr %41, align 8
-  br i1 %.not38, label %jsonpath_yy_flush_buffer.exit.i, label %.thread
+  br i1 %.not38, label %jsonpath_yy_flush_buffer.exit.thread.i, label %43
 
-.thread:                                          ; preds = %26
-  %42 = load ptr, ptr %30, align 8
-  %43 = icmp eq ptr %42, %27
-  br i1 %43, label %jsonpath_yy_flush_buffer.exit.thread.i, label %jsonpath_yy_flush_buffer.exit.i.thread
+jsonpath_yy_flush_buffer.exit.thread.i:           ; preds = %26
+  store ptr %0, ptr %27, align 8
+  %42 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %42, align 4
+  br label %.thread.i
 
-jsonpath_yy_flush_buffer.exit.thread.i:           ; preds = %.thread
+43:                                               ; preds = %26
   %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 28
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr @yy_n_chars, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr @yy_c_buf_p, align 8
-  store ptr %48, ptr @jsonpath_yytext, align 8
-  %49 = load ptr, ptr %30, align 8
+  %45 = icmp eq ptr %27, %44
+  br i1 %45, label %46, label %jsonpath_yy_flush_buffer.exit.thread12.i
+
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %44, i64 28
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr @yy_n_chars, align 4
+  %49 = getelementptr inbounds i8, ptr %44, i64 16
   %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr @jsonpath_yyin, align 8
-  %51 = load i8, ptr %48, align 1
-  store i8 %51, ptr @yy_hold_char, align 1
-  br label %jsonpath_yy_flush_buffer.exit.i.thread
+  store ptr %50, ptr @yy_c_buf_p, align 8
+  store ptr %50, ptr @jsonpath_yytext, align 8
+  %51 = load ptr, ptr %30, align 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr @jsonpath_yyin, align 8
+  %53 = load i8, ptr %50, align 1
+  store i8 %53, ptr @yy_hold_char, align 1
+  br label %jsonpath_yy_flush_buffer.exit.thread12.i
 
-jsonpath_yy_flush_buffer.exit.i:                  ; preds = %26
+jsonpath_yy_flush_buffer.exit.thread12.i:         ; preds = %46, %43
   store ptr %0, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %52, align 4
-  br label %55
+  %54 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 1, ptr %54, align 4
+  %55 = load ptr, ptr %30, align 8
+  %.not9.i4 = icmp eq ptr %27, %55
+  br i1 %.not9.i4, label %jsonpath_yy_init_buffer.exit, label %.thread.i
 
-jsonpath_yy_flush_buffer.exit.i.thread:           ; preds = %.thread, %jsonpath_yy_flush_buffer.exit.thread.i
-  store ptr %0, ptr %27, align 8
-  %53 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 1, ptr %53, align 4
-  %54 = load ptr, ptr %30, align 8
-  br label %55
-
-55:                                               ; preds = %jsonpath_yy_flush_buffer.exit.i, %jsonpath_yy_flush_buffer.exit.i.thread
-  %56 = phi ptr [ %54, %jsonpath_yy_flush_buffer.exit.i.thread ], [ null, %jsonpath_yy_flush_buffer.exit.i ]
-  %.not9.i5 = icmp eq ptr %56, %27
-  br i1 %.not9.i5, label %jsonpath_yy_init_buffer.exit, label %57
-
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %27, i64 44
-  store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %27, i64 48
-  store i32 0, ptr %59, align 8
+.thread.i:                                        ; preds = %jsonpath_yy_flush_buffer.exit.thread12.i, %jsonpath_yy_flush_buffer.exit.thread.i
+  %56 = getelementptr inbounds i8, ptr %27, i64 44
+  store i32 1, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %27, i64 48
+  store i32 0, ptr %57, align 8
   br label %jsonpath_yy_init_buffer.exit
 
-jsonpath_yy_init_buffer.exit:                     ; preds = %55, %57
-  %60 = getelementptr inbounds i8, ptr %27, i64 36
-  store i32 0, ptr %60, align 4
+jsonpath_yy_init_buffer.exit:                     ; preds = %jsonpath_yy_flush_buffer.exit.thread12.i, %.thread.i
+  %58 = getelementptr inbounds i8, ptr %27, i64 36
+  store i32 0, ptr %58, align 4
   store i32 %32, ptr %31, align 4
-  %61 = load ptr, ptr %30, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 28
-  %63 = load i32, ptr %62, align 4
-  store i32 %63, ptr @yy_n_chars, align 4
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %59 = load ptr, ptr %30, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 28
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr @yy_n_chars, align 4
+  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr @yy_c_buf_p, align 8
+  store ptr %63, ptr @jsonpath_yytext, align 8
+  %64 = load ptr, ptr %30, align 8
   %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr @yy_c_buf_p, align 8
-  store ptr %65, ptr @jsonpath_yytext, align 8
-  %66 = load ptr, ptr %30, align 8
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr @jsonpath_yyin, align 8
-  %68 = load i8, ptr %65, align 1
-  store i8 %68, ptr @yy_hold_char, align 1
+  store ptr %65, ptr @jsonpath_yyin, align 8
+  %66 = load i8, ptr %63, align 1
+  store i8 %66, ptr @yy_hold_char, align 1
   ret void
 }
 
@@ -2680,51 +2671,45 @@ define dso_local ptr @jsonpath_yyalloc(i64 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @jsonpath_yy_delete_buffer(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %21, label %2
+  br i1 %.not, label %16, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %8, label %4
+  br i1 %.not6, label %.thread, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
-  br label %8
+  %8 = icmp eq ptr %0, %7
+  br i1 %8, label %9, label %.thread
 
-8:                                                ; preds = %2, %4
-  %9 = phi ptr [ %7, %4 ], [ null, %2 ]
-  %10 = icmp eq ptr %9, %0
-  br i1 %10, label %11, label %14
+9:                                                ; preds = %4
+  store ptr null, ptr %6, align 8
+  br label %.thread
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr @yy_buffer_stack_top, align 8
-  %13 = getelementptr ptr, ptr %3, i64 %12
-  store ptr null, ptr %13, align 8
-  br label %14
+.thread:                                          ; preds = %2, %9, %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load i32, ptr %10, align 8
+  %.not7 = icmp eq i32 %11, 0
+  br i1 %.not7, label %jsonpath_yyfree.exit9, label %12
 
-14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8
-  %.not7 = icmp eq i32 %16, 0
-  br i1 %.not7, label %jsonpath_yyfree.exit9, label %17
+12:                                               ; preds = %.thread
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %jsonpath_yyfree.exit9, label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %jsonpath_yyfree.exit9, label %20
-
-20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %19) #15
+15:                                               ; preds = %12
+  tail call void @pfree(ptr noundef nonnull %14) #15
   br label %jsonpath_yyfree.exit9
 
-jsonpath_yyfree.exit9:                            ; preds = %20, %17, %14
+jsonpath_yyfree.exit9:                            ; preds = %15, %12, %.thread
   tail call void @pfree(ptr noundef nonnull %0) #15
-  br label %21
+  br label %16
 
-21:                                               ; preds = %1, %jsonpath_yyfree.exit9
+16:                                               ; preds = %1, %jsonpath_yyfree.exit9
   ret void
 }
 
@@ -2744,7 +2729,7 @@ define dso_local void @jsonpath_yyfree(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @jsonpath_yy_flush_buffer(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %2
+  br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2764,38 +2749,31 @@ define dso_local void @jsonpath_yy_flush_buffer(ptr noundef %0) local_unnamed_ad
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr @yy_buffer_stack, align 8
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %17, label %13
+  br i1 %.not10, label %.thread, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8
   %15 = getelementptr ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
-  br label %17
+  %17 = icmp eq ptr %0, %16
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %2, %13
-  %18 = phi ptr [ %16, %13 ], [ null, %2 ]
-  %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %31
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr @yy_n_chars, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr @yy_c_buf_p, align 8
+  store ptr %22, ptr @jsonpath_yytext, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr @jsonpath_yyin, align 8
+  %25 = load i8, ptr %22, align 1
+  store i8 %25, ptr @yy_hold_char, align 1
+  br label %.thread
 
-20:                                               ; preds = %17
-  %21 = load i64, ptr @yy_buffer_stack_top, align 8
-  %22 = getelementptr ptr, ptr %12, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr @yy_n_chars, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr @yy_c_buf_p, align 8
-  store ptr %27, ptr @jsonpath_yytext, align 8
-  %28 = load ptr, ptr %22, align 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr @jsonpath_yyin, align 8
-  %30 = load i8, ptr %27, align 1
-  store i8 %30, ptr @yy_hold_char, align 1
-  br label %31
-
-31:                                               ; preds = %1, %20, %17
+.thread:                                          ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -2912,59 +2890,59 @@ define dso_local void @jsonpath_yypop_buffer_state() local_unnamed_addr #0 {
   %4 = getelementptr ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %6
+  br i1 %.not4, label %.thread, label %.thread.i
 
-6:                                                ; preds = %2
+.thread.i:                                        ; preds = %2
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = load i32, ptr %7, align 8
-  %.not7.i = icmp eq i32 %8, 0
-  br i1 %.not7.i, label %jsonpath_yy_delete_buffer.exit, label %9
+  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = load i32, ptr %6, align 8
+  %.not7.i = icmp eq i32 %7, 0
+  br i1 %.not7.i, label %jsonpath_yy_delete_buffer.exit, label %8
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %jsonpath_yy_delete_buffer.exit, label %12
+8:                                                ; preds = %.thread.i
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i, label %jsonpath_yy_delete_buffer.exit, label %11
 
-12:                                               ; preds = %9
-  tail call void @pfree(ptr noundef nonnull %11) #15
+11:                                               ; preds = %8
+  tail call void @pfree(ptr noundef nonnull %10) #15
   br label %jsonpath_yy_delete_buffer.exit
 
-jsonpath_yy_delete_buffer.exit:                   ; preds = %6, %9, %12
+jsonpath_yy_delete_buffer.exit:                   ; preds = %.thread.i, %8, %11
   tail call void @pfree(ptr noundef nonnull %5) #15
-  %13 = load ptr, ptr @yy_buffer_stack, align 8
-  %14 = load i64, ptr @yy_buffer_stack_top, align 8
-  %15 = getelementptr ptr, ptr %13, i64 %14
-  store ptr null, ptr %15, align 8
-  %.not5 = icmp eq i64 %14, 0
-  br i1 %.not5, label %.thread, label %16
+  %12 = load ptr, ptr @yy_buffer_stack, align 8
+  %13 = load i64, ptr @yy_buffer_stack_top, align 8
+  %14 = getelementptr ptr, ptr %12, i64 %13
+  store ptr null, ptr %14, align 8
+  %.not5 = icmp eq i64 %13, 0
+  br i1 %.not5, label %.thread, label %15
 
-16:                                               ; preds = %jsonpath_yy_delete_buffer.exit
-  %17 = add i64 %14, -1
-  store i64 %17, ptr @yy_buffer_stack_top, align 8
-  %.phi.trans.insert = getelementptr ptr, ptr %13, i64 %17
+15:                                               ; preds = %jsonpath_yy_delete_buffer.exit
+  %16 = add i64 %13, -1
+  store i64 %16, ptr @yy_buffer_stack_top, align 8
+  %.phi.trans.insert = getelementptr ptr, ptr %12, i64 %16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not7 = icmp eq ptr %.pre, null
-  br i1 %.not7, label %.thread, label %18
+  br i1 %.not7, label %.thread, label %17
 
-18:                                               ; preds = %16
-  %19 = getelementptr ptr, ptr %13, i64 %17
-  %20 = getelementptr inbounds i8, ptr %.pre, i64 28
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr @yy_n_chars, align 4
-  %22 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr @yy_c_buf_p, align 8
-  store ptr %23, ptr @jsonpath_yytext, align 8
-  %24 = load ptr, ptr %19, align 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr @jsonpath_yyin, align 8
-  %26 = load i8, ptr %23, align 1
-  store i8 %26, ptr @yy_hold_char, align 1
+17:                                               ; preds = %15
+  %18 = getelementptr ptr, ptr %12, i64 %16
+  %19 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr @yy_n_chars, align 4
+  %21 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr @yy_c_buf_p, align 8
+  store ptr %22, ptr @jsonpath_yytext, align 8
+  %23 = load ptr, ptr %18, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr @jsonpath_yyin, align 8
+  %25 = load i8, ptr %22, align 1
+  store i8 %25, ptr @yy_hold_char, align 1
   br label %.thread
 
-.thread:                                          ; preds = %jsonpath_yy_delete_buffer.exit, %2, %0, %18, %16
+.thread:                                          ; preds = %jsonpath_yy_delete_buffer.exit, %2, %0, %17, %15
   ret void
 }
 
@@ -3193,26 +3171,26 @@ define dso_local void @jsonpath_yyset_debug(i32 noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @jsonpath_yylex_destroy() local_unnamed_addr #0 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not10 = icmp eq ptr %.pr, null
-  br i1 %.not10, label %jsonpath_yyfree.exit, label %.lr.ph.preheader
+  %.not11 = icmp eq ptr %.pr, null
+  br i1 %.not11, label %jsonpath_yyfree.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr ptr, ptr %.pr, i64 %.pre
-  %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not215 = icmp eq ptr %.pre12, null
-  br i1 %.not215, label %9, label %.lr.ph16
+  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not216 = icmp eq ptr %.pre13, null
+  br i1 %.not216, label %9, label %.thread.i
 
-.lr.ph16:                                         ; preds = %.lr.ph.preheader
+.thread.i:                                        ; preds = %.lr.ph.preheader
   %1 = getelementptr ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %.pre12, i64 32
+  %2 = getelementptr inbounds i8, ptr %.pre13, i64 32
   %3 = load i32, ptr %2, align 8
   %.not7.i = icmp eq i32 %3, 0
   br i1 %.not7.i, label %jsonpath_yypop_buffer_state.exit, label %4
 
-4:                                                ; preds = %.lr.ph16
-  %5 = getelementptr inbounds i8, ptr %.pre12, i64 8
+4:                                                ; preds = %.thread.i
+  %5 = getelementptr inbounds i8, ptr %.pre13, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %jsonpath_yypop_buffer_state.exit, label %7
@@ -3221,16 +3199,16 @@ define dso_local noundef i32 @jsonpath_yylex_destroy() local_unnamed_addr #0 {
   tail call void @pfree(ptr noundef nonnull %6) #15
   br label %jsonpath_yypop_buffer_state.exit
 
-jsonpath_yypop_buffer_state.exit:                 ; preds = %.lr.ph16, %4, %7
-  tail call void @pfree(ptr noundef nonnull %.pre12) #15
-  %.pre14 = load i64, ptr @yy_buffer_stack_top, align 8
-  %.pre13 = load ptr, ptr @yy_buffer_stack, align 8
-  %8 = getelementptr ptr, ptr %.pre13, i64 %.pre14
+jsonpath_yypop_buffer_state.exit:                 ; preds = %.thread.i, %4, %7
+  tail call void @pfree(ptr noundef nonnull %.pre13) #15
+  %.pre15 = load i64, ptr @yy_buffer_stack_top, align 8
+  %.pre14 = load ptr, ptr @yy_buffer_stack, align 8
+  %8 = getelementptr ptr, ptr %.pre14, i64 %.pre15
   store ptr null, ptr %8, align 8
   br label %9
 
 9:                                                ; preds = %jsonpath_yypop_buffer_state.exit, %.lr.ph.preheader
-  %.lcssa = phi ptr [ %.pre13, %jsonpath_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
+  %.lcssa = phi ptr [ %.pre14, %jsonpath_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
   tail call void @pfree(ptr noundef nonnull %.lcssa) #15
   br label %jsonpath_yyfree.exit
 
@@ -3357,50 +3335,44 @@ jsonpath_scanner_init.exit:                       ; preds = %9, %19, %23, %30
 45:                                               ; preds = %43
   %46 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6.i.i = icmp eq ptr %46, null
-  br i1 %.not6.i.i, label %51, label %47
+  br i1 %.not6.i.i, label %.thread.i.i, label %47
 
 47:                                               ; preds = %45
   %48 = load i64, ptr @yy_buffer_stack_top, align 8
   %49 = getelementptr ptr, ptr %46, i64 %48
   %50 = load ptr, ptr %49, align 8
-  br label %51
+  %51 = icmp eq ptr %44, %50
+  br i1 %51, label %52, label %.thread.i.i
 
-51:                                               ; preds = %47, %45
-  %52 = phi ptr [ %50, %47 ], [ null, %45 ]
-  %53 = icmp eq ptr %52, %44
-  br i1 %53, label %54, label %57
+52:                                               ; preds = %47
+  store ptr null, ptr %49, align 8
+  br label %.thread.i.i
 
-54:                                               ; preds = %51
-  %55 = load i64, ptr @yy_buffer_stack_top, align 8
-  %56 = getelementptr ptr, ptr %46, i64 %55
-  store ptr null, ptr %56, align 8
-  br label %57
+.thread.i.i:                                      ; preds = %52, %47, %45
+  %53 = getelementptr inbounds i8, ptr %44, i64 32
+  %54 = load i32, ptr %53, align 8
+  %.not7.i.i = icmp eq i32 %54, 0
+  br i1 %.not7.i.i, label %jsonpath_yyfree.exit9.i.i, label %55
 
-57:                                               ; preds = %54, %51
-  %58 = getelementptr inbounds i8, ptr %44, i64 32
-  %59 = load i32, ptr %58, align 8
-  %.not7.i.i = icmp eq i32 %59, 0
-  br i1 %.not7.i.i, label %jsonpath_yyfree.exit9.i.i, label %60
+55:                                               ; preds = %.thread.i.i
+  %56 = getelementptr inbounds i8, ptr %44, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %.not.i.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i.i, label %jsonpath_yyfree.exit9.i.i, label %58
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %44, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %.not.i.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i.i, label %jsonpath_yyfree.exit9.i.i, label %63
-
-63:                                               ; preds = %60
-  call void @pfree(ptr noundef nonnull %62) #15
+58:                                               ; preds = %55
+  call void @pfree(ptr noundef nonnull %57) #15
   br label %jsonpath_yyfree.exit9.i.i
 
-jsonpath_yyfree.exit9.i.i:                        ; preds = %63, %60, %57
+jsonpath_yyfree.exit9.i.i:                        ; preds = %58, %55, %.thread.i.i
   call void @pfree(ptr noundef nonnull %44) #15
   br label %jsonpath_scanner_finish.exit
 
 jsonpath_scanner_finish.exit:                     ; preds = %43, %jsonpath_yyfree.exit9.i.i
-  %64 = load ptr, ptr @scanbuf, align 8
-  call void @pfree(ptr noundef %64) #15
-  %65 = load ptr, ptr %4, align 8
-  ret ptr %65
+  %59 = load ptr, ptr @scanbuf, align 8
+  call void @pfree(ptr noundef %59) #15
+  %60 = load ptr, ptr %4, align 8
+  ret ptr %60
 }
 
 declare i32 @jsonpath_yyparse(ptr noundef, ptr noundef) local_unnamed_addr #7

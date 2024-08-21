@@ -1260,7 +1260,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h2060642393639
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h31fab3860b0afa74E.exit: ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !314
-  %7 = icmp eq i64 %.sroa.01.010.i, %2
+  %7 = icmp eq i64 %2, %.sroa.01.010.i
   br i1 %7, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31fab3860b0afa74E.exit.thread, label %8
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h31fab3860b0afa74E.exit.thread: ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit.i", %3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31fab3860b0afa74E.exit
@@ -1296,7 +1296,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h68dc774128410
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17ha43a7ae7d0e9d8f0E.exit: ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !327
-  %7 = icmp eq i64 %.sroa.01.010.i, %2
+  %7 = icmp eq i64 %2, %.sroa.01.010.i
   br i1 %7, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha43a7ae7d0e9d8f0E.exit.thread, label %8
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17ha43a7ae7d0e9d8f0E.exit.thread: ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit.i", %3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha43a7ae7d0e9d8f0E.exit
@@ -1367,7 +1367,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h6de4189a57b0e
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17he05f444171c47f3bE.exit: ; preds = %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !330
-  %17 = icmp eq i64 %.sroa.01.012.i, %2
+  %17 = icmp eq i64 %2, %.sroa.01.012.i
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17he05f444171c47f3bE.exit.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha602f1b63b739a51E.exit"
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17he05f444171c47f3bE.exit.thread: ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha602f1b63b739a51E.exit.i", %._ZN4core4iter6traits8iterator8Iterator10advance_by17he05f444171c47f3bE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17he05f444171c47f3bE.exit

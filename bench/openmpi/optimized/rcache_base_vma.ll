@@ -117,8 +117,8 @@ define range(i32 -1, 1) i32 @mca_rcache_base_vma_find(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %4
   %7 = ptrtoint ptr %1 to i64
-  %8 = add i64 %2, -1
-  %9 = add i64 %8, %7
+  %8 = add i64 %7, -1
+  %9 = add i64 %8, %2
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @mca_rcache_base_vma_tree_find(ptr noundef %0, ptr noundef %1, ptr noundef %10) #3
   store ptr %11, ptr %3, align 8
@@ -138,8 +138,8 @@ define i32 @mca_rcache_base_vma_find_all(ptr noundef %0, ptr noundef %1, i64 nou
 
 7:                                                ; preds = %5
   %8 = ptrtoint ptr %1 to i64
-  %9 = add i64 %2, -1
-  %10 = add i64 %9, %8
+  %9 = add i64 %8, -1
+  %10 = add i64 %9, %2
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call i32 @mca_rcache_base_vma_tree_find_all(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %3, i32 noundef %4) #3
   br label %13

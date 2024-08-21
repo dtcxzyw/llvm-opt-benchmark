@@ -356,7 +356,7 @@ if.end15:                                         ; preds = %if.else, %if.then10
 if.then17:                                        ; preds = %if.end15
   %keylen18 = getelementptr inbounds i8, ptr %vctx, i64 72
   %3 = load i64, ptr %keylen18, align 8
-  %cmp19.not = icmp eq i64 %3, %keylen
+  %cmp19.not = icmp eq i64 %keylen, %3
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.then17

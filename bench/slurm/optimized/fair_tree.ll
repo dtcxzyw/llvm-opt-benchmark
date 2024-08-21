@@ -286,7 +286,7 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
   %.158 = phi i64 [ 0, %.lr.ph60 ], [ %181, %176 ]
   %.03857 = phi x86_fp80 [ 0xK401EFFFFFFFE00000000, %.lr.ph60 ], [ %180, %176 ]
   %59 = icmp eq i64 %.158, 0
-  %brmerge.not = and i1 %59, %4
+  %brmerge.not = and i1 %4, %59
   br i1 %brmerge.not, label %66, label %60
 
 60:                                               ; preds = %56

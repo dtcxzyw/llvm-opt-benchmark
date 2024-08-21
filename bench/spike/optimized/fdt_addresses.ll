@@ -173,7 +173,7 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
 27:                                               ; preds = %fdt_size_cells.exit.thread
   %28 = icmp ugt i64 %4, 4294967295
   %29 = sub nsw i64 0, %4
-  %30 = icmp ult i64 %29, %5
+  %30 = icmp ugt i64 %5, %29
   %or.cond = select i1 %28, i1 true, i1 %30
   br i1 %or.cond, label %fdt_address_cells.exit.thread, label %31
 

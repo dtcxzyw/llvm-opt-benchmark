@@ -40,7 +40,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 define hidden i32 @luaS_hash(ptr nocapture noundef readonly %str, i64 noundef %l, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %conv = trunc i64 %l to i32
-  %xor = xor i32 %conv, %seed
+  %xor = xor i32 %seed, %conv
   %invariant.gep = getelementptr i8, ptr %str, i64 -1
   %cmp.not7 = icmp eq i64 %l, 0
   br i1 %cmp.not7, label %for.end, label %for.body
@@ -123,7 +123,7 @@ entry:
   %strt = getelementptr inbounds i8, ptr %0, i64 48
   %size = getelementptr inbounds i8, ptr %0, i64 60
   %1 = load i32, ptr %size, align 4
-  %cmp = icmp sgt i32 %1, %nsize
+  %cmp = icmp slt i32 %nsize, %1
   %.pre72 = load ptr, ptr %strt, align 8
   %cmp222.i = icmp sgt i32 %1, 0
   %or.cond = and i1 %cmp, %cmp222.i
@@ -227,13 +227,13 @@ for.inc13.i40:                                    ; preds = %while.body.i32, %fo
 if.else:                                          ; preds = %if.end
   store ptr %call, ptr %strt, align 8
   store i32 %nsize, ptr %size, align 4
-  %cmp17 = icmp slt i32 %1, %nsize
+  %cmp17 = icmp sgt i32 %nsize, %1
   br i1 %cmp17, label %for.cond1.preheader.i47, label %if.end21
 
 for.cond1.preheader.i47:                          ; preds = %if.else
   %scevgep.i68 = getelementptr i8, ptr %call, i64 %mul
   %17 = xor i32 %1, -1
-  %18 = add i32 %17, %nsize
+  %18 = add i32 %nsize, %17
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 3
   %21 = add nuw nsw i64 %20, 8
@@ -405,7 +405,7 @@ for.body.i:                                       ; preds = %luaS_hash.exit.i, %
   %shrlen.i = getelementptr inbounds i8, ptr %ts.038.i, i64 11
   %5 = load i8, ptr %shrlen.i, align 1
   %conv.i = zext i8 %5 to i64
-  %cmp1.i = icmp eq i64 %conv.i, %l
+  %cmp1.i = icmp eq i64 %l, %conv.i
   br i1 %cmp1.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -657,7 +657,7 @@ entry:
   %add = add nsw i64 %mul, 40
   %cond = select i1 %cmp, i64 32, i64 %add
   %sub = sub i64 9223372036854775807, %cond
-  %cmp1 = icmp ult i64 %sub, %s
+  %cmp1 = icmp ugt i64 %s, %sub
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

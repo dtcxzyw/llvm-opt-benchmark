@@ -284,8 +284,8 @@ entry:
   %0 = load atomic i64, ptr @dss_max.0 acquire, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr @dss_base, align 8
-  %cmp.i = icmp ule ptr %2, %addr
-  %cmp1.i = icmp ugt ptr %1, %addr
+  %cmp.i = icmp uge ptr %addr, %2
+  %cmp1.i = icmp ult ptr %addr, %1
   %3 = and i1 %cmp1.i, %cmp.i
   ret i1 %3
 }
@@ -294,8 +294,8 @@ entry:
 define hidden zeroext i1 @extent_dss_mergeable(ptr noundef readnone %addr_a, ptr noundef readnone %addr_b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @dss_base, align 8
-  %cmp = icmp ugt ptr %0, %addr_a
-  %cmp1 = icmp ugt ptr %0, %addr_b
+  %cmp = icmp ult ptr %addr_a, %0
+  %cmp1 = icmp ult ptr %addr_b, %0
   %or.cond = and i1 %cmp, %cmp1
   br i1 %or.cond, label %return, label %acquire.i
 
@@ -303,11 +303,11 @@ acquire.i:                                        ; preds = %entry
   %1 = load atomic i64, ptr @dss_max.0 acquire, align 8
   %2 = inttoptr i64 %1 to ptr
   %3 = load ptr, ptr @dss_base, align 8
-  %cmp.i = icmp ule ptr %3, %addr_a
-  %cmp1.i = icmp ugt ptr %2, %addr_a
+  %cmp.i = icmp uge ptr %addr_a, %3
+  %cmp1.i = icmp ult ptr %addr_a, %2
   %4 = and i1 %cmp1.i, %cmp.i
-  %5 = icmp ule ptr %2, %addr_b
-  %6 = icmp ugt ptr %3, %addr_b
+  %5 = icmp uge ptr %addr_b, %2
+  %6 = icmp ult ptr %addr_b, %3
   %7 = or i1 %5, %6
   %cmp5 = xor i1 %4, %7
   br label %return

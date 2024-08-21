@@ -579,7 +579,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %cw = getelementptr inbounds i8, ptr %g, i64 8
   %0 = load i32, ptr %cw, align 4
-  %cmp2 = icmp sle i32 %0, %cx
+  %cmp2 = icmp sge i32 %cx, %0
   %cmp4 = icmp slt i32 %cy, 0
   %or.cond = or i1 %cmp4, %cmp2
   br i1 %or.cond, label %for.end, label %lor.lhs.false5
@@ -587,7 +587,7 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %ch = getelementptr inbounds i8, ptr %g, i64 12
   %1 = load i32, ptr %ch, align 4
-  %cmp6.not = icmp sgt i32 %1, %cy
+  %cmp6.not = icmp slt i32 %cy, %1
   br i1 %cmp6.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %lor.lhs.false5
@@ -764,7 +764,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %cw = getelementptr inbounds i8, ptr %g, i64 8
   %0 = load i32, ptr %cw, align 4
-  %cmp1 = icmp sgt i32 %0, %cx
+  %cmp1 = icmp slt i32 %cx, %0
   %cmp3 = icmp sgt i32 %cy, -1
   %or.cond = and i1 %cmp3, %cmp1
   br i1 %or.cond, label %land.lhs.true4, label %if.end9
@@ -772,7 +772,7 @@ land.lhs.true:                                    ; preds = %entry
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %ch = getelementptr inbounds i8, ptr %g, i64 12
   %1 = load i32, ptr %ch, align 4
-  %cmp5 = icmp sgt i32 %1, %cy
+  %cmp5 = icmp slt i32 %cy, %1
   br i1 %cmp5, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %land.lhs.true4
@@ -844,7 +844,7 @@ if.end19:                                         ; preds = %entry
 land.lhs.true.i:                                  ; preds = %if.end19
   %cw.i = getelementptr inbounds i8, ptr %g, i64 8
   %5 = load i32, ptr %cw.i, align 4
-  %cmp1.i = icmp sge i32 %5, %shr20
+  %cmp1.i = icmp sle i32 %shr20, %5
   %cmp3.i = icmp sgt i32 %shr21, -1
   %or.cond.i = and i1 %cmp3.i, %cmp1.i
   br i1 %or.cond.i, label %land.lhs.true4.i, label %land.lhs.true.i48
@@ -852,7 +852,7 @@ land.lhs.true.i:                                  ; preds = %if.end19
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %ch.i = getelementptr inbounds i8, ptr %g, i64 12
   %6 = load i32, ptr %ch.i, align 4
-  %cmp5.i = icmp sgt i32 %6, %shr21
+  %cmp5.i = icmp slt i32 %shr21, %6
   br i1 %cmp5.i, label %if.then.i, label %land.lhs.true.i48
 
 if.then.i:                                        ; preds = %land.lhs.true4.i
@@ -876,7 +876,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit: ; preds = %if.end1
 land.lhs.true.i48:                                ; preds = %if.then8.i, %if.then.i, %land.lhs.true4.i, %land.lhs.true.i, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit
   %cw.i49 = getelementptr inbounds i8, ptr %g, i64 8
   %8 = load i32, ptr %cw.i49, align 4
-  %cmp1.i50 = icmp sgt i32 %8, %add
+  %cmp1.i50 = icmp slt i32 %add, %8
   %cmp3.i51 = icmp sgt i32 %shr21, -1
   %or.cond.i52 = and i1 %cmp3.i51, %cmp1.i50
   br i1 %or.cond.i52, label %land.lhs.true4.i53, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63
@@ -884,7 +884,7 @@ land.lhs.true.i48:                                ; preds = %if.then8.i, %if.the
 land.lhs.true4.i53:                               ; preds = %land.lhs.true.i48
   %ch.i54 = getelementptr inbounds i8, ptr %g, i64 12
   %9 = load i32, ptr %ch.i54, align 4
-  %cmp5.i55 = icmp sgt i32 %9, %shr21
+  %cmp5.i55 = icmp slt i32 %shr21, %9
   br i1 %cmp5.i55, label %if.then.i56, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63
 
 if.then.i56:                                      ; preds = %land.lhs.true4.i53
@@ -907,7 +907,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63: ; preds = %land.
 
 land.lhs.true.i65:                                ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit63
   %11 = load i32, ptr %cw.i49, align 4
-  %cmp1.i67 = icmp sgt i32 %11, %shr20
+  %cmp1.i67 = icmp slt i32 %shr20, %11
   %cmp3.i68 = icmp sgt i32 %shr21, 0
   %or.cond.i69 = and i1 %cmp3.i68, %cmp1.i67
   br i1 %or.cond.i69, label %land.lhs.true4.i70, label %land.lhs.true.i82
@@ -915,7 +915,7 @@ land.lhs.true.i65:                                ; preds = %stbcc__add_connecti
 land.lhs.true4.i70:                               ; preds = %land.lhs.true.i65
   %ch.i71 = getelementptr inbounds i8, ptr %g, i64 12
   %12 = load i32, ptr %ch.i71, align 4
-  %cmp5.i72.not = icmp slt i32 %12, %shr21
+  %cmp5.i72.not = icmp sgt i32 %shr21, %12
   br i1 %cmp5.i72.not, label %land.lhs.true.i82, label %if.then.i73
 
 if.then.i73:                                      ; preds = %land.lhs.true4.i70
@@ -934,7 +934,7 @@ if.then8.i79:                                     ; preds = %if.then.i73
 
 land.lhs.true.i82:                                ; preds = %land.lhs.true.i65, %land.lhs.true4.i70, %if.then.i73, %if.then8.i79
   %14 = load i32, ptr %cw.i49, align 4
-  %cmp1.i84 = icmp sgt i32 %14, %shr20
+  %cmp1.i84 = icmp slt i32 %shr20, %14
   %cmp3.i85 = icmp sgt i32 %shr21, -2
   %or.cond.i86 = and i1 %cmp3.i85, %cmp1.i84
   br i1 %or.cond.i86, label %land.lhs.true4.i87, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
@@ -942,7 +942,7 @@ land.lhs.true.i82:                                ; preds = %land.lhs.true.i65, 
 land.lhs.true4.i87:                               ; preds = %land.lhs.true.i82
   %ch.i88 = getelementptr inbounds i8, ptr %g, i64 12
   %15 = load i32, ptr %ch.i88, align 4
-  %cmp5.i89 = icmp sgt i32 %15, %add23
+  %cmp5.i89 = icmp slt i32 %add23, %15
   br i1 %cmp5.i89, label %if.then.i90, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit97
 
 if.then.i90:                                      ; preds = %land.lhs.true4.i87
@@ -986,7 +986,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %cw = getelementptr inbounds i8, ptr %g, i64 8
   %0 = load i32, ptr %cw, align 4
-  %cmp2 = icmp sle i32 %0, %cx
+  %cmp2 = icmp sge i32 %cx, %0
   %cmp4 = icmp slt i32 %cy, 0
   %or.cond = or i1 %cmp4, %cmp2
   br i1 %or.cond, label %for.end, label %lor.lhs.false5
@@ -994,7 +994,7 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %ch = getelementptr inbounds i8, ptr %g, i64 12
   %1 = load i32, ptr %ch, align 4
-  %cmp6.not = icmp sgt i32 %1, %cy
+  %cmp6.not = icmp slt i32 %cy, %1
   br i1 %cmp6.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %lor.lhs.false5
@@ -2104,9 +2104,9 @@ entry:
   %p.sroa.4.0.arrayidx2.sroa_idx = getelementptr inbounds i8, ptr %arrayidx2, i64 1
   %p.sroa.4.0.copyload = load i8, ptr %p.sroa.4.0.arrayidx2.sroa_idx, align 1
   %conv = zext i8 %p.sroa.0.0.copyload to i32
-  %cmp = icmp eq i32 %conv, %x
+  %cmp = icmp eq i32 %x, %conv
   %conv6 = zext i8 %p.sroa.4.0.copyload to i32
-  %cmp7 = icmp eq i32 %conv6, %y
+  %cmp7 = icmp eq i32 %y, %conv6
   %or.cond = select i1 %cmp, i1 %cmp7, i1 false
   br i1 %or.cond, label %return, label %if.end
 

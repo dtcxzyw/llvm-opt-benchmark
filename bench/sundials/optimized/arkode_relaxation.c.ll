@@ -336,8 +336,8 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %177 = fsub double %173, %174
   %178 = fsub double %.3.i, %.3136.i
   %179 = fadd double %174, -1.000000e+00
-  %180 = fneg double %178
-  %181 = fmul double %179, %180
+  %180 = fneg double %179
+  %181 = fmul double %178, %180
   %182 = call double @llvm.fmuladd.f64(double %176, double %177, double %181)
   %183 = fmul double %166, %182
   %184 = fadd double %173, -1.000000e+00

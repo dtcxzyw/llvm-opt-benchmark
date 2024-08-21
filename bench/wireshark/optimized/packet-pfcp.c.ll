@@ -4840,7 +4840,7 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %6, ptr %12, align 8
   %13 = zext i16 %4 to i32
-  %14 = icmp sgt i32 %13, %3
+  %14 = icmp slt i32 %3, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7, %61

@@ -186,7 +186,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.18201
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -5428,7 +5428,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
   %injected.cond.not.i.i104 = icmp ugt i64 %1351, %1463
   %injected.cond385.not.i.i105 = icmp ugt i64 %1463, %1351
   %1497 = icmp eq i64 %1479, 0
-  %1498 = icmp ult i64 %1321, %3
+  %1498 = icmp ugt i64 %3, %1321
   %1499 = getelementptr inbounds i16, ptr %1319, i64 %3
   %.sroa.0.i.sroa.4.0..sroa_idx.i.i106 = getelementptr inbounds i8, ptr %88, i64 4
   %.sroa.0.i.sroa.5.0..sroa_idx.i.i107 = getelementptr inbounds i8, ptr %88, i64 8
@@ -11929,7 +11929,7 @@ define hidden noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h6
   %21 = load i64, ptr %8, align 8, !alias.scope !2422, !noalias !2427, !noundef !4
   %22 = load i64, ptr %9, align 8, !alias.scope !2422, !noalias !2427, !noundef !4
   %23 = sub i64 %22, %21
-  %.not.i.i = icmp ult i64 %23, %15
+  %.not.i.i = icmp ugt i64 %15, %23
   br i1 %.not.i.i, label %24, label %25
 
 24:                                               ; preds = %19
@@ -11946,7 +11946,7 @@ define hidden noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h6
   %29 = load i64, ptr %9, align 8, !alias.scope !2422, !noalias !2427, !noundef !4
   %30 = load i64, ptr %8, align 8, !alias.scope !2422, !noalias !2427, !noundef !4
   %31 = sub i64 %29, %30
-  %32 = icmp ult i64 %31, %15
+  %32 = icmp ugt i64 %15, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %25
@@ -12018,7 +12018,7 @@ define hidden noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h9
   %22 = load i64, ptr %9, align 8, !alias.scope !2438, !noalias !2445, !noundef !4
   %23 = load i64, ptr %10, align 8, !alias.scope !2438, !noalias !2445, !noundef !4
   %24 = sub i64 %23, %22
-  %.not.i.i.i = icmp ult i64 %24, %16
+  %.not.i.i.i = icmp ugt i64 %16, %24
   br i1 %.not.i.i.i, label %25, label %26
 
 25:                                               ; preds = %20
@@ -12034,7 +12034,7 @@ define hidden noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h9
   %30 = load i64, ptr %10, align 8, !alias.scope !2438, !noalias !2445, !noundef !4
   %31 = load i64, ptr %9, align 8, !alias.scope !2438, !noalias !2445, !noundef !4
   %32 = sub i64 %30, %31
-  %33 = icmp ult i64 %32, %16
+  %33 = icmp ugt i64 %16, %32
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %26
@@ -12106,7 +12106,7 @@ define internal fastcc noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$
   %21 = load i64, ptr %8, align 8, !alias.scope !2459, !noalias !2464, !noundef !4
   %22 = load i64, ptr %9, align 8, !alias.scope !2459, !noalias !2464, !noundef !4
   %23 = sub i64 %22, %21
-  %.not.i.i = icmp ult i64 %23, %15
+  %.not.i.i = icmp ugt i64 %15, %23
   br i1 %.not.i.i, label %24, label %25
 
 24:                                               ; preds = %19
@@ -12123,7 +12123,7 @@ define internal fastcc noalias noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$
   %29 = load i64, ptr %9, align 8, !alias.scope !2459, !noalias !2464, !noundef !4
   %30 = load i64, ptr %8, align 8, !alias.scope !2459, !noalias !2464, !noundef !4
   %31 = sub i64 %29, %30
-  %32 = icmp ult i64 %31, %15
+  %32 = icmp ugt i64 %15, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %25

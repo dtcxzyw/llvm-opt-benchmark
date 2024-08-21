@@ -7397,7 +7397,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %.val.i4)
   %17 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %17, %16
+  %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEaSERKS6_.exit, label %18
 
 18:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEeqERKS6_.exit.thread
@@ -7452,7 +7452,7 @@ _ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit.thread: ; preds = %33, %_ZN
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %49 = load ptr, ptr %34, align 8
-  %.not.i.i5 = icmp eq ptr %49, %48
+  %.not.i.i5 = icmp eq ptr %48, %49
   br i1 %.not.i.i5, label %_ZN7testing8internal13ParamIteratorIdEaSERKS2_.exit, label %50
 
 50:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit.thread
@@ -7507,7 +7507,7 @@ _ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit6.thread: ; preds = %65, %_Z
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(8) %76)
   %81 = load ptr, ptr %66, align 8
-  %.not.i.i7 = icmp eq ptr %81, %80
+  %.not.i.i7 = icmp eq ptr %80, %81
   br i1 %.not.i.i7, label %_ZN7testing8internal13ParamIteratorIdEaSERKS2_.exit8, label %82
 
 82:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIdEeqERKS2_.exit6.thread
@@ -7562,7 +7562,7 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread: ; pred
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef ptr %111(ptr noundef nonnull align 8 dereferenceable(8) %108)
   %113 = load ptr, ptr %98, align 8
-  %.not.i.i9 = icmp eq ptr %113, %112
+  %.not.i.i9 = icmp eq ptr %112, %113
   br i1 %.not.i.i9, label %_ZN7testing8internal13ParamIteratorIN2cv5Size_IiEEEaSERKS5_.exit, label %114
 
 114:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEeqERKS5_.exit.thread
@@ -7617,7 +7617,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_11
   %139 = load ptr, ptr %138, align 8
   %140 = tail call noundef ptr %139(ptr noundef nonnull align 8 dereferenceable(8) %.val.i11)
   %141 = load ptr, ptr %129, align 8
-  %.not.i.i12 = icmp eq ptr %141, %140
+  %.not.i.i12 = icmp eq ptr %140, %141
   br i1 %.not.i.i12, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEaSERKS6_.exit, label %142
 
 142:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEeqERKS6_.exit.thread
@@ -9172,7 +9172,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %271 = icmp eq ptr %37, %.sroa.4.0.i.ph.i
+  %271 = icmp eq ptr %.sroa.4.0.i.ph.i, %37
   br i1 %271, label %279, label %272
 
 272:                                              ; preds = %select.unfold.i
@@ -9346,7 +9346,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:  ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %322, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %335, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %330, %329 ]
   %336 = getelementptr inbounds [4 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %337 = load i32, ptr %336, align 4, !noalias !166
-  %338 = icmp eq i32 %337, %.val.i.i.i.i.i.i.i.i.i.i.i
+  %338 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i.i.i, %337
   br i1 %338, label %339, label %315
 
 339:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9530,7 +9530,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i.i.i.i.i:    ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %376, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %389, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %384, %383 ]
   %390 = getelementptr inbounds [5 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatType7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %391 = load i32, ptr %390, align 4, !noalias !166
-  %392 = icmp eq i32 %391, %.val5.i.i.i.i.i.i.i.i.i.i.i
+  %392 = icmp eq i32 %.val5.i.i.i.i.i.i.i.i.i.i.i, %391
   br i1 %392, label %393, label %369
 
 393:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9736,7 +9736,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i32 [ %439, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %452, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %447, %446 ]
   %453 = getelementptr inbounds [3 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFMode7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i
   %454 = load i32, ptr %453, align 4, !noalias !166
-  %455 = icmp eq i32 %454, %.val.i.i.i.i.i.i.i
+  %455 = icmp eq i32 %.val.i.i.i.i.i.i.i, %454
   br i1 %455, label %456, label %432
 
 456:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
@@ -10529,7 +10529,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
   %87 = call ptr @__cxa_begin_catch(ptr %86) #26
-  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i, %63
+  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %63, %.017.i.i.i.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_124DomainTransformTest_perfEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %84, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i

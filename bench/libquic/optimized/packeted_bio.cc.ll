@@ -297,7 +297,7 @@ if.then82:                                        ; preds = %while.body.i61
   br label %return
 
 if.end84:                                         ; preds = %if.end4.i69, %if.end77
-  %spec.select = call i32 @llvm.smin.i32(i32 %or71, i32 %outl)
+  %spec.select = call i32 @llvm.smin.i32(i32 %outl, i32 %or71)
   %conv88 = sext i32 %spec.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %call74, i64 %conv88, i1 false)
   call void @free(ptr noundef %call74) #11

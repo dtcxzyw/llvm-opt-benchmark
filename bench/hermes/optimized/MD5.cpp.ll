@@ -845,7 +845,7 @@ entry:
 if.then11:                                        ; preds = %entry
   %conv10 = zext nneg i32 %and9 to i64
   %sub = sub nuw nsw i64 64, %conv10
-  %cmp12 = icmp ugt i64 %sub, %Data.coerce1
+  %cmp12 = icmp ult i64 %Data.coerce1, %sub
   %buffer = getelementptr inbounds i8, ptr %this, i64 24
   %arrayidx = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %conv10
   br i1 %cmp12, label %if.then13, label %if.end14
@@ -912,7 +912,7 @@ entry:
 if.then11.i:                                      ; preds = %entry
   %conv10.i = zext nneg i32 %and9.i to i64
   %sub.i = sub nuw nsw i64 64, %conv10.i
-  %cmp12.i = icmp ugt i64 %sub.i, %Str.coerce1
+  %cmp12.i = icmp ult i64 %Str.coerce1, %sub.i
   %buffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %arrayidx.i = getelementptr inbounds [64 x i8], ptr %buffer.i, i64 0, i64 %conv10.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end14.i
@@ -1101,7 +1101,7 @@ _ZNK4llvh3MD59MD5Result6digestEv.exit:            ; preds = %for.body.i
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %Res.i) #16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %Res.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %cmp.i = icmp eq ptr %ref.tmp, %Str
+  %cmp.i = icmp eq ptr %Str, %ref.tmp
   %.pre2 = load ptr, ptr %ref.tmp, align 8
   br i1 %cmp.i, label %_ZN4llvh15SmallVectorImplIcEaSEOS1_.exit, label %if.end.i
 

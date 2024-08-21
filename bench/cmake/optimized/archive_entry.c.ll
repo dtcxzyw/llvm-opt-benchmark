@@ -2884,7 +2884,7 @@ define dso_local ptr @archive_entry_acl_text_w(ptr noundef %0, i32 noundef %1) l
 7:                                                ; preds = %2
   %8 = lshr i32 %1, 10
   %9 = and i32 %8, 3
-  %10 = or i32 %9, %1
+  %10 = or i32 %1, %9
   %11 = or i32 %10, 8
   %12 = getelementptr inbounds i8, ptr %0, i64 1168
   %13 = load ptr, ptr %0, align 8
@@ -2910,7 +2910,7 @@ define dso_local ptr @archive_entry_acl_text(ptr noundef %0, i32 noundef %1) loc
 7:                                                ; preds = %2
   %8 = lshr i32 %1, 10
   %9 = and i32 %8, 3
-  %10 = or i32 %9, %1
+  %10 = or i32 %1, %9
   %11 = or i32 %10, 8
   %12 = getelementptr inbounds i8, ptr %0, i64 1168
   %13 = tail call ptr @archive_acl_to_text_l(ptr noundef nonnull %12, ptr noundef null, i32 noundef %11, ptr noundef null) #20
@@ -2935,7 +2935,7 @@ define dso_local noundef i32 @_archive_entry_acl_text_l(ptr noundef %0, i32 noun
 10:                                               ; preds = %5
   %11 = lshr i32 %1, 10
   %12 = and i32 %11, 3
-  %13 = or i32 %12, %1
+  %13 = or i32 %1, %12
   %14 = or i32 %13, 8
   %15 = getelementptr inbounds i8, ptr %0, i64 1168
   %16 = tail call ptr @archive_acl_to_text_l(ptr noundef nonnull %15, ptr noundef %3, i32 noundef %14, ptr noundef %4) #20

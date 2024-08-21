@@ -362,7 +362,7 @@ _nc_Copy_Type.exit:                               ; preds = %16
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %31, align 8
-  %75 = icmp eq ptr %74, %15
+  %75 = icmp eq ptr %15, %74
   br i1 %75, label %76, label %.preheader.i
 
 76:                                               ; preds = %73
@@ -444,7 +444,7 @@ define dso_local range(i32 -4, 1) i32 @free_field(ptr noundef %0) local_unnamed_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %0
+  %8 = icmp eq ptr %0, %7
   br i1 %8, label %9, label %.preheader
 
 9:                                                ; preds = %5

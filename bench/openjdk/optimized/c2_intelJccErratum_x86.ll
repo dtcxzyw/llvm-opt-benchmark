@@ -251,14 +251,14 @@ define hidden noundef i32 @_ZN15IntelJccErratum15compute_paddingEmPK8MachNodeP5B
   %10 = getelementptr inbounds i8, ptr %2, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -1
-  %13 = icmp ugt i32 %12, %3
+  %13 = icmp ult i32 %3, %12
   br i1 %13, label %14, label %40
 
 14:                                               ; preds = %5
   %15 = add nuw i32 %3, 1
   %16 = getelementptr inbounds i8, ptr %2, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = icmp ugt i32 %17, %15
+  %18 = icmp ult i32 %15, %17
   br i1 %18, label %19, label %_ZNK5Block8get_nodeEj.exit
 
 19:                                               ; preds = %14
@@ -299,7 +299,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %14, %19
 
 42:                                               ; preds = %40
   %43 = sext i32 %.017 to i64
-  %44 = add i64 %43, %0
+  %44 = add i64 %0, %43
   %.unshifted.i = xor i64 %44, %0
   %45 = icmp ugt i64 %.unshifted.i, 31
   br i1 %45, label %46, label %51

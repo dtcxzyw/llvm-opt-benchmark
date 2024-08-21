@@ -273,7 +273,7 @@ if.then:                                          ; preds = %entry, %while.end
   br label %return
 
 if.end:                                           ; preds = %while.end
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %0
+  %cmp.i = icmp ugt i64 %0, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit
 
 if.then.i:                                        ; preds = %if.end
@@ -469,7 +469,7 @@ if.then:                                          ; preds = %entry, %while.end
   br label %return
 
 if.end:                                           ; preds = %while.end
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %0
+  %cmp.i = icmp ugt i64 %0, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit
 
 if.then.i:                                        ; preds = %if.end

@@ -815,7 +815,7 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nocap
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %7 = load double, ptr %6, align 8
-  %8 = fmul double %7, %2
+  %8 = fmul double %2, %7
   %9 = fcmp ogt double %5, %8
   br i1 %9, label %10, label %32
 
@@ -844,7 +844,7 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nocap
   %26 = load double, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = load double, ptr %27, align 8
-  %29 = fmul double %28, %2
+  %29 = fmul double %2, %28
   %30 = fcmp ogt double %26, %29
   br i1 %30, label %67, label %31
 
@@ -852,7 +852,7 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nocap
   br label %67
 
 32:                                               ; preds = %3
-  %33 = fmul double %5, %2
+  %33 = fmul double %2, %5
   %34 = fcmp ogt double %7, %33
   br i1 %34, label %35, label %57
 
@@ -881,7 +881,7 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nocap
   %51 = load double, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 48
   %53 = load double, ptr %52, align 8
-  %54 = fmul double %53, %2
+  %54 = fmul double %2, %53
   %55 = fcmp ogt double %51, %54
   br i1 %55, label %67, label %56
 
@@ -893,12 +893,12 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nocap
   %59 = load double, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %1, i64 48
   %61 = load double, ptr %60, align 8
-  %62 = fmul double %61, %2
+  %62 = fmul double %2, %61
   %63 = fcmp ogt double %59, %62
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %57
-  %65 = fmul double %59, %2
+  %65 = fmul double %2, %59
   %66 = fcmp ogt double %61, %65
   %. = zext i1 %66 to i32
   br label %67
@@ -947,7 +947,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr nocapture noundef rea
   %16 = getelementptr inbounds i8, ptr %15, i64 56
   %17 = load double, ptr %16, align 8
   %18 = fmul double %17, 1.010000e+00
-  %19 = fcmp olt double %18, %2
+  %19 = fcmp ogt double %2, %18
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %.lr.ph65
@@ -1001,14 +1001,14 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr nocapture noundef rea
   %45 = getelementptr inbounds i8, ptr %44, i64 56
   %46 = load double, ptr %45, align 8
   %47 = fmul double %46, 1.010000e+00
-  %48 = fcmp olt double %47, %2
+  %48 = fcmp ogt double %2, %47
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %.lr.ph59
   %50 = getelementptr inbounds i8, ptr %44, i64 48
   %51 = load double, ptr %50, align 8
   %52 = fmul double %51, 1.010000e+00
-  %53 = fcmp olt double %52, %1
+  %53 = fcmp ogt double %1, %52
   br i1 %53, label %54, label %72
 
 54:                                               ; preds = %49
@@ -1214,7 +1214,7 @@ define dso_local noundef zeroext i1 @add_partial_path_precheck(ptr nocapture nou
   %18 = getelementptr inbounds i8, ptr %13, i64 56
   %19 = load double, ptr %18, align 8
   %20 = fmul double %19, 1.010000e+00
-  %21 = fcmp uge double %20, %1
+  %21 = fcmp ule double %1, %20
   %22 = icmp eq i32 %16, 1
   %or.cond.not = or i1 %22, %21
   br i1 %or.cond.not, label %23, label %.loopexit
@@ -1739,7 +1739,7 @@ list_length.exit71:                               ; preds = %69
   %79 = getelementptr inbounds i8, ptr %78, i64 32
   %80 = load i8, ptr %79, align 8
   %81 = trunc i8 %80 to i1
-  %82 = xor i1 %81, %7
+  %82 = xor i1 %7, %81
   br i1 %82, label %93, label %83
 
 83:                                               ; preds = %76
@@ -3474,7 +3474,7 @@ define dso_local noundef ptr @create_hashjoin_path(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds i8, ptr %1, i64 26
   %24 = load i8, ptr %23, align 2
   %25 = trunc i8 %24 to i1
-  %26 = and i1 %25, %7
+  %26 = and i1 %7, %25
   %27 = getelementptr inbounds i8, ptr %13, i64 32
   %28 = zext i1 %26 to i8
   store i8 %28, ptr %27, align 8

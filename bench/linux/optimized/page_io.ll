@@ -883,7 +883,7 @@ define internal void @sio_write_complete(ptr noundef %0, i64 noundef %1) #0 alig
   %5 = getelementptr inbounds i8, ptr %0, i64 564
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = icmp eq i64 %7, %1
+  %8 = icmp eq i64 %1, %7
   br i1 %8, label %..loopexit3_crit_edge, label %9
 
 ..loopexit3_crit_edge:                            ; preds = %2
@@ -1376,7 +1376,7 @@ define dso_local void @swap_read_folio(ptr noundef %0, i1 noundef zeroext %1, pt
 199:                                              ; preds = %30
   %200 = and i64 %32, 4096
   %201 = icmp ne i64 %200, 0
-  %202 = or i1 %201, %1
+  %202 = or i1 %1, %201
   br i1 %202, label %203, label %237
 
 203:                                              ; preds = %199
@@ -1556,7 +1556,7 @@ define internal void @sio_read_complete(ptr noundef %0, i64 noundef %1) #0 align
   %3 = getelementptr inbounds i8, ptr %0, i64 564
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  %6 = icmp eq i64 %5, %1
+  %6 = icmp eq i64 %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 560
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0

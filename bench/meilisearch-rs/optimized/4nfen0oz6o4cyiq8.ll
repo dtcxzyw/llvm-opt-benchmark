@@ -1098,7 +1098,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17he29695b6bf2beac4E.exit: ; p
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.35.i.i.i.i)
   call fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$$LP$meilisearch_types..index_uid_pattern..IndexUidPattern$C$meilisearch_auth..IndexSearchRules$RP$$GT$$GT$17hb57fa04896534f4bE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !243
-  %21 = icmp ne i64 %.sroa.02.08.i, %2
+  %21 = icmp ne i64 %2, %.sroa.02.08.i
   call void @llvm.assume(i1 %21)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %35
@@ -1214,7 +1214,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hf1898228d491ef6dE.exit: ; p
   store i64 -9223372036854775808, ptr %4, align 8, !alias.scope !280, !noalias !299
   call fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$$LP$meilisearch_types..index_uid_pattern..IndexUidPattern$C$meilisearch_auth..IndexSearchRules$RP$$GT$$GT$17hb57fa04896534f4bE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !277
-  %18 = icmp ne i64 %.sroa.02.08.i, %2
+  %18 = icmp ne i64 %2, %.sroa.02.08.i
   call void @llvm.assume(i1 %18)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc38c690329cdee2E.exit"
@@ -1522,7 +1522,7 @@ _ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !389, !noalias !396, !noundef !27
   %45 = load i64, ptr %0, align 8, !alias.scope !398, !noalias !396, !noundef !27
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha25a2622c1dece25E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
@@ -1573,7 +1573,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !404, !noalias !411, !noundef !27
   %6 = load i64, ptr %0, align 8, !alias.scope !413, !noalias !411, !noundef !27
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha25a2622c1dece25E.exit"
 
 9:                                                ; preds = %3

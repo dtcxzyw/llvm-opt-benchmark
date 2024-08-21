@@ -812,7 +812,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN7glslang10TPpContext11MacroSymbolEESt10_Select1stIS5_
 _ZNSt3mapIiN7glslang10TPpContext11MacroSymbolESt4lessIiENS0_14pool_allocatorISt4pairIKiS2_EEEE4findERS7_.exit.i: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang10TPpContext11MacroSymbolEESt10_Select1stIS5_ESt4lessIiENS2_14pool_allocatorIS5_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %42 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
   %43 = load i32, ptr %42, align 4
-  %44 = icmp sgt i32 %43, %31
+  %44 = icmp slt i32 %31, %43
   br i1 %44, label %_ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread, label %_ZN7glslang10TPpContext14lookupMacroDefEi.exit
 
 _ZN7glslang10TPpContext14lookupMacroDefEi.exit:   ; preds = %_ZNSt3mapIiN7glslang10TPpContext11MacroSymbolESt4lessIiENS0_14pool_allocatorISt4pairIKiS2_EEEE4findERS7_.exit.i
@@ -1130,7 +1130,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
 39:                                               ; preds = %51, %37
   %40 = phi i64 [ %.pre.i.i, %37 ], [ %53, %51 ]
   %41 = phi ptr [ %38, %37 ], [ %50, %51 ]
-  %42 = icmp eq i64 %40, %.09.lcssa.i.i
+  %42 = icmp eq i64 %.09.lcssa.i.i, %40
   br i1 %42, label %43, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt8equal_toIS8_ESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSA_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i
 
 43:                                               ; preds = %39
@@ -1324,7 +1324,7 @@ _ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5
 _ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5TokenES4_NS0_14pool_allocatorIS3_EEET0_T_S8_S7_RT1_.exit: ; preds = %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JRKS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOSA_.exit
   %.0.lcssa.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JRKS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOSA_.exit ], [ %70, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i ]
   %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 56
-  %.not9.i.i18 = icmp eq ptr %6, %1
+  %.not9.i.i18 = icmp eq ptr %1, %6
   br i1 %.not9.i.i18, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5TokenES4_NS0_14pool_allocatorIS3_EEET0_T_S8_S7_RT1_.exit27, label %.lr.ph.i.i19
 
 .lr.ph.i.i19:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5TokenES4_NS0_14pool_allocatorIS3_EEET0_T_S8_S7_RT1_.exit, %_ZNSt16allocator_traitsIN7glslang14pool_allocatorINS0_10TPpContext11TokenStream5TokenEEEE9constructIS4_JS4_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS5_PT_DpOS8_.exit.i.i23

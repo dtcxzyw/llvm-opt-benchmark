@@ -1914,8 +1914,8 @@ if.then4.i:                                       ; preds = %if.end.i
 
 raw_getlength.exit:                               ; preds = %if.then17, %if.end.i, %if.then4.i
   %retval.0.i = phi i64 [ %conv6.i, %if.then4.i ], [ %call1.i, %if.end.i ], [ -5, %if.then17 ]
-  %cmp19.not = icmp ne i64 %retval.0.i, %offset
-  %brmerge.not = and i1 %cmp19.not, %exact
+  %cmp19.not = icmp ne i64 %offset, %retval.0.i
+  %brmerge.not = and i1 %exact, %cmp19.not
   br i1 %brmerge.not, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %raw_getlength.exit
@@ -1923,7 +1923,7 @@ if.then21:                                        ; preds = %raw_getlength.exit
   br label %return
 
 if.else:                                          ; preds = %raw_getlength.exit
-  %cmp22 = icmp slt i64 %retval.0.i, %offset
+  %cmp22 = icmp sgt i64 %offset, %retval.0.i
   br i1 %cmp22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.else
@@ -4420,7 +4420,7 @@ if.end24:                                         ; preds = %if.end18, %entry
   %and35 = and i32 %flags, 4
   %7 = and i32 %flags, 260
   %8 = icmp ne i32 %7, 0
-  %9 = or i1 %8, %blkdev
+  %9 = or i1 %blkdev, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %if.end24
@@ -5621,7 +5621,7 @@ if.end13:                                         ; preds = %if.end
   %arrayidx = getelementptr [0 x i64], ptr %wp24, i64 0, i64 %idxprom
   %4 = load i64, ptr %arrayidx, align 8
   %tobool26.not = icmp sgt i64 %4, -1
-  %cmp28.not = icmp eq i64 %shl, %len
+  %cmp28.not = icmp eq i64 %len, %shl
   %or.cond68 = select i1 %tobool26.not, i1 true, i1 %cmp28.not
   br i1 %or.cond68, label %if.end31, label %if.then30
 

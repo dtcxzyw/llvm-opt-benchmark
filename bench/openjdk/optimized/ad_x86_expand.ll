@@ -188,7 +188,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -371,7 +371,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -552,7 +552,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -894,7 +894,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -1232,7 +1232,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -1570,7 +1570,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -1908,7 +1908,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -1985,7 +1985,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2062,7 +2062,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2139,7 +2139,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2216,7 +2216,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2308,7 +2308,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2398,7 +2398,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2475,7 +2475,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2552,7 +2552,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2629,7 +2629,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2706,7 +2706,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2783,7 +2783,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2860,7 +2860,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -2937,7 +2937,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -3014,7 +3014,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -3091,7 +3091,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -3168,7 +3168,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -3245,7 +3245,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -3322,7 +3322,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -3399,7 +3399,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -3578,7 +3578,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -3859,7 +3859,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -4089,7 +4089,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -4370,7 +4370,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -4447,7 +4447,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -4524,7 +4524,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -4601,7 +4601,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -4678,7 +4678,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -4755,7 +4755,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -4832,7 +4832,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -4909,7 +4909,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -4986,7 +4986,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -5063,7 +5063,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -5191,7 +5191,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -5319,7 +5319,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -7211,7 +7211,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -7288,7 +7288,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -7365,7 +7365,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -7442,7 +7442,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -7519,7 +7519,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -7743,7 +7743,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -7867,7 +7867,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8091,7 +8091,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8168,7 +8168,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8392,7 +8392,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8469,7 +8469,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8693,7 +8693,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8770,7 +8770,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8847,7 +8847,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -8924,7 +8924,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -9001,7 +9001,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -9225,7 +9225,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -9349,7 +9349,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -9573,7 +9573,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -9650,7 +9650,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -9874,7 +9874,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -9951,7 +9951,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -10175,7 +10175,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -10252,7 +10252,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -10329,7 +10329,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -10409,7 +10409,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -10485,7 +10485,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -10565,7 +10565,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -10641,7 +10641,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -10721,7 +10721,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -10797,7 +10797,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -10877,7 +10877,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -10953,7 +10953,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -11033,7 +11033,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -11109,7 +11109,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -11189,7 +11189,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -11265,7 +11265,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -11345,7 +11345,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -11421,7 +11421,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -11501,7 +11501,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -11577,7 +11577,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -11657,7 +11657,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -11733,7 +11733,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -11813,7 +11813,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -11889,7 +11889,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -11969,7 +11969,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -12045,7 +12045,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12125,7 +12125,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -12201,7 +12201,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12278,7 +12278,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12355,7 +12355,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12432,7 +12432,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12509,7 +12509,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12586,7 +12586,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12663,7 +12663,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12740,7 +12740,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12817,7 +12817,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12894,7 +12894,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -12971,7 +12971,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13048,7 +13048,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13125,7 +13125,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13202,7 +13202,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13279,7 +13279,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13356,7 +13356,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13433,7 +13433,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13510,7 +13510,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13638,7 +13638,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -13766,7 +13766,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -13843,7 +13843,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13920,7 +13920,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -13997,7 +13997,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14221,7 +14221,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14298,7 +14298,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14375,7 +14375,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14599,7 +14599,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14676,7 +14676,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14753,7 +14753,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14830,7 +14830,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -14954,7 +14954,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -15031,7 +15031,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -15108,7 +15108,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -15232,7 +15232,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -15309,7 +15309,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -15386,7 +15386,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -15463,7 +15463,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -15540,7 +15540,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16005,7 +16005,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16082,7 +16082,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16159,7 +16159,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16236,7 +16236,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16313,7 +16313,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16390,7 +16390,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16470,7 +16470,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -16546,7 +16546,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16626,7 +16626,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -16702,7 +16702,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16782,7 +16782,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -16858,7 +16858,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -16938,7 +16938,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -17014,7 +17014,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -17094,7 +17094,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -17170,7 +17170,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -17250,7 +17250,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -17326,7 +17326,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -17403,7 +17403,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -17531,7 +17531,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -17659,7 +17659,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -17736,7 +17736,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -17816,7 +17816,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -17892,7 +17892,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -17972,7 +17972,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -18048,7 +18048,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -18128,7 +18128,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -18204,7 +18204,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -18284,7 +18284,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -18360,7 +18360,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -18437,7 +18437,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -18514,7 +18514,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -18738,7 +18738,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -18815,7 +18815,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -19039,7 +19039,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -19116,7 +19116,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -19340,7 +19340,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -19417,7 +19417,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -19641,7 +19641,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -19718,7 +19718,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -19942,7 +19942,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20019,7 +20019,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20243,7 +20243,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20320,7 +20320,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20397,7 +20397,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20621,7 +20621,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20698,7 +20698,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20922,7 +20922,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -20999,7 +20999,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -21223,7 +21223,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -21300,7 +21300,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -21524,7 +21524,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -21601,7 +21601,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -21825,7 +21825,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -21902,7 +21902,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22230,7 +22230,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22307,7 +22307,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22384,7 +22384,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22461,7 +22461,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22538,7 +22538,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22615,7 +22615,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22692,7 +22692,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22769,7 +22769,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22846,7 +22846,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -22974,7 +22974,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -23051,7 +23051,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -23128,7 +23128,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -23205,7 +23205,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -23282,7 +23282,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -23506,7 +23506,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -23630,7 +23630,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -23854,7 +23854,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -23978,7 +23978,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24202,7 +24202,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24279,7 +24279,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24356,7 +24356,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24433,7 +24433,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24510,7 +24510,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24634,7 +24634,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24758,7 +24758,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -24882,7 +24882,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -25006,7 +25006,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -25130,7 +25130,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -25354,7 +25354,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -25478,7 +25478,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -25702,7 +25702,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -25826,7 +25826,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26050,7 +26050,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26174,7 +26174,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26398,7 +26398,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26475,7 +26475,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26552,7 +26552,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26629,7 +26629,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26706,7 +26706,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -26930,7 +26930,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27054,7 +27054,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27278,7 +27278,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27402,7 +27402,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27626,7 +27626,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27703,7 +27703,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27780,7 +27780,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27857,7 +27857,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -27934,7 +27934,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -28158,7 +28158,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -28282,7 +28282,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -28506,7 +28506,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -28630,7 +28630,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -28854,7 +28854,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -28931,7 +28931,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -29008,7 +29008,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -29085,7 +29085,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -29162,7 +29162,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -29386,7 +29386,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -29510,7 +29510,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -29734,7 +29734,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -29958,7 +29958,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30035,7 +30035,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30112,7 +30112,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30189,7 +30189,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30266,7 +30266,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30390,7 +30390,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30514,7 +30514,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30638,7 +30638,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30762,7 +30762,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -30886,7 +30886,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -31110,7 +31110,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -31234,7 +31234,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -31458,7 +31458,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -31582,7 +31582,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -31806,7 +31806,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -31930,7 +31930,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32154,7 +32154,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32231,7 +32231,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32308,7 +32308,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32385,7 +32385,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32462,7 +32462,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32539,7 +32539,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32616,7 +32616,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32840,7 +32840,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -32964,7 +32964,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -33188,7 +33188,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -33412,7 +33412,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -33489,7 +33489,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -33566,7 +33566,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -33643,7 +33643,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -33720,7 +33720,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -33944,7 +33944,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -34068,7 +34068,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -34292,7 +34292,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -34369,7 +34369,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -34446,7 +34446,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -34584,7 +34584,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -34822,7 +34822,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -34960,7 +34960,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35098,7 +35098,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35175,7 +35175,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35278,7 +35278,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35355,7 +35355,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35432,7 +35432,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35511,7 +35511,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35588,7 +35588,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35665,7 +35665,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35744,7 +35744,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35821,7 +35821,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35898,7 +35898,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -35975,7 +35975,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -36205,7 +36205,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -36435,7 +36435,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -36512,7 +36512,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -36592,7 +36592,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i18 = icmp ugt i32 %81, %79
+  %.not.i.i18 = icmp ult i32 %79, %81
   br i1 %.not.i.i18, label %_ZN9Node_List4pushEP4Node.exit19, label %82
 
 82:                                               ; preds = %78
@@ -36711,7 +36711,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %128, %130
   %144 = add i32 %143, 1
   store i32 %144, ptr %35, align 8
   %145 = load i32, ptr %38, align 8
-  %.not.i.i26 = icmp ugt i32 %145, %143
+  %.not.i.i26 = icmp ult i32 %143, %145
   br i1 %.not.i.i26, label %_ZN9Node_List4pushEP4Node.exit27, label %146
 
 146:                                              ; preds = %142
@@ -36779,7 +36779,7 @@ _ZN4NodenwEm.exit30:                              ; preds = %164, %166
   %180 = add i32 %179, 1
   store i32 %180, ptr %35, align 8
   %181 = load i32, ptr %38, align 8
-  %.not.i.i31 = icmp ugt i32 %181, %179
+  %.not.i.i31 = icmp ult i32 %179, %181
   br i1 %.not.i.i31, label %_ZN9Node_List4pushEP4Node.exit32, label %182
 
 182:                                              ; preds = %178
@@ -36855,7 +36855,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -36935,7 +36935,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -37105,7 +37105,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %156, %158
   %172 = add i32 %171, 1
   store i32 %172, ptr %35, align 8
   %173 = load i32, ptr %38, align 8
-  %.not.i.i32 = icmp ugt i32 %173, %171
+  %.not.i.i32 = icmp ult i32 %171, %173
   br i1 %.not.i.i32, label %_ZN9Node_List4pushEP4Node.exit33, label %174
 
 174:                                              ; preds = %170
@@ -37173,7 +37173,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %192, %194
   %208 = add i32 %207, 1
   store i32 %208, ptr %35, align 8
   %209 = load i32, ptr %38, align 8
-  %.not.i.i37 = icmp ugt i32 %209, %207
+  %.not.i.i37 = icmp ult i32 %207, %209
   br i1 %.not.i.i37, label %_ZN9Node_List4pushEP4Node.exit38, label %210
 
 210:                                              ; preds = %206
@@ -37249,7 +37249,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -37329,7 +37329,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i18 = icmp ugt i32 %81, %79
+  %.not.i.i18 = icmp ult i32 %79, %81
   br i1 %.not.i.i18, label %_ZN9Node_List4pushEP4Node.exit19, label %82
 
 82:                                               ; preds = %78
@@ -37448,7 +37448,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %128, %130
   %144 = add i32 %143, 1
   store i32 %144, ptr %35, align 8
   %145 = load i32, ptr %38, align 8
-  %.not.i.i26 = icmp ugt i32 %145, %143
+  %.not.i.i26 = icmp ult i32 %143, %145
   br i1 %.not.i.i26, label %_ZN9Node_List4pushEP4Node.exit27, label %146
 
 146:                                              ; preds = %142
@@ -37516,7 +37516,7 @@ _ZN4NodenwEm.exit30:                              ; preds = %164, %166
   %180 = add i32 %179, 1
   store i32 %180, ptr %35, align 8
   %181 = load i32, ptr %38, align 8
-  %.not.i.i31 = icmp ugt i32 %181, %179
+  %.not.i.i31 = icmp ult i32 %179, %181
   br i1 %.not.i.i31, label %_ZN9Node_List4pushEP4Node.exit32, label %182
 
 182:                                              ; preds = %178
@@ -37592,7 +37592,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -37672,7 +37672,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -37842,7 +37842,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %156, %158
   %172 = add i32 %171, 1
   store i32 %172, ptr %35, align 8
   %173 = load i32, ptr %38, align 8
-  %.not.i.i32 = icmp ugt i32 %173, %171
+  %.not.i.i32 = icmp ult i32 %171, %173
   br i1 %.not.i.i32, label %_ZN9Node_List4pushEP4Node.exit33, label %174
 
 174:                                              ; preds = %170
@@ -37910,7 +37910,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %192, %194
   %208 = add i32 %207, 1
   store i32 %208, ptr %35, align 8
   %209 = load i32, ptr %38, align 8
-  %.not.i.i37 = icmp ugt i32 %209, %207
+  %.not.i.i37 = icmp ult i32 %207, %209
   br i1 %.not.i.i37, label %_ZN9Node_List4pushEP4Node.exit38, label %210
 
 210:                                              ; preds = %206
@@ -38139,7 +38139,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -38216,7 +38216,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -38296,7 +38296,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -38364,7 +38364,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i26 = icmp ugt i32 %117, %115
+  %.not.i.i26 = icmp ult i32 %115, %117
   br i1 %.not.i.i26, label %_ZN9Node_List4pushEP4Node.exit27, label %118
 
 118:                                              ; preds = %114
@@ -38432,7 +38432,7 @@ _ZN4NodenwEm.exit30:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i31 = icmp ugt i32 %153, %151
+  %.not.i.i31 = icmp ult i32 %151, %153
   br i1 %.not.i.i31, label %_ZN9Node_List4pushEP4Node.exit32, label %154
 
 154:                                              ; preds = %150
@@ -38551,7 +38551,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i39 = icmp ugt i32 %217, %215
+  %.not.i.i39 = icmp ult i32 %215, %217
   br i1 %.not.i.i39, label %_ZN9Node_List4pushEP4Node.exit40, label %218
 
 218:                                              ; preds = %214
@@ -38627,7 +38627,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -38707,7 +38707,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -38775,7 +38775,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -38843,7 +38843,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i34 = icmp ugt i32 %153, %151
+  %.not.i.i34 = icmp ult i32 %151, %153
   br i1 %.not.i.i34, label %_ZN9Node_List4pushEP4Node.exit35, label %154
 
 154:                                              ; preds = %150
@@ -39013,7 +39013,7 @@ _ZN4NodenwEm.exit44:                              ; preds = %228, %230
   %244 = add i32 %243, 1
   store i32 %244, ptr %35, align 8
   %245 = load i32, ptr %38, align 8
-  %.not.i.i45 = icmp ugt i32 %245, %243
+  %.not.i.i45 = icmp ult i32 %243, %245
   br i1 %.not.i.i45, label %_ZN9Node_List4pushEP4Node.exit46, label %246
 
 246:                                              ; preds = %242
@@ -39089,7 +39089,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -39169,7 +39169,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -39237,7 +39237,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i26 = icmp ugt i32 %117, %115
+  %.not.i.i26 = icmp ult i32 %115, %117
   br i1 %.not.i.i26, label %_ZN9Node_List4pushEP4Node.exit27, label %118
 
 118:                                              ; preds = %114
@@ -39305,7 +39305,7 @@ _ZN4NodenwEm.exit30:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i31 = icmp ugt i32 %153, %151
+  %.not.i.i31 = icmp ult i32 %151, %153
   br i1 %.not.i.i31, label %_ZN9Node_List4pushEP4Node.exit32, label %154
 
 154:                                              ; preds = %150
@@ -39424,7 +39424,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i39 = icmp ugt i32 %217, %215
+  %.not.i.i39 = icmp ult i32 %215, %217
   br i1 %.not.i.i39, label %_ZN9Node_List4pushEP4Node.exit40, label %218
 
 218:                                              ; preds = %214
@@ -39500,7 +39500,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -39580,7 +39580,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -39648,7 +39648,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -39716,7 +39716,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i34 = icmp ugt i32 %153, %151
+  %.not.i.i34 = icmp ult i32 %151, %153
   br i1 %.not.i.i34, label %_ZN9Node_List4pushEP4Node.exit35, label %154
 
 154:                                              ; preds = %150
@@ -39886,7 +39886,7 @@ _ZN4NodenwEm.exit44:                              ; preds = %228, %230
   %244 = add i32 %243, 1
   store i32 %244, ptr %35, align 8
   %245 = load i32, ptr %38, align 8
-  %.not.i.i45 = icmp ugt i32 %245, %243
+  %.not.i.i45 = icmp ult i32 %243, %245
   br i1 %.not.i.i45, label %_ZN9Node_List4pushEP4Node.exit46, label %246
 
 246:                                              ; preds = %242
@@ -39962,7 +39962,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -40042,7 +40042,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -40110,7 +40110,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i26 = icmp ugt i32 %117, %115
+  %.not.i.i26 = icmp ult i32 %115, %117
   br i1 %.not.i.i26, label %_ZN9Node_List4pushEP4Node.exit27, label %118
 
 118:                                              ; preds = %114
@@ -40178,7 +40178,7 @@ _ZN4NodenwEm.exit30:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i31 = icmp ugt i32 %153, %151
+  %.not.i.i31 = icmp ult i32 %151, %153
   br i1 %.not.i.i31, label %_ZN9Node_List4pushEP4Node.exit32, label %154
 
 154:                                              ; preds = %150
@@ -40297,7 +40297,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i39 = icmp ugt i32 %217, %215
+  %.not.i.i39 = icmp ult i32 %215, %217
   br i1 %.not.i.i39, label %_ZN9Node_List4pushEP4Node.exit40, label %218
 
 218:                                              ; preds = %214
@@ -40373,7 +40373,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -40453,7 +40453,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -40521,7 +40521,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -40589,7 +40589,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i34 = icmp ugt i32 %153, %151
+  %.not.i.i34 = icmp ult i32 %151, %153
   br i1 %.not.i.i34, label %_ZN9Node_List4pushEP4Node.exit35, label %154
 
 154:                                              ; preds = %150
@@ -40759,7 +40759,7 @@ _ZN4NodenwEm.exit44:                              ; preds = %228, %230
   %244 = add i32 %243, 1
   store i32 %244, ptr %35, align 8
   %245 = load i32, ptr %38, align 8
-  %.not.i.i45 = icmp ugt i32 %245, %243
+  %.not.i.i45 = icmp ult i32 %243, %245
   br i1 %.not.i.i45, label %_ZN9Node_List4pushEP4Node.exit46, label %246
 
 246:                                              ; preds = %242
@@ -40835,7 +40835,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -40915,7 +40915,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -40983,7 +40983,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i26 = icmp ugt i32 %117, %115
+  %.not.i.i26 = icmp ult i32 %115, %117
   br i1 %.not.i.i26, label %_ZN9Node_List4pushEP4Node.exit27, label %118
 
 118:                                              ; preds = %114
@@ -41051,7 +41051,7 @@ _ZN4NodenwEm.exit30:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i31 = icmp ugt i32 %153, %151
+  %.not.i.i31 = icmp ult i32 %151, %153
   br i1 %.not.i.i31, label %_ZN9Node_List4pushEP4Node.exit32, label %154
 
 154:                                              ; preds = %150
@@ -41170,7 +41170,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i39 = icmp ugt i32 %217, %215
+  %.not.i.i39 = icmp ult i32 %215, %217
   br i1 %.not.i.i39, label %_ZN9Node_List4pushEP4Node.exit40, label %218
 
 218:                                              ; preds = %214
@@ -41246,7 +41246,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -41326,7 +41326,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -41394,7 +41394,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -41462,7 +41462,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i34 = icmp ugt i32 %153, %151
+  %.not.i.i34 = icmp ult i32 %151, %153
   br i1 %.not.i.i34, label %_ZN9Node_List4pushEP4Node.exit35, label %154
 
 154:                                              ; preds = %150
@@ -41632,7 +41632,7 @@ _ZN4NodenwEm.exit44:                              ; preds = %228, %230
   %244 = add i32 %243, 1
   store i32 %244, ptr %35, align 8
   %245 = load i32, ptr %38, align 8
-  %.not.i.i45 = icmp ugt i32 %245, %243
+  %.not.i.i45 = icmp ult i32 %243, %245
   br i1 %.not.i.i45, label %_ZN9Node_List4pushEP4Node.exit46, label %246
 
 246:                                              ; preds = %242
@@ -41708,7 +41708,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -41788,7 +41788,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -41856,7 +41856,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -41975,7 +41975,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %164, %166
   %180 = add i32 %179, 1
   store i32 %180, ptr %35, align 8
   %181 = load i32, ptr %38, align 8
-  %.not.i.i37 = icmp ugt i32 %181, %179
+  %.not.i.i37 = icmp ult i32 %179, %181
   br i1 %.not.i.i37, label %_ZN9Node_List4pushEP4Node.exit38, label %182
 
 182:                                              ; preds = %178
@@ -42043,7 +42043,7 @@ _ZN4NodenwEm.exit41:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i42 = icmp ugt i32 %217, %215
+  %.not.i.i42 = icmp ult i32 %215, %217
   br i1 %.not.i.i42, label %_ZN9Node_List4pushEP4Node.exit43, label %218
 
 218:                                              ; preds = %214
@@ -42111,7 +42111,7 @@ _ZN4NodenwEm.exit46:                              ; preds = %236, %238
   %252 = add i32 %251, 1
   store i32 %252, ptr %35, align 8
   %253 = load i32, ptr %38, align 8
-  %.not.i.i47 = icmp ugt i32 %253, %251
+  %.not.i.i47 = icmp ult i32 %251, %253
   br i1 %.not.i.i47, label %_ZN9Node_List4pushEP4Node.exit48, label %254
 
 254:                                              ; preds = %250
@@ -42187,7 +42187,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -42267,7 +42267,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -42335,7 +42335,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -42454,7 +42454,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %164, %166
   %180 = add i32 %179, 1
   store i32 %180, ptr %35, align 8
   %181 = load i32, ptr %38, align 8
-  %.not.i.i37 = icmp ugt i32 %181, %179
+  %.not.i.i37 = icmp ult i32 %179, %181
   br i1 %.not.i.i37, label %_ZN9Node_List4pushEP4Node.exit38, label %182
 
 182:                                              ; preds = %178
@@ -42522,7 +42522,7 @@ _ZN4NodenwEm.exit41:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i42 = icmp ugt i32 %217, %215
+  %.not.i.i42 = icmp ult i32 %215, %217
   br i1 %.not.i.i42, label %_ZN9Node_List4pushEP4Node.exit43, label %218
 
 218:                                              ; preds = %214
@@ -42590,7 +42590,7 @@ _ZN4NodenwEm.exit46:                              ; preds = %236, %238
   %252 = add i32 %251, 1
   store i32 %252, ptr %35, align 8
   %253 = load i32, ptr %38, align 8
-  %.not.i.i47 = icmp ugt i32 %253, %251
+  %.not.i.i47 = icmp ult i32 %251, %253
   br i1 %.not.i.i47, label %_ZN9Node_List4pushEP4Node.exit48, label %254
 
 254:                                              ; preds = %250
@@ -42666,7 +42666,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -42746,7 +42746,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -42814,7 +42814,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -42933,7 +42933,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %164, %166
   %180 = add i32 %179, 1
   store i32 %180, ptr %35, align 8
   %181 = load i32, ptr %38, align 8
-  %.not.i.i37 = icmp ugt i32 %181, %179
+  %.not.i.i37 = icmp ult i32 %179, %181
   br i1 %.not.i.i37, label %_ZN9Node_List4pushEP4Node.exit38, label %182
 
 182:                                              ; preds = %178
@@ -43001,7 +43001,7 @@ _ZN4NodenwEm.exit41:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i42 = icmp ugt i32 %217, %215
+  %.not.i.i42 = icmp ult i32 %215, %217
   br i1 %.not.i.i42, label %_ZN9Node_List4pushEP4Node.exit43, label %218
 
 218:                                              ; preds = %214
@@ -43069,7 +43069,7 @@ _ZN4NodenwEm.exit46:                              ; preds = %236, %238
   %252 = add i32 %251, 1
   store i32 %252, ptr %35, align 8
   %253 = load i32, ptr %38, align 8
-  %.not.i.i47 = icmp ugt i32 %253, %251
+  %.not.i.i47 = icmp ult i32 %251, %253
   br i1 %.not.i.i47, label %_ZN9Node_List4pushEP4Node.exit48, label %254
 
 254:                                              ; preds = %250
@@ -43145,7 +43145,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -43225,7 +43225,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -43293,7 +43293,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -43361,7 +43361,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i34 = icmp ugt i32 %153, %151
+  %.not.i.i34 = icmp ult i32 %151, %153
   br i1 %.not.i.i34, label %_ZN9Node_List4pushEP4Node.exit35, label %154
 
 154:                                              ; preds = %150
@@ -43480,7 +43480,7 @@ _ZN4NodenwEm.exit41:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i42 = icmp ugt i32 %217, %215
+  %.not.i.i42 = icmp ult i32 %215, %217
   br i1 %.not.i.i42, label %_ZN9Node_List4pushEP4Node.exit43, label %218
 
 218:                                              ; preds = %214
@@ -43548,7 +43548,7 @@ _ZN4NodenwEm.exit46:                              ; preds = %236, %238
   %252 = add i32 %251, 1
   store i32 %252, ptr %35, align 8
   %253 = load i32, ptr %38, align 8
-  %.not.i.i47 = icmp ugt i32 %253, %251
+  %.not.i.i47 = icmp ult i32 %251, %253
   br i1 %.not.i.i47, label %_ZN9Node_List4pushEP4Node.exit48, label %254
 
 254:                                              ; preds = %250
@@ -43624,7 +43624,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -43704,7 +43704,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -43772,7 +43772,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -43840,7 +43840,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i34 = icmp ugt i32 %153, %151
+  %.not.i.i34 = icmp ult i32 %151, %153
   br i1 %.not.i.i34, label %_ZN9Node_List4pushEP4Node.exit35, label %154
 
 154:                                              ; preds = %150
@@ -43959,7 +43959,7 @@ _ZN4NodenwEm.exit41:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i42 = icmp ugt i32 %217, %215
+  %.not.i.i42 = icmp ult i32 %215, %217
   br i1 %.not.i.i42, label %_ZN9Node_List4pushEP4Node.exit43, label %218
 
 218:                                              ; preds = %214
@@ -44027,7 +44027,7 @@ _ZN4NodenwEm.exit46:                              ; preds = %236, %238
   %252 = add i32 %251, 1
   store i32 %252, ptr %35, align 8
   %253 = load i32, ptr %38, align 8
-  %.not.i.i47 = icmp ugt i32 %253, %251
+  %.not.i.i47 = icmp ult i32 %251, %253
   br i1 %.not.i.i47, label %_ZN9Node_List4pushEP4Node.exit48, label %254
 
 254:                                              ; preds = %250
@@ -44103,7 +44103,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -44183,7 +44183,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -44251,7 +44251,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -44319,7 +44319,7 @@ _ZN4NodenwEm.exit33:                              ; preds = %136, %138
   %152 = add i32 %151, 1
   store i32 %152, ptr %35, align 8
   %153 = load i32, ptr %38, align 8
-  %.not.i.i34 = icmp ugt i32 %153, %151
+  %.not.i.i34 = icmp ult i32 %151, %153
   br i1 %.not.i.i34, label %_ZN9Node_List4pushEP4Node.exit35, label %154
 
 154:                                              ; preds = %150
@@ -44438,7 +44438,7 @@ _ZN4NodenwEm.exit41:                              ; preds = %200, %202
   %216 = add i32 %215, 1
   store i32 %216, ptr %35, align 8
   %217 = load i32, ptr %38, align 8
-  %.not.i.i42 = icmp ugt i32 %217, %215
+  %.not.i.i42 = icmp ult i32 %215, %217
   br i1 %.not.i.i42, label %_ZN9Node_List4pushEP4Node.exit43, label %218
 
 218:                                              ; preds = %214
@@ -44506,7 +44506,7 @@ _ZN4NodenwEm.exit46:                              ; preds = %236, %238
   %252 = add i32 %251, 1
   store i32 %252, ptr %35, align 8
   %253 = load i32, ptr %38, align 8
-  %.not.i.i47 = icmp ugt i32 %253, %251
+  %.not.i.i47 = icmp ult i32 %251, %253
   br i1 %.not.i.i47, label %_ZN9Node_List4pushEP4Node.exit48, label %254
 
 254:                                              ; preds = %250
@@ -44582,7 +44582,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -44662,7 +44662,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i27 = icmp ugt i32 %81, %79
+  %.not.i.i27 = icmp ult i32 %79, %81
   br i1 %.not.i.i27, label %_ZN9Node_List4pushEP4Node.exit28, label %82
 
 82:                                               ; preds = %78
@@ -44730,7 +44730,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i32 = icmp ugt i32 %117, %115
+  %.not.i.i32 = icmp ult i32 %115, %117
   br i1 %.not.i.i32, label %_ZN9Node_List4pushEP4Node.exit33, label %118
 
 118:                                              ; preds = %114
@@ -45002,7 +45002,7 @@ _ZN4NodenwEm.exit48:                              ; preds = %248, %250
   %264 = add i32 %263, 1
   store i32 %264, ptr %35, align 8
   %265 = load i32, ptr %38, align 8
-  %.not.i.i49 = icmp ugt i32 %265, %263
+  %.not.i.i49 = icmp ult i32 %263, %265
   br i1 %.not.i.i49, label %_ZN9Node_List4pushEP4Node.exit50, label %266
 
 266:                                              ; preds = %262
@@ -45078,7 +45078,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -45158,7 +45158,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i27 = icmp ugt i32 %81, %79
+  %.not.i.i27 = icmp ult i32 %79, %81
   br i1 %.not.i.i27, label %_ZN9Node_List4pushEP4Node.exit28, label %82
 
 82:                                               ; preds = %78
@@ -45226,7 +45226,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i32 = icmp ugt i32 %117, %115
+  %.not.i.i32 = icmp ult i32 %115, %117
   br i1 %.not.i.i32, label %_ZN9Node_List4pushEP4Node.exit33, label %118
 
 118:                                              ; preds = %114
@@ -45498,7 +45498,7 @@ _ZN4NodenwEm.exit48:                              ; preds = %248, %250
   %264 = add i32 %263, 1
   store i32 %264, ptr %35, align 8
   %265 = load i32, ptr %38, align 8
-  %.not.i.i49 = icmp ugt i32 %265, %263
+  %.not.i.i49 = icmp ult i32 %263, %265
   br i1 %.not.i.i49, label %_ZN9Node_List4pushEP4Node.exit50, label %266
 
 266:                                              ; preds = %262
@@ -45574,7 +45574,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -45654,7 +45654,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -45722,7 +45722,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -45892,7 +45892,7 @@ _ZN4NodenwEm.exit39:                              ; preds = %192, %194
   %208 = add i32 %207, 1
   store i32 %208, ptr %35, align 8
   %209 = load i32, ptr %38, align 8
-  %.not.i.i40 = icmp ugt i32 %209, %207
+  %.not.i.i40 = icmp ult i32 %207, %209
   br i1 %.not.i.i40, label %_ZN9Node_List4pushEP4Node.exit41, label %210
 
 210:                                              ; preds = %206
@@ -45960,7 +45960,7 @@ _ZN4NodenwEm.exit44:                              ; preds = %228, %230
   %244 = add i32 %243, 1
   store i32 %244, ptr %35, align 8
   %245 = load i32, ptr %38, align 8
-  %.not.i.i45 = icmp ugt i32 %245, %243
+  %.not.i.i45 = icmp ult i32 %243, %245
   br i1 %.not.i.i45, label %_ZN9Node_List4pushEP4Node.exit46, label %246
 
 246:                                              ; preds = %242
@@ -46036,7 +46036,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -46116,7 +46116,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i27 = icmp ugt i32 %81, %79
+  %.not.i.i27 = icmp ult i32 %79, %81
   br i1 %.not.i.i27, label %_ZN9Node_List4pushEP4Node.exit28, label %82
 
 82:                                               ; preds = %78
@@ -46184,7 +46184,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i32 = icmp ugt i32 %117, %115
+  %.not.i.i32 = icmp ult i32 %115, %117
   br i1 %.not.i.i32, label %_ZN9Node_List4pushEP4Node.exit33, label %118
 
 118:                                              ; preds = %114
@@ -46405,7 +46405,7 @@ _ZN4NodenwEm.exit45:                              ; preds = %220, %222
   %236 = add i32 %235, 1
   store i32 %236, ptr %35, align 8
   %237 = load i32, ptr %38, align 8
-  %.not.i.i46 = icmp ugt i32 %237, %235
+  %.not.i.i46 = icmp ult i32 %235, %237
   br i1 %.not.i.i46, label %_ZN9Node_List4pushEP4Node.exit47, label %238
 
 238:                                              ; preds = %234
@@ -46473,7 +46473,7 @@ _ZN4NodenwEm.exit50:                              ; preds = %256, %258
   %272 = add i32 %271, 1
   store i32 %272, ptr %35, align 8
   %273 = load i32, ptr %38, align 8
-  %.not.i.i51 = icmp ugt i32 %273, %271
+  %.not.i.i51 = icmp ult i32 %271, %273
   br i1 %.not.i.i51, label %_ZN9Node_List4pushEP4Node.exit52, label %274
 
 274:                                              ; preds = %270
@@ -46549,7 +46549,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -46629,7 +46629,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -46799,7 +46799,7 @@ _ZN4NodenwEm.exit34:                              ; preds = %156, %158
   %172 = add i32 %171, 1
   store i32 %172, ptr %35, align 8
   %173 = load i32, ptr %38, align 8
-  %.not.i.i35 = icmp ugt i32 %173, %171
+  %.not.i.i35 = icmp ult i32 %171, %173
   br i1 %.not.i.i35, label %_ZN9Node_List4pushEP4Node.exit36, label %174
 
 174:                                              ; preds = %170
@@ -46867,7 +46867,7 @@ _ZN4NodenwEm.exit39:                              ; preds = %192, %194
   %208 = add i32 %207, 1
   store i32 %208, ptr %35, align 8
   %209 = load i32, ptr %38, align 8
-  %.not.i.i40 = icmp ugt i32 %209, %207
+  %.not.i.i40 = icmp ult i32 %207, %209
   br i1 %.not.i.i40, label %_ZN9Node_List4pushEP4Node.exit41, label %210
 
 210:                                              ; preds = %206
@@ -46935,7 +46935,7 @@ _ZN4NodenwEm.exit44:                              ; preds = %228, %230
   %244 = add i32 %243, 1
   store i32 %244, ptr %35, align 8
   %245 = load i32, ptr %38, align 8
-  %.not.i.i45 = icmp ugt i32 %245, %243
+  %.not.i.i45 = icmp ult i32 %243, %245
   br i1 %.not.i.i45, label %_ZN9Node_List4pushEP4Node.exit46, label %246
 
 246:                                              ; preds = %242
@@ -47011,7 +47011,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -47091,7 +47091,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i27 = icmp ugt i32 %81, %79
+  %.not.i.i27 = icmp ult i32 %79, %81
   br i1 %.not.i.i27, label %_ZN9Node_List4pushEP4Node.exit28, label %82
 
 82:                                               ; preds = %78
@@ -47312,7 +47312,7 @@ _ZN4NodenwEm.exit40:                              ; preds = %184, %186
   %200 = add i32 %199, 1
   store i32 %200, ptr %35, align 8
   %201 = load i32, ptr %38, align 8
-  %.not.i.i41 = icmp ugt i32 %201, %199
+  %.not.i.i41 = icmp ult i32 %199, %201
   br i1 %.not.i.i41, label %_ZN9Node_List4pushEP4Node.exit42, label %202
 
 202:                                              ; preds = %198
@@ -47380,7 +47380,7 @@ _ZN4NodenwEm.exit45:                              ; preds = %220, %222
   %236 = add i32 %235, 1
   store i32 %236, ptr %35, align 8
   %237 = load i32, ptr %38, align 8
-  %.not.i.i46 = icmp ugt i32 %237, %235
+  %.not.i.i46 = icmp ult i32 %235, %237
   br i1 %.not.i.i46, label %_ZN9Node_List4pushEP4Node.exit47, label %238
 
 238:                                              ; preds = %234
@@ -47448,7 +47448,7 @@ _ZN4NodenwEm.exit50:                              ; preds = %256, %258
   %272 = add i32 %271, 1
   store i32 %272, ptr %35, align 8
   %273 = load i32, ptr %38, align 8
-  %.not.i.i51 = icmp ugt i32 %273, %271
+  %.not.i.i51 = icmp ult i32 %271, %273
   br i1 %.not.i.i51, label %_ZN9Node_List4pushEP4Node.exit52, label %274
 
 274:                                              ; preds = %270
@@ -47524,7 +47524,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -47604,7 +47604,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -47774,7 +47774,7 @@ _ZN4NodenwEm.exit34:                              ; preds = %156, %158
   %172 = add i32 %171, 1
   store i32 %172, ptr %35, align 8
   %173 = load i32, ptr %38, align 8
-  %.not.i.i35 = icmp ugt i32 %173, %171
+  %.not.i.i35 = icmp ult i32 %171, %173
   br i1 %.not.i.i35, label %_ZN9Node_List4pushEP4Node.exit36, label %174
 
 174:                                              ; preds = %170
@@ -47842,7 +47842,7 @@ _ZN4NodenwEm.exit39:                              ; preds = %192, %194
   %208 = add i32 %207, 1
   store i32 %208, ptr %35, align 8
   %209 = load i32, ptr %38, align 8
-  %.not.i.i40 = icmp ugt i32 %209, %207
+  %.not.i.i40 = icmp ult i32 %207, %209
   br i1 %.not.i.i40, label %_ZN9Node_List4pushEP4Node.exit41, label %210
 
 210:                                              ; preds = %206
@@ -47910,7 +47910,7 @@ _ZN4NodenwEm.exit44:                              ; preds = %228, %230
   %244 = add i32 %243, 1
   store i32 %244, ptr %35, align 8
   %245 = load i32, ptr %38, align 8
-  %.not.i.i45 = icmp ugt i32 %245, %243
+  %.not.i.i45 = icmp ult i32 %243, %245
   br i1 %.not.i.i45, label %_ZN9Node_List4pushEP4Node.exit46, label %246
 
 246:                                              ; preds = %242
@@ -47986,7 +47986,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -48066,7 +48066,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i27 = icmp ugt i32 %81, %79
+  %.not.i.i27 = icmp ult i32 %79, %81
   br i1 %.not.i.i27, label %_ZN9Node_List4pushEP4Node.exit28, label %82
 
 82:                                               ; preds = %78
@@ -48287,7 +48287,7 @@ _ZN4NodenwEm.exit40:                              ; preds = %184, %186
   %200 = add i32 %199, 1
   store i32 %200, ptr %35, align 8
   %201 = load i32, ptr %38, align 8
-  %.not.i.i41 = icmp ugt i32 %201, %199
+  %.not.i.i41 = icmp ult i32 %199, %201
   br i1 %.not.i.i41, label %_ZN9Node_List4pushEP4Node.exit42, label %202
 
 202:                                              ; preds = %198
@@ -48355,7 +48355,7 @@ _ZN4NodenwEm.exit45:                              ; preds = %220, %222
   %236 = add i32 %235, 1
   store i32 %236, ptr %35, align 8
   %237 = load i32, ptr %38, align 8
-  %.not.i.i46 = icmp ugt i32 %237, %235
+  %.not.i.i46 = icmp ult i32 %235, %237
   br i1 %.not.i.i46, label %_ZN9Node_List4pushEP4Node.exit47, label %238
 
 238:                                              ; preds = %234
@@ -48423,7 +48423,7 @@ _ZN4NodenwEm.exit50:                              ; preds = %256, %258
   %272 = add i32 %271, 1
   store i32 %272, ptr %35, align 8
   %273 = load i32, ptr %38, align 8
-  %.not.i.i51 = icmp ugt i32 %273, %271
+  %.not.i.i51 = icmp ult i32 %271, %273
   br i1 %.not.i.i51, label %_ZN9Node_List4pushEP4Node.exit52, label %274
 
 274:                                              ; preds = %270
@@ -48499,7 +48499,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -48579,7 +48579,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i60 = icmp ugt i32 %81, %79
+  %.not.i.i60 = icmp ult i32 %79, %81
   br i1 %.not.i.i60, label %_ZN9Node_List4pushEP4Node.exit61, label %82
 
 82:                                               ; preds = %78
@@ -49463,7 +49463,7 @@ _ZN4NodenwEm.exit112:                             ; preds = %548, %550
   %564 = add i32 %563, 1
   store i32 %564, ptr %35, align 8
   %565 = load i32, ptr %38, align 8
-  %.not.i.i113 = icmp ugt i32 %565, %563
+  %.not.i.i113 = icmp ult i32 %563, %565
   br i1 %.not.i.i113, label %_ZN9Node_List4pushEP4Node.exit114, label %566
 
 566:                                              ; preds = %562
@@ -49539,7 +49539,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -49619,7 +49619,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -49789,7 +49789,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %156, %158
   %172 = add i32 %171, 1
   store i32 %172, ptr %35, align 8
   %173 = load i32, ptr %38, align 8
-  %.not.i.i32 = icmp ugt i32 %173, %171
+  %.not.i.i32 = icmp ult i32 %171, %173
   br i1 %.not.i.i32, label %_ZN9Node_List4pushEP4Node.exit33, label %174
 
 174:                                              ; preds = %170
@@ -49857,7 +49857,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %192, %194
   %208 = add i32 %207, 1
   store i32 %208, ptr %35, align 8
   %209 = load i32, ptr %38, align 8
-  %.not.i.i37 = icmp ugt i32 %209, %207
+  %.not.i.i37 = icmp ult i32 %207, %209
   br i1 %.not.i.i37, label %_ZN9Node_List4pushEP4Node.exit38, label %210
 
 210:                                              ; preds = %206
@@ -49933,7 +49933,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -50013,7 +50013,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i27 = icmp ugt i32 %81, %79
+  %.not.i.i27 = icmp ult i32 %79, %81
   br i1 %.not.i.i27, label %_ZN9Node_List4pushEP4Node.exit28, label %82
 
 82:                                               ; preds = %78
@@ -50285,7 +50285,7 @@ _ZN4NodenwEm.exit43:                              ; preds = %212, %214
   %228 = add i32 %227, 1
   store i32 %228, ptr %35, align 8
   %229 = load i32, ptr %38, align 8
-  %.not.i.i44 = icmp ugt i32 %229, %227
+  %.not.i.i44 = icmp ult i32 %227, %229
   br i1 %.not.i.i44, label %_ZN9Node_List4pushEP4Node.exit45, label %230
 
 230:                                              ; preds = %226
@@ -50353,7 +50353,7 @@ _ZN4NodenwEm.exit48:                              ; preds = %248, %250
   %264 = add i32 %263, 1
   store i32 %264, ptr %35, align 8
   %265 = load i32, ptr %38, align 8
-  %.not.i.i49 = icmp ugt i32 %265, %263
+  %.not.i.i49 = icmp ult i32 %263, %265
   br i1 %.not.i.i49, label %_ZN9Node_List4pushEP4Node.exit50, label %266
 
 266:                                              ; preds = %262
@@ -50429,7 +50429,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -50509,7 +50509,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i30 = icmp ugt i32 %81, %79
+  %.not.i.i30 = icmp ult i32 %79, %81
   br i1 %.not.i.i30, label %_ZN9Node_List4pushEP4Node.exit31, label %82
 
 82:                                               ; preds = %78
@@ -50577,7 +50577,7 @@ _ZN4NodenwEm.exit34:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i35 = icmp ugt i32 %117, %115
+  %.not.i.i35 = icmp ult i32 %115, %117
   br i1 %.not.i.i35, label %_ZN9Node_List4pushEP4Node.exit36, label %118
 
 118:                                              ; preds = %114
@@ -50849,7 +50849,7 @@ _ZN4NodenwEm.exit51:                              ; preds = %248, %250
   %264 = add i32 %263, 1
   store i32 %264, ptr %35, align 8
   %265 = load i32, ptr %38, align 8
-  %.not.i.i52 = icmp ugt i32 %265, %263
+  %.not.i.i52 = icmp ult i32 %263, %265
   br i1 %.not.i.i52, label %_ZN9Node_List4pushEP4Node.exit53, label %266
 
 266:                                              ; preds = %262
@@ -50917,7 +50917,7 @@ _ZN4NodenwEm.exit56:                              ; preds = %284, %286
   %300 = add i32 %299, 1
   store i32 %300, ptr %35, align 8
   %301 = load i32, ptr %38, align 8
-  %.not.i.i57 = icmp ugt i32 %301, %299
+  %.not.i.i57 = icmp ult i32 %299, %301
   br i1 %.not.i.i57, label %_ZN9Node_List4pushEP4Node.exit58, label %302
 
 302:                                              ; preds = %298
@@ -50993,7 +50993,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -51073,7 +51073,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i36 = icmp ugt i32 %81, %79
+  %.not.i.i36 = icmp ult i32 %79, %81
   br i1 %.not.i.i36, label %_ZN9Node_List4pushEP4Node.exit37, label %82
 
 82:                                               ; preds = %78
@@ -51141,7 +51141,7 @@ _ZN4NodenwEm.exit40:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i41 = icmp ugt i32 %117, %115
+  %.not.i.i41 = icmp ult i32 %115, %117
   br i1 %.not.i.i41, label %_ZN9Node_List4pushEP4Node.exit42, label %118
 
 118:                                              ; preds = %114
@@ -51515,7 +51515,7 @@ _ZN4NodenwEm.exit63:                              ; preds = %304, %306
   %320 = add i32 %319, 1
   store i32 %320, ptr %35, align 8
   %321 = load i32, ptr %38, align 8
-  %.not.i.i64 = icmp ugt i32 %321, %319
+  %.not.i.i64 = icmp ult i32 %319, %321
   br i1 %.not.i.i64, label %_ZN9Node_List4pushEP4Node.exit65, label %322
 
 322:                                              ; preds = %318
@@ -51583,7 +51583,7 @@ _ZN4NodenwEm.exit68:                              ; preds = %340, %342
   %356 = add i32 %355, 1
   store i32 %356, ptr %35, align 8
   %357 = load i32, ptr %38, align 8
-  %.not.i.i69 = icmp ugt i32 %357, %355
+  %.not.i.i69 = icmp ult i32 %355, %357
   br i1 %.not.i.i69, label %_ZN9Node_List4pushEP4Node.exit70, label %358
 
 358:                                              ; preds = %354
@@ -51659,7 +51659,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -51739,7 +51739,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %81, %79
+  %.not.i.i21 = icmp ult i32 %79, %81
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %82
 
 82:                                               ; preds = %78
@@ -51807,7 +51807,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i26 = icmp ugt i32 %117, %115
+  %.not.i.i26 = icmp ult i32 %115, %117
   br i1 %.not.i.i26, label %_ZN9Node_List4pushEP4Node.exit27, label %118
 
 118:                                              ; preds = %114
@@ -51977,7 +51977,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %192, %194
   %208 = add i32 %207, 1
   store i32 %208, ptr %35, align 8
   %209 = load i32, ptr %38, align 8
-  %.not.i.i37 = icmp ugt i32 %209, %207
+  %.not.i.i37 = icmp ult i32 %207, %209
   br i1 %.not.i.i37, label %_ZN9Node_List4pushEP4Node.exit38, label %210
 
 210:                                              ; preds = %206
@@ -52053,7 +52053,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -52133,7 +52133,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i24 = icmp ugt i32 %81, %79
+  %.not.i.i24 = icmp ult i32 %79, %81
   br i1 %.not.i.i24, label %_ZN9Node_List4pushEP4Node.exit25, label %82
 
 82:                                               ; preds = %78
@@ -52201,7 +52201,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i29 = icmp ugt i32 %117, %115
+  %.not.i.i29 = icmp ult i32 %115, %117
   br i1 %.not.i.i29, label %_ZN9Node_List4pushEP4Node.exit30, label %118
 
 118:                                              ; preds = %114
@@ -52422,7 +52422,7 @@ _ZN4NodenwEm.exit42:                              ; preds = %220, %222
   %236 = add i32 %235, 1
   store i32 %236, ptr %35, align 8
   %237 = load i32, ptr %38, align 8
-  %.not.i.i43 = icmp ugt i32 %237, %235
+  %.not.i.i43 = icmp ult i32 %235, %237
   br i1 %.not.i.i43, label %_ZN9Node_List4pushEP4Node.exit44, label %238
 
 238:                                              ; preds = %234
@@ -52498,7 +52498,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -52578,7 +52578,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i30 = icmp ugt i32 %81, %79
+  %.not.i.i30 = icmp ult i32 %79, %81
   br i1 %.not.i.i30, label %_ZN9Node_List4pushEP4Node.exit31, label %82
 
 82:                                               ; preds = %78
@@ -52646,7 +52646,7 @@ _ZN4NodenwEm.exit34:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i35 = icmp ugt i32 %117, %115
+  %.not.i.i35 = icmp ult i32 %115, %117
   br i1 %.not.i.i35, label %_ZN9Node_List4pushEP4Node.exit36, label %118
 
 118:                                              ; preds = %114
@@ -52918,7 +52918,7 @@ _ZN4NodenwEm.exit51:                              ; preds = %248, %250
   %264 = add i32 %263, 1
   store i32 %264, ptr %35, align 8
   %265 = load i32, ptr %38, align 8
-  %.not.i.i52 = icmp ugt i32 %265, %263
+  %.not.i.i52 = icmp ult i32 %263, %265
   br i1 %.not.i.i52, label %_ZN9Node_List4pushEP4Node.exit53, label %266
 
 266:                                              ; preds = %262
@@ -52986,7 +52986,7 @@ _ZN4NodenwEm.exit56:                              ; preds = %284, %286
   %300 = add i32 %299, 1
   store i32 %300, ptr %35, align 8
   %301 = load i32, ptr %38, align 8
-  %.not.i.i57 = icmp ugt i32 %301, %299
+  %.not.i.i57 = icmp ult i32 %299, %301
   br i1 %.not.i.i57, label %_ZN9Node_List4pushEP4Node.exit58, label %302
 
 302:                                              ; preds = %298
@@ -53062,7 +53062,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -53142,7 +53142,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i30 = icmp ugt i32 %81, %79
+  %.not.i.i30 = icmp ult i32 %79, %81
   br i1 %.not.i.i30, label %_ZN9Node_List4pushEP4Node.exit31, label %82
 
 82:                                               ; preds = %78
@@ -53210,7 +53210,7 @@ _ZN4NodenwEm.exit34:                              ; preds = %100, %102
   %116 = add i32 %115, 1
   store i32 %116, ptr %35, align 8
   %117 = load i32, ptr %38, align 8
-  %.not.i.i35 = icmp ugt i32 %117, %115
+  %.not.i.i35 = icmp ult i32 %115, %117
   br i1 %.not.i.i35, label %_ZN9Node_List4pushEP4Node.exit36, label %118
 
 118:                                              ; preds = %114
@@ -53482,7 +53482,7 @@ _ZN4NodenwEm.exit51:                              ; preds = %248, %250
   %264 = add i32 %263, 1
   store i32 %264, ptr %35, align 8
   %265 = load i32, ptr %38, align 8
-  %.not.i.i52 = icmp ugt i32 %265, %263
+  %.not.i.i52 = icmp ult i32 %263, %265
   br i1 %.not.i.i52, label %_ZN9Node_List4pushEP4Node.exit53, label %266
 
 266:                                              ; preds = %262
@@ -53550,7 +53550,7 @@ _ZN4NodenwEm.exit56:                              ; preds = %284, %286
   %300 = add i32 %299, 1
   store i32 %300, ptr %35, align 8
   %301 = load i32, ptr %38, align 8
-  %.not.i.i57 = icmp ugt i32 %301, %299
+  %.not.i.i57 = icmp ult i32 %299, %301
   br i1 %.not.i.i57, label %_ZN9Node_List4pushEP4Node.exit58, label %302
 
 302:                                              ; preds = %298
@@ -53626,7 +53626,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -53703,7 +53703,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -53780,7 +53780,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -53857,7 +53857,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -53934,7 +53934,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -54011,7 +54011,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -54088,7 +54088,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -54222,7 +54222,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -54356,7 +54356,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -54433,7 +54433,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -54510,7 +54510,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -55157,7 +55157,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -55237,7 +55237,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -55517,7 +55517,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -55594,7 +55594,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -55674,7 +55674,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %64, %72
   %80 = add i32 %79, 1
   store i32 %80, ptr %35, align 8
   %81 = load i32, ptr %38, align 8
-  %.not.i.i9 = icmp ugt i32 %81, %79
+  %.not.i.i9 = icmp ult i32 %79, %81
   br i1 %.not.i.i9, label %_ZN9Node_List4pushEP4Node.exit10, label %82
 
 82:                                               ; preds = %78
@@ -55750,7 +55750,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -55929,7 +55929,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -56057,7 +56057,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -56236,7 +56236,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -56364,7 +56364,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -58105,7 +58105,7 @@ _ZN4NodenwEm.exit50:                              ; preds = %244, %246
   store i32 %261, ptr %259, align 8
   %262 = getelementptr inbounds i8, ptr %2, i64 8
   %263 = load i32, ptr %262, align 8
-  %.not.i.i = icmp ugt i32 %263, %260
+  %.not.i.i = icmp ult i32 %260, %263
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %264
 
 264:                                              ; preds = %258
@@ -58284,7 +58284,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -58769,7 +58769,7 @@ _ZN4NodenwEm.exit50:                              ; preds = %244, %246
   store i32 %261, ptr %259, align 8
   %262 = getelementptr inbounds i8, ptr %2, i64 8
   %263 = load i32, ptr %262, align 8
-  %.not.i.i = icmp ugt i32 %263, %260
+  %.not.i.i = icmp ult i32 %260, %263
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %264
 
 264:                                              ; preds = %258
@@ -59050,7 +59050,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -59637,7 +59637,7 @@ _ZN4NodenwEm.exit62:                              ; preds = %300, %302
   store i32 %317, ptr %315, align 8
   %318 = getelementptr inbounds i8, ptr %2, i64 8
   %319 = load i32, ptr %318, align 8
-  %.not.i.i = icmp ugt i32 %319, %316
+  %.not.i.i = icmp ult i32 %316, %319
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %320
 
 320:                                              ; preds = %314
@@ -59918,7 +59918,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -60505,7 +60505,7 @@ _ZN4NodenwEm.exit62:                              ; preds = %300, %302
   store i32 %317, ptr %315, align 8
   %318 = getelementptr inbounds i8, ptr %2, i64 8
   %319 = load i32, ptr %318, align 8
-  %.not.i.i = icmp ugt i32 %319, %316
+  %.not.i.i = icmp ult i32 %316, %319
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %320
 
 320:                                              ; preds = %314
@@ -60786,7 +60786,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -61373,7 +61373,7 @@ _ZN4NodenwEm.exit62:                              ; preds = %300, %302
   store i32 %317, ptr %315, align 8
   %318 = getelementptr inbounds i8, ptr %2, i64 8
   %319 = load i32, ptr %318, align 8
-  %.not.i.i = icmp ugt i32 %319, %316
+  %.not.i.i = icmp ult i32 %316, %319
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %320
 
 320:                                              ; preds = %314
@@ -61654,7 +61654,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -62241,7 +62241,7 @@ _ZN4NodenwEm.exit62:                              ; preds = %300, %302
   store i32 %317, ptr %315, align 8
   %318 = getelementptr inbounds i8, ptr %2, i64 8
   %319 = load i32, ptr %318, align 8
-  %.not.i.i = icmp ugt i32 %319, %316
+  %.not.i.i = icmp ult i32 %316, %319
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %320
 
 320:                                              ; preds = %314
@@ -72445,7 +72445,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -72777,7 +72777,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -73160,7 +73160,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -73543,7 +73543,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -73875,7 +73875,7 @@ _ZN4NodenwEm.exit101:                             ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -74682,7 +74682,7 @@ _ZN4NodenwEm.exit101:                             ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -75540,7 +75540,7 @@ _ZN4NodenwEm.exit121:                             ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -76505,7 +76505,7 @@ _ZN4NodenwEm.exit121:                             ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -77419,7 +77419,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -77751,7 +77751,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -78134,7 +78134,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -78517,7 +78517,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -78849,7 +78849,7 @@ _ZN4NodenwEm.exit101:                             ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -79656,7 +79656,7 @@ _ZN4NodenwEm.exit101:                             ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -80514,7 +80514,7 @@ _ZN4NodenwEm.exit121:                             ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -81479,7 +81479,7 @@ _ZN4NodenwEm.exit121:                             ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -84054,7 +84054,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -84131,7 +84131,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -91111,7 +91111,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -91443,7 +91443,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -91826,7 +91826,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -92158,7 +92158,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -92541,7 +92541,7 @@ _ZN4NodenwEm.exit39:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -92926,7 +92926,7 @@ _ZN4NodenwEm.exit39:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -93311,7 +93311,7 @@ _ZN4NodenwEm.exit39:                              ; preds = %188, %190
   store i32 %205, ptr %203, align 8
   %206 = getelementptr inbounds i8, ptr %2, i64 8
   %207 = load i32, ptr %206, align 8
-  %.not.i.i = icmp ugt i32 %207, %204
+  %.not.i.i = icmp ult i32 %204, %207
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %208
 
 208:                                              ; preds = %202
@@ -98152,7 +98152,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -98382,7 +98382,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -98510,7 +98510,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -98695,7 +98695,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -98874,7 +98874,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -99053,7 +99053,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -99232,7 +99232,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -99462,7 +99462,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -99692,7 +99692,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -99871,7 +99871,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -100050,7 +100050,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -100280,7 +100280,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -100510,7 +100510,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -100740,7 +100740,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -100970,7 +100970,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load i32, ptr %122, align 8
-  %.not.i.i = icmp ugt i32 %123, %120
+  %.not.i.i = icmp ult i32 %120, %123
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %124
 
 124:                                              ; preds = %118
@@ -101302,7 +101302,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -101634,7 +101634,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
   store i32 %177, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %2, i64 8
   %179 = load i32, ptr %178, align 8
-  %.not.i.i = icmp ugt i32 %179, %176
+  %.not.i.i = icmp ult i32 %176, %179
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %180
 
 180:                                              ; preds = %174
@@ -101813,7 +101813,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -103992,7 +103992,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
   store i32 %149, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   %151 = load i32, ptr %150, align 8
-  %.not.i.i = icmp ugt i32 %151, %148
+  %.not.i.i = icmp ult i32 %148, %151
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %152
 
 152:                                              ; preds = %146
@@ -104291,7 +104291,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -104419,7 +104419,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -104496,7 +104496,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -104678,7 +104678,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %120, %128
   %136 = add i32 %135, 1
   store i32 %136, ptr %35, align 8
   %137 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %137, %135
+  %.not.i.i21 = icmp ult i32 %135, %137
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %138
 
 138:                                              ; preds = %134
@@ -104754,7 +104754,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -104936,7 +104936,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %120, %128
   %136 = add i32 %135, 1
   store i32 %136, ptr %35, align 8
   %137 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %137, %135
+  %.not.i.i21 = icmp ult i32 %135, %137
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %138
 
 138:                                              ; preds = %134
@@ -105012,7 +105012,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -105194,7 +105194,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %120, %128
   %136 = add i32 %135, 1
   store i32 %136, ptr %35, align 8
   %137 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %137, %135
+  %.not.i.i21 = icmp ult i32 %135, %137
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %138
 
 138:                                              ; preds = %134
@@ -105270,7 +105270,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -105452,7 +105452,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %120, %128
   %136 = add i32 %135, 1
   store i32 %136, ptr %35, align 8
   %137 = load i32, ptr %38, align 8
-  %.not.i.i21 = icmp ugt i32 %137, %135
+  %.not.i.i21 = icmp ult i32 %135, %137
   br i1 %.not.i.i21, label %_ZN9Node_List4pushEP4Node.exit22, label %138
 
 138:                                              ; preds = %134
@@ -105630,7 +105630,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -105809,7 +105809,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
   store i32 %93, ptr %91, align 8
   %94 = getelementptr inbounds i8, ptr %2, i64 8
   %95 = load i32, ptr %94, align 8
-  %.not.i.i = icmp ugt i32 %95, %92
+  %.not.i.i = icmp ult i32 %92, %95
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %96
 
 96:                                               ; preds = %90
@@ -105937,7 +105937,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -106065,7 +106065,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -106142,7 +106142,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -106273,7 +106273,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %92, %100
   %108 = add i32 %107, 1
   store i32 %108, ptr %35, align 8
   %109 = load i32, ptr %38, align 8
-  %.not.i.i15 = icmp ugt i32 %109, %107
+  %.not.i.i15 = icmp ult i32 %107, %109
   br i1 %.not.i.i15, label %_ZN9Node_List4pushEP4Node.exit16, label %110
 
 110:                                              ; preds = %106
@@ -106349,7 +106349,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -106480,7 +106480,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %92, %100
   %108 = add i32 %107, 1
   store i32 %108, ptr %35, align 8
   %109 = load i32, ptr %38, align 8
-  %.not.i.i15 = icmp ugt i32 %109, %107
+  %.not.i.i15 = icmp ult i32 %107, %109
   br i1 %.not.i.i15, label %_ZN9Node_List4pushEP4Node.exit16, label %110
 
 110:                                              ; preds = %106
@@ -106556,7 +106556,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -106684,7 +106684,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -106812,7 +106812,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -106940,7 +106940,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -107068,7 +107068,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62
@@ -107145,7 +107145,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -107276,7 +107276,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %92, %100
   %108 = add i32 %107, 1
   store i32 %108, ptr %35, align 8
   %109 = load i32, ptr %38, align 8
-  %.not.i.i15 = icmp ugt i32 %109, %107
+  %.not.i.i15 = icmp ult i32 %107, %109
   br i1 %.not.i.i15, label %_ZN9Node_List4pushEP4Node.exit16, label %110
 
 110:                                              ; preds = %106
@@ -107352,7 +107352,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
   store i32 %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp ugt i32 %39, %36
+  %.not.i.i = icmp ult i32 %36, %39
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %40
 
 40:                                               ; preds = %34
@@ -107483,7 +107483,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %92, %100
   %108 = add i32 %107, 1
   store i32 %108, ptr %35, align 8
   %109 = load i32, ptr %38, align 8
-  %.not.i.i15 = icmp ugt i32 %109, %107
+  %.not.i.i15 = icmp ult i32 %107, %109
   br i1 %.not.i.i15, label %_ZN9Node_List4pushEP4Node.exit16, label %110
 
 110:                                              ; preds = %106
@@ -107610,7 +107610,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   store i32 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ugt i32 %67, %64
+  %.not.i.i = icmp ult i32 %64, %67
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
 
 68:                                               ; preds = %62

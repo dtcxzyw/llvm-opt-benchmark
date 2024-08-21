@@ -39,7 +39,7 @@ define internal noalias ptr @H5O__mtime_decode(ptr nocapture readnone %0, ptr no
   %7 = alloca %struct.tm, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %4
   %9 = getelementptr inbounds i8, ptr %8, i64 -1
-  %10 = icmp ult ptr %9, %5
+  %10 = icmp ugt ptr %5, %9
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %6
@@ -263,7 +263,7 @@ define internal noundef i32 @H5O__mtime_debug(ptr nocapture readnone %0, ptr nou
 define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 %4
   %.ptr40 = getelementptr i8, ptr %7, i64 -1
-  %8 = icmp ult ptr %.ptr40, %5
+  %8 = icmp ugt ptr %5, %.ptr40
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6

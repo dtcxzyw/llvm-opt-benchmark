@@ -6680,7 +6680,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   %55 = getelementptr inbounds i8, ptr %53, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !934, !noalias !937, !noundef !9
   %57 = sub i64 %54, %56
-  %58 = icmp ugt i64 %57, %52
+  %58 = icmp ult i64 %52, %57
   br i1 %58, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread.i", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.i"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread.i": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -7031,7 +7031,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h86a9a28432d
   %50 = load i64, ptr %49, align 8, !alias.scope !980, !noalias !989, !noundef !9
   %51 = load i64, ptr %48, align 8, !alias.scope !993, !noalias !989, !noundef !9
   %52 = sub i64 %51, %50
-  %53 = icmp ult i64 %52, %46
+  %53 = icmp ugt i64 %46, %52
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %45
@@ -7054,7 +7054,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h86a9a28432d
   br i1 %64, label %71, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i.i": ; preds = %55
-  %65 = icmp ne ptr %62, %3
+  %65 = icmp ne ptr %3, %62
   call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds i8, ptr %.sroa.phi, i64 -2
   %67 = load i8, ptr %66, align 1, !alias.scope !978, !noalias !996, !noundef !9
@@ -7068,7 +7068,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h86a9a28432d
   br label %"_ZN80_$LT$cpp_demangle..ast..DemangleContext$LT$W$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h1ae077186a859904E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i.i"
-  %73 = icmp ne ptr %66, %3
+  %73 = icmp ne ptr %3, %66
   call void @llvm.assume(i1 %73)
   %74 = getelementptr inbounds i8, ptr %.sroa.phi, i64 -3
   %75 = load i8, ptr %74, align 1, !alias.scope !978, !noalias !996, !noundef !9
@@ -7086,7 +7086,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h86a9a28432d
   br label %"_ZN80_$LT$cpp_demangle..ast..DemangleContext$LT$W$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h1ae077186a859904E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit23.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i.i"
-  %84 = icmp ne ptr %74, %3
+  %84 = icmp ne ptr %3, %74
   call void @llvm.assume(i1 %84)
   %85 = getelementptr inbounds i8, ptr %.sroa.phi, i64 -4
   %86 = load i8, ptr %85, align 1, !alias.scope !978, !noalias !996, !noundef !9
@@ -7492,7 +7492,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14851
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -10895,7 +10895,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1579, !noalias !1584, !noundef !9
   %45 = load i64, ptr %0, align 8, !alias.scope !1586, !noalias !1584, !noundef !9
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h264d2874cff25bdaE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -10949,7 +10949,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !1592, !noalias !1597, !noundef !9
   %6 = load i64, ptr %0, align 8, !alias.scope !1599, !noalias !1597, !noundef !9
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h264d2874cff25bdaE.exit"
 
 9:                                                ; preds = %3
@@ -14493,7 +14493,7 @@ define hidden void @"_ZN6object4read4coff7section27CoffSection$LT$R$C$Coff$GT$5b
 define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segment_internal17h2b0c7da5b714fe38E.llvm.14851531119274094909"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !9
-  %.not = icmp ugt i64 %5, %2
+  %.not = icmp ult i64 %2, %5
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !9
   %8 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %7, i64 %2
@@ -14510,7 +14510,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segm
 define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segment_internal17h921b09c1d4913653E.llvm.14851531119274094909"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !9
-  %.not = icmp ugt i64 %5, %2
+  %.not = icmp ult i64 %2, %5
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !9
   %8 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %7, i64 %2
@@ -14531,7 +14531,7 @@ define hidden void @"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$
   %6 = load ptr, ptr %5, align 8, !nonnull !9, !align !125, !noundef !9
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !2119, !noalias !2122, !noundef !9
-  %.not.i = icmp ugt i64 %8, %4
+  %.not.i = icmp ult i64 %4, %8
   br i1 %.not.i, label %9, label %37
 
 9:                                                ; preds = %2
@@ -14603,7 +14603,7 @@ define hidden void @"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$
   %6 = load ptr, ptr %5, align 8, !nonnull !9, !align !125, !noundef !9
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !2141, !noalias !2144, !noundef !9
-  %.not.i = icmp ugt i64 %8, %4
+  %.not.i = icmp ult i64 %4, %8
   br i1 %.not.i, label %9, label %36
 
 9:                                                ; preds = %2
@@ -17210,7 +17210,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   %9 = load i64, ptr %8, align 8, !alias.scope !2266, !noalias !2275, !noundef !9
   %10 = load i64, ptr %7, align 8, !alias.scope !2279, !noalias !2275, !noundef !9
   %11 = sub i64 %10, %9
-  %12 = icmp ult i64 %11, %2
+  %12 = icmp ugt i64 %2, %11
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %5
@@ -17234,7 +17234,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   br i1 %24, label %31, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i": ; preds = %14
-  %25 = icmp ne ptr %22, %1
+  %25 = icmp ne ptr %1, %22
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds i8, ptr %21, i64 -2
   %27 = load i8, ptr %26, align 1, !noalias !2282, !noundef !9
@@ -17248,7 +17248,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i"
-  %33 = icmp ne ptr %26, %1
+  %33 = icmp ne ptr %1, %26
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %21, i64 -3
   %35 = load i8, ptr %34, align 1, !noalias !2282, !noundef !9
@@ -17266,7 +17266,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit23.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i"
-  %44 = icmp ne ptr %34, %1
+  %44 = icmp ne ptr %1, %34
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds i8, ptr %21, i64 -4
   %46 = load i8, ptr %45, align 1, !noalias !2282, !noundef !9
@@ -18845,7 +18845,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !2505, !noalias !2508, !noundef !9
   %9 = sub i64 %6, %8
-  %10 = icmp ugt i64 %9, %2
+  %10 = icmp ult i64 %2, %9
   br i1 %10, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread", label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread": ; preds = %3
@@ -23698,7 +23698,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceN
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ult i64 %20, %.8.val
+  %23 = icmp ugt i64 %.8.val, %20
   br i1 %23, label %25, label %28
 
 24:                                               ; preds = %16
@@ -24471,7 +24471,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
 68:                                               ; preds = %.invoke
   %69 = getelementptr inbounds i8, ptr %1, i64 40
   %70 = load i64, ptr %69, align 8, !alias.scope !2842, !noundef !9
-  %71 = icmp ugt i64 %70, %65
+  %71 = icmp ult i64 %65, %70
   br i1 %71, label %72, label %.invoke128, !prof !127
 
 72:                                               ; preds = %68
@@ -24525,7 +24525,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %1, i64 40
   %95 = load i64, ptr %94, align 8, !alias.scope !2842, !noundef !9
-  %96 = icmp ult i64 %95, %66
+  %96 = icmp ugt i64 %66, %95
   br i1 %96, label %.invoke124, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.exit.i"
 
 .invoke126:                                       ; preds = %89, %48
@@ -24577,7 +24577,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   %116 = load i64, ptr %115, align 8, !alias.scope !2854, !noalias !2863, !noundef !9
   %117 = load i64, ptr %114, align 8, !alias.scope !2867, !noalias !2863, !noundef !9
   %118 = sub i64 %117, %116
-  %119 = icmp ult i64 %118, %109
+  %119 = icmp ugt i64 %109, %118
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %112
@@ -24604,7 +24604,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   br i1 %131, label %138, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i.i.i": ; preds = %121
-  %132 = icmp ne ptr %129, %107
+  %132 = icmp ne ptr %107, %129
   tail call void @llvm.assume(i1 %132)
   %133 = getelementptr inbounds i8, ptr %128, i64 -2
   %134 = load i8, ptr %133, align 1, !alias.scope !2851, !noalias !2870, !noundef !9
@@ -24618,7 +24618,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i.i.i"
-  %140 = icmp ne ptr %133, %107
+  %140 = icmp ne ptr %107, %133
   tail call void @llvm.assume(i1 %140)
   %141 = getelementptr inbounds i8, ptr %128, i64 -3
   %142 = load i8, ptr %141, align 1, !alias.scope !2851, !noalias !2870, !noundef !9
@@ -24636,7 +24636,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit23.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i.i.i"
-  %151 = icmp ne ptr %141, %107
+  %151 = icmp ne ptr %107, %141
   tail call void @llvm.assume(i1 %151)
   %152 = getelementptr inbounds i8, ptr %128, i64 -4
   %153 = load i8, ptr %152, align 1, !alias.scope !2851, !noalias !2870, !noundef !9
@@ -25641,7 +25641,7 @@ switch.lookup:                                    ; preds = %50
 
 225:                                              ; preds = %222
   %226 = load i64, ptr %186, align 8, !alias.scope !2969, !noalias !2954, !noundef !9
-  %227 = icmp ult i64 %226, %.val35.i
+  %227 = icmp ugt i64 %.val35.i, %226
   br i1 %227, label %229, label %230
 
 228:                                              ; preds = %222
@@ -28358,7 +28358,7 @@ define hidden { ptr, ptr } @"_ZN8indexmap3set21IndexSet$LT$T$C$S$GT$4iter17hfe28
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN8indexmap3set21IndexSet$LT$T$C$S$GT$9get_index17h86b458496be47a61E.llvm.14851531119274094909"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !9
-  %.not = icmp ugt i64 %4, %1
+  %.not = icmp ult i64 %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !9
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, {} }, ptr %6, i64 %1
@@ -32775,7 +32775,7 @@ define internal noundef zeroext i1 @"_ZN93_$LT$cpp_demangle..ast..VectorType$u20
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN93_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h80a988cd126725f7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3932, !noundef !9
-  %.not.i.not = icmp ugt i64 %5, %1
+  %.not.i.not = icmp ult i64 %1, %5
   br i1 %.not.i.not, label %7, label %6
 
 6:                                                ; preds = %3
@@ -35277,7 +35277,7 @@ define hidden void @_ZN8wasmtime7runtime5store4data9StoreData13reserve_funcs17h1
   %4 = load i64, ptr %3, align 8, !alias.scope !4302, !noundef !9
   %5 = load i64, ptr %0, align 8, !alias.scope !4302, !noundef !9
   %6 = sub i64 %5, %4
-  %7 = icmp ult i64 %6, %1
+  %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h78bb8e3410ea5a85E.exit"
 
 8:                                                ; preds = %2
@@ -38959,7 +38959,7 @@ define void @_ZN8wasmtime7runtime5types8FuncType5param17h67a9808b3e79a469E(ptr n
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = getelementptr inbounds i8, ptr %7, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !9
-  %.not = icmp ugt i64 %10, %2
+  %.not = icmp ult i64 %2, %10
   %11 = load ptr, ptr %8, align 8, !nonnull !9
   %12 = getelementptr inbounds { i32, [2 x i32] }, ptr %11, i64 %2
   br i1 %.not, label %14, label %13
@@ -39092,7 +39092,7 @@ define void @_ZN8wasmtime7runtime5types8FuncType6result17haa8ed52281991719E(ptr 
   %7 = load ptr, ptr %6, align 8, !alias.scope !4990, !nonnull !9, !noundef !9
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !9
-  %.not = icmp ugt i64 %9, %2
+  %.not = icmp ult i64 %2, %9
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   %11 = load ptr, ptr %10, align 8, !nonnull !9
   %12 = getelementptr inbounds { i32, [2 x i32] }, ptr %11, i64 %2

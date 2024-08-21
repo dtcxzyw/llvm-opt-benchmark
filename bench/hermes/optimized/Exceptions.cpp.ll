@@ -1074,7 +1074,7 @@ if.end.i.i.i:                                     ; preds = %for.body9
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
   %add.ptr21.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.140", ptr %18, i64 %idx.ext20.i.i.i
   %21 = load ptr, ptr %add.ptr21.i.i.i, align 8
-  %cmp.i22.i.i.i = icmp eq ptr %21, %17
+  %cmp.i22.i.i.i = icmp eq ptr %17, %21
   br i1 %cmp.i22.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt4pairIjjENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findEPKS3_.exit, label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end.i.i.i, %if.end13.i.i.i
@@ -1091,7 +1091,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %idx.ext.i.i.i32 = zext i32 %BucketNo.0.i.i.i to i64
   %add.ptr.i.i.i33 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.140", ptr %18, i64 %idx.ext.i.i.i32
   %23 = load ptr, ptr %add.ptr.i.i.i33, align 8
-  %cmp.i.i.i.i = icmp eq ptr %23, %17
+  %cmp.i.i.i.i = icmp eq ptr %17, %23
   br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt4pairIjjENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findEPKS3_.exit, label %if.end9.i.i.i, !llvm.loop !28
 
 if.end.i:                                         ; preds = %if.end9.i.i.i, %for.body9
@@ -1200,17 +1200,17 @@ for.end45:                                        ; preds = %for.end.thread, %fo
   %nextIndex.0.lcssa = phi i32 [ 0, %_ZSt4sortIPSt4pairIjjEEvT_S3_.exit ], [ %nextIndex.1, %for.end45.loopexit ], [ 0, %for.end ], [ 0, %for.end.thread ]
   %conv46 = sext i32 %nextIndex.0.lcssa to i64
   %conv.i.i = zext i32 %35 to i64
-  %cmp.i = icmp ugt i64 %conv.i.i, %conv46
+  %cmp.i = icmp ult i64 %conv46, %conv.i.i
   br i1 %cmp.i, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end45
-  %cmp5.i = icmp ult i64 %conv.i.i, %conv46
+  %cmp5.i = icmp ugt i64 %conv46, %conv.i.i
   br i1 %cmp5.i, label %if.then6.i, label %_ZN4llvh15SmallVectorImplISt4pairIjjEE6resizeEm.exit
 
 if.then6.i:                                       ; preds = %if.else.i
   %36 = load i32, ptr %Capacity2.i.i.i.i.i30, align 4
   %conv.i15.i = zext i32 %36 to i64
-  %cmp8.i = icmp ult i64 %conv.i15.i, %conv46
+  %cmp8.i = icmp ugt i64 %conv46, %conv.i15.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end.i46
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -2422,7 +2422,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.0.0.copyload10 = load i64, ptr %add.ptr9, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i8183 = lshr i64 %sub.i, 1
-  %cmp28.i = icmp ugt i64 %div.i8183, %div13
+  %cmp28.i = icmp ult i64 %div13, %div.i8183
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i
@@ -2550,7 +2550,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %dec = add nsw i64 %__parent.086, -1
   %add.ptr11 = getelementptr inbounds %"struct.std::pair.138", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 4
-  %cmp28.i16.not = icmp slt i64 %div.i8183, %__parent.086
+  %cmp28.i16.not = icmp sgt i64 %__parent.086, %div.i8183
   br i1 %cmp28.i16.not, label %while.end.i17, label %while.body.i59
 
 while.body.i59:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74
@@ -3163,7 +3163,7 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i7981 = lshr i64 %sub.i, 1
-  %cmp26.i = icmp ugt i64 %div.i7981, %div17
+  %cmp26.i = icmp ult i64 %div17, %div.i7981
   br i1 %cmp26.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread24.i
@@ -3277,7 +3277,7 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   %__value.sroa.0.0.copyload14 = load i64, ptr %add.ptr13, align 4
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 4
-  %cmp26.i20.not = icmp slt i64 %div.i7981, %__parent.084
+  %cmp26.i20.not = icmp sgt i64 %__parent.084, %div.i7981
   br i1 %cmp26.i20.not, label %while.end.i21, label %while.body.i58
 
 while.body.i58:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.thread24.i70

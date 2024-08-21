@@ -135,9 +135,9 @@ define hidden void @_ZN7VMError24check_failing_cds_accessEP12outputStreamPKv(ptr
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @_ZN12MetaspaceObj21_shared_metaspace_topE, align 8
-  %12 = icmp ugt ptr %11, %9
+  %12 = icmp ult ptr %9, %11
   %13 = load ptr, ptr @_ZN12MetaspaceObj22_shared_metaspace_baseE, align 8
-  %14 = icmp ule ptr %13, %9
+  %14 = icmp uge ptr %9, %13
   %15 = select i1 %12, i1 %14, i1 false
   br i1 %15, label %16, label %17
 

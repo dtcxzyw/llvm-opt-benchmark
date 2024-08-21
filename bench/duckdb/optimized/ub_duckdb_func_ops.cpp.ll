@@ -15968,7 +15968,7 @@ if.end14.i:                                       ; preds = %if.end.i
   %10 = getelementptr inbounds i8, ptr %retval.i, i64 8
   %11 = extractvalue { i64, ptr } %call16.i, 1
   store ptr %11, ptr %10, align 8
-  %cmp18.not.i = icmp sgt i32 %conv.i, %right
+  %cmp18.not.i = icmp slt i32 %right, %conv.i
   br i1 %cmp18.not.i, label %if.end20.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end14.i

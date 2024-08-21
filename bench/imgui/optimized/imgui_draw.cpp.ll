@@ -1856,7 +1856,7 @@ for.end82:                                        ; preds = %_ZN10ImDrawList17_P
   %add86 = add nsw i32 %44, %new_cmd_buffer_count.0.lcssa
   %Capacity.i = getelementptr inbounds i8, ptr %draw_list, i64 4
   %45 = load i32, ptr %Capacity.i, align 4
-  %cmp.i85 = icmp slt i32 %45, %add86
+  %cmp.i85 = icmp sgt i32 %add86, %45
   br i1 %cmp.i85, label %if.then.i, label %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit
 
 if.then.i:                                        ; preds = %for.end82
@@ -1900,7 +1900,7 @@ _ZN8ImVectorI9ImDrawCmdE6resizeEi.exit:           ; preds = %for.end82, %if.end7
   %add89 = add nsw i32 %49, %new_idx_buffer_count.0.lcssa
   %Capacity.i87 = getelementptr inbounds i8, ptr %draw_list, i64 20
   %50 = load i32, ptr %Capacity.i87, align 4
-  %cmp.i88 = icmp slt i32 %50, %add89
+  %cmp.i88 = icmp sgt i32 %add89, %50
   br i1 %cmp.i88, label %if.then.i90, label %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit._ZN8ImVectorItE6resizeEi.exit_crit_edge
 
 _ZN8ImVectorI9ImDrawCmdE6resizeEi.exit._ZN8ImVectorItE6resizeEi.exit_crit_edge: ; preds = %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit
@@ -2462,7 +2462,7 @@ _ZN8ImVectorItE5clearEv.exit.i:                   ; preds = %if.then.i.i7, %_ZN8
   %8 = load i32, ptr %IdxBuffer, align 8
   %Capacity.i3.i9 = getelementptr inbounds i8, ptr %call, i64 20
   %9 = load i32, ptr %Capacity.i3.i9, align 4
-  %cmp.i.i10 = icmp slt i32 %9, %8
+  %cmp.i.i10 = icmp sgt i32 %8, %9
   br i1 %cmp.i.i10, label %if.then.i4.i16, label %_ZN8ImVectorItE6resizeEi.exit.i
 
 if.then.i4.i16:                                   ; preds = %_ZN8ImVectorItE5clearEv.exit.i
@@ -2532,7 +2532,7 @@ _ZN8ImVectorI10ImDrawVertE5clearEv.exit.i:        ; preds = %if.then.i.i33, %_ZN
   %16 = load i32, ptr %VtxBuffer, align 8
   %Capacity.i3.i35 = getelementptr inbounds i8, ptr %call, i64 36
   %17 = load i32, ptr %Capacity.i3.i35, align 4
-  %cmp.i.i36 = icmp slt i32 %17, %16
+  %cmp.i.i36 = icmp sgt i32 %16, %17
   br i1 %cmp.i.i36, label %if.then.i4.i42, label %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i
 
 if.then.i4.i42:                                   ; preds = %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i
@@ -3629,7 +3629,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %add8 = add nsw i32 %8, %vtx_count
   %Capacity.i = getelementptr inbounds i8, ptr %this, i64 36
   %9 = load i32, ptr %Capacity.i, align 4
-  %cmp.i = icmp slt i32 %9, %add8
+  %cmp.i = icmp sgt i32 %add8, %9
   br i1 %cmp.i, label %if.then.i, label %if.end._ZN8ImVectorI10ImDrawVertE6resizeEi.exit_crit_edge
 
 if.end._ZN8ImVectorI10ImDrawVertE6resizeEi.exit_crit_edge: ; preds = %if.end
@@ -3683,7 +3683,7 @@ _ZN8ImVectorI10ImDrawVertE6resizeEi.exit:         ; preds = %if.end._ZN8ImVector
   %add13 = add nsw i32 %14, %idx_count
   %Capacity.i5 = getelementptr inbounds i8, ptr %this, i64 20
   %15 = load i32, ptr %Capacity.i5, align 4
-  %cmp.i6 = icmp slt i32 %15, %add13
+  %cmp.i6 = icmp sgt i32 %add13, %15
   br i1 %cmp.i6, label %if.then.i7, label %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit._ZN8ImVectorItE6resizeEi.exit_crit_edge
 
 _ZN8ImVectorI10ImDrawVertE6resizeEi.exit._ZN8ImVectorItE6resizeEi.exit_crit_edge: ; preds = %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit
@@ -4048,7 +4048,7 @@ if.end:                                           ; preds = %entry
   %cond = select i1 %cmp4.not, i32 %sub, i32 %points_count
   %_FringeScale = getelementptr inbounds i8, ptr %this, i64 192
   %2 = load float, ptr %_FringeScale, align 8
-  %cmp5 = fcmp uge float %2, %thickness
+  %cmp5 = fcmp ule float %thickness, %2
   %Flags = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i32, ptr %Flags, align 8
   %and7 = and i32 %3, 1
@@ -4094,7 +4094,7 @@ cond.end45:                                       ; preds = %cond.false37, %cond
   %mul51 = mul nuw nsw i32 %cond50, %points_count
   %Capacity.i = getelementptr inbounds i8, ptr %5, i64 52
   %6 = load i32, ptr %Capacity.i, align 4
-  %cmp.not.i = icmp slt i32 %6, %mul51
+  %cmp.not.i = icmp sgt i32 %mul51, %6
   br i1 %cmp.not.i, label %if.end.i, label %for.body.preheader
 
 if.end.i:                                         ; preds = %cond.end45
@@ -5060,7 +5060,7 @@ for.end:                                          ; preds = %for.body
   %9 = load ptr, ptr %_Data, align 8
   %Capacity.i = getelementptr inbounds i8, ptr %9, i64 52
   %10 = load i32, ptr %Capacity.i, align 4
-  %cmp.not.i = icmp slt i32 %10, %points_count
+  %cmp.not.i = icmp sgt i32 %points_count, %10
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8ImVectorI6ImVec2E15reserve_discardEi.exit
 
 if.end.i:                                         ; preds = %for.end
@@ -5483,7 +5483,7 @@ if.end20:                                         ; preds = %if.then8, %if.then1
   %add23 = add nsw i32 %14, %samples.0
   %Capacity.i74 = getelementptr inbounds i8, ptr %this, i64 124
   %15 = load i32, ptr %Capacity.i74, align 4
-  %cmp.i75 = icmp slt i32 %15, %add23
+  %cmp.i75 = icmp sgt i32 %add23, %15
   br i1 %cmp.i75, label %if.then.i76, label %if.end20._ZN8ImVectorI6ImVec2E6resizeEi.exit_crit_edge
 
 if.end20._ZN8ImVectorI6ImVec2E6resizeEi.exit_crit_edge: ; preds = %if.end20
@@ -5706,7 +5706,7 @@ if.end:                                           ; preds = %entry
   %add4 = add nsw i32 %add, %0
   %Capacity.i11 = getelementptr inbounds i8, ptr %this, i64 124
   %9 = load i32, ptr %Capacity.i11, align 4
-  %cmp.not.i = icmp slt i32 %9, %add4
+  %cmp.not.i = icmp sgt i32 %add4, %9
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8ImVectorI6ImVec2E7reserveEi.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -5974,7 +5974,7 @@ if.end4:                                          ; preds = %if.end
   %9 = load ptr, ptr %_Data, align 8
   %ArcFastRadiusCutoff = getelementptr inbounds i8, ptr %9, i64 448
   %10 = load float, ptr %ArcFastRadiusCutoff, align 8
-  %cmp5 = fcmp ult float %10, %radius
+  %cmp5 = fcmp ugt float %radius, %10
   br i1 %cmp5, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
@@ -6044,7 +6044,7 @@ cond.end25:                                       ; preds = %cond.false22, %cond
   %add51 = add i32 %add50, %cond46
   %Capacity.i57 = getelementptr inbounds i8, ptr %this, i64 124
   %16 = load i32, ptr %Capacity.i57, align 4
-  %cmp.not.i = icmp slt i32 %16, %add51
+  %cmp.not.i = icmp sgt i32 %add51, %16
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8ImVectorI6ImVec2E7reserveEi.exit
 
 if.end.i:                                         ; preds = %cond.end25
@@ -6319,7 +6319,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
   %add4 = add nsw i32 %add, %4
   %Capacity.i = getelementptr inbounds i8, ptr %this, i64 124
   %5 = load i32, ptr %Capacity.i, align 4
-  %cmp.not.i = icmp slt i32 %5, %add4
+  %cmp.not.i = icmp sgt i32 %add4, %5
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8ImVectorI6ImVec2E7reserveEi.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -6350,6 +6350,7 @@ _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %if.end, %if.end7.i
   %call6 = tail call float @sinf(float noundef %rot) #40
   %conv8 = uitofp nneg i32 %num_segments.addr.0 to float
   %sub = fsub float %a_max, %a_min
+  %9 = fneg float %call6
   %y21 = getelementptr inbounds i8, ptr %center, i64 4
   %Data.i.i = getelementptr inbounds i8, ptr %this, i64 128
   br label %for.body
@@ -6358,13 +6359,12 @@ for.body:                                         ; preds = %_ZN8ImVectorI6ImVec
   %i.025 = phi i32 [ 0, %_ZN8ImVectorI6ImVec2E7reserveEi.exit ], [ %inc, %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit ]
   %conv = uitofp nneg i32 %i.025 to float
   %div = fdiv float %conv, %conv8
-  %9 = tail call float @llvm.fmuladd.f32(float %div, float %sub, float %a_min)
-  %call9 = tail call float @cosf(float noundef %9) #40
-  %mul = fmul float %call9, %radius_x
-  %call10 = tail call float @sinf(float noundef %9) #40
-  %mul11 = fmul float %call10, %radius_y
-  %10 = fneg float %mul11
-  %neg = fmul float %call6, %10
+  %10 = tail call float @llvm.fmuladd.f32(float %div, float %sub, float %a_min)
+  %call9 = tail call float @cosf(float noundef %10) #40
+  %mul = fmul float %radius_x, %call9
+  %call10 = tail call float @sinf(float noundef %10) #40
+  %mul11 = fmul float %radius_y, %call10
+  %neg = fmul float %mul11, %9
   %11 = tail call float @llvm.fmuladd.f32(float %mul, float %call5, float %neg)
   %mul17 = fmul float %call5, %mul11
   %12 = tail call float @llvm.fmuladd.f32(float %mul, float %call6, float %mul17)
@@ -6443,11 +6443,11 @@ entry:
   %mul1 = fmul float %sub, %mul
   %mul2 = fmul float %sub, 3.000000e+00
   %mul3 = fmul float %sub, %mul2
-  %mul4 = fmul float %mul3, %t
-  %mul6 = fmul float %mul2, %t
-  %mul7 = fmul float %mul6, %t
+  %mul4 = fmul float %t, %mul3
+  %mul6 = fmul float %t, %mul2
+  %mul7 = fmul float %t, %mul6
   %mul8 = fmul float %t, %t
-  %mul9 = fmul float %mul8, %t
+  %mul9 = fmul float %t, %mul8
   %0 = load float, ptr %p1, align 4
   %1 = load float, ptr %p2, align 4
   %mul12 = fmul float %mul4, %1
@@ -6479,7 +6479,7 @@ entry:
   %sub = fsub float 1.000000e+00, %t
   %mul = fmul float %sub, %sub
   %mul1 = fmul float %sub, 2.000000e+00
-  %mul2 = fmul float %mul1, %t
+  %mul2 = fmul float %t, %mul1
   %mul3 = fmul float %t, %t
   %0 = load float, ptr %p1, align 4
   %1 = load float, ptr %p2, align 4
@@ -6656,33 +6656,32 @@ tailrecurse:                                      ; preds = %if.then21, %entry
   %sub1 = fsub float %y4, %y1.tr
   %sub2 = fsub float %x2.tr, %x4
   %sub3 = fsub float %y2.tr, %y4
-  %0 = fneg float %sub3
-  %neg = fmul float %sub, %0
+  %0 = fneg float %sub
+  %neg = fmul float %sub3, %0
   %1 = tail call float @llvm.fmuladd.f32(float %sub2, float %sub1, float %neg)
   %sub5 = fsub float %x3.tr, %x4
   %sub6 = fsub float %y3.tr, %y4
-  %2 = fneg float %sub6
-  %neg8 = fmul float %sub, %2
-  %3 = tail call float @llvm.fmuladd.f32(float %sub5, float %sub1, float %neg8)
+  %neg8 = fmul float %sub6, %0
+  %2 = tail call float @llvm.fmuladd.f32(float %sub5, float %sub1, float %neg8)
   %cmp = fcmp oge float %1, 0.000000e+00
   %fneg = fneg float %1
   %cond = select i1 %cmp, float %1, float %fneg
-  %cmp9 = fcmp oge float %3, 0.000000e+00
-  %fneg12 = fneg float %3
-  %cond14 = select i1 %cmp9, float %3, float %fneg12
+  %cmp9 = fcmp oge float %2, 0.000000e+00
+  %fneg12 = fneg float %2
+  %cond14 = select i1 %cmp9, float %2, float %fneg12
   %add = fadd float %cond, %cond14
   %mul = fmul float %add, %add
   %mul17 = fmul float %sub1, %sub1
-  %4 = tail call float @llvm.fmuladd.f32(float %sub, float %sub, float %mul17)
-  %mul18 = fmul float %4, %tess_tol
+  %3 = tail call float @llvm.fmuladd.f32(float %sub, float %sub, float %mul17)
+  %mul18 = fmul float %tess_tol, %3
   %cmp19 = fcmp olt float %mul, %mul18
   br i1 %cmp19, label %if.then, label %if.else
 
 if.then:                                          ; preds = %tailrecurse
-  %5 = load i32, ptr %path, align 8
+  %4 = load i32, ptr %path, align 8
   %Capacity.i = getelementptr inbounds i8, ptr %path, i64 4
-  %6 = load i32, ptr %Capacity.i, align 4
-  %cmp.i = icmp eq i32 %5, %6
+  %5 = load i32, ptr %Capacity.i, align 4
+  %cmp.i = icmp eq i32 %4, %5
   br i1 %cmp.i, label %if.then.i, label %if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge
 
 if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge: ; preds = %if.then
@@ -6691,13 +6690,13 @@ if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge: ; preds = %if.then
   br label %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit
 
 if.then.i:                                        ; preds = %if.then
-  %add.i = add nsw i32 %5, 1
-  %tobool.not.i.i = icmp eq i32 %5, 0
+  %add.i = add nsw i32 %4, 1
+  %tobool.not.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then.i
-  %div.i.i = sdiv i32 %5, 2
-  %add.i.i = add nsw i32 %div.i.i, %5
+  %div.i.i = sdiv i32 %4, 2
+  %add.i.i = add nsw i32 %div.i.i, %4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true.i.i, %if.then.i
@@ -6707,17 +6706,17 @@ if.end.i.i:                                       ; preds = %cond.true.i.i, %if.
   %mul.i.i = shl nsw i64 %conv.i.i, 3
   %call.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
   %Data.i.i = getelementptr inbounds i8, ptr %path, i64 8
-  %7 = load ptr, ptr %Data.i.i, align 8
-  %tobool.not.i2.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %Data.i.i, align 8
+  %tobool.not.i2.i = icmp eq ptr %6, null
   br i1 %tobool.not.i2.i, label %if.end7.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %8 = load i32, ptr %path, align 8
-  %conv4.i.i = sext i32 %8 to i64
+  %7 = load i32, ptr %path, align 8
+  %conv4.i.i = sext i32 %7 to i64
   %mul5.i.i = shl nsw i64 %conv4.i.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i, ptr nonnull align 4 %7, i64 %mul5.i.i, i1 false)
-  %9 = load ptr, ptr %Data.i.i, align 8
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %9)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i, ptr nonnull align 4 %6, i64 %mul5.i.i, i1 false)
+  %8 = load ptr, ptr %Data.i.i, align 8
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %8)
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
@@ -6727,15 +6726,15 @@ if.end7.i.i:                                      ; preds = %if.then2.i.i, %if.e
   br label %_ZN8ImVectorI6ImVec2E9push_backERKS0_.exit
 
 _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge, %if.end7.i.i
-  %10 = phi ptr [ %call.i.i, %if.end7.i.i ], [ %.pre, %if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge ]
-  %11 = phi i32 [ %.pre.i, %if.end7.i.i ], [ %5, %if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge ]
-  %idxprom.i = sext i32 %11 to i64
-  %arrayidx.i = getelementptr inbounds %struct.ImVec2, ptr %10, i64 %idxprom.i
+  %9 = phi ptr [ %call.i.i, %if.end7.i.i ], [ %.pre, %if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge ]
+  %10 = phi i32 [ %.pre.i, %if.end7.i.i ], [ %4, %if.then._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge ]
+  %idxprom.i = sext i32 %10 to i64
+  %arrayidx.i = getelementptr inbounds %struct.ImVec2, ptr %9, i64 %idxprom.i
   store float %x4, ptr %arrayidx.i, align 4
   %arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store float %y4, ptr %arrayidx.i.sroa_idx, align 4
-  %12 = load i32, ptr %path, align 8
-  %inc.i = add nsw i32 %12, 1
+  %11 = load i32, ptr %path, align 8
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %path, align 8
   br label %if.end48
 
@@ -6752,9 +6751,9 @@ if.then21:                                        ; preds = %if.else
   %mul27 = fmul float %add26, 5.000000e-01
   %add28 = fadd float %y2.tr, %y3.tr
   %mul29 = fmul float %add28, 5.000000e-01
-  %add30 = fadd float %x3.tr, %x4
+  %add30 = fadd float %x4, %x3.tr
   %mul31 = fmul float %add30, 5.000000e-01
-  %add32 = fadd float %y3.tr, %y4
+  %add32 = fadd float %y4, %y3.tr
   %mul33 = fmul float %add32, 5.000000e-01
   %add34 = fadd float %mul23, %mul27
   %mul35 = fmul float %add34, 5.000000e-01
@@ -6907,14 +6906,14 @@ entry:
   %sub135 = fsub float %y3, %y1
   %sub236 = fsub float %x2, %x3
   %sub337 = fsub float %y2, %y3
-  %0 = fneg float %sub337
-  %neg38 = fmul float %sub34, %0
+  %0 = fneg float %sub34
+  %neg38 = fmul float %sub337, %0
   %1 = tail call float @llvm.fmuladd.f32(float %sub236, float %sub135, float %neg38)
   %mul39 = fmul float %1, %1
   %mul540 = fmul float %mul39, 4.000000e+00
   %mul741 = fmul float %sub135, %sub135
   %2 = tail call float @llvm.fmuladd.f32(float %sub34, float %sub34, float %mul741)
-  %mul842 = fmul float %2, %tess_tol
+  %mul842 = fmul float %tess_tol, %2
   %cmp43 = fcmp olt float %mul540, %mul842
   br i1 %cmp43, label %if.then, label %if.else.preheader
 
@@ -6997,9 +6996,9 @@ if.then10:                                        ; preds = %if.else
   %mul11 = fmul float %add, 5.000000e-01
   %add12 = fadd float %y1.tr45, %y2.tr47
   %mul13 = fmul float %add12, 5.000000e-01
-  %add14 = fadd float %x2.tr46, %x3
+  %add14 = fadd float %x3, %x2.tr46
   %mul15 = fmul float %add14, 5.000000e-01
-  %add16 = fadd float %y2.tr47, %y3
+  %add16 = fadd float %y3, %y2.tr47
   %mul17 = fmul float %add16, 5.000000e-01
   %add18 = fadd float %mul11, %mul15
   %mul19 = fmul float %add18, 5.000000e-01
@@ -7011,14 +7010,14 @@ if.then10:                                        ; preds = %if.else
   %sub1 = fsub float %y3, %mul21
   %sub2 = fsub float %mul15, %x3
   %sub3 = fsub float %mul17, %y3
-  %11 = fneg float %sub3
-  %neg = fmul float %sub, %11
+  %11 = fneg float %sub
+  %neg = fmul float %sub3, %11
   %12 = tail call float @llvm.fmuladd.f32(float %sub2, float %sub1, float %neg)
   %mul = fmul float %12, %12
   %mul5 = fmul float %mul, 4.000000e+00
   %mul7 = fmul float %sub1, %sub1
   %13 = tail call float @llvm.fmuladd.f32(float %sub, float %sub, float %mul7)
-  %mul8 = fmul float %13, %tess_tol
+  %mul8 = fmul float %tess_tol, %13
   %cmp = fcmp olt float %mul5, %mul8
   br i1 %cmp, label %if.then, label %if.else
 
@@ -7052,7 +7051,7 @@ if.then:                                          ; preds = %entry
   %3 = or i1 %cmp3, %cmp5
   %cond = select i1 %3, float 5.000000e-01, float 1.000000e+00
   %4 = tail call float @llvm.fmuladd.f32(float %2, float %cond, float -1.000000e+00)
-  %cmp.i41 = fcmp ogt float %4, %rounding
+  %cmp.i41 = fcmp olt float %rounding, %4
   %cond.i = select i1 %cmp.i41, float %rounding, float %4
   %y = getelementptr inbounds i8, ptr %b, i64 4
   %5 = load float, ptr %y, align 4
@@ -9390,7 +9389,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %text_end.addr.0 = phi ptr [ %add.ptr, %if.then3 ], [ %text_end, %if.end ]
-  %cmp5 = icmp eq ptr %text_end.addr.0, %text_begin
+  %cmp5 = icmp eq ptr %text_begin, %text_end.addr.0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
@@ -9499,7 +9498,7 @@ if.end8:                                          ; preds = %if.end
   %y12 = getelementptr inbounds i8, ptr %clip_rect, i64 4
   %4 = load float, ptr %y12, align 4
   %cmp13 = fcmp olt float %add, %4
-  %cmp18270 = icmp ugt ptr %text_end.addr.0, %text_begin
+  %cmp18270 = icmp ult ptr %text_begin, %text_end.addr.0
   %or.cond = select i1 %cmp13, i1 %cmp18270, i1 false
   br i1 %or.cond, label %while.body.lr.ph, label %if.end33
 
@@ -9652,7 +9651,7 @@ while.body76.lr.ph:                               ; preds = %while.body76.lr.ph.
   %word_wrap_eol.0.ph238300 = phi ptr [ %word_wrap_eol.0.ph233310, %while.body76.lr.ph.lr.ph ], [ %.us-phi294, %if.then179 ]
   %s.3.ph237299 = phi ptr [ %s.3.ph232309, %while.body76.lr.ph.lr.ph ], [ %.us-phi293, %if.then179 ]
   %18 = fsub float %conv3, %x.0.ph239301
-  %sub81 = fadd float %18, %wrap_width
+  %sub81 = fadd float %wrap_width, %18
   br i1 %cmp10, label %while.body76.us, label %while.body76
 
 while.body76.us:                                  ; preds = %while.body76.lr.ph, %while.cond74.backedge.us
@@ -10107,7 +10106,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
   %text_end.addr.0.i = phi ptr [ %add.ptr.i, %if.then3.i ], [ %text_end, %if.end.i ]
-  %cmp5.i = icmp eq ptr %text_end.addr.0.i, %text_begin
+  %cmp5.i = icmp eq ptr %text_begin, %text_end.addr.0.i
   br i1 %cmp5.i, label %_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -10136,7 +10135,7 @@ entry:
 if.end:                                           ; preds = %entry
   %TextureId = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %TextureId, align 8
-  %cmp2.not = icmp eq ptr %0, %user_texture_id
+  %cmp2.not = icmp eq ptr %user_texture_id, %0
   br i1 %cmp2.not, label %if.end7.critedge, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -10425,7 +10424,7 @@ entry:
 if.end:                                           ; preds = %entry
   %TextureId = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %TextureId, align 8
-  %cmp2.not = icmp eq ptr %0, %user_texture_id
+  %cmp2.not = icmp eq ptr %user_texture_id, %0
   br i1 %cmp2.not, label %if.end7.critedge, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -10697,7 +10696,7 @@ if.then5:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %TextureId = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %TextureId, align 8
-  %cmp7.not = icmp eq ptr %0, %user_texture_id
+  %cmp7.not = icmp eq ptr %user_texture_id, %0
   br i1 %cmp7.not, label %if.end14.critedge, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
@@ -10829,11 +10828,11 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %add.i.i18 = fadd float %uv_a.val26.i, %mul.i.i
   %add3.i.i = fadd float %uv_a.val27.i, %mul3.i.i
   %cmp13.i.i = fcmp olt float %add3.i.i, %cond11.i.i
-  %cmp19.i.i = fcmp olt float %cond11.i62.i, %add3.i.i
+  %cmp19.i.i = fcmp ogt float %add3.i.i, %cond11.i62.i
   %mx.sroa.0.4.vec.extract..i.i = select i1 %cmp19.i.i, float %cond11.i62.i, float %add3.i.i
   %cond27.i.i = select i1 %cmp13.i.i, float %cond11.i.i, float %mx.sroa.0.4.vec.extract..i.i
   %cmp.i74.i = fcmp olt float %add.i.i18, %..i.i
-  %cmp5.i75.i = fcmp olt float %..i61.i, %add.i.i18
+  %cmp5.i75.i = fcmp ogt float %add.i.i18, %..i61.i
   %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i75.i, float %..i61.i, float %add.i.i18
   %cond11.i76.i = select i1 %cmp.i74.i, float %..i.i, float %mx.sroa.0.0.vec.extract..i.i
   %retval.sroa.0.0.vec.insert.i77.i = insertelement <2 x float> poison, float %cond11.i76.i, i64 0
@@ -10935,11 +10934,11 @@ for.body.i58:                                     ; preds = %for.body.i58.prehea
   %add.i.i69 = fadd float %uv_a.val26.i67, %mul.i.i65
   %add3.i.i70 = fadd float %uv_a.val27.i68, %mul3.i.i66
   %cmp13.i.i71 = fcmp olt float %add3.i.i70, %cond11.i.i52
-  %cmp19.i.i72 = fcmp olt float %cond11.i62.i56, %add3.i.i70
+  %cmp19.i.i72 = fcmp ogt float %add3.i.i70, %cond11.i62.i56
   %mx.sroa.0.4.vec.extract..i.i73 = select i1 %cmp19.i.i72, float %cond11.i62.i56, float %add3.i.i70
   %cond27.i.i74 = select i1 %cmp13.i.i71, float %cond11.i.i52, float %mx.sroa.0.4.vec.extract..i.i73
   %cmp.i74.i75 = fcmp olt float %add.i.i69, %..i.i50
-  %cmp5.i75.i76 = fcmp olt float %..i61.i54, %add.i.i69
+  %cmp5.i75.i76 = fcmp ogt float %add.i.i69, %..i61.i54
   %mx.sroa.0.0.vec.extract..i.i77 = select i1 %cmp5.i75.i76, float %..i61.i54, float %add.i.i69
   %cond11.i76.i78 = select i1 %cmp.i74.i75, float %..i.i50, float %mx.sroa.0.0.vec.extract..i.i77
   %retval.sroa.0.0.vec.insert.i77.i79 = insertelement <2 x float> poison, float %cond11.i76.i78, i64 0
@@ -11019,11 +11018,11 @@ for.body:                                         ; preds = %if.then, %for.body
   %add.i = fadd float %uv_a.val26, %mul.i
   %add3.i = fadd float %uv_a.val27, %mul3.i
   %cmp13.i = fcmp olt float %add3.i, %cond11.i
-  %cmp19.i = fcmp olt float %cond11.i62, %add3.i
+  %cmp19.i = fcmp ogt float %add3.i, %cond11.i62
   %mx.sroa.0.4.vec.extract..i = select i1 %cmp19.i, float %cond11.i62, float %add3.i
   %cond27.i = select i1 %cmp13.i, float %cond11.i, float %mx.sroa.0.4.vec.extract..i
   %cmp.i74 = fcmp olt float %add.i, %..i
-  %cmp5.i75 = fcmp olt float %..i61, %add.i
+  %cmp5.i75 = fcmp ogt float %add.i, %..i61
   %mx.sroa.0.0.vec.extract..i = select i1 %cmp5.i75, float %..i61, float %add.i
   %cond11.i76 = select i1 %cmp.i74, float %..i, float %mx.sroa.0.0.vec.extract..i
   %retval.sroa.0.0.vec.insert.i77 = insertelement <2 x float> poison, float %cond11.i76, i64 0
@@ -11072,7 +11071,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i, align 4
-  %cmp.not.i = icmp slt i32 %1, %channels_count
+  %cmp.not.i = icmp sgt i32 %channels_count, %1
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8ImVectorI13ImDrawChannelE6resizeEi.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -11625,7 +11624,7 @@ lpad:                                             ; preds = %if.then2.i.i39, %if
   resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %for.body
-  %cmp.i13 = icmp slt i32 %4, %7
+  %cmp.i13 = icmp sgt i32 %7, %4
   br i1 %cmp.i13, label %if.then.i, label %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit
 
 if.then.i:                                        ; preds = %if.end
@@ -11945,25 +11944,25 @@ for.body.lr.ph:                                   ; preds = %entry
   %idx.ext = sext i32 %vert_start_idx to i64
   %add.ptr = getelementptr inbounds %struct.ImDrawVert, ptr %0, i64 %idx.ext
   %1 = getelementptr inbounds i8, ptr %pivot_in, i64 4
-  %2 = getelementptr inbounds i8, ptr %pivot_out, i64 4
+  %2 = fneg float %sin_a
+  %3 = getelementptr inbounds i8, ptr %pivot_out, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %vertex.015 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
   %vertex.0.val = load float, ptr %vertex.015, align 4
-  %3 = getelementptr i8, ptr %vertex.015, i64 4
-  %vertex.0.val7 = load float, ptr %3, align 4
+  %4 = getelementptr i8, ptr %vertex.015, i64 4
+  %vertex.0.val7 = load float, ptr %4, align 4
   %pivot_in.val = load float, ptr %pivot_in, align 4
   %pivot_in.val8 = load float, ptr %1, align 4
   %sub.i = fsub float %vertex.0.val, %pivot_in.val
   %sub3.i = fsub float %vertex.0.val7, %pivot_in.val8
-  %4 = fneg float %sub3.i
-  %neg.i = fmul float %4, %sin_a
+  %neg.i = fmul float %sub3.i, %2
   %5 = tail call float @llvm.fmuladd.f32(float %sub.i, float %cos_a, float %neg.i)
-  %mul4.i = fmul float %sub3.i, %cos_a
+  %mul4.i = fmul float %cos_a, %sub3.i
   %6 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sin_a, float %mul4.i)
   %pivot_out.val = load float, ptr %pivot_out, align 4
-  %pivot_out.val6 = load float, ptr %2, align 4
+  %pivot_out.val6 = load float, ptr %3, align 4
   %add.i = fadd float %pivot_out.val, %5
   %add3.i = fadd float %pivot_out.val6, %6
   %retval.sroa.0.0.vec.insert.i12 = insertelement <2 x float> poison, float %add.i, i64 0
@@ -14126,7 +14125,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %0 = trunc nuw nsw i64 %indvars.iv to i32
   %conv = uitofp nneg i32 %0 to float
-  %mul = fmul float %conv, %in_brighten_factor
+  %mul = fmul float %in_brighten_factor, %conv
   %conv1 = fptoui float %mul to i32
   %conv35 = tail call i32 @llvm.umin.i32(i32 %conv1, i32 255)
   %conv3 = trunc nuw i32 %conv35 to i8
@@ -14558,7 +14557,7 @@ if.then23.i.i:                                    ; preds = %if.then17.i.i, %if.
   %47 = load i8, ptr %arrayidx8.i35.i.i, align 1
   %conv9.i36.i.i = zext i8 %47 to i32
   %add10.i37.i.i = or disjoint i32 %add7.i34.i.i, %conv9.i36.i.i
-  %cmp26.not.i.i = icmp sgt i32 %add10.i37.i.i, %22
+  %cmp26.not.i.i = icmp slt i32 %22, %add10.i37.i.i
   br i1 %cmp26.not.i.i, label %if.end28.i.i, label %invoke.cont34
 
 if.end28.i.i:                                     ; preds = %if.then23.i.i
@@ -15275,7 +15274,7 @@ if.end30.i.i:                                     ; preds = %_ZL17stbtt__find_ta
   %add.i501.i.i = add nsw i32 %134, 2
   %135 = load i32, ptr %size.i.i.i.i, align 4
   %cmp1.i.i.i.i = icmp slt i32 %134, -2
-  %136 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i501.i.i)
+  %136 = tail call i32 @llvm.smin.i32(i32 %add.i501.i.i, i32 %135)
   %.o.i.i.i.i = select i1 %cmp1.i.i.i.i, i32 %135, i32 %136
   %cmp.not.i.i.i = icmp slt i32 %.o.i.i.i.i, %135
   %.pre.i.i = load ptr, ptr %b.i.i, align 8
@@ -15290,7 +15289,7 @@ if.end.i.i.i:                                     ; preds = %if.end30.i.i
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i:       ; preds = %if.end.i.i.i, %if.end30.i.i
   %retval.0.i503.i.i = phi i8 [ %137, %if.end.i.i.i ], [ 0, %if.end30.i.i ]
   %conv.i.i271 = zext i8 %retval.0.i503.i.i to i32
-  %138 = tail call i32 @llvm.smin.i32(i32 %135, i32 %conv.i.i271)
+  %138 = tail call i32 @llvm.smin.i32(i32 %conv.i.i271, i32 %135)
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
@@ -15341,7 +15340,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i:     ; preds = %if.end.i.i.i.i, %if
   %mul.i.i.i = mul nsw i32 %retval.0.i.i.i.i, %or.i.i.i.i
   %add.i.i510.i.i = add nsw i32 %mul.i.i.i, %143
   %cmp1.i.i.i.i.i = icmp slt i32 %add.i.i510.i.i, 0
-  %144 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i.i510.i.i)
+  %144 = tail call i32 @llvm.smin.i32(i32 %add.i.i510.i.i, i32 %135)
   %.o.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i32 %135, i32 %144
   %cmp3.i.not.i.i.i = icmp eq i32 %retval.0.i.i.i.i, 0
   br i1 %cmp3.i.not.i.i.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.i.i.i, label %for.body.i17.i.i.i
@@ -15379,7 +15378,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit34.i.i.i:   ; preds = %_ZL14stbtt__buf_get
   %v.0.lcssa.i.i.i.i = phi i32 [ -1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ], [ %146, %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.loopexit.i.i.i ]
   %add.i36.i.i.i = add nsw i32 %v.0.lcssa.i.i.i.i, %147
   %cmp1.i.i38.i.i.i = icmp slt i32 %add.i36.i.i.i, 0
-  %148 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i36.i.i.i)
+  %148 = tail call i32 @llvm.smin.i32(i32 %add.i36.i.i.i, i32 %135)
   %.o.i.i39.i.i.i = select i1 %cmp1.i.i38.i.i.i, i32 %135, i32 %148
   br label %if.end.i511.i.i
 
@@ -15435,7 +15434,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i530.i.i:  ; preds = %if.end.i.i574.i.i, 
   %mul.i532.i.i = mul nsw i32 %retval.0.i.i531.i.i, %or.i.i523.i.i
   %add.i.i533.i.i = add nsw i32 %mul.i532.i.i, %154
   %cmp1.i.i.i534.i.i = icmp slt i32 %add.i.i533.i.i, 0
-  %155 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i.i533.i.i)
+  %155 = tail call i32 @llvm.smin.i32(i32 %add.i.i533.i.i, i32 %135)
   %.o.i.i.i535.i.i = select i1 %cmp1.i.i.i534.i.i, i32 %135, i32 %155
   %cmp3.i.not.i536.i.i = icmp eq i32 %retval.0.i.i531.i.i, 0
   br i1 %cmp3.i.not.i536.i.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.i551.i.i, label %for.body.i17.i537.i.i
@@ -15473,7 +15472,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit34.i551.i.i: ; preds = %_ZL14stbtt__buf_ge
   %v.0.lcssa.i.i552.i.i = phi i32 [ -1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i530.i.i ], [ %157, %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.loopexit.i550.i.i ]
   %add.i36.i553.i.i = add nsw i32 %v.0.lcssa.i.i552.i.i, %158
   %cmp1.i.i38.i554.i.i = icmp slt i32 %add.i36.i553.i.i, 0
-  %159 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i36.i553.i.i)
+  %159 = tail call i32 @llvm.smin.i32(i32 %add.i36.i553.i.i, i32 %135)
   %.o.i.i39.i555.i.i = select i1 %cmp1.i.i38.i554.i.i, i32 %135, i32 %159
   br label %if.end.i556.i.i
 
@@ -15486,8 +15485,8 @@ if.end.i556.i.i:                                  ; preds = %_ZL14stbtt__buf_get
   br i1 %or.cond.not.i.i558.i.i, label %lor.lhs.false2.i.i563.i.i, label %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit582.i.i
 
 lor.lhs.false2.i.i563.i.i:                        ; preds = %if.end.i556.i.i
-  %cmp3.i41.i564.i.i = icmp slt i32 %135, %149
-  %cmp6.i.i565.i.i = icmp slt i32 %135, %161
+  %cmp3.i41.i564.i.i = icmp sgt i32 %149, %135
+  %cmp6.i.i565.i.i = icmp sgt i32 %161, %135
   %or.cond.i.i566.i.i = or i1 %cmp3.i41.i564.i.i, %cmp6.i.i565.i.i
   br i1 %or.cond.i.i566.i.i, label %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit582.i.i, label %if.end.i42.i567.i.i
 
@@ -15556,7 +15555,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i601.i.i:  ; preds = %if.end.i.i645.i.i, 
   %mul.i603.i.i = mul nsw i32 %retval.0.i.i602.i.i, %or.i.i594.i.i
   %add.i.i604.i.i = add nsw i32 %mul.i603.i.i, %171
   %cmp1.i.i.i605.i.i = icmp slt i32 %add.i.i604.i.i, 0
-  %172 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i.i604.i.i)
+  %172 = tail call i32 @llvm.smin.i32(i32 %add.i.i604.i.i, i32 %135)
   %.o.i.i.i606.i.i = select i1 %cmp1.i.i.i605.i.i, i32 %135, i32 %172
   %cmp3.i.not.i607.i.i = icmp eq i32 %retval.0.i.i602.i.i, 0
   br i1 %cmp3.i.not.i607.i.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.i622.i.i, label %for.body.i17.i608.i.i
@@ -15594,7 +15593,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit34.i622.i.i: ; preds = %_ZL14stbtt__buf_ge
   %v.0.lcssa.i.i623.i.i = phi i32 [ -1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i601.i.i ], [ %174, %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.loopexit.i621.i.i ]
   %add.i36.i624.i.i = add nsw i32 %v.0.lcssa.i.i623.i.i, %175
   %cmp1.i.i38.i625.i.i = icmp slt i32 %add.i36.i624.i.i, 0
-  %176 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i36.i624.i.i)
+  %176 = tail call i32 @llvm.smin.i32(i32 %add.i36.i624.i.i, i32 %135)
   %.o.i.i39.i626.i.i = select i1 %cmp1.i.i38.i625.i.i, i32 %135, i32 %176
   br label %if.end.i627.i.i
 
@@ -15651,7 +15650,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i672.i.i:  ; preds = %if.end.i.i716.i.i, 
   %mul.i674.i.i = mul nsw i32 %retval.0.i.i673.i.i, %or.i.i665.i.i
   %add.i.i675.i.i = add nsw i32 %mul.i674.i.i, %182
   %cmp1.i.i.i676.i.i = icmp slt i32 %add.i.i675.i.i, 0
-  %183 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i.i675.i.i)
+  %183 = tail call i32 @llvm.smin.i32(i32 %add.i.i675.i.i, i32 %135)
   %.o.i.i.i677.i.i = select i1 %cmp1.i.i.i676.i.i, i32 %135, i32 %183
   %cmp3.i.not.i678.i.i = icmp eq i32 %retval.0.i.i673.i.i, 0
   br i1 %cmp3.i.not.i678.i.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.i693.i.i, label %for.body.i17.i679.i.i
@@ -15689,7 +15688,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit34.i693.i.i: ; preds = %_ZL14stbtt__buf_ge
   %v.0.lcssa.i.i694.i.i = phi i32 [ -1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i672.i.i ], [ %185, %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.loopexit.i692.i.i ]
   %add.i36.i695.i.i = add nsw i32 %v.0.lcssa.i.i694.i.i, %186
   %cmp1.i.i38.i696.i.i = icmp slt i32 %add.i36.i695.i.i, 0
-  %187 = tail call i32 @llvm.smin.i32(i32 %135, i32 %add.i36.i695.i.i)
+  %187 = tail call i32 @llvm.smin.i32(i32 %add.i36.i695.i.i, i32 %135)
   %.o.i.i39.i697.i.i = select i1 %cmp1.i.i38.i696.i.i, i32 %135, i32 %187
   store i32 %.o.i.i39.i697.i.i, ptr %cursor.i.i.i, align 8
   br label %if.end.i698.i.i
@@ -15702,8 +15701,8 @@ if.end.i698.i.i:                                  ; preds = %_ZL14stbtt__buf_get
   br i1 %or.cond.not.i.i700.i.i, label %lor.lhs.false2.i.i705.i.i, label %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit724.i.i
 
 lor.lhs.false2.i.i705.i.i:                        ; preds = %if.end.i698.i.i
-  %cmp3.i41.i706.i.i = icmp slt i32 %135, %177
-  %cmp6.i.i707.i.i = icmp slt i32 %135, %188
+  %cmp3.i41.i706.i.i = icmp sgt i32 %177, %135
+  %cmp6.i.i707.i.i = icmp sgt i32 %188, %135
   %or.cond.i.i708.i.i = or i1 %cmp3.i41.i706.i.i, %cmp6.i.i707.i.i
   br i1 %or.cond.i.i708.i.i, label %_ZL20stbtt__cff_get_indexP10stbtt__buf.exit724.i.i, label %if.end.i42.i709.i.i
 
@@ -15756,7 +15755,7 @@ if.then59.i.i:                                    ; preds = %if.end57.i.i
 
 if.end62.i.i:                                     ; preds = %if.then59.i.i
   %cmp1.i.i.i = icmp slt i32 %198, 0
-  %200 = tail call i32 @llvm.smin.i32(i32 %135, i32 %198)
+  %200 = tail call i32 @llvm.smin.i32(i32 %198, i32 %135)
   %.o.i.i.i = select i1 %cmp1.i.i.i, i32 %135, i32 %200
   store i32 %.o.i.i.i, ptr %cursor.i.i.i, align 8
   %call64.i.i = call fastcc { ptr, i64 } @_ZL20stbtt__cff_get_indexP10stbtt__buf(ptr noundef nonnull %b.i.i)
@@ -15768,7 +15767,7 @@ if.end62.i.i:                                     ; preds = %if.then59.i.i
   %sub.i.i = sub i32 %203, %199
   %204 = or i32 %sub.i.i, %199
   %or.cond.not.i.i.i = icmp slt i32 %204, 0
-  %cmp3.i.i.i272 = icmp slt i32 %203, %199
+  %cmp3.i.i.i272 = icmp sgt i32 %199, %203
   %or.cond834.i.i = or i1 %cmp3.i.i.i272, %or.cond.not.i.i.i
   %205 = load ptr, ptr %b.i.i, align 8
   %idx.ext.i731.i.i = zext nneg i32 %199 to i64
@@ -15785,7 +15784,7 @@ if.end69.i.i:                                     ; preds = %if.end62.i.i, %if.e
   %208 = phi ptr [ %205, %if.end62.i.i ], [ %.pre.i.i, %if.end57.i.i ]
   %209 = phi i32 [ %203, %if.end62.i.i ], [ %197, %if.end57.i.i ]
   %cmp1.i734.i.i = icmp slt i32 %195, 0
-  %210 = tail call i32 @llvm.smin.i32(i32 %209, i32 %195)
+  %210 = tail call i32 @llvm.smin.i32(i32 %195, i32 %209)
   %.o.i735.i.i = select i1 %cmp1.i734.i.i, i32 %209, i32 %210
   br label %for.body.i.i743
 
@@ -15835,7 +15834,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i:         ; preds = %if.end.i.i764, %if.
   %mul.i756 = mul nsw i32 %retval.0.i.i755, %or.i.i749
   %add.i.i757 = add nsw i32 %mul.i756, %215
   %cmp1.i.i.i758 = icmp slt i32 %add.i.i757, 0
-  %216 = tail call i32 @llvm.smin.i32(i32 %209, i32 %add.i.i757)
+  %216 = tail call i32 @llvm.smin.i32(i32 %add.i.i757, i32 %209)
   %.o.i.i.i759 = select i1 %cmp1.i.i.i758, i32 %209, i32 %216
   %cmp3.i.not.i = icmp eq i32 %retval.0.i.i755, 0
   br i1 %cmp3.i.not.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.i, label %for.body.i17.i
@@ -15873,7 +15872,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit34.i:       ; preds = %_ZL14stbtt__buf_get
   %v.0.lcssa.i.i = phi i32 [ -1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %218, %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.loopexit.i ]
   %add.i36.i = add nsw i32 %v.0.lcssa.i.i, %219
   %cmp1.i.i38.i = icmp slt i32 %add.i36.i, 0
-  %220 = tail call i32 @llvm.smin.i32(i32 %209, i32 %add.i36.i)
+  %220 = tail call i32 @llvm.smin.i32(i32 %add.i36.i, i32 %209)
   %.o.i.i39.i = select i1 %cmp1.i.i38.i, i32 %209, i32 %220
   store i32 %.o.i.i39.i, ptr %cursor.i.i.i, align 8
   br label %if.end.i760
@@ -15883,7 +15882,7 @@ if.end.i760:                                      ; preds = %_ZL14stbtt__buf_get
   %sub4.i = sub nsw i32 %221, %.o.i735.i.i
   %222 = or i32 %sub4.i, %.o.i735.i.i
   %or.cond.not.i.i = icmp slt i32 %222, 0
-  %cmp6.i.i = icmp slt i32 %209, %221
+  %cmp6.i.i = icmp sgt i32 %221, %209
   %or.cond1034 = or i1 %or.cond.not.i.i, %cmp6.i.i
   %idx.ext.i.i762 = zext nneg i32 %.o.i735.i.i to i64
   %add.ptr.i.i763 = getelementptr inbounds i8, ptr %208, i64 %idx.ext.i.i762
@@ -16176,7 +16175,7 @@ for.body75:                                       ; preds = %for.body75.preheade
   %shr.i = ashr i32 %add.i, 5
   %Capacity.i.i = getelementptr inbounds i8, ptr %arrayidx.i281, i64 244
   %262 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.i.i285 = icmp slt i32 %262, %shr.i
+  %cmp.i.i285 = icmp sgt i32 %shr.i, %262
   br i1 %cmp.i.i285, label %if.then.i.i287, label %entry._ZN8ImVectorIjE6resizeEi.exit_crit_edge.i
 
 entry._ZN8ImVectorIjE6resizeEi.exit_crit_edge.i:  ; preds = %for.body75
@@ -16239,7 +16238,7 @@ if.then88:                                        ; preds = %invoke.cont84
   %shr.i296 = ashr i32 %add.i295, 5
   %Capacity.i.i297 = getelementptr inbounds i8, ptr %arrayidx.i284, i64 20
   %269 = load i32, ptr %Capacity.i.i297, align 4
-  %cmp.i.i298 = icmp slt i32 %269, %shr.i296
+  %cmp.i.i298 = icmp sgt i32 %shr.i296, %269
   br i1 %cmp.i.i298, label %if.then.i.i304, label %entry._ZN8ImVectorIjE6resizeEi.exit_crit_edge.i299
 
 entry._ZN8ImVectorIjE6resizeEi.exit_crit_edge.i299: ; preds = %if.then88
@@ -16405,7 +16404,7 @@ for.body143:                                      ; preds = %for.body143.prehead
   %295 = load i32, ptr %GlyphsCount147, align 8
   %Capacity.i340 = getelementptr inbounds i8, ptr %arrayidx.i339, i64 260
   %296 = load i32, ptr %Capacity.i340, align 4
-  %cmp.not.i = icmp slt i32 %296, %295
+  %cmp.not.i = icmp sgt i32 %295, %296
   br i1 %cmp.not.i, label %if.end.i341, label %invoke.cont148
 
 if.end.i341:                                      ; preds = %for.body143
@@ -17315,7 +17314,7 @@ cond.end47.i:                                     ; preds = %cond.false41.i, %co
   %mul.i.i151.i = shl nuw nsw i32 %conv.i.i150.i, 8
   %conv2.i.i152.i = zext i8 %add.ptr1.val22.i.i to i32
   %add.i.i153.i = or disjoint i32 %mul.i.i151.i, %conv2.i.i152.i
-  %cmp.i.i521 = icmp sgt i32 %add.i.i153.i, %call49.i
+  %cmp.i.i521 = icmp slt i32 %call49.i, %add.i.i153.i
   %408 = load i32, ptr %hmtx26.i.i, align 8
   %idx.ext4.i.i = sext i32 %408 to i64
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %405, i64 %idx.ext4.i.i
@@ -17374,7 +17373,7 @@ if.then.i.i.i528:                                 ; preds = %call.i.i.noexc574
 
 if.else.i.i.i:                                    ; preds = %call.i.i.noexc574
   %420 = load i32, ptr %numGlyphs.i.i.i.i, align 4
-  %cmp.not.i.i.i.i556 = icmp sgt i32 %420, %call49.i
+  %cmp.not.i.i.i.i556 = icmp slt i32 %call49.i, %420
   br i1 %cmp.not.i.i.i.i556, label %if.end.i24.i.i.i, label %_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i
 
 if.end.i24.i.i.i:                                 ; preds = %if.else.i.i.i
@@ -18150,7 +18149,7 @@ do.end2.i.i.i.i.i.i.i:                            ; preds = %if.then4.i.i.i.i.i.
 if.end5.i.i.i.i.i.i.i:                            ; preds = %do.end2.i.i.i.i.i.i.i
   %sy.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e.addr.01256.i.i.i.i.i.i, i64 24
   %514 = load float, ptr %sy.i.i.i.i.i.i.i, align 8
-  %cmp6.i.i.i.i.i.i.i = fcmp ogt float %514, %add12.i.i.i.i.i
+  %cmp6.i.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %514
   br i1 %cmp6.i.i.i.i.i.i.i, label %do.end2.i275.i.i.i.i.i.i, label %if.end8.i.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i.i:                            ; preds = %if.end5.i.i.i.i.i.i.i
@@ -18168,7 +18167,7 @@ if.then11.i.i.i.i.i.i.i:                          ; preds = %if.end8.i.i.i.i.i.i
 if.end16.i.i.i.i.i.i.i:                           ; preds = %if.then11.i.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i.i
   %x0.addr.0.i.i.i.i.i.i.i = phi float [ %add.i.i.i.i.i.i.i, %if.then11.i.i.i.i.i.i.i ], [ %512, %if.end8.i.i.i.i.i.i.i ]
   %y0.addr.0.i.i.i.i.i.i.i = phi float [ %514, %if.then11.i.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i.i.i.i.i.i.i ]
-  %cmp18.i.i.i.i.i.i.i = fcmp olt float %513, %add12.i.i.i.i.i
+  %cmp18.i.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %513
   br i1 %cmp18.i.i.i.i.i.i.i, label %if.then19.i.i.i.i.i.i.i, label %if.end28.i.i.i.i.i.i.i
 
 if.then19.i.i.i.i.i.i.i:                          ; preds = %if.end16.i.i.i.i.i.i.i
@@ -18234,7 +18233,7 @@ do.end2.i275.i.i.i.i.i.i:                         ; preds = %do.end77.i.i.i.i.i.
 if.end5.i278.i.i.i.i.i.i:                         ; preds = %do.end2.i275.i.i.i.i.i.i
   %sy.i279.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e.addr.01256.i.i.i.i.i.i, i64 24
   %522 = load float, ptr %sy.i279.i.i.i.i.i.i, align 8
-  %cmp6.i280.i.i.i.i.i.i = fcmp ogt float %522, %add12.i.i.i.i.i
+  %cmp6.i280.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %522
   br i1 %cmp6.i280.i.i.i.i.i.i, label %if.end190.i.i.i.i.i.i, label %if.end8.i281.i.i.i.i.i.i
 
 if.end8.i281.i.i.i.i.i.i:                         ; preds = %if.end5.i278.i.i.i.i.i.i
@@ -18252,7 +18251,7 @@ if.then11.i323.i.i.i.i.i.i:                       ; preds = %if.end8.i281.i.i.i.
 if.end16.i283.i.i.i.i.i.i:                        ; preds = %if.then11.i323.i.i.i.i.i.i, %if.end8.i281.i.i.i.i.i.i
   %x0.addr.0.i284.i.i.i.i.i.i = phi float [ %add.i329.i.i.i.i.i.i, %if.then11.i323.i.i.i.i.i.i ], [ %512, %if.end8.i281.i.i.i.i.i.i ]
   %y0.addr.0.i285.i.i.i.i.i.i = phi float [ %522, %if.then11.i323.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i281.i.i.i.i.i.i ]
-  %cmp18.i286.i.i.i.i.i.i = fcmp olt float %521, %add12.i.i.i.i.i
+  %cmp18.i286.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %521
   br i1 %cmp18.i286.i.i.i.i.i.i, label %if.then19.i316.i.i.i.i.i.i, label %if.end28.i287.i.i.i.i.i.i
 
 if.then19.i316.i.i.i.i.i.i:                       ; preds = %if.end16.i283.i.i.i.i.i.i
@@ -18321,7 +18320,7 @@ do.end2.i332.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 if.end5.i335.i.i.i.i.i.i:                         ; preds = %do.end2.i332.i.i.i.i.i.i
   %sy.i336.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e.addr.01256.i.i.i.i.i.i, i64 24
   %530 = load float, ptr %sy.i336.i.i.i.i.i.i, align 8
-  %cmp6.i337.i.i.i.i.i.i = fcmp ogt float %530, %add12.i.i.i.i.i
+  %cmp6.i337.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %530
   br i1 %cmp6.i337.i.i.i.i.i.i, label %if.end190.i.i.i.i.i.i, label %if.end8.i338.i.i.i.i.i.i
 
 if.end8.i338.i.i.i.i.i.i:                         ; preds = %if.end5.i335.i.i.i.i.i.i
@@ -18339,7 +18338,7 @@ if.then11.i375.i.i.i.i.i.i:                       ; preds = %if.end8.i338.i.i.i.
 if.end16.i340.i.i.i.i.i.i:                        ; preds = %if.then11.i375.i.i.i.i.i.i, %if.end8.i338.i.i.i.i.i.i
   %x0.addr.0.i341.i.i.i.i.i.i = phi float [ %add.i381.i.i.i.i.i.i, %if.then11.i375.i.i.i.i.i.i ], [ %512, %if.end8.i338.i.i.i.i.i.i ]
   %y0.addr.0.i342.i.i.i.i.i.i = phi float [ %530, %if.then11.i375.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i338.i.i.i.i.i.i ]
-  %cmp18.i343.i.i.i.i.i.i = fcmp olt float %529, %add12.i.i.i.i.i
+  %cmp18.i343.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %529
   br i1 %cmp18.i343.i.i.i.i.i.i, label %if.then19.i368.i.i.i.i.i.i, label %if.end28.i344.i.i.i.i.i.i
 
 if.then19.i368.i.i.i.i.i.i:                       ; preds = %if.end16.i340.i.i.i.i.i.i
@@ -18586,7 +18585,7 @@ do.end2.i392.i.i.i.i.i.i:                         ; preds = %if.then153.i.i.i.i.
 
 if.end5.i395.i.i.i.i.i.i:                         ; preds = %do.end2.i392.i.i.i.i.i.i
   %560 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i397.i.i.i.i.i.i = fcmp ogt float %560, %add144.i.i.i.i.i.i
+  %cmp6.i397.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %560
   br i1 %cmp6.i397.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit447.i.i.i.i.i.i, label %if.end8.i398.i.i.i.i.i.i
 
 if.end8.i398.i.i.i.i.i.i:                         ; preds = %if.end5.i395.i.i.i.i.i.i
@@ -18604,7 +18603,7 @@ if.then11.i440.i.i.i.i.i.i:                       ; preds = %if.end8.i398.i.i.i.
 if.end16.i400.i.i.i.i.i.i:                        ; preds = %if.then11.i440.i.i.i.i.i.i, %if.end8.i398.i.i.i.i.i.i
   %x0.addr.0.i401.i.i.i.i.i.i = phi float [ %add.i446.i.i.i.i.i.i, %if.then11.i440.i.i.i.i.i.i ], [ %512, %if.end8.i398.i.i.i.i.i.i ]
   %y0.addr.0.i402.i.i.i.i.i.i = phi float [ %560, %if.then11.i440.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i398.i.i.i.i.i.i ]
-  %cmp18.i403.i.i.i.i.i.i = fcmp olt float %559, %add144.i.i.i.i.i.i
+  %cmp18.i403.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %559
   br i1 %cmp18.i403.i.i.i.i.i.i, label %if.then19.i433.i.i.i.i.i.i, label %if.end28.i404.i.i.i.i.i.i
 
 if.then19.i433.i.i.i.i.i.i:                       ; preds = %if.end16.i400.i.i.i.i.i.i
@@ -18660,16 +18659,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit447.i.i.i.i.i.i:
 
 do.end2.i449.i.i.i.i.i.i:                         ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit447.i.i.i.i.i.i
   %567 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i451.i.i.i.i.i.i = fcmp olt float %567, %add144.i.i.i.i.i.i
+  %cmp3.i451.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %567
   br i1 %cmp3.i451.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit504.i.i.i.i.i.i, label %if.end5.i452.i.i.i.i.i.i
 
 if.end5.i452.i.i.i.i.i.i:                         ; preds = %do.end2.i449.i.i.i.i.i.i
   %568 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i454.i.i.i.i.i.i = fcmp ogt float %568, %add149.i.i.i.i.i.i
+  %cmp6.i454.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %568
   br i1 %cmp6.i454.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit504.i.i.i.i.i.i, label %if.end8.i455.i.i.i.i.i.i
 
 if.end8.i455.i.i.i.i.i.i:                         ; preds = %if.end5.i452.i.i.i.i.i.i
-  %cmp10.i456.i.i.i.i.i.i = fcmp ogt float %568, %add144.i.i.i.i.i.i
+  %cmp10.i456.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %568
   br i1 %cmp10.i456.i.i.i.i.i.i, label %if.then11.i497.i.i.i.i.i.i, label %if.end16.i457.i.i.i.i.i.i
 
 if.then11.i497.i.i.i.i.i.i:                       ; preds = %if.end8.i455.i.i.i.i.i.i
@@ -18684,7 +18683,7 @@ if.then11.i497.i.i.i.i.i.i:                       ; preds = %if.end8.i455.i.i.i.
 if.end16.i457.i.i.i.i.i.i:                        ; preds = %if.then11.i497.i.i.i.i.i.i, %if.end8.i455.i.i.i.i.i.i
   %x0.addr.0.i458.i.i.i.i.i.i = phi float [ %add.i503.i.i.i.i.i.i, %if.then11.i497.i.i.i.i.i.i ], [ %conv137.i.i.i.i.i.i, %if.end8.i455.i.i.i.i.i.i ]
   %y0.addr.0.i459.i.i.i.i.i.i = phi float [ %568, %if.then11.i497.i.i.i.i.i.i ], [ %add144.i.i.i.i.i.i, %if.end8.i455.i.i.i.i.i.i ]
-  %cmp18.i460.i.i.i.i.i.i = fcmp olt float %567, %add149.i.i.i.i.i.i
+  %cmp18.i460.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %567
   br i1 %cmp18.i460.i.i.i.i.i.i, label %if.then19.i490.i.i.i.i.i.i, label %if.end28.i461.i.i.i.i.i.i
 
 if.then19.i490.i.i.i.i.i.i:                       ; preds = %if.end16.i457.i.i.i.i.i.i
@@ -18740,16 +18739,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit504.i.i.i.i.i.i:
 
 do.end2.i506.i.i.i.i.i.i:                         ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit504.i.i.i.i.i.i
   %575 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i508.i.i.i.i.i.i = fcmp olt float %575, %add149.i.i.i.i.i.i
+  %cmp3.i508.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %575
   br i1 %cmp3.i508.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end5.i509.i.i.i.i.i.i
 
 if.end5.i509.i.i.i.i.i.i:                         ; preds = %do.end2.i506.i.i.i.i.i.i
   %576 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i511.i.i.i.i.i.i = fcmp ogt float %576, %add12.i.i.i.i.i
+  %cmp6.i511.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %576
   br i1 %cmp6.i511.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end8.i512.i.i.i.i.i.i
 
 if.end8.i512.i.i.i.i.i.i:                         ; preds = %if.end5.i509.i.i.i.i.i.i
-  %cmp10.i513.i.i.i.i.i.i = fcmp ogt float %576, %add149.i.i.i.i.i.i
+  %cmp10.i513.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %576
   br i1 %cmp10.i513.i.i.i.i.i.i, label %if.then11.i554.i.i.i.i.i.i, label %if.end16.i514.i.i.i.i.i.i
 
 if.then11.i554.i.i.i.i.i.i:                       ; preds = %if.end8.i512.i.i.i.i.i.i
@@ -18764,7 +18763,7 @@ if.then11.i554.i.i.i.i.i.i:                       ; preds = %if.end8.i512.i.i.i.
 if.end16.i514.i.i.i.i.i.i:                        ; preds = %if.then11.i554.i.i.i.i.i.i, %if.end8.i512.i.i.i.i.i.i
   %x0.addr.0.i515.i.i.i.i.i.i = phi float [ %add.i560.i.i.i.i.i.i, %if.then11.i554.i.i.i.i.i.i ], [ %conv140.i.i.i.i.i.i, %if.end8.i512.i.i.i.i.i.i ]
   %y0.addr.0.i516.i.i.i.i.i.i = phi float [ %576, %if.then11.i554.i.i.i.i.i.i ], [ %add149.i.i.i.i.i.i, %if.end8.i512.i.i.i.i.i.i ]
-  %cmp18.i517.i.i.i.i.i.i = fcmp olt float %575, %add12.i.i.i.i.i
+  %cmp18.i517.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %575
   br i1 %cmp18.i517.i.i.i.i.i.i, label %if.then19.i547.i.i.i.i.i.i, label %if.end28.i518.i.i.i.i.i.i
 
 if.then19.i547.i.i.i.i.i.i:                       ; preds = %if.end16.i514.i.i.i.i.i.i
@@ -18831,7 +18830,7 @@ do.end2.i563.i.i.i.i.i.i:                         ; preds = %if.then158.i.i.i.i.
 
 if.end5.i566.i.i.i.i.i.i:                         ; preds = %do.end2.i563.i.i.i.i.i.i
   %584 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i568.i.i.i.i.i.i = fcmp ogt float %584, %add149.i.i.i.i.i.i
+  %cmp6.i568.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %584
   br i1 %cmp6.i568.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit618.i.i.i.i.i.i, label %if.end8.i569.i.i.i.i.i.i
 
 if.end8.i569.i.i.i.i.i.i:                         ; preds = %if.end5.i566.i.i.i.i.i.i
@@ -18849,7 +18848,7 @@ if.then11.i611.i.i.i.i.i.i:                       ; preds = %if.end8.i569.i.i.i.
 if.end16.i571.i.i.i.i.i.i:                        ; preds = %if.then11.i611.i.i.i.i.i.i, %if.end8.i569.i.i.i.i.i.i
   %x0.addr.0.i572.i.i.i.i.i.i = phi float [ %add.i617.i.i.i.i.i.i, %if.then11.i611.i.i.i.i.i.i ], [ %512, %if.end8.i569.i.i.i.i.i.i ]
   %y0.addr.0.i573.i.i.i.i.i.i = phi float [ %584, %if.then11.i611.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i569.i.i.i.i.i.i ]
-  %cmp18.i574.i.i.i.i.i.i = fcmp olt float %583, %add149.i.i.i.i.i.i
+  %cmp18.i574.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %583
   br i1 %cmp18.i574.i.i.i.i.i.i, label %if.then19.i604.i.i.i.i.i.i, label %if.end28.i575.i.i.i.i.i.i
 
 if.then19.i604.i.i.i.i.i.i:                       ; preds = %if.end16.i571.i.i.i.i.i.i
@@ -18905,16 +18904,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit618.i.i.i.i.i.i:
 
 do.end2.i620.i.i.i.i.i.i:                         ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit618.i.i.i.i.i.i
   %591 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i622.i.i.i.i.i.i = fcmp olt float %591, %add149.i.i.i.i.i.i
+  %cmp3.i622.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %591
   br i1 %cmp3.i622.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit675.i.i.i.i.i.i, label %if.end5.i623.i.i.i.i.i.i
 
 if.end5.i623.i.i.i.i.i.i:                         ; preds = %do.end2.i620.i.i.i.i.i.i
   %592 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i625.i.i.i.i.i.i = fcmp ogt float %592, %add144.i.i.i.i.i.i
+  %cmp6.i625.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %592
   br i1 %cmp6.i625.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit675.i.i.i.i.i.i, label %if.end8.i626.i.i.i.i.i.i
 
 if.end8.i626.i.i.i.i.i.i:                         ; preds = %if.end5.i623.i.i.i.i.i.i
-  %cmp10.i627.i.i.i.i.i.i = fcmp ogt float %592, %add149.i.i.i.i.i.i
+  %cmp10.i627.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %592
   br i1 %cmp10.i627.i.i.i.i.i.i, label %if.then11.i668.i.i.i.i.i.i, label %if.end16.i628.i.i.i.i.i.i
 
 if.then11.i668.i.i.i.i.i.i:                       ; preds = %if.end8.i626.i.i.i.i.i.i
@@ -18929,7 +18928,7 @@ if.then11.i668.i.i.i.i.i.i:                       ; preds = %if.end8.i626.i.i.i.
 if.end16.i628.i.i.i.i.i.i:                        ; preds = %if.then11.i668.i.i.i.i.i.i, %if.end8.i626.i.i.i.i.i.i
   %x0.addr.0.i629.i.i.i.i.i.i = phi float [ %add.i674.i.i.i.i.i.i, %if.then11.i668.i.i.i.i.i.i ], [ %conv140.i.i.i.i.i.i, %if.end8.i626.i.i.i.i.i.i ]
   %y0.addr.0.i630.i.i.i.i.i.i = phi float [ %592, %if.then11.i668.i.i.i.i.i.i ], [ %add149.i.i.i.i.i.i, %if.end8.i626.i.i.i.i.i.i ]
-  %cmp18.i631.i.i.i.i.i.i = fcmp olt float %591, %add144.i.i.i.i.i.i
+  %cmp18.i631.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %591
   br i1 %cmp18.i631.i.i.i.i.i.i, label %if.then19.i661.i.i.i.i.i.i, label %if.end28.i632.i.i.i.i.i.i
 
 if.then19.i661.i.i.i.i.i.i:                       ; preds = %if.end16.i628.i.i.i.i.i.i
@@ -18985,16 +18984,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit675.i.i.i.i.i.i:
 
 do.end2.i677.i.i.i.i.i.i:                         ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit675.i.i.i.i.i.i
   %599 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i679.i.i.i.i.i.i = fcmp olt float %599, %add144.i.i.i.i.i.i
+  %cmp3.i679.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %599
   br i1 %cmp3.i679.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end5.i680.i.i.i.i.i.i
 
 if.end5.i680.i.i.i.i.i.i:                         ; preds = %do.end2.i677.i.i.i.i.i.i
   %600 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i682.i.i.i.i.i.i = fcmp ogt float %600, %add12.i.i.i.i.i
+  %cmp6.i682.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %600
   br i1 %cmp6.i682.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end8.i683.i.i.i.i.i.i
 
 if.end8.i683.i.i.i.i.i.i:                         ; preds = %if.end5.i680.i.i.i.i.i.i
-  %cmp10.i684.i.i.i.i.i.i = fcmp ogt float %600, %add144.i.i.i.i.i.i
+  %cmp10.i684.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %600
   br i1 %cmp10.i684.i.i.i.i.i.i, label %if.then11.i725.i.i.i.i.i.i, label %if.end16.i685.i.i.i.i.i.i
 
 if.then11.i725.i.i.i.i.i.i:                       ; preds = %if.end8.i683.i.i.i.i.i.i
@@ -19009,7 +19008,7 @@ if.then11.i725.i.i.i.i.i.i:                       ; preds = %if.end8.i683.i.i.i.
 if.end16.i685.i.i.i.i.i.i:                        ; preds = %if.then11.i725.i.i.i.i.i.i, %if.end8.i683.i.i.i.i.i.i
   %x0.addr.0.i686.i.i.i.i.i.i = phi float [ %add.i731.i.i.i.i.i.i, %if.then11.i725.i.i.i.i.i.i ], [ %conv137.i.i.i.i.i.i, %if.end8.i683.i.i.i.i.i.i ]
   %y0.addr.0.i687.i.i.i.i.i.i = phi float [ %600, %if.then11.i725.i.i.i.i.i.i ], [ %add144.i.i.i.i.i.i, %if.end8.i683.i.i.i.i.i.i ]
-  %cmp18.i688.i.i.i.i.i.i = fcmp olt float %599, %add12.i.i.i.i.i
+  %cmp18.i688.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %599
   br i1 %cmp18.i688.i.i.i.i.i.i, label %if.then19.i718.i.i.i.i.i.i, label %if.end28.i689.i.i.i.i.i.i
 
 if.then19.i718.i.i.i.i.i.i:                       ; preds = %if.end16.i685.i.i.i.i.i.i
@@ -19075,7 +19074,7 @@ do.end2.i734.i.i.i.i.i.i:                         ; preds = %if.then163.i.i.i.i.
 
 if.end5.i737.i.i.i.i.i.i:                         ; preds = %do.end2.i734.i.i.i.i.i.i
   %608 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i739.i.i.i.i.i.i = fcmp ogt float %608, %add144.i.i.i.i.i.i
+  %cmp6.i739.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %608
   br i1 %cmp6.i739.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit789.i.i.i.i.i.i, label %if.end8.i740.i.i.i.i.i.i
 
 if.end8.i740.i.i.i.i.i.i:                         ; preds = %if.end5.i737.i.i.i.i.i.i
@@ -19093,7 +19092,7 @@ if.then11.i782.i.i.i.i.i.i:                       ; preds = %if.end8.i740.i.i.i.
 if.end16.i742.i.i.i.i.i.i:                        ; preds = %if.then11.i782.i.i.i.i.i.i, %if.end8.i740.i.i.i.i.i.i
   %x0.addr.0.i743.i.i.i.i.i.i = phi float [ %add.i788.i.i.i.i.i.i, %if.then11.i782.i.i.i.i.i.i ], [ %512, %if.end8.i740.i.i.i.i.i.i ]
   %y0.addr.0.i744.i.i.i.i.i.i = phi float [ %608, %if.then11.i782.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i740.i.i.i.i.i.i ]
-  %cmp18.i745.i.i.i.i.i.i = fcmp olt float %607, %add144.i.i.i.i.i.i
+  %cmp18.i745.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %607
   br i1 %cmp18.i745.i.i.i.i.i.i, label %if.then19.i775.i.i.i.i.i.i, label %if.end28.i746.i.i.i.i.i.i
 
 if.then19.i775.i.i.i.i.i.i:                       ; preds = %if.end16.i742.i.i.i.i.i.i
@@ -19149,16 +19148,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit789.i.i.i.i.i.i:
 
 do.end2.i791.i.i.i.i.i.i:                         ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit789.i.i.i.i.i.i
   %615 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i793.i.i.i.i.i.i = fcmp olt float %615, %add144.i.i.i.i.i.i
+  %cmp3.i793.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %615
   br i1 %cmp3.i793.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end5.i794.i.i.i.i.i.i
 
 if.end5.i794.i.i.i.i.i.i:                         ; preds = %do.end2.i791.i.i.i.i.i.i
   %616 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i796.i.i.i.i.i.i = fcmp ogt float %616, %add12.i.i.i.i.i
+  %cmp6.i796.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %616
   br i1 %cmp6.i796.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end8.i797.i.i.i.i.i.i
 
 if.end8.i797.i.i.i.i.i.i:                         ; preds = %if.end5.i794.i.i.i.i.i.i
-  %cmp10.i798.i.i.i.i.i.i = fcmp ogt float %616, %add144.i.i.i.i.i.i
+  %cmp10.i798.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %616
   br i1 %cmp10.i798.i.i.i.i.i.i, label %if.then11.i839.i.i.i.i.i.i, label %if.end16.i799.i.i.i.i.i.i
 
 if.then11.i839.i.i.i.i.i.i:                       ; preds = %if.end8.i797.i.i.i.i.i.i
@@ -19173,7 +19172,7 @@ if.then11.i839.i.i.i.i.i.i:                       ; preds = %if.end8.i797.i.i.i.
 if.end16.i799.i.i.i.i.i.i:                        ; preds = %if.then11.i839.i.i.i.i.i.i, %if.end8.i797.i.i.i.i.i.i
   %x0.addr.0.i800.i.i.i.i.i.i = phi float [ %add.i845.i.i.i.i.i.i, %if.then11.i839.i.i.i.i.i.i ], [ %conv137.i.i.i.i.i.i, %if.end8.i797.i.i.i.i.i.i ]
   %y0.addr.0.i801.i.i.i.i.i.i = phi float [ %616, %if.then11.i839.i.i.i.i.i.i ], [ %add144.i.i.i.i.i.i, %if.end8.i797.i.i.i.i.i.i ]
-  %cmp18.i802.i.i.i.i.i.i = fcmp olt float %615, %add12.i.i.i.i.i
+  %cmp18.i802.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %615
   br i1 %cmp18.i802.i.i.i.i.i.i, label %if.then19.i832.i.i.i.i.i.i, label %if.end28.i803.i.i.i.i.i.i
 
 if.then19.i832.i.i.i.i.i.i:                       ; preds = %if.end16.i799.i.i.i.i.i.i
@@ -19239,7 +19238,7 @@ do.end2.i848.i.i.i.i.i.i:                         ; preds = %if.then168.i.i.i.i.
 
 if.end5.i851.i.i.i.i.i.i:                         ; preds = %do.end2.i848.i.i.i.i.i.i
   %624 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i853.i.i.i.i.i.i = fcmp ogt float %624, %add144.i.i.i.i.i.i
+  %cmp6.i853.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %624
   br i1 %cmp6.i853.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit903.i.i.i.i.i.i, label %if.end8.i854.i.i.i.i.i.i
 
 if.end8.i854.i.i.i.i.i.i:                         ; preds = %if.end5.i851.i.i.i.i.i.i
@@ -19257,7 +19256,7 @@ if.then11.i896.i.i.i.i.i.i:                       ; preds = %if.end8.i854.i.i.i.
 if.end16.i856.i.i.i.i.i.i:                        ; preds = %if.then11.i896.i.i.i.i.i.i, %if.end8.i854.i.i.i.i.i.i
   %x0.addr.0.i857.i.i.i.i.i.i = phi float [ %add.i902.i.i.i.i.i.i, %if.then11.i896.i.i.i.i.i.i ], [ %512, %if.end8.i854.i.i.i.i.i.i ]
   %y0.addr.0.i858.i.i.i.i.i.i = phi float [ %624, %if.then11.i896.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i854.i.i.i.i.i.i ]
-  %cmp18.i859.i.i.i.i.i.i = fcmp olt float %623, %add144.i.i.i.i.i.i
+  %cmp18.i859.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %623
   br i1 %cmp18.i859.i.i.i.i.i.i, label %if.then19.i889.i.i.i.i.i.i, label %if.end28.i860.i.i.i.i.i.i
 
 if.then19.i889.i.i.i.i.i.i:                       ; preds = %if.end16.i856.i.i.i.i.i.i
@@ -19313,16 +19312,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit903.i.i.i.i.i.i:
 
 do.end2.i905.i.i.i.i.i.i:                         ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit903.i.i.i.i.i.i
   %631 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i907.i.i.i.i.i.i = fcmp olt float %631, %add144.i.i.i.i.i.i
+  %cmp3.i907.i.i.i.i.i.i = fcmp ogt float %add144.i.i.i.i.i.i, %631
   br i1 %cmp3.i907.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end5.i908.i.i.i.i.i.i
 
 if.end5.i908.i.i.i.i.i.i:                         ; preds = %do.end2.i905.i.i.i.i.i.i
   %632 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i910.i.i.i.i.i.i = fcmp ogt float %632, %add12.i.i.i.i.i
+  %cmp6.i910.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %632
   br i1 %cmp6.i910.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end8.i911.i.i.i.i.i.i
 
 if.end8.i911.i.i.i.i.i.i:                         ; preds = %if.end5.i908.i.i.i.i.i.i
-  %cmp10.i912.i.i.i.i.i.i = fcmp ogt float %632, %add144.i.i.i.i.i.i
+  %cmp10.i912.i.i.i.i.i.i = fcmp olt float %add144.i.i.i.i.i.i, %632
   br i1 %cmp10.i912.i.i.i.i.i.i, label %if.then11.i953.i.i.i.i.i.i, label %if.end16.i913.i.i.i.i.i.i
 
 if.then11.i953.i.i.i.i.i.i:                       ; preds = %if.end8.i911.i.i.i.i.i.i
@@ -19337,7 +19336,7 @@ if.then11.i953.i.i.i.i.i.i:                       ; preds = %if.end8.i911.i.i.i.
 if.end16.i913.i.i.i.i.i.i:                        ; preds = %if.then11.i953.i.i.i.i.i.i, %if.end8.i911.i.i.i.i.i.i
   %x0.addr.0.i914.i.i.i.i.i.i = phi float [ %add.i959.i.i.i.i.i.i, %if.then11.i953.i.i.i.i.i.i ], [ %conv137.i.i.i.i.i.i, %if.end8.i911.i.i.i.i.i.i ]
   %y0.addr.0.i915.i.i.i.i.i.i = phi float [ %632, %if.then11.i953.i.i.i.i.i.i ], [ %add144.i.i.i.i.i.i, %if.end8.i911.i.i.i.i.i.i ]
-  %cmp18.i916.i.i.i.i.i.i = fcmp olt float %631, %add12.i.i.i.i.i
+  %cmp18.i916.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %631
   br i1 %cmp18.i916.i.i.i.i.i.i, label %if.then19.i946.i.i.i.i.i.i, label %if.end28.i917.i.i.i.i.i.i
 
 if.then19.i946.i.i.i.i.i.i:                       ; preds = %if.end16.i913.i.i.i.i.i.i
@@ -19403,7 +19402,7 @@ do.end2.i962.i.i.i.i.i.i:                         ; preds = %if.then173.i.i.i.i.
 
 if.end5.i965.i.i.i.i.i.i:                         ; preds = %do.end2.i962.i.i.i.i.i.i
   %640 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i967.i.i.i.i.i.i = fcmp ogt float %640, %add149.i.i.i.i.i.i
+  %cmp6.i967.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %640
   br i1 %cmp6.i967.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit1017.i.i.i.i.i.i, label %if.end8.i968.i.i.i.i.i.i
 
 if.end8.i968.i.i.i.i.i.i:                         ; preds = %if.end5.i965.i.i.i.i.i.i
@@ -19421,7 +19420,7 @@ if.then11.i1010.i.i.i.i.i.i:                      ; preds = %if.end8.i968.i.i.i.
 if.end16.i970.i.i.i.i.i.i:                        ; preds = %if.then11.i1010.i.i.i.i.i.i, %if.end8.i968.i.i.i.i.i.i
   %x0.addr.0.i971.i.i.i.i.i.i = phi float [ %add.i1016.i.i.i.i.i.i, %if.then11.i1010.i.i.i.i.i.i ], [ %512, %if.end8.i968.i.i.i.i.i.i ]
   %y0.addr.0.i972.i.i.i.i.i.i = phi float [ %640, %if.then11.i1010.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i968.i.i.i.i.i.i ]
-  %cmp18.i973.i.i.i.i.i.i = fcmp olt float %639, %add149.i.i.i.i.i.i
+  %cmp18.i973.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %639
   br i1 %cmp18.i973.i.i.i.i.i.i, label %if.then19.i1003.i.i.i.i.i.i, label %if.end28.i974.i.i.i.i.i.i
 
 if.then19.i1003.i.i.i.i.i.i:                      ; preds = %if.end16.i970.i.i.i.i.i.i
@@ -19477,16 +19476,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit1017.i.i.i.i.i.i
 
 do.end2.i1019.i.i.i.i.i.i:                        ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit1017.i.i.i.i.i.i
   %647 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i1021.i.i.i.i.i.i = fcmp olt float %647, %add149.i.i.i.i.i.i
+  %cmp3.i1021.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %647
   br i1 %cmp3.i1021.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end5.i1022.i.i.i.i.i.i
 
 if.end5.i1022.i.i.i.i.i.i:                        ; preds = %do.end2.i1019.i.i.i.i.i.i
   %648 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i1024.i.i.i.i.i.i = fcmp ogt float %648, %add12.i.i.i.i.i
+  %cmp6.i1024.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %648
   br i1 %cmp6.i1024.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end8.i1025.i.i.i.i.i.i
 
 if.end8.i1025.i.i.i.i.i.i:                        ; preds = %if.end5.i1022.i.i.i.i.i.i
-  %cmp10.i1026.i.i.i.i.i.i = fcmp ogt float %648, %add149.i.i.i.i.i.i
+  %cmp10.i1026.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %648
   br i1 %cmp10.i1026.i.i.i.i.i.i, label %if.then11.i1067.i.i.i.i.i.i, label %if.end16.i1027.i.i.i.i.i.i
 
 if.then11.i1067.i.i.i.i.i.i:                      ; preds = %if.end8.i1025.i.i.i.i.i.i
@@ -19501,7 +19500,7 @@ if.then11.i1067.i.i.i.i.i.i:                      ; preds = %if.end8.i1025.i.i.i
 if.end16.i1027.i.i.i.i.i.i:                       ; preds = %if.then11.i1067.i.i.i.i.i.i, %if.end8.i1025.i.i.i.i.i.i
   %x0.addr.0.i1028.i.i.i.i.i.i = phi float [ %add.i1073.i.i.i.i.i.i, %if.then11.i1067.i.i.i.i.i.i ], [ %conv140.i.i.i.i.i.i, %if.end8.i1025.i.i.i.i.i.i ]
   %y0.addr.0.i1029.i.i.i.i.i.i = phi float [ %648, %if.then11.i1067.i.i.i.i.i.i ], [ %add149.i.i.i.i.i.i, %if.end8.i1025.i.i.i.i.i.i ]
-  %cmp18.i1030.i.i.i.i.i.i = fcmp olt float %647, %add12.i.i.i.i.i
+  %cmp18.i1030.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %647
   br i1 %cmp18.i1030.i.i.i.i.i.i, label %if.then19.i1060.i.i.i.i.i.i, label %if.end28.i1031.i.i.i.i.i.i
 
 if.then19.i1060.i.i.i.i.i.i:                      ; preds = %if.end16.i1027.i.i.i.i.i.i
@@ -19567,7 +19566,7 @@ do.end2.i1076.i.i.i.i.i.i:                        ; preds = %if.then178.i.i.i.i.
 
 if.end5.i1079.i.i.i.i.i.i:                        ; preds = %do.end2.i1076.i.i.i.i.i.i
   %656 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i1081.i.i.i.i.i.i = fcmp ogt float %656, %add149.i.i.i.i.i.i
+  %cmp6.i1081.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %656
   br i1 %cmp6.i1081.i.i.i.i.i.i, label %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit1131.i.i.i.i.i.i, label %if.end8.i1082.i.i.i.i.i.i
 
 if.end8.i1082.i.i.i.i.i.i:                        ; preds = %if.end5.i1079.i.i.i.i.i.i
@@ -19585,7 +19584,7 @@ if.then11.i1124.i.i.i.i.i.i:                      ; preds = %if.end8.i1082.i.i.i
 if.end16.i1084.i.i.i.i.i.i:                       ; preds = %if.then11.i1124.i.i.i.i.i.i, %if.end8.i1082.i.i.i.i.i.i
   %x0.addr.0.i1085.i.i.i.i.i.i = phi float [ %add.i1130.i.i.i.i.i.i, %if.then11.i1124.i.i.i.i.i.i ], [ %512, %if.end8.i1082.i.i.i.i.i.i ]
   %y0.addr.0.i1086.i.i.i.i.i.i = phi float [ %656, %if.then11.i1124.i.i.i.i.i.i ], [ %conv9.i.i.i.i.i, %if.end8.i1082.i.i.i.i.i.i ]
-  %cmp18.i1087.i.i.i.i.i.i = fcmp olt float %655, %add149.i.i.i.i.i.i
+  %cmp18.i1087.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %655
   br i1 %cmp18.i1087.i.i.i.i.i.i, label %if.then19.i1117.i.i.i.i.i.i, label %if.end28.i1088.i.i.i.i.i.i
 
 if.then19.i1117.i.i.i.i.i.i:                      ; preds = %if.end16.i1084.i.i.i.i.i.i
@@ -19641,16 +19640,16 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit1131.i.i.i.i.i.i
 
 do.end2.i1133.i.i.i.i.i.i:                        ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit1131.i.i.i.i.i.i
   %663 = load float, ptr %ey.i67.i.i.i.i.i, align 4
-  %cmp3.i1135.i.i.i.i.i.i = fcmp olt float %663, %add149.i.i.i.i.i.i
+  %cmp3.i1135.i.i.i.i.i.i = fcmp ogt float %add149.i.i.i.i.i.i, %663
   br i1 %cmp3.i1135.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end5.i1136.i.i.i.i.i.i
 
 if.end5.i1136.i.i.i.i.i.i:                        ; preds = %do.end2.i1133.i.i.i.i.i.i
   %664 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i1138.i.i.i.i.i.i = fcmp ogt float %664, %add12.i.i.i.i.i
+  %cmp6.i1138.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %664
   br i1 %cmp6.i1138.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end8.i1139.i.i.i.i.i.i
 
 if.end8.i1139.i.i.i.i.i.i:                        ; preds = %if.end5.i1136.i.i.i.i.i.i
-  %cmp10.i1140.i.i.i.i.i.i = fcmp ogt float %664, %add149.i.i.i.i.i.i
+  %cmp10.i1140.i.i.i.i.i.i = fcmp olt float %add149.i.i.i.i.i.i, %664
   br i1 %cmp10.i1140.i.i.i.i.i.i, label %if.then11.i1181.i.i.i.i.i.i, label %if.end16.i1141.i.i.i.i.i.i
 
 if.then11.i1181.i.i.i.i.i.i:                      ; preds = %if.end8.i1139.i.i.i.i.i.i
@@ -19665,7 +19664,7 @@ if.then11.i1181.i.i.i.i.i.i:                      ; preds = %if.end8.i1139.i.i.i
 if.end16.i1141.i.i.i.i.i.i:                       ; preds = %if.then11.i1181.i.i.i.i.i.i, %if.end8.i1139.i.i.i.i.i.i
   %x0.addr.0.i1142.i.i.i.i.i.i = phi float [ %add.i1187.i.i.i.i.i.i, %if.then11.i1181.i.i.i.i.i.i ], [ %conv140.i.i.i.i.i.i, %if.end8.i1139.i.i.i.i.i.i ]
   %y0.addr.0.i1143.i.i.i.i.i.i = phi float [ %664, %if.then11.i1181.i.i.i.i.i.i ], [ %add149.i.i.i.i.i.i, %if.end8.i1139.i.i.i.i.i.i ]
-  %cmp18.i1144.i.i.i.i.i.i = fcmp olt float %663, %add12.i.i.i.i.i
+  %cmp18.i1144.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %663
   br i1 %cmp18.i1144.i.i.i.i.i.i, label %if.then19.i1174.i.i.i.i.i.i, label %if.end28.i1145.i.i.i.i.i.i
 
 if.then19.i1174.i.i.i.i.i.i:                      ; preds = %if.end16.i1141.i.i.i.i.i.i
@@ -19725,7 +19724,7 @@ do.end2.i1190.i.i.i.i.i.i:                        ; preds = %if.else179.i.i.i.i.
 
 if.end5.i1193.i.i.i.i.i.i:                        ; preds = %do.end2.i1190.i.i.i.i.i.i
   %672 = load float, ptr %sy.i65.i.i.i.i.i, align 8
-  %cmp6.i1195.i.i.i.i.i.i = fcmp ogt float %672, %add12.i.i.i.i.i
+  %cmp6.i1195.i.i.i.i.i.i = fcmp olt float %add12.i.i.i.i.i, %672
   br i1 %cmp6.i1195.i.i.i.i.i.i, label %for.inc186.i.i.i.i.i.i, label %if.end8.i1196.i.i.i.i.i.i
 
 if.end8.i1196.i.i.i.i.i.i:                        ; preds = %if.end5.i1193.i.i.i.i.i.i
@@ -19736,7 +19735,7 @@ if.end8.i1196.i.i.i.i.i.i:                        ; preds = %if.end5.i1193.i.i.i
   %add.i1244.i.i.i.i.i.i = fadd float %512, %div.i1243.i.i.i.i.i.i
   %x0.addr.0.i1199.i.i.i.i.i.i = select i1 %cmp10.i1197.i.i.i.i.i.i, float %add.i1244.i.i.i.i.i.i, float %512
   %y0.addr.0.i1200.i.i.i.i.i.i = select i1 %cmp10.i1197.i.i.i.i.i.i, float %672, float %conv9.i.i.i.i.i
-  %cmp18.i1201.i.i.i.i.i.i = fcmp olt float %671, %add12.i.i.i.i.i
+  %cmp18.i1201.i.i.i.i.i.i = fcmp ogt float %add12.i.i.i.i.i, %671
   br i1 %cmp18.i1201.i.i.i.i.i.i, label %if.then19.i1231.i.i.i.i.i.i, label %if.end28.i1202.i.i.i.i.i.i
 
 if.then19.i1231.i.i.i.i.i.i:                      ; preds = %if.end8.i1196.i.i.i.i.i.i
@@ -20755,8 +20754,8 @@ for.body497:                                      ; preds = %for.body497.lr.ph, 
   %mul522 = fmul float %div492, %815
   %816 = load float, ptr %GlyphMinAdvanceX.i, align 8
   %817 = load float, ptr %GlyphMaxAdvanceX.i, align 4
-  %cmp.i.i674 = fcmp ogt float %816, %mul522
-  %cmp1.i.i = fcmp olt float %817, %mul522
+  %cmp.i.i674 = fcmp olt float %mul522, %816
+  %cmp1.i.i = fcmp ogt float %mul522, %817
   %cond.i.i675 = select i1 %cmp1.i.i, float %817, float %mul522
   %cond5.i.i = select i1 %cmp.i.i674, float %816, float %cond.i.i675
   %cmp2.i676 = fcmp une float %cond5.i.i, %mul522
@@ -20786,7 +20785,7 @@ if.end.i678:                                      ; preds = %if.then3.i, %for.bo
   %820 = load i32, ptr %Glyphs.i, align 8
   %add17.i680 = add nsw i32 %820, 1
   %821 = load i32, ptr %Capacity.i.i681, align 4
-  %cmp.i38.not.i = icmp sgt i32 %821, %820
+  %cmp.i38.not.i = icmp slt i32 %820, %821
   br i1 %cmp.i38.not.i, label %if.end15._ZN8ImVectorI11ImFontGlyphE6resizeEi.exit_crit_edge.i, label %if.then.i.i682
 
 if.end15._ZN8ImVectorI11ImFontGlyphE6resizeEi.exit_crit_edge.i: ; preds = %if.end.i678
@@ -21372,7 +21371,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 lor.lhs.false.i.i:                                ; preds = %if.else
   %5 = load i32, ptr %height4.i.i, align 4
-  %cmp5.i.i = icmp slt i32 %5, %2
+  %cmp5.i.i = icmp sgt i32 %2, %5
   br i1 %cmp5.i.i, label %for.inc37, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
@@ -22721,8 +22720,8 @@ if.then:                                          ; preds = %entry
   %0 = load float, ptr %GlyphMinAdvanceX, align 8
   %GlyphMaxAdvanceX = getelementptr inbounds i8, ptr %cfg, i64 68
   %1 = load float, ptr %GlyphMaxAdvanceX, align 4
-  %cmp.i = fcmp ogt float %0, %advance_x
-  %cmp1.i = fcmp olt float %1, %advance_x
+  %cmp.i = fcmp olt float %advance_x, %0
+  %cmp1.i = fcmp ogt float %advance_x, %1
   %cond.i = select i1 %cmp1.i, float %1, float %advance_x
   %cond5.i = select i1 %cmp.i, float %0, float %cond.i
   %cmp2 = fcmp une float %cond5.i, %advance_x
@@ -22737,8 +22736,8 @@ if.then3:                                         ; preds = %if.then
   %conv.i = fptosi float %mul to i32
   %conv1.i = sitofp i32 %conv.i to float
   %cond = select i1 %tobool, float %conv1.i, float %mul
-  %add = fadd float %cond, %x0
-  %add7 = fadd float %cond, %x1
+  %add = fadd float %x0, %cond
+  %add7 = fadd float %x1, %cond
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then3
@@ -22762,7 +22761,7 @@ if.end15:                                         ; preds = %if.end, %entry
   %add17 = add nsw i32 %4, 1
   %Capacity.i = getelementptr inbounds i8, ptr %this, i64 44
   %5 = load i32, ptr %Capacity.i, align 4
-  %cmp.i38.not = icmp sgt i32 %5, %4
+  %cmp.i38.not = icmp slt i32 %4, %5
   br i1 %cmp.i38.not, label %if.end15._ZN8ImVectorI11ImFontGlyphE6resizeEi.exit_crit_edge, label %if.then.i
 
 if.end15._ZN8ImVectorI11ImFontGlyphE6resizeEi.exit_crit_edge: ; preds = %if.end15
@@ -23022,7 +23021,7 @@ if.then32:                                        ; preds = %if.then
   %add36 = add nsw i32 %.lcssa229, 1
   %Capacity.i46 = getelementptr inbounds i8, ptr %this, i64 44
   %23 = load i32, ptr %Capacity.i46, align 4
-  %cmp.i.not = icmp sgt i32 %23, %.lcssa229
+  %cmp.i.not = icmp slt i32 %.lcssa229, %23
   br i1 %cmp.i.not, label %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit, label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.then32
@@ -24065,13 +24064,13 @@ define void @_ZN6ImFont9GrowIndexEi(ptr nocapture noundef nonnull align 8 derefe
 entry:
   %IndexLookup = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %IndexLookup, align 8
-  %cmp.not = icmp slt i32 %0, %new_size
+  %cmp.not = icmp sgt i32 %new_size, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %Capacity.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %Capacity.i, align 4
-  %cmp.i = icmp slt i32 %1, %new_size
+  %cmp.i = icmp sgt i32 %new_size, %1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -24110,7 +24109,7 @@ if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK
 
 if.end.i:                                         ; preds = %if.end7.i.i, %if.end
   %5 = load i32, ptr %this, align 8
-  %cmp2.i = icmp slt i32 %5, %new_size
+  %cmp2.i = icmp sgt i32 %new_size, %5
   br i1 %cmp2.i, label %for.cond.preheader.i, label %_ZN8ImVectorIfE6resizeEiRKf.exit
 
 for.cond.preheader.i:                             ; preds = %if.end.i
@@ -24132,7 +24131,7 @@ _ZN8ImVectorIfE6resizeEiRKf.exit:                 ; preds = %for.body.i, %if.end
   store i32 %new_size, ptr %this, align 8
   %Capacity.i3 = getelementptr inbounds i8, ptr %this, i64 28
   %8 = load i32, ptr %Capacity.i3, align 4
-  %cmp.i4 = icmp slt i32 %8, %new_size
+  %cmp.i4 = icmp sgt i32 %new_size, %8
   br i1 %cmp.i4, label %if.then.i16, label %if.end.i5
 
 if.then.i16:                                      ; preds = %_ZN8ImVectorIfE6resizeEiRKf.exit
@@ -24171,7 +24170,7 @@ if.end7.i.i31:                                    ; preds = %if.then2.i.i28, %_Z
 
 if.end.i5:                                        ; preds = %if.end7.i.i31, %_ZN8ImVectorIfE6resizeEiRKf.exit
   %12 = load i32, ptr %IndexLookup, align 8
-  %cmp2.i6 = icmp slt i32 %12, %new_size
+  %cmp2.i6 = icmp sgt i32 %new_size, %12
   br i1 %cmp2.i6, label %for.cond.preheader.i7, label %_ZN8ImVectorItE6resizeEiRKt.exit
 
 for.cond.preheader.i7:                            ; preds = %if.end.i5
@@ -24376,7 +24375,7 @@ land.lhs.true:                                    ; preds = %entry
   %arrayidx = getelementptr inbounds i16, ptr %1, i64 %idxprom
   %2 = load i16, ptr %arrayidx, align 2
   %cmp4 = icmp ne i16 %2, -1
-  %brmerge = or i1 %cmp4, %overwrite_dst
+  %brmerge = or i1 %overwrite_dst, %cmp4
   br i1 %brmerge, label %if.end.thread, label %return
 
 if.end.thread:                                    ; preds = %land.lhs.true
@@ -24710,7 +24709,7 @@ if.then10.split.us.split.us.us:                   ; preds = %if.end8.us.us.us
   %retval.sroa.0.0.vec.insert.us = insertelement <2 x float> %retval.sroa.0.0.ph.us, float %line_width.0.ph.us.us, i64 0
   %retval.sroa.0.1.us = select i1 %cmp11.us, <2 x float> %retval.sroa.0.0.vec.insert.us, <2 x float> %retval.sroa.0.0.ph.us
   %retval.sroa.0.4.vec.extract53.us = extractelement <2 x float> %retval.sroa.0.1.us, i64 1
-  %add.us = fadd float %retval.sroa.0.4.vec.extract53.us, %size
+  %add.us = fadd float %size, %retval.sroa.0.4.vec.extract53.us
   %retval.sroa.0.4.vec.insert51.us = insertelement <2 x float> %retval.sroa.0.1.us, float %add.us, i64 1
   %text10.i.us = ptrtoint ptr %s.0.us.us.us to i64
   %7 = sub i64 %text_end9.i, %text10.i.us
@@ -24723,7 +24722,7 @@ if.then27.split.us.split.us.us:                   ; preds = %if.then25.us.us.us
   %cond.i.us = select i1 %cmp.i.us, float %retval.sroa.0.0.vec.extract36.us, float %line_width.0.ph.us.us
   %retval.sroa.0.0.vec.insert38.us = insertelement <2 x float> poison, float %cond.i.us, i64 0
   %retval.sroa.0.4.vec.extract49.us = extractelement <2 x float> %retval.sroa.0.0.ph.us, i64 1
-  %add32.us = fadd float %retval.sroa.0.4.vec.extract49.us, %size
+  %add32.us = fadd float %size, %retval.sroa.0.4.vec.extract49.us
   %retval.sroa.0.4.vec.insert47.us = insertelement <2 x float> %retval.sroa.0.0.vec.insert38.us, float %add32.us, i64 1
   br label %while.cond.outer.us.backedge
 
@@ -24784,7 +24783,7 @@ if.then27.split:                                  ; preds = %if.then25
   %cond.i = select i1 %cmp.i, float %retval.sroa.0.0.vec.extract36, float %line_width.0.ph
   %retval.sroa.0.0.vec.insert38 = insertelement <2 x float> poison, float %cond.i, i64 0
   %retval.sroa.0.4.vec.extract49 = extractelement <2 x float> %retval.sroa.0.0.ph, i64 1
-  %add32 = fadd float %retval.sroa.0.4.vec.extract49, %size
+  %add32 = fadd float %size, %retval.sroa.0.4.vec.extract49
   %retval.sroa.0.4.vec.insert47 = insertelement <2 x float> %retval.sroa.0.0.vec.insert38, float %add32, i64 1
   br label %while.cond.outer, !llvm.loop !138
 
@@ -24821,7 +24820,7 @@ if.end59:                                         ; preds = %if.then58, %while.e
   %retval.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.2, i64 1
   %cmp52 = fcmp oeq float %retval.sroa.0.4.vec.extract, 0.000000e+00
   %or.cond = select i1 %cmp50, i1 true, i1 %cmp52
-  %add55 = fadd float %retval.sroa.0.4.vec.extract, %size
+  %add55 = fadd float %size, %retval.sroa.0.4.vec.extract
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.2, float %add55, i64 1
   %retval.sroa.0.3 = select i1 %or.cond, <2 x float> %retval.sroa.0.4.vec.insert, <2 x float> %retval.sroa.0.2
   ret <2 x float> %retval.sroa.0.3
@@ -25016,7 +25015,7 @@ entry:
   %FontSize = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load float, ptr %FontSize, align 8
   %mul1 = fmul float %1, 0x3FD99999A0000000
-  %mul2 = fmul float %mul1, %scale
+  %mul2 = fmul float %scale, %mul1
   switch i32 %dir, label %sw.epilog [
     i32 3, label %if.end
     i32 2, label %if.then
@@ -25067,7 +25066,7 @@ sw.epilog:                                        ; preds = %entry, %if.end19, %
   %a.sroa.0.0 = phi <2 x float> [ zeroinitializer, %entry ], [ %retval.sroa.0.4.vec.insert.i50, %if.end19 ], [ %retval.sroa.0.4.vec.insert.i35, %if.end ]
   %pos.sroa.0.4.vec.extract = extractelement <2 x float> %pos.coerce, i64 1
   %mul3 = fmul float %1, 5.000000e-01
-  %mul5 = fmul float %mul3, %scale
+  %mul5 = fmul float %scale, %mul3
   %add3.i = fadd float %pos.sroa.0.4.vec.extract, %mul5
   %pos.sroa.0.0.vec.extract = extractelement <2 x float> %pos.coerce, i64 0
   %add.i = fadd float %pos.sroa.0.0.vec.extract, %mul3
@@ -26364,7 +26363,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp1.i = fcmp ogt float %y.061, %1
   %cond.i = select i1 %cmp1.i, float %1, float %y.061
   %cond5.i = select i1 %cmp.i, float %0, float %cond.i
-  %add14 = fadd float %y.061, %grid_step
+  %add14 = fadd float %grid_step, %y.061
   %cmp.i40 = fcmp olt float %add14, %1
   %cond.i41 = select i1 %cmp.i40, float %add14, float %1
   %cmp17 = fcmp ugt float %cond.i41, %cond5.i
@@ -26388,7 +26387,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %cmp1.i43 = fcmp ogt float %x.051, %3
   %cond.i44 = select i1 %cmp1.i43, float %3, float %x.051
   %cond5.i45 = select i1 %cmp.i42, float %2, float %cond.i44
-  %add31 = fadd float %x.051, %grid_step
+  %add31 = fadd float %grid_step, %x.051
   %cmp.i46 = fcmp olt float %add31, %3
   %cond.i47 = select i1 %cmp.i46, float %add31, float %3
   %cmp34 = fcmp ugt float %cond.i47, %cond5.i45
@@ -26576,7 +26575,7 @@ if.then:                                          ; preds = %entry
   %conv2.i111 = zext i8 %add.ptr6.val94 to i32
   %add.i112 = or disjoint i32 %mul.i110, %conv2.i111
   %sub = add nsw i32 %add.i112, -6
-  %cmp9 = icmp sgt i32 %sub, %unicode_codepoint
+  %cmp9 = icmp slt i32 %unicode_codepoint, %sub
   br i1 %cmp9, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.then
@@ -26596,7 +26595,7 @@ if.then19:                                        ; preds = %entry
   %mul.i114 = shl nuw nsw i32 %conv.i113, 8
   %conv2.i115 = zext i8 %add.ptr22.val95 to i32
   %add.i116 = or disjoint i32 %mul.i114, %conv2.i115
-  %cmp30.not = icmp ugt i32 %add.i116, %unicode_codepoint
+  %cmp30.not = icmp ult i32 %unicode_codepoint, %add.i116
   br i1 %cmp30.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then19
@@ -26609,7 +26608,7 @@ land.lhs.true:                                    ; preds = %if.then19
   %conv2.i119 = zext i8 %add.ptr27.val96 to i32
   %add.i120 = or disjoint i32 %mul.i118, %conv2.i119
   %add = add nuw nsw i32 %add.i120, %add.i116
-  %cmp31 = icmp ugt i32 %add, %unicode_codepoint
+  %cmp31 = icmp ult i32 %unicode_codepoint, %add
   br i1 %cmp31, label %if.then32, label %return
 
 if.then32:                                        ; preds = %land.lhs.true
@@ -26670,7 +26669,7 @@ if.end77:                                         ; preds = %if.then49
   %mul.i142 = shl nuw nsw i32 %conv.i141, 8
   %conv2.i143 = zext i8 %add.ptr83.val102 to i32
   %add.i144 = or disjoint i32 %mul.i142, %conv2.i143
-  %cmp86.not = icmp sgt i32 %add.i144, %unicode_codepoint
+  %cmp86.not = icmp slt i32 %unicode_codepoint, %add.i144
   %mul81 = zext i16 %10 to i32
   %add90 = select i1 %cmp86.not, i32 0, i32 %mul81
   %search.0 = add i32 %info.56.val, 12
@@ -26706,7 +26705,7 @@ while.body:                                       ; preds = %while.body.preheade
   %mul.i146 = shl nuw nsw i32 %conv.i145, 8
   %conv2.i147 = zext i8 %add.ptr101.val103 to i32
   %add.i148 = or disjoint i32 %mul.i146, %conv2.i147
-  %cmp104 = icmp slt i32 %add.i148, %unicode_codepoint
+  %cmp104 = icmp sgt i32 %unicode_codepoint, %add.i148
   %mul99 = zext nneg i16 %13 to i32
   %add108 = select i1 %cmp104, i32 %mul99, i32 0
   %search.2 = add i32 %add108, %search.12
@@ -26741,8 +26740,8 @@ while.end:                                        ; preds = %while.body, %if.end
   %mul.i154 = shl nuw nsw i32 %conv.i153, 8
   %conv2.i155 = zext i8 %add.ptr132.val105 to i32
   %add.i156 = or disjoint i32 %mul.i154, %conv2.i155
-  %cmp135 = icmp sgt i32 %add.i152, %unicode_codepoint
-  %cmp137 = icmp slt i32 %add.i156, %unicode_codepoint
+  %cmp135 = icmp slt i32 %unicode_codepoint, %add.i152
+  %cmp137 = icmp sgt i32 %unicode_codepoint, %add.i156
   %or.cond92 = or i1 %cmp135, %cmp137
   br i1 %or.cond92, label %return, label %if.end139
 
@@ -26858,7 +26857,7 @@ while.body209:                                    ; preds = %while.body209.lr.ph
   %28 = load i8, ptr %arrayidx8.i182, align 1
   %conv9.i183 = zext i8 %28 to i32
   %add10.i184 = or disjoint i32 %add7.i181, %conv9.i183
-  %cmp228 = icmp ugt i32 %add10.i184, %unicode_codepoint
+  %cmp228 = icmp ult i32 %unicode_codepoint, %add10.i184
   br i1 %cmp228, label %if.end250, label %if.else230
 
 if.else230:                                       ; preds = %while.body209
@@ -26880,7 +26879,7 @@ if.else230:                                       ; preds = %while.body209
   %32 = load i8, ptr %arrayidx8.i195, align 1
   %conv9.i196 = zext i8 %32 to i32
   %add10.i197 = or disjoint i32 %add7.i194, %conv9.i196
-  %cmp231 = icmp ult i32 %add10.i197, %unicode_codepoint
+  %cmp231 = icmp ugt i32 %unicode_codepoint, %add10.i197
   br i1 %cmp231, label %if.then232, label %if.else234
 
 if.then232:                                       ; preds = %if.else230
@@ -26957,7 +26956,7 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   %numGlyphs.i.i = getelementptr inbounds i8, ptr %font, i64 20
   %5 = load i32, ptr %numGlyphs.i.i, align 4
-  %cmp.not.i.i = icmp sgt i32 %5, %glyph
+  %cmp.not.i.i = icmp slt i32 %glyph, %5
   br i1 %cmp.not.i.i, label %if.end.i24.i, label %if.then
 
 if.end.i24.i:                                     ; preds = %if.else.i
@@ -27327,7 +27326,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %if.then, %if.end.i
   %mul = mul nsw i32 %retval.0.i, %or.i
   %add.i = add nsw i32 %8, %mul
   %cmp1.i.i = icmp slt i32 %add.i, 0
-  %9 = tail call i32 @llvm.smin.i32(i32 %1, i32 %add.i)
+  %9 = tail call i32 @llvm.smin.i32(i32 %add.i, i32 %1)
   %.o.i.i = select i1 %cmp1.i.i, i32 %1, i32 %9
   %cmp3.i.not = icmp eq i32 %retval.0.i, 0
   br i1 %cmp3.i.not, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit34, label %for.body.i17
@@ -27367,7 +27366,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit34:         ; preds = %_ZL14stbtt__buf_get
   %v.0.lcssa.i = phi i32 [ -1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ %12, %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.loopexit ]
   %add.i36 = add nsw i32 %v.0.lcssa.i, %13
   %cmp1.i.i38 = icmp slt i32 %add.i36, 0
-  %14 = tail call i32 @llvm.smin.i32(i32 %1, i32 %add.i36)
+  %14 = tail call i32 @llvm.smin.i32(i32 %add.i36, i32 %1)
   %.o.i.i39 = select i1 %cmp1.i.i38, i32 %1, i32 %14
   store i32 %.o.i.i39, ptr %cursor, align 8
   br label %if.end
@@ -27380,8 +27379,8 @@ if.end:                                           ; preds = %_ZL14stbtt__buf_get
   br i1 %or.cond.not.i, label %lor.lhs.false2.i, label %_ZL16stbtt__buf_rangePK10stbtt__bufii.exit
 
 lor.lhs.false2.i:                                 ; preds = %if.end
-  %cmp3.i41 = icmp slt i32 %1, %0
-  %cmp6.i = icmp slt i32 %1, %15
+  %cmp3.i41 = icmp sgt i32 %0, %1
+  %cmp6.i = icmp sgt i32 %15, %1
   %or.cond.i = or i1 %cmp3.i41, %cmp6.i
   br i1 %or.cond.i, label %_ZL16stbtt__buf_rangePK10stbtt__bufii.exit, label %if.end.i42
 
@@ -27449,10 +27448,10 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL14stbtt__buf_get
 
 for.body.i13.preheader:                           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
   %inc.i7 = add nsw i32 %b.sroa.6.1, 1
-  %mul = mul nsw i32 %3, %i
+  %mul = mul nsw i32 %i, %3
   %add.i = add nsw i32 %mul, %inc.i7
   %cmp1.i.i = icmp slt i32 %add.i, 0
-  %4 = tail call i32 @llvm.smin.i32(i32 %b.sroa.18.8.extract.trunc, i32 %add.i)
+  %4 = tail call i32 @llvm.smin.i32(i32 %add.i, i32 %b.sroa.18.8.extract.trunc)
   %.o.i.i = select i1 %cmp1.i.i, i32 %b.sroa.18.8.extract.trunc, i32 %4
   br label %for.body.i13
 
@@ -27522,7 +27521,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit54:         ; preds = %_ZL15stbtt__buf_get
 lor.lhs.false2.i:                                 ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit54
   %cmp3.i56 = icmp sgt i32 %add8, %b.sroa.18.8.extract.trunc
   %sub.i = sub nsw i32 %b.sroa.18.8.extract.trunc, %add8
-  %cmp6.i = icmp slt i32 %sub.i, %sub
+  %cmp6.i = icmp sgt i32 %sub, %sub.i
   %or.cond.i = select i1 %cmp3.i56, i1 true, i1 %cmp6.i
   br i1 %or.cond.i, label %_ZL16stbtt__buf_rangePK10stbtt__bufii.exit, label %if.end.i57
 
@@ -27715,7 +27714,7 @@ if.then12.i:                                      ; preds = %if.end.i
   %sub.i = sub nsw i32 %12, %cursor.i.promoted79.i
   %13 = or i32 %sub.i, %cursor.i.promoted79.i
   %or.cond.not.i.i = icmp slt i32 %13, 0
-  %cmp6.i.i = icmp slt i32 %0, %12
+  %cmp6.i.i = icmp sgt i32 %12, %0
   %or.cond.i = or i1 %cmp6.i.i, %or.cond.not.i.i
   br i1 %or.cond.i, label %for.end, label %_ZL15stbtt__dict_getP10stbtt__bufi.exit
 
@@ -27785,7 +27784,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %if.end
   %cmp3.i = icmp sgt i32 %1, %cff.sroa.13.8.extract.trunc
   %sub.i = sub nsw i32 %cff.sroa.13.8.extract.trunc, %1
-  %cmp6.i = icmp slt i32 %sub.i, %2
+  %cmp6.i = icmp sgt i32 %2, %sub.i
   %or.cond.i = select i1 %cmp3.i, i1 true, i1 %cmp6.i
   br i1 %or.cond.i, label %_ZL16stbtt__buf_rangePK10stbtt__bufii.exit, label %if.end.i
 
@@ -27810,7 +27809,7 @@ _ZL16stbtt__buf_rangePK10stbtt__bufii.exit:       ; preds = %if.end, %lor.lhs.fa
 if.end9:                                          ; preds = %_ZL16stbtt__buf_rangePK10stbtt__bufii.exit
   %add = add i32 %6, %1
   %cmp1.i = icmp slt i32 %add, 0
-  %7 = tail call i32 @llvm.smin.i32(i32 %cff.sroa.13.8.extract.trunc, i32 %add)
+  %7 = tail call i32 @llvm.smin.i32(i32 %add, i32 %cff.sroa.13.8.extract.trunc)
   %.o.i = select i1 %cmp1.i, i32 %cff.sroa.13.8.extract.trunc, i32 %7
   br label %for.body.i.i
 
@@ -27860,7 +27859,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i:         ; preds = %if.end.i.i, %if.the
   %mul.i = mul nsw i32 %retval.0.i.i, %or.i.i
   %add.i.i = add nsw i32 %mul.i, %12
   %cmp1.i.i.i = icmp slt i32 %add.i.i, 0
-  %13 = tail call i32 @llvm.smin.i32(i32 %cff.sroa.13.8.extract.trunc, i32 %add.i.i)
+  %13 = tail call i32 @llvm.smin.i32(i32 %add.i.i, i32 %cff.sroa.13.8.extract.trunc)
   %.o.i.i.i = select i1 %cmp1.i.i.i, i32 %cff.sroa.13.8.extract.trunc, i32 %13
   %cmp3.i.not.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp3.i.not.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.i, label %for.body.i17.i
@@ -27898,7 +27897,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit34.i:       ; preds = %_ZL14stbtt__buf_get
   %v.0.lcssa.i.i = phi i32 [ -1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %15, %_ZL14stbtt__buf_getP10stbtt__bufi.exit34.loopexit.i ]
   %add.i36.i = add nsw i32 %v.0.lcssa.i.i, %16
   %cmp1.i.i38.i = icmp slt i32 %add.i36.i, 0
-  %17 = tail call i32 @llvm.smin.i32(i32 %cff.sroa.13.8.extract.trunc, i32 %add.i36.i)
+  %17 = tail call i32 @llvm.smin.i32(i32 %add.i36.i, i32 %cff.sroa.13.8.extract.trunc)
   %.o.i.i39.i = select i1 %cmp1.i.i38.i, i32 %cff.sroa.13.8.extract.trunc, i32 %17
   br label %if.end.i6
 
@@ -28169,7 +28168,7 @@ if.end:                                           ; preds = %if.then, %sw.bb
   %div4 = sdiv i32 %add3, 8
   %add.i = add nsw i32 %div4, %inc.i
   %cmp1.i.i = icmp slt i32 %add.i, 0
-  %10 = tail call i32 @llvm.smin.i32(i32 %6, i32 %add.i)
+  %10 = tail call i32 @llvm.smin.i32(i32 %add.i, i32 %6)
   %.o.i.i = select i1 %cmp1.i.i, i32 %6, i32 %10
   store i32 %.o.i.i, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
   br label %sw.epilog405
@@ -28568,7 +28567,7 @@ if.then.i:                                        ; preds = %_ZL15stbtt__buf_get
   %fdselect.sroa.7.192.i = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %83, %if.then269 ]
   %add.i.i = add nsw i32 %fdselect.sroa.7.192.i, %glyph_index
   %cmp1.i.i.i = icmp slt i32 %add.i.i, 0
-  %85 = tail call i32 @llvm.smin.i32(i32 %82, i32 %add.i.i)
+  %85 = tail call i32 @llvm.smin.i32(i32 %add.i.i, i32 %82)
   %.o.i.i.i = select i1 %cmp1.i.i.i, i32 %82, i32 %85
   %cmp.not.i15.i = icmp slt i32 %.o.i.i.i, %82
   br i1 %cmp.not.i15.i, label %if.end.i17.i, label %if.end20.i
@@ -28686,8 +28685,8 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i:     ; preds = %if.end.i.i70.i, %fo
   br i1 %exitcond.not.i69.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit74.i, label %for.body.i57.i, !llvm.loop !52
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit74.i:       ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i63.i
-  %cmp12.not.i = icmp sle i32 %start.098.i, %glyph_index
-  %cmp13.i = icmp sgt i32 %or.i67.i, %glyph_index
+  %cmp12.not.i = icmp sge i32 %glyph_index, %start.098.i
+  %cmp13.i = icmp slt i32 %glyph_index, %or.i67.i
   %or.cond.i = and i1 %cmp12.not.i, %cmp13.i
   br i1 %or.cond.i, label %if.end20.i, label %for.cond.i
 
@@ -28974,7 +28973,7 @@ _ZL14stbtt__buf_getP10stbtt__bufi.exit:           ; preds = %_ZL15stbtt__buf_get
 
 if.else394:                                       ; preds = %if.end388
   %cmp1.i.i218 = icmp slt i32 %7, 0
-  %143 = tail call i32 @llvm.smin.i32(i32 %6, i32 %7)
+  %143 = tail call i32 @llvm.smin.i32(i32 %7, i32 %6)
   %.o.i.i219 = select i1 %cmp1.i.i218, i32 %6, i32 %143
   store i32 %.o.i.i219, ptr %ref.tmp.sroa.2.0.b.sroa_idx, align 8
   %call395 = call fastcc noundef i32 @_ZL14stbtt__cff_intP10stbtt__buf(ptr noundef nonnull %b)
@@ -29017,13 +29016,13 @@ entry:
   tail call fastcc void @_ZL24stbtt__csctx_close_shapeP12stbtt__csctx(ptr noundef %ctx)
   %x = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load float, ptr %x, align 8
-  %add = fadd float %0, %dx
+  %add = fadd float %dx, %0
   store float %add, ptr %x, align 8
   %first_x = getelementptr inbounds i8, ptr %ctx, i64 8
   store float %add, ptr %first_x, align 8
   %y = getelementptr inbounds i8, ptr %ctx, i64 20
   %1 = load float, ptr %y, align 4
-  %add2 = fadd float %1, %dy
+  %add2 = fadd float %dy, %1
   store float %add2, ptr %y, align 4
   %first_y = getelementptr inbounds i8, ptr %ctx, i64 12
   store float %add2, ptr %first_y, align 4
@@ -29145,11 +29144,11 @@ define internal fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noc
 entry:
   %x = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load float, ptr %x, align 8
-  %add = fadd float %0, %dx
+  %add = fadd float %dx, %0
   store float %add, ptr %x, align 8
   %y = getelementptr inbounds i8, ptr %ctx, i64 20
   %1 = load float, ptr %y, align 4
-  %add1 = fadd float %1, %dy
+  %add1 = fadd float %dy, %1
   store float %add1, ptr %y, align 4
   %conv = fptosi float %add to i32
   %conv4 = fptosi float %add1 to i32
@@ -29269,15 +29268,15 @@ define internal fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(p
 entry:
   %x = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load float, ptr %x, align 8
-  %add = fadd float %0, %dx1
+  %add = fadd float %dx1, %0
   %y = getelementptr inbounds i8, ptr %ctx, i64 20
   %1 = load float, ptr %y, align 4
-  %add1 = fadd float %1, %dy1
-  %add2 = fadd float %add, %dx2
-  %add3 = fadd float %add1, %dy2
-  %add4 = fadd float %add2, %dx3
+  %add1 = fadd float %dy1, %1
+  %add2 = fadd float %dx2, %add
+  %add3 = fadd float %dy2, %add1
+  %add4 = fadd float %dx3, %add2
   store float %add4, ptr %x, align 8
-  %add6 = fadd float %add3, %dy3
+  %add6 = fadd float %dy3, %add3
   store float %add6, ptr %y, align 4
   %conv = fptosi float %add4 to i32
   %conv10 = fptosi float %add6 to i32
@@ -29625,7 +29624,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %data1.i, align 8
   %numGlyphs.i = getelementptr inbounds i8, ptr %info, i64 20
   %2 = load i32, ptr %numGlyphs.i, align 4
-  %cmp.not.i = icmp sgt i32 %2, %glyph_index
+  %cmp.not.i = icmp slt i32 %glyph_index, %2
   br i1 %cmp.not.i, label %if.end.i144, label %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread
 
 if.end.i144:                                      ; preds = %if.then
@@ -30608,21 +30607,21 @@ if.end.preheader:                                 ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.end.preheader, %if.then10
-  %.pn54 = phi float [ %4, %if.then10 ], [ %0, %if.end.preheader ]
-  %.pn = phi float [ %3, %if.then10 ], [ %1, %if.end.preheader ]
+  %.pn = phi float [ %4, %if.then10 ], [ %0, %if.end.preheader ]
+  %.pn54 = phi float [ %3, %if.then10 ], [ %1, %if.end.preheader ]
   %n.tr49 = phi i32 [ %add15, %if.then10 ], [ %n, %if.end.preheader ]
   %y1.tr48 = phi float [ %div19, %if.then10 ], [ %y1, %if.end.preheader ]
   %x1.tr47 = phi float [ %div17, %if.then10 ], [ %x1, %if.end.preheader ]
   %y0.tr46 = phi float [ %div252, %if.then10 ], [ %y0, %if.end.preheader ]
   %x0.tr45 = phi float [ %div51, %if.then10 ], [ %x0, %if.end.preheader ]
-  %div252.in = fadd float %.pn54, %y2
-  %div51.in = fadd float %.pn, %x2
+  %div51.in = fadd float %x2, %.pn54
   %div51 = fmul float %div51.in, 2.500000e-01
+  %div252.in = fadd float %y2, %.pn
   %div252 = fmul float %div252.in, 2.500000e-01
-  %add5 = fadd float %y0.tr46, %y2
+  %add5 = fadd float %y2, %y0.tr46
   %div6 = fmul float %add5, 5.000000e-01
   %sub7 = fsub float %div6, %div252
-  %add3 = fadd float %x0.tr45, %x2
+  %add3 = fadd float %x2, %x0.tr45
   %div4 = fmul float %add3, 5.000000e-01
   %sub = fsub float %div4, %div51
   %mul8 = fmul float %sub7, %sub7
@@ -30637,9 +30636,9 @@ if.then10:                                        ; preds = %if.end
   %div14 = fmul float %add13, 5.000000e-01
   %add15 = add i32 %n.tr49, 1
   tail call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr noundef %num_points, float noundef %x0.tr45, float noundef %y0.tr46, float noundef %div12, float noundef %div14, float noundef %div51, float noundef %div252, float noundef %objspace_flatness_squared, i32 noundef %add15)
-  %add16 = fadd float %x1.tr47, %x2
+  %add16 = fadd float %x2, %x1.tr47
   %div17 = fmul float %add16, 5.000000e-01
-  %add18 = fadd float %y1.tr48, %y2
+  %add18 = fadd float %y2, %y1.tr48
   %div19 = fmul float %add18, 5.000000e-01
   %3 = tail call float @llvm.fmuladd.f32(float %div17, float 2.000000e+00, float %div51)
   %4 = tail call float @llvm.fmuladd.f32(float %div19, float 2.000000e+00, float %div252)
@@ -30721,9 +30720,9 @@ if.then18:                                        ; preds = %if.end
   %div23 = fmul float %add22, 5.000000e-01
   %add24 = fadd float %y1.tr66, %y2.tr68
   %div25 = fmul float %add24, 5.000000e-01
-  %add26 = fadd float %x2.tr67, %x3
+  %add26 = fadd float %x3, %x2.tr67
   %div27 = fmul float %add26, 5.000000e-01
-  %add28 = fadd float %y2.tr68, %y3
+  %add28 = fadd float %y3, %y2.tr68
   %div29 = fmul float %add28, 5.000000e-01
   %add30 = fadd float %div, %div23
   %div31 = fmul float %add30, 5.000000e-01

@@ -762,7 +762,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -777,7 +777,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -843,7 +843,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -858,7 +858,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -934,7 +934,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -949,7 +949,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1017,7 +1017,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1032,7 +1032,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.017, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.017, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1101,7 +1101,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -1116,7 +1116,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.026 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %20 = load i32, ptr %.026, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.026, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -1286,7 +1286,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
-  %.not = icmp sgt i32 %16, %1
+  %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %12
@@ -1301,7 +1301,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
   %.026 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %20 = load i32, ptr %.026, align 8
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds i8, ptr %.026, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -1501,7 +1501,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1516,7 +1516,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -1646,7 +1646,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %.not = icmp sgt i32 %15, %1
+  %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %11
@@ -1661,7 +1661,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
   %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
   %19 = load i32, ptr %.024, align 8
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds i8, ptr %.024, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 

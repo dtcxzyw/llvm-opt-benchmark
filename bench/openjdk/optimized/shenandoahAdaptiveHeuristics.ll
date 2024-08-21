@@ -755,7 +755,7 @@ define hidden void @_ZN28ShenandoahAdaptiveHeuristics30adjust_last_trigger_param
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 368
   %7 = load double, ptr %6, align 8
-  %8 = fadd double %7, %1
+  %8 = fadd double %1, %7
   %9 = fcmp olt double %8, 3.291000e+00
   %10 = select i1 %9, double %8, double 3.291000e+00
   %11 = fcmp ogt double %10, 3.190000e-01
@@ -842,7 +842,7 @@ declare void @_ZN20ShenandoahHeuristics26record_success_degeneratedEv(ptr nounde
 define hidden void @_ZN28ShenandoahAdaptiveHeuristics22adjust_margin_of_errorEd(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load double, ptr %3, align 8
-  %5 = fadd double %4, %1
+  %5 = fadd double %1, %4
   %6 = fcmp olt double %5, 3.291000e+00
   %7 = select i1 %6, double %5, double 3.291000e+00
   %8 = fcmp ogt double %7, 3.190000e-01
@@ -960,7 +960,7 @@ define hidden noundef zeroext i1 @_ZN28ShenandoahAdaptiveHeuristics15should_star
 31:                                               ; preds = %1
   %32 = getelementptr inbounds i8, ptr %0, i64 208
   %33 = load i64, ptr %32, align 8
-  %.not.i = icmp ugt i64 %33, %21
+  %.not.i = icmp ult i64 %21, %33
   br i1 %.not.i, label %43, label %34
 
 34:                                               ; preds = %31
@@ -1463,7 +1463,7 @@ define hidden noundef double @_ZN24ShenandoahAllocationRate6sampleEm(ptr noundef
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %.not = icmp ugt i64 %11, %1
+  %.not = icmp ult i64 %1, %11
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %9

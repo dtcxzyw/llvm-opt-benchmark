@@ -225,7 +225,7 @@ entry:
   %4 = lshr i32 %3, 16
   %bf.cast = and i32 %4, 255
   %call1 = tail call ptr @tcg_constant_vec(i32 noundef %bf.cast, i32 noundef %vece, i64 noundef %a) #5
-  %cmp.not.i = icmp eq ptr %call1, %r
+  %cmp.not.i = icmp eq ptr %r, %call1
   br i1 %cmp.not.i, label %tcg_gen_mov_vec.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -429,7 +429,7 @@ entry:
   %bf.cast = and i32 %7, 255
   %cmp = icmp ugt i32 %low_type, 2
   tail call void @llvm.assume(i1 %cmp)
-  %cmp4 = icmp uge i32 %bf.cast, %low_type
+  %cmp4 = icmp ule i32 %low_type, %bf.cast
   tail call void @llvm.assume(i1 %cmp4)
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 153, i32 noundef 3) #5
   %bf.load.i = load i32, ptr %call.i, align 8
@@ -1824,7 +1824,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp9)
   %shl = shl i32 8, %vece
   %conv = sext i32 %shl to i64
-  %cmp10 = icmp sgt i64 %conv, %i
+  %cmp10 = icmp slt i64 %i, %conv
   tail call void @llvm.assume(i1 %cmp10)
   %cmp15 = icmp eq i64 %i, 0
   br i1 %cmp15, label %if.then17, label %if.end18
@@ -1903,7 +1903,7 @@ entry:
   %cmp = icmp sgt i64 %i, -1
   tail call void @llvm.assume(i1 %cmp)
   %conv = sext i32 %shl to i64
-  %cmp1 = icmp sgt i64 %conv, %i
+  %cmp1 = icmp slt i64 %i, %conv
   tail call void @llvm.assume(i1 %cmp1)
   %sub = sub nsw i64 0, %i
   %sub3 = add i32 %shl, -1

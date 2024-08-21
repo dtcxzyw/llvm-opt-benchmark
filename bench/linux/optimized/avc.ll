@@ -1425,7 +1425,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 nound
   %133 = phi ptr [ %9, %118 ], [ null, %53 ], [ null, %48 ], [ %.ph, %.sink.split ]
   %134 = load i32, ptr %8, align 4
   %135 = xor i32 %134, -1
-  %136 = and i32 %135, %3
+  %136 = and i32 %3, %135
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %avc_denied.exit, label %138, !prof !9
 
@@ -1453,7 +1453,7 @@ avc_denied.exit:                                  ; preds = %146, %141, %132
   call void @__rcu_read_unlock() #21
   %151 = load i32, ptr %8, align 4
   %152 = xor i32 %151, -1
-  %153 = and i32 %152, %3
+  %153 = and i32 %3, %152
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %177, label %155, !prof !9
 
@@ -2053,7 +2053,7 @@ define dso_local noundef range(i32 -13, 1) i32 @avc_has_perm_noaudit(i32 noundef
   %43 = getelementptr inbounds i8, ptr %23, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = xor i32 %44, -1
-  %46 = and i32 %45, %3
+  %46 = and i32 %3, %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %5, ptr noundef align 4 dereferenceable(20) %43, i64 20, i1 false)
   tail call void @__rcu_read_unlock() #21
   %47 = icmp eq i32 %46, 0
@@ -2076,7 +2076,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @avc_perm_nonode(i32 nounde
   call fastcc void @avc_compute_av(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %5, ptr noundef nonnull %7)
   %8 = load i32, ptr %5, align 4
   %9 = xor i32 %8, -1
-  %10 = and i32 %9, %3
+  %10 = and i32 %3, %9
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %14, label %12, !prof !9
 
@@ -2098,7 +2098,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avc_has_perm(i32 noundef %0, i32
   %7 = call i32 @avc_has_perm_noaudit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %6), !range !52
   %8 = load i32, ptr %6, align 4
   %9 = xor i32 %8, -1
-  %10 = and i32 %9, %3
+  %10 = and i32 %3, %9
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %16, label %12, !prof !9
 

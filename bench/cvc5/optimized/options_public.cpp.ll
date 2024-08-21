@@ -4730,7 +4730,7 @@ for.cond.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %__prev_p.0.i.i.i.i.i.i.i.i = phi ptr [ %24, %if.end.i.i.i.i.i4.i.i.i ], [ %__p.0.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i ]
   %__p.0.i.i.i.i.i.i.i.i = phi ptr [ %25, %if.end.i.i.i.i.i4.i.i.i ], [ %27, %lor.lhs.false.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i.i.i.i.i.i.i, i64 8
-  %cmp.i.i.i.i10.i.i.i.i.i.i = icmp eq i64 %add.ptr.val.i.i.i.i.i.i.i.i.i, %call.i2.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i10.i.i.i.i.i.i = icmp eq i64 %call.i2.i.i.i.i.i.i.i.i, %add.ptr.val.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i10.i.i.i.i.i.i, label %land.rhs.i.i.i11.i.i.i.i.i.i, label %if.end3.i.i.i.i.i.i.i.i
 
 land.rhs.i.i.i11.i.i.i.i.i.i:                     ; preds = %for.cond.i.i.i.i.i.i.i.i
@@ -6236,7 +6236,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %3
+  %cmp.i.i.i.i = icmp eq ptr %3, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110OptionEnumEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110OptionEnumEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -34230,7 +34230,7 @@ for.cond.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %__prev_p.0.i.i.i = phi ptr [ %6, %if.end.i.i.i ], [ %__p.0.i.i.i, %lor.lhs.false.i.i.i ]
   %__p.0.i.i.i = phi ptr [ %7, %if.end.i.i.i ], [ %9, %lor.lhs.false.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i.i, i64 8
-  %cmp.i.i.i.i4.i = icmp eq i64 %add.ptr.val.i.i.i.i, %call.i2.i.i.i
+  %cmp.i.i.i.i4.i = icmp eq i64 %call.i2.i.i.i, %add.ptr.val.i.i.i.i
   br i1 %cmp.i.i.i.i4.i, label %land.rhs.i.i.i5.i, label %if.end3.i.i.i
 
 land.rhs.i.i.i5.i:                                ; preds = %for.cond.i.i.i
@@ -74523,7 +74523,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %3
+  %cmp.i.i.i = icmp eq ptr %3, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110OptionEnumEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit
@@ -75984,7 +75984,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #23
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %call5.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -76092,7 +76092,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #23
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i, %cond.i.i.i
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i

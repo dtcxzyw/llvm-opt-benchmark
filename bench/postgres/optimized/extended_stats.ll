@@ -2026,7 +2026,7 @@ define dso_local ptr @build_sorted_items(ptr nocapture noundef readonly %0, ptr 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
-  %22 = mul i32 %21, %3
+  %22 = mul i32 %3, %21
   %23 = sext i32 %22 to i64
   %24 = getelementptr i64, ptr %17, i64 %23
   %25 = getelementptr %struct.SortItem, ptr %13, i64 %indvars.iv
@@ -2287,7 +2287,7 @@ define dso_local ptr @choose_best_statistics(ptr noundef readonly %0, i8 noundef
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  %21 = xor i1 %20, %2
+  %21 = xor i1 %2, %20
   br i1 %21, label %.lr.ph79.split.us, label %.preheader.us
 
 22:                                               ; preds = %._crit_edge.us
@@ -2447,7 +2447,7 @@ stat_covers_expressions.exit.us:                  ; preds = %.lr.ph58.i.us, %.lr
   %89 = getelementptr inbounds i8, ptr %85, i64 8
   %90 = load i8, ptr %89, align 8
   %91 = trunc i8 %90 to i1
-  %92 = xor i1 %91, %2
+  %92 = xor i1 %2, %91
   br i1 %92, label %111, label %.preheader
 
 .preheader:                                       ; preds = %88

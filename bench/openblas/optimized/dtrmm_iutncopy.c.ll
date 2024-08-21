@@ -62,7 +62,7 @@ define noundef i32 @dtrmm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %60 = icmp ugt i64 %13, 13
   %61 = icmp eq i64 %13, 15
   %62 = and i64 %0, -16
-  %63 = add i64 %62, %4
+  %63 = add i64 %4, %62
   %.idx = shl nuw nsw i64 %13, 7
   br label %64
 
@@ -1848,7 +1848,7 @@ define noundef i32 @dtrmm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 1384:                                             ; preds = %1371
   %1385 = and i64 %0, -8
-  %1386 = add i64 %1385, %4
+  %1386 = add i64 %4, %1385
   br label %1387
 
 1387:                                             ; preds = %1384, %1162
@@ -2214,7 +2214,7 @@ define noundef i32 @dtrmm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 1636:                                             ; preds = %1627
   %1637 = and i64 %0, -4
-  %1638 = add i64 %1637, %4
+  %1638 = add i64 %4, %1637
   br label %1639
 
 1639:                                             ; preds = %1636, %1536
@@ -2392,7 +2392,7 @@ define noundef i32 @dtrmm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 1753:                                             ; preds = %1746
   %1754 = and i64 %0, -2
-  %1755 = add i64 %1754, %4
+  %1755 = add i64 %4, %1754
   br label %1756
 
 1756:                                             ; preds = %1753, %1700

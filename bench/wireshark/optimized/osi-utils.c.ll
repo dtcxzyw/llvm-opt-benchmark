@@ -94,7 +94,7 @@ define internal fastcc void @print_nsap_net_buf(ptr nocapture noundef readonly %
   %50 = ptrtoint ptr %49 to i64
   %.neg38 = sub i64 %17, %50
   %51 = trunc i64 %.neg38 to i32
-  %52 = add i32 %51, %3
+  %52 = add i32 %3, %51
   %53 = sext i32 %52 to i64
   %54 = getelementptr i8, ptr %0, i64 20
   %55 = load i8, ptr %54, align 1

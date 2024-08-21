@@ -89,7 +89,7 @@ define i32 @mca_coll_sm_reduce_intra(ptr noundef %0, ptr noundef %1, i32 noundef
   store i64 %42, ptr %43, align 8
   %44 = sext i32 %2 to i64
   %45 = mul i64 %.val.i, %44
-  %46 = icmp eq i32 %.val24, %5
+  %46 = icmp eq i32 %5, %.val24
   br i1 %46, label %47, label %321
 
 47:                                               ; preds = %31

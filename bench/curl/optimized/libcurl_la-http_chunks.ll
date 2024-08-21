@@ -591,7 +591,7 @@ if.then14:                                        ; preds = %if.end11
   %bf.load = load i16, ptr %download_done, align 1
   %bf.set = or i16 %bf.load, 4
   store i16 %bf.set, ptr %download_done, align 1
-  %tobool15 = icmp ne i64 %3, %blen
+  %tobool15 = icmp ne i64 %blen, %3
   %tobool17 = icmp ne ptr %data, null
   %or.cond = and i1 %tobool17, %tobool15
   br i1 %or.cond, label %land.lhs.true, label %return

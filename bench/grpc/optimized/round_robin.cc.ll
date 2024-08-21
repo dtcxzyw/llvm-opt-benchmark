@@ -6906,7 +6906,7 @@ if.end15:                                         ; preds = %if.then14, %if.then
 
 if.end16:                                         ; preds = %if.end15, %if.end
   %tobool.i.i13 = trunc i64 %old_state.sroa.4.0.extract.shift to i1
-  %cmp19.not = icmp eq i32 %old_state.sroa.0.0.extract.trunc, %new_state
+  %cmp19.not = icmp eq i32 %new_state, %old_state.sroa.0.0.extract.trunc
   %or.cond = and i1 %cmp19.not, %tobool.i.i13
   br i1 %or.cond, label %if.end23, label %if.then20
 

@@ -1665,7 +1665,7 @@ define noalias noundef ptr @Saig_ManProcessCex(ptr noundef %0, i32 noundef %1, p
   store ptr %51, ptr %52, align 8
   %53 = getelementptr i8, ptr %0, i64 108
   %.val6388 = load i32, ptr %53, align 4
-  %54 = icmp sgt i32 %.val6388, %1
+  %54 = icmp slt i32 %1, %.val6388
   br i1 %54, label %.lr.ph90, label %._crit_edge
 
 .lr.ph90:                                         ; preds = %._crit_edge85

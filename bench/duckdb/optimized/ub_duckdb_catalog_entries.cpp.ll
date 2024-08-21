@@ -24153,7 +24153,7 @@ entry:
   %columns = getelementptr inbounds i8, ptr %this, i64 112
   %call = tail call i64 @_ZNK6duckdb10ColumnList14GetColumnIndexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(105) %columns, ptr noundef nonnull align 8 dereferenceable(32) %column_name)
   %cmp.i = icmp ne i64 %call, -1
-  %brmerge = or i1 %cmp.i, %if_exists
+  %brmerge = or i1 %if_exists, %cmp.i
   br i1 %brmerge, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

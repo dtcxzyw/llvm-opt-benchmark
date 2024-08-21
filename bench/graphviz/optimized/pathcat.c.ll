@@ -157,7 +157,7 @@ agxblen.exit.i.i:                                 ; preds = %50, %agxbsizeof.exi
   %.0.i30.i.i = phi i64 [ 31, %agxbsizeof.exit.i.i ], [ %51, %50 ]
   %.0.i24.i.i = phi i64 [ %49, %agxbsizeof.exit.i.i ], [ %52, %50 ]
   %53 = sub i64 %.0.i30.i.i, %.0.i24.i.i
-  %54 = icmp ult i64 %53, %46
+  %54 = icmp ugt i64 %46, %53
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %agxblen.exit.i.i
@@ -272,7 +272,7 @@ agxblen.exit.i.i54:                               ; preds = %92, %agxbsizeof.exi
   %.0.i30.i.i55 = phi i64 [ 31, %agxbsizeof.exit.i.i53 ], [ %93, %92 ]
   %.0.i24.i.i56 = phi i64 [ %91, %agxbsizeof.exit.i.i53 ], [ %94, %92 ]
   %95 = sub i64 %.0.i30.i.i55, %.0.i24.i.i56
-  %96 = icmp ult i64 %95, %88
+  %96 = icmp ugt i64 %88, %95
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %agxblen.exit.i.i54

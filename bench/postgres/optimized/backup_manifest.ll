@@ -374,7 +374,7 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
 
 20:                                               ; preds = %.lr.ph68
   %.pre = load i32, ptr %15, align 8
-  %.not50 = icmp ne i32 %.pre, %4
+  %.not50 = icmp ne i32 %4, %.pre
   %or.cond76.not = select i1 %.0415766, i1 %.not50, i1 false
   br i1 %or.cond76.not, label %.split, label %24
 
@@ -387,7 +387,7 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   unreachable
 
 24:                                               ; preds = %20
-  %25 = icmp eq i32 %.pre, %2
+  %25 = icmp eq i32 %2, %.pre
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %24
@@ -417,7 +417,7 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef %41)
   tail call void @pfree(ptr noundef %41) #7
   %42 = load i32, ptr %15, align 8
-  %43 = icmp eq i32 %42, %2
+  %43 = icmp eq i32 %2, %42
   br i1 %43, label %.split64, label %44
 
 44:                                               ; preds = %33

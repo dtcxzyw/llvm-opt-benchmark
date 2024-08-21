@@ -11,7 +11,7 @@ define i32 @mca_coll_monitoring_scatterv(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = alloca i64, align 8
   %12 = getelementptr i8, ptr %8, i64 220
   %.val = load i32, ptr %12, align 4
-  %13 = icmp eq i32 %.val, %7
+  %13 = icmp eq i32 %7, %.val
   br i1 %13, label %14, label %70
 
 14:                                               ; preds = %10
@@ -146,7 +146,7 @@ define i32 @mca_coll_monitoring_iscatterv(ptr noundef %0, ptr noundef %1, ptr no
   %12 = alloca i64, align 8
   %13 = getelementptr i8, ptr %8, i64 220
   %.val = load i32, ptr %13, align 4
-  %14 = icmp eq i32 %.val, %7
+  %14 = icmp eq i32 %7, %.val
   br i1 %14, label %15, label %71
 
 15:                                               ; preds = %11

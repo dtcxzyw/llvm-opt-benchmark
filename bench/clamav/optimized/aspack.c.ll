@@ -640,7 +640,7 @@ decomp_block.exit.thread:                         ; preds = %105, %decomp_block.
   %284 = zext nneg i32 %283 to i64
   %285 = getelementptr inbounds %struct.cli_exe_section, ptr %2, i64 %284
   %286 = load i32, ptr %285, align 4
-  %287 = icmp eq i32 %286, %4
+  %287 = icmp eq i32 %4, %286
   br i1 %287, label %288, label %294
 
 288:                                              ; preds = %281

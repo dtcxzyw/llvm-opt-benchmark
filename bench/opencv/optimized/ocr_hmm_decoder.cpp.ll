@@ -7080,7 +7080,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %193
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i: ; preds = %201, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
   %204 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i ], [ %203, %201 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i = icmp eq ptr %180, %177
+  %.not.i.i.i.i.i.i.i.i.i56.i = icmp eq ptr %177, %180
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i, label %206, label %205
 
 205:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i
@@ -7228,7 +7228,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i371: ; preds = %241
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i374: ; preds = %249, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i371
   %252 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i371 ], [ %251, %249 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i375 = icmp eq ptr %228, %225
+  %.not.i.i.i.i.i.i.i.i.i56.i375 = icmp eq ptr %225, %228
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i375, label %254, label %253
 
 253:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i374
@@ -7314,7 +7314,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i399: ; preds = %277
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i402: ; preds = %285, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i399
   %288 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i399 ], [ %287, %285 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i403 = icmp eq ptr %264, %261
+  %.not.i.i.i.i.i.i.i.i.i56.i403 = icmp eq ptr %261, %264
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i403, label %290, label %289
 
 289:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i402
@@ -7399,7 +7399,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i427: ; preds = %313
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i430: ; preds = %321, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i427
   %324 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i427 ], [ %323, %321 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i431 = icmp eq ptr %300, %297
+  %.not.i.i.i.i.i.i.i.i.i56.i431 = icmp eq ptr %297, %300
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i431, label %326, label %325
 
 325:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i430
@@ -7489,7 +7489,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i455: ; preds = %349
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i458: ; preds = %357, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i455
   %360 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i455 ], [ %359, %357 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i459 = icmp eq ptr %336, %333
+  %.not.i.i.i.i.i.i.i.i.i56.i459 = icmp eq ptr %333, %336
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i459, label %362, label %361
 
 361:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i458
@@ -7577,7 +7577,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i483: ; preds = %385
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i486: ; preds = %393, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i483
   %396 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i483 ], [ %395, %393 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i487 = icmp eq ptr %372, %369
+  %.not.i.i.i.i.i.i.i.i.i56.i487 = icmp eq ptr %369, %372
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i487, label %398, label %397
 
 397:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i486
@@ -7662,7 +7662,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i511: ; preds = %421
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i514: ; preds = %429, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i511
   %432 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i511 ], [ %431, %429 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i515 = icmp eq ptr %408, %405
+  %.not.i.i.i.i.i.i.i.i.i56.i515 = icmp eq ptr %405, %408
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i515, label %434, label %433
 
 433:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i514
@@ -7747,7 +7747,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i539: ; preds = %457
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i542: ; preds = %465, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i539
   %468 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i539 ], [ %467, %465 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i543 = icmp eq ptr %444, %441
+  %.not.i.i.i.i.i.i.i.i.i56.i543 = icmp eq ptr %441, %444
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i543, label %470, label %469
 
 469:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i542
@@ -7830,7 +7830,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i567: ; preds = %493
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i570: ; preds = %501, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i567
   %504 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i567 ], [ %503, %501 ]
-  %.not.i.i.i.i.i.i.i.i.i56.i571 = icmp eq ptr %480, %477
+  %.not.i.i.i.i.i.i.i.i.i56.i571 = icmp eq ptr %477, %480
   br i1 %.not.i.i.i.i.i.i.i.i.i56.i571, label %506, label %505
 
 505:                                              ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i570
@@ -10778,7 +10778,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 96
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i27
@@ -18115,7 +18115,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %phi.call, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %20 = icmp sgt i64 %12, %.0
+  %20 = icmp slt i64 %.0, %12
   br i1 %20, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
@@ -18487,7 +18487,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i28
@@ -18668,7 +18668,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %34
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %41 ], [ %53, %.lr.ph.i.i.i.i ]
   %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %.not10.i.i.i.i27 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i27 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i27, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i28
@@ -18803,7 +18803,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i.i27
 
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i27
@@ -19120,7 +19120,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i.i17

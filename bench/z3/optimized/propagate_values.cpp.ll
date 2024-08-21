@@ -623,7 +623,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i:     ; preds = %land.lhs.true
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ugt i32 %11, %9
+  %cmp.not.i.i.i = icmp ult i32 %9, %11
   br i1 %cmp.not.i.i.i, label %_ZNK11shared_occs9is_sharedEP4expr.exit, label %if.end
 
 _ZNK11shared_occs9is_sharedEP4expr.exit:          ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i
@@ -651,7 +651,7 @@ if.end:                                           ; preds = %land.lhs.true, %_ZN
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i13:   ; preds = %if.end
   %arrayidx.i.i.i.i14 = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i.i.i.i14, align 4
-  %cmp.not.i.i.i15 = icmp ugt i32 %16, %14
+  %cmp.not.i.i.i15 = icmp ult i32 %14, %16
   br i1 %cmp.not.i.i.i15, label %_ZNK11shared_occs9is_sharedEP4expr.exit21, label %if.end14
 
 _ZNK11shared_occs9is_sharedEP4expr.exit21:        ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i13
@@ -716,7 +716,7 @@ land.lhs.true20:                                  ; preds = %if.then17
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i41:   ; preds = %land.lhs.true20
   %arrayidx.i.i.i.i42 = getelementptr inbounds i8, ptr %29, i64 -4
   %30 = load i32, ptr %arrayidx.i.i.i.i42, align 4
-  %cmp.not.i.i.i43 = icmp ugt i32 %30, %28
+  %cmp.not.i.i.i43 = icmp ult i32 %28, %30
   br i1 %cmp.not.i.i.i43, label %_ZNK11shared_occs9is_sharedEP4expr.exit49, label %if.else
 
 _ZNK11shared_occs9is_sharedEP4expr.exit49:        ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i41
@@ -745,7 +745,7 @@ land.lhs.true27:                                  ; preds = %if.else
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i52:   ; preds = %land.lhs.true27
   %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %33, i64 -4
   %34 = load i32, ptr %arrayidx.i.i.i.i53, align 4
-  %cmp.not.i.i.i54 = icmp ugt i32 %34, %32
+  %cmp.not.i.i.i54 = icmp ult i32 %32, %34
   br i1 %cmp.not.i.i.i54, label %_ZNK11shared_occs9is_sharedEP4expr.exit60, label %if.end34
 
 _ZNK11shared_occs9is_sharedEP4expr.exit60:        ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i52

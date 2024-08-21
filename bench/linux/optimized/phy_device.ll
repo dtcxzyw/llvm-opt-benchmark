@@ -694,7 +694,7 @@ define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noun
   store ptr @phy_state_machine, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %7, i64 1256
   tail call void @init_timer_key(ptr noundef %54, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #18
-  %55 = and i1 %35, %3
+  %55 = and i1 %3, %35
   br i1 %55, label %56, label %69
 
 56:                                               ; preds = %38
@@ -3255,7 +3255,7 @@ define dso_local i32 @__genphy_config_aneg(ptr noundef %0, i1 noundef zeroext %1
   %104 = or i32 %21, %103
   %105 = or i32 %104, %3
   %106 = icmp ne i32 %105, 0
-  %107 = or i1 %106, %1
+  %107 = or i1 %1, %106
   br i1 %107, label %116, label %108
 
 108:                                              ; preds = %102

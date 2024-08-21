@@ -7276,7 +7276,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %do.body, %do.end9.i
   %8 = phi i64 [ %2, %do.body ], [ %.pre, %do.end9.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr null, ptr %agg.result, align 8, !alias.scope !284
-  %cmp23.not = icmp sgt i64 %8, %nbytes
+  %cmp23.not = icmp slt i64 %nbytes, %8
   br i1 %cmp23.not, label %if.end35, label %if.then24
 
 if.then24:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit45

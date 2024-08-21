@@ -1868,7 +1868,7 @@ _ZL11buttonLogicjb.exit:                          ; preds = %81, %85
   %101 = fdiv float %100, %4
   %102 = fadd float %101, 5.000000e-01
   %103 = tail call float @llvm.floor.f32(float %102)
-  %104 = fmul float %103, %4
+  %104 = fmul float %4, %103
   store float %104, ptr %1, align 4
   %105 = fmul float %.3, %49
   %106 = fptosi float %105 to i32

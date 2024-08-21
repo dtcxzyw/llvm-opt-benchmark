@@ -73978,7 +73978,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17he78cc5678
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5
@@ -95144,7 +95144,7 @@ define void @"_ZN89_$LT$wasmtime..runtime..component..instance..Exports$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36361)
   %10 = getelementptr inbounds i8, ptr %5, i64 424
   %11 = load i64, ptr %10, align 8, !range !568, !alias.scope !36361, !noundef !4
-  %12 = icmp eq i64 %11, %7
+  %12 = icmp eq i64 %7, %11
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %1
@@ -95167,7 +95167,7 @@ define void @"_ZN89_$LT$wasmtime..runtime..component..instance..Exports$u20$as$u
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %5, i64 416
   %20 = load i64, ptr %19, align 8, !alias.scope !36361, !noundef !4
-  %21 = icmp ugt i64 %20, %9
+  %21 = icmp ult i64 %9, %20
   br i1 %21, label %25, label %22, !prof !36364
 
 22:                                               ; preds = %18

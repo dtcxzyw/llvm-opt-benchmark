@@ -122,7 +122,7 @@ define range(i32 -1, 65536) i32 @opal_ifindextokindex(i32 noundef %0) local_unna
   %.09 = phi ptr [ %.0, %9 ], [ %.07, %1 ]
   %2 = getelementptr inbounds i8, ptr %.09, i64 72
   %3 = load i32, ptr %2, align 8
-  %4 = icmp eq i32 %3, %0
+  %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %.lr.ph
@@ -468,7 +468,7 @@ define range(i32 -1, 1) i32 @opal_ifkindextoaddr(i32 noundef %0, ptr nocapture n
   %4 = getelementptr inbounds i8, ptr %.012, i64 76
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
-  %7 = icmp eq i32 %6, %0
+  %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %.lr.ph
@@ -649,7 +649,7 @@ define range(i32 -1, 1) i32 @opal_ifkindextoname(i32 noundef %0, ptr noundef %1,
   %4 = getelementptr inbounds i8, ptr %.011, i64 76
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
-  %7 = icmp eq i32 %6, %0
+  %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
@@ -937,7 +937,7 @@ define noundef i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
   %5 = getelementptr inbounds i8, ptr %.012.i, i64 76
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %.lr.ph.i
@@ -1006,7 +1006,7 @@ opal_ifnametokindex.exit:                         ; preds = %.lr.ph.i37
   %33 = getelementptr inbounds i8, ptr %.09.i, i64 76
   %34 = load i16, ptr %33, align 4
   %35 = zext i16 %34 to i32
-  %36 = icmp eq i32 %35, %0
+  %36 = icmp eq i32 %0, %35
   br i1 %36, label %opal_ifkindextoaddr.exit.thread, label %opal_ifnametokindex.exit.thread
 
 .critedge:                                        ; preds = %18, %.preheader

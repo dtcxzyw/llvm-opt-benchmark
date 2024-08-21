@@ -1577,7 +1577,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #17
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i, %11
+  %.not4.i.i.i.i.i.i = icmp eq ptr %11, %.016.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %.lr.ph.i.i.i.i.i.i
@@ -4962,7 +4962,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120writeVectorAsColumnsEPN3gmx10Tex
   %.07.i = phi i64 [ %.sroa.speculated.i.i35, %.lr.ph.i ], [ 0, %19 ]
   %.sroa.02.06.i = phi ptr [ %23, %.lr.ph.i ], [ %20, %19 ]
   %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.02.06.i) #17
-  %.sroa.speculated.i.i35 = call noundef i64 @llvm.umax.i64(i64 %22, i64 %.07.i)
+  %.sroa.speculated.i.i35 = call noundef i64 @llvm.umax.i64(i64 %.07.i, i64 %22)
   %23 = getelementptr inbounds i8, ptr %.sroa.02.06.i, i64 32
   %.not.i = icmp eq ptr %23, %21
   br i1 %.not.i, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZN12_GLOBAL__N_120writeVectorAsColumnsEPN3gmx10TextWriterERS8_RKSC_mE3$_0ET0_T_SN_SM_T1_.exit", label %.lr.ph.i, !llvm.loop !45

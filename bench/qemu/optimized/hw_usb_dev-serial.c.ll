@@ -933,7 +933,7 @@ entry:
   %0 = load i16, ptr %recv_used, align 2
   %conv = zext i16 %0 to i32
   %sub = sub nsw i32 496, %conv
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %sub, i32 %size)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %size, i32 %sub)
   %recv_ptr = getelementptr inbounds i8, ptr %opaque, i64 6368
   %1 = load i16, ptr %recv_ptr, align 8
   %conv5 = zext i16 %1 to i32

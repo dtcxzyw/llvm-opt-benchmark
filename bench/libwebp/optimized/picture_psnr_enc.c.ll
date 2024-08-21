@@ -22,12 +22,12 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
 
 17:                                               ; preds = %10
   %18 = sext i32 %4 to i64
-  %19 = mul i64 %18, %6
-  %20 = icmp ugt i64 %19, %1
+  %19 = mul i64 %6, %18
+  %20 = icmp ult i64 %1, %19
   br i1 %20, label %78, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ugt i64 %19, %3
+  %22 = icmp ult i64 %3, %19
   %23 = icmp eq ptr %9, null
   %or.cond3 = or i1 %22, %23
   %24 = icmp eq ptr %8, null
@@ -62,16 +62,16 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv89 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next90, %._crit_edge.us ]
-  %38 = mul i64 %indvars.iv89, %1
+  %38 = mul i64 %1, %indvars.iv89
   %invariant.gep.us = getelementptr i8, ptr %0, i64 %38
   %39 = mul nuw nsw i64 %indvars.iv89, %37
-  %40 = mul i64 %indvars.iv89, %3
+  %40 = mul i64 %3, %indvars.iv89
   %invariant.gep84.us = getelementptr i8, ptr %2, i64 %40
   br label %41
 
 41:                                               ; preds = %.preheader.us, %41
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %41 ]
-  %42 = mul i64 %indvars.iv, %6
+  %42 = mul i64 %6, %indvars.iv
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %42
   %43 = load i8, ptr %gep.us, align 1
   %44 = add nuw nsw i64 %indvars.iv, %39

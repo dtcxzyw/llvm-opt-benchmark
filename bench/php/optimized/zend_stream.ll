@@ -494,7 +494,7 @@ define internal noundef i64 @zend_stream_stdio_reader(ptr nocapture noundef %0, 
 define internal void @zend_stream_stdio_closer(ptr noundef %0) #7 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @stdin, align 8
-  %.not3 = icmp eq ptr %2, %0
+  %.not3 = icmp eq ptr %0, %2
   %or.cond = select i1 %.not, i1 true, i1 %.not3
   br i1 %or.cond, label %5, label %3
 

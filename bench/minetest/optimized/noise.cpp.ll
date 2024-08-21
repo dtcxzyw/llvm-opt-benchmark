@@ -880,8 +880,8 @@ for.body:                                         ; preds = %entry, %_Z16noise2d
   %g.015 = phi float [ %mul5, %_Z16noise2d_gradientffib.exit ], [ 1.000000e+00, %entry ]
   %f.014 = phi float [ %conv4, %_Z16noise2d_gradientffib.exit ], [ 1.000000e+00, %entry ]
   %a.013 = phi float [ %23, %_Z16noise2d_gradientffib.exit ], [ 0.000000e+00, %entry ]
-  %mul = fmul nsz float %f.014, %x
-  %mul1 = fmul nsz float %f.014, %y
+  %mul = fmul nsz float %x, %f.014
+  %mul1 = fmul nsz float %y, %f.014
   %add = add nsw i32 %i.016, %seed
   %0 = insertelement <2 x float> poison, float %mul1, i64 0
   %1 = insertelement <2 x float> %0, float %mul, i64 1
@@ -973,7 +973,7 @@ _Z16noise2d_gradientffib.exit:                    ; preds = %for.body, %if.then.
   %22 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i12.i.i, float %21, float %19)
   %23 = tail call nsz float @llvm.fmuladd.f32(float %g.015, float %22, float %a.013)
   %conv4 = fmul nsz float %f.014, 2.000000e+00
-  %mul5 = fmul nsz float %g.015, %persistence
+  %mul5 = fmul nsz float %persistence, %g.015
   %inc = add nuw nsw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %octaves
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !24
@@ -2266,7 +2266,7 @@ for.body50.us.us:                                 ; preds = %for.body25.us, %for
   %idxprom54.us.us = zext i32 %index.3138.us.us to i64
   %arrayidx55.us.us = getelementptr inbounds float, ptr %31, i64 %idxprom54.us.us
   store float %48, ptr %arrayidx55.us.us, align 4, !tbaa !35
-  %add56.us.us = fadd nsz float %u.0141.us.us, %step_x
+  %add56.us.us = fadd nsz float %step_x, %u.0141.us.us
   %cmp58.us.us = fcmp nsz ult float %add56.us.us, 1.000000e+00
   br i1 %cmp58.us.us, label %for.inc76.us.us, label %if.then.us.us
 
@@ -2295,7 +2295,7 @@ for.inc76.us.us:                                  ; preds = %if.then.us.us, %for
   br i1 %cmp49.not.us.us, label %for.cond47.for.end78_crit_edge.loopexit.us, label %for.body50.us.us, !llvm.loop !75
 
 for.cond47.for.end78_crit_edge.loopexit.us:       ; preds = %for.inc76.us.us
-  %add79.us = fadd nsz float %v.0148.us, %step_y
+  %add79.us = fadd nsz float %step_y, %v.0148.us
   %cmp81.us = fcmp nsz ult float %add79.us, 1.000000e+00
   %conv85.us = fadd nsz float %add79.us, -1.000000e+00
   %v.1.us = select i1 %cmp81.us, float %add79.us, float %conv85.us
@@ -2395,7 +2395,7 @@ for.body50:                                       ; preds = %for.body25, %for.in
   %idxprom54 = zext i32 %index.3138 to i64
   %arrayidx55 = getelementptr inbounds float, ptr %31, i64 %idxprom54
   store float %75, ptr %arrayidx55, align 4, !tbaa !35
-  %add56 = fadd nsz float %u.0141, %step_x
+  %add56 = fadd nsz float %step_x, %u.0141
   %cmp58 = fcmp nsz ult float %add56, 1.000000e+00
   br i1 %cmp58, label %for.inc76, label %if.then
 
@@ -2424,7 +2424,7 @@ for.inc76:                                        ; preds = %if.then, %for.body5
   br i1 %cmp49.not, label %for.cond47.for.end78_crit_edge.loopexit1, label %for.body50, !llvm.loop !75
 
 for.cond47.for.end78_crit_edge.loopexit1:         ; preds = %for.inc76
-  %add79 = fadd nsz float %v.0148, %step_y
+  %add79 = fadd nsz float %step_y, %v.0148
   %cmp81 = fcmp nsz ult float %add79, 1.000000e+00
   %conv85 = fadd nsz float %add79, -1.000000e+00
   %v.1 = select i1 %cmp81, float %add79, float %conv85
@@ -2671,7 +2671,7 @@ for.body118.us.us.us:                             ; preds = %for.inc171.us.us.us
   %idxprom122.us.us.us = zext i32 %index.5320.us.us.us to i64
   %arrayidx123.us.us.us = getelementptr inbounds float, ptr %35, i64 %idxprom122.us.us.us
   store float %68, ptr %arrayidx123.us.us.us, align 4, !tbaa !35
-  %add124.us.us.us = fadd nsz float %u.0318.us.us.us, %step_x
+  %add124.us.us.us = fadd nsz float %step_x, %u.0318.us.us.us
   %cmp126.us.us.us = fcmp nsz ult float %add124.us.us.us, 1.000000e+00
   br i1 %cmp126.us.us.us, label %for.inc171.us.us.us, label %if.then.us.us.us
 
@@ -2713,7 +2713,7 @@ for.inc171.us.us.us:                              ; preds = %if.then.us.us.us, %
   br i1 %cmp117.not.us.us.us, label %for.cond115.for.end173_crit_edge.loopexit.us.us, label %for.body118.us.us.us, !llvm.loop !80
 
 for.cond115.for.end173_crit_edge.loopexit.us.us:  ; preds = %for.inc171.us.us.us
-  %add174.us.us = fadd nsz float %v.0332.us.us, %step_y
+  %add174.us.us = fadd nsz float %step_y, %v.0332.us.us
   %cmp176.us.us = fcmp nsz ult float %add174.us.us, 1.000000e+00
   %conv180.us.us = fadd nsz float %add174.us.us, -1.000000e+00
   %v.1.us.us = select i1 %cmp176.us.us, float %add174.us.us, float %conv180.us.us
@@ -2723,7 +2723,7 @@ for.cond115.for.end173_crit_edge.loopexit.us.us:  ; preds = %for.inc171.us.us.us
   br i1 %cmp42.not.us.us, label %for.cond40.for.end185_crit_edge.split.split.us.us, label %for.body43.us.us, !llvm.loop !81
 
 for.cond40.for.end185_crit_edge.split.split.us.us: ; preds = %for.cond115.for.end173_crit_edge.loopexit.us.us
-  %add186.us = fadd nsz float %w.0341.us, %step_z
+  %add186.us = fadd nsz float %step_z, %w.0341.us
   %cmp188.us = fcmp nsz oge float %add186.us, 1.000000e+00
   %conv192.us = fadd nsz float %add186.us, -1.000000e+00
   %w.1.us = select i1 %cmp188.us, float %conv192.us, float %add186.us
@@ -2924,7 +2924,7 @@ for.body118:                                      ; preds = %for.inc171, %for.bo
   %idxprom122 = zext i32 %index.5320 to i64
   %arrayidx123 = getelementptr inbounds float, ptr %103, i64 %idxprom122
   store float %140, ptr %arrayidx123, align 4, !tbaa !35
-  %add124 = fadd nsz float %u.0318, %step_x
+  %add124 = fadd nsz float %step_x, %u.0318
   %cmp126 = fcmp nsz ult float %add124, 1.000000e+00
   br i1 %cmp126, label %for.inc171, label %if.then
 
@@ -2966,7 +2966,7 @@ for.inc171:                                       ; preds = %if.then, %for.body1
   br i1 %cmp117.not, label %for.cond115.for.end173_crit_edge.loopexit3, label %for.body118, !llvm.loop !80
 
 for.cond115.for.end173_crit_edge.loopexit3:       ; preds = %for.inc171
-  %add174 = fadd nsz float %v.0332, %step_y
+  %add174 = fadd nsz float %step_y, %v.0332
   %cmp176 = fcmp nsz ult float %add174, 1.000000e+00
   %conv180 = fadd nsz float %add174, -1.000000e+00
   %v.1 = select i1 %cmp176, float %add174, float %conv180
@@ -2976,7 +2976,7 @@ for.cond115.for.end173_crit_edge.loopexit3:       ; preds = %for.inc171
   br i1 %cmp42.not, label %for.cond40.for.end185_crit_edge.split.split, label %for.body43, !llvm.loop !81
 
 for.cond40.for.end185_crit_edge.split.split:      ; preds = %for.cond115.for.end173_crit_edge.loopexit3
-  %add186 = fadd nsz float %w.0341, %step_z
+  %add186 = fadd nsz float %step_z, %w.0341
   %cmp188 = fcmp nsz oge float %add186, 1.000000e+00
   %conv192 = fadd nsz float %add186, -1.000000e+00
   %w.1 = select i1 %cmp188, float %conv192, float %add186

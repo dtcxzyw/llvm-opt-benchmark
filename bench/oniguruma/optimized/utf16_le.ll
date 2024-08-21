@@ -314,7 +314,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -1
-  %4 = icmp ugt ptr %3, %0
+  %4 = icmp ult ptr %0, %3
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %22

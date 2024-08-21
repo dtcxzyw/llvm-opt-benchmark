@@ -468,14 +468,14 @@ FindNearSectors.exit:                             ; preds = %28
   br i1 %143, label %155, label %144
 
 144:                                              ; preds = %84
-  %145 = fneg double %137
-  %146 = fmul double %138, %145
+  %145 = fneg double %138
+  %146 = fmul double %137, %145
   %147 = call double @llvm.fmuladd.f64(double %136, double %139, double %146)
   %148 = fcmp olt double %147, 0.000000e+00
   br i1 %148, label %155, label %149
 
 149:                                              ; preds = %144
-  %150 = fmul double %138, %140
+  %150 = fmul double %136, %145
   %151 = call double @llvm.fmuladd.f64(double %135, double %139, double %150)
   %152 = fcmp ogt double %147, %142
   br i1 %152, label %153, label %155

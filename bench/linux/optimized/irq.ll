@@ -2327,7 +2327,7 @@ define internal noundef i32 @pirq_ite_set(ptr noundef %0, ptr nocapture readnone
 25:                                               ; preds = %8
   %26 = and i8 %19, -16
   %27 = zext i8 %26 to i32
-  %28 = or i32 %27, %3
+  %28 = or i32 %3, %27
   br label %29
 
 29:                                               ; preds = %25, %20
@@ -2409,7 +2409,7 @@ define internal noundef i32 @pirq_via586_set(ptr noundef %0, ptr nocapture readn
 24:                                               ; preds = %8
   %25 = and i8 %18, -16
   %26 = zext i8 %25 to i32
-  %27 = or i32 %26, %3
+  %27 = or i32 %3, %26
   br label %28
 
 28:                                               ; preds = %24, %19
@@ -2467,7 +2467,7 @@ define internal noundef i32 @pirq_via_set(ptr noundef %0, ptr nocapture readnone
 19:                                               ; preds = %4
   %20 = and i8 %13, -16
   %21 = zext i8 %20 to i32
-  %22 = or i32 %21, %3
+  %22 = or i32 %3, %21
   br label %23
 
 23:                                               ; preds = %19, %14
@@ -2523,7 +2523,7 @@ define internal noundef i32 @pirq_opti_set(ptr noundef %0, ptr nocapture readnon
 18:                                               ; preds = %4
   %19 = and i8 %12, -16
   %20 = zext i8 %19 to i32
-  %21 = or i32 %20, %3
+  %21 = or i32 %3, %20
   br label %22
 
 22:                                               ; preds = %18, %13
@@ -2662,7 +2662,7 @@ define internal noundef i32 @pirq_cyrix_set(ptr noundef %0, ptr nocapture readno
 18:                                               ; preds = %4
   %19 = and i8 %12, -16
   %20 = zext i8 %19 to i32
-  %21 = or i32 %20, %3
+  %21 = or i32 %3, %20
   br label %22
 
 22:                                               ; preds = %18, %13
@@ -2746,7 +2746,7 @@ define internal noundef range(i32 0, 2) i32 @pirq_vlsi_set(ptr noundef %0, ptr n
 22:                                               ; preds = %9
   %23 = and i8 %16, -16
   %24 = zext i8 %23 to i32
-  %25 = or i32 %24, %3
+  %25 = or i32 %3, %24
   br label %26
 
 26:                                               ; preds = %22, %17
@@ -2853,7 +2853,7 @@ define internal noundef i32 @pirq_amd756_set(ptr noundef %0, ptr noundef %1, i32
 27:                                               ; preds = %14
   %28 = and i8 %21, -16
   %29 = zext i8 %28 to i32
-  %30 = or i32 %29, %3
+  %30 = or i32 %3, %29
   br label %31
 
 31:                                               ; preds = %27, %22

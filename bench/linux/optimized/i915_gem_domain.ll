@@ -273,7 +273,7 @@ define internal fastcc void @flush_write_domain(ptr noundef %0, i32 noundef %1) 
   %3 = getelementptr inbounds i8, ptr %0, i64 648
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i32
-  %6 = and i32 %5, %1
+  %6 = and i32 %1, %5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %48, label %8
 

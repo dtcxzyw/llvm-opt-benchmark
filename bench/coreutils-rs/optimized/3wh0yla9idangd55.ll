@@ -1229,7 +1229,7 @@ default.unreachable35:                            ; preds = %3
   br i1 %trunc, label %87, label %84
 
 _ZN5uu_dd27try_get_len_of_block_device17hf02a2798e2139b28E.exit: ; preds = %41
-  %60 = icmp ult i64 %.cast.i, %2
+  %60 = icmp ugt i64 %2, %.cast.i
   br i1 %60, label %61, label %"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$u64$GT$$C$std..io..error..Error$GT$$GT$17h883e6427eeb90ff8E.exit"
 
 61:                                               ; preds = %_ZN5uu_dd27try_get_len_of_block_device17hf02a2798e2139b28E.exit
@@ -2365,7 +2365,7 @@ default.unreachable31:                            ; preds = %3
   br i1 %52, label %.split, label %.split6
 
 _ZN5uu_dd27try_get_len_of_block_device17hf02a2798e2139b28E.exit: ; preds = %37
-  %53 = icmp ult i64 %.cast.i, %2
+  %53 = icmp ugt i64 %2, %.cast.i
   br i1 %53, label %54, label %"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$u64$GT$$C$std..io..error..Error$GT$$GT$17h883e6427eeb90ff8E.exit"
 
 54:                                               ; preds = %_ZN5uu_dd27try_get_len_of_block_device17hf02a2798e2139b28E.exit
@@ -4656,7 +4656,7 @@ _ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit: ; preds = %229, %241, %236
   call void @llvm.experimental.noalias.scope.decl(metadata !540)
   call void @llvm.experimental.noalias.scope.decl(metadata !543)
   %249 = load i64, ptr %160, align 8, !alias.scope !545, !noalias !548, !noundef !5
-  %250 = icmp ult i64 %249, %.0.i123
+  %250 = icmp ugt i64 %.0.i123, %249
   br i1 %250, label %251, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf91d4c6d2473aab8E.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf91d4c6d2473aab8E.exit.i.i": ; preds = %_ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit
@@ -4736,7 +4736,7 @@ _ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit: ; preds = %229, %241, %236
   %.033.lcssa.i.i = phi i64 [ %.03362.i.i, %.._crit_edge.loopexit_crit_edge.i.i ], [ %.134.i.i, %306 ]
   %.031.lcssa.i.i = phi i64 [ %.03163.i.i, %.._crit_edge.loopexit_crit_edge.i.i ], [ %.132.i.i, %306 ]
   %.0.lcssa.i.i = phi i64 [ %.064.i.i, %.._crit_edge.loopexit_crit_edge.i.i ], [ %.1.i.i, %306 ]
-  %274 = icmp ult i64 %273, %.035.lcssa.i.i
+  %274 = icmp ugt i64 %.035.lcssa.i.i, %273
   br i1 %274, label %341, label %.sink.split.i
 
 275:                                              ; preds = %.noexc127
@@ -4905,7 +4905,7 @@ _ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit: ; preds = %229, %241, %236
   %.026.lcssa.i.i = phi i64 [ %.02640.i.i, %335 ], [ %.127.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h346b0c642f4739f7E.exit.i.i" ]
   %.024.lcssa.i.i = phi i64 [ %.02441.i.i, %335 ], [ %.125.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h346b0c642f4739f7E.exit.i.i" ]
   %.0.lcssa.i39.i = phi i64 [ %.042.i.i, %335 ], [ %.1.i38.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h346b0c642f4739f7E.exit.i.i" ]
-  %329 = icmp ult i64 %314, %.0.lcssa.i39.i
+  %329 = icmp ugt i64 %.0.lcssa.i39.i, %314
   br i1 %329, label %341, label %.sink.split.i
 
 330:                                              ; preds = %.noexc134

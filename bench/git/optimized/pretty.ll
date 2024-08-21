@@ -1927,7 +1927,7 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
   %i.2 = phi i32 [ %i.044, %strbuf_addch.exit39 ], [ %i.044, %if.else ], [ %25, %for.inc.loopexit ]
   %inc22 = add nsw i32 %i.2, 1
   %conv = sext i32 %inc22 to i64
-  %cmp = icmp ult i64 %conv, %len
+  %cmp = icmp ugt i64 %len, %conv
   br i1 %cmp, label %for.body, label %while.cond23.preheader, !llvm.loop !21
 
 land.rhs:                                         ; preds = %while.body42
@@ -3181,7 +3181,7 @@ while.end80.i.i:                                  ; preds = %while.body35.i.i, %
   %sub.ptr.sub85.i.i = sub i64 %sub.ptr.lhs.cast83.i.i, %sub.ptr.rhs.cast84.i.i
   %41 = load i64, ptr %sb, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %41, i64 1)
-  %cmp.i.i.i = icmp ult i64 %spec.select.i.i.i, %sub.ptr.sub85.i.i
+  %cmp.i.i.i = icmp ugt i64 %sub.ptr.sub85.i.i, %spec.select.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end80.i.i
@@ -3304,7 +3304,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %land.rhs.i
   %54 = load i64, ptr %sb, align 8
   %spec.select.i27.i = call i64 @llvm.usub.sat.i64(i64 %54, i64 1)
-  %cmp.i28.i = icmp ult i64 %spec.select.i27.i, %sub.i
+  %cmp.i28.i = icmp ugt i64 %sub.i, %spec.select.i27.i
   br i1 %cmp.i28.i, label %if.then.i30.i, label %if.end.i.i
 
 if.then.i30.i:                                    ; preds = %while.body.i

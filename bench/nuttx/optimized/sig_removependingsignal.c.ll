@@ -27,7 +27,7 @@ define ptr @nxsig_remove_pendingsignal(ptr nocapture noundef readonly %0, i32 no
   %10 = getelementptr inbounds i8, ptr %.0, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
-  %.not14 = icmp eq i32 %12, %1
+  %.not14 = icmp eq i32 %1, %12
   br i1 %.not14, label %.critedge, label %8, !llvm.loop !8
 
 .critedge:                                        ; preds = %9

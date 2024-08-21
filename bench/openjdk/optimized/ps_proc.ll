@@ -584,7 +584,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
 .preheader61:                                     ; preds = %8
   %14 = and i64 %1, 7
   %15 = icmp ne i64 %14, 0
-  %16 = icmp ugt i64 %6, %1
+  %16 = icmp ult i64 %1, %6
   %17 = and i1 %16, %15
   br i1 %17, label %.lr.ph73.preheader, label %.loopexit62
 
@@ -597,7 +597,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
   %umin = tail call i64 @llvm.umin.i64(i64 %19, i64 %21)
   %22 = add nuw nsw i64 %umin, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %22, i1 false)
-  %23 = add i64 %umin, %1
+  %23 = add i64 %1, %umin
   %scevgep94 = getelementptr i8, ptr %2, i64 %22
   %24 = add i64 %23, 1
   br label %.loopexit62

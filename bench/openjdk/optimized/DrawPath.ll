@@ -279,13 +279,13 @@ define internal void @processLine(ptr nocapture noundef readonly %0, i32 noundef
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
-  %.not83 = icmp sgt i32 %20, %2
+  %.not83 = icmp slt i32 %2, %20
   br i1 %.not83, label %90, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %18, i64 12
   %23 = load i32, ptr %22, align 4
-  %24 = icmp sgt i32 %23, %2
+  %24 = icmp slt i32 %2, %23
   br i1 %24, label %25, label %90
 
 25:                                               ; preds = %21
@@ -322,13 +322,13 @@ define internal void @processLine(ptr nocapture noundef readonly %0, i32 noundef
 
 46:                                               ; preds = %41
   %47 = load i32, ptr %45, align 8
-  %.not82 = icmp sgt i32 %47, %1
+  %.not82 = icmp slt i32 %1, %47
   br i1 %.not82, label %90, label %48
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %45, i64 8
   %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %50, %1
+  %51 = icmp slt i32 %1, %50
   br i1 %51, label %52, label %90
 
 52:                                               ; preds = %48

@@ -661,7 +661,7 @@ define dso_local void @rb_check_inheritable(i64 noundef %0) local_unnamed_addr #
 
 17:                                               ; preds = %13
   %18 = load i64, ptr @rb_cClass, align 8
-  %19 = icmp eq i64 %18, %0
+  %19 = icmp eq i64 %0, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
@@ -709,7 +709,7 @@ Check_Type.exit:                                  ; preds = %6
 
 14:                                               ; preds = %Check_Type.exit
   %15 = load i64, ptr @rb_cClass, align 8
-  %16 = icmp eq i64 %15, %0
+  %16 = icmp eq i64 %0, %15
   br i1 %16, label %17, label %rb_check_inheritable.exit
 
 17:                                               ; preds = %14
@@ -746,9 +746,9 @@ rb_class_boot.exit:                               ; preds = %rb_check_inheritabl
   %33 = getelementptr inbounds i8, ptr %22, i64 24
   store ptr %32, ptr %33, align 8
   %34 = load i64, ptr @rb_cObject, align 8
-  %.not = icmp eq i64 %34, %0
+  %.not = icmp eq i64 %0, %34
   %35 = load i64, ptr @rb_cBasicObject, align 8
-  %.not8 = icmp eq i64 %35, %0
+  %.not8 = icmp eq i64 %0, %35
   %or.cond = select i1 %.not, i1 true, i1 %.not8
   br i1 %or.cond, label %40, label %36
 
@@ -841,7 +841,7 @@ define dso_local noundef i64 @rb_mod_init_copy(i64 noundef returned %0, i64 noun
 
 10:                                               ; preds = %2, %2
   %11 = load i64, ptr @rb_cBasicObject, align 8
-  %12 = icmp eq i64 %11, %1
+  %12 = icmp eq i64 %1, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
@@ -853,7 +853,7 @@ define dso_local noundef i64 @rb_mod_init_copy(i64 noundef returned %0, i64 noun
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = load i64, ptr %16, align 8
   %.not.i = icmp ne i64 %17, 0
-  %18 = icmp eq i64 %11, %0
+  %18 = icmp eq i64 %0, %11
   %or.cond.i = or i1 %18, %.not.i
   br i1 %or.cond.i, label %19, label %21
 
@@ -1555,7 +1555,7 @@ class_alloc.exit:                                 ; preds = %6, %rb_obj_write.ex
 
 rb_obj_write.exit.thread.i:                       ; preds = %class_alloc.exit
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %9) #18
-  %.not6.i = icmp eq i64 %9, %0
+  %.not6.i = icmp eq i64 %0, %9
   br i1 %.not6.i, label %RCLASS_SET_ORIGIN.exit, label %26
 
 26:                                               ; preds = %rb_obj_write.exit.thread.i
@@ -3414,7 +3414,7 @@ module_in_super_chain.exit.thread:                ; preds = %20, %10, %5
   br i1 %.not142192, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %32 = icmp eq i64 %.0126207, %0
+  %32 = icmp eq i64 %0, %.0126207
   %spec.select = zext i1 %32 to i32
   %33 = inttoptr i64 %.0128204 to ptr
   %34 = getelementptr inbounds i8, ptr %33, i64 24
@@ -3920,7 +3920,7 @@ define dso_local i64 @rb_mod_ancestors(i64 noundef %0) local_unnamed_addr #0 {
 RB_FL_TEST.exit.thread:                           ; preds = %7, %13, %1
   %.0 = phi i64 [ %14, %13 ], [ 4, %1 ], [ 4, %7 ]
   %.not1723 = icmp eq i64 %0, 0
-  %15 = icmp eq i64 %.0, %0
+  %15 = icmp eq i64 %0, %.0
   %or.cond24 = select i1 %.not1723, i1 true, i1 %15
   br i1 %or.cond24, label %._crit_edge, label %.lr.ph
 
@@ -5417,7 +5417,7 @@ define dso_local i32 @rb_get_kwargs(i64 noundef %0, ptr nocapture noundef nonnul
   %8 = icmp sgt i32 %3, -1
   %not. = xor i1 %8, true
   %9 = sext i1 %not. to i32
-  %spec.select = xor i32 %9, %3
+  %spec.select = xor i32 %3, %9
   %10 = icmp sgt i32 %2, 0
   br i1 %10, label %.lr.ph, label %._crit_edge.thread
 
@@ -5541,7 +5541,7 @@ define dso_local i32 @rb_get_kwargs(i64 noundef %0, ptr nocapture noundef nonnul
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph103.split.us ], [ 0, %.lr.ph103 ]
   %.166102.us = phi i32 [ %spec.select85.us, %.lr.ph103.split.us ], [ %.068, %.lr.ph103 ]
   %46 = trunc nuw nsw i64 %indvars.iv130 to i32
-  %47 = add i32 %46, %2
+  %47 = add i32 %2, %46
   %48 = sext i32 %47 to i64
   %49 = getelementptr i64, ptr %1, i64 %48
   %50 = load i64, ptr %49, align 8
@@ -5559,7 +5559,7 @@ define dso_local i32 @rb_get_kwargs(i64 noundef %0, ptr nocapture noundef nonnul
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %63 ], [ 0, %.lr.ph103 ]
   %.166102 = phi i32 [ %spec.select85, %63 ], [ %.068, %.lr.ph103 ]
   %54 = trunc nuw nsw i64 %indvars.iv125 to i32
-  %55 = add i32 %54, %2
+  %55 = add i32 %2, %54
   %56 = sext i32 %55 to i64
   %57 = getelementptr i64, ptr %1, i64 %56
   %58 = load i64, ptr %57, align 8

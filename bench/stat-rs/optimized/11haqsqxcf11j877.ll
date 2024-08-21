@@ -62,7 +62,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit": ; preds = %.noexc
   %12 = load i64, ptr %6, align 8, !alias.scope !4, !noundef !7
-  %13 = icmp ult i64 %12, %1
+  %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit"
@@ -81,7 +81,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !14, !noalias !11, !noundef !7
-  %18 = icmp eq i64 %17, %1
+  %18 = icmp eq i64 %1, %17
   br i1 %18, label %25, label %21
 
 19:                                               ; preds = %21
@@ -157,7 +157,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit": ; preds = %.noexc
   %14 = load i64, ptr %7, align 8, !alias.scope !17, !noundef !7
-  %15 = icmp ult i64 %14, %8
+  %15 = icmp ugt i64 %8, %14
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit"
@@ -263,7 +263,7 @@ define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$na
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !45, !noalias !48, !noundef !7
-  %15 = icmp eq i64 %14, %6
+  %15 = icmp eq i64 %6, %14
   br i1 %15, label %27, label %18
 
 16:                                               ; preds = %18
@@ -443,7 +443,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
 .noexc9.lr.ph:                                    ; preds = %.noexc8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %.val10.i = load ptr, ptr %7, align 8, !nonnull !7
-  %8 = icmp eq i64 %.val, %.24.val.fr
+  %8 = icmp eq i64 %.24.val.fr, %.val
   %9 = icmp ne ptr %.8.val, null
   br i1 %8, label %.noexc9.lr.ph.split.us, label %.noexc10
 
@@ -540,7 +540,7 @@ _ZN8nalgebra4base11blas_uninit11gemm_uninit17h4d4cb16ce8b489d0E.exit: ; preds = 
   store ptr %.sroa.2.0.copyload, ptr %28, align 8, !noalias !102
   %29 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %.sroa.3.0.copyload, ptr %29, align 8, !noalias !102
-  %30 = icmp eq i64 %.sroa.3.0.copyload, %.val59
+  %30 = icmp eq i64 %.val59, %.sroa.3.0.copyload
   br i1 %30, label %37, label %33
 
 31:                                               ; preds = %33
@@ -627,7 +627,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit.i": ; preds = %.noexc.i
   %19 = load i64, ptr %13, align 8, !alias.scope !114, !noalias !111, !noundef !7
-  %20 = icmp ult i64 %19, %.val
+  %20 = icmp ugt i64 %.val, %19
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9bc938daedb0ab97E.llvm.7371537965014501254.exit.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit.i"
@@ -645,7 +645,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %23 = getelementptr inbounds i8, ptr %8, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !120, !noalias !123, !noundef !7
-  %25 = icmp eq i64 %24, %.val
+  %25 = icmp eq i64 %.val, %24
   br i1 %25, label %"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E.exit", label %28
 
 26:                                               ; preds = %28
@@ -760,7 +760,7 @@ common.resume:                                    ; preds = %65, %58, %26, %32
   store ptr %.val38.i, ptr %55, align 8, !noalias !144
   %56 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %.sroa.3.0.copyload, ptr %56, align 8, !noalias !144
-  %57 = icmp eq i64 %.sroa.3.0.copyload, %.val
+  %57 = icmp eq i64 %.val, %.sroa.3.0.copyload
   br i1 %57, label %64, label %60
 
 58:                                               ; preds = %60
@@ -813,7 +813,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   %.val4 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   %.val5 = load i64, ptr %5, align 8, !noundef !7
-  %6 = icmp eq i64 %.val5, %.24.val
+  %6 = icmp eq i64 %.24.val, %.val5
   br i1 %6, label %.preheader.i, label %9
 
 .preheader.i:                                     ; preds = %1
@@ -854,7 +854,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   store ptr %.val4, ptr %14, align 8, !noalias !159
   %15 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %.sroa.3.0.copyload, ptr %15, align 8, !noalias !159
-  %16 = icmp eq i64 %.sroa.3.0.copyload, %.24.val
+  %16 = icmp eq i64 %.24.val, %.sroa.3.0.copyload
   br i1 %16, label %23, label %19
 
 17:                                               ; preds = %19
@@ -2587,7 +2587,7 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
   call void @llvm.experimental.noalias.scope.decl(metadata !637)
   %59 = getelementptr inbounds i8, ptr %4, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !637, !noalias !640, !noundef !7
-  %61 = icmp eq i64 %60, %.sroa.516.0.copyload
+  %61 = icmp eq i64 %.sroa.516.0.copyload, %60
   br i1 %61, label %73, label %64
 
 62:                                               ; preds = %64

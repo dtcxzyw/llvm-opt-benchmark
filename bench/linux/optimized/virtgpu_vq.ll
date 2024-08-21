@@ -2854,7 +2854,7 @@ declare dso_local ptr @drm_do_get_edid(ptr noundef, ptr noundef, ptr noundef) lo
 define internal noundef range(i32 -22, 1) i32 @virtio_get_edid_block(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 noundef %3) #10 align 16 {
   %5 = shl i32 %2, 7
   %6 = zext i32 %5 to i64
-  %7 = add i64 %6, %3
+  %7 = add i64 %3, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64

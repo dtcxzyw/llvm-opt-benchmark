@@ -1334,7 +1334,7 @@ invoke.cont284:                                   ; preds = %if.then277
   %rem.lhs.trunc.i710 = and i16 %111, 32767
   %rem49.i711 = urem i16 %rem.lhs.trunc.i710, 100
   %cmp286 = icmp ult i16 %rem49.i711, 10
-  %or.cond = and i1 %cmp286, %is_apple_tree
+  %or.cond = and i1 %is_apple_tree, %cmp286
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext = select i1 %or.cond, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext, ptr %arrayidx267, align 4
   %.pre45 = load i16, ptr %m_area, align 8, !tbaa !53
@@ -1399,7 +1399,7 @@ invoke.cont284.1:                                 ; preds = %if.then277.1
   %rem.lhs.trunc.i710.1 = and i16 %120, 32767
   %rem49.i711.1 = urem i16 %rem.lhs.trunc.i710.1, 100
   %cmp286.1 = icmp ult i16 %rem49.i711.1, 10
-  %or.cond.1 = and i1 %cmp286.1, %is_apple_tree
+  %or.cond.1 = and i1 %is_apple_tree, %cmp286.1
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext921 = select i1 %or.cond.1, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext921, ptr %arrayidx267.1, align 4
   %.pre47 = load i16, ptr %m_area, align 8, !tbaa !53
@@ -1464,7 +1464,7 @@ invoke.cont284.2:                                 ; preds = %if.then277.2
   %rem.lhs.trunc.i710.2 = and i16 %129, 32767
   %rem49.i711.2 = urem i16 %rem.lhs.trunc.i710.2, 100
   %cmp286.2 = icmp ult i16 %rem49.i711.2, 10
-  %or.cond.2 = and i1 %cmp286.2, %is_apple_tree
+  %or.cond.2 = and i1 %is_apple_tree, %cmp286.2
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext922 = select i1 %or.cond.2, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext922, ptr %arrayidx267.2, align 4
   %.pre49 = load i16, ptr %m_area, align 8, !tbaa !53
@@ -1529,7 +1529,7 @@ invoke.cont284.3:                                 ; preds = %if.then277.3
   %rem.lhs.trunc.i710.3 = and i16 %138, 32767
   %rem49.i711.3 = urem i16 %rem.lhs.trunc.i710.3, 100
   %cmp286.3 = icmp ult i16 %rem49.i711.3, 10
-  %or.cond.3 = and i1 %cmp286.3, %is_apple_tree
+  %or.cond.3 = and i1 %is_apple_tree, %cmp286.3
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext923 = select i1 %or.cond.3, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext923, ptr %arrayidx267.3, align 4
   %.pre51 = load i16, ptr %m_area, align 8, !tbaa !53
@@ -1594,7 +1594,7 @@ invoke.cont284.4:                                 ; preds = %if.then277.4
   %rem.lhs.trunc.i710.4 = and i16 %147, 32767
   %rem49.i711.4 = urem i16 %rem.lhs.trunc.i710.4, 100
   %cmp286.4 = icmp ult i16 %rem49.i711.4, 10
-  %or.cond.4 = and i1 %cmp286.4, %is_apple_tree
+  %or.cond.4 = and i1 %is_apple_tree, %cmp286.4
   %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext924 = select i1 %or.cond.4, i32 %applenode.sroa.0.0.insert.ext, i32 %leavesnode.sroa.0.0.insert.ext
   store i32 %applenode.sroa.0.0.insert.ext.leavesnode.sroa.0.0.insert.ext924, ptr %arrayidx267.4, align 4
   br label %if.end300.4
@@ -1731,7 +1731,7 @@ if.end26:                                         ; preds = %if.end
   %rem.rhs.trunc = add nuw nsw i16 %12, 1
   %rem49 = urem i16 %rem.lhs.trunc, %rem.rhs.trunc
   %rem.zext = zext nneg i16 %rem49 to i32
-  %add28 = add i32 %rem.zext, %min
+  %add28 = add i32 %min, %rem.zext
   ret i32 %add28
 
 eh.resume:                                        ; preds = %cleanup.action24, %ehcleanup19.thread, %cleanup.action, %ehcleanup.thread
@@ -4406,7 +4406,7 @@ entry:
   %conv.i = fptosi float %cond.i to i32
   %cmp.i50 = fcmp nsz olt float %p0.coerce1, 0.000000e+00
   %cond.v.i51 = select i1 %cmp.i50, float -5.000000e-01, float 5.000000e-01
-  %cond.i52 = fadd nsz float %cond.v.i51, %p0.coerce1
+  %cond.i52 = fadd nsz float %p0.coerce1, %cond.v.i51
   %conv.i53 = fptosi float %cond.i52 to i32
   %m_area = getelementptr inbounds i8, ptr %vmanip, i64 8
   %0 = shl i32 %conv.i53, 16

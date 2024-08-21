@@ -1927,7 +1927,7 @@ while.body.i59:                                   ; preds = %if.end369.i, %while
   %add.i.i = add i64 %i.3589.i, 20
   %186 = load i64, ptr %hunk_nr.i21, align 8
   %spec.select.i292.i = call i64 @llvm.umin.i64(i64 %add.i.i, i64 %186)
-  %cmp224.i.i = icmp ugt i64 %spec.select.i292.i, %i.3589.i
+  %cmp224.i.i = icmp ult i64 %i.3589.i, %spec.select.i292.i
   br i1 %cmp224.i.i, label %while.body.i.i60, label %display_hunks.exit.i
 
 while.body.i.i60:                                 ; preds = %while.body.i59, %summarize_hunk.exit.i.i
@@ -1992,7 +1992,7 @@ for.body.i.i.i:                                   ; preds = %find_next_line.exit
   %arrayidx.i.i.i64 = getelementptr inbounds i8, ptr %198, i64 %i.049.i.i.i
   %200 = load i8, ptr %arrayidx.i.i.i64, align 1
   %cmp8.not.i.i.i = icmp eq i8 %200, 32
-  %cmp.not.i.i.i.i = icmp ugt i64 %199, %i.049.i.i.i
+  %cmp.not.i.i.i.i = icmp ult i64 %i.049.i.i.i, %199
   br i1 %cmp8.not.i.i.i, label %for.inc.i.i.i, label %if.then15.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -2046,7 +2046,7 @@ if.then24.i.i.i:                                  ; preds = %if.end19.i.i.i
   %add25.i.i.i = add i64 %190, 80
   %202 = load i64, ptr %buf.i24, align 8
   %spec.select.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %202, i64 1)
-  %cmp.i.i.i.i = icmp ult i64 %spec.select.i.i.i.i, %add25.i.i.i
+  %cmp.i.i.i.i = icmp ugt i64 %add25.i.i.i, %spec.select.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i45.i.i.i, label %if.end.i.i.i.i
 
 if.then.i45.i.i.i:                                ; preds = %if.then24.i.i.i
@@ -2343,7 +2343,7 @@ if.else488.i:                                     ; preds = %if.then481.i
   %tobool.not.i353.i = icmp eq i64 %245, 0
   %add.ptr.i355.i = getelementptr inbounds i8, ptr %244, i64 %sub.ptr.sub.i52
   %246 = load i64, ptr %hunk_nr.i21, align 8
-  %cmp.not.i357.i = icmp ugt i64 %246, %sub.ptr.div.i
+  %cmp.not.i357.i = icmp ult i64 %sub.ptr.div.i, %246
   br i1 %cmp.not.i357.i, label %if.end.i360.i, label %if.then.i358.i
 
 if.then.i358.i:                                   ; preds = %if.else488.i
@@ -2535,7 +2535,7 @@ if.else127.i.i:                                   ; preds = %next_hunk_line.i.i
 if.end131.i.i:                                    ; preds = %if.then124.i.i, %if.then117.i.i, %if.then112.i.i
   %context_line_count.3.i.i = phi i64 [ %inc.i372.i, %if.then112.i.i ], [ %context_line_count.2.i.i, %if.then117.i.i ], [ %context_line_count.2.i.i, %if.then124.i.i ]
   %261 = load i64, ptr %len.i, align 8
-  %cmp.not.i.i.i54 = icmp ugt i64 %261, %current.0209.i584.i
+  %cmp.not.i.i.i54 = icmp ult i64 %current.0209.i584.i, %261
   br i1 %cmp.not.i.i.i54, label %find_next_line.exit.i.i, label %if.then.i128.i.i
 
 if.then.i128.i.i:                                 ; preds = %if.end131.i.i
@@ -2560,7 +2560,7 @@ find_next_line.exit.i.i:                          ; preds = %if.end131.i.i
 
 if.then135.i.i:                                   ; preds = %find_next_line.exit.i.i
   %264 = load i64, ptr %len.i20, align 8
-  %cmp.not.i130.i.i = icmp ugt i64 %264, %colored_current.1210.i583.i
+  %cmp.not.i130.i.i = icmp ult i64 %colored_current.1210.i583.i, %264
   br i1 %cmp.not.i130.i.i, label %find_next_line.exit145.i.i, label %if.then.i131.i.i
 
 if.then.i131.i.i:                                 ; preds = %if.then135.i.i
@@ -2839,7 +2839,7 @@ if.end.i.i400.i:                                  ; preds = %_.exit48.i.i.i
 for.body.i.i401.i:                                ; preds = %if.end.i.i400.i, %if.end36.i.i.i
   %299 = phi i64 [ %304, %if.end36.i.i.i ], [ %298, %if.end.i.i400.i ]
   %i.068.i.i.i = phi i64 [ %retval.0.i53.i.i.i, %if.end36.i.i.i ], [ 0, %if.end.i.i400.i ]
-  %cmp.not.i.i.i402.i = icmp ugt i64 %299, %i.068.i.i.i
+  %cmp.not.i.i.i402.i = icmp ult i64 %i.068.i.i.i, %299
   br i1 %cmp.not.i.i.i402.i, label %find_next_line.exit.i.i406.i, label %if.then.i.i.i403.i
 
 if.then.i.i.i403.i:                               ; preds = %for.body.i.i401.i
@@ -3062,7 +3062,7 @@ sw.epilog.i.i.i:                                  ; preds = %sw.bb6.i.i.i, %sw.b
   %326 = phi i64 [ %inc10.i.i.i, %sw.bb6.i.i.i ], [ %inc5.i.i.i, %sw.bb3.i.i.i ], [ %322, %sw.bb.i.i.i ], [ %322, %for.body.i34.i.i ]
   %327 = phi i64 [ %inc8.i.i.i, %sw.bb6.i.i.i ], [ %323, %sw.bb3.i.i.i ], [ %inc.i.i.i, %sw.bb.i.i.i ], [ %323, %for.body.i34.i.i ]
   %328 = load i64, ptr %len.i, align 8
-  %cmp.not.i.i35.i.i = icmp ugt i64 %328, %i.016.i.i.i
+  %cmp.not.i.i35.i.i = icmp ult i64 %i.016.i.i.i, %328
   br i1 %cmp.not.i.i35.i.i, label %find_next_line.exit.i39.i.i, label %if.then.i.i36.i.i
 
 if.then.i.i36.i.i:                                ; preds = %sw.epilog.i.i.i
@@ -3136,7 +3136,7 @@ run_apply_check.exit.i.i:                         ; preds = %if.end3.i.i59.i.i, 
 if.end9.i.i:                                      ; preds = %run_apply_check.exit.i.i, %_.exit65.i.i.i, %_.exit48.i.i.i
   %341 = load i64, ptr %plain2.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %341, i64 1)
-  %cmp.i64.i.i = icmp ult i64 %spec.select.i.i.i, %281
+  %cmp.i64.i.i = icmp ugt i64 %281, %spec.select.i.i.i
   br i1 %cmp.i64.i.i, label %if.then.i68.i.i, label %if.end.i65.i.i
 
 if.then.i68.i.i:                                  ; preds = %if.end9.i.i
@@ -3157,7 +3157,7 @@ if.then4.i.i419.i:                                ; preds = %if.end.i65.i.i
 strbuf_setlen.exit.i420.i:                        ; preds = %if.then4.i.i419.i, %if.end.i65.i.i
   %343 = load i64, ptr %colored.i.i, align 8
   %spec.select.i69.i.i = call i64 @llvm.usub.sat.i64(i64 %343, i64 1)
-  %cmp.i70.i.i = icmp ult i64 %spec.select.i69.i.i, %282
+  %cmp.i70.i.i = icmp ugt i64 %282, %spec.select.i69.i.i
   br i1 %cmp.i70.i.i, label %if.then.i77.i.i, label %if.end.i71.i.i
 
 if.then.i77.i.i:                                  ; preds = %strbuf_setlen.exit.i420.i
@@ -4240,7 +4240,7 @@ land.lhs.true.split.us:                           ; preds = %for.body.us
   call fastcc void @render_hunk(ptr noundef %s, ptr noundef %spec.select.us, i64 noundef %delta.023.us, i32 noundef 0, ptr noundef %out)
   %15 = load i64, ptr %plain, align 8
   %spec.select.i.us = tail call i64 @llvm.usub.sat.i64(i64 %15, i64 1)
-  %cmp.i.us = icmp ult i64 %spec.select.i.us, %0
+  %cmp.i.us = icmp ugt i64 %0, %spec.select.i.us
   br i1 %cmp.i.us, label %if.then.i20, label %if.end.i19.us
 
 if.end.i19.us:                                    ; preds = %land.lhs.true.split.us
@@ -4284,7 +4284,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %st
   call fastcc void @render_hunk(ptr noundef nonnull %s, ptr noundef %spec.select, i64 noundef %delta.023, i32 noundef 0, ptr noundef %out)
   %21 = load i64, ptr %plain, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %21, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %0
+  %cmp.i = icmp ugt i64 %0, %spec.select.i
   br i1 %cmp.i, label %if.then.i20, label %if.end.i19
 
 if.then.i20:                                      ; preds = %for.body, %land.lhs.true.split.us
@@ -4534,7 +4534,7 @@ for.body42.lr.ph:                                 ; preds = %if.else
 for.body42:                                       ; preds = %for.body42.lr.ph, %if.end69
   %j.0144 = phi i64 [ 0, %for.body42.lr.ph ], [ %inc, %if.end69 ]
   %overlap_end.0143 = phi i64 [ %10, %for.body42.lr.ph ], [ %retval.0.i, %if.end69 ]
-  %cmp.not.i = icmp ugt i64 %15, %overlap_end.0143
+  %cmp.not.i = icmp ult i64 %overlap_end.0143, %15
   br i1 %cmp.not.i, label %find_next_line.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body42

@@ -4551,7 +4551,7 @@ add_fragment.exit.thread.i:                       ; preds = %475, %.critedge8.i.
   %539 = getelementptr inbounds i8, ptr %.0394512.i.i, i64 4
   %540 = getelementptr inbounds i8, ptr %.0394512.i.i, i64 8
   %541 = load ptr, ptr %540, align 8
-  %542 = icmp eq ptr %541, %.0.i50.i
+  %542 = icmp eq ptr %.0.i50.i, %541
   br i1 %542, label %543, label %650
 
 543:                                              ; preds = %.critedge.i40.i

@@ -246,7 +246,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit35:             ; preds = %if.end17, %22
   %vtable.i33 = load ptr, ptr %24, align 8
   %25 = load ptr, ptr %vtable.i33, align 8
   %call.i34 = tail call i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %24)
-  %cmp.i.not = icmp slt i64 %call.i34, %deadline.coerce
+  %cmp.i.not = icmp sgt i64 %deadline.coerce, %call.i34
   br i1 %cmp.i.not, label %if.end33, label %if.then24
 
 if.then24:                                        ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit35
@@ -320,7 +320,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %if.end33, %if.end.i
   tail call void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull align 8 dereferenceable(56) %stats, double noundef %div)
   %queue_deadline_cap = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %agg.tmp43.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
-  %cmp.i44 = icmp sgt i64 %agg.tmp43.sroa.0.0.copyload, %deadline.coerce
+  %cmp.i44 = icmp slt i64 %deadline.coerce, %agg.tmp43.sroa.0.0.copyload
   br i1 %cmp.i44, label %if.then46, label %if.else
 
 if.then46:                                        ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit
@@ -383,7 +383,7 @@ if.then63:                                        ; preds = %if.then60
 if.end65:                                         ; preds = %if.then63, %if.then60
   %min_deadline67 = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %agg.tmp66.sroa.0.0.copyload = load i64, ptr %min_deadline67, align 8
-  %cmp.i47 = icmp sgt i64 %agg.tmp66.sroa.0.0.copyload, %deadline.coerce
+  %cmp.i47 = icmp slt i64 %deadline.coerce, %agg.tmp66.sroa.0.0.copyload
   br i1 %cmp.i47, label %if.then70, label %if.end80
 
 if.then70:                                        ; preds = %if.end65
@@ -463,7 +463,7 @@ while.body19.i:                                   ; preds = %land.rhs9.i
 _ZL20note_deadline_changeP11timer_shard.exit:     ; preds = %while.body19.i, %land.rhs9.i, %while.end.i
   %55 = phi i32 [ %.pr62, %while.end.i ], [ %54, %while.body19.i ], [ %.pr61, %land.rhs9.i ]
   %cmp = icmp eq i32 %55, 0
-  %cmp.i50 = icmp sgt i64 %old_min_deadline.sroa.0.0.copyload, %deadline.coerce
+  %cmp.i50 = icmp slt i64 %deadline.coerce, %old_min_deadline.sroa.0.0.copyload
   %or.cond = select i1 %cmp, i1 %cmp.i50, i1 false
   br i1 %or.cond, label %if.then77, label %if.end80
 
@@ -1252,7 +1252,7 @@ entry:
   %0 = load atomic i64, ptr @_ZL17g_shared_mutables monotonic, align 64
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL21g_last_seen_min_timer)
   store i64 %0, ptr %1, align 8
-  %cmp.i = icmp sgt i64 %0, %now.coerce
+  %cmp.i = icmp slt i64 %now.coerce, %0
   br i1 %cmp.i, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
@@ -1368,7 +1368,7 @@ call3.i.i.noexc:                                  ; preds = %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %call3.i.i.noexc
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %queue_deadline_cap.i.i, align 8
-  %cmp.i.i.i12 = icmp sgt i64 %agg.tmp.sroa.0.0.copyload.i.i, %now.coerce
+  %cmp.i.i.i12 = icmp slt i64 %now.coerce, %agg.tmp.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i12, label %while.end.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.then4.i.i
@@ -1382,7 +1382,7 @@ call1.i.i.i.noexc:                                ; preds = %if.end8.i.i
   %max.val.i.i.i.i = select i1 %cmp1.i.i.i.i, double 1.000000e+00, double %mul.i.i.i
   %18 = fmul double %max.val.i.i.i.i, 1.000000e+03
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %queue_deadline_cap.i.i, align 8
-  %agg.tmp.sroa.0.0.copyload.sroa.speculated.i.i.i = call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 %now.coerce)
+  %agg.tmp.sroa.0.0.copyload.sroa.speculated.i.i.i = call i64 @llvm.smax.i64(i64 %now.coerce, i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i)
   %mul.i.i.i.i = select i1 %cmp.i.i.i.i, double 1.000000e+01, double %18
   %cmp.i14.i.i.i = fcmp ult double %mul.i.i.i.i, 0x43E0000000000000
   br i1 %cmp.i14.i.i.i, label %if.end.i.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i

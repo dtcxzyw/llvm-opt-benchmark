@@ -205,7 +205,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h575e
 23:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %24 = icmp ult i64 %5, 17
-  %.not.i = icmp ugt i64 %9, %22
+  %.not.i = icmp ult i64 %22, %9
   br i1 %.not.i, label %25, label %26
 
 25:                                               ; preds = %23

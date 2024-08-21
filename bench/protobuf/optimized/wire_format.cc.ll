@@ -925,7 +925,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %target.addr.0150 = phi ptr [ %target.addr.1, %for.inc ], [ %target, %entry ]
   %add.ptr.i.i = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %3, %target.addr.0150
+  %cmp.not.i = icmp ult ptr %target.addr.0150, %3
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i51
 
 if.then.i51:                                      ; preds = %for.body
@@ -1149,7 +1149,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit118: ; p
   %24 = load ptr, ptr %data_.i119, align 8
   %call23 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %incdec.ptr2.i.i110, ptr noundef nonnull %stream)
   %25 = load ptr, ptr %stream, align 8
-  %cmp.not.i120 = icmp ugt ptr %25, %call23
+  %cmp.not.i120 = icmp ult ptr %call23, %25
   br i1 %cmp.not.i120, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit124, label %if.then.i121
 
 if.then.i121:                                     ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit118
@@ -1228,7 +1228,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %5 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %5, %target.addr.040
+  %cmp.not.i = icmp ult ptr %target.addr.040, %5
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
@@ -1266,7 +1266,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   store i8 26, ptr %incdec.ptr2.i.i19, align 1
   %call10 = tail call noundef ptr @_ZNK6google8protobuf12UnknownField37InternalSerializeLengthDelimitedNoTagEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull %incdec.ptr2.i.i23, ptr noundef nonnull %stream)
   %8 = load ptr, ptr %stream, align 8
-  %cmp.not.i24 = icmp ugt ptr %8, %call10
+  %cmp.not.i24 = icmp ult ptr %call10, %8
   br i1 %cmp.not.i24, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit28, label %if.then.i25
 
 if.then.i25:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -5532,7 +5532,7 @@ entry:
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv, i32 512)
-  %cmp.not = icmp slt i32 %.sroa.speculated, %size
+  %cmp.not = icmp sgt i32 %size, %.sroa.speculated
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6282,7 +6282,7 @@ if.then79:                                        ; preds = %invoke.cont77
 
 if.end82:                                         ; preds = %if.then79
   %48 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %48, %target
+  %cmp.not.i = icmp ult ptr %target, %48
   br i1 %cmp.not.i, label %invoke.cont83, label %if.then.i776
 
 if.then.i776:                                     ; preds = %if.end82
@@ -6362,7 +6362,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
 invoke.cont93:                                    ; preds = %invoke.cont89
   %conv = trunc i64 %call94 to i32
   %56 = load ptr, ptr %stream, align 8
-  %cmp.not.i789 = icmp ugt ptr %56, %retval.0.i
+  %cmp.not.i789 = icmp ult ptr %retval.0.i, %56
   br i1 %cmp.not.i789, label %call.i1074.noexc, label %if.then.i790
 
 if.then.i790:                                     ; preds = %invoke.cont93
@@ -6425,7 +6425,7 @@ do.body.i1080:                                    ; preds = %_ZN6google8protobuf
   %it.i1071.0 = phi ptr [ %59, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit1415 ], [ %incdec.ptr.i1082, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1086 ]
   %ptr.addr.i1069.0 = phi ptr [ %incdec.ptr2.i1409, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit1415 ], [ %incdec.ptr2.i.i1088, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1086 ]
   %61 = load ptr, ptr %stream, align 8
-  %cmp.not.i795 = icmp ugt ptr %61, %ptr.addr.i1069.0
+  %cmp.not.i795 = icmp ult ptr %ptr.addr.i1069.0, %61
   br i1 %cmp.not.i795, label %call5.i1081.noexc, label %if.then.i796
 
 if.then.i796:                                     ; preds = %do.body.i1080
@@ -6519,7 +6519,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
 invoke.cont106:                                   ; preds = %invoke.cont102
   %conv108 = trunc i64 %call107 to i32
   %71 = load ptr, ptr %stream, align 8
-  %cmp.not.i817 = icmp ugt ptr %71, %retval.0.i
+  %cmp.not.i817 = icmp ult ptr %retval.0.i, %71
   br i1 %cmp.not.i817, label %call.i1430.noexc, label %if.then.i818
 
 if.then.i818:                                     ; preds = %invoke.cont106
@@ -6582,7 +6582,7 @@ do.body.i1437:                                    ; preds = %_ZN6google8protobuf
   %it.i1427.0 = phi ptr [ %74, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i ], [ %incdec.ptr.i1439, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1442 ]
   %ptr.addr.i1425.0 = phi ptr [ %incdec.ptr2.i14.i, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i ], [ %incdec.ptr2.i.i1444, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1442 ]
   %76 = load ptr, ptr %stream, align 8
-  %cmp.not.i826 = icmp ugt ptr %76, %ptr.addr.i1425.0
+  %cmp.not.i826 = icmp ult ptr %ptr.addr.i1425.0, %76
   br i1 %cmp.not.i826, label %call5.i1438.noexc, label %if.then.i827
 
 if.then.i827:                                     ; preds = %do.body.i1437
@@ -6675,7 +6675,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
 invoke.cont120:                                   ; preds = %invoke.cont116
   %conv122 = trunc i64 %call121 to i32
   %86 = load ptr, ptr %stream, align 8
-  %cmp.not.i850 = icmp ugt ptr %86, %retval.0.i
+  %cmp.not.i850 = icmp ult ptr %retval.0.i, %86
   br i1 %cmp.not.i850, label %call.i1478.noexc, label %if.then.i851
 
 if.then.i851:                                     ; preds = %invoke.cont120
@@ -6738,7 +6738,7 @@ do.body.i1497:                                    ; preds = %_ZN6google8protobuf
   %it.i1475.0 = phi ptr [ %89, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1490 ], [ %incdec.ptr.i1499, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit.i ]
   %ptr.addr.i1473.0 = phi ptr [ %incdec.ptr2.i14.i1492, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1490 ], [ %incdec.ptr2.i.i1503, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit.i ]
   %91 = load ptr, ptr %stream, align 8
-  %cmp.not.i857 = icmp ugt ptr %91, %ptr.addr.i1473.0
+  %cmp.not.i857 = icmp ult ptr %ptr.addr.i1473.0, %91
   br i1 %cmp.not.i857, label %call5.i1498.noexc, label %if.then.i858
 
 if.then.i858:                                     ; preds = %do.body.i1497
@@ -6834,7 +6834,7 @@ invoke.cont130:                                   ; preds = %invoke.cont128
 invoke.cont134:                                   ; preds = %invoke.cont130
   %conv136 = trunc i64 %call135 to i32
   %101 = load ptr, ptr %stream, align 8
-  %cmp.not.i884 = icmp ugt ptr %101, %retval.0.i
+  %cmp.not.i884 = icmp ult ptr %retval.0.i, %101
   br i1 %cmp.not.i884, label %call.i1547.noexc, label %if.then.i885
 
 if.then.i885:                                     ; preds = %invoke.cont134
@@ -6897,7 +6897,7 @@ do.body.i1566:                                    ; preds = %_ZN6google8protobuf
   %it.i1544.0 = phi ptr [ %104, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1559 ], [ %incdec.ptr.i1568, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1571 ]
   %ptr.addr.i1542.0 = phi ptr [ %incdec.ptr2.i14.i1561, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1559 ], [ %incdec.ptr2.i.i1573, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1571 ]
   %106 = load ptr, ptr %stream, align 8
-  %cmp.not.i892 = icmp ugt ptr %106, %ptr.addr.i1542.0
+  %cmp.not.i892 = icmp ult ptr %ptr.addr.i1542.0, %106
   br i1 %cmp.not.i892, label %call5.i1567.noexc, label %if.then.i893
 
 if.then.i893:                                     ; preds = %do.body.i1566
@@ -6993,7 +6993,7 @@ invoke.cont144:                                   ; preds = %invoke.cont142
 invoke.cont148:                                   ; preds = %invoke.cont144
   %conv150 = trunc i64 %call149 to i32
   %116 = load ptr, ptr %stream, align 8
-  %cmp.not.i920 = icmp ugt ptr %116, %retval.0.i
+  %cmp.not.i920 = icmp ult ptr %retval.0.i, %116
   br i1 %cmp.not.i920, label %call.i1617.noexc, label %if.then.i921
 
 if.then.i921:                                     ; preds = %invoke.cont148
@@ -7056,7 +7056,7 @@ do.body.i1636:                                    ; preds = %_ZN6google8protobuf
   %it.i1614.0 = phi ptr [ %119, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1629 ], [ %incdec.ptr.i1638, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit.i1641 ]
   %ptr.addr.i1612.0 = phi ptr [ %incdec.ptr2.i14.i1631, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1629 ], [ %incdec.ptr2.i.i1643, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit.i1641 ]
   %121 = load ptr, ptr %stream, align 8
-  %cmp.not.i928 = icmp ugt ptr %121, %ptr.addr.i1612.0
+  %cmp.not.i928 = icmp ult ptr %ptr.addr.i1612.0, %121
   br i1 %cmp.not.i928, label %call5.i1637.noexc, label %if.then.i929
 
 if.then.i929:                                     ; preds = %do.body.i1636
@@ -7149,7 +7149,7 @@ invoke.cont158:                                   ; preds = %invoke.cont156
 invoke.cont162:                                   ; preds = %invoke.cont158
   %conv164 = trunc i64 %call163 to i32
   %131 = load ptr, ptr %stream, align 8
-  %cmp.not.i952 = icmp ugt ptr %131, %retval.0.i
+  %cmp.not.i952 = icmp ult ptr %retval.0.i, %131
   br i1 %cmp.not.i952, label %call.i1687.noexc, label %if.then.i953
 
 if.then.i953:                                     ; preds = %invoke.cont162
@@ -7212,7 +7212,7 @@ do.body.i1706:                                    ; preds = %_ZN6google8protobuf
   %it.i1684.0 = phi ptr [ %134, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1699 ], [ %incdec.ptr.i1708, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1711 ]
   %ptr.addr.i1682.0 = phi ptr [ %incdec.ptr2.i14.i1701, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i1699 ], [ %incdec.ptr2.i.i1713, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i1711 ]
   %136 = load ptr, ptr %stream, align 8
-  %cmp.not.i959 = icmp ugt ptr %136, %ptr.addr.i1682.0
+  %cmp.not.i959 = icmp ult ptr %ptr.addr.i1682.0, %136
   br i1 %cmp.not.i959, label %call5.i1707.noexc, label %if.then.i960
 
 if.then.i960:                                     ; preds = %do.body.i1706
@@ -7305,7 +7305,7 @@ invoke.cont172:                                   ; preds = %invoke.cont170
 invoke.cont176:                                   ; preds = %invoke.cont172
   %conv178 = trunc i64 %call177 to i32
   %146 = load ptr, ptr %stream, align 8
-  %cmp.not.i983 = icmp ugt ptr %146, %retval.0.i
+  %cmp.not.i983 = icmp ult ptr %retval.0.i, %146
   br i1 %cmp.not.i983, label %call.i1051.noexc, label %if.then.i984
 
 if.then.i984:                                     ; preds = %invoke.cont176
@@ -7368,7 +7368,7 @@ do.body.i:                                        ; preds = %_ZN6google8protobuf
   %it.i.0 = phi ptr [ %149, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit1403 ], [ %incdec.ptr.i1055, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i ]
   %ptr.addr.i1049.0 = phi ptr [ %incdec.ptr2.i1397, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit1403 ], [ %incdec.ptr2.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i ]
   %151 = load ptr, ptr %stream, align 8
-  %cmp.not.i990 = icmp ugt ptr %151, %ptr.addr.i1049.0
+  %cmp.not.i990 = icmp ult ptr %ptr.addr.i1049.0, %151
   br i1 %cmp.not.i990, label %call5.i1054.noexc, label %if.then.i991
 
 if.then.i991:                                     ; preds = %do.body.i
@@ -7457,7 +7457,7 @@ invoke.cont186:                                   ; preds = %invoke.cont184
   %number_.i1014 = getelementptr inbounds i8, ptr %field, i64 4
   %160 = load i32, ptr %number_.i1014, align 4
   %161 = load ptr, ptr %stream, align 8
-  %cmp.not.i1015 = icmp ugt ptr %161, %retval.0.i
+  %cmp.not.i1015 = icmp ult ptr %retval.0.i, %161
   br i1 %cmp.not.i1015, label %call.i819.noexc, label %if.then.i1016
 
 if.then.i1016:                                    ; preds = %invoke.cont186
@@ -7577,7 +7577,7 @@ invoke.cont197:                                   ; preds = %invoke.cont195
   %number_.i1045 = getelementptr inbounds i8, ptr %field, i64 4
   %174 = load i32, ptr %number_.i1045, align 4
   %175 = load ptr, ptr %stream, align 8
-  %cmp.not.i1046 = icmp ugt ptr %175, %retval.0.i
+  %cmp.not.i1046 = icmp ult ptr %retval.0.i, %175
   br i1 %cmp.not.i1046, label %call.i832.noexc, label %if.then.i1047
 
 if.then.i1047:                                    ; preds = %invoke.cont197
@@ -7697,7 +7697,7 @@ invoke.cont208:                                   ; preds = %invoke.cont206
   %number_.i1083 = getelementptr inbounds i8, ptr %field, i64 4
   %188 = load i32, ptr %number_.i1083, align 4
   %189 = load ptr, ptr %stream, align 8
-  %cmp.not.i1084 = icmp ugt ptr %189, %retval.0.i
+  %cmp.not.i1084 = icmp ult ptr %retval.0.i, %189
   br i1 %cmp.not.i1084, label %call.i850.noexc, label %if.then.i1085
 
 if.then.i1085:                                    ; preds = %invoke.cont208
@@ -7817,7 +7817,7 @@ invoke.cont219:                                   ; preds = %invoke.cont217
   %number_.i1122 = getelementptr inbounds i8, ptr %field, i64 4
   %202 = load i32, ptr %number_.i1122, align 4
   %203 = load ptr, ptr %stream, align 8
-  %cmp.not.i1123 = icmp ugt ptr %203, %retval.0.i
+  %cmp.not.i1123 = icmp ult ptr %retval.0.i, %203
   br i1 %cmp.not.i1123, label %call.i868.noexc, label %if.then.i1124
 
 if.then.i1124:                                    ; preds = %invoke.cont219
@@ -7937,7 +7937,7 @@ invoke.cont230:                                   ; preds = %invoke.cont228
   %number_.i1161 = getelementptr inbounds i8, ptr %field, i64 4
   %216 = load i32, ptr %number_.i1161, align 4
   %217 = load ptr, ptr %stream, align 8
-  %cmp.not.i1162 = icmp ugt ptr %217, %retval.0.i
+  %cmp.not.i1162 = icmp ult ptr %retval.0.i, %217
   br i1 %cmp.not.i1162, label %call.i886.noexc, label %if.then.i1163
 
 if.then.i1163:                                    ; preds = %invoke.cont230
@@ -8057,7 +8057,7 @@ invoke.cont241:                                   ; preds = %invoke.cont239
   %number_.i1199 = getelementptr inbounds i8, ptr %field, i64 4
   %230 = load i32, ptr %number_.i1199, align 4
   %231 = load ptr, ptr %stream, align 8
-  %cmp.not.i1200 = icmp ugt ptr %231, %retval.0.i
+  %cmp.not.i1200 = icmp ult ptr %retval.0.i, %231
   br i1 %cmp.not.i1200, label %call.i904.noexc, label %if.then.i1201
 
 if.then.i1201:                                    ; preds = %invoke.cont241
@@ -8177,7 +8177,7 @@ invoke.cont252:                                   ; preds = %invoke.cont250
   %number_.i1237 = getelementptr inbounds i8, ptr %field, i64 4
   %244 = load i32, ptr %number_.i1237, align 4
   %245 = load ptr, ptr %stream, align 8
-  %cmp.not.i1238 = icmp ugt ptr %245, %retval.0.i
+  %cmp.not.i1238 = icmp ult ptr %retval.0.i, %245
   br i1 %cmp.not.i1238, label %call.i922.noexc, label %if.then.i1239
 
 if.then.i1239:                                    ; preds = %invoke.cont252
@@ -8306,7 +8306,7 @@ for.body272:                                      ; preds = %for.body272.lr.ph, 
   %indvars.iv = phi i64 [ 0, %for.body272.lr.ph ], [ %indvars.iv.next, %for.inc587 ]
   %target.addr.41849 = phi ptr [ %target, %for.body272.lr.ph ], [ %target.addr.5, %for.inc587 ]
   %259 = load ptr, ptr %stream, align 8
-  %cmp.not.i1274 = icmp ugt ptr %259, %target.addr.41849
+  %cmp.not.i1274 = icmp ult ptr %target.addr.41849, %259
   br i1 %cmp.not.i1274, label %invoke.cont273, label %if.then.i1275
 
 if.then.i1275:                                    ; preds = %for.body272
@@ -9363,7 +9363,7 @@ if.then558:                                       ; preds = %land.lhs.true2.i
 invoke.cont560:                                   ; preds = %if.then558
   %358 = load i32, ptr %number_.i1750, align 4
   %359 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i1751 = icmp ugt ptr %359, %retval.0.i1277
+  %cmp.not.i.i1751 = icmp ult ptr %retval.0.i1277, %359
   br i1 %cmp.not.i.i1751, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i1752
 
 if.then.i.i1752:                                  ; preds = %invoke.cont560
@@ -9563,7 +9563,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal30SerializeMapKeyWithCach
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %0 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %0, %target
+  %cmp.not.i = icmp ult ptr %target, %0
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i56
 
 if.then.i56:                                      ; preds = %entry
@@ -10483,7 +10483,7 @@ entry:
   %call.i13 = tail call { ptr, ptr } %0(ptr noundef nonnull align 8 dereferenceable(16) %message)
   %1 = extractvalue { ptr, ptr } %call.i13, 1
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %2, %target
+  %cmp.not.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -10522,7 +10522,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %call6 = tail call noundef i32 @_ZNK6google8protobuf11MessageLite13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %call5)
   %call7 = tail call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite20InternalWriteMessageEiRKNS0_11MessageLiteEiPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %call5, i32 noundef %call6, ptr noundef nonnull %incdec.ptr2.i.i16, ptr noundef nonnull %stream)
   %5 = load ptr, ptr %stream, align 8
-  %cmp.not.i17 = icmp ugt ptr %5, %call7
+  %cmp.not.i17 = icmp ult ptr %call7, %5
   br i1 %cmp.not.i17, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit21, label %if.then.i18
 
 if.then.i18:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -10723,7 +10723,7 @@ entry:
   %call5 = tail call fastcc noundef i64 @_ZN6google8protobuf8internalL27MapValueRefDataOnlyByteSizeEPKNS0_15FieldDescriptorERKNS0_16MapValueConstRefE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(12) %value)
   %add6 = add i64 %add, %call5
   %2 = load ptr, ptr %stream, align 8
-  %cmp.not.i = icmp ugt ptr %2, %target
+  %cmp.not.i = icmp ult ptr %target, %2
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -10779,7 +10779,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit30: ; pr
   store i8 %conv1.i.i21, ptr %ptr.addr.i.0.lcssa.i19, align 1
   %call11 = tail call noundef ptr @_ZN6google8protobuf8internal30SerializeMapKeyWithCachedSizesEPKNS0_15FieldDescriptorERKNS0_6MapKeyEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(36) %key, ptr noundef nonnull %incdec.ptr2.i.i22, ptr noundef nonnull %stream)
   %6 = load ptr, ptr %stream, align 8
-  %cmp.not.i.i = icmp ugt ptr %6, %call11
+  %cmp.not.i.i = icmp ult ptr %call11, %6
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i72.i
 
 if.then.i72.i:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit30
@@ -14560,7 +14560,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #23
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %__cur.010.i.i.i.i.i, %cond.i19
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %cond.i19, %__cur.010.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %_ZSt8_DestroyIN6google8protobuf6MapKeyEEvPT_.exit.i.i.i.i.i.i.i
@@ -14602,7 +14602,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 40
-  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
+  %cmp.not8.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i40
@@ -15146,7 +15146,7 @@ entry:
   %agg.tmp37 = alloca %"class.google::protobuf::MapKey", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp37 = icmp sgt i64 %div, %__holeIndex
+  %cmp37 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp37, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
@@ -17597,7 +17597,7 @@ while.body.i34:                                   ; preds = %while.body.i34.oute
 if.then14.i:                                      ; preds = %while.body.i34
   %4 = load ptr, ptr %__last1.sroa.0.0.i.ph, align 8
   store ptr %4, ptr %incdec.ptr.i11.i, align 8
-  %cmp.i12.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce
+  %cmp.i12.i = icmp eq ptr %__first.coerce, %__last1.sroa.0.0.i.ph
   br i1 %cmp.i12.i, label %if.then19.i, label %while.body.i34.outer, !llvm.loop !117
 
 if.then19.i:                                      ; preds = %if.then14.i
@@ -17618,7 +17618,7 @@ if.then.i.i.i.i.i19.i:                            ; preds = %if.then19.i
 if.else28.i:                                      ; preds = %while.body.i34
   %5 = load ptr, ptr %__last2.addr.0.i, align 8
   store ptr %5, ptr %incdec.ptr.i11.i, align 8
-  %cmp31.i = icmp eq ptr %__last2.addr.0.i, %__buffer
+  %cmp31.i = icmp eq ptr %__buffer, %__last2.addr.0.i
   br i1 %cmp31.i, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_SB_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_SI_T1_T2_.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else28.i
@@ -17739,7 +17739,7 @@ if.then.i.i.i.i.i.i89:                            ; preds = %if.then4.i
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i: ; preds = %if.then.i.i.i.i.i.i89, %if.then4.i
-  %tobool.not.i.i.i.i.i13.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce
+  %tobool.not.i.i.i.i.i13.i = icmp eq ptr %__middle.coerce, %__first_cut.sroa.0.0
   br i1 %tobool.not.i.i.i.i.i13.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i, label %if.then.i.i.i.i.i14.i
 
 if.then.i.i.i.i.i14.i:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i
@@ -17767,14 +17767,14 @@ if.else20.i:                                      ; preds = %if.end
   br i1 %cmp21.not.i, label %if.else44.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.else20.i
-  %tobool23.not.i = icmp eq i64 %__len11.0, %__len1
+  %tobool23.not.i = icmp eq i64 %__len1, %__len11.0
   br i1 %tobool23.not.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lET_SC_SC_SC_T1_SD_T0_SD_.exit, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then22.i
   %sub.ptr.lhs.cast.i.i.i.i.i22.i = ptrtoint ptr %__middle.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i.i23.i = ptrtoint ptr %__first_cut.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i.i23.i
-  %tobool.not.i.i.i.i.i25.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce
+  %tobool.not.i.i.i.i.i25.i = icmp eq ptr %__middle.coerce, %__first_cut.sroa.0.0
   br i1 %tobool.not.i.i.i.i.i25.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit28.i, label %if.then.i.i.i.i.i26.i
 
 if.then.i.i.i.i.i26.i:                            ; preds = %if.then24.i
@@ -18032,7 +18032,7 @@ while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first1.sroa.0.1.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.1.i, %add.ptr.i
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr.i, %__first1.sroa.0.1.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.loopexit
@@ -18044,7 +18044,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
   %sub.ptr.lhs.cast.i.i.i.i.i6.i = ptrtoint ptr %add.ptr.i5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i7.i = ptrtoint ptr %__first2.sroa.0.1.i to i64
   %sub.ptr.sub.i.i.i.i.i8.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i6.i, %sub.ptr.rhs.cast.i.i.i.i.i7.i
-  %tobool.not.i.i.i.i.i9.i = icmp eq ptr %__first2.sroa.0.1.i, %add.ptr.i5
+  %tobool.not.i.i.i.i.i9.i = icmp eq ptr %add.ptr.i5, %__first2.sroa.0.1.i
   br i1 %tobool.not.i.i.i.i.i9.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit, label %if.then.i.i.i.i.i10.i
 
 if.then.i.i.i.i.i10.i:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i
@@ -18063,7 +18063,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i11.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
   %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i65, %entry ], [ %sub.ptr.div.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
-  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %sub.ptr.div.i.lcssa, i64 %__step_size)
+  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.i.lcssa)
   %add.ptr.i11 = getelementptr inbounds ptr, ptr %__first.sroa.0.0.lcssa, i64 %.sroa.speculated
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i13)
   store ptr %__comp.coerce, ptr %__comp.i13, align 8
@@ -18099,7 +18099,7 @@ while.end.i17:                                    ; preds = %while.body.i34, %wh
   %sub.ptr.lhs.cast.i.i.i.i.i.i21 = ptrtoint ptr %add.ptr.i11 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i22 = ptrtoint ptr %__first1.sroa.0.0.lcssa.i19 to i64
   %sub.ptr.sub.i.i.i.i.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i21, %sub.ptr.rhs.cast.i.i.i.i.i.i22
-  %tobool.not.i.i.i.i.i.i24 = icmp eq ptr %__first1.sroa.0.0.lcssa.i19, %add.ptr.i11
+  %tobool.not.i.i.i.i.i.i24 = icmp eq ptr %add.ptr.i11, %__first1.sroa.0.0.lcssa.i19
   br i1 %tobool.not.i.i.i.i.i.i24, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i26, label %if.then.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i25:                            ; preds = %while.end.i17
@@ -18107,7 +18107,7 @@ if.then.i.i.i.i.i.i25:                            ; preds = %while.end.i17
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i26
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i26: ; preds = %if.then.i.i.i.i.i.i25, %while.end.i17
-  %tobool.not.i.i.i.i.i9.i31 = icmp eq ptr %__first2.sroa.0.0.lcssa.i18, %__last.coerce
+  %tobool.not.i.i.i.i.i9.i31 = icmp eq ptr %__last.coerce, %__first2.sroa.0.0.lcssa.i18
   br i1 %tobool.not.i.i.i.i.i9.i31, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit49, label %if.then.i.i.i.i.i10.i32
 
 if.then.i.i.i.i.i10.i32:                          ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i26
@@ -18173,7 +18173,7 @@ while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first1.addr.1.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %__first1.addr.1.i, %add.ptr
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr, %__first1.addr.1.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.loopexit
@@ -18185,7 +18185,7 @@ _ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vect
   %sub.ptr.lhs.cast.i.i.i.i.i11.i = ptrtoint ptr %add.ptr4 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i12.i = ptrtoint ptr %__first2.addr.1.i to i64
   %sub.ptr.sub.i.i.i.i.i13.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i11.i, %sub.ptr.rhs.cast.i.i.i.i.i12.i
-  %tobool.not.i.i.i.i.i14.i = icmp eq ptr %__first2.addr.1.i, %add.ptr4
+  %tobool.not.i.i.i.i.i14.i = icmp eq ptr %add.ptr4, %__first2.addr.1.i
   br i1 %tobool.not.i.i.i.i.i14.i, label %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit, label %if.then.i.i.i.i.i15.i
 
 if.then.i.i.i.i.i15.i:                            ; preds = %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i
@@ -18204,7 +18204,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr4, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
   %__result.sroa.0.0.lcssa = phi ptr [ %__result.coerce, %entry ], [ %add.ptr.i.i.i.i.i16.i, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
   %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div55, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
-  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa, i64 %__step_size)
+  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.lcssa)
   %add.ptr17 = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i15)
   store ptr %__comp.coerce, ptr %__comp.i15, align 8
@@ -18240,7 +18240,7 @@ while.end.i18:                                    ; preds = %while.body.i35, %wh
   %sub.ptr.lhs.cast.i.i.i.i.i.i22 = ptrtoint ptr %add.ptr17 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i23 = ptrtoint ptr %__first1.addr.0.lcssa.i21 to i64
   %sub.ptr.sub.i.i.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i22, %sub.ptr.rhs.cast.i.i.i.i.i.i23
-  %tobool.not.i.i.i.i.i.i25 = icmp eq ptr %__first1.addr.0.lcssa.i21, %add.ptr17
+  %tobool.not.i.i.i.i.i.i25 = icmp eq ptr %add.ptr17, %__first1.addr.0.lcssa.i21
   br i1 %tobool.not.i.i.i.i.i.i25, label %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i27, label %if.then.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i26:                            ; preds = %while.end.i18
@@ -18248,7 +18248,7 @@ if.then.i.i.i.i.i.i26:                            ; preds = %while.end.i18
   br label %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i27
 
 _ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i27: ; preds = %if.then.i.i.i.i.i.i26, %while.end.i18
-  %tobool.not.i.i.i.i.i14.i32 = icmp eq ptr %__first2.addr.0.lcssa.i20, %__last
+  %tobool.not.i.i.i.i.i14.i32 = icmp eq ptr %__last, %__first2.addr.0.lcssa.i20
   br i1 %tobool.not.i.i.i.i.i14.i32, label %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit49, label %if.then.i.i.i.i.i15.i33
 
 if.then.i.i.i.i.i15.i33:                          ; preds = %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i27

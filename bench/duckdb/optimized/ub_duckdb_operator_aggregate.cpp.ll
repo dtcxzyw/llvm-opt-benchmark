@@ -49747,7 +49747,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN6duckdb25HashAggregateGroupingDataESaIS1_EE14_S_do_relocateEPS1_S4_S4_RS2_St17integral_constantIbLb1EE.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i51, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 232
-  %cmp.not6.i.i.i1 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i1 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i1, label %_ZNSt6vectorIN6duckdb25HashAggregateGroupingDataESaIS1_EE14_S_do_relocateEPS1_S4_S4_RS2_St17integral_constantIbLb1EE.exit41, label %for.body.i.i.i2
 
 for.body.i.i.i2:                                  ; preds = %_ZNSt6vectorIN6duckdb25HashAggregateGroupingDataESaIS1_EE14_S_do_relocateEPS1_S4_S4_RS2_St17integral_constantIbLb1EE.exit, %for.body.i.i.i2

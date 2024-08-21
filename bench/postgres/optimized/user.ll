@@ -1084,7 +1084,7 @@ declare ptr @get_rolespec_tuple(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_role_membership_authorization(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp eq i32 %1, 6171
-  %or.cond = and i1 %4, %2
+  %or.cond = and i1 %2, %4
   br i1 %or.cond, label %5, label %9
 
 5:                                                ; preds = %3

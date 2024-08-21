@@ -147,7 +147,7 @@ define void @Nf_StoCreateGateAdd(ptr nocapture noundef %0, ptr nocapture noundef
   %14 = and i32 %13, 1
   %15 = and i64 %3, 1
   %sext = sub nsw i64 0, %15
-  %16 = xor i64 %sext, %3
+  %16 = xor i64 %3, %sext
   store i64 %16, ptr %12, align 8
   %17 = call fastcc i32 @Vec_MemHashInsert(ptr noundef %0, ptr noundef nonnull %12)
   %18 = getelementptr i8, ptr %1, i64 4
@@ -3338,7 +3338,7 @@ Nf_CutComputeTruthMux6.exit.us.us.us:             ; preds = %480, %._crit_edge.i
   %.val.i205.us.us.us = load ptr, ptr %147, align 8
   %494 = getelementptr i8, ptr %.val.i205.us.us.us, i64 4
   %.val.val.i.us.us.us = load i32, ptr %494, align 4
-  %.not81.i.us.us.us = icmp sgt i32 %.val.val.i.us.us.us, %488
+  %.not81.i.us.us.us = icmp slt i32 %488, %.val.val.i.us.us.us
   %495 = select i1 %.not81.i.us.us.us, i32 0, i32 67108864
   %496 = and i32 %493, -67108865
   %497 = or disjoint i32 %495, %496
@@ -4090,7 +4090,7 @@ Nf_CutComputeTruth6.exit.us:                      ; preds = %857, %._crit_edge.i
   %.val.i277.us = load ptr, ptr %565, align 8
   %871 = getelementptr i8, ptr %.val.i277.us, i64 4
   %.val.val.i278.us = load i32, ptr %871, align 4
-  %.not59.i.us = icmp sgt i32 %.val.val.i278.us, %865
+  %.not59.i.us = icmp slt i32 %865, %.val.val.i278.us
   %872 = select i1 %.not59.i.us, i32 0, i32 67108864
   %873 = and i32 %870, -67108865
   %874 = or disjoint i32 %872, %873
@@ -4557,7 +4557,7 @@ Nf_CutGetSign.exit:                               ; preds = %.lr.ph.i, %23
   %.val46 = load ptr, ptr %22, align 8
   %44 = getelementptr i8, ptr %.val46, i64 4
   %.val46.val = load i32, ptr %44, align 4
-  %.not47 = icmp sgt i32 %.val46.val, %43
+  %.not47 = icmp slt i32 %43, %.val46.val
   %45 = select i1 %.not47, i32 0, i32 67108864
   %46 = or disjoint i32 %29, %45
   %47 = or disjoint i32 %46, %32
@@ -8377,7 +8377,7 @@ define void @Nf_ManElaBestMatchOne(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i32 0, ptr %50, align 4
   %53 = getelementptr inbounds i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
-  %55 = xor i32 %52, %2
+  %55 = xor i32 %2, %52
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %54, i64 %56, i32 3
   %58 = load float, ptr %57, align 4

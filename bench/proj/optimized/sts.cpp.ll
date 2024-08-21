@@ -410,14 +410,14 @@ define internal { double, double } @_ZL13sts_s_forward5PJ_LPP8PJconsts(double %0
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %5, align 8
-  %7 = fmul double %6, %0
+  %7 = fmul double %0, %6
   %8 = tail call double @cos(double noundef %1) #6
   %9 = fmul double %7, %8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load double, ptr %12, align 8
-  %14 = fmul double %13, %1
+  %14 = fmul double %1, %13
   %15 = tail call double @cos(double noundef %14) #6
   %16 = getelementptr inbounds i8, ptr %5, i64 24
   %17 = load i32, ptr %16, align 8

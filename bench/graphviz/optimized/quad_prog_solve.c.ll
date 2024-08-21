@@ -171,7 +171,7 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds float, ptr %9, i64 %33
   %35 = load float, ptr %34, align 4
-  %36 = fadd float %35, %5
+  %36 = fadd float %5, %35
   br label %37
 
 37:                                               ; preds = %31, %30
@@ -290,7 +290,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %89 = getelementptr inbounds i32, ptr %59, i64 %78
   %90 = load i32, ptr %89, align 4
   %91 = icmp sgt i32 %88, %90
-  %92 = fadd float %83, %5
+  %92 = fadd float %5, %83
   %.1383.us647 = select i1 %91, float %92, float %83
   %93 = getelementptr inbounds i32, ptr %14, i64 %86
   %94 = load i32, ptr %93, align 4
@@ -310,7 +310,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %104 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv.next555
   %105 = load i32, ptr %104, align 4
   %106 = icmp sgt i32 %103, %105
-  %107 = fadd float %.1383.us650, %5
+  %107 = fadd float %5, %.1383.us650
   %.1383.us = select i1 %106, float %107, float %.1383.us650
   %108 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.next553
   %109 = load i32, ptr %108, align 4
@@ -566,7 +566,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds float, ptr %9, i64 %225
   %227 = load float, ptr %226, align 4
-  %228 = fadd float %227, %5
+  %228 = fadd float %5, %227
   br label %322
 
 229:                                              ; preds = %._crit_edge525.us
@@ -680,7 +680,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds float, ptr %9, i64 %298
   %300 = load float, ptr %299, align 4
-  %301 = fadd float %300, %5
+  %301 = fadd float %5, %300
   br label %302
 
 302:                                              ; preds = %294, %287

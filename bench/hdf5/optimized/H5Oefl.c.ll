@@ -77,7 +77,7 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr nocapture readn
   br label %421
 
 14:                                               ; preds = %6
-  %15 = icmp ult ptr %.ptr191, %5
+  %15 = icmp ugt ptr %5, %.ptr191
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %14

@@ -886,7 +886,7 @@ dissect_ctdb_req_dmaster.exit:                    ; preds = %199, %208
   br i1 %.not13.i.i, label %find_control_dissector.exit.thread.i, label %275
 
 275:                                              ; preds = %272, %269, %267
-  %276 = icmp eq i32 %268, %266
+  %276 = icmp eq i32 %266, %268
   br i1 %276, label %find_control_dissector.exit.i, label %277
 
 277:                                              ; preds = %275
@@ -1055,7 +1055,7 @@ proto_item_set_generated.exit.i:                  ; preds = %309, %306, %302
   br i1 %.not13.i.i148, label %find_control_dissector.exit.thread.i144, label %355
 
 355:                                              ; preds = %352, %349, %347
-  %356 = icmp eq i32 %348, %346
+  %356 = icmp eq i32 %346, %348
   br i1 %356, label %find_control_dissector.exit.i146, label %357
 
 357:                                              ; preds = %355

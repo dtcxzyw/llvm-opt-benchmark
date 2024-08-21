@@ -1305,7 +1305,7 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   %71 = phi i64 [ %15, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ], [ %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ]
   %72 = phi ptr [ %35, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ], [ %spec.select.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ]
   %.03.i.i.i = load i32, ptr %72, align 4, !noalias !193, !noundef !4
-  %.not.i2.i.i = icmp ult i32 %.03.i.i.i, %26
+  %.not.i2.i.i = icmp ugt i32 %26, %.03.i.i.i
   br i1 %.not.i2.i.i, label %73, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h7d44eff04c20425bE.exit.i"
 
 73:                                               ; preds = %68
@@ -1549,7 +1549,7 @@ define internal fastcc void @_ZN17markup5ever_rcdom18remove_from_parent17hd48dc4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %13 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 128
   %14 = load i64, ptr %13, align 8, !alias.scope !224, !noalias !227, !noundef !4
-  %.not.i = icmp ugt i64 %14, %.fca.1.extract
+  %.not.i = icmp ult i64 %.fca.1.extract, %14
   br i1 %.not.i, label %21, label %15
 
 15:                                               ; preds = %12
@@ -2611,7 +2611,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   %109 = getelementptr inbounds i8, ptr %88, i64 120
   %110 = load ptr, ptr %109, align 8, !alias.scope !365, !nonnull !4, !noundef !4
   %111 = getelementptr inbounds ptr, ptr %110, i64 %.fca.1.extract
-  %112 = icmp ugt i64 %105, %.fca.1.extract
+  %112 = icmp ult i64 %.fca.1.extract, %105
   br i1 %112, label %117, label %115
 
 113:                                              ; preds = %121, %108
@@ -2621,7 +2621,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
           to label %83 unwind label %123
 
 115:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h286b4de4b2f08090E.llvm.2171480472617847398.exit.i"
-  %116 = icmp eq i64 %105, %.fca.1.extract
+  %116 = icmp eq i64 %.fca.1.extract, %105
   br i1 %116, label %126, label %121
 
 117:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h286b4de4b2f08090E.llvm.2171480472617847398.exit.i"

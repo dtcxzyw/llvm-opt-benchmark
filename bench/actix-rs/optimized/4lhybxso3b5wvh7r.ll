@@ -1143,7 +1143,7 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit: ; preds = %.noexc45, %7
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %111 = getelementptr inbounds i8, ptr %2, i64 16
   %112 = load i64, ptr %111, align 8, !alias.scope !58, !noalias !59, !noundef !5
-  %.not.i.i = icmp ugt i64 %112, %110
+  %.not.i.i = icmp ult i64 %110, %112
   %113 = getelementptr inbounds i8, ptr %2, i64 8
   %114 = load ptr, ptr %113, align 8, !alias.scope !58, !noalias !59, !nonnull !5
   %115 = getelementptr inbounds { i64, [38 x i64] }, ptr %114, i64 %110
@@ -3794,7 +3794,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
   %185 = getelementptr inbounds i8, ptr %1, i64 16
   %186 = load i64, ptr %185, align 8, !alias.scope !232, !noalias !233, !noundef !5
-  %.not.i.i.i = icmp ugt i64 %186, %179
+  %.not.i.i.i = icmp ult i64 %179, %186
   %187 = getelementptr inbounds i8, ptr %1, i64 8
   %188 = load ptr, ptr %187, align 8, !alias.scope !232, !noalias !233, !nonnull !5
   %189 = getelementptr inbounds { i64, [38 x i64] }, ptr %188, i64 %179
@@ -7177,7 +7177,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit893
   %892 = load i64, ptr %891, align 8, !alias.scope !360, !noalias !369, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !370)
   %893 = load i64, ptr %278, align 8, !alias.scope !373, !noalias !374, !noundef !5
-  %.not.i.i = icmp ugt i64 %893, %887
+  %.not.i.i = icmp ult i64 %887, %893
   %894 = load ptr, ptr %279, align 8, !alias.scope !373, !noalias !374, !nonnull !5
   %895 = getelementptr inbounds { i64, [38 x i64] }, ptr %894, i64 %887
   br i1 %.not.i.i, label %896, label %.invoke1672
@@ -7455,7 +7455,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit899
   %979 = load i64, ptr %978, align 8, !alias.scope !380, !noalias !389, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !390)
   %980 = load i64, ptr %278, align 8, !alias.scope !393, !noalias !394, !noundef !5
-  %.not.i.i925 = icmp ugt i64 %980, %974
+  %.not.i.i925 = icmp ult i64 %974, %980
   %981 = load ptr, ptr %279, align 8, !alias.scope !393, !noalias !394, !nonnull !5
   %982 = getelementptr inbounds { i64, [38 x i64] }, ptr %981, i64 %974
   br i1 %.not.i.i925, label %983, label %.invoke1672
@@ -9087,7 +9087,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit265
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
   %398 = getelementptr inbounds i8, ptr %2, i64 16
   %399 = load i64, ptr %398, align 8, !alias.scope !486, !noalias !487, !noundef !5
-  %.not.i.i = icmp ugt i64 %399, %397
+  %.not.i.i = icmp ult i64 %397, %399
   %400 = getelementptr inbounds i8, ptr %2, i64 8
   %401 = load ptr, ptr %400, align 8, !alias.scope !486, !noalias !487, !nonnull !5
   %402 = getelementptr inbounds { i64, [38 x i64] }, ptr %401, i64 %397
@@ -9946,7 +9946,7 @@ define hidden void @"_ZN98_$LT$h2..proto..streams..prioritize..Prioritized$LT$B$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !634)
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8, !alias.scope !634, !noundef !5
-  %.not.i = icmp ult i64 %8, %1
+  %.not.i = icmp ugt i64 %1, %8
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %2
@@ -9959,7 +9959,7 @@ define hidden void @"_ZN98_$LT$h2..proto..streams..prioritize..Prioritized$LT$B$
   store i64 %1, ptr %6, align 8, !noalias !640
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !640, !noundef !5
-  %.not.i.i = icmp ult i64 %12, %1
+  %.not.i.i = icmp ugt i64 %1, %12
   br i1 %.not.i.i, label %13, label %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h49d4c34d039d0d73E.exit"
 
 13:                                               ; preds = %10

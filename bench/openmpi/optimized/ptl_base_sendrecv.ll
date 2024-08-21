@@ -1594,7 +1594,7 @@ pmix_strncpy.exit433:                             ; preds = %530, %533
 
 570:                                              ; preds = %60
   %571 = load ptr, ptr @pmix_client_globals, align 8
-  %572 = icmp eq ptr %571, %0
+  %572 = icmp eq ptr %0, %571
   br i1 %572, label %573, label %728
 
 573:                                              ; preds = %570

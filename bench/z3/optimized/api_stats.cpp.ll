@@ -511,7 +511,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %cmp.not = icmp ugt i32 %call10, %idx
+  %cmp.not = icmp ult i32 %idx, %call10
   br i1 %cmp.not, label %invoke.cont16, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont9
@@ -614,7 +614,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %cmp.not = icmp ugt i32 %call10, %idx
+  %cmp.not = icmp ult i32 %idx, %call10
   br i1 %cmp.not, label %invoke.cont16, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont9
@@ -715,7 +715,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %cmp.not = icmp ugt i32 %call10, %idx
+  %cmp.not = icmp ult i32 %idx, %call10
   br i1 %cmp.not, label %invoke.cont16, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont9
@@ -818,7 +818,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %cmp.not = icmp ugt i32 %call10, %idx
+  %cmp.not = icmp ult i32 %idx, %call10
   br i1 %cmp.not, label %invoke.cont16, label %if.then20.invoke
 
 invoke.cont16:                                    ; preds = %invoke.cont9
@@ -927,7 +927,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %cmp.not = icmp ugt i32 %call10, %idx
+  %cmp.not = icmp ult i32 %idx, %call10
   br i1 %cmp.not, label %invoke.cont16, label %if.then20.invoke
 
 invoke.cont16:                                    ; preds = %invoke.cont9

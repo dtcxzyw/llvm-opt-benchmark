@@ -106,7 +106,7 @@ define hidden noundef double @_ZN18G1HeapSizingPolicy15scale_with_heapEd(ptr noc
   %26 = lshr i64 %25, 1
   %27 = uitofp nneg i64 %26 to double
   %28 = fdiv double %20, %27
-  %29 = fmul double %28, %1
+  %29 = fmul double %1, %28
   %30 = fcmp ogt double %29, 1.000000e-02
   %31 = select i1 %30, double %29, double 1.000000e-02
   br label %32

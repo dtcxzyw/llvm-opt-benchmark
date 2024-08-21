@@ -1785,7 +1785,7 @@ switch.lookup:                                    ; preds = %9
 
 45:                                               ; preds = %41, %43, %31
   %.sink = phi i32 [ 72, %41 ], [ 104, %43 ], [ 40, %31 ]
-  %46 = add i32 %.sink, %3
+  %46 = add i32 %3, %.sink
   %47 = load i32, ptr @hf_sapms_server_lst_service, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 20, i32 noundef 0) #4
   %49 = add i32 %46, 20

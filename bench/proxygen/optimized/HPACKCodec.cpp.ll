@@ -3001,7 +3001,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit29, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
@@ -4338,7 +4338,7 @@ entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %capacity_.i, align 8
   %and.i = and i64 %0, 4611686018427387903
-  %cmp.not = icmp ult i64 %and.i, %minCapacity
+  %cmp.not = icmp ugt i64 %minCapacity, %and.i
   br i1 %cmp.not, label %if.end, label %if.end20
 
 if.end:                                           ; preds = %entry
@@ -4497,7 +4497,7 @@ if.then:                                          ; preds = %entry
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %capacity_.i.i, align 8
   %and.i.i = and i64 %3, 4611686018427387903
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %and.i.i, i64 %2)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 %and.i.i)
   store i64 %.sroa.speculated.i, ptr %effectiveCapacity.i, align 8
   %call3.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i)
   %4 = load ptr, ptr %this, align 8
@@ -4694,7 +4694,7 @@ if.then:                                          ; preds = %entry
   %add = add i64 %sub.i, %delta
   store i64 %add, ptr %newSz, align 8
   %cmp4 = icmp ugt i64 %add, 23
-  %or.cond.not = or i1 %cmp4, %disableSSO
+  %or.cond.not = or i1 %disableSSO, %cmp4
   br i1 %or.cond.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then

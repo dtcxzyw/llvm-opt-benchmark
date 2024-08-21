@@ -381,7 +381,7 @@ define void @php_pdo_stmt_set_column_count(ptr nocapture noundef %0, i32 noundef
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %5, align 4
-  %8 = icmp eq i32 %7, %1
+  %8 = icmp eq i32 %1, %7
   br i1 %8, label %27, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
@@ -3506,7 +3506,7 @@ define internal fastcc void @fetch_value(ptr noundef %0, ptr noundef %1, i32 nou
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
-  %.not = icmp sgt i32 %11, %2
+  %.not = icmp slt i32 %2, %11
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %9

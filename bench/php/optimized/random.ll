@@ -490,7 +490,7 @@ declare void @zend_objects_clone_members(ptr noundef, ptr noundef) local_unnamed
 define i64 @php_random_range(ptr nocapture readonly %0, ptr %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = sub i64 %3, %2
   %6 = icmp ugt i64 %5, 4294967295
-  br i1 %6, label %7, label %49
+  br i1 %6, label %7, label %50
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -574,101 +574,106 @@ define i64 @php_random_range(ptr nocapture readonly %0, ptr %1, i64 noundef %2, 
   %48 = urem i64 %.1.lcssa.i, %24
   br label %php_random_range64.exit
 
-49:                                               ; preds = %4
-  %50 = trunc nuw i64 %5 to i32
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %52
+php_random_range64.exit:                          ; preds = %9, %.preheader.i, %21, %27, %35, %._crit_edge.i
+  %.0.i = phi i64 [ %28, %27 ], [ 0, %35 ], [ %48, %._crit_edge.i ], [ %17, %21 ], [ 0, %.preheader.i ], [ 0, %9 ]
+  %49 = add i64 %.0.i, %2
+  br label %97
 
-52:                                               ; preds = %56, %49
-  %.030.i11 = phi i64 [ 0, %49 ], [ %63, %56 ]
-  %.029.i12 = phi i32 [ 0, %49 ], [ %61, %56 ]
-  %53 = load ptr, ptr %51, align 8
-  %54 = tail call { i64, i64 } %53(ptr noundef %1) #13
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not.i13 = icmp eq ptr %55, null
-  br i1 %.not.i13, label %56, label %php_random_range32.exit
+50:                                               ; preds = %4
+  %51 = trunc nuw i64 %5 to i32
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %53
 
-56:                                               ; preds = %52
-  %57 = extractvalue { i64, i64 } %54, 0
-  %58 = trunc i64 %57 to i32
+53:                                               ; preds = %57, %50
+  %.030.i11 = phi i64 [ 0, %50 ], [ %64, %57 ]
+  %.029.i12 = phi i32 [ 0, %50 ], [ %62, %57 ]
+  %54 = load ptr, ptr %52, align 8
+  %55 = tail call { i64, i64 } %54(ptr noundef %1) #13
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not.i13 = icmp eq ptr %56, null
+  br i1 %.not.i13, label %57, label %php_random_range32.exit
+
+57:                                               ; preds = %53
+  %58 = extractvalue { i64, i64 } %55, 0
+  %59 = trunc i64 %58 to i32
   %.030.tr.i = trunc i64 %.030.i11 to i32
-  %59 = shl nuw nsw i32 %.030.tr.i, 3
-  %60 = shl i32 %58, %59
-  %61 = or i32 %60, %.029.i12
-  %62 = extractvalue { i64, i64 } %54, 1
-  %63 = add i64 %62, %.030.i11
-  %64 = icmp ult i64 %63, 4
-  br i1 %64, label %52, label %65
+  %60 = shl nuw nsw i32 %.030.tr.i, 3
+  %61 = shl i32 %59, %60
+  %62 = or i32 %61, %.029.i12
+  %63 = extractvalue { i64, i64 } %55, 1
+  %64 = add i64 %63, %.030.i11
+  %65 = icmp ult i64 %64, 4
+  br i1 %65, label %53, label %66
 
-65:                                               ; preds = %56
-  %66 = icmp eq i64 %5, 4294967295
-  br i1 %66, label %php_random_range32.exit, label %67
+66:                                               ; preds = %57
+  %67 = icmp eq i64 %5, 4294967295
+  br i1 %67, label %php_random_range32.exit, label %68
 
-67:                                               ; preds = %65
-  %68 = add nuw i32 %50, 1
-  %69 = and i32 %68, %50
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %73
+68:                                               ; preds = %66
+  %69 = add nuw i32 %51, 1
+  %70 = and i32 %69, %51
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %67
-  %72 = and i32 %61, %50
+72:                                               ; preds = %68
+  %73 = and i32 %62, %51
   br label %php_random_range32.exit
 
-73:                                               ; preds = %67
-  %74 = urem i32 -1, %68
-  %75 = sub nuw i32 -2, %74
-  %76 = icmp ugt i32 %61, %75
-  br i1 %76, label %.lr.ph.i17, label %._crit_edge.i15
-
-.loopexit38.i24:                                  ; preds = %84
-  %77 = icmp ugt i32 %91, %75
+74:                                               ; preds = %68
+  %75 = urem i32 -1, %69
+  %76 = sub nuw i32 -2, %75
+  %77 = icmp ugt i32 %62, %76
   br i1 %77, label %.lr.ph.i17, label %._crit_edge.i15
 
-.lr.ph.i17:                                       ; preds = %73, %.loopexit38.i24
-  %.03246.i18 = phi i32 [ %78, %.loopexit38.i24 ], [ 0, %73 ]
-  %78 = add nuw nsw i32 %.03246.i18, 1
+.loopexit38.i24:                                  ; preds = %85
+  %78 = icmp ugt i32 %92, %76
+  br i1 %78, label %.lr.ph.i17, label %._crit_edge.i15
+
+.lr.ph.i17:                                       ; preds = %74, %.loopexit38.i24
+  %.03246.i18 = phi i32 [ %79, %.loopexit38.i24 ], [ 0, %74 ]
+  %79 = add nuw nsw i32 %.03246.i18, 1
   %exitcond.i19 = icmp eq i32 %.03246.i18, 50
-  br i1 %exitcond.i19, label %79, label %.preheader.i20
+  br i1 %exitcond.i19, label %80, label %.preheader.i20
 
-79:                                               ; preds = %.lr.ph.i17
-  %80 = load ptr, ptr @random_ce_Random_BrokenRandomEngineError, align 8
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %80, ptr noundef nonnull @.str, i32 noundef 50) #13
+80:                                               ; preds = %.lr.ph.i17
+  %81 = load ptr, ptr @random_ce_Random_BrokenRandomEngineError, align 8
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %81, ptr noundef nonnull @.str, i32 noundef 50) #13
   br label %php_random_range32.exit
 
-.preheader.i20:                                   ; preds = %.lr.ph.i17, %84
-  %.131.i21 = phi i64 [ %86, %84 ], [ 0, %.lr.ph.i17 ]
-  %.2.i22 = phi i32 [ %91, %84 ], [ 0, %.lr.ph.i17 ]
-  %81 = load ptr, ptr %51, align 8
-  %82 = tail call { i64, i64 } %81(ptr noundef %1) #13
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not37.i23 = icmp eq ptr %83, null
-  br i1 %.not37.i23, label %84, label %php_random_range32.exit
+.preheader.i20:                                   ; preds = %.lr.ph.i17, %85
+  %.131.i21 = phi i64 [ %87, %85 ], [ 0, %.lr.ph.i17 ]
+  %.2.i22 = phi i32 [ %92, %85 ], [ 0, %.lr.ph.i17 ]
+  %82 = load ptr, ptr %52, align 8
+  %83 = tail call { i64, i64 } %82(ptr noundef %1) #13
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not37.i23 = icmp eq ptr %84, null
+  br i1 %.not37.i23, label %85, label %php_random_range32.exit
 
-84:                                               ; preds = %.preheader.i20
-  %85 = extractvalue { i64, i64 } %82, 1
-  %86 = add i64 %85, %.131.i21
-  %87 = extractvalue { i64, i64 } %82, 0
-  %88 = trunc i64 %87 to i32
+85:                                               ; preds = %.preheader.i20
+  %86 = extractvalue { i64, i64 } %83, 1
+  %87 = add i64 %86, %.131.i21
+  %88 = extractvalue { i64, i64 } %83, 0
+  %89 = trunc i64 %88 to i32
   %.131.tr.i = trunc i64 %.131.i21 to i32
-  %89 = shl nuw nsw i32 %.131.tr.i, 3
-  %90 = shl i32 %88, %89
-  %91 = or i32 %90, %.2.i22
-  %92 = icmp ult i64 %86, 4
-  br i1 %92, label %.preheader.i20, label %.loopexit38.i24
+  %90 = shl nuw nsw i32 %.131.tr.i, 3
+  %91 = shl i32 %89, %90
+  %92 = or i32 %91, %.2.i22
+  %93 = icmp ult i64 %87, 4
+  br i1 %93, label %.preheader.i20, label %.loopexit38.i24
 
-._crit_edge.i15:                                  ; preds = %.loopexit38.i24, %73
-  %.1.lcssa.i16 = phi i32 [ %61, %73 ], [ %91, %.loopexit38.i24 ]
-  %93 = urem i32 %.1.lcssa.i16, %68
+._crit_edge.i15:                                  ; preds = %.loopexit38.i24, %74
+  %.1.lcssa.i16 = phi i32 [ %62, %74 ], [ %92, %.loopexit38.i24 ]
+  %94 = urem i32 %.1.lcssa.i16, %69
   br label %php_random_range32.exit
 
-php_random_range32.exit:                          ; preds = %52, %.preheader.i20, %65, %71, %79, %._crit_edge.i15
-  %.0.i14 = phi i32 [ %72, %71 ], [ 0, %79 ], [ %93, %._crit_edge.i15 ], [ %61, %65 ], [ 0, %.preheader.i20 ], [ 0, %52 ]
-  %94 = zext i32 %.0.i14 to i64
-  br label %php_random_range64.exit
+php_random_range32.exit:                          ; preds = %53, %.preheader.i20, %66, %72, %80, %._crit_edge.i15
+  %.0.i14 = phi i32 [ %73, %72 ], [ 0, %80 ], [ %94, %._crit_edge.i15 ], [ %62, %66 ], [ 0, %.preheader.i20 ], [ 0, %53 ]
+  %95 = zext i32 %.0.i14 to i64
+  %96 = add nsw i64 %2, %95
+  br label %97
 
-php_random_range64.exit:                          ; preds = %9, %.preheader.i, %._crit_edge.i, %35, %27, %21, %php_random_range32.exit
-  %.pn = phi i64 [ %94, %php_random_range32.exit ], [ %28, %27 ], [ 0, %35 ], [ %48, %._crit_edge.i ], [ %17, %21 ], [ 0, %.preheader.i ], [ 0, %9 ]
-  %.0 = add i64 %.pn, %2
+97:                                               ; preds = %php_random_range32.exit, %php_random_range64.exit
+  %.0 = phi i64 [ %49, %php_random_range64.exit ], [ %96, %php_random_range32.exit ]
   ret i64 %.0
 }
 
@@ -967,7 +972,7 @@ php_random_default_status.exit8:                  ; preds = %17, %19
   %28 = fmul double %27, 0x3E00000000000000
   %29 = fmul double %26, %28
   %30 = fptoui double %29 to i64
-  %31 = add i64 %30, %0
+  %31 = add i64 %0, %30
   br label %32
 
 32:                                               ; preds = %php_random_default_status.exit8, %php_mt_rand_range.exit

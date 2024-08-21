@@ -434,7 +434,7 @@ if.then11:                                        ; preds = %ratelimit_set_speed
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %ratelimit_set_speed.exit
-  %cmp15.not = icmp slt i64 %1, %speed
+  %cmp15.not = icmp sgt i64 %speed, %1
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp15.not
   br i1 %or.cond, label %if.end17, label %return
 

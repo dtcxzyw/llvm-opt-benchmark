@@ -151,7 +151,7 @@ define void @_ZN5faiss9DirectMap8set_typeENS0_4TypeEPKNS_13InvertedListsEm(ptr n
 
 27:                                               ; preds = %4
   %28 = load i32, ptr %0, align 8
-  %29 = icmp eq i32 %28, %1
+  %29 = icmp eq i32 %1, %28
   br i1 %29, label %.loopexit66, label %30
 
 30:                                               ; preds = %27
@@ -201,7 +201,7 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE5clearEv.exit: ;
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
-  %52 = icmp ult i64 %51, %3
+  %52 = icmp ugt i64 %3, %51
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %45
@@ -210,7 +210,7 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE5clearEv.exit: ;
   br label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
 
 55:                                               ; preds = %45
-  %56 = icmp ugt i64 %51, %3
+  %56 = icmp ult i64 %3, %51
   br i1 %56, label %57, label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
 
 57:                                               ; preds = %55
@@ -619,7 +619,7 @@ _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPllEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -703,7 +703,7 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !11
 
 _ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -772,7 +772,7 @@ define linkonce_odr void @_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_S
   %12 = fdiv double %9, %11
   %13 = tail call double @llvm.ceil.f64(double %12)
   %14 = fptoui double %13 to i64
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %14, i64 %1)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %14)
   %15 = tail call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %.sroa.speculated)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
@@ -906,7 +906,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = icmp eq ptr %30, %29
+  %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -1089,7 +1089,7 @@ define noundef i64 @_ZNK5faiss9DirectMap3getEl(ptr nocapture noundef nonnull rea
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
-  %20 = icmp ugt i64 %19, %1
+  %20 = icmp ult i64 %1, %19
   br i1 %20, label %37, label %21
 
 21:                                               ; preds = %9, %11
@@ -1195,7 +1195,7 @@ define noundef i64 @_ZNK5faiss9DirectMap3getEl(ptr nocapture noundef nonnull rea
 63:                                               ; preds = %62
   %64 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
   %65 = load i64, ptr %64, align 8
-  %66 = icmp eq i64 %65, %1
+  %66 = icmp eq i64 %1, %65
   br i1 %66, label %_ZNKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit, label %62, !llvm.loop !13
 
 67:                                               ; preds = %57
@@ -1213,11 +1213,11 @@ define noundef i64 @_ZNK5faiss9DirectMap3getEl(ptr nocapture noundef nonnull rea
   %76 = load ptr, ptr %74, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8
-  %79 = icmp eq i64 %78, %1
+  %79 = icmp eq i64 %1, %78
   br i1 %79, label %_ZNKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit, label %.lr.ph.i.i.i.i
 
 80:                                               ; preds = %83
-  %81 = icmp eq i64 %85, %1
+  %81 = icmp eq i64 %1, %85
   br i1 %81, label %_ZNKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i:                                   ; preds = %75, %80
@@ -1637,11 +1637,11 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   %87 = load ptr, ptr %85, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
-  %90 = icmp eq i64 %89, %1
+  %90 = icmp eq i64 %1, %89
   br i1 %90, label %_ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit, label %.lr.ph.i.i.i.i
 
 91:                                               ; preds = %94
-  %92 = icmp eq i64 %96, %1
+  %92 = icmp eq i64 %1, %96
   br i1 %92, label %_ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEEixERS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i:                                   ; preds = %86, %91
@@ -1819,7 +1819,7 @@ define void @_ZN5faiss12DirectMapAddC2ERNS_9DirectMapEmPKl(ptr noundef nonnull a
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3
-  %48 = icmp ult i64 %47, %41
+  %48 = icmp ugt i64 %41, %47
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %31
@@ -1827,7 +1827,7 @@ define void @_ZN5faiss12DirectMapAddC2ERNS_9DirectMapEmPKl(ptr noundef nonnull a
   br label %.invoke
 
 51:                                               ; preds = %31
-  %52 = icmp ugt i64 %47, %41
+  %52 = icmp ult i64 %41, %47
   br i1 %52, label %53, label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
 
 53:                                               ; preds = %51
@@ -2296,7 +2296,7 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE4findERS5_.exit:
 
 _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS4_10_Hash_nodeIS2_Lb0EEE.exit.i.i.i: ; preds = %119
   %121 = add i64 %110, -1
-  %122 = icmp eq ptr %118, %.0.i.i.i.i
+  %122 = icmp eq ptr %.0.i.i.i.i, %118
   %123 = load ptr, ptr %.sroa.06.1.i.i, align 8
   %.not18.i.i.i.i = icmp eq ptr %123, null
   br i1 %122, label %124, label %137

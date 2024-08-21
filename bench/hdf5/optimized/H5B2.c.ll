@@ -1162,7 +1162,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr nocapture noundef readonly %0, i32 n
 21:                                               ; preds = %5
   %22 = getelementptr inbounds i8, ptr %6, i64 16
   %23 = load i64, ptr %22, align 8
-  %.not = icmp ugt i64 %23, %2
+  %.not = icmp ult i64 %2, %23
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %21
@@ -1626,7 +1626,7 @@ define range(i32 -1, 1) i32 @H5B2_remove_by_idx(ptr nocapture noundef readonly %
   br label %89
 
 20:                                               ; preds = %5
-  %.not = icmp ugt i64 %14, %2
+  %.not = icmp ult i64 %2, %14
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %20

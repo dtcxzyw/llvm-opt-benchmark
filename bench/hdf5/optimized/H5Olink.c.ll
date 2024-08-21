@@ -78,7 +78,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr nocapture readnone %1,
   %7 = alloca ptr, align 8
   %8 = getelementptr i8, ptr %5, i64 %4
   %.ptr229 = getelementptr i8, ptr %8, i64 -1
-  %9 = icmp ult ptr %.ptr229, %5
+  %9 = icmp ugt ptr %5, %.ptr229
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %6

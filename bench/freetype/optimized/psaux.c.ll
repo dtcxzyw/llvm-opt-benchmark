@@ -254,7 +254,7 @@ define internal i32 @ps_table_add(ptr nocapture noundef %0, i32 noundef %1, ptr 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %71
 
 10:                                               ; preds = %7
@@ -2361,7 +2361,7 @@ ps_tobool.exit:                                   ; preds = %80, %82, %85, %88, 
 .preheader133:                                    ; preds = %156, %skip_spaces.exit132
   %indvars.iv = phi i64 [ %indvars.iv.next, %skip_spaces.exit132 ], [ 0, %156 ]
   %160 = trunc nuw nsw i64 %indvars.iv to i32
-  %161 = mul i32 %160, %3
+  %161 = mul i32 %3, %160
   %162 = zext i32 %161 to i64
   %163 = getelementptr inbounds i64, ptr %158, i64 %162
   %164 = call fastcc i32 @ps_tofixedarray(ptr noundef nonnull %7, ptr noundef %.098162, i32 noundef %3, ptr noundef %163, i32 noundef 0)
@@ -2439,7 +2439,7 @@ skip_spaces.exit132:                              ; preds = %.lr.ph.i121, %skip_
   %183 = call i64 @FT_RoundFix(i64 noundef %182) #20
   store i64 %183, ptr %180, align 8
   %184 = trunc nuw i64 %indvars.iv147 to i32
-  %185 = add i32 %184, %3
+  %185 = add i32 %3, %184
   %186 = zext i32 %185 to i64
   %187 = getelementptr inbounds i64, ptr %158, i64 %186
   %188 = load i64, ptr %187, align 8
@@ -2821,7 +2821,7 @@ define internal i32 @t1_builder_check_points(ptr nocapture noundef readonly %0, 
   %10 = getelementptr inbounds i8, ptr %6, i64 98
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  %13 = add i32 %9, %1
+  %13 = add i32 %1, %9
   %14 = add i32 %13, %12
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = load i32, ptr %15, align 8
@@ -5587,7 +5587,7 @@ define internal i32 @cff_check_points(ptr nocapture noundef readonly %0, i32 nou
   %10 = getelementptr inbounds i8, ptr %6, i64 98
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  %13 = add i32 %9, %1
+  %13 = add i32 %1, %9
   %14 = add i32 %13, %12
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = load i32, ptr %15, align 8
@@ -6407,14 +6407,14 @@ define internal void @t1_cmap_custom_done(ptr nocapture noundef writeonly %0) #7
 define internal range(i32 0, 65536) i32 @t1_cmap_custom_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %.not = icmp ugt i32 %4, %1
+  %.not = icmp ult i32 %1, %4
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, %4
-  %9 = icmp ugt i32 %8, %1
+  %9 = icmp ult i32 %1, %8
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %5
@@ -8086,7 +8086,7 @@ define internal void @t1_decrypt(ptr noundef %0, i64 noundef %1, i16 noundef zer
   %.not = icmp eq ptr %0, null
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = select i1 %.not, ptr null, ptr %4
-  %.not.i = icmp ugt ptr %5, %0
+  %.not.i = icmp ult ptr %0, %5
   br i1 %.not.i, label %6, label %PS_Conv_EexecDecode.exit
 
 6:                                                ; preds = %3
@@ -8094,7 +8094,7 @@ define internal void @t1_decrypt(ptr noundef %0, i64 noundef %1, i16 noundef zer
   %8 = ptrtoint ptr %0 to i64
   %9 = sub i64 %7, %8
   %10 = and i64 %9, 4294967295
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %1)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
   %.not38.i = icmp eq i64 %spec.select.i, 0
   br i1 %.not38.i, label %PS_Conv_EexecDecode.exit, label %.lr.ph.preheader.i
 
@@ -16158,7 +16158,7 @@ define internal fastcc i32 @cf2_stack_getReal(ptr nocapture noundef readonly %0,
   %7 = sub i64 %5, %6
   %8 = lshr exact i64 %7, 3
   %9 = trunc i64 %8 to i32
-  %.not = icmp ugt i32 %9, %1
+  %.not = icmp ult i32 %1, %9
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %2
@@ -17402,7 +17402,7 @@ define internal fastcc void @cf2_stack_roll(ptr nocapture noundef readonly %0, i
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 3
   %12 = trunc i64 %11 to i32
-  %13 = icmp ult i32 %12, %1
+  %13 = icmp ugt i32 %1, %12
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %5
@@ -17751,7 +17751,7 @@ cf2_hintmask_setAll.exit.thread:                  ; preds = %cf2_hintmask_setCou
   %98 = load i32, ptr %75, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %99 = load i64, ptr %64, align 8
-  %.not.i.i = icmp ugt i64 %99, %.0101208
+  %.not.i.i = icmp ult i64 %.0101208, %99
   br i1 %.not.i.i, label %cf2_arrstack_getPointer.exit.i, label %100
 
 100:                                              ; preds = %97
@@ -17837,7 +17837,7 @@ cf2_hint_init.exit:                               ; preds = %121, %125
   %137 = load i32, ptr %75, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %138 = load i64, ptr %64, align 8
-  %.not.i.i129 = icmp ugt i64 %138, %.0101208
+  %.not.i.i129 = icmp ult i64 %.0101208, %138
   br i1 %.not.i.i129, label %cf2_arrstack_getPointer.exit.i132, label %139
 
 139:                                              ; preds = %cf2_hint_init.exit
@@ -18217,7 +18217,7 @@ cf2_blues_capture.exit.thread:                    ; preds = %.thread.i, %.thread
   %300 = load i32, ptr %264, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %301 = load i64, ptr %64, align 8
-  %.not.i.i140 = icmp ugt i64 %301, %.1102213
+  %.not.i.i140 = icmp ult i64 %.1102213, %301
   br i1 %.not.i.i140, label %cf2_arrstack_getPointer.exit.i143, label %302
 
 302:                                              ; preds = %299
@@ -18299,7 +18299,7 @@ cf2_hint_init.exit149:                            ; preds = %323, %327
   %337 = load i32, ptr %264, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %338 = load i64, ptr %64, align 8
-  %.not.i.i150 = icmp ugt i64 %338, %.1102213
+  %.not.i.i150 = icmp ult i64 %.1102213, %338
   br i1 %.not.i.i150, label %cf2_arrstack_getPointer.exit.i153, label %339
 
 339:                                              ; preds = %cf2_hint_init.exit149
@@ -18596,7 +18596,7 @@ cf2_hint_init.exit161:                            ; preds = %361, %365
   %490 = add i64 %.2173.i, -1
   %491 = getelementptr inbounds i8, ptr %489, i64 32
   %492 = load i64, ptr %491, align 8
-  %.not.i.i165 = icmp ugt i64 %492, %490
+  %.not.i.i165 = icmp ult i64 %490, %492
   br i1 %.not.i.i165, label %cf2_arrstack_getPointer.exit.i168, label %493
 
 493:                                              ; preds = %488
@@ -18685,7 +18685,7 @@ cf2_hintmap_adjustHints.exit:                     ; preds = %524, %._crit_edge.i
   %535 = getelementptr inbounds i8, ptr %532, i64 8
   %536 = load i64, ptr %535, align 8
   %537 = load i64, ptr %64, align 8
-  %.not.i172 = icmp ugt i64 %537, %536
+  %.not.i172 = icmp ult i64 %536, %537
   br i1 %.not.i172, label %cf2_arrstack_getPointer.exit, label %538
 
 538:                                              ; preds = %534
@@ -18767,7 +18767,7 @@ define internal fastcc void @cf2_arrstack_push(ptr nocapture noundef %0, ptr noc
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %11
   %15 = udiv i64 9223372036854775807, %13
-  %16 = icmp ult i64 %15, %11
+  %16 = icmp ugt i64 %11, %15
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %9
@@ -19881,7 +19881,7 @@ define internal fastcc i32 @cf2_hintmap_map(ptr nocapture noundef %0, i32 nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds [192 x %struct.CF2_HintRec_], ptr %23, i64 0, i64 %indvars.iv.next, i32 2
   %29 = load i32, ptr %28, align 8
-  %.not37 = icmp sgt i32 %29, %1
+  %.not37 = icmp slt i32 %1, %29
   br i1 %.not37, label %.critedge.split.loop.exit46, label %26, !llvm.loop !77
 
 .critedge.split.loop.exit46:                      ; preds = %27
@@ -19898,7 +19898,7 @@ define internal fastcc i32 @cf2_hintmap_map(ptr nocapture noundef %0, i32 nounde
   %31 = zext i32 %.142 to i64
   %32 = getelementptr inbounds [192 x %struct.CF2_HintRec_], ptr %23, i64 0, i64 %31, i32 2
   %33 = load i32, ptr %32, align 8
-  %34 = icmp sgt i32 %33, %1
+  %34 = icmp slt i32 %1, %33
   br i1 %34, label %35, label %.critedge2
 
 35:                                               ; preds = %.lr.ph
@@ -19915,7 +19915,7 @@ define internal fastcc i32 @cf2_hintmap_map(ptr nocapture noundef %0, i32 nounde
   store i32 0, ptr %21, align 4
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load i32, ptr %38, align 8
-  %40 = icmp sgt i32 %39, %1
+  %40 = icmp slt i32 %1, %39
   br i1 %40, label %41, label %._crit_edge._crit_edge
 
 41:                                               ; preds = %._crit_edge

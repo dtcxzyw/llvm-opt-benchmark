@@ -3043,7 +3043,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !15
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -3124,8 +3124,8 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   br label %78
 
 84:                                               ; preds = %78
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload14.i18 = load i16, ptr %86, align 1, !alias.scope !520
   %87 = zext i16 %.0.copyload14.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -3344,7 +3344,7 @@ _ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.e
 43:                                               ; preds = %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit, %.loopexit
   %44 = add i64 %4, -16
   call void @llvm.experimental.noalias.scope.decl(metadata !626)
-  %45 = icmp ult i64 %44, %5
+  %45 = icmp ugt i64 %5, %44
   br i1 %45, label %48, label %46
 
 46:                                               ; preds = %43
@@ -4444,7 +4444,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   br label %55
 
 51:                                               ; preds = %48
-  %.not.i38 = icmp ugt i64 %9, %46
+  %.not.i38 = icmp ult i64 %46, %9
   br i1 %.not.i38, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h18e67af53a4b1ea3E.llvm.12014582817787848890.exit.i", label %53
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h18e67af53a4b1ea3E.llvm.12014582817787848890.exit.i": ; preds = %51
@@ -4717,7 +4717,7 @@ _ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10), !noalias !927
   %101 = getelementptr inbounds i8, ptr %.val24, i64 16
   %102 = load i64, ptr %101, align 8, !noalias !936, !noundef !15
-  %.not1.i.i = icmp ult i64 %102, %97
+  %.not1.i.i = icmp ugt i64 %97, %102
   br i1 %.not1.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %104
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %95, %.lr.ph.i.i.i.i.i.i.i.i
@@ -4811,7 +4811,7 @@ _ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da
   %121 = load i64, ptr %73, align 8, !alias.scope !1021, !noalias !1030, !noundef !15
   %122 = load i64, ptr %17, align 8, !alias.scope !1034, !noalias !1030, !noundef !15
   %123 = sub i64 %122, %121
-  %124 = icmp ult i64 %123, %120
+  %124 = icmp ugt i64 %120, %123
   br i1 %124, label %125, label %133
 
 125:                                              ; preds = %.noexc29
@@ -5074,7 +5074,7 @@ default.unreachable:                              ; preds = %"_ZN6rustls5enums86
   br label %62
 
 58:                                               ; preds = %55
-  %.not.i = icmp ugt i64 %10, %53
+  %.not.i = icmp ult i64 %53, %10
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h18e67af53a4b1ea3E.llvm.12014582817787848890.exit.i", label %60
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h18e67af53a4b1ea3E.llvm.12014582817787848890.exit.i": ; preds = %58
@@ -5556,7 +5556,7 @@ define void @"_ZN89_$LT$rustls..crypto..aws_lc_rs..tls12..Tls12Prf$u20$as$u20$ru
   %22 = getelementptr inbounds i8, ptr %14, i64 8
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !15
-  %.not.i = icmp eq i64 %24, %2
+  %.not.i = icmp eq i64 %2, %24
   br i1 %.not.i, label %28, label %25
 
 25:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb86c2f2b25bb0967E.exit1"
@@ -5630,7 +5630,7 @@ define void @"_ZN89_$LT$rustls..crypto..aws_lc_rs..tls12..Tls12Prf$u20$as$u20$ru
   %21 = load i64, ptr %20, align 8, !alias.scope !1291, !noundef !15
   %22 = getelementptr inbounds i8, ptr %14, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !1294, !noalias !1297, !noundef !15
-  %24 = icmp ult i64 %23, %21
+  %24 = icmp ugt i64 %21, %23
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
@@ -5841,7 +5841,7 @@ define void @"_ZN82_$LT$rustls..crypto..tls12..PrfUsingHmac$u20$as$u20$rustls..c
   %24 = load i64, ptr %23, align 8, !alias.scope !1341, !noundef !15
   %25 = getelementptr inbounds i8, ptr %14, i64 16
   %26 = load i64, ptr %25, align 8, !alias.scope !1344, !noalias !1347, !noundef !15
-  %27 = icmp ult i64 %26, %24
+  %27 = icmp ugt i64 %24, %26
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %22
@@ -6418,7 +6418,7 @@ define noundef zeroext i1 @"_ZN100_$LT$rustls..crypto..tls13..HkdfExpanderUsingH
   %10 = load ptr, ptr %9, align 8, !invariant.load !15, !nonnull !15
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 1 %6)
   %12 = mul i64 %11, 255
-  %13 = icmp ult i64 %12, %4
+  %13 = icmp ugt i64 %4, %12
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %5
@@ -9240,7 +9240,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: 
   %360 = getelementptr inbounds i8, ptr %49, i64 772
   %361 = load i8, ptr %360, align 4, !range !352, !alias.scope !2004, !noalias !2007, !noundef !15
   %362 = trunc nuw i8 %361 to i1
-  %brmerge475 = or i1 %362, %13
+  %brmerge475 = or i1 %13, %362
   br i1 %brmerge475, label %365, label %363
 
 363:                                              ; preds = %359
@@ -9931,7 +9931,7 @@ define hidden void @_ZN6rustls6client5tls1318prepare_resumption17h9a4db6219f04fe
   %26 = icmp ne i32 %22, 0
   %or.cond = and i1 %26, %25
   %or.cond.not = xor i1 %or.cond, true
-  %brmerge = or i1 %or.cond.not, %4
+  %brmerge = or i1 %4, %or.cond.not
   br i1 %brmerge, label %49, label %27
 
 27:                                               ; preds = %5
@@ -10407,7 +10407,7 @@ define void @"_ZN153_$LT$rustls..client..tls13..ExpectEncryptedExtensions$u20$as
   %57 = getelementptr inbounds i8, ptr %1, i64 176
   %58 = load i64, ptr %57, align 8, !alias.scope !2230, !noalias !2235, !noundef !15
   %59 = sub i64 %55, %58
-  %60 = icmp ult i64 %59, %.sroa.3.0.i.i
+  %60 = icmp ugt i64 %.sroa.3.0.i.i, %59
   br i1 %60, label %61, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 61:                                               ; preds = %56
@@ -12001,7 +12001,7 @@ define void @"_ZN152_$LT$rustls..client..tls13..ExpectCertificateRequest$u20$as$
   %55 = getelementptr inbounds i8, ptr %1, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !2557, !noalias !2562, !noundef !15
   %57 = sub i64 %53, %56
-  %58 = icmp ult i64 %57, %.sroa.3.0.i.i
+  %58 = icmp ugt i64 %.sroa.3.0.i.i, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 59:                                               ; preds = %54
@@ -12579,7 +12579,7 @@ define void @"_ZN145_$LT$rustls..client..tls13..ExpectCertificate$u20$as$u20$rus
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !alias.scope !2662, !noalias !2667, !noundef !15
   %33 = sub i64 %29, %32
-  %34 = icmp ult i64 %33, %.sroa.3.0.i.i
+  %34 = icmp ugt i64 %.sroa.3.0.i.i, %33
   br i1 %34, label %35, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 35:                                               ; preds = %30
@@ -13574,7 +13574,7 @@ _ZN6rustls5tls1331construct_server_verify_message17h6010ceb76ee49f2bE.exit: ; pr
   %168 = getelementptr inbounds i8, ptr %1, i64 64
   %169 = load i64, ptr %168, align 8, !alias.scope !2822, !noalias !2827, !noundef !15
   %170 = sub i64 %166, %169
-  %171 = icmp ult i64 %170, %.sroa.3.0.i.i
+  %171 = icmp ugt i64 %.sroa.3.0.i.i, %170
   br i1 %171, label %172, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 172:                                              ; preds = %167
@@ -14175,7 +14175,7 @@ define internal fastcc void @_ZN6rustls6client5tls1322emit_certificate_tls1317h8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load i64, ptr %84, align 8, !alias.scope !2916, !noalias !2921, !noundef !15
   %86 = sub i64 %82, %85
-  %87 = icmp ult i64 %86, %.sroa.3.0.i.i
+  %87 = icmp ugt i64 %.sroa.3.0.i.i, %86
   br i1 %87, label %88, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 88:                                               ; preds = %83
@@ -14552,7 +14552,7 @@ _ZN6rustls5tls1312key_schedule20KeyScheduleHandshake18sign_server_finish17h14d81
   %119 = getelementptr inbounds i8, ptr %46, i64 16
   %120 = load i64, ptr %119, align 8, !alias.scope !2998, !noalias !3003, !noundef !15
   %121 = sub i64 %117, %120
-  %122 = icmp ult i64 %121, %.sroa.3.0.i.i
+  %122 = icmp ugt i64 %.sroa.3.0.i.i, %121
   br i1 %122, label %123, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i"
 
 123:                                              ; preds = %118
@@ -14685,7 +14685,7 @@ _ZN6rustls4msgs7message14MessagePayload9handshake17ha26b90e86fceeaa6E.exit.i: ; 
   %168 = getelementptr inbounds i8, ptr %46, i64 16
   %169 = load i64, ptr %168, align 8, !alias.scope !3049, !noalias !3054, !noundef !15
   %170 = sub i64 %166, %169
-  %171 = icmp ult i64 %170, %.sroa.3.0.i.i.i
+  %171 = icmp ugt i64 %.sroa.3.0.i.i.i, %170
   br i1 %171, label %172, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i.i"
 
 172:                                              ; preds = %167
@@ -14963,7 +14963,7 @@ _ZN6rustls6client5tls1328emit_end_of_early_data_tls1317h40ebfe1c13dce8a2E.exit: 
   %253 = getelementptr inbounds i8, ptr %46, i64 16
   %254 = load i64, ptr %253, align 8, !alias.scope !3115, !noalias !3120, !noundef !15
   %255 = sub i64 %251, %254
-  %256 = icmp ult i64 %255, %.sroa.3.0.i.i.i178
+  %256 = icmp ugt i64 %.sroa.3.0.i.i.i178, %255
   br i1 %256, label %257, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i.i182"
 
 257:                                              ; preds = %252
@@ -15305,7 +15305,7 @@ _ZN6rustls4msgs7message14MessagePayload9handshake17ha26b90e86fceeaa6E.exit.i206:
   %375 = getelementptr inbounds i8, ptr %46, i64 16
   %376 = load i64, ptr %375, align 8, !alias.scope !3191, !noalias !3196, !noundef !15
   %377 = sub i64 %373, %376
-  %378 = icmp ult i64 %377, %.sroa.3.0.i.i.i211
+  %378 = icmp ugt i64 %.sroa.3.0.i.i.i211, %377
   br i1 %378, label %379, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha71d405fa8abd7bbE.exit.i.i.i215"
 
 379:                                              ; preds = %374

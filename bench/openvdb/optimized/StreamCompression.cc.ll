@@ -183,7 +183,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %add = add i64 %uncompressedBytes, 16
-  %cmp1 = icmp ugt i64 %add, %bufferBytes
+  %cmp1 = icmp ult i64 %bufferBytes, %add
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -288,7 +288,7 @@ if.end41:                                         ; preds = %invoke.cont37, %inv
 
 if.end42:                                         ; preds = %invoke.cont18
   %conv43 = zext nneg i32 %call19 to i64
-  %cmp44.not = icmp ult i64 %conv43, %uncompressedBytes
+  %cmp44.not = icmp ugt i64 %uncompressedBytes, %conv43
   %spec.select = select i1 %cmp44.not, i64 %conv43, i64 0
   store i64 %spec.select, ptr %compressedBytes, align 8
   br label %cleanup
@@ -518,7 +518,7 @@ lpad6:                                            ; preds = %try.cont, %catch
 
 if.end:                                           ; preds = %entry
   %add = add i64 %0, 16
-  %cmp8 = icmp ugt i64 %add, %bufferBytes
+  %cmp8 = icmp ult i64 %bufferBytes, %add
   br i1 %cmp8, label %if.then9, label %if.end26
 
 if.then9:                                         ; preds = %if.end
@@ -633,7 +633,7 @@ if.end48:                                         ; preds = %if.end26
   %cmp49 = icmp eq i32 %call27, 128
   %cmp50 = icmp ult i64 %expectedBytes, 129
   %or.cond = and i1 %cmp50, %cmp49
-  %cmp52.not = icmp eq i64 %conv, %expectedBytes
+  %cmp52.not = icmp eq i64 %expectedBytes, %conv
   %or.cond18 = or i1 %or.cond, %cmp52.not
   br i1 %or.cond18, label %if.end88, label %if.then53
 

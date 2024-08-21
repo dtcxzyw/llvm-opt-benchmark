@@ -856,19 +856,19 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbR
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %._crit_edge
   %118 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
   store i64 0, ptr %118, align 4
-  %.not12.i = icmp eq i64 %.03264, %.033.lcssa
-  br i1 %.not12.i, label %.loopexit, label %.lr.ph.i
+  %.not10.i = icmp eq i64 %.03264, %.033.lcssa
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i, %.lr.ph.i
-  %.013.i = phi i64 [ %125, %.lr.ph.i ], [ %.03264, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
-  %119 = getelementptr inbounds %"struct.std::pair", ptr %100, i64 %.013.i, i32 1
+  %.011.i = phi i64 [ %125, %.lr.ph.i ], [ %.03264, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
+  %119 = getelementptr inbounds %"struct.std::pair", ptr %100, i64 %.011.i, i32 1
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i32, ptr %118, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %122, align 4
-  %125 = add i64 %.013.i, 1
+  %125 = add i64 %.011.i, 1
   %.not.i = icmp eq i64 %125, %.033.lcssa
   br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !25
 
@@ -1179,7 +1179,7 @@ define internal fastcc void @_ZL26icvGetQuadrangleHypothesesRKSt6vectorIS_IN2cv6
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 4
-  %.not.i.i = icmp ugt i64 %25, %.019
+  %.not.i.i = icmp ult i64 %.019, %25
   br i1 %.not.i.i, label %_ZNKSt6vectorIN2cv3VecIiLi4EEESaIS2_EE2atEm.exit, label %26
 
 26:                                               ; preds = %18
@@ -1692,7 +1692,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %phi.call = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0
   %.sroa.03.0.copyload = load i64, ptr %phi.call, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %23 = icmp sgt i64 %13, %.0
+  %23 = icmp slt i64 %.0, %13
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i

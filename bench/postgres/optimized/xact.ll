@@ -709,7 +709,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
 3:                                                ; preds = %1
   %4 = load i64, ptr @XactTopFullTransactionId.0, align 8
   %5 = trunc i64 %4 to i32
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
@@ -762,7 +762,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   br i1 %.not47, label %.loopexit50, label %30
 
 30:                                               ; preds = %27
-  %31 = icmp eq i32 %29, %0
+  %31 = icmp eq i32 %0, %29
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %30
@@ -3252,7 +3252,7 @@ define dso_local void @WarnNoTransactionBlock(i1 noundef zeroext %0, ptr noundef
   %7 = getelementptr inbounds i8, ptr %3, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 2
-  %brmerge.not.i = and i1 %9, %0
+  %brmerge.not.i = and i1 %0, %9
   br i1 %brmerge.not.i, label %10, label %CheckTransactionBlock.exit
 
 10:                                               ; preds = %6
@@ -3281,7 +3281,7 @@ define dso_local void @RequireTransactionBlock(i1 noundef zeroext %0, ptr nounde
   %7 = getelementptr inbounds i8, ptr %3, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 2
-  %brmerge.not.i = and i1 %9, %0
+  %brmerge.not.i = and i1 %0, %9
   br i1 %brmerge.not.i, label %10, label %CheckTransactionBlock.exit
 
 10:                                               ; preds = %6

@@ -1003,7 +1003,7 @@ define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef %0, i32 noundef 
   %53 = zext nneg i16 %50 to i64
   %54 = getelementptr [1530 x %struct.CaseFold_11_Type], ptr @CaseFold_11_Table, i64 0, i64 %53
   %55 = load i32, ptr %54, align 4
-  %.not.i.not.i = icmp eq i32 %55, %9
+  %.not.i.not.i = icmp eq i32 %9, %55
   br i1 %.not.i.not.i, label %57, label %onigenc_unicode_CaseFold_11_lookup.exit
 
 onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %52, %19, %25, %47
@@ -1319,7 +1319,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef %0,
   %51 = zext nneg i16 %48 to i64
   %52 = getelementptr [1530 x %struct.CaseFold_11_Type], ptr @CaseFold_11_Table, i64 0, i64 %51
   %53 = load i32, ptr %52, align 4
-  %.not.i.not.i = icmp eq i32 %53, %10
+  %.not.i.not.i = icmp eq i32 %10, %53
   br i1 %.not.i.not.i, label %onigenc_unicode_CaseFold_11_lookup.exit, label %343
 
 onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %50
@@ -1378,7 +1378,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %50
   %93 = zext nneg i16 %90 to i64
   %94 = getelementptr [1396 x %struct.CaseUnfold_11_Type], ptr @CaseUnfold_11_Table, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4
-  %.not.i.not.i270 = icmp eq i32 %95, %62
+  %.not.i.not.i270 = icmp eq i32 %62, %95
   br i1 %.not.i.not.i270, label %onigenc_unicode_CaseUnfold_11_lookup.exit, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
 onigenc_unicode_CaseUnfold_11_lookup.exit:        ; preds = %92
@@ -1481,7 +1481,7 @@ onigenc_unicode_CaseUnfold_11_lookup.exit:        ; preds = %92
   %149 = zext nneg i16 %146 to i64
   %150 = getelementptr [1396 x %struct.CaseUnfold_11_Type], ptr @CaseUnfold_11_Table, i64 0, i64 %149
   %151 = load i32, ptr %150, align 4
-  %.not.i.not.i274 = icmp eq i32 %151, %118
+  %.not.i.not.i274 = icmp eq i32 %118, %151
   br i1 %.not.i.not.i274, label %onigenc_unicode_CaseUnfold_11_lookup.exit276.preheader, label %160
 
 onigenc_unicode_CaseUnfold_11_lookup.exit276.preheader: ; preds = %148
@@ -1900,7 +1900,7 @@ onigenc_unicode_CaseUnfold_13_lookup.exit:        ; preds = %code3_equal.exit.i
   %373 = zext nneg i16 %370 to i64
   %374 = getelementptr [1396 x %struct.CaseUnfold_11_Type], ptr @CaseUnfold_11_Table, i64 0, i64 %373
   %375 = load i32, ptr %374, align 4
-  %.not.i.not.i285 = icmp eq i32 %375, %10
+  %.not.i.not.i285 = icmp eq i32 %10, %375
   br i1 %.not.i.not.i285, label %onigenc_unicode_CaseUnfold_11_lookup.exit287, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
 onigenc_unicode_CaseUnfold_11_lookup.exit287:     ; preds = %372
@@ -1989,7 +1989,7 @@ onigenc_unicode_CaseUnfold_11_lookup.exit.thread: ; preds = %381, %110, %.prehea
   %424 = zext nneg i16 %421 to i64
   %425 = getelementptr [1530 x %struct.CaseFold_11_Type], ptr @CaseFold_11_Table, i64 0, i64 %424
   %426 = load i32, ptr %425, align 4
-  %.not.i.not.i290 = icmp eq i32 %426, %394
+  %.not.i.not.i290 = icmp eq i32 %394, %426
   br i1 %.not.i.not.i290, label %onigenc_unicode_CaseFold_11_lookup.exit292, label %onigenc_unicode_CaseFold_11_lookup.exit292.thread
 
 onigenc_unicode_CaseFold_11_lookup.exit292:       ; preds = %423
@@ -2154,7 +2154,7 @@ onigenc_unicode_CaseUnfold_12_lookup.exit301.thread: ; preds = %487, %476, %code
   %530 = zext nneg i16 %527 to i64
   %531 = getelementptr [1530 x %struct.CaseFold_11_Type], ptr @CaseFold_11_Table, i64 0, i64 %530
   %532 = load i32, ptr %531, align 4
-  %.not.i.not.i304 = icmp eq i32 %532, %500
+  %.not.i.not.i304 = icmp eq i32 %500, %532
   br i1 %.not.i.not.i304, label %onigenc_unicode_CaseFold_11_lookup.exit306, label %onigenc_unicode_CaseFold_11_lookup.exit306.thread
 
 onigenc_unicode_CaseFold_11_lookup.exit306:       ; preds = %529
@@ -2307,7 +2307,7 @@ define dso_local i32 @onigenc_unicode_case_map(ptr nocapture noundef %0, ptr noc
   %11 = or i32 %10, %7
   %12 = load ptr, ptr %1, align 8
   %13 = icmp ult ptr %12, %2
-  %14 = icmp uge ptr %8, %3
+  %14 = icmp ule ptr %3, %8
   %15 = and i1 %13, %14
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -2452,7 +2452,7 @@ define dso_local i32 @onigenc_unicode_case_map(ptr nocapture noundef %0, ptr noc
   %98 = zext nneg i16 %95 to i64
   %99 = getelementptr [1530 x %struct.CaseFold_11_Type], ptr @CaseFold_11_Table, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
-  %.not.i.not.i = icmp eq i32 %100, %26
+  %.not.i.not.i = icmp eq i32 %26, %100
   %101 = getelementptr inbounds i8, ptr %99, i64 4
   br i1 %.not.i.not.i, label %onigenc_unicode_CaseFold_11_lookup.exit, label %.thread
 
@@ -2631,7 +2631,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %97
   %201 = zext nneg i16 %198 to i64
   %202 = getelementptr [1396 x %struct.CaseUnfold_11_Type], ptr @CaseUnfold_11_Table, i64 0, i64 %201
   %203 = load i32, ptr %202, align 4
-  %.not.i.not.i178 = icmp eq i32 %203, %26
+  %.not.i.not.i178 = icmp eq i32 %26, %203
   br i1 %.not.i.not.i178, label %onigenc_unicode_CaseUnfold_11_lookup.exit, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
 onigenc_unicode_CaseUnfold_11_lookup.exit:        ; preds = %200

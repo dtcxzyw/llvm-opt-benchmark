@@ -837,7 +837,7 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   %210 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %210, align 8
   %211 = load i32, ptr @pref_max_unmasked_len, align 4
-  %212 = call i32 @llvm.umin.i32(i32 %211, i32 %.0120)
+  %212 = call i32 @llvm.umin.i32(i32 %.0120, i32 %211)
   %213 = zext i32 %212 to i64
   %214 = call noalias ptr @wmem_alloc(ptr noundef %.val, i64 noundef %213) #6
   %215 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %151, i32 noundef %212) #6
@@ -877,7 +877,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   %232 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %231, ptr noundef %.0123, i32 noundef 0, i32 noundef %229, i32 noundef 0) #6
   %233 = load i32, ptr @ett_ws_pl, align 4
   %234 = call ptr @proto_item_add_subtree(ptr noundef %232, i32 noundef %233) #6
-  %235 = icmp ult i32 %230, %227
+  %235 = icmp ugt i32 %227, %230
   br i1 %235, label %236, label %240
 
 236:                                              ; preds = %226

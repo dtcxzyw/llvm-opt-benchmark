@@ -755,19 +755,19 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %116 = load float, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %9, i64 16
   %118 = load float, ptr %117, align 16
-  %119 = fneg float %116
-  %120 = fmul float %118, %119
+  %119 = fneg float %118
+  %120 = fmul float %116, %119
   %121 = call float @llvm.fmuladd.f32(float %112, float %114, float %120)
   store float %121, ptr %110, align 8
   %122 = load float, ptr %109, align 4
   %123 = load float, ptr %9, align 16
-  %124 = fneg float %123
-  %125 = fmul float %114, %124
+  %124 = fneg float %114
+  %125 = fmul float %123, %124
   %126 = call float @llvm.fmuladd.f32(float %116, float %122, float %125)
   %127 = getelementptr inbounds i8, ptr %9, i64 28
   store float %126, ptr %127, align 4
-  %128 = fneg float %112
-  %129 = fmul float %122, %128
+  %128 = fneg float %122
+  %129 = fmul float %112, %128
   %130 = call float @llvm.fmuladd.f32(float %123, float %118, float %129)
   %131 = getelementptr inbounds i8, ptr %9, i64 32
   store float %130, ptr %131, align 16
@@ -781,19 +781,19 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   %139 = load float, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %10, i64 16
   %141 = load float, ptr %140, align 16
-  %142 = fneg float %139
-  %143 = fmul float %141, %142
+  %142 = fneg float %141
+  %143 = fmul float %139, %142
   %144 = call float @llvm.fmuladd.f32(float %135, float %137, float %143)
   store float %144, ptr %133, align 8
   %145 = load float, ptr %132, align 4
   %146 = load float, ptr %10, align 16
-  %147 = fneg float %146
-  %148 = fmul float %137, %147
+  %147 = fneg float %137
+  %148 = fmul float %146, %147
   %149 = call float @llvm.fmuladd.f32(float %139, float %145, float %148)
   %150 = getelementptr inbounds i8, ptr %10, i64 28
   store float %149, ptr %150, align 4
-  %151 = fneg float %135
-  %152 = fmul float %145, %151
+  %151 = fneg float %145
+  %152 = fmul float %135, %151
   %153 = call float @llvm.fmuladd.f32(float %146, float %141, float %152)
   br label %.thread
 

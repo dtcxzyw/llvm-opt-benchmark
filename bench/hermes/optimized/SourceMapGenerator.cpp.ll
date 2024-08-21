@@ -308,7 +308,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -317,7 +317,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -568,7 +568,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
-  %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, %call.i.i
+  %cmp.i.i = icmp ugt i64 %call.i.i, %sub.ptr.sub.i9.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.body
@@ -1248,7 +1248,7 @@ _ZN6hermes15StringSetVector6insertEN4llvh9StringRefE.exit: ; preds = %if.then.i2
 if.then.i38:                                      ; preds = %_ZN6hermes15StringSetVector6insertEN4llvh9StringRefE.exit
   %add.i39 = add i64 %retval.0.i, 1
   %conv5.i = and i64 %add.i39, 4294967295
-  %cmp.i200 = icmp ult i64 %sub.ptr.div.i.i36, %conv5.i
+  %cmp.i200 = icmp ugt i64 %conv5.i, %sub.ptr.div.i.i36
   br i1 %cmp.i200, label %if.then.i205, label %if.else.i201
 
 if.then.i205:                                     ; preds = %if.then.i38
@@ -1257,7 +1257,7 @@ if.then.i205:                                     ; preds = %if.then.i38
   br label %if.end.i40
 
 if.else.i201:                                     ; preds = %if.then.i38
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i36, %conv5.i
+  %cmp4.i = icmp ult i64 %conv5.i, %sub.ptr.div.i.i36
   br i1 %cmp4.i, label %if.then5.i, label %if.end.i40
 
 if.then5.i:                                       ; preds = %if.else.i201
@@ -2718,7 +2718,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %idx.ext20.i.i.i.i = zext i32 %BucketNo.019.i.i.i.i to i64
   %add.ptr21.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext20.i.i.i.i
   %2 = load i32, ptr %add.ptr21.i.i.i.i, align 4
-  %cmp.i22.i.i.i.i = icmp eq i32 %2, %segmentID
+  %cmp.i22.i.i.i.i = icmp eq i32 %segmentID, %2
   br i1 %cmp.i22.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIjSaIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_EixERKj.exit, label %if.end9.i.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %if.end13.i.i.i.i
@@ -2746,7 +2746,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.i.i.i.i
   %4 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp eq i32 %4, %segmentID
+  %cmp.i.i.i.i.i = icmp eq i32 %segmentID, %4
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIjSaIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_EixERKj.exit, label %if.end9.i.i.i.i, !llvm.loop !70
 
 if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, %entry

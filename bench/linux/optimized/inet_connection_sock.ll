@@ -123,13 +123,13 @@ define dso_local zeroext i1 @inet_rcv_saddr_equal(ptr noundef %0, ptr noundef %1
 38:                                               ; preds = %37
   %39 = icmp eq i32 %15, %17
   %40 = icmp eq i32 %15, 0
-  %41 = and i1 %40, %2
+  %41 = and i1 %2, %40
   %42 = or i1 %39, %41
   br i1 %42, label %89, label %43
 
 43:                                               ; preds = %38
   %44 = icmp eq i32 %17, 0
-  %45 = and i1 %44, %2
+  %45 = and i1 %2, %44
   br label %89
 
 46:                                               ; preds = %32
@@ -139,14 +139,14 @@ define dso_local zeroext i1 @inet_rcv_saddr_equal(ptr noundef %0, ptr noundef %1
   br i1 %49, label %89, label %50
 
 50:                                               ; preds = %46
-  %51 = and i1 %48, %2
+  %51 = and i1 %2, %48
   %52 = xor i1 %51, true
   %53 = and i1 %25, %34
   %54 = or i1 %53, %52
   br i1 %54, label %55, label %89
 
 55:                                               ; preds = %50
-  %56 = and i1 %47, %2
+  %56 = and i1 %2, %47
   %57 = xor i1 %56, true
   %58 = select i1 %21, i1 %35, i1 false
   %59 = select i1 %57, i1 true, i1 %58
@@ -184,13 +184,13 @@ define dso_local zeroext i1 @inet_rcv_saddr_equal(ptr noundef %0, ptr noundef %1
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, %74
   %83 = icmp eq i32 %81, 0
-  %84 = and i1 %83, %2
+  %84 = and i1 %2, %83
   %85 = or i1 %82, %84
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %79
   %87 = icmp eq i32 %74, 0
-  %88 = and i1 %87, %2
+  %88 = and i1 %2, %87
   br label %89
 
 89:                                               ; preds = %86, %79, %72, %71, %61, %55, %50, %46, %43, %38, %37
@@ -3424,13 +3424,13 @@ define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readon
 33:                                               ; preds = %32
   %34 = and i8 %20, 16
   %35 = icmp eq i8 %34, 0
-  %36 = or i1 %35, %5
+  %36 = or i1 %5, %35
   br i1 %36, label %64, label %37
 
 37:                                               ; preds = %33
   %38 = and i8 %25, 16
   %39 = icmp ne i8 %38, 0
-  %40 = and i1 %39, %4
+  %40 = and i1 %4, %39
   br i1 %40, label %41, label %64
 
 41:                                               ; preds = %37
@@ -3446,7 +3446,7 @@ define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readon
 47:                                               ; preds = %28, %23, %18
   %48 = and i8 %20, 16
   %49 = icmp ne i8 %48, 0
-  %50 = and i1 %49, %5
+  %50 = and i1 %5, %49
   br i1 %50, label %51, label %65
 
 51:                                               ; preds = %47
@@ -3454,7 +3454,7 @@ define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readon
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 16
   %55 = icmp ne i8 %54, 0
-  %56 = and i1 %55, %4
+  %56 = and i1 %4, %55
   br i1 %56, label %57, label %65
 
 57:                                               ; preds = %51

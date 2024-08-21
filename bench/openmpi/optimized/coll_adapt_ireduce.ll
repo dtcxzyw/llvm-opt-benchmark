@@ -186,13 +186,13 @@ define i32 @ompi_coll_adapt_ireduce(ptr noundef %0, ptr noundef %1, i32 noundef 
   %34 = sub nsw i64 %33, %31
   %35 = getelementptr i8, ptr %3, i64 24
   %.val263.i = load i64, ptr %35, align 8
-  %.not.i = icmp ugt i64 %.val263.i, %25
+  %.not.i = icmp ult i64 %25, %.val263.i
   br i1 %.not.i, label %49, label %36
 
 36:                                               ; preds = %23
   %37 = sext i32 %2 to i64
   %38 = mul i64 %.val263.i, %37
-  %39 = icmp ugt i64 %38, %25
+  %39 = icmp ult i64 %25, %38
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %36
@@ -648,7 +648,7 @@ opal_free_list_return_st.exit.i:                  ; preds = %253, %250, %247, %2
 259:                                              ; preds = %opal_free_list_return_st.exit.i
   %260 = shl nsw i64 %135, 3
   %261 = tail call noalias ptr @malloc(i64 noundef %260) #9
-  %262 = icmp eq i32 %.val.fr.i, %5
+  %262 = icmp eq i32 %5, %.val.fr.i
   %263 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   %or.cond.i = and i1 %263, %262
   br i1 %or.cond.i, label %.preheader18.i, label %.preheader20.i

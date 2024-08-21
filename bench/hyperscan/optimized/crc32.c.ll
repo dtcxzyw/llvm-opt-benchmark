@@ -14,7 +14,7 @@ entry:
   %sub.i = add i64 %sub.ptr.sub.i.neg, %bufLen
   %div.i16 = lshr i64 %sub.i, 3
   %sub2.i = and i64 %sub.i, 7
-  %cmp.i17 = icmp ugt ptr %1, %buf
+  %cmp.i17 = icmp ult ptr %buf, %1
   br i1 %cmp.i17, label %while.body.i.preheader, label %for.cond.i.preheader
 
 while.body.i.preheader:                           ; preds = %entry

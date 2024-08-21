@@ -596,7 +596,7 @@ if.end10:                                         ; preds = %if.end21.i, %land.l
   %bits11 = getelementptr inbounds i8, ptr %bw, i64 24
   %6 = load i32, ptr %bits11, align 8
   %sub = sub i32 64, %6
-  %cmp12 = icmp ugt i32 %sub, %bits
+  %cmp12 = icmp ult i32 %bits, %sub
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end10
@@ -714,7 +714,7 @@ entry:
   %sh_prom = zext nneg i32 %bits to i64
   %shl = shl nsw i64 -1, %sh_prom
   %not = xor i64 %shl, -1
-  %and = and i64 %not, %val
+  %and = and i64 %val, %not
   %uval.0 = select i1 %cmp, i64 %and, i64 %val
   %cmp.i = icmp ugt i32 %bits, 32
   br i1 %cmp.i, label %if.then.i, label %if.else.i

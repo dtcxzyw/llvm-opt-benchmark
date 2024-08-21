@@ -1138,7 +1138,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 
 52:                                               ; preds = %41
   %53 = load ptr, ptr @MyProc, align 8
-  %54 = icmp eq ptr %53, %0
+  %54 = icmp eq ptr %0, %53
   br i1 %54, label %55, label %..loopexit165_crit_edge
 
 55:                                               ; preds = %52

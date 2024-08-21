@@ -2078,7 +2078,7 @@ define hidden range(i32 0, 2) i32 @DGifSavedExtensionToGCB(ptr nocapture noundef
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %7, %1
+  %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %DGifExtensionToGCB.exit
 
 8:                                                ; preds = %5

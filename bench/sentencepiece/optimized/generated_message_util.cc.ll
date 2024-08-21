@@ -234,7 +234,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLongERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
-  %.not = icmp ult ptr %2, %0
+  %.not = icmp ugt ptr %0, %2
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
@@ -482,7 +482,7 @@ define void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMet
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %8, align 8
   %42 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i = icmp ugt ptr %42, %41
+  %.not.i.i.i.i.i.i.i = icmp ult ptr %41, %42
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i, label %43
 
 43:                                               ; preds = %38
@@ -540,7 +540,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i, ptr %8, align 8
   %68 = load i64, ptr %13, align 8
   %69 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %69, %.0.i1.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp ult ptr %.0.i1.i.i.i.i.i.i, %69
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %70
 
 70:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i
@@ -564,7 +564,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17Coded
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr %8, align 8
   %80 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i393 = icmp ugt ptr %80, %79
+  %.not.i.i.i.i.i.i.i393 = icmp ult ptr %79, %80
   br i1 %.not.i.i.i.i.i.i.i393, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394, label %81
 
 81:                                               ; preds = %76
@@ -622,7 +622,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i399, ptr %8, align 8
   %106 = load i64, ptr %13, align 8
   %107 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i400 = icmp ugt ptr %107, %.0.i1.i.i.i.i.i.i399
+  %.not.i.i.i.i.i.i400 = icmp ult ptr %.0.i1.i.i.i.i.i.i399, %107
   br i1 %.not.i.i.i.i.i.i400, label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit402, label %108
 
 108:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398
@@ -659,7 +659,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17Coded
 123:                                              ; preds = %113
   %124 = load ptr, ptr %8, align 8
   %125 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp ugt ptr %125, %124
+  %.not.i.i.i.i.i.i.i.i = icmp ult ptr %124, %125
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i, label %126
 
 126:                                              ; preds = %123
@@ -717,7 +717,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i, ptr %8, align 8
   %151 = load i64, ptr %13, align 8
   %152 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i403 = icmp ugt ptr %152, %.0.i1.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i403 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i, %152
   br i1 %.not.i.i.i.i.i.i.i403, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %153
 
 153:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i
@@ -749,7 +749,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOut
   %168 = load i32, ptr %167, align 4
   %169 = load ptr, ptr %8, align 8
   %170 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i405 = icmp ugt ptr %170, %169
+  %.not.i.i.i.i.i.i.i405 = icmp ult ptr %169, %170
   br i1 %.not.i.i.i.i.i.i.i405, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406, label %171
 
 171:                                              ; preds = %166
@@ -807,7 +807,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i411, ptr %8, align 8
   %196 = load i32, ptr %13, align 4
   %197 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i412 = icmp ugt ptr %197, %.0.i1.i.i.i.i.i.i411
+  %.not.i.i.i.i.i.i412 = icmp ult ptr %.0.i1.i.i.i.i.i.i411, %197
   br i1 %.not.i.i.i.i.i.i412, label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %198
 
 198:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410
@@ -831,7 +831,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17Coded
   %206 = load i32, ptr %205, align 4
   %207 = load ptr, ptr %8, align 8
   %208 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i414 = icmp ugt ptr %208, %207
+  %.not.i.i.i.i.i.i.i414 = icmp ult ptr %207, %208
   br i1 %.not.i.i.i.i.i.i.i414, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415, label %209
 
 209:                                              ; preds = %204
@@ -889,7 +889,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i420, ptr %8, align 8
   %234 = load i32, ptr %13, align 4
   %235 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i421 = icmp ugt ptr %235, %.0.i1.i.i.i.i.i.i420
+  %.not.i.i.i.i.i.i421 = icmp ult ptr %.0.i1.i.i.i.i.i.i420, %235
   br i1 %.not.i.i.i.i.i.i421, label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit423, label %236
 
 236:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419
@@ -926,7 +926,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17Coded
 251:                                              ; preds = %241
   %252 = load ptr, ptr %8, align 8
   %253 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i424 = icmp ugt ptr %253, %252
+  %.not.i.i.i.i.i.i.i.i424 = icmp ult ptr %252, %253
   br i1 %.not.i.i.i.i.i.i.i.i424, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i425, label %254
 
 254:                                              ; preds = %251
@@ -984,7 +984,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i430, ptr %8, align 8
   %279 = load i32, ptr %13, align 4
   %280 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i431 = icmp ugt ptr %280, %.0.i1.i.i.i.i.i.i.i430
+  %.not.i.i.i.i.i.i.i431 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i430, %280
   br i1 %.not.i.i.i.i.i.i.i431, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %281
 
 281:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429
@@ -1016,7 +1016,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOut
   %296 = load i32, ptr %295, align 4
   %297 = load ptr, ptr %8, align 8
   %298 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i433 = icmp ugt ptr %298, %297
+  %.not.i.i.i.i.i.i.i433 = icmp ult ptr %297, %298
   br i1 %.not.i.i.i.i.i.i.i433, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434, label %299
 
 299:                                              ; preds = %294
@@ -1074,7 +1074,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i439, ptr %8, align 8
   %324 = load i64, ptr %13, align 8
   %325 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i440 = icmp ugt ptr %325, %.0.i1.i.i.i.i.i.i439
+  %.not.i.i.i.i.i.i440 = icmp ult ptr %.0.i1.i.i.i.i.i.i439, %325
   br i1 %.not.i.i.i.i.i.i440, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %326
 
 326:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i438
@@ -1142,7 +1142,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17Coded
   %356 = load i32, ptr %355, align 4
   %357 = load ptr, ptr %8, align 8
   %358 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i442 = icmp ugt ptr %358, %357
+  %.not.i.i.i.i.i.i.i442 = icmp ult ptr %357, %358
   br i1 %.not.i.i.i.i.i.i.i442, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443, label %359
 
 359:                                              ; preds = %354
@@ -1200,7 +1200,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i448, ptr %8, align 8
   %384 = load i64, ptr %13, align 8
   %385 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i449 = icmp ugt ptr %385, %.0.i1.i.i.i.i.i.i448
+  %.not.i.i.i.i.i.i449 = icmp ult ptr %.0.i1.i.i.i.i.i.i448, %385
   br i1 %.not.i.i.i.i.i.i449, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450, label %386
 
 386:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i447
@@ -1281,7 +1281,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17Coded
 423:                                              ; preds = %413
   %424 = load ptr, ptr %8, align 8
   %425 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i456 = icmp ugt ptr %425, %424
+  %.not.i.i.i.i.i.i.i.i456 = icmp ult ptr %424, %425
   br i1 %.not.i.i.i.i.i.i.i.i456, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i457, label %426
 
 426:                                              ; preds = %423
@@ -1339,7 +1339,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i462, ptr %8, align 8
   %451 = load i64, ptr %13, align 8
   %452 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i463 = icmp ugt ptr %452, %.0.i1.i.i.i.i.i.i.i462
+  %.not.i.i.i.i.i.i.i463 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i462, %452
   br i1 %.not.i.i.i.i.i.i.i463, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464, label %453
 
 453:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i461
@@ -1415,7 +1415,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOut
   %490 = load i32, ptr %489, align 4
   %491 = load ptr, ptr %8, align 8
   %492 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i469 = icmp ugt ptr %492, %491
+  %.not.i.i.i.i.i.i.i469 = icmp ult ptr %491, %492
   br i1 %.not.i.i.i.i.i.i.i469, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470, label %493
 
 493:                                              ; preds = %488
@@ -1473,7 +1473,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i475, ptr %8, align 8
   %518 = load i64, ptr %13, align 8
   %519 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i476 = icmp ugt ptr %519, %.0.i1.i.i.i.i.i.i475
+  %.not.i.i.i.i.i.i476 = icmp ult ptr %.0.i1.i.i.i.i.i.i475, %519
   br i1 %.not.i.i.i.i.i.i476, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477, label %520
 
 520:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i474
@@ -1541,7 +1541,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17Coded
   %550 = load i32, ptr %549, align 4
   %551 = load ptr, ptr %8, align 8
   %552 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i482 = icmp ugt ptr %552, %551
+  %.not.i.i.i.i.i.i.i482 = icmp ult ptr %551, %552
   br i1 %.not.i.i.i.i.i.i.i482, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483, label %553
 
 553:                                              ; preds = %548
@@ -1599,7 +1599,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i488, ptr %8, align 8
   %578 = load i64, ptr %13, align 8
   %579 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i489 = icmp ugt ptr %579, %.0.i1.i.i.i.i.i.i488
+  %.not.i.i.i.i.i.i489 = icmp ult ptr %.0.i1.i.i.i.i.i.i488, %579
   br i1 %.not.i.i.i.i.i.i489, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490, label %580
 
 580:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i487
@@ -1680,7 +1680,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17Coded
 617:                                              ; preds = %607
   %618 = load ptr, ptr %8, align 8
   %619 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i496 = icmp ugt ptr %619, %618
+  %.not.i.i.i.i.i.i.i.i496 = icmp ult ptr %618, %619
   br i1 %.not.i.i.i.i.i.i.i.i496, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i497, label %620
 
 620:                                              ; preds = %617
@@ -1738,7 +1738,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i502, ptr %8, align 8
   %645 = load i64, ptr %13, align 8
   %646 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i503 = icmp ugt ptr %646, %.0.i1.i.i.i.i.i.i.i502
+  %.not.i.i.i.i.i.i.i503 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i502, %646
   br i1 %.not.i.i.i.i.i.i.i503, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504, label %647
 
 647:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i501
@@ -1814,7 +1814,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOut
   %684 = load i32, ptr %683, align 4
   %685 = load ptr, ptr %8, align 8
   %686 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i509 = icmp ugt ptr %686, %685
+  %.not.i.i.i.i.i.i.i509 = icmp ult ptr %685, %686
   br i1 %.not.i.i.i.i.i.i.i509, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510, label %687
 
 687:                                              ; preds = %682
@@ -1873,7 +1873,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %712 = load i32, ptr %13, align 4
   %713 = sext i32 %712 to i64
   %714 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i4.i = icmp ugt ptr %714, %.0.i1.i.i.i.i.i.i515
+  %.not.i.i.i.i.i.i4.i = icmp ult ptr %.0.i1.i.i.i.i.i.i515, %714
   br i1 %.not.i.i.i.i.i.i4.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i, label %715
 
 715:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i514
@@ -1941,7 +1941,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17Coded
   %745 = load i32, ptr %744, align 4
   %746 = load ptr, ptr %8, align 8
   %747 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i516 = icmp ugt ptr %747, %746
+  %.not.i.i.i.i.i.i.i516 = icmp ult ptr %746, %747
   br i1 %.not.i.i.i.i.i.i.i516, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517, label %748
 
 748:                                              ; preds = %743
@@ -2000,7 +2000,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %773 = load i32, ptr %13, align 4
   %774 = sext i32 %773 to i64
   %775 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i4.i523 = icmp ugt ptr %775, %.0.i1.i.i.i.i.i.i522
+  %.not.i.i.i.i.i.i4.i523 = icmp ult ptr %.0.i1.i.i.i.i.i.i522, %775
   br i1 %.not.i.i.i.i.i.i4.i523, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524, label %776
 
 776:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i521
@@ -2081,7 +2081,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17Coded
 813:                                              ; preds = %803
   %814 = load ptr, ptr %8, align 8
   %815 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i530 = icmp ugt ptr %815, %814
+  %.not.i.i.i.i.i.i.i.i530 = icmp ult ptr %814, %815
   br i1 %.not.i.i.i.i.i.i.i.i530, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i531, label %816
 
 816:                                              ; preds = %813
@@ -2140,7 +2140,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %841 = load i32, ptr %13, align 4
   %842 = sext i32 %841 to i64
   %843 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i4.i.i = icmp ugt ptr %843, %.0.i1.i.i.i.i.i.i.i536
+  %.not.i.i.i.i.i.i4.i.i = icmp ult ptr %.0.i1.i.i.i.i.i.i.i536, %843
   br i1 %.not.i.i.i.i.i.i4.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i, label %844
 
 844:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i535
@@ -2216,7 +2216,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOut
   %881 = load i32, ptr %880, align 4
   %882 = load ptr, ptr %8, align 8
   %883 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i537 = icmp ugt ptr %883, %882
+  %.not.i.i.i.i.i.i.i537 = icmp ult ptr %882, %883
   br i1 %.not.i.i.i.i.i.i.i537, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538, label %884
 
 884:                                              ; preds = %879
@@ -2274,7 +2274,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i543, ptr %8, align 8
   %909 = load i64, ptr %13, align 8
   %910 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i544 = icmp ugt ptr %910, %.0.i1.i.i.i.i.i.i543
+  %.not.i.i.i.i.i.i544 = icmp ult ptr %.0.i1.i.i.i.i.i.i543, %910
   br i1 %.not.i.i.i.i.i.i544, label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %911
 
 911:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542
@@ -2298,7 +2298,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17Coded
   %919 = load i32, ptr %918, align 4
   %920 = load ptr, ptr %8, align 8
   %921 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i546 = icmp ugt ptr %921, %920
+  %.not.i.i.i.i.i.i.i546 = icmp ult ptr %920, %921
   br i1 %.not.i.i.i.i.i.i.i546, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547, label %922
 
 922:                                              ; preds = %917
@@ -2356,7 +2356,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i552, ptr %8, align 8
   %947 = load i64, ptr %13, align 8
   %948 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i553 = icmp ugt ptr %948, %.0.i1.i.i.i.i.i.i552
+  %.not.i.i.i.i.i.i553 = icmp ult ptr %.0.i1.i.i.i.i.i.i552, %948
   br i1 %.not.i.i.i.i.i.i553, label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit555, label %949
 
 949:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551
@@ -2393,7 +2393,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17Coded
 964:                                              ; preds = %954
   %965 = load ptr, ptr %8, align 8
   %966 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i556 = icmp ugt ptr %966, %965
+  %.not.i.i.i.i.i.i.i.i556 = icmp ult ptr %965, %966
   br i1 %.not.i.i.i.i.i.i.i.i556, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i557, label %967
 
 967:                                              ; preds = %964
@@ -2451,7 +2451,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i562, ptr %8, align 8
   %992 = load i64, ptr %13, align 8
   %993 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i563 = icmp ugt ptr %993, %.0.i1.i.i.i.i.i.i.i562
+  %.not.i.i.i.i.i.i.i563 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i562, %993
   br i1 %.not.i.i.i.i.i.i.i563, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %994
 
 994:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561
@@ -2483,7 +2483,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOut
   %1009 = load i32, ptr %1008, align 4
   %1010 = load ptr, ptr %8, align 8
   %1011 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i565 = icmp ugt ptr %1011, %1010
+  %.not.i.i.i.i.i.i.i565 = icmp ult ptr %1010, %1011
   br i1 %.not.i.i.i.i.i.i.i565, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566, label %1012
 
 1012:                                             ; preds = %1007
@@ -2541,7 +2541,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i571, ptr %8, align 8
   %1037 = load i32, ptr %13, align 4
   %1038 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i572 = icmp ugt ptr %1038, %.0.i1.i.i.i.i.i.i571
+  %.not.i.i.i.i.i.i572 = icmp ult ptr %.0.i1.i.i.i.i.i.i571, %1038
   br i1 %.not.i.i.i.i.i.i572, label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1039
 
 1039:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570
@@ -2565,7 +2565,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17Coded
   %1047 = load i32, ptr %1046, align 4
   %1048 = load ptr, ptr %8, align 8
   %1049 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i574 = icmp ugt ptr %1049, %1048
+  %.not.i.i.i.i.i.i.i574 = icmp ult ptr %1048, %1049
   br i1 %.not.i.i.i.i.i.i.i574, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575, label %1050
 
 1050:                                             ; preds = %1045
@@ -2623,7 +2623,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i580, ptr %8, align 8
   %1075 = load i32, ptr %13, align 4
   %1076 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i581 = icmp ugt ptr %1076, %.0.i1.i.i.i.i.i.i580
+  %.not.i.i.i.i.i.i581 = icmp ult ptr %.0.i1.i.i.i.i.i.i580, %1076
   br i1 %.not.i.i.i.i.i.i581, label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit583, label %1077
 
 1077:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579
@@ -2660,7 +2660,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17Coded
 1092:                                             ; preds = %1082
   %1093 = load ptr, ptr %8, align 8
   %1094 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i584 = icmp ugt ptr %1094, %1093
+  %.not.i.i.i.i.i.i.i.i584 = icmp ult ptr %1093, %1094
   br i1 %.not.i.i.i.i.i.i.i.i584, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i585, label %1095
 
 1095:                                             ; preds = %1092
@@ -2718,7 +2718,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i590, ptr %8, align 8
   %1120 = load i32, ptr %13, align 4
   %1121 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i591 = icmp ugt ptr %1121, %.0.i1.i.i.i.i.i.i.i590
+  %.not.i.i.i.i.i.i.i591 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i590, %1121
   br i1 %.not.i.i.i.i.i.i.i591, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1122
 
 1122:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589
@@ -2750,7 +2750,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOut
   %1137 = load i32, ptr %1136, align 4
   %1138 = load ptr, ptr %8, align 8
   %1139 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i593 = icmp ugt ptr %1139, %1138
+  %.not.i.i.i.i.i.i.i593 = icmp ult ptr %1138, %1139
   br i1 %.not.i.i.i.i.i.i.i593, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594, label %1140
 
 1140:                                             ; preds = %1135
@@ -2808,7 +2808,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i599, ptr %8, align 8
   %1165 = load i8, ptr %13, align 1
   %1166 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i600 = icmp ugt ptr %1166, %.0.i1.i.i.i.i.i.i599
+  %.not.i.i.i.i.i.i600 = icmp ult ptr %.0.i1.i.i.i.i.i.i599, %1166
   br i1 %.not.i.i.i.i.i.i600, label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1167
 
 1167:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i598
@@ -2834,7 +2834,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
   %1177 = load i32, ptr %1176, align 4
   %1178 = load ptr, ptr %8, align 8
   %1179 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i602 = icmp ugt ptr %1179, %1178
+  %.not.i.i.i.i.i.i.i602 = icmp ult ptr %1178, %1179
   br i1 %.not.i.i.i.i.i.i.i602, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603, label %1180
 
 1180:                                             ; preds = %1175
@@ -2892,7 +2892,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i608, ptr %8, align 8
   %1205 = load i8, ptr %13, align 1
   %1206 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i609 = icmp ugt ptr %1206, %.0.i1.i.i.i.i.i.i608
+  %.not.i.i.i.i.i.i609 = icmp ult ptr %.0.i1.i.i.i.i.i.i608, %1206
   br i1 %.not.i.i.i.i.i.i609, label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit611, label %1207
 
 1207:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i607
@@ -2930,7 +2930,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
 1223:                                             ; preds = %1213
   %1224 = load ptr, ptr %8, align 8
   %1225 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i612 = icmp ugt ptr %1225, %1224
+  %.not.i.i.i.i.i.i.i.i612 = icmp ult ptr %1224, %1225
   br i1 %.not.i.i.i.i.i.i.i.i612, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i613, label %1226
 
 1226:                                             ; preds = %1223
@@ -2988,7 +2988,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i618, ptr %8, align 8
   %1251 = load i8, ptr %13, align 1
   %1252 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i619 = icmp ugt ptr %1252, %.0.i1.i.i.i.i.i.i.i618
+  %.not.i.i.i.i.i.i.i619 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i618, %1252
   br i1 %.not.i.i.i.i.i.i.i619, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1253
 
 1253:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i617
@@ -3021,7 +3021,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOut
   %1269 = load i32, ptr %1268, align 4
   %1270 = load ptr, ptr %8, align 8
   %1271 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i621 = icmp ugt ptr %1271, %1270
+  %.not.i.i.i.i.i.i.i621 = icmp ult ptr %1270, %1271
   br i1 %.not.i.i.i.i.i.i.i621, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622, label %1272
 
 1272:                                             ; preds = %1267
@@ -3098,7 +3098,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1310 = load i32, ptr %1309, align 4
   %1311 = load ptr, ptr %8, align 8
   %1312 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i628 = icmp ugt ptr %1312, %1311
+  %.not.i.i.i.i.i.i.i628 = icmp ult ptr %1311, %1312
   br i1 %.not.i.i.i.i.i.i.i628, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629, label %1313
 
 1313:                                             ; preds = %1308
@@ -3177,7 +3177,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1349 = load i32, ptr %1346, align 4
   %1350 = load ptr, ptr %8, align 8
   %1351 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i636 = icmp ugt ptr %1351, %1350
+  %.not.i.i.i.i.i.i.i636 = icmp ult ptr %1350, %1351
   br i1 %.not.i.i.i.i.i.i.i636, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637, label %1352
 
 1352:                                             ; preds = %1348
@@ -3265,7 +3265,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 1395:                                             ; preds = %1385
   %1396 = load ptr, ptr %8, align 8
   %1397 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i643 = icmp ugt ptr %1397, %1396
+  %.not.i.i.i.i.i.i.i.i643 = icmp ult ptr %1396, %1397
   br i1 %.not.i.i.i.i.i.i.i.i643, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i644, label %1398
 
 1398:                                             ; preds = %1395
@@ -3346,7 +3346,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOut
   %1439 = load i32, ptr %1438, align 4
   %1440 = load ptr, ptr %8, align 8
   %1441 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i827 = icmp ugt ptr %1441, %1440
+  %.not.i.i.i.i.i.i827 = icmp ult ptr %1440, %1441
   br i1 %.not.i.i.i.i.i.i827, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828, label %1442
 
 1442:                                             ; preds = %1437
@@ -3431,7 +3431,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   %1482 = load i32, ptr %1438, align 4
   %1483 = add i32 %1482, 1
   %1484 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i821 = icmp ugt ptr %1484, %1481
+  %.not.i.i.i.i.i.i821 = icmp ult ptr %1481, %1484
   br i1 %.not.i.i.i.i.i.i821, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822, label %1485
 
 1485:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -3499,7 +3499,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1515 = load i32, ptr %1514, align 4
   %1516 = load ptr, ptr %8, align 8
   %1517 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i843 = icmp ugt ptr %1517, %1516
+  %.not.i.i.i.i.i.i843 = icmp ult ptr %1516, %1517
   br i1 %.not.i.i.i.i.i.i843, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844, label %1518
 
 1518:                                             ; preds = %1513
@@ -3584,7 +3584,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   %1558 = load i32, ptr %1514, align 4
   %1559 = add i32 %1558, 1
   %1560 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i834 = icmp ugt ptr %1560, %1557
+  %.not.i.i.i.i.i.i834 = icmp ult ptr %1557, %1560
   br i1 %.not.i.i.i.i.i.i834, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835, label %1561
 
 1561:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit842
@@ -3647,7 +3647,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %indvars.iv1189 = phi i64 [ 0, %.lr.ph1047 ], [ %indvars.iv.next1190, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit856 ]
   %1588 = load i32, ptr %25, align 4
   %1589 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i859 = icmp ugt ptr %1589, %1587
+  %.not.i.i.i.i.i.i859 = icmp ult ptr %1587, %1589
   br i1 %.not.i.i.i.i.i.i859, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860, label %1590
 
 1590:                                             ; preds = %1586
@@ -3736,7 +3736,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   %1632 = load i32, ptr %25, align 4
   %1633 = add i32 %1632, 1
   %1634 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i850 = icmp ugt ptr %1634, %1631
+  %.not.i.i.i.i.i.i850 = icmp ult ptr %1631, %1634
   br i1 %.not.i.i.i.i.i.i850, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851, label %1635
 
 1635:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit858
@@ -3836,7 +3836,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1687 = load i32, ptr %1686, align 4
   %1688 = load ptr, ptr %8, align 8
   %1689 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i866 = icmp ugt ptr %1689, %1688
+  %.not.i.i.i.i.i.i866 = icmp ult ptr %1688, %1689
   br i1 %.not.i.i.i.i.i.i866, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867, label %1690
 
 1690:                                             ; preds = %1685
@@ -3908,7 +3908,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1723 = load i32, ptr %1722, align 4
   %1724 = load ptr, ptr %8, align 8
   %1725 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i873 = icmp ugt ptr %1725, %1724
+  %.not.i.i.i.i.i.i873 = icmp ult ptr %1724, %1725
   br i1 %.not.i.i.i.i.i.i873, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874, label %1726
 
 1726:                                             ; preds = %1721
@@ -3975,7 +3975,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1755 = load i32, ptr %19, align 4
   %1756 = load ptr, ptr %8, align 8
   %1757 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i882 = icmp ugt ptr %1757, %1756
+  %.not.i.i.i.i.i.i882 = icmp ult ptr %1756, %1757
   br i1 %.not.i.i.i.i.i.i882, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883, label %1758
 
 1758:                                             ; preds = %1754
@@ -4083,7 +4083,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1815 = load i32, ptr %1814, align 4
   %1816 = load ptr, ptr %8, align 8
   %1817 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i650 = icmp ugt ptr %1817, %1816
+  %.not.i.i.i.i.i.i.i650 = icmp ult ptr %1816, %1817
   br i1 %.not.i.i.i.i.i.i.i650, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651, label %1818
 
 1818:                                             ; preds = %1813
@@ -4160,7 +4160,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1856 = load i32, ptr %1855, align 4
   %1857 = load ptr, ptr %8, align 8
   %1858 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i658 = icmp ugt ptr %1858, %1857
+  %.not.i.i.i.i.i.i.i658 = icmp ult ptr %1857, %1858
   br i1 %.not.i.i.i.i.i.i.i658, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659, label %1859
 
 1859:                                             ; preds = %1854
@@ -4239,7 +4239,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1895 = load i32, ptr %1892, align 4
   %1896 = load ptr, ptr %8, align 8
   %1897 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i668 = icmp ugt ptr %1897, %1896
+  %.not.i.i.i.i.i.i.i668 = icmp ult ptr %1896, %1897
   br i1 %.not.i.i.i.i.i.i.i668, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669, label %1898
 
 1898:                                             ; preds = %1894
@@ -4327,7 +4327,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 1941:                                             ; preds = %1931
   %1942 = load ptr, ptr %8, align 8
   %1943 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i679 = icmp ugt ptr %1943, %1942
+  %.not.i.i.i.i.i.i.i.i679 = icmp ult ptr %1942, %1943
   br i1 %.not.i.i.i.i.i.i.i.i679, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i680, label %1944
 
 1944:                                             ; preds = %1941
@@ -4408,7 +4408,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOu
   %1985 = load i32, ptr %1984, align 4
   %1986 = load ptr, ptr %8, align 8
   %1987 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i685 = icmp ugt ptr %1987, %1986
+  %.not.i.i.i.i.i.i.i685 = icmp ult ptr %1986, %1987
   br i1 %.not.i.i.i.i.i.i.i685, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686, label %1988
 
 1988:                                             ; preds = %1983
@@ -4466,7 +4466,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i691, ptr %8, align 8
   %2013 = load i32, ptr %13, align 4
   %2014 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i692 = icmp ugt ptr %2014, %.0.i1.i.i.i.i.i.i691
+  %.not.i.i.i.i.i.i692 = icmp ult ptr %.0.i1.i.i.i.i.i.i691, %2014
   br i1 %.not.i.i.i.i.i.i692, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693, label %2015
 
 2015:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i690
@@ -4534,7 +4534,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17Code
   %2045 = load i32, ptr %2044, align 4
   %2046 = load ptr, ptr %8, align 8
   %2047 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i698 = icmp ugt ptr %2047, %2046
+  %.not.i.i.i.i.i.i.i698 = icmp ult ptr %2046, %2047
   br i1 %.not.i.i.i.i.i.i.i698, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699, label %2048
 
 2048:                                             ; preds = %2043
@@ -4592,7 +4592,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i704, ptr %8, align 8
   %2073 = load i32, ptr %13, align 4
   %2074 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i705 = icmp ugt ptr %2074, %.0.i1.i.i.i.i.i.i704
+  %.not.i.i.i.i.i.i705 = icmp ult ptr %.0.i1.i.i.i.i.i.i704, %2074
   br i1 %.not.i.i.i.i.i.i705, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706, label %2075
 
 2075:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i703
@@ -4673,7 +4673,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17Code
 2112:                                             ; preds = %2102
   %2113 = load ptr, ptr %8, align 8
   %2114 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i712 = icmp ugt ptr %2114, %2113
+  %.not.i.i.i.i.i.i.i.i712 = icmp ult ptr %2113, %2114
   br i1 %.not.i.i.i.i.i.i.i.i712, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i713, label %2115
 
 2115:                                             ; preds = %2112
@@ -4731,7 +4731,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i718, ptr %8, align 8
   %2140 = load i32, ptr %13, align 4
   %2141 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i719 = icmp ugt ptr %2141, %.0.i1.i.i.i.i.i.i.i718
+  %.not.i.i.i.i.i.i.i719 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i718, %2141
   br i1 %.not.i.i.i.i.i.i.i719, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720, label %2142
 
 2142:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i717
@@ -4807,7 +4807,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOu
   %2179 = load i32, ptr %2178, align 4
   %2180 = load ptr, ptr %8, align 8
   %2181 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i725 = icmp ugt ptr %2181, %2180
+  %.not.i.i.i.i.i.i.i725 = icmp ult ptr %2180, %2181
   br i1 %.not.i.i.i.i.i.i.i725, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726, label %2182
 
 2182:                                             ; preds = %2177
@@ -4866,7 +4866,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %2207 = load i32, ptr %13, align 4
   %2208 = sext i32 %2207 to i64
   %2209 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i4.i732 = icmp ugt ptr %2209, %.0.i1.i.i.i.i.i.i731
+  %.not.i.i.i.i.i.i4.i732 = icmp ult ptr %.0.i1.i.i.i.i.i.i731, %2209
   br i1 %.not.i.i.i.i.i.i4.i732, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733, label %2210
 
 2210:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i730
@@ -4934,7 +4934,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17Code
   %2240 = load i32, ptr %2239, align 4
   %2241 = load ptr, ptr %8, align 8
   %2242 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i738 = icmp ugt ptr %2242, %2241
+  %.not.i.i.i.i.i.i.i738 = icmp ult ptr %2241, %2242
   br i1 %.not.i.i.i.i.i.i.i738, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739, label %2243
 
 2243:                                             ; preds = %2238
@@ -4993,7 +4993,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %2268 = load i32, ptr %13, align 4
   %2269 = sext i32 %2268 to i64
   %2270 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i4.i745 = icmp ugt ptr %2270, %.0.i1.i.i.i.i.i.i744
+  %.not.i.i.i.i.i.i4.i745 = icmp ult ptr %.0.i1.i.i.i.i.i.i744, %2270
   br i1 %.not.i.i.i.i.i.i4.i745, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746, label %2271
 
 2271:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i743
@@ -5074,7 +5074,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17Code
 2308:                                             ; preds = %2298
   %2309 = load ptr, ptr %8, align 8
   %2310 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i752 = icmp ugt ptr %2310, %2309
+  %.not.i.i.i.i.i.i.i.i752 = icmp ult ptr %2309, %2310
   br i1 %.not.i.i.i.i.i.i.i.i752, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i753, label %2311
 
 2311:                                             ; preds = %2308
@@ -5133,7 +5133,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %2336 = load i32, ptr %13, align 4
   %2337 = sext i32 %2336 to i64
   %2338 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i4.i.i759 = icmp ugt ptr %2338, %.0.i1.i.i.i.i.i.i.i758
+  %.not.i.i.i.i.i.i4.i.i759 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i758, %2338
   br i1 %.not.i.i.i.i.i.i4.i.i759, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i760, label %2339
 
 2339:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i757
@@ -5209,7 +5209,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOu
   %2376 = load i32, ptr %2375, align 4
   %2377 = load ptr, ptr %8, align 8
   %2378 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i765 = icmp ugt ptr %2378, %2377
+  %.not.i.i.i.i.i.i.i765 = icmp ult ptr %2377, %2378
   br i1 %.not.i.i.i.i.i.i.i765, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766, label %2379
 
 2379:                                             ; preds = %2374
@@ -5267,7 +5267,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i771, ptr %8, align 8
   %2404 = load i32, ptr %13, align 4
   %2405 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i772 = icmp ugt ptr %2405, %.0.i1.i.i.i.i.i.i771
+  %.not.i.i.i.i.i.i772 = icmp ult ptr %.0.i1.i.i.i.i.i.i771, %2405
   br i1 %.not.i.i.i.i.i.i772, label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2406
 
 2406:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770
@@ -5291,7 +5291,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17Code
   %2414 = load i32, ptr %2413, align 4
   %2415 = load ptr, ptr %8, align 8
   %2416 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i774 = icmp ugt ptr %2416, %2415
+  %.not.i.i.i.i.i.i.i774 = icmp ult ptr %2415, %2416
   br i1 %.not.i.i.i.i.i.i.i774, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775, label %2417
 
 2417:                                             ; preds = %2412
@@ -5349,7 +5349,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i780, ptr %8, align 8
   %2442 = load i32, ptr %13, align 4
   %2443 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i781 = icmp ugt ptr %2443, %.0.i1.i.i.i.i.i.i780
+  %.not.i.i.i.i.i.i781 = icmp ult ptr %.0.i1.i.i.i.i.i.i780, %2443
   br i1 %.not.i.i.i.i.i.i781, label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit783, label %2444
 
 2444:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779
@@ -5386,7 +5386,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17Code
 2459:                                             ; preds = %2449
   %2460 = load ptr, ptr %8, align 8
   %2461 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i784 = icmp ugt ptr %2461, %2460
+  %.not.i.i.i.i.i.i.i.i784 = icmp ult ptr %2460, %2461
   br i1 %.not.i.i.i.i.i.i.i.i784, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i785, label %2462
 
 2462:                                             ; preds = %2459
@@ -5444,7 +5444,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i790, ptr %8, align 8
   %2487 = load i32, ptr %13, align 4
   %2488 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i791 = icmp ugt ptr %2488, %.0.i1.i.i.i.i.i.i.i790
+  %.not.i.i.i.i.i.i.i791 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i790, %2488
   br i1 %.not.i.i.i.i.i.i.i791, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2489
 
 2489:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789
@@ -5476,7 +5476,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOu
   %2504 = load i32, ptr %2503, align 4
   %2505 = load ptr, ptr %8, align 8
   %2506 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i793 = icmp ugt ptr %2506, %2505
+  %.not.i.i.i.i.i.i.i793 = icmp ult ptr %2505, %2506
   br i1 %.not.i.i.i.i.i.i.i793, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794, label %2507
 
 2507:                                             ; preds = %2502
@@ -5534,7 +5534,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i799, ptr %8, align 8
   %2532 = load i64, ptr %13, align 8
   %2533 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i800 = icmp ugt ptr %2533, %.0.i1.i.i.i.i.i.i799
+  %.not.i.i.i.i.i.i800 = icmp ult ptr %.0.i1.i.i.i.i.i.i799, %2533
   br i1 %.not.i.i.i.i.i.i800, label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2534
 
 2534:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798
@@ -5558,7 +5558,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17Code
   %2542 = load i32, ptr %2541, align 4
   %2543 = load ptr, ptr %8, align 8
   %2544 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i802 = icmp ugt ptr %2544, %2543
+  %.not.i.i.i.i.i.i.i802 = icmp ult ptr %2543, %2544
   br i1 %.not.i.i.i.i.i.i.i802, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803, label %2545
 
 2545:                                             ; preds = %2540
@@ -5616,7 +5616,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i808, ptr %8, align 8
   %2570 = load i64, ptr %13, align 8
   %2571 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i809 = icmp ugt ptr %2571, %.0.i1.i.i.i.i.i.i808
+  %.not.i.i.i.i.i.i809 = icmp ult ptr %.0.i1.i.i.i.i.i.i808, %2571
   br i1 %.not.i.i.i.i.i.i809, label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit811, label %2572
 
 2572:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807
@@ -5653,7 +5653,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17Code
 2587:                                             ; preds = %2577
   %2588 = load ptr, ptr %8, align 8
   %2589 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i812 = icmp ugt ptr %2589, %2588
+  %.not.i.i.i.i.i.i.i.i812 = icmp ult ptr %2588, %2589
   br i1 %.not.i.i.i.i.i.i.i.i812, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i813, label %2590
 
 2590:                                             ; preds = %2587
@@ -5711,7 +5711,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i.i818, ptr %8, align 8
   %2615 = load i64, ptr %13, align 8
   %2616 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i819 = icmp ugt ptr %2616, %.0.i1.i.i.i.i.i.i.i818
+  %.not.i.i.i.i.i.i.i819 = icmp ult ptr %.0.i1.i.i.i.i.i.i.i818, %2616
   br i1 %.not.i.i.i.i.i.i.i819, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2617
 
 2617:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817
@@ -11707,7 +11707,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi1E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -11767,7 +11767,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -11799,7 +11799,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -11858,7 +11858,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -11924,7 +11924,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -11961,7 +11961,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi2E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -12021,7 +12021,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12053,7 +12053,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -12112,7 +12112,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12178,7 +12178,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -12215,7 +12215,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -12275,7 +12275,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12351,7 +12351,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -12410,7 +12410,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12476,7 +12476,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -12557,7 +12557,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -12617,7 +12617,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12693,7 +12693,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -12752,7 +12752,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12818,7 +12818,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -12899,7 +12899,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -12960,7 +12960,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %7, align 8
   %41 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i8 = icmp ugt ptr %41, %40
+  %.not.i.i.i.i.i.i8 = icmp ult ptr %40, %41
   br i1 %.not.i.i.i.i.i.i8, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9, label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13036,7 +13036,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -13095,7 +13095,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13162,7 +13162,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %68 = sext i32 %67 to i64
   %69 = load ptr, ptr %8, align 8
   %70 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i18 = icmp ugt ptr %70, %69
+  %.not.i.i.i.i.i.i18 = icmp ult ptr %69, %70
   br i1 %.not.i.i.i.i.i.i18, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19, label %71
 
 71:                                               ; preds = %.lr.ph
@@ -13243,7 +13243,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi6E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -13303,7 +13303,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13335,7 +13335,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -13394,7 +13394,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13460,7 +13460,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -13497,7 +13497,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi7E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -13557,7 +13557,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13589,7 +13589,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -13648,7 +13648,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13714,7 +13714,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -13751,7 +13751,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi8E
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -13811,7 +13811,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i8, ptr %37, align 1
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13844,7 +13844,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -13903,7 +13903,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13969,7 +13969,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i8, ptr %66, align 1
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -14037,7 +14037,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10
   %6 = getelementptr inbounds i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %8, %7
+  %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
@@ -14122,7 +14122,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   %49 = load i32, ptr %4, align 4
   %50 = add i32 %49, 1
   %51 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i7 = icmp ugt ptr %51, %48
+  %.not.i.i.i.i.i.i7 = icmp ult ptr %48, %51
   br i1 %.not.i.i.i.i.i.i7, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8, label %52
 
 52:                                               ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -14188,7 +14188,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11
   %6 = getelementptr inbounds i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %8, %7
+  %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
@@ -14257,7 +14257,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(16) %34)
   %42 = load ptr, ptr %6, align 8
   %43 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i11 = icmp ugt ptr %43, %42
+  %.not.i.i.i.i.i.i11 = icmp ult ptr %42, %43
   br i1 %.not.i.i.i.i.i.i11, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12, label %44
 
 44:                                               ; preds = %37
@@ -14328,7 +14328,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %78 = getelementptr inbounds i8, ptr %34, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i5 = icmp ugt ptr %80, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i5 = icmp ult ptr %.0.i1.i.i.i.i.i, %80
   br i1 %.not.i.i.i.i.i.i5, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6, label %81
 
 81:                                               ; preds = %73
@@ -14410,7 +14410,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -14470,7 +14470,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -14546,7 +14546,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -14605,7 +14605,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -14671,7 +14671,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -14752,7 +14752,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -14813,7 +14813,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %7, align 8
   %41 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i8 = icmp ugt ptr %41, %40
+  %.not.i.i.i.i.i.i8 = icmp ult ptr %40, %41
   br i1 %.not.i.i.i.i.i.i8, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9, label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -14889,7 +14889,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -14948,7 +14948,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15015,7 +15015,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %68 = sext i32 %67 to i64
   %69 = load ptr, ptr %8, align 8
   %70 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i18 = icmp ugt ptr %70, %69
+  %.not.i.i.i.i.i.i18 = icmp ult ptr %69, %70
   br i1 %.not.i.i.i.i.i.i18, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19, label %71
 
 71:                                               ; preds = %.lr.ph
@@ -15096,7 +15096,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi15
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -15156,7 +15156,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15188,7 +15188,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -15247,7 +15247,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15313,7 +15313,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -15350,7 +15350,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi16
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -15410,7 +15410,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %40, %39
+  %.not.i.i.i.i.i = icmp ult ptr %39, %40
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15442,7 +15442,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -15501,7 +15501,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15567,7 +15567,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %69, %68
+  %.not.i.i.i.i.i = icmp ult ptr %68, %69
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
@@ -15595,7 +15595,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi17
   %6 = getelementptr inbounds i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %8, %7
+  %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
@@ -15656,7 +15656,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = ashr i32 %34, 31
   %37 = xor i32 %35, %36
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15731,7 +15731,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -15794,7 +15794,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %41 = xor i32 %39, %40
   %42 = load ptr, ptr %7, align 8
   %43 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %43, %42
+  %.not.i.i.i.i.i = icmp ult ptr %42, %43
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %44
 
 44:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15870,7 +15870,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -15929,7 +15929,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15998,7 +15998,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %70 = xor i32 %68, %69
   %71 = load ptr, ptr %8, align 8
   %72 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %72, %71
+  %.not.i.i.i.i.i = icmp ult ptr %71, %72
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %73
 
 73:                                               ; preds = %.lr.ph
@@ -16070,7 +16070,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi18
   %6 = getelementptr inbounds i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %8, %7
+  %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
@@ -16131,7 +16131,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = ashr i64 %34, 63
   %37 = xor i64 %35, %36
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -16206,7 +16206,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
@@ -16269,7 +16269,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %41 = xor i64 %39, %40
   %42 = load ptr, ptr %7, align 8
   %43 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %43, %42
+  %.not.i.i.i.i.i = icmp ult ptr %42, %43
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %44
 
 44:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -16345,7 +16345,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
   %8 = getelementptr inbounds i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %10, %9
+  %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
@@ -16404,7 +16404,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i12 = icmp ugt ptr %38, %.0.i1.i.i.i.i.i
+  %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -16473,7 +16473,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %70 = xor i64 %68, %69
   %71 = load ptr, ptr %8, align 8
   %72 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp ugt ptr %72, %71
+  %.not.i.i.i.i.i = icmp ult ptr %71, %72
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %73
 
 73:                                               ; preds = %.lr.ph
@@ -20272,7 +20272,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9E
   %5 = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
-  %.not.i.i = icmp ugt ptr %7, %6
+  %.not.i.i = icmp ult ptr %6, %7
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %8
 
 8:                                                ; preds = %2
@@ -20383,7 +20383,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS0_2
   %9 = getelementptr inbounds i8, ptr %2, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp ugt ptr %11, %10
+  %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %4
@@ -20456,7 +20456,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %48 = getelementptr inbounds i8, ptr %2, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i.i17 = icmp ugt ptr %50, %49
+  %.not.i.i.i.i.i.i17 = icmp ult ptr %49, %50
   br i1 %.not.i.i.i.i.i.i17, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18, label %51
 
 51:                                               ; preds = %41

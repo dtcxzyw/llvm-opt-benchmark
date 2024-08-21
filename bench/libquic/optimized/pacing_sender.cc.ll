@@ -163,7 +163,7 @@ if.then34:                                        ; preds = %_ZNK3net12PacingSen
   %add.i18 = add nsw i64 %13, %11
   %cmp.i.i = icmp slt i64 %add.i18, %sent_time.coerce
   %14 = select i1 %cmp.i17, i1 %cmp.i.i, i1 false
-  %cmp.i.i19.not = icmp sgt i64 %add.i, %sent_time.coerce
+  %cmp.i.i19.not = icmp slt i64 %sent_time.coerce, %add.i
   %brmerge = or i1 %cmp.i.i19.not, %14
   br i1 %brmerge, label %if.else, label %if.then67
 

@@ -205,7 +205,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
   %58 = load i16, ptr %34, align 2
-  %59 = icmp slt i16 %58, %56
+  %59 = icmp sgt i16 %56, %58
   br i1 %59, label %slot_getsomeattrs.exit.i.i, label %ExecGetJunkAttribute.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %54
@@ -256,7 +256,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
   %84 = load i16, ptr %83, align 8
   %85 = sext i16 %84 to i32
   %86 = load i16, ptr %34, align 2
-  %87 = icmp slt i16 %86, %84
+  %87 = icmp sgt i16 %84, %86
   br i1 %87, label %slot_getsomeattrs.exit.i.i83, label %ExecGetJunkAttribute.exit84
 
 slot_getsomeattrs.exit.i.i83:                     ; preds = %81

@@ -3314,7 +3314,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit: ; preds = %31, %
   %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
-  %49 = icmp ult i64 %48, %41
+  %49 = icmp ugt i64 %41, %48
   br i1 %49, label %50, label %81
 
 50:                                               ; preds = %42
@@ -3405,7 +3405,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %77, %_ZNSt
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 81:                                               ; preds = %42
-  %82 = icmp ugt i64 %48, %41
+  %82 = icmp ult i64 %41, %48
   br i1 %82, label %83, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 83:                                               ; preds = %81
@@ -3824,7 +3824,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit: ; preds = %29, %
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
-  %47 = icmp ult i64 %46, %39
+  %47 = icmp ugt i64 %39, %46
   br i1 %47, label %48, label %79
 
 48:                                               ; preds = %40
@@ -3915,7 +3915,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %75, %_ZNSt
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 79:                                               ; preds = %40
-  %80 = icmp ugt i64 %46, %39
+  %80 = icmp ult i64 %39, %46
   br i1 %80, label %81, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 81:                                               ; preds = %79
@@ -4321,7 +4321,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_15v() #2 personality ptr @__gxx_per
   %37 = ptrtoint ptr %35 to i64
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
-  %40 = icmp ult i64 %39, %32
+  %40 = icmp ugt i64 %32, %39
   br i1 %40, label %41, label %72
 
 41:                                               ; preds = %33
@@ -4412,7 +4412,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %68, %_ZNSt
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 72:                                               ; preds = %33
-  %73 = icmp ugt i64 %39, %32
+  %73 = icmp ult i64 %32, %39
   br i1 %73, label %74, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 74:                                               ; preds = %72

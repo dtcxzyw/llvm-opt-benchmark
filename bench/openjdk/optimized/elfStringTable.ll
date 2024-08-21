@@ -58,7 +58,7 @@ define hidden noundef zeroext i1 @_ZN14ElfStringTable9string_atEmPci(ptr nocaptu
   %8 = icmp slt i32 %7, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
-  %.not = icmp ugt i64 %10, %1
+  %.not = icmp ult i64 %1, %10
   %or.cond = select i1 %8, i1 %.not, i1 false
   br i1 %or.cond, label %11, label %37
 

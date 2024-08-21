@@ -148,7 +148,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %.069115 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %.170, %46 ]
   %.073113 = phi i64 [ 0, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %47, %46 ]
   %9 = load i64, ptr %4, align 8
-  %10 = icmp ugt i64 %9, %.073113
+  %10 = icmp ult i64 %.073113, %9
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.073113

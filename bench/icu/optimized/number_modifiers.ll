@@ -510,7 +510,7 @@ invoke.cont37:                                    ; preds = %invoke.cont18, %inv
   br i1 %cmp39, label %if.then40, label %if.end51
 
 if.then40:                                        ; preds = %invoke.cont37
-  %cmp.i.i42 = icmp ugt i32 %cond.i, %storemerge
+  %cmp.i.i42 = icmp ult i32 %storemerge, %cond.i
   br i1 %cmp.i.i42, label %if.then.i.i44, label %if.end51
 
 if.then.i.i44:                                    ; preds = %if.then40
@@ -885,7 +885,7 @@ if.end13:                                         ; preds = %_ZNK6icu_7513Unicod
   %offset.0 = phi i32 [ 2, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %inc12, %if.else ]
   %cmp.i.i.i.i54 = icmp slt i16 %9, 0
   %cond.i.i.i57 = select i1 %cmp.i.i.i.i54, i32 %8, i32 %shr.i.i.i.i55.pre-phi
-  %cmp.i.i58 = icmp ugt i32 %cond.i.i.i57, %offset.0
+  %cmp.i.i58 = icmp ult i32 %offset.0, %cond.i.i.i57
   br i1 %cmp.i.i58, label %_ZNK6icu_7513UnicodeString6charAtEi.exit66, label %_ZNK6icu_7513UnicodeString6charAtEi.exit66.thread
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit66.thread: ; preds = %if.end13
@@ -934,7 +934,7 @@ if.end29:                                         ; preds = %_ZNK6icu_7513Unicod
   br i1 %cmp31, label %if.end44, label %if.else33
 
 if.else33:                                        ; preds = %if.end29
-  %cmp.i.i77 = icmp ugt i32 %cond.i71, %offset.1
+  %cmp.i.i77 = icmp ult i32 %offset.1, %cond.i71
   br i1 %cmp.i.i77, label %if.then.i.i79, label %_ZNK6icu_7513UnicodeString6charAtEi.exit86
 
 if.then.i.i79:                                    ; preds = %if.else33

@@ -2998,7 +2998,7 @@ define i32 @Ifd_ManOper(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2
 16:                                               ; preds = %14
   %17 = icmp eq i32 %1, 1
   %18 = zext i1 %17 to i32
-  %19 = xor i32 %18, %2
+  %19 = xor i32 %2, %18
   br label %68
 
 20:                                               ; preds = %14
@@ -3008,7 +3008,7 @@ define i32 @Ifd_ManOper(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2
 22:                                               ; preds = %20
   %23 = icmp eq i32 %2, 1
   %24 = zext i1 %23 to i32
-  %25 = xor i32 %24, %1
+  %25 = xor i32 %1, %24
   br label %68
 
 26:                                               ; preds = %20
@@ -4476,7 +4476,7 @@ Vec_WrdStart.exit.split.us.split.us:              ; preds = %Vec_WrdStart.exit
   %20 = phi i1 [ false, %._crit_edge48.split.us.us.us ], [ true, %Vec_WrdStart.exit.split.us.split.us ]
   %indvars.iv64 = phi i64 [ 1, %._crit_edge48.split.us.us.us ], [ 0, %Vec_WrdStart.exit.split.us.split.us ]
   %21 = add nsw i64 %indvars.iv64, -1
-  %22 = xor i64 %21, %0
+  %22 = xor i64 %0, %21
   %23 = trunc nuw nsw i64 %indvars.iv64 to i32
   %24 = shl nuw i32 %23, %3
   br label %.preheader43.us.us.us

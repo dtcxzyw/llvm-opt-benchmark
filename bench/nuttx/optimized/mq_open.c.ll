@@ -484,7 +484,7 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr nocapture noundef read
   %indvars.iv = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next, %33 ]
   %35 = getelementptr inbounds [4 x ptr], ptr %32, i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, %1
+  %37 = icmp eq ptr %1, %36
   br i1 %37, label %38, label %33
 
 38:                                               ; preds = %34

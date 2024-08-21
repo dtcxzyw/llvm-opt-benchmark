@@ -1249,7 +1249,7 @@ define hidden void @_ZN10tokio_util4sync18cancellation_token9tree_node23move_chi
   %11 = load i64, ptr %10, align 8, !alias.scope !128, !noundef !5
   %12 = load i64, ptr %1, align 8, !alias.scope !128, !noundef !5
   %13 = sub i64 %12, %11
-  %14 = icmp ult i64 %13, %9
+  %14 = icmp ugt i64 %9, %13
   br i1 %14, label %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h72acf7d4472d6858E.exit"
 
 15:                                               ; preds = %2

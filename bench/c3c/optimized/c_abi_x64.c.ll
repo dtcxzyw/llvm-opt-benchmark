@@ -1482,7 +1482,7 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
   %34 = getelementptr inbounds i8, ptr %33, i64 48
   %35 = load i64, ptr %34, align 8
   %36 = trunc i64 %35 to i32
-  %.not54 = icmp ult i32 %36, %2
+  %.not54 = icmp ugt i32 %2, %36
   br i1 %.not54, label %37, label %.loopexit
 
 37:                                               ; preds = %.lr.ph

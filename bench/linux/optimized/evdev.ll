@@ -2225,7 +2225,7 @@ define internal fastcc i32 @evdev_handle_get_val(ptr noundef %0, ptr noundef %1,
 41:                                               ; preds = %37, %28
   %42 = phi i1 [ false, %28 ], [ %40, %37 ]
   %43 = zext i16 %35 to i32
-  %44 = icmp eq i32 %43, %2
+  %44 = icmp eq i32 %2, %43
   br i1 %44, label %58, label %45
 
 45:                                               ; preds = %41

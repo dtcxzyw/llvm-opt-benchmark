@@ -875,9 +875,9 @@ if.end40:                                         ; preds = %for.body.i, %for.bo
 define hidden void @FLAC__window_partial_tukey(ptr nocapture noundef writeonly %window, i32 noundef %L, float noundef %p, float noundef %start, float noundef %end) local_unnamed_addr #1 {
 entry:
   %conv = sitofp i32 %L to float
-  %mul = fmul reassoc nsz arcp float %conv, %start
+  %mul = fmul reassoc nsz arcp float %start, %conv
   %conv1 = fptosi float %mul to i32
-  %mul3 = fmul reassoc nsz arcp float %conv, %end
+  %mul3 = fmul reassoc nsz arcp float %end, %conv
   %conv4 = fptosi float %mul3 to i32
   %sub = sub nsw i32 %conv4, %conv1
   %cmp = fcmp reassoc nsz arcp ugt float %p, 0.000000e+00
@@ -1292,7 +1292,7 @@ if.end87.sink.split:                              ; preds = %for.cond77.preheade
   %77 = shl nuw nsw i64 %76, 2
   %scevgep = getelementptr i8, ptr %window, i64 %77
   %78 = xor i32 %n.3.i.lcssa.sink340, -1
-  %79 = add i32 %78, %L
+  %79 = add i32 %L, %78
   %80 = zext i32 %79 to i64
   %81 = shl nuw nsw i64 %80, 2
   %82 = add nuw nsw i64 %81, 4
@@ -1329,9 +1329,9 @@ if.else9:                                         ; preds = %if.else
 
 if.else15:                                        ; preds = %if.else9
   %conv.le = sitofp i32 %L to float
-  %mul.le = fmul reassoc nsz arcp float %conv.le, %start
+  %mul.le = fmul reassoc nsz arcp float %start, %conv.le
   %conv1.le = fptosi float %mul.le to i32
-  %mul3.le = fmul reassoc nsz arcp float %conv.le, %end
+  %mul3.le = fmul reassoc nsz arcp float %end, %conv.le
   %conv4.le = fptosi float %mul3.le to i32
   %div = fmul reassoc nsz arcp float %p.tr, 5.000000e-01
   %conv16 = sitofp i32 %conv1.le to float

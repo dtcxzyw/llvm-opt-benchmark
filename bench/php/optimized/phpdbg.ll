@@ -2229,7 +2229,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 93:                                               ; preds = %89
   %94 = load i32, ptr %5, align 4
-  %95 = icmp slt i32 %94, %0
+  %95 = icmp sgt i32 %0, %94
   br i1 %95, label %96, label %105
 
 96:                                               ; preds = %93

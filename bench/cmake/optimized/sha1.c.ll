@@ -36,8 +36,8 @@ define dso_local void @rhash_sha1_update(ptr nocapture noundef %0, ptr noundef %
   %11 = and i64 %5, 63
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = zext nneg i32 %10 to i64
-  %14 = icmp ugt i64 %13, %2
-  %15 = tail call i64 @llvm.umin.i64(i64 %13, i64 %2)
+  %14 = icmp ult i64 %2, %13
+  %15 = tail call i64 @llvm.umin.i64(i64 %2, i64 %13)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %1, i64 %15, i1 false)
   br i1 %14, label %32, label %16
 

@@ -2349,8 +2349,8 @@ _ZNK2cv3Mat2atIdEERKT_i.exit53:                   ; preds = %_ZNK2cv3Mat2atIdEER
   %69 = tail call double @sin(double noundef %5) #21
   %70 = fmul double %64, %66
   %71 = fmul double %64, %67
-  %72 = fneg double %71
-  %73 = fmul double %68, %72
+  %72 = fneg double %68
+  %73 = fmul double %71, %72
   %74 = tail call double @llvm.fmuladd.f64(double %65, double %69, double %73)
   %75 = fmul double %65, %68
   %76 = tail call double @llvm.fmuladd.f64(double %71, double %69, double %75)
@@ -5854,7 +5854,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %11
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %29 = extractvalue { ptr, i32 } %lpad.phi, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #21
-  %.not4.i.i = icmp eq ptr %.017, %2
+  %.not4.i.i = icmp eq ptr %2, %.017
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEEEvT_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i

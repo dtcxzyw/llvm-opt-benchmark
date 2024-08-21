@@ -1350,7 +1350,7 @@ if.then42:                                        ; preds = %if.end33
 if.end48:                                         ; preds = %if.then35.thread, %if.then42
   %index.07281 = phi i32 [ %12, %if.then35.thread ], [ %17, %if.then42 ]
   %21 = load i32, ptr %last_record_index.i, align 4
-  %cmp.i45 = icmp ugt i32 %21, %index.07281
+  %cmp.i45 = icmp ult i32 %index.07281, %21
   br i1 %cmp.i45, label %if.then.i47, label %return
 
 if.then.i47:                                      ; preds = %if.end48

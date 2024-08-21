@@ -1289,7 +1289,7 @@ if.else7:                                         ; preds = %if.then4
   %grouping2 = getelementptr inbounds i8, ptr %this, i64 14
   %1 = load i16, ptr %grouping2, align 2
   %conv = sext i16 %1 to i32
-  %cmp9 = icmp sge i32 %conv, %count
+  %cmp9 = icmp sle i32 %count, %conv
   %2 = select i1 %cmp8.not, i1 %cmp9, i1 false
   br label %return
 
@@ -1300,14 +1300,14 @@ if.then14:                                        ; preds = %if.then12
   %grouping1 = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i16, ptr %grouping1, align 4
   %conv15 = sext i16 %3 to i32
-  %cmp16 = icmp eq i32 %conv15, %count
+  %cmp16 = icmp eq i32 %count, %conv15
   br label %return
 
 if.else17:                                        ; preds = %if.then12
   %grouping218 = getelementptr inbounds i8, ptr %this, i64 14
   %4 = load i16, ptr %grouping218, align 2
   %conv19 = sext i16 %4 to i32
-  %cmp20 = icmp eq i32 %conv19, %count
+  %cmp20 = icmp eq i32 %count, %conv19
   br label %return
 
 if.else22:                                        ; preds = %entry

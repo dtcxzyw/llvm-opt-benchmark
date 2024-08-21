@@ -196,7 +196,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %conv, i64 %max_out)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %max_out, i64 %conv)
   %master_key = getelementptr inbounds i8, ptr %session, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 8 %master_key, i64 %spec.select, i1 false)
   br label %return

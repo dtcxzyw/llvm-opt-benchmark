@@ -1594,7 +1594,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %125 = ptrtoint ptr %123 to i64
   %126 = sub i64 %124, %125
   %127 = ashr exact i64 %126, 4
-  %.not.i.i = icmp ugt i64 %127, %119
+  %.not.i.i = icmp ult i64 %119, %127
   br i1 %.not.i.i, label %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost16GHistIndexMatrixEEESaIS5_EE2atEm.exit, label %128
 
 128:                                              ; preds = %116
@@ -1722,7 +1722,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %174 = ptrtoint ptr %172 to i64
   %175 = sub i64 %173, %174
   %176 = ashr exact i64 %175, 4
-  %.not.i.i70 = icmp ugt i64 %176, %169
+  %.not.i.i70 = icmp ult i64 %169, %176
   br i1 %.not.i.i70, label %178, label %177
 
 177:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit69
@@ -5140,7 +5140,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %125 = ptrtoint ptr %123 to i64
   %126 = sub i64 %124, %125
   %127 = ashr exact i64 %126, 4
-  %.not.i.i = icmp ugt i64 %127, %119
+  %.not.i.i = icmp ult i64 %119, %127
   br i1 %.not.i.i, label %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS5_EE2atEm.exit, label %128
 
 128:                                              ; preds = %116
@@ -5268,7 +5268,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %174 = ptrtoint ptr %172 to i64
   %175 = sub i64 %173, %174
   %176 = ashr exact i64 %175, 4
-  %.not.i.i70 = icmp ugt i64 %176, %169
+  %.not.i.i70 = icmp ult i64 %169, %176
   br i1 %.not.i.i70, label %178, label %177
 
 177:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit69
@@ -7615,7 +7615,7 @@ define linkonce_odr void @_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10Spars
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -7624,7 +7624,7 @@ define linkonce_odr void @_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10Spars
   br label %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS5_EE15_M_erase_at_endEPS5_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS5_EE15_M_erase_at_endEPS5_.exit
 
 15:                                               ; preds = %13
@@ -10134,12 +10134,12 @@ define linkonce_odr void @_ZZZN7xgboost4data20SparsePageSourceImplINS_10SparsePa
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
-  %.not.i.i.i = icmp ugt i64 %27, %19
+  %.not.i.i.i = icmp ult i64 %19, %27
   br i1 %.not.i.i.i, label %_ZNKSt6vectorImSaImEE2atEm.exit.i, label %.invoke
 
 _ZNKSt6vectorImSaImEE2atEm.exit.i:                ; preds = %12
   %28 = add nuw i64 %19, 1
-  %.not.i.i.i.i = icmp ugt i64 %27, %28
+  %.not.i.i.i.i = icmp ult i64 %28, %27
   br i1 %.not.i.i.i.i, label %30, label %.invoke
 
 .invoke:                                          ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit.i, %12
@@ -12578,7 +12578,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -14463,7 +14463,7 @@ define linkonce_odr void @_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost16GHist
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -14472,7 +14472,7 @@ define linkonce_odr void @_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost16GHist
   br label %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost16GHistIndexMatrixEEESaIS5_EE15_M_erase_at_endEPS5_.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, %1
+  %14 = icmp ult i64 %1, %9
   br i1 %14, label %15, label %_ZNSt6vectorISt6futureISt10shared_ptrIN7xgboost16GHistIndexMatrixEEESaIS5_EE15_M_erase_at_endEPS5_.exit
 
 15:                                               ; preds = %13
@@ -16190,12 +16190,12 @@ define linkonce_odr void @_ZZZN7xgboost4data20SparsePageSourceImplINS_16GHistInd
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
-  %.not.i.i.i = icmp ugt i64 %28, %20
+  %.not.i.i.i = icmp ult i64 %20, %28
   br i1 %.not.i.i.i, label %_ZNKSt6vectorImSaImEE2atEm.exit.i, label %.invoke
 
 _ZNKSt6vectorImSaImEE2atEm.exit.i:                ; preds = %13
   %29 = add nuw i64 %20, 1
-  %.not.i.i.i.i = icmp ugt i64 %28, %29
+  %.not.i.i.i.i = icmp ult i64 %29, %28
   br i1 %.not.i.i.i.i, label %31, label %.invoke
 
 .invoke:                                          ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit.i, %13

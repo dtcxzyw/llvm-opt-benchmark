@@ -949,14 +949,14 @@ if.then.i:                                        ; preds = %entry
   %arrayidx13.i7.i = getelementptr inbounds i8, ptr %arrayidx.i134, i64 232
   %31 = load float, ptr %arrayidx13.i7.i, align 4
   %add14.i8.i = fadd float %30, %31
-  %32 = fneg float %add14.i8.i
-  %neg.i.i = fmul float %sub8.i, %32
+  %32 = fneg float %sub8.i
+  %neg.i.i = fmul float %add14.i8.i, %32
   %33 = tail call float @llvm.fmuladd.f32(float %add8.i5.i, float %sub14.i, float %neg.i.i)
-  %34 = fneg float %add.i2.i
-  %neg19.i.i = fmul float %sub14.i, %34
+  %34 = fneg float %sub14.i
+  %neg19.i.i = fmul float %add.i2.i, %34
   %35 = tail call float @llvm.fmuladd.f32(float %add14.i8.i, float %sub.i, float %neg19.i.i)
-  %36 = fneg float %add8.i5.i
-  %neg30.i.i = fmul float %sub.i, %36
+  %36 = fneg float %sub.i
+  %neg30.i.i = fmul float %add8.i5.i, %36
   %37 = tail call float @llvm.fmuladd.f32(float %add.i2.i, float %sub8.i, float %neg30.i.i)
   %add.i21.i = fadd float %add.i.i, %33
   %add8.i24.i = fadd float %add8.i.i, %35
@@ -1003,14 +1003,14 @@ if.then.i153:                                     ; preds = %_ZNK12btSolverBody3
   %arrayidx13.i7.i170 = getelementptr inbounds i8, ptr %arrayidx.i137, i64 232
   %49 = load float, ptr %arrayidx13.i7.i170, align 4
   %add14.i8.i171 = fadd float %48, %49
-  %50 = fneg float %add14.i8.i171
-  %neg.i.i174 = fmul float %sub8.i142, %50
+  %50 = fneg float %sub8.i142
+  %neg.i.i174 = fmul float %add14.i8.i171, %50
   %51 = tail call float @llvm.fmuladd.f32(float %add8.i5.i168, float %sub14.i145, float %neg.i.i174)
-  %52 = fneg float %add.i2.i165
-  %neg19.i.i175 = fmul float %sub14.i145, %52
+  %52 = fneg float %sub14.i145
+  %neg19.i.i175 = fmul float %add.i2.i165, %52
   %53 = tail call float @llvm.fmuladd.f32(float %add14.i8.i171, float %sub.i139, float %neg19.i.i175)
-  %54 = fneg float %add8.i5.i168
-  %neg30.i.i176 = fmul float %sub.i139, %54
+  %54 = fneg float %sub.i139
+  %neg30.i.i176 = fmul float %add8.i5.i168, %54
   %55 = tail call float @llvm.fmuladd.f32(float %add.i2.i165, float %sub8.i142, float %neg30.i.i176)
   %add.i21.i177 = fadd float %add.i.i156, %51
   %add8.i24.i178 = fadd float %add8.i.i159, %53
@@ -1266,16 +1266,16 @@ if.then86:                                        ; preds = %if.then77
   %117 = load float, ptr %arrayidx10.i, align 4
   %118 = load float, ptr %ref.tmp64.sroa.2.0.m_lateralFrictionDir1.sroa_idx, align 4
   %119 = load float, ptr %arrayidx5.i198, align 4
-  %120 = fneg float %118
-  %neg.i = fmul float %119, %120
+  %120 = fneg float %119
+  %neg.i = fmul float %118, %120
   %121 = call float @llvm.fmuladd.f32(float %116, float %117, float %neg.i)
   %122 = load float, ptr %m_normalWorldOnB, align 4
   %123 = load float, ptr %m_lateralFrictionDir1, align 4
-  %124 = fneg float %123
-  %neg19.i = fmul float %117, %124
+  %124 = fneg float %117
+  %neg19.i = fmul float %123, %124
   %125 = call float @llvm.fmuladd.f32(float %118, float %122, float %neg19.i)
-  %126 = fneg float %116
-  %neg30.i = fmul float %122, %126
+  %126 = fneg float %122
+  %neg30.i = fmul float %116, %126
   %127 = call float @llvm.fmuladd.f32(float %123, float %119, float %neg30.i)
   %retval.sroa.3.12.vec.insert.i264 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %127, i64 0
   %m_lateralFrictionDir2 = getelementptr inbounds i8, ptr %7, i64 188
@@ -2459,7 +2459,7 @@ lpad20:                                           ; preds = %if.then3.i.i.i259, 
 if.end34:                                         ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i121, %invoke.cont31, %invoke.cont19
   %m_size.i.i137 = getelementptr inbounds i8, ptr %this, i64 44
   %28 = load i32, ptr %m_size.i.i137, align 4
-  %cmp.i138 = icmp slt i32 %28, %numContacts.0.lcssa
+  %cmp.i138 = icmp sgt i32 %numContacts.0.lcssa, %28
   %29 = load i32, ptr %m_capacity.i, align 8
   %cmp.i.i141 = icmp slt i32 %29, %numContacts.0.lcssa
   %or.cond = select i1 %cmp.i138, i1 %cmp.i.i141, i1 false
@@ -2527,7 +2527,7 @@ invoke.cont36:                                    ; preds = %_ZN20btAlignedObjec
   store i32 %numContacts.0.lcssa, ptr %m_size.i.i137, align 4
   %m_size.i.i169 = getelementptr inbounds i8, ptr %this, i64 788
   %34 = load i32, ptr %m_size.i.i169, align 4
-  %cmp.i170 = icmp slt i32 %34, %numContacts.0.lcssa
+  %cmp.i170 = icmp sgt i32 %numContacts.0.lcssa, %34
   br i1 %cmp.i170, label %if.then.i171, label %invoke.cont38
 
 if.then.i171:                                     ; preds = %invoke.cont36
@@ -2602,7 +2602,7 @@ invoke.cont38:                                    ; preds = %_ZN20btAlignedObjec
   %mul41 = mul nsw i32 %41, %numContacts.0.lcssa
   %m_size.i.i201 = getelementptr inbounds i8, ptr %this, i64 108
   %42 = load i32, ptr %m_size.i.i201, align 4
-  %cmp.i202 = icmp slt i32 %42, %mul41
+  %cmp.i202 = icmp sgt i32 %mul41, %42
   br i1 %cmp.i202, label %if.then.i203, label %invoke.cont42
 
 if.then.i203:                                     ; preds = %invoke.cont38
@@ -2673,7 +2673,7 @@ invoke.cont42:                                    ; preds = %_ZN20btAlignedObjec
   store i32 %mul41, ptr %m_size.i.i201, align 4
   %m_size.i.i237 = getelementptr inbounds i8, ptr %this, i64 140
   %48 = load i32, ptr %m_size.i.i237, align 4
-  %cmp.i238 = icmp slt i32 %48, %numRollingFrictionConstraints.0.lcssa
+  %cmp.i238 = icmp sgt i32 %numRollingFrictionConstraints.0.lcssa, %48
   br i1 %cmp.i238, label %if.then.i239, label %invoke.cont44
 
 if.then.i239:                                     ; preds = %invoke.cont42
@@ -2935,7 +2935,7 @@ if.else:                                          ; preds = %for.body
 for.inc:                                          ; preds = %if.else, %if.end
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -2990,7 +2990,7 @@ lpad:                                             ; preds = %if.then
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -3020,7 +3020,7 @@ if.end:                                           ; preds = %entry
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.10)
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 268
   %1 = load i32, ptr %m_size.i.i, align 4
-  %cmp.i = icmp slt i32 %1, %numConstraints
+  %cmp.i = icmp sgt i32 %numConstraints, %1
   br i1 %cmp.i, label %if.then.i, label %if.then3
 
 if.then.i:                                        ; preds = %if.end
@@ -3236,7 +3236,7 @@ for.end:                                          ; preds = %if.end29, %_ZN20btA
   %totalNumRows.0.lcssa = phi i32 [ 0, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit ], [ 0, %_ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt11JointParamsEE18resizeNoInitializeEi.exit.thread ], [ %add, %if.end29 ]
   %m_size.i.i69 = getelementptr inbounds i8, ptr %this, i64 76
   %22 = load i32, ptr %m_size.i.i69, align 4
-  %cmp.i70 = icmp slt i32 %22, %totalNumRows.0.lcssa
+  %cmp.i70 = icmp sgt i32 %totalNumRows.0.lcssa, %22
   br i1 %cmp.i70, label %if.then.i71, label %if.then33
 
 if.then.i71:                                      ; preds = %for.end
@@ -3601,7 +3601,7 @@ invoke.cont53:                                    ; preds = %if.then50
 for.inc:                                          ; preds = %invoke.cont4, %land.lhs.true, %invoke.cont53, %if.end45
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -3674,7 +3674,7 @@ invoke.cont:                                      ; preds = %for.body8.i, %entry
   %add = add nsw i32 %numBodies, 1
   %m_size.i.i9 = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %m_size.i.i9, align 4
-  %cmp.i10.not = icmp sgt i32 %6, %numBodies
+  %cmp.i10.not = icmp slt i32 %numBodies, %6
   br i1 %cmp.i10.not, label %invoke.cont2, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
@@ -3818,7 +3818,7 @@ entry:
   %m_useBatching = getelementptr inbounds i8, ptr %this, i64 748
   store i8 0, ptr %m_useBatching, align 4
   %1 = load i32, ptr @_ZN37btSequentialImpulseConstraintSolverMt36s_minimumContactManifoldsForBatchingE, align 4
-  %cmp.not = icmp sgt i32 %1, %numManifolds
+  %cmp.not = icmp slt i32 %numManifolds, %1
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -3884,7 +3884,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = tail call float @llvm.fmuladd.f32(float %call.i, float %call.i, float %leastSquaresResidual.018)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd
+  %exitcond.not = icmp eq i32 %batchEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body, %entry
@@ -4104,7 +4104,7 @@ invoke.cont7:                                     ; preds = %if.end4
   %add = fadd float %call8, 0.000000e+00
   %m_numIterations9 = getelementptr inbounds i8, ptr %infoGlobal, i64 20
   %5 = load i32, ptr %m_numIterations9, align 4
-  %cmp = icmp sgt i32 %5, %iteration
+  %cmp = icmp slt i32 %iteration, %5
   br i1 %cmp, label %if.then10, label %if.end68
 
 if.then10:                                        ; preds = %invoke.cont7
@@ -4243,7 +4243,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i10 = getelementptr inbounds %struct.btSolverConstraint, ptr %3, i64 %idxprom.i9
   %m_overrideNumSolverIterations = getelementptr inbounds i8, ptr %arrayidx.i10, i64 144
   %4 = load i32, ptr %m_overrideNumSolverIterations, align 8
-  %cmp3 = icmp sgt i32 %4, %iteration
+  %cmp3 = icmp slt i32 %iteration, %4
   br i1 %cmp3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
@@ -4264,7 +4264,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %leastSquaresResidual.1 = phi float [ %8, %if.then ], [ %leastSquaresResidual.019, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd
+  %exitcond.not = icmp eq i32 %batchEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -4309,7 +4309,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = tail call float @llvm.fmuladd.f32(float %call6, float %call6, float %leastSquaresResidual.018)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd
+  %exitcond.not = icmp eq i32 %batchEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.end:                                          ; preds = %for.body, %entry
@@ -4350,27 +4350,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then:                                          ; preds = %for.body
   %5 = load i32, ptr %m_numFrictionDirections, align 8
   %cmp629 = icmp sgt i32 %5, 0
-  br i1 %cmp629, label %for.body7.preheader, label %for.inc18
+  br i1 %cmp629, label %for.body7.lr.ph, label %for.inc18
 
-for.body7.preheader:                              ; preds = %if.then
+for.body7.lr.ph:                                  ; preds = %if.then
   %mul = mul i32 %5, %2
   %add = add nsw i32 %mul, %5
-  %6 = sext i32 %mul to i64
-  %7 = sext i32 %add to i64
+  %6 = fneg float %4
+  %7 = sext i32 %mul to i64
+  %8 = sext i32 %add to i64
   br label %for.body7
 
-for.body7:                                        ; preds = %for.body7.preheader, %for.body7
-  %indvars.iv = phi i64 [ %6, %for.body7.preheader ], [ %indvars.iv.next, %for.body7 ]
-  %leastSquaresResidual.131 = phi float [ %leastSquaresResidual.034, %for.body7.preheader ], [ %14, %for.body7 ]
-  %8 = load ptr, ptr %m_data.i20, align 8
-  %arrayidx.i22 = getelementptr inbounds %struct.btSolverConstraint, ptr %8, i64 %indvars.iv
+for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
+  %indvars.iv = phi i64 [ %7, %for.body7.lr.ph ], [ %indvars.iv.next, %for.body7 ]
+  %leastSquaresResidual.131 = phi float [ %leastSquaresResidual.034, %for.body7.lr.ph ], [ %14, %for.body7 ]
+  %9 = load ptr, ptr %m_data.i20, align 8
+  %arrayidx.i22 = getelementptr inbounds %struct.btSolverConstraint, ptr %9, i64 %indvars.iv
   %m_friction = getelementptr inbounds i8, ptr %arrayidx.i22, i64 104
-  %9 = load float, ptr %m_friction, align 8
-  %10 = fneg float %9
-  %fneg = fmul float %4, %10
+  %10 = load float, ptr %m_friction, align 8
+  %fneg = fmul float %10, %6
   %m_lowerLimit = getelementptr inbounds i8, ptr %arrayidx.i22, i64 120
   store float %fneg, ptr %m_lowerLimit, align 8
-  %mul11 = fmul float %4, %9
+  %mul11 = fmul float %4, %10
   %m_upperLimit = getelementptr inbounds i8, ptr %arrayidx.i22, i64 124
   store float %mul11, ptr %m_upperLimit, align 4
   %m_solverBodyIdA = getelementptr inbounds i8, ptr %arrayidx.i22, i64 152
@@ -4385,14 +4385,14 @@ for.body7:                                        ; preds = %for.body7.preheader
   %call15 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i25, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i28, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i22)
   %14 = tail call float @llvm.fmuladd.f32(float %call15, float %call15, float %leastSquaresResidual.131)
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
-  %cmp6 = icmp slt i64 %indvars.iv.next, %7
+  %cmp6 = icmp slt i64 %indvars.iv.next, %8
   br i1 %cmp6, label %for.body7, label %for.inc18, !llvm.loop !33
 
 for.inc18:                                        ; preds = %for.body7, %if.then, %for.body
   %leastSquaresResidual.2 = phi float [ %leastSquaresResidual.034, %for.body ], [ %leastSquaresResidual.034, %if.then ], [ %14, %for.body7 ]
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next38 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd
+  %exitcond.not = icmp eq i32 %batchEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end20, label %for.body, !llvm.loop !34
 
 for.end20:                                        ; preds = %for.inc18, %entry
@@ -4481,7 +4481,7 @@ for.inc25:                                        ; preds = %if.end, %for.body9,
   %leastSquaresResidual.2 = phi float [ %leastSquaresResidual.043, %if.then ], [ %leastSquaresResidual.043, %for.body ], [ %leastSquaresResidual.140, %for.body9 ], [ %15, %if.end ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next46 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd
+  %exitcond.not = icmp eq i32 %batchEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end27, label %for.body, !llvm.loop !36
 
 for.end27:                                        ; preds = %for.inc25, %entry
@@ -4534,27 +4534,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then:                                          ; preds = %for.body
   %9 = load i32, ptr %m_numFrictionDirections, align 8
   %cmp1280 = icmp sgt i32 %9, 0
-  br i1 %cmp1280, label %for.body13.preheader, label %if.end
+  br i1 %cmp1280, label %for.body13.lr.ph, label %if.end
 
-for.body13.preheader:                             ; preds = %if.then
+for.body13.lr.ph:                                 ; preds = %if.then
   %mul = mul i32 %9, %2
   %add = add nsw i32 %mul, %9
-  %10 = sext i32 %mul to i64
-  %11 = sext i32 %add to i64
+  %10 = fneg float %8
+  %11 = sext i32 %mul to i64
+  %12 = sext i32 %add to i64
   br label %for.body13
 
-for.body13:                                       ; preds = %for.body13.preheader, %for.body13
-  %indvars.iv = phi i64 [ %10, %for.body13.preheader ], [ %indvars.iv.next, %for.body13 ]
-  %leastSquaresResidual.282 = phi float [ %7, %for.body13.preheader ], [ %18, %for.body13 ]
-  %12 = load ptr, ptr %m_data.i53, align 8
-  %arrayidx.i55 = getelementptr inbounds %struct.btSolverConstraint, ptr %12, i64 %indvars.iv
+for.body13:                                       ; preds = %for.body13.lr.ph, %for.body13
+  %indvars.iv = phi i64 [ %11, %for.body13.lr.ph ], [ %indvars.iv.next, %for.body13 ]
+  %leastSquaresResidual.282 = phi float [ %7, %for.body13.lr.ph ], [ %18, %for.body13 ]
+  %13 = load ptr, ptr %m_data.i53, align 8
+  %arrayidx.i55 = getelementptr inbounds %struct.btSolverConstraint, ptr %13, i64 %indvars.iv
   %m_friction = getelementptr inbounds i8, ptr %arrayidx.i55, i64 104
-  %13 = load float, ptr %m_friction, align 8
-  %14 = fneg float %13
-  %fneg = fmul float %8, %14
+  %14 = load float, ptr %m_friction, align 8
+  %fneg = fmul float %14, %10
   %m_lowerLimit = getelementptr inbounds i8, ptr %arrayidx.i55, i64 120
   store float %fneg, ptr %m_lowerLimit, align 8
-  %mul18 = fmul float %8, %13
+  %mul18 = fmul float %8, %14
   %m_upperLimit = getelementptr inbounds i8, ptr %arrayidx.i55, i64 124
   store float %mul18, ptr %m_upperLimit, align 4
   %m_solverBodyIdA20 = getelementptr inbounds i8, ptr %arrayidx.i55, i64 152
@@ -4569,7 +4569,7 @@ for.body13:                                       ; preds = %for.body13.preheade
   %call26 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i58, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i61, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i55)
   %18 = tail call float @llvm.fmuladd.f32(float %call26, float %call26, float %leastSquaresResidual.282)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp12 = icmp slt i64 %indvars.iv.next, %11
+  %cmp12 = icmp slt i64 %indvars.iv.next, %12
   br i1 %cmp12, label %for.body13, label %if.end, !llvm.loop !37
 
 if.end:                                           ; preds = %for.body13, %if.then
@@ -4626,7 +4626,7 @@ for.inc65:                                        ; preds = %for.body37, %if.end
   %leastSquaresResidual.4 = phi float [ %leastSquaresResidual.2.lcssa, %if.end ], [ %7, %for.body ], [ %29, %if.end41 ], [ %leastSquaresResidual.384, %for.body37 ]
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next94 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd
+  %exitcond.not = icmp eq i32 %batchEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end67, label %for.body, !llvm.loop !39
 
 for.end67:                                        ; preds = %for.inc65, %entry
@@ -5766,7 +5766,7 @@ lpad:                                             ; preds = %for.body4
 for.inc9:                                         ; preds = %for.inc, %for.body
   %indvars.iv.next15 = add nsw i64 %indvars.iv14, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next15 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end11, label %for.body, !llvm.loop !50
 
 for.end11:                                        ; preds = %for.inc9, %entry
@@ -5901,7 +5901,7 @@ if.else.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.else.i, %if.end.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %iEnd
+  %exitcond.not.i = icmp eq i32 %iEnd, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZN37btSequentialImpulseConstraintSolverMt26internalInitMultipleJointsEPP17btTypedConstraintii.exit, label %for.body.i, !llvm.loop !21
 
 _ZN37btSequentialImpulseConstraintSolverMt26internalInitMultipleJointsEPP17btTypedConstraintii.exit: ; preds = %for.inc.i, %entry
@@ -5973,7 +5973,7 @@ lpad.i:                                           ; preds = %if.then.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %iEnd
+  %exitcond.not.i = icmp eq i32 %iEnd, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZN37btSequentialImpulseConstraintSolverMt29internalConvertMultipleJointsERK20btAlignedObjectArrayINS_11JointParamsEEPP17btTypedConstraintiiRK19btContactSolverInfo.exit, label %for.body.i, !llvm.loop !22
 
 _ZN37btSequentialImpulseConstraintSolverMt29internalConvertMultipleJointsERK20btAlignedObjectArrayINS_11JointParamsEEPP17btTypedConstraintiiRK19btContactSolverInfo.exit: ; preds = %for.inc.i, %entry
@@ -6079,7 +6079,7 @@ invoke.cont3:                                     ; preds = %call.i.i.noexc, %fo
   %add = fadd float %sum.09, %leastSquaresResidual.0.lcssa.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !51
 
 lpad:                                             ; preds = %for.body.i
@@ -6149,7 +6149,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i10.i = getelementptr inbounds %struct.btSolverConstraint, ptr %10, i64 %idxprom.i9.i
   %m_overrideNumSolverIterations.i = getelementptr inbounds i8, ptr %arrayidx.i10.i, i64 144
   %11 = load i32, ptr %m_overrideNumSolverIterations.i, align 8
-  %cmp3.i = icmp sgt i32 %11, %6
+  %cmp3.i = icmp slt i32 %6, %11
   br i1 %cmp3.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -6181,7 +6181,7 @@ invoke.cont3:                                     ; preds = %for.inc.i, %for.bod
   %add = fadd float %sum.09, %leastSquaresResidual.0.lcssa.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !52
 
 lpad:                                             ; preds = %if.then.i
@@ -6271,7 +6271,7 @@ invoke.cont3:                                     ; preds = %call6.i.noexc, %for
   %add = fadd float %sum.09, %leastSquaresResidual.0.lcssa.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 
 lpad:                                             ; preds = %for.body.i
@@ -6346,27 +6346,27 @@ for.body.i:                                       ; preds = %for.inc18.i, %for.b
 if.then.i:                                        ; preds = %for.body.i
   %11 = load i32, ptr %m_numFrictionDirections.i, align 8
   %cmp629.i = icmp sgt i32 %11, 0
-  br i1 %cmp629.i, label %for.body7.preheader.i, label %for.inc18.i
+  br i1 %cmp629.i, label %for.body7.lr.ph.i, label %for.inc18.i
 
-for.body7.preheader.i:                            ; preds = %if.then.i
+for.body7.lr.ph.i:                                ; preds = %if.then.i
   %mul.i = mul i32 %11, %8
   %add.i = add nsw i32 %mul.i, %11
-  %12 = sext i32 %mul.i to i64
-  %13 = sext i32 %add.i to i64
+  %12 = fneg float %10
+  %13 = sext i32 %mul.i to i64
+  %14 = sext i32 %add.i to i64
   br label %for.body7.i
 
-for.body7.i:                                      ; preds = %call15.i.noexc, %for.body7.preheader.i
-  %indvars.iv.i = phi i64 [ %12, %for.body7.preheader.i ], [ %indvars.iv.next.i, %call15.i.noexc ]
-  %leastSquaresResidual.131.i = phi float [ %leastSquaresResidual.034.i, %for.body7.preheader.i ], [ %20, %call15.i.noexc ]
-  %14 = load ptr, ptr %m_data.i20.i, align 8
-  %arrayidx.i22.i = getelementptr inbounds %struct.btSolverConstraint, ptr %14, i64 %indvars.iv.i
+for.body7.i:                                      ; preds = %call15.i.noexc, %for.body7.lr.ph.i
+  %indvars.iv.i = phi i64 [ %13, %for.body7.lr.ph.i ], [ %indvars.iv.next.i, %call15.i.noexc ]
+  %leastSquaresResidual.131.i = phi float [ %leastSquaresResidual.034.i, %for.body7.lr.ph.i ], [ %20, %call15.i.noexc ]
+  %15 = load ptr, ptr %m_data.i20.i, align 8
+  %arrayidx.i22.i = getelementptr inbounds %struct.btSolverConstraint, ptr %15, i64 %indvars.iv.i
   %m_friction.i = getelementptr inbounds i8, ptr %arrayidx.i22.i, i64 104
-  %15 = load float, ptr %m_friction.i, align 8
-  %16 = fneg float %15
-  %fneg.i = fmul float %10, %16
+  %16 = load float, ptr %m_friction.i, align 8
+  %fneg.i = fmul float %16, %12
   %m_lowerLimit.i = getelementptr inbounds i8, ptr %arrayidx.i22.i, i64 120
   store float %fneg.i, ptr %m_lowerLimit.i, align 8
-  %mul11.i = fmul float %10, %15
+  %mul11.i = fmul float %10, %16
   %m_upperLimit.i = getelementptr inbounds i8, ptr %arrayidx.i22.i, i64 124
   store float %mul11.i, ptr %m_upperLimit.i, align 4
   %m_solverBodyIdA.i = getelementptr inbounds i8, ptr %arrayidx.i22.i, i64 152
@@ -6384,7 +6384,7 @@ for.body7.i:                                      ; preds = %call15.i.noexc, %fo
 call15.i.noexc:                                   ; preds = %for.body7.i
   %20 = call float @llvm.fmuladd.f32(float %call15.i5, float %call15.i5, float %leastSquaresResidual.131.i)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 2
-  %cmp6.i = icmp slt i64 %indvars.iv.next.i, %13
+  %cmp6.i = icmp slt i64 %indvars.iv.next.i, %14
   br i1 %cmp6.i, label %for.body7.i, label %for.inc18.i, !llvm.loop !33
 
 for.inc18.i:                                      ; preds = %call15.i.noexc, %if.then.i, %for.body.i
@@ -6399,7 +6399,7 @@ invoke.cont3:                                     ; preds = %for.inc18.i, %for.b
   %add = fadd float %sum.09, %leastSquaresResidual.0.lcssa.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !54
 
 lpad:                                             ; preds = %for.body7.i
@@ -6453,7 +6453,7 @@ invoke.cont3:                                     ; preds = %for.body
   %add = fadd float %sum.08, %call4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !55
 
 lpad:                                             ; preds = %for.body
@@ -6589,7 +6589,7 @@ invoke.cont3:                                     ; preds = %for.inc25.i, %for.b
   %add = fadd float %sum.09, %leastSquaresResidual.0.lcssa.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %iEnd
+  %exitcond.not = icmp eq i32 %iEnd, %lftr.wideiv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !56
 
 lpad:                                             ; preds = %if.end.i

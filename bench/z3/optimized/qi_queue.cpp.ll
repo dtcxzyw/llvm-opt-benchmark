@@ -254,7 +254,7 @@ _ZNK6vectorIfLb0EjE8capacityEv.exit.i:            ; preds = %while.cond.i
   %cmp3.i = icmp ult i32 %9, 15
   br i1 %cmp3.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %while.cond.i, %_ZNK6vectorIfLb0EjE8capacityEv.exit.i
+while.body.i:                                     ; preds = %_ZNK6vectorIfLb0EjE8capacityEv.exit.i, %while.cond.i
   invoke void @_ZN6vectorIfLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_vals)
           to label %.noexc unwind label %lpad29.loopexit
 
@@ -265,8 +265,8 @@ while.body.i:                                     ; preds = %while.cond.i, %_ZNK
 while.end.i:                                      ; preds = %_ZNK6vectorIfLb0EjE8capacityEv.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 -4
   store i32 15, ptr %arrayidx.i, align 4
-  %cmp8.not17.i = icmp eq i32 %retval.0.i16.i.ph, 15
-  br i1 %cmp8.not17.i, label %invoke.cont32, label %for.body.preheader.i
+  %cmp8.not19.i = icmp eq i32 %retval.0.i16.i.ph, 15
+  br i1 %cmp8.not19.i, label %invoke.cont32, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %while.end.i
   %10 = load ptr, ptr %m_vals, align 8
@@ -1751,7 +1751,7 @@ invoke.cont34:                                    ; preds = %invoke.cont22
   %16 = load ptr, ptr %s_instance, align 8
   %m_true.i = getelementptr inbounds i8, ptr %15, i64 856
   %17 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %17, %16
+  %cmp.i = icmp eq ptr %16, %17
   br i1 %cmp.i, label %if.then40, label %if.end59
 
 if.then40:                                        ; preds = %invoke.cont34
@@ -2010,7 +2010,7 @@ lpad82:                                           ; preds = %lpad82.loopexit.spl
 if.else:                                          ; preds = %land.rhs.i.i, %if.end69, %invoke.cont76
   %m_false.i = getelementptr inbounds i8, ptr %32, i64 864
   %63 = load ptr, ptr %m_false.i, align 8
-  %cmp.i86 = icmp eq ptr %63, %31
+  %cmp.i86 = icmp eq ptr %31, %63
   br i1 %cmp.i86, label %if.then114, label %if.else120
 
 if.then114:                                       ; preds = %if.else
@@ -2024,7 +2024,7 @@ invoke.cont116:                                   ; preds = %if.then114
 if.else120:                                       ; preds = %if.else
   %m_true.i103 = getelementptr inbounds i8, ptr %32, i64 856
   %64 = load ptr, ptr %m_true.i103, align 8
-  %cmp.i104 = icmp eq ptr %64, %31
+  %cmp.i104 = icmp eq ptr %31, %64
   br i1 %cmp.i104, label %if.end142.thread, label %if.else129
 
 if.end142.thread:                                 ; preds = %if.else120

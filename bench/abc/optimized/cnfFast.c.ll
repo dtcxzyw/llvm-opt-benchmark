@@ -23,7 +23,7 @@ define void @Cnf_CollectLeaves_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %4
   %.tr32 = phi ptr [ %1, %4 ], [ %.tr32.be, %tailrecurse.backedge ]
   %.tr34 = phi i1 [ %5, %4 ], [ %.tr34.be, %tailrecurse.backedge ]
-  %.not = icmp eq ptr %.tr32, %0
+  %.not = icmp eq ptr %0, %.tr32
   br i1 %.not, label %59, label %6
 
 6:                                                ; preds = %tailrecurse

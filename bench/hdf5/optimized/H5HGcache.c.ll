@@ -593,7 +593,7 @@ define internal range(i32 -1, 1) i32 @H5HG__cache_heap_free_icr(ptr noundef %0) 
 define internal fastcc range(i32 -1, 1) i32 @H5HG__hdr_deserialize(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = getelementptr i8, ptr %1, i64 %2
   %.ptr68 = getelementptr i8, ptr %5, i64 -1
-  %6 = icmp ult ptr %.ptr68, %1
+  %6 = icmp ugt ptr %1, %.ptr68
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4

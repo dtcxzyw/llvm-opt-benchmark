@@ -8514,7 +8514,7 @@ define internal fastcc noundef i32 @dissect_DIS_FIELDS_ENTITY_TYPE_RECORD(ptr no
   %41 = load i32, ptr @entityKind, align 4
   %42 = icmp eq i32 %41, 1
   %43 = load i32, ptr @hf_dis_category, align 4
-  %44 = icmp eq i32 %43, %8
+  %44 = icmp eq i32 %8, %43
   %or.cond = select i1 %42, i1 %44, i1 false
   br i1 %or.cond, label %45, label %57
 

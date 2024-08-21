@@ -372,7 +372,7 @@ declare noundef ptr @_ZN3gmx19StatePropagatorData11globalStateEv(ptr noundef non
 define void @_ZN3gmx12DomDecHelper3runEld(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %.not = icmp eq i64 %5, %1
+  %.not = icmp eq i64 %1, %5
   br i1 %.not, label %6, label %51
 
 6:                                                ; preds = %3
@@ -380,7 +380,7 @@ define void @_ZN3gmx12DomDecHelper3runEld(ptr nocapture noundef nonnull readonly
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
@@ -416,7 +416,7 @@ define void @_ZN3gmx12DomDecHelper3runEld(ptr nocapture noundef nonnull readonly
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %.pre16, i64 24
   %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, %1
+  %34 = icmp eq i64 %1, %33
   br label %35
 
 35:                                               ; preds = %._crit_edge, %25, %31

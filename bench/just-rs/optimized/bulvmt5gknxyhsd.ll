@@ -279,7 +279,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %24 = add nuw i64 %22, %.val3.i.i.i.i
   %25 = add nuw i64 %22, %.val.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %26 = icmp ugt i64 %15, %24
+  %26 = icmp ult i64 %24, %15
   br i1 %26, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i.i", label %27, !prof !37
 
 27:                                               ; preds = %21
@@ -291,7 +291,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
 
 "_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i.i": ; preds = %21
   %29 = load i64, ptr %18, align 8, !noalias !33, !noundef !8
-  %30 = icmp ugt i64 %29, %25
+  %30 = icmp ult i64 %25, %29
   br i1 %30, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit8.i.i.i", label %31, !prof !37
 
 31:                                               ; preds = %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i.i"
@@ -494,7 +494,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %27 = add i64 %22, -1
   store i64 %27, ptr %12, align 8, !alias.scope !146, !noalias !132
   %28 = load i64, ptr %15, align 8, !noalias !147, !noundef !8
-  %29 = icmp ugt i64 %28, %24
+  %29 = icmp ult i64 %24, %28
   br i1 %29, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i.i", label %30, !prof !37
 
 30:                                               ; preds = %26
@@ -504,7 +504,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
 
 "_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i.i": ; preds = %26
   %31 = load i64, ptr %18, align 8, !noalias !147, !noundef !8
-  %32 = icmp ugt i64 %31, %27
+  %32 = icmp ult i64 %27, %31
   br i1 %32, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit8.i.i.i", label %33, !prof !37
 
 33:                                               ; preds = %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i.i"
@@ -714,7 +714,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %24 = add nuw i64 %22, %.val3.i.i.i
   %25 = add nuw i64 %22, %.val.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  %26 = icmp ugt i64 %15, %24
+  %26 = icmp ult i64 %24, %15
   br i1 %26, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i", label %27, !prof !37
 
 27:                                               ; preds = %21
@@ -726,7 +726,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
 
 "_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i": ; preds = %21
   %29 = load i64, ptr %18, align 8, !noalias !256, !noundef !8
-  %30 = icmp ugt i64 %29, %25
+  %30 = icmp ult i64 %25, %29
   br i1 %30, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit8.i.i", label %31, !prof !37
 
 31:                                               ; preds = %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i"
@@ -816,7 +816,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %26 = load ptr, ptr %14, align 8, !noalias !317, !nonnull !8, !align !32, !noundef !8
   %27 = getelementptr i8, ptr %26, i64 16
   %.val11.i.i = load i64, ptr %27, align 8, !noalias !321, !noundef !8
-  %28 = icmp ugt i64 %.val11.i.i, %22
+  %28 = icmp ult i64 %22, %.val11.i.i
   br i1 %28, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff381b0b2cdc6a28E.exit.i.i", label %29, !prof !37
 
 29:                                               ; preds = %24
@@ -828,7 +828,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %30 = load ptr, ptr %16, align 8, !noalias !317, !nonnull !8, !align !32, !noundef !8
   %31 = getelementptr i8, ptr %30, i64 16
   %.val9.i.i = load i64, ptr %31, align 8, !noalias !321, !noundef !8
-  %32 = icmp ugt i64 %.val9.i.i, %25
+  %32 = icmp ult i64 %25, %.val9.i.i
   br i1 %32, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff381b0b2cdc6a28E.exit12.i.i", label %33, !prof !37
 
 33:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff381b0b2cdc6a28E.exit.i.i"
@@ -953,7 +953,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %24 = add nuw i64 %22, %.val3.i.i.i
   %25 = add nuw i64 %22, %.val.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
-  %26 = icmp ugt i64 %.val11.i.i, %24
+  %26 = icmp ult i64 %24, %.val11.i.i
   br i1 %26, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff381b0b2cdc6a28E.exit.i.i", label %27, !prof !37
 
 27:                                               ; preds = %21
@@ -967,7 +967,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %29 = load ptr, ptr %17, align 8, !noalias !376, !nonnull !8, !align !32, !noundef !8
   %30 = getelementptr i8, ptr %29, i64 16
   %.val9.i.i = load i64, ptr %30, align 8, !noalias !377, !noundef !8
-  %31 = icmp ugt i64 %.val9.i.i, %25
+  %31 = icmp ult i64 %25, %.val9.i.i
   br i1 %31, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff381b0b2cdc6a28E.exit12.i.i", label %32, !prof !37
 
 32:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff381b0b2cdc6a28E.exit.i.i"
@@ -1087,7 +1087,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %24 = add nuw i64 %22, %.val3.i.i.i
   %25 = add nuw i64 %22, %.val.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
-  %26 = icmp ugt i64 %.val7.i.i, %24
+  %26 = icmp ult i64 %24, %.val7.i.i
   br i1 %26, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf98da298285043cE.exit.i.i", label %27, !prof !37
 
 27:                                               ; preds = %21
@@ -1101,7 +1101,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %29 = load ptr, ptr %17, align 8, !noalias !434, !nonnull !8, !align !32, !noundef !8
   %30 = getelementptr i8, ptr %29, i64 16
   %.val5.i.i = load i64, ptr %30, align 8, !noalias !435, !noundef !8
-  %31 = icmp ugt i64 %.val5.i.i, %25
+  %31 = icmp ult i64 %25, %.val5.i.i
   br i1 %31, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf98da298285043cE.exit10.i.i", label %32, !prof !37
 
 32:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf98da298285043cE.exit.i.i"
@@ -1326,7 +1326,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %26 = load ptr, ptr %14, align 8, !noalias !543, !nonnull !8, !align !32, !noundef !8
   %27 = getelementptr i8, ptr %26, i64 16
   %.val7.i.i = load i64, ptr %27, align 8, !noalias !547, !noundef !8
-  %28 = icmp ugt i64 %.val7.i.i, %22
+  %28 = icmp ult i64 %22, %.val7.i.i
   br i1 %28, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf98da298285043cE.exit.i.i", label %29, !prof !37
 
 29:                                               ; preds = %24
@@ -1338,7 +1338,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %30 = load ptr, ptr %16, align 8, !noalias !543, !nonnull !8, !align !32, !noundef !8
   %31 = getelementptr i8, ptr %30, i64 16
   %.val5.i.i = load i64, ptr %31, align 8, !noalias !547, !noundef !8
-  %32 = icmp ugt i64 %.val5.i.i, %25
+  %32 = icmp ult i64 %25, %.val5.i.i
   br i1 %32, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf98da298285043cE.exit10.i.i", label %33, !prof !37
 
 33:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf98da298285043cE.exit.i.i"
@@ -1576,7 +1576,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   %27 = add i64 %22, -1
   store i64 %27, ptr %12, align 8, !alias.scope !669, !noalias !656
   %28 = load i64, ptr %15, align 8, !noalias !670, !noundef !8
-  %29 = icmp ugt i64 %28, %24
+  %29 = icmp ult i64 %24, %28
   br i1 %29, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i", label %30, !prof !37
 
 30:                                               ; preds = %26
@@ -1586,7 +1586,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
 
 "_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i": ; preds = %26
   %31 = load i64, ptr %18, align 8, !noalias !670, !noundef !8
-  %32 = icmp ugt i64 %31, %27
+  %32 = icmp ult i64 %27, %31
   br i1 %32, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit8.i.i", label %33, !prof !37
 
 33:                                               ; preds = %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h62d7905d3aa2c2d9E.exit.i.i"
@@ -5462,7 +5462,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br i1 %27, label %30, label %29
 
 28:                                               ; preds = %21
-  %.not = icmp eq i64 %11, %1
+  %.not = icmp eq i64 %1, %11
   br i1 %.not, label %29, label %32
 
 29:                                               ; preds = %35, %32, %28, %25
@@ -5793,7 +5793,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !1663, !noalias !1668, !noundef !8
   %45 = load i64, ptr %0, align 8, !alias.scope !1670, !noalias !1668, !noundef !8
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hcc909c8b8797f9bbE.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -5850,7 +5850,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !1676, !noalias !1681, !noundef !8
   %6 = load i64, ptr %0, align 8, !alias.scope !1683, !noalias !1681, !noundef !8
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hcc909c8b8797f9bbE.exit"
 
 9:                                                ; preds = %3
@@ -6476,7 +6476,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %39 = load i64, ptr %38, align 8, !noundef !8
   %40 = or i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = icmp ugt i64 %11, %2
+  %41 = icmp ult i64 %2, %11
   br i1 %41, label %74, label %50
 
 42:                                               ; preds = %3, %50
@@ -6557,8 +6557,8 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.0.i14
-  %86 = getelementptr i8, ptr %85, i64 %.09.lcssa
+  %85 = getelementptr i8, ptr %1, i64 %.09.lcssa
+  %86 = getelementptr i8, ptr %85, i64 %.0.i14
   %.0.copyload15.i18 = load i16, ptr %86, align 1, !alias.scope !1786
   %87 = zext i16 %.0.copyload15.i18 to i64
   %88 = shl nuw nsw i64 %.0.i14, 3
@@ -6918,7 +6918,7 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_suffix_len17h0b
   %.033.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %27, %26 ]
   %12 = phi i64 [ %7, %.lr.ph.i.i.i ], [ %13, %26 ]
   %13 = add i64 %12, -1
-  %14 = icmp ugt i64 %11, %2
+  %14 = icmp ult i64 %2, %11
   br i1 %14, label %15, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8b134b4239bc1e27E.llvm.1648887574124572298.exit"
 
 15:                                               ; preds = %10
@@ -7069,7 +7069,7 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_suffix_len17h69
   %.032.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %37, %36 ]
   %22 = phi i64 [ %5, %.lr.ph.i.i.i ], [ %23, %36 ]
   %23 = add i64 %22, -1
-  %24 = icmp ugt i64 %21, %1
+  %24 = icmp ult i64 %1, %21
   br i1 %24, label %25, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf22285b780347223E.llvm.1648887574124572298.exit"
 
 25:                                               ; preds = %20
@@ -13961,7 +13961,7 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i
 .loopexit:                                        ; preds = %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i, %.preheader20.i, %.preheader.i.us.us, %.preheader.i, %.thread.i.i.i
   %.sroa.6.1.i = phi i64 [ %30, %.thread.i.i.i ], [ %205, %.preheader.i ], [ %169, %.preheader.i.us.us ], [ %115, %.preheader20.i ], [ %30, %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8), !noalias !3078
-  %234 = add i64 %.sroa.6.1.i, %3
+  %234 = add i64 %3, %.sroa.6.1.i
   tail call void @_ZN5alloc6string6String13replace_range17hcae904cea93a0ec4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.6.1.i, i64 noundef %234, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   store i8 44, ptr %0, align 8
   br label %238

@@ -9361,7 +9361,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds float, ptr %0, i64 %.0.us
   %19 = load float, ptr %phi.call.us, align 4
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -9413,7 +9413,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5_
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds float, ptr %0, i64 %.0
   %43 = load float, ptr %phi.call, align 4
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -9855,7 +9855,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %10, %.split ]
   %phi.call.us = getelementptr inbounds double, ptr %0, i64 %.0.us
   %19 = load double, ptr %phi.call.us, align 8
-  %20 = icmp sgt i64 %12, %.0.us
+  %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.split.us, %.lr.ph.i.us
@@ -9907,7 +9907,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5_
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %10, %.split.split.preheader ]
   %phi.call = getelementptr inbounds double, ptr %0, i64 %.0
   %43 = load double, ptr %phi.call, align 8
-  %44 = icmp sgt i64 %12, %.0
+  %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split.split, %.lr.ph.i
@@ -14925,7 +14925,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_11
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %.val.i8)
   %17 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %17, %16
+  %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SolutionsEnumEEaSERKS6_.exit, label %18
 
 18:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SolutionsEnumEEeqERKS6_.exit.thread
@@ -14980,7 +14980,7 @@ _ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.thread: ; preds = %33, %_ZN
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %49 = load ptr, ptr %34, align 8
-  %.not.i.i9 = icmp eq ptr %49, %48
+  %.not.i.i9 = icmp eq ptr %48, %49
   br i1 %.not.i.i9, label %_ZN7testing8internal13ParamIteratorIbEaSERKS2_.exit, label %50
 
 50:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.thread
@@ -15035,7 +15035,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_11
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(8) %.val.i11)
   %77 = load ptr, ptr %65, align 8
-  %.not.i.i12 = icmp eq ptr %77, %76
+  %.not.i.i12 = icmp eq ptr %76, %77
   br i1 %.not.i.i12, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_115SolveDecompEnumEEaSERKS6_.exit, label %78
 
 78:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_115SolveDecompEnumEEeqERKS6_.exit.thread
@@ -15090,7 +15090,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEeqERKS5_.exi
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %.val.i14)
   %105 = load ptr, ptr %93, align 8
-  %.not.i.i15 = icmp eq ptr %105, %104
+  %.not.i.i15 = icmp eq ptr %104, %105
   br i1 %.not.i.i15, label %_ZN7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEaSERKS5_.exit, label %106
 
 106:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEeqERKS5_.exit.thread
@@ -15145,7 +15145,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18
   %131 = load ptr, ptr %130, align 8
   %132 = tail call noundef ptr %131(ptr noundef nonnull align 8 dereferenceable(8) %.val.i17)
   %133 = load ptr, ptr %121, align 8
-  %.not.i.i18 = icmp eq ptr %133, %132
+  %.not.i.i18 = icmp eq ptr %132, %133
   br i1 %.not.i.i18, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18RankEnumEEaSERKS6_.exit, label %134
 
 134:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18RankEnumEEeqERKS6_.exit.thread
@@ -19202,7 +19202,7 @@ _ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.thread: ; preds = %1, %_ZNK
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %21 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %21, %20
+  %.not.i.i = icmp eq ptr %20, %21
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIbEaSERKS2_.exit, label %22
 
 22:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit.thread
@@ -19257,7 +19257,7 @@ _ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit4.thread: ; preds = %37, %_Z
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %53 = load ptr, ptr %38, align 8
-  %.not.i.i5 = icmp eq ptr %53, %52
+  %.not.i.i5 = icmp eq ptr %52, %53
   br i1 %.not.i.i5, label %_ZN7testing8internal13ParamIteratorIbEaSERKS2_.exit6, label %54
 
 54:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIbEeqERKS2_.exit4.thread
@@ -19312,7 +19312,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEeqERKS5_.exi
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(8) %.val.i7)
   %81 = load ptr, ptr %69, align 8
-  %.not.i.i8 = icmp eq ptr %81, %80
+  %.not.i.i8 = icmp eq ptr %80, %81
   br i1 %.not.i.i8, label %_ZN7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEaSERKS5_.exit, label %82
 
 82:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf12_GLOBAL__N_18MatDepthEEeqERKS5_.exit.thread
@@ -19367,7 +19367,7 @@ _ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18
   %107 = load ptr, ptr %106, align 8
   %108 = tail call noundef ptr %107(ptr noundef nonnull align 8 dereferenceable(8) %.val.i10)
   %109 = load ptr, ptr %97, align 8
-  %.not.i.i11 = icmp eq ptr %109, %108
+  %.not.i.i11 = icmp eq ptr %108, %109
   br i1 %.not.i.i11, label %_ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18RankEnumEEaSERKS6_.exit, label %110
 
 110:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18RankEnumEEeqERKS6_.exit.thread
@@ -24254,7 +24254,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %24, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %24
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -25505,7 +25505,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %24, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %24
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -26644,7 +26644,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %266 = icmp eq ptr %33, %.sroa.4.0.i.ph.i
+  %266 = icmp eq ptr %.sroa.4.0.i.ph.i, %33
   br i1 %266, label %274, label %267
 
 267:                                              ; preds = %select.unfold.i
@@ -26848,7 +26848,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %324, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ %337, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %332, %331 ]
   %338 = getelementptr inbounds [5 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_115SolveDecompEnum7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i.i
   %339 = load i32, ptr %338, align 4, !noalias !480
-  %340 = icmp eq i32 %339, %.val.i.i.i.i.i.i.i.i.i
+  %340 = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i, %339
   br i1 %340, label %341, label %317
 
 341:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i.i.i
@@ -27043,7 +27043,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i32 [ %383, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %396, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i ], [ %391, %390 ]
   %397 = getelementptr inbounds [3 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SolutionsEnum7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i
   %398 = load i32, ptr %397, align 4, !noalias !480
-  %399 = icmp eq i32 %398, %.val.i.i.i.i.i.i.i
+  %399 = icmp eq i32 %.val.i.i.i.i.i.i.i, %398
   br i1 %399, label %400, label %376
 
 400:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
@@ -27541,7 +27541,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i, %18
   %.2.lcssa.i.i = phi i32 [ %11, %.preheader.i.i ], [ %24, %.critedge32.loopexit.split.loop.exit.i.i ], [ %19, %18 ]
   %25 = getelementptr inbounds [8 x i32], ptr @__const._ZNK4perf12_GLOBAL__N_18MatDepth7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i
   %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, %.0.val
+  %27 = icmp eq i32 %.0.val, %26
   br i1 %27, label %28, label %4
 
 28:                                               ; preds = %.critedge32.i.i
@@ -27674,7 +27674,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i, %18
   %.2.lcssa.i.i = phi i32 [ %11, %.preheader.i.i ], [ %24, %.critedge32.loopexit.split.loop.exit.i.i ], [ %19, %18 ]
   %25 = getelementptr inbounds [3 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SolutionsEnum7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i
   %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, %.0.val
+  %27 = icmp eq i32 %.0.val, %26
   br i1 %27, label %28, label %4
 
 28:                                               ; preds = %.critedge32.i.i
@@ -28580,7 +28580,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %254 = icmp eq ptr %24, %.sroa.4.0.i.ph.i
+  %254 = icmp eq ptr %.sroa.4.0.i.ph.i, %24
   br i1 %254, label %262, label %255
 
 255:                                              ; preds = %select.unfold.i
@@ -29823,7 +29823,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %254 = icmp eq ptr %24, %.sroa.4.0.i.ph.i
+  %254 = icmp eq ptr %.sroa.4.0.i.ph.i, %24
   br i1 %254, label %262, label %255
 
 255:                                              ; preds = %select.unfold.i
@@ -31001,7 +31001,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %267 = icmp eq ptr %27, %.sroa.4.0.i.ph.i
+  %267 = icmp eq ptr %.sroa.4.0.i.ph.i, %27
   br i1 %267, label %275, label %268
 
 268:                                              ; preds = %select.unfold.i
@@ -31527,7 +31527,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN4perf17TestBa
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN4perf17TestBaseWithParamISt5tupleIJiiiEEEEE17InstantiationInfoESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN4perf17TestBaseWithParamISt5tupleIJiiiEEEEE17InstantiationInfoESaIS9_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN4perf17TestBaseWithParamISt5tupleIJiiiEEEEE17InstantiationInfoESaIS9_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 64
-  %.not10.i.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN4perf17TestBaseWithParamISt5tupleIJiiiEEEEE17InstantiationInfoESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN4perf17TestBaseWithParamISt5tupleIJiiiEEEEE17InstantiationInfoESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %.lr.ph.i.i.i.i17
@@ -31858,7 +31858,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %149 = extractvalue { ptr, i32 } %148, 0
   %150 = call ptr @__cxa_begin_catch(ptr %149) #27
-  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i, %126
+  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %126, %.017.i.i.i.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_121VectorLength_phase32fEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %147, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -32412,7 +32412,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %316 = extractvalue { ptr, i32 } %315, 0
   %317 = call ptr @__cxa_begin_catch(ptr %316) #27
-  %.not4.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i24, %293
+  %.not4.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq ptr %293, %.017.i.i.i.i.i.i.i.i.i24
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i28, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_121VectorLength_phase64fEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i29:                   ; preds = %314, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i29
@@ -32960,7 +32960,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %483 = extractvalue { ptr, i32 } %482, 0
   %484 = call ptr @__cxa_begin_catch(ptr %483) #27
-  %.not4.i.i.i.i.i.i.i.i.i.i.i87 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i83, %460
+  %.not4.i.i.i.i.i.i.i.i.i.i.i87 = icmp eq ptr %460, %.017.i.i.i.i.i.i.i.i.i83
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i87, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_119SolveTest_randomMatEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i88
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i88:                   ; preds = %481, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i88
@@ -33508,7 +33508,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %650 = extractvalue { ptr, i32 } %649, 0
   %651 = call ptr @__cxa_begin_catch(ptr %650) #27
-  %.not4.i.i.i.i.i.i.i.i.i.i.i146 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i142, %627
+  %.not4.i.i.i.i.i.i.i.i.i.i.i146 = icmp eq ptr %627, %.017.i.i.i.i.i.i.i.i.i142
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i146, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_117SvdTest_decomposeEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i147
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i147:                  ; preds = %648, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i147
@@ -34056,7 +34056,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %817 = extractvalue { ptr, i32 } %816, 0
   %818 = call ptr @__cxa_begin_catch(ptr %817) #27
-  %.not4.i.i.i.i.i.i.i.i.i.i.i205 = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i201, %794
+  %.not4.i.i.i.i.i.i.i.i.i.i.i205 = icmp eq ptr %794, %.017.i.i.i.i.i.i.i.i.i201
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i205, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_117SvdTest_backSubstEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i206
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i206:                  ; preds = %815, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i206

@@ -2016,7 +2016,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #5
-  %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 %4)
+  %7 = tail call i32 @llvm.smin.i32(i32 %4, i32 %6)
   %8 = icmp slt i32 %7, 4
   br i1 %8, label %9, label %12
 

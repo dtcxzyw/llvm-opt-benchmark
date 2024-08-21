@@ -6172,7 +6172,7 @@ if.then14:                                        ; preds = %for.end
 
 if.end15:                                         ; preds = %for.end
   %4 = load i64, ptr %resiglen, align 8
-  %cmp16.not = icmp eq i64 %4, %siglen
+  %cmp16.not = icmp eq i64 %siglen, %4
   br i1 %cmp16.not, label %lor.lhs.false18, label %if.then23
 
 lor.lhs.false18:                                  ; preds = %if.end15

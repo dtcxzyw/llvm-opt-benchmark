@@ -901,12 +901,12 @@ _ZNK5boost6system10error_code5valueEv.exit.i:     ; preds = %12
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = mul nuw nsw i32 %21, 1000
   %23 = add i32 %22, %16
-  %24 = icmp eq i32 %23, %2
+  %24 = icmp eq i32 %2, %23
   br label %_ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit
 
 25:                                               ; preds = %3
   %26 = load i32, ptr %1, align 8
-  %27 = icmp eq i32 %26, %2
+  %27 = icmp eq i32 %2, %26
   br i1 %27, label %28, label %_ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit
 
 28:                                               ; preds = %25
@@ -915,7 +915,7 @@ _ZNK5boost6system10error_code5valueEv.exit.i:     ; preds = %12
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 0
-  %34 = icmp eq ptr %30, %0
+  %34 = icmp eq ptr %0, %30
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, %32

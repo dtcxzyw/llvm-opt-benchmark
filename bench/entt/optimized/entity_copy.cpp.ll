@@ -8024,7 +8024,7 @@ sw.bb:                                            ; preds = %_ZN4entt16basic_spa
   %head = getelementptr inbounds i8, ptr %this, i64 68
   %11 = load i32, ptr %head, align 4, !tbaa !17
   %cmp.not = icmp eq i32 %11, 1048575
-  %brmerge = or i1 %cmp.not, %force_back
+  %brmerge = or i1 %force_back, %cmp.not
   br i1 %brmerge, label %sw.bb13, label %if.then
 
 if.then:                                          ; preds = %sw.bb
@@ -16454,7 +16454,7 @@ if.end55:                                         ; preds = %for.inc.critedge, %
   %conversion_helper = getelementptr inbounds i8, ptr %from, i64 48
   %36 = load ptr, ptr %conversion_helper, align 8, !tbaa !239
   %tobool56.not = icmp ne ptr %36, null
-  %brmerge.not = and i1 %tobool56.not, %arithmetic_or_enum
+  %brmerge.not = and i1 %arithmetic_or_enum, %tobool56.not
   br i1 %brmerge.not, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end55
@@ -19930,7 +19930,7 @@ sw.bb:                                            ; preds = %_ZN4entt16basic_spa
   %head = getelementptr inbounds i8, ptr %this, i64 68
   %11 = load i32, ptr %head, align 4, !tbaa !573
   %cmp.not = icmp eq i32 %11, 1048575
-  %brmerge = or i1 %cmp.not, %force_back
+  %brmerge = or i1 %force_back, %cmp.not
   br i1 %brmerge, label %sw.bb13, label %if.then
 
 if.then:                                          ; preds = %sw.bb

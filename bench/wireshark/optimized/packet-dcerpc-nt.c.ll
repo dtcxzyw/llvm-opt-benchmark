@@ -348,7 +348,7 @@ define hidden i32 @dissect_ndr_counted_string_cb(ptr noundef %0, i32 noundef %1,
 .thread:                                          ; preds = %21, %19
   %.sink54 = phi i32 [ -8, %19 ], [ -4, %21 ]
   %.sink53 = phi i32 [ 8, %19 ], [ 4, %21 ]
-  %23 = and i32 %.sink54, %1
+  %23 = and i32 %1, %.sink54
   %24 = add i32 %23, %.sink53
   br label %26
 
@@ -449,7 +449,7 @@ define hidden i32 @dissect_ndr_counted_byte_array_cb(ptr noundef %0, i32 noundef
 .thread:                                          ; preds = %22, %20
   %.sink58 = phi i32 [ -8, %20 ], [ -4, %22 ]
   %.sink57 = phi i32 [ 8, %20 ], [ 4, %22 ]
-  %24 = and i32 %.sink58, %1
+  %24 = and i32 %1, %.sink58
   %25 = add i32 %24, %.sink57
   br label %27
 
@@ -616,7 +616,7 @@ define hidden i32 @dissect_ndr_counted_ascii_string_cb(ptr noundef %0, i32 nound
 .thread:                                          ; preds = %22, %20
   %.sink58 = phi i32 [ -8, %20 ], [ -4, %22 ]
   %.sink57 = phi i32 [ 8, %20 ], [ 4, %22 ]
-  %24 = and i32 %.sink58, %1
+  %24 = and i32 %1, %.sink58
   %25 = add i32 %24, %.sink57
   br label %27
 

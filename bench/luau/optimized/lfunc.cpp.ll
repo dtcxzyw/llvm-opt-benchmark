@@ -416,13 +416,13 @@ define hidden noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr nocapture noundef rea
   %10 = getelementptr inbounds %struct.LocVar, ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
-  %.not = icmp sgt i32 %12, %2
+  %.not = icmp slt i32 %2, %12
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %10, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %15, %2
+  %16 = icmp slt i32 %2, %15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
@@ -460,19 +460,19 @@ define hidden noundef ptr @_Z14luaF_findlocalPK5Protoii(ptr nocapture noundef re
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %10, i64 8
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %2
+  %.not = icmp slt i32 %2, %17
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %10, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = icmp sgt i32 %20, %2
+  %21 = icmp slt i32 %2, %20
   br i1 %21, label %._crit_edge, label %22
 
 22:                                               ; preds = %9, %15, %18

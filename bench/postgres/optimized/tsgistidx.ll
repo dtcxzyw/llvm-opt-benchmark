@@ -304,7 +304,7 @@ thread-pre-split:                                 ; preds = %._crit_edge103, %qu
 
 106:                                              ; preds = %102
   %107 = getelementptr i8, ptr %90, i64 %98
-  %108 = icmp ugt ptr %107, %90
+  %108 = icmp ult ptr %90, %107
   br i1 %108, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %106
@@ -978,7 +978,7 @@ define dso_local i64 @gtsvector_penalty(ptr nocapture noundef readonly %0) local
 
 45:                                               ; preds = %41
   %46 = getelementptr i8, ptr %30, i64 %29
-  %47 = icmp ugt ptr %46, %30
+  %47 = icmp ult ptr %30, %46
   br i1 %47, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %45
@@ -1235,7 +1235,7 @@ define dso_local i64 @gtsvector_picksplit(ptr nocapture noundef readonly %0) loc
 
 69:                                               ; preds = %65
   %70 = getelementptr i8, ptr %53, i64 %61
-  %71 = icmp ugt ptr %70, %53
+  %71 = icmp ult ptr %53, %70
   br i1 %71, label %.lr.ph.preheader.i.i, label %.loopexit.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %69
@@ -1377,7 +1377,7 @@ fillcache.exit245.preheader:                      ; preds = %.lr.ph
 
 137:                                              ; preds = %123
   %138 = getelementptr i8, ptr %125, i64 %102
-  %139 = icmp ugt ptr %138, %125
+  %139 = icmp ult ptr %125, %138
   br i1 %139, label %.lr.ph.preheader.i.i242.us, label %.loopexit.i.i235.us
 
 .lr.ph.preheader.i.i242.us:                       ; preds = %137
@@ -1655,7 +1655,7 @@ gtsvector_alloc.exit255:                          ; preds = %gtsvector_alloc.exi
 
 293:                                              ; preds = %289
   %294 = getelementptr i8, ptr %277, i64 %285
-  %295 = icmp ugt ptr %294, %277
+  %295 = icmp ult ptr %277, %294
   br i1 %295, label %.lr.ph.preheader.i.i264, label %.loopexit.i.i257
 
 .lr.ph.preheader.i.i264:                          ; preds = %293

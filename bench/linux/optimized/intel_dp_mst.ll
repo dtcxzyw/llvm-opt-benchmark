@@ -2824,7 +2824,7 @@ define internal fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.392.val, 
 64:                                               ; preds = %61
   %65 = load i16, ptr %48, align 8
   %66 = icmp ult i16 %65, 14
-  %67 = and i1 %66, %5
+  %67 = and i1 %5, %66
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %64

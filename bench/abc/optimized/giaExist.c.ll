@@ -1036,7 +1036,7 @@ Vec_IntGrow.exit.i:                               ; preds = %45, %43
   %84 = lshr i64 %.val54, 61
   %85 = trunc nuw nsw i64 %84 to i32
   %86 = and i32 %85, 1
-  %87 = xor i32 %86, %79
+  %87 = xor i32 %79, %86
   %88 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %83, i32 noundef %87) #15
   %.val61 = load ptr, ptr %14, align 8
   %89 = getelementptr inbounds i32, ptr %.val61, i64 %15
@@ -1271,11 +1271,11 @@ define noundef ptr @Gia_ManQuantDupConeSupp(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not, label %39, label %34
 
 34:                                               ; preds = %24
-  %35 = and i32 %1, 1
   %.val75 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds i32, ptr %.val75, i64 %9
-  %37 = load i32, ptr %36, align 4
-  %38 = xor i32 %37, %35
+  %35 = getelementptr inbounds i32, ptr %.val75, i64 %9
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %1, 1
+  %38 = xor i32 %36, %37
   store i32 %38, ptr %5, align 4
   br label %39
 
@@ -1379,13 +1379,13 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %57
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -2551,7 +2551,7 @@ define noundef ptr @Gia_ManQuantExist2Dup(ptr nocapture noundef %0, i32 noundef 
   %75 = lshr i64 %.val93, 61
   %76 = trunc nuw nsw i64 %75 to i32
   %77 = and i32 %76, 1
-  %78 = xor i32 %77, %72
+  %78 = xor i32 %72, %77
   %79 = tail call i32 @Gia_ManHashAnd(ptr noundef %13, i32 noundef %74, i32 noundef %78) #15
   %.val117 = load ptr, ptr %45, align 8
   %80 = getelementptr inbounds i32, ptr %.val117, i64 %58
@@ -2568,13 +2568,13 @@ define noundef ptr @Gia_ManQuantExist2Dup(ptr nocapture noundef %0, i32 noundef 
   br i1 %.not, label %91, label %84
 
 84:                                               ; preds = %.critedge4
-  %85 = and i32 %1, 1
   %.val111 = load ptr, ptr %83, align 8
-  %86 = ashr i32 %1, 1
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %.val111, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %90 = xor i32 %89, %85
+  %85 = ashr i32 %1, 1
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i32, ptr %.val111, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %1, 1
+  %90 = xor i32 %88, %89
   store i32 %90, ptr %5, align 4
   br label %91
 

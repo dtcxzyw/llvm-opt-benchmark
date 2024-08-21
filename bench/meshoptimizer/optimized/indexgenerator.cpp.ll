@@ -81,7 +81,7 @@ cond.end.us:                                      ; preds = %cond.false.us, %con
   br i1 %cmp7.us, label %if.then.us, label %for.inc.us
 
 if.then.us:                                       ; preds = %cond.end.us
-  %mul.i.i.us = mul i64 %idxprom.us, %vertex_size
+  %mul.i.i.us = mul i64 %vertex_size, %idxprom.us
   %add.ptr.i.i.us = getelementptr inbounds i8, ptr %vertices, i64 %mul.i.i.us
   br label %while.body.i.i.i.us
 
@@ -114,7 +114,7 @@ if.end.i.us:                                      ; preds = %_ZN7meshoptL11hashU
   %bucket.09.i41.us = phi i64 [ %bucket.09.i.us, %if.end4.i.us ], [ %bucket.09.i37.us, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.loopexit.i.i.us ]
   %probe.08.i40.us = phi i64 [ %add.i21.us, %if.end4.i.us ], [ 0, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.loopexit.i.i.us ]
   %conv.i11.i.us = zext i32 %.pr.us to i64
-  %mul.i13.i.us = mul i64 %conv.i11.i.us, %vertex_size
+  %mul.i13.i.us = mul i64 %vertex_size, %conv.i11.i.us
   %add.ptr.i14.i.us = getelementptr inbounds i8, ptr %vertices, i64 %mul.i13.i.us
   %bcmp.i.i.us = tail call i32 @bcmp(ptr %add.ptr.i14.i.us, ptr %add.ptr.i.i.us, i64 %vertex_size)
   %cmp.i.i.us = icmp eq i32 %bcmp.i.i.us, 0
@@ -178,7 +178,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp7, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %cond.end
-  %mul.i.i = mul nuw nsw i64 %idxprom, %vertex_size
+  %mul.i.i = mul nuw nsw i64 %vertex_size, %idxprom
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %vertices, i64 %mul.i.i
   %10 = load i32, ptr %call.i19, align 4
   %cmp1.i39 = icmp eq i32 %10, -1
@@ -189,7 +189,7 @@ if.end.i:                                         ; preds = %if.then, %if.end4.i
   %bucket.09.i41 = phi i64 [ %bucket.09.i, %if.end4.i ], [ 0, %if.then ]
   %probe.08.i40 = phi i64 [ %add.i21, %if.end4.i ], [ 0, %if.then ]
   %conv.i11.i = zext i32 %.pr to i64
-  %mul.i13.i = mul nuw nsw i64 %conv.i11.i, %vertex_size
+  %mul.i13.i = mul nuw nsw i64 %vertex_size, %conv.i11.i
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %vertices, i64 %mul.i13.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i14.i, ptr %add.ptr6.i.i, i64 %vertex_size)
   %cmp.i.i = icmp eq i32 %bcmp.i.i, 0
@@ -701,7 +701,7 @@ for.body.i76:                                     ; preds = %sw.default, %for.in
 
 if.then.i80:                                      ; preds = %for.body.i76
   %conv.i81 = zext i32 %11 to i64
-  %mul.i82 = mul i64 %conv.i81, %vertex_size
+  %mul.i82 = mul i64 %vertex_size, %conv.i81
   %add.ptr.i83 = getelementptr inbounds i8, ptr %destination, i64 %mul.i82
   %mul3.i84 = mul i64 %i.09.i77, %vertex_size
   %add.ptr4.i85 = getelementptr inbounds i8, ptr %vertices.addr.0, i64 %mul3.i84
@@ -840,7 +840,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %cmp10.us, label %if.then.us, label %if.end18.us
 
 if.then.us:                                       ; preds = %for.body.us
-  %mul.i.i.us = mul i64 %idxprom.us, %vertex_stride
+  %mul.i.i.us = mul i64 %vertex_stride, %idxprom.us
   %add.ptr.i.i.us = getelementptr inbounds i8, ptr %vertices, i64 %mul.i.i.us
   br label %while.body.i.i.i.us
 
@@ -873,7 +873,7 @@ if.end.i.us:                                      ; preds = %_ZN7meshoptL11hashU
   %bucket.09.i48.us = phi i64 [ %bucket.09.i.us, %if.end4.i.us ], [ %bucket.09.i44.us, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.loopexit.i.i.us ]
   %probe.08.i47.us = phi i64 [ %add.i26.us, %if.end4.i.us ], [ 0, %_ZN7meshoptL11hashUpdate4EjPKhm.exit.loopexit.i.i.us ]
   %conv.i11.i.us = zext i32 %.pr.us to i64
-  %mul.i13.i.us = mul i64 %conv.i11.i.us, %vertex_stride
+  %mul.i13.i.us = mul i64 %vertex_stride, %conv.i11.i.us
   %add.ptr.i14.i.us = getelementptr inbounds i8, ptr %vertices, i64 %mul.i13.i.us
   %bcmp.i.i.us = tail call i32 @bcmp(ptr %add.ptr.i14.i.us, ptr %add.ptr.i.i.us, i64 %vertex_size)
   %cmp.i.i.us = icmp eq i32 %bcmp.i.i.us, 0
@@ -920,7 +920,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp10, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %for.body
-  %mul.i.i = mul i64 %idxprom, %vertex_stride
+  %mul.i.i = mul i64 %vertex_stride, %idxprom
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %vertices, i64 %mul.i.i
   %12 = load i32, ptr %call.i23, align 4
   %cmp1.i46 = icmp eq i32 %12, -1
@@ -931,7 +931,7 @@ if.end.i:                                         ; preds = %if.then, %if.end4.i
   %bucket.09.i48 = phi i64 [ %bucket.09.i, %if.end4.i ], [ 0, %if.then ]
   %probe.08.i47 = phi i64 [ %add.i26, %if.end4.i ], [ 0, %if.then ]
   %conv.i11.i = zext i32 %.pr to i64
-  %mul.i13.i = mul i64 %conv.i11.i, %vertex_stride
+  %mul.i13.i = mul i64 %vertex_stride, %conv.i11.i
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %vertices, i64 %mul.i13.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i14.i, ptr %add.ptr6.i.i, i64 %vertex_size)
   %cmp.i.i = icmp eq i32 %bcmp.i.i, 0
@@ -1481,7 +1481,7 @@ if.end.i:                                         ; preds = %_ZNK7meshopt12Verte
   %bucket.09.i31 = phi i64 [ %bucket.09.i, %if.end4.i ], [ %bucket.09.i27, %_ZNK7meshopt12VertexHasher4hashEj.exit.i ]
   %probe.08.i30 = phi i64 [ %add.i14, %if.end4.i ], [ 0, %_ZNK7meshopt12VertexHasher4hashEj.exit.i ]
   %conv.i11.i = zext i32 %.pr to i64
-  %mul.i13.i = mul i64 %conv.i11.i, %vertex_positions_stride
+  %mul.i13.i = mul i64 %vertex_positions_stride, %conv.i11.i
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %vertex_positions, i64 %mul.i13.i
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %add.ptr.i14.i, ptr noundef nonnull dereferenceable(12) %add.ptr.i.i, i64 12)
   %cmp.i.i = icmp eq i32 %bcmp.i.i, 0

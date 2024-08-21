@@ -94,7 +94,7 @@ define ptr @auth_get_plugin_name(i32 noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr inbounds [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
-  %6 = icmp eq i32 %5, %0
+  %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
@@ -142,7 +142,7 @@ define zeroext i1 @auth_is_plugin_type_inited(i32 noundef %0) local_unnamed_addr
   %wide.trip.count = zext nneg i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %0
+  %8 = icmp eq i32 %0, %7
   br i1 %8, label %._crit_edge, label %.lr.ph9
 
 .lr.ph9:                                          ; preds = %.lr.ph, %9
@@ -155,7 +155,7 @@ define zeroext i1 @auth_is_plugin_type_inited(i32 noundef %0) local_unnamed_addr
   %10 = getelementptr inbounds %struct.auth_ops_t, ptr %4, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, %0
+  %13 = icmp eq i32 %0, %12
   br i1 %13, label %._crit_edge.loopexit, label %.lr.ph9, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %9, %.lr.ph9
@@ -1037,7 +1037,7 @@ define ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %._crit_edge.preheader ]
   %24 = getelementptr inbounds [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 16
-  %26 = icmp eq i32 %25, %.pre
+  %26 = icmp eq i32 %.pre, %25
   br i1 %26, label %27, label %23
 
 27:                                               ; preds = %._crit_edge
@@ -1156,7 +1156,7 @@ define ptr @auth_g_token_generate(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %12 = getelementptr inbounds %struct.auth_ops_t, ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %14, %0
+  %15 = icmp eq i32 %0, %14
   br i1 %15, label %16, label %10
 
 16:                                               ; preds = %11

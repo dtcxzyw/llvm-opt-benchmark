@@ -8,7 +8,7 @@ define hidden zeroext i1 @_ZN4core5tuple16ordering_is_some17head148c8cefc5499E(i
   %3 = add i8 %1, 1
   %4 = icmp ult i8 %3, 3
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq i8 %0, %1
+  %5 = icmp eq i8 %1, %0
   ret i1 %5
 }
 

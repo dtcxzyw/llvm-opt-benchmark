@@ -663,7 +663,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow20TensorShapeProto_Dim18_Inter
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %7, %1
+  %.not.i = icmp ult ptr %1, %7
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %8
 
 8:                                                ; preds = %6
@@ -1540,7 +1540,7 @@ _ZN17opencv_tensorflow16TensorShapeProto17_internal_add_dimEv.exit: ; preds = %6
 
 84:                                               ; preds = %_ZN17opencv_tensorflow16TensorShapeProto17_internal_add_dimEv.exit
   %85 = load ptr, ptr %2, align 8
-  %86 = icmp ugt ptr %85, %83
+  %86 = icmp ult ptr %83, %85
   br i1 %86, label %87, label %.backedge
 
 87:                                               ; preds = %84
@@ -1686,7 +1686,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow16TensorShapeProto18_InternalS
   %.04454 = phi i32 [ 0, %.lr.ph ], [ %26, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %.04553 = phi ptr [ %1, %.lr.ph ], [ %25, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
   %8 = load ptr, ptr %2, align 8
-  %.not.i = icmp ugt ptr %8, %.04553
+  %.not.i = icmp ult ptr %.04553, %8
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %9
 
 9:                                                ; preds = %7
@@ -1733,7 +1733,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 30:                                               ; preds = %._crit_edge
   %31 = load ptr, ptr %2, align 8
-  %.not.i48 = icmp ugt ptr %31, %.045.lcssa
+  %.not.i48 = icmp ult ptr %.045.lcssa, %31
   br i1 %.not.i48, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit50, label %32
 
 32:                                               ; preds = %30

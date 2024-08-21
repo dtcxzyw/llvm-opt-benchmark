@@ -1193,7 +1193,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %name2.coerce1.tr.i, i64 %sub.i.i.i.i
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.9, i64 5)
   %cmp9.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  %cmp.i.i.i = icmp eq i64 %sub.i.i.i.i, %name1.coerce0.tr.i
+  %cmp.i.i.i = icmp eq i64 %name1.coerce0.tr.i, %sub.i.i.i.i
   %or.cond.i = select i1 %cmp9.i.i.i.i, i1 %cmp.i.i.i, i1 false
   br i1 %or.cond.i, label %land.rhs.i.i.i, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i
 
@@ -1252,7 +1252,7 @@ _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.ex
   %add.ptr.i.i.i26.i = getelementptr inbounds i8, ptr %name2.coerce1.tr.i, i64 %sub.i.i.i25.i
   %bcmp.i.i.i27.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i26.i, ptr noundef nonnull readonly dereferenceable(4) @.str.15, i64 4)
   %cmp9.i.i.i28.i = icmp eq i32 %bcmp.i.i.i27.i, 0
-  %cmp.i.i32.i = icmp eq i64 %sub.i.i.i25.i, %name1.coerce0.tr.i
+  %cmp.i.i32.i = icmp eq i64 %name1.coerce0.tr.i, %sub.i.i.i25.i
   %or.cond86.i = select i1 %cmp9.i.i.i28.i, i1 %cmp.i.i32.i, i1 false
   br i1 %or.cond86.i, label %land.rhs.i.i33.i, label %invoke.cont63.thread
 

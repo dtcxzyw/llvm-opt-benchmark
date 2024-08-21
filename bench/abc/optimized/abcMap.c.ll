@@ -3160,7 +3160,7 @@ define void @Abc_NtkSetCiArrivalTime(ptr noundef %0, i32 noundef %1, float nound
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %15, align 4
-  %.not = icmp sgt i32 %.val.val, %1
+  %.not = icmp slt i32 %1, %.val.val
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %13, %11
@@ -3211,7 +3211,7 @@ define void @Abc_NtkSetCoRequiredTime(ptr noundef %0, i32 noundef %1, float noun
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %15, align 4
-  %.not = icmp sgt i32 %.val.val, %1
+  %.not = icmp slt i32 %1, %.val.val
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %13, %11

@@ -228,7 +228,7 @@ define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 nound
   %32 = getelementptr i8, ptr %9, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
-  %35 = icmp eq i32 %34, %2
+  %35 = icmp eq i32 %2, %34
   br i1 %35, label %.thread4, label %36
 
 36:                                               ; preds = %28
@@ -356,7 +356,7 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noca
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #7
   store i16 0, ptr %7, align 2, !annotation !5
   %66 = zext i8 %65 to i32
-  %67 = icmp eq i32 %66, %2
+  %67 = icmp eq i32 %2, %66
   %68 = zext i1 %67 to i8
   switch i8 %65, label %.thread16 [
     i8 60, label %70

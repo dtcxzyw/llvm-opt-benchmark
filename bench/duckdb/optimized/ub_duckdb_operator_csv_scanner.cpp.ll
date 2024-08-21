@@ -10063,7 +10063,7 @@ if.else123:                                       ; preds = %invoke.cont109
 if.end133:                                        ; preds = %if.else123, %if.then115, %if.then98, %if.then77, %if.then45
   %target_type_not_varchar.0 = phi i1 [ false, %if.then45 ], [ false, %if.then77 ], [ false, %if.then98 ], [ false, %if.then115 ], [ true, %if.else123 ]
   %success.0.in = phi i1 [ %call54, %if.then45 ], [ %call85, %if.then77 ], [ %call104, %if.then98 ], [ %call121, %if.then115 ], [ %call128, %if.else123 ]
-  %brmerge = or i1 %success.0.in, %try_add_line
+  %brmerge = or i1 %try_add_line, %success.0.in
   %.mux = select i1 %success.0.in, i32 4, i32 1
   br i1 %brmerge, label %cleanup, label %if.end139
 
@@ -42761,7 +42761,7 @@ invoke.cont45:                                    ; preds = %lor.lhs.false
   %buffer_end = getelementptr inbounds i8, ptr %call46, i64 56
   %41 = load i64, ptr %buffer_end, align 8, !tbaa !894
   %cmp47 = icmp ne i64 %40, %41
-  %brmerge1067 = or i1 %cmp47, %try_add_line
+  %brmerge1067 = or i1 %try_add_line, %cmp47
   br i1 %brmerge1067, label %if.end56, label %if.then50
 
 land.lhs.true48:                                  ; preds = %invoke.cont
@@ -42910,7 +42910,7 @@ if.else81:                                        ; preds = %invoke.cont74
   store i64 %59, ptr %start_buffer, align 8, !tbaa !893
   %60 = load i64, ptr %column, align 8
   %cmp147.not = icmp ne i64 %60, 0
-  %brmerge1071 = or i1 %cmp147.not, %try_add_line
+  %brmerge1071 = or i1 %try_add_line, %cmp147.not
   %.pre2035 = load i64, ptr %end_buffer.i, align 8, !tbaa !873
   br label %normal
 
@@ -42977,7 +42977,7 @@ invoke.cont94:                                    ; preds = %call8.i1172.noexc, 
 if.then101:                                       ; preds = %invoke.cont94
   %72 = load i64, ptr %position_buffer57, align 8, !tbaa !892
   %cmp103.not = icmp ne i64 %72, 0
-  %brmerge1068.not = and i1 %cmp103.not, %try_add_line
+  %brmerge1068.not = and i1 %try_add_line, %cmp103.not
   br i1 %brmerge1068.not, label %if.then106, label %add_value
 
 if.then106:                                       ; preds = %if.then101
@@ -43058,7 +43058,7 @@ if.else122.for.inc166_crit_edge:                  ; preds = %if.else122
 if.then125:                                       ; preds = %if.else122, %if.else122
   %82 = load i64, ptr %position_buffer57, align 8, !tbaa !892
   %cmp127.not = icmp ne i64 %82, 0
-  %brmerge1070.not = and i1 %cmp127.not, %try_add_line
+  %brmerge1070.not = and i1 %try_add_line, %cmp127.not
   br i1 %brmerge1070.not, label %if.then130, label %if.end146
 
 if.then130:                                       ; preds = %if.then125
@@ -45097,7 +45097,7 @@ lor.lhs.false776:                                 ; preds = %if.then774
   %390 = load i64, ptr %start_buffer, align 8, !tbaa !893
   %391 = load i64, ptr %position_buffer57, align 8, !tbaa !892
   %cmp779.not = icmp ne i64 %390, %391
-  %brmerge1073 = or i1 %cmp779.not, %try_add_line
+  %brmerge1073 = or i1 %try_add_line, %cmp779.not
   br i1 %brmerge1073, label %if.then790, label %if.end886
 
 if.then790:                                       ; preds = %lor.lhs.false776, %if.then774
@@ -51257,7 +51257,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp30.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
-  %add.i.i.i = add nsw i64 %conv.i.i, %__n
+  %add.i.i.i = add nsw i64 %__n, %conv.i.i
   %4 = trunc i64 %add.i.i.i to i32
   %conv4.i.i.i = and i32 %4, 63
   %div.i.i.i = sdiv i64 %add.i.i.i, 64
@@ -51312,7 +51312,7 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !1014
 
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %if.then4
-  %add.i.i.i58 = add nsw i64 %conv3.i.i.i.i.i.i, %__n
+  %add.i.i.i58 = add nsw i64 %__n, %conv3.i.i.i.i.i.i
   %div.i.i.i59 = sdiv i64 %add.i.i.i58, 64
   %add.ptr.i.i.i60 = getelementptr inbounds i64, ptr %__position.coerce0, i64 %div.i.i.i59
   %9 = and i64 %add.i.i.i58, -9223372036854775745
@@ -51412,7 +51412,7 @@ _ZSt14__fill_bvectorPmjjb.exit58.i.i.i:           ; preds = %if.else.i52.i.i.i, 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt14__fill_bvectorPmjjb.exit58.i.i.i, %if.else.i.i.i, %_ZSt14__fill_bvectorPmjjb.exit46.i.i.i, %if.end.i.i.i
   %17 = load i32, ptr %_M_offset.i.i.i, align 8, !tbaa !1015
   %conv.i.i67 = zext i32 %17 to i64
-  %add.i.i68 = add nsw i64 %conv.i.i67, %__n
+  %add.i.i68 = add nsw i64 %__n, %conv.i.i67
   %div.i.i = sdiv i64 %add.i.i68, 64
   %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !162
   %add.ptr.i.i = getelementptr inbounds i64, ptr %18, i64 %div.i.i
@@ -51509,7 +51509,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %__result.sroa.5.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %conv.i.i.i92 = zext i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i to i64
-  %add.i.i.i93 = add nsw i64 %conv.i.i.i92, %__n
+  %add.i.i.i93 = add nsw i64 %__n, %conv.i.i.i92
   %div.i.i.i94 = sdiv i64 %add.i.i.i93, 64
   %add.ptr.i.i.i95 = getelementptr inbounds i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %div.i.i.i94
   %27 = and i64 %add.i.i.i93, -9223372036854775745

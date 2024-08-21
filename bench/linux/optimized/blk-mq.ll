@@ -4017,7 +4017,7 @@ define dso_local void @blk_execute_rq_nowait(ptr noundef %0, i1 noundef zeroext 
   %19 = getelementptr inbounds i8, ptr %18, i64 2120
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  %22 = or i1 %21, %1
+  %22 = or i1 %1, %21
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %16
@@ -6675,7 +6675,7 @@ define dso_local void @blk_mq_flush_plug_list(ptr noundef %0, i1 noundef zeroext
   %13 = getelementptr inbounds i8, ptr %0, i64 21
   %14 = load i8, ptr %13, align 1, !range !63, !noundef !64
   %15 = icmp ne i8 %14, 0
-  %16 = or i1 %15, %1
+  %16 = or i1 %1, %15
   br i1 %16, label %87, label %17
 
 17:                                               ; preds = %12
@@ -7018,7 +7018,7 @@ define dso_local void @blk_mq_flush_plug_list(ptr noundef %0, i1 noundef zeroext
   %210 = getelementptr inbounds i8, ptr %148, i64 248
   %211 = load i32, ptr %210, align 8
   %212 = icmp ne i32 %211, 0
-  %213 = or i1 %212, %1
+  %213 = or i1 %1, %212
   br i1 %213, label %._crit_edge, label %214
 
 ._crit_edge:                                      ; preds = %207

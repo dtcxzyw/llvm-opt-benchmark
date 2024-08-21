@@ -181,7 +181,7 @@ define void @_ZN2cv9softfloatC2Em(ptr nocapture noundef nonnull writeonly align 
   %32 = lshr i64 %1, %31
   %notmask.i.i = shl nsw i64 -1, %31
   %33 = xor i64 %notmask.i.i, -1
-  %34 = and i64 %33, %1
+  %34 = and i64 %1, %33
   %35 = icmp ne i64 %34, 0
   %36 = zext i1 %35 to i64
   %37 = or i64 %32, %36

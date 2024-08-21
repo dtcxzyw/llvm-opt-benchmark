@@ -146,7 +146,7 @@ if.end.split.i.i:                                 ; preds = %for.end.i
   %6 = load ptr, ptr %add.ptr7.i.i, align 8
   %sub.i.i.i = add nsw i64 %conv.i, -1
   %div23.i.i.i = lshr i64 %sub.i.i.i, 1
-  %cmp27.i.i.i = icmp ugt i64 %div23.i.i.i, %div9.i.i
+  %cmp27.i.i.i = icmp ult i64 %div9.i.i, %div23.i.i.i
   br i1 %cmp27.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.split.i.i, %while.body.i.i.i
@@ -231,7 +231,7 @@ if.end3.split.i.i:                                ; preds = %adjust_heap.exit60.
   %dec.i.i = add nsw i64 %parent.063.i.i, -1
   %add.ptr8.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %dec.i.i
   %16 = load ptr, ptr %add.ptr8.i.i, align 8
-  %cmp27.i12.i.i = icmp ugt i64 %div23.i.i.i, %dec.i.i
+  %cmp27.i12.i.i = icmp ult i64 %dec.i.i, %div23.i.i.i
   br i1 %cmp27.i12.i.i, label %while.body.i44.i.i, label %while.end.i13.i.i
 
 while.body.i44.i.i:                               ; preds = %if.end3.split.i.i, %while.body.i44.i.i

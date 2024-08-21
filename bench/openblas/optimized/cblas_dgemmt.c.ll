@@ -251,7 +251,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 198:                                              ; preds = %196, %.split21
   %199 = trunc i64 %188 to i32
-  %200 = add i32 %199, %5
+  %200 = add i32 %5, %199
   %201 = shl nsw i32 %200, 1
   %202 = add i32 %201, 19
   %203 = and i32 %202, -4
@@ -354,7 +354,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 250:                                              ; preds = %248, %.split
   %251 = trunc i64 %243 to i32
-  %252 = add i32 %251, %5
+  %252 = add i32 %5, %251
   %253 = shl nsw i32 %252, 1
   %254 = add i32 %253, 19
   %255 = and i32 %254, -4

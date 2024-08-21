@@ -7247,7 +7247,7 @@ define internal fastcc i32 @fix_next_header(ptr noundef %0, i32 noundef %1) unna
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = trunc i64 %14 to i32
-  %16 = add i32 %15, %1
+  %16 = add i32 %1, %15
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %16) #5
   %18 = icmp slt i32 %17, 5
   br i1 %18, label %._crit_edge, label %19

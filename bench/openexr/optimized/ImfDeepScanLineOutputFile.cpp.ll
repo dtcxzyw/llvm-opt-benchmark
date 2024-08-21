@@ -2804,7 +2804,7 @@ if.else:                                          ; preds = %invoke.cont9
   %minY55 = getelementptr inbounds i8, ptr %10, i64 196
   %18 = load i32, ptr %minY55, align 4
   %19 = add i32 %12, 1
-  %20 = add i32 %18, %numScanLines
+  %20 = add i32 %numScanLines, %18
   %sub56 = sub i32 %19, %20
   %div59 = sdiv i32 %sub56, %13
   %sub64 = sub nsw i32 %12, %numScanLines
@@ -3245,7 +3245,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %17 = load ptr, ptr %_lineBuffer, align 8
   %maxY27 = getelementptr inbounds i8, ptr %17, i64 100
   %18 = load i32, ptr %maxY27, align 4
-  %.sroa.speculated9 = tail call i32 @llvm.smin.i32(i32 %18, i32 %scanLineMax)
+  %.sroa.speculated9 = tail call i32 @llvm.smin.i32(i32 %scanLineMax, i32 %18)
   %scanLineMax30 = getelementptr inbounds i8, ptr %17, i64 108
   store i32 %.sroa.speculated9, ptr %scanLineMax30, align 4
   ret void

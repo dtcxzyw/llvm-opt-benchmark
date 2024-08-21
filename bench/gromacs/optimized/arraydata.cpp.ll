@@ -341,7 +341,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %40, %42, %44, %46
   %48 = trunc i8 %47 to i1
   %49 = getelementptr inbounds i8, ptr %0, i64 16
   %50 = load i32, ptr %49, align 8
-  %51 = icmp slt i32 %50, %1
+  %51 = icmp sgt i32 %1, %50
   %or.cond = select i1 %48, i1 %51, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit
 
@@ -535,7 +535,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeE
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -606,7 +606,7 @@ _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit3
   br label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -684,7 +684,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData13setXAxisValueEif(ptr noundef no
 
 12:                                               ; preds = %8
   %13 = icmp sgt i32 %1, -1
-  %14 = icmp ugt i32 %10, %1
+  %14 = icmp ult i32 %1, %10
   %or.cond = and i1 %13, %14
   br i1 %or.cond, label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge, label %15
 

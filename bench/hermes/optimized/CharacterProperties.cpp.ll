@@ -37,7 +37,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %.val.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 4
   %p.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %.val.i.i.i, 32
   %p.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %p.sroa.1.0.extract.shift.i.i.i.i.i to i32
-  %cmp.i.i8.i.i.i = icmp ult i32 %p.sroa.1.0.extract.trunc.i.i.i.i.i, %cp
+  %cmp.i.i8.i.i.i = icmp ugt i32 %cp, %p.sroa.1.0.extract.trunc.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %0 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %0
@@ -53,7 +53,7 @@ _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valI
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
-  %cmp.i4.i.i = icmp ule i32 %p.sroa.0.0.extract.trunc.i.i.i, %cp
+  %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %return
 
 return:                                           ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %entry
@@ -108,7 +108,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %.val.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 4
   %p.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %.val.i.i.i, 32
   %p.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %p.sroa.1.0.extract.shift.i.i.i.i.i to i32
-  %cmp.i.i8.i.i.i = icmp ult i32 %p.sroa.1.0.extract.trunc.i.i.i.i.i, %cp
+  %cmp.i.i8.i.i.i = icmp ugt i32 %cp, %p.sroa.1.0.extract.trunc.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %0 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %0
@@ -124,7 +124,7 @@ _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valI
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
-  %cmp.i4.i.i = icmp ule i32 %p.sroa.0.0.extract.trunc.i.i.i, %cp
+  %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %_ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit
 
 _ZN6hermes6lookupIA245_NS_12UnicodeRangeEEEbRKT_j.exit: ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %land.rhs.i.i
@@ -147,7 +147,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %.val.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 4
   %p.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %.val.i.i.i, 32
   %p.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %p.sroa.1.0.extract.shift.i.i.i.i.i to i32
-  %cmp.i.i8.i.i.i = icmp ult i32 %p.sroa.1.0.extract.trunc.i.i.i.i.i, %cp
+  %cmp.i.i8.i.i.i = icmp ugt i32 %cp, %p.sroa.1.0.extract.trunc.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %1 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %1
@@ -163,7 +163,7 @@ _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valI
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
-  %cmp.i4.i.i = icmp ule i32 %p.sroa.0.0.extract.trunc.i.i.i, %cp
+  %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %lor.end
 
 lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %entry
@@ -185,7 +185,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %.val.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 4
   %p.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %.val.i.i.i, 32
   %p.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %p.sroa.1.0.extract.shift.i.i.i.i.i to i32
-  %cmp.i.i8.i.i.i = icmp ult i32 %p.sroa.1.0.extract.trunc.i.i.i.i.i, %cp
+  %cmp.i.i8.i.i.i = icmp ugt i32 %cp, %p.sroa.1.0.extract.trunc.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %0 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %0
@@ -201,7 +201,7 @@ _ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valI
 land.rhs.i.i:                                     ; preds = %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i
   %agg.tmp2.sroa.0.0.copyload.i.i = load i64, ptr %__first.addr.1.i.i.i, align 4
   %p.sroa.0.0.extract.trunc.i.i.i = trunc i64 %agg.tmp2.sroa.0.0.copyload.i.i to i32
-  %cmp.i4.i.i = icmp ule i32 %p.sroa.0.0.extract.trunc.i.i.i, %cp
+  %cmp.i4.i.i = icmp uge i32 %cp, %p.sroa.0.0.extract.trunc.i.i.i
   br label %lor.end
 
 lor.end:                                          ; preds = %land.rhs.i.i, %_ZSt13__lower_boundIPKN6hermes12UnicodeRangeEjN9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_116UnicodeRangeCompEEEET_SA_SA_RKT0_T1_.exit.i.i, %entry
@@ -505,7 +505,7 @@ _ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_v
 
 if.then7.i.i.i:                                   ; preds = %if.end11.i.i, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i, %for.body.i
   %retval.sroa.0.0.i51.i = phi ptr [ %__first.addr.0.lcssa.i.i32.i, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i ], [ %15, %for.body.i ], [ %__first.addr.1.i.i, %if.end11.i.i ]
-  %cmp.i16.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.0.0.i51.i
+  %cmp.i16.i = icmp eq ptr %retval.sroa.0.0.i51.i, %add.ptr.i.i.i.i
   %30 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %16, %30
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.end.i.i
@@ -581,7 +581,7 @@ _ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i.i: ; preds 
   %cmp18.not.i.i = icmp ugt ptr %I.addr.0.i.i, %r.i.i.i
   %conv.i27.i.i = zext i32 %add.i18.i to i64
   %add.ptr.i.i19.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %39, i64 %conv.i27.i.i
-  %cmp20.i.i = icmp ugt ptr %add.ptr.i.i19.i, %r.i.i.i
+  %cmp20.i.i = icmp ult ptr %r.i.i.i, %add.ptr.i.i19.i
   %spec.select.idx.i.i = select i1 %cmp20.i.i, i64 8, i64 0
   %EltPtr.0.idx.i.i = select i1 %cmp18.not.i.i, i64 0, i64 %spec.select.idx.i.i
   %EltPtr.0.i.i = getelementptr inbounds i8, ptr %r.i.i.i, i64 %EltPtr.0.idx.i.i
@@ -664,7 +664,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %Capacity2.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i16, align 4
   %tobool.not.i.i.i18 = icmp eq i32 %49, 0
-  %cmp.i.i.i19 = icmp eq ptr %canonicalized, %agg.result
+  %cmp.i.i.i19 = icmp eq ptr %agg.result, %canonicalized
   %or.cond.i.i20 = or i1 %cmp.i.i.i19, %tobool.not.i.i.i18
   br i1 %or.cond.i.i20, label %_ZN6hermes12CodePointSetC2ERKS0_.exit33, label %if.end13.i.i.i21
 
@@ -923,7 +923,7 @@ if.then7.i.i.i135:                                ; preds = %if.end11.i.i189, %i
   %conv.i.i.pre-phi = phi i64 [ %conv.i.i.i.i64, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i107 ], [ 0, %if.then29.i ], [ %conv.i.i.i.i64, %if.end11.i.i189 ]
   %retval.sroa.0.0.i36.i = phi ptr [ %__first.addr.0.lcssa.i.i.i96, %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i107 ], [ %61, %if.then29.i ], [ %__first.addr.1.i.i190, %if.end11.i.i189 ]
   %add.ptr.i56.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %61, i64 %conv.i.i.pre-phi
-  %cmp.i198 = icmp eq ptr %add.ptr.i56.i, %retval.sroa.0.0.i36.i
+  %cmp.i198 = icmp eq ptr %retval.sroa.0.0.i36.i, %add.ptr.i56.i
   %85 = load i32, ptr %Capacity2.i.i.i.i.i.i16, align 4
   %cmp.not.i.i = icmp ult i32 %62, %85
   br i1 %cmp.i198, label %if.then.i, label %if.end.i199
@@ -1000,7 +1000,7 @@ _ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i: ; preds = 
   %cmp18.not.i = icmp ugt ptr %I.addr.0.i, %r.i.i.i40
   %conv.i27.i = zext i32 %add.i203 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %94, i64 %conv.i27.i
-  %cmp20.i204 = icmp ugt ptr %add.ptr.i.i, %r.i.i.i40
+  %cmp20.i204 = icmp ult ptr %r.i.i.i40, %add.ptr.i.i
   %spec.select.idx.i = select i1 %cmp20.i204, i64 8, i64 0
   %EltPtr.0.idx.i = select i1 %cmp18.not.i, i64 0, i64 %spec.select.idx.i
   %EltPtr.0.i = getelementptr inbounds i8, ptr %r.i.i.i40, i64 %EltPtr.0.idx.i
@@ -1134,7 +1134,7 @@ land.lhs.true:                                    ; preds = %_ZSt11lower_boundIP
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %4 = lshr i32 %3, 24
   %add = add nuw nsw i32 %bf.cast, %4
-  %cmp15 = icmp ugt i32 %add, %cp
+  %cmp15 = icmp ult i32 %cp, %add
   br i1 %cmp15, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true8

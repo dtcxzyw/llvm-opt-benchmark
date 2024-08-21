@@ -2011,7 +2011,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %2 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %2, %preferred_address_ipv4
+  %cmp.i.i.i.i.i.i = icmp eq ptr %preferred_address_ipv4, %2
   br i1 %cmp.i.i.i.i.i.i, label %if.then8.i.i, label %for.cond.i.i.i.i, !llvm.loop !110
 
 if.end15.i.i.i.i:                                 ; preds = %_ZNKRSt8optionalIN4node13SocketAddressEE5valueEv.exit
@@ -2030,11 +2030,11 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %7 = load ptr, ptr %6, align 8
   %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %add.ptr8.i.i.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %8, %preferred_address_ipv4
+  %cmp.i.i.i9.i.i.i.i.i.i = icmp eq ptr %preferred_address_ipv4, %8
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %preferred_address_ipv4
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %preferred_address_ipv4, %10
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !112
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
@@ -2122,7 +2122,7 @@ for.cond.i.i.i.i53:                               ; preds = %for.body.i.i.i.i57,
 for.body.i.i.i.i57:                               ; preds = %for.cond.i.i.i.i53
   %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i55, i64 8
   %24 = load ptr, ptr %add.ptr.i.i.i.i58, align 8
-  %cmp.i.i.i.i.i.i59 = icmp eq ptr %24, %preferred_address_ipv6
+  %cmp.i.i.i.i.i.i59 = icmp eq ptr %preferred_address_ipv6, %24
   br i1 %cmp.i.i.i.i.i.i59, label %if.then8.i.i31, label %for.cond.i.i.i.i53, !llvm.loop !110
 
 if.end15.i.i.i.i12:                               ; preds = %_ZNKRSt8optionalIN4node13SocketAddressEE5valueEv.exit9
@@ -2141,11 +2141,11 @@ if.end.i.i.i.i.i.i18:                             ; preds = %if.end15.i.i.i.i12
   %29 = load ptr, ptr %28, align 8
   %add.ptr8.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %add.ptr8.i.i.i.i.i.i19, align 8
-  %cmp.i.i.i9.i.i.i.i.i.i20 = icmp eq ptr %30, %preferred_address_ipv6
+  %cmp.i.i.i9.i.i.i.i.i.i20 = icmp eq ptr %preferred_address_ipv6, %30
   br i1 %cmp.i.i.i9.i.i.i.i.i.i20, label %if.then8.i.i31, label %if.end3.i.i.i.i.i.i21
 
 for.cond.i.i.i.i.i.i29:                           ; preds = %lor.lhs.false.i.i.i.i.i.i24
-  %cmp.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %32, %preferred_address_ipv6
+  %cmp.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %preferred_address_ipv6, %32
   br i1 %cmp.i.i.i.i.i.i.i.i.i30, label %if.then8.i.i31, label %if.end3.i.i.i.i.i.i21, !llvm.loop !112
 
 if.end3.i.i.i.i.i.i21:                            ; preds = %if.end.i.i.i.i.i.i18, %for.cond.i.i.i.i.i.i29
@@ -2947,7 +2947,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %2 = load ptr, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %2, %retainer
+  %cmp.i.i.i.i = icmp eq ptr %retainer, %2
   br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !110
 
 if.end15.i.i:                                     ; preds = %entry
@@ -2966,11 +2966,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %7 = load ptr, ptr %6, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %8, %retainer
+  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %retainer, %8
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.then, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %10, %retainer
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %retainer, %10
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !112
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
@@ -3182,7 +3182,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load ptr, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %1, %retainer
+  %cmp.i.i.i.i = icmp eq ptr %retainer, %1
   br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !110
 
 if.end15.i.i:                                     ; preds = %entry
@@ -3200,11 +3200,11 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %6 = load ptr, ptr %5, align 8
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
-  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %7, %retainer
+  %cmp.i.i.i9.i.i.i.i = icmp eq ptr %retainer, %7
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.then, label %if.end3.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %9, %retainer
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %retainer, %9
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !112
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
@@ -3699,7 +3699,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

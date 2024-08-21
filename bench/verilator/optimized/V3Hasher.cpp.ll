@@ -1341,7 +1341,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -1494,7 +1494,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstActive(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not13.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %1, %29
   %.not.i.i = icmp eq ptr %29, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
@@ -1641,7 +1641,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstAddrOfCFunc(p
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not13.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %1, %29
   %.not.i.i = icmp eq ptr %29, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
@@ -1783,7 +1783,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -2105,7 +2105,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not13.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %1, %30
   %.not.i.i = icmp eq ptr %30, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
@@ -2415,7 +2415,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCAwait(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not13.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %1, %29
   %.not.i.i = icmp eq ptr %29, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
@@ -2556,7 +2556,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not13.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %1, %30
   %.not.i.i = icmp eq ptr %30, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
@@ -2690,7 +2690,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCDType(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -2840,7 +2840,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %31, ptr %16, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 72
   %33 = load ptr, ptr %32, align 8
-  %.not13.i = icmp eq ptr %33, %1
+  %.not13.i = icmp eq ptr %1, %33
   %.not.i.i = icmp eq ptr %33, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %34
@@ -2966,7 +2966,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -3249,7 +3249,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstCell(ptr nound
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -3385,7 +3385,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstCellInline(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -3517,7 +3517,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -3660,7 +3660,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstClassOrPackag
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not13.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %1, %29
   %.not.i.i = icmp eq ptr %29, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
@@ -3961,7 +3961,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   store i32 %30, ptr %18, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 72
   %32 = load ptr, ptr %31, align 8
-  %.not13.i = icmp eq ptr %32, %1
+  %.not13.i = icmp eq ptr %1, %32
   %.not.i.i = icmp eq ptr %32, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %33
@@ -4104,7 +4104,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstConstDType(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
-  %.not13.i = icmp eq ptr %29, %1
+  %.not13.i = icmp eq ptr %1, %29
   %.not.i.i = icmp eq ptr %29, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %30
@@ -4415,7 +4415,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not13.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %1, %30
   %.not.i.i = icmp eq ptr %30, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
@@ -4543,7 +4543,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -4972,7 +4972,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not13.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %1, %30
   %.not.i.i = icmp eq ptr %30, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
@@ -5178,7 +5178,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstEnumItem(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -5358,7 +5358,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstFScanF(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -5702,7 +5702,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %18, %12
   store i32 %29, ptr %26, align 8
   %30 = getelementptr inbounds i8, ptr %11, i64 72
   %31 = load ptr, ptr %30, align 8
-  %.not13.i = icmp eq ptr %31, %11
+  %.not13.i = icmp eq ptr %11, %31
   %.not.i.i = icmp eq ptr %31, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %32
@@ -5847,7 +5847,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i31:               ; preds = %97, %74
   store i32 %106, ptr %70, align 8
   %107 = getelementptr inbounds i8, ptr %94, i64 72
   %108 = load ptr, ptr %107, align 8
-  %.not13.i32 = icmp eq ptr %108, %94
+  %.not13.i32 = icmp eq ptr %94, %108
   %.not.i.i33 = icmp eq ptr %108, null
   %or.cond.i34 = or i1 %.not13.i32, %.not.i.i33
   br i1 %or.cond.i34, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35, label %109
@@ -6010,7 +6010,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i: ; preds = %167, %.
 
 _ZNKSt8functionIFvvEEclEv.exit.i54:               ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, %.noexc
   %171 = load ptr, ptr %6, align 8
-  %.not13.i55 = icmp eq ptr %171, %1
+  %.not13.i55 = icmp eq ptr %1, %171
   %.not.i.i56 = icmp eq ptr %171, null
   %or.cond.i57 = or i1 %.not13.i55, %.not.i.i56
   br i1 %or.cond.i57, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58, label %172
@@ -6144,7 +6144,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -6456,7 +6456,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -6709,7 +6709,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMemberSel(ptr
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -6849,7 +6849,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstModport(ptr n
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -6983,7 +6983,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstModportFTaskR
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -7117,7 +7117,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstModportVarRef
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -7617,7 +7617,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeBlock(ptr
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -8002,7 +8002,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -8136,7 +8136,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeFTask(ptr
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -8416,7 +8416,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeFile(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -8556,7 +8556,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodeModule(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -8680,7 +8680,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -8808,7 +8808,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -8938,7 +8938,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -9388,7 +9388,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -9538,7 +9538,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstParamTypeDTyp
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -9672,7 +9672,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstParseRef(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -9814,7 +9814,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstPin(ptr nounde
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -9970,7 +9970,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not13.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %1, %30
   %.not.i.i = icmp eq ptr %30, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
@@ -10407,7 +10407,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstSFormatF(ptr 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -10541,7 +10541,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstSScanF(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -10691,7 +10691,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstScope(ptr noun
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -10823,7 +10823,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -10967,7 +10967,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %28, ptr %17, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
-  %.not13.i = icmp eq ptr %30, %1
+  %.not13.i = icmp eq ptr %1, %30
   %.not.i.i = icmp eq ptr %30, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %31
@@ -11095,7 +11095,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   store i32 %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %.not13.i = icmp eq ptr %22, %1
+  %.not13.i = icmp eq ptr %1, %22
   %.not.i.i = icmp eq ptr %22, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %23
@@ -11574,7 +11574,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstTypedef(ptr n
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -11708,7 +11708,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstTypedefFwd(pt
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -11996,7 +11996,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstVar(ptr nounde
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -12130,7 +12130,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstVarRef(ptr nou
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24
@@ -12291,7 +12291,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i: ; preds = %.noexc,
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, %31
   %35 = getelementptr inbounds i8, ptr %1, i64 72
   %36 = load ptr, ptr %35, align 8
-  %.not13.i = icmp eq ptr %36, %1
+  %.not13.i = icmp eq ptr %1, %36
   %.not.i.i = icmp eq ptr %36, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %37
@@ -12425,7 +12425,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstVarXRef(ptr n
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %.not13.i = icmp eq ptr %23, %1
+  %.not13.i = icmp eq ptr %1, %23
   %.not.i.i = icmp eq ptr %23, null
   %or.cond.i = or i1 %.not13.i, %.not.i.i
   br i1 %or.cond.i, label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, label %24

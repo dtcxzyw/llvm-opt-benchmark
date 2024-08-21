@@ -2998,7 +2998,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
   %769 = call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef %768, i32 noundef %766) #8
   %770 = lshr i8 %769, 1
   %771 = zext nneg i8 %770 to i16
-  %772 = icmp eq i16 %771, %764
+  %772 = icmp eq i16 %764, %771
   br i1 %772, label %773, label %774
 
 773:                                              ; preds = %762
@@ -3103,7 +3103,7 @@ dissect_rach_channel_info.exit:                   ; preds = %643, %645, %verify_
   %827 = call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef %826, i32 noundef 3) #8
   %828 = lshr i8 %827, 1
   %829 = zext nneg i8 %828 to i16
-  %830 = icmp eq i16 %829, %824
+  %830 = icmp eq i16 %824, %829
   br i1 %830, label %831, label %832
 
 831:                                              ; preds = %822
@@ -3522,7 +3522,7 @@ define internal fastcc void @dissect_dch_channel_info(ptr noundef %0, ptr nounde
   %61 = call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef %60, i32 noundef %58) #8
   %62 = lshr i8 %61, 1
   %63 = zext nneg i8 %62 to i16
-  %64 = icmp eq i16 %63, %56
+  %64 = icmp eq i16 %56, %63
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %54
@@ -3730,7 +3730,7 @@ proto_item_set_generated.exit99:                  ; preds = %105, %102, %proto_i
   %120 = call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef %119, i32 noundef 3) #8
   %121 = lshr i8 %120, 1
   %122 = zext nneg i8 %121 to i16
-  %123 = icmp eq i16 %122, %117
+  %123 = icmp eq i16 %117, %122
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %115
@@ -4290,7 +4290,7 @@ dissect_macd_pdu_data.exit:                       ; preds = %175, %._crit_edge.i
   %240 = call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef %239, i32 noundef 6) #8
   %241 = lshr i8 %240, 1
   %242 = zext nneg i8 %241 to i16
-  %243 = icmp eq i16 %242, %237
+  %243 = icmp eq i16 %237, %242
   br i1 %243, label %244, label %245
 
 244:                                              ; preds = %235
@@ -4755,7 +4755,7 @@ dissect_macd_pdu_data_type_2.exit:                ; preds = %216, %._crit_edge.i
   %246 = call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef %245, i32 noundef %243) #8
   %247 = lshr i8 %246, 1
   %248 = zext nneg i8 %247 to i16
-  %249 = icmp eq i16 %248, %240
+  %249 = icmp eq i16 %240, %248
   br i1 %249, label %250, label %251
 
 250:                                              ; preds = %238
@@ -6485,7 +6485,7 @@ define internal fastcc void @verify_control_frame_crc(ptr noundef %0, ptr nounde
   %12 = tail call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef nonnull %8, i32 noundef %11) #8
   %13 = lshr i8 %12, 1
   %14 = zext nneg i8 %13 to i16
-  %15 = icmp eq i16 %14, %3
+  %15 = icmp eq i16 %3, %14
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
@@ -6938,7 +6938,7 @@ define internal fastcc void @verify_header_crc(ptr noundef %0, ptr noundef %1, p
   %10 = tail call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef %9, i32 noundef %7) #8
   %11 = lshr i8 %10, 1
   %12 = zext nneg i8 %11 to i16
-  %13 = icmp eq i16 %12, %3
+  %13 = icmp eq i16 %3, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %5
@@ -7432,7 +7432,7 @@ define internal fastcc void @verify_header_crc_edch(ptr noundef %0, ptr noundef 
   %12 = and i8 %11, 15
   store i8 %12, ptr %10, align 1
   %13 = tail call zeroext i16 @crc11_307_noreflect_noxor(ptr noundef nonnull %10, i64 noundef %9) #8
-  %14 = icmp eq i16 %13, %3
+  %14 = icmp eq i16 %3, %13
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %5

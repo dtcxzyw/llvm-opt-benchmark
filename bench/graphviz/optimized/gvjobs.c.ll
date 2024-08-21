@@ -169,7 +169,7 @@ define ptr @gvjobs_next(ptr nocapture noundef %0) local_unnamed_addr #4 {
 define void @gv_argvlist_set_item(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   %.pre = load ptr, ptr %0, align 8
   br i1 %.not, label %11, label %6
 

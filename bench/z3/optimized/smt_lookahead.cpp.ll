@@ -1102,7 +1102,7 @@ entry:
   %1 = load ptr, ptr %r, align 8
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %2 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %2, %1
+  %cmp.i = icmp eq ptr %1, %2
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1190,7 +1190,7 @@ lpad5:                                            ; preds = %if.then.i.i
 if.else:                                          ; preds = %entry
   %m_false.i = getelementptr inbounds i8, ptr %0, i64 864
   %17 = load ptr, ptr %m_false.i, align 8
-  %cmp.i7 = icmp eq ptr %17, %1
+  %cmp.i7 = icmp eq ptr %1, %17
   br i1 %cmp.i7, label %if.end24, label %if.else14
 
 if.else14:                                        ; preds = %if.else
@@ -2613,7 +2613,7 @@ if.end.split:                                     ; preds = %entry
   %agg.tmp.sroa.0.0.copyload10 = load ptr, ptr %__comp, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i6971 = lshr i64 %sub.i, 1
-  %cmp23.i = icmp ugt i64 %div.i6971, %div13
+  %cmp23.i = icmp ult i64 %div13, %div.i6971
   br i1 %cmp23.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.split
@@ -2716,7 +2716,7 @@ if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph
   %add.ptr11.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
   %13 = load i32, ptr %add.ptr11.us, align 4
   %agg.tmp.sroa.0.0.copyload12.us = load ptr, ptr %__comp, align 8
-  %cmp23.i16.not.us = icmp slt i64 %div.i6971, %__parent.073.us
+  %cmp23.i16.not.us = icmp sgt i64 %__parent.073.us, %div.i6971
   br i1 %cmp23.i16.not.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt9lookahead7compareEEEEvT_T0_S9_T1_T2_.exit68.us, label %while.body.lr.ph.i50.us
 
 while.body.lr.ph.i50.us:                          ; preds = %if.end8.split.us
@@ -2791,7 +2791,7 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   %add.ptr11 = getelementptr inbounds i32, ptr %__first, i64 %dec
   %24 = load i32, ptr %add.ptr11, align 4
   %agg.tmp.sroa.0.0.copyload12 = load ptr, ptr %__comp, align 8
-  %cmp23.i16.not = icmp slt i64 %div.i6971, %__parent.073
+  %cmp23.i16.not = icmp sgt i64 %__parent.073, %div.i6971
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.lr.ph.i50
 
 while.body.lr.ph.i50:                             ; preds = %if.end8.split

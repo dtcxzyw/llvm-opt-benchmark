@@ -242,7 +242,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i32, ptr %canvas, align 8
-  %cmp1 = icmp sle i32 %0, %x
+  %cmp1 = icmp sge i32 %x, %0
   %cmp3 = icmp slt i32 %y, 0
   %or.cond = or i1 %cmp3, %cmp1
   br i1 %or.cond, label %return, label %lor.lhs.false4
@@ -250,7 +250,7 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %height = getelementptr inbounds i8, ptr %canvas, i64 4
   %1 = load i32, ptr %height, align 4
-  %cmp5.not = icmp sgt i32 %1, %y
+  %cmp5.not = icmp slt i32 %y, %1
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
@@ -276,7 +276,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i32, ptr %canvas, align 8
-  %cmp1 = icmp sle i32 %0, %x
+  %cmp1 = icmp sge i32 %x, %0
   %cmp3 = icmp slt i32 %y, 0
   %or.cond = or i1 %cmp3, %cmp1
   br i1 %or.cond, label %return, label %lor.lhs.false4
@@ -284,7 +284,7 @@ lor.lhs.false:                                    ; preds = %entry
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %height = getelementptr inbounds i8, ptr %canvas, i64 4
   %1 = load i32, ptr %height, align 4
-  %cmp5.not = icmp sgt i32 %1, %y
+  %cmp5.not = icmp slt i32 %y, %1
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
@@ -330,14 +330,14 @@ while.body:                                       ; preds = %if.end, %entry
 
 lor.lhs.false.i:                                  ; preds = %while.body
   %2 = load i32, ptr %canvas, align 8
-  %cmp1.i = icmp sle i32 %2, %x1.addr.0
+  %cmp1.i = icmp sge i32 %x1.addr.0, %2
   %cmp3.i = icmp slt i32 %y1.addr.0, 0
   %or.cond.i = or i1 %cmp3.i, %cmp1.i
   br i1 %or.cond.i, label %lwDrawPixel.exit, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   %3 = load i32, ptr %height.i, align 4
-  %cmp5.not.i = icmp sgt i32 %3, %y1.addr.0
+  %cmp5.not.i = icmp slt i32 %y1.addr.0, %3
   br i1 %cmp5.not.i, label %if.end.i, label %lwDrawPixel.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false4.i
@@ -457,14 +457,14 @@ while.body.i:                                     ; preds = %if.end.i, %for.body
 
 lor.lhs.false.i.i:                                ; preds = %while.body.i
   %11 = load i32, ptr %canvas, align 8
-  %cmp1.i.i = icmp sle i32 %11, %x1.addr.0.i
+  %cmp1.i.i = icmp sge i32 %x1.addr.0.i, %11
   %cmp3.i.i = icmp slt i32 %y1.addr.0.i, 0
   %or.cond.i.i = or i1 %cmp3.i.i, %cmp1.i.i
   br i1 %or.cond.i.i, label %lwDrawPixel.exit.i, label %lor.lhs.false4.i.i
 
 lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
   %12 = load i32, ptr %height.i.i, align 4
-  %cmp5.not.i.i = icmp sgt i32 %12, %y1.addr.0.i
+  %cmp5.not.i.i = icmp slt i32 %y1.addr.0.i, %12
   br i1 %cmp5.not.i.i, label %if.end.i.i, label %lwDrawPixel.exit.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i

@@ -6609,7 +6609,7 @@ _ZNK7testing8internal13ParamIteratorIN2cv8ximgproc13WMFWeightTypeEEeqERKS5_.exit
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %21 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %21, %20
+  %.not.i.i = icmp eq ptr %20, %21
   br i1 %.not.i.i, label %_ZN7testing8internal13ParamIteratorIN2cv8ximgproc13WMFWeightTypeEEaSERKS5_.exit, label %22
 
 22:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv8ximgproc13WMFWeightTypeEEeqERKS5_.exit.thread
@@ -6664,7 +6664,7 @@ _ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread: ; preds = %37, %_ZN
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %53 = load ptr, ptr %38, align 8
-  %.not.i.i1 = icmp eq ptr %53, %52
+  %.not.i.i1 = icmp eq ptr %52, %53
   br i1 %.not.i.i1, label %_ZN7testing8internal13ParamIteratorIiEaSERKS2_.exit, label %54
 
 54:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit.thread
@@ -6719,7 +6719,7 @@ _ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit2.thread: ; preds = %69, %_Z
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(8) %80)
   %85 = load ptr, ptr %70, align 8
-  %.not.i.i3 = icmp eq ptr %85, %84
+  %.not.i.i3 = icmp eq ptr %84, %85
   br i1 %.not.i.i3, label %_ZN7testing8internal13ParamIteratorIiEaSERKS2_.exit4, label %86
 
 86:                                               ; preds = %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit2.thread
@@ -6774,7 +6774,7 @@ _ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit5.thread: ; preds = %101, %_
   %115 = load ptr, ptr %114, align 8
   %116 = tail call noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(8) %112)
   %117 = load ptr, ptr %102, align 8
-  %.not.i.i6 = icmp eq ptr %117, %116
+  %.not.i.i6 = icmp eq ptr %116, %117
   br i1 %.not.i.i6, label %_ZN7testing8internal13ParamIteratorIiEaSERKS2_.exit7, label %118
 
 118:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIiEeqERKS2_.exit5.thread
@@ -6829,7 +6829,7 @@ _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread: ; pre
   %147 = load ptr, ptr %146, align 8
   %148 = tail call noundef ptr %147(ptr noundef nonnull align 8 dereferenceable(8) %144)
   %149 = load ptr, ptr %134, align 8
-  %.not.i.i8 = icmp eq ptr %149, %148
+  %.not.i.i8 = icmp eq ptr %148, %149
   br i1 %.not.i.i8, label %_ZN7testing8internal13ParamIteratorIN4perf7MatTypeEEaSERKS4_.exit, label %150
 
 150:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEeqERKS4_.exit.thread
@@ -8438,7 +8438,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 select.unfold.i:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i, %._crit_edge.thread.i.i
   %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa32.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i.i ]
-  %260 = icmp eq ptr %25, %.sroa.4.0.i.ph.i
+  %260 = icmp eq ptr %.sroa.4.0.i.ph.i, %25
   br i1 %260, label %268, label %261
 
 261:                                              ; preds = %select.unfold.i
@@ -9237,7 +9237,7 @@ _ZSt10_ConstructIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoI
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
   %87 = call ptr @__cxa_begin_catch(ptr %86) #25
-  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.017.i.i.i.i.i.i.i.i.i, %63
+  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %63, %.017.i.i.i.i.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_129WeightedMedianFilterTest_perfEE8TestInfoEEEEvT_SB_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %84, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i

@@ -179,13 +179,13 @@ invoke.cont14:                                    ; preds = %invoke.cont13
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 5
   %12 = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i16 = icmp eq ptr %12, %7
+  %cmp.i16 = icmp eq ptr %7, %12
   %or.cond = select i1 %11, i1 true, i1 %cmp.i16
   br i1 %or.cond, label %while.cond.backedge, label %if.else20
 
 if.else:                                          ; preds = %invoke.cont13
   %.old = load ptr, ptr %m_bool_sort.i, align 8
-  %cmp.i16.old = icmp eq ptr %.old, %7
+  %cmp.i16.old = icmp eq ptr %7, %.old
   br i1 %cmp.i16.old, label %while.cond.backedge, label %if.else20
 
 if.else20:                                        ; preds = %invoke.cont14, %if.else

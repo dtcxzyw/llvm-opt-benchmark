@@ -371,7 +371,7 @@ common.resume:                                    ; preds = %23, %55, %58, %41, 
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i, %24
   %.0.lcssa.i = phi ptr [ %2, %24 ], [ %32, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i ]
-  %.not18 = icmp eq ptr %.0.lcssa.i, %2
+  %.not18 = icmp eq ptr %2, %.0.lcssa.i
   %43 = getelementptr inbounds i8, ptr %0, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
@@ -512,7 +512,7 @@ common.resume:                                    ; preds = %24, %56, %59, %42, 
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i, %25
   %.0.lcssa.i = phi ptr [ %2, %25 ], [ %33, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i ]
-  %.not19 = icmp eq ptr %.0.lcssa.i, %2
+  %.not19 = icmp eq ptr %2, %.0.lcssa.i
   %44 = getelementptr inbounds i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
@@ -847,7 +847,7 @@ common.resume:                                    ; preds = %26, %61, %64, %44, 
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i, %27
   %.0.lcssa.i = phi ptr [ %2, %27 ], [ %35, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i ]
-  %.not22 = icmp eq ptr %.0.lcssa.i, %2
+  %.not22 = icmp eq ptr %2, %.0.lcssa.i
   %46 = getelementptr inbounds i8, ptr %0, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %5, null
@@ -952,7 +952,7 @@ define void @_ZNK5faiss17IndexPreTransform11reconstructElPf(ptr nocapture nounde
 
 ._crit_edge:                                      ; preds = %3, %9
   %17 = phi ptr [ %16, %9 ], [ %2, %3 ]
-  %18 = icmp eq ptr %17, %2
+  %18 = icmp eq ptr %2, %17
   %19 = select i1 %18, ptr null, ptr %17
   %20 = load ptr, ptr %.pre, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 80
@@ -1006,7 +1006,7 @@ define void @_ZNK5faiss17IndexPreTransform13reconstruct_nEllPf(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.pre, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = mul nsw i64 %13, %2
+  %14 = mul nsw i64 %2, %13
   %15 = icmp ugt i64 %14, 4611686018427387903
   %16 = shl i64 %14, 2
   %17 = select i1 %15, i64 -1, i64 %16
@@ -1015,7 +1015,7 @@ define void @_ZNK5faiss17IndexPreTransform13reconstruct_nEllPf(ptr nocapture nou
 
 ._crit_edge:                                      ; preds = %4, %10
   %19 = phi ptr [ %18, %10 ], [ %3, %4 ]
-  %20 = icmp eq ptr %19, %3
+  %20 = icmp eq ptr %3, %19
   %21 = select i1 %20, ptr null, ptr %19
   %22 = load ptr, ptr %.pre, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 96
@@ -1195,7 +1195,7 @@ common.resume:                                    ; preds = %27, %47, %_ZNSt10un
   resume { ptr, i32 } %common.resume.op
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i
-  %.not48 = icmp eq ptr %56, %2
+  %.not48 = icmp eq ptr %2, %56
   %67 = icmp eq ptr %59, %58
   br i1 %67, label %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge, label %68
 
@@ -1424,7 +1424,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i, %4
   %.0.lcssa.i = phi ptr [ %2, %4 ], [ %12, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i ]
-  %.not13 = icmp eq ptr %.0.lcssa.i, %2
+  %.not13 = icmp eq ptr %2, %.0.lcssa.i
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
@@ -1475,7 +1475,7 @@ define void @_ZNK5faiss17IndexPreTransform9sa_decodeElPKhPf(ptr nocapture nounde
   %17 = getelementptr inbounds i8, ptr %11, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = mul nsw i64 %19, %1
+  %20 = mul nsw i64 %1, %19
   %21 = icmp ugt i64 %20, 4611686018427387903
   %22 = shl i64 %20, 2
   %23 = select i1 %21, i64 -1, i64 %22
@@ -1911,7 +1911,7 @@ define linkonce_odr ptr @_ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE6insertE
   br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp eq ptr %9, %1
+  %13 = icmp eq ptr %1, %9
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -2208,7 +2208,7 @@ define void @_ZNK5faiss17IndexPreTransform13reverse_chainElPKfPf(ptr nocapture n
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = mul nsw i64 %22, %1
+  %23 = mul nsw i64 %1, %22
   %24 = icmp ugt i64 %23, 4611686018427387903
   %25 = shl i64 %23, 2
   %26 = select i1 %24, i64 -1, i64 %25

@@ -354,7 +354,7 @@ define noundef ptr @php_uudecode(ptr noundef readonly %0, i64 noundef %1) local_
   br i1 %22, label %._crit_edge123, label %23
 
 23:                                               ; preds = %.lr.ph122
-  %24 = icmp ugt i64 %21, %1
+  %24 = icmp ult i64 %1, %21
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %23

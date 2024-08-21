@@ -1302,7 +1302,7 @@ if.end9:                                          ; preds = %if.then3
 
 if.end15:                                         ; preds = %if.end
   %tobool16.not = icmp ne ptr %param, null
-  %cmp18 = icmp ugt ptr %1, %param
+  %cmp18 = icmp ult ptr %param, %1
   %or.cond = and i1 %tobool16.not, %cmp18
   br i1 %or.cond, label %if.then20, label %if.end21
 

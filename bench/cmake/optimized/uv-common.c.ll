@@ -270,7 +270,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @uv__strndup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %1)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %4 = add i64 %spec.select, 1
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %uv__malloc.exit.thread, label %uv__malloc.exit
@@ -3104,7 +3104,7 @@ define dso_local range(i32 -16, 1) i32 @uv_loop_close(ptr noundef %0) local_unna
 11:                                               ; preds = %6
   tail call void @uv__loop_close(ptr noundef %0) #25
   %12 = load ptr, ptr @default_loop_ptr, align 8
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %11
@@ -3146,7 +3146,7 @@ define dso_local void @uv_loop_delete(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %7
   tail call void @uv__loop_close(ptr noundef %0) #25
   %13 = load ptr, ptr @default_loop_ptr, align 8
-  %14 = icmp eq ptr %13, %0
+  %14 = icmp eq ptr %0, %13
   br i1 %14, label %15, label %uv_loop_close.exit
 
 15:                                               ; preds = %12
@@ -3154,7 +3154,7 @@ define dso_local void @uv_loop_delete(ptr noundef %0) local_unnamed_addr #0 {
   br label %uv_loop_close.exit
 
 uv_loop_close.exit:                               ; preds = %8, %1, %12, %15
-  %.not = icmp eq ptr %2, %0
+  %.not = icmp eq ptr %0, %2
   br i1 %.not, label %20, label %16
 
 16:                                               ; preds = %uv_loop_close.exit

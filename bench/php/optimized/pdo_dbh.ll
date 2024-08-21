@@ -815,11 +815,11 @@ dsn_from_uri.exit.thread:                         ; preds = %76, %dsn_from_uri.e
 119:                                              ; preds = %.lr.ph.i
   %120 = load ptr, ptr %.05269.i, align 8
   %121 = load ptr, ptr @pdo_dbh_ce, align 8
-  %.not59.i = icmp eq ptr %121, %2
+  %.not59.i = icmp eq ptr %2, %121
   br i1 %.not59.i, label %126, label %122
 
 122:                                              ; preds = %119
-  %123 = icmp eq ptr %120, %2
+  %123 = icmp eq ptr %2, %120
   br i1 %123, label %.critedge.i, label %124
 
 124:                                              ; preds = %122
@@ -840,7 +840,7 @@ dsn_from_uri.exit.thread:                         ; preds = %76, %dsn_from_uri.e
   br i1 %.not63.i, label %144, label %129
 
 129:                                              ; preds = %128
-  %130 = icmp eq ptr %.0.i442, %2
+  %130 = icmp eq ptr %2, %.0.i442
   br i1 %130, label %.critedge65.i, label %131
 
 131:                                              ; preds = %129
@@ -877,7 +877,7 @@ dsn_from_uri.exit.thread:                         ; preds = %76, %dsn_from_uri.e
 
 150:                                              ; preds = %.critedge.thread.i
   %151 = load ptr, ptr @pdo_dbh_ce, align 8
-  %.not62.i = icmp eq ptr %151, %2
+  %.not62.i = icmp eq ptr %2, %151
   br i1 %.not62.i, label %162, label %152
 
 152:                                              ; preds = %150
@@ -7738,7 +7738,7 @@ define internal fastcc void @dbh_free(ptr noundef %0, i1 noundef zeroext %1) unn
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
   %.not47 = icmp eq i32 %10, 0
-  %brmerge = or i1 %.not47, %1
+  %brmerge = or i1 %1, %.not47
   br i1 %brmerge, label %15, label %11
 
 11:                                               ; preds = %7

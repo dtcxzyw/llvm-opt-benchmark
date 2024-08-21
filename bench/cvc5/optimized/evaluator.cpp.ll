@@ -576,7 +576,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %visited, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %7
+  %cmp.i.i.i.i.i = icmp eq ptr %7, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -702,7 +702,7 @@ call2.i.i.i.noexc:                                ; preds = %if.end15.i.i
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %add.ptr.i9.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i64, ptr %add.ptr.i9.i.i.i.i, align 8
-  %cmp.i.i10.i.i.i.i = icmp eq i64 %12, %call2.i.i.i334
+  %cmp.i.i10.i.i.i.i = icmp eq i64 %call2.i.i.i334, %12
   %13 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
   %cmp.i.i.i.i11.i.i.i.i = icmp eq ptr %11, %13
   %14 = select i1 %cmp.i.i10.i.i.i.i, i1 %cmp.i.i.i.i11.i.i.i.i, i1 false
@@ -717,7 +717,7 @@ if.end3.i.i.i.i:                                  ; preds = %call2.i.i.i.noexc, 
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
   call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %16, %call2.i.i.i334
+  %cmp.i.i.i.i.i.i = icmp eq i64 %call2.i.i.i334, %16
   %17 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %11, %17
   %18 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
@@ -1096,7 +1096,7 @@ call2.i.i.i.noexc500:                             ; preds = %if.end15.i.i469
   %add.ptr8.i.i.i.i475 = getelementptr inbounds i8, ptr %65, i64 8
   %add.ptr.i9.i.i.i.i476 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load i64, ptr %add.ptr.i9.i.i.i.i476, align 8
-  %cmp.i.i10.i.i.i.i477 = icmp eq i64 %67, %call2.i.i.i501
+  %cmp.i.i10.i.i.i.i477 = icmp eq i64 %call2.i.i.i501, %67
   %68 = load ptr, ptr %add.ptr8.i.i.i.i475, align 8
   %cmp.i.i.i.i11.i.i.i.i478 = icmp eq ptr %66, %68
   %69 = select i1 %cmp.i.i10.i.i.i.i477, i1 %cmp.i.i.i.i11.i.i.i.i478, i1 false
@@ -1111,7 +1111,7 @@ if.end3.i.i.i.i479:                               ; preds = %call2.i.i.i.noexc50
   %cmp.not.i.i.i.i485 = icmp eq i64 %rem.i.i.i.i.i.i.i484, %rem.i.i.i.i.i471
   call void @llvm.assume(i1 %cmp.not.i.i.i.i485)
   %add.ptr.i.i.i.i488 = getelementptr inbounds i8, ptr %70, i64 8
-  %cmp.i.i.i.i.i.i489 = icmp eq i64 %71, %call2.i.i.i501
+  %cmp.i.i.i.i.i.i489 = icmp eq i64 %call2.i.i.i501, %71
   %72 = load ptr, ptr %add.ptr.i.i.i.i488, align 8
   %cmp.i.i.i.i.i.i.i.i490 = icmp eq ptr %66, %72
   %73 = select i1 %cmp.i.i.i.i.i.i489, i1 %cmp.i.i.i.i.i.i.i.i490, i1 false
@@ -1317,7 +1317,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10E
   call void @llvm.memset.p0.i64(ptr align 8 %98, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i181, i8 0, i64 16, i1 false)
   %100 = load ptr, ptr %results, align 8
-  %cmp.i.i.i.i.i576 = icmp eq ptr %_M_single_bucket.i.i179, %100
+  %cmp.i.i.i.i.i576 = icmp eq ptr %100, %_M_single_bucket.i.i179
   br i1 %cmp.i.i.i.i.i576, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResultESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEED2Ev.exit, label %if.end.i.i.i.i577
 
 if.end.i.i.i.i577:                                ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10EvalResultEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -1371,7 +1371,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESa
   call void @llvm.memset.p0.i64(ptr align 8 %107, i8 0, i64 %mul.i.i.i585, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %109 = load ptr, ptr %evalAsNode, align 8
-  %cmp.i.i.i.i.i587 = icmp eq ptr %_M_single_bucket.i.i, %109
+  %cmp.i.i.i.i.i587 = icmp eq ptr %109, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i587, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit, label %if.end.i.i.i.i588
 
 if.end.i.i.i.i588:                                ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -1429,7 +1429,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %6
+  %cmp.i.i.i.i = icmp eq ptr %6, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -2053,7 +2053,7 @@ if.end.i.i.i.i:                                   ; preds = %call2.i.i.i.noexc
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %83, i64 8
   %add.ptr.i9.i.i.i.i = getelementptr inbounds i8, ptr %83, i64 56
   %84 = load i64, ptr %add.ptr.i9.i.i.i.i, align 8
-  %cmp.i.i10.i.i.i.i = icmp eq i64 %84, %call2.i.i.i497
+  %cmp.i.i10.i.i.i.i = icmp eq i64 %call2.i.i.i497, %84
   %85 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
   %cmp.i.i.i.i11.i.i.i.i = icmp eq ptr %.pre, %85
   %86 = select i1 %cmp.i.i10.i.i.i.i, i1 %cmp.i.i.i.i11.i.i.i.i, i1 false
@@ -2061,7 +2061,7 @@ if.end.i.i.i.i:                                   ; preds = %call2.i.i.i.noexc
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %89, i64 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %90, %call2.i.i.i497
+  %cmp.i.i.i.i.i.i = icmp eq i64 %call2.i.i.i497, %90
   %87 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %.pre, %87
   %88 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
@@ -2200,7 +2200,7 @@ if.end.i.i.i.i512:                                ; preds = %call2.i.i.i.noexc53
   %add.ptr8.i.i.i.i513 = getelementptr inbounds i8, ptr %105, i64 8
   %add.ptr.i9.i.i.i.i514 = getelementptr inbounds i8, ptr %105, i64 56
   %107 = load i64, ptr %add.ptr.i9.i.i.i.i514, align 8
-  %cmp.i.i10.i.i.i.i515 = icmp eq i64 %107, %call2.i.i.i539
+  %cmp.i.i10.i.i.i.i515 = icmp eq i64 %call2.i.i.i539, %107
   %108 = load ptr, ptr %add.ptr8.i.i.i.i513, align 8
   %cmp.i.i.i.i11.i.i.i.i516 = icmp eq ptr %106, %108
   %109 = select i1 %cmp.i.i10.i.i.i.i515, i1 %cmp.i.i.i.i11.i.i.i.i516, i1 false
@@ -2208,7 +2208,7 @@ if.end.i.i.i.i512:                                ; preds = %call2.i.i.i.noexc53
 
 for.cond.i.i.i.i525:                              ; preds = %lor.lhs.false.i.i.i.i520
   %add.ptr.i.i.i.i526 = getelementptr inbounds i8, ptr %112, i64 8
-  %cmp.i.i.i.i.i.i527 = icmp eq i64 %113, %call2.i.i.i539
+  %cmp.i.i.i.i.i.i527 = icmp eq i64 %call2.i.i.i539, %113
   %110 = load ptr, ptr %add.ptr.i.i.i.i526, align 8
   %cmp.i.i.i.i.i.i.i.i528 = icmp eq ptr %106, %110
   %111 = select i1 %cmp.i.i.i.i.i.i527, i1 %cmp.i.i.i.i.i.i.i.i528, i1 false
@@ -2386,7 +2386,7 @@ if.end.i.i.i.i597:                                ; preds = %call2.i.i.i.noexc62
   %add.ptr8.i.i.i.i598 = getelementptr inbounds i8, ptr %127, i64 8
   %add.ptr.i9.i.i.i.i599 = getelementptr inbounds i8, ptr %127, i64 56
   %129 = load i64, ptr %add.ptr.i9.i.i.i.i599, align 8
-  %cmp.i.i10.i.i.i.i600 = icmp eq i64 %129, %call2.i.i.i624
+  %cmp.i.i10.i.i.i.i600 = icmp eq i64 %call2.i.i.i624, %129
   %130 = load ptr, ptr %add.ptr8.i.i.i.i598, align 8
   %cmp.i.i.i.i11.i.i.i.i601 = icmp eq ptr %128, %130
   %131 = select i1 %cmp.i.i10.i.i.i.i600, i1 %cmp.i.i.i.i11.i.i.i.i601, i1 false
@@ -2394,7 +2394,7 @@ if.end.i.i.i.i597:                                ; preds = %call2.i.i.i.noexc62
 
 for.cond.i.i.i.i610:                              ; preds = %lor.lhs.false.i.i.i.i605
   %add.ptr.i.i.i.i611 = getelementptr inbounds i8, ptr %134, i64 8
-  %cmp.i.i.i.i.i.i612 = icmp eq i64 %135, %call2.i.i.i624
+  %cmp.i.i.i.i.i.i612 = icmp eq i64 %call2.i.i.i624, %135
   %132 = load ptr, ptr %add.ptr.i.i.i.i611, align 8
   %cmp.i.i.i.i.i.i.i.i613 = icmp eq ptr %128, %132
   %133 = select i1 %cmp.i.i.i.i.i.i612, i1 %cmp.i.i.i.i.i.i.i.i613, i1 false
@@ -3642,7 +3642,7 @@ invoke.cont356:                                   ; preds = %if.else.i.i1573, %i
   br i1 %cmp.not.i.i1588, label %if.else21.i.i, label %if.then.i.i1589
 
 if.then.i.i1589:                                  ; preds = %invoke.cont356
-  %cmp.i.i.i1590 = icmp eq ptr %246, %243
+  %cmp.i.i.i1590 = icmp eq ptr %243, %246
   br i1 %cmp.i.i.i1590, label %if.then9.i.i, label %if.else.i.i1591
 
 if.then9.i.i:                                     ; preds = %if.then.i.i1589
@@ -3774,7 +3774,7 @@ invoke.cont395:                                   ; preds = %invoke.cont393
   br i1 %cmp.not.i.i1627, label %if.else21.i.i1649, label %if.then.i.i1628
 
 if.then.i.i1628:                                  ; preds = %invoke.cont395
-  %cmp.i.i.i1629 = icmp eq ptr %261, %259
+  %cmp.i.i.i1629 = icmp eq ptr %259, %261
   br i1 %cmp.i.i.i1629, label %if.then9.i.i1633, label %if.else.i.i1630
 
 if.then9.i.i1633:                                 ; preds = %if.then.i.i1628
@@ -4023,7 +4023,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10E
   call void @llvm.memset.p0.i64(ptr align 8 %288, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i1681, i8 0, i64 16, i1 false)
   %290 = load ptr, ptr %resultsC, align 8
-  %cmp.i.i.i.i.i1775 = icmp eq ptr %_M_single_bucket.i.i1679, %290
+  %cmp.i.i.i.i.i1775 = icmp eq ptr %290, %_M_single_bucket.i.i1679
   br i1 %cmp.i.i.i.i.i1775, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResultESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S5_EEED2Ev.exit, label %if.end.i.i.i.i1776
 
 if.end.i.i.i.i1776:                               ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10EvalResultEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -4077,7 +4077,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESa
   call void @llvm.memset.p0.i64(ptr align 8 %297, i8 0, i64 %mul.i.i.i1784, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %299 = load ptr, ptr %evalAsNodeC, align 8
-  %cmp.i.i.i.i.i1786 = icmp eq ptr %_M_single_bucket.i.i, %299
+  %cmp.i.i.i.i.i1786 = icmp eq ptr %299, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i1786, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEED2Ev.exit, label %if.end.i.i.i.i1787
 
 if.end.i.i.i.i1787:                               ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
@@ -15020,7 +15020,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10E
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10EvalResultEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10EvalResultEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -15083,7 +15083,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESa
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %8
+  %cmp.i.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i
@@ -15442,7 +15442,7 @@ call2.i.i.i93.noexc:                              ; preds = %if.end15.i.i
   %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %add.ptr.i9.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 56
   %30 = load i64, ptr %add.ptr.i9.i.i.i.i, align 8
-  %cmp.i.i10.i.i.i.i = icmp eq i64 %30, %call2.i.i.i9397
+  %cmp.i.i10.i.i.i.i = icmp eq i64 %call2.i.i.i9397, %30
   %31 = load ptr, ptr %add.ptr8.i.i.i.i, align 8
   %cmp.i.i.i.i11.i.i.i.i = icmp eq ptr %29, %31
   %32 = select i1 %cmp.i.i10.i.i.i.i, i1 %cmp.i.i.i.i11.i.i.i.i, i1 false
@@ -15457,7 +15457,7 @@ if.end3.i.i.i.i:                                  ; preds = %call2.i.i.i93.noexc
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
   call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
-  %cmp.i.i.i.i.i.i94 = icmp eq i64 %34, %call2.i.i.i9397
+  %cmp.i.i.i.i.i.i94 = icmp eq i64 %call2.i.i.i9397, %34
   %35 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %29, %35
   %36 = select i1 %cmp.i.i.i.i.i.i94, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
@@ -15513,7 +15513,7 @@ if.end.i.i.i.i107:                                ; preds = %call2.i.i.i102.noex
   %add.ptr8.i.i.i.i108 = getelementptr inbounds i8, ptr %44, i64 8
   %add.ptr.i9.i.i.i.i109 = getelementptr inbounds i8, ptr %44, i64 24
   %46 = load i64, ptr %add.ptr.i9.i.i.i.i109, align 8
-  %cmp.i.i10.i.i.i.i110 = icmp eq i64 %46, %call2.i.i.i102133
+  %cmp.i.i10.i.i.i.i110 = icmp eq i64 %call2.i.i.i102133, %46
   %47 = load ptr, ptr %add.ptr8.i.i.i.i108, align 8
   %cmp.i.i.i.i11.i.i.i.i111 = icmp eq ptr %45, %47
   %48 = select i1 %cmp.i.i10.i.i.i.i110, i1 %cmp.i.i.i.i11.i.i.i.i111, i1 false
@@ -15521,7 +15521,7 @@ if.end.i.i.i.i107:                                ; preds = %call2.i.i.i102.noex
 
 for.cond.i.i.i.i120:                              ; preds = %lor.lhs.false.i.i.i.i115
   %add.ptr.i.i.i.i121 = getelementptr inbounds i8, ptr %51, i64 8
-  %cmp.i.i.i.i.i.i122 = icmp eq i64 %52, %call2.i.i.i102133
+  %cmp.i.i.i.i.i.i122 = icmp eq i64 %call2.i.i.i102133, %52
   %49 = load ptr, ptr %add.ptr.i.i.i.i121, align 8
   %cmp.i.i.i.i.i.i.i.i123 = icmp eq ptr %45, %49
   %50 = select i1 %cmp.i.i.i.i.i.i122, i1 %cmp.i.i.i.i.i.i.i.i123, i1 false
@@ -15780,7 +15780,7 @@ call2.i.i.i202.noexc:                             ; preds = %if.end15.i.i201
   %add.ptr8.i.i.i.i208 = getelementptr inbounds i8, ptr %81, i64 8
   %add.ptr.i9.i.i.i.i209 = getelementptr inbounds i8, ptr %81, i64 56
   %83 = load i64, ptr %add.ptr.i9.i.i.i.i209, align 8
-  %cmp.i.i10.i.i.i.i210 = icmp eq i64 %83, %call2.i.i.i202233
+  %cmp.i.i10.i.i.i.i210 = icmp eq i64 %call2.i.i.i202233, %83
   %84 = load ptr, ptr %add.ptr8.i.i.i.i208, align 8
   %cmp.i.i.i.i11.i.i.i.i211 = icmp eq ptr %82, %84
   %85 = select i1 %cmp.i.i10.i.i.i.i210, i1 %cmp.i.i.i.i11.i.i.i.i211, i1 false
@@ -15795,7 +15795,7 @@ if.end3.i.i.i.i212:                               ; preds = %call2.i.i.i202.noex
   %cmp.not.i.i.i.i218 = icmp eq i64 %rem.i.i.i.i.i.i.i217, %rem.i.i.i.i.i204
   call void @llvm.assume(i1 %cmp.not.i.i.i.i218)
   %add.ptr.i.i.i.i221 = getelementptr inbounds i8, ptr %86, i64 8
-  %cmp.i.i.i.i.i.i222 = icmp eq i64 %87, %call2.i.i.i202233
+  %cmp.i.i.i.i.i.i222 = icmp eq i64 %call2.i.i.i202233, %87
   %88 = load ptr, ptr %add.ptr.i.i.i.i221, align 8
   %cmp.i.i.i.i.i.i.i.i223 = icmp eq ptr %82, %88
   %89 = select i1 %cmp.i.i.i.i.i.i222, i1 %cmp.i.i.i.i.i.i.i.i223, i1 false
@@ -15845,7 +15845,7 @@ if.end.i.i.i.i244:                                ; preds = %call2.i.i.i239.noex
   %add.ptr8.i.i.i.i245 = getelementptr inbounds i8, ptr %97, i64 8
   %add.ptr.i9.i.i.i.i246 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = load i64, ptr %add.ptr.i9.i.i.i.i246, align 8
-  %cmp.i.i10.i.i.i.i247 = icmp eq i64 %99, %call2.i.i.i239270
+  %cmp.i.i10.i.i.i.i247 = icmp eq i64 %call2.i.i.i239270, %99
   %100 = load ptr, ptr %add.ptr8.i.i.i.i245, align 8
   %cmp.i.i.i.i11.i.i.i.i248 = icmp eq ptr %98, %100
   %101 = select i1 %cmp.i.i10.i.i.i.i247, i1 %cmp.i.i.i.i11.i.i.i.i248, i1 false
@@ -15853,7 +15853,7 @@ if.end.i.i.i.i244:                                ; preds = %call2.i.i.i239.noex
 
 for.cond.i.i.i.i257:                              ; preds = %lor.lhs.false.i.i.i.i252
   %add.ptr.i.i.i.i258 = getelementptr inbounds i8, ptr %104, i64 8
-  %cmp.i.i.i.i.i.i259 = icmp eq i64 %105, %call2.i.i.i239270
+  %cmp.i.i.i.i.i.i259 = icmp eq i64 %call2.i.i.i239270, %105
   %102 = load ptr, ptr %add.ptr.i.i.i.i258, align 8
   %cmp.i.i.i.i.i.i.i.i260 = icmp eq ptr %98, %102
   %103 = select i1 %cmp.i.i.i.i.i.i259, i1 %cmp.i.i.i.i.i.i.i.i260, i1 false
@@ -17725,7 +17725,7 @@ if.end.i.i:                                       ; preds = %entry
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load i64, ptr %add.ptr.i9.i.i, align 8
-  %cmp.i.i10.i.i = icmp eq i64 %4, %call2.i
+  %cmp.i.i10.i.i = icmp eq i64 %call2.i, %4
   %5 = load ptr, ptr %add.ptr8.i.i, align 8
   %cmp.i.i.i.i11.i.i = icmp eq ptr %.pre, %5
   %6 = select i1 %cmp.i.i10.i.i, i1 %cmp.i.i.i.i11.i.i, i1 false
@@ -17733,7 +17733,7 @@ if.end.i.i:                                       ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %10, %call2.i
+  %cmp.i.i.i.i = icmp eq i64 %call2.i, %10
   %7 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %.pre, %7
   %8 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
@@ -17989,7 +17989,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10EvalResultEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS1_6theory10EvalResultEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -18025,7 +18025,7 @@ if.end.i.i:                                       ; preds = %entry
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %add.ptr.i9.i.i, align 8
-  %cmp.i.i10.i.i = icmp eq i64 %5, %call2.i
+  %cmp.i.i10.i.i = icmp eq i64 %call2.i, %5
   %6 = load ptr, ptr %add.ptr8.i.i, align 8
   %cmp.i.i.i.i11.i.i = icmp eq ptr %4, %6
   %7 = select i1 %cmp.i.i10.i.i, i1 %cmp.i.i.i.i11.i.i, i1 false
@@ -18033,7 +18033,7 @@ if.end.i.i:                                       ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %11, %call2.i
+  %cmp.i.i.i.i = icmp eq i64 %call2.i, %11
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %8
   %9 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
@@ -18376,7 +18376,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -18497,7 +18497,7 @@ if.end.i.i:                                       ; preds = %entry
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %add.ptr.i9.i.i, align 8
-  %cmp.i.i10.i.i = icmp eq i64 %5, %call2.i
+  %cmp.i.i10.i.i = icmp eq i64 %call2.i, %5
   %6 = load ptr, ptr %add.ptr8.i.i, align 8
   %cmp.i.i.i.i11.i.i = icmp eq ptr %4, %6
   %7 = select i1 %cmp.i.i10.i.i, i1 %cmp.i.i.i.i11.i.i, i1 false
@@ -18505,7 +18505,7 @@ if.end.i.i:                                       ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %11, %call2.i
+  %cmp.i.i.i.i = icmp eq i64 %call2.i, %11
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %8
   %9 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
@@ -18634,7 +18634,7 @@ if.end.i.i:                                       ; preds = %entry
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load i64, ptr %add.ptr.i9.i.i, align 8
-  %cmp.i.i10.i.i = icmp eq i64 %4, %call2.i
+  %cmp.i.i10.i.i = icmp eq i64 %call2.i, %4
   %5 = load ptr, ptr %add.ptr8.i.i, align 8
   %cmp.i.i.i.i11.i.i = icmp eq ptr %.pre, %5
   %6 = select i1 %cmp.i.i10.i.i, i1 %cmp.i.i.i.i11.i.i, i1 false
@@ -18642,7 +18642,7 @@ if.end.i.i:                                       ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %cmp.i.i.i.i = icmp eq i64 %10, %call2.i
+  %cmp.i.i.i.i = icmp eq i64 %call2.i, %10
   %7 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %.pre, %7
   %8 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false

@@ -2999,7 +2999,7 @@ _ZNSt3mapIP12grpc_closureN9grpc_core13RefCountedPtrINS2_13ClientChannel27Externa
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIP12grpc_closureN9grpc_core13RefCountedPtrINS2_13ClientChannel27ExternalConnectivityWatcherEEESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %8 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %cmp.i3.i = icmp ugt ptr %8, %on_complete
+  %cmp.i3.i = icmp ult ptr %on_complete, %8
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont10
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIP12grpc_closureN9grpc_core13RefCountedPtrINS2_13ClientChannel27ExternalConnectivityWatcherEEESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i, %entry
@@ -3290,7 +3290,7 @@ _ZNSt8_Rb_treeIP12grpc_closureSt4pairIKS1_N9grpc_core13RefCountedPtrINS4_13Clien
 invoke.cont2:                                     ; preds = %_ZNSt8_Rb_treeIP12grpc_closureSt4pairIKS1_N9grpc_core13RefCountedPtrINS4_13ClientChannel27ExternalConnectivityWatcherEEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i = icmp ugt ptr %2, %on_complete
+  %cmp.i4.i.i = icmp ult ptr %on_complete, %2
   br i1 %cmp.i4.i.i, label %if.end, label %_ZN9grpc_core13RefCountedPtrINS_13ClientChannel27ExternalConnectivityWatcherEEaSEOS3_.exit
 
 _ZN9grpc_core13RefCountedPtrINS_13ClientChannel27ExternalConnectivityWatcherEEaSEOS3_.exit: ; preds = %invoke.cont2
@@ -3338,7 +3338,7 @@ terminate.lpad.i7:                                ; preds = %if.end
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit8:       ; preds = %if.end
   %cmp.i9.not = icmp ne ptr %watcher.sroa.0.1, null
-  %brmerge.not = and i1 %cmp.i9.not, %cancel
+  %brmerge.not = and i1 %cancel, %cmp.i9.not
   br i1 %brmerge.not, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit8
@@ -8296,7 +8296,7 @@ call3.i.i.noexc.i:                                ; preds = %_ZNSt4pairIKNSt7__c
 if.then.i.i100.i:                                 ; preds = %call3.i.i.noexc.i
   %75 = extractvalue { ptr, ptr } %call3.i.i104.i, 0
   %cmp.not.i.i.i101.i = icmp ne ptr %75, null
-  %cmp2.i.i.i.i = icmp eq ptr %73, %74
+  %cmp2.i.i.i.i = icmp eq ptr %74, %73
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i101.i, %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i.i, label %lor.rhs.i.i.i.i
 
@@ -13828,7 +13828,7 @@ entry:
   %state_tracker_ = getelementptr inbounds i8, ptr %this, i64 272
   %call2 = tail call noundef i32 @_ZNK9grpc_core24ConnectivityStateTracker5stateEv(ptr noundef nonnull align 8 dereferenceable(72) %state_tracker_)
   %cmp = icmp eq i32 %call2, 0
-  %brmerge.not = and i1 %cmp, %try_to_connect
+  %brmerge.not = and i1 %try_to_connect, %cmp
   br i1 %brmerge.not, label %do.body, label %if.end
 
 do.body:                                          ; preds = %entry
@@ -22717,12 +22717,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %timeout.coerce
+  %cmp1.i.i.i = icmp sgt i64 %timeout.coerce, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %if.end, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %timeout.coerce
+  %cmp4.i.i.i = icmp slt i64 %timeout.coerce, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -24291,7 +24291,7 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -30972,7 +30972,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 64
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %for.body.i.i.i19
@@ -36968,7 +36968,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -37025,7 +37025,7 @@ _ZNSt8_Rb_treeIP12grpc_closureSt4pairIKS1_N9grpc_core13RefCountedPtrINS4_13Clien
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP12grpc_closureSt4pairIKS1_N9grpc_core13RefCountedPtrINS4_13ClientChannel27ExternalConnectivityWatcherEEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -38091,12 +38091,12 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
   %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call3
-  %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %timeout.coerce
+  %cmp1.i.i.i = icmp sgt i64 %timeout.coerce, %sub.i.i.i
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i
   %sub3.i.i.i = sub nsw i64 -9223372036854775808, %call3
-  %cmp4.i.i.i = icmp sgt i64 %sub3.i.i.i, %timeout.coerce
+  %cmp4.i.i.i = icmp slt i64 %timeout.coerce, %sub3.i.i.i
   br i1 %cmp4.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -40005,7 +40005,7 @@ invoke.cont5.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont5.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %4, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -40553,7 +40553,7 @@ _ZNSt8_Rb_treeIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterf
 _ZNSt3mapIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEPNS0_13ClientChannel17SubchannelWrapper14WatcherWrapperESt4lessIS3_ESaISt4pairIKS3_S7_EEE4findERSB_.exit: ; preds = %_ZNSt8_Rb_treeIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESt4pairIKS3_PNS0_13ClientChannel17SubchannelWrapper14WatcherWrapperEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i3.i.i, align 8
-  %cmp.i4.i.i = icmp ugt ptr %2, %watcher
+  %cmp.i4.i.i = icmp ult ptr %watcher, %2
   br i1 %cmp.i4.i.i, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESt4pairIKS3_PNS0_13ClientChannel17SubchannelWrapper14WatcherWrapperEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt3mapIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEPNS0_13ClientChannel17SubchannelWrapper14WatcherWrapperESt4lessIS3_ESaISt4pairIKS3_S7_EEE4findERSB_.exit
@@ -40650,7 +40650,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa24.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa25.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %entry.lor.end_crit_edge.i.i.i, label %lor.rhs.i.i.i
 
 entry.lor.end_crit_edge.i.i.i:                    ; preds = %if.then.i.i
@@ -40713,7 +40713,7 @@ _ZNKSt8_Rb_treeISt10unique_ptrIN9grpc_core19SubchannelInterface20DataWatcherInte
 land.rhs.i.i.i:                                   ; preds = %_ZNKSt8_Rb_treeISt10unique_ptrIN9grpc_core19SubchannelInterface20DataWatcherInterfaceESt14default_deleteIS3_EES6_St9_IdentityIS6_ENS1_13ClientChannel17SubchannelWrapper19DataWatcherLessThanESaIS6_EE17_M_lower_bound_trIPS3_vEESt23_Rb_tree_const_iteratorIS6_ERKT_.exit.i.i.i
   %_M_storage.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %__y.1.i.i.i.i, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i2.i.i.i, align 8
-  %cmp.i3.i.i.i = icmp ugt ptr %1, %watcher
+  %cmp.i3.i.i.i = icmp ult ptr %watcher, %1
   %spec.select.i.i.i = select i1 %cmp.i3.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %__y.1.i.i.i.i
   br label %_ZNSt3setISt10unique_ptrIN9grpc_core19SubchannelInterface20DataWatcherInterfaceESt14default_deleteIS3_EENS1_13ClientChannel17SubchannelWrapper19DataWatcherLessThanESaIS6_EE4findIPS3_EEDTtlSt23_Rb_tree_const_iteratorIS6_EcldtdtdefpT4_M_t10_M_find_trfp_EEERKT_.exit
 
@@ -40752,7 +40752,7 @@ if.end:                                           ; preds = %entry, %_ZNSt3setIS
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN9grpc_core10SubchannelESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -41501,7 +41501,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -41543,7 +41543,7 @@ declare void @_ZN9grpc_core10Subchannel22WatchConnectivityStateENS_13RefCountedP
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESt4pairIKS3_PNS0_13ClientChannel17SubchannelWrapper14WatcherWrapperEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

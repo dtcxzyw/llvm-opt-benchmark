@@ -33,7 +33,7 @@ define void @_ZN3gmx10nelderMeadERKSt8functionIFfNS_8ArrayRefIKfEEEES3_fi(ptr de
           to label %16 unwind label %.loopexit.split-lp
 
 16:                                               ; preds = %6
-  %17 = fmul float %15, %4
+  %17 = fmul float %4, %15
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = getelementptr inbounds i8, ptr %10, i64 24
   %20 = getelementptr inbounds i8, ptr %9, i64 24

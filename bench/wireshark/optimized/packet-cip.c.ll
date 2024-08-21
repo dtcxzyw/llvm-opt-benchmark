@@ -3938,7 +3938,7 @@ define hidden i32 @dissect_optional_attr_list(ptr noundef %0, ptr noundef %1, pt
   %10 = load i32, ptr %7, align 4
   %11 = shl i32 %10, 1
   %12 = add i32 %11, 2
-  %13 = icmp sgt i32 %12, %5
+  %13 = icmp slt i32 %5, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
@@ -4182,7 +4182,7 @@ define hidden i32 @dissect_optional_service_list(ptr noundef %0, ptr noundef %1,
   %10 = load i32, ptr %7, align 4
   %11 = shl i32 %10, 1
   %12 = add i32 %11, 2
-  %13 = icmp sgt i32 %12, %5
+  %13 = icmp slt i32 %5, %12
   br i1 %13, label %15, label %.preheader
 
 .preheader:                                       ; preds = %6
@@ -4238,7 +4238,7 @@ define internal fastcc i32 @dissect_padded_epath_len(ptr noundef %0, ptr noundef
   %12 = load i32, ptr %8, align 4
   %13 = shl i32 %12, 1
   %14 = add i32 %13, %.
-  %15 = icmp sgt i32 %14, %5
+  %15 = icmp slt i32 %5, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %7
@@ -4336,7 +4336,7 @@ define hidden noundef ptr @cip_get_service_one_table(ptr noundef readonly %0, i6
 15:                                               ; preds = %6, %11
   %16 = add i32 %.01012, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %17, %1
+  %18 = icmp ugt i64 %1, %17
   br i1 %18, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %11, %15, %4
@@ -7864,7 +7864,7 @@ define hidden i32 @dissect_cip_multiple_service_packet(ptr noundef %0, ptr nound
 80:                                               ; preds = %76, %74
   %.pn = phi i32 [ %75, %74 ], [ %79, %76 ]
   %.0109 = sub i32 %.pn, %67
-  %81 = add i32 %67, %4
+  %81 = add i32 %4, %67
   %82 = load i32, ptr @ett_cip_mult_service_packet, align 4
   %83 = add nuw nsw i64 %indvars.iv, 1
   %84 = trunc nuw nsw i64 %83 to i32
@@ -12450,7 +12450,7 @@ define internal range(i32 -2147483648, 131073) i32 @dissect_msg_rout_num_classes
   %10 = zext i16 %7 to i32
   %11 = shl nuw nsw i32 %10, 1
   %12 = add nuw nsw i32 %11, 2
-  %13 = icmp sgt i32 %12, %5
+  %13 = icmp slt i32 %5, %12
   br i1 %13, label %15, label %.preheader
 
 .preheader:                                       ; preds = %6

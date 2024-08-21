@@ -1350,7 +1350,7 @@ get_image_offset.exit:                            ; preds = %if.end, %lor.lhs.fa
   %block_size = getelementptr inbounds i8, ptr %0, i64 600
   %10 = load i32, ptr %block_size, align 8
   %conv52 = zext i32 %10 to i64
-  %sub53 = add i64 %conv52, %offset
+  %sub53 = add i64 %offset, %conv52
   %sub954 = sub nsw i64 0, %conv52
   %and55 = and i64 %sub53, %sub954
   %sub1056 = sub i64 %and55, %offset
@@ -1668,7 +1668,7 @@ entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp = icmp eq ptr %err, null
-  %or.cond = and i1 %cmp, %write
+  %or.cond = and i1 %write, %cmp
   br i1 %or.cond, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1774,7 +1774,7 @@ lor.lhs.false:                                    ; preds = %entry
   %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
   %2 = load i64, ptr %total_sectors, align 8
   %mul = shl i64 %2, 9
-  %cmp2 = icmp ult i64 %mul, %offset
+  %cmp2 = icmp ugt i64 %offset, %mul
   br i1 %cmp2, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false

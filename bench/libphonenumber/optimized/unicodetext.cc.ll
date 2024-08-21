@@ -109,7 +109,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi(ptr no
   %10 = mul nsw i32 %4, 3
   %11 = sdiv i32 %10, 2
   %12 = add nsw i32 %11, 20
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %12, i32 %1)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 %12)
   store i32 %.sroa.speculated, ptr %3, align 4
   %13 = sext i32 %.sroa.speculated to i64
   %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #23
@@ -177,7 +177,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %7, %8, %11
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = icmp sge i32 %14, %1
+  %15 = icmp sle i32 %1, %14
   %or.cond10.not = and i1 %15, %6
   br i1 %or.cond10.not, label %_ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit, label %16
 
@@ -185,7 +185,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit: ; preds = %7, %8, %11
   %17 = mul nsw i32 %14, 3
   %18 = sdiv i32 %17, 2
   %19 = add nsw i32 %18, 20
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %19, i32 %1)
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %1, i32 %19)
   store i32 %.sroa.speculated.i, ptr %13, align 4
   %20 = sext i32 %.sroa.speculated.i to i64
   %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
@@ -284,7 +284,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i: ; preds = %12, %9, %8
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = icmp sge i32 %15, %2
+  %16 = icmp sle i32 %2, %15
   %or.cond10.not.i = and i1 %16, %7
   br i1 %or.cond10.not.i, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i_crit_edge, label %17
 
@@ -296,7 +296,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i: ; preds = %12, %9, %8
   %18 = mul nsw i32 %15, 3
   %19 = sdiv i32 %18, 2
   %20 = add nsw i32 %19, 20
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %20, i32 %2)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %2, i32 %20)
   store i32 %.sroa.speculated.i.i, ptr %14, align 4
   %21 = sext i32 %.sroa.speculated.i.i to i64
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #23
@@ -351,7 +351,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6resizeEi.exit: ; preds = %_ZN4i18n12pho
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr15TakeOwnershipOfEPcii(ptr nocapture noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %4
@@ -429,7 +429,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci(ptr 
   %14 = mul nsw i32 %8, 3
   %15 = sdiv i32 %14, 2
   %16 = add nsw i32 %15, 20
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %6)
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %6, i32 %16)
   store i32 %.sroa.speculated.i, ptr %7, align 4
   %17 = sext i32 %.sroa.speculated.i to i64
   %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
@@ -677,7 +677,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %14, %11, %
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = icmp sge i32 %17, %5
+  %18 = icmp sle i32 %5, %17
   %or.cond10.not.i.i = and i1 %18, %9
   br i1 %or.cond10.not.i.i, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i_crit_edge.i, label %19
 
@@ -689,7 +689,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %14, %11, %
   %20 = mul nsw i32 %17, 3
   %21 = sdiv i32 %20, 2
   %22 = add nsw i32 %21, 20
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %22, i32 %5)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %5, i32 %22)
   store i32 %.sroa.speculated.i.i.i, ptr %16, align 4
   %23 = sext i32 %.sroa.speculated.i.i.i to i64
   %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
@@ -852,7 +852,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %16, %13, %
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = icmp sge i32 %19, %2
+  %20 = icmp sle i32 %2, %19
   %or.cond10.not.i.i = and i1 %20, %11
   br i1 %or.cond10.not.i.i, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i_crit_edge.i, label %21
 
@@ -864,7 +864,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %16, %13, %
   %22 = mul nsw i32 %19, 3
   %23 = sdiv i32 %22, 2
   %24 = add nsw i32 %23, 20
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %24, i32 %2)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %2, i32 %24)
   store i32 %.sroa.speculated.i.i.i, ptr %18, align 4
   %25 = sext i32 %.sroa.speculated.i.i.i to i64
   %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #23
@@ -914,7 +914,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
   %44 = sext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr readonly align 1 %1, i64 %44, i1 false)
   %45 = tail call noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeValidEPKci(ptr noundef %1, i32 noundef %2)
-  %46 = icmp eq i32 %45, %2
+  %46 = icmp eq i32 %2, %45
   %47 = getelementptr inbounds i8, ptr %0, i64 17
   %48 = zext i1 %46 to i8
   store i8 %48, ptr %47, align 1
@@ -1127,7 +1127,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %12, %9, %8
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = icmp sge i32 %15, %2
+  %16 = icmp sle i32 %2, %15
   %or.cond10.not.i.i = and i1 %16, %7
   br i1 %or.cond10.not.i.i, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i_crit_edge.i, label %17
 
@@ -1139,7 +1139,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr5clearEv.exit.i.i: ; preds = %12, %9, %8
   %18 = mul nsw i32 %15, 3
   %19 = sdiv i32 %18, 2
   %20 = add nsw i32 %19, 20
-  %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %20, i32 %2)
+  %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %2, i32 %20)
   store i32 %.sroa.speculated.i.i.i, ptr %14, align 4
   %21 = sext i32 %.sroa.speculated.i.i.i to i64
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #23
@@ -1198,7 +1198,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.i18n::phonenumbers::LoggerHandler", align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %_ZN4i18n12phonenumbers11UnicodeText4Repr15TakeOwnershipOfEPcii.exit, label %11
 
 11:                                               ; preds = %4
@@ -1224,7 +1224,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
 
 _ZN4i18n12phonenumbers11UnicodeText4Repr15TakeOwnershipOfEPcii.exit: ; preds = %4, %16
   %19 = tail call noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeValidEPKci(ptr noundef %1, i32 noundef %2)
-  %20 = icmp eq i32 %19, %2
+  %20 = icmp eq i32 %2, %19
   %21 = getelementptr inbounds i8, ptr %0, i64 17
   %22 = zext i1 %20 to i8
   store i8 %22, ptr %21, align 1
@@ -1360,7 +1360,7 @@ _ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit: ; preds = %._crit_e
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phonenumbers11UnicodeText25UnsafeTakeOwnershipOfUTF8EPcii(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %_ZN4i18n12phonenumbers11UnicodeText4Repr15TakeOwnershipOfEPcii.exit, label %7
 
 7:                                                ; preds = %4
@@ -1395,7 +1395,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.i18n::phonenumbers::LoggerHandler", align 8
   %8 = tail call noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeValidEPKci(ptr noundef %1, i32 noundef %2)
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 17
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 1
@@ -1496,7 +1496,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread: ; preds = %41, %
 46:                                               ; preds = %36
   %47 = getelementptr inbounds i8, ptr %0, i64 12
   %48 = load i32, ptr %47, align 4
-  %49 = icmp sge i32 %48, %2
+  %49 = icmp sle i32 %2, %48
   %or.cond10.not.i.i = and i1 %49, %40
   br i1 %or.cond10.not.i.i, label %._ZN4i18n12phonenumbers11UnicodeText4Repr7reserveEi.exit.i_crit_edge.i, label %50
 
@@ -1508,7 +1508,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread: ; preds = %41, %
   %51 = mul nsw i32 %48, 3
   %52 = sdiv i32 %51, 2
   %53 = add nsw i32 %52, 20
-  %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %53, i32 %2)
+  %.sroa.speculated.i.i.i = call i32 @llvm.smax.i32(i32 %2, i32 %53)
   store i32 %.sroa.speculated.i.i.i, ptr %47, align 4
   %54 = sext i32 %.sroa.speculated.i.i.i to i64
   %55 = call noalias noundef nonnull ptr @_Znam(i64 noundef %54) #23
@@ -1751,7 +1751,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %16 = mul nsw i32 %10, 3
   %17 = sdiv i32 %16, 2
   %18 = add nsw i32 %17, 20
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %18, i32 %8)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %8, i32 %18)
   store i32 %.sroa.speculated.i.i, ptr %9, align 4
   %19 = sext i32 %.sroa.speculated.i.i to i64
   %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #23
@@ -1822,7 +1822,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %20 = mul nsw i32 %14, 3
   %21 = sdiv i32 %20, 2
   %22 = add nsw i32 %21, 20
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %22, i32 %12)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %12, i32 %22)
   store i32 %.sroa.speculated.i.i, ptr %13, align 4
   %23 = sext i32 %.sroa.speculated.i.i to i64
   %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
@@ -1888,7 +1888,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phon
   %14 = mul nsw i32 %8, 3
   %15 = sdiv i32 %14, 2
   %16 = add nsw i32 %15, 20
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %6)
+  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %6, i32 %16)
   store i32 %.sroa.speculated.i.i, ptr %7, align 4
   %17 = sext i32 %.sroa.speculated.i.i to i64
   %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
@@ -2133,7 +2133,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText9push_backEi(ptr nocap
   store i32 %1, ptr %4, align 4
   %10 = call i32 @runetochar(ptr noundef nonnull %3, ptr noundef nonnull %4)
   %11 = call noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeValidEPKci(ptr noundef nonnull %3, i32 noundef %10)
-  %12 = icmp eq i32 %11, %10
+  %12 = icmp eq i32 %10, %11
   br i1 %12, label %13, label %43
 
 13:                                               ; preds = %9
@@ -2159,7 +2159,7 @@ define dso_local void @_ZN4i18n12phonenumbers11UnicodeText9push_backEi(ptr nocap
   %24 = mul nsw i32 %18, 3
   %25 = sdiv i32 %24, 2
   %26 = add nsw i32 %25, 20
-  %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %26, i32 %16)
+  %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %16, i32 %26)
   store i32 %.sroa.speculated.i.i, ptr %17, align 4
   %27 = sext i32 %.sroa.speculated.i.i to i64
   %28 = call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #23
@@ -2221,7 +2221,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit: ; preds = %._ZN4i18n1
   %56 = mul nsw i32 %50, 3
   %57 = sdiv i32 %56, 2
   %58 = add nsw i32 %57, 20
-  %.sroa.speculated.i.i7 = call i32 @llvm.smax.i32(i32 %58, i32 %48)
+  %.sroa.speculated.i.i7 = call i32 @llvm.smax.i32(i32 %48, i32 %58)
   store i32 %.sroa.speculated.i.i7, ptr %49, align 4
   %59 = sext i32 %.sroa.speculated.i.i7 to i64
   %60 = call noalias noundef nonnull ptr @_Znam(i64 noundef %59) #23
@@ -2282,7 +2282,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr6appendEPKci.exit13: ; preds = %._ZN4i18
   %87 = mul nsw i32 %81, 3
   %88 = sdiv i32 %87, 2
   %89 = add nsw i32 %88, 20
-  %.sroa.speculated.i.i15 = tail call i32 @llvm.smax.i32(i32 %89, i32 %79)
+  %.sroa.speculated.i.i15 = tail call i32 @llvm.smax.i32(i32 %79, i32 %89)
   store i32 %.sroa.speculated.i.i15, ptr %80, align 4
   %90 = sext i32 %.sroa.speculated.i.i15 to i64
   %91 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %90) #23

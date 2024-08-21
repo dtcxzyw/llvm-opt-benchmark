@@ -23168,7 +23168,7 @@ define linkonce_odr dso_local void @_ZN21ConstBitOpTreeVisitor7VarInfo11setPolar
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %9, %2
+  %.not = icmp slt i32 %2, %9
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %7
@@ -23198,7 +23198,7 @@ define linkonce_odr dso_local void @_ZN21ConstBitOpTreeVisitor7VarInfo11setPolar
   %27 = getelementptr inbounds i8, ptr %0, i64 64
   %28 = load i32, ptr %27, align 8
   %.fr.i.i = freeze i32 %28
-  %.not.i = icmp sgt i32 %.fr.i.i, %2
+  %.not.i = icmp slt i32 %2, %.fr.i.i
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %29
 
 29:                                               ; preds = %26
@@ -23254,7 +23254,7 @@ _ZNK8V3Number6bitIsXEi.exit:                      ; preds = %_ZNK12V3NumberData3
   br label %87
 
 .thread:                                          ; preds = %29, %_ZNK12V3NumberData3numEv.exit.i.i, %_ZNK12V3NumberData3numEv.exit.i, %_ZNK8V3Number6bitIsXEi.exit
-  %.not.i13 = icmp sgt i32 %.fr.i.i, %2
+  %.not.i13 = icmp slt i32 %2, %.fr.i.i
   br i1 %.not.i13, label %_ZNK12V3NumberData3numEv.exit.i15, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i15:                ; preds = %.thread
@@ -23299,7 +23299,7 @@ _ZNK21ConstBitOpTreeVisitor9isXorTreeEv.exit:     ; preds = %_ZNK8V3Number6bitIs
   ]
 
 73:                                               ; preds = %_ZNK21ConstBitOpTreeVisitor9isXorTreeEv.exit, %_ZNK21ConstBitOpTreeVisitor9isXorTreeEv.exit
-  %74 = and i1 %.0.i14, %1
+  %74 = and i1 %1, %.0.i14
   br i1 %74, label %81, label %75
 
 75:                                               ; preds = %73
@@ -23316,11 +23316,11 @@ _ZNK21ConstBitOpTreeVisitor9isXorTreeEv.exit:     ; preds = %_ZNK8V3Number6bitIs
   br label %87
 
 _ZNK21ConstBitOpTreeVisitor9isXorTreeEv.exit.thread: ; preds = %_ZNK8V3Number6bitIs1Ei.exit
-  %82 = xor i1 %.0.i14, %1
+  %82 = xor i1 %1, %.0.i14
   br i1 %82, label %_ZNK21ConstBitOpTreeVisitor9isAndTreeEv.exit, label %87
 
 .thread24:                                        ; preds = %_ZNK21ConstBitOpTreeVisitor9isXorTreeEv.exit
-  %83 = xor i1 %.0.i14, %1
+  %83 = xor i1 %1, %.0.i14
   br i1 %83, label %.thread25, label %87
 
 .thread25:                                        ; preds = %.thread24
@@ -24667,7 +24667,7 @@ _ZN21ConstBitOpTreeVisitor8LeafInfo14updateBitRangeEPK8AstCCast.exit: ; preds = 
 157:                                              ; preds = %151
   %158 = load i32, ptr %139, align 8
   %.fr.i.i = freeze i32 %158
-  %.not.i52 = icmp sgt i32 %.fr.i.i, %153
+  %.not.i52 = icmp slt i32 %153, %.fr.i.i
   br i1 %.not.i52, label %_ZNK12V3NumberData3numEv.exit.i, label %159
 
 159:                                              ; preds = %157
@@ -25282,7 +25282,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN21ConstBitOpTre
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
@@ -25357,7 +25357,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN21ConstBitOpTreeVisitor7VarInfoESt14default_
   br label %_ZNSt6vectorISt10unique_ptrIN21ConstBitOpTreeVisitor7VarInfoESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
-  %38 = icmp ugt i64 %9, %1
+  %38 = icmp ult i64 %1, %9
   br i1 %38, label %39, label %_ZNSt6vectorISt10unique_ptrIN21ConstBitOpTreeVisitor7VarInfoESt14default_deleteIS2_EESaIS5_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
@@ -25538,7 +25538,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIsXEi(ptr nou
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %.fr.i = freeze i32 %9
-  %.not = icmp sgt i32 %.fr.i, %1
+  %.not = icmp slt i32 %1, %.fr.i
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %10
 
 10:                                               ; preds = %7
@@ -25598,7 +25598,7 @@ _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK8V3Number6bitIs
 define linkonce_odr dso_local void @_ZN8V3Number6setBitEic(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %1
+  %.not = icmp slt i32 %1, %5
   br i1 %.not, label %6, label %49
 
 6:                                                ; preds = %3
@@ -25694,7 +25694,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs1Ei(ptr nou
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
-  %.not = icmp sgt i32 %9, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %23
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
@@ -25755,7 +25755,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIsZEi(ptr nou
 
 tailrecurse:                                      ; preds = %.lr.ph, %tailrecurse
   %.tr1013 = phi i32 [ %9, %tailrecurse ], [ %1, %.lr.ph ]
-  %.not = icmp sgt i32 %.fr, %.tr1013
+  %.not = icmp slt i32 %.tr1013, %.fr
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %tailrecurse
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
@@ -26038,7 +26038,7 @@ define linkonce_odr dso_local void @_ZN21ConstBitOpTreeVisitor8Restorer10restore
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 40
-  %21 = icmp ult i64 %20, %13
+  %21 = icmp ugt i64 %13, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %9
@@ -26047,7 +26047,7 @@ define linkonce_odr dso_local void @_ZN21ConstBitOpTreeVisitor8Restorer10restore
   br label %_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE6resizeEm.exit
 
 24:                                               ; preds = %9
-  %25 = icmp ugt i64 %20, %13
+  %25 = icmp ult i64 %13, %20
   br i1 %25, label %26, label %_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %24
@@ -26396,7 +26396,7 @@ _ZNK21ConstBitOpTreeVisitor9isAndTreeEv.exit:     ; preds = %3, %13
 48:                                               ; preds = %44
   %49 = load i32, ptr %39, align 8
   %.fr.i.i = freeze i32 %49
-  %.not.i = icmp sgt i32 %.fr.i.i, %43
+  %.not.i = icmp slt i32 %43, %.fr.i.i
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %50
 
 50:                                               ; preds = %48
@@ -26467,7 +26467,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %73, %_ZNK12V3Number
 87:                                               ; preds = %86
   %88 = getelementptr inbounds i8, ptr %81, i64 32
   %89 = load i32, ptr %88, align 8
-  %.not.i25 = icmp sgt i32 %89, %43
+  %.not.i25 = icmp slt i32 %43, %89
   br i1 %.not.i25, label %_ZNK12V3NumberData3numEv.exit.i27, label %_ZNK8V3Number6bitIs1Ei.exit.thread
 
 _ZNK12V3NumberData3numEv.exit.i27:                ; preds = %87
@@ -26509,7 +26509,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
 106:                                              ; preds = %105
   %107 = getelementptr inbounds i8, ptr %81, i64 32
   %108 = load i32, ptr %107, align 8
-  %.not.i35 = icmp sgt i32 %108, %43
+  %.not.i35 = icmp slt i32 %43, %108
   br i1 %.not.i35, label %_ZNK12V3NumberData3numEv.exit.i37, label %_ZNK8V3Number6bitIs1Ei.exit44
 
 _ZNK12V3NumberData3numEv.exit.i37:                ; preds = %106
@@ -26564,7 +26564,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIP11AstNodeExprN21ConstB
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -26635,7 +26635,7 @@ _ZNSt12_Vector_baseISt4pairIP11AstNodeExprN21ConstBitOpTreeVisitor14FrozenNodeIn
   br label %_ZNSt6vectorISt4pairIP11AstNodeExprN21ConstBitOpTreeVisitor14FrozenNodeInfoEESaIS5_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorISt4pairIP11AstNodeExprN21ConstBitOpTreeVisitor14FrozenNodeInfoEESaIS5_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
@@ -26773,7 +26773,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs0Ei(ptr nou
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %.fr.i = freeze i32 %9
-  %.not = icmp sgt i32 %.fr.i, %1
+  %.not = icmp slt i32 %1, %.fr.i
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %10
 
 10:                                               ; preds = %7
@@ -27036,7 +27036,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number7bitIsXZEi(ptr no
 
 tailrecurse:                                      ; preds = %.lr.ph, %tailrecurse
   %.tr811 = phi i32 [ %9, %tailrecurse ], [ %1, %.lr.ph ]
-  %.not = icmp sgt i32 %.fr, %.tr811
+  %.not = icmp slt i32 %.tr811, %.fr
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %tailrecurse
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
@@ -27420,7 +27420,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14Froz
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = icmp eq ptr %19, %17
+  %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
 
@@ -27481,7 +27481,7 @@ _ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN21ConstBitOpTreeVisitor14FrozenNodeInfoESt4pairIKS1_St6vectorIP11AstNodeExprSaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %57
 
 6:                                                ; preds = %3
@@ -32849,7 +32849,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
   %57 = ashr exact i64 %55, 2
-  %58 = icmp ult i64 %56, %57
+  %58 = icmp ugt i64 %57, %56
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %50
@@ -32862,7 +32862,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 61:                                               ; preds = %50
-  %62 = icmp ugt i64 %56, %57
+  %62 = icmp ult i64 %57, %56
   br i1 %62, label %63, label %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 63:                                               ; preds = %61
@@ -33272,7 +33272,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
   %63 = ashr exact i64 %61, 2
-  %64 = icmp ult i64 %62, %63
+  %64 = icmp ugt i64 %63, %62
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %56
@@ -33285,7 +33285,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 67:                                               ; preds = %56
-  %68 = icmp ugt i64 %62, %63
+  %68 = icmp ult i64 %63, %62
   br i1 %68, label %69, label %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20
 
 69:                                               ; preds = %67
@@ -33808,7 +33808,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -33856,7 +33856,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_j
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -45721,7 +45721,7 @@ _ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %90 = load ptr, ptr %2, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 216
-  %92 = icmp eq ptr %91, %90
+  %92 = icmp eq ptr %90, %91
   br i1 %92, label %_ZNSt13unordered_mapIPK12AstNodeDTypeSt5dequeIP8AstConstSaIS5_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S7_EEED2Ev.exit, label %93
 
 93:                                               ; preds = %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -45832,7 +45832,7 @@ _ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = icmp eq ptr %23, %22
+  %24 = icmp eq ptr %22, %23
   br i1 %24, label %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %25
 
 25:                                               ; preds = %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -51154,7 +51154,7 @@ _ZNSt11_Deque_baseIN15SimulateVisitor11AuxVariableESaIS1_EE16_M_allocate_nodeEv.
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #25
-  %20 = icmp ugt ptr %.011.i, %11
+  %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN15SimulateVisitor11AuxVariableESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
@@ -54391,7 +54391,7 @@ _ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %.lr
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #25
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
@@ -54565,7 +54565,7 @@ _ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPK12AstNodeDTypeSt4pairIKS2_St5dequeIP8AstConstSaIS7_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -61318,7 +61318,7 @@ _ZN7AstNode9privateIsI12AstNodeFTaskKPKS_EEbS3_.exit: ; preds = %51
 65:                                               ; preds = %63
   %66 = extractvalue { ptr, ptr } %62, 0
   %.not.i.i.i41 = icmp ne ptr %66, null
-  %67 = icmp eq ptr %7, %64
+  %67 = icmp eq ptr %64, %7
   %or.cond.i.i.i = select i1 %.not.i.i.i41, i1 true, i1 %67
   br i1 %or.cond.i.i.i, label %.thread.i, label %68
 
@@ -61512,7 +61512,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode9privateIsI8AstCFun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK7AstNodeSt4pairIKS2_bESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
@@ -86099,7 +86099,7 @@ _ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEE
 
 44:                                               ; preds = %42
   %45 = sub i64 %8, %43
-  %.not.i.i.i.i.i82 = icmp eq ptr %.tr124141, %2
+  %.not.i.i.i.i.i82 = icmp eq ptr %2, %.tr124141
   br i1 %.not.i.i.i.i.i82, label %_ZSt21__move_merge_adaptiveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_SF_T1_T2_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit83.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit83.thread: ; preds = %44
@@ -86168,7 +86168,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclIPP10AstSenI
   %72 = load ptr, ptr %.sroa.024.0.i.ph, align 8
   %73 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -8
   store ptr %72, ptr %73, align 8
-  %74 = icmp eq ptr %.sroa.024.0.i.ph, %.tr139
+  %74 = icmp eq ptr %.tr139, %.sroa.024.0.i.ph
   br i1 %74, label %75, label %.outer, !llvm.loop !935
 
 75:                                               ; preds = %71
@@ -86190,7 +86190,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclIPP10AstSenI
   %84 = load ptr, ptr %.0.i, align 8
   %85 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -8
   store ptr %84, ptr %85, align 8
-  %86 = icmp eq ptr %.0.i, %5
+  %86 = icmp eq ptr %5, %.0.i
   br i1 %86, label %_ZSt21__move_merge_adaptiveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEEvT_SE_T0_SF_T1_T2_.exit, label %87
 
 87:                                               ; preds = %83
@@ -86370,7 +86370,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_Sa
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i: ; preds = %163, %159
-  %.not.i.i.i.i.i37.i = icmp eq ptr %.sroa.0119.0, %.tr124141
+  %.not.i.i.i.i.i37.i = icmp eq ptr %.tr124141, %.sroa.0119.0
   br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, label %164
 
 164:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
@@ -86398,14 +86398,14 @@ _ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEE
   br i1 %.not34.i, label %185, label %172
 
 172:                                              ; preds = %171
-  %.not35.i = icmp eq i64 %.0, %.tr126143
+  %.not35.i = icmp eq i64 %.tr126143, %.0
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %173
 
 173:                                              ; preds = %172
   %174 = ptrtoint ptr %.tr124141 to i64
   %175 = ptrtoint ptr %.sroa.0119.0 to i64
   %176 = sub i64 %174, %175
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.sroa.0119.0, %.tr124141
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr124141, %.sroa.0119.0
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i, label %177
 
 177:                                              ; preds = %173
@@ -86536,7 +86536,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclINS_17__norm
   %39 = ptrtoint ptr %10 to i64
   %40 = ptrtoint ptr %.sroa.015.1.i to i64
   %41 = sub i64 %39, %40
-  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.015.1.i, %10
+  %.not.i.i.i.i.i.i = icmp eq ptr %10, %.sroa.015.1.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i, label %42
 
 42:                                               ; preds = %.critedge.i.loopexit
@@ -86548,7 +86548,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4
   %44 = ptrtoint ptr %11 to i64
   %45 = ptrtoint ptr %.sroa.011.1.i to i64
   %46 = sub i64 %44, %45
-  %.not.i.i.i.i.i9.i = icmp eq ptr %.sroa.011.1.i, %11
+  %.not.i.i.i.i.i9.i = icmp eq ptr %11, %.sroa.011.1.i
   br i1 %.not.i.i.i.i.i9.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit, label %47
 
 47:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
@@ -86566,7 +86566,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaI
   %.sroa.045.0.lcssa = phi ptr [ %0, %4 ], [ %11, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.0.lcssa = phi ptr [ %2, %4 ], [ %48, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.lcssa55 = phi i64 [ %9, %4 ], [ %50, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.lcssa55, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa55)
   %51 = getelementptr inbounds ptr, ptr %.sroa.045.0.lcssa, i64 %.sroa.speculated
   %52 = icmp ne i64 %.sroa.speculated, 0
   %53 = icmp ne ptr %51, %1
@@ -86640,7 +86640,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclINS_17__norm
   %81 = ptrtoint ptr %51 to i64
   %82 = ptrtoint ptr %.sroa.015.0.lcssa.i19 to i64
   %83 = sub i64 %81, %82
-  %.not.i.i.i.i.i.i21 = icmp eq ptr %.sroa.015.0.lcssa.i19, %51
+  %.not.i.i.i.i.i.i21 = icmp eq ptr %51, %.sroa.015.0.lcssa.i19
   br i1 %.not.i.i.i.i.i.i21, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22, label %84
 
 84:                                               ; preds = %.critedge.i17
@@ -86648,7 +86648,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclINS_17__norm
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22: ; preds = %84, %.critedge.i17
-  %.not.i.i.i.i.i9.i23 = icmp eq ptr %.sroa.011.0.lcssa.i18, %1
+  %.not.i.i.i.i.i9.i23 = icmp eq ptr %1, %.sroa.011.0.lcssa.i18
   br i1 %.not.i.i.i.i.i9.i23, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit37, label %85
 
 85:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22
@@ -86745,7 +86745,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclIPP10AstSenI
   %40 = ptrtoint ptr %10 to i64
   %41 = ptrtoint ptr %.1.i to i64
   %42 = sub i64 %40, %41
-  %.not.i.i.i.i.i.i = icmp eq ptr %.1.i, %10
+  %.not.i.i.i.i.i.i = icmp eq ptr %10, %.1.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, label %43
 
 43:                                               ; preds = %._crit_edge.i.loopexit
@@ -86757,7 +86757,7 @@ _ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEE
   %45 = ptrtoint ptr %11 to i64
   %46 = ptrtoint ptr %.117.i to i64
   %47 = sub i64 %45, %46
-  %.not.i.i.i.i.i18.i = icmp eq ptr %.117.i, %11
+  %.not.i.i.i.i.i18.i = icmp eq ptr %11, %.117.i
   br i1 %.not.i.i.i.i.i18.i, label %_ZSt12__move_mergeIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit, label %48
 
 48:                                               ; preds = %_ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i
@@ -86775,7 +86775,7 @@ _ZSt12__move_mergeIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_
   %.0.lcssa = phi ptr [ %0, %4 ], [ %11, %_ZSt12__move_mergeIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.sroa.022.0.lcssa = phi ptr [ %2, %4 ], [ %49, %_ZSt12__move_mergeIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit ]
   %.lcssa51 = phi i64 [ %9, %4 ], [ %51, %_ZSt12__move_mergeIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.lcssa51, i64 %3)
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa51)
   %52 = getelementptr inbounds ptr, ptr %.0.lcssa, i64 %.sroa.speculated
   %53 = icmp ne i64 %.sroa.speculated, 0
   %54 = icmp ne ptr %52, %1
@@ -86849,7 +86849,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclIPP10AstSenI
   %84 = ptrtoint ptr %52 to i64
   %85 = ptrtoint ptr %.0.lcssa.i28 to i64
   %86 = sub i64 %84, %85
-  %.not.i.i.i.i.i.i29 = icmp eq ptr %.0.lcssa.i28, %52
+  %.not.i.i.i.i.i.i29 = icmp eq ptr %52, %.0.lcssa.i28
   br i1 %.not.i.i.i.i.i.i29, label %_ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i30, label %87
 
 87:                                               ; preds = %._crit_edge.i25
@@ -86857,7 +86857,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEclIPP10AstSenI
   br label %_ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i30
 
 _ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i30: ; preds = %87, %._crit_edge.i25
-  %.not.i.i.i.i.i18.i31 = icmp eq ptr %.016.lcssa.i27, %1
+  %.not.i.i.i.i.i18.i31 = icmp eq ptr %1, %.016.lcssa.i27
   br i1 %.not.i.i.i.i.i18.i31, label %_ZSt12__move_mergeIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIN12ConstVisitor10SenItemCmpEEEET0_T_SF_SF_SF_SE_T1_.exit44, label %88
 
 88:                                               ; preds = %_ZSt4moveIPP10AstSenItemN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i30
@@ -91684,7 +91684,7 @@ _ZNSt10_HashtableISt6bitsetILm119EESt4pairIKS1_tESaIS4_ENSt8__detail10_Select1st
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 48
-  %16 = icmp eq ptr %15, %14
+  %16 = icmp eq ptr %14, %15
   br i1 %16, label %_ZNSt13unordered_mapISt6bitsetILm119EEtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZNSt10_HashtableISt6bitsetILm119EESt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -91917,7 +91917,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %19) #25
-  %21 = icmp ugt ptr %.011.i, %12
+  %21 = icmp ult ptr %12, %.011.i
   br i1 %21, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
@@ -92037,7 +92037,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE16_M_allocate_nodeEv.exit.i: ; preds = %.
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #25
-  %19 = icmp ugt ptr %.011.i, %10
+  %19 = icmp ult ptr %10, %.011.i
   br i1 %19, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i

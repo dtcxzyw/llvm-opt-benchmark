@@ -274,7 +274,7 @@ if.end:                                           ; preds = %entry
   %get_stream_limit_cb_arg = getelementptr inbounds i8, ptr %qsm, i64 104
   %1 = load ptr, ptr %get_stream_limit_cb_arg, align 8
   %call = tail call i64 %0(i32 noundef %is_uni, ptr noundef %1) #11
-  %cmp2 = icmp ugt i64 %call, %stream_ordinal
+  %cmp2 = icmp ult i64 %stream_ordinal, %call
   %conv = zext i1 %cmp2 to i32
   br label %return
 
@@ -313,7 +313,7 @@ if.end.i:                                         ; preds = %if.then
   %get_stream_limit_cb_arg.i = getelementptr inbounds i8, ptr %qsm, i64 104
   %6 = load ptr, ptr %get_stream_limit_cb_arg.i, align 8
   %call.i = tail call i64 %3(i32 noundef %lnot.ext, ptr noundef %6) #11
-  %cmp2.i = icmp ugt i64 %call.i, %shr
+  %cmp2.i = icmp ult i64 %shr, %call.i
   %conv.i47 = zext i1 %cmp2.i to i32
   %bf.load.pre.pre = load i64, ptr %0, align 8
   br label %ossl_quic_stream_map_is_local_allowed_by_stream_limit.exit

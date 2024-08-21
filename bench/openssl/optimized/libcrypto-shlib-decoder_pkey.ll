@@ -1002,7 +1002,7 @@ for.body:                                         ; preds = %collect_decoder_key
   %5 = getelementptr i8, ptr %call.i12, i64 4
   %call10.val = load i32, ptr %5, align 4
   %6 = load i32, ptr %id.i, align 8
-  %cmp.not.i = icmp eq i32 %6, %call10.val
+  %cmp.not.i = icmp eq i32 %call10.val, %6
   br i1 %cmp.not.i, label %if.end.i, label %collect_decoder_keymgmt.exit
 
 if.end.i:                                         ; preds = %for.body

@@ -141,13 +141,13 @@ if.then:                                          ; preds = %entry
 land.lhs.true.i:                                  ; preds = %if.then
   %charsCapacity.i = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load i32, ptr %charsCapacity.i, align 8
-  %cmp.i7.not = icmp sgt i32 %6, %cond.i
+  %cmp.i7.not = icmp slt i32 %cond.i, %6
   br i1 %cmp.i7.not, label %if.then8, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %div.i = sdiv i32 %6, 2
   %add.i = add nsw i32 %div.i, %6
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %add)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add, i32 %add.i)
   %chars.i = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load ptr, ptr %chars.i, align 8
   %charsBuffer.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -217,13 +217,13 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %charsCapacity = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load i32, ptr %charsCapacity, align 8
-  %cmp = icmp slt i32 %1, %capacity
+  %cmp = icmp sgt i32 %capacity, %1
   br i1 %cmp, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %land.lhs.true
   %div = sdiv i32 %1, 2
   %add = add nsw i32 %div, %1
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %add, i32 %capacity)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %capacity, i32 %add)
   %chars = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %chars, align 8
   %charsBuffer = getelementptr inbounds i8, ptr %this, i64 72

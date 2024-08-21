@@ -281,13 +281,13 @@ define void @Ssw_SmlAddPattern(ptr nocapture noundef readonly %0, ptr nocapture 
   %20 = add nsw i32 %.val17, 1
   %21 = getelementptr inbounds i8, ptr %.val16, i64 4
   %22 = load i32, ptr %21, align 4
-  %.not.i.not.i.i = icmp sgt i32 %22, %.val17
+  %.not.i.not.i.i = icmp slt i32 %.val17, %22
   br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.exit, label %23
 
 23:                                               ; preds = %12
   %24 = load i32, ptr %.val16, align 8
   %25 = shl nsw i32 %24, 1
-  %.not.i.i = icmp sgt i32 %25, %.val17
+  %.not.i.i = icmp slt i32 %.val17, %25
   %.not.i.i.not.i.i = icmp sgt i32 %24, %.val17
   br i1 %.not.i.i, label %38, label %26
 

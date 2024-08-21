@@ -853,7 +853,7 @@ define i32 @Gem_GroupVarRemove(i32 noundef %0, i32 noundef %1) local_unnamed_add
   %5 = select i1 %.not, i32 0, i32 %4
   %6 = and i32 %5, %0
   %7 = xor i32 %5, -1
-  %8 = and i32 %7, %0
+  %8 = and i32 %0, %7
   %9 = ashr i32 %8, 1
   %10 = or i32 %9, %6
   ret i32 %10
@@ -868,7 +868,7 @@ define i32 @Gem_GroupVarsInsert1(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %7 = select i1 %.not, i32 0, i32 %6
   %8 = and i32 %7, %0
   %9 = xor i32 %7, -1
-  %10 = and i32 %9, %0
+  %10 = and i32 %0, %9
   %11 = shl i32 %10, 1
   %12 = shl i32 %2, %4
   %13 = or i32 %8, %12
@@ -885,7 +885,7 @@ define i32 @Gem_GroupVarsInsert3(i32 noundef %0, i32 noundef %1) local_unnamed_a
   %6 = select i1 %.not, i32 0, i32 %5
   %7 = and i32 %6, %0
   %8 = xor i32 %6, -1
-  %9 = and i32 %8, %0
+  %9 = and i32 %0, %8
   %10 = shl i32 %9, 3
   %11 = shl i32 4, %3
   %12 = or i32 %7, %11
@@ -1431,7 +1431,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %3
   %47 = load i32, ptr %13, align 4
   %48 = and i32 %47, 15
   %49 = add nsw i32 %48, -1
-  %50 = icmp sgt i32 %49, %2
+  %50 = icmp slt i32 %2, %49
   br i1 %50, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %Abc_TtCopy.exit
@@ -2715,7 +2715,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %4
   %48 = load i32, ptr %14, align 4
   %49 = and i32 %48, 15
   %50 = add nsw i32 %49, -1
-  %51 = icmp sgt i32 %50, %3
+  %51 = icmp slt i32 %3, %50
   br i1 %51, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %Abc_TtCopy.exit
@@ -2725,7 +2725,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %4
 .preheader:                                       ; preds = %Abc_TtSwapAdjacent.exit, %Abc_TtCopy.exit
   %.pre-phi = phi i32 [ %49, %Abc_TtCopy.exit ], [ %112, %Abc_TtSwapAdjacent.exit ]
   %53 = add nsw i32 %.pre-phi, -2
-  %54 = icmp sgt i32 %53, %2
+  %54 = icmp slt i32 %2, %53
   br i1 %54, label %.lr.ph171.preheader, label %._crit_edge
 
 .lr.ph171.preheader:                              ; preds = %.preheader
@@ -3796,7 +3796,7 @@ Abc_Clock.exit81:                                 ; preds = %._crit_edge100, %12
   %135 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull @.str.17, i32 noundef %0) #21
   %136 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.23)
   %137 = load ptr, ptr @stdout, align 8
-  %138 = icmp eq ptr %137, %136
+  %138 = icmp eq ptr %136, %137
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %132

@@ -243,7 +243,7 @@ lpad:                                             ; preds = %while.body
   unreachable
 
 while.cond8:                                      ; preds = %entry
-  %cmp.not.i.i = icmp slt i32 %0, %count
+  %cmp.not.i.i = icmp sgt i32 %count, %0
   br i1 %cmp.not.i.i, label %while.body15, label %while.cond23
 
 while.body15:                                     ; preds = %while.cond8
@@ -324,7 +324,7 @@ while.end:                                        ; preds = %entry
   %position_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %position_, align 8
   %sub = sub nsw i32 %2, %3
-  %cmp = icmp sge i32 %sub, %count
+  %cmp = icmp sle i32 %count, %sub
   %add = add nsw i32 %3, %count
   %storemerge = select i1 %cmp, i32 %add, i32 %2
   store i32 %storemerge, ptr %position_, align 8
@@ -404,7 +404,7 @@ entry:
   %ref.tmp15 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %last_returned_size_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %last_returned_size_, align 4
-  %cmp.not.i.i = icmp slt i32 %0, %count
+  %cmp.not.i.i = icmp sgt i32 %count, %0
   br i1 %cmp.not.i.i, label %while.body, label %while.cond8
 
 while.body:                                       ; preds = %entry
@@ -908,7 +908,7 @@ lpad:                                             ; preds = %cond.false
 while.cond:                                       ; preds = %entry
   %buffer_used_ = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %buffer_used_, align 4
-  %cmp.not.i.i = icmp slt i32 %3, %count
+  %cmp.not.i.i = icmp sgt i32 %count, %3
   br i1 %cmp.not.i.i, label %while.body, label %while.cond22
 
 while.body:                                       ; preds = %while.cond
@@ -1496,7 +1496,7 @@ lpad17:                                           ; preds = %while.body13
   unreachable
 
 while.cond23:                                     ; preds = %while.cond7
-  %cmp.not.i.i13 = icmp slt i32 %10, %count
+  %cmp.not.i.i13 = icmp sgt i32 %count, %10
   br i1 %cmp.not.i.i13, label %while.body30, label %while.end39
 
 while.body30:                                     ; preds = %while.cond23
@@ -1548,7 +1548,7 @@ entry:
   %out_size = alloca i32, align 4
   %buffer_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %buffer_size_, align 8
-  %cmp.not = icmp sgt i32 %0, %size
+  %cmp.not = icmp slt i32 %size, %0
   br i1 %cmp.not, label %while.body7.preheader, label %if.then
 
 while.body7.preheader:                            ; preds = %entry
@@ -2215,7 +2215,7 @@ if.end:                                           ; preds = %entry
   %add = add i64 %sub, %skip
   %it_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %it_, align 8
-  %cmp.i.i = icmp ugt i64 %2, %add
+  %cmp.i.i = icmp ult i64 %add, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -2309,7 +2309,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false
   %it_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %it_.i, align 8
-  %cmp.i.i.i = icmp ugt i64 %2, %1
+  %cmp.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then3.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -2459,7 +2459,7 @@ if.end.i:                                         ; preds = %if.then9
   %add.i = add i64 %sub.i, %conv
   %it_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %it_.i, align 8
-  %cmp.i.i.i = icmp ugt i64 %4, %add.i
+  %cmp.i.i.i = icmp ult i64 %add.i, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -2532,7 +2532,7 @@ if.end.i8:                                        ; preds = %if.end11
   %add.i11 = add i64 %sub.i10, %2
   %it_.i12 = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load i64, ptr %it_.i12, align 8
-  %cmp.i.i.i13 = icmp ugt i64 %10, %add.i11
+  %cmp.i.i.i13 = icmp ult i64 %add.i11, %10
   br i1 %cmp.i.i.i13, label %if.then.i.i.i39, label %if.else.i.i.i14
 
 if.then.i.i.i39:                                  ; preds = %if.end.i8
@@ -2624,7 +2624,7 @@ entry:
   %sub = sub i64 %0, %1
   %it_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %it_, align 8
-  %cmp.i.i = icmp ugt i64 %2, %sub
+  %cmp.i.i = icmp ult i64 %sub, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -3259,13 +3259,13 @@ _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit: ; preds = %if.end
   %2 = load ptr, ptr %buffer_, align 8
   %3 = load i64, ptr %2, align 8
   %conv = trunc i64 %3 to i32
-  %cmp2.not = icmp slt i32 %conv, %count
+  %cmp2.not = icmp sgt i32 %count, %conv
   br i1 %cmp2.not, label %if.then.i7, label %if.else.i
 
 _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread: ; preds = %if.end
   %4 = ashr i8 %0, 1
   %conv16 = sext i8 %4 to i32
-  %cmp2.not17 = icmp slt i32 %conv16, %count
+  %cmp2.not17 = icmp sgt i32 %count, %conv16
   br i1 %cmp2.not17, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread
@@ -3881,7 +3881,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %this, align 8
-  %cmp = icmp eq i64 %1, %n
+  %cmp = icmp eq i64 %n, %1
   %btree_reader_ = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %cmp, label %if.then3, label %if.else
 
@@ -4062,7 +4062,7 @@ entry:
   %arrayidx.i = getelementptr inbounds [12 x ptr], ptr %node_.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %2 = load i64, ptr %1, align 8
-  %cmp.not.i = icmp ugt i64 %2, %offset
+  %cmp.not.i = icmp ult i64 %offset, %2
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
@@ -4073,7 +4073,7 @@ if.end.i:                                         ; preds = %entry
   %arrayidx5.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i, i64 0, i64 %conv.i.i.i
   %4 = load ptr, ptr %arrayidx5.i.i, align 8
   %5 = load i64, ptr %4, align 8
-  %cmp.not6.i.i = icmp ugt i64 %5, %offset
+  %cmp.not6.i.i = icmp ult i64 %offset, %5
   br i1 %cmp.not6.i.i, label %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i, %while.body.i.i
@@ -4120,7 +4120,7 @@ while.body.i:                                     ; preds = %_ZNK4absl12lts_2023
   %arrayidx5.i20.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i, i64 0, i64 %conv.i.i18.i
   %12 = load ptr, ptr %arrayidx5.i20.i, align 8
   %13 = load i64, ptr %12, align 8
-  %cmp.not6.i21.i = icmp ugt i64 %13, %offset.addr.0.lcssa.i.pn39.i
+  %cmp.not6.i21.i = icmp ult i64 %offset.addr.0.lcssa.i.pn39.i, %13
   br i1 %cmp.not6.i21.i, label %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i, label %while.body.i22.i
 
 while.body.i22.i:                                 ; preds = %while.body.i, %while.body.i22.i
@@ -4188,7 +4188,7 @@ cond.false.i:                                     ; preds = %if.end.i3
 
 _ZN4absl12lts_2023080213cord_internal8EdgeDataEPKNS1_7CordRepE.exit: ; preds = %cond.true.i, %cond.false.i
   %storage.i.pn.i = phi ptr [ %storage.i.i, %cond.true.i ], [ %23, %cond.false.i ]
-  %cmp.i.i7 = icmp ult i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
+  %cmp.i.i7 = icmp ugt i64 %offset.addr.0.lcssa.i.pn.lcssa.i, %18
   br i1 %cmp.i.i7, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then.i.i:                                      ; preds = %_ZN4absl12lts_2023080213cord_internal8EdgeDataEPKNS1_7CordRepE.exit

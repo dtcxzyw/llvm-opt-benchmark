@@ -20,7 +20,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = add i32 %to_len, -11
-  %cmp1 = icmp ult i32 %sub, %from_len
+  %cmp1 = icmp ugt i32 %from_len, %sub
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -158,7 +158,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = add i32 %to_len, -11
-  %cmp1 = icmp ult i32 %sub, %from_len
+  %cmp1 = icmp ugt i32 %from_len, %sub
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -361,7 +361,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv = trunc i64 %call4 to i32
   %mul = shl i32 %conv, 1
   %add = add i32 %mul, 2
-  %cmp5 = icmp ugt i32 %add, %to_len
+  %cmp5 = icmp ult i32 %to_len, %add
   br i1 %cmp5, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
@@ -372,7 +372,7 @@ if.end8:                                          ; preds = %if.end
   %sub = add i32 %to_len, -1
   %0 = xor i32 %mul, -1
   %sub11 = add i32 %sub, %0
-  %cmp12 = icmp ult i32 %sub11, %from_len
+  %cmp12 = icmp ugt i32 %from_len, %sub11
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end8
@@ -608,12 +608,12 @@ if.end:                                           ; preds = %if.then, %entry
   %conv = trunc i64 %call4 to i32
   %mul = shl i32 %conv, 1
   %add5 = add i32 %mul, 2
-  %cmp6 = icmp ugt i32 %add5, %from_len
+  %cmp6 = icmp ult i32 %from_len, %add5
   br i1 %cmp6, label %decoding_err, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %0 = xor i32 %conv, -1
-  %sub10 = add i32 %0, %from_len
+  %sub10 = add i32 %from_len, %0
   %conv11 = zext i32 %sub10 to i64
   %call12 = tail call noalias ptr @malloc(i64 noundef %conv11) #9
   %cmp13 = icmp eq ptr %call12, null
@@ -726,7 +726,7 @@ for.end82:                                        ; preds = %for.end82.loopexit,
 
 if.end86:                                         ; preds = %for.end82
   %sub88 = sub i32 %sub10, %one_index.0.lcssa
-  %cmp89 = icmp ugt i32 %sub88, %to_len
+  %cmp89 = icmp ult i32 %to_len, %sub88
   br i1 %cmp89, label %if.then91, label %if.else
 
 if.then91:                                        ; preds = %if.end86

@@ -1437,7 +1437,7 @@ define hidden void @_ZN5bytes5bytes5Bytes5slice17hc298e7c9fd9af475E(ptr noalias 
   unreachable
 
 22:                                               ; preds = %4
-  %.not23 = icmp ult i64 %13, %3
+  %.not23 = icmp ugt i64 %3, %13
   br i1 %.not23, label %23, label %31
 
 23:                                               ; preds = %22

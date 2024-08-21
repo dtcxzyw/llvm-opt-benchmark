@@ -1460,7 +1460,7 @@ if.then12:                                        ; preds = %if.end10
   %cond = select i1 %cmp6, ptr null, ptr %add.ptr
   %1 = load i8, ptr %src, align 1
   %cmp14154 = icmp ne i8 %1, 0
-  %cmp15155 = icmp ugt ptr %cond, %dest
+  %cmp15155 = icmp ult ptr %dest, %cond
   %2 = select i1 %cmp14154, i1 %cmp15155, i1 false
   br i1 %2, label %while.body, label %while.end95
 

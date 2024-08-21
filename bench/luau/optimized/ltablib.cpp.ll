@@ -882,9 +882,9 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %24 = getelementptr inbounds i8, ptr %12, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp uge i32 %23, %25
-  %.not94 = icmp ult i32 %20, %3
+  %.not94 = icmp ugt i32 %3, %20
   %or.cond = or i1 %.not94, %26
-  %27 = add i32 %17, %4
+  %27 = add i32 %4, %17
   %.not95 = icmp ugt i32 %27, %25
   %or.cond104 = or i1 %or.cond, %.not95
   br i1 %or.cond104, label %49, label %28

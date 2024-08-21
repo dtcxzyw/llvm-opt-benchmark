@@ -1049,7 +1049,7 @@ if.then21:                                        ; preds = %lor.lhs.false14, %i
   br label %if.end30
 
 if.else22:                                        ; preds = %if.else
-  %cmp26.not = icmp eq i32 %conv, %ch
+  %cmp26.not = icmp eq i32 %ch, %conv
   %spec.store.select = select i1 %cmp26.not, i32 %ch, i32 65535
   br label %if.end30
 

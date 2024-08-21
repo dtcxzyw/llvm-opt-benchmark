@@ -565,7 +565,7 @@ _ZN4Json16fixNumericLocaleIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_s
 67:                                               ; preds = %65
   %68 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   %69 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
-  %.not1721.i = icmp eq ptr %69, %68
+  %.not1721.i = icmp eq ptr %68, %69
   br i1 %.not1721.i, label %_ZN4Json16fixZerosInTheEndIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEET_SB_SB_j.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %67
@@ -581,12 +581,12 @@ _ZN4Json16fixNumericLocaleIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_s
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.critedge.i
   %75 = phi ptr [ %82, %.critedge.i ], [ %73, %.lr.ph.preheader.i ]
   %.sroa.07.022.i43 = phi ptr [ %75, %.critedge.i ], [ %69, %.lr.ph.preheader.i ]
-  %.not18.i = icmp eq ptr %75, %68
+  %.not18.i = icmp eq ptr %68, %75
   br i1 %.not18.i, label %_ZN4Json16fixZerosInTheEndIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEET_SB_SB_j.exit, label %76
 
 76:                                               ; preds = %.lr.ph
   %77 = getelementptr inbounds i8, ptr %.sroa.07.022.i43, i64 -2
-  %.not19.i = icmp eq ptr %77, %68
+  %.not19.i = icmp eq ptr %68, %77
   br i1 %.not19.i, label %.critedge.i, label %78
 
 78:                                               ; preds = %76
@@ -889,7 +889,7 @@ _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128: ; p
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit:  ; preds = %.lr.ph.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i", %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, %41, %switch.early.test.i.i39.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i", %46, %switch.early.test.i.i41.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i", %51, %switch.early.test.i.i43.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i"
   %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %51 ], [ %54, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit ], [ %55, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114 ], [ %56, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116 ], [ %57, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118 ], [ %58, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120 ], [ %59, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122 ], [ %60, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124 ], [ %61, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126 ], [ %62, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128 ], [ %.02977.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i" ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not69 = icmp eq ptr %.028.i.i.i.i.i.i, %17
+  %.not69 = icmp eq ptr %17, %.028.i.i.i.i.i.i
   br i1 %.not69, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread, label %77
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
@@ -8156,7 +8156,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i26 = icmp eq ptr %5, %1
+  %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
@@ -8254,7 +8254,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -8572,7 +8572,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %15, label %8
 

@@ -286,7 +286,7 @@ define noundef zeroext i1 @zend_observer_remove_begin_handler(ptr nocapture noun
   %16 = load i64, ptr getelementptr inbounds (i8, ptr @zend_observers_fcall_list, i64 16), align 8
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -8
-  %.not26.not.i = icmp ult ptr %18, %15
+  %.not26.not.i = icmp ugt ptr %15, %18
   br i1 %.not26.not.i, label %zend_observer_remove_handler.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %37
@@ -408,7 +408,7 @@ define noundef zeroext i1 @zend_observer_remove_end_handler(ptr nocapture nounde
   %17 = getelementptr inbounds ptr, ptr %16, i64 %3
   %18 = getelementptr inbounds ptr, ptr %17, i64 %3
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
-  %.not26.not.i = icmp ult ptr %19, %17
+  %.not26.not.i = icmp ugt ptr %17, %19
   br i1 %.not26.not.i, label %zend_observer_remove_handler.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %38
@@ -645,7 +645,7 @@ define void @zend_observer_fcall_begin(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @zend_observer_fcall_end(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @current_observed_frame, align 8
-  %.not = icmp eq ptr %3, %0
+  %.not = icmp eq ptr %0, %3
   br i1 %.not, label %4, label %42
 
 4:                                                ; preds = %2

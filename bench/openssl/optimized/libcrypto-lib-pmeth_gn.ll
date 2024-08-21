@@ -506,7 +506,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %keygen_info_count2 = getelementptr inbounds i8, ptr %ctx, i64 112
   %1 = load i32, ptr %keygen_info_count2, align 8
-  %cmp3 = icmp slt i32 %1, %idx
+  %cmp3 = icmp sgt i32 %idx, %1
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %lor.lhs.false

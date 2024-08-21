@@ -506,7 +506,7 @@ for.body.us:                                      ; preds = %for.cond.preheader.
   %cmp8.us = phi i1 [ false, %for.inc.us ], [ true, %for.cond.preheader.split.us ]
   %provider_idx.027.us = phi i32 [ 1, %for.inc.us ], [ 0, %for.cond.preheader.split.us ]
   %request_list.026.us = phi ptr [ %request_list.1.us, %for.inc.us ], [ null, %for.cond.preheader.split.us ]
-  %cmp10.us = icmp eq i32 %provider_idx.027.us, %provider
+  %cmp10.us = icmp eq i32 %provider, %provider_idx.027.us
   br i1 %cmp10.us, label %if.then11.us, label %for.inc.us
 
 if.then11.us:                                     ; preds = %for.body.us
@@ -554,7 +554,7 @@ for.body:                                         ; preds = %for.cond.preheader.
   %cmp8 = phi i1 [ false, %for.inc ], [ true, %for.cond.preheader.split ]
   %provider_idx.027 = phi i32 [ 1, %for.inc ], [ 0, %for.cond.preheader.split ]
   %request_list.026 = phi ptr [ %request_list.1, %for.inc ], [ null, %for.cond.preheader.split ]
-  %cmp10 = icmp eq i32 %provider_idx.027, %provider
+  %cmp10 = icmp eq i32 %provider, %provider_idx.027
   br i1 %cmp10, label %if.then11, label %for.inc
 
 if.then11:                                        ; preds = %for.body

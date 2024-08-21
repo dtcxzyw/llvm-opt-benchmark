@@ -793,14 +793,14 @@ define internal i32 @vhost_kernel_get_vq_index(ptr nocapture noundef readonly %d
 entry:
   %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
-  %cmp.not = icmp sgt i32 %0, %idx
+  %cmp.not = icmp slt i32 %idx, %0
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
   %1 = load i32, ptr %nvqs, align 8
   %add = add i32 %1, %0
-  %cmp2 = icmp ugt i32 %add, %idx
+  %cmp2 = icmp ult i32 %idx, %add
   br i1 %cmp2, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry

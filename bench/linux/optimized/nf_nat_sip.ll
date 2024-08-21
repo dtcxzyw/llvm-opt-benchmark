@@ -914,7 +914,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sip_expect(ptr noundef %0, i
   %113 = and i16 %112, 60
   %114 = zext nneg i16 %113 to i32
   %115 = add i32 %2, %6
-  %116 = add i32 %114, %1
+  %116 = add i32 %1, %114
   %117 = sub i32 %115, %116
   %118 = call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %101, i32 noundef %99, i32 noundef %1, i32 noundef %117, i32 noundef %7, ptr noundef nonnull %10, i32 noundef %96, i1 noundef zeroext false) #9
   br i1 %118, label %123, label %131
@@ -1007,7 +1007,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_port(ptr noundef %0, i32
   %29 = and i16 %28, 60
   %30 = zext nneg i16 %29 to i32
   %31 = add i32 %2, %5
-  %32 = add i32 %30, %1
+  %32 = add i32 %1, %30
   %33 = sub i32 %31, %32
   %34 = call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %17, i32 noundef %15, i32 noundef %1, i32 noundef %33, i32 noundef %6, ptr noundef nonnull %9, i32 noundef %11, i1 noundef zeroext false) #9
   br i1 %34, label %39, label %48
@@ -1345,7 +1345,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @map_addr(ptr noundef %0, i32
   %113 = and i16 %112, 60
   %114 = zext nneg i16 %113 to i32
   %115 = add i32 %2, %5
-  %116 = add i32 %114, %1
+  %116 = add i32 %1, %114
   %117 = sub i32 %115, %116
   %118 = call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %101, i32 noundef %99, i32 noundef %1, i32 noundef %117, i32 noundef %6, ptr noundef nonnull %10, i32 noundef %96, i1 noundef zeroext false) #9
   br i1 %118, label %123, label %131
@@ -1409,7 +1409,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mangle_packet(ptr noundef %0
   %27 = and i16 %26, 60
   %28 = zext nneg i16 %27 to i32
   %29 = add i32 %2, %5
-  %30 = add i32 %28, %1
+  %30 = add i32 %1, %28
   %31 = sub i32 %29, %30
   %32 = tail call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %15, i32 noundef %13, i32 noundef %1, i32 noundef %31, i32 noundef %6, ptr noundef %7, i32 noundef %8, i1 noundef zeroext false) #9
   br i1 %32, label %37, label %45
@@ -1506,8 +1506,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @mangle_sdp_packet(ptr noun
   %39 = lshr i16 %38, 2
   %40 = and i16 %39, 60
   %41 = zext nneg i16 %40 to i32
-  %42 = add i32 %22, %2
-  %43 = add i32 %41, %1
+  %42 = add i32 %2, %22
+  %43 = add i32 %1, %41
   %44 = sub i32 %42, %43
   %45 = call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %28, i32 noundef %26, i32 noundef %1, i32 noundef %44, i32 noundef %23, ptr noundef %8, i32 noundef %9, i1 noundef zeroext false) #9
   br i1 %45, label %50, label %58
@@ -1593,8 +1593,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @mangle_content_len(ptr nound
   %44 = lshr i16 %43, 2
   %45 = and i16 %44, 60
   %46 = zext nneg i16 %45 to i32
-  %47 = add i32 %27, %2
-  %48 = add i32 %46, %1
+  %47 = add i32 %2, %27
+  %48 = add i32 %1, %46
   %49 = sub i32 %47, %48
   %50 = call zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %33, i32 noundef %31, i32 noundef %1, i32 noundef %49, i32 noundef %28, ptr noundef nonnull %8, i32 noundef %26, i1 noundef zeroext false) #9
   br i1 %50, label %55, label %63

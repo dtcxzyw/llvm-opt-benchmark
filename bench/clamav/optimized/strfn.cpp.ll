@@ -368,7 +368,7 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %.142.us = phi i32 [ %26, %10 ], [ %.04157.us, %.lr.ph.split.us.split ]
   %30 = add i32 %.04356.us, 1
   %31 = zext i32 %30 to i64
-  %32 = icmp ult i64 %31, %1
+  %32 = icmp ugt i64 %1, %31
   br i1 %32, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -411,7 +411,7 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %.1.us64 = phi i32 [ %54, %36 ], [ %.058.us61, %.lr.ph.split.split.us ]
   %58 = add i32 %.04356.us63, 1
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %59, %1
+  %60 = icmp ugt i64 %1, %59
   br i1 %60, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %94
@@ -468,7 +468,7 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %.142 = phi i32 [ %91, %88 ], [ %.04157, %85 ]
   %95 = add i32 %.04356, 1
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %96, %1
+  %97 = icmp ugt i64 %1, %96
   br i1 %97, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %94, %57, %29, %5
@@ -609,13 +609,13 @@ define void @_Z8wcsncpyzPwPKwm(ptr nocapture noundef writeonly %0, ptr nocapture
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
 define void @_Z8strncatzPcPKcm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %5 = icmp ult i64 %4, %2
+  %5 = icmp ugt i64 %2, %4
   br i1 %5, label %.preheader.i, label %_Z8strncpyzPcPKcm.exit
 
 .preheader.i:                                     ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 %4
   %7 = xor i64 %4, -1
-  %8 = add i64 %7, %2
+  %8 = add i64 %2, %7
   %.not911.i = icmp eq i64 %8, 0
   br i1 %.not911.i, label %.critedge.i, label %.lr.ph.i
 
@@ -650,13 +650,13 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
 define void @_Z8wcsncatzPwPKwm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = tail call i64 @wcslen(ptr noundef %0) #14
-  %5 = icmp ult i64 %4, %2
+  %5 = icmp ugt i64 %2, %4
   br i1 %5, label %.preheader.i, label %_Z8wcsncpyzPwPKwm.exit
 
 .preheader.i:                                     ; preds = %3
   %6 = getelementptr inbounds i32, ptr %0, i64 %4
   %7 = xor i64 %4, -1
-  %8 = add i64 %7, %2
+  %8 = add i64 %2, %7
   %.not1012.i = icmp eq i64 %8, 0
   br i1 %.not1012.i, label %.critedge.i, label %.lr.ph.i
 
@@ -691,7 +691,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %5 = icmp slt i64 %0, 0
   %.lobit.neg = ashr i64 %0, 63
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %6 = add i64 %.lobit.neg, %2
+  %6 = add i64 %2, %.lobit.neg
   %umax = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
   %7 = add i64 %umax, -1
   br label %8
@@ -752,7 +752,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %5 = icmp slt i64 %0, 0
   %.lobit.neg = ashr i64 %0, 63
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %6 = add i64 %.lobit.neg, %2
+  %6 = add i64 %2, %.lobit.neg
   %umax = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
   %7 = add i64 %umax, -1
   br label %8
@@ -919,7 +919,7 @@ _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
   %59 = icmp ne i32 %58, 0
   %60 = add i32 %.1, 2
   %61 = zext i32 %60 to i64
-  %62 = icmp ult i64 %61, %2
+  %62 = icmp ugt i64 %2, %61
   %63 = and i1 %59, %62
   br i1 %63, label %41, label %._crit_edge.loopexit, !llvm.loop !19
 

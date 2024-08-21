@@ -780,7 +780,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then.i:                                        ; preds = %for.body.i
   %inc.i = add nsw i32 %i.031.i, 1
-  %cmp1.not.i = icmp slt i32 %inc.i, %sub
+  %cmp1.not.i = icmp sgt i32 %sub, %inc.i
   br i1 %cmp1.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i

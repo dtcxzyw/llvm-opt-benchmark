@@ -580,7 +580,7 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
 
 40:                                               ; preds = %38
   %41 = add i32 %.val.val, -1
-  %42 = icmp sle i32 %.val.val, %8
+  %42 = icmp sge i32 %8, %.val.val
   %43 = icmp slt i32 %8, 1
   %or.cond = or i1 %43, %42
   %44 = select i1 %or.cond, i32 %41, i32 %8

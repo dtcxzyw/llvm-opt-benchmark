@@ -555,7 +555,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   %13 = load i16, ptr %second34, align 8
   %conv35 = zext i16 %13 to i64
   %14 = load i64, ptr %largest_acked_packet_number_.i, align 8
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %12)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %12, i64 %14)
   store i64 %.sroa.speculated.i, ptr %largest_acked_packet_number_.i, align 8
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
@@ -604,7 +604,7 @@ define dso_local void @_ZN3net18TcpCubicSenderBase13OnPacketAckedEmmm(ptr nounde
 entry:
   %largest_acked_packet_number_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %largest_acked_packet_number_, align 8
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %0, i64 %acked_packet_number)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %acked_packet_number, i64 %0)
   store i64 %.sroa.speculated, ptr %largest_acked_packet_number_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
@@ -804,7 +804,7 @@ land.lhs.true:                                    ; preds = %if.end
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 96
   %4 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %cmp = icmp ult i64 %call11, %bytes_in_flight
+  %cmp = icmp ugt i64 %bytes_in_flight, %call11
   br i1 %cmp, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %land.lhs.true
@@ -932,7 +932,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %cmp.not = icmp ugt i64 %call, %bytes_in_flight
+  %cmp.not = icmp ult i64 %bytes_in_flight, %call
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -942,7 +942,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(141) %this)
   %div5 = lshr i64 %call, 1
-  %cmp5 = icmp ult i64 %div5, %bytes_in_flight
+  %cmp5 = icmp ugt i64 %bytes_in_flight, %div5
   %2 = and i1 %cmp5, %call4
   %cmp6 = icmp ult i64 %sub, 4381
   %3 = select i1 %2, i1 true, i1 %cmp6

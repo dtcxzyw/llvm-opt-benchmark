@@ -3042,7 +3042,7 @@ define internal i32 @dissect_mms_Unsigned32(i1 noundef zeroext %0, ptr noundef %
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #3
   %9 = load i32, ptr @hf_mms_invokeID, align 4
-  %10 = icmp eq i32 %9, %5
+  %10 = icmp eq i32 %5, %9
   br i1 %10, label %11, label %29
 
 11:                                               ; preds = %6
@@ -3151,9 +3151,9 @@ define internal i32 @dissect_mms_Transitions(i1 noundef zeroext %0, ptr noundef 
 define internal i32 @dissect_mms_Identifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_restricted_string(i1 noundef zeroext %0, i32 noundef 26, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #3
   %8 = load i32, ptr @hf_mms_domainId, align 4
-  %9 = icmp eq i32 %8, %5
+  %9 = icmp eq i32 %5, %8
   %10 = load i32, ptr @hf_mms_itemId, align 4
-  %11 = icmp eq i32 %10, %5
+  %11 = icmp eq i32 %5, %10
   %or.cond = select i1 %9, i1 true, i1 %11
   br i1 %or.cond, label %12, label %40
 

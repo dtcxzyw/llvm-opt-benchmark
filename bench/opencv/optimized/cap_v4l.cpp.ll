@@ -647,7 +647,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L9streamingEb(ptr nound
   %8 = getelementptr inbounds i8, ptr %0, i64 13
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
-  %11 = xor i1 %10, %1
+  %11 = xor i1 %1, %10
   br i1 %11, label %12, label %73
 
 12:                                               ; preds = %2
@@ -1446,7 +1446,7 @@ _ZN2cvL17decode_ioctl_codeEm.exit103:             ; preds = %117, %118, %119, %1
 
 168:                                              ; preds = %167
   %169 = icmp eq i32 %100, 16
-  %brmerge.not = and i1 %169, %3
+  %brmerge.not = and i1 %3, %169
   br i1 %brmerge.not, label %170, label %195
 
 170:                                              ; preds = %168

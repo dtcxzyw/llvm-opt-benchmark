@@ -326,7 +326,7 @@ define dso_local void @apply_alternatives(ptr noundef %0, ptr noundef %1) local_
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #20
   %82 = load i32, ptr %9, align 4
   %83 = sext i32 %82 to i64
-  %84 = icmp ult i64 %83, %67
+  %84 = icmp ugt i64 %67, %83
   br i1 %84, label %71, label %optimize_nops.exit.i, !llvm.loop !17
 
 85:                                               ; preds = %71
@@ -760,7 +760,7 @@ optimize_nops.exit.i:                             ; preds = %77, %85, %65
   %325 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %.pre2.i, %269 ], [ %.pre2.i, %266 ], [ %.pre2.i, %306 ], [ %.pre2.i, %317 ], [ %.pre2.i, %319 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #20
   %326 = sext i32 %325 to i64
-  %327 = icmp ult i64 %326, %.pre-phi29
+  %327 = icmp ugt i64 %.pre-phi29, %326
   br i1 %327, label %174, label %apply_relocation.exit, !llvm.loop !38
 
 apply_relocation.exit:                            ; preds = %324, %._crit_edge27, %323
@@ -1352,7 +1352,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #20
   %191 = load i32, ptr %5, align 4
   %192 = sext i32 %191 to i64
-  %193 = icmp ult i32 %191, %178
+  %193 = icmp ugt i32 %178, %191
   br i1 %193, label %180, label %optimize_nops.exit, !llvm.loop !17
 
 194:                                              ; preds = %180
@@ -3081,7 +3081,7 @@ thread-pre-split:                                 ; preds = %17, %32
   %36 = getelementptr inbounds i8, ptr %6, i64 82
   %37 = load i8, ptr %36, align 2
   %38 = zext i8 %37 to i64
-  %39 = icmp ult i64 %38, %3
+  %39 = icmp ugt i64 %3, %38
   br i1 %39, label %40, label %.loopexit
 
 40:                                               ; preds = %35
@@ -3091,7 +3091,7 @@ thread-pre-split:                                 ; preds = %17, %32
 42:                                               ; preds = %46
   %43 = add i32 %48, 1
   %44 = sext i32 %43 to i64
-  %45 = icmp ult i64 %44, %3
+  %45 = icmp ugt i64 %3, %44
   br i1 %45, label %46, label %.loopexit, !llvm.loop !162
 
 46:                                               ; preds = %42, %40
@@ -3111,7 +3111,7 @@ thread-pre-split:                                 ; preds = %17, %32
   %54 = getelementptr inbounds i8, ptr %6, i64 82
   %55 = load i8, ptr %54, align 2
   %56 = zext i8 %55 to i64
-  %57 = icmp eq i64 %56, %3
+  %57 = icmp eq i64 %3, %56
   br i1 %57, label %.loopexit, label %58, !prof !28
 
 58:                                               ; preds = %53

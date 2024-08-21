@@ -441,7 +441,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
   br label %.loopexit
 
 170:                                              ; preds = %.preheader
-  %exitcond.not = icmp eq i16 %150, %2
+  %exitcond.not = icmp eq i16 %2, %150
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 171:                                              ; preds = %89

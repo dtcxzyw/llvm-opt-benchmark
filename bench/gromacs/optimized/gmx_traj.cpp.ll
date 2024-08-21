@@ -2692,18 +2692,18 @@ _ZL11write_trx_xP11t_trxstatusPK10t_trxframePfbiPiPS5_.exit: ; preds = %899, %.l
   %1064 = load float, ptr %1063, align 4
   %1065 = getelementptr inbounds i8, ptr %1058, i64 4
   %1066 = load float, ptr %1065, align 4
-  %1067 = fneg float %1064
-  %1068 = fmul float %1066, %1067
+  %1067 = fneg float %1066
+  %1068 = fmul float %1064, %1067
   %1069 = call float @llvm.fmuladd.f32(float %1060, float %1062, float %1068)
   store float %1069, ptr %13, align 4
   %1070 = load float, ptr %1058, align 4
   %1071 = load float, ptr %1057, align 4
-  %1072 = fneg float %1071
-  %1073 = fmul float %1062, %1072
+  %1072 = fneg float %1062
+  %1073 = fmul float %1071, %1072
   %1074 = call float @llvm.fmuladd.f32(float %1064, float %1070, float %1073)
   store float %1074, ptr %678, align 4
-  %1075 = fneg float %1060
-  %1076 = fmul float %1070, %1075
+  %1075 = fneg float %1070
+  %1076 = fmul float %1060, %1075
   %1077 = call float @llvm.fmuladd.f32(float %1071, float %1066, float %1076)
   store float %1077, ptr %679, align 4
   br label %1078
@@ -2758,16 +2758,16 @@ _ZL11write_trx_xP11t_trxstatusPK10t_trxframePfbiPiPS5_.exit: ; preds = %899, %.l
   %1103 = phi double [ 0.000000e+00, %.lr.ph641 ], [ %.pre157.i, %._crit_edge.loopexit.i447 ]
   %1104 = phi double [ 0.000000e+00, %.lr.ph641 ], [ %.pre.i449, %._crit_edge.loopexit.i447 ]
   %.096.lcssa.i = phi double [ 0.000000e+00, %.lr.ph641 ], [ %1098, %._crit_edge.loopexit.i447 ]
-  %1105 = fneg double %1102
-  %1106 = fmul double %1101, %1105
+  %1105 = fneg double %1101
+  %1106 = fmul double %1102, %1105
   %1107 = call double @llvm.fmuladd.f64(double %1104, double %1103, double %1106)
   store double %1107, ptr %16, align 16
-  %1108 = fneg double %1099
-  %1109 = fmul double %1103, %1108
+  %1108 = fneg double %1103
+  %1109 = fmul double %1099, %1108
   %1110 = call double @llvm.fmuladd.f64(double %1102, double %1100, double %1109)
   store double %1110, ptr %680, align 8
-  %1111 = fneg double %1104
-  %1112 = fmul double %1100, %1111
+  %1111 = fneg double %1100
+  %1112 = fmul double %1104, %1111
   %1113 = call double @llvm.fmuladd.f64(double %1099, double %1101, double %1112)
   store double %1113, ptr %681, align 16
   br label %1114
@@ -5102,7 +5102,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %26, %.lr.ph.i.i.i ]
   %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not10.i.i.i16 = icmp eq ptr %5, %1
+  %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
@@ -5185,7 +5185,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 12
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
@@ -5253,7 +5253,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
+  %37 = icmp ult i64 %1, %9
   br i1 %37, label %38, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36

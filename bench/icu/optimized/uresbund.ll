@@ -185,7 +185,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -465,7 +465,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #22
   %cmp7 = icmp eq ptr %call, null
@@ -5205,7 +5205,7 @@ if.then11.i:                                      ; preds = %if.end7.thread.i
   br label %if.end4
 
 if.else17.i:                                      ; preds = %if.end7.thread.i
-  %cmp18.i = icmp sgt i32 %3, %parentCapacity
+  %cmp18.i = icmp slt i32 %parentCapacity, %3
   br i1 %cmp18.i, label %if.then19.i, label %if.end21.i
 
 if.then19.i:                                      ; preds = %if.else17.i
@@ -5615,7 +5615,7 @@ if.then23:                                        ; preds = %if.end21
 if.end25:                                         ; preds = %if.then23, %if.end21
   %fResPath26 = getelementptr inbounds i8, ptr %resB, i64 32
   %9 = load ptr, ptr %fResPath26, align 8
-  %cmp27.not = icmp eq ptr %9, %containerResPath
+  %cmp27.not = icmp eq ptr %containerResPath, %9
   br i1 %cmp27.not, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
@@ -5685,7 +5685,7 @@ _ZL13entryIncreaseP18UResourceDataEntry.exit:     ; preds = %while.end.i
   store ptr %validLocaleDataEntry, ptr %fValidLocaleDataEntry, align 8
   %fResPath33 = getelementptr inbounds i8, ptr %resB.addr.0, i64 32
   %17 = load ptr, ptr %fResPath33, align 8
-  %cmp34.not = icmp eq ptr %17, %containerResPath
+  %cmp34.not = icmp eq ptr %containerResPath, %17
   br i1 %cmp34.not, label %if.end37, label %if.then35
 
 if.then35:                                        ; preds = %_ZL13entryIncreaseP18UResourceDataEntry.exit

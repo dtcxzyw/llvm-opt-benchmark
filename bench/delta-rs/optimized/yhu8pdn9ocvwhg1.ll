@@ -31679,8 +31679,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std
 
 43:                                               ; preds = %64, %10
   %.sroa.9.0.i.i.i.i = phi i64 [ 0, %10 ], [ %65, %64 ]
-  %.pn.i.i = phi i64 [ %39, %10 ], [ %66, %64 ]
-  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i, %.val4.i
+  %.pn.i.i.i.i = phi i64 [ %39, %10 ], [ %66, %64 ]
+  %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val4.i
   %44 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
   %.0.copyload.i25.i.i.i = load <16 x i8>, ptr %44, align 1, !noalias !4237
   %45 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, %.15.vec.insert.i.i.i.i
@@ -31710,7 +31710,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std
   %57 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { i64, ptr, {} }, i64 } }, ptr %.val.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -32
   %.val6.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !4247, !noalias !4252, !noundef !5
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i.i, %2
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %2, %.val6.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %59, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit.backedge.i.i.i"
 
 59:                                               ; preds = %.lr.ph.i.i.i
@@ -31751,7 +31751,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.88696
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 

@@ -106,7 +106,7 @@ if.then:                                          ; preds = %land.lhs.true
   %cmp6.not = icmp eq i64 %alignment, 0
   %sub.not.i = sub i64 0, %alignment
   %sub1.i = and i64 %.sroa.speculated7, %sub.not.i
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %sub1.i, i64 %alignment)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %alignment, i64 %sub1.i)
   %bytes.addr.1 = select i1 %cmp6.not, i64 %.sroa.speculated7, i64 %.sroa.speculated
   %vtable11 = load ptr, ptr %this, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 48
@@ -2145,7 +2145,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #15
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

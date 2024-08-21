@@ -796,7 +796,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @task_blocks_on_rt_mutex(pt
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %2, %9
   br i1 %10, label %186, label %11
 
 11:                                               ; preds = %4
@@ -1862,7 +1862,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, -2
   %101 = inttoptr i64 %100 to ptr
-  %102 = icmp eq ptr %101, %5
+  %102 = icmp eq ptr %5, %101
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %96, %93

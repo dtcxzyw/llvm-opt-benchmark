@@ -624,7 +624,7 @@ define linkonce_odr hidden void @_ZN2cv11JSONEmitter5writeEPKcS2_b(ptr noundef n
 
 28:                                               ; preds = %17
   %29 = icmp eq i32 %19, 0
-  %or.cond = or i1 %29, %3
+  %or.cond = or i1 %3, %29
   br i1 %or.cond, label %37, label %30
 
 30:                                               ; preds = %28
@@ -1229,7 +1229,7 @@ define linkonce_odr hidden void @_ZN2cv11JSONEmitter12writeCommentEPKcb(ptr noun
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %17)
   %22 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #15
   %.not46 = icmp eq ptr %22, null
-  %or.cond = and i1 %.not46, %2
+  %or.cond = and i1 %2, %.not46
   br i1 %or.cond, label %23, label %41
 
 23:                                               ; preds = %14

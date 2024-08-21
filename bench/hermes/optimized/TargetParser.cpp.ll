@@ -5308,7 +5308,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_112ARCHExtNamesE, i64 %__begin1.0.idx6
   %AE.sroa.3.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 16
   %AE.sroa.3.0.copyload = load i32, ptr %AE.sroa.3.0.__begin1.0.ptr.sroa_idx, align 8
-  %cmp1 = icmp eq i32 %AE.sroa.3.0.copyload, %ArchExtKind
+  %cmp1 = icmp eq i32 %ArchExtKind, %AE.sroa.3.0.copyload
   br i1 %cmp1, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
@@ -5381,7 +5381,7 @@ for.body11:                                       ; preds = %if.end8, %for.inc22
   %AE12.sroa.333.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 24
   %AE12.sroa.333.0.copyload = load ptr, ptr %AE12.sroa.333.0.__begin1.0.ptr.sroa_idx, align 8
   %tobool13.not = icmp ne ptr %AE12.sroa.333.0.copyload, null
-  %cmp.i77 = icmp eq i64 %AE12.sroa.2.0.copyload, %ArchExt.coerce1
+  %cmp.i77 = icmp eq i64 %ArchExt.coerce1, %AE12.sroa.2.0.copyload
   %or.cond57 = select i1 %tobool13.not, i1 %cmp.i77, i1 false
   br i1 %or.cond57, label %land.rhs.i78, label %for.inc22
 
@@ -5426,7 +5426,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110HWDivNamesE, i64 %__begin1.0.idx6
   %D.sroa.3.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 16
   %D.sroa.3.0.copyload = load i32, ptr %D.sroa.3.0.__begin1.0.ptr.sroa_idx, align 8
-  %cmp1 = icmp eq i32 %D.sroa.3.0.copyload, %HWDivKind
+  %cmp1 = icmp eq i32 %HWDivKind, %D.sroa.3.0.copyload
   br i1 %cmp1, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
@@ -7636,7 +7636,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %__begin1.0.ptr9 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 %__begin1.0.idx8
   %ID = getelementptr inbounds i8, ptr %__begin1.0.ptr9, i64 16
   %0 = load i32, ptr %ID, align 8
-  %cmp1 = icmp eq i32 %0, %ArchExtKind
+  %cmp1 = icmp eq i32 %ArchExtKind, %0
   br i1 %cmp1, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
@@ -7714,7 +7714,7 @@ land.lhs.true14:                                  ; preds = %for.body11
   %__begin1.0.ptr.val = load ptr, ptr %__begin1.0.ptr61, align 8
   %4 = getelementptr i8, ptr %__begin1.0.ptr61, i64 8
   %__begin1.0.ptr.val30 = load i64, ptr %4, align 8
-  %cmp.i77 = icmp eq i64 %__begin1.0.ptr.val30, %ArchExt.coerce1
+  %cmp.i77 = icmp eq i64 %ArchExt.coerce1, %__begin1.0.ptr.val30
   br i1 %cmp.i77, label %land.rhs.i78, label %for.inc22
 
 land.rhs.i78:                                     ; preds = %land.lhs.true14
@@ -8120,7 +8120,7 @@ for.body:                                         ; preds = %_ZL15getHWDivSynony
   %D.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 8
   %D.sroa.2.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 8
   %D.sroa.2.0.copyload = load i64, ptr %D.sroa.2.0.__begin1.0.ptr.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %D.sroa.2.0.copyload, %HWDiv.coerce1
+  %cmp.i = icmp eq i64 %HWDiv.coerce1, %D.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
@@ -8468,7 +8468,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %A.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 8
   %A.sroa.2.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 8
   %A.sroa.2.0.copyload = load i64, ptr %A.sroa.2.0.__begin1.0.ptr.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %A.sroa.2.0.copyload, %ArchExt.coerce1
+  %cmp.i = icmp eq i64 %ArchExt.coerce1, %A.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
@@ -8506,7 +8506,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %C.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 16
   %C.sroa.2.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 8
   %C.sroa.2.0.copyload = load i64, ptr %C.sroa.2.0.__begin1.0.ptr.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %C.sroa.2.0.copyload, %CPU.coerce1
+  %cmp.i = icmp eq i64 %CPU.coerce1, %C.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
@@ -8873,7 +8873,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 %__begin1.0.idx16.i
   %C.sroa.2.0.__begin1.0.ptr.sroa_idx.i = getelementptr inbounds i8, ptr %__begin1.0.ptr.i, i64 8
   %C.sroa.2.0.copyload.i = load i64, ptr %C.sroa.2.0.__begin1.0.ptr.sroa_idx.i, align 8
-  %cmp.i.i = icmp eq i64 %C.sroa.2.0.copyload.i, %CPU.coerce1
+  %cmp.i.i = icmp eq i64 %CPU.coerce1, %C.sroa.2.0.copyload.i
   br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %for.body.i
@@ -9009,7 +9009,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %A.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 8
   %A.sroa.2.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 8
   %A.sroa.2.0.copyload = load i64, ptr %A.sroa.2.0.__begin1.0.ptr.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %A.sroa.2.0.copyload, %ArchExt.coerce1
+  %cmp.i = icmp eq i64 %ArchExt.coerce1, %A.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
@@ -9047,7 +9047,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %C.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 16
   %C.sroa.2.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 8
   %C.sroa.2.0.copyload = load i64, ptr %C.sroa.2.0.__begin1.0.ptr.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %C.sroa.2.0.copyload, %CPU.coerce1
+  %cmp.i = icmp eq i64 %CPU.coerce1, %C.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
@@ -9260,7 +9260,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %C.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 8
   %C.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 8
   %C.sroa.2.0.copyload = load i64, ptr %C.sroa.2.0..sroa_idx, align 8
-  %cmp.i = icmp eq i64 %C.sroa.2.0.copyload, %CPU.coerce1
+  %cmp.i = icmp eq i64 %CPU.coerce1, %C.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
@@ -9298,7 +9298,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %C.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 8
   %C.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 8
   %C.sroa.2.0.copyload = load i64, ptr %C.sroa.2.0..sroa_idx, align 8
-  %cmp.i = icmp eq i64 %C.sroa.2.0.copyload, %CPU.coerce1
+  %cmp.i = icmp eq i64 %CPU.coerce1, %C.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
@@ -9510,7 +9510,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %__begin1.0.idx16.i
   %C.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %__begin1.0.ptr.i, i64 8
   %C.sroa.2.0.copyload.i = load i64, ptr %C.sroa.2.0..sroa_idx.i, align 8
-  %cmp.i.i = icmp eq i64 %C.sroa.2.0.copyload.i, %GPU.coerce1.fr
+  %cmp.i.i = icmp eq i64 %GPU.coerce1.fr, %C.sroa.2.0.copyload.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %for.inc.i
 
 land.rhs.i.i:                                     ; preds = %for.body.i

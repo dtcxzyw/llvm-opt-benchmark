@@ -149,7 +149,7 @@ common.resume:                                    ; preds = %.thread53, %14
   %52 = load i64, ptr %19, align 8, !alias.scope !62, !noalias !59, !noundef !10
   %53 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !64, !noalias !59, !noundef !10
   %54 = sub i64 %53, %52
-  %55 = icmp ult i64 %54, %.pre61
+  %55 = icmp ugt i64 %.pre61, %54
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he5995102f50757f1E.exit34"

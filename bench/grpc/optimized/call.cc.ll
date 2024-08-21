@@ -1574,13 +1574,13 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %atomic-temp.i.0.i.i)
   %first_child = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i, i64 8
   %3 = load ptr, ptr %first_child, align 8
-  %cmp2 = icmp eq ptr %3, %this
+  %cmp2 = icmp eq ptr %this, %3
   br i1 %cmp2, label %if.then3, label %if.end10
 
 if.then3:                                         ; preds = %if.end
   %sibling_next = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %sibling_next, align 8
-  %cmp6 = icmp eq ptr %4, %this
+  %cmp6 = icmp eq ptr %this, %4
   %spec.store.select = select i1 %cmp6, ptr null, ptr %4
   store ptr %spec.store.select, ptr %first_child, align 8
   br label %if.end10
@@ -4279,13 +4279,13 @@ if.end.i:                                         ; preds = %if.end7
 .noexc7:                                          ; preds = %if.end.i
   %first_child.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %27 = load ptr, ptr %first_child.i, align 8
-  %cmp2.i = icmp eq ptr %27, %this
+  %cmp2.i = icmp eq ptr %this, %27
   br i1 %cmp2.i, label %if.then3.i, label %if.end10.i
 
 if.then3.i:                                       ; preds = %.noexc7
   %sibling_next.i = getelementptr inbounds i8, ptr %24, i64 8
   %28 = load ptr, ptr %sibling_next.i, align 8
-  %cmp6.i = icmp eq ptr %28, %this
+  %cmp6.i = icmp eq ptr %this, %28
   %spec.store.select.i = select i1 %cmp6.i, ptr null, ptr %28
   store ptr %spec.store.select.i, ptr %first_child.i, align 8
   br label %if.end10.i
@@ -19662,13 +19662,13 @@ if.end.i:                                         ; preds = %entry
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %atomic-temp.i.0.i.i.i)
   %first_child.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
   %3 = load ptr, ptr %first_child.i, align 8
-  %cmp2.i = icmp eq ptr %3, %this
+  %cmp2.i = icmp eq ptr %this, %3
   br i1 %cmp2.i, label %if.then3.i, label %if.end10.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %sibling_next.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %sibling_next.i, align 8
-  %cmp6.i = icmp eq ptr %4, %this
+  %cmp6.i = icmp eq ptr %this, %4
   %spec.store.select.i = select i1 %cmp6.i, ptr null, ptr %4
   store ptr %spec.store.select.i, ptr %first_child.i, align 8
   br label %if.end10.i

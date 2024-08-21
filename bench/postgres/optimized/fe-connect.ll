@@ -970,7 +970,7 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
   store i32 0, ptr %12, align 4
   %13 = call i64 @strtol(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef 10) #23
   %14 = load ptr, ptr %2, align 8
-  %15 = icmp eq ptr %14, %10
+  %15 = icmp eq ptr %10, %14
   br i1 %15, label %.loopexit49, label %16
 
 16:                                               ; preds = %11
@@ -3924,7 +3924,7 @@ release_conn_addrinfo.exit:                       ; preds = %94, %96
   store i32 0, ptr %108, align 4
   %109 = call i64 @strtol(ptr noundef nonnull %102, ptr noundef nonnull %6, i32 noundef 10) #23
   %110 = load ptr, ptr %6, align 8
-  %111 = icmp eq ptr %110, %102
+  %111 = icmp eq ptr %102, %110
   br i1 %111, label %pqParseIntParam.exit, label %112
 
 112:                                              ; preds = %107
@@ -5145,7 +5145,7 @@ define noundef zeroext i1 @pqParseIntParam(ptr noundef %0, ptr nocapture noundef
   store i32 0, ptr %6, align 4
   %7 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 10) #23
   %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, %0
+  %9 = icmp eq ptr %0, %8
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
@@ -5386,7 +5386,7 @@ define internal fastcc range(i32 0, 2) i32 @setKeepalivesIdle(ptr noundef %0) un
   store i32 0, ptr %9, align 4
   %10 = call i64 @strtol(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 10) #23
   %11 = load ptr, ptr %2, align 8
-  %12 = icmp eq ptr %11, %6
+  %12 = icmp eq ptr %6, %11
   br i1 %12, label %pqParseIntParam.exit, label %13
 
 13:                                               ; preds = %8
@@ -5475,7 +5475,7 @@ define internal fastcc range(i32 0, 2) i32 @setKeepalivesInterval(ptr noundef %0
   store i32 0, ptr %9, align 4
   %10 = call i64 @strtol(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 10) #23
   %11 = load ptr, ptr %2, align 8
-  %12 = icmp eq ptr %11, %6
+  %12 = icmp eq ptr %6, %11
   br i1 %12, label %pqParseIntParam.exit, label %13
 
 13:                                               ; preds = %8
@@ -5564,7 +5564,7 @@ define internal fastcc range(i32 0, 2) i32 @setKeepalivesCount(ptr noundef %0) u
   store i32 0, ptr %9, align 4
   %10 = call i64 @strtol(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 10) #23
   %11 = load ptr, ptr %2, align 8
-  %12 = icmp eq ptr %11, %6
+  %12 = icmp eq ptr %6, %11
   br i1 %12, label %pqParseIntParam.exit, label %13
 
 13:                                               ; preds = %8
@@ -5653,7 +5653,7 @@ define internal fastcc range(i32 0, 2) i32 @setTCPUserTimeout(ptr noundef %0) un
   store i32 0, ptr %9, align 4
   %10 = call i64 @strtol(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 10) #23
   %11 = load ptr, ptr %2, align 8
-  %12 = icmp eq ptr %11, %6
+  %12 = icmp eq ptr %6, %11
   br i1 %12, label %pqParseIntParam.exit, label %13
 
 13:                                               ; preds = %8

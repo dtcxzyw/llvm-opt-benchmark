@@ -67,7 +67,7 @@ define hidden void @_ZN21ThreadCrashProtection22check_crash_protectionEiP6Thread
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @_ZN21ThreadCrashProtection17_protected_threadE, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   %6 = load ptr, ptr @_ZN21ThreadCrashProtection17_crash_protectionE, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %5, i1 %7, i1 false

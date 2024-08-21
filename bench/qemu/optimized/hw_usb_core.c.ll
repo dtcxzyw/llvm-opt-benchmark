@@ -447,7 +447,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %1 to i64
-  %add = add i64 %conv, %bytes
+  %add = add i64 %bytes, %conv
   %size = getelementptr inbounds i8, ptr %cond, i64 32
   %2 = load i64, ptr %size, align 8
   %cmp5.not = icmp ugt i64 %add, %2
@@ -674,7 +674,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ep, align 8
   %dev1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %dev1, align 8
-  %cmp2 = icmp eq ptr %1, %dev
+  %cmp2 = icmp eq ptr %dev, %1
   br i1 %cmp2, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %if.end
@@ -1755,7 +1755,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %1 to i64
-  %add = add i64 %conv, %bytes
+  %add = add i64 %bytes, %conv
   %size = getelementptr inbounds i8, ptr %cond, i64 32
   %2 = load i64, ptr %size, align 8
   %cmp5.not = icmp ugt i64 %add, %2

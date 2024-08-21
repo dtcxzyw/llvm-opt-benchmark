@@ -495,7 +495,7 @@ if.end3.i:                                        ; preds = %if.end.i
 oss_get_available_bytes.exit:                     ; preds = %if.then1.i, %if.end3.i
   %retval.0.i = phi i64 [ 0, %if.then1.i ], [ %cond.i.i, %if.end3.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %cntinfo.i)
-  %cond = call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %len)
+  %cond = call i64 @llvm.umin.i64(i64 %len, i64 %retval.0.i)
   %tobool1.not37 = icmp eq i64 %cond, 0
   br i1 %tobool1.not37, label %return, label %while.body.lr.ph
 
@@ -672,13 +672,13 @@ if.then:                                          ; preds = %entry
   %pos_emul = getelementptr inbounds i8, ptr %hw, i64 96
   %2 = load i64, ptr %pos_emul, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %2
-  %cmp = icmp eq ptr %add.ptr, %buf
+  %cmp = icmp eq ptr %buf, %add.ptr
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
   %size_emul = getelementptr inbounds i8, ptr %hw, i64 112
   %3 = load i64, ptr %size_emul, align 8
-  %cmp1 = icmp ugt i64 %3, %size
+  %cmp1 = icmp ult i64 %size, %3
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %if.then

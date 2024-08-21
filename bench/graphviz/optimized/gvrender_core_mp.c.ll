@@ -171,10 +171,10 @@ define internal void @mp_textspan(ptr noundef %0, double %1, double %2, ptr noca
   %switch.select34 = select i1 %switch.selectcmp33, i32 0, i32 %switch.select
   %26 = fcmp ult double %1, 0.000000e+00
   %.in.v = select i1 %26, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %.in.v, %1
+  %.in = fadd double %1, %.in.v
   %27 = fcmp ult double %2, 0.000000e+00
   %.in32.v = select i1 %27, double -5.000000e-01, double 5.000000e-01
-  %.in32 = fadd double %.in32.v, %2
+  %.in32 = fadd double %2, %.in32.v
   %28 = fptosi double %.in32 to i32
   %29 = fptosi double %.in to i32
   %.not = icmp eq i32 %17, 0

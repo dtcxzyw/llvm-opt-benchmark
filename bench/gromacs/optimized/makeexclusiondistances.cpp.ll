@@ -187,7 +187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #15
   %60 = load float, ptr %6, align 4
-  %61 = fmul float %60, %4
+  %61 = fmul float %4, %60
   %storemerge = select i1 %58, float %61, float %3
   store float %storemerge, ptr %6, align 4
   %.not.i = icmp eq ptr %27, %28

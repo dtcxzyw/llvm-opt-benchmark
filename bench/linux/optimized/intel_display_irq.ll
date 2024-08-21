@@ -76,7 +76,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ilk_update_display_irq(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = xor i32 %1, -1
-  %5 = and i32 %4, %2
+  %5 = and i32 %2, %4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %19, label %7, !prof !6
 
@@ -109,7 +109,7 @@ define dso_local void @ilk_update_display_irq(ptr noundef %0, i32 noundef %1, i3
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, %4
   %23 = xor i32 %2, -1
-  %24 = and i32 %23, %1
+  %24 = and i32 %1, %23
   %25 = or disjoint i32 %22, %24
   %26 = icmp eq i32 %25, %21
   br i1 %26, label %48, label %27
@@ -187,7 +187,7 @@ define dso_local void @ilk_disable_display_irq(ptr noundef %0, i32 noundef %1) l
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @bdw_update_port_irq(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = xor i32 %1, -1
-  %5 = and i32 %4, %2
+  %5 = and i32 %2, %4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %19, label %7, !prof !6
 
@@ -250,7 +250,7 @@ define dso_local void @bdw_update_port_irq(ptr noundef %0, i32 noundef %1, i32 n
   %37 = tail call i32 %36(ptr noundef %34, i32 279620, i1 noundef zeroext true) #8
   %38 = and i32 %37, %4
   %39 = xor i32 %2, -1
-  %40 = and i32 %39, %1
+  %40 = and i32 %1, %39
   %41 = or disjoint i32 %38, %40
   %42 = icmp eq i32 %41, %37
   br i1 %42, label %48, label %43
@@ -276,7 +276,7 @@ define dso_local void @bdw_enable_pipe_irq(ptr noundef %0, i32 noundef %1, i32 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @bdw_update_pipe_irq(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = xor i32 %2, -1
-  %6 = and i32 %5, %3
+  %6 = and i32 %3, %5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %20, label %8, !prof !6
 
@@ -339,7 +339,7 @@ define internal fastcc void @bdw_update_pipe_irq(ptr noundef %0, i32 noundef %1,
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, %5
   %40 = xor i32 %3, -1
-  %41 = and i32 %40, %2
+  %41 = and i32 %2, %40
   %42 = or disjoint i32 %39, %41
   %43 = icmp eq i32 %42, %38
   br i1 %43, label %53, label %44
@@ -376,9 +376,9 @@ define dso_local void @ibx_display_interrupt_update(ptr noundef %0, i32 noundef 
   %8 = xor i32 %1, -1
   %9 = and i32 %7, %8
   %10 = xor i32 %2, -1
-  %11 = and i32 %10, %1
+  %11 = and i32 %1, %10
   %12 = or disjoint i32 %9, %11
-  %13 = and i32 %8, %2
+  %13 = and i32 %2, %8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %27, label %15, !prof !6
 

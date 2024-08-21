@@ -1398,7 +1398,7 @@ if.end12.i:                                       ; preds = %if.then4.i, %while.
 
 decode_tag_internal.exit:                         ; preds = %if.end12.i
   %call25.i = tail call i32 @evbuffer_drain(ptr noundef %evbuf, i64 noundef %inc.i) #7
-  %cmp1.not = icmp eq i32 %or.i, %need_tag
+  %cmp1.not = icmp eq i32 %need_tag, %or.i
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %decode_tag_internal.exit
@@ -1523,7 +1523,7 @@ if.end12.i:                                       ; preds = %if.then4.i, %while.
 
 decode_tag_internal.exit:                         ; preds = %if.end12.i
   %call25.i = tail call i32 @evbuffer_drain(ptr noundef %evbuf, i64 noundef %inc.i) #7
-  %cmp1.not = icmp eq i32 %or.i, %need_tag
+  %cmp1.not = icmp eq i32 %need_tag, %or.i
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %decode_tag_internal.exit
@@ -1611,7 +1611,7 @@ entry:
   %cmp1.not = icmp eq i32 %0, %need_tag
   %or.cond = select i1 %cmp, i1 %cmp1.not, i1 false
   %conv = zext nneg i32 %call to i64
-  %cmp2.not = icmp eq i64 %conv, %len
+  %cmp2.not = icmp eq i64 %len, %conv
   %or.cond3 = select i1 %or.cond, i1 %cmp2.not, i1 false
   br i1 %or.cond3, label %if.end5, label %return
 

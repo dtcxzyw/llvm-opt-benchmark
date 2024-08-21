@@ -90,7 +90,7 @@ if.end37.i:                                       ; preds = %if.end37.loopexit56
   %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
   %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
   %and38.i = and i32 %q.0.i, -256
-  %cmp39.i = icmp ugt i32 %and38.i, %p
+  %cmp39.i = icmp ult i32 %p, %and38.i
   %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
   %i.0.limit.0.i = select i1 %cmp39.i, i32 %i.0.i, i32 %limit.038.i
   %add.i = add nsw i32 %start.0.i.0.i, 1
@@ -103,7 +103,7 @@ _ZNK6icu_7521CollationRootElements5findPEj.exit:  ; preds = %for.cond20.preheade
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %12 = load i32, ptr %arrayidx, align 4
   %and = and i32 %12, -256
-  %cmp2 = icmp eq i32 %and, %p
+  %cmp2 = icmp eq i32 %p, %and
   br i1 %cmp2, label %if.then3, label %for.cond23
 
 if.then3:                                         ; preds = %_ZNK6icu_7521CollationRootElements5findPEj.exit
@@ -244,7 +244,7 @@ if.end37:                                         ; preds = %if.end37.loopexit56
   %i.0 = phi i32 [ %div, %while.body ], [ %10, %if.end37.loopexit ], [ %11, %if.end37.loopexit56 ]
   %q.0 = phi i32 [ %3, %while.body ], [ %9, %if.end37.loopexit ], [ %6, %if.end37.loopexit56 ]
   %and38 = and i32 %q.0, -256
-  %cmp39 = icmp ugt i32 %and38, %p
+  %cmp39 = icmp ult i32 %p, %and38
   %start.0.i.0 = select i1 %cmp39, i32 %start.037, i32 %i.0
   %i.0.limit.0 = select i1 %cmp39, i32 %i.0, i32 %limit.038
   %add = add nsw i32 %start.0.i.0, 1
@@ -343,7 +343,7 @@ if.end37.i:                                       ; preds = %if.end37.loopexit56
   %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
   %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
   %and38.i = and i32 %q.0.i, -256
-  %cmp39.i = icmp ugt i32 %and38.i, %p
+  %cmp39.i = icmp ult i32 %p, %and38.i
   %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
   %i.0.limit.0.i = select i1 %cmp39.i, i32 %i.0.i, i32 %limit.038.i
   %add.i = add nsw i32 %start.0.i.0.i, 1
@@ -356,7 +356,7 @@ _ZNK6icu_7521CollationRootElements5findPEj.exit:  ; preds = %for.cond20.preheade
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %12 = load i32, ptr %arrayidx, align 4
   %and = and i32 %12, -256
-  %cmp2.not = icmp eq i32 %and, %p
+  %cmp2.not = icmp eq i32 %p, %and
   br i1 %cmp2.not, label %if.end11, label %for.cond
 
 for.cond:                                         ; preds = %_ZNK6icu_7521CollationRootElements5findPEj.exit, %for.cond
@@ -463,7 +463,7 @@ if.end37.i.i:                                     ; preds = %if.end37.loopexit56
   %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %10, %if.end37.loopexit.i.i ], [ %11, %if.end37.loopexit56.i.i ]
   %q.0.i.i = phi i32 [ %3, %while.body.i.i ], [ %9, %if.end37.loopexit.i.i ], [ %6, %if.end37.loopexit56.i.i ]
   %and38.i.i = and i32 %q.0.i.i, -256
-  %cmp39.i.i = icmp ugt i32 %and38.i.i, %p
+  %cmp39.i.i = icmp ult i32 %p, %and38.i.i
   %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
   %i.0.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.0.i.i, i32 %limit.038.i.i
   %add.i.i = add nsw i32 %start.0.i.0.i.i, 1
@@ -476,7 +476,7 @@ _ZNK6icu_7521CollationRootElements11findPrimaryEj.exit: ; preds = %for.cond20.pr
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %12 = load i32, ptr %arrayidx, align 4
   %and = and i32 %12, -256
-  %cmp = icmp eq i32 %and, %p
+  %cmp = icmp eq i32 %p, %and
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit
@@ -605,7 +605,7 @@ if.end37.i:                                       ; preds = %if.end37.loopexit56
   %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
   %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
   %and38.i = and i32 %q.0.i, -256
-  %cmp39.i = icmp ugt i32 %and38.i, %p
+  %cmp39.i = icmp ult i32 %p, %and38.i
   %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
   %i.0.limit.0.i = select i1 %cmp39.i, i32 %i.0.i, i32 %limit.038.i
   %add.i = add nsw i32 %start.0.i.0.i, 1
@@ -716,7 +716,7 @@ if.end37.i.i:                                     ; preds = %if.end37.loopexit56
   %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
   %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
   %and38.i.i = and i32 %q.0.i.i, -256
-  %cmp39.i.i = icmp ugt i32 %and38.i.i, %p
+  %cmp39.i.i = icmp ult i32 %p, %and38.i.i
   %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
   %i.0.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.0.i.i, i32 %limit.038.i.i
   %add.i.i = add nsw i32 %start.0.i.0.i.i, 1
@@ -740,7 +740,7 @@ if.end:                                           ; preds = %_ZNK6icu_7521Collat
   %previousSec.0 = phi i32 [ 0, %if.then ], [ 256, %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit ]
   %sec.0.in = phi i32 [ %2, %if.then ], [ %retval.0.i, %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit ]
   %sec.112 = lshr i32 %sec.0.in, 16
-  %cmp613 = icmp ult i32 %sec.112, %s
+  %cmp613 = icmp ugt i32 %s, %sec.112
   br i1 %cmp613, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -754,7 +754,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %arrayidx9, align 4
   %sec.1 = lshr i32 %16, 16
-  %cmp6 = icmp ult i32 %sec.1, %s
+  %cmp6 = icmp ugt i32 %s, %sec.1
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %if.end
@@ -877,7 +877,7 @@ if.end37.i.i:                                     ; preds = %if.end37.loopexit56
   %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
   %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
   %and38.i.i = and i32 %q.0.i.i, -256
-  %cmp39.i.i = icmp ugt i32 %and38.i.i, %p
+  %cmp39.i.i = icmp ult i32 %p, %and38.i.i
   %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
   %i.0.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.0.i.i, i32 %limit.038.i.i
   %add.i.i = add nsw i32 %start.0.i.0.i.i, 1

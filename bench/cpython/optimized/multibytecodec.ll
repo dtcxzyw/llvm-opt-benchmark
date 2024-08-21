@@ -2194,7 +2194,7 @@ entry:
   %2 = getelementptr i8, ptr %1, i64 16
   %.val14 = load i64, ptr %2, align 8
   %shr = ashr i64 %.val14, 1
-  %cmp = icmp sgt i64 %shr, %esize
+  %cmp = icmp slt i64 %esize, %shr
   %or = or i64 %shr, 1
   %cond = select i1 %cmp, i64 %or, i64 %esize
   %sub = sub i64 9223372036854775807, %cond
@@ -3794,7 +3794,7 @@ skip_optional_pos:                                ; preds = %if.end18, %if.end15
 
 if.else.i:                                        ; preds = %skip_optional_pos
   %sub.i = sub i64 9223372036854775807, %7
-  %cmp4.i = icmp slt i64 %sub.i, %input.val15
+  %cmp4.i = icmp sgt i64 %input.val15, %sub.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end.i
 
 if.then5.i:                                       ; preds = %if.else.i

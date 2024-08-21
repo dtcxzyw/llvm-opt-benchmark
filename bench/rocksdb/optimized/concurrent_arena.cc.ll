@@ -305,8 +305,8 @@ entry:
   %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %shard_block_size_, align 16
   %div29 = lshr i64 %0, 2
-  %cmp = icmp ult i64 %div29, %bytes
-  %brmerge = or i1 %cmp, %force_arena
+  %cmp = icmp ugt i64 %bytes, %div29
+  %brmerge = or i1 %force_arena, %cmp
   br i1 %brmerge, label %for.cond.i.i, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %entry
@@ -365,7 +365,7 @@ if.end:                                           ; preds = %_ZN7rocksdb9SpinMut
   %13 = load i64, ptr %12, align 8
   %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %11, i64 2352
   %14 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %cmp.not.i.i = icmp ult i64 %14, %13
+  %cmp.not.i.i = icmp ugt i64 %13, %14
   br i1 %cmp.not.i.i, label %if.end.i.i45, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -548,7 +548,7 @@ if.then44:                                        ; preds = %land.lhs.true40
   %46 = load i64, ptr %45, align 8
   %alloc_bytes_remaining_.i.i68 = getelementptr inbounds i8, ptr %44, i64 2352
   %47 = load i64, ptr %alloc_bytes_remaining_.i.i68, align 16
-  %cmp.not.i.i69 = icmp ult i64 %47, %46
+  %cmp.not.i.i69 = icmp ugt i64 %46, %47
   br i1 %cmp.not.i.i69, label %if.end.i.i76, label %if.then.i.i70
 
 if.then.i.i70:                                    ; preds = %if.then44
@@ -670,8 +670,8 @@ entry:
   %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %shard_block_size_, align 16
   %div29 = lshr i64 %0, 2
-  %cmp = icmp ult i64 %div29, %bytes
-  %brmerge = or i1 %cmp, %force_arena
+  %cmp = icmp ugt i64 %bytes, %div29
+  %brmerge = or i1 %force_arena, %cmp
   br i1 %brmerge, label %for.cond.i.i, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %entry

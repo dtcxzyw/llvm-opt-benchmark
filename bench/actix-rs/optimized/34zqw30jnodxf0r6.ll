@@ -732,7 +732,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !52, !noalias !57, !noundef !4
   %45 = load i64, ptr %0, align 8, !alias.scope !59, !noalias !57, !noundef !4
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he705b6a9ade2a438E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -789,7 +789,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %5 = load i64, ptr %4, align 8, !alias.scope !65, !noalias !70, !noundef !4
   %6 = load i64, ptr %0, align 8, !alias.scope !72, !noalias !70, !noundef !4
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he705b6a9ade2a438E.exit"
 
 9:                                                ; preds = %3
@@ -2641,7 +2641,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9f991704ee37cb
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef i8 @_ZN8bitflags6traits5Flags10difference17habaacf2df8463e90E.llvm.131133111252985069(i8 noundef %0, i8 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = xor i8 %1, -1
-  %4 = and i8 %3, %0
+  %4 = and i8 %0, %3
   ret i8 %4
 }
 
@@ -6460,7 +6460,7 @@ define hidden noundef ptr @"_ZN10actix_http2h17encoder23MessageEncoder$LT$T$GT$6
   %22 = load i8, ptr %21, align 1, !noundef !4
   %23 = and i8 %22, 16
   %.not.i = icmp ne i8 %23, 0
-  %brmerge = or i1 %.not.i, %4
+  %brmerge = or i1 %4, %.not.i
   %.50 = select i1 %brmerge, i8 2, i8 0
   br label %24
 
@@ -6527,7 +6527,7 @@ define hidden noundef ptr @"_ZN10actix_http2h17encoder23MessageEncoder$LT$T$GT$6
   %21 = load i8, ptr %20, align 2, !noundef !4
   %22 = and i8 %21, 16
   %.not.i = icmp ne i8 %22, 0
-  %brmerge = or i1 %.not.i, %4
+  %brmerge = or i1 %4, %.not.i
   %.50 = select i1 %brmerge, i8 2, i8 0
   br label %23
 

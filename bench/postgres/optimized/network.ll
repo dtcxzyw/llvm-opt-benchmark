@@ -118,7 +118,7 @@ define internal fastcc noundef ptr @network_in(ptr noundef %0, i1 noundef zeroex
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %23, i64 2
   %.20.i = select i1 %25, i32 4, i32 16
-  %37 = icmp eq i32 %26, %18
+  %37 = icmp eq i32 %18, %26
   br i1 %37, label %addressOK.exit.thread, label %38
 
 38:                                               ; preds = %35
@@ -381,7 +381,7 @@ define internal fastcc ptr @network_recv(ptr noundef %0, i1 noundef zeroext %1) 
   %58 = icmp eq i8 %57, 2
   %..i = select i1 %58, i32 32, i32 128
   %.20.i = select i1 %58, i32 4, i32 16
-  %59 = icmp eq i32 %..i, %18
+  %59 = icmp eq i32 %18, %..i
   br i1 %59, label %addressOK.exit.thread, label %60
 
 60:                                               ; preds = %54

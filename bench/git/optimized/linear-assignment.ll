@@ -420,7 +420,7 @@ for.inc281:                                       ; preds = %for.body261, %if.th
   %min230.2 = phi i32 [ %40, %if.then268 ], [ %min230.0336, %for.body261 ]
   %indvars.iv.next397 = add nsw i64 %indvars.iv396, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next397 to i32
-  %exitcond399.not = icmp eq i32 %lftr.wideiv, %column_count
+  %exitcond399.not = icmp eq i32 %column_count, %lftr.wideiv
   br i1 %exitcond399.not, label %for.cond284.preheader, label %for.body261, !llvm.loop !15
 
 for.cond284:                                      ; preds = %for.body287
@@ -510,7 +510,7 @@ for.inc355:                                       ; preds = %for.body317, %if.en
   %up.6 = phi i32 [ %inc350, %if.end345 ], [ %up.5343, %if.then332 ], [ %up.5343, %for.body317 ]
   %indvars.iv.next406 = add nsw i64 %indvars.iv405, 1
   %lftr.wideiv408 = trunc i64 %indvars.iv.next406 to i32
-  %exitcond409.not = icmp eq i32 %lftr.wideiv408, %column_count
+  %exitcond409.not = icmp eq i32 %column_count, %lftr.wideiv408
   br i1 %exitcond409.not, label %do.cond, label %for.body317, !llvm.loop !17
 
 do.cond:                                          ; preds = %for.inc355, %do.body299

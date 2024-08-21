@@ -212,7 +212,7 @@ if.then12:                                        ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %sub = sub nuw nsw i32 64, %and
   %conv13 = zext nneg i32 %sub to i64
-  %cmp14 = icmp ugt i64 %conv13, %len
+  %cmp14 = icmp ult i64 %len, %conv13
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.then12
@@ -1544,7 +1544,7 @@ for.body.i.i95:                                   ; preds = %entry, %if.end.i11.
   %i.i.020.i96 = phi i64 [ %inc.i.i100, %if.end.i11.i99 ], [ 0, %entry ]
   %arrayidx.i.i97 = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.020.i96
   %18 = load i64, ptr %arrayidx.i.i97, align 8
-  %cmp1.i10.i98 = icmp ugt i64 %18, %x.coerce0
+  %cmp1.i10.i98 = icmp ult i64 %x.coerce0, %18
   br i1 %cmp1.i10.i98, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i130, label %if.end.i11.i99
 
 if.end.i11.i99:                                   ; preds = %for.body.i.i95
@@ -2397,7 +2397,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i.i.
   %i.i.06.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i.i.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !44
-  %cmp1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %1, %0
+  %cmp1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %0, %1
   br i1 %cmp1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2476,7 +2476,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
   %i.i.i.015.i.i.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 8
-  %cmp1.i.i.i.i.i.i.i.i.i = icmp ugt i64 %5, %4
+  %cmp1.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, %5
   br i1 %cmp1.i.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i.i

@@ -56,7 +56,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 2
   %.not = icmp eq i16 %22, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %31, label %23
 
 23:                                               ; preds = %BufferGetPage.exit
@@ -1928,7 +1928,7 @@ BufferGetPage.exit61:                             ; preds = %299, %305
   %315 = load i32, ptr %314, align 4
   %316 = tail call fastcc zeroext i1 @ginPlaceToPage(ptr noundef nonnull %0, ptr noundef nonnull %.050, ptr noundef %296, i32 noundef %315, i32 noundef %297, ptr noundef %3)
   tail call void @pfree(ptr noundef %296) #5
-  %brmerge = or i1 %.051.not, %2
+  %brmerge = or i1 %2, %.051.not
   br i1 %brmerge, label %317, label %319
 
 317:                                              ; preds = %BufferGetPage.exit61

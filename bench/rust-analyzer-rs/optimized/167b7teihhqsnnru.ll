@@ -1065,7 +1065,7 @@ common.resume:                                    ; preds = %39, %21
   %103 = getelementptr inbounds i8, ptr %102, i64 24
   %104 = getelementptr i8, ptr %102, i64 16
   %.val4.i = load i64, ptr %104, align 8, !noalias !209, !noundef !4
-  %.not.i.i.i = icmp eq i64 %spec.select33, %.val4.i
+  %.not.i.i.i = icmp eq i64 %.val4.i, %spec.select33
   br i1 %.not.i.i.i, label %105, label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfded72499c08cbc3E.exit.backedge.i"
 
 105:                                              ; preds = %.lr.ph.i

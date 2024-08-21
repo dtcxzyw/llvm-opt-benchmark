@@ -119,7 +119,7 @@ define internal fastcc ptr @__i915_gem_object_create_region(ptr noundef %0, i64 
   %26 = add i64 %25, 1
   %27 = icmp eq i64 %22, %26
   %28 = zext i1 %27 to i32
-  %29 = or i32 %28, %4
+  %29 = or i32 %4, %28
   %30 = load i64, ptr %16, align 8
   %31 = icmp ult i64 %22, %30
   %32 = or i32 %29, 32

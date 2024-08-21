@@ -41,7 +41,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   %.015 = phi i32 [ 0, %5 ], [ %.2, %15 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 %1
   %19 = getelementptr inbounds i8, ptr %18, i64 -4
-  %20 = icmp ugt ptr %19, %0
+  %20 = icmp ult ptr %0, %19
   br i1 %20, label %.lr.ph.i, label %ir_patch_code.exit
 
 .lr.ph.i:                                         ; preds = %.loopexit

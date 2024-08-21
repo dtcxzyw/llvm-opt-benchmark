@@ -182,7 +182,7 @@ define hidden void @_ZN2cv13wechat_qrcode10SuperScale17processImageScaleERKNS_3M
   %24 = sitofp i32 %23 to double
   %25 = tail call double @sqrt(double noundef %24) #5
   %26 = fptosi double %25 to i32
-  %27 = icmp slt i32 %26, %5
+  %27 = icmp sgt i32 %5, %26
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %22

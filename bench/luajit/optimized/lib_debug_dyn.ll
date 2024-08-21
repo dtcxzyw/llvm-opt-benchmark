@@ -312,7 +312,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %tobool41.not, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %for.end
-  %cmp.i40 = icmp eq ptr %retval.0.i, %L
+  %cmp.i40 = icmp eq ptr %L, %retval.0.i
   br i1 %cmp.i40, label %if.then.i42, label %if.else.i41
 
 if.then.i42:                                      ; preds = %if.then42
@@ -333,7 +333,7 @@ if.end43:                                         ; preds = %treatstackoption.ex
   br i1 %tobool44.not, label %return, label %if.then45
 
 if.then45:                                        ; preds = %if.end43
-  %cmp.i43 = icmp eq ptr %retval.0.i, %L
+  %cmp.i43 = icmp eq ptr %L, %retval.0.i
   br i1 %cmp.i43, label %if.then.i45, label %if.else.i44
 
 if.then.i45:                                      ; preds = %if.then45
@@ -873,7 +873,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.else:                                          ; preds = %land.lhs.true, %getthread.exit
   %add8 = or disjoint i32 %arg.0, 2
-  %cmp9 = icmp eq ptr %retval.0.i, %L
+  %cmp9 = icmp eq ptr %L, %retval.0.i
   %conv = zext i1 %cmp9 to i32
   %call10 = tail call i32 @lj_lib_optint(ptr noundef nonnull %L, i32 noundef %add8, i32 noundef %conv) #8
   tail call void @luaL_traceback(ptr noundef nonnull %L, ptr noundef %retval.0.i, ptr noundef %call1, i32 noundef %call10) #8

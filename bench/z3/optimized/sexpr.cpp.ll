@@ -1252,7 +1252,7 @@ invoke.cont89:                                    ; preds = %invoke.cont83, %inv
   %add.ptr.i374 = getelementptr inbounds i8, ptr %115, i64 %idx.ext.i373
   %cmp.i.i = icmp ne i32 %114, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i374, i64 -1
-  %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %115
+  %cmp19.i.i = icmp ult ptr %115, %__last.addr.08.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %invoke.cont91
 

@@ -1251,7 +1251,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   %.not40 = xor i1 %16, true
-  %brmerge = or i1 %.not40, %1
+  %brmerge = or i1 %1, %.not40
   br i1 %brmerge, label %18, label %130
 
 17:                                               ; preds = %9
@@ -3008,7 +3008,7 @@ define internal fastcc i32 @getlen(ptr noundef %0, i1 noundef zeroext %1) unname
 8:                                                ; preds = %2
   %9 = load i32, ptr %3, align 4
   %10 = icmp ne i32 %9, 0
-  %brmerge = or i1 %10, %1
+  %brmerge = or i1 %1, %10
   br i1 %brmerge, label %14, label %11
 
 11:                                               ; preds = %8
@@ -3044,7 +3044,7 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
   %11 = load i32, ptr %10, align 8
   %12 = sub i32 %9, %11
   %13 = sext i32 %12 to i64
-  %.not20 = icmp slt i64 %13, %1
+  %.not20 = icmp sgt i64 %1, %13
   br i1 %.not20, label %17, label %14
 
 14:                                               ; preds = %7

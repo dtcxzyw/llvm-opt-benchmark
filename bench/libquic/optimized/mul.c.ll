@@ -153,7 +153,7 @@ if.end106:                                        ; preds = %if.end100
 
 end:                                              ; preds = %if.end106, %if.end97, %if.end21
   tail call void @bn_correct_top(ptr noundef nonnull %rr.0) #4
-  %cmp111.not = icmp eq ptr %rr.0, %r
+  %cmp111.not = icmp eq ptr %r, %rr.0
   br i1 %cmp111.not, label %if.end116, label %land.lhs.true113
 
 land.lhs.true113:                                 ; preds = %end
@@ -415,7 +415,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %r, ptr noundef %a, pt
 entry:
   %div = sdiv i32 %n2, 2
   %add = add nsw i32 %div, %dna
-  %add1 = add nsw i32 %div, %dnb
+  %add1 = add nsw i32 %dnb, %div
   %cmp = icmp eq i32 %n2, 8
   %0 = or i32 %dnb, %dna
   %1 = icmp eq i32 %0, 0

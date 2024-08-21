@@ -318,7 +318,7 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   %23 = getelementptr inbounds i8, ptr %14, i64 18
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = icmp eq i32 %25, %1
+  %26 = icmp eq i32 %1, %25
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %22
@@ -437,7 +437,7 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr nocapture readnone %0, pt
   %34 = getelementptr inbounds i8, ptr %33, i64 18
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = icmp eq i32 %36, %2
+  %37 = icmp eq i32 %2, %36
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %31

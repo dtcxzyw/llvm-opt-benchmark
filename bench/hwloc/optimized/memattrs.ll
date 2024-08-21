@@ -568,7 +568,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 define range(i32 -1, 1) i32 @hwloc_memattr_get_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 748
   %5 = load i32, ptr %4, align 4
-  %.not = icmp ugt i32 %5, %1
+  %.not = icmp ult i32 %1, %5
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
@@ -594,7 +594,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_name(ptr nocapture noundef readon
 define range(i32 -1, 1) i32 @hwloc_memattr_get_flags(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 748
   %5 = load i32, ptr %4, align 4
-  %.not = icmp ugt i32 %5, %1
+  %.not = icmp ult i32 %1, %5
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
@@ -1140,7 +1140,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_targets(ptr noundef %0, i32 nound
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 748
   %19 = load i32, ptr %18, align 4
-  %.not66 = icmp ugt i32 %19, %1
+  %.not66 = icmp ult i32 %1, %19
   br i1 %.not66, label %22, label %20
 
 20:                                               ; preds = %17
@@ -1571,7 +1571,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_initiators(ptr noundef %0, i32 no
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 748
   %19 = load i32, ptr %18, align 4
-  %.not42 = icmp ugt i32 %19, %1
+  %.not42 = icmp ult i32 %1, %19
   br i1 %.not42, label %22, label %20
 
 20:                                               ; preds = %17
@@ -1635,13 +1635,13 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_initiators(ptr noundef %0, i32 no
   %46 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %45, i64 %indvars.iv74.i
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
-  %49 = icmp eq i32 %48, %37
+  %49 = icmp eq i32 %37, %48
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %.lr.ph.split.us.split.i
   %51 = getelementptr inbounds i8, ptr %46, i64 16
   %52 = load i64, ptr %51, align 8
-  %53 = icmp eq i64 %52, %39
+  %53 = icmp eq i64 %39, %52
   br i1 %53, label %hwloc__memattr_get_target.exit, label %54
 
 54:                                               ; preds = %50, %.lr.ph.split.us.split.i
@@ -1658,13 +1658,13 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_initiators(ptr noundef %0, i32 no
   %55 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %45, i64 %indvars.iv69.i
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, %37
+  %58 = icmp eq i32 %37, %57
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %.lr.ph.split.split.us.i
   %60 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %45, i64 %indvars.iv69.i, i32 2
   %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %61, %41
+  %62 = icmp eq i32 %41, %61
   br i1 %62, label %hwloc__memattr_get_target.exit, label %63
 
 63:                                               ; preds = %59, %.lr.ph.split.split.us.i
@@ -1677,19 +1677,19 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_initiators(ptr noundef %0, i32 no
   %64 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %45, i64 %indvars.iv.i
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, %37
+  %67 = icmp eq i32 %37, %66
   br i1 %67, label %68, label %76
 
 68:                                               ; preds = %.lr.ph.split.split.i
   %69 = getelementptr inbounds i8, ptr %64, i64 16
   %70 = load i64, ptr %69, align 8
-  %71 = icmp eq i64 %70, %39
+  %71 = icmp eq i64 %39, %70
   br i1 %71, label %hwloc__memattr_get_target.exit, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %45, i64 %indvars.iv.i, i32 2
   %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, %41
+  %75 = icmp eq i32 %41, %74
   br i1 %75, label %hwloc__memattr_get_target.exit, label %76
 
 76:                                               ; preds = %72, %.lr.ph.split.split.i
@@ -1837,13 +1837,13 @@ define internal fastcc ptr @hwloc__memattr_get_target(ptr nocapture noundef %0, 
   %10 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %9, i64 %indvars.iv74
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.lr.ph.split.us.split
   %15 = getelementptr inbounds i8, ptr %10, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, %2
+  %17 = icmp eq i64 %2, %16
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %14, %.lr.ph.split.us.split
@@ -1860,13 +1860,13 @@ define internal fastcc ptr @hwloc__memattr_get_target(ptr nocapture noundef %0, 
   %19 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %9, i64 %indvars.iv69
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %.lr.ph.split.split.us
   %24 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %9, i64 %indvars.iv69, i32 2
   %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, %3
+  %26 = icmp eq i32 %3, %25
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %23, %.lr.ph.split.split.us
@@ -1879,19 +1879,19 @@ define internal fastcc ptr @hwloc__memattr_get_target(ptr nocapture noundef %0, 
   %28 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %9, i64 %indvars.iv
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, %1
+  %31 = icmp eq i32 %1, %30
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %.lr.ph.split.split
   %33 = getelementptr inbounds i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
-  %35 = icmp eq i64 %34, %2
+  %35 = icmp eq i64 %2, %34
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %9, i64 %indvars.iv, i32 2
   %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, %3
+  %39 = icmp eq i32 %3, %38
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %.lr.ph.split.split, %36
@@ -1957,7 +1957,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_value(ptr noundef %0, i32 noundef
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 748
   %11 = load i32, ptr %10, align 4
-  %.not29 = icmp ugt i32 %11, %1
+  %.not29 = icmp ult i32 %1, %11
   br i1 %.not29, label %14, label %12
 
 12:                                               ; preds = %9
@@ -2039,13 +2039,13 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %22, %23, %27
   %45 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %44, i64 %indvars.iv74.i
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
-  %48 = icmp eq i32 %47, %36
+  %48 = icmp eq i32 %36, %47
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %.lr.ph.split.us.split.i
   %50 = getelementptr inbounds i8, ptr %45, i64 16
   %51 = load i64, ptr %50, align 8
-  %52 = icmp eq i64 %51, %38
+  %52 = icmp eq i64 %38, %51
   br i1 %52, label %hwloc__memattr_get_target.exit, label %53
 
 53:                                               ; preds = %49, %.lr.ph.split.us.split.i
@@ -2062,13 +2062,13 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %22, %23, %27
   %54 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %44, i64 %indvars.iv69.i
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, %36
+  %57 = icmp eq i32 %36, %56
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %.lr.ph.split.split.us.i
   %59 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %44, i64 %indvars.iv69.i, i32 2
   %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, %40
+  %61 = icmp eq i32 %40, %60
   br i1 %61, label %hwloc__memattr_get_target.exit, label %62
 
 62:                                               ; preds = %58, %.lr.ph.split.split.us.i
@@ -2081,19 +2081,19 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %22, %23, %27
   %63 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %44, i64 %indvars.iv.i
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, %36
+  %66 = icmp eq i32 %36, %65
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %.lr.ph.split.split.i
   %68 = getelementptr inbounds i8, ptr %63, i64 16
   %69 = load i64, ptr %68, align 8
-  %70 = icmp eq i64 %69, %38
+  %70 = icmp eq i64 %38, %69
   br i1 %70, label %hwloc__memattr_get_target.exit, label %71
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %44, i64 %indvars.iv.i, i32 2
   %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, %40
+  %74 = icmp eq i32 %40, %73
   br i1 %74, label %hwloc__memattr_get_target.exit, label %75
 
 75:                                               ; preds = %71, %.lr.ph.split.split.i
@@ -2148,7 +2148,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_memattr_set_value(ptr noundef
 define internal fastcc range(i32 -1, 1) i32 @hwloc__internal_memattr_set_value(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5, i64 noundef %6) unnamed_addr #3 {
   %8 = getelementptr inbounds i8, ptr %0, i64 748
   %9 = load i32, ptr %8, align 4
-  %.not = icmp ugt i32 %9, %1
+  %.not = icmp ult i32 %1, %9
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %7
@@ -2319,7 +2319,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_best_target(ptr noundef %0, i32 n
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 748
   %11 = load i32, ptr %10, align 4
-  %.not42 = icmp ugt i32 %11, %1
+  %.not42 = icmp ult i32 %1, %11
   br i1 %.not42, label %14, label %12
 
 12:                                               ; preds = %9
@@ -2374,11 +2374,11 @@ hwloc__memattr_get_convenience_value.exit.us:     ; preds = %hwloc_get_obj_by_ty
   br i1 %.not10.i.us, label %33, label %32
 
 32:                                               ; preds = %29
-  %.not12.i.us = icmp ult i64 %.06979.us, %28
+  %.not12.i.us = icmp ugt i64 %28, %.06979.us
   br i1 %.not12.i.us, label %34, label %hwloc__update_best_target.exit.us
 
 33:                                               ; preds = %29
-  %.not11.i.us = icmp ugt i64 %.06979.us, %28
+  %.not11.i.us = icmp ult i64 %28, %.06979.us
   br i1 %.not11.i.us, label %34, label %hwloc__update_best_target.exit.us
 
 34:                                               ; preds = %33, %32, %hwloc__memattr_get_convenience_value.exit.us
@@ -2514,11 +2514,11 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %hwloc_get_obj_by_ty
   br i1 %.not10.i52, label %80, label %79
 
 79:                                               ; preds = %76
-  %.not12.i53 = icmp ult i64 %.271123, %.036
+  %.not12.i53 = icmp ugt i64 %.036, %.271123
   br i1 %.not12.i53, label %81, label %hwloc__update_best_target.exit55
 
 80:                                               ; preds = %76
-  %.not11.i54 = icmp ugt i64 %.271123, %.036
+  %.not11.i54 = icmp ult i64 %.036, %.271123
   br i1 %.not11.i54, label %81, label %hwloc__update_best_target.exit55
 
 81:                                               ; preds = %80, %79, %74
@@ -2575,7 +2575,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_best_initiator(ptr noundef %0, i3
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 748
   %11 = load i32, ptr %10, align 4
-  %.not29 = icmp ugt i32 %11, %1
+  %.not29 = icmp ult i32 %1, %11
   br i1 %.not29, label %14, label %12
 
 12:                                               ; preds = %9
@@ -2640,13 +2640,13 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_best_initiator(ptr noundef %0, i3
   %39 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %38, i64 %indvars.iv74.i
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %41, %30
+  %42 = icmp eq i32 %30, %41
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %.lr.ph.split.us.split.i
   %44 = getelementptr inbounds i8, ptr %39, i64 16
   %45 = load i64, ptr %44, align 8
-  %46 = icmp eq i64 %45, %32
+  %46 = icmp eq i64 %32, %45
   br i1 %46, label %hwloc__memattr_get_target.exit, label %47
 
 47:                                               ; preds = %43, %.lr.ph.split.us.split.i
@@ -2663,13 +2663,13 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_best_initiator(ptr noundef %0, i3
   %48 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %38, i64 %indvars.iv69.i
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, %30
+  %51 = icmp eq i32 %30, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %.lr.ph.split.split.us.i
   %53 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %38, i64 %indvars.iv69.i, i32 2
   %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, %34
+  %55 = icmp eq i32 %34, %54
   br i1 %55, label %hwloc__memattr_get_target.exit, label %56
 
 56:                                               ; preds = %52, %.lr.ph.split.split.us.i
@@ -2682,19 +2682,19 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_best_initiator(ptr noundef %0, i3
   %57 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %38, i64 %indvars.iv.i
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, %30
+  %60 = icmp eq i32 %30, %59
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %.lr.ph.split.split.i
   %62 = getelementptr inbounds i8, ptr %57, i64 16
   %63 = load i64, ptr %62, align 8
-  %64 = icmp eq i64 %63, %32
+  %64 = icmp eq i64 %32, %63
   br i1 %64, label %hwloc__memattr_get_target.exit, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds %struct.hwloc_internal_memattr_target_s, ptr %38, i64 %indvars.iv.i, i32 2
   %67 = load i32, ptr %66, align 4
-  %68 = icmp eq i32 %67, %34
+  %68 = icmp eq i32 %34, %67
   br i1 %68, label %hwloc__memattr_get_target.exit, label %69
 
 69:                                               ; preds = %65, %.lr.ph.split.split.i
@@ -2739,11 +2739,11 @@ hwloc__memattr_get_target.exit:                   ; preds = %65, %61, %52, %43
   br i1 %.not10.i, label %83, label %82
 
 82:                                               ; preds = %79
-  %.not12.i = icmp ult i64 %.04257, %78
+  %.not12.i = icmp ugt i64 %78, %.04257
   br i1 %.not12.i, label %84, label %hwloc__update_best_initiator.exit
 
 83:                                               ; preds = %79
-  %.not11.i = icmp ugt i64 %.04257, %78
+  %.not11.i = icmp ult i64 %78, %.04257
   br i1 %.not11.i, label %84, label %hwloc__update_best_initiator.exit
 
 84:                                               ; preds = %83, %82, %75

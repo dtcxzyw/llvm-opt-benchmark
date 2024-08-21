@@ -534,7 +534,7 @@ entry:
   %or.cond = and i1 %cmp2, %cmp
   %sp.0.idx = zext i1 %or.cond to i64
   %sp.0 = getelementptr inbounds i8, ptr %atom, i64 %sp.0.idx
-  %cmp4.not = icmp ult ptr %sp.0, %ep
+  %cmp4.not = icmp ugt ptr %ep, %sp.0
   br i1 %cmp4.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %entry
@@ -8502,7 +8502,7 @@ for.body.i:                                       ; preds = %if.then55, %for.inc
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %17 = add nuw i64 %indvars.iv.i, 1
-  %cmp6.i = icmp ult i64 %17, %sublen.2
+  %cmp6.i = icmp ugt i64 %sublen.2, %17
   br i1 %cmp6.i, label %land.lhs.true8.i, label %if.else.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i

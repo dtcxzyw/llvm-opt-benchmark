@@ -457,7 +457,7 @@ define hidden void @_ZN14RecursiveMutexC2Ev(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN14RecursiveMutex4lockEP6Thread(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2

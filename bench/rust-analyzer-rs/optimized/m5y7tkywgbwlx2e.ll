@@ -543,7 +543,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !67, !noalias !72, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !74, !noalias !72, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -600,7 +600,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !80, !noalias !85, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !87, !noalias !85, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17haf0bb1feeaeb7437E.exit"
 
 9:                                                ; preds = %3
@@ -743,7 +743,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h7e4cb27e0290175fE(ptr noa
   %.val = load ptr, ptr %1, align 8, !nonnull !5, !align !56, !noundef !5
   %44 = getelementptr i8, ptr %1, i64 8
   %.val71 = load i64, ptr %44, align 8, !noundef !5
-  %45 = icmp ult i64 %40, %.val71
+  %45 = icmp ugt i64 %.val71, %40
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %38
@@ -981,7 +981,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h7e4cb27e0290175fE(ptr noa
   %.val.i173 = load ptr, ptr %.sroa.0247.0336, align 8, !noalias !193, !nonnull !5, !align !56, !noundef !5
   %111 = getelementptr i8, ptr %.sroa.0247.0336, i64 8
   %.val3.i174 = load i64, ptr %111, align 8, !noalias !193, !noundef !5
-  %.not.i.i178 = icmp ult i64 %.sroa.27.0338, %4
+  %.not.i.i178 = icmp ugt i64 %4, %.sroa.27.0338
   br i1 %.not.i.i178, label %112, label %113
 
 112:                                              ; preds = %.lr.ph339
@@ -1085,7 +1085,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !noalias !215, !noundef !5
-  %.not.i.i = icmp ugt i64 %10, %2
+  %.not.i.i = icmp ult i64 %2, %10
   br i1 %.not.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit": ; preds = %.lr.ph
@@ -1320,7 +1320,7 @@ define hidden void @_ZN9itertools9Itertools4join17h9b1db231be249187E(ptr noalias
   %74 = load i64, ptr %.sroa.512.0..sroa_idx, align 8, !alias.scope !258, !noalias !263, !noundef !5
   %75 = load i64, ptr %13, align 8, !alias.scope !265, !noalias !263, !noundef !5
   %76 = sub i64 %75, %74
-  %77 = icmp ult i64 %76, %3
+  %77 = icmp ugt i64 %3, %76
   br i1 %77, label %78, label %87
 
 78:                                               ; preds = %70
@@ -2950,7 +2950,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %111
   %197 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !684, !noalias !689, !noundef !5
   %198 = load i64, ptr %8, align 8, !alias.scope !691, !noalias !689, !noundef !5
   %199 = sub i64 %198, %197
-  %200 = icmp ult i64 %199, %196
+  %200 = icmp ugt i64 %196, %199
   br i1 %200, label %201, label %205
 
 201:                                              ; preds = %.loopexit207.i
@@ -3204,7 +3204,7 @@ _ZN4core3str11validations15next_code_point17h4b896f4b2b36dcc5E.exit.thread.i.i.i
   %307 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !722, !noalias !727, !noundef !5
   %308 = load i64, ptr %8, align 8, !alias.scope !729, !noalias !727, !noundef !5
   %309 = sub i64 %308, %307
-  %310 = icmp ult i64 %309, %306
+  %310 = icmp ugt i64 %306, %309
   br i1 %310, label %311, label %345
 
 311:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h85c324ec0ef1f85dE.exit.thread.i"
@@ -3227,7 +3227,7 @@ _ZN4core3str11validations15next_code_point17h4b896f4b2b36dcc5E.exit.thread.i.i.i
   %317 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !684, !noalias !689, !noundef !5
   %318 = load i64, ptr %8, align 8, !alias.scope !691, !noalias !689, !noundef !5
   %319 = sub i64 %318, %317
-  %320 = icmp ult i64 %319, %316
+  %320 = icmp ugt i64 %316, %319
   br i1 %320, label %321, label %325
 
 321:                                              ; preds = %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h85c324ec0ef1f85dE.exit.i"
@@ -3852,7 +3852,7 @@ define hidden { i1, i8 } @_ZN6syntax3ast9token_ext11CommentKind9from_text17hdb2d
   %.add = add nuw nsw i64 %.idx, 24
   %3 = getelementptr inbounds i8, ptr %.ptr, i64 8
   %4 = load i64, ptr %3, align 8, !noalias !872, !noundef !5
-  %.not.i.i.i = icmp ugt i64 %4, %1
+  %.not.i.i.i = icmp ult i64 %1, %4
   br i1 %.not.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i"
 
 "_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i": ; preds = %.lr.ph.i
@@ -3986,7 +3986,7 @@ define void @_ZN6syntax3ast9token_ext12QuoteOffsets3new17hac575aa734c7a802E(ptr 
   br label %17
 
 9:                                                ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %5, %2
+  %.not.i.i.i = icmp eq i64 %2, %5
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9, %13

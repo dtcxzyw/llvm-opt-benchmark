@@ -1578,7 +1578,7 @@ if.then2:                                         ; preds = %if.end
   %arrayidx.i.i = getelementptr i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx.i.i, align 1
   %.lobit.i = ashr i8 %4, 7
-  %cmp.i.i = icmp ugt i64 %2, %val_size
+  %cmp.i.i = icmp ult i64 %val_size, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
@@ -1590,7 +1590,7 @@ if.then.i.i:                                      ; preds = %if.then2
 if.else.i.i:                                      ; preds = %if.then2
   %sub1.i.i = sub nuw i64 %val_size, %2
   %add.ptr2.i.i = getelementptr i8, ptr %val, i64 %2
-  %cmp3.not.i.i.i = icmp eq i64 %2, %val_size
+  %cmp3.not.i.i.i = icmp eq i64 %val_size, %2
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -1760,7 +1760,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
-  %cmp.i.i = icmp ugt i64 %2, %val_size
+  %cmp.i.i = icmp ult i64 %val_size, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
@@ -1773,7 +1773,7 @@ if.then.i.i:                                      ; preds = %if.then2
 if.else.i.i:                                      ; preds = %if.then2
   %sub1.i.i = sub nuw i64 %val_size, %2
   %add.ptr2.i.i = getelementptr i8, ptr %val, i64 %2
-  %cmp3.not.i.i.i = icmp eq i64 %2, %val_size
+  %cmp3.not.i.i.i = icmp eq i64 %val_size, %2
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -1807,7 +1807,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
 if.then6:                                         ; preds = %if.end
   %data_size8 = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load i64, ptr %data_size8, align 8
-  %cmp.i.i16 = icmp ugt i64 %5, %val_size
+  %cmp.i.i16 = icmp ult i64 %val_size, %5
   br i1 %cmp.i.i16, label %if.then.i.i31, label %if.else.i.i17
 
 if.then.i.i31:                                    ; preds = %if.then6
@@ -1820,7 +1820,7 @@ if.then.i.i31:                                    ; preds = %if.then6
 if.else.i.i17:                                    ; preds = %if.then6
   %sub1.i.i18 = sub nuw i64 %val_size, %5
   %add.ptr2.i.i19 = getelementptr i8, ptr %val, i64 %5
-  %cmp3.not.i.i.i20 = icmp eq i64 %5, %val_size
+  %cmp3.not.i.i.i20 = icmp eq i64 %val_size, %5
   br i1 %cmp3.not.i.i.i20, label %lor.lhs.false.i.i30, label %for.body.i.i.i21
 
 for.cond.i.i.i27:                                 ; preds = %for.body.i.i.i21
@@ -2320,7 +2320,7 @@ if.then10:                                        ; preds = %if.end
 if.end15:                                         ; preds = %if.then10
   %conv = fptoui double %val to i64
   %conv16 = uitofp i64 %conv to double
-  %cmp17 = fcmp une double %conv16, %val
+  %cmp17 = fcmp une double %val, %conv16
   br i1 %cmp17, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end15
@@ -2381,7 +2381,7 @@ if.then48:                                        ; preds = %if.end
 if.end54:                                         ; preds = %if.then48
   %conv55 = fptosi double %val to i64
   %conv56 = sitofp i64 %conv55 to double
-  %cmp57 = fcmp une double %conv56, %val
+  %cmp57 = fcmp une double %val, %conv56
   br i1 %cmp57, label %if.then59, label %if.end60
 
 if.then59:                                        ; preds = %if.end54

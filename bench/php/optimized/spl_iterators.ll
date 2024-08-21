@@ -5937,7 +5937,7 @@ define internal fastcc void @spl_limit_it_seek(ptr noundef %0, i64 noundef %1) u
   tail call fastcc void @spl_dual_it_free(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
-  %6 = icmp sgt i64 %5, %1
+  %6 = icmp slt i64 %1, %5
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
@@ -5949,7 +5949,7 @@ define internal fastcc void @spl_limit_it_seek(ptr noundef %0, i64 noundef %1) u
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %12, %5
-  %.not = icmp sgt i64 %13, %1
+  %.not = icmp slt i64 %1, %13
   %.not51 = icmp eq i64 %12, -1
   %or.cond = or i1 %.not51, %.not
   br i1 %or.cond, label %17, label %14
@@ -5962,7 +5962,7 @@ define internal fastcc void @spl_limit_it_seek(ptr noundef %0, i64 noundef %1) u
 17:                                               ; preds = %10
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   %19 = load i64, ptr %18, align 8
-  %.not52 = icmp eq i64 %19, %1
+  %.not52 = icmp eq i64 %1, %19
   br i1 %.not52, label %spl_dual_it_rewind.exit.thread, label %21
 
 spl_dual_it_rewind.exit.thread:                   ; preds = %17
@@ -6001,7 +6001,7 @@ spl_dual_it_rewind.exit.thread:                   ; preds = %17
 35:                                               ; preds = %33
   %36 = load i64, ptr %4, align 8
   %37 = add nsw i64 %36, %34
-  %.not6.i = icmp sgt i64 %37, %1
+  %.not6.i = icmp slt i64 %1, %37
   br i1 %.not6.i, label %38, label %spl_dual_it_fetch.exit
 
 38:                                               ; preds = %35, %33
@@ -6025,7 +6025,7 @@ spl_limit_it_valid.exit:                          ; preds = %38
 
 47:                                               ; preds = %26
   %.pre = load i64, ptr %18, align 8
-  %48 = icmp sgt i64 %.pre, %1
+  %48 = icmp slt i64 %1, %.pre
   br i1 %48, label %49, label %spl_dual_it_rewind.exit
 
 49:                                               ; preds = %47
@@ -6052,7 +6052,7 @@ spl_limit_it_valid.exit:                          ; preds = %38
 spl_dual_it_rewind.exit:                          ; preds = %57, %52, %49, %47
   %58 = phi i64 [ %.pre68, %57 ], [ 0, %52 ], [ 0, %49 ], [ %.pre, %47 ]
   %59 = getelementptr i8, ptr %0, i64 32
-  %60 = icmp slt i64 %58, %1
+  %60 = icmp sgt i64 %1, %58
   br i1 %60, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %spl_dual_it_rewind.exit, %67
@@ -6080,7 +6080,7 @@ spl_dual_it_valid.exit:                           ; preds = %.lr.ph
   %72 = load i64, ptr %18, align 8
   %73 = add nsw i64 %72, 1
   store i64 %73, ptr %18, align 8
-  %74 = icmp slt i64 %73, %1
+  %74 = icmp sgt i64 %1, %73
   br i1 %74, label %.lr.ph, label %.critedge2
 
 .critedge2:                                       ; preds = %spl_dual_it_valid.exit, %67, %spl_dual_it_rewind.exit.thread, %spl_dual_it_rewind.exit

@@ -877,11 +877,11 @@ tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exi
   br i1 %76, label %77, label %tsCompareString.exit.i
 
 77:                                               ; preds = %69
-  %.not.i.i = icmp eq i32 %67, %49
+  %.not.i.i = icmp eq i32 %49, %67
   br i1 %.not.i.i, label %tsvector_bsearch.exit, label %78
 
 78:                                               ; preds = %77
-  %79 = icmp sgt i32 %67, %49
+  %79 = icmp slt i32 %49, %67
   br i1 %79, label %tsCompareString.exit.thread25.i, label %tsCompareString.exit.thread.thread29.i
 
 tsCompareString.exit.i:                           ; preds = %69
@@ -1079,11 +1079,11 @@ tsCompareString.exit.i.us:                        ; preds = %52
   br i1 %60, label %tsCompareString.exit.thread25.i.us, label %tsCompareString.exit.thread.thread29.i.us
 
 61:                                               ; preds = %52
-  %.not.i.i.us = icmp eq i32 %50, %.fr47
+  %.not.i.i.us = icmp eq i32 %.fr47, %50
   br i1 %.not.i.i.us, label %tsvector_bsearch.exit, label %62
 
 62:                                               ; preds = %61
-  %63 = icmp sgt i32 %50, %.fr47
+  %63 = icmp slt i32 %.fr47, %50
   br i1 %63, label %tsCompareString.exit.thread25.i.us, label %tsCompareString.exit.thread.thread29.i.us
 
 tsCompareString.exit.thread.thread29.i.us:        ; preds = %62, %tsCompareString.exit.i.us
@@ -1138,11 +1138,11 @@ tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exi
   br i1 %86, label %87, label %tsCompareString.exit.i
 
 87:                                               ; preds = %79
-  %.not.i.i = icmp eq i32 %77, %.fr47
+  %.not.i.i = icmp eq i32 %.fr47, %77
   br i1 %.not.i.i, label %tsvector_bsearch.exit, label %88
 
 88:                                               ; preds = %87
-  %89 = icmp sgt i32 %77, %.fr47
+  %89 = icmp slt i32 %.fr47, %77
   br i1 %89, label %tsCompareString.exit.thread25.i, label %tsCompareString.exit.thread.thread29.i
 
 tsCompareString.exit.i:                           ; preds = %79
@@ -1469,11 +1469,11 @@ tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exi
   br i1 %62, label %63, label %tsCompareString.exit.i
 
 63:                                               ; preds = %55
-  %.not.i.i = icmp eq i32 %53, %35
+  %.not.i.i = icmp eq i32 %35, %53
   br i1 %.not.i.i, label %tsvector_bsearch.exit, label %64
 
 64:                                               ; preds = %63
-  %65 = icmp sgt i32 %53, %35
+  %65 = icmp slt i32 %35, %53
   br i1 %65, label %tsCompareString.exit.thread25.i, label %tsCompareString.exit.thread.thread29.i
 
 tsCompareString.exit.i:                           ; preds = %55
@@ -3287,7 +3287,7 @@ define internal fastcc range(i32 -65535, 65536) i32 @add_pos(ptr nocapture nound
   %62 = load i16, ptr %55, align 2
   %63 = and i16 %62, 16383
   %64 = zext nneg i16 %63 to i32
-  %65 = add nuw nsw i32 %64, %3
+  %65 = add nuw nsw i32 %3, %64
   %spec.select = tail call i32 @llvm.smin.i32(i32 %65, i32 16383)
   %66 = trunc i32 %spec.select to i16
   %67 = and i16 %66, 16383
@@ -5507,7 +5507,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 16383
   %26 = zext nneg i16 %25 to i32
-  %27 = add i32 %26, %4
+  %27 = add i32 %4, %26
   %28 = icmp slt i32 %.043.us.us80, %20
   br i1 %28, label %30, label %29
 
@@ -5521,7 +5521,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 16383
   %36 = zext nneg i16 %35 to i32
-  %37 = add i32 %36, %5
+  %37 = add i32 %5, %36
   %38 = icmp slt i32 %27, %37
   br i1 %38, label %46, label %40
 
@@ -5588,7 +5588,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, 16383
   %61 = zext nneg i16 %60 to i32
-  %62 = add i32 %61, %4
+  %62 = add i32 %4, %61
   %.pre90 = load i32, ptr %2, align 8
   br label %63
 
@@ -5604,7 +5604,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 16383
   %71 = zext nneg i16 %70 to i32
-  %72 = add i32 %71, %5
+  %72 = add i32 %5, %71
   %73 = icmp slt i32 %.042.us.us71, %72
   br i1 %73, label %81, label %74
 
@@ -5655,7 +5655,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %92 = load i16, ptr %91, align 2
   %93 = and i16 %92, 16383
   %94 = zext nneg i16 %93 to i32
-  %95 = add i32 %94, %4
+  %95 = add i32 %4, %94
   %.pre88 = load i32, ptr %2, align 8
   br label %96
 
@@ -5672,7 +5672,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %103 = load i16, ptr %102, align 2
   %104 = and i16 %103, 16383
   %105 = zext nneg i16 %104 to i32
-  %106 = add i32 %105, %5
+  %106 = add i32 %5, %105
   br label %107
 
 107:                                              ; preds = %96, %99
@@ -5725,7 +5725,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %126 = load i16, ptr %125, align 2
   %127 = and i16 %126, 16383
   %128 = zext nneg i16 %127 to i32
-  %129 = add i32 %128, %4
+  %129 = add i32 %4, %128
   %.pre = load i32, ptr %2, align 8
   br label %130
 
@@ -5745,7 +5745,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %138 = load i16, ptr %137, align 2
   %139 = and i16 %138, 16383
   %140 = zext nneg i16 %139 to i32
-  %141 = add i32 %140, %5
+  %141 = add i32 %5, %140
   %142 = icmp slt i32 %.042, %141
   br i1 %142, label %144, label %146
 
@@ -6273,7 +6273,7 @@ tailrecurse:                                      ; preds = %29, %6
   %10 = lshr i32 %9, 1
   %11 = add nuw i32 %10, %.tr59
   %12 = lshr i32 %11, 1
-  %.not = icmp eq i32 %10, %.tr59
+  %.not = icmp eq i32 %.tr59, %10
   %.not53 = icmp ult i32 %12, %5
   %or.cond = select i1 %.not, i1 true, i1 %.not53
   br i1 %or.cond, label %18, label %13

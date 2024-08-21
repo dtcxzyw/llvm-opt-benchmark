@@ -347,7 +347,7 @@ sw.epilog:                                        ; preds = %if.end6, %if.end
   %.sink141 = phi i64 [ 11, %if.end6 ], [ 12, %if.end ]
   %.sink = phi i64 [ -11, %if.end6 ], [ -12, %if.end ]
   %add.ptr8 = getelementptr i8, ptr %dst, i64 %.sink141
-  %sub9 = add i64 %.sink, %dst_len
+  %sub9 = add i64 %dst_len, %.sink
   %call = tail call i32 @_sodium_argon2_validate_inputs(ptr noundef %ctx) #7
   %cmp11.not = icmp eq i32 %call, 0
   br i1 %cmp11.not, label %do.body14, label %return

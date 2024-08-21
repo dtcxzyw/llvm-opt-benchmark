@@ -22,8 +22,8 @@ define hidden i64 @_ZN4core4hash3sip9u8to64_le17heec10e43a3e70f05E(ptr nocapture
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %9
-  %13 = getelementptr i8, ptr %0, i64 %.0
-  %14 = getelementptr i8, ptr %13, i64 %2
+  %13 = getelementptr i8, ptr %0, i64 %2
+  %14 = getelementptr i8, ptr %13, i64 %.0
   %.0.copyload15 = load i16, ptr %14, align 1
   %15 = zext i16 %.0.copyload15 to i64
   %16 = shl nuw nsw i64 %.0, 3

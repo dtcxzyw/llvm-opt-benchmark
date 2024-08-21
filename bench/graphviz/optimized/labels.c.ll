@@ -1394,13 +1394,13 @@ agxblen.exit.i:                                   ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
-  %12 = icmp ult i64 %11, %3
+  %12 = icmp ugt i64 %3, %11
   br i1 %12, label %agxbsizeof.exit.i.i, label %._crit_edge.i
 
 agxblen.exit.thread.i:                            ; preds = %5
   %13 = zext i8 %.val.i.i to i64
   %14 = sub nsw i64 31, %13
-  %15 = icmp ult i64 %14, %3
+  %15 = icmp ugt i64 %3, %14
   br i1 %15, label %.thread.i, label %29
 
 agxbsizeof.exit.i.i:                              ; preds = %agxblen.exit.i

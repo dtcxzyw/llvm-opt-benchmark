@@ -174,7 +174,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
   call void @acpi_os_release_lock(ptr noundef %36, i64 noundef %25) #5
   %37 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %38 = zext i16 %37 to i32
-  %39 = icmp eq i32 %38, %0
+  %39 = icmp eq i32 %0, %38
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %35

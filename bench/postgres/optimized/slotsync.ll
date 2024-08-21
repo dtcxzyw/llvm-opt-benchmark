@@ -1953,7 +1953,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr nocaptur
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %4, i64 88
   %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, %1
+  %16 = icmp eq i32 %1, %15
   br i1 %16, label %17, label %45
 
 17:                                               ; preds = %13

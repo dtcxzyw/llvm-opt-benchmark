@@ -146,7 +146,7 @@ define dso_local noundef ptr @GetForeignDataWrapperByName(ptr noundef %0, i1 nou
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 27, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not.i = icmp ne i32 %4, 0
-  %brmerge.i = or i1 %.not.i, %1
+  %brmerge.i = or i1 %1, %.not.i
   br i1 %brmerge.i, label %get_foreign_data_wrapper_oid.exit, label %5
 
 5:                                                ; preds = %2
@@ -175,7 +175,7 @@ define dso_local i32 @get_foreign_data_wrapper_oid(ptr noundef %0, i1 noundef ze
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 27, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %9, label %5
 
 5:                                                ; preds = %2
@@ -293,7 +293,7 @@ define dso_local noundef ptr @GetForeignServerByName(ptr noundef %0, i1 noundef 
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 29, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not.i = icmp ne i32 %4, 0
-  %brmerge.i = or i1 %.not.i, %1
+  %brmerge.i = or i1 %1, %.not.i
   br i1 %brmerge.i, label %get_foreign_server_oid.exit, label %5
 
 5:                                                ; preds = %2
@@ -322,7 +322,7 @@ define dso_local i32 @get_foreign_server_oid(ptr noundef %0, i1 noundef zeroext 
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 29, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %.not, %1
+  %brmerge = or i1 %1, %.not
   br i1 %brmerge, label %9, label %5
 
 5:                                                ; preds = %2

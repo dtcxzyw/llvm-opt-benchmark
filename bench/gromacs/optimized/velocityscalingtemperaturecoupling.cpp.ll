@@ -575,7 +575,7 @@ define void @_ZN3gmx34VelocityScalingTemperatureCoupling12scheduleTaskEldRKSt8fu
   %8 = alloca %"class.std::function.223", align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 248
   %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, %1
+  %11 = icmp eq i64 %1, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
@@ -650,7 +650,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %25, %_ZNKSt8functio
 
 _Z11do_per_stepll.exit:                           ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   %40 = sext i32 %39 to i64
-  %41 = add nsw i64 %40, %1
+  %41 = add nsw i64 %1, %40
   %42 = getelementptr inbounds i8, ptr %0, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
@@ -741,7 +741,7 @@ _ZNKSt8functionIFvlEEclEl.exit:                   ; preds = %_ZNSt8functionIFvvE
 
 _Z11do_per_stepll.exit.thread:                    ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %_ZNKSt8functionIFvlEEclEl.exit, %_Z11do_per_stepll.exit
   %77 = load i64, ptr %9, align 8
-  %78 = icmp eq i64 %77, %1
+  %78 = icmp eq i64 %1, %77
   %79 = load i32, ptr %12, align 4
   %80 = icmp eq i32 %79, 1
   %or.cond19 = select i1 %78, i1 %80, i1 false
@@ -2482,7 +2482,7 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %70 = getelementptr inbounds float, ptr %69, i64 %8
   %71 = load float, ptr %70, align 4
   %72 = tail call float @llvm.fmuladd.f32(float %71, float %71, float -1.000000e+00)
-  %73 = fmul float %72, %3
+  %73 = fmul float %3, %72
   %74 = fpext float %73 to double
   %75 = fsub double %67, %74
   br label %76
@@ -3125,7 +3125,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -3209,7 +3209,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !20
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -3986,7 +3986,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 15:                                               ; preds = %12
   %.not.i.i = icmp ne ptr %13, null
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = icmp eq ptr %16, %14
+  %17 = icmp eq ptr %14, %16
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %17
   br i1 %or.cond.i.i, label %.thread, label %18
 
@@ -4047,7 +4047,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4861,7 +4861,7 @@ _ZSt10_ConstructIN3gmx17KeyValueTreeValueEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #32
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.014.i.i.i.i, %14
+  %.not4.i.i.i.i.i.i = icmp eq ptr %14, %.014.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx17KeyValueTreeValueEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %_ZSt8_DestroyIN3gmx17KeyValueTreeValueEEvPT_.exit.i.i.i.i.i.i

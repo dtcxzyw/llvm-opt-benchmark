@@ -51,7 +51,7 @@ land.rhs:                                         ; preds = %entry, %while.body
 
 while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs
   store i8 0, ptr %add.ptr, align 1
-  %cmp = icmp ugt ptr %add.ptr, %s
+  %cmp = icmp ult ptr %s, %add.ptr
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %land.rhs, %entry
@@ -149,7 +149,7 @@ land.rhs.i:                                       ; preds = %land.rhs.i.preheade
 
 while.body.i:                                     ; preds = %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i
   store i8 0, ptr %add.ptr.i, align 1
-  %cmp.i51 = icmp ugt ptr %add.ptr.i, %line
+  %cmp.i51 = icmp ult ptr %line, %add.ptr.i
   br i1 %cmp.i51, label %land.rhs.i, label %while.cond.i.i.preheader, !llvm.loop !6
 
 while.cond.i.i.preheader:                         ; preds = %land.rhs.i, %while.body.i, %while.body

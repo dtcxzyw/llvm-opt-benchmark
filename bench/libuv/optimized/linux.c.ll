@@ -568,7 +568,7 @@ if.else.i.i:                                      ; preds = %land.rhs.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
   %8 = load ptr, ptr %7, align 8
-  %cmp.i.i = icmp eq ptr %8, %watcher_list.053.i
+  %cmp.i.i = icmp eq ptr %watcher_list.053.i, %8
   br i1 %cmp.i.i, label %watcher_root_RB_NEXT.exit.i, label %while.cond18.i.i.preheader
 
 while.cond18.i.i.preheader:                       ; preds = %land.lhs.true.i.i, %if.else.i.i
@@ -593,7 +593,7 @@ watcher_root_RB_NEXT.exit.i:                      ; preds = %while.cond.i27.i, %
   store i32 1, ptr %iterating.i, align 8
   %watchers5.i = getelementptr inbounds i8, ptr %watcher_list.053.i, i64 32
   %11 = load ptr, ptr %watchers5.i, align 8
-  %cmp.i.not.i.i = icmp eq ptr %11, %watchers5.i
+  %cmp.i.not.i.i = icmp eq ptr %watchers5.i, %11
   br i1 %cmp.i.not.i.i, label %uv__queue_move.exit.thread.i, label %uv__queue_move.exit.i
 
 uv__queue_move.exit.thread.i:                     ; preds = %watcher_root_RB_NEXT.exit.i
@@ -613,7 +613,7 @@ uv__queue_move.exit.i:                            ; preds = %watcher_root_RB_NEX
   store ptr %watchers5.i, ptr %13, align 8
   %.pre.i = load ptr, ptr %queue.i, align 8
   store ptr %queue.i, ptr %prev4.i.i.i, align 8
-  %cmp.i29.not52.i = icmp eq ptr %.pre.i, %queue.i
+  %cmp.i29.not52.i = icmp eq ptr %queue.i, %.pre.i
   br i1 %cmp.i29.not52.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %uv__queue_move.exit.i, %uv_fs_event_stop.exit.i
@@ -653,11 +653,11 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %if.end
   %tmp.03.i.i.i.i = phi ptr [ %tmp.0.i.i.i.i, %if.end6.i.i.i.i ], [ %.val.i.i, %if.end.i.i ]
   %24 = getelementptr i8, ptr %tmp.03.i.i.i.i, i64 64
   %tmp.0.val.i.i.i.i = load i32, ptr %24, align 8
-  %cmp.i.i.i.i.i = icmp sgt i32 %tmp.0.val.i.i.i.i, %22
+  %cmp.i.i.i.i.i = icmp slt i32 %22, %tmp.0.val.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end6.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp4.i.not.i.i.i.i = icmp slt i32 %tmp.0.val.i.i.i.i, %22
+  %cmp4.i.not.i.i.i.i = icmp sgt i32 %22, %tmp.0.val.i.i.i.i
   br i1 %cmp4.i.not.i.i.i.i, label %if.then3.i.i.i.i, label %if.end6.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
@@ -706,7 +706,7 @@ uv_fs_event_stop.exit.i:                          ; preds = %do.end16.i.i, %whil
   store ptr %14, ptr %prev.i.i, align 8
   store ptr %call8.i, ptr %path.i, align 8
   %31 = load ptr, ptr %queue.i, align 8
-  %cmp.i29.not.i = icmp eq ptr %31, %queue.i
+  %cmp.i29.not.i = icmp eq ptr %queue.i, %31
   br i1 %cmp.i29.not.i, label %while.end.i, label %while.body.i
 
 while.end.i:                                      ; preds = %uv_fs_event_stop.exit.i, %uv__queue_move.exit.i, %uv__queue_move.exit.thread.i
@@ -717,7 +717,7 @@ while.end.i:                                      ; preds = %uv_fs_event_stop.ex
 
 for.end.i:                                        ; preds = %while.end.i
   %32 = load ptr, ptr %watchers.i, align 8
-  %cmp.i.not.i36.i = icmp eq ptr %32, %watchers.i
+  %cmp.i.not.i36.i = icmp eq ptr %watchers.i, %32
   br i1 %cmp.i.not.i36.i, label %if.then.i43.i, label %if.else.i37.i
 
 if.then.i43.i:                                    ; preds = %for.end.i
@@ -742,7 +742,7 @@ uv__queue_move.exit45.i:                          ; preds = %if.else.i37.i, %if.
 
 while.cond16.i:                                   ; preds = %while.body20.i, %uv__queue_move.exit45.i
   %35 = load ptr, ptr %queue.i, align 8
-  %cmp.i46.not.i = icmp eq ptr %35, %queue.i
+  %cmp.i46.not.i = icmp eq ptr %queue.i, %35
   br i1 %cmp.i46.not.i, label %uv__inotify_fork.exit, label %while.body20.i
 
 while.body20.i:                                   ; preds = %while.cond16.i
@@ -2281,7 +2281,7 @@ if.end:                                           ; preds = %if.then, %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %e, i8 0, i64 12, i1 false)
   %watcher_queue = getelementptr inbounds i8, ptr %loop, i64 88
   %5 = load ptr, ptr %watcher_queue, align 8
-  %cmp.i.not114 = icmp eq ptr %5, %watcher_queue
+  %cmp.i.not114 = icmp eq ptr %watcher_queue, %5
   br i1 %cmp.i.not114, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -2312,7 +2312,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %12, ptr %data, align 4
   call fastcc void @uv__epoll_ctl_prep(i32 noundef %4, ptr noundef nonnull %ctl1, ptr noundef nonnull %prep, i32 noundef %spec.store.select, i32 noundef %12, ptr noundef nonnull %e)
   %13 = load ptr, ptr %watcher_queue, align 8
-  %cmp.i.not = icmp eq ptr %13, %watcher_queue
+  %cmp.i.not = icmp eq ptr %watcher_queue, %13
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %if.end
@@ -4680,11 +4680,11 @@ while.body.i.i:                                   ; preds = %if.end9, %if.end6.i
   %tmp.03.i.i = phi ptr [ %tmp.0.i.i, %if.end6.i.i ], [ %.val, %if.end9 ]
   %7 = getelementptr i8, ptr %tmp.03.i.i, i64 64
   %tmp.0.val.i.i = load i32, ptr %7, align 8
-  %cmp.i.i.i = icmp sgt i32 %tmp.0.val.i.i, %call5
+  %cmp.i.i.i = icmp slt i32 %call5, %tmp.0.val.i.i
   br i1 %cmp.i.i.i, label %if.end6.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp4.i.not.i.i = icmp slt i32 %tmp.0.val.i.i, %call5
+  %cmp4.i.not.i.i = icmp sgt i32 %call5, %tmp.0.val.i.i
   br i1 %cmp4.i.not.i.i, label %if.then3.i.i, label %do.body
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
@@ -5071,11 +5071,11 @@ while.body.i.i:                                   ; preds = %if.end, %if.end6.i.
   %tmp.03.i.i = phi ptr [ %tmp.0.i.i, %if.end6.i.i ], [ %.val, %if.end ]
   %4 = getelementptr i8, ptr %tmp.03.i.i, i64 64
   %tmp.0.val.i.i = load i32, ptr %4, align 8
-  %cmp.i.i.i = icmp sgt i32 %tmp.0.val.i.i, %2
+  %cmp.i.i.i = icmp slt i32 %2, %tmp.0.val.i.i
   br i1 %cmp.i.i.i, label %if.end6.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp4.i.not.i.i = icmp slt i32 %tmp.0.val.i.i, %2
+  %cmp4.i.not.i.i = icmp sgt i32 %2, %tmp.0.val.i.i
   br i1 %cmp4.i.not.i.i, label %if.then3.i.i, label %if.end6
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
@@ -5134,7 +5134,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %watchers = getelementptr inbounds i8, ptr %w, i64 32
   %1 = load ptr, ptr %watchers, align 8
-  %cmp.i.not = icmp eq ptr %1, %watchers
+  %cmp.i.not = icmp eq ptr %watchers, %1
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -5698,11 +5698,11 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end6.
   %tmp.03.i.i.i = phi ptr [ %tmp.0.i.i.i, %if.end6.i.i.i ], [ %.val.i, %if.end.i ]
   %4 = getelementptr i8, ptr %tmp.03.i.i.i, i64 64
   %tmp.0.val.i.i.i = load i32, ptr %4, align 8
-  %cmp.i.i.i.i = icmp sgt i32 %tmp.0.val.i.i.i, %2
+  %cmp.i.i.i.i = icmp slt i32 %2, %tmp.0.val.i.i.i
   br i1 %cmp.i.i.i.i, label %if.end6.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp4.i.not.i.i.i = icmp slt i32 %tmp.0.val.i.i.i, %2
+  %cmp4.i.not.i.i.i = icmp sgt i32 %2, %tmp.0.val.i.i.i
   br i1 %cmp4.i.not.i.i.i, label %if.then3.i.i.i, label %if.end6.i
 
 if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
@@ -5838,11 +5838,11 @@ while.body.i.i:                                   ; preds = %for.body, %if.end6.
   %tmp.03.i.i = phi ptr [ %tmp.0.i.i, %if.end6.i.i ], [ %loop.val, %for.body ]
   %8 = getelementptr i8, ptr %tmp.03.i.i, i64 64
   %tmp.0.val.i.i = load i32, ptr %8, align 8
-  %cmp.i.i.i = icmp sgt i32 %tmp.0.val.i.i, %7
+  %cmp.i.i.i = icmp slt i32 %7, %tmp.0.val.i.i
   br i1 %cmp.i.i.i, label %if.end6.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp4.i.not.i.i = icmp slt i32 %tmp.0.val.i.i, %7
+  %cmp4.i.not.i.i = icmp sgt i32 %7, %tmp.0.val.i.i
   br i1 %cmp4.i.not.i.i, label %if.then3.i.i, label %if.end19
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
@@ -5880,7 +5880,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   store i32 1, ptr %iterating, align 8
   %watchers = getelementptr inbounds i8, ptr %tmp.03.i.i, i64 32
   %11 = load ptr, ptr %watchers, align 8
-  %cmp.i.not.i = icmp eq ptr %11, %watchers
+  %cmp.i.not.i = icmp eq ptr %watchers, %11
   br i1 %cmp.i.not.i, label %uv__queue_move.exit.thread, label %uv__queue_move.exit
 
 uv__queue_move.exit.thread:                       ; preds = %cond.end
@@ -5900,7 +5900,7 @@ uv__queue_move.exit:                              ; preds = %cond.end
   store ptr %watchers, ptr %13, align 8
   %.pre = load ptr, ptr %queue, align 8
   store ptr %queue, ptr %prev4.i.i, align 8
-  %cmp.i23.not29 = icmp eq ptr %.pre, %queue
+  %cmp.i23.not29 = icmp eq ptr %queue, %.pre
   br i1 %cmp.i23.not29, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
@@ -5926,7 +5926,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %19 = load ptr, ptr %cb, align 8
   call void %19(ptr noundef nonnull %add.ptr27, ptr noundef %cond, i32 noundef %events.addr.1, i32 noundef 0) #18
   %20 = load ptr, ptr %queue, align 8
-  %cmp.i23.not = icmp eq ptr %20, %queue
+  %cmp.i23.not = icmp eq ptr %queue, %20
   br i1 %cmp.i23.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %uv__queue_move.exit.thread, %uv__queue_move.exit

@@ -1710,7 +1710,7 @@ cond.true.i:                                      ; preds = %if.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
   %cond.i = phi i64 [ %call3.i, %cond.true.i ], [ 32768, %if.end.i ]
-  %cmp4.not.i = icmp ugt i64 %cond.i, %size
+  %cmp4.not.i = icmp ult i64 %size, %cond.i
   br i1 %cmp4.not.i, label %_pythread_pthread_set_stacksize.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %cond.end.i

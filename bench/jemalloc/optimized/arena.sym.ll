@@ -1766,7 +1766,7 @@ for.body.i:                                       ; preds = %malloc_mutex_lock.e
   %48 = phi ptr [ %slab.0106.i, %for.body.lr.ph.i ], [ %slab.0.i, %malloc_mutex_lock.exit99.i ]
   %arena.val.i = load i32, ptr %15, align 32
   %49 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i.i = icmp ugt i32 %49, %arena.val.i
+  %cmp.i.i.i = icmp ult i32 %arena.val.i, %49
   br i1 %cmp.i.i.i, label %arena_bin_slabs_full_remove.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i
@@ -2219,7 +2219,7 @@ land.lhs.true.us.us:                              ; preds = %while.body.us.us
 if.then.i69.us.us:                                ; preds = %land.lhs.true.us.us
   %arena.val.i.us.us = load i32, ptr %5, align 32
   %13 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i.i.us.us = icmp ugt i32 %13, %arena.val.i.us.us
+  %cmp.i.i.i.us.us = icmp ult i32 %arena.val.i.us.us, %13
   br i1 %cmp.i.i.i.us.us, label %if.end.i70.us.us, label %if.end.i.i.us.us
 
 if.end.i.i.us.us:                                 ; preds = %if.then.i69.us.us
@@ -2312,7 +2312,7 @@ while.end.i:                                      ; preds = %while.body5.i, %whi
   %slab.val.i = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %slab.val.i to i64
   %34 = load i64, ptr %arrayidx, align 8
-  %tobool.not22.i = icmp eq i32 %i.030.i, %cond
+  %tobool.not22.i = icmp eq i32 %cond, %i.030.i
   br i1 %tobool.not22.i, label %while.end22.thread.i, label %while.body18.preheader.i
 
 while.end22.thread.i:                             ; preds = %while.end.i
@@ -2430,7 +2430,7 @@ if.end69:                                         ; preds = %arena_slab_dalloc.e
   %sub.i.i.i83 = sub i16 %bin.val9.i, %conv.i.i82
   %idx.ext.i.i84 = zext i16 %sub.i.i.i83 to i64
   %add.ptr.i.i85 = getelementptr inbounds i8, ptr %bin.val.i, i64 %idx.ext.i.i84
-  %cmp.i86 = icmp ugt i16 %conv, %conv70
+  %cmp.i86 = icmp ult i16 %conv70, %conv
   %conv70.mask = and i32 %filled.1.ph157, 65535
   %idx.ext.i87 = zext nneg i32 %conv70.mask to i64
   %idx.neg.i88 = sub nsw i64 0, %idx.ext.i87
@@ -2693,7 +2693,7 @@ entry:
   %2 = getelementptr i8, ptr %arena, i64 78944
   %arena.val = load i32, ptr %2, align 32
   %3 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i52 = icmp ugt i32 %3, %arena.val
+  %cmp.i52 = icmp ult i32 %arena.val, %3
   %cmp.i.i53 = icmp eq ptr %tsdn, null
   br i1 %cmp.i.i53, label %arena_bin_choose.exit, label %lor.lhs.false.i
 
@@ -3191,7 +3191,7 @@ if.else:                                          ; preds = %if.then
   %7 = getelementptr i8, ptr %arena, i64 78944
   %arena.val = load i32, ptr %7, align 32
   %8 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i15 = icmp ugt i32 %8, %arena.val
+  %cmp.i.i15 = icmp ult i32 %arena.val, %8
   br i1 %cmp.i.i15, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
@@ -3272,14 +3272,14 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
   %tsd_arena.i.0 = phi ptr [ %call3.i, %if.then2.i ], [ %0, %if.end.i ]
   %oversize_threshold.i = getelementptr inbounds i8, ptr %tsd_arena.i.0, i64 69328
   %1 = load atomic i64, ptr %oversize_threshold.i monotonic, align 8
-  %cmp6.i.not = icmp ugt i64 %1, %size
+  %cmp6.i.not = icmp ult i64 %size, %1
   br i1 %cmp6.i.not, label %if.end14, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end4.i
   %2 = getelementptr i8, ptr %tsd_arena.i.0, i64 78944
   %tsd_arena.i.0.val = load i32, ptr %2, align 32
   %3 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i = icmp ugt i32 %3, %tsd_arena.i.0.val
+  %cmp.i = icmp ult i32 %tsd_arena.i.0.val, %3
   br i1 %cmp.i, label %if.then10.i, label %if.end14
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
@@ -3817,7 +3817,7 @@ define hidden void @arena_dalloc_bin_locked_handle_newly_empty(ptr nocapture nou
 entry:
   %slabcur.i = getelementptr inbounds i8, ptr %bin, i64 192
   %0 = load ptr, ptr %slabcur.i, align 8
-  %cmp.i = icmp eq ptr %0, %slab
+  %cmp.i = icmp eq ptr %slab, %0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -3837,7 +3837,7 @@ if.then3.i:                                       ; preds = %if.else.i
   %3 = getelementptr i8, ptr %arena, i64 78944
   %arena.val.i = load i32, ptr %3, align 32
   %4 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i.i = icmp ugt i32 %4, %arena.val.i
+  %cmp.i.i.i = icmp ult i32 %arena.val.i, %4
   br i1 %cmp.i.i.i, label %arena_dissociate_bin_slab.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
@@ -3910,7 +3910,7 @@ entry:
   %0 = getelementptr i8, ptr %arena, i64 78944
   %arena.val = load i32, ptr %0, align 32
   %1 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i = icmp ugt i32 %1, %arena.val
+  %cmp.i.i = icmp ult i32 %arena.val, %1
   br i1 %cmp.i.i, label %arena_bin_slabs_full_remove.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -4236,7 +4236,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 if.then.i:                                        ; preds = %malloc_mutex_lock.exit
   %slabcur.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 192
   %14 = load ptr, ptr %slabcur.i.i, align 8
-  %cmp.i.i = icmp eq ptr %14, %edata
+  %cmp.i.i = icmp eq ptr %edata, %14
   br i1 %cmp.i.i, label %if.then.i.i48, label %if.else.i.i
 
 if.then.i.i48:                                    ; preds = %if.then.i
@@ -4255,7 +4255,7 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
   %17 = getelementptr i8, ptr %arena, i64 78944
   %arena.val.i.i = load i32, ptr %17, align 32
   %18 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i.i.i = icmp ugt i32 %18, %arena.val.i.i
+  %cmp.i.i.i.i = icmp ult i32 %arena.val.i.i, %18
   br i1 %cmp.i.i.i.i, label %arena_dalloc_bin_locked_handle_newly_empty.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
@@ -4328,14 +4328,14 @@ if.else.i:                                        ; preds = %malloc_mutex_lock.e
 land.lhs.true.i:                                  ; preds = %if.else.i
   %slabcur.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 192
   %39 = load ptr, ptr %slabcur.i, align 8
-  %cmp6.i.not = icmp eq ptr %39, %edata
+  %cmp6.i.not = icmp eq ptr %edata, %39
   br i1 %cmp6.i.not, label %arena_dalloc_bin_locked_step.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
   %40 = getelementptr i8, ptr %arena, i64 78944
   %arena.val.i = load i32, ptr %40, align 32
   %41 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i.i = icmp ugt i32 %41, %arena.val.i
+  %cmp.i.i.i = icmp ult i32 %arena.val.i, %41
   br i1 %cmp.i.i.i, label %arena_dalloc_bin_locked_handle_newly_nonempty.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
@@ -4469,7 +4469,7 @@ if.end14.i:                                       ; preds = %if.end
   %sub23.i = sub nuw nsw i64 60, %4
   %notmask = shl nsw i64 -1, %sub23.i
   %5 = xor i64 %notmask, -1
-  %add.i151 = add nuw nsw i64 %5, %size
+  %add.i151 = add nuw nsw i64 %size, %5
   %and.i = and i64 %add.i151, %notmask
   br label %sz_s2u.exit80
 
@@ -4775,7 +4775,7 @@ if.end14.i190:                                    ; preds = %if.end.i
   %sub23.i198 = sub nuw nsw i64 60, %2
   %notmask186 = shl nsw i64 -1, %sub23.i198
   %3 = xor i64 %notmask186, -1
-  %add.i203 = add nuw nsw i64 %3, %size
+  %add.i203 = add nuw nsw i64 %size, %3
   %and.i205 = and i64 %add.i203, %notmask186
   br label %cond.end
 
@@ -4838,7 +4838,7 @@ if.end14.i141:                                    ; preds = %if.end.i.i
   %sub23.i149 = sub nuw nsw i64 60, %8
   %notmask185 = shl nsw i64 -1, %sub23.i149
   %9 = xor i64 %notmask185, -1
-  %add.i154 = add nuw nsw i64 %9, %size
+  %add.i154 = add nuw nsw i64 %size, %9
   %and.i156 = and i64 %add.i154, %notmask185
   br label %sz_s2u.exit.i
 
@@ -5726,7 +5726,7 @@ for.end:                                          ; preds = %for.cond, %if.end32
   store i32 %ind, ptr %ind41, align 32
   %name = getelementptr inbounds i8, ptr %call5, i64 78968
   %9 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i = icmp ugt i32 %9, %ind
+  %cmp.i = icmp ult i32 %ind, %9
   %cond = select i1 %cmp.i, ptr @.str.6, ptr @.str.7
   %call45 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %name, i64 noundef 32, ptr noundef nonnull @.str.5, ptr noundef nonnull %cond, i32 noundef %ind) #18
   %arrayidx47 = getelementptr inbounds i8, ptr %call5, i64 78999
@@ -5932,7 +5932,7 @@ define hidden zeroext i1 @arena_is_huge(i32 noundef %arena_ind) local_unnamed_ad
 entry:
   %0 = load i32, ptr @huge_arena_ind, align 4
   %cmp = icmp ne i32 %0, 0
-  %cmp1 = icmp eq i32 %0, %arena_ind
+  %cmp1 = icmp eq i32 %arena_ind, %0
   %retval.0 = and i1 %cmp, %cmp1
   ret i1 %retval.0
 }
@@ -6559,7 +6559,7 @@ if.end16:                                         ; preds = %if.then14, %arena_d
   %tobool.i = trunc i8 %8 to i1
   %brmerge.demorgan = and i1 %call11, %tobool.i
   %brmerge = xor i1 %brmerge.demorgan, true
-  %brmerge21 = or i1 %brmerge, %is_background_thread
+  %brmerge21 = or i1 %is_background_thread, %brmerge
   br i1 %brmerge21, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end16
@@ -7065,7 +7065,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
   %2 = getelementptr i8, ptr %arena, i64 78944
   %arena.val.i = load i32, ptr %2, align 32
   %3 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i.i = icmp ugt i32 %3, %arena.val.i
+  %cmp.i.i.i = icmp ult i32 %arena.val.i, %3
   br i1 %cmp.i.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i

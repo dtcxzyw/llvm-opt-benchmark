@@ -1680,7 +1680,7 @@ define internal fastcc noundef i32 @_add_reservation(ptr nocapture noundef reado
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %6 = icmp eq i32 %5, %.val.val
+  %6 = icmp eq i32 %.val.val, %5
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
 
@@ -1958,7 +1958,7 @@ define internal fastcc noundef i32 @_cluster_tres(ptr noundef %0, ptr nocapture 
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %6 = icmp eq i32 %5, %.val.val
+  %6 = icmp eq i32 %.val.val, %5
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
 
@@ -3410,7 +3410,7 @@ define internal fastcc noundef i32 @_flush_jobs(ptr nocapture noundef readonly %
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %6 = icmp eq i32 %5, %.val.val
+  %6 = icmp eq i32 %.val.val, %5
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
 
@@ -3539,7 +3539,7 @@ define internal fastcc void @_job_complete(ptr noundef %0, ptr nocapture readonl
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %8 = icmp eq i32 %7, %.val.val
+  %8 = icmp eq i32 %.val.val, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
 
@@ -3717,7 +3717,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_start(ptr noundef %0, ptr noca
   %.val.val = load i32, ptr %4, align 8
   %5 = icmp eq i32 %.val.val, 0
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %7 = icmp eq i32 %6, %.val.val
+  %7 = icmp eq i32 %.val.val, %6
   %or.cond.i = select i1 %5, i1 true, i1 %7
   br i1 %or.cond.i, label %14, label %8
 
@@ -3756,7 +3756,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_heavy(ptr nocapture noundef re
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %8 = icmp eq i32 %7, %.val.val
+  %8 = icmp eq i32 %.val.val, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %15, label %9
 
@@ -3839,7 +3839,7 @@ define internal fastcc void @_job_suspend(ptr nocapture noundef readonly %0, ptr
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %8 = icmp eq i32 %7, %.val.val
+  %8 = icmp eq i32 %.val.val, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
 
@@ -4922,7 +4922,7 @@ define internal fastcc noundef i32 @_modify_reservation(ptr nocapture noundef re
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %6 = icmp eq i32 %5, %.val.val
+  %6 = icmp eq i32 %.val.val, %5
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %11, label %7
 
@@ -4968,7 +4968,7 @@ define internal fastcc void @_node_state(ptr nocapture noundef readonly %0, ptr 
   %.val.val = load i32, ptr %4, align 8
   %5 = icmp eq i32 %.val.val, 0
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %7 = icmp eq i32 %6, %.val.val
+  %7 = icmp eq i32 %.val.val, %6
   %or.cond.i = select i1 %5, i1 true, i1 %7
   br i1 %or.cond.i, label %12, label %8
 
@@ -5170,7 +5170,7 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %8 = icmp eq i32 %7, %.val.val
+  %8 = icmp eq i32 %.val.val, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
 
@@ -6267,7 +6267,7 @@ define internal fastcc noundef i32 @_remove_reservation(ptr nocapture noundef re
   %.val.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val.val, 0
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %6 = icmp eq i32 %5, %.val.val
+  %6 = icmp eq i32 %.val.val, %5
   %or.cond.i = select i1 %4, i1 true, i1 %6
   br i1 %or.cond.i, label %9, label %7
 
@@ -6391,7 +6391,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_job_start(ptr noundef %0
   %.val.val = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.val, 0
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %8 = icmp eq i32 %7, %.val.val
+  %8 = icmp eq i32 %.val.val, %7
   %or.cond.i = select i1 %6, i1 true, i1 %8
   br i1 %or.cond.i, label %13, label %9
 
@@ -6458,7 +6458,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_msg(ptr noundef %0, ptr 
   %.val.val = load i32, ptr %10, align 8
   %11 = icmp eq i32 %.val.val, 0
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %13 = icmp eq i32 %12, %.val.val
+  %13 = icmp eq i32 %.val.val, %12
   %or.cond.i = select i1 %11, i1 true, i1 %13
   br i1 %or.cond.i, label %18, label %14
 
@@ -6544,7 +6544,7 @@ define internal fastcc noundef i32 @_step_complete(ptr noundef %0, ptr %.8.val, 
   %.val.val = load i32, ptr %6, align 8
   %7 = icmp eq i32 %.val.val, 0
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %9 = icmp eq i32 %8, %.val.val
+  %9 = icmp eq i32 %.val.val, %8
   %or.cond.i = select i1 %7, i1 true, i1 %9
   br i1 %or.cond.i, label %12, label %10
 
@@ -6699,7 +6699,7 @@ define internal fastcc noundef i32 @_step_start(ptr noundef %0, ptr %.8.val, ptr
   %.val.val = load i32, ptr %7, align 8
   %8 = icmp eq i32 %.val.val, 0
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %10 = icmp eq i32 %9, %.val.val
+  %10 = icmp eq i32 %.val.val, %9
   %or.cond.i = select i1 %8, i1 true, i1 %10
   br i1 %or.cond.i, label %13, label %11
 
@@ -7243,7 +7243,7 @@ define internal fastcc void @_add_registered_cluster(ptr noundef %0) unnamed_add
   %15 = tail call ptr @list_iterator_create(ptr noundef %14) #10
   %16 = tail call ptr @list_next(ptr noundef %15) #10
   %.not4246 = icmp eq ptr %16, null
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   %or.cond47 = or i1 %.not4246, %17
   br i1 %or.cond47, label %._crit_edge, label %.lr.ph
 
@@ -7282,7 +7282,7 @@ define internal fastcc void @_add_registered_cluster(ptr noundef %0) unnamed_add
 40:                                               ; preds = %33, %26, %.lr.ph
   %41 = tail call ptr @list_next(ptr noundef %15) #10
   %.not42 = icmp eq ptr %41, null
-  %42 = icmp eq ptr %41, %0
+  %42 = icmp eq ptr %0, %41
   %or.cond = or i1 %.not42, %42
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 

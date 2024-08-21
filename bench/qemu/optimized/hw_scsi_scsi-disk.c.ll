@@ -1029,7 +1029,7 @@ if.end21:                                         ; preds = %land.lhs.true, %tra
   %12 = load i64, ptr %lba, align 8
   %conv.i = zext i32 %call10 to i64
   %add.i = add i64 %12, %conv.i
-  %cmp.not.i = icmp ult i64 %add.i, %12
+  %cmp.not.i = icmp ugt i64 %12, %add.i
   br i1 %cmp.not.i, label %illegal_lba, label %check_lba_range.exit
 
 check_lba_range.exit:                             ; preds = %if.end21
@@ -1108,7 +1108,7 @@ if.end68:                                         ; preds = %land.lhs.true59, %s
   %25 = load i64, ptr %lba71, align 8
   %conv.i60 = zext i32 %call10 to i64
   %add.i61 = add i64 %25, %conv.i60
-  %cmp.not.i62 = icmp ult i64 %add.i61, %25
+  %cmp.not.i62 = icmp ugt i64 %25, %add.i61
   br i1 %cmp.not.i62, label %illegal_lba, label %check_lba_range.exit67
 
 check_lba_range.exit67:                           ; preds = %if.end68
@@ -4091,7 +4091,7 @@ if.end9.i:                                        ; preds = %if.end.i32
   %60 = load i64, ptr %lba.i, align 8
   %conv.i.i = zext i32 %call.i to i64
   %add.i.i = add i64 %60, %conv.i.i
-  %cmp.not.i.i = icmp ult i64 %add.i.i, %60
+  %cmp.not.i.i = icmp ugt i64 %60, %add.i.i
   br i1 %cmp.not.i.i, label %if.then13.i, label %check_lba_range.exit.i
 
 check_lba_range.exit.i:                           ; preds = %if.end9.i
@@ -6110,7 +6110,7 @@ if.then5:                                         ; preds = %if.end
   store i32 %conv17, ptr %sector_count, align 8
   %conv.i = zext i32 %6 to i64
   %add.i = add i64 %5, %conv.i
-  %cmp.not.i = icmp ult i64 %add.i, %5
+  %cmp.not.i = icmp ugt i64 %5, %add.i
   br i1 %cmp.not.i, label %if.then19, label %check_lba_range.exit
 
 check_lba_range.exit:                             ; preds = %if.then5

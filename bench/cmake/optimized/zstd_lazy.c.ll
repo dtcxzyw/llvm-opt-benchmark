@@ -759,7 +759,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %0, ptr n
 70:                                               ; preds = %65
   %71 = getelementptr inbounds i8, ptr %.015561869, i64 5
   %72 = getelementptr inbounds i8, ptr %71, i64 %63
-  %73 = icmp ugt ptr %47, %71
+  %73 = icmp ult ptr %71, %47
   br i1 %73, label %74, label %.loopexit.i
 
 74:                                               ; preds = %70
@@ -865,7 +865,7 @@ ZSTD_count.exit:                                  ; preds = %75, %81, %108
   %115 = load i32, ptr %50, align 4
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds i8, ptr %114, i64 %116
-  %118 = icmp ugt ptr %117, %.015561869
+  %118 = icmp ult ptr %.015561869, %117
   switch i32 %spec.select1837, label %.unreachabledefault [
     i32 4, label %119
     i32 5, label %146
@@ -1065,7 +1065,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit:               ; preds = %ZSTD_BtFindBestMatc
 219:                                              ; preds = %215
   %220 = getelementptr inbounds i8, ptr %.115571880, i64 5
   %221 = getelementptr inbounds i8, ptr %220, i64 %63
-  %222 = icmp ugt ptr %47, %220
+  %222 = icmp ult ptr %220, %47
   br i1 %222, label %223, label %.loopexit.i1668
 
 223:                                              ; preds = %219
@@ -1193,7 +1193,7 @@ ZSTD_count.exit1694:                              ; preds = %249, %251, %231
   %273 = load i32, ptr %50, align 4
   %274 = zext i32 %273 to i64
   %275 = getelementptr inbounds i8, ptr %272, i64 %274
-  %276 = icmp ugt ptr %275, %214
+  %276 = icmp ult ptr %214, %275
   br i1 %276, label %ZSTD_BtFindBestMatch_noDict_4.exit1704.thread, label %277
 
 277:                                              ; preds = %271
@@ -1243,7 +1243,7 @@ ZSTD_count.exit1694:                              ; preds = %249, %251, %231
   %305 = load i32, ptr %50, align 4
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds i8, ptr %304, i64 %306
-  %308 = icmp ugt ptr %307, %214
+  %308 = icmp ult ptr %214, %307
   br i1 %308, label %ZSTD_BtFindBestMatch_noDict_4.exit1704.thread, label %309
 
 309:                                              ; preds = %303
@@ -1293,7 +1293,7 @@ ZSTD_count.exit1694:                              ; preds = %249, %251, %231
   %337 = load i32, ptr %50, align 4
   %338 = zext i32 %337 to i64
   %339 = getelementptr inbounds i8, ptr %336, i64 %338
-  %340 = icmp ugt ptr %339, %214
+  %340 = icmp ult ptr %214, %339
   br i1 %340, label %ZSTD_BtFindBestMatch_noDict_4.exit1704.thread, label %341
 
 341:                                              ; preds = %335
@@ -1397,7 +1397,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i
 397:                                              ; preds = %393
   %398 = getelementptr inbounds i8, ptr %.115571880, i64 6
   %399 = getelementptr inbounds i8, ptr %398, i64 %63
-  %400 = icmp ugt ptr %47, %398
+  %400 = icmp ult ptr %398, %47
   br i1 %400, label %401, label %.loopexit.i1725
 
 401:                                              ; preds = %397
@@ -1519,7 +1519,7 @@ ZSTD_count.exit1751:                              ; preds = %425, %427, %407
   %446 = load i32, ptr %50, align 4
   %447 = zext i32 %446 to i64
   %448 = getelementptr inbounds i8, ptr %445, i64 %447
-  %449 = icmp ugt ptr %448, %392
+  %449 = icmp ult ptr %392, %448
   br i1 %449, label %._crit_edge1882, label %450
 
 450:                                              ; preds = %444
@@ -1569,7 +1569,7 @@ ZSTD_count.exit1751:                              ; preds = %425, %427, %407
   %478 = load i32, ptr %50, align 4
   %479 = zext i32 %478 to i64
   %480 = getelementptr inbounds i8, ptr %477, i64 %479
-  %481 = icmp ugt ptr %480, %392
+  %481 = icmp ult ptr %392, %480
   br i1 %481, label %._crit_edge1882, label %482
 
 482:                                              ; preds = %476
@@ -1619,7 +1619,7 @@ ZSTD_count.exit1751:                              ; preds = %425, %427, %407
   %510 = load i32, ptr %50, align 4
   %511 = zext i32 %510 to i64
   %512 = getelementptr inbounds i8, ptr %509, i64 %511
-  %513 = icmp ugt ptr %512, %392
+  %513 = icmp ult ptr %392, %512
   br i1 %513, label %._crit_edge1882, label %514
 
 514:                                              ; preds = %508
@@ -1916,7 +1916,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %590, %.lr.ph.i, %.l
 652:                                              ; preds = %.lr.ph1909
   %653 = getelementptr inbounds i8, ptr %.51907, i64 4
   %654 = getelementptr inbounds i8, ptr %653, i64 %649
-  %655 = icmp ugt ptr %47, %653
+  %655 = icmp ult ptr %653, %47
   br i1 %655, label %656, label %.loopexit.i1790
 
 656:                                              ; preds = %652
@@ -2176,7 +2176,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %0, ptr noc
 65:                                               ; preds = %60
   %66 = getelementptr inbounds i8, ptr %.015561797, i64 5
   %67 = getelementptr inbounds i8, ptr %66, i64 %58
-  %68 = icmp ugt ptr %47, %66
+  %68 = icmp ult ptr %66, %47
   br i1 %68, label %69, label %.loopexit.i
 
 69:                                               ; preds = %65
@@ -2348,7 +2348,7 @@ default.unreachable:                              ; preds = %263, %185
 134:                                              ; preds = %130
   %135 = getelementptr inbounds i8, ptr %.115571808, i64 5
   %136 = getelementptr inbounds i8, ptr %135, i64 %58
-  %137 = icmp ugt ptr %47, %135
+  %137 = icmp ult ptr %135, %47
   br i1 %137, label %138, label %.loopexit.i1657
 
 138:                                              ; preds = %134
@@ -2532,7 +2532,7 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %146
 217:                                              ; preds = %213
   %218 = getelementptr inbounds i8, ptr %.115571808, i64 6
   %219 = getelementptr inbounds i8, ptr %218, i64 %58
-  %220 = icmp ugt ptr %47, %218
+  %220 = icmp ult ptr %218, %47
   br i1 %220, label %221, label %.loopexit.i1684
 
 221:                                              ; preds = %217
@@ -2911,7 +2911,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %320, %.lr.ph.i, %.l
 382:                                              ; preds = %.lr.ph1838
   %383 = getelementptr inbounds i8, ptr %.51836, i64 4
   %384 = getelementptr inbounds i8, ptr %383, i64 %379
-  %385 = icmp ugt ptr %47, %383
+  %385 = icmp ult ptr %383, %47
   br i1 %385, label %386, label %.loopexit.i1718
 
 386:                                              ; preds = %382
@@ -3170,7 +3170,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %0, ptr noca
 64:                                               ; preds = %59
   %65 = getelementptr inbounds i8, ptr %.015561759, i64 5
   %66 = getelementptr inbounds i8, ptr %65, i64 %57
-  %67 = icmp ugt ptr %46, %65
+  %67 = icmp ult ptr %65, %46
   br i1 %67, label %68, label %.loopexit.i
 
 68:                                               ; preds = %64
@@ -3345,7 +3345,7 @@ default.unreachable:                              ; preds = %186
 135:                                              ; preds = %131
   %136 = getelementptr inbounds i8, ptr %.11557, i64 5
   %137 = getelementptr inbounds i8, ptr %136, i64 %57
-  %138 = icmp ugt ptr %46, %136
+  %138 = icmp ult ptr %136, %46
   br i1 %138, label %139, label %.loopexit.i1654
 
 139:                                              ; preds = %135
@@ -3730,7 +3730,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %244, %.lr.ph.i, %.l
 306:                                              ; preds = %.lr.ph1777
   %307 = getelementptr inbounds i8, ptr %.51775, i64 4
   %308 = getelementptr inbounds i8, ptr %307, i64 %303
-  %309 = icmp ugt ptr %46, %307
+  %309 = icmp ult ptr %307, %46
   br i1 %309, label %310, label %.loopexit.i1688
 
 310:                                              ; preds = %306
@@ -4032,7 +4032,7 @@ default.unreachable:                              ; preds = %120
 77:                                               ; preds = %.lr.ph.split
   %78 = getelementptr inbounds i8, ptr %.015561721, i64 5
   %79 = getelementptr inbounds i8, ptr %78, i64 %55
-  %80 = icmp ugt ptr %45, %78
+  %80 = icmp ult ptr %78, %45
   br i1 %80, label %81, label %.loopexit.i
 
 81:                                               ; preds = %77
@@ -4393,7 +4393,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %174, %.lr.ph.i, %.l
 236:                                              ; preds = %.lr.ph1746
   %237 = getelementptr inbounds i8, ptr %.51744, i64 4
   %238 = getelementptr inbounds i8, ptr %237, i64 %233
-  %239 = icmp ugt ptr %45, %237
+  %239 = icmp ult ptr %237, %45
   br i1 %239, label %240, label %.loopexit.i1658
 
 240:                                              ; preds = %236
@@ -4683,7 +4683,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture no
   %89 = load i32, ptr %47, align 4
   %90 = zext i32 %89 to i64
   %91 = getelementptr inbounds i8, ptr %88, i64 %90
-  %92 = icmp ugt ptr %91, %.015561775
+  %92 = icmp ult ptr %.015561775, %91
   switch i32 %spec.select1746, label %.unreachabledefault [
     i32 4, label %93
     i32 5, label %119
@@ -4926,7 +4926,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   %221 = load i32, ptr %47, align 4
   %222 = zext i32 %221 to i64
   %223 = getelementptr inbounds i8, ptr %220, i64 %222
-  %224 = icmp ugt ptr %223, %184
+  %224 = icmp ult ptr %184, %223
   br i1 %224, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread, label %225
 
 225:                                              ; preds = %219
@@ -4975,7 +4975,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   %252 = load i32, ptr %47, align 4
   %253 = zext i32 %252 to i64
   %254 = getelementptr inbounds i8, ptr %251, i64 %253
-  %255 = icmp ugt ptr %254, %184
+  %255 = icmp ult ptr %184, %254
   br i1 %255, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread, label %256
 
 256:                                              ; preds = %250
@@ -5024,7 +5024,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   %283 = load i32, ptr %47, align 4
   %284 = zext i32 %283 to i64
   %285 = getelementptr inbounds i8, ptr %282, i64 %284
-  %286 = icmp ugt ptr %285, %184
+  %286 = icmp ult ptr %184, %285
   br i1 %286, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread, label %287
 
 287:                                              ; preds = %281
@@ -5170,7 +5170,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   %367 = load i32, ptr %47, align 4
   %368 = zext i32 %367 to i64
   %369 = getelementptr inbounds i8, ptr %366, i64 %368
-  %370 = icmp ugt ptr %369, %334
+  %370 = icmp ult ptr %334, %369
   br i1 %370, label %._crit_edge1786, label %371
 
 371:                                              ; preds = %365
@@ -5219,7 +5219,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   %398 = load i32, ptr %47, align 4
   %399 = zext i32 %398 to i64
   %400 = getelementptr inbounds i8, ptr %397, i64 %399
-  %401 = icmp ugt ptr %400, %334
+  %401 = icmp ult ptr %334, %400
   br i1 %401, label %._crit_edge1786, label %402
 
 402:                                              ; preds = %396
@@ -5268,7 +5268,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   %429 = load i32, ptr %47, align 4
   %430 = zext i32 %429 to i64
   %431 = getelementptr inbounds i8, ptr %428, i64 %430
-  %432 = icmp ugt ptr %431, %334
+  %432 = icmp ult ptr %334, %431
   br i1 %432, label %._crit_edge1786, label %433
 
 433:                                              ; preds = %427
@@ -5587,7 +5587,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %510, %.lr.ph.i, %.l
   %584 = icmp ult ptr %583, %9
   %..i = select i1 %584, ptr %583, ptr %9
   %585 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %586 = icmp ugt ptr %585, %578
+  %586 = icmp ult ptr %578, %585
   br i1 %586, label %587, label %.loopexit.i.i
 
 587:                                              ; preds = %576
@@ -5691,7 +5691,7 @@ ZSTD_count.exit.i:                                ; preds = %623, %594, %588
 
 628:                                              ; preds = %ZSTD_count.exit.i
   %629 = getelementptr inbounds i8, ptr %578, i64 %.0.i.i
-  %630 = icmp ugt ptr %60, %629
+  %630 = icmp ult ptr %629, %60
   br i1 %630, label %631, label %.loopexit.i22.i
 
 631:                                              ; preds = %628
@@ -6464,7 +6464,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
   %325 = icmp ult ptr %324, %9
   %..i = select i1 %325, ptr %324, ptr %9
   %326 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %327 = icmp ugt ptr %326, %319
+  %327 = icmp ult ptr %319, %326
   br i1 %327, label %328, label %.loopexit.i.i
 
 328:                                              ; preds = %317
@@ -6568,7 +6568,7 @@ ZSTD_count.exit.i:                                ; preds = %364, %335, %329
 
 369:                                              ; preds = %ZSTD_count.exit.i
   %370 = getelementptr inbounds i8, ptr %319, i64 %.0.i.i
-  %371 = icmp ugt ptr %55, %370
+  %371 = icmp ult ptr %370, %55
   br i1 %371, label %372, label %.loopexit.i22.i
 
 372:                                              ; preds = %369
@@ -7242,7 +7242,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
   %271 = icmp ult ptr %270, %8
   %..i = select i1 %271, ptr %270, ptr %8
   %272 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %273 = icmp ugt ptr %272, %265
+  %273 = icmp ult ptr %265, %272
   br i1 %273, label %274, label %.loopexit.i.i
 
 274:                                              ; preds = %263
@@ -7346,7 +7346,7 @@ ZSTD_count.exit.i:                                ; preds = %310, %281, %275
 
 315:                                              ; preds = %ZSTD_count.exit.i
   %316 = getelementptr inbounds i8, ptr %265, i64 %.0.i.i
-  %317 = icmp ugt ptr %54, %316
+  %317 = icmp ult ptr %316, %54
   br i1 %317, label %318, label %.loopexit.i22.i
 
 318:                                              ; preds = %315
@@ -7902,7 +7902,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
   %212 = icmp ult ptr %211, %7
   %..i = select i1 %212, ptr %211, ptr %7
   %213 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %214 = icmp ugt ptr %213, %206
+  %214 = icmp ult ptr %206, %213
   br i1 %214, label %215, label %.loopexit.i.i
 
 215:                                              ; preds = %204
@@ -8006,7 +8006,7 @@ ZSTD_count.exit.i:                                ; preds = %251, %222, %216
 
 256:                                              ; preds = %ZSTD_count.exit.i
   %257 = getelementptr inbounds i8, ptr %206, i64 %.0.i.i
-  %258 = icmp ugt ptr %53, %257
+  %258 = icmp ult ptr %257, %53
   br i1 %258, label %259, label %.loopexit.i22.i
 
 259:                                              ; preds = %256
@@ -8779,7 +8779,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
   %325 = icmp ult ptr %324, %9
   %..i = select i1 %325, ptr %324, ptr %9
   %326 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %327 = icmp ugt ptr %326, %319
+  %327 = icmp ult ptr %319, %326
   br i1 %327, label %328, label %.loopexit.i.i
 
 328:                                              ; preds = %317
@@ -8883,7 +8883,7 @@ ZSTD_count.exit.i:                                ; preds = %364, %335, %329
 
 369:                                              ; preds = %ZSTD_count.exit.i
   %370 = getelementptr inbounds i8, ptr %319, i64 %.0.i.i
-  %371 = icmp ugt ptr %55, %370
+  %371 = icmp ult ptr %370, %55
   br i1 %371, label %372, label %.loopexit.i22.i
 
 372:                                              ; preds = %369
@@ -9557,7 +9557,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
   %271 = icmp ult ptr %270, %8
   %..i = select i1 %271, ptr %270, ptr %8
   %272 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %273 = icmp ugt ptr %272, %265
+  %273 = icmp ult ptr %265, %272
   br i1 %273, label %274, label %.loopexit.i.i
 
 274:                                              ; preds = %263
@@ -9661,7 +9661,7 @@ ZSTD_count.exit.i:                                ; preds = %310, %281, %275
 
 315:                                              ; preds = %ZSTD_count.exit.i
   %316 = getelementptr inbounds i8, ptr %265, i64 %.0.i.i
-  %317 = icmp ugt ptr %54, %316
+  %317 = icmp ult ptr %316, %54
   br i1 %317, label %318, label %.loopexit.i22.i
 
 318:                                              ; preds = %315
@@ -10217,7 +10217,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
   %212 = icmp ult ptr %211, %7
   %..i = select i1 %212, ptr %211, ptr %7
   %213 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %214 = icmp ugt ptr %213, %206
+  %214 = icmp ult ptr %206, %213
   br i1 %214, label %215, label %.loopexit.i.i
 
 215:                                              ; preds = %204
@@ -10321,7 +10321,7 @@ ZSTD_count.exit.i:                                ; preds = %251, %222, %216
 
 256:                                              ; preds = %ZSTD_count.exit.i
   %257 = getelementptr inbounds i8, ptr %206, i64 %.0.i.i
-  %258 = icmp ugt ptr %53, %257
+  %258 = icmp ult ptr %257, %53
   br i1 %258, label %259, label %.loopexit.i22.i
 
 259:                                              ; preds = %256
@@ -10788,7 +10788,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
 176:                                              ; preds = %171
   %177 = getelementptr inbounds i8, ptr %.015561855, i64 5
   %178 = getelementptr inbounds i8, ptr %177, i64 %169
-  %179 = icmp ugt ptr %156, %177
+  %179 = icmp ult ptr %177, %156
   br i1 %179, label %180, label %.loopexit.i
 
 180:                                              ; preds = %176
@@ -11014,7 +11014,7 @@ default.unreachable:                              ; preds = %419, %412, %405, %4
 260:                                              ; preds = %256
   %261 = getelementptr inbounds i8, ptr %.115571868, i64 5
   %262 = getelementptr inbounds i8, ptr %261, i64 %169
-  %263 = icmp ugt ptr %156, %261
+  %263 = icmp ult ptr %261, %156
   br i1 %263, label %264, label %.loopexit.i1664
 
 264:                                              ; preds = %260
@@ -11243,7 +11243,7 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %272
 358:                                              ; preds = %354
   %359 = getelementptr inbounds i8, ptr %.115571868, i64 6
   %360 = getelementptr inbounds i8, ptr %359, i64 %169
-  %361 = icmp ugt ptr %156, %359
+  %361 = icmp ult ptr %359, %156
   br i1 %361, label %362, label %.loopexit.i1691
 
 362:                                              ; preds = %358
@@ -11759,7 +11759,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
 588:                                              ; preds = %.lr.ph1902
   %589 = getelementptr inbounds i8, ptr %.51900, i64 4
   %590 = getelementptr inbounds i8, ptr %589, i64 %585
-  %591 = icmp ugt ptr %156, %589
+  %591 = icmp ult ptr %589, %156
   br i1 %591, label %592, label %.loopexit.i1725
 
 592:                                              ; preds = %588
@@ -12230,7 +12230,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
 175:                                              ; preds = %170
   %176 = getelementptr inbounds i8, ptr %.015561808, i64 5
   %177 = getelementptr inbounds i8, ptr %176, i64 %168
-  %178 = icmp ugt ptr %155, %176
+  %178 = icmp ult ptr %176, %155
   br i1 %178, label %179, label %.loopexit.i
 
 179:                                              ; preds = %175
@@ -12459,7 +12459,7 @@ default.unreachable:                              ; preds = %327, %320, %313, %3
 261:                                              ; preds = %257
   %262 = getelementptr inbounds i8, ptr %.11557, i64 5
   %263 = getelementptr inbounds i8, ptr %262, i64 %168
-  %264 = icmp ugt ptr %155, %262
+  %264 = icmp ult ptr %262, %155
   br i1 %264, label %265, label %.loopexit.i1661
 
 265:                                              ; preds = %261
@@ -12981,7 +12981,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
 497:                                              ; preds = %.lr.ph1832
   %498 = getelementptr inbounds i8, ptr %.51830, i64 4
   %499 = getelementptr inbounds i8, ptr %498, i64 %494
-  %500 = icmp ugt ptr %155, %498
+  %500 = icmp ult ptr %498, %155
   br i1 %500, label %501, label %.loopexit.i1695
 
 501:                                              ; preds = %497
@@ -13451,7 +13451,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
 174:                                              ; preds = %169
   %175 = getelementptr inbounds i8, ptr %.015561761, i64 5
   %176 = getelementptr inbounds i8, ptr %175, i64 %167
-  %177 = icmp ugt ptr %154, %175
+  %177 = icmp ult ptr %175, %154
   br i1 %177, label %178, label %.loopexit.i
 
 178:                                              ; preds = %174
@@ -13950,7 +13950,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
 400:                                              ; preds = %.lr.ph1785
   %401 = getelementptr inbounds i8, ptr %.51783, i64 4
   %402 = getelementptr inbounds i8, ptr %401, i64 %397
-  %403 = icmp ugt ptr %154, %401
+  %403 = icmp ult ptr %401, %154
   br i1 %403, label %404, label %.loopexit.i1665
 
 404:                                              ; preds = %400
@@ -15176,7 +15176,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   %531 = icmp ult ptr %530, %9
   %..i = select i1 %531, ptr %530, ptr %9
   %532 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %533 = icmp ugt ptr %532, %525
+  %533 = icmp ult ptr %525, %532
   br i1 %533, label %534, label %.loopexit.i.i
 
 534:                                              ; preds = %523
@@ -15280,7 +15280,7 @@ ZSTD_count.exit.i:                                ; preds = %570, %541, %535
 
 575:                                              ; preds = %ZSTD_count.exit.i
   %576 = getelementptr inbounds i8, ptr %525, i64 %.0.i.i
-  %577 = icmp ugt ptr %166, %576
+  %577 = icmp ult ptr %576, %166
   br i1 %577, label %578, label %.loopexit.i22.i
 
 578:                                              ; preds = %575
@@ -16357,7 +16357,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   %462 = icmp ult ptr %461, %8
   %..i = select i1 %462, ptr %461, ptr %8
   %463 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %464 = icmp ugt ptr %463, %456
+  %464 = icmp ult ptr %456, %463
   br i1 %464, label %465, label %.loopexit.i.i
 
 465:                                              ; preds = %454
@@ -16461,7 +16461,7 @@ ZSTD_count.exit.i:                                ; preds = %501, %472, %466
 
 506:                                              ; preds = %ZSTD_count.exit.i
   %507 = getelementptr inbounds i8, ptr %456, i64 %.0.i.i
-  %508 = icmp ugt ptr %165, %507
+  %508 = icmp ult ptr %507, %165
   br i1 %508, label %509, label %.loopexit.i22.i
 
 509:                                              ; preds = %506
@@ -17366,7 +17366,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   %388 = icmp ult ptr %387, %7
   %..i = select i1 %388, ptr %387, ptr %7
   %389 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %390 = icmp ugt ptr %389, %382
+  %390 = icmp ult ptr %382, %389
   br i1 %390, label %391, label %.loopexit.i.i
 
 391:                                              ; preds = %380
@@ -17470,7 +17470,7 @@ ZSTD_count.exit.i:                                ; preds = %427, %398, %392
 
 432:                                              ; preds = %ZSTD_count.exit.i
   %433 = getelementptr inbounds i8, ptr %382, i64 %.0.i.i
-  %434 = icmp ugt ptr %164, %433
+  %434 = icmp ult ptr %433, %164
   br i1 %434, label %435, label %.loopexit.i22.i
 
 435:                                              ; preds = %432
@@ -18691,7 +18691,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   %531 = icmp ult ptr %530, %9
   %..i = select i1 %531, ptr %530, ptr %9
   %532 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %533 = icmp ugt ptr %532, %525
+  %533 = icmp ult ptr %525, %532
   br i1 %533, label %534, label %.loopexit.i.i
 
 534:                                              ; preds = %523
@@ -18795,7 +18795,7 @@ ZSTD_count.exit.i:                                ; preds = %570, %541, %535
 
 575:                                              ; preds = %ZSTD_count.exit.i
   %576 = getelementptr inbounds i8, ptr %525, i64 %.0.i.i
-  %577 = icmp ugt ptr %166, %576
+  %577 = icmp ult ptr %576, %166
   br i1 %577, label %578, label %.loopexit.i22.i
 
 578:                                              ; preds = %575
@@ -19872,7 +19872,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   %462 = icmp ult ptr %461, %8
   %..i = select i1 %462, ptr %461, ptr %8
   %463 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %464 = icmp ugt ptr %463, %456
+  %464 = icmp ult ptr %456, %463
   br i1 %464, label %465, label %.loopexit.i.i
 
 465:                                              ; preds = %454
@@ -19976,7 +19976,7 @@ ZSTD_count.exit.i:                                ; preds = %501, %472, %466
 
 506:                                              ; preds = %ZSTD_count.exit.i
   %507 = getelementptr inbounds i8, ptr %456, i64 %.0.i.i
-  %508 = icmp ugt ptr %165, %507
+  %508 = icmp ult ptr %507, %165
   br i1 %508, label %509, label %.loopexit.i22.i
 
 509:                                              ; preds = %506
@@ -20881,7 +20881,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   %388 = icmp ult ptr %387, %7
   %..i = select i1 %388, ptr %387, ptr %7
   %389 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %390 = icmp ugt ptr %389, %382
+  %390 = icmp ult ptr %382, %389
   br i1 %390, label %391, label %.loopexit.i.i
 
 391:                                              ; preds = %380
@@ -20985,7 +20985,7 @@ ZSTD_count.exit.i:                                ; preds = %427, %398, %392
 
 432:                                              ; preds = %ZSTD_count.exit.i
   %433 = getelementptr inbounds i8, ptr %382, i64 %.0.i.i
-  %434 = icmp ugt ptr %164, %433
+  %434 = icmp ult ptr %433, %164
   br i1 %434, label %435, label %.loopexit.i22.i
 
 435:                                              ; preds = %432
@@ -21180,7 +21180,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef %0
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 0, ptr %29, align 4
-  %30 = icmp eq ptr %14, %3
+  %30 = icmp eq ptr %3, %14
   %31 = zext i1 %30 to i64
   %32 = getelementptr inbounds i8, ptr %3, i64 %31
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
@@ -21549,7 +21549,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %136, %.lr.ph.i, %.l
   %219 = icmp ult ptr %218, %7
   %..i = select i1 %219, ptr %218, ptr %7
   %220 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %221 = icmp ugt ptr %220, %213
+  %221 = icmp ult ptr %213, %220
   br i1 %221, label %222, label %.loopexit.i.i
 
 222:                                              ; preds = %211
@@ -21653,7 +21653,7 @@ ZSTD_count.exit.i:                                ; preds = %258, %229, %223
 
 263:                                              ; preds = %ZSTD_count.exit.i
   %264 = getelementptr inbounds i8, ptr %213, i64 %.0.i.i
-  %265 = icmp ugt ptr %44, %264
+  %265 = icmp ult ptr %264, %44
   br i1 %265, label %266, label %.loopexit.i22.i
 
 266:                                              ; preds = %263
@@ -21846,7 +21846,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef %0, 
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 0, ptr %30, align 4
-  %31 = icmp eq ptr %15, %3
+  %31 = icmp eq ptr %3, %15
   %32 = zext i1 %31 to i64
   %33 = getelementptr inbounds i8, ptr %3, i64 %32
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
@@ -22342,7 +22342,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %199, %.lr.ph.i, %.l
   %282 = icmp ult ptr %281, %8
   %..i = select i1 %282, ptr %281, ptr %8
   %283 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %284 = icmp ugt ptr %283, %276
+  %284 = icmp ult ptr %276, %283
   br i1 %284, label %285, label %.loopexit.i.i
 
 285:                                              ; preds = %274
@@ -22446,7 +22446,7 @@ ZSTD_count.exit.i:                                ; preds = %321, %292, %286
 
 326:                                              ; preds = %ZSTD_count.exit.i
   %327 = getelementptr inbounds i8, ptr %276, i64 %.0.i.i
-  %328 = icmp ugt ptr %45, %327
+  %328 = icmp ult ptr %327, %45
   br i1 %328, label %329, label %.loopexit.i22.i
 
 329:                                              ; preds = %326
@@ -22640,7 +22640,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef %0,
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 0, ptr %31, align 4
-  %32 = icmp eq ptr %16, %3
+  %32 = icmp eq ptr %3, %16
   %33 = zext i1 %32 to i64
   %34 = getelementptr inbounds i8, ptr %3, i64 %33
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
@@ -23244,7 +23244,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %258, %.lr.ph.i, %.l
   %341 = icmp ult ptr %340, %9
   %..i = select i1 %341, ptr %340, ptr %9
   %342 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %343 = icmp ugt ptr %342, %335
+  %343 = icmp ult ptr %335, %342
   br i1 %343, label %344, label %.loopexit.i.i
 
 344:                                              ; preds = %333
@@ -23348,7 +23348,7 @@ ZSTD_count.exit.i:                                ; preds = %380, %351, %345
 
 385:                                              ; preds = %ZSTD_count.exit.i
   %386 = getelementptr inbounds i8, ptr %335, i64 %.0.i.i
-  %387 = icmp ugt ptr %46, %386
+  %387 = icmp ult ptr %386, %46
   br i1 %387, label %388, label %.loopexit.i22.i
 
 388:                                              ; preds = %385
@@ -23542,7 +23542,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 0, ptr %31, align 4
-  %32 = icmp eq ptr %16, %3
+  %32 = icmp eq ptr %3, %16
   %33 = zext i1 %32 to i64
   %34 = getelementptr inbounds i8, ptr %3, i64 %33
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
@@ -23626,7 +23626,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   %86 = load i32, ptr %40, align 4
   %87 = zext i32 %86 to i64
   %88 = getelementptr inbounds i8, ptr %85, i64 %87
-  %89 = icmp ugt ptr %88, %.013691566
+  %89 = icmp ult ptr %.013691566, %88
   switch i32 %spec.select1532, label %.unreachabledefault [
     i32 4, label %90
     i32 5, label %116
@@ -23880,7 +23880,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   %222 = load i32, ptr %40, align 4
   %223 = zext i32 %222 to i64
   %224 = getelementptr inbounds i8, ptr %221, i64 %223
-  %225 = icmp ugt ptr %224, %181
+  %225 = icmp ult ptr %181, %224
   br i1 %225, label %ZSTD_BtFindBestMatch_extDict_4.exit1456.thread, label %226
 
 226:                                              ; preds = %220
@@ -23930,7 +23930,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   %254 = load i32, ptr %40, align 4
   %255 = zext i32 %254 to i64
   %256 = getelementptr inbounds i8, ptr %253, i64 %255
-  %257 = icmp ugt ptr %256, %181
+  %257 = icmp ult ptr %181, %256
   br i1 %257, label %ZSTD_BtFindBestMatch_extDict_4.exit1456.thread, label %258
 
 258:                                              ; preds = %252
@@ -23980,7 +23980,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   %286 = load i32, ptr %40, align 4
   %287 = zext i32 %286 to i64
   %288 = getelementptr inbounds i8, ptr %285, i64 %287
-  %289 = icmp ugt ptr %288, %181
+  %289 = icmp ult ptr %181, %288
   br i1 %289, label %ZSTD_BtFindBestMatch_extDict_4.exit1456.thread, label %290
 
 290:                                              ; preds = %284
@@ -24139,7 +24139,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %378 = load i32, ptr %40, align 4
   %379 = zext i32 %378 to i64
   %380 = getelementptr inbounds i8, ptr %377, i64 %379
-  %381 = icmp ugt ptr %380, %341
+  %381 = icmp ult ptr %341, %380
   br i1 %381, label %._crit_edge1578, label %382
 
 382:                                              ; preds = %376
@@ -24189,7 +24189,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %410 = load i32, ptr %40, align 4
   %411 = zext i32 %410 to i64
   %412 = getelementptr inbounds i8, ptr %409, i64 %411
-  %413 = icmp ugt ptr %412, %341
+  %413 = icmp ult ptr %341, %412
   br i1 %413, label %._crit_edge1578, label %414
 
 414:                                              ; preds = %408
@@ -24239,7 +24239,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %442 = load i32, ptr %40, align 4
   %443 = zext i32 %442 to i64
   %444 = getelementptr inbounds i8, ptr %441, i64 %443
-  %445 = icmp ugt ptr %444, %341
+  %445 = icmp ult ptr %341, %444
   br i1 %445, label %._crit_edge1578, label %446
 
 446:                                              ; preds = %440
@@ -24570,7 +24570,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %525, %.lr.ph.i, %.l
   %608 = icmp ult ptr %607, %9
   %..i = select i1 %608, ptr %607, ptr %9
   %609 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %610 = icmp ugt ptr %609, %602
+  %610 = icmp ult ptr %602, %609
   br i1 %610, label %611, label %.loopexit.i.i
 
 611:                                              ; preds = %600
@@ -24674,7 +24674,7 @@ ZSTD_count.exit.i:                                ; preds = %647, %618, %612
 
 652:                                              ; preds = %ZSTD_count.exit.i
   %653 = getelementptr inbounds i8, ptr %602, i64 %.0.i.i
-  %654 = icmp ugt ptr %51, %653
+  %654 = icmp ult ptr %653, %51
   br i1 %654, label %655, label %.loopexit.i22.i
 
 655:                                              ; preds = %652
@@ -24870,7 +24870,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 0, ptr %32, align 4
-  %33 = icmp eq ptr %14, %3
+  %33 = icmp eq ptr %3, %14
   %34 = zext i1 %33 to i64
   %35 = getelementptr inbounds i8, ptr %3, i64 %34
   %36 = getelementptr inbounds i8, ptr %0, i64 44
@@ -25584,7 +25584,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
   %395 = icmp ult ptr %394, %7
   %..i = select i1 %395, ptr %394, ptr %7
   %396 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %397 = icmp ugt ptr %396, %389
+  %397 = icmp ult ptr %389, %396
   br i1 %397, label %398, label %.loopexit.i.i
 
 398:                                              ; preds = %387
@@ -25688,7 +25688,7 @@ ZSTD_count.exit.i:                                ; preds = %434, %405, %399
 
 439:                                              ; preds = %ZSTD_count.exit.i
   %440 = getelementptr inbounds i8, ptr %389, i64 %.0.i.i
-  %441 = icmp ugt ptr %155, %440
+  %441 = icmp ult ptr %440, %155
   br i1 %441, label %442, label %.loopexit.i22.i
 
 442:                                              ; preds = %439
@@ -25885,7 +25885,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 0, ptr %33, align 4
-  %34 = icmp eq ptr %15, %3
+  %34 = icmp eq ptr %3, %15
   %35 = zext i1 %34 to i64
   %36 = getelementptr inbounds i8, ptr %3, i64 %35
   %37 = getelementptr inbounds i8, ptr %0, i64 44
@@ -26780,7 +26780,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
   %473 = icmp ult ptr %472, %8
   %..i = select i1 %473, ptr %472, ptr %8
   %474 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %475 = icmp ugt ptr %474, %467
+  %475 = icmp ult ptr %467, %474
   br i1 %475, label %476, label %.loopexit.i.i
 
 476:                                              ; preds = %465
@@ -26884,7 +26884,7 @@ ZSTD_count.exit.i:                                ; preds = %512, %483, %477
 
 517:                                              ; preds = %ZSTD_count.exit.i
   %518 = getelementptr inbounds i8, ptr %467, i64 %.0.i.i
-  %519 = icmp ugt ptr %156, %518
+  %519 = icmp ult ptr %518, %156
   br i1 %519, label %520, label %.loopexit.i22.i
 
 520:                                              ; preds = %517
@@ -27082,7 +27082,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %0, i64 300
   store i32 0, ptr %34, align 4
-  %35 = icmp eq ptr %16, %3
+  %35 = icmp eq ptr %3, %16
   %36 = zext i1 %35 to i64
   %37 = getelementptr inbounds i8, ptr %3, i64 %36
   %38 = getelementptr inbounds i8, ptr %0, i64 44
@@ -28130,7 +28130,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
   %547 = icmp ult ptr %546, %9
   %..i = select i1 %547, ptr %546, ptr %9
   %548 = getelementptr inbounds i8, ptr %..i, i64 -7
-  %549 = icmp ugt ptr %548, %541
+  %549 = icmp ult ptr %541, %548
   br i1 %549, label %550, label %.loopexit.i.i
 
 550:                                              ; preds = %539
@@ -28234,7 +28234,7 @@ ZSTD_count.exit.i:                                ; preds = %586, %557, %551
 
 591:                                              ; preds = %ZSTD_count.exit.i
   %592 = getelementptr inbounds i8, ptr %541, i64 %.0.i.i
-  %593 = icmp ugt ptr %157, %592
+  %593 = icmp ult ptr %592, %157
   br i1 %593, label %594, label %.loopexit.i22.i
 
 594:                                              ; preds = %591
@@ -28409,7 +28409,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
   %10 = icmp ult ptr %9, %2
   %. = select i1 %10, ptr %9, ptr %2
   %11 = getelementptr inbounds i8, ptr %., i64 -7
-  %12 = icmp ugt ptr %11, %0
+  %12 = icmp ult ptr %0, %11
   br i1 %12, label %13, label %.loopexit.i
 
 13:                                               ; preds = %5
@@ -28514,7 +28514,7 @@ ZSTD_count.exit:                                  ; preds = %14, %20, %49
 54:                                               ; preds = %ZSTD_count.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 %.0.i
   %56 = getelementptr inbounds i8, ptr %2, i64 -7
-  %57 = icmp ugt ptr %56, %55
+  %57 = icmp ult ptr %55, %56
   br i1 %57, label %58, label %.loopexit.i22
 
 58:                                               ; preds = %54
@@ -28733,7 +28733,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_4(ptr no
 
 .lr.ph358:                                        ; preds = %.split352.us
   %72 = getelementptr i8, ptr %2, i64 -7
-  %73 = icmp ugt ptr %72, %1
+  %73 = icmp ult ptr %1, %72
   %74 = getelementptr i8, ptr %2, i64 -3
   %75 = getelementptr inbounds i8, ptr %2, i64 -1
   %76 = add i32 %17, 3
@@ -28870,7 +28870,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %118, %ZSTD_count.ex
   br i1 %131, label %88, label %93
 
 .lr.ph358.split:                                  ; preds = %.lr.ph358
-  %132 = icmp ugt ptr %74, %1
+  %132 = icmp ult ptr %1, %74
   br i1 %132, label %.lr.ph358.split.split.us, label %.lr.ph358.split.split
 
 .lr.ph358.split.split.us:                         ; preds = %.lr.ph358.split, %158
@@ -28953,7 +28953,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %154, %ZSTD_count.ex
   br i1 %165, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .lr.ph358.split.split:                            ; preds = %.lr.ph358.split
-  %166 = icmp ugt ptr %75, %1
+  %166 = icmp ult ptr %1, %75
   br label %167
 
 167:                                              ; preds = %.lr.ph358.split.split, %188
@@ -29136,7 +29136,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_5(ptr no
 
 .lr.ph358:                                        ; preds = %.split352.us
   %70 = getelementptr i8, ptr %2, i64 -7
-  %71 = icmp ugt ptr %70, %1
+  %71 = icmp ult ptr %1, %70
   %72 = getelementptr i8, ptr %2, i64 -3
   %73 = getelementptr inbounds i8, ptr %2, i64 -1
   %74 = add i32 %17, 3
@@ -29273,7 +29273,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %116, %ZSTD_count.ex
   br i1 %129, label %86, label %91
 
 .lr.ph358.split:                                  ; preds = %.lr.ph358
-  %130 = icmp ugt ptr %72, %1
+  %130 = icmp ult ptr %1, %72
   br i1 %130, label %.lr.ph358.split.split.us, label %.lr.ph358.split.split
 
 .lr.ph358.split.split.us:                         ; preds = %.lr.ph358.split, %156
@@ -29356,7 +29356,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %152, %ZSTD_count.ex
   br i1 %163, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .lr.ph358.split.split:                            ; preds = %.lr.ph358.split
-  %164 = icmp ugt ptr %73, %1
+  %164 = icmp ult ptr %1, %73
   br label %165
 
 165:                                              ; preds = %.lr.ph358.split.split, %186
@@ -29539,7 +29539,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_6(ptr no
 
 .lr.ph358:                                        ; preds = %.split352.us
   %70 = getelementptr i8, ptr %2, i64 -7
-  %71 = icmp ugt ptr %70, %1
+  %71 = icmp ult ptr %1, %70
   %72 = getelementptr i8, ptr %2, i64 -3
   %73 = getelementptr inbounds i8, ptr %2, i64 -1
   %74 = add i32 %17, 3
@@ -29676,7 +29676,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %116, %ZSTD_count.ex
   br i1 %129, label %86, label %91
 
 .lr.ph358.split:                                  ; preds = %.lr.ph358
-  %130 = icmp ugt ptr %72, %1
+  %130 = icmp ult ptr %1, %72
   br i1 %130, label %.lr.ph358.split.split.us, label %.lr.ph358.split.split
 
 .lr.ph358.split.split.us:                         ; preds = %.lr.ph358.split, %156
@@ -29759,7 +29759,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %152, %ZSTD_count.ex
   br i1 %163, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .lr.ph358.split.split:                            ; preds = %.lr.ph358.split
-  %164 = icmp ugt ptr %73, %1
+  %164 = icmp ult ptr %1, %73
   br label %165
 
 165:                                              ; preds = %.lr.ph358.split.split, %186
@@ -30182,7 +30182,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr
 
 .lr.ph938:                                        ; preds = %._crit_edge930
   %231 = getelementptr inbounds i8, ptr %2, i64 -7
-  %232 = icmp ugt ptr %231, %1
+  %232 = icmp ult ptr %1, %231
   %233 = getelementptr inbounds i8, ptr %2, i64 -3
   %234 = getelementptr inbounds i8, ptr %2, i64 -1
   %235 = add i32 %19, 3
@@ -30678,7 +30678,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr
 
 .lr.ph940:                                        ; preds = %._crit_edge932
   %241 = getelementptr inbounds i8, ptr %2, i64 -7
-  %242 = icmp ugt ptr %241, %1
+  %242 = icmp ult ptr %1, %241
   %243 = getelementptr inbounds i8, ptr %2, i64 -3
   %244 = getelementptr inbounds i8, ptr %2, i64 -1
   %245 = add i32 %19, 3
@@ -31207,7 +31207,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr
 
 .lr.ph940:                                        ; preds = %._crit_edge932
   %262 = getelementptr inbounds i8, ptr %2, i64 -7
-  %263 = icmp ugt ptr %262, %1
+  %263 = icmp ult ptr %1, %262
   %264 = getelementptr inbounds i8, ptr %2, i64 -3
   %265 = getelementptr inbounds i8, ptr %2, i64 -1
   %266 = add i32 %20, 3
@@ -31690,7 +31690,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr
 
 .lr.ph938:                                        ; preds = %._crit_edge930
   %232 = getelementptr inbounds i8, ptr %2, i64 -7
-  %233 = icmp ugt ptr %232, %1
+  %233 = icmp ult ptr %1, %232
   %234 = getelementptr inbounds i8, ptr %2, i64 -3
   %235 = getelementptr inbounds i8, ptr %2, i64 -1
   %236 = add i32 %19, 3
@@ -32187,7 +32187,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr
 
 .lr.ph940:                                        ; preds = %._crit_edge932
   %242 = getelementptr inbounds i8, ptr %2, i64 -7
-  %243 = icmp ugt ptr %242, %1
+  %243 = icmp ult ptr %1, %242
   %244 = getelementptr inbounds i8, ptr %2, i64 -3
   %245 = getelementptr inbounds i8, ptr %2, i64 -1
   %246 = add i32 %19, 3
@@ -32717,7 +32717,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr
 
 .lr.ph940:                                        ; preds = %._crit_edge932
   %263 = getelementptr inbounds i8, ptr %2, i64 -7
-  %264 = icmp ugt ptr %263, %1
+  %264 = icmp ult ptr %1, %263
   %265 = getelementptr inbounds i8, ptr %2, i64 -3
   %266 = getelementptr inbounds i8, ptr %2, i64 -1
   %267 = add i32 %20, 3
@@ -33200,7 +33200,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr
 
 .lr.ph938:                                        ; preds = %._crit_edge930
   %232 = getelementptr inbounds i8, ptr %2, i64 -7
-  %233 = icmp ugt ptr %232, %1
+  %233 = icmp ult ptr %1, %232
   %234 = getelementptr inbounds i8, ptr %2, i64 -3
   %235 = getelementptr inbounds i8, ptr %2, i64 -1
   %236 = add i32 %19, 3
@@ -33697,7 +33697,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr
 
 .lr.ph940:                                        ; preds = %._crit_edge932
   %242 = getelementptr inbounds i8, ptr %2, i64 -7
-  %243 = icmp ugt ptr %242, %1
+  %243 = icmp ult ptr %1, %242
   %244 = getelementptr inbounds i8, ptr %2, i64 -3
   %245 = getelementptr inbounds i8, ptr %2, i64 -1
   %246 = add i32 %19, 3
@@ -34227,7 +34227,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr
 
 .lr.ph940:                                        ; preds = %._crit_edge932
   %263 = getelementptr inbounds i8, ptr %2, i64 -7
-  %264 = icmp ugt ptr %263, %1
+  %264 = icmp ult ptr %1, %263
   %265 = getelementptr inbounds i8, ptr %2, i64 -3
   %266 = getelementptr inbounds i8, ptr %2, i64 -1
   %267 = add i32 %20, 3
@@ -34478,7 +34478,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_4(ptr n
 
 .lr.ph361:                                        ; preds = %.split355.us
   %79 = getelementptr inbounds i8, ptr %2, i64 -7
-  %80 = icmp ugt ptr %79, %1
+  %80 = icmp ult ptr %1, %79
   %81 = getelementptr inbounds i8, ptr %2, i64 -3
   %82 = getelementptr inbounds i8, ptr %2, i64 -1
   %83 = getelementptr inbounds i8, ptr %1, i64 4
@@ -34754,7 +34754,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_5(ptr n
 
 .lr.ph361:                                        ; preds = %.split355.us
   %77 = getelementptr inbounds i8, ptr %2, i64 -7
-  %78 = icmp ugt ptr %77, %1
+  %78 = icmp ult ptr %1, %77
   %79 = getelementptr inbounds i8, ptr %2, i64 -3
   %80 = getelementptr inbounds i8, ptr %2, i64 -1
   %81 = getelementptr inbounds i8, ptr %1, i64 4
@@ -35030,7 +35030,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_6(ptr n
 
 .lr.ph361:                                        ; preds = %.split355.us
   %77 = getelementptr inbounds i8, ptr %2, i64 -7
-  %78 = icmp ugt ptr %77, %1
+  %78 = icmp ult ptr %1, %77
   %79 = getelementptr inbounds i8, ptr %2, i64 -3
   %80 = getelementptr inbounds i8, ptr %2, i64 -1
   %81 = getelementptr inbounds i8, ptr %1, i64 4
@@ -35548,7 +35548,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(pt
 
 .lr.ph942:                                        ; preds = %._crit_edge934
   %238 = getelementptr inbounds i8, ptr %2, i64 -7
-  %239 = icmp ugt ptr %238, %1
+  %239 = icmp ult ptr %1, %238
   %240 = getelementptr inbounds i8, ptr %2, i64 -3
   %241 = getelementptr inbounds i8, ptr %2, i64 -1
   %242 = getelementptr inbounds i8, ptr %1, i64 4
@@ -36071,7 +36071,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(pt
 
 .lr.ph944:                                        ; preds = %._crit_edge936
   %248 = getelementptr inbounds i8, ptr %2, i64 -7
-  %249 = icmp ugt ptr %248, %1
+  %249 = icmp ult ptr %1, %248
   %250 = getelementptr inbounds i8, ptr %2, i64 -3
   %251 = getelementptr inbounds i8, ptr %2, i64 -1
   %252 = getelementptr inbounds i8, ptr %1, i64 4
@@ -36627,7 +36627,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(pt
 
 .lr.ph944:                                        ; preds = %._crit_edge936
   %269 = getelementptr inbounds i8, ptr %2, i64 -7
-  %270 = icmp ugt ptr %269, %1
+  %270 = icmp ult ptr %1, %269
   %271 = getelementptr inbounds i8, ptr %2, i64 -3
   %272 = getelementptr inbounds i8, ptr %2, i64 -1
   %273 = getelementptr inbounds i8, ptr %1, i64 4
@@ -37137,7 +37137,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(pt
 
 .lr.ph942:                                        ; preds = %._crit_edge934
   %239 = getelementptr inbounds i8, ptr %2, i64 -7
-  %240 = icmp ugt ptr %239, %1
+  %240 = icmp ult ptr %1, %239
   %241 = getelementptr inbounds i8, ptr %2, i64 -3
   %242 = getelementptr inbounds i8, ptr %2, i64 -1
   %243 = getelementptr inbounds i8, ptr %1, i64 4
@@ -37661,7 +37661,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(pt
 
 .lr.ph944:                                        ; preds = %._crit_edge936
   %249 = getelementptr inbounds i8, ptr %2, i64 -7
-  %250 = icmp ugt ptr %249, %1
+  %250 = icmp ult ptr %1, %249
   %251 = getelementptr inbounds i8, ptr %2, i64 -3
   %252 = getelementptr inbounds i8, ptr %2, i64 -1
   %253 = getelementptr inbounds i8, ptr %1, i64 4
@@ -38218,7 +38218,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(pt
 
 .lr.ph944:                                        ; preds = %._crit_edge936
   %270 = getelementptr inbounds i8, ptr %2, i64 -7
-  %271 = icmp ugt ptr %270, %1
+  %271 = icmp ult ptr %1, %270
   %272 = getelementptr inbounds i8, ptr %2, i64 -3
   %273 = getelementptr inbounds i8, ptr %2, i64 -1
   %274 = getelementptr inbounds i8, ptr %1, i64 4
@@ -38728,7 +38728,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(pt
 
 .lr.ph942:                                        ; preds = %._crit_edge934
   %239 = getelementptr inbounds i8, ptr %2, i64 -7
-  %240 = icmp ugt ptr %239, %1
+  %240 = icmp ult ptr %1, %239
   %241 = getelementptr inbounds i8, ptr %2, i64 -3
   %242 = getelementptr inbounds i8, ptr %2, i64 -1
   %243 = getelementptr inbounds i8, ptr %1, i64 4
@@ -39252,7 +39252,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(pt
 
 .lr.ph944:                                        ; preds = %._crit_edge936
   %249 = getelementptr inbounds i8, ptr %2, i64 -7
-  %250 = icmp ugt ptr %249, %1
+  %250 = icmp ult ptr %1, %249
   %251 = getelementptr inbounds i8, ptr %2, i64 -3
   %252 = getelementptr inbounds i8, ptr %2, i64 -1
   %253 = getelementptr inbounds i8, ptr %1, i64 4
@@ -39809,7 +39809,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(pt
 
 .lr.ph944:                                        ; preds = %._crit_edge936
   %270 = getelementptr inbounds i8, ptr %2, i64 -7
-  %271 = icmp ugt ptr %270, %1
+  %271 = icmp ult ptr %1, %270
   %272 = getelementptr inbounds i8, ptr %2, i64 -3
   %273 = getelementptr inbounds i8, ptr %2, i64 -1
   %274 = getelementptr inbounds i8, ptr %1, i64 4
@@ -40077,7 +40077,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 .lr.ph366:                                        ; preds = %.split360.us
   %78 = getelementptr i8, ptr %2, i64 -7
-  %79 = icmp ugt ptr %78, %1
+  %79 = icmp ult ptr %1, %78
   %80 = getelementptr inbounds i8, ptr %2, i64 -3
   %81 = getelementptr inbounds i8, ptr %2, i64 -1
   %82 = add i32 %21, 3
@@ -40214,7 +40214,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %124, %ZSTD_count.ex
   br i1 %137, label %94, label %99
 
 .lr.ph366.split:                                  ; preds = %.lr.ph366
-  %138 = icmp ugt ptr %80, %1
+  %138 = icmp ult ptr %1, %80
   br label %139
 
 139:                                              ; preds = %.lr.ph366.split, %167
@@ -40504,7 +40504,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 .lr.ph366:                                        ; preds = %.split360.us
   %76 = getelementptr i8, ptr %2, i64 -7
-  %77 = icmp ugt ptr %76, %1
+  %77 = icmp ult ptr %1, %76
   %78 = getelementptr inbounds i8, ptr %2, i64 -3
   %79 = getelementptr inbounds i8, ptr %2, i64 -1
   %80 = add i32 %21, 3
@@ -40641,7 +40641,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %122, %ZSTD_count.ex
   br i1 %135, label %92, label %97
 
 .lr.ph366.split:                                  ; preds = %.lr.ph366
-  %136 = icmp ugt ptr %78, %1
+  %136 = icmp ult ptr %1, %78
   br label %137
 
 137:                                              ; preds = %.lr.ph366.split, %165
@@ -40931,7 +40931,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_
 
 .lr.ph366:                                        ; preds = %.split360.us
   %76 = getelementptr i8, ptr %2, i64 -7
-  %77 = icmp ugt ptr %76, %1
+  %77 = icmp ult ptr %1, %76
   %78 = getelementptr inbounds i8, ptr %2, i64 -3
   %79 = getelementptr inbounds i8, ptr %2, i64 -1
   %80 = add i32 %21, 3
@@ -41068,7 +41068,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %122, %ZSTD_count.ex
   br i1 %135, label %92, label %97
 
 .lr.ph366.split:                                  ; preds = %.lr.ph366
-  %136 = icmp ugt ptr %78, %1
+  %136 = icmp ult ptr %1, %78
   br label %137
 
 137:                                              ; preds = %.lr.ph366.split, %165
@@ -41616,7 +41616,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph954:                                        ; preds = %._crit_edge944
   %252 = getelementptr inbounds i8, ptr %2, i64 -7
-  %253 = icmp ugt ptr %252, %1
+  %253 = icmp ult ptr %1, %252
   %254 = getelementptr inbounds i8, ptr %2, i64 -3
   %255 = getelementptr inbounds i8, ptr %2, i64 -1
   %256 = add i32 %24, 3
@@ -42250,7 +42250,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph952:                                        ; preds = %._crit_edge942
   %263 = getelementptr inbounds i8, ptr %2, i64 -7
-  %264 = icmp ugt ptr %263, %1
+  %264 = icmp ult ptr %1, %263
   %265 = getelementptr inbounds i8, ptr %2, i64 -3
   %266 = getelementptr inbounds i8, ptr %2, i64 -1
   %267 = add i32 %24, 3
@@ -42927,7 +42927,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph952:                                        ; preds = %._crit_edge942
   %286 = getelementptr inbounds i8, ptr %2, i64 -7
-  %287 = icmp ugt ptr %286, %1
+  %287 = icmp ult ptr %1, %286
   %288 = getelementptr inbounds i8, ptr %2, i64 -3
   %289 = getelementptr inbounds i8, ptr %2, i64 -1
   %290 = add i32 %26, 3
@@ -43577,7 +43577,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph954:                                        ; preds = %._crit_edge944
   %253 = getelementptr inbounds i8, ptr %2, i64 -7
-  %254 = icmp ugt ptr %253, %1
+  %254 = icmp ult ptr %1, %253
   %255 = getelementptr inbounds i8, ptr %2, i64 -3
   %256 = getelementptr inbounds i8, ptr %2, i64 -1
   %257 = add i32 %24, 3
@@ -44212,7 +44212,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph952:                                        ; preds = %._crit_edge942
   %264 = getelementptr inbounds i8, ptr %2, i64 -7
-  %265 = icmp ugt ptr %264, %1
+  %265 = icmp ult ptr %1, %264
   %266 = getelementptr inbounds i8, ptr %2, i64 -3
   %267 = getelementptr inbounds i8, ptr %2, i64 -1
   %268 = add i32 %24, 3
@@ -44890,7 +44890,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph952:                                        ; preds = %._crit_edge942
   %287 = getelementptr inbounds i8, ptr %2, i64 -7
-  %288 = icmp ugt ptr %287, %1
+  %288 = icmp ult ptr %1, %287
   %289 = getelementptr inbounds i8, ptr %2, i64 -3
   %290 = getelementptr inbounds i8, ptr %2, i64 -1
   %291 = add i32 %26, 3
@@ -45540,7 +45540,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph954:                                        ; preds = %._crit_edge944
   %253 = getelementptr inbounds i8, ptr %2, i64 -7
-  %254 = icmp ugt ptr %253, %1
+  %254 = icmp ult ptr %1, %253
   %255 = getelementptr inbounds i8, ptr %2, i64 -3
   %256 = getelementptr inbounds i8, ptr %2, i64 -1
   %257 = add i32 %24, 3
@@ -46175,7 +46175,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph952:                                        ; preds = %._crit_edge942
   %264 = getelementptr inbounds i8, ptr %2, i64 -7
-  %265 = icmp ugt ptr %264, %1
+  %265 = icmp ult ptr %1, %264
   %266 = getelementptr inbounds i8, ptr %2, i64 -3
   %267 = getelementptr inbounds i8, ptr %2, i64 -1
   %268 = add i32 %24, 3
@@ -46853,7 +46853,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState
 
 .lr.ph952:                                        ; preds = %._crit_edge942
   %287 = getelementptr inbounds i8, ptr %2, i64 -7
-  %288 = icmp ugt ptr %287, %1
+  %288 = icmp ult ptr %1, %287
   %289 = getelementptr inbounds i8, ptr %2, i64 -3
   %290 = getelementptr inbounds i8, ptr %2, i64 -1
   %291 = add i32 %26, 3
@@ -47258,7 +47258,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
 
 .lr.ph377:                                        ; preds = %.split371.us
   %88 = getelementptr inbounds i8, ptr %2, i64 -7
-  %89 = icmp ugt ptr %88, %1
+  %89 = icmp ult ptr %1, %88
   %90 = getelementptr inbounds i8, ptr %2, i64 -3
   %91 = getelementptr inbounds i8, ptr %2, i64 -1
   %92 = add i32 %21, 3
@@ -47696,7 +47696,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSe
 
 .lr.ph377:                                        ; preds = %.split371.us
   %86 = getelementptr inbounds i8, ptr %2, i64 -7
-  %87 = icmp ugt ptr %86, %1
+  %87 = icmp ult ptr %1, %86
   %88 = getelementptr inbounds i8, ptr %2, i64 -3
   %89 = getelementptr inbounds i8, ptr %2, i64 -1
   %90 = add i32 %21, 3
@@ -48134,7 +48134,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
 
 .lr.ph377:                                        ; preds = %.split371.us
   %86 = getelementptr inbounds i8, ptr %2, i64 -7
-  %87 = icmp ugt ptr %86, %1
+  %87 = icmp ult ptr %1, %86
   %88 = getelementptr inbounds i8, ptr %2, i64 -3
   %89 = getelementptr inbounds i8, ptr %2, i64 -1
   %90 = add i32 %21, 3
@@ -48815,7 +48815,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph961:                                        ; preds = %._crit_edge951
   %250 = getelementptr inbounds i8, ptr %2, i64 -7
-  %251 = icmp ugt ptr %250, %1
+  %251 = icmp ult ptr %1, %250
   %252 = getelementptr inbounds i8, ptr %2, i64 -3
   %253 = getelementptr inbounds i8, ptr %2, i64 -1
   %254 = add i32 %23, 3
@@ -49501,7 +49501,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph963:                                        ; preds = %._crit_edge953
   %260 = getelementptr inbounds i8, ptr %2, i64 -7
-  %261 = icmp ugt ptr %260, %1
+  %261 = icmp ult ptr %1, %260
   %262 = getelementptr inbounds i8, ptr %2, i64 -3
   %263 = getelementptr inbounds i8, ptr %2, i64 -1
   %264 = add i32 %23, 3
@@ -50220,7 +50220,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph963:                                        ; preds = %._crit_edge953
   %281 = getelementptr inbounds i8, ptr %2, i64 -7
-  %282 = icmp ugt ptr %281, %1
+  %282 = icmp ult ptr %1, %281
   %283 = getelementptr inbounds i8, ptr %2, i64 -3
   %284 = getelementptr inbounds i8, ptr %2, i64 -1
   %285 = add i32 %24, 3
@@ -50893,7 +50893,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph961:                                        ; preds = %._crit_edge951
   %251 = getelementptr inbounds i8, ptr %2, i64 -7
-  %252 = icmp ugt ptr %251, %1
+  %252 = icmp ult ptr %1, %251
   %253 = getelementptr inbounds i8, ptr %2, i64 -3
   %254 = getelementptr inbounds i8, ptr %2, i64 -1
   %255 = add i32 %23, 3
@@ -51580,7 +51580,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph963:                                        ; preds = %._crit_edge953
   %261 = getelementptr inbounds i8, ptr %2, i64 -7
-  %262 = icmp ugt ptr %261, %1
+  %262 = icmp ult ptr %1, %261
   %263 = getelementptr inbounds i8, ptr %2, i64 -3
   %264 = getelementptr inbounds i8, ptr %2, i64 -1
   %265 = add i32 %23, 3
@@ -52300,7 +52300,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph963:                                        ; preds = %._crit_edge953
   %282 = getelementptr inbounds i8, ptr %2, i64 -7
-  %283 = icmp ugt ptr %282, %1
+  %283 = icmp ult ptr %1, %282
   %284 = getelementptr inbounds i8, ptr %2, i64 -3
   %285 = getelementptr inbounds i8, ptr %2, i64 -1
   %286 = add i32 %24, 3
@@ -52973,7 +52973,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph961:                                        ; preds = %._crit_edge951
   %251 = getelementptr inbounds i8, ptr %2, i64 -7
-  %252 = icmp ugt ptr %251, %1
+  %252 = icmp ult ptr %1, %251
   %253 = getelementptr inbounds i8, ptr %2, i64 -3
   %254 = getelementptr inbounds i8, ptr %2, i64 -1
   %255 = add i32 %23, 3
@@ -53660,7 +53660,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph963:                                        ; preds = %._crit_edge953
   %261 = getelementptr inbounds i8, ptr %2, i64 -7
-  %262 = icmp ugt ptr %261, %1
+  %262 = icmp ult ptr %1, %261
   %263 = getelementptr inbounds i8, ptr %2, i64 -3
   %264 = getelementptr inbounds i8, ptr %2, i64 -1
   %265 = add i32 %23, 3
@@ -54380,7 +54380,7 @@ define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictS
 
 .lr.ph963:                                        ; preds = %._crit_edge953
   %282 = getelementptr inbounds i8, ptr %2, i64 -7
-  %283 = icmp ugt ptr %282, %1
+  %283 = icmp ult ptr %1, %282
   %284 = getelementptr inbounds i8, ptr %2, i64 -3
   %285 = getelementptr inbounds i8, ptr %2, i64 -1
   %286 = add i32 %24, 3
@@ -54821,7 +54821,7 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %0, pt
   %76 = load ptr, ptr %31, align 8
   %77 = load ptr, ptr %65, align 8
   %78 = load i32, ptr %66, align 8
-  %.not.i235 = icmp ugt i32 %78, %.1278
+  %.not.i235 = icmp ult i32 %.1278, %78
   %79 = zext i32 %.1278 to i64
   %.v.i = select i1 %.not.i235, ptr %77, ptr %76
   %80 = getelementptr inbounds i8, ptr %.v.i, i64 %79
@@ -54884,7 +54884,7 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %0, pt
   %114 = getelementptr inbounds i8, ptr %113, i64 %109
   %115 = getelementptr inbounds i8, ptr %80, i64 %108
   %116 = getelementptr inbounds i8, ptr %114, i64 %108
-  %117 = icmp ugt ptr %100, %115
+  %117 = icmp ult ptr %115, %100
   br i1 %117, label %118, label %.loopexit.i.i
 
 118:                                              ; preds = %.critedge.i
@@ -55095,7 +55095,7 @@ ZSTD_insertDUBT1.exit:                            ; preds = %165, %173, %176, %1
 ._crit_edge321:                                   ; preds = %201
   %210 = getelementptr inbounds i8, ptr %32, i64 %207
   %211 = getelementptr inbounds i8, ptr %210, i64 %206
-  %212 = icmp ugt ptr %198, %209
+  %212 = icmp ult ptr %209, %198
   br i1 %212, label %213, label %.loopexit.i
 
 213:                                              ; preds = %._crit_edge321

@@ -151,7 +151,7 @@ while.body:                                       ; preds = %_ZN7msdfgenL12readN
   br i1 %tobool3.not907, label %NEXT_CONTOUR, label %while.body4
 
 while.body4:                                      ; preds = %while.body, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
-  %4 = phi i8 [ %110, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %3, %while.body ]
+  %4 = phi i8 [ %114, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %3, %while.body ]
   %controlPoint.sroa.0.2 = phi double [ %controlPoint.sroa.0.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
   %controlPoint.sroa.14.2 = phi double [ %controlPoint.sroa.14.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
   %controlPoint.sroa.29.2 = phi double [ %controlPoint.sroa.29.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0.000000e+00, %while.body ]
@@ -1296,12 +1296,13 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %add3.i.i = fadd double %prevNode.sroa.25.2908, %node.sroa.39.9
   %mul.i57.i = fmul double %add.i.i, 5.000000e-01
   %mul1.i58.i = fmul double %add3.i.i, 5.000000e-01
-  %neg.i61.i = fmul double %div71.i, %fneg.i
-  %81 = call double @llvm.fmuladd.f64(double %call12.i, double %div64.i, double %neg.i61.i)
+  %81 = fneg double %div71.i
+  %neg.i61.i = fmul double %call13.i, %81
+  %82 = call double @llvm.fmuladd.f64(double %call12.i, double %div64.i, double %neg.i61.i)
   %mul8.i62.i = fmul double %call12.i, %div71.i
-  %82 = call double @llvm.fmuladd.f64(double %call13.i, double %div64.i, double %mul8.i62.i)
-  %add.i65.i = fadd double %mul.i57.i, %81
-  %add3.i66.i = fadd double %mul1.i58.i, %82
+  %83 = call double @llvm.fmuladd.f64(double %call13.i, double %div64.i, double %mul8.i62.i)
+  %add.i65.i = fadd double %mul.i57.i, %82
+  %add3.i66.i = fadd double %mul1.i58.i, %83
   %sub.i70.i = fsub double %76, %div64.i
   %sub3.i71.i = fsub double %77, %div71.i
   %div.i.i = fdiv double %sub.i70.i, %radius.sroa.0.0.i
@@ -1309,44 +1310,44 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %neg.i.i.i = fmul double %div.i.i, 0.000000e+00
   %cmp.i.i.i = fcmp ogt double %div3.i.i, %neg.i.i.i
   %mul3.i.i.i = fmul double %div3.i.i, 0.000000e+00
-  %83 = fadd double %div.i.i, %mul3.i.i.i
+  %84 = fadd double %div.i.i, %mul3.i.i.i
   %mul4.i2.i.i = fmul double %div3.i.i, %div3.i.i
-  %84 = call double @llvm.fmuladd.f64(double %div.i.i, double %div.i.i, double %mul4.i2.i.i)
-  %sqrt.i3.i.i = call noundef double @llvm.sqrt.f64(double %84)
-  %div.i77.i = fdiv double %83, %sqrt.i3.i.i
-  %85 = call double @llvm.fabs.f64(double %div.i77.i)
-  %or.cond.i.i.i = fcmp ugt double %85, 1.000000e+00
+  %85 = call double @llvm.fmuladd.f64(double %div.i.i, double %div.i.i, double %mul4.i2.i.i)
+  %sqrt.i3.i.i = call noundef double @llvm.sqrt.f64(double %85)
+  %div.i77.i = fdiv double %84, %sqrt.i3.i.i
+  %86 = call double @llvm.fabs.f64(double %div.i77.i)
+  %or.cond.i.i.i = fcmp ugt double %86, 1.000000e+00
   %cmp2.i.i.i = fcmp olt double %div.i77.i, -1.000000e+00
   %cond.i.i.i = select i1 %cmp2.i.i.i, double -1.000000e+00, double 1.000000e+00
   %cond6.i.i.i = select i1 %or.cond.i.i.i, double %cond.i.i.i, double %div.i77.i
   %call9.i.i = call double @acos(double noundef %cond6.i.i.i) #16
-  %86 = fneg double %call9.i.i
-  %mul10.i.i = select i1 %cmp.i.i.i, double %call9.i.i, double %86
+  %87 = fneg double %call9.i.i
+  %mul10.i.i = select i1 %cmp.i.i.i, double %call9.i.i, double %87
   %fneg.i.i = fneg double %76
   %fneg1.i.i = fneg double %77
   %sub.i88.i = fsub double %fneg.i.i, %div64.i
   %sub3.i89.i = fsub double %fneg1.i.i, %div71.i
   %div.i92.i = fdiv double %sub.i88.i, %radius.sroa.0.0.i
   %div3.i93.i = fdiv double %sub3.i89.i, %radius.sroa.14.0.i
-  %87 = fneg double %div3.i.i
-  %neg.i.i96.i = fmul double %div.i92.i, %87
-  %88 = call noundef double @llvm.fmuladd.f64(double %div.i.i, double %div3.i93.i, double %neg.i.i96.i)
-  %cmp.i.i97.i = fcmp ogt double %88, 0.000000e+00
+  %88 = fneg double %div.i92.i
+  %neg.i.i96.i = fmul double %div3.i.i, %88
+  %89 = call noundef double @llvm.fmuladd.f64(double %div.i.i, double %div3.i93.i, double %neg.i.i96.i)
+  %cmp.i.i97.i = fcmp ogt double %89, 0.000000e+00
   %mul3.i.i98.i = fmul double %div3.i.i, %div3.i93.i
-  %89 = call noundef double @llvm.fmuladd.f64(double %div.i.i, double %div.i92.i, double %mul3.i.i98.i)
+  %90 = call noundef double @llvm.fmuladd.f64(double %div.i.i, double %div.i92.i, double %mul3.i.i98.i)
   %mul4.i2.i101.i = fmul double %div3.i93.i, %div3.i93.i
-  %90 = call double @llvm.fmuladd.f64(double %div.i92.i, double %div.i92.i, double %mul4.i2.i101.i)
-  %sqrt.i3.i102.i = call noundef double @llvm.sqrt.f64(double %90)
+  %91 = call double @llvm.fmuladd.f64(double %div.i92.i, double %div.i92.i, double %mul4.i2.i101.i)
+  %sqrt.i3.i102.i = call noundef double @llvm.sqrt.f64(double %91)
   %mul.i103.i = fmul double %sqrt.i3.i.i, %sqrt.i3.i102.i
-  %div.i104.i = fdiv double %89, %mul.i103.i
-  %91 = call double @llvm.fabs.f64(double %div.i104.i)
-  %or.cond.i.i105.i = fcmp ugt double %91, 1.000000e+00
+  %div.i104.i = fdiv double %90, %mul.i103.i
+  %92 = call double @llvm.fabs.f64(double %div.i104.i)
+  %or.cond.i.i105.i = fcmp ugt double %92, 1.000000e+00
   %cmp2.i.i106.i = fcmp olt double %div.i104.i, -1.000000e+00
   %cond.i.i107.i = select i1 %cmp2.i.i106.i, double -1.000000e+00, double 1.000000e+00
   %cond6.i.i108.i = select i1 %or.cond.i.i105.i, double %cond.i.i107.i, double %div.i104.i
   %call9.i109.i = call double @acos(double noundef %cond6.i.i108.i) #16
-  %92 = fneg double %call9.i109.i
-  %mul10.i110.i = select i1 %cmp.i.i97.i, double %call9.i109.i, double %92
+  %93 = fneg double %call9.i109.i
+  %mul10.i110.i = select i1 %cmp.i.i97.i, double %call9.i109.i, double %93
   %cmp110.i = fcmp ule double %mul10.i110.i, 0.000000e+00
   %or.cond1.not.i = or i1 %cmp1.i334, %cmp110.i
   br i1 %or.cond1.not.i, label %if.else.i, label %if.then111.i
@@ -1366,10 +1367,10 @@ if.then116.i:                                     ; preds = %if.else.i
 
 if.end119.i:                                      ; preds = %if.then116.i, %if.else.i, %if.then111.i
   %angleExtent.0.i = phi double [ %sub112.i, %if.then111.i ], [ %add117.i, %if.then116.i ], [ %mul10.i110.i, %if.else.i ]
-  %93 = call double @llvm.fabs.f64(double %angleExtent.0.i)
-  %mul120.i = fmul double %93, 0x3FE45F306DC9C883
-  %94 = call double @llvm.ceil.f64(double %mul120.i)
-  %conv121.i = fptosi double %94 to i32
+  %94 = call double @llvm.fabs.f64(double %angleExtent.0.i)
+  %mul120.i = fmul double %94, 0x3FE45F306DC9C883
+  %95 = call double @llvm.ceil.f64(double %mul120.i)
+  %conv121.i = fptosi double %95 to i32
   %conv122.i = sitofp i32 %conv121.i to double
   %div123.i = fdiv double %angleExtent.0.i, %conv122.i
   %mul124.i = fmul double %div123.i, 5.000000e-01
@@ -1393,41 +1394,44 @@ arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %
   %i.0162.i = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph.i ], [ %inc.i, %invoke.cont190.i ]
   %call132.i = call double @cos(double noundef %angle.0163.i) #16
   %call133.i = call double @sin(double noundef %angle.0163.i) #16
-  %95 = call double @llvm.fmuladd.f64(double %neg.i, double %call133.i, double %call132.i)
-  %96 = call double @llvm.fmuladd.f64(double %div130.i, double %call132.i, double %call133.i)
-  %mul.i114.i = fmul double %radius.sroa.0.0.i, %95
-  %mul3.i115.i = fmul double %radius.sroa.14.0.i, %96
-  %neg.i118.i = fmul double %mul3.i115.i, %fneg.i
-  %97 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i114.i, double %neg.i118.i)
+  %96 = call double @llvm.fmuladd.f64(double %neg.i, double %call133.i, double %call132.i)
+  %97 = call double @llvm.fmuladd.f64(double %div130.i, double %call132.i, double %call133.i)
+  %mul.i114.i = fmul double %radius.sroa.0.0.i, %96
+  %mul3.i115.i = fmul double %radius.sroa.14.0.i, %97
+  %98 = fneg double %mul3.i115.i
+  %neg.i118.i = fmul double %call13.i, %98
+  %99 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i114.i, double %neg.i118.i)
   %mul8.i119.i = fmul double %call12.i, %mul3.i115.i
-  %98 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i114.i, double %mul8.i119.i)
-  %add.i122.i = fadd double %add.i65.i, %97
-  %add3.i123.i = fadd double %add3.i66.i, %98
+  %100 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i114.i, double %mul8.i119.i)
+  %add.i122.i = fadd double %add.i65.i, %99
+  %add3.i123.i = fadd double %add3.i66.i, %100
   %add150.i = fadd double %div123.i, %angle.0163.i
   %call151.i = call double @cos(double noundef %add150.i) #16
   %call152.i = call double @sin(double noundef %add150.i) #16
-  %99 = call double @llvm.fmuladd.f64(double %div130.i, double %call152.i, double %call151.i)
-  %100 = call double @llvm.fmuladd.f64(double %neg.i, double %call151.i, double %call152.i)
-  %mul.i128.i = fmul double %radius.sroa.0.0.i, %99
-  %mul3.i129.i = fmul double %radius.sroa.14.0.i, %100
-  %neg.i132.i = fmul double %mul3.i129.i, %fneg.i
-  %101 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i128.i, double %neg.i132.i)
+  %101 = call double @llvm.fmuladd.f64(double %div130.i, double %call152.i, double %call151.i)
+  %102 = call double @llvm.fmuladd.f64(double %neg.i, double %call151.i, double %call152.i)
+  %mul.i128.i = fmul double %radius.sroa.0.0.i, %101
+  %mul3.i129.i = fmul double %radius.sroa.14.0.i, %102
+  %103 = fneg double %mul3.i129.i
+  %neg.i132.i = fmul double %call13.i, %103
+  %104 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i128.i, double %neg.i132.i)
   %mul8.i133.i = fmul double %call12.i, %mul3.i129.i
-  %102 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i128.i, double %mul8.i133.i)
-  %add.i136.i = fadd double %add.i65.i, %101
-  %add3.i137.i = fadd double %add3.i66.i, %102
+  %105 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i128.i, double %mul8.i133.i)
+  %add.i136.i = fadd double %add.i65.i, %104
+  %add3.i137.i = fadd double %add3.i66.i, %105
   %cmp172.i = icmp eq i32 %i.0162.i, %sub171.i
   br i1 %cmp172.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %arrayctor.loop.preheader.i
   %mul.i140.i = fmul double %radius.sroa.0.0.i, %call151.i
   %mul3.i141.i = fmul double %radius.sroa.14.0.i, %call152.i
-  %neg.i144.i = fmul double %mul3.i141.i, %fneg.i
-  %103 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i140.i, double %neg.i144.i)
+  %106 = fneg double %mul3.i141.i
+  %neg.i144.i = fmul double %call13.i, %106
+  %107 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i140.i, double %neg.i144.i)
   %mul8.i145.i = fmul double %call12.i, %mul3.i141.i
-  %104 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i140.i, double %mul8.i145.i)
-  %add.i148.i = fadd double %add.i65.i, %103
-  %add3.i149.i = fadd double %add3.i66.i, %104
+  %108 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i140.i, double %mul8.i145.i)
+  %add.i148.i = fadd double %add.i65.i, %107
+  %add3.i149.i = fadd double %add3.i66.i, %108
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %arrayctor.loop.preheader.i
@@ -1445,13 +1449,13 @@ invoke.cont190.i:                                 ; preds = %cond.end.i
   br i1 %exitcond.not.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %arrayctor.loop.preheader.i, !llvm.loop !7
 
 lpad189.i:                                        ; preds = %cond.end.i
-  %105 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad189.i, %lpad, %lpad42, %lpad58, %lpad81, %lpad120, %lpad153, %lpad203, %lpad281
   %ref.tmp.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp39, %lpad42 ], [ %ref.tmp55, %lpad58 ], [ %ref.tmp76, %lpad81 ], [ %ref.tmp115, %lpad120 ], [ %ref.tmp146, %lpad153 ], [ %ref.tmp196, %lpad203 ], [ %ref.tmp278, %lpad281 ], [ %ref.tmp182.i, %lpad189.i ], [ %ref.tmp.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %16, %lpad42 ], [ %19, %lpad58 ], [ %28, %lpad81 ], [ %33, %lpad120 ], [ %46, %lpad153 ], [ %57, %lpad203 ], [ %128, %lpad281 ], [ %105, %lpad189.i ], [ %73, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %16, %lpad42 ], [ %19, %lpad58 ], [ %28, %lpad81 ], [ %33, %lpad120 ], [ %46, %lpad153 ], [ %57, %lpad203 ], [ %132, %lpad281 ], [ %109, %lpad189.i ], [ %73, %lpad.i ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sink) #16
   resume { ptr, i32 } %common.resume.op
 
@@ -1471,15 +1475,15 @@ sw.epilog:                                        ; preds = %_ZN7msdfgenL17addAr
   %node.sroa.0.2 = phi double [ %node.sroa.0.9, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %node.sroa.0.8, %invoke.cont204 ], [ %node.sroa.0.7, %invoke.cont154 ], [ %node.sroa.0.6, %invoke.cont121 ], [ %node.sroa.0.5, %invoke.cont82 ], [ %node.sroa.0.0913, %invoke.cont59 ], [ %node.sroa.0.4, %invoke.cont43 ], [ %node.sroa.0.3, %invoke.cont ], [ %node.sroa.0.1, %if.end8 ]
   %nodeType.3 = phi i8 [ %nodeType.2916, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %nodeType.2916, %invoke.cont204 ], [ %nodeType.2916, %invoke.cont154 ], [ %nodeType.2916, %invoke.cont121 ], [ %nodeType.2916, %invoke.cont82 ], [ %nodeType.2916, %invoke.cont59 ], [ %nodeType.2916, %invoke.cont43 ], [ %nodeType.2916, %invoke.cont ], [ %dec, %if.end8 ]
   %pathDef.addr.3 = phi ptr [ %71, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %56, %invoke.cont204 ], [ %45, %invoke.cont154 ], [ %32, %invoke.cont121 ], [ %27, %invoke.cont82 ], [ %18, %invoke.cont59 ], [ %15, %invoke.cont43 ], [ %12, %invoke.cont ], [ %8, %if.end8 ]
-  %106 = and i8 %nodeType.3, -33
-  %107 = icmp eq i8 %106, 77
-  %and29 = and i1 %contourStart.0918, %107
+  %110 = and i8 %nodeType.3, -33
+  %111 = icmp eq i8 %110, 77
+  %and29 = and i1 %contourStart.0918, %111
   br label %while.cond.i.i367
 
 while.cond.i.i367:                                ; preds = %while.body.i.i368, %sw.epilog
   %pathDef.addr.64 = phi ptr [ %pathDef.addr.3, %sw.epilog ], [ %incdec.ptr.i.i369, %while.body.i.i368 ]
-  %108 = load i8, ptr %pathDef.addr.64, align 1
-  switch i8 %108, label %land.lhs.true10.i372 [
+  %112 = load i8, ptr %pathDef.addr.64, align 1
+  switch i8 %112, label %land.lhs.true10.i372 [
     i8 44, label %while.body.i.i368
     i8 32, label %while.body.i.i368
     i8 9, label %while.body.i.i368
@@ -1496,19 +1500,19 @@ while.body.i.i368:                                ; preds = %while.cond.i.i367, 
   br label %while.cond.i.i367, !llvm.loop !5
 
 land.lhs.true10.i372:                             ; preds = %while.cond.i.i367
-  %109 = add i8 %108, -58
-  %or.cond4.i373 = icmp ult i8 %109, -10
-  %spec.select = select i1 %or.cond4.i373, i8 %108, i8 %nodeType.3
+  %113 = add i8 %112, -58
+  %or.cond4.i373 = icmp ult i8 %113, -10
+  %spec.select = select i1 %or.cond4.i373, i8 %112, i8 %nodeType.3
   %spec.select524.idx = zext i1 %or.cond4.i373 to i64
   %spec.select524 = getelementptr inbounds i8, ptr %pathDef.addr.64, i64 %spec.select524.idx
   %.pre1321 = load i8, ptr %spec.select524, align 1
   br label %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
 
 _ZN7msdfgenL12readNodeTypeERcRPKc.exit376:        ; preds = %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %land.lhs.true10.i372
-  %110 = phi i8 [ %.pre1321, %land.lhs.true10.i372 ], [ %108, %while.cond.i.i367 ], [ %108, %while.cond.i.i367 ], [ %108, %while.cond.i.i367 ], [ %108, %while.cond.i.i367 ]
+  %114 = phi i8 [ %.pre1321, %land.lhs.true10.i372 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ], [ %112, %while.cond.i.i367 ]
   %nodeType.5 = phi i8 [ %spec.select, %land.lhs.true10.i372 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ]
   %pathDef.addr.65 = phi ptr [ %spec.select524, %land.lhs.true10.i372 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ]
-  %tobool3.not = icmp eq i8 %110, 0
+  %tobool3.not = icmp eq i8 %114, 0
   br i1 %tobool3.not, label %NEXT_CONTOUR, label %while.body4, !llvm.loop !8
 
 NEXT_CONTOUR:                                     ; preds = %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376, %sw.bb, %while.body, %sw.bb13
@@ -1519,59 +1523,59 @@ NEXT_CONTOUR:                                     ; preds = %_ZN7msdfgenL12readN
   %nodeType.2656 = phi i8 [ %nodeType.2916, %sw.bb13 ], [ %nodeType.1, %while.body ], [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.2916, %sw.bb ]
   %pathDef.addr.2614 = phi ptr [ %pathDef.addr.2917, %sw.bb13 ], [ %pathDef.addr.1, %while.body ], [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.2917, %sw.bb ]
   %nodeTypePreread.1 = phi i1 [ false, %sw.bb13 ], [ false, %while.body ], [ false, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ true, %sw.bb ]
-  %111 = load ptr, ptr %call1, align 8
+  %115 = load ptr, ptr %call1, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %call1, i64 8
-  %112 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i377 = icmp eq ptr %111, %112
+  %116 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i377 = icmp eq ptr %115, %116
   br i1 %cmp.i.i377, label %if.end284, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %NEXT_CONTOUR
   %cmp.i378 = fcmp une double %prevNode.sroa.0.2865, %startPoint.sroa.0.0781
   %cmp3.i379 = fcmp une double %prevNode.sroa.25.2906, %startPoint.sroa.5.0823
-  %113 = select i1 %cmp.i378, i1 true, i1 %cmp3.i379
-  br i1 %113, label %if.then247, label %if.end284
+  %117 = select i1 %cmp.i378, i1 true, i1 %cmp3.i379
+  br i1 %117, label %if.then247, label %if.end284
 
 if.then247:                                       ; preds = %land.lhs.true
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %112, i64 -8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %116, i64 -8
   %call252 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %vtable = load ptr, ptr %call252, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %114 = load ptr, ptr %vfn, align 8
-  %call253 = call { double, double } %114(ptr noundef nonnull align 8 dereferenceable(12) %call252, double noundef 1.000000e+00)
-  %115 = extractvalue { double, double } %call253, 0
-  %116 = extractvalue { double, double } %call253, 1
-  %117 = load ptr, ptr %call1, align 8
-  %call257 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %117)
+  %118 = load ptr, ptr %vfn, align 8
+  %call253 = call { double, double } %118(ptr noundef nonnull align 8 dereferenceable(12) %call252, double noundef 1.000000e+00)
+  %119 = extractvalue { double, double } %call253, 0
+  %120 = extractvalue { double, double } %call253, 1
+  %121 = load ptr, ptr %call1, align 8
+  %call257 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %121)
   %vtable258 = load ptr, ptr %call257, align 8
   %vfn259 = getelementptr inbounds i8, ptr %vtable258, i64 40
-  %118 = load ptr, ptr %vfn259, align 8
-  %call260 = call { double, double } %118(ptr noundef nonnull align 8 dereferenceable(12) %call257, double noundef 0.000000e+00)
-  %119 = extractvalue { double, double } %call260, 0
-  %120 = extractvalue { double, double } %call260, 1
-  %sub.i381 = fsub double %115, %119
-  %sub3.i382 = fsub double %116, %120
+  %122 = load ptr, ptr %vfn259, align 8
+  %call260 = call { double, double } %122(ptr noundef nonnull align 8 dereferenceable(12) %call257, double noundef 0.000000e+00)
+  %123 = extractvalue { double, double } %call260, 0
+  %124 = extractvalue { double, double } %call260, 1
+  %sub.i381 = fsub double %119, %123
+  %sub3.i382 = fsub double %120, %124
   %mul4.i = fmul double %sub3.i382, %sub3.i382
-  %121 = call double @llvm.fmuladd.f64(double %sub.i381, double %sub.i381, double %mul4.i)
-  %sqrt.i386 = call noundef double @llvm.sqrt.f64(double %121)
+  %125 = call double @llvm.fmuladd.f64(double %sub.i381, double %sub.i381, double %mul4.i)
+  %sqrt.i386 = call noundef double @llvm.sqrt.f64(double %125)
   %cmp263 = fcmp olt double %sqrt.i386, %endpointSnapRange
   br i1 %cmp263, label %if.then264, label %if.else277
 
 if.then264:                                       ; preds = %if.then247
-  %122 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i388 = getelementptr inbounds i8, ptr %122, i64 -8
+  %126 = load ptr, ptr %_M_finish.i.i, align 8
+  %add.ptr.i.i388 = getelementptr inbounds i8, ptr %126, i64 -8
   %call267 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i388)
-  %123 = load ptr, ptr %call1, align 8
-  %call271 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %123)
+  %127 = load ptr, ptr %call1, align 8
+  %call271 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %127)
   %vtable272 = load ptr, ptr %call271, align 8
   %vfn273 = getelementptr inbounds i8, ptr %vtable272, i64 40
-  %124 = load ptr, ptr %vfn273, align 8
-  %call274 = call { double, double } %124(ptr noundef nonnull align 8 dereferenceable(12) %call271, double noundef 0.000000e+00)
-  %125 = extractvalue { double, double } %call274, 0
-  %126 = extractvalue { double, double } %call274, 1
+  %128 = load ptr, ptr %vfn273, align 8
+  %call274 = call { double, double } %128(ptr noundef nonnull align 8 dereferenceable(12) %call271, double noundef 0.000000e+00)
+  %129 = extractvalue { double, double } %call274, 0
+  %130 = extractvalue { double, double } %call274, 1
   %vtable275 = load ptr, ptr %call267, align 8
   %vfn276 = getelementptr inbounds i8, ptr %vtable275, i64 112
-  %127 = load ptr, ptr %vfn276, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(12) %call267, double %125, double %126)
+  %131 = load ptr, ptr %vfn276, align 8
+  call void %131(ptr noundef nonnull align 8 dereferenceable(12) %call267, double %129, double %130)
   br label %if.end284
 
 if.else277:                                       ; preds = %if.then247
@@ -1585,7 +1589,7 @@ invoke.cont282:                                   ; preds = %if.else277
   br label %if.end284
 
 lpad281:                                          ; preds = %if.else277
-  %128 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 

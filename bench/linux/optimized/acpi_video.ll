@@ -3626,7 +3626,7 @@ define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr nocapture
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -2
   %10 = sext i32 %9 to i64
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %12, label %acpi_video_device_lcd_set_level.exit
 
 12:                                               ; preds = %2

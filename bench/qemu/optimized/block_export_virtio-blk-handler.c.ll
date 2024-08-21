@@ -152,7 +152,7 @@ virtio_blk_sect_range_ok.exit.thread:             ; preds = %if.end35, %if.end.i
 virtio_blk_sect_range_ok.exit:                    ; preds = %if.end2.i
   call void @blk_co_get_geometry(ptr noundef %0, ptr noundef nonnull %total_sectors.i) #6
   %14 = load i64, ptr %total_sectors.i, align 8
-  %cmp7.i = icmp uge i64 %14, %7
+  %cmp7.i = icmp ule i64 %7, %14
   %sub.i = sub nuw i64 %14, %7
   %cmp9.i = icmp ule i64 %shr.i, %sub.i
   %or.cond.not.i = select i1 %cmp7.i, i1 %cmp9.i, i1 false
@@ -276,7 +276,7 @@ if.end2:                                          ; preds = %if.end
 if.end6:                                          ; preds = %if.end2
   call void @blk_co_get_geometry(ptr noundef %blk, ptr noundef nonnull %total_sectors) #6
   %0 = load i64, ptr %total_sectors, align 8
-  %cmp7 = icmp uge i64 %0, %sector
+  %cmp7 = icmp ule i64 %sector, %0
   %sub = sub nuw i64 %0, %sector
   %cmp9 = icmp ule i64 %shr, %sub
   %or.cond.not = select i1 %cmp7, i1 %cmp9, i1 false
@@ -359,7 +359,7 @@ virtio_blk_sect_range_ok.exit:                    ; preds = %if.end31
   %shr.i = lshr exact i64 %conv32, 9
   call void @blk_co_get_geometry(ptr noundef %0, ptr noundef nonnull %total_sectors.i) #6
   %7 = load i64, ptr %total_sectors.i, align 8
-  %cmp7.i = icmp uge i64 %7, %3
+  %cmp7.i = icmp ule i64 %3, %7
   %sub.i = sub nuw i64 %7, %3
   %cmp9.i = icmp ule i64 %shr.i, %sub.i
   %or.cond.not.i = select i1 %cmp7.i, i1 %cmp9.i, i1 false

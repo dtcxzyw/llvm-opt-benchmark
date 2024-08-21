@@ -613,7 +613,7 @@ define i64 @sapi_apply_default_charset(ptr nocapture noundef %0, i64 noundef %1)
   %17 = add i64 %15, %16
   %18 = add i64 %17, 1
   %19 = tail call noalias ptr @_emalloc(i64 noundef %18) #20
-  %.not65 = icmp ugt i64 %18, %1
+  %.not65 = icmp ult i64 %1, %18
   %. = select i1 %.not65, i64 %1, i64 %17
   %20 = load ptr, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %20, i64 %., i1 false)

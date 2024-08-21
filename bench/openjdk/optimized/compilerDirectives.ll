@@ -839,13 +839,13 @@ define hidden void @_ZN12DirectiveSet8finalizeEP12outputStream(ptr noundef nonnu
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %0
+  %7 = icmp eq ptr %0, %6
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %0
+  %11 = icmp eq ptr %0, %10
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
@@ -921,7 +921,7 @@ define hidden void @_ZN12DirectiveSet8finalizeEP12outputStream(ptr noundef nonnu
 define hidden noundef zeroext i1 @_ZNK12DirectiveSet5is_c1EP18CompilerDirectives(ptr noundef nonnull readnone align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   ret i1 %5
 }
 
@@ -936,7 +936,7 @@ define hidden noundef ptr @_ZN12DirectiveSet9directiveEv(ptr nocapture noundef n
 define hidden noundef zeroext i1 @_ZNK12DirectiveSet5is_c2EP18CompilerDirectives(ptr noundef nonnull readnone align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %0
+  %5 = icmp eq ptr %0, %4
   ret i1 %5
 }
 
@@ -2711,82 +2711,81 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 29:                                               ; preds = %22
   %30 = add nsw i32 %25, 1
   %31 = icmp sgt i32 %25, -1
-  %32 = xor i32 %25, -2147483648
-  %33 = and i32 %32, %30
-  %34 = icmp eq i32 %33, 0
-  %35 = and i1 %31, %34
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
-  %37 = sub nuw nsw i32 32, %36
-  %38 = shl nuw i32 1, %37
-  %.0.i.i.i.i.i.i = select i1 %35, i32 %30, i32 %38
+  %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
+  %33 = icmp ult i32 %32, 2
+  %or.cond.i.i.i.i.i.i = select i1 %31, i1 %33, i1 false
+  %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
+  %35 = sub nuw nsw i32 32, %34
+  %36 = shl nuw i32 1, %35
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %30, i32 %36
   tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %24, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
 
 _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %29, %22
-  %39 = phi i32 [ %.pre.i.i.i, %29 ], [ %25, %22 ]
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %24, align 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
-  store ptr %20, ptr %44, align 8
+  %37 = phi i32 [ %.pre.i.i.i, %29 ], [ %25, %22 ]
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %24, align 8
+  %39 = getelementptr inbounds i8, ptr %24, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = sext i32 %37 to i64
+  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  store ptr %20, ptr %42, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %45 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %45, null
-  br i1 %.not, label %48, label %46
+  %43 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %43, null
+  br i1 %.not, label %46, label %44
+
+44:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
+  %45 = call noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2) #14
+  br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
 
 46:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %47 = call noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2) #14
+  %47 = getelementptr inbounds i8, ptr %0, i64 232
+  %48 = load i8, ptr %47, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, label %50
+
+50:                                               ; preds = %46
+  %51 = call noundef zeroext i1 @_ZN14CompilerOracle13should_inlineERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
 
-48:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 232
-  %50 = load i8, ptr %49, align 8
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, label %52
-
-52:                                               ; preds = %48
-  %53 = call noundef zeroext i1 @_ZN14CompilerOracle13should_inlineERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
-
-_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit: ; preds = %46, %48, %52
-  %.0 = phi i1 [ %53, %52 ], [ false, %48 ], [ %47, %46 ]
+_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit: ; preds = %44, %46, %50
+  %.0 = phi i1 [ %51, %50 ], [ false, %46 ], [ %45, %44 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  %54 = getelementptr inbounds i8, ptr %5, i64 408
+  %52 = getelementptr inbounds i8, ptr %5, i64 408
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %57, align 8
-  %.not.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %59
+  %56 = load ptr, ptr %55, align 8
+  %.not.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %57
 
-59:                                               ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %55) #14
-  %.pre.i.i = load ptr, ptr %56, align 8
+57:                                               ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %53) #14
+  %.pre.i.i = load ptr, ptr %54, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, %59
-  %60 = phi ptr [ %57, %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit ], [ %.pre.i.i, %59 ]
-  %61 = getelementptr inbounds i8, ptr %55, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
-  store ptr %60, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %55, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 32
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %55, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %61, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 40
-  store ptr %69, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %5, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %72) #14
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, %57
+  %58 = phi ptr [ %55, %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit ], [ %.pre.i.i, %57 ]
+  %59 = getelementptr inbounds i8, ptr %53, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  store ptr %58, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %53, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %59, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  store ptr %63, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %53, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %59, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  store ptr %67, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %5, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %70) #14
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
   store volatile i32 4, ptr %8, align 4
   ret i1 %.0
@@ -2858,82 +2857,81 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 29:                                               ; preds = %22
   %30 = add nsw i32 %25, 1
   %31 = icmp sgt i32 %25, -1
-  %32 = xor i32 %25, -2147483648
-  %33 = and i32 %32, %30
-  %34 = icmp eq i32 %33, 0
-  %35 = and i1 %31, %34
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
-  %37 = sub nuw nsw i32 32, %36
-  %38 = shl nuw i32 1, %37
-  %.0.i.i.i.i.i.i = select i1 %35, i32 %30, i32 %38
+  %32 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
+  %33 = icmp ult i32 %32, 2
+  %or.cond.i.i.i.i.i.i = select i1 %31, i1 %33, i1 false
+  %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
+  %35 = sub nuw nsw i32 32, %34
+  %36 = shl nuw i32 1, %35
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %30, i32 %36
   tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %24, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
 
 _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %29, %22
-  %39 = phi i32 [ %.pre.i.i.i, %29 ], [ %25, %22 ]
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %24, align 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
-  store ptr %20, ptr %44, align 8
+  %37 = phi i32 [ %.pre.i.i.i, %29 ], [ %25, %22 ]
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %24, align 8
+  %39 = getelementptr inbounds i8, ptr %24, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = sext i32 %37 to i64
+  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  store ptr %20, ptr %42, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %45 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %45, null
-  br i1 %.not, label %48, label %46
+  %43 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %43, null
+  br i1 %.not, label %46, label %44
+
+44:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
+  %45 = call noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 1) #14
+  br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
 
 46:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %47 = call noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 1) #14
+  %47 = getelementptr inbounds i8, ptr %0, i64 232
+  %48 = load i8, ptr %47, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, label %50
+
+50:                                               ; preds = %46
+  %51 = call noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
 
-48:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 232
-  %50 = load i8, ptr %49, align 8
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, label %52
-
-52:                                               ; preds = %48
-  %53 = call noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
-
-_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit: ; preds = %46, %48, %52
-  %.0 = phi i1 [ %53, %52 ], [ false, %48 ], [ %47, %46 ]
+_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit: ; preds = %44, %46, %50
+  %.0 = phi i1 [ %51, %50 ], [ false, %46 ], [ %45, %44 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  %54 = getelementptr inbounds i8, ptr %5, i64 408
+  %52 = getelementptr inbounds i8, ptr %5, i64 408
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %57, align 8
-  %.not.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %59
+  %56 = load ptr, ptr %55, align 8
+  %.not.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %57
 
-59:                                               ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %55) #14
-  %.pre.i.i = load ptr, ptr %56, align 8
+57:                                               ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %53) #14
+  %.pre.i.i = load ptr, ptr %54, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, %59
-  %60 = phi ptr [ %57, %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit ], [ %.pre.i.i, %59 ]
-  %61 = getelementptr inbounds i8, ptr %55, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
-  store ptr %60, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %55, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 32
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %55, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %61, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 40
-  store ptr %69, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %5, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %72) #14
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit, %57
+  %58 = phi ptr [ %55, %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit ], [ %.pre.i.i, %57 ]
+  %59 = getelementptr inbounds i8, ptr %53, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  store ptr %58, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %53, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %59, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  store ptr %63, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %53, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %59, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  store ptr %67, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %5, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %70) #14
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
   store volatile i32 4, ptr %8, align 4
   ret i1 %.0
@@ -4149,6 +4147,9 @@ declare void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull alig
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #13

@@ -97,12 +97,12 @@ if.end:                                           ; preds = %dsa_get_md_size.exi
   br i1 %cmp, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %cmp6 = icmp ugt i64 %conv, %sigsize
+  %cmp6 = icmp ult i64 %sigsize, %conv
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
   %cmp10.not = icmp eq i64 %retval.0.i, 0
-  %cmp12.not = icmp eq i64 %retval.0.i, %tbslen
+  %cmp12.not = icmp eq i64 %tbslen, %retval.0.i
   %or.cond = or i1 %cmp10.not, %cmp12.not
   br i1 %or.cond, label %if.end15, label %return
 
@@ -162,7 +162,7 @@ dsa_get_md_size.exit:                             ; preds = %entry, %if.then.i
 
 lor.lhs.false:                                    ; preds = %dsa_get_md_size.exit
   %cmp.not = icmp eq i64 %retval.0.i, 0
-  %cmp2.not = icmp eq i64 %retval.0.i, %tbslen
+  %cmp2.not = icmp eq i64 %tbslen, %retval.0.i
   %or.cond = or i1 %cmp.not, %cmp2.not
   br i1 %or.cond, label %if.end, label %return
 
@@ -271,7 +271,7 @@ if.end.i:                                         ; preds = %dsa_get_md_size.exi
   br i1 %cmp3.not, label %return.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ugt i64 %conv.i, %sigsize
+  %cmp6.i = icmp ult i64 %sigsize, %conv.i
   br i1 %cmp6.i, label %dsa_sign.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i

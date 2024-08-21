@@ -151,7 +151,7 @@ if.end.i5:                                        ; preds = %if.end
   br i1 %tobool2.not.i, label %return, label %return.sink.split
 
 name_matches.exit:                                ; preds = %if.end
-  %cmp.i3 = icmp eq ptr %2, %name
+  %cmp.i3 = icmp eq ptr %name, %2
   br i1 %cmp.i3, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %name_matches.exit, %if.end.i5, %if.end.i, %lor.lhs.false.i, %entry

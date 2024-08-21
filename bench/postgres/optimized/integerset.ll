@@ -74,7 +74,7 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
-  %.not = icmp ult i64 %11, %1
+  %.not = icmp ugt i64 %1, %11
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %9
@@ -271,7 +271,7 @@ tailrecurse.i.i:                                  ; preds = %135, %99
   %.tr47.i.i = phi i32 [ 1, %99 ], [ %146, %135 ]
   %.tr48.i.i = phi ptr [ %101, %99 ], [ %138, %135 ]
   %108 = load i32, ptr %41, align 8
-  %.not.i42.i = icmp sgt i32 %108, %.tr47.i.i
+  %.not.i42.i = icmp slt i32 %.tr47.i.i, %108
   br i1 %.not.i42.i, label %tailrecurse._crit_edge.i.i, label %109
 
 tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
@@ -434,7 +434,7 @@ define dso_local zeroext i1 @intset_is_member(ptr nocapture noundef readonly %0,
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load i64, ptr %7, align 8
-  %.not = icmp ugt i64 %8, %1
+  %.not = icmp ult i64 %1, %8
   br i1 %.not, label %23, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %6, %.lr.ph.split.i
@@ -446,7 +446,7 @@ define dso_local zeroext i1 @intset_is_member(ptr nocapture noundef readonly %0,
   %12 = sext i32 %11 to i64
   %13 = getelementptr i64, ptr %7, i64 %12
   %14 = load i64, ptr %13, align 8
-  %15 = icmp ult i64 %14, %1
+  %15 = icmp ugt i64 %1, %14
   %16 = add i32 %11, 1
   %spec.select20.i = select i1 %15, i32 %.01722.i, i32 %11
   %spec.select21.i = select i1 %15, i32 %16, i32 %.023.i
@@ -499,7 +499,7 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %37 = sext i32 %36 to i64
   %38 = getelementptr i64, ptr %30, i64 %37
   %39 = load i64, ptr %38, align 8
-  %.not.us.i = icmp ugt i64 %39, %1
+  %.not.us.i = icmp ult i64 %1, %39
   %40 = add i32 %36, 1
   %spec.select.us.i = select i1 %.not.us.i, i32 %36, i32 %.01722.us.i
   %spec.select19.us.i = select i1 %.not.us.i, i32 %.023.us.i, i32 %40
@@ -541,7 +541,7 @@ intset_binsrch_uint64.exit48:                     ; preds = %.lr.ph.split.us.i
   %57 = sext i32 %56 to i64
   %58 = getelementptr %struct.leaf_item, ptr %50, i64 %57
   %59 = load i64, ptr %58, align 8
-  %.not.i = icmp ugt i64 %59, %1
+  %.not.i = icmp ult i64 %1, %59
   %60 = add i32 %56, 1
   %.118.i = select i1 %.not.i, i32 %56, i32 %.01719.i
   %.1.i = select i1 %.not.i, i32 %.020.i, i32 %60

@@ -43,7 +43,7 @@ entry:
   %call.i = tail call ptr @ossl_HPKE_KEM_INFO_find_curve(ptr noundef nonnull %.str.5..str.6.i) #5
   %Nsk = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load i64, ptr %Nsk, align 8
-  %cmp = icmp ugt i64 %1, %ikmlen
+  %cmp = icmp ult i64 %ikmlen, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -485,7 +485,7 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end5.i:                                        ; preds = %if.end.i
   %Nenc.i = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i64, ptr %Nenc.i, align 8
-  %cmp6.not.i = icmp eq i64 %6, %inlen
+  %cmp6.not.i = icmp eq i64 %inlen, %6
   br i1 %cmp6.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i

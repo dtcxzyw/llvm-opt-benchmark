@@ -123,7 +123,7 @@ define void @_ZN3gmx14reportGpuUsageERKNS_8MDLoggerENS_8ArrayRefIKSt6vectorINS_1
 
 select.unfold.i.i.i:                              ; preds = %41, %._crit_edge.thread.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %41 ]
-  %44 = icmp eq ptr %23, %.sroa.4.0.i.ph.i.i.i
+  %44 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %23
   br i1 %44, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %45
 
 45:                                               ; preds = %select.unfold.i.i.i

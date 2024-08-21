@@ -8615,7 +8615,7 @@ _ZN5arrow6StatusD2Ev.exit.thread.i:               ; preds = %call2.i.i.noexc.i
 
 if.end.i.i.i:                                     ; preds = %call2.i.i.noexc.i
   %mul.i.i.i.i = shl nsw i64 %951, 1
-  %.sroa.speculated.i.i.i.i1230 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i.i, i64 %add.i.i.i)
+  %.sroa.speculated.i.i.i.i1230 = call noundef i64 @llvm.smax.i64(i64 %add.i.i.i, i64 %mul.i.i.i.i)
   %vtable4.i.i.i = load ptr, ptr %950, align 8, !noalias !280
   %vfn5.i.i.i = getelementptr inbounds i8, ptr %vtable4.i.i.i, i64 24
   %953 = load ptr, ptr %vfn5.i.i.i, align 8, !noalias !280
@@ -10341,7 +10341,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10350,7 +10350,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -10456,7 +10456,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -10465,7 +10465,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -15720,7 +15720,7 @@ do.body239:                                       ; preds = %invoke.cont234
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %do.body239
   %mul.i.i.i529 = shl nsw i64 %172, 1
-  %.sroa.speculated.i.i.i530 = call noundef i64 @llvm.smax.i64(i64 %mul.i.i.i529, i64 %add.i.i524)
+  %.sroa.speculated.i.i.i530 = call noundef i64 @llvm.smax.i64(i64 %add.i.i524, i64 %mul.i.i.i529)
   invoke void @_ZN5arrow13BufferBuilder6ResizeElb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %builder, i64 noundef %.sroa.speculated.i.i.i530, i1 noundef zeroext false)
           to label %.noexc531 unwind label %ehcleanup330.thread
 
@@ -17241,7 +17241,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -17999,7 +17999,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ult i64 %sub.ptr.div.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -18090,7 +18090,7 @@ _ZNSt12_Vector_baseIN5arrow12_GLOBAL__N_15RangeESaIS2_EE13_M_deallocateEPS2_m.ex
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.div.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -18887,7 +18887,7 @@ if.end.i:                                         ; preds = %do.body16
   %length6.i = getelementptr inbounds i8, ptr %add.ptr.i32, i64 8
   store i64 %sub.i, ptr %length6.i, align 8, !noalias !553
   %sub9.i = sub nsw i64 9223372036854775807, %sub.i
-  %cmp10.i = icmp slt i64 %sub9.i, %values_length.0109
+  %cmp10.i = icmp sgt i64 %values_length.0109, %sub9.i
   br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
 
 if.then11.i:                                      ; preds = %if.end.i

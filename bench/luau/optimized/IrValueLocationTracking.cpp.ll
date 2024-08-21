@@ -280,7 +280,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i55: ; preds = %1
   %131 = getelementptr inbounds i8, ptr %0, i64 1032
   %132 = load i32, ptr %131, align 8
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %132, i32 255)
-  %.not12.i = icmp slt i32 %spec.select.i, %130
+  %.not12.i = icmp sgt i32 %130, %spec.select.i
   br i1 %.not12.i, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %128
@@ -374,7 +374,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %186 = getelementptr inbounds i8, ptr %0, i64 1032
   %187 = load i32, ptr %186, align 8
   %spec.select.i58 = tail call i32 @llvm.smin.i32(i32 %185, i32 %187)
-  %.not12.i59 = icmp slt i32 %spec.select.i58, %172
+  %.not12.i59 = icmp sgt i32 %172, %spec.select.i58
   br i1 %.not12.i59, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %170
@@ -470,7 +470,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %240 = getelementptr inbounds i8, ptr %0, i64 1032
   %241 = load i32, ptr %240, align 8
   %spec.select.i73 = tail call i32 @llvm.smin.i32(i32 %239, i32 %241)
-  %.not12.i74 = icmp slt i32 %spec.select.i73, %238
+  %.not12.i74 = icmp sgt i32 %238, %spec.select.i73
   br i1 %.not12.i74, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i75
 
 .lr.ph.i75:                                       ; preds = %236
@@ -626,7 +626,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91: ; preds = %3
   %333 = getelementptr inbounds i8, ptr %0, i64 1032
   %334 = load i32, ptr %333, align 8
   %spec.select.i93 = tail call i32 @llvm.smin.i32(i32 %332, i32 %334)
-  %.not12.i94 = icmp slt i32 %spec.select.i93, %321
+  %.not12.i94 = icmp sgt i32 %321, %spec.select.i93
   br i1 %.not12.i94, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i95
 
 .lr.ph.i95:                                       ; preds = %319
@@ -770,7 +770,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i111: ; preds = %
   %415 = getelementptr inbounds i8, ptr %0, i64 1032
   %416 = load i32, ptr %415, align 8
   %spec.select.i113 = tail call i32 @llvm.smin.i32(i32 %416, i32 255)
-  %.not12.i114 = icmp slt i32 %spec.select.i113, %414
+  %.not12.i114 = icmp sgt i32 %414, %spec.select.i113
   br i1 %.not12.i114, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i115
 
 .lr.ph.i115:                                      ; preds = %412
@@ -850,7 +850,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %458 = getelementptr inbounds i8, ptr %0, i64 1032
   %459 = load i32, ptr %458, align 8
   %spec.select.i128 = tail call i32 @llvm.smin.i32(i32 %459, i32 255)
-  %.not12.i129 = icmp slt i32 %spec.select.i128, %457
+  %.not12.i129 = icmp sgt i32 %457, %spec.select.i128
   br i1 %.not12.i129, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %454
@@ -1086,7 +1086,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %594 = getelementptr inbounds i8, ptr %0, i64 1032
   %595 = load i32, ptr %594, align 8
   %spec.select.i163 = tail call i32 @llvm.smin.i32(i32 %593, i32 %595)
-  %.not12.i164 = icmp slt i32 %spec.select.i163, %582
+  %.not12.i164 = icmp sgt i32 %582, %spec.select.i163
   br i1 %.not12.i164, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i165
 
 .lr.ph.i165:                                      ; preds = %580
@@ -1399,7 +1399,7 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking23invalidateRest
   %7 = getelementptr inbounds i8, ptr %0, i64 1032
   %8 = load i32, ptr %7, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %6, i32 %8)
-  %.not12 = icmp slt i32 %spec.select, %1
+  %.not12 = icmp sgt i32 %1, %spec.select
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -1705,7 +1705,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6re
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = icmp ult i64 %9, %1
+  %10 = icmp ugt i64 %1, %9
   br i1 %10, label %11, label %38
 
 11:                                               ; preds = %2
@@ -1780,7 +1780,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen4IrOpESaIS2_EE13_M_deallocateEPS2_m.exit37.i: 
   br label %_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %2
-  %39 = icmp ugt i64 %9, %1
+  %39 = icmp ult i64 %1, %9
   br i1 %39, label %40, label %_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38

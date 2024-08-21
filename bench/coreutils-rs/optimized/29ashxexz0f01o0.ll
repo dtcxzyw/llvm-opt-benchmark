@@ -413,7 +413,7 @@ define internal fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Opti
   %12 = getelementptr inbounds i8, ptr %6, i64 136
   %13 = load i64, ptr %12, align 8, !noalias !125, !noundef !16
   %14 = icmp eq i64 %13, -1
-  %15 = icmp ult i64 %13, %8
+  %15 = icmp ugt i64 %8, %13
   %or.cond.i.i.i = or i1 %14, %15
   br i1 %or.cond.i.i.i, label %17, label %22
 
@@ -481,7 +481,7 @@ define internal fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Opti
   %12 = getelementptr inbounds i8, ptr %6, i64 136
   %13 = load i64, ptr %12, align 8, !noalias !139, !noundef !16
   %14 = icmp eq i64 %13, -1
-  %15 = icmp ult i64 %13, %8
+  %15 = icmp ugt i64 %8, %13
   %or.cond.i.i.i = or i1 %14, %15
   br i1 %or.cond.i.i.i, label %17, label %22
 
@@ -559,7 +559,7 @@ define internal fastcc void @"_ZN4core3ptr463drop_in_place$LT$core..option..Opti
   %12 = getelementptr inbounds i8, ptr %6, i64 176
   %13 = load i64, ptr %12, align 8, !noalias !154, !noundef !16
   %14 = icmp eq i64 %13, -1
-  %15 = icmp ult i64 %13, %8
+  %15 = icmp ugt i64 %8, %13
   %or.cond.i.i.i = or i1 %14, %15
   br i1 %or.cond.i.i.i, label %17, label %22
 
@@ -627,7 +627,7 @@ define internal fastcc void @"_ZN4core3ptr470drop_in_place$LT$core..option..Opti
   %12 = getelementptr inbounds i8, ptr %6, i64 160
   %13 = load i64, ptr %12, align 8, !noalias !168, !noundef !16
   %14 = icmp eq i64 %13, -1
-  %15 = icmp ult i64 %13, %8
+  %15 = icmp ugt i64 %8, %13
   %or.cond.i.i.i = or i1 %14, %15
   br i1 %or.cond.i.i.i, label %17, label %22
 
@@ -911,17 +911,17 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   %12 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %13 = getelementptr inbounds i8, ptr %.0.val, i64 192
   %14 = load i64, ptr %13, align 8, !alias.scope !190, !noalias !193, !noundef !16
-  %15 = icmp ugt i64 %14, %7
+  %15 = icmp ult i64 %7, %14
   br i1 %15, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hfda0c5f7b18f4ecaE.exit.thread", label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.0.val, i64 184
   %18 = load i64, ptr %17, align 8, !alias.scope !190, !noalias !193, !noundef !16
-  %19 = icmp ugt i64 %18, %7
+  %19 = icmp ult i64 %7, %18
   br i1 %19, label %36, label %20
 
 20:                                               ; preds = %16
-  %21 = icmp eq i64 %18, %7
+  %21 = icmp eq i64 %7, %18
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20
@@ -1202,17 +1202,17 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   %12 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %13 = getelementptr inbounds i8, ptr %.0.val, i64 208
   %14 = load i64, ptr %13, align 8, !alias.scope !251, !noalias !254, !noundef !16
-  %15 = icmp ugt i64 %14, %7
+  %15 = icmp ult i64 %7, %14
   br i1 %15, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h576c86d460b75099E.exit.thread", label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.0.val, i64 200
   %18 = load i64, ptr %17, align 8, !alias.scope !251, !noalias !254, !noundef !16
-  %19 = icmp ugt i64 %18, %7
+  %19 = icmp ult i64 %7, %18
   br i1 %19, label %36, label %20
 
 20:                                               ; preds = %16
-  %21 = icmp eq i64 %18, %7
+  %21 = icmp eq i64 %7, %18
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20
@@ -1501,17 +1501,17 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   %12 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %13 = getelementptr inbounds i8, ptr %.0.val, i64 160
   %14 = load i64, ptr %13, align 8, !alias.scope !322, !noalias !325, !noundef !16
-  %15 = icmp ugt i64 %14, %7
+  %15 = icmp ult i64 %7, %14
   br i1 %15, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h42149a7bbd0c3124E.exit.thread", label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.0.val, i64 152
   %18 = load i64, ptr %17, align 8, !alias.scope !322, !noalias !325, !noundef !16
-  %19 = icmp ugt i64 %18, %7
+  %19 = icmp ult i64 %7, %18
   br i1 %19, label %36, label %20
 
 20:                                               ; preds = %16
-  %21 = icmp eq i64 %18, %7
+  %21 = icmp eq i64 %7, %18
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20
@@ -1745,17 +1745,17 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   %11 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %12 = getelementptr inbounds i8, ptr %.0.val, i64 120
   %13 = load i64, ptr %12, align 8, !alias.scope !387, !noalias !390, !noundef !16
-  %14 = icmp ugt i64 %13, %6
+  %14 = icmp ult i64 %6, %13
   br i1 %14, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit.thread", label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.0.val, i64 112
   %17 = load i64, ptr %16, align 8, !alias.scope !387, !noalias !390, !noundef !16
-  %18 = icmp ugt i64 %17, %6
+  %18 = icmp ult i64 %6, %17
   br i1 %18, label %35, label %19
 
 19:                                               ; preds = %15
-  %20 = icmp eq i64 %17, %6
+  %20 = icmp eq i64 %6, %17
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %19
@@ -1964,17 +1964,17 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   %11 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %12 = getelementptr inbounds i8, ptr %.0.val, i64 120
   %13 = load i64, ptr %12, align 8, !alias.scope !444, !noalias !447, !noundef !16
-  %14 = icmp ugt i64 %13, %6
+  %14 = icmp ult i64 %6, %13
   br i1 %14, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit.thread", label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.0.val, i64 112
   %17 = load i64, ptr %16, align 8, !alias.scope !444, !noalias !447, !noundef !16
-  %18 = icmp ugt i64 %17, %6
+  %18 = icmp ult i64 %6, %17
   br i1 %18, label %35, label %19
 
 19:                                               ; preds = %15
-  %20 = icmp eq i64 %17, %6
+  %20 = icmp eq i64 %6, %17
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %19
@@ -2186,17 +2186,17 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   %12 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %13 = getelementptr inbounds i8, ptr %.0.val, i64 144
   %14 = load i64, ptr %13, align 8, !alias.scope !500, !noalias !503, !noundef !16
-  %15 = icmp ugt i64 %14, %7
+  %15 = icmp ult i64 %7, %14
   br i1 %15, label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h845fe8165199ff30E.exit.thread", label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.0.val, i64 136
   %18 = load i64, ptr %17, align 8, !alias.scope !500, !noalias !503, !noundef !16
-  %19 = icmp ugt i64 %18, %7
+  %19 = icmp ult i64 %7, %18
   br i1 %19, label %36, label %20
 
 20:                                               ; preds = %16
-  %21 = icmp eq i64 %18, %7
+  %21 = icmp eq i64 %7, %18
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20
@@ -4304,7 +4304,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %319
   %423 = getelementptr inbounds i8, ptr %418, i64 136
   %424 = load i64, ptr %423, align 8, !noalias !802, !noundef !16
   %425 = icmp eq i64 %424, -1
-  %426 = icmp ult i64 %424, %419
+  %426 = icmp ugt i64 %419, %424
   %or.cond.i.i.i.i.i = or i1 %425, %426
   br i1 %or.cond.i.i.i.i.i, label %428, label %434
 
@@ -4928,7 +4928,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %319
   %590 = getelementptr inbounds i8, ptr %585, i64 136
   %591 = load i64, ptr %590, align 8, !noalias !921, !noundef !16
   %592 = icmp eq i64 %591, -1
-  %593 = icmp ult i64 %591, %586
+  %593 = icmp ugt i64 %586, %591
   %or.cond.i.i.i.i136.i = or i1 %592, %593
   br i1 %or.cond.i.i.i.i136.i, label %595, label %601
 
@@ -7290,7 +7290,7 @@ default.unreachable:                              ; preds = %246, %537, %.lr.ph2
   %449 = getelementptr inbounds i8, ptr %444, i64 160
   %450 = load i64, ptr %449, align 8, !noalias !1214, !noundef !16
   %451 = icmp eq i64 %450, -1
-  %452 = icmp ult i64 %450, %445
+  %452 = icmp ugt i64 %445, %450
   %or.cond.i.i.i.i.i = or i1 %451, %452
   br i1 %or.cond.i.i.i.i.i, label %454, label %460
 
@@ -7921,7 +7921,7 @@ default.unreachable:                              ; preds = %246, %537, %.lr.ph2
   %619 = getelementptr inbounds i8, ptr %614, i64 160
   %620 = load i64, ptr %619, align 8, !noalias !1333, !noundef !16
   %621 = icmp eq i64 %620, -1
-  %622 = icmp ult i64 %620, %615
+  %622 = icmp ugt i64 %615, %620
   %or.cond.i.i.i.i150.i = or i1 %621, %622
   br i1 %or.cond.i.i.i.i150.i, label %624, label %630
 
@@ -12212,7 +12212,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %320
   %429 = getelementptr inbounds i8, ptr %424, i64 136
   %430 = load i64, ptr %429, align 8, !noalias !1932, !noundef !16
   %431 = icmp eq i64 %430, -1
-  %432 = icmp ult i64 %430, %425
+  %432 = icmp ugt i64 %425, %430
   %or.cond.i.i.i.i.i = or i1 %431, %432
   br i1 %or.cond.i.i.i.i.i, label %434, label %440
 
@@ -12836,7 +12836,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %320
   %596 = getelementptr inbounds i8, ptr %591, i64 136
   %597 = load i64, ptr %596, align 8, !noalias !2051, !noundef !16
   %598 = icmp eq i64 %597, -1
-  %599 = icmp ult i64 %597, %592
+  %599 = icmp ugt i64 %592, %597
   %or.cond.i.i.i.i136.i = or i1 %598, %599
   br i1 %or.cond.i.i.i.i136.i, label %601, label %607
 
@@ -13495,7 +13495,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h035bbca81c
   %86 = getelementptr inbounds i8, ptr %81, i64 176
   %87 = load i64, ptr %86, align 8, !noalias !2127, !noundef !16
   %88 = icmp eq i64 %87, -1
-  %89 = icmp ult i64 %87, %82
+  %89 = icmp ugt i64 %82, %87
   %or.cond.i.i.i.i = or i1 %88, %89
   br i1 %or.cond.i.i.i.i, label %91, label %97
 
@@ -14196,7 +14196,7 @@ default.unreachable:                              ; preds = %197, %"_ZN4core3ptr
   %281 = getelementptr inbounds i8, ptr %276, i64 176
   %282 = load i64, ptr %281, align 8, !noalias !2239, !noundef !16
   %283 = icmp eq i64 %282, -1
-  %284 = icmp ult i64 %282, %277
+  %284 = icmp ugt i64 %277, %282
   %or.cond.i.i.i.i150 = or i1 %283, %284
   br i1 %or.cond.i.i.i.i150, label %286, label %292
 

@@ -2179,13 +2179,13 @@ define void @Gia_PolynCoreCollect_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %14 = add nsw i32 %1, 1
   %15 = getelementptr inbounds i8, ptr %3, i64 4
   %16 = load i32, ptr %15, align 4
-  %.not.i.not.i = icmp sgt i32 %16, %1
+  %.not.i.not.i = icmp slt i32 %1, %16
   br i1 %.not.i.not.i, label %Vec_BitSetEntry.exit, label %17
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %3, align 8
   %19 = shl nsw i32 %18, 1
-  %.not.i = icmp sgt i32 %19, %1
+  %.not.i = icmp slt i32 %1, %19
   %.not.i.i.not.i = icmp sgt i32 %18, %1
   br i1 %.not.i, label %24, label %20
 

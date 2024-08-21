@@ -2464,7 +2464,7 @@ sw.bb4.i.i:                                       ; preds = %if.end.i.i
   br label %sw.epilog.i.i
 
 sw.bb5.i.i:                                       ; preds = %if.end.i.i
-  %tobool6.not.i.i = icmp eq i32 %and.i.i, %onoff.0
+  %tobool6.not.i.i = icmp eq i32 %onoff.0, %and.i.i
   br i1 %tobool6.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %sw.bb5.i.i
@@ -2484,7 +2484,7 @@ sw.epilog.i.i:                                    ; preds = %sw.bb4.i.i, %if.end
   %.sink.i.i = phi i64 [ 128, %sw.bb4.i.i ], [ 120, %if.end.i.i ]
   %pvfy_flags.i.i = getelementptr inbounds i8, ptr %usr, i64 %.sink.i.i
   %pflags.0.i.i = load ptr, ptr %pvfy_flags.i.i, align 8
-  %tobool12.not.i.i = icmp eq i32 %and.i.i, %onoff.0
+  %tobool12.not.i.i = icmp eq i32 %onoff.0, %and.i.i
   %16 = load i32, ptr %pflags.0.i.i, align 4
   %17 = trunc i64 %11 to i32
   br i1 %tobool12.not.i.i, label %if.else16.i.i, label %if.then13.i.i

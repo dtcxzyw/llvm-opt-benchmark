@@ -3258,7 +3258,7 @@ proto_item_set_generated.exit2557:                ; preds = %proto_item_set_gene
   %1208 = getelementptr i8, ptr %1206, i64 24
   %.val.i = load i32, ptr %1208, align 4
   %.not.i.i = icmp eq i32 %.val.i, 0
-  %1209 = icmp uge i32 %.val.i, %1203
+  %1209 = icmp ule i32 %1203, %.val.i
   %or.cond.i.not.i = or i1 %.not.i.i, %1209
   br i1 %or.cond.i.not.i, label %1210, label %control_proc_complete_if_instant_reached.exit
 
@@ -3293,7 +3293,7 @@ control_proc_complete_if_instant_reached.exit:    ; preds = %1202, %1207, %1210,
   %1223 = getelementptr i8, ptr %1219, i64 24
   %.val.i2560 = load i32, ptr %1223, align 4
   %.not.i.i2561 = icmp eq i32 %.val.i2560, 0
-  %1224 = icmp uge i32 %.val.i2560, %1221
+  %1224 = icmp ule i32 %1221, %.val.i2560
   %or.cond.i.not.i2562 = or i1 %.not.i.i2561, %1224
   br i1 %or.cond.i.not.i2562, label %1225, label %control_proc_complete_if_instant_reached.exit2564
 
@@ -6960,7 +6960,7 @@ control_proc_can_add_frame_even_if_complete.exit: ; preds = %.control_proc_can_a
   %28 = getelementptr i8, ptr %1, i64 24
   %.val = load i32, ptr %28, align 4
   %.not.i7 = icmp eq i32 %.val, 0
-  %29 = icmp uge i32 %.val, %27
+  %29 = icmp ule i32 %27, %.val
   %or.cond.i.not = or i1 %.not.i7, %29
   %. = zext i1 %or.cond.i.not to i32
   br label %control_proc_can_add_frame_even_if_complete.exit.thread
@@ -7005,7 +7005,7 @@ proto_item_set_generated.exit.i:                  ; preds = %19, %16, %8
   %24 = getelementptr i8, ptr %6, i64 24
   %.val.i = load i32, ptr %24, align 4
   %.not.i24.i = icmp eq i32 %.val.i, 0
-  %25 = icmp uge i32 %.val.i, %.pre9
+  %25 = icmp ule i32 %.pre9, %.val.i
   %or.cond.i.not.i = or i1 %.not.i24.i, %25
   br i1 %or.cond.i.not.i, label %26, label %control_proc_add_frame.exit
 
@@ -7062,7 +7062,7 @@ define internal fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, p
   %11 = getelementptr i8, ptr %5, i64 24
   %.val.i = load i32, ptr %11, align 4
   %.not.i.i = icmp eq i32 %.val.i, 0
-  %12 = icmp uge i32 %.val.i, %10
+  %12 = icmp ule i32 %10, %.val.i
   %or.cond.i.not.i = or i1 %.not.i.i, %12
   br i1 %or.cond.i.not.i, label %13, label %control_proc_invalid_collision.exit.thread
 
@@ -7227,7 +7227,7 @@ proto_item_set_generated.exit.i:                  ; preds = %25, %22, %14
   %31 = getelementptr i8, ptr %6, i64 24
   %.val.i = load i32, ptr %31, align 4
   %.not.i24.i = icmp eq i32 %.val.i, 0
-  %32 = icmp uge i32 %.val.i, %30
+  %32 = icmp ule i32 %30, %.val.i
   %or.cond.i.not.i = or i1 %.not.i24.i, %32
   br i1 %or.cond.i.not.i, label %33, label %control_proc_add_frame.exit
 
@@ -7300,7 +7300,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %52, %49, %41
   %57 = getelementptr i8, ptr %6, i64 24
   %.val.i.i = load i32, ptr %57, align 4
   %.not.i24.i.i = icmp eq i32 %.val.i.i, 0
-  %58 = icmp uge i32 %.val.i.i, %.pre9.i
+  %58 = icmp ule i32 %.pre9.i, %.val.i.i
   %or.cond.i.not.i.i = or i1 %.not.i24.i.i, %58
   br i1 %or.cond.i.not.i.i, label %59, label %control_proc_add_last_frame.exit
 
@@ -7383,7 +7383,7 @@ proto_item_set_generated.exit:                    ; preds = %8, %16, %19
   %25 = getelementptr i8, ptr %6, i64 24
   %.val = load i32, ptr %25, align 4
   %.not.i24 = icmp eq i32 %.val, 0
-  %26 = icmp uge i32 %.val, %24
+  %26 = icmp ule i32 %24, %.val
   %or.cond.i.not = or i1 %.not.i24, %26
   br i1 %or.cond.i.not, label %27, label %control_proc_contains_instant.exit.thread
 

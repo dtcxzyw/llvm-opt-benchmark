@@ -503,7 +503,7 @@ define hidden i32 @mbedtls_ecp_point_write_binary(ptr noundef %0, ptr noundef %1
 
 mbedtls_ecp_get_type.exit:                        ; preds = %12
   store i64 %8, ptr %3, align 8
-  %16 = icmp ugt i64 %8, %5
+  %16 = icmp ult i64 %5, %8
   br i1 %16, label %mbedtls_ecp_get_type.exit48.thread, label %17
 
 17:                                               ; preds = %mbedtls_ecp_get_type.exit
@@ -547,7 +547,7 @@ mbedtls_ecp_get_type.exit48:                      ; preds = %12, %20
   %30 = shl i64 %8, 1
   %31 = or disjoint i64 %30, 1
   store i64 %31, ptr %3, align 8
-  %.not44 = icmp ult i64 %30, %5
+  %.not44 = icmp ugt i64 %5, %30
   br i1 %.not44, label %32, label %mbedtls_ecp_get_type.exit48.thread
 
 32:                                               ; preds = %29
@@ -566,7 +566,7 @@ mbedtls_ecp_get_type.exit48:                      ; preds = %12, %20
 39:                                               ; preds = %28
   %40 = add i64 %8, 1
   store i64 %40, ptr %3, align 8
-  %41 = icmp ugt i64 %40, %5
+  %41 = icmp ult i64 %5, %40
   br i1 %41, label %mbedtls_ecp_get_type.exit48.thread, label %42
 
 42:                                               ; preds = %39
@@ -675,7 +675,7 @@ mbedtls_ecp_get_type.exit48:                      ; preds = %12, %30
 40:                                               ; preds = %mbedtls_ecp_get_type.exit48
   %41 = shl i64 %8, 1
   %42 = or disjoint i64 %41, 1
-  %.not43 = icmp eq i64 %42, %3
+  %.not43 = icmp eq i64 %3, %42
   br i1 %.not43, label %43, label %mbedtls_ecp_set_zero.exit
 
 43:                                               ; preds = %40

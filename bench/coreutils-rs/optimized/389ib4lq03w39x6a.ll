@@ -585,7 +585,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.13192
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -1209,7 +1209,7 @@ define void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..tr
   br label %21
 
 13:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %9, %2
+  %.not.i.i.i = icmp eq i64 %2, %9
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %13, %17
@@ -1282,7 +1282,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %17,
   %39 = getelementptr inbounds i8, ptr %1, i64 %25
   %40 = sub i64 %2, %25
   %.not.i = icmp eq i64 %27, 0
-  %.not.i58 = icmp eq i64 %25, %2
+  %.not.i58 = icmp eq i64 %2, %25
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit.thread"
 
 41:                                               ; preds = %37, %32, %34
@@ -1972,7 +1972,7 @@ define noundef zeroext i1 @_ZN6uucore8features6ranges7contain17hb26912848c810b48
   %.sroa.0.07 = phi ptr [ %5, %10 ], [ %0, %3 ]
   %5 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 16
   %6 = load i64, ptr %.sroa.0.07, align 8, !noundef !13
-  %.not = icmp ugt i64 %6, %2
+  %.not = icmp ult i64 %2, %6
   br i1 %.not, label %10, label %7
 
 ._crit_edge:                                      ; preds = %10, %7, %3
@@ -1982,7 +1982,7 @@ define noundef zeroext i1 @_ZN6uucore8features6ranges7contain17hb26912848c810b48
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !13
-  %.not4 = icmp ult i64 %9, %2
+  %.not4 = icmp ugt i64 %2, %9
   br i1 %.not4, label %10, label %._crit_edge
 
 10:                                               ; preds = %7, %.lr.ph

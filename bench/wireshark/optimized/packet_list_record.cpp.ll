@@ -312,7 +312,7 @@ define void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr nocapture noun
 31:                                               ; preds = %30
   %32 = call i32 @color_filters_used()
   %.not29 = icmp eq i32 %32, 0
-  %brmerge.not = and i1 %.not29, %2
+  %brmerge.not = and i1 %2, %.not29
   br i1 %brmerge.not, label %36, label %.thread
 
 .thread:                                          ; preds = %31
@@ -435,7 +435,7 @@ define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %2, i64 312
   %10 = load i32, ptr %9, align 8
-  %.not = icmp sgt i32 %10, %3
+  %.not = icmp slt i32 %3, %10
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %8, %5
@@ -767,7 +767,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
 
 select.unfold.i.i:                                ; preds = %32, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %32 ]
-  %35 = icmp eq ptr %15, %.sroa.4.0.i.ph.i.i
+  %35 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %35, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %36
 
 36:                                               ; preds = %select.unfold.i.i
@@ -1036,7 +1036,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6QCacheIj5QListI7QStringEE6insertERKj
   %5 = alloca %"struct.QHashPrivate::Data<QCache<unsigned int, QList<QString>>::Node>::InsertionResult", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8
-  %8 = icmp sge i64 %7, %3
+  %8 = icmp sle i64 %3, %7
   br i1 %8, label %27, label %9
 
 9:                                                ; preds = %4
@@ -1783,7 +1783,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit: ; preds = %3
 7:                                                ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = icmp eq i64 %9, %1
+  %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit, label %31
 
 _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %7
@@ -2109,7 +2109,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZNK17Q
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = add i64 %31, %2
+  %35 = add i64 %2, %31
   %36 = sub i64 %19, %35
   %37 = sdiv i64 %36, 2
   %38 = tail call noundef i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -2473,7 +2473,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.thread: ; preds = %22, 
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not.i.i = icmp eq i32 %26, 0
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %11, i64 %23)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %11)
   %.0.i.i = select i1 %.not.i.i, i64 %23, i64 %spec.select.i.i
   br label %_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv.exit31
 
@@ -2516,7 +2516,7 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %35
   %48 = getelementptr inbounds i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, %2
+  %51 = add i64 %2, %50
   %52 = sub i64 %49, %51
   %53 = sdiv i64 %52, 2
   %54 = call noundef i64 @llvm.smax.i64(i64 %53, i64 0)
@@ -3114,7 +3114,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %.lcssa45 = phi i64 [ %14, %3 ], [ %65, %.loopexit ]
   %.lcssa = phi ptr [ %18, %3 ], [ %69, %.loopexit ]
   %73 = add i64 %.lcssa45, -1
-  %74 = icmp eq i64 %73, %2
+  %74 = icmp eq i64 %2, %73
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %._crit_edge

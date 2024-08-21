@@ -368,7 +368,7 @@ if.then34:                                        ; preds = %if.then22
 if.else38:                                        ; preds = %if.else
   %survival.i = getelementptr inbounds i8, ptr %0, i64 192
   %16 = load ptr, ptr %survival.i, align 8
-  %cmp.i.i = icmp eq ptr %16, %o
+  %cmp.i.i = icmp eq ptr %o, %16
   br i1 %cmp.i.i, label %if.then.i.i, label %checkpointer.exit.i
 
 if.then.i.i:                                      ; preds = %if.else38
@@ -379,7 +379,7 @@ if.then.i.i:                                      ; preds = %if.else38
 checkpointer.exit.i:                              ; preds = %if.then.i.i, %if.else38
   %old1.i = getelementptr inbounds i8, ptr %0, i64 200
   %18 = load ptr, ptr %old1.i, align 8
-  %cmp.i7.i = icmp eq ptr %18, %o
+  %cmp.i7.i = icmp eq ptr %o, %18
   br i1 %cmp.i7.i, label %if.then.i8.i, label %checkpointer.exit9.i
 
 if.then.i8.i:                                     ; preds = %checkpointer.exit.i
@@ -390,7 +390,7 @@ if.then.i8.i:                                     ; preds = %checkpointer.exit.i
 checkpointer.exit9.i:                             ; preds = %if.then.i8.i, %checkpointer.exit.i
   %reallyold.i = getelementptr inbounds i8, ptr %0, i64 208
   %20 = load ptr, ptr %reallyold.i, align 8
-  %cmp.i10.i = icmp eq ptr %20, %o
+  %cmp.i10.i = icmp eq ptr %o, %20
   br i1 %cmp.i10.i, label %if.then.i11.i, label %checkpointer.exit12.i
 
 if.then.i11.i:                                    ; preds = %checkpointer.exit9.i
@@ -401,7 +401,7 @@ if.then.i11.i:                                    ; preds = %checkpointer.exit9.
 checkpointer.exit12.i:                            ; preds = %if.then.i11.i, %checkpointer.exit9.i
   %firstold1.i = getelementptr inbounds i8, ptr %0, i64 216
   %22 = load ptr, ptr %firstold1.i, align 8
-  %cmp.i13.i = icmp eq ptr %22, %o
+  %cmp.i13.i = icmp eq ptr %o, %22
   br i1 %cmp.i13.i, label %if.then.i14.i, label %if.end39
 
 if.then.i14.i:                                    ; preds = %checkpointer.exit12.i
@@ -498,7 +498,7 @@ entry:
   %gckind = getelementptr inbounds i8, ptr %0, i64 102
   %1 = load i8, ptr %gckind, align 2
   %conv = zext i8 %1 to i32
-  %cmp.not = icmp eq i32 %conv, %newmode
+  %cmp.not = icmp eq i32 %newmode, %conv
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry

@@ -251,7 +251,7 @@ define dso_local void @AtAbort_Twophase() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %19 = getelementptr [0 x ptr], ptr %16, i64 0, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %7
+  %21 = icmp eq ptr %7, %20
   br i1 %21, label %RemoveGXact.exit, label %17
 
 ._crit_edge.i:                                    ; preds = %17, %11
@@ -846,7 +846,7 @@ define dso_local i32 @TwoPhaseGetDummyProcNumber(i32 noundef %0, i1 noundef zero
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = load i32, ptr @TwoPhaseGetGXact.cached_xid, align 4
-  %4 = icmp eq i32 %3, %0
+  %4 = icmp eq i32 %0, %3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
@@ -1853,7 +1853,7 @@ define internal fastcc ptr @ReadTwoPhaseFile(i32 noundef %0, i1 noundef zeroext 
   %11 = getelementptr i8, ptr %10, i64 384
   tail call void @LWLockRelease(ptr noundef %11) #15
   %12 = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %13 = icmp ult i32 %12, %0
+  %13 = icmp ugt i32 %0, %12
   %14 = sext i1 %13 to i64
   %15 = lshr i64 %.sroa.0.0.copyload.i.i, 32
   %16 = add nsw i64 %15, %14
@@ -2082,7 +2082,7 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
 37:                                               ; preds = %24
   %38 = getelementptr inbounds i8, ptr %17, i64 44
   %39 = load i32, ptr %38, align 4
-  %.not20.i = icmp eq i32 %39, %4
+  %.not20.i = icmp eq i32 %4, %39
   br i1 %.not20.i, label %47, label %40
 
 40:                                               ; preds = %37
@@ -2441,7 +2441,7 @@ ProcessRecords.exit:                              ; preds = %242, %216, %225, %2
   %indvars.iv.i92 = phi i64 [ 0, %.lr.ph.i90 ], [ %indvars.iv.next.i93, %256 ]
   %258 = getelementptr [0 x ptr], ptr %255, i64 0, i64 %indvars.iv.i92
   %259 = load ptr, ptr %258, align 8
-  %260 = icmp eq ptr %259, %17
+  %260 = icmp eq ptr %17, %259
   br i1 %260, label %RemoveGXact.exit, label %256
 
 ._crit_edge.i89:                                  ; preds = %256, %ProcessRecords.exit
@@ -2622,7 +2622,7 @@ define internal fastcc void @RemoveTwoPhaseFile(i32 noundef %0, i1 noundef zeroe
   %10 = getelementptr i8, ptr %9, i64 384
   tail call void @LWLockRelease(ptr noundef %10) #15
   %11 = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %12 = icmp ult i32 %11, %0
+  %12 = icmp ugt i32 %0, %11
   %13 = sext i1 %12 to i64
   %14 = lshr i64 %.sroa.0.0.copyload.i.i, 32
   %15 = add nsw i64 %14, %13
@@ -2636,7 +2636,7 @@ define internal fastcc void @RemoveTwoPhaseFile(i32 noundef %0, i1 noundef zeroe
   %20 = tail call ptr @__errno_location() #18
   %21 = load i32, ptr %20, align 4
   %.not2 = icmp ne i32 %21, 2
-  %brmerge = or i1 %.not2, %1
+  %brmerge = or i1 %1, %.not2
   br i1 %brmerge, label %22, label %27
 
 22:                                               ; preds = %19
@@ -3737,7 +3737,7 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %32 = getelementptr [0 x ptr], ptr %29, i64 0, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %11
+  %34 = icmp eq ptr %11, %33
   br i1 %34, label %RemoveGXact.exit, label %30
 
 ._crit_edge.i:                                    ; preds = %30, %24

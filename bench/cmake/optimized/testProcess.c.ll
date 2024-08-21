@@ -266,7 +266,7 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
   %78 = call i32 @cmsysProcess_GetExitValue(ptr noundef %17) #12
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %78)
   %80 = call i32 @cmsysProcess_GetExitException(ptr noundef %17) #12
-  %.not85.i = icmp eq i32 %80, %2
+  %.not85.i = icmp eq i32 %2, %80
   br i1 %.not85.i, label %90, label %.thread102.i
 
 81:                                               ; preds = %72
@@ -277,7 +277,7 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
   %83 = call ptr @cmsysProcess_GetExceptionString(ptr noundef %17) #12
   %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %83)
   %85 = call i32 @cmsysProcess_GetExitException(ptr noundef %17) #12
-  %.not83.i = icmp eq i32 %85, %2
+  %.not83.i = icmp eq i32 %2, %85
   br i1 %.not83.i, label %90, label %.thread102.i
 
 86:                                               ; preds = %72
@@ -291,12 +291,12 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
 
 90:                                               ; preds = %82, %77
   %91 = call i32 @cmsysProcess_GetExitValue(ptr noundef %17) #12
-  %.065.in.not.i = icmp eq i32 %91, %3
+  %.065.in.not.i = icmp eq i32 %3, %91
   br i1 %.065.in.not.i, label %.thread97.i, label %.thread102.i
 
 .thread102.i:                                     ; preds = %90, %82, %77
   %92 = call i32 @cmsysProcess_GetExitException(ptr noundef %17) #12
-  %.not90.i = icmp eq i32 %92, %2
+  %.not90.i = icmp eq i32 %2, %92
   br i1 %.not90.i, label %97, label %93
 
 93:                                               ; preds = %.thread102.i
@@ -307,7 +307,7 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
 
 97:                                               ; preds = %93, %.thread102.i
   %98 = call i32 @cmsysProcess_GetExitValue(ptr noundef %17) #12
-  %.not91.i = icmp eq i32 %98, %3
+  %.not91.i = icmp eq i32 %3, %98
   br i1 %.not91.i, label %.thread97.i, label %99
 
 99:                                               ; preds = %97

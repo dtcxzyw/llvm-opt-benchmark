@@ -293,7 +293,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
-  %32 = icmp eq ptr %6, %.sroa.12.0.i.ph
+  %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
 33:                                               ; preds = %select.unfold
@@ -4094,7 +4094,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE14_M_lowe
 _ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4findERS4_.exit: ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %15 = load i32, ptr %14, align 4
-  %16 = icmp ugt i32 %15, %4
+  %16 = icmp ult i32 %4, %15
   br i1 %16, label %_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4findERS4_.exit.thread, label %21
 
 _ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4findERS4_.exit.thread: ; preds = %5, %_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4findERS4_.exit
@@ -4257,7 +4257,7 @@ common.resume:                                    ; preds = %15, %42
 28:                                               ; preds = %25
   %.not.i.i = icmp ne ptr %26, null
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = icmp eq ptr %29, %27
+  %30 = icmp eq ptr %27, %29
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %30
   br i1 %or.cond.i.i, label %.thread, label %31
 
@@ -4307,7 +4307,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
@@ -4698,7 +4698,7 @@ _ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE11lower_boundERS4_.exit: ; preds 
 
 22:                                               ; preds = %19
   %.not.i.i.i4 = icmp ne ptr %20, null
-  %23 = icmp eq ptr %5, %21
+  %23 = icmp eq ptr %21, %5
   %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %23
   br i1 %or.cond.i.i.i, label %.thread.i, label %24
 
@@ -4739,7 +4739,7 @@ declare void @glPopAttrib() local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3

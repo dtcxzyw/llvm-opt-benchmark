@@ -981,7 +981,7 @@ define internal void @dissect_hello_restart_clv(ptr noundef %0, ptr nocapture re
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %23, 3
-  %.not18 = icmp ugt i32 %24, %5
+  %.not18 = icmp ult i32 %5, %24
   %brmerge20 = select i1 %.not18, i1 true, i1 %14
   br i1 %brmerge20, label %.thread25, label %25
 

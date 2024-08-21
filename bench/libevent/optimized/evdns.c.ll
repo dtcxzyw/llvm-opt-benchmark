@@ -1857,7 +1857,7 @@ define i32 @evdns_server_request_get_requesting_addr(ptr nocapture noundef reado
 entry:
   %addrlen = getelementptr inbounds i8, ptr %req_, i64 -64
   %0 = load i32, ptr %addrlen, align 8
-  %cmp = icmp sgt i32 %0, %addr_len
+  %cmp = icmp slt i32 %addr_len, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -3254,7 +3254,7 @@ entry:
   %base1 = getelementptr inbounds i8, ptr %req, i64 184
   %0 = load ptr, ptr %base1, align 8
   %req_waiting_head = getelementptr inbounds i8, ptr %0, i64 8
-  %cmp.not = icmp eq ptr %req_waiting_head, %head
+  %cmp.not = icmp eq ptr %head, %req_waiting_head
   %lock = getelementptr inbounds i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -12567,11 +12567,11 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp slt i32 %conv.i, %min
+  %cmp1 = icmp sgt i32 %min, %conv.i
   br i1 %cmp1, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %max.call = tail call i32 @llvm.smin.i32(i32 %conv.i, i32 %max)
+  %max.call = tail call i32 @llvm.smin.i32(i32 %max, i32 %conv.i)
   br label %return
 
 return:                                           ; preds = %if.else3, %if.else, %entry

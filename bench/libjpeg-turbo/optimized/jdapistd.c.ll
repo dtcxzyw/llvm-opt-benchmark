@@ -738,7 +738,7 @@ define i32 @jpeg_skip_scanlines(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not179, label %197, label %85
 
 85:                                               ; preds = %72
-  %.not214 = icmp ult i32 %80, %1
+  %.not214 = icmp ugt i32 %1, %80
   br i1 %.not214, label %86, label %93
 
 86:                                               ; preds = %85
@@ -969,7 +969,7 @@ set_wraparound_pointers.exit:                     ; preds = %._crit_edge.i194, %
   br i1 %.not183, label %.sink.split, label %212
 
 197:                                              ; preds = %72
-  %198 = icmp ugt i32 %80, %1
+  %198 = icmp ult i32 %1, %80
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %197
@@ -1745,7 +1745,7 @@ define i32 @jpeg_read_raw_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %61 = getelementptr inbounds i8, ptr %0, i64 416
   %62 = load i32, ptr %61, align 8
   %63 = mul nsw i32 %62, %60
-  %64 = icmp ugt i32 %63, %2
+  %64 = icmp ult i32 %2, %63
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %58

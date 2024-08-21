@@ -41,7 +41,7 @@ declare void @_ZN4GCId11set_printerEP11GCIdPrinter(ptr noundef) local_unnamed_ad
 define hidden noundef i32 @_ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
@@ -51,7 +51,7 @@ define hidden noundef i32 @_ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm(ptr noc
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10
@@ -76,7 +76,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN12ZGCIdPrinter11print_gc_idEjPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, %1
+  %7 = icmp eq i32 %1, %6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
@@ -86,7 +86,7 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN12ZGCIdPrinter1
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, %1
+  %13 = icmp eq i32 %1, %12
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10

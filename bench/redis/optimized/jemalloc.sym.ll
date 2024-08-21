@@ -586,7 +586,7 @@ arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.e
 
 if.end.i5:                                        ; preds = %malloc_mutex_lock.exit
   %3 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i = icmp eq i32 %3, %ind
+  %cmp1.i = icmp eq i32 %ind, %3
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i5
@@ -876,7 +876,7 @@ if.else77:                                        ; preds = %for.body53
 
 if.end.i94:                                       ; preds = %if.else77
   %36 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i = icmp eq i32 %36, %first_null.0.lcssa
+  %cmp1.i = icmp eq i32 %first_null.0.lcssa, %36
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i94
@@ -1195,7 +1195,7 @@ if.end50.i.i855:                                  ; preds = %if.then22.i166.i904
 
 if.end.i65.i712:                                  ; preds = %land.lhs.true.i31.i666
   %18 = load i64, ptr @tcache_maxclass, align 8
-  %cmp15.i.i713.not = icmp ult i64 %18, %size
+  %cmp15.i.i713.not = icmp ugt i64 %size, %18
   br i1 %cmp15.i.i713.not, label %if.end31.i.i679, label %if.then23.i.i718
 
 if.then23.i.i718:                                 ; preds = %if.end.i65.i712
@@ -1241,7 +1241,7 @@ sz_s2u.exit.i792:                                 ; preds = %if.then.i126.i757
   %sub10.i.i783 = sub nuw nsw i64 60, %26
   %notmask701 = shl nsw i64 -1, %sub10.i.i783
   %sub12.i.i787 = xor i64 %notmask701, -1
-  %add.i.i788 = add nuw nsw i64 %sub12.i.i787, %size
+  %add.i.i788 = add nuw nsw i64 %size, %sub12.i.i787
   %and.i.i790 = and i64 %add.i.i788, %notmask701
   %call19.i133.i794 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %call7.i127.i758, i64 noundef %and.i.i790, i1 noundef zeroext false) #19
   br label %imalloc_no_sample.exit948
@@ -1505,7 +1505,7 @@ if.end50.i.i:                                     ; preds = %if.then46.i.i, %if.
 
 if.end.i65.i:                                     ; preds = %if.then.i63.i
   %61 = load i64, ptr @tcache_maxclass, align 8
-  %cmp15.i.i441.not = icmp ult i64 %61, %size
+  %cmp15.i.i441.not = icmp ugt i64 %size, %61
   br i1 %cmp15.i.i441.not, label %if.end31.i.i, label %if.then23.i.i445
 
 if.then23.i.i445:                                 ; preds = %if.end.i65.i
@@ -1551,7 +1551,7 @@ sz_s2u.exit.i463:                                 ; preds = %if.then.i126.i
   %sub10.i.i454 = sub nuw nsw i64 60, %69
   %notmask = shl nsw i64 -1, %sub10.i.i454
   %sub12.i.i458 = xor i64 %notmask, -1
-  %add.i.i459 = add nuw nsw i64 %sub12.i.i458, %size
+  %add.i.i459 = add nuw nsw i64 %size, %sub12.i.i458
   %and.i.i461 = and i64 %add.i.i459, %notmask
   %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i461, i1 noundef zeroext %tobool2.i.i324) #19
   br label %imalloc_no_sample.exit
@@ -3594,7 +3594,7 @@ if.end5.i66.i1321:                                ; preds = %if.end.i.i1314
   %sub10.i74.i1329 = sub nuw nsw i64 60, %6
   %notmask704 = shl nsw i64 -1, %sub10.i74.i1329
   %sub12.i78.i1333 = xor i64 %notmask704, -1
-  %add.i79.i1334 = add nuw nsw i64 %sub12.i78.i1333, %size
+  %add.i79.i1334 = add nuw nsw i64 %size, %sub12.i78.i1333
   %and.i81.i1336 = and i64 %add.i79.i1334, %notmask704
   br label %sz_s2u.exit.i1338
 
@@ -3737,7 +3737,7 @@ if.end5.i66.i:                                    ; preds = %if.end.i.i1229
   %sub10.i74.i = sub nuw nsw i64 60, %17
   %notmask702 = shl nsw i64 -1, %sub10.i74.i
   %sub12.i78.i = xor i64 %notmask702, -1
-  %add.i79.i = add nuw nsw i64 %sub12.i78.i, %size
+  %add.i79.i = add nuw nsw i64 %size, %sub12.i78.i
   %and.i81.i = and i64 %add.i79.i, %notmask702
   br label %sz_s2u.exit.i1230
 
@@ -3975,7 +3975,7 @@ if.end5.i66.i1320:                                ; preds = %if.end.i.i1313
   %sub10.i74.i1328 = sub nuw nsw i64 60, %5
   %notmask703 = shl nsw i64 -1, %sub10.i74.i1328
   %sub12.i78.i1332 = xor i64 %notmask703, -1
-  %add.i79.i1333 = add nuw nsw i64 %sub12.i78.i1332, %size
+  %add.i79.i1333 = add nuw nsw i64 %size, %sub12.i78.i1332
   %and.i81.i1335 = and i64 %add.i79.i1333, %notmask703
   br label %sz_s2u.exit.i1337
 
@@ -4096,7 +4096,7 @@ if.end5.i66.i:                                    ; preds = %if.end.i.i1228
   %sub10.i74.i = sub nuw nsw i64 60, %16
   %notmask701 = shl nsw i64 -1, %sub10.i74.i
   %sub12.i78.i = xor i64 %notmask701, -1
-  %add.i79.i = add nuw nsw i64 %sub12.i78.i, %size
+  %add.i79.i = add nuw nsw i64 %size, %sub12.i78.i
   %and.i81.i = and i64 %add.i79.i, %notmask701
   br label %sz_s2u.exit.i1229
 
@@ -4426,7 +4426,7 @@ if.end5.i66.i1352:                                ; preds = %if.end.i.i1345
   %sub10.i74.i1360 = sub nuw nsw i64 60, %12
   %notmask712 = shl nsw i64 -1, %sub10.i74.i1360
   %sub12.i78.i1364 = xor i64 %notmask712, -1
-  %add.i79.i1365 = add nuw nsw i64 %sub12.i78.i1364, %size
+  %add.i79.i1365 = add nuw nsw i64 %size, %sub12.i78.i1364
   %and.i81.i1367 = and i64 %add.i79.i1365, %notmask712
   br label %sz_s2u.exit.i1369
 
@@ -4603,7 +4603,7 @@ if.end50.i.i888:                                  ; preds = %if.then46.i.i892, %
 
 if.end.i65.i745:                                  ; preds = %if.then.i63.i740
   %32 = load i64, ptr @tcache_maxclass, align 8
-  %cmp15.i.i746.not = icmp ult i64 %32, %size
+  %cmp15.i.i746.not = icmp ugt i64 %size, %32
   br i1 %cmp15.i.i746.not, label %if.end31.i.i712, label %if.then23.i.i751
 
 if.then23.i.i751:                                 ; preds = %if.end.i65.i745
@@ -4654,7 +4654,7 @@ if.end5.i.i808:                                   ; preds = %if.end.i132.i796
   %sub10.i.i816 = sub nuw nsw i64 60, %40
   %notmask713 = shl nsw i64 -1, %sub10.i.i816
   %sub12.i.i820 = xor i64 %notmask713, -1
-  %add.i.i821 = add nuw nsw i64 %sub12.i.i820, %size
+  %add.i.i821 = add nuw nsw i64 %size, %sub12.i.i820
   %and.i.i823 = and i64 %add.i.i821, %notmask713
   br label %sz_s2u.exit.i825
 
@@ -4839,7 +4839,7 @@ if.end5.i66.i:                                    ; preds = %if.end.i.i1259
   %sub10.i74.i = sub nuw nsw i64 60, %55
   %notmask709 = shl nsw i64 -1, %sub10.i74.i
   %sub12.i78.i = xor i64 %notmask709, -1
-  %add.i79.i = add nuw nsw i64 %sub12.i78.i, %size
+  %add.i79.i = add nuw nsw i64 %size, %sub12.i78.i
   %and.i81.i = and i64 %add.i79.i, %notmask709
   br label %sz_s2u.exit.i1260
 
@@ -5024,7 +5024,7 @@ if.end50.i.i:                                     ; preds = %if.then46.i.i, %if.
 
 if.end.i65.i:                                     ; preds = %if.then.i63.i
   %77 = load i64, ptr @tcache_maxclass, align 8
-  %cmp15.i.i474.not = icmp ult i64 %77, %size
+  %cmp15.i.i474.not = icmp ugt i64 %size, %77
   br i1 %cmp15.i.i474.not, label %if.end31.i.i, label %if.then23.i.i478
 
 if.then23.i.i478:                                 ; preds = %if.end.i65.i
@@ -5075,7 +5075,7 @@ if.end5.i.i480:                                   ; preds = %if.end.i132.i
   %sub10.i.i487 = sub nuw nsw i64 60, %85
   %notmask710 = shl nsw i64 -1, %sub10.i.i487
   %sub12.i.i491 = xor i64 %notmask710, -1
-  %add.i.i492 = add nuw nsw i64 %sub12.i.i491, %size
+  %add.i.i492 = add nuw nsw i64 %size, %sub12.i.i491
   %and.i.i494 = and i64 %add.i.i492, %notmask710
   br label %sz_s2u.exit.i496
 
@@ -5331,7 +5331,7 @@ if.end5.i:                                        ; preds = %if.end.i138
   %sub10.i = sub nuw nsw i64 60, %15
   %notmask329 = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask329, -1
-  %add.i = add nuw nsw i64 %sub12.i, %size
+  %add.i = add nuw nsw i64 %size, %sub12.i
   %and.i156 = and i64 %add.i, %notmask329
   br label %if.end26.i
 
@@ -5394,7 +5394,7 @@ if.end5.i66.i397:                                 ; preds = %if.end.i.i390
   %sub10.i74.i405 = sub nuw nsw i64 60, %19
   %notmask328 = shl nsw i64 -1, %sub10.i74.i405
   %sub12.i78.i409 = xor i64 %notmask328, -1
-  %add.i79.i410 = add nuw nsw i64 %sub12.i78.i409, %size
+  %add.i79.i410 = add nuw nsw i64 %size, %sub12.i78.i409
   %and.i81.i412 = and i64 %add.i79.i410, %notmask328
   br label %sz_s2u.exit.i414
 
@@ -5494,7 +5494,7 @@ if.end5.i66.i:                                    ; preds = %if.end.i.i326
   %sub10.i74.i = sub nuw nsw i64 60, %25
   %notmask331 = shl nsw i64 -1, %sub10.i74.i
   %sub12.i78.i = xor i64 %notmask331, -1
-  %add.i79.i = add nuw nsw i64 %sub12.i78.i, %size
+  %add.i79.i = add nuw nsw i64 %size, %sub12.i78.i
   %and.i81.i = and i64 %add.i79.i, %notmask331
   br label %sz_s2u.exit.i
 
@@ -5527,7 +5527,7 @@ if.end.i295:                                      ; preds = %sz_sa2u.exit
   br i1 %cmp6.i297, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i295
-  %cond.i301 = call i64 @llvm.umin.i64(i64 %12, i64 %size)
+  %cond.i301 = call i64 @llvm.umin.i64(i64 %size, i64 %12)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call8.i.i, ptr align 1 %ptr, i64 %cond.i301, i1 false)
   %29 = load i8, ptr %hook_args, align 8
   %tobool12.i302 = trunc i8 %29 to i1
@@ -6131,7 +6131,7 @@ if.end50.i.i875:                                  ; preds = %if.then22.i166.i924
 
 if.end.i65.i732:                                  ; preds = %land.lhs.true.i31.i686
   %56 = load i64, ptr @tcache_maxclass, align 8
-  %cmp15.i.i733.not = icmp ult i64 %56, %size
+  %cmp15.i.i733.not = icmp ugt i64 %size, %56
   br i1 %cmp15.i.i733.not, label %if.end31.i.i699, label %if.then23.i.i738
 
 if.then23.i.i738:                                 ; preds = %if.end.i65.i732
@@ -6177,7 +6177,7 @@ sz_s2u.exit.i812:                                 ; preds = %if.then.i126.i777
   %sub10.i.i803 = sub nuw nsw i64 60, %64
   %notmask709 = shl nsw i64 -1, %sub10.i.i803
   %sub12.i.i807 = xor i64 %notmask709, -1
-  %add.i.i808 = add nuw nsw i64 %sub12.i.i807, %size
+  %add.i.i808 = add nuw nsw i64 %size, %sub12.i.i807
   %and.i.i810 = and i64 %add.i.i808, %notmask709
   %call19.i133.i814 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1121.0783, ptr noundef nonnull %call7.i127.i778, i64 noundef %and.i.i810, i1 noundef zeroext false) #19
   br label %imalloc_no_sample.exit968
@@ -6395,7 +6395,7 @@ if.end50.i.i:                                     ; preds = %if.then46.i.i, %if.
 
 if.end.i65.i:                                     ; preds = %if.then.i63.i
   %92 = load i64, ptr @tcache_maxclass, align 8
-  %cmp15.i.i461.not = icmp ult i64 %92, %size
+  %cmp15.i.i461.not = icmp ugt i64 %size, %92
   br i1 %cmp15.i.i461.not, label %if.end31.i.i, label %if.then23.i.i465
 
 if.then23.i.i465:                                 ; preds = %if.end.i65.i
@@ -6441,7 +6441,7 @@ sz_s2u.exit.i483:                                 ; preds = %if.then.i126.i
   %sub10.i.i474 = sub nuw nsw i64 60, %100
   %notmask = shl nsw i64 -1, %sub10.i.i474
   %sub12.i.i478 = xor i64 %notmask, -1
-  %add.i.i479 = add nuw nsw i64 %sub12.i.i478, %size
+  %add.i.i479 = add nuw nsw i64 %size, %sub12.i.i478
   %and.i.i481 = and i64 %add.i.i479, %notmask
   %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i481, i1 noundef zeroext %tobool2.i.i344) #19
   br label %imalloc_no_sample.exit
@@ -7195,7 +7195,7 @@ if.end5.i:                                        ; preds = %if.end.i154
   %sub10.i = sub nuw nsw i64 60, %5
   %notmask466 = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask466, -1
-  %add.i = add nuw nsw i64 %sub12.i, %size
+  %add.i = add nuw nsw i64 %size, %sub12.i
   %and.i172 = and i64 %add.i, %notmask466
   br label %if.end26.i
 
@@ -7258,7 +7258,7 @@ if.end5.i66.i:                                    ; preds = %if.end.i.i
   %sub10.i74.i = sub nuw nsw i64 60, %9
   %notmask465 = shl nsw i64 -1, %sub10.i74.i
   %sub12.i78.i = xor i64 %notmask465, -1
-  %add.i79.i = add nuw nsw i64 %sub12.i78.i, %size
+  %add.i79.i = add nuw nsw i64 %size, %sub12.i78.i
   %and.i81.i = and i64 %add.i79.i, %notmask465
   br label %sz_s2u.exit.i
 
@@ -7874,7 +7874,7 @@ if.end5.i:                                        ; preds = %if.end.i50
   %sub10.i = sub nuw nsw i64 60, %6
   %notmask63 = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask63, -1
-  %add.i = add nuw nsw i64 %sub12.i, %size
+  %add.i = add nuw nsw i64 %size, %sub12.i
   %and.i68 = and i64 %add.i, %notmask63
   br label %if.end26.i
 
@@ -7937,7 +7937,7 @@ if.end5.i66.i:                                    ; preds = %if.end.i.i
   %sub10.i74.i = sub nuw nsw i64 60, %10
   %notmask62 = shl nsw i64 -1, %sub10.i74.i
   %sub12.i78.i = xor i64 %notmask62, -1
-  %add.i79.i = add nuw nsw i64 %sub12.i78.i, %size
+  %add.i79.i = add nuw nsw i64 %size, %sub12.i78.i
   %and.i81.i = and i64 %add.i79.i, %notmask62
   br label %sz_s2u.exit.i
 
@@ -8218,7 +8218,7 @@ if.end5.i:                                        ; preds = %if.end.i233
   %sub10.i = sub nuw nsw i64 60, %5
   %notmask186 = shl nsw i64 -1, %sub10.i
   %sub12.i = xor i64 %notmask186, -1
-  %add.i = add nuw nsw i64 %sub12.i, %size
+  %add.i = add nuw nsw i64 %size, %sub12.i
   %and.i251 = and i64 %add.i, %notmask186
   br label %if.end26.i
 
@@ -8281,7 +8281,7 @@ if.end5.i66.i:                                    ; preds = %if.end.i.i
   %sub10.i74.i = sub nuw nsw i64 60, %9
   %notmask185 = shl nsw i64 -1, %sub10.i74.i
   %sub12.i78.i = xor i64 %notmask185, -1
-  %add.i79.i = add nuw nsw i64 %sub12.i78.i, %size
+  %add.i79.i = add nuw nsw i64 %size, %sub12.i78.i
   %and.i81.i = and i64 %add.i79.i, %notmask185
   br label %sz_s2u.exit.i
 

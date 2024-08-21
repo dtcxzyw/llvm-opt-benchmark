@@ -532,7 +532,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %call6, i64 %deadline.coerce)
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %deadline.coerce, i64 %call6)
   %sub.i = sub i64 0, %call6
   %cmp.i.i = icmp eq i64 %spec.select, 9223372036854775807
   %cmp2.i.i = icmp eq i64 %call6, -9223372036854775807
@@ -878,7 +878,7 @@ entry:
   %0 = fmul double %max.val.i, 1.000000e+03
   %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %queue_deadline_cap, align 8
-  %agg.tmp.sroa.0.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.0.0.copyload.i, i64 %now.coerce)
+  %agg.tmp.sroa.0.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %now.coerce, i64 %agg.tmp.sroa.0.0.copyload.i)
   %mul.i = select i1 %cmp.i, double 1.000000e+01, double %0
   %cmp.i5 = fcmp ult double %mul.i, 0x43E0000000000000
   br i1 %cmp.i5, label %if.end.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
@@ -972,7 +972,7 @@ entry:
 if.then:                                          ; preds = %entry
   %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
-  %cmp.i = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, %now.coerce
+  %cmp.i = icmp slt i64 %now.coerce, %agg.tmp.sroa.0.0.copyload
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
@@ -1017,7 +1017,7 @@ call.i.noexc:                                     ; preds = %while.cond
 
 if.then.i:                                        ; preds = %call.i.noexc
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %queue_deadline_cap.i, align 8
-  %cmp.i.i = icmp sgt i64 %agg.tmp.sroa.0.0.copyload.i, %now.coerce
+  %cmp.i.i = icmp slt i64 %now.coerce, %agg.tmp.sroa.0.0.copyload.i
   br i1 %cmp.i.i, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
@@ -1191,7 +1191,7 @@ entry:
   %min_timer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %min_timer_ monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %cmp.i = icmp sgt i64 %0, %now.coerce
+  %cmp.i = icmp slt i64 %now.coerce, %0
   br i1 %cmp.i, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry

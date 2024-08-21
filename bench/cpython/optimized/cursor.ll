@@ -3529,8 +3529,8 @@ if.end:                                           ; preds = %cond.end, %cond.end
   %cond1026 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %cond2125 = phi i64 [ %cond20, %cond.end9 ], [ 0, %cond.end ]
   %6 = phi i32 [ %5, %cond.end9 ], [ %2, %cond.end ]
-  %add = sub i64 0, %nargs
-  %tobool12.not = icmp eq i64 %cond2125, %add
+  %add = sub i64 0, %cond2125
+  %tobool12.not = icmp eq i64 %nargs, %add
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end

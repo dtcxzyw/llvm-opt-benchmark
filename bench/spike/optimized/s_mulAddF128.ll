@@ -61,7 +61,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not296, label %40, label %219
 
 40:                                               ; preds = %38
-  %41 = or i64 %15, %1
+  %41 = or i64 %1, %15
   %42 = or i64 %41, %14
   br label %223
 
@@ -503,7 +503,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %243
 
 235:                                              ; preds = %52, %48
-  %236 = or i64 %24, %5
+  %236 = or i64 %5, %24
   %237 = or i64 %236, %23
   %.not273 = icmp eq i64 %237, 0
   %238 = xor i1 %27, %21

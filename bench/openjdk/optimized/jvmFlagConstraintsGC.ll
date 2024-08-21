@@ -64,7 +64,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z17MaxPLABSizeBoundsPKcmb(ptr nounde
 
 7:                                                ; preds = %5, %3
   %8 = tail call noundef i64 @_ZN4PLAB8max_sizeEv() #4
-  %9 = icmp ult i64 %8, %1
+  %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
@@ -100,7 +100,7 @@ define internal fastcc noundef range(i32 0, 7) i32 @_ZL20MinMaxPLABSizeBoundsPKc
 
 7:                                                ; preds = %5, %3
   %8 = tail call noundef i64 @_ZN4PLAB8min_sizeEv() #4
-  %9 = icmp ugt i64 %8, %1
+  %9 = icmp ult i64 %1, %8
   br i1 %9, label %_ZL17MinPLABSizeBoundsPKcmb.exit, label %11
 
 _ZL17MinPLABSizeBoundsPKcmb.exit:                 ; preds = %7
@@ -118,7 +118,7 @@ _ZL17MinPLABSizeBoundsPKcmb.exit:                 ; preds = %7
 
 15:                                               ; preds = %13, %11
   %16 = tail call noundef i64 @_ZN4PLAB8max_sizeEv() #4
-  %17 = icmp ult i64 %16, %1
+  %17 = icmp ugt i64 %1, %16
   br i1 %17, label %18, label %_Z17MaxPLABSizeBoundsPKcmb.exit
 
 18:                                               ; preds = %15
@@ -140,7 +140,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z25OldPLABSizeConstraintFuncmb(i64 n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z30MinHeapFreeRatioConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @MaxHeapFreeRatio, align 8
-  %4 = icmp ult i64 %3, %0
+  %4 = icmp ugt i64 %0, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -155,7 +155,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z30MinHeapFreeRatioConstraintFuncmb(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z30MaxHeapFreeRatioConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @MinHeapFreeRatio, align 8
-  %4 = icmp ugt i64 %3, %0
+  %4 = icmp ult i64 %0, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -191,7 +191,7 @@ _ZL42CheckMaxHeapSizeAndSoftRefLRUPolicyMSPerMBmlb.exit: ; preds = %2, %5, %7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z27MarkStackSizeConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @MarkStackSizeMax, align 8
-  %4 = icmp ult i64 %3, %0
+  %4 = icmp ugt i64 %0, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -206,7 +206,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z27MarkStackSizeConstraintFuncmb(i64
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z35MinMetaspaceFreeRatioConstraintFuncjb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @MaxMetaspaceFreeRatio, align 4
-  %4 = icmp ult i32 %3, %0
+  %4 = icmp ugt i32 %0, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -221,7 +221,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z35MinMetaspaceFreeRatioConstraintFu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z35MaxMetaspaceFreeRatioConstraintFuncjb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @MinMetaspaceFreeRatio, align 4
-  %4 = icmp ugt i32 %3, %0
+  %4 = icmp ult i32 %0, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -309,7 +309,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z25MinHeapSizeConstraintFuncmb(i64 n
   %10 = xor i64 %.0.i, -1
   %11 = sub i64 0, %.0.i
   %12 = and i64 %10, %11
-  %13 = icmp ult i64 %12, %0
+  %13 = icmp ugt i64 %0, %12
   br i1 %13, label %14, label %_ZL23MaxSizeForHeapAlignmentPKcmb.exit
 
 14:                                               ; preds = %9
@@ -340,7 +340,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z29InitialHeapSizeConstraintFuncmb(i
   %10 = xor i64 %.0.i, -1
   %11 = sub i64 0, %.0.i
   %12 = and i64 %10, %11
-  %13 = icmp ult i64 %12, %0
+  %13 = icmp ugt i64 %0, %12
   br i1 %13, label %14, label %_ZL23MaxSizeForHeapAlignmentPKcmb.exit
 
 14:                                               ; preds = %9
@@ -371,7 +371,7 @@ define hidden noundef i32 @_Z25MaxHeapSizeConstraintFuncmb(i64 noundef %0, i1 no
   %10 = xor i64 %.0.i, -1
   %11 = sub i64 0, %.0.i
   %12 = and i64 %10, %11
-  %13 = icmp ult i64 %12, %0
+  %13 = icmp ugt i64 %0, %12
   br i1 %13, label %_ZL23MaxSizeForHeapAlignmentPKcmb.exit, label %14
 
 _ZL23MaxSizeForHeapAlignmentPKcmb.exit:           ; preds = %9
@@ -401,7 +401,7 @@ _ZL42CheckMaxHeapSizeAndSoftRefLRUPolicyMSPerMBmlb.exit: ; preds = %19, %17, %14
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z29SoftMaxHeapSizeConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @MaxHeapSize, align 8
-  %4 = icmp ult i64 %3, %0
+  %4 = icmp ugt i64 %0, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -426,7 +426,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z32HeapBaseMinAddressConstraintFuncm
 7:                                                ; preds = %5
   %8 = load i64, ptr @MaxHeapSize, align 8
   %9 = xor i64 %8, -1
-  %10 = icmp ult i64 %9, %0
+  %10 = icmp ugt i64 %0, %9
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
@@ -451,7 +451,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z32HeapBaseMinAddressConstraintFuncm
   %20 = xor i64 %.0.i, -1
   %21 = sub i64 0, %.0.i
   %22 = and i64 %20, %21
-  %23 = icmp ult i64 %22, %0
+  %23 = icmp ugt i64 %0, %22
   br i1 %23, label %24, label %_ZL23MaxSizeForHeapAlignmentPKcmb.exit
 
 24:                                               ; preds = %19
@@ -484,7 +484,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z25MinTLABSizeConstraintFuncmb(i64 n
   %9 = sext i32 %8 to i64
   %10 = and i64 %7, %9
   %11 = shl i64 %10, 3
-  %12 = icmp ugt i64 %11, %0
+  %12 = icmp ult i64 %0, %11
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %2
@@ -503,7 +503,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z25MinTLABSizeConstraintFuncmb(i64 n
 23:                                               ; preds = %2
   %24 = load i64, ptr @_ZN22ThreadLocalAllocBuffer9_max_sizeE, align 8
   %25 = shl i64 %24, 3
-  %26 = icmp ult i64 %25, %0
+  %26 = icmp ugt i64 %0, %25
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
@@ -522,7 +522,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z22TLABSizeConstraintFuncmb(i64 noun
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @MinTLABSize, align 8
-  %6 = icmp ugt i64 %5, %0
+  %6 = icmp ult i64 %0, %5
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
@@ -532,7 +532,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z22TLABSizeConstraintFuncmb(i64 noun
 8:                                                ; preds = %4
   %9 = load i64, ptr @_ZN22ThreadLocalAllocBuffer9_max_sizeE, align 8
   %10 = shl i64 %9, 3
-  %11 = icmp ult i64 %10, %0
+  %11 = icmp ugt i64 %0, %10
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
@@ -580,7 +580,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z27SurvivorRatioConstraintFuncmb(i64
   %5 = load i64, ptr @MaxHeapSize, align 8
   %6 = load i64, ptr @SpaceAlignment, align 8
   %7 = udiv i64 %5, %6
-  %8 = icmp ult i64 %7, %0
+  %8 = icmp ugt i64 %0, %7
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
@@ -595,7 +595,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z27SurvivorRatioConstraintFuncmb(i64
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z27MetaspaceSizeConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @MaxMetaspaceSize, align 8
-  %4 = icmp ult i64 %3, %0
+  %4 = icmp ugt i64 %0, %3
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
@@ -610,7 +610,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z27MetaspaceSizeConstraintFuncmb(i64
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z30MaxMetaspaceSizeConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr @MetaspaceSize, align 8
-  %4 = icmp ugt i64 %3, %0
+  %4 = icmp ult i64 %0, %3
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2

@@ -279,7 +279,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   br i1 %27, label %28, label %.backedge
 
 28:                                               ; preds = %26
-  %.not26 = icmp eq i32 %21, %0
+  %.not26 = icmp eq i32 %0, %21
   %or.cond = select i1 %9, i1 %.not26, i1 false
   %.not27 = icmp eq i32 %5, %21
   %or.cond29 = select i1 %or.cond, i1 true, i1 %.not27

@@ -10227,7 +10227,7 @@ if.end55:                                         ; preds = %for.inc.critedge, %
   %conversion_helper = getelementptr inbounds i8, ptr %from, i64 48
   %36 = load ptr, ptr %conversion_helper, align 8, !tbaa !302
   %tobool56.not = icmp ne ptr %36, null
-  %brmerge.not = and i1 %tobool56.not, %arithmetic_or_enum
+  %brmerge.not = and i1 %arithmetic_or_enum, %tobool56.not
   br i1 %brmerge.not, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end55

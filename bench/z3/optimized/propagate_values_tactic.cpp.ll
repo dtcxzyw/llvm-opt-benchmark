@@ -1816,7 +1816,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i, %if.end.i.i.i
   %7 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
   %8 = load i32, ptr %7, align 4
-  %cmp4.i.i.i = icmp eq i32 %8, %1
+  %cmp4.i.i.i = icmp eq i32 %1, %8
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %sw.epilog.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i
@@ -2031,7 +2031,7 @@ if.end.i.i.i.i:                                   ; preds = %sw.epilog.i.i.i.i, 
 sw.bb.i.i5.i.i:                                   ; preds = %if.end.i.i.i.i, %if.end.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %c.017.i.i.i.i, i64 4
   %41 = load i32, ptr %40, align 4
-  %cmp4.i.i.i.i = icmp eq i32 %41, %26
+  %cmp4.i.i.i.i = icmp eq i32 %26, %41
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %sw.epilog.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %sw.bb.i.i5.i.i
@@ -2115,7 +2115,7 @@ if.end.i.i.i15.i:                                 ; preds = %sw.epilog.i.i.i26.i
 sw.bb.i.i.i33.i:                                  ; preds = %if.end.i.i.i15.i, %if.end.i.i.i15.i
   %54 = getelementptr inbounds i8, ptr %c.017.i.i.i18.i, i64 4
   %55 = load i32, ptr %54, align 4
-  %cmp4.i.i.i34.i = icmp eq i32 %55, %49
+  %cmp4.i.i.i34.i = icmp eq i32 %49, %55
   br i1 %cmp4.i.i.i34.i, label %if.then5.i.i.i35.i, label %sw.epilog.i.i.i26.i
 
 if.then5.i.i.i35.i:                               ; preds = %sw.bb.i.i.i33.i
@@ -2280,7 +2280,7 @@ invoke.cont32.i:                                  ; preds = %if.end27.i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i: ; preds = %invoke.cont32.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 -4
   %69 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i.i.i = icmp ugt i32 %69, %new_curr.val.i
+  %cmp.not.i.i.i.i.i.i = icmp ult i32 %new_curr.val.i, %69
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont33.i, label %if.end47.i
 
 invoke.cont33.i:                                  ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i
@@ -2344,7 +2344,7 @@ if.end.i70.i:                                     ; preds = %land.lhs.true.i.i.i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i.i: ; preds = %if.end.i70.i
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 -4
   %81 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
-  %cmp.not.i.i.i.i.i.i.i = icmp ugt i32 %81, %.val.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp ult i32 %.val.i.i, %81
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont48.i, label %if.end62.i
 
 invoke.cont48.i:                                  ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i.i
@@ -2421,7 +2421,7 @@ land.lhs.true.i.i:                                ; preds = %call3.i.noexc.i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i92.i: ; preds = %land.lhs.true.i.i
   %arrayidx.i.i.i.i.i.i.i93.i = getelementptr inbounds i8, ptr %this.val4.i.i, i64 -4
   %95 = load i32, ptr %arrayidx.i.i.i.i.i.i.i93.i, align 4
-  %cmp.not.i.i.i.i.i.i94.i = icmp ugt i32 %95, %.val5.i.i
+  %cmp.not.i.i.i.i.i.i94.i = icmp ult i32 %.val5.i.i, %95
   br i1 %cmp.not.i.i.i.i.i.i94.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i, label %if.end6.i.i
 
 _ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i92.i
@@ -2448,7 +2448,7 @@ land.lhs.true9.i.i:                               ; preds = %call8.i.noexc.i
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i9.i.i: ; preds = %land.lhs.true9.i.i
   %arrayidx.i.i.i.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.val.i90.i, i64 -4
   %97 = load i32, ptr %arrayidx.i.i.i.i.i.i10.i.i, align 4
-  %cmp.not.i.i.i.i.i11.i.i = icmp ugt i32 %97, %.val.i91.i
+  %cmp.not.i.i.i.i.i11.i.i = icmp ult i32 %.val.i91.i, %97
   br i1 %cmp.not.i.i.i.i.i11.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i, label %if.end78.i
 
 _ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i9.i.i

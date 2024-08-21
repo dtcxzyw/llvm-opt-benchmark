@@ -437,7 +437,7 @@ select.unfold.preheader.i72:                      ; preds = %79
   %87 = getelementptr inbounds ptr, ptr %.val67.val.us, i64 %indvars.iv96
   %88 = load ptr, ptr %87, align 8
   %89 = xor i64 %indvars.iv96, -1
-  %90 = add nsw i64 %89, %85
+  %90 = add nsw i64 %85, %89
   %91 = getelementptr inbounds [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %90
   store ptr %91, ptr %88, align 8
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -475,8 +475,8 @@ select.unfold.preheader.i72:                      ; preds = %79
   %99 = load ptr, ptr %98, align 8
   %100 = xor i64 %indvars.iv, -1
   %.0.val = load ptr, ptr %84, align 8
-  %101 = getelementptr ptr, ptr %.0.val, i64 %100
-  %102 = getelementptr ptr, ptr %101, i64 %85
+  %101 = getelementptr ptr, ptr %.0.val, i64 %85
+  %102 = getelementptr ptr, ptr %101, i64 %100
   %103 = load ptr, ptr %102, align 8
   store ptr %103, ptr %99, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

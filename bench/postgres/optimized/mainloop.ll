@@ -60,7 +60,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
   store ptr %0, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
   %14 = load ptr, ptr @stdin, align 8
-  %15 = icmp eq ptr %14, %0
+  %15 = icmp eq ptr %0, %14
   %16 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
   %17 = and i8 %16, 1
   %18 = xor i8 %17, 1

@@ -239,7 +239,7 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   %84 = getelementptr inbounds i8, ptr %0, i64 1040
   %85 = load i32, ptr %84, align 8
   %86 = getelementptr i8, ptr %1, i64 %83
-  %87 = icmp ugt ptr %86, %1
+  %87 = icmp ult ptr %1, %86
   br i1 %87, label %.lr.ph.i46.preheader, label %hex_encode.exit
 
 .lr.ph.i46.preheader:                             ; preds = %81
@@ -321,7 +321,7 @@ escape_json.exit:                                 ; preds = %72, %71, %hex_encod
   %128 = zext nneg i32 %5 to i64
   %129 = load i32, ptr %111, align 8
   %130 = getelementptr i8, ptr %6, i64 %128
-  %131 = icmp ugt ptr %130, %6
+  %131 = icmp ult ptr %6, %130
   br i1 %131, label %.lr.ph.i48.preheader, label %hex_encode.exit52
 
 .lr.ph.i48.preheader:                             ; preds = %125
@@ -516,7 +516,7 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1
   %24 = getelementptr inbounds i8, ptr %0, i64 1040
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr i8, ptr %3, i64 %23
-  %27 = icmp ugt ptr %26, %3
+  %27 = icmp ult ptr %3, %26
   br i1 %27, label %.lr.ph.i.preheader, label %hex_encode.exit
 
 .lr.ph.i.preheader:                               ; preds = %._crit_edge

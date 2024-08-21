@@ -979,7 +979,7 @@ lpad.i372:                                        ; preds = %.noexc373
 if.end.i355:                                      ; preds = %invoke.cont46.i
   %call5.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26, !noalias !20
   %41 = extractvalue { i64, ptr } %call5.i, 0
-  %cmp.i.i.i356 = icmp ult i64 %41, %33
+  %cmp.i.i.i356 = icmp ugt i64 %33, %41
   br i1 %cmp.i.i.i356, label %if.then.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i355
@@ -8017,7 +8017,7 @@ if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %call.val.i8.i.i.i.i.i.i = load ptr, ptr %__first.coerce.pn11.i.i.i.i.i, align 8
   %26 = getelementptr i8, ptr %call.val.i8.i.i.i.i.i.i, i64 4
   %call.val.val.i9.i.i.i.i.i.i = load i32, ptr %26, align 4
-  %cmp.i.i10.i.i.i.i.i.i = icmp sgt i32 %call.val.val.i9.i.i.i.i.i.i, %call.val.val.i.i.i.i.i.i
+  %cmp.i.i10.i.i.i.i.i.i = icmp slt i32 %call.val.val.i.i.i.i.i.i, %call.val.val.i9.i.i.i.i.i.i
   br i1 %cmp.i.i10.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i, %while.body.i.i.i.i.i.i
@@ -8030,7 +8030,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i, 
   %call.val.i.i.i.i.i.i.i = load ptr, ptr %__next.sroa.0.0.i.i.i.i.i.i, align 8
   %27 = getelementptr i8, ptr %call.val.i.i.i.i.i.i.i, i64 4
   %call.val.val.i.i.i.i.i.i.i = load i32, ptr %27, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp sgt i32 %call.val.val.i.i.i.i.i.i.i, %__val.val.val.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i = icmp slt i32 %__val.val.val.i.i.i.i.i.i, %call.val.val.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %for.inc.i.i.i.i.i, !llvm.loop !339
 
 for.inc.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i.i, %if.else.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i.i
@@ -8054,7 +8054,7 @@ for.body.i4.i.i.i.i:                              ; preds = %_ZSt16__insertion_s
   %call.val.i8.i.i5.i.i.i.i = load ptr, ptr %__next.sroa.0.06.i.i.i.i.i.i, align 8
   %30 = getelementptr i8, ptr %call.val.i8.i.i5.i.i.i.i, i64 4
   %call.val.val.i9.i.i6.i.i.i.i = load i32, ptr %30, align 4
-  %cmp.i.i10.i.i7.i.i.i.i = icmp sgt i32 %call.val.val.i9.i.i6.i.i.i.i, %__val.val.val7.i.i.i.i.i.i
+  %cmp.i.i10.i.i7.i.i.i.i = icmp slt i32 %__val.val.val7.i.i.i.i.i.i, %call.val.val.i9.i.i6.i.i.i.i
   br i1 %cmp.i.i10.i.i7.i.i.i.i, label %while.body.i.i8.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_.exit.i.i.i.i.i
 
 while.body.i.i8.i.i.i.i:                          ; preds = %for.body.i4.i.i.i.i, %while.body.i.i8.i.i.i.i
@@ -8067,7 +8067,7 @@ while.body.i.i8.i.i.i.i:                          ; preds = %for.body.i4.i.i.i.i
   %call.val.i.i.i14.i.i.i.i = load ptr, ptr %__next.sroa.0.0.i.i12.i.i.i.i, align 8
   %31 = getelementptr i8, ptr %call.val.i.i.i14.i.i.i.i, i64 4
   %call.val.val.i.i.i15.i.i.i.i = load i32, ptr %31, align 4
-  %cmp.i.i.i.i16.i.i.i.i = icmp sgt i32 %call.val.val.i.i.i15.i.i.i.i, %__val.val.val.i.i13.i.i.i.i
+  %cmp.i.i.i.i16.i.i.i.i = icmp slt i32 %__val.val.val.i.i13.i.i.i.i, %call.val.val.i.i.i15.i.i.i.i
   br i1 %cmp.i.i.i.i16.i.i.i.i, label %while.body.i.i8.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_.exit.i.i.i.i.i, !llvm.loop !339
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_.exit.i.i.i.i.i: ; preds = %while.body.i.i8.i.i.i.i, %for.body.i4.i.i.i.i
@@ -8107,7 +8107,7 @@ if.else.i31.i.i.i.i:                              ; preds = %for.body.i23.i.i.i.
   %call.val.i8.i.i32.i.i.i.i = load ptr, ptr %__first.coerce.pn11.i25.i.i.i.i, align 8
   %34 = getelementptr i8, ptr %call.val.i8.i.i32.i.i.i.i, i64 4
   %call.val.val.i9.i.i33.i.i.i.i = load i32, ptr %34, align 4
-  %cmp.i.i10.i.i34.i.i.i.i = icmp sgt i32 %call.val.val.i9.i.i33.i.i.i.i, %call.val.val.i.i28.i.i.i.i
+  %cmp.i.i10.i.i34.i.i.i.i = icmp slt i32 %call.val.val.i.i28.i.i.i.i, %call.val.val.i9.i.i33.i.i.i.i
   br i1 %cmp.i.i10.i.i34.i.i.i.i, label %while.body.i.i39.i.i.i.i, label %for.inc.i35.i.i.i.i
 
 while.body.i.i39.i.i.i.i:                         ; preds = %if.else.i31.i.i.i.i, %while.body.i.i39.i.i.i.i
@@ -8120,7 +8120,7 @@ while.body.i.i39.i.i.i.i:                         ; preds = %if.else.i31.i.i.i.i
   %call.val.i.i.i45.i.i.i.i = load ptr, ptr %__next.sroa.0.0.i.i43.i.i.i.i, align 8
   %35 = getelementptr i8, ptr %call.val.i.i.i45.i.i.i.i, i64 4
   %call.val.val.i.i.i46.i.i.i.i = load i32, ptr %35, align 4
-  %cmp.i.i.i.i47.i.i.i.i = icmp sgt i32 %call.val.val.i.i.i46.i.i.i.i, %__val.val.val.i.i44.i.i.i.i
+  %cmp.i.i.i.i47.i.i.i.i = icmp slt i32 %__val.val.val.i.i44.i.i.i.i, %call.val.val.i.i.i46.i.i.i.i
   br i1 %cmp.i.i.i.i47.i.i.i.i, label %while.body.i.i39.i.i.i.i, label %for.inc.i35.i.i.i.i, !llvm.loop !339
 
 for.inc.i35.i.i.i.i:                              ; preds = %while.body.i.i39.i.i.i.i, %if.else.i31.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i48.i.i.i.i
@@ -11930,7 +11930,7 @@ while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__a
   %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i ], [ %div56.i.i.i, %if.then ]
   %phi.call.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.us.i.i.i
   %1 = load ptr, ptr %phi.call.us.i.i.i, align 8
-  %cmp27.i.us.i.i.i = icmp sgt i64 %div.i1012.i.i.i, %__parent.0.us.i.i.i
+  %cmp27.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i1012.i.i.i
   br i1 %cmp27.i.us.i.i.i, label %while.body.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.us.i.i.i
 
 while.body.i.us.i.i.i:                            ; preds = %while.body.us.i.i.i, %while.body.i.us.i.i.i
@@ -11989,7 +11989,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %__parent.0.i.i.i = phi i64 [ %dec.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SX_SX_T1_T2_.exit.i.i.i ], [ %div56.i.i.i, %while.body.preheader.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.i.i.i
   %7 = load ptr, ptr %phi.call.i.i.i, align 8
-  %cmp27.i.i.i.i = icmp sgt i64 %div.i1012.i.i.i, %__parent.0.i.i.i
+  %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i1012.i.i.i
   br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i
@@ -14384,7 +14384,7 @@ if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %call.val.val.i10.i.i.i.i.i.i = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %call.val.val.i10.i.i.i.i.i.i, i64 80
   %call.val.val.val.i11.i.i.i.i.i.i = load i32, ptr %17, align 8
-  %cmp.i.i12.i.i.i.i.i.i = icmp sgt i32 %call.val.val.val.i11.i.i.i.i.i.i, %call.val.val.val.i.i.i.i.i.i
+  %cmp.i.i12.i.i.i.i.i.i = icmp slt i32 %call.val.val.val.i.i.i.i.i.i, %call.val.val.val.i11.i.i.i.i.i.i
   br i1 %cmp.i.i12.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i, %while.body.i.i.i.i.i.i
@@ -14401,7 +14401,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i, 
   %call.val.val.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %call.val.val.i.i.i.i.i.i.i, i64 80
   %call.val.val.val.i.i.i.i.i.i.i = load i32, ptr %20, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp sgt i32 %call.val.val.val.i.i.i.i.i.i.i, %__val.val.val.val.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i = icmp slt i32 %__val.val.val.val.i.i.i.i.i.i, %call.val.val.val.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %for.inc.i.i.i.i.i, !llvm.loop !543
 
 for.inc.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i.i, %if.else.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i.i.i.i
@@ -14429,7 +14429,7 @@ for.body.i4.i.i.i.i:                              ; preds = %_ZSt16__insertion_s
   %call.val.val.i10.i.i6.i.i.i.i = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %call.val.val.i10.i.i6.i.i.i.i, i64 80
   %call.val.val.val.i11.i.i7.i.i.i.i = load i32, ptr %25, align 8
-  %cmp.i.i12.i.i8.i.i.i.i = icmp sgt i32 %call.val.val.val.i11.i.i7.i.i.i.i, %__val.val.val.val8.i.i.i.i.i.i
+  %cmp.i.i12.i.i8.i.i.i.i = icmp slt i32 %__val.val.val.val8.i.i.i.i.i.i, %call.val.val.val.i11.i.i7.i.i.i.i
   br i1 %cmp.i.i12.i.i8.i.i.i.i, label %while.body.i.i9.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_.exit.i.i.i.i.i
 
 while.body.i.i9.i.i.i.i:                          ; preds = %for.body.i4.i.i.i.i, %while.body.i.i9.i.i.i.i
@@ -14446,7 +14446,7 @@ while.body.i.i9.i.i.i.i:                          ; preds = %for.body.i4.i.i.i.i
   %call.val.val.i.i.i17.i.i.i.i = load ptr, ptr %27, align 8
   %28 = getelementptr i8, ptr %call.val.val.i.i.i17.i.i.i.i, i64 80
   %call.val.val.val.i.i.i18.i.i.i.i = load i32, ptr %28, align 8
-  %cmp.i.i.i.i19.i.i.i.i = icmp sgt i32 %call.val.val.val.i.i.i18.i.i.i.i, %__val.val.val.val.i.i15.i.i.i.i
+  %cmp.i.i.i.i19.i.i.i.i = icmp slt i32 %__val.val.val.val.i.i15.i.i.i.i, %call.val.val.val.i.i.i18.i.i.i.i
   br i1 %cmp.i.i.i.i19.i.i.i.i, label %while.body.i.i9.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_.exit.i.i.i.i.i, !llvm.loop !543
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_.exit.i.i.i.i.i: ; preds = %while.body.i.i9.i.i.i.i, %for.body.i4.i.i.i.i
@@ -14492,7 +14492,7 @@ if.else.i36.i.i.i.i:                              ; preds = %for.body.i26.i.i.i.
   %call.val.val.i10.i.i38.i.i.i.i = load ptr, ptr %33, align 8
   %34 = getelementptr i8, ptr %call.val.val.i10.i.i38.i.i.i.i, i64 80
   %call.val.val.val.i11.i.i39.i.i.i.i = load i32, ptr %34, align 8
-  %cmp.i.i12.i.i40.i.i.i.i = icmp sgt i32 %call.val.val.val.i11.i.i39.i.i.i.i, %call.val.val.val.i.i33.i.i.i.i
+  %cmp.i.i12.i.i40.i.i.i.i = icmp slt i32 %call.val.val.val.i.i33.i.i.i.i, %call.val.val.val.i11.i.i39.i.i.i.i
   br i1 %cmp.i.i12.i.i40.i.i.i.i, label %while.body.i.i45.i.i.i.i, label %for.inc.i41.i.i.i.i
 
 while.body.i.i45.i.i.i.i:                         ; preds = %if.else.i36.i.i.i.i, %while.body.i.i45.i.i.i.i
@@ -14509,7 +14509,7 @@ while.body.i.i45.i.i.i.i:                         ; preds = %if.else.i36.i.i.i.i
   %call.val.val.i.i.i53.i.i.i.i = load ptr, ptr %36, align 8
   %37 = getelementptr i8, ptr %call.val.val.i.i.i53.i.i.i.i, i64 80
   %call.val.val.val.i.i.i54.i.i.i.i = load i32, ptr %37, align 8
-  %cmp.i.i.i.i55.i.i.i.i = icmp sgt i32 %call.val.val.val.i.i.i54.i.i.i.i, %__val.val.val.val.i.i51.i.i.i.i
+  %cmp.i.i.i.i55.i.i.i.i = icmp slt i32 %__val.val.val.val.i.i51.i.i.i.i, %call.val.val.val.i.i.i54.i.i.i.i
   br i1 %cmp.i.i.i.i55.i.i.i.i, label %while.body.i.i45.i.i.i.i, label %for.inc.i41.i.i.i.i, !llvm.loop !543
 
 for.inc.i41.i.i.i.i:                              ; preds = %while.body.i.i45.i.i.i.i, %if.else.i36.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i56.i.i.i.i
@@ -20493,7 +20493,7 @@ while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__a
   %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i ], [ %div56.i.i.i, %if.then ]
   %phi.call.us.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.us.i.i.i
   %1 = load ptr, ptr %phi.call.us.i.i.i, align 8
-  %cmp27.i.us.i.i.i = icmp sgt i64 %div.i1012.i.i.i, %__parent.0.us.i.i.i
+  %cmp27.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i1012.i.i.i
   br i1 %cmp27.i.us.i.i.i, label %while.body.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.us.i.i.i
 
 while.body.i.us.i.i.i:                            ; preds = %while.body.us.i.i.i, %while.body.i.us.i.i.i
@@ -20560,7 +20560,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %__parent.0.i.i.i = phi i64 [ %dec.i.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SY_SY_T1_T2_.exit.i.i.i ], [ %div56.i.i.i, %while.body.preheader.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__parent.0.i.i.i
   %11 = load ptr, ptr %phi.call.i.i.i, align 8
-  %cmp27.i.i.i.i = icmp sgt i64 %div.i1012.i.i.i, %__parent.0.i.i.i
+  %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i1012.i.i.i
   br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i
@@ -20922,7 +20922,7 @@ invoke.cont4:                                     ; preds = %cleanup
           to label %_ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_.exit unwind label %lpad
 
 _ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_.exit: ; preds = %invoke.cont4
-  %cmp.i.i.i.i.i = icmp ne ptr %call.i.i.i.i.i.i6, %add.ptr.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp ne ptr %add.ptr.i.i.i.i.i, %call.i.i.i.i.i.i6
   %frombool.i = zext i1 %cmp.i.i.i.i.i to i8
   store i8 %frombool.i, ptr %body.coerce, align 1, !noalias !724
   store i64 0, ptr %agg.result, align 8, !alias.scope !727

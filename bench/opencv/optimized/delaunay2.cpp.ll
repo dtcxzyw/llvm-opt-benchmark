@@ -716,7 +716,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %210, %208
   %248 = ptrtoint ptr %246 to i64
   %249 = sub i64 %247, %248
   %250 = ashr exact i64 %249, 3
-  %251 = icmp ult i64 %250, %244
+  %251 = icmp ugt i64 %244, %250
   br i1 %251, label %252, label %277
 
 252:                                              ; preds = %235
@@ -795,7 +795,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i.i: ;
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i
 
 277:                                              ; preds = %235
-  %278 = icmp ugt i64 %250, %244
+  %278 = icmp ult i64 %244, %250
   br i1 %278, label %279, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i
 
 279:                                              ; preds = %277

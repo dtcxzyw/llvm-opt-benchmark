@@ -311,7 +311,7 @@ define dso_local void @RequestXLogStreaming(i32 noundef %0, i64 noundef %1, ptr 
   %9 = load i32, ptr @wal_segment_size, align 4
   %10 = sub i32 0, %9
   %.not = sext i32 %10 to i64
-  %11 = and i64 %.not, %1
+  %11 = and i64 %1, %.not
   %12 = getelementptr inbounds i8, ptr %7, i64 2240
   %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #7, !srcloc !6
   %.not44 = icmp eq i8 %13, 0

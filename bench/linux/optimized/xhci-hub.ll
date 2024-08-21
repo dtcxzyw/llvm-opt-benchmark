@@ -98,7 +98,7 @@ define dso_local i32 @xhci_find_slot_id_by_port(ptr nocapture noundef readonly %
   %23 = getelementptr inbounds i8, ptr %9, i64 4496
   %24 = load i8, ptr %23, align 8
   %25 = zext i8 %24 to i16
-  %26 = icmp eq i16 %25, %2
+  %26 = icmp eq i16 %2, %25
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %22, %15, %11, %6
@@ -216,7 +216,7 @@ define dso_local void @xhci_set_link_state(ptr nocapture noundef readnone %0, pt
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #13, !srcloc !11
   %6 = and i32 %5, 1308687881
-  %7 = or i32 %6, %2
+  %7 = or i32 %2, %6
   %8 = or i32 %7, 65536
   %9 = load ptr, ptr %1, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, ptr elementtype(i32) %9) #13, !srcloc !12

@@ -1991,7 +1991,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %201 = load i64, ptr %src.i, align 8
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %201, i64 1)
-  %cmp.i.i.i289 = icmp ult i64 %spec.select.i.i.i, %conv22.i.i
+  %cmp.i.i.i289 = icmp ugt i64 %conv22.i.i, %spec.select.i.i.i
   br i1 %cmp.i.i.i289, label %if.then.i51.i.i, label %if.end.i.i.i290
 
 if.then.i51.i.i:                                  ; preds = %while.body.i.i
@@ -2015,7 +2015,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %if.then4.i.i.i, %if
   call void @strbuf_add(ptr noundef nonnull %src.i, ptr noundef %203, i64 noundef %call.i.i.i) #17
   %204 = load i64, ptr %dest.i, align 8
   %spec.select.i52.i.i = call i64 @llvm.usub.sat.i64(i64 %204, i64 1)
-  %cmp.i53.i.i = icmp ult i64 %spec.select.i52.i.i, %conv23.i.i
+  %cmp.i53.i.i = icmp ugt i64 %conv23.i.i, %spec.select.i52.i.i
   br i1 %cmp.i53.i.i, label %if.then.i60.i.i, label %if.end.i54.i.i
 
 if.then.i60.i.i:                                  ; preds = %strbuf_setlen.exit.i.i
@@ -2969,7 +2969,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %1 = load i64, ptr %path, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %0
+  %cmp.i.i = icmp ugt i64 %0, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
@@ -3056,7 +3056,7 @@ for.body45.i:                                     ; preds = %for.inc.i, %for.inc
   %indvars.iv42.i = phi i64 [ 1, %for.inc59.i ], [ 0, %for.inc.i ]
   %11 = load i64, ptr %path, align 8
   %spec.select.i23.i = call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
-  %cmp.i24.i = icmp ult i64 %spec.select.i23.i, %0
+  %cmp.i24.i = icmp ugt i64 %0, %spec.select.i23.i
   br i1 %cmp.i24.i, label %if.then.i31.i, label %if.end.i25.i
 
 if.then.i31.i:                                    ; preds = %for.body45.i
@@ -3260,7 +3260,7 @@ define internal fastcc void @strbuf_setlen(ptr nocapture noundef %sb, i64 nounde
 entry:
   %0 = load i64, ptr %sb, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %cmp = icmp ult i64 %spec.select, %len
+  %cmp = icmp ugt i64 %len, %spec.select
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

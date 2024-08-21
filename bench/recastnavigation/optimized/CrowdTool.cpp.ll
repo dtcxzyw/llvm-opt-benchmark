@@ -841,8 +841,8 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %338 = getelementptr inbounds i8, ptr %327, i64 20
   %339 = load float, ptr %338, align 4
   %340 = fsub float %339, %334
-  %341 = fneg float %331
-  %342 = fmul float %340, %341
+  %341 = fneg float %340
+  %342 = fmul float %331, %341
   %343 = tail call noundef float @llvm.fmuladd.f32(float %337, float %335, float %342)
   %344 = fcmp olt float %343, 0.000000e+00
   %.0399 = select i1 %344, i32 -1069547424, i32 -1065353024
@@ -1990,7 +1990,7 @@ define dso_local void @_ZN14CrowdToolState11removeAgentEi(ptr nocapture noundef 
   tail call void @_ZN7dtCrowd11removeAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %9, i32 noundef %1)
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, %1
+  %12 = icmp eq i32 %1, %11
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %5

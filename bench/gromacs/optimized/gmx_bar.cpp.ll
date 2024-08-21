@@ -9666,7 +9666,7 @@ switch.early.test.us:                             ; preds = %85
 
 91:                                               ; preds = %87
   %92 = load i32, ptr %22, align 8
-  %.not27.i.us = icmp sgt i32 %92, %.065.us
+  %.not27.i.us = icmp slt i32 %.065.us, %92
   br i1 %.not27.i.us, label %93, label %_ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.thread
 
 93:                                               ; preds = %91
@@ -10437,7 +10437,7 @@ define internal fastcc noundef double @_ZL17calc_bar_lowlevelP13sample_coll_tS0_
   %.088 = phi double [ %43, %40 ], [ %12, %5 ]
   %.087 = phi double [ %41, %40 ], [ %12, %5 ]
   %45 = fcmp olt double %12, 1.000000e+00
-  %46 = fmul double %12, %3
+  %46 = fmul double %3, %12
   %.0 = select i1 %45, double %46, double %3
   call fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr noundef nonnull %0, double noundef %.087, ptr noundef nonnull %7, ptr noundef nonnull %9)
   call fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr noundef nonnull %1, double noundef %.088, ptr noundef nonnull %8, ptr noundef nonnull %10)
@@ -10981,7 +10981,7 @@ define internal fastcc void @_ZL16calc_rel_entropyP13sample_coll_tS0_ddPdS1_(ptr
   %135 = fdiv double %.0100.lcssa, %134
   %136 = fsub double %133, %3
   store double %136, ptr %4, align 8
-  %137 = fadd double %135, %3
+  %137 = fadd double %3, %135
   store double %137, ptr %5, align 8
   ret void
 }
@@ -11537,7 +11537,7 @@ define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr 
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds double, ptr %31, i64 %indvars.iv100
   %33 = load double, ptr %32, align 8
-  %34 = fmul double %33, %1
+  %34 = fmul double %1, %33
   %35 = load double, ptr %2, align 8
   %36 = fcmp olt double %34, %35
   %.sroa.speculated88 = select i1 %36, double %34, double %35
@@ -11545,7 +11545,7 @@ define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr 
   %37 = load ptr, ptr %28, align 8
   %38 = getelementptr inbounds double, ptr %37, i64 %indvars.iv100
   %39 = load double, ptr %38, align 8
-  %40 = fmul double %39, %1
+  %40 = fmul double %1, %39
   %41 = load double, ptr %3, align 8
   %42 = fcmp olt double %41, %40
   %.sroa.speculated84 = select i1 %42, double %40, double %41
@@ -11584,7 +11584,7 @@ define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr 
   %64 = getelementptr inbounds [2 x i64], ptr %63, i64 0, i64 %spec.select
   %65 = load i64, ptr %64, align 8
   %66 = sitofp i64 %65 to double
-  %67 = fmul double %66, %1
+  %67 = fmul double %1, %66
   %68 = fmul double %52, %67
   %69 = load double, ptr %2, align 8
   %70 = fcmp olt double %68, %69
@@ -11595,7 +11595,7 @@ define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr 
   %73 = getelementptr inbounds [2 x i64], ptr %72, i64 0, i64 %spec.select
   %74 = load i64, ptr %73, align 8
   %75 = sitofp i64 %74 to double
-  %76 = fmul double %75, %1
+  %76 = fmul double %1, %75
   %77 = fmul double %52, %76
   %78 = load double, ptr %3, align 8
   %79 = fcmp olt double %78, %77
@@ -11616,7 +11616,7 @@ define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr 
   %89 = and i64 %indvars.iv, 2147483647
   %90 = add i64 %88, %89
   %91 = sitofp i64 %90 to double
-  %92 = fmul double %91, %1
+  %92 = fmul double %1, %91
   %93 = fmul double %52, %92
   %94 = load double, ptr %2, align 8
   %95 = fcmp olt double %93, %94
@@ -11628,7 +11628,7 @@ define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr 
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, %89
   %101 = sitofp i64 %100 to double
-  %102 = fmul double %101, %1
+  %102 = fmul double %1, %101
   %103 = fmul double %52, %102
   %104 = load double, ptr %3, align 8
   %105 = fcmp olt double %104, %103

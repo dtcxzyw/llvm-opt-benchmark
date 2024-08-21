@@ -68,7 +68,7 @@ define void @opal_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef 
   %20 = phi i32 [ %14, %6 ], [ 0, %16 ]
   %21 = add i32 %.013, 1
   %22 = zext i32 %21 to i64
-  %23 = icmp ult i64 %22, %2
+  %23 = icmp ugt i64 %2, %22
   br i1 %23, label %6, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %19, %3

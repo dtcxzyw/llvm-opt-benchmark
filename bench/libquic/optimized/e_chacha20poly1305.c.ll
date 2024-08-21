@@ -139,8 +139,8 @@ if.end:                                           ; preds = %entry
   %tag_len = getelementptr inbounds i8, ptr %ctx.8.val, i64 32
   %0 = load i8, ptr %tag_len, align 1
   %conv = zext i8 %0 to i64
-  %add = add nuw nsw i64 %conv, %in_len
-  %cmp8 = icmp ugt i64 %add, %max_out_len
+  %add = add nuw nsw i64 %in_len, %conv
+  %cmp8 = icmp ult i64 %max_out_len, %add
   br i1 %cmp8, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end
@@ -164,7 +164,7 @@ if.end11:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 16 %tag, i64 %conv15, i1 false)
   %2 = load i8, ptr %tag_len, align 1
   %conv17 = zext i8 %2 to i64
-  %add18 = add nuw nsw i64 %conv17, %in_len
+  %add18 = add nuw nsw i64 %in_len, %conv17
   store i64 %add18, ptr %out_len, align 8
   br label %return
 
@@ -257,7 +257,7 @@ entry:
   %tag_len = getelementptr inbounds i8, ptr %ctx.8.val, i64 32
   %0 = load i8, ptr %tag_len, align 1
   %conv = zext i8 %0 to i64
-  %cmp = icmp ugt i64 %conv, %in_len
+  %cmp = icmp ult i64 %in_len, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

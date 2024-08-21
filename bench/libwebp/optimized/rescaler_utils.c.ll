@@ -50,10 +50,10 @@ define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly %0, 
 
 35:                                               ; preds = %30, %9
   %36 = sext i1 %12 to i32
-  %37 = add nsw i32 %36, %2
+  %37 = add nsw i32 %2, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %37, ptr %38, align 4
-  %39 = add nsw i32 %36, %5
+  %39 = add nsw i32 %5, %36
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 24

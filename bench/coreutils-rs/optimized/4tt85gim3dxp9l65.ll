@@ -271,7 +271,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   %44 = load i64, ptr %43, align 8, !alias.scope !32, !noalias !37, !noundef !5
   %45 = load i64, ptr %0, align 8, !alias.scope !39, !noalias !37, !noundef !5
   %46 = sub i64 %45, %44
-  %47 = icmp ult i64 %46, %42
+  %47 = icmp ugt i64 %42, %46
   br i1 %47, label %48, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdc474c9919b42410E.exit.i"
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
@@ -328,7 +328,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %5 = load i64, ptr %4, align 8, !alias.scope !45, !noalias !50, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !52, !noalias !50, !noundef !5
   %7 = sub i64 %6, %5
-  %8 = icmp ult i64 %7, %2
+  %8 = icmp ugt i64 %2, %7
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hdc474c9919b42410E.exit"
 
 9:                                                ; preds = %3
@@ -417,7 +417,7 @@ define internal void @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = sub i64 %5, %7
-  %9 = icmp ugt i64 %8, %3
+  %9 = icmp ult i64 %3, %8
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %4
@@ -446,7 +446,7 @@ define internal noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = sub i64 %4, %6
-  %8 = icmp ugt i64 %7, %2
+  %8 = icmp ult i64 %2, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
@@ -745,7 +745,7 @@ define noundef zeroext i1 @_ZN7uu_uniq4Uniq22should_print_delimiter17h4f9df21fd0
 8:                                                ; preds = %3
   %9 = and i8 %5, 5
   %10 = icmp eq i8 %9, 1
-  %spec.select = or i1 %10, %2
+  %spec.select = or i1 %2, %10
   br label %11
 
 11:                                               ; preds = %8, %3
@@ -1300,7 +1300,7 @@ _ZN7uu_uniq30should_extract_obs_skip_fields17h1c9a3b033e8c28d9E.exit: ; preds = 
   %154 = load i64, ptr %153, align 8, !alias.scope !205, !noalias !210, !noundef !5
   %155 = load i64, ptr %27, align 8, !alias.scope !212, !noalias !210, !noundef !5
   %156 = sub i64 %155, %154
-  %157 = icmp ult i64 %156, %152
+  %157 = icmp ugt i64 %152, %156
   br i1 %157, label %158, label %162
 
 158:                                              ; preds = %148

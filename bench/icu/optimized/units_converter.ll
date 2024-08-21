@@ -180,7 +180,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -460,7 +460,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #18
   %cmp7 = icmp eq ptr %call, null
@@ -1951,7 +1951,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i
   %9 = load i32, ptr %2, align 8
-  %spec.select.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %9, i32 %unitIndicesWithDimension.val.i)
+  %spec.select.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %unitIndicesWithDimension.val.i, i32 %9)
   %length.addr.1.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i.i, i32 %cond.i.i.i)
   %10 = load ptr, ptr %1, align 8
   %conv12.i.i.i.i = sext i32 %length.addr.1.i.i.i.i to i64
@@ -3493,7 +3493,7 @@ define noundef double @_ZNK6icu_755units14UnitsConverter7convertEd(ptr nocapture
 entry:
   %sourceOffset = getelementptr inbounds i8, ptr %this, i64 352
   %0 = load double, ptr %sourceOffset, align 8
-  %add = fadd double %0, %inputValue
+  %add = fadd double %inputValue, %0
   %factorNum = getelementptr inbounds i8, ptr %this, i64 336
   %1 = load double, ptr %factorNum, align 8
   %factorDen = getelementptr inbounds i8, ptr %this, i64 344

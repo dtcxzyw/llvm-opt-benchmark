@@ -54,9 +54,9 @@ define void @dlae2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store double %34, ptr %3, align 8
   %35 = fdiv double %.0, %34
   %36 = load double, ptr %1, align 8
-  %37 = fneg double %36
-  %38 = fdiv double %37, %34
-  %39 = fmul double %36, %38
+  %37 = fdiv double %36, %34
+  %38 = fneg double %36
+  %39 = fmul double %37, %38
   %40 = tail call double @llvm.fmuladd.f64(double %35, double %.055, double %39)
   br label %55
 
@@ -70,9 +70,9 @@ define void @dlae2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store double %45, ptr %3, align 8
   %46 = fdiv double %.0, %45
   %47 = load double, ptr %1, align 8
-  %48 = fneg double %47
-  %49 = fdiv double %48, %45
-  %50 = fmul double %47, %49
+  %48 = fdiv double %47, %45
+  %49 = fneg double %47
+  %50 = fmul double %48, %49
   %51 = tail call double @llvm.fmuladd.f64(double %46, double %.055, double %50)
   br label %55
 

@@ -2272,7 +2272,7 @@ define noundef i8 @_ZN4ring10arithmetic8constant11parse_digit17hd846fe16e04af1c1
 
 9:                                                ; preds = %6, %1
   %.sink = phi i8 [ -48, %1 ], [ -87, %6 ]
-  %10 = add i8 %.sink, %0
+  %10 = add i8 %0, %.sink
   ret i8 %10
 }
 

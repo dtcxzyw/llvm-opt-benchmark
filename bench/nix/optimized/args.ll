@@ -7435,7 +7435,7 @@ define internal fastcc void @_ZN3nixL6escapeB5cxx11ESt17basic_string_viewIcSt11c
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %12, %5
   %16 = load i64, ptr %10, align 8
   %17 = select i1 %11, i64 15, i64 %16
-  %.not.i = icmp ult i64 %17, %8
+  %.not.i = icmp ugt i64 %8, %17
   br i1 %.not.i, label %18, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm.exit
 
 18:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
@@ -7444,7 +7444,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 20:                                               ; preds = %18
   %21 = shl nuw i64 %17, 1
-  %22 = icmp ugt i64 %21, %8
+  %22 = icmp ult i64 %8, %21
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %21, i64 9223372036854775807)
   %.0.i = select i1 %22, i64 %spec.store.select.i.i, i64 %8
   %23 = add nuw i64 %.0.i, 1
@@ -7798,7 +7798,7 @@ define linkonce_odr void @_ZN2rc6detail8doAssertINS0_4expr2EqINS2_5ValueImEEiEEE
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp eq i64 %12, %16
-  %18 = xor i1 %17, %1
+  %18 = xor i1 %1, %17
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %6
@@ -7895,7 +7895,7 @@ _ZNK2rc6detail4expr2EqINS1_5ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %22 = load ptr, ptr %11, align 8
   %bcmp.i.i = tail call i32 @bcmp(ptr %22, ptr %21, i64 %15)
   %23 = icmp eq i32 %bcmp.i.i, 0
-  %24 = xor i1 %23, %1
+  %24 = xor i1 %1, %23
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %._ZNK2rc6detail4expr2EqINS1_5ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_E5valueEv.exit_crit_edge18, %._ZNK2rc6detail4expr2EqINS1_5ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_E5valueEv.exit_crit_edge, %_ZNK2rc6detail4expr2EqINS1_5ValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_E5valueEv.exit
@@ -10260,7 +10260,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %21 = getelementptr inbounds i8, ptr %13, i64 %1
   %22 = add i64 %2, %1
   %23 = sub i64 %7, %22
-  %24 = icmp ugt ptr %13, %3
+  %24 = icmp ult ptr %3, %13
   %25 = getelementptr inbounds i8, ptr %13, i64 %7
   %26 = icmp ult ptr %25, %3
   %27 = select i1 %24, i1 true, i1 %26
@@ -10369,7 +10369,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit94: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 57:                                               ; preds = %50
-  %.not87 = icmp ugt ptr %52, %3
+  %.not87 = icmp ult ptr %3, %52
   br i1 %.not87, label %67, label %58
 
 58:                                               ; preds = %57

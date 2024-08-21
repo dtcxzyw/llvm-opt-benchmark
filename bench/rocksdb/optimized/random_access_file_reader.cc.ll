@@ -1081,7 +1081,7 @@ while.cond153.preheader:                          ; preds = %invoke.cont29
   %start_.i240 = getelementptr inbounds i8, ptr %iostats_step_timer_cpu_read_nanos204, i64 16
   %metric_.i241 = getelementptr inbounds i8, ptr %iostats_step_timer_cpu_read_nanos204, i64 24
   %statistics_.i242 = getelementptr inbounds i8, ptr %iostats_step_timer_cpu_read_nanos204, i64 32
-  %cmp.not.i276 = icmp eq ptr %ref.tmp210, %agg.result
+  %cmp.not.i276 = icmp eq ptr %agg.result, %ref.tmp210
   %subcode_.i278 = getelementptr inbounds i8, ptr %ref.tmp210, i64 1
   %retryable_.i280 = getelementptr inbounds i8, ptr %ref.tmp210, i64 3
   %retryable_6.i281 = getelementptr inbounds i8, ptr %agg.result, i64 3
@@ -1095,7 +1095,7 @@ while.cond153.preheader:                          ; preds = %invoke.cont29
 
 if.then33:                                        ; preds = %invoke.cont29
   %sub.not.i = sub i64 0, %call5
-  %sub1.i = and i64 %sub.not.i, %offset
+  %sub1.i = and i64 %offset, %sub.not.i
   %sub36 = sub i64 %offset, %sub1.i
   %add = add i64 %offset, -1
   %add.i = add i64 %add, %n
@@ -1131,7 +1131,7 @@ _ZN7rocksdb13AlignedBuffer17AllocateNewBufferEmbmm.exit: ; preds = %if.then33
   %statistics_.i102 = getelementptr inbounds i8, ptr %iostats_step_timer_cpu_read_nanos, i64 32
   %fs_tracer_.i132 = getelementptr inbounds i8, ptr %this, i64 16
   %target_.i.i129 = getelementptr inbounds i8, ptr %this, i64 32
-  %cmp.not.i136 = icmp eq ptr %ref.tmp81, %agg.result
+  %cmp.not.i136 = icmp eq ptr %agg.result, %ref.tmp81
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp81, i64 1
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp81, i64 3
   %retryable_6.i = getelementptr inbounds i8, ptr %agg.result, i64 3
@@ -1412,7 +1412,7 @@ invoke.cont126:                                   ; preds = %lor.lhs.false, %whi
 
 if.then132:                                       ; preds = %invoke.cont126
   %sub136 = sub nuw i64 %buf.sroa.15.1.ph, %sub36
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub136, i64 %n)
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %n, i64 %sub136)
   %cmp139 = icmp eq ptr %aligned_buf, null
   br i1 %cmp139, label %if.end.i161, label %if.else143
 
@@ -3617,7 +3617,7 @@ invoke.cont133:                                   ; preds = %if.else.i168, %if.t
           to label %invoke.cont137 unwind label %lpad101.loopexit.split-lp
 
 invoke.cont137:                                   ; preds = %invoke.cont133
-  %cmp.not.i174 = icmp eq ptr %ref.tmp131, %agg.result
+  %cmp.not.i174 = icmp eq ptr %agg.result, %ref.tmp131
   br i1 %cmp.not.i174, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i175
 
 if.then.i175:                                     ; preds = %invoke.cont137
@@ -5059,7 +5059,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont68
-  %cmp.not.i = icmp eq ptr %ref.tmp62, %agg.result
+  %cmp.not.i = icmp eq ptr %agg.result, %ref.tmp62
   br i1 %cmp.not.i, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i93
 
 if.then.i93:                                      ; preds = %invoke.cont72
@@ -5495,7 +5495,7 @@ invoke.cont98:                                    ; preds = %invoke.cont95
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %invoke.cont98
-  %cmp.not.i212 = icmp eq ptr %ref.tmp92, %agg.result
+  %cmp.not.i212 = icmp eq ptr %agg.result, %ref.tmp92
   br i1 %cmp.not.i212, label %_ZN7rocksdb8IOStatusaSEOS0_.exit229, label %if.then.i213
 
 if.then.i213:                                     ; preds = %invoke.cont102
@@ -6917,7 +6917,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
 _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13EventListenerEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %for.body.i.i.i12
@@ -7683,7 +7683,7 @@ _ZSt19__relocate_object_aIN7rocksdb13FSReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.
 _ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN7rocksdb13FSReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN7rocksdb13FSReadRequestEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaIN7rocksdb13FSReadRequestEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN7rocksdb13FSReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 96
-  %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit52, label %for.body.i.i.i12
 
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN7rocksdb13FSReadRequestES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i47

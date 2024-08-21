@@ -12405,7 +12405,7 @@ _ZN6vectorIN2bv10undo_boundELb1EjE3endEv.exit:    ; preds = %entry
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"struct.bv::undo_bound", ptr %0, i64 %2
-  %cmp.not4 = icmp eq i32 %1, %s
+  %cmp.not4 = icmp eq i32 %s, %1
   br i1 %cmp.not4, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6vectorIN2bv10undo_boundELb1EjE3endEv.exit
@@ -14688,7 +14688,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i, %if.end.i.i.i
   %7 = getelementptr inbounds i8, ptr %c.017.i.i.i, i64 4
   %8 = load i32, ptr %7, align 4
-  %cmp4.i.i.i = icmp eq i32 %8, %i
+  %cmp4.i.i.i = icmp eq i32 %i, %8
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %sw.epilog.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %sw.bb.i.i.i
@@ -14792,7 +14792,7 @@ if.end.i.i.i8:                                    ; preds = %sw.epilog.i.i.i15, 
 sw.bb.i.i5.i:                                     ; preds = %if.end.i.i.i8, %if.end.i.i.i8
   %25 = getelementptr inbounds i8, ptr %c.017.i.i.i11, i64 4
   %26 = load i32, ptr %25, align 4
-  %cmp4.i.i.i22 = icmp eq i32 %26, %i
+  %cmp4.i.i.i22 = icmp eq i32 %i, %26
   br i1 %cmp4.i.i.i22, label %if.then5.i.i.i23, label %sw.epilog.i.i.i15
 
 if.then5.i.i.i23:                                 ; preds = %sw.bb.i.i5.i
@@ -14858,7 +14858,7 @@ if.end.i.i.i30:                                   ; preds = %sw.epilog.i.i.i41, 
 sw.bb.i.i.i48:                                    ; preds = %if.end.i.i.i30, %if.end.i.i.i30
   %36 = getelementptr inbounds i8, ptr %c.017.i.i.i33, i64 4
   %37 = load i32, ptr %36, align 4
-  %cmp4.i.i.i49 = icmp eq i32 %37, %i
+  %cmp4.i.i.i49 = icmp eq i32 %i, %37
   br i1 %cmp4.i.i.i49, label %if.then5.i.i.i50, label %sw.epilog.i.i.i41
 
 if.then5.i.i.i50:                                 ; preds = %sw.bb.i.i.i48

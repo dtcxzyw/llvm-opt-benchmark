@@ -497,7 +497,7 @@ define range(i32 -1, 1) i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef %1,
   %.042 = phi ptr [ %16, %14 ], [ %9, %6 ]
   %.03441 = phi i64 [ %15, %14 ], [ 0, %6 ]
   %12 = load ptr, ptr %.042, align 8
-  %13 = icmp eq ptr %12, %2
+  %13 = icmp eq ptr %2, %12
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph
@@ -1432,7 +1432,7 @@ define internal range(i32 -1, 2) i32 @H5O__msg_remove_cb(ptr noundef %0, ptr nou
 19:                                               ; preds = %5
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, %2
+  %22 = icmp eq i32 %2, %21
   %23 = icmp eq i32 %21, -1
   %or.cond = or i1 %22, %23
   br i1 %or.cond, label %.thread29, label %.thread
@@ -1492,7 +1492,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   %.05772 = phi i32 [ 0, %.lr.ph ], [ %.158, %89 ]
   %.05971 = phi i32 [ 0, %.lr.ph ], [ %91, %89 ]
   %16 = load ptr, ptr %.073, align 8
-  %17 = icmp eq ptr %16, %2
+  %17 = icmp eq ptr %2, %16
   br i1 %17, label %18, label %89
 
 18:                                               ; preds = %14

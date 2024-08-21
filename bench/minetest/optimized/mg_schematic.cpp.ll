@@ -1438,7 +1438,7 @@ if.end95:                                         ; preds = %if.end79
   %add.i.i = mul i32 %mul622.i.i, %conv5.i.i
   %sub20.i.i = sub nsw i32 %conv.i, %conv3.i
   %add21.i.i = add nsw i32 %add.i.i, %sub20.i.i
-  %brmerge = or i1 %tobool.not, %force_place
+  %brmerge = or i1 %force_place, %tobool.not
   br i1 %brmerge, label %if.end113, label %if.then102
 
 if.then102:                                       ; preds = %if.end95

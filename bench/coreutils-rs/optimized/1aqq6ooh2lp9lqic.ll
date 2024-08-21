@@ -116,7 +116,7 @@ define internal fastcc { i1, i64 } @_ZN6uu_fmt9parasplit9FileLines20match_prefix
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit": ; preds = %5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hadbd85b14b3814fdE.exit.i"
   %.0.i = phi i1 [ %6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hadbd85b14b3814fdE.exit.i" ], [ false, %5 ]
-  %brmerge = or i1 %.0.i, %4
+  %brmerge = or i1 %4, %.0.i
   br i1 %brmerge, label %.critedge14, label %7
 
 7:                                                ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit"
@@ -1218,7 +1218,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit.t
           to label %.noexc109 unwind label %.loopexit
 
 65:                                               ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %61, %59
+  %.not.i.i.i.i = icmp eq i64 %59, %61
   br i1 %.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %65, %69
@@ -1428,7 +1428,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
   %169 = load i64, ptr %.sroa.451.0..sroa_idx, align 8, !alias.scope !182, !noalias !187, !noundef !5
   %170 = load i64, ptr %11, align 8, !alias.scope !189, !noalias !187, !noundef !5
   %171 = sub i64 %170, %169
-  %172 = icmp ult i64 %171, %146
+  %172 = icmp ugt i64 %146, %171
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %168
@@ -1461,7 +1461,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
   %186 = load i64, ptr %.sroa.451.0..sroa_idx52, align 8, !alias.scope !192, !noalias !197, !noundef !5
   %187 = load i64, ptr %10, align 8, !alias.scope !199, !noalias !197, !noundef !5
   %188 = sub i64 %187, %186
-  %189 = icmp ult i64 %188, %158
+  %189 = icmp ugt i64 %158, %188
   br i1 %189, label %190, label %194
 
 190:                                              ; preds = %185
@@ -1623,7 +1623,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
 
 260:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i131", %246, %243
   %261 = load i64, ptr %10, align 8, !alias.scope !220, !noalias !227, !noundef !5
-  %262 = icmp ult i64 %261, %.pre
+  %262 = icmp ugt i64 %.pre, %261
   br i1 %262, label %263, label %267
 
 263:                                              ; preds = %260

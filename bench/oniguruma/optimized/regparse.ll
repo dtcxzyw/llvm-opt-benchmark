@@ -1249,7 +1249,7 @@ define ptr @onig_get_callout_start_func(ptr nocapture noundef readonly %0, i32 n
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %onig_reg_callout_list_at.exit.thread, label %onig_reg_callout_list_at.exit
 
 onig_reg_callout_list_at.exit:                    ; preds = %7
@@ -1283,7 +1283,7 @@ define ptr @onig_reg_callout_list_at(ptr nocapture noundef readonly %0, i32 noun
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %7
@@ -1311,7 +1311,7 @@ define ptr @onig_get_callout_tag_start(ptr nocapture noundef readonly %0, i32 no
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %onig_reg_callout_list_at.exit.thread, label %onig_reg_callout_list_at.exit
 
 onig_reg_callout_list_at.exit:                    ; preds = %7
@@ -1345,7 +1345,7 @@ define ptr @onig_get_callout_tag_end(ptr nocapture noundef readonly %0, i32 noun
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = icmp slt i32 %9, %1
+  %10 = icmp sgt i32 %1, %9
   br i1 %10, label %onig_reg_callout_list_at.exit.thread, label %onig_reg_callout_list_at.exit
 
 onig_reg_callout_list_at.exit:                    ; preds = %7
@@ -1375,7 +1375,7 @@ define i32 @onig_get_callout_type_by_name_id(i32 noundef %0) local_unnamed_addr 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @GlobalCalloutNameList, align 8
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %3
@@ -1399,7 +1399,7 @@ define ptr @onig_get_callout_start_func_by_name_id(i32 noundef %0) local_unnamed
 3:                                                ; preds = %1
   %4 = load ptr, ptr @GlobalCalloutNameList, align 8
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %3
@@ -1423,7 +1423,7 @@ define ptr @onig_get_callout_end_func_by_name_id(i32 noundef %0) local_unnamed_a
 3:                                                ; preds = %1
   %4 = load ptr, ptr @GlobalCalloutNameList, align 8
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %3
@@ -1447,7 +1447,7 @@ define i32 @onig_get_callout_in_by_name_id(i32 noundef %0) local_unnamed_addr #1
 3:                                                ; preds = %1
   %4 = load ptr, ptr @GlobalCalloutNameList, align 8
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %3
@@ -1471,7 +1471,7 @@ define ptr @onig_get_callout_name_by_name_id(i32 noundef %0) local_unnamed_addr 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @GlobalCalloutNameList, align 8
   %5 = load i32, ptr %4, align 8
-  %.not = icmp sgt i32 %5, %0
+  %.not = icmp slt i32 %0, %5
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %3
@@ -1607,7 +1607,7 @@ define range(i32 0, 2) i32 @onig_callout_tag_is_exist_at_callout_num(ptr nocaptu
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = icmp slt i32 %12, %1
+  %13 = icmp sgt i32 %1, %12
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10
@@ -4356,7 +4356,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 484:                                              ; preds = %480
   %485 = sub nsw i32 2147483647, %483
-  %486 = icmp ult i32 %485, %479
+  %486 = icmp ugt i32 %479, %485
   %487 = add nsw i32 %483, %479
   %spec.select.i = select i1 %486, i32 -208, i32 %487
   br label %backref_rel_to_abs.exit
@@ -4527,7 +4527,7 @@ backref_rel_to_abs.exit:                          ; preds = %477, %488, %484
 
 574:                                              ; preds = %570
   %575 = sub nsw i32 2147483647, %573
-  %576 = icmp ult i32 %575, %.pre997
+  %576 = icmp ugt i32 %.pre997, %575
   %577 = add nsw i32 %573, %.pre997
   br i1 %576, label %backref_rel_to_abs.exit717.thread, label %backref_rel_to_abs.exit717
 
@@ -4987,7 +4987,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 793:                                              ; preds = %788
   %794 = sub nsw i32 2147483647, %792
-  %795 = icmp ult i32 %794, %789
+  %795 = icmp ugt i32 %789, %794
   %796 = add nsw i32 %792, %789
   br i1 %795, label %backref_rel_to_abs.exit722.thread, label %backref_rel_to_abs.exit722
 
@@ -6571,7 +6571,7 @@ scan_number.exit:                                 ; preds = %71, %79, %86
 define internal fastcc range(i32 0, 2) i32 @is_head_of_bre_subexp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp ult ptr %6, %0
+  %7 = icmp ugt ptr %0, %6
   br i1 %7, label %8, label %._crit_edge
 
 8:                                                ; preds = %4
@@ -7802,7 +7802,7 @@ onig_node_free.exit736:                           ; preds = %onig_node_free.exit
 
 261:                                              ; preds = %257
   %262 = sub nsw i32 2147483647, %260
-  %263 = icmp ult i32 %262, %258
+  %263 = icmp ugt i32 %258, %262
   %264 = add nsw i32 %260, %258
   %spec.select.i437 = select i1 %263, i32 -208, i32 %264
   br label %backref_rel_to_abs.exit
@@ -13644,7 +13644,7 @@ define internal fastcc i32 @make_absent_tree(ptr nocapture noundef writeonly %0,
   br i1 %56, label %57, label %is_simple_one_char_repeat.exit.thread
 
 57:                                               ; preds = %._crit_edge.i, %36
-  %.not38.i = icmp eq ptr %.034.i, %2
+  %.not38.i = icmp eq ptr %2, %.034.i
   br i1 %.not38.i, label %is_simple_one_char_repeat.exit, label %onig_node_free.exit.i
 
 onig_node_free.exit.i:                            ; preds = %57
@@ -14117,7 +14117,7 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 127:                                              ; preds = %120
   %128 = getelementptr inbounds i8, ptr %124, i64 24
   %129 = load i32, ptr %128, align 8
-  %130 = icmp slt i32 %129, %122
+  %130 = icmp sgt i32 %122, %129
   br i1 %130, label %onig_reg_callout_list_at.exit.thread, label %onig_reg_callout_list_at.exit
 
 onig_reg_callout_list_at.exit:                    ; preds = %127
@@ -14477,7 +14477,7 @@ prs_callout_args.exit:                            ; preds = %96
 
 149:                                              ; preds = %.loopexit
   %150 = load i32, ptr %.pre, align 8
-  %.not.i189 = icmp sgt i32 %150, %147
+  %.not.i189 = icmp slt i32 %147, %150
   br i1 %.not.i189, label %151, label %onig_get_callout_in_by_name_id.exit
 
 151:                                              ; preds = %149
@@ -14557,7 +14557,7 @@ onig_get_callout_in_by_name_id.exit:              ; preds = %.loopexit, %149, %1
 194:                                              ; preds = %188
   %195 = getelementptr inbounds i8, ptr %191, i64 24
   %196 = load i32, ptr %195, align 8
-  %197 = icmp slt i32 %196, %.pre269
+  %197 = icmp sgt i32 %.pre269, %196
   br i1 %197, label %node_new_callout.exit, label %onig_reg_callout_list_at.exit
 
 onig_reg_callout_list_at.exit:                    ; preds = %194
@@ -14595,7 +14595,7 @@ onig_reg_callout_list_at.exit:                    ; preds = %194
 214:                                              ; preds = %206
   %215 = load ptr, ptr @GlobalCalloutNameList, align 8
   %216 = load i32, ptr %215, align 8
-  %.not.i194 = icmp sgt i32 %216, %147
+  %.not.i194 = icmp slt i32 %147, %216
   br i1 %.not.i194, label %217, label %223
 
 217:                                              ; preds = %214
@@ -14612,7 +14612,7 @@ onig_reg_callout_list_at.exit:                    ; preds = %194
   store i32 %.0.i195.ph, ptr %224, align 8
   %225 = load ptr, ptr @GlobalCalloutNameList, align 8
   %226 = load i32, ptr %225, align 8
-  %.not.i196 = icmp sgt i32 %226, %147
+  %.not.i196 = icmp slt i32 %147, %226
   br i1 %.not.i196, label %227, label %235
 
 227:                                              ; preds = %223
@@ -14636,7 +14636,7 @@ onig_get_callout_start_func_by_name_id.exit:      ; preds = %206
   store ptr %.0.i197.ph, ptr %236, align 8
   %237 = load ptr, ptr @GlobalCalloutNameList, align 8
   %238 = load i32, ptr %237, align 8
-  %.not.i198 = icmp sgt i32 %238, %147
+  %.not.i198 = icmp slt i32 %147, %238
   br i1 %.not.i198, label %239, label %onig_get_callout_end_func_by_name_id.exit
 
 239:                                              ; preds = %235
@@ -16564,7 +16564,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cc_char_next(ptr nocapture
 
 30:                                               ; preds = %9
   %31 = load i32, ptr %6, align 4
-  %32 = icmp eq i32 %31, %5
+  %32 = icmp eq i32 %5, %31
   br i1 %32, label %33, label %66
 
 33:                                               ; preds = %30

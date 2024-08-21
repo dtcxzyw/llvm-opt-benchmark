@@ -40,8 +40,6 @@ $_ZNK12aiMatrix4x4tIfE10IsIdentityEv = comdat any
 
 $_ZN12aiMatrix4x4tIfE7InverseEv = comdat any
 
-$_ZNK12aiMatrix4x4tIfE11DeterminantEv = comdat any
-
 $_ZNK12aiMatrix4x4tIfEeqERKS0_ = comdat any
 
 $_ZNSt7__cxx114listIjSaIjEE4sortEv = comdat any
@@ -309,7 +307,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %arrayidx4, align 8
   %mMaterialIndex = getelementptr inbounds i8, ptr %5, i64 232
   %6 = load i32, ptr %mMaterialIndex, align 8
-  %cmp5 = icmp eq i32 %6, %iMat
+  %cmp5 = icmp eq i32 %iMat, %6
   br i1 %cmp5, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
@@ -332,7 +330,7 @@ if.end.i:                                         ; preds = %land.lhs.true
 
 _ZN12_GLOBAL__N_114GetMeshVFormatEP6aiMesh.exit:  ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %call.i, %if.end.i ]
-  %cmp6 = icmp eq i32 %retval.0.i, %iVFormat
+  %cmp6 = icmp eq i32 %iVFormat, %retval.0.i
   br i1 %cmp6, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_114GetMeshVFormatEP6aiMesh.exit
@@ -445,7 +443,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %arrayidx4, align 8
   %mMaterialIndex = getelementptr inbounds i8, ptr %5, i64 232
   %6 = load i32, ptr %mMaterialIndex, align 8
-  %cmp5 = icmp eq i32 %6, %iMat
+  %cmp5 = icmp eq i32 %iMat, %6
   br i1 %cmp5, label %land.lhs.true, label %for.inc222
 
 land.lhs.true:                                    ; preds = %for.body
@@ -468,7 +466,7 @@ if.end.i:                                         ; preds = %land.lhs.true
 
 _ZN12_GLOBAL__N_114GetMeshVFormatEP6aiMesh.exit:  ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %call.i, %if.end.i ]
-  %cmp7 = icmp eq i32 %retval.0.i, %iVFormat
+  %cmp7 = icmp eq i32 %iVFormat, %retval.0.i
   br i1 %cmp7, label %if.then, label %for.inc222
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_114GetMeshVFormatEP6aiMesh.exit
@@ -481,7 +479,7 @@ if.then:                                          ; preds = %_ZN12_GLOBAL__N_114
   %dec = add i32 %12, -1
   store i32 %dec, ptr %arrayidx12, align 4
   %cmp13 = icmp ne i32 %dec, 0
-  %cmp.i = icmp eq ptr %5, %pcMeshOut
+  %cmp.i = icmp eq ptr %pcMeshOut, %5
   %or.cond = or i1 %cmp.i, %cmp13
   br i1 %or.cond, label %if.end, label %if.end.i117
 
@@ -1156,217 +1154,258 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfE7InverseEv(ptr noundef nonnull align 4 dereferenceable(64) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %call = tail call noundef float @_ZNK12aiMatrix4x4tIfE11DeterminantEv(ptr noundef nonnull align 4 dereferenceable(64) %this)
-  %cmp = fcmp oeq float %call, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store float 0x7FF8000000000000, ptr %this, align 4
-  %ref.tmp.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.2.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.3.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.3.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 12
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.5.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 20
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.6.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.7.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.7.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.8.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 28
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.8.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.9.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.9.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.10.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 36
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.10.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.11.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.11.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.12.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 44
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.12.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.13.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.13.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.14.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 52
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.14.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.15.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.15.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.16.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 60
-  store float 0x7FF8000000000000, ptr %ref.tmp.sroa.16.0.this.sroa_idx, align 4
-  br label %return
+  %0 = load float, ptr %this, align 4
+  %b2.i = getelementptr inbounds i8, ptr %this, i64 20
+  %1 = load float, ptr %b2.i, align 4
+  %mul.i = fmul float %0, %1
+  %c3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %2 = load float, ptr %c3.i, align 4
+  %mul2.i = fmul float %mul.i, %2
+  %d4.i = getelementptr inbounds i8, ptr %this, i64 60
+  %3 = load float, ptr %d4.i, align 4
+  %c4.i = getelementptr inbounds i8, ptr %this, i64 44
+  %4 = load float, ptr %c4.i, align 4
+  %mul7.i = fmul float %mul.i, %4
+  %d3.i = getelementptr inbounds i8, ptr %this, i64 56
+  %5 = load float, ptr %d3.i, align 4
+  %6 = fneg float %5
+  %neg.i = fmul float %mul7.i, %6
+  %7 = tail call float @llvm.fmuladd.f32(float %mul2.i, float %3, float %neg.i)
+  %b3.i = getelementptr inbounds i8, ptr %this, i64 24
+  %8 = load float, ptr %b3.i, align 4
+  %mul10.i = fmul float %0, %8
+  %mul12.i = fmul float %4, %mul10.i
+  %d2.i = getelementptr inbounds i8, ptr %this, i64 52
+  %9 = load float, ptr %d2.i, align 4
+  %10 = tail call float @llvm.fmuladd.f32(float %mul12.i, float %9, float %7)
+  %c2.i = getelementptr inbounds i8, ptr %this, i64 36
+  %11 = load float, ptr %c2.i, align 4
+  %12 = fneg float %11
+  %neg20.i = fmul float %mul10.i, %12
+  %13 = tail call float @llvm.fmuladd.f32(float %neg20.i, float %3, float %10)
+  %b4.i = getelementptr inbounds i8, ptr %this, i64 28
+  %14 = load float, ptr %b4.i, align 4
+  %mul22.i = fmul float %0, %14
+  %mul24.i = fmul float %11, %mul22.i
+  %15 = tail call float @llvm.fmuladd.f32(float %mul24.i, float %5, float %13)
+  %16 = fneg float %2
+  %neg34.i = fmul float %mul22.i, %16
+  %17 = tail call float @llvm.fmuladd.f32(float %neg34.i, float %9, float %15)
+  %a2.i = getelementptr inbounds i8, ptr %this, i64 4
+  %18 = load float, ptr %a2.i, align 4
+  %mul36.i = fmul float %8, %18
+  %d1.i = getelementptr inbounds i8, ptr %this, i64 48
+  %19 = load float, ptr %d1.i, align 4
+  %20 = fneg float %4
+  %neg40.i = fmul float %mul36.i, %20
+  %21 = tail call float @llvm.fmuladd.f32(float %neg40.i, float %19, float %17)
+  %c1.i = getelementptr inbounds i8, ptr %this, i64 32
+  %22 = load float, ptr %c1.i, align 4
+  %mul44.i = fmul float %mul36.i, %22
+  %23 = tail call float @llvm.fmuladd.f32(float %mul44.i, float %3, float %21)
+  %mul49.i = fmul float %14, %18
+  %24 = fneg float %22
+  %neg54.i = fmul float %mul49.i, %24
+  %25 = tail call float @llvm.fmuladd.f32(float %neg54.i, float %5, float %23)
+  %mul59.i = fmul float %2, %mul49.i
+  %26 = tail call float @llvm.fmuladd.f32(float %mul59.i, float %19, float %25)
+  %b1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %27 = load float, ptr %b1.i, align 4
+  %mul63.i = fmul float %18, %27
+  %neg68.i = fmul float %mul63.i, %16
+  %28 = tail call float @llvm.fmuladd.f32(float %neg68.i, float %3, float %26)
+  %mul73.i = fmul float %4, %mul63.i
+  %29 = tail call float @llvm.fmuladd.f32(float %mul73.i, float %5, float %28)
+  %a3.i = getelementptr inbounds i8, ptr %this, i64 8
+  %30 = load float, ptr %a3.i, align 4
+  %mul77.i = fmul float %14, %30
+  %mul79.i = fmul float %22, %mul77.i
+  %31 = tail call float @llvm.fmuladd.f32(float %mul79.i, float %9, float %29)
+  %neg89.i = fmul float %mul77.i, %12
+  %32 = tail call float @llvm.fmuladd.f32(float %neg89.i, float %19, float %31)
+  %mul92.i = fmul float %27, %30
+  %mul94.i = fmul float %11, %mul92.i
+  %33 = tail call float @llvm.fmuladd.f32(float %mul94.i, float %3, float %32)
+  %neg104.i = fmul float %mul92.i, %20
+  %34 = tail call float @llvm.fmuladd.f32(float %neg104.i, float %9, float %33)
+  %mul107.i = fmul float %1, %30
+  %mul109.i = fmul float %4, %mul107.i
+  %35 = tail call float @llvm.fmuladd.f32(float %mul109.i, float %19, float %34)
+  %neg119.i = fmul float %mul107.i, %24
+  %36 = tail call float @llvm.fmuladd.f32(float %neg119.i, float %3, float %35)
+  %a4.i = getelementptr inbounds i8, ptr %this, i64 12
+  %37 = load float, ptr %a4.i, align 4
+  %mul121.i = fmul float %27, %37
+  %neg126.i = fmul float %mul121.i, %12
+  %38 = tail call float @llvm.fmuladd.f32(float %neg126.i, float %5, float %36)
+  %mul131.i = fmul float %2, %mul121.i
+  %39 = tail call float @llvm.fmuladd.f32(float %mul131.i, float %9, float %38)
+  %mul136.i = fmul float %1, %37
+  %neg141.i = fmul float %mul136.i, %16
+  %40 = tail call float @llvm.fmuladd.f32(float %neg141.i, float %19, float %39)
+  %mul146.i = fmul float %22, %mul136.i
+  %41 = tail call float @llvm.fmuladd.f32(float %mul146.i, float %5, float %40)
+  %mul151.i = fmul float %8, %37
+  %neg156.i = fmul float %mul151.i, %24
+  %42 = tail call float @llvm.fmuladd.f32(float %neg156.i, float %9, float %41)
+  %mul161.i = fmul float %11, %mul151.i
+  %43 = tail call noundef float @llvm.fmuladd.f32(float %mul161.i, float %19, float %42)
+  %cmp = fcmp oeq float %43, 0.000000e+00
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %div = fdiv float 1.000000e+00, %call
-  %b2 = getelementptr inbounds i8, ptr %this, i64 20
-  %0 = load float, ptr %b2, align 4
-  %c3 = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load float, ptr %c3, align 4
-  %d4 = getelementptr inbounds i8, ptr %this, i64 60
-  %2 = load float, ptr %d4, align 4
-  %c4 = getelementptr inbounds i8, ptr %this, i64 44
-  %3 = load float, ptr %c4, align 4
-  %d3 = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load float, ptr %d3, align 4
-  %5 = fneg float %3
-  %neg = fmul float %4, %5
-  %6 = tail call float @llvm.fmuladd.f32(float %1, float %2, float %neg)
-  %b3 = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load float, ptr %b3, align 4
-  %d2 = getelementptr inbounds i8, ptr %this, i64 52
-  %8 = load float, ptr %d2, align 4
-  %c2 = getelementptr inbounds i8, ptr %this, i64 36
-  %9 = load float, ptr %c2, align 4
-  %10 = fneg float %9
-  %neg8 = fmul float %2, %10
-  %11 = tail call float @llvm.fmuladd.f32(float %3, float %8, float %neg8)
-  %mul9 = fmul float %7, %11
-  %12 = tail call float @llvm.fmuladd.f32(float %0, float %6, float %mul9)
-  %b4 = getelementptr inbounds i8, ptr %this, i64 28
-  %13 = load float, ptr %b4, align 4
-  %14 = fneg float %1
-  %neg15 = fmul float %8, %14
-  %15 = tail call float @llvm.fmuladd.f32(float %9, float %4, float %neg15)
-  %16 = tail call float @llvm.fmuladd.f32(float %13, float %15, float %12)
-  %mul = fmul float %div, %16
+  %div = fdiv float 1.000000e+00, %43
+  %neg = fmul float %4, %6
+  %44 = tail call float @llvm.fmuladd.f32(float %2, float %3, float %neg)
+  %45 = fneg float %3
+  %neg8 = fmul float %11, %45
+  %46 = tail call float @llvm.fmuladd.f32(float %4, float %9, float %neg8)
+  %mul9 = fmul float %8, %46
+  %47 = tail call float @llvm.fmuladd.f32(float %1, float %44, float %mul9)
+  %48 = fneg float %9
+  %neg15 = fmul float %2, %48
+  %49 = tail call float @llvm.fmuladd.f32(float %11, float %5, float %neg15)
+  %50 = tail call float @llvm.fmuladd.f32(float %14, float %49, float %47)
+  %mul = fmul float %50, %div
   %fneg = fneg float %div
-  %a2 = getelementptr inbounds i8, ptr %this, i64 4
-  %17 = load float, ptr %a2, align 4
-  %a3 = getelementptr inbounds i8, ptr %this, i64 8
-  %18 = load float, ptr %a3, align 4
-  %mul31 = fmul float %11, %18
-  %19 = tail call float @llvm.fmuladd.f32(float %17, float %6, float %mul31)
-  %a4 = getelementptr inbounds i8, ptr %this, i64 12
-  %20 = load float, ptr %a4, align 4
-  %21 = tail call float @llvm.fmuladd.f32(float %20, float %15, float %19)
-  %mul40 = fmul float %21, %fneg
-  %22 = fneg float %13
-  %neg49 = fmul float %4, %22
-  %23 = tail call float @llvm.fmuladd.f32(float %7, float %2, float %neg49)
-  %24 = fneg float %0
-  %neg58 = fmul float %2, %24
-  %25 = tail call float @llvm.fmuladd.f32(float %13, float %8, float %neg58)
-  %mul59 = fmul float %25, %18
-  %26 = tail call float @llvm.fmuladd.f32(float %17, float %23, float %mul59)
-  %27 = fneg float %7
-  %neg67 = fmul float %8, %27
-  %28 = tail call float @llvm.fmuladd.f32(float %0, float %4, float %neg67)
-  %29 = tail call float @llvm.fmuladd.f32(float %20, float %28, float %26)
-  %mul69 = fmul float %div, %29
-  %neg79 = fmul float %1, %22
-  %30 = tail call float @llvm.fmuladd.f32(float %7, float %3, float %neg79)
-  %neg88 = fmul float %3, %24
-  %31 = tail call float @llvm.fmuladd.f32(float %13, float %9, float %neg88)
-  %mul89 = fmul float %31, %18
-  %32 = tail call float @llvm.fmuladd.f32(float %17, float %30, float %mul89)
-  %neg97 = fmul float %9, %27
-  %33 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg97)
-  %34 = tail call float @llvm.fmuladd.f32(float %20, float %33, float %32)
-  %mul99 = fmul float %34, %fneg
-  %b1 = getelementptr inbounds i8, ptr %this, i64 16
-  %35 = load float, ptr %b1, align 4
-  %d1 = getelementptr inbounds i8, ptr %this, i64 48
-  %36 = load float, ptr %d1, align 4
-  %c1 = getelementptr inbounds i8, ptr %this, i64 32
-  %37 = load float, ptr %c1, align 4
-  %38 = fneg float %37
-  %neg115 = fmul float %2, %38
-  %39 = tail call float @llvm.fmuladd.f32(float %3, float %36, float %neg115)
-  %mul116 = fmul float %7, %39
-  %40 = tail call float @llvm.fmuladd.f32(float %35, float %6, float %mul116)
-  %neg124 = fmul float %36, %14
-  %41 = tail call float @llvm.fmuladd.f32(float %37, float %4, float %neg124)
-  %42 = tail call float @llvm.fmuladd.f32(float %13, float %41, float %40)
-  %mul126 = fmul float %42, %fneg
-  %43 = load float, ptr %this, align 4
-  %mul145 = fmul float %18, %39
-  %44 = tail call float @llvm.fmuladd.f32(float %43, float %6, float %mul145)
-  %45 = tail call float @llvm.fmuladd.f32(float %20, float %41, float %44)
-  %mul155 = fmul float %div, %45
-  %46 = fneg float %35
-  %neg174 = fmul float %2, %46
-  %47 = tail call float @llvm.fmuladd.f32(float %13, float %36, float %neg174)
-  %mul175 = fmul float %18, %47
-  %48 = tail call float @llvm.fmuladd.f32(float %43, float %23, float %mul175)
-  %neg183 = fmul float %36, %27
-  %49 = tail call float @llvm.fmuladd.f32(float %35, float %4, float %neg183)
-  %50 = tail call float @llvm.fmuladd.f32(float %20, float %49, float %48)
-  %mul185 = fmul float %50, %fneg
-  %neg203 = fmul float %3, %46
-  %51 = tail call float @llvm.fmuladd.f32(float %13, float %37, float %neg203)
-  %mul204 = fmul float %18, %51
-  %52 = tail call float @llvm.fmuladd.f32(float %43, float %30, float %mul204)
-  %neg212 = fmul float %37, %27
-  %53 = tail call float @llvm.fmuladd.f32(float %35, float %1, float %neg212)
-  %54 = tail call float @llvm.fmuladd.f32(float %20, float %53, float %52)
-  %mul214 = fmul float %div, %54
-  %neg223 = fmul float %8, %5
-  %55 = tail call float @llvm.fmuladd.f32(float %9, float %2, float %neg223)
-  %mul233 = fmul float %0, %39
-  %56 = tail call float @llvm.fmuladd.f32(float %35, float %55, float %mul233)
-  %neg241 = fmul float %36, %10
-  %57 = tail call float @llvm.fmuladd.f32(float %37, float %8, float %neg241)
-  %58 = tail call float @llvm.fmuladd.f32(float %13, float %57, float %56)
-  %mul243 = fmul float %div, %58
-  %mul263 = fmul float %17, %39
-  %59 = tail call float @llvm.fmuladd.f32(float %43, float %55, float %mul263)
-  %60 = tail call float @llvm.fmuladd.f32(float %20, float %57, float %59)
-  %mul273 = fmul float %60, %fneg
-  %neg282 = fmul float %8, %22
-  %61 = tail call float @llvm.fmuladd.f32(float %0, float %2, float %neg282)
-  %mul292 = fmul float %17, %47
-  %62 = tail call float @llvm.fmuladd.f32(float %43, float %61, float %mul292)
-  %neg300 = fmul float %36, %24
-  %63 = tail call float @llvm.fmuladd.f32(float %35, float %8, float %neg300)
-  %64 = tail call float @llvm.fmuladd.f32(float %20, float %63, float %62)
-  %mul302 = fmul float %div, %64
-  %neg312 = fmul float %9, %22
-  %65 = tail call float @llvm.fmuladd.f32(float %0, float %3, float %neg312)
-  %mul322 = fmul float %17, %51
-  %66 = tail call float @llvm.fmuladd.f32(float %43, float %65, float %mul322)
-  %neg330 = fmul float %37, %24
-  %67 = tail call float @llvm.fmuladd.f32(float %35, float %9, float %neg330)
-  %68 = tail call float @llvm.fmuladd.f32(float %20, float %67, float %66)
-  %mul332 = fmul float %68, %fneg
-  %neg351 = fmul float %4, %38
-  %69 = tail call float @llvm.fmuladd.f32(float %1, float %36, float %neg351)
-  %mul352 = fmul float %0, %69
-  %70 = tail call float @llvm.fmuladd.f32(float %35, float %15, float %mul352)
-  %71 = tail call float @llvm.fmuladd.f32(float %7, float %57, float %70)
-  %mul362 = fmul float %71, %fneg
-  %mul381 = fmul float %17, %69
-  %72 = tail call float @llvm.fmuladd.f32(float %43, float %15, float %mul381)
-  %73 = tail call float @llvm.fmuladd.f32(float %18, float %57, float %72)
-  %mul391 = fmul float %div, %73
-  %neg410 = fmul float %4, %46
-  %74 = tail call float @llvm.fmuladd.f32(float %7, float %36, float %neg410)
-  %mul411 = fmul float %17, %74
-  %75 = tail call float @llvm.fmuladd.f32(float %43, float %28, float %mul411)
-  %76 = tail call float @llvm.fmuladd.f32(float %18, float %63, float %75)
-  %mul421 = fmul float %76, %fneg
-  %neg439 = fmul float %1, %46
-  %77 = tail call float @llvm.fmuladd.f32(float %7, float %37, float %neg439)
-  %mul440 = fmul float %17, %77
-  %78 = tail call float @llvm.fmuladd.f32(float %43, float %33, float %mul440)
-  %79 = tail call float @llvm.fmuladd.f32(float %18, float %67, float %78)
-  %mul450 = fmul float %div, %79
-  store float %mul, ptr %this, align 4
-  store float %mul40, ptr %a2, align 4
-  store float %mul69, ptr %a3, align 4
-  store float %mul99, ptr %a4, align 4
-  store float %mul126, ptr %b1, align 4
-  store float %mul155, ptr %b2, align 4
-  store float %mul185, ptr %b3, align 4
-  store float %mul214, ptr %b4, align 4
-  store float %mul243, ptr %c1, align 4
-  store float %mul273, ptr %c2, align 4
-  store float %mul302, ptr %c3, align 4
-  store float %mul332, ptr %c4, align 4
-  store float %mul362, ptr %d1, align 4
-  store float %mul391, ptr %d2, align 4
-  store float %mul421, ptr %d3, align 4
-  store float %mul450, ptr %d4, align 4
+  %mul31 = fmul float %46, %30
+  %51 = tail call float @llvm.fmuladd.f32(float %18, float %44, float %mul31)
+  %52 = tail call float @llvm.fmuladd.f32(float %37, float %49, float %51)
+  %mul40 = fmul float %52, %fneg
+  %neg49 = fmul float %14, %6
+  %53 = tail call float @llvm.fmuladd.f32(float %8, float %3, float %neg49)
+  %neg58 = fmul float %1, %45
+  %54 = tail call float @llvm.fmuladd.f32(float %14, float %9, float %neg58)
+  %mul59 = fmul float %54, %30
+  %55 = tail call float @llvm.fmuladd.f32(float %18, float %53, float %mul59)
+  %neg67 = fmul float %8, %48
+  %56 = tail call float @llvm.fmuladd.f32(float %1, float %5, float %neg67)
+  %57 = tail call float @llvm.fmuladd.f32(float %37, float %56, float %55)
+  %mul69 = fmul float %57, %div
+  %neg79 = fmul float %14, %16
+  %58 = tail call float @llvm.fmuladd.f32(float %8, float %4, float %neg79)
+  %neg88 = fmul float %1, %20
+  %59 = tail call float @llvm.fmuladd.f32(float %14, float %11, float %neg88)
+  %mul89 = fmul float %59, %30
+  %60 = tail call float @llvm.fmuladd.f32(float %18, float %58, float %mul89)
+  %neg97 = fmul float %8, %12
+  %61 = tail call float @llvm.fmuladd.f32(float %1, float %2, float %neg97)
+  %62 = tail call float @llvm.fmuladd.f32(float %37, float %61, float %60)
+  %mul99 = fmul float %62, %fneg
+  %neg115 = fmul float %22, %45
+  %63 = tail call float @llvm.fmuladd.f32(float %4, float %19, float %neg115)
+  %mul116 = fmul float %8, %63
+  %64 = tail call float @llvm.fmuladd.f32(float %27, float %44, float %mul116)
+  %65 = fneg float %19
+  %neg124 = fmul float %2, %65
+  %66 = tail call float @llvm.fmuladd.f32(float %22, float %5, float %neg124)
+  %67 = tail call float @llvm.fmuladd.f32(float %14, float %66, float %64)
+  %mul126 = fmul float %67, %fneg
+  %mul145 = fmul float %30, %63
+  %68 = tail call float @llvm.fmuladd.f32(float %0, float %44, float %mul145)
+  %69 = tail call float @llvm.fmuladd.f32(float %37, float %66, float %68)
+  %mul155 = fmul float %69, %div
+  %neg174 = fmul float %27, %45
+  %70 = tail call float @llvm.fmuladd.f32(float %14, float %19, float %neg174)
+  %mul175 = fmul float %30, %70
+  %71 = tail call float @llvm.fmuladd.f32(float %0, float %53, float %mul175)
+  %neg183 = fmul float %8, %65
+  %72 = tail call float @llvm.fmuladd.f32(float %27, float %5, float %neg183)
+  %73 = tail call float @llvm.fmuladd.f32(float %37, float %72, float %71)
+  %mul185 = fmul float %73, %fneg
+  %neg203 = fmul float %27, %20
+  %74 = tail call float @llvm.fmuladd.f32(float %14, float %22, float %neg203)
+  %mul204 = fmul float %30, %74
+  %75 = tail call float @llvm.fmuladd.f32(float %0, float %58, float %mul204)
+  %neg212 = fmul float %8, %24
+  %76 = tail call float @llvm.fmuladd.f32(float %27, float %2, float %neg212)
+  %77 = tail call float @llvm.fmuladd.f32(float %37, float %76, float %75)
+  %mul214 = fmul float %77, %div
+  %neg223 = fmul float %4, %48
+  %78 = tail call float @llvm.fmuladd.f32(float %11, float %3, float %neg223)
+  %mul233 = fmul float %1, %63
+  %79 = tail call float @llvm.fmuladd.f32(float %27, float %78, float %mul233)
+  %neg241 = fmul float %11, %65
+  %80 = tail call float @llvm.fmuladd.f32(float %22, float %9, float %neg241)
+  %81 = tail call float @llvm.fmuladd.f32(float %14, float %80, float %79)
+  %mul243 = fmul float %81, %div
+  %mul263 = fmul float %18, %63
+  %82 = tail call float @llvm.fmuladd.f32(float %0, float %78, float %mul263)
+  %83 = tail call float @llvm.fmuladd.f32(float %37, float %80, float %82)
+  %mul273 = fmul float %83, %fneg
+  %neg282 = fmul float %14, %48
+  %84 = tail call float @llvm.fmuladd.f32(float %1, float %3, float %neg282)
+  %mul292 = fmul float %18, %70
+  %85 = tail call float @llvm.fmuladd.f32(float %0, float %84, float %mul292)
+  %neg300 = fmul float %1, %65
+  %86 = tail call float @llvm.fmuladd.f32(float %27, float %9, float %neg300)
+  %87 = tail call float @llvm.fmuladd.f32(float %37, float %86, float %85)
+  %mul302 = fmul float %87, %div
+  %neg312 = fmul float %14, %12
+  %88 = tail call float @llvm.fmuladd.f32(float %1, float %4, float %neg312)
+  %mul322 = fmul float %18, %74
+  %89 = tail call float @llvm.fmuladd.f32(float %0, float %88, float %mul322)
+  %neg330 = fmul float %1, %24
+  %90 = tail call float @llvm.fmuladd.f32(float %27, float %11, float %neg330)
+  %91 = tail call float @llvm.fmuladd.f32(float %37, float %90, float %89)
+  %mul332 = fmul float %91, %fneg
+  %neg351 = fmul float %22, %6
+  %92 = tail call float @llvm.fmuladd.f32(float %2, float %19, float %neg351)
+  %mul352 = fmul float %1, %92
+  %93 = tail call float @llvm.fmuladd.f32(float %27, float %49, float %mul352)
+  %94 = tail call float @llvm.fmuladd.f32(float %8, float %80, float %93)
+  %mul362 = fmul float %94, %fneg
+  %mul381 = fmul float %18, %92
+  %95 = tail call float @llvm.fmuladd.f32(float %0, float %49, float %mul381)
+  %96 = tail call float @llvm.fmuladd.f32(float %30, float %80, float %95)
+  %mul391 = fmul float %96, %div
+  %neg410 = fmul float %27, %6
+  %97 = tail call float @llvm.fmuladd.f32(float %8, float %19, float %neg410)
+  %mul411 = fmul float %18, %97
+  %98 = tail call float @llvm.fmuladd.f32(float %0, float %56, float %mul411)
+  %99 = tail call float @llvm.fmuladd.f32(float %30, float %86, float %98)
+  %mul421 = fmul float %99, %fneg
+  %neg439 = fmul float %27, %16
+  %100 = tail call float @llvm.fmuladd.f32(float %8, float %22, float %neg439)
+  %mul440 = fmul float %18, %100
+  %101 = tail call float @llvm.fmuladd.f32(float %0, float %61, float %mul440)
+  %102 = tail call float @llvm.fmuladd.f32(float %30, float %90, float %101)
+  %mul450 = fmul float %102, %div
   br label %return
 
-return:                                           ; preds = %if.end, %if.then
+return:                                           ; preds = %entry, %if.end
+  %storemerge52 = phi float [ %mul, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge51 = phi float [ %mul40, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge50 = phi float [ %mul69, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge49 = phi float [ %mul99, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge48 = phi float [ %mul126, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge47 = phi float [ %mul155, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge46 = phi float [ %mul185, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge45 = phi float [ %mul214, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge44 = phi float [ %mul243, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge43 = phi float [ %mul273, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge42 = phi float [ %mul302, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge41 = phi float [ %mul332, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge40 = phi float [ %mul362, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge39 = phi float [ %mul391, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge38 = phi float [ %mul421, %if.end ], [ 0x7FF8000000000000, %entry ]
+  %storemerge = phi float [ %mul450, %if.end ], [ 0x7FF8000000000000, %entry ]
+  store float %storemerge52, ptr %this, align 4
+  store float %storemerge51, ptr %a2.i, align 4
+  store float %storemerge50, ptr %a3.i, align 4
+  store float %storemerge49, ptr %a4.i, align 4
+  store float %storemerge48, ptr %b1.i, align 4
+  store float %storemerge47, ptr %b2.i, align 4
+  store float %storemerge46, ptr %b3.i, align 4
+  store float %storemerge45, ptr %b4.i, align 4
+  store float %storemerge44, ptr %c1.i, align 4
+  store float %storemerge43, ptr %c2.i, align 4
+  store float %storemerge42, ptr %c3.i, align 4
+  store float %storemerge41, ptr %c4.i, align 4
+  store float %storemerge40, ptr %d1.i, align 4
+  store float %storemerge39, ptr %d2.i, align 4
+  store float %storemerge38, ptr %d3.i, align 4
+  store float %storemerge, ptr %d4.i, align 4
   ret ptr %this
 }
 
@@ -1571,8 +1610,103 @@ if.end:                                           ; preds = %entry
   br i1 %2, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call noundef float @_ZNK12aiMatrix4x4tIfE11DeterminantEv(ptr noundef nonnull align 4 dereferenceable(64) %mat)
-  %cmp = fcmp olt float %call3, 0.000000e+00
+  %3 = load float, ptr %mat, align 4
+  %b2.i = getelementptr inbounds i8, ptr %mat, i64 20
+  %4 = load float, ptr %b2.i, align 4
+  %mul.i = fmul float %3, %4
+  %c3.i = getelementptr inbounds i8, ptr %mat, i64 40
+  %5 = load float, ptr %c3.i, align 4
+  %mul2.i = fmul float %mul.i, %5
+  %d4.i = getelementptr inbounds i8, ptr %mat, i64 60
+  %6 = load float, ptr %d4.i, align 4
+  %c4.i = getelementptr inbounds i8, ptr %mat, i64 44
+  %7 = load float, ptr %c4.i, align 4
+  %mul7.i = fmul float %mul.i, %7
+  %d3.i = getelementptr inbounds i8, ptr %mat, i64 56
+  %8 = load float, ptr %d3.i, align 4
+  %9 = fneg float %8
+  %neg.i = fmul float %mul7.i, %9
+  %10 = tail call float @llvm.fmuladd.f32(float %mul2.i, float %6, float %neg.i)
+  %b3.i = getelementptr inbounds i8, ptr %mat, i64 24
+  %11 = load float, ptr %b3.i, align 4
+  %mul10.i = fmul float %3, %11
+  %mul12.i = fmul float %7, %mul10.i
+  %d2.i = getelementptr inbounds i8, ptr %mat, i64 52
+  %12 = load float, ptr %d2.i, align 4
+  %13 = tail call float @llvm.fmuladd.f32(float %mul12.i, float %12, float %10)
+  %c2.i = getelementptr inbounds i8, ptr %mat, i64 36
+  %14 = load float, ptr %c2.i, align 4
+  %15 = fneg float %14
+  %neg20.i = fmul float %mul10.i, %15
+  %16 = tail call float @llvm.fmuladd.f32(float %neg20.i, float %6, float %13)
+  %b4.i = getelementptr inbounds i8, ptr %mat, i64 28
+  %17 = load float, ptr %b4.i, align 4
+  %mul22.i = fmul float %3, %17
+  %mul24.i = fmul float %14, %mul22.i
+  %18 = tail call float @llvm.fmuladd.f32(float %mul24.i, float %8, float %16)
+  %19 = fneg float %5
+  %neg34.i = fmul float %mul22.i, %19
+  %20 = tail call float @llvm.fmuladd.f32(float %neg34.i, float %12, float %18)
+  %a2.i = getelementptr inbounds i8, ptr %mat, i64 4
+  %21 = load float, ptr %a2.i, align 4
+  %mul36.i = fmul float %11, %21
+  %d1.i = getelementptr inbounds i8, ptr %mat, i64 48
+  %22 = load float, ptr %d1.i, align 4
+  %23 = fneg float %7
+  %neg40.i = fmul float %mul36.i, %23
+  %24 = tail call float @llvm.fmuladd.f32(float %neg40.i, float %22, float %20)
+  %c1.i = getelementptr inbounds i8, ptr %mat, i64 32
+  %25 = load float, ptr %c1.i, align 4
+  %mul44.i = fmul float %mul36.i, %25
+  %26 = tail call float @llvm.fmuladd.f32(float %mul44.i, float %6, float %24)
+  %mul49.i = fmul float %17, %21
+  %27 = fneg float %25
+  %neg54.i = fmul float %mul49.i, %27
+  %28 = tail call float @llvm.fmuladd.f32(float %neg54.i, float %8, float %26)
+  %mul59.i = fmul float %5, %mul49.i
+  %29 = tail call float @llvm.fmuladd.f32(float %mul59.i, float %22, float %28)
+  %b1.i = getelementptr inbounds i8, ptr %mat, i64 16
+  %30 = load float, ptr %b1.i, align 4
+  %mul63.i = fmul float %21, %30
+  %neg68.i = fmul float %mul63.i, %19
+  %31 = tail call float @llvm.fmuladd.f32(float %neg68.i, float %6, float %29)
+  %mul73.i = fmul float %7, %mul63.i
+  %32 = tail call float @llvm.fmuladd.f32(float %mul73.i, float %8, float %31)
+  %a3.i = getelementptr inbounds i8, ptr %mat, i64 8
+  %33 = load float, ptr %a3.i, align 4
+  %mul77.i = fmul float %17, %33
+  %mul79.i = fmul float %25, %mul77.i
+  %34 = tail call float @llvm.fmuladd.f32(float %mul79.i, float %12, float %32)
+  %neg89.i = fmul float %mul77.i, %15
+  %35 = tail call float @llvm.fmuladd.f32(float %neg89.i, float %22, float %34)
+  %mul92.i = fmul float %30, %33
+  %mul94.i = fmul float %14, %mul92.i
+  %36 = tail call float @llvm.fmuladd.f32(float %mul94.i, float %6, float %35)
+  %neg104.i = fmul float %mul92.i, %23
+  %37 = tail call float @llvm.fmuladd.f32(float %neg104.i, float %12, float %36)
+  %mul107.i = fmul float %4, %33
+  %mul109.i = fmul float %7, %mul107.i
+  %38 = tail call float @llvm.fmuladd.f32(float %mul109.i, float %22, float %37)
+  %neg119.i = fmul float %mul107.i, %27
+  %39 = tail call float @llvm.fmuladd.f32(float %neg119.i, float %6, float %38)
+  %a4.i = getelementptr inbounds i8, ptr %mat, i64 12
+  %40 = load float, ptr %a4.i, align 4
+  %mul121.i = fmul float %30, %40
+  %neg126.i = fmul float %mul121.i, %15
+  %41 = tail call float @llvm.fmuladd.f32(float %neg126.i, float %8, float %39)
+  %mul131.i = fmul float %5, %mul121.i
+  %42 = tail call float @llvm.fmuladd.f32(float %mul131.i, float %12, float %41)
+  %mul136.i = fmul float %4, %40
+  %neg141.i = fmul float %mul136.i, %19
+  %43 = tail call float @llvm.fmuladd.f32(float %neg141.i, float %22, float %42)
+  %mul146.i = fmul float %25, %mul136.i
+  %44 = tail call float @llvm.fmuladd.f32(float %mul146.i, float %8, float %43)
+  %mul151.i = fmul float %11, %40
+  %neg156.i = fmul float %mul151.i, %27
+  %45 = tail call float @llvm.fmuladd.f32(float %neg156.i, float %12, float %44)
+  %mul161.i = fmul float %14, %mul151.i
+  %46 = tail call noundef float @llvm.fmuladd.f32(float %mul161.i, float %22, float %45)
+  %cmp = fcmp olt float %46, 0.000000e+00
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %land.lhs.true
@@ -1581,161 +1715,160 @@ if.then4:                                         ; preds = %land.lhs.true
 
 if.end5:                                          ; preds = %if.then4, %land.lhs.true, %if.end
   %mVertices.i = getelementptr inbounds i8, ptr %mesh, i64 16
-  %3 = load ptr, ptr %mVertices.i, align 8
-  %cmp.not.i32 = icmp ne ptr %3, null
+  %47 = load ptr, ptr %mVertices.i, align 8
+  %cmp.not.i32 = icmp ne ptr %47, null
   %mNumVertices.i = getelementptr inbounds i8, ptr %mesh, i64 4
-  %4 = load i32, ptr %mNumVertices.i, align 4
-  %cmp2.i33 = icmp ne i32 %4, 0
-  %5 = select i1 %cmp.not.i32, i1 %cmp2.i33, i1 false
-  br i1 %5, label %for.body.lr.ph, label %if.end13
+  %48 = load i32, ptr %mNumVertices.i, align 4
+  %cmp2.i33 = icmp ne i32 %48, 0
+  %49 = select i1 %cmp.not.i32, i1 %cmp2.i33, i1 false
+  br i1 %49, label %for.body.lr.ph, label %if.end13
 
 for.body.lr.ph:                                   ; preds = %if.end5
-  %a2.i = getelementptr inbounds i8, ptr %mat, i64 4
-  %a3.i = getelementptr inbounds i8, ptr %mat, i64 8
-  %a4.i = getelementptr inbounds i8, ptr %mat, i64 12
-  %b1.i = getelementptr inbounds i8, ptr %mat, i64 16
-  %b2.i = getelementptr inbounds i8, ptr %mat, i64 20
-  %b3.i = getelementptr inbounds i8, ptr %mat, i64 24
-  %b4.i = getelementptr inbounds i8, ptr %mat, i64 28
-  %c1.i = getelementptr inbounds i8, ptr %mat, i64 32
-  %c2.i = getelementptr inbounds i8, ptr %mat, i64 36
-  %c3.i = getelementptr inbounds i8, ptr %mat, i64 40
-  %c4.i = getelementptr inbounds i8, ptr %mat, i64 44
+  %a2.i34 = getelementptr inbounds i8, ptr %mat, i64 4
+  %a3.i35 = getelementptr inbounds i8, ptr %mat, i64 8
+  %a4.i36 = getelementptr inbounds i8, ptr %mat, i64 12
+  %b1.i37 = getelementptr inbounds i8, ptr %mat, i64 16
+  %b2.i38 = getelementptr inbounds i8, ptr %mat, i64 20
+  %b3.i39 = getelementptr inbounds i8, ptr %mat, i64 24
+  %b4.i40 = getelementptr inbounds i8, ptr %mat, i64 28
+  %c1.i41 = getelementptr inbounds i8, ptr %mat, i64 32
+  %c2.i42 = getelementptr inbounds i8, ptr %mat, i64 36
+  %c3.i43 = getelementptr inbounds i8, ptr %mat, i64 40
+  %c4.i44 = getelementptr inbounds i8, ptr %mat, i64 44
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %6 = load ptr, ptr %mVertices.i, align 8
-  %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %6, i64 %indvars.iv
-  %7 = load float, ptr %mat, align 4
-  %8 = load float, ptr %arrayidx, align 4
-  %9 = load float, ptr %a2.i, align 4
+  %50 = load ptr, ptr %mVertices.i, align 8
+  %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %50, i64 %indvars.iv
+  %51 = load float, ptr %mat, align 4
+  %52 = load float, ptr %arrayidx, align 4
+  %53 = load float, ptr %a2.i34, align 4
   %y.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %10 = load float, ptr %y.i, align 4
-  %mul1.i = fmul float %9, %10
-  %11 = tail call float @llvm.fmuladd.f32(float %7, float %8, float %mul1.i)
-  %12 = load float, ptr %a3.i, align 4
+  %54 = load float, ptr %y.i, align 4
+  %mul1.i = fmul float %53, %54
+  %55 = tail call float @llvm.fmuladd.f32(float %51, float %52, float %mul1.i)
+  %56 = load float, ptr %a3.i35, align 4
   %z.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %13 = load float, ptr %z.i, align 4
-  %14 = tail call float @llvm.fmuladd.f32(float %12, float %13, float %11)
-  %15 = load float, ptr %a4.i, align 4
-  %add.i = fadd float %14, %15
+  %57 = load float, ptr %z.i, align 4
+  %58 = tail call float @llvm.fmuladd.f32(float %56, float %57, float %55)
+  %59 = load float, ptr %a4.i36, align 4
+  %add.i = fadd float %58, %59
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add.i, i64 0
-  %16 = load float, ptr %b1.i, align 4
-  %17 = load float, ptr %b2.i, align 4
-  %mul5.i = fmul float %10, %17
-  %18 = tail call float @llvm.fmuladd.f32(float %16, float %8, float %mul5.i)
-  %19 = load float, ptr %b3.i, align 4
-  %20 = tail call float @llvm.fmuladd.f32(float %19, float %13, float %18)
-  %21 = load float, ptr %b4.i, align 4
-  %add7.i = fadd float %21, %20
+  %60 = load float, ptr %b1.i37, align 4
+  %61 = load float, ptr %b2.i38, align 4
+  %mul5.i = fmul float %54, %61
+  %62 = tail call float @llvm.fmuladd.f32(float %60, float %52, float %mul5.i)
+  %63 = load float, ptr %b3.i39, align 4
+  %64 = tail call float @llvm.fmuladd.f32(float %63, float %57, float %62)
+  %65 = load float, ptr %b4.i40, align 4
+  %add7.i = fadd float %65, %64
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %add7.i, i64 1
-  %22 = load float, ptr %c1.i, align 4
-  %23 = load float, ptr %c2.i, align 4
-  %mul11.i = fmul float %10, %23
-  %24 = tail call float @llvm.fmuladd.f32(float %22, float %8, float %mul11.i)
-  %25 = load float, ptr %c3.i, align 4
-  %26 = tail call float @llvm.fmuladd.f32(float %25, float %13, float %24)
-  %27 = load float, ptr %c4.i, align 4
-  %add13.i = fadd float %27, %26
+  %66 = load float, ptr %c1.i41, align 4
+  %67 = load float, ptr %c2.i42, align 4
+  %mul11.i = fmul float %54, %67
+  %68 = tail call float @llvm.fmuladd.f32(float %66, float %52, float %mul11.i)
+  %69 = load float, ptr %c3.i43, align 4
+  %70 = tail call float @llvm.fmuladd.f32(float %69, float %57, float %68)
+  %71 = load float, ptr %c4.i44, align 4
+  %add13.i = fadd float %71, %70
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %arrayidx, align 4
   store float %add13.i, ptr %z.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %mNumVertices.i, align 4
-  %29 = zext i32 %28 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %29
+  %72 = load i32, ptr %mNumVertices.i, align 4
+  %73 = zext i32 %72 to i64
+  %cmp8 = icmp ult i64 %indvars.iv.next, %73
   br i1 %cmp8, label %for.body, label %if.end13, !llvm.loop !19
 
 if.end13:                                         ; preds = %for.body, %if.end5
-  %30 = phi i32 [ %4, %if.end5 ], [ %28, %for.body ]
+  %74 = phi i32 [ %48, %if.end5 ], [ %72, %for.body ]
   %mNormals.i = getelementptr inbounds i8, ptr %mesh, i64 24
-  %31 = load ptr, ptr %mNormals.i, align 8
-  %cmp.not.i34 = icmp ne ptr %31, null
-  %cmp2.i36 = icmp ne i32 %30, 0
-  %32 = select i1 %cmp.not.i34, i1 %cmp2.i36, i1 false
-  br i1 %32, label %if.then16, label %lor.lhs.false
+  %75 = load ptr, ptr %mNormals.i, align 8
+  %cmp.not.i45 = icmp ne ptr %75, null
+  %cmp2.i47 = icmp ne i32 %74, 0
+  %76 = select i1 %cmp.not.i45, i1 %cmp2.i47, i1 false
+  br i1 %76, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
   %mTangents.i = getelementptr inbounds i8, ptr %mesh, i64 32
-  %33 = load ptr, ptr %mTangents.i, align 8
-  %cmp.not.i37 = icmp ne ptr %33, null
+  %77 = load ptr, ptr %mTangents.i, align 8
+  %cmp.not.i48 = icmp ne ptr %77, null
   %mBitangents.i = getelementptr inbounds i8, ptr %mesh, i64 40
-  %34 = load ptr, ptr %mBitangents.i, align 8
-  %cmp2.not.i = icmp ne ptr %34, null
-  %or.cond.i.not170 = select i1 %cmp.not.i37, i1 %cmp2.not.i, i1 false
-  %brmerge.not = select i1 %or.cond.i.not170, i1 %cmp2.i36, i1 false
+  %78 = load ptr, ptr %mBitangents.i, align 8
+  %cmp2.not.i = icmp ne ptr %78, null
+  %or.cond.i.not186 = select i1 %cmp.not.i48, i1 %cmp2.not.i, i1 false
+  %brmerge.not = select i1 %or.cond.i.not186, i1 %cmp2.i47, i1 false
   br i1 %brmerge.not, label %if.then16, label %if.end69
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end13
-  %35 = load float, ptr %mat, align 4
-  %a2.i39 = getelementptr inbounds i8, ptr %mat, i64 4
-  %36 = load float, ptr %a2.i39, align 4
-  %a3.i40 = getelementptr inbounds i8, ptr %mat, i64 8
-  %37 = load float, ptr %a3.i40, align 4
-  %b1.i41 = getelementptr inbounds i8, ptr %mat, i64 16
-  %38 = load float, ptr %b1.i41, align 4
-  %b2.i42 = getelementptr inbounds i8, ptr %mat, i64 20
-  %39 = load float, ptr %b2.i42, align 4
-  %b3.i43 = getelementptr inbounds i8, ptr %mat, i64 24
-  %40 = load float, ptr %b3.i43, align 4
-  %c1.i44 = getelementptr inbounds i8, ptr %mat, i64 32
-  %41 = load float, ptr %c1.i44, align 4
-  %c2.i45 = getelementptr inbounds i8, ptr %mat, i64 36
-  %42 = load float, ptr %c2.i45, align 4
-  %c3.i46 = getelementptr inbounds i8, ptr %mat, i64 40
-  %43 = load float, ptr %c3.i46, align 4
-  %mul.i.i = fmul float %35, %39
-  %44 = fneg float %35
-  %45 = fmul float %40, %44
-  %neg.i.i = fmul float %45, %42
-  %46 = tail call float @llvm.fmuladd.f32(float %mul.i.i, float %43, float %neg.i.i)
-  %mul7.i.i = fmul float %36, %40
-  %47 = tail call float @llvm.fmuladd.f32(float %mul7.i.i, float %41, float %46)
-  %48 = fneg float %36
-  %neg13.i.i = fmul float %38, %48
-  %49 = tail call float @llvm.fmuladd.f32(float %neg13.i.i, float %43, float %47)
-  %mul15.i.i = fmul float %37, %38
-  %50 = tail call float @llvm.fmuladd.f32(float %mul15.i.i, float %42, float %49)
-  %51 = fneg float %37
-  %neg23.i.i = fmul float %39, %51
-  %52 = tail call noundef float @llvm.fmuladd.f32(float %neg23.i.i, float %41, float %50)
-  %cmp.i = fcmp oeq float %52, 0.000000e+00
+  %79 = load float, ptr %mat, align 4
+  %a2.i50 = getelementptr inbounds i8, ptr %mat, i64 4
+  %80 = load float, ptr %a2.i50, align 4
+  %a3.i51 = getelementptr inbounds i8, ptr %mat, i64 8
+  %81 = load float, ptr %a3.i51, align 4
+  %b1.i52 = getelementptr inbounds i8, ptr %mat, i64 16
+  %82 = load float, ptr %b1.i52, align 4
+  %b2.i53 = getelementptr inbounds i8, ptr %mat, i64 20
+  %83 = load float, ptr %b2.i53, align 4
+  %b3.i54 = getelementptr inbounds i8, ptr %mat, i64 24
+  %84 = load float, ptr %b3.i54, align 4
+  %c1.i55 = getelementptr inbounds i8, ptr %mat, i64 32
+  %85 = load float, ptr %c1.i55, align 4
+  %c2.i56 = getelementptr inbounds i8, ptr %mat, i64 36
+  %86 = load float, ptr %c2.i56, align 4
+  %c3.i57 = getelementptr inbounds i8, ptr %mat, i64 40
+  %87 = load float, ptr %c3.i57, align 4
+  %mul.i.i = fmul float %79, %83
+  %mul4.i.i = fmul float %79, %84
+  %88 = fneg float %86
+  %neg.i.i = fmul float %mul4.i.i, %88
+  %89 = tail call float @llvm.fmuladd.f32(float %mul.i.i, float %87, float %neg.i.i)
+  %mul7.i.i = fmul float %80, %84
+  %90 = tail call float @llvm.fmuladd.f32(float %mul7.i.i, float %85, float %89)
+  %91 = fneg float %82
+  %neg13.i.i = fmul float %80, %91
+  %92 = tail call float @llvm.fmuladd.f32(float %neg13.i.i, float %87, float %90)
+  %mul15.i.i = fmul float %81, %82
+  %93 = tail call float @llvm.fmuladd.f32(float %mul15.i.i, float %86, float %92)
+  %94 = fneg float %83
+  %neg23.i.i = fmul float %81, %94
+  %95 = tail call noundef float @llvm.fmuladd.f32(float %neg23.i.i, float %85, float %93)
+  %cmp.i = fcmp oeq float %95, 0.000000e+00
   br i1 %cmp.i, label %_ZN12aiMatrix3x3tIfE7InverseEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then16
-  %div.i = fdiv float 1.000000e+00, %52
-  %53 = fneg float %40
-  %neg.i = fmul float %42, %53
-  %54 = tail call float @llvm.fmuladd.f32(float %39, float %43, float %neg.i)
-  %mul.i = fmul float %54, %div.i
+  %div.i = fdiv float 1.000000e+00, %95
+  %neg.i58 = fmul float %84, %88
+  %96 = tail call float @llvm.fmuladd.f32(float %83, float %87, float %neg.i58)
+  %mul.i59 = fmul float %96, %div.i
   %fneg.i = fneg float %div.i
-  %neg8.i = fmul float %42, %51
-  %55 = tail call float @llvm.fmuladd.f32(float %36, float %43, float %neg8.i)
-  %mul9.i = fmul float %55, %fneg.i
-  %56 = tail call float @llvm.fmuladd.f32(float %36, float %40, float %neg23.i.i)
-  %mul18.i = fmul float %56, %div.i
-  %neg25.i = fmul float %41, %53
-  %57 = tail call float @llvm.fmuladd.f32(float %38, float %43, float %neg25.i)
-  %mul26.i = fmul float %57, %fneg.i
-  %neg34.i = fmul float %41, %51
-  %58 = tail call float @llvm.fmuladd.f32(float %35, float %43, float %neg34.i)
-  %mul35.i = fmul float %58, %div.i
-  %neg44.i = fmul float %38, %51
-  %59 = tail call float @llvm.fmuladd.f32(float %35, float %40, float %neg44.i)
-  %mul45.i = fmul float %59, %fneg.i
-  %60 = fneg float %39
-  %neg53.i = fmul float %41, %60
-  %61 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %neg53.i)
-  %mul54.i = fmul float %61, %div.i
-  %neg63.i = fmul float %41, %48
-  %62 = tail call float @llvm.fmuladd.f32(float %35, float %42, float %neg63.i)
-  %mul64.i = fmul float %62, %fneg.i
-  %63 = tail call float @llvm.fmuladd.f32(float %35, float %39, float %neg13.i.i)
-  %mul73.i = fmul float %63, %div.i
+  %neg8.i = fmul float %81, %88
+  %97 = tail call float @llvm.fmuladd.f32(float %80, float %87, float %neg8.i)
+  %mul9.i = fmul float %97, %fneg.i
+  %98 = tail call float @llvm.fmuladd.f32(float %80, float %84, float %neg23.i.i)
+  %mul18.i = fmul float %98, %div.i
+  %99 = fneg float %85
+  %neg25.i = fmul float %84, %99
+  %100 = tail call float @llvm.fmuladd.f32(float %82, float %87, float %neg25.i)
+  %mul26.i = fmul float %100, %fneg.i
+  %neg34.i60 = fmul float %81, %99
+  %101 = tail call float @llvm.fmuladd.f32(float %79, float %87, float %neg34.i60)
+  %mul35.i = fmul float %101, %div.i
+  %neg44.i = fmul float %81, %91
+  %102 = tail call float @llvm.fmuladd.f32(float %79, float %84, float %neg44.i)
+  %mul45.i = fmul float %102, %fneg.i
+  %neg53.i = fmul float %83, %99
+  %103 = tail call float @llvm.fmuladd.f32(float %82, float %86, float %neg53.i)
+  %mul54.i = fmul float %103, %div.i
+  %neg63.i = fmul float %80, %99
+  %104 = tail call float @llvm.fmuladd.f32(float %79, float %86, float %neg63.i)
+  %mul64.i = fmul float %104, %fneg.i
+  %105 = tail call float @llvm.fmuladd.f32(float %79, float %83, float %neg13.i.i)
+  %mul73.i61 = fmul float %105, %div.i
   br label %_ZN12aiMatrix3x3tIfE7InverseEv.exit
 
 _ZN12aiMatrix3x3tIfE7InverseEv.exit:              ; preds = %if.then16, %if.end.i
-  %storemerge33.i = phi float [ %mul.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
+  %storemerge33.i = phi float [ %mul.i59, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
   %storemerge32.i = phi float [ %mul9.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
   %storemerge31.i = phi float [ %mul18.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
   %storemerge30.i = phi float [ %mul26.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
@@ -1743,266 +1876,157 @@ _ZN12aiMatrix3x3tIfE7InverseEv.exit:              ; preds = %if.then16, %if.end.
   %storemerge28.i = phi float [ %mul45.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
   %storemerge27.i = phi float [ %mul54.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
   %storemerge26.i = phi float [ %mul64.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
-  %storemerge.i = phi float [ %mul73.i, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
-  br i1 %32, label %for.body26, label %if.end39
+  %storemerge.i = phi float [ %mul73.i61, %if.end.i ], [ 0x7FF8000000000000, %if.then16 ]
+  br i1 %76, label %for.body26, label %if.end39
 
 for.body26:                                       ; preds = %_ZN12aiMatrix3x3tIfE7InverseEv.exit, %_ZN10aiVector3tIfE9NormalizeEv.exit
-  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ 0, %_ZN12aiMatrix3x3tIfE7InverseEv.exit ]
-  %64 = load ptr, ptr %mNormals.i, align 8
-  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %64, i64 %indvars.iv178
-  %65 = load float, ptr %arrayidx29, align 4
-  %y.i58 = getelementptr inbounds i8, ptr %arrayidx29, i64 4
-  %66 = load float, ptr %y.i58, align 4
-  %mul1.i59 = fmul float %storemerge30.i, %66
-  %67 = tail call float @llvm.fmuladd.f32(float %storemerge33.i, float %65, float %mul1.i59)
-  %z.i61 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
-  %68 = load float, ptr %z.i61, align 4
-  %69 = tail call float @llvm.fmuladd.f32(float %storemerge27.i, float %68, float %67)
-  %retval.sroa.0.0.vec.insert.i62 = insertelement <2 x float> poison, float %69, i64 0
-  %mul5.i65 = fmul float %storemerge29.i, %66
-  %70 = tail call float @llvm.fmuladd.f32(float %storemerge32.i, float %65, float %mul5.i65)
-  %71 = tail call float @llvm.fmuladd.f32(float %storemerge26.i, float %68, float %70)
-  %retval.sroa.0.4.vec.insert.i67 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i62, float %71, i64 1
-  %mul10.i = fmul float %storemerge28.i, %66
-  %72 = tail call float @llvm.fmuladd.f32(float %storemerge31.i, float %65, float %mul10.i)
-  %73 = tail call float @llvm.fmuladd.f32(float %storemerge.i, float %68, float %72)
-  %mul4.i.i.i = fmul float %71, %71
-  %74 = tail call float @llvm.fmuladd.f32(float %69, float %69, float %mul4.i.i.i)
-  %75 = tail call noundef float @llvm.fmuladd.f32(float %73, float %73, float %74)
-  %cmp.i73 = fcmp oeq float %75, 0.000000e+00
-  br i1 %cmp.i73, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
+  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ 0, %_ZN12aiMatrix3x3tIfE7InverseEv.exit ]
+  %106 = load ptr, ptr %mNormals.i, align 8
+  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %106, i64 %indvars.iv194
+  %107 = load float, ptr %arrayidx29, align 4
+  %y.i73 = getelementptr inbounds i8, ptr %arrayidx29, i64 4
+  %108 = load float, ptr %y.i73, align 4
+  %mul1.i74 = fmul float %storemerge30.i, %108
+  %109 = tail call float @llvm.fmuladd.f32(float %storemerge33.i, float %107, float %mul1.i74)
+  %z.i76 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
+  %110 = load float, ptr %z.i76, align 4
+  %111 = tail call float @llvm.fmuladd.f32(float %storemerge27.i, float %110, float %109)
+  %retval.sroa.0.0.vec.insert.i77 = insertelement <2 x float> poison, float %111, i64 0
+  %mul5.i80 = fmul float %storemerge29.i, %108
+  %112 = tail call float @llvm.fmuladd.f32(float %storemerge32.i, float %107, float %mul5.i80)
+  %113 = tail call float @llvm.fmuladd.f32(float %storemerge26.i, float %110, float %112)
+  %retval.sroa.0.4.vec.insert.i82 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i77, float %113, i64 1
+  %mul10.i85 = fmul float %storemerge28.i, %108
+  %114 = tail call float @llvm.fmuladd.f32(float %storemerge31.i, float %107, float %mul10.i85)
+  %115 = tail call float @llvm.fmuladd.f32(float %storemerge.i, float %110, float %114)
+  %mul4.i.i.i = fmul float %113, %113
+  %116 = tail call float @llvm.fmuladd.f32(float %111, float %111, float %mul4.i.i.i)
+  %117 = tail call noundef float @llvm.fmuladd.f32(float %115, float %115, float %116)
+  %cmp.i89 = fcmp oeq float %117, 0.000000e+00
+  br i1 %cmp.i89, label %_ZN10aiVector3tIfE9NormalizeEv.exit, label %_ZN10aiVector3tIfEdVEf.exit.i
 
 _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %for.body26
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %75)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %117)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
-  %mul.i.i74 = fmul float %69, %div.i.i
-  %ref.tmp27.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i.i74, i64 0
-  %mul2.i.i = fmul float %71, %div.i.i
+  %mul.i.i90 = fmul float %111, %div.i.i
+  %ref.tmp27.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i.i90, i64 0
+  %mul2.i.i = fmul float %113, %div.i.i
   %ref.tmp27.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp27.sroa.0.0.vec.insert, float %mul2.i.i, i64 1
-  %mul3.i.i = fmul float %73, %div.i.i
+  %mul3.i.i = fmul float %115, %div.i.i
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit
 
 _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %for.body26, %_ZN10aiVector3tIfEdVEf.exit.i
-  %ref.tmp27.sroa.6.0 = phi float [ %73, %for.body26 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
-  %ref.tmp27.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i67, %for.body26 ], [ %ref.tmp27.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %ref.tmp27.sroa.6.0 = phi float [ %115, %for.body26 ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %ref.tmp27.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i82, %for.body26 ], [ %ref.tmp27.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i ]
   store <2 x float> %ref.tmp27.sroa.0.0, ptr %arrayidx29, align 4
-  store float %ref.tmp27.sroa.6.0, ptr %z.i61, align 4
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %76 = load i32, ptr %mNumVertices.i, align 4
-  %77 = zext i32 %76 to i64
-  %cmp25 = icmp ult i64 %indvars.iv.next179, %77
+  store float %ref.tmp27.sroa.6.0, ptr %z.i76, align 4
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %118 = load i32, ptr %mNumVertices.i, align 4
+  %119 = zext i32 %118 to i64
+  %cmp25 = icmp ult i64 %indvars.iv.next195, %119
   br i1 %cmp25, label %for.body26, label %if.end39, !llvm.loop !20
 
 if.end39:                                         ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %_ZN12aiMatrix3x3tIfE7InverseEv.exit
-  %78 = phi i32 [ %30, %_ZN12aiMatrix3x3tIfE7InverseEv.exit ], [ %76, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
-  %mTangents.i75 = getelementptr inbounds i8, ptr %mesh, i64 32
-  %79 = load ptr, ptr %mTangents.i75, align 8
-  %cmp.not.i76 = icmp eq ptr %79, null
-  %mBitangents.i77 = getelementptr inbounds i8, ptr %mesh, i64 40
-  %80 = load ptr, ptr %mBitangents.i77, align 8
-  %cmp2.not.i78 = icmp eq ptr %80, null
-  %or.cond.i79 = select i1 %cmp.not.i76, i1 true, i1 %cmp2.not.i78
-  %cmp3.i82.not = icmp eq i32 %78, 0
-  %or.cond = select i1 %or.cond.i79, i1 true, i1 %cmp3.i82.not
+  %120 = phi i32 [ %74, %_ZN12aiMatrix3x3tIfE7InverseEv.exit ], [ %118, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
+  %mTangents.i91 = getelementptr inbounds i8, ptr %mesh, i64 32
+  %121 = load ptr, ptr %mTangents.i91, align 8
+  %cmp.not.i92 = icmp eq ptr %121, null
+  %mBitangents.i93 = getelementptr inbounds i8, ptr %mesh, i64 40
+  %122 = load ptr, ptr %mBitangents.i93, align 8
+  %cmp2.not.i94 = icmp eq ptr %122, null
+  %or.cond.i95 = select i1 %cmp.not.i92, i1 true, i1 %cmp2.not.i94
+  %cmp3.i98.not = icmp eq i32 %120, 0
+  %or.cond = select i1 %or.cond.i95, i1 true, i1 %cmp3.i98.not
   br i1 %or.cond, label %if.end69, label %for.body46
 
-for.body46:                                       ; preds = %if.end39, %_ZN10aiVector3tIfE9NormalizeEv.exit139
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %_ZN10aiVector3tIfE9NormalizeEv.exit139 ], [ 0, %if.end39 ]
-  %81 = load ptr, ptr %mTangents.i75, align 8
-  %arrayidx49 = getelementptr inbounds %class.aiVector3t, ptr %81, i64 %indvars.iv181
-  %82 = load float, ptr %arrayidx49, align 4
-  %y.i85 = getelementptr inbounds i8, ptr %arrayidx49, i64 4
-  %83 = load float, ptr %y.i85, align 4
-  %mul1.i86 = fmul float %storemerge30.i, %83
-  %84 = tail call float @llvm.fmuladd.f32(float %storemerge33.i, float %82, float %mul1.i86)
-  %z.i88 = getelementptr inbounds i8, ptr %arrayidx49, i64 8
-  %85 = load float, ptr %z.i88, align 4
-  %86 = tail call float @llvm.fmuladd.f32(float %storemerge27.i, float %85, float %84)
-  %retval.sroa.0.0.vec.insert.i89 = insertelement <2 x float> poison, float %86, i64 0
-  %mul5.i92 = fmul float %storemerge29.i, %83
-  %87 = tail call float @llvm.fmuladd.f32(float %storemerge32.i, float %82, float %mul5.i92)
-  %88 = tail call float @llvm.fmuladd.f32(float %storemerge26.i, float %85, float %87)
-  %retval.sroa.0.4.vec.insert.i94 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i89, float %88, i64 1
-  %mul10.i97 = fmul float %storemerge28.i, %83
-  %89 = tail call float @llvm.fmuladd.f32(float %storemerge31.i, float %82, float %mul10.i97)
-  %90 = tail call float @llvm.fmuladd.f32(float %storemerge.i, float %85, float %89)
-  %mul4.i.i.i102 = fmul float %88, %88
-  %91 = tail call float @llvm.fmuladd.f32(float %86, float %86, float %mul4.i.i.i102)
-  %92 = tail call noundef float @llvm.fmuladd.f32(float %90, float %90, float %91)
-  %cmp.i104 = fcmp oeq float %92, 0.000000e+00
-  br i1 %cmp.i104, label %_ZN10aiVector3tIfE9NormalizeEv.exit111, label %_ZN10aiVector3tIfEdVEf.exit.i105
+for.body46:                                       ; preds = %if.end39, %_ZN10aiVector3tIfE9NormalizeEv.exit155
+  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %_ZN10aiVector3tIfE9NormalizeEv.exit155 ], [ 0, %if.end39 ]
+  %123 = load ptr, ptr %mTangents.i91, align 8
+  %arrayidx49 = getelementptr inbounds %class.aiVector3t, ptr %123, i64 %indvars.iv197
+  %124 = load float, ptr %arrayidx49, align 4
+  %y.i101 = getelementptr inbounds i8, ptr %arrayidx49, i64 4
+  %125 = load float, ptr %y.i101, align 4
+  %mul1.i102 = fmul float %storemerge30.i, %125
+  %126 = tail call float @llvm.fmuladd.f32(float %storemerge33.i, float %124, float %mul1.i102)
+  %z.i104 = getelementptr inbounds i8, ptr %arrayidx49, i64 8
+  %127 = load float, ptr %z.i104, align 4
+  %128 = tail call float @llvm.fmuladd.f32(float %storemerge27.i, float %127, float %126)
+  %retval.sroa.0.0.vec.insert.i105 = insertelement <2 x float> poison, float %128, i64 0
+  %mul5.i108 = fmul float %storemerge29.i, %125
+  %129 = tail call float @llvm.fmuladd.f32(float %storemerge32.i, float %124, float %mul5.i108)
+  %130 = tail call float @llvm.fmuladd.f32(float %storemerge26.i, float %127, float %129)
+  %retval.sroa.0.4.vec.insert.i110 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i105, float %130, i64 1
+  %mul10.i113 = fmul float %storemerge28.i, %125
+  %131 = tail call float @llvm.fmuladd.f32(float %storemerge31.i, float %124, float %mul10.i113)
+  %132 = tail call float @llvm.fmuladd.f32(float %storemerge.i, float %127, float %131)
+  %mul4.i.i.i118 = fmul float %130, %130
+  %133 = tail call float @llvm.fmuladd.f32(float %128, float %128, float %mul4.i.i.i118)
+  %134 = tail call noundef float @llvm.fmuladd.f32(float %132, float %132, float %133)
+  %cmp.i120 = fcmp oeq float %134, 0.000000e+00
+  br i1 %cmp.i120, label %_ZN10aiVector3tIfE9NormalizeEv.exit127, label %_ZN10aiVector3tIfEdVEf.exit.i121
 
-_ZN10aiVector3tIfEdVEf.exit.i105:                 ; preds = %for.body46
-  %sqrt.i.i106 = tail call noundef float @llvm.sqrt.f32(float %92)
-  %div.i.i107 = fdiv float 1.000000e+00, %sqrt.i.i106
-  %mul.i.i108 = fmul float %86, %div.i.i107
-  %ref.tmp47.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i.i108, i64 0
-  %mul2.i.i109 = fmul float %88, %div.i.i107
-  %ref.tmp47.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp47.sroa.0.0.vec.insert, float %mul2.i.i109, i64 1
-  %mul3.i.i110 = fmul float %90, %div.i.i107
-  br label %_ZN10aiVector3tIfE9NormalizeEv.exit111
+_ZN10aiVector3tIfEdVEf.exit.i121:                 ; preds = %for.body46
+  %sqrt.i.i122 = tail call noundef float @llvm.sqrt.f32(float %134)
+  %div.i.i123 = fdiv float 1.000000e+00, %sqrt.i.i122
+  %mul.i.i124 = fmul float %128, %div.i.i123
+  %ref.tmp47.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i.i124, i64 0
+  %mul2.i.i125 = fmul float %130, %div.i.i123
+  %ref.tmp47.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp47.sroa.0.0.vec.insert, float %mul2.i.i125, i64 1
+  %mul3.i.i126 = fmul float %132, %div.i.i123
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit127
 
-_ZN10aiVector3tIfE9NormalizeEv.exit111:           ; preds = %for.body46, %_ZN10aiVector3tIfEdVEf.exit.i105
-  %ref.tmp47.sroa.6.0 = phi float [ %90, %for.body46 ], [ %mul3.i.i110, %_ZN10aiVector3tIfEdVEf.exit.i105 ]
-  %ref.tmp47.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i94, %for.body46 ], [ %ref.tmp47.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i105 ]
+_ZN10aiVector3tIfE9NormalizeEv.exit127:           ; preds = %for.body46, %_ZN10aiVector3tIfEdVEf.exit.i121
+  %ref.tmp47.sroa.6.0 = phi float [ %132, %for.body46 ], [ %mul3.i.i126, %_ZN10aiVector3tIfEdVEf.exit.i121 ]
+  %ref.tmp47.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i110, %for.body46 ], [ %ref.tmp47.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i121 ]
   store <2 x float> %ref.tmp47.sroa.0.0, ptr %arrayidx49, align 4
-  store float %ref.tmp47.sroa.6.0, ptr %z.i88, align 4
-  %93 = load ptr, ptr %mBitangents.i77, align 8
-  %arrayidx58 = getelementptr inbounds %class.aiVector3t, ptr %93, i64 %indvars.iv181
-  %94 = load float, ptr %arrayidx58, align 4
-  %y.i113 = getelementptr inbounds i8, ptr %arrayidx58, i64 4
-  %95 = load float, ptr %y.i113, align 4
-  %mul1.i114 = fmul float %storemerge30.i, %95
-  %96 = tail call float @llvm.fmuladd.f32(float %storemerge33.i, float %94, float %mul1.i114)
-  %z.i116 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
-  %97 = load float, ptr %z.i116, align 4
-  %98 = tail call float @llvm.fmuladd.f32(float %storemerge27.i, float %97, float %96)
-  %retval.sroa.0.0.vec.insert.i117 = insertelement <2 x float> poison, float %98, i64 0
-  %mul5.i120 = fmul float %storemerge29.i, %95
-  %99 = tail call float @llvm.fmuladd.f32(float %storemerge32.i, float %94, float %mul5.i120)
-  %100 = tail call float @llvm.fmuladd.f32(float %storemerge26.i, float %97, float %99)
-  %retval.sroa.0.4.vec.insert.i122 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i117, float %100, i64 1
-  %mul10.i125 = fmul float %storemerge28.i, %95
-  %101 = tail call float @llvm.fmuladd.f32(float %storemerge31.i, float %94, float %mul10.i125)
-  %102 = tail call float @llvm.fmuladd.f32(float %storemerge.i, float %97, float %101)
-  %mul4.i.i.i130 = fmul float %100, %100
-  %103 = tail call float @llvm.fmuladd.f32(float %98, float %98, float %mul4.i.i.i130)
-  %104 = tail call noundef float @llvm.fmuladd.f32(float %102, float %102, float %103)
-  %cmp.i132 = fcmp oeq float %104, 0.000000e+00
-  br i1 %cmp.i132, label %_ZN10aiVector3tIfE9NormalizeEv.exit139, label %_ZN10aiVector3tIfEdVEf.exit.i133
+  store float %ref.tmp47.sroa.6.0, ptr %z.i104, align 4
+  %135 = load ptr, ptr %mBitangents.i93, align 8
+  %arrayidx58 = getelementptr inbounds %class.aiVector3t, ptr %135, i64 %indvars.iv197
+  %136 = load float, ptr %arrayidx58, align 4
+  %y.i129 = getelementptr inbounds i8, ptr %arrayidx58, i64 4
+  %137 = load float, ptr %y.i129, align 4
+  %mul1.i130 = fmul float %storemerge30.i, %137
+  %138 = tail call float @llvm.fmuladd.f32(float %storemerge33.i, float %136, float %mul1.i130)
+  %z.i132 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
+  %139 = load float, ptr %z.i132, align 4
+  %140 = tail call float @llvm.fmuladd.f32(float %storemerge27.i, float %139, float %138)
+  %retval.sroa.0.0.vec.insert.i133 = insertelement <2 x float> poison, float %140, i64 0
+  %mul5.i136 = fmul float %storemerge29.i, %137
+  %141 = tail call float @llvm.fmuladd.f32(float %storemerge32.i, float %136, float %mul5.i136)
+  %142 = tail call float @llvm.fmuladd.f32(float %storemerge26.i, float %139, float %141)
+  %retval.sroa.0.4.vec.insert.i138 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i133, float %142, i64 1
+  %mul10.i141 = fmul float %storemerge28.i, %137
+  %143 = tail call float @llvm.fmuladd.f32(float %storemerge31.i, float %136, float %mul10.i141)
+  %144 = tail call float @llvm.fmuladd.f32(float %storemerge.i, float %139, float %143)
+  %mul4.i.i.i146 = fmul float %142, %142
+  %145 = tail call float @llvm.fmuladd.f32(float %140, float %140, float %mul4.i.i.i146)
+  %146 = tail call noundef float @llvm.fmuladd.f32(float %144, float %144, float %145)
+  %cmp.i148 = fcmp oeq float %146, 0.000000e+00
+  br i1 %cmp.i148, label %_ZN10aiVector3tIfE9NormalizeEv.exit155, label %_ZN10aiVector3tIfEdVEf.exit.i149
 
-_ZN10aiVector3tIfEdVEf.exit.i133:                 ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit111
-  %sqrt.i.i134 = tail call noundef float @llvm.sqrt.f32(float %104)
-  %div.i.i135 = fdiv float 1.000000e+00, %sqrt.i.i134
-  %mul.i.i136 = fmul float %98, %div.i.i135
-  %ref.tmp56.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i.i136, i64 0
-  %mul2.i.i137 = fmul float %100, %div.i.i135
-  %ref.tmp56.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp56.sroa.0.0.vec.insert, float %mul2.i.i137, i64 1
-  %mul3.i.i138 = fmul float %102, %div.i.i135
-  br label %_ZN10aiVector3tIfE9NormalizeEv.exit139
+_ZN10aiVector3tIfEdVEf.exit.i149:                 ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit127
+  %sqrt.i.i150 = tail call noundef float @llvm.sqrt.f32(float %146)
+  %div.i.i151 = fdiv float 1.000000e+00, %sqrt.i.i150
+  %mul.i.i152 = fmul float %140, %div.i.i151
+  %ref.tmp56.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul.i.i152, i64 0
+  %mul2.i.i153 = fmul float %142, %div.i.i151
+  %ref.tmp56.sroa.0.4.vec.insert = insertelement <2 x float> %ref.tmp56.sroa.0.0.vec.insert, float %mul2.i.i153, i64 1
+  %mul3.i.i154 = fmul float %144, %div.i.i151
+  br label %_ZN10aiVector3tIfE9NormalizeEv.exit155
 
-_ZN10aiVector3tIfE9NormalizeEv.exit139:           ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit111, %_ZN10aiVector3tIfEdVEf.exit.i133
-  %ref.tmp56.sroa.6.0 = phi float [ %102, %_ZN10aiVector3tIfE9NormalizeEv.exit111 ], [ %mul3.i.i138, %_ZN10aiVector3tIfEdVEf.exit.i133 ]
-  %ref.tmp56.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i122, %_ZN10aiVector3tIfE9NormalizeEv.exit111 ], [ %ref.tmp56.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i133 ]
+_ZN10aiVector3tIfE9NormalizeEv.exit155:           ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit127, %_ZN10aiVector3tIfEdVEf.exit.i149
+  %ref.tmp56.sroa.6.0 = phi float [ %144, %_ZN10aiVector3tIfE9NormalizeEv.exit127 ], [ %mul3.i.i154, %_ZN10aiVector3tIfEdVEf.exit.i149 ]
+  %ref.tmp56.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i138, %_ZN10aiVector3tIfE9NormalizeEv.exit127 ], [ %ref.tmp56.sroa.0.4.vec.insert, %_ZN10aiVector3tIfEdVEf.exit.i149 ]
   store <2 x float> %ref.tmp56.sroa.0.0, ptr %arrayidx58, align 4
-  store float %ref.tmp56.sroa.6.0, ptr %z.i116, align 4
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %105 = load i32, ptr %mNumVertices.i, align 4
-  %106 = zext i32 %105 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next182, %106
+  store float %ref.tmp56.sroa.6.0, ptr %z.i132, align 4
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
+  %147 = load i32, ptr %mNumVertices.i, align 4
+  %148 = zext i32 %147 to i64
+  %cmp45 = icmp ult i64 %indvars.iv.next198, %148
   br i1 %cmp45, label %for.body46, label %if.end69, !llvm.loop !21
 
-if.end69:                                         ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit139, %lor.lhs.false, %if.end39, %entry
+if.end69:                                         ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit155, %lor.lhs.false, %if.end39, %entry
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef float @_ZNK12aiMatrix4x4tIfE11DeterminantEv(ptr noundef nonnull align 4 dereferenceable(64) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load float, ptr %this, align 4
-  %b2 = getelementptr inbounds i8, ptr %this, i64 20
-  %1 = load float, ptr %b2, align 4
-  %mul = fmul float %0, %1
-  %c3 = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load float, ptr %c3, align 4
-  %mul2 = fmul float %mul, %2
-  %d4 = getelementptr inbounds i8, ptr %this, i64 60
-  %3 = load float, ptr %d4, align 4
-  %c4 = getelementptr inbounds i8, ptr %this, i64 44
-  %4 = load float, ptr %c4, align 4
-  %d3 = getelementptr inbounds i8, ptr %this, i64 56
-  %5 = load float, ptr %d3, align 4
-  %6 = fneg float %mul
-  %7 = fmul float %4, %6
-  %neg = fmul float %7, %5
-  %8 = tail call float @llvm.fmuladd.f32(float %mul2, float %3, float %neg)
-  %b3 = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load float, ptr %b3, align 4
-  %mul10 = fmul float %0, %9
-  %mul12 = fmul float %4, %mul10
-  %d2 = getelementptr inbounds i8, ptr %this, i64 52
-  %10 = load float, ptr %d2, align 4
-  %11 = tail call float @llvm.fmuladd.f32(float %mul12, float %10, float %8)
-  %c2 = getelementptr inbounds i8, ptr %this, i64 36
-  %12 = load float, ptr %c2, align 4
-  %13 = fneg float %mul10
-  %neg20 = fmul float %12, %13
-  %14 = tail call float @llvm.fmuladd.f32(float %neg20, float %3, float %11)
-  %b4 = getelementptr inbounds i8, ptr %this, i64 28
-  %15 = load float, ptr %b4, align 4
-  %mul22 = fmul float %0, %15
-  %mul24 = fmul float %12, %mul22
-  %16 = tail call float @llvm.fmuladd.f32(float %mul24, float %5, float %14)
-  %17 = fneg float %mul22
-  %neg34 = fmul float %2, %17
-  %18 = tail call float @llvm.fmuladd.f32(float %neg34, float %10, float %16)
-  %a2 = getelementptr inbounds i8, ptr %this, i64 4
-  %19 = load float, ptr %a2, align 4
-  %mul36 = fmul float %9, %19
-  %d1 = getelementptr inbounds i8, ptr %this, i64 48
-  %20 = load float, ptr %d1, align 4
-  %21 = fneg float %mul36
-  %neg40 = fmul float %4, %21
-  %22 = tail call float @llvm.fmuladd.f32(float %neg40, float %20, float %18)
-  %c1 = getelementptr inbounds i8, ptr %this, i64 32
-  %23 = load float, ptr %c1, align 4
-  %mul44 = fmul float %mul36, %23
-  %24 = tail call float @llvm.fmuladd.f32(float %mul44, float %3, float %22)
-  %mul49 = fmul float %15, %19
-  %25 = fneg float %mul49
-  %neg54 = fmul float %23, %25
-  %26 = tail call float @llvm.fmuladd.f32(float %neg54, float %5, float %24)
-  %mul59 = fmul float %2, %mul49
-  %27 = tail call float @llvm.fmuladd.f32(float %mul59, float %20, float %26)
-  %b1 = getelementptr inbounds i8, ptr %this, i64 16
-  %28 = load float, ptr %b1, align 4
-  %mul63 = fmul float %19, %28
-  %29 = fneg float %mul63
-  %neg68 = fmul float %2, %29
-  %30 = tail call float @llvm.fmuladd.f32(float %neg68, float %3, float %27)
-  %mul73 = fmul float %4, %mul63
-  %31 = tail call float @llvm.fmuladd.f32(float %mul73, float %5, float %30)
-  %a3 = getelementptr inbounds i8, ptr %this, i64 8
-  %32 = load float, ptr %a3, align 4
-  %mul77 = fmul float %15, %32
-  %mul79 = fmul float %23, %mul77
-  %33 = tail call float @llvm.fmuladd.f32(float %mul79, float %10, float %31)
-  %34 = fneg float %mul77
-  %neg89 = fmul float %12, %34
-  %35 = tail call float @llvm.fmuladd.f32(float %neg89, float %20, float %33)
-  %mul92 = fmul float %28, %32
-  %mul94 = fmul float %12, %mul92
-  %36 = tail call float @llvm.fmuladd.f32(float %mul94, float %3, float %35)
-  %37 = fneg float %mul92
-  %neg104 = fmul float %4, %37
-  %38 = tail call float @llvm.fmuladd.f32(float %neg104, float %10, float %36)
-  %mul107 = fmul float %1, %32
-  %mul109 = fmul float %4, %mul107
-  %39 = tail call float @llvm.fmuladd.f32(float %mul109, float %20, float %38)
-  %40 = fneg float %mul107
-  %neg119 = fmul float %23, %40
-  %41 = tail call float @llvm.fmuladd.f32(float %neg119, float %3, float %39)
-  %a4 = getelementptr inbounds i8, ptr %this, i64 12
-  %42 = load float, ptr %a4, align 4
-  %mul121 = fmul float %28, %42
-  %43 = fneg float %mul121
-  %neg126 = fmul float %12, %43
-  %44 = tail call float @llvm.fmuladd.f32(float %neg126, float %5, float %41)
-  %mul131 = fmul float %2, %mul121
-  %45 = tail call float @llvm.fmuladd.f32(float %mul131, float %10, float %44)
-  %mul136 = fmul float %1, %42
-  %46 = fneg float %mul136
-  %neg141 = fmul float %2, %46
-  %47 = tail call float @llvm.fmuladd.f32(float %neg141, float %20, float %45)
-  %mul146 = fmul float %23, %mul136
-  %48 = tail call float @llvm.fmuladd.f32(float %mul146, float %5, float %47)
-  %mul151 = fmul float %9, %42
-  %49 = fneg float %mul151
-  %neg156 = fmul float %23, %49
-  %50 = tail call float @llvm.fmuladd.f32(float %neg156, float %10, float %48)
-  %mul161 = fmul float %12, %mul151
-  %51 = tail call float @llvm.fmuladd.f32(float %mul161, float %20, float %50)
-  ret float %51
 }
 
 declare void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef) local_unnamed_addr #4
@@ -3053,7 +3077,7 @@ for.body.i:                                       ; preds = %_ZNSt7__cxx114listI
   %110 = load ptr, ptr %arrayidx.i, align 8
   %mMaterialIndex.i = getelementptr inbounds i8, ptr %110, i64 232
   %111 = load i32, ptr %mMaterialIndex.i, align 8
-  %cmp1.i = icmp eq i32 %111, %i66.0653
+  %cmp1.i = icmp eq i32 %i66.0653, %111
   br i1 %cmp1.i, label %if.then.i209, label %for.inc.i
 
 if.then.i209:                                     ; preds = %for.body.i
@@ -3131,7 +3155,7 @@ if.then9.i:                                       ; preds = %while.body.i
   %123 = load ptr, ptr %__to_destroy.i, align 8
   %124 = load ptr, ptr %120, align 8
   %cmp.i.i.i.i = icmp eq ptr %123, %120
-  %cmp.i3.i.i.i = icmp eq ptr %124, %123
+  %cmp.i3.i.i.i = icmp eq ptr %123, %124
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i3.i.i.i
   br i1 %or.cond.i.i.i, label %if.end16.i, label %if.end8.i.i.i
 
@@ -4880,7 +4904,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %bones, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %25
+  %cmp.i.i.i.i.i = icmp eq ptr %25, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end82, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -5842,7 +5866,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
+  %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end

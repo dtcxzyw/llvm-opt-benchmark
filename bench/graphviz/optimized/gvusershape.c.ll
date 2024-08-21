@@ -2082,7 +2082,7 @@ getNum.exit79.i:                                  ; preds = %45, %nxtc.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %51 = call double @strtod(ptr noundef nonnull %6, ptr noundef nonnull %5) #21
   %52 = load ptr, ptr %5, align 8
-  %53 = icmp eq ptr %52, %6
+  %53 = icmp eq ptr %6, %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %53, label %bboxPDF.exit.thread15, label %.preheader32
 
@@ -2166,7 +2166,7 @@ getNum.exit58.i:                                  ; preds = %70, %nxtc.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %76 = call double @strtod(ptr noundef nonnull %6, ptr noundef nonnull %4) #21
   %77 = load ptr, ptr %4, align 8
-  %78 = icmp eq ptr %77, %6
+  %78 = icmp eq ptr %6, %77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %78, label %bboxPDF.exit.thread15, label %.preheader31
 
@@ -2250,7 +2250,7 @@ getNum.exit37.i:                                  ; preds = %95, %nxtc.exit.thre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %101 = call double @strtod(ptr noundef nonnull %6, ptr noundef nonnull %3) #21
   %102 = load ptr, ptr %3, align 8
-  %103 = icmp eq ptr %102, %6
+  %103 = icmp eq ptr %6, %102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %103, label %bboxPDF.exit.thread15, label %.preheader
 
@@ -2331,7 +2331,7 @@ getNum.exit.i:                                    ; preds = %120, %nxtc.exit.thr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %126 = call double @strtod(ptr noundef nonnull %6, ptr noundef nonnull %2) #21
   %127 = load ptr, ptr %2, align 8
-  %128 = icmp eq ptr %127, %6
+  %128 = icmp eq ptr %6, %127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br i1 %128, label %bboxPDF.exit.thread15, label %129
 

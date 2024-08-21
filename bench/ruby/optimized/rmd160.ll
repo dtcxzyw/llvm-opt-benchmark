@@ -1531,7 +1531,7 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = add i64 %7, %2
+  %8 = add i64 %2, %7
   %9 = lshr i64 %8, 32
   %10 = trunc nuw i64 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1544,7 +1544,7 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   %16 = getelementptr inbounds i8, ptr %0, i64 92
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = add i64 %18, %2
+  %19 = add i64 %2, %18
   %20 = icmp ult i64 %19, 64
   br i1 %20, label %21, label %26
 

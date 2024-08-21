@@ -463,7 +463,7 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %253 = shl nsw i64 %250, 2
   %scevgep636 = getelementptr i8, ptr %10, i64 %253
   %bound0638 = icmp ult ptr %scevgep635, %scevgep637
-  %bound1639 = icmp ugt ptr %scevgep636, %11
+  %bound1639 = icmp ult ptr %11, %scevgep636
   %found.conflict640 = and i1 %bound0638, %bound1639
   br i1 %found.conflict640, label %.lr.ph499.lver.orig, label %.lr.ph499.ph
 
@@ -474,8 +474,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %255 = load float, ptr %254, align 4
   %256 = getelementptr inbounds float, ptr %18, i64 %indvars.iv558.lver.orig
   %257 = load float, ptr %256, align 4
-  %258 = fneg float %255
-  %259 = fmul float %257, %258
+  %258 = fneg float %257
+  %259 = fmul float %255, %258
   %260 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.next559.lver.orig
   store float %259, ptr %260, align 4
   %261 = load float, ptr %11, align 4
@@ -496,8 +496,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %indvars.iv.next559 = add nsw i64 %indvars.iv558, -1
   %264 = getelementptr inbounds float, ptr %17, i64 %indvars.iv.next559
   %265 = load float, ptr %264, align 4
-  %266 = fneg float %265
-  %267 = fmul float %store_forwarded645, %266
+  %266 = fneg float %store_forwarded645
+  %267 = fmul float %265, %266
   %268 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.next559
   store float %267, ptr %268, align 4
   %269 = load float, ptr %11, align 4
@@ -565,7 +565,7 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %290 = shl nsw i64 %wide.trip.count564, 2
   %scevgep629 = getelementptr i8, ptr %10, i64 %290
   %bound0 = icmp ult ptr %scevgep628, %scevgep630
-  %bound1 = icmp ugt ptr %scevgep629, %11
+  %bound1 = icmp ult ptr %11, %scevgep629
   %found.conflict = and i1 %bound0, %bound1
   %291 = xor i64 %288, -1
   %292 = add nsw i64 %291, %wide.trip.count564
@@ -588,8 +588,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %303 = load float, ptr %302, align 4
   %304 = getelementptr inbounds float, ptr %18, i64 %indvars.iv561.lver.orig
   %305 = load float, ptr %304, align 4
-  %306 = fneg float %303
-  %307 = fmul float %305, %306
+  %306 = fneg float %305
+  %307 = fmul float %303, %306
   %308 = getelementptr float, ptr %10, i64 %indvars.iv561.lver.orig
   store float %307, ptr %308, align 4
   %309 = load float, ptr %11, align 4
@@ -613,8 +613,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds float, ptr %17, i64 %314
   %316 = load float, ptr %315, align 4
-  %317 = fneg float %316
-  %318 = fmul float %store_forwarded, %317
+  %317 = fneg float %store_forwarded
+  %318 = fmul float %316, %317
   %319 = getelementptr float, ptr %10, i64 %indvars.iv561
   store float %318, ptr %319, align 4
   %320 = load float, ptr %11, align 4
@@ -684,8 +684,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 355:                                              ; preds = %.lr.ph492
   %356 = getelementptr inbounds float, ptr %17, i64 %indvars.iv.next551
   %357 = load float, ptr %356, align 4
-  %358 = fneg float %357
-  %359 = fmul float %342, %358
+  %358 = fneg float %342
+  %359 = fmul float %357, %358
   br label %360
 
 360:                                              ; preds = %355, %345
@@ -748,8 +748,8 @@ define void @slar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 390:                                              ; preds = %.lr.ph496
   %gep603 = getelementptr float, ptr %invariant.gep602, i64 %indvars.iv553
   %391 = load float, ptr %gep603, align 4
-  %392 = fneg float %391
-  %393 = fmul float %376, %392
+  %392 = fneg float %376
+  %393 = fmul float %391, %392
   br label %394
 
 394:                                              ; preds = %390, %379

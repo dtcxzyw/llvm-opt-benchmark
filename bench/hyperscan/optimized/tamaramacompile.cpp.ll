@@ -229,7 +229,7 @@ _ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit11.i.i.i: ; preds = %lor.rhs.i.i5.i
 
 if.then.i.i:                                      ; preds = %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit11.i.i.i, %if.end12.i.i.i, %if.then.i.i14.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa32.i.i.i, %if.end12.i.i.i ], [ %__y.0.lcssa32.i.i.i, %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit11.i.i.i ], [ %__y.0.lcssa33.i.i.i, %if.then.i.i14.i ]
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i9.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i9.i
   br i1 %cmp2.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
@@ -816,7 +816,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.
   br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
-  %cmp4.i.i.i.i.i.i = icmp ugt ptr %1, %n
+  %cmp4.i.i.i.i.i.i = icmp ult ptr %n, %1
   br i1 %cmp4.i.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.i.i.i.i
 
 _ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
@@ -843,7 +843,7 @@ _ZNKSt3mapISt4pairIPK3NFAjEjSt4lessIS4_ESaIS0_IKS4_jEEE11lower_boundERS7_.exit.i
 lor.rhs.i:                                        ; preds = %_ZNKSt3mapISt4pairIPK3NFAjEjSt4lessIS4_ESaIS0_IKS4_jEEE11lower_boundERS7_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %3, %n
+  %cmp.i.i.i = icmp ult ptr %n, %3
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i
@@ -853,7 +853,7 @@ lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i
 _ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.i:  ; preds = %lor.rhs.i.i.i
   %second5.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %4 = load i32, ptr %second5.i.i.i, align 8
-  %cmp6.i.i.i = icmp ugt i32 %4, %top
+  %cmp6.i.i.i = icmp ult i32 %top, %4
   br i1 %cmp6.i.i.i, label %if.then.i, label %_ZNKSt3mapISt4pairIPK3NFAjEjSt4lessIS4_ESaIS0_IKS4_jEEE2atERS7_.exit
 
 if.then.i:                                        ; preds = %_ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit.i, %lor.rhs.i, %_ZNKSt3mapISt4pairIPK3NFAjEjSt4lessIS4_ESaIS0_IKS4_jEEE11lower_boundERS7_.exit.i, %entry
@@ -877,7 +877,7 @@ while.body.i.i.i.i5:                              ; preds = %_ZNKSt3mapISt4pairI
   br i1 %cmp.i.i.i.i.i.i9, label %if.else.i.i.i.i31, label %lor.rhs.i.i.i.i.i.i10
 
 lor.rhs.i.i.i.i.i.i10:                            ; preds = %while.body.i.i.i.i5
-  %cmp4.i.i.i.i.i.i11 = icmp ugt i32 %6, %id
+  %cmp4.i.i.i.i.i.i11 = icmp ult i32 %id, %6
   br i1 %cmp4.i.i.i.i.i.i11, label %if.end.i.i.i.i14, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i
 
 _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i10
@@ -904,7 +904,7 @@ _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE11lower_boundERS4_.exit.i: ; pr
 lor.rhs.i21:                                      ; preds = %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE11lower_boundERS4_.exit.i
   %_M_storage.i.i.i22 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i16, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i22, align 4
-  %cmp.i.i.i23 = icmp ugt i32 %8, %id
+  %cmp.i.i.i23 = icmp ult i32 %id, %8
   br i1 %cmp.i.i.i23, label %if.then.i30, label %lor.rhs.i.i.i24
 
 lor.rhs.i.i.i24:                                  ; preds = %lor.rhs.i21
@@ -914,7 +914,7 @@ lor.rhs.i.i.i24:                                  ; preds = %lor.rhs.i21
 _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i:       ; preds = %lor.rhs.i.i.i24
   %second5.i.i.i26 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i16, i64 36
   %9 = load i32, ptr %second5.i.i.i26, align 4
-  %cmp6.i.i.i27 = icmp ugt i32 %9, %top
+  %cmp6.i.i.i27 = icmp ult i32 %top, %9
   br i1 %cmp6.i.i.i27, label %if.then.i30, label %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE7emplaceIJS1_RKjEEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_.exit
 
 if.then.i30:                                      ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i, %lor.rhs.i21, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE11lower_boundERS4_.exit.i, %_ZNKSt3mapISt4pairIPK3NFAjEjSt4lessIS4_ESaIS0_IKS4_jEEE2atERS7_.exit
@@ -1350,7 +1350,7 @@ _ZSt19__relocate_object_aISt3setIjSt4lessIjESaIjEES4_SaIS4_EEvPT_PT0_RT1_.exit.i
 _ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %_ZSt19__relocate_object_aISt3setIjSt4lessIjESaIjEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aISt3setIjSt4lessIjESaIjEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 48
-  %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i19 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit43, label %for.body.i.i.i20
 
 for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %_ZSt19__relocate_object_aISt3setIjSt4lessIjESaIjEES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i32
@@ -1475,7 +1475,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont5
   %cmp.not.i.i = icmp ne ptr %2, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %3
+  %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -1526,7 +1526,7 @@ _ZNSt8_Rb_treeISt4pairIjjES0_IKS1_jESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Au
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIjjES0_IKS1_jESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(8) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

@@ -646,9 +646,9 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i: ; preds = %_ZN3gmx14
   br i1 %94, label %234, label %274
 
 234:                                              ; preds = %233
-  %.not178.i = icmp eq i32 %96, %5
+  %.not178.i = icmp eq i32 %5, %96
   %235 = icmp sgt i32 %5, 1
-  %236 = icmp sgt i32 %96, %5
+  %236 = icmp slt i32 %5, %96
   %spec.select.i = and i1 %235, %236
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
@@ -742,7 +742,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i: ; preds = %_ZN3gmx14
   %275 = phi i32 [ %.pre.i, %272 ], [ %.pre205.i, %233 ]
   %.3.i = phi i8 [ %.4.i, %272 ], [ %.197.i, %233 ]
   %.1.in.i = phi i1 [ %273, %272 ], [ %.095.in.i, %233 ]
-  %276 = icmp slt i32 %96, %5
+  %276 = icmp sgt i32 %5, %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
   %277 = icmp sgt i32 %275, 1
@@ -922,7 +922,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i: ; preds = %_ZN3gmx14
 
 354:                                              ; preds = %353
   %355 = trunc i64 %.2174.i to i32
-  %356 = mul nsw i32 %355, %5
+  %356 = mul nsw i32 %5, %355
   %357 = add nsw i32 %356, %70
   %.not.i = icmp sgt i32 %357, %96
   br i1 %.not.i, label %358, label %366

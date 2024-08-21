@@ -1964,7 +1964,7 @@ define dso_local i32 @get_transform_oid(i32 noundef %0, i32 noundef %1, i1 nound
   %5 = zext i32 %1 to i64
   %6 = tail call i32 @GetSysCacheOid(i32 noundef 69, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
   %.not = icmp ne i32 %6, 0
-  %brmerge = or i1 %.not, %2
+  %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %13, label %7
 
 7:                                                ; preds = %3

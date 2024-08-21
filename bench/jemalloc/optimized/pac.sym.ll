@@ -102,7 +102,7 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   %call.i = tail call ptr @base_ehooks_get(ptr noundef %self.val) #8
   %guarded.not = xor i1 %guarded, true
-  %brmerge = or i1 %guarded.not, %frequent_reuse
+  %brmerge = or i1 %frequent_reuse, %guarded.not
   br i1 %brmerge, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -142,7 +142,7 @@ if.end:                                           ; preds = %if.then8.i, %entry
 if.then8:                                         ; preds = %if.end
   %4 = load i8, ptr @opt_retain, align 1
   %tobool.i.i = trunc i8 %4 to i1
-  %brmerge.demorgan.i = and i1 %tobool.i.i, %frequent_reuse
+  %brmerge.demorgan.i = and i1 %frequent_reuse, %tobool.i.i
   br i1 %brmerge.demorgan.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then8

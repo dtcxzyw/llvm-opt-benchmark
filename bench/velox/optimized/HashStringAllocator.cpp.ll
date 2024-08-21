@@ -802,7 +802,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %conv.i.i = zext nneg i32 %8 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %cmp.i.i60 = icmp eq ptr %9, %ptr
+  %cmp.i.i60 = icmp eq ptr %ptr, %9
   br i1 %cmp.i.i60, label %if.end, label %while.cond.i.i, !llvm.loop !20
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -822,7 +822,7 @@ if.then:                                          ; preds = %while.end.i.i, %if.
 if.end:                                           ; preds = %while.body.i.i
   %second = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
   %10 = load i64, ptr %second, align 8
-  %cmp.not = icmp eq i64 %10, %size
+  %cmp.not = icmp eq i64 %size, %10
   br i1 %cmp.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end
@@ -1374,10 +1374,10 @@ if.end:                                           ; preds = %if.then, %do.body
 
 land.lhs.true:                                    ; preds = %if.end
   %3 = load ptr, ptr %startOfRun_.i, align 8
-  %cmp.not.i = icmp ule ptr %3, %header.0
+  %cmp.not.i = icmp uge ptr %header.0, %3
   %4 = load i64, ptr %bytesInRun_.i, align 8
   %add.ptr.i59 = getelementptr inbounds i8, ptr %3, i64 %4
-  %cmp3.i = icmp ugt ptr %add.ptr.i59, %header.0
+  %cmp3.i = icmp ult ptr %header.0, %add.ptr.i59
   %5 = select i1 %cmp.not.i, i1 %cmp3.i, i1 false
   br i1 %5, label %if.else, label %land.rhs
 
@@ -1880,7 +1880,7 @@ if.end23:                                         ; preds = %if.then19, %if.end1
   %sub.ptr.rhs.cast28 = ptrtoint ptr %add.ptr.i11 to i64
   %sub.ptr.sub29 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast28
   %8 = trunc i64 %sub.ptr.sub29 to i32
-  %conv31 = add i32 %8, %numReserveBytes
+  %conv31 = add i32 %numReserveBytes, %8
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %conv31, i32 16)
   %sub.i13 = sub nsw i32 %and.i.i12.pre-phi, %.sroa.speculated.i
   %sub3.i = add i32 %sub.i13, -4
@@ -2465,7 +2465,7 @@ if.then3.i.i:                                     ; preds = %if.end
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
 
 if.end9.i.i:                                      ; preds = %if.end
-  %cmp10.not.i.i = icmp eq i32 %mul.i.i.i, %.sroa.speculated.i
+  %cmp10.not.i.i = icmp eq i32 %.sroa.speculated.i, %mul.i.i.i
   br i1 %cmp10.not.i.i, label %if.end18.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
@@ -2534,7 +2534,7 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit: ; preds = %if.then3.i.i, %for.
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit
   %12 = and i32 %.sroa.speculated.i, -64
-  %cmp10.not.i = icmp eq i32 %12, %.sroa.speculated.i
+  %cmp10.not.i = icmp eq i32 %.sroa.speculated.i, %12
   br i1 %cmp10.not.i, label %for.cond.i.preheader, label %if.then11.i
 
 for.cond.i.preheader:                             ; preds = %if.then11.i, %if.end.i
@@ -2617,7 +2617,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %add.ptr.i, align 4
   %cmp.i = icmp slt i32 %3, 0
-  %brmerge.not = and i1 %cmp.i, %mustHaveSize
+  %brmerge.not = and i1 %mustHaveSize, %cmp.i
   br i1 %brmerge.not, label %lor.rhs, label %land.end
 
 lor.rhs:                                          ; preds = %if.end
@@ -2866,7 +2866,7 @@ entry:
   %sub.i16 = add nsw i32 %and.i1.i15, -8
   %cond.i17 = select i1 %cmp.i.not.i14, i32 %and.i1.i15, i32 %sub.i16
   %conv18 = sext i32 %cond.i17 to i64
-  %cmp.not19 = icmp slt i64 %conv18, %offset
+  %cmp.not19 = icmp sgt i64 %offset, %conv18
   br i1 %cmp.not19, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end6, %entry
@@ -2903,7 +2903,7 @@ if.end6:                                          ; preds = %if.end
   %cond.i = select i1 %cmp.i.not.i, i32 %and.i1.i, i32 %sub.i
   %conv = sext i32 %cond.i to i64
   %add = add nsw i64 %add23, %conv
-  %cmp.not = icmp slt i64 %add, %offset
+  %cmp.not = icmp sgt i64 %offset, %add
   br i1 %cmp.not, label %if.end, label %if.then, !llvm.loop !31
 
 return:                                           ; preds = %if.end, %if.then
@@ -3310,7 +3310,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br i1 %tobool.not.i.i.i, label %return, label %if.end8
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
-  %cmp10.not.i.i = icmp eq i32 %mul.i.i.i, %.sroa.speculated.i
+  %cmp10.not.i.i = icmp eq i32 %.sroa.speculated.i, %mul.i.i.i
   br i1 %cmp10.not.i.i, label %if.end18.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i

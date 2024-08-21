@@ -35722,7 +35722,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h89c6d01bf8ed98b6E.exit.thread.
   unreachable
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h41f725a3db6d3efaE.exit.i.i.i.i": ; preds = %"_ZN4core3ptr91drop_in_place$LT$$LP$wasmtime_wasi..preview1..types..Dirent$C$alloc..string..String$RP$$GT$17h3ecf4ad2c656262bE.exit.i.i.i.i.i.i", %589
-  %.not.i.i.i.i = icmp ult i64 %593, %.0.i.i.i
+  %.not.i.i.i.i = icmp ugt i64 %.0.i.i.i, %593
   %614 = icmp eq ptr %594, %.val9.i.i.i.i.i
   %or.cond = select i1 %.not.i.i.i.i, i1 true, i1 %614
   br i1 %or.cond, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89043cb42388753dE.exit.thread.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89043cb42388753dE.exit.i"
@@ -50405,7 +50405,7 @@ common.ret:                                       ; preds = %1165, %1162, %247
           to label %.noexc246.i unwind label %.loopexit1111.i, !noalias !6496
 
 .noexc246.i:                                      ; preds = %412
-  %421 = icmp ult i64 %420, %.sroa.9508.8.copyload.i
+  %421 = icmp ugt i64 %.sroa.9508.8.copyload.i, %420
   br i1 %421, label %425, label %.invoke.i
 
 .invoke.i:                                        ; preds = %425, %.noexc246.i

@@ -313,7 +313,7 @@ define dso_local void @icmp6_send(ptr noundef %0, i8 noundef zeroext %1, i8 noun
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = trunc i64 %78 to i32
-  %80 = add i32 %79, %3
+  %80 = add i32 %3, %79
   %81 = getelementptr inbounds i8, ptr %0, i64 112
   %82 = load i32, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 116

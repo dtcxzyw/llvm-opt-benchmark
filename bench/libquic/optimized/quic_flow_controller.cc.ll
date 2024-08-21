@@ -237,7 +237,7 @@ define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestR
 entry:
   %highest_received_byte_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %highest_received_byte_offset_, align 8
-  %cmp.not = icmp ult i64 %0, %new_offset
+  %cmp.not = icmp ugt i64 %new_offset, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -555,7 +555,7 @@ define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWind
 entry:
   %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %send_window_offset_, align 8
-  %cmp.not = icmp ult i64 %0, %new_send_window_offset
+  %cmp.not = icmp ugt i64 %new_send_window_offset, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry

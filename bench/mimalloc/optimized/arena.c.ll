@@ -727,7 +727,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %7 = load atomic i64, ptr %purge_expire.i monotonic, align 8
   %cmp1.i = icmp ne i64 %7, 0
   %cmp5.i = icmp sle i64 %7, %call8
-  %or.cond.not.i = or i1 %cmp5.i, %force
+  %or.cond.not.i = or i1 %force, %cmp5.i
   %or.cond.i = and i1 %cmp1.i, %or.cond.not.i
   br i1 %or.cond.i, label %if.end7.i, label %for.inc
 
@@ -805,7 +805,7 @@ if.then31.i:                                      ; preds = %while.body24.i
   %arrayidx33.i = getelementptr inbounds i64, ptr %15, i64 %i.056.i
   %16 = load atomic i64, ptr %arrayidx33.i acquire, align 8
   %add.i38.i = add i64 %bitlen.149.i, %bitidx.051.i
-  %cmp16.i.i = icmp ugt i64 %add.i38.i, %bitidx.051.i
+  %cmp16.i.i = icmp ult i64 %bitidx.051.i, %add.i38.i
   br i1 %cmp16.i.i, label %while.cond1.preheader.i.i, label %mi_arena_purge_range.exit.thread.i
 
 while.cond1.preheader.i.i:                        ; preds = %if.then31.i, %if.end10.i.i
@@ -1052,7 +1052,7 @@ land.lhs.true:                                    ; preds = %for.body
   %start = getelementptr inbounds i8, ptr %2, i64 32
   %atomic-load = load atomic i64, ptr %start seq_cst, align 8
   %3 = inttoptr i64 %atomic-load to ptr
-  %cmp3.not = icmp ugt ptr %3, %p
+  %cmp3.not = icmp ult ptr %p, %3
   br i1 %cmp3.not, label %for.inc, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %land.lhs.true

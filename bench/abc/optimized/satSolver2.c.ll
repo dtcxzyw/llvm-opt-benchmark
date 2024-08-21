@@ -2105,7 +2105,7 @@ order_update.exit:                                ; preds = %.lr.ph.i, %218, %19
   store i32 %.028.lcssa.i, ptr %224, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge137.loopexit, label %161, !llvm.loop !16
 
 ._crit_edge137.loopexit:                          ; preds = %order_update.exit
@@ -2114,7 +2114,7 @@ order_update.exit:                                ; preds = %.lr.ph.i, %218, %19
 
 ._crit_edge137:                                   ; preds = %._crit_edge137.loopexit, %144
   %225 = phi i32 [ %.pre141, %._crit_edge137.loopexit ], [ %145, %144 ]
-  %. = tail call i32 @llvm.smax.i32(i32 %225, i32 %1)
+  %. = tail call i32 @llvm.smax.i32(i32 %1, i32 %225)
   store i32 %., ptr %0, align 8
   ret void
 }
@@ -3694,7 +3694,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %199 = getelementptr inbounds [0 x i32], ptr %173, i64 0, i64 %198
   %200 = load i32, ptr %199, align 4
   %201 = load i32, ptr %194, align 8
-  %202 = icmp sgt i32 %201, %200
+  %202 = icmp slt i32 %200, %201
   br i1 %202, label %Prf_ManAddSaved.exit, label %203
 
 203:                                              ; preds = %195
@@ -4844,7 +4844,7 @@ order_update.exit:                                ; preds = %.lr.ph.i97, %119, %
   %152 = zext i1 %151 to i64
   %153 = getelementptr inbounds [2 x i32], ptr %134, i64 0, i64 %152
   %154 = load i32, ptr %153, align 4
-  %.not100 = icmp sgt i32 %154, %148
+  %.not100 = icmp slt i32 %148, %154
   br i1 %.not100, label %155, label %159
 
 155:                                              ; preds = %.lr.ph106
@@ -6983,7 +6983,7 @@ define internal fastcc i32 @solver2_analyze_final(ptr nocapture noundef %0, ptr 
   %13 = getelementptr inbounds i8, ptr %1, i64 4
   %14 = load i32, ptr %1, align 4
   %15 = lshr i32 %14, 11
-  %16 = icmp sgt i32 %15, %2
+  %16 = icmp slt i32 %2, %15
   br i1 %16, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %12

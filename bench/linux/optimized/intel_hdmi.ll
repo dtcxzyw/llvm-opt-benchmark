@@ -146,7 +146,7 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
 32:                                               ; preds = %31, %26, %25, %5
   %33 = phi i32 [ 32, %31 ], [ 132, %25 ], [ 36, %5 ], [ %30, %26 ]
   %34 = zext nneg i32 %33 to i64
-  %35 = icmp slt i64 %34, %4
+  %35 = icmp sgt i64 %4, %34
   br i1 %35, label %36, label %48, !prof !5
 
 36:                                               ; preds = %32
@@ -244,7 +244,7 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
   %71 = getelementptr i8, ptr %65, i64 4
   %72 = add i32 %66, 4
   %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %73, %4
+  %74 = icmp sgt i64 %4, %73
   br i1 %74, label %.preheader2, label %.loopexit3, !llvm.loop !16
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -513,7 +513,7 @@ define dso_local void @hsw_read_infoframe(ptr nocapture noundef readonly %0, ptr
   store i32 %19, ptr %15, align 4
   %21 = add i32 %14, 4
   %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %22, %4
+  %23 = icmp sgt i64 %4, %22
   br i1 %23, label %13, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %13, %5
@@ -529,7 +529,7 @@ define dso_local i32 @intel_hdmi_infoframe_enable(i32 noundef %0) local_unnamed_
   %4 = getelementptr [7 x i8], ptr @infoframe_type_to_idx, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
-  %7 = icmp eq i32 %6, %0
+  %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
@@ -739,7 +739,7 @@ define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 
   %18 = getelementptr [7 x i8], ptr @infoframe_type_to_idx, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = icmp eq i32 %20, %2
+  %21 = icmp eq i32 %2, %20
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %16
@@ -2367,7 +2367,7 @@ define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %57 = getelementptr i8, ptr %48, i64 4
   %58 = add i32 %49, 4
   %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %59, %4
+  %60 = icmp sgt i64 %4, %59
   br i1 %60, label %.preheader5, label %.loopexit6, !llvm.loop !90
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -2498,7 +2498,7 @@ define internal void @vlv_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   store i32 %38, ptr %31, align 4
   %40 = add i32 %30, 4
   %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %41, %4
+  %42 = icmp sgt i64 %4, %41
   br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %.preheader, %19
@@ -2869,7 +2869,7 @@ define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %45 = getelementptr i8, ptr %41, i64 4
   %46 = add i32 %42, 4
   %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %47, %4
+  %48 = icmp sgt i64 %4, %47
   br i1 %48, label %.preheader5, label %.loopexit6, !llvm.loop !108
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -2983,7 +2983,7 @@ define internal void @g4x_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   store i32 %26, ptr %23, align 4
   %28 = add i32 %24, 4
   %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %29, %4
+  %30 = icmp sgt i64 %4, %29
   br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !110
 
 .loopexit:                                        ; preds = %.preheader, %12
@@ -3496,7 +3496,7 @@ define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %53 = getelementptr i8, ptr %46, i64 4
   %54 = add i32 %47, 4
   %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %55, %4
+  %56 = icmp sgt i64 %4, %55
   br i1 %56, label %.preheader5, label %.loopexit6, !llvm.loop !121
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -3621,7 +3621,7 @@ define internal void @ibx_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   store i32 %34, ptr %29, align 4
   %36 = add i32 %28, 4
   %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %37, %4
+  %38 = icmp sgt i64 %4, %37
   br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.preheader, %17
@@ -4000,7 +4000,7 @@ define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %55 = getelementptr i8, ptr %48, i64 4
   %56 = add i32 %49, 4
   %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %57, %4
+  %58 = icmp sgt i64 %4, %57
   br i1 %58, label %.preheader5, label %.loopexit6, !llvm.loop !134
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -4125,7 +4125,7 @@ define internal void @cpt_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   store i32 %34, ptr %29, align 4
   %36 = add i32 %28, 4
   %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %37, %4
+  %38 = icmp sgt i64 %4, %37
   br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !136
 
 .loopexit:                                        ; preds = %.preheader, %17
@@ -5507,7 +5507,7 @@ define internal fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %
   %18 = getelementptr [7 x i8], ptr @infoframe_type_to_idx, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = icmp eq i32 %20, %2
+  %21 = icmp eq i32 %2, %20
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %16
@@ -6378,7 +6378,7 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef re
 33:                                               ; preds = %24
   %34 = load i16, ptr %20, align 8
   %35 = icmp ugt i16 %34, 10
-  %brmerge6.not = and i1 %35, %2
+  %brmerge6.not = and i1 %2, %35
   br i1 %brmerge6.not, label %50, label %.thread2
 
 36:                                               ; preds = %24
@@ -6396,7 +6396,7 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef re
   %40 = load i16, ptr %39, align 4
   %41 = and i16 %40, 128
   %42 = icmp eq i16 %41, 0
-  %brmerge.not = and i1 %42, %2
+  %brmerge.not = and i1 %2, %42
   br i1 %brmerge.not, label %43, label %.thread2
 
 43:                                               ; preds = %37
@@ -7017,7 +7017,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 134217728
   %23 = icmp ne i32 %22, 0
-  %24 = and i1 %23, %2
+  %24 = and i1 %2, %23
   br i1 %24, label %25, label %96
 
 25:                                               ; preds = %19

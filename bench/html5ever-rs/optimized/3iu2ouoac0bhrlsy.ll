@@ -567,7 +567,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit209": ; preds = %151
   %bcmp.i208 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.0.0.i, ptr noundef nonnull readonly dereferenceable(4) @anon.dcf0590ddea9489929259de672f22440.58, i64 4), !alias.scope !116
   %165 = icmp ne i32 %bcmp.i208, 0
-  %brmerge124 = or i1 %165, %1
+  %brmerge124 = or i1 %1, %165
   %.mux = select i1 %165, i8 0, i8 2
   br i1 %brmerge124, label %.critedge, label %166
 
@@ -681,7 +681,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %.add = add nuw nsw i64 %.idx, 16
   %198 = getelementptr i8, ptr %.ptr, i64 8
   %.val5.i.i = load i64, ptr %198, align 8, !alias.scope !161, !noalias !164, !noundef !5
-  %.not.i.i.i.i = icmp ugt i64 %.val5.i.i, %.sroa.3.0.i202
+  %.not.i.i.i.i = icmp ult i64 %.sroa.3.0.i202, %.val5.i.i
   br i1 %.not.i.i.i.i, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i": ; preds = %.lr.ph.i.i
@@ -700,7 +700,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %.add280 = add nuw nsw i64 %.idx279, 16
   %200 = getelementptr i8, ptr %.ptr281, i64 8
   %.val5.i.i219 = load i64, ptr %200, align 8, !alias.scope !177, !noalias !180, !noundef !5
-  %.not.i.i.i.i220 = icmp ugt i64 %.val5.i.i219, %.sroa.3.0.i202
+  %.not.i.i.i.i220 = icmp ult i64 %.sroa.3.0.i202, %.val5.i.i219
   br i1 %.not.i.i.i.i220, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i224", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i221"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i221": ; preds = %.lr.ph.i.i218
@@ -719,7 +719,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %.add284 = add nuw nsw i64 %.idx283, 16
   %202 = getelementptr i8, ptr %.ptr285, i64 8
   %.val5.i.i229 = load i64, ptr %202, align 8, !alias.scope !193, !noalias !196, !noundef !5
-  %.not.i.i.i.i230 = icmp ugt i64 %.val5.i.i229, %.sroa.3.0.i202
+  %.not.i.i.i.i230 = icmp ult i64 %.sroa.3.0.i202, %.val5.i.i229
   br i1 %.not.i.i.i.i230, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i234", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i231"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i231": ; preds = %.lr.ph.i.i228

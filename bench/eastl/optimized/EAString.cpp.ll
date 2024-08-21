@@ -460,8 +460,8 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i8, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -1
-  %cmp673.i = icmp ugt ptr %spec.select.i, %pSource
-  %cmp774.i = icmp ugt ptr %add.ptr5.i, %pDest
+  %cmp673.i = icmp ult ptr %pSource, %spec.select.i
+  %cmp774.i = icmp ult ptr %pDest, %add.ptr5.i
   %or.cond7275.i = select i1 %cmp673.i, i1 %cmp774.i, i1 false
   br i1 %or.cond7275.i, label %while.body.i, label %while.end.i
 
@@ -579,8 +579,8 @@ if.end:                                           ; preds = %entry
   %spec.select = select i1 %cmp1, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr
   %add.ptr4 = getelementptr inbounds i8, ptr %pDest, i64 %nDestCapacity
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr4, i64 -1
-  %cmp673 = icmp ugt ptr %spec.select, %pSource
-  %cmp774 = icmp ugt ptr %add.ptr5, %pDest
+  %cmp673 = icmp ult ptr %pSource, %spec.select
+  %cmp774 = icmp ult ptr %pDest, %add.ptr5
   %or.cond7275 = select i1 %cmp673, i1 %cmp774, i1 false
   br i1 %or.cond7275, label %while.body, label %while.end
 
@@ -746,8 +746,8 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i16, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -2
-  %cmp665.i = icmp ugt ptr %spec.select.i, %pSource
-  %cmp766.i = icmp ugt ptr %add.ptr5.i, %pDest
+  %cmp665.i = icmp ult ptr %pSource, %spec.select.i
+  %cmp766.i = icmp ult ptr %pDest, %add.ptr5.i
   %or.cond4267.i = select i1 %cmp665.i, i1 %cmp766.i, i1 false
   br i1 %or.cond4267.i, label %while.body.i, label %while.end.i
 
@@ -874,8 +874,8 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i16, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -2
-  %cmp622.i = icmp ugt ptr %spec.select.i, %pSource
-  %cmp723.i = icmp ugt ptr %add.ptr5.i, %pDest
+  %cmp622.i = icmp ult ptr %pSource, %spec.select.i
+  %cmp723.i = icmp ult ptr %pDest, %add.ptr5.i
   %or.cond2124.i = select i1 %cmp622.i, i1 %cmp723.i, i1 false
   br i1 %or.cond2124.i, label %while.body.i, label %while.end.i
 
@@ -940,8 +940,8 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i32, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
-  %cmp665.i = icmp ugt ptr %spec.select.i, %pSource
-  %cmp766.i = icmp ugt ptr %add.ptr5.i, %pDest
+  %cmp665.i = icmp ult ptr %pSource, %spec.select.i
+  %cmp766.i = icmp ult ptr %pDest, %add.ptr5.i
   %or.cond4267.i = select i1 %cmp665.i, i1 %cmp766.i, i1 false
   br i1 %or.cond4267.i, label %while.body.i, label %while.end.i
 
@@ -1067,8 +1067,8 @@ if.end.i:                                         ; preds = %entry
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i32, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
-  %cmp621.i = icmp ugt ptr %spec.select.i, %pSource
-  %cmp722.i = icmp ugt ptr %add.ptr5.i, %pDest
+  %cmp621.i = icmp ult ptr %pSource, %spec.select.i
+  %cmp722.i = icmp ult ptr %pDest, %add.ptr5.i
   %or.cond23.i = select i1 %cmp621.i, i1 %cmp722.i, i1 false
   br i1 %or.cond23.i, label %while.body.i, label %while.end.i
 
@@ -2168,7 +2168,7 @@ if.then:                                          ; preds = %cond.end.thread
 
 if.then4:                                         ; preds = %cond.end.thread
   %0 = xor i64 %call.i, -1
-  %sub6 = add i64 %0, %nDestCapacity
+  %sub6 = add i64 %nDestCapacity, %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %pSource, i64 %sub6, i1 false)
   %1 = getelementptr i8, ptr %pDestination, i64 %nDestCapacity
   %arrayidx = getelementptr i8, ptr %1, i64 -1
@@ -2325,7 +2325,7 @@ if.else:                                          ; preds = %_ZN2EA4StdC6StrlenE
 if.then4:                                         ; preds = %if.else
   %add.ptr5 = getelementptr inbounds i16, ptr %pDestination, i64 %cond
   %18 = xor i64 %cond, -1
-  %sub6 = add i64 %18, %nDestCapacity
+  %sub6 = add i64 %nDestCapacity, %18
   %mul7 = shl i64 %sub6, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr5, ptr align 2 %pSource, i64 %mul7, i1 false)
   %19 = getelementptr i16, ptr %pDestination, i64 %nDestCapacity
@@ -2443,7 +2443,7 @@ if.else:                                          ; preds = %_ZN2EA4StdC6StrlenE
 if.then4:                                         ; preds = %if.else
   %add.ptr5 = getelementptr inbounds i32, ptr %pDestination, i64 %cond
   %2 = xor i64 %cond, -1
-  %sub6 = add i64 %2, %nDestCapacity
+  %sub6 = add i64 %nDestCapacity, %2
   %mul7 = shl i64 %sub6, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr5, ptr align 4 %pSource, i64 %mul7, i1 false)
   %3 = getelementptr i32, ptr %pDestination, i64 %nDestCapacity
@@ -2549,7 +2549,7 @@ _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.bo
   %.pn.i = phi i64 [ %sub.ptr.lhs.cast12.i, %while.end.i ], [ %4, %for.body.i.preheader ], [ %7, %for.body.i ]
   %retval.0.in.i = sub i64 %.pn.i, %4
   %retval.0.i = ashr exact i64 %retval.0.in.i, 1
-  %cmp = icmp ult i64 %retval.0.i, %nDestCapacity
+  %cmp = icmp ugt i64 %nDestCapacity, %retval.0.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDs.exit
@@ -2622,7 +2622,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN2EA4
   br i1 %tobool.not.i9, label %_ZN2EA4StdC6StrlenEPKDi.exit, label %do.body.i, !llvm.loop !57
 
 _ZN2EA4StdC6StrlenEPKDi.exit:                     ; preds = %do.body.i
-  %cmp = icmp ult i64 %inc.i7, %nDestCapacity
+  %cmp = icmp ugt i64 %nDestCapacity, %inc.i7
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDi.exit
@@ -2710,7 +2710,7 @@ while.body.i:                                     ; preds = %_ZN2EA4StdC6StrlenE
 
 _ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit:          ; preds = %while.body.i, %_ZN2EA4StdC6StrlenEPKDs.exit
   %nLength.0.lcssa.i = phi i64 [ 0, %_ZN2EA4StdC6StrlenEPKDs.exit ], [ %spec.select.i, %while.body.i ]
-  %cmp = icmp ult i64 %nLength.0.lcssa.i, %nDestCapacity
+  %cmp = icmp ugt i64 %nDestCapacity, %nLength.0.lcssa.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit
@@ -2857,7 +2857,7 @@ while.body.i:                                     ; preds = %_ZN2EA4StdC6StrlenE
 
 _ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit:          ; preds = %while.body.i, %_ZN2EA4StdC6StrlenEPKDi.exit
   %nLength.0.lcssa.i = phi i64 [ 0, %_ZN2EA4StdC6StrlenEPKDi.exit ], [ %spec.select.i, %while.body.i ]
-  %cmp = icmp ult i64 %nLength.0.lcssa.i, %nDestCapacity
+  %cmp = icmp ugt i64 %nDestCapacity, %nLength.0.lcssa.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit
@@ -2940,7 +2940,7 @@ _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.bo
   %.pn.i = phi i64 [ %sub.ptr.lhs.cast12.i, %while.end.i ], [ %1, %for.body.i.preheader ], [ %4, %for.body.i ]
   %retval.0.in.i = sub i64 %.pn.i, %1
   %retval.0.i = ashr exact i64 %retval.0.in.i, 1
-  %cmp = icmp ult i64 %retval.0.i, %nDestCapacity
+  %cmp = icmp ugt i64 %nDestCapacity, %retval.0.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDs.exit
@@ -3060,7 +3060,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN2EA4
   br i1 %tobool.not.i8, label %_ZN2EA4StdC6StrlenEPKDi.exit, label %do.body.i, !llvm.loop !57
 
 _ZN2EA4StdC6StrlenEPKDi.exit:                     ; preds = %do.body.i
-  %cmp = icmp ult i64 %inc.i, %nDestCapacity
+  %cmp = icmp ugt i64 %nDestCapacity, %inc.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDi.exit
@@ -3254,7 +3254,7 @@ while.body5.preheader.i:                          ; preds = %while.cond2.prehead
   br label %_ZN2EA4StdC7StrncpyEPcPKcm.exit
 
 _ZN2EA4StdC7StrncpyEPcPKcm.exit:                  ; preds = %while.cond.i, %while.cond2.preheader.i, %while.body5.preheader.i
-  %cmp2 = icmp ugt i64 %call.i, %n
+  %cmp2 = icmp ult i64 %n, %call.i
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %_ZN2EA4StdC7StrncpyEPcPKcm.exit
@@ -3362,7 +3362,7 @@ while.body5.preheader.i:                          ; preds = %while.cond2.prehead
   br label %_ZN2EA4StdC7StrncpyEPDsPKDsm.exit
 
 _ZN2EA4StdC7StrncpyEPDsPKDsm.exit:                ; preds = %while.cond.i7, %while.cond2.preheader.i, %while.body5.preheader.i
-  %cmp2 = icmp ugt i64 %retval.0.i, %n
+  %cmp2 = icmp ult i64 %n, %retval.0.i
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %_ZN2EA4StdC7StrncpyEPDsPKDsm.exit
@@ -3427,7 +3427,7 @@ while.body5.preheader.i:                          ; preds = %while.cond2.prehead
   br label %_ZN2EA4StdC7StrncpyEPDiPKDim.exit
 
 _ZN2EA4StdC7StrncpyEPDiPKDim.exit:                ; preds = %while.cond.i, %while.cond2.preheader.i, %while.body5.preheader.i
-  %cmp2 = icmp ugt i64 %inc.i, %n
+  %cmp2 = icmp ult i64 %n, %inc.i
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %_ZN2EA4StdC7StrncpyEPDiPKDim.exit
@@ -4080,7 +4080,7 @@ do.body:                                          ; preds = %do.cond, %entry
   %pString.addr.0 = phi ptr [ %pString, %entry ], [ %incdec.ptr, %do.cond ]
   %0 = load i8, ptr %pString.addr.0, align 1
   %conv = sext i8 %0 to i32
-  %cmp = icmp eq i32 %conv, %c
+  %cmp = icmp eq i32 %c, %conv
   br i1 %cmp, label %return, label %do.cond
 
 do.cond:                                          ; preds = %do.body
@@ -4146,7 +4146,7 @@ while.body:                                       ; preds = %entry, %if.end
   %pString.addr.06 = phi ptr [ %incdec.ptr, %if.end ], [ %pString, %entry ]
   %0 = load i8, ptr %pString.addr.06, align 1
   %conv = sext i8 %0 to i32
-  %cmp1 = icmp eq i32 %conv, %c
+  %cmp1 = icmp eq i32 %c, %conv
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
@@ -4499,7 +4499,7 @@ while.body:                                       ; preds = %entry, %while.body
   %pString.addr.06 = phi ptr [ %incdec.ptr, %while.body ], [ %pString, %entry ]
   %incdec.ptr = getelementptr inbounds i8, ptr %pString.addr.06, i64 1
   %conv = sext i8 %1 to i32
-  %cmp2 = icmp eq i32 %conv, %c
+  %cmp2 = icmp eq i32 %c, %conv
   %spec.select = select i1 %cmp2, ptr %pString.addr.06, ptr %pFound.07
   %2 = load i8, ptr %incdec.ptr, align 1
   %cmp.not = icmp eq i8 %2, 0
@@ -6734,7 +6734,7 @@ do.body.i.preheader:                              ; preds = %while.cond.preheade
 do.body.i:                                        ; preds = %do.body.i.preheader, %do.cond.i
   %pString.addr.0.i = phi ptr [ %incdec.ptr.i, %do.cond.i ], [ %pDelimiters, %do.body.i.preheader ]
   %1 = load i8, ptr %pString.addr.0.i, align 1
-  %cmp.i = icmp eq i8 %1, %0
+  %cmp.i = icmp eq i8 %0, %1
   br i1 %cmp.i, label %if.end, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
@@ -6762,7 +6762,7 @@ do.body.i19.preheader:                            ; preds = %if.end, %while.body
 do.body.i19:                                      ; preds = %do.body.i19.preheader, %do.cond.i23
   %pString.addr.0.i20 = phi ptr [ %incdec.ptr.i24, %do.cond.i23 ], [ %pDelimiters, %do.body.i19.preheader ]
   %5 = load i8, ptr %pString.addr.0.i20, align 1
-  %cmp.i22 = icmp eq i8 %5, %4
+  %cmp.i22 = icmp eq i8 %4, %5
   br i1 %cmp.i22, label %while.body10, label %do.cond.i23
 
 do.cond.i23:                                      ; preds = %do.body.i19
@@ -6784,7 +6784,7 @@ do.body.i28.preheader:                            ; preds = %do.cond.i23, %while
 do.body.i28:                                      ; preds = %do.body.i28.preheader, %do.cond.i32
   %pString.addr.0.i29 = phi ptr [ %incdec.ptr.i33, %do.cond.i32 ], [ %pDelimiters, %do.body.i28.preheader ]
   %8 = load i8, ptr %pString.addr.0.i29, align 1
-  %cmp.i31 = icmp eq i8 %8, %7
+  %cmp.i31 = icmp eq i8 %7, %8
   br i1 %cmp.i31, label %while.end23, label %do.cond.i32
 
 do.cond.i32:                                      ; preds = %do.body.i28
@@ -7149,7 +7149,7 @@ entry:
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #35
   %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %call.i
   %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %cmp11 = icmp ugt ptr %p2.010, %pString
+  %cmp11 = icmp ult ptr %pString, %p2.010
   br i1 %cmp11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
@@ -7226,7 +7226,7 @@ _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.bo
   %retval.0.in.i = sub i64 %.pn.i, %0
   %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %retval.0.in.i
   %p2.013 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
-  %cmp14 = icmp ugt ptr %p2.013, %pString
+  %cmp14 = icmp ult ptr %pString, %p2.013
   br i1 %cmp14, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZN2EA4StdC6StrlenEPKDs.exit, %for.body
@@ -7262,7 +7262,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
 _ZN2EA4StdC6StrlenEPKDi.exit:                     ; preds = %do.body.i
   %add.ptr = getelementptr inbounds i32, ptr %pString, i64 %inc.i
   %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
-  %cmp11 = icmp ugt ptr %p2.010, %pString
+  %cmp11 = icmp ult ptr %pString, %p2.010
   br i1 %cmp11, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZN2EA4StdC6StrlenEPKDi.exit, %for.body
@@ -12133,7 +12133,7 @@ if.end4:                                          ; preds = %if.then1
   %call = tail call double @log10(double noundef %0) #35
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
-  %cmp5 = icmp sge i32 %conv, %nPrecision
+  %cmp5 = icmp sle i32 %nPrecision, %conv
   %cmp6 = icmp slt i32 %conv, -4
   %or.cond = or i1 %cmp5, %cmp6
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
@@ -12164,7 +12164,7 @@ while.end:                                        ; preds = %if.end4.thread, %wh
   %sub = sub nsw i32 0, %nExponent.0178181
   %conv9 = sitofp i32 %sub to double
   %call10 = tail call double @pow(double noundef 1.000000e+01, double noundef %conv9) #35
-  %mul11 = fmul double %call10, %dValue
+  %mul11 = fmul double %dValue, %call10
   %sub12 = add nsw i32 %nResultCapacity, -2
   %sub13 = add i32 %sub12, %nDigits.0.lcssa.neg
   %call14 = tail call noundef ptr @_ZN2EA4StdC11FtoaEnglishEdPciib(double noundef %mul11, ptr noundef %pResult, i32 noundef %sub13, i32 noundef %nPrecision, i1 noundef zeroext false)
@@ -12587,7 +12587,7 @@ if.end4:                                          ; preds = %if.then1
   %call = tail call double @log10(double noundef %0) #35
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
-  %cmp5 = icmp sge i32 %conv, %nPrecision
+  %cmp5 = icmp sle i32 %nPrecision, %conv
   %cmp6 = icmp slt i32 %conv, -4
   %or.cond = or i1 %cmp5, %cmp6
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
@@ -12618,7 +12618,7 @@ while.end:                                        ; preds = %if.end4.thread, %wh
   %sub = sub nsw i32 0, %nExponent.0176179
   %conv9 = sitofp i32 %sub to double
   %call10 = tail call double @pow(double noundef 1.000000e+01, double noundef %conv9) #35
-  %mul11 = fmul double %call10, %dValue
+  %mul11 = fmul double %dValue, %call10
   %sub12 = add nsw i32 %nResultCapacity, -2
   %sub13 = add i32 %sub12, %nDigits.0.lcssa.neg
   %call14 = tail call noundef ptr @_ZN2EA4StdC11FtoaEnglishEdPDsiib(double noundef %mul11, ptr noundef %pResult, i32 noundef %sub13, i32 noundef %nPrecision, i1 noundef zeroext false)
@@ -12995,7 +12995,7 @@ if.end4:                                          ; preds = %if.then1
   %call = tail call double @log10(double noundef %0) #35
   %1 = tail call double @llvm.floor.f64(double %call)
   %conv = fptosi double %1 to i32
-  %cmp5 = icmp sge i32 %conv, %nPrecision
+  %cmp5 = icmp sle i32 %nPrecision, %conv
   %cmp6 = icmp slt i32 %conv, -4
   %or.cond = or i1 %cmp5, %cmp6
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
@@ -13026,7 +13026,7 @@ while.end:                                        ; preds = %if.end4.thread, %wh
   %sub = sub nsw i32 0, %nExponent.0169172
   %conv9 = sitofp i32 %sub to double
   %call10 = tail call double @pow(double noundef 1.000000e+01, double noundef %conv9) #35
-  %mul11 = fmul double %call10, %dValue
+  %mul11 = fmul double %dValue, %call10
   %sub12 = add nsw i32 %nResultCapacity, -2
   %sub13 = add i32 %sub12, %nDigits.0.lcssa.neg
   %call14 = tail call noundef ptr @_ZN2EA4StdC11FtoaEnglishEdPDiiib(double noundef %mul11, ptr noundef %pResult, i32 noundef %sub13, i32 noundef %nPrecision, i1 noundef zeroext false)

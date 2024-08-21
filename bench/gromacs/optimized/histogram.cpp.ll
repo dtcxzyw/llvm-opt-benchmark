@@ -1130,7 +1130,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23Anal
   %43 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i18, i64 %indvars.iv
   %44 = load float, ptr %43, align 8
   %45 = load float, ptr %42, align 4
-  %46 = fcmp ogt float %45, %44
+  %46 = fcmp olt float %44, %45
   br i1 %46, label %47, label %54
 
 47:                                               ; preds = %40
@@ -1812,7 +1812,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23An
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load float, ptr %.sroa.0.0.copyload.i.i.i, align 8
   %34 = load float, ptr %32, align 4
-  %35 = fcmp ogt float %34, %33
+  %35 = fcmp olt float %33, %34
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %29
@@ -2282,7 +2282,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisD
   %31 = load ptr, ptr %30, align 8
   %32 = load float, ptr %.sroa.0.0.copyload.i.i.i, align 8
   %33 = load float, ptr %31, align 4
-  %34 = fcmp ogt float %33, %32
+  %34 = fcmp olt float %32, %33
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %29
@@ -2785,7 +2785,7 @@ declare float @llvm.rint.f32(float) #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3gmx25AnalysisHistogramSettings7findBinEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %0, float noundef %1) local_unnamed_addr #12 align 2 {
   %3 = load float, ptr %0, align 4
-  %4 = fcmp ogt float %3, %1
+  %4 = fcmp olt float %1, %3
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %2
@@ -3003,7 +3003,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %.03960 = phi i32 [ 0, %.lr.ph ], [ %127, %.split58.us ]
   %.04159 = phi i32 [ 0, %.lr.ph ], [ %.1, %.split58.us ]
   %44 = icmp eq i32 %.03960, 0
-  %45 = and i1 %44, %2
+  %45 = and i1 %2, %44
   %46 = add nuw nsw i32 %.04159, 1
   br i1 %45, label %.split.us, label %.split
 
@@ -3369,7 +3369,7 @@ define void @_ZN3gmx24AbstractAverageHistogram11scaleSingleEif(ptr noundef nonnu
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %13, i64 %12
   %15 = load float, ptr %14, align 4
-  %16 = fmul float %15, %2
+  %16 = fmul float %2, %15
   store float %16, ptr %14, align 4
   %17 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %18 = mul nsw i32 %17, %.08
@@ -3378,7 +3378,7 @@ define void @_ZN3gmx24AbstractAverageHistogram11scaleSingleEif(ptr noundef nonnu
   %21 = load ptr, ptr %7, align 8
   %22 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %21, i64 %20, i32 1
   %23 = load float, ptr %22, align 4
-  %24 = fmul float %23, %2
+  %24 = fmul float %2, %23
   store float %24, ptr %22, align 4
   %25 = add nuw nsw i32 %.08, 1
   %26 = load i32, ptr %4, align 8
@@ -3484,7 +3484,7 @@ define void @_ZN3gmx24AbstractAverageHistogram8scaleAllEf(ptr noundef nonnull al
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %14, i64 %13
   %16 = load float, ptr %15, align 4
-  %17 = fmul float %16, %1
+  %17 = fmul float %1, %16
   store float %17, ptr %15, align 4
   %18 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %19 = mul nsw i32 %18, %.08.i
@@ -3493,7 +3493,7 @@ define void @_ZN3gmx24AbstractAverageHistogram8scaleAllEf(ptr noundef nonnull al
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %22, i64 %21, i32 1
   %24 = load float, ptr %23, align 4
-  %25 = fmul float %24, %1
+  %25 = fmul float %1, %24
   store float %25, ptr %23, align 4
   %26 = add nuw nsw i32 %.08.i, 1
   %27 = load i32, ptr %5, align 8

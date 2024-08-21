@@ -2034,7 +2034,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit33:     ; preds = %31, %41
   %44 = phi ptr [ %43, %41 ], [ null, %31 ]
   %45 = call noundef i32 %36(ptr noundef nonnull %11, ptr noundef %38, i32 noundef %32, ptr noundef nonnull %6, ptr noundef %44)
   %.not26 = icmp ne i32 %45, 0
-  %brmerge.not = and i1 %.not26, %1
+  %brmerge.not = and i1 %1, %.not26
   %46 = load i32, ptr %4, align 4
   br i1 %brmerge.not, label %47, label %120
 

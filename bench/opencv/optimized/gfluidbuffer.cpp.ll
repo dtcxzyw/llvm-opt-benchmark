@@ -710,7 +710,7 @@ define hidden void @_ZNK2cv4gapi5fluid13BufferStorage13updateInCacheERNS1_4View5
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = trunc i64 %indvars.iv to i32
-  %13 = add i32 %12, %2
+  %13 = add i32 %2, %12
   %14 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %13, i32 noundef %8)
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
@@ -738,7 +738,7 @@ define hidden void @_ZN2cv4gapi5fluid13BufferStorage14updateOutCacheERNS1_6Buffe
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = trunc i64 %indvars.iv to i32
-  %10 = add i32 %9, %2
+  %10 = add i32 %2, %9
   %11 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %10)
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv

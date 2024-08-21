@@ -19830,7 +19830,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__
           to label %185 unwind label %210
 
 185:                                              ; preds = %183
-  %.not = icmp eq i32 %184, %2
+  %.not = icmp eq i32 %2, %184
   br i1 %.not, label %212, label %186
 
 186:                                              ; preds = %185, %181
@@ -19892,7 +19892,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__
           to label %214 unwind label %210
 
 214:                                              ; preds = %212
-  %215 = icmp ne i32 %213, %2
+  %215 = icmp ne i32 %2, %213
   call void @__cxa_end_catch()
   %216 = zext i1 %215 to i32
   br label %223
@@ -23564,7 +23564,7 @@ _ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev.exit:       ; preds = %902, %_ZSt8_Destroy
           to label %988 unwind label %1058
 
 941:                                              ; preds = %925
-  %spec.select = xor i1 %936, %3
+  %spec.select = xor i1 %3, %936
   %942 = zext i1 %spec.select to i32
   br i1 %spec.select, label %943, label %984
 
@@ -24037,7 +24037,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt
   br label %131
 
 73:                                               ; preds = %.preheader
-  %spec.select = xor i1 %43, %3
+  %spec.select = xor i1 %3, %43
   %74 = zext i1 %spec.select to i32
   br i1 %spec.select, label %75, label %130
 
@@ -24457,8 +24457,8 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7
   br label %93
 
 75:                                               ; preds = %37
-  %76 = fcmp oeq double %34, %2
-  %narrow = xor i1 %76, %3
+  %76 = fcmp oeq double %2, %34
+  %narrow = xor i1 %3, %76
   %not. = zext i1 %narrow to i32
   br i1 %narrow, label %77, label %92
 
@@ -25766,7 +25766,7 @@ _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
   %10 = load i32, ptr %3, align 4
   %11 = sitofp i32 %10 to double
-  %12 = fadd double %11, %1
+  %12 = fadd double %1, %11
   ret double %12
 
 13:                                               ; preds = %2
@@ -25821,8 +25821,8 @@ _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   %11 = load i32, ptr %4, align 4
   %12 = sitofp i32 %11 to double
-  %13 = fadd double %12, %1
-  %14 = fadd double %13, %2
+  %13 = fadd double %1, %12
+  %14 = fadd double %2, %13
   ret double %14
 
 15:                                               ; preds = %3
@@ -25877,9 +25877,9 @@ _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   %12 = load i32, ptr %5, align 4
   %13 = sitofp i32 %12 to double
-  %14 = fadd double %13, %1
-  %15 = fadd double %14, %2
-  %16 = fadd double %15, %3
+  %14 = fadd double %1, %13
+  %15 = fadd double %2, %14
+  %16 = fadd double %3, %15
   ret double %16
 
 17:                                               ; preds = %4
@@ -25934,10 +25934,10 @@ _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   %13 = load i32, ptr %6, align 4
   %14 = sitofp i32 %13 to double
-  %15 = fadd double %14, %1
-  %16 = fadd double %15, %2
-  %17 = fadd double %16, %3
-  %18 = fadd double %17, %4
+  %15 = fadd double %1, %14
+  %16 = fadd double %2, %15
+  %17 = fadd double %3, %16
+  %18 = fadd double %4, %17
   ret double %18
 
 19:                                               ; preds = %5
@@ -25992,11 +25992,11 @@ _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.e
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   %14 = load i32, ptr %7, align 4
   %15 = sitofp i32 %14 to double
-  %16 = fadd double %15, %1
-  %17 = fadd double %16, %2
-  %18 = fadd double %17, %3
-  %19 = fadd double %18, %4
-  %20 = fadd double %19, %5
+  %16 = fadd double %1, %15
+  %17 = fadd double %2, %16
+  %18 = fadd double %3, %17
+  %19 = fadd double %4, %18
+  %20 = fadd double %5, %19
   ret double %20
 
 21:                                               ; preds = %6
@@ -26366,7 +26366,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester6FunUd0EPv(ptr noun
 define linkonce_odr noundef double @_ZN2mu4Test12ParserTester6FunUd1EPvd(ptr noundef %0, double noundef %1) #9 comdat align 2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = sitofp i64 %3 to double
-  %5 = fadd double %4, %1
+  %5 = fadd double %1, %4
   ret double %5
 }
 
@@ -26374,8 +26374,8 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester6FunUd1EPvd(ptr nou
 define linkonce_odr noundef double @_ZN2mu4Test12ParserTester6FunUd2EPvdd(ptr noundef %0, double noundef %1, double noundef %2) #9 comdat align 2 {
   %4 = ptrtoint ptr %0 to i64
   %5 = sitofp i64 %4 to double
-  %6 = fadd double %5, %1
-  %7 = fadd double %6, %2
+  %6 = fadd double %1, %5
+  %7 = fadd double %2, %6
   ret double %7
 }
 
@@ -26383,16 +26383,16 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester6FunUd2EPvdd(ptr no
 define linkonce_odr noundef double @_ZN2mu4Test12ParserTester7FunUd10EPvdddddddddd(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) #9 comdat align 2 {
   %12 = ptrtoint ptr %0 to i64
   %13 = sitofp i64 %12 to double
-  %14 = fadd double %13, %1
-  %15 = fadd double %14, %2
-  %16 = fadd double %15, %3
-  %17 = fadd double %16, %4
-  %18 = fadd double %17, %5
-  %19 = fadd double %18, %6
-  %20 = fadd double %19, %7
-  %21 = fadd double %20, %8
-  %22 = fadd double %21, %9
-  %23 = fadd double %22, %10
+  %14 = fadd double %1, %13
+  %15 = fadd double %2, %14
+  %16 = fadd double %3, %15
+  %17 = fadd double %4, %16
+  %18 = fadd double %5, %17
+  %19 = fadd double %6, %18
+  %20 = fadd double %7, %19
+  %21 = fadd double %8, %20
+  %22 = fadd double %9, %21
+  %23 = fadd double %10, %22
   ret double %23
 }
 
@@ -26424,8 +26424,8 @@ _ZStrsINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.e
   %14 = sext i32 %13 to i64
   %15 = add nsw i64 %14, %12
   %16 = sitofp i64 %15 to double
-  %17 = fadd double %16, %2
-  %18 = fadd double %17, %3
+  %17 = fadd double %2, %16
+  %18 = fadd double %3, %17
   ret double %18
 
 19:                                               ; preds = %4
@@ -26680,7 +26680,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #25
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.016.i.i.i.i.i, %23
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %23, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %29, %.lr.ph.i.i.i.i.i.i.i
@@ -26720,7 +26720,7 @@ _ZSt8_DestroyIPN2mu6ParserEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
 _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %26, %25
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %25 ], [ %28, %26 ]
   %.ptr = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 600
-  %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit42, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %44

@@ -206,7 +206,7 @@ define ptr @Msat_SolverReadClause(ptr nocapture noundef readonly %0, i32 noundef
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %4) #11
-  %6 = icmp sgt i32 %5, %1
+  %6 = icmp slt i32 %1, %5
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2

@@ -65,7 +65,7 @@ define internal { double, double } @_ZL14nell_s_inverse5PJ_XYP8PJconsts(double %
   %7 = fdiv double %4, %6
   %8 = load ptr, ptr %2, align 8
   %9 = tail call double @sin(double noundef %1) #6
-  %10 = fadd double %9, %1
+  %10 = fadd double %1, %9
   %11 = fmul double %10, 5.000000e-01
   %12 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %8, double noundef %11)
   %.fca.0.insert = insertvalue { double, double } poison, double %7, 0
@@ -80,7 +80,7 @@ define internal { double, double } @_ZL14nell_s_forward5PJ_LPP8PJconsts(double %
   %6 = fmul double %1, %1
   %7 = tail call double @llvm.fmuladd.f64(double %6, double -1.141200e-02, double -9.353820e-02)
   %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double 1.003710e+00)
-  %9 = fmul double %8, %1
+  %9 = fmul double %1, %8
   br label %10
 
 10:                                               ; preds = %10, %3

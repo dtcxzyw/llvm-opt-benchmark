@@ -685,7 +685,7 @@ Vec_PtrPush.exit348:                              ; preds = %198, %Vec_PtrGrow.e
 215:                                              ; preds = %Vec_PtrPush.exit348
   %216 = load i32, ptr %39, align 8
   %217 = shl nsw i32 %216, 1
-  %218 = icmp slt i32 %217, %214
+  %218 = icmp sgt i32 %214, %217
   %.not.i.i350 = icmp slt i32 %216, %214
   br i1 %218, label %219, label %228
 

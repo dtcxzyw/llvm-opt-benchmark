@@ -1817,7 +1817,7 @@ land.lhs.true:                                    ; preds = %entry
   %call = call i32 @generate_stateless_cookie_callback(ptr noundef %ssl, ptr noundef nonnull %result, ptr noundef nonnull %resultlength)
   %tobool1.not = icmp ne i32 %call, 0
   %0 = load i64, ptr %resultlength, align 8
-  %cmp = icmp eq i64 %0, %cookie_len
+  %cmp = icmp eq i64 %cookie_len, %0
   %or.cond = select i1 %tobool1.not, i1 %cmp, i1 false
   br i1 %or.cond, label %land.lhs.true3, label %if.end
 

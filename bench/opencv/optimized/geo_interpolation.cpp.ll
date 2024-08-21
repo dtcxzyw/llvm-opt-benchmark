@@ -196,7 +196,7 @@ define hidden void @_ZN2cv7optflow9sgeo_distERKNS_3MatERKSt6vectorINS_6Point_IfE
   br i1 %.not.i.i.i, label %53, label %.lr.ph.i.i.i, !llvm.loop !4
 
 53:                                               ; preds = %.lr.ph.i.i.i
-  %54 = icmp eq ptr %23, %.0710.i.i.i
+  %54 = icmp eq ptr %.0710.i.i.i, %23
   %spec.select.i.i = or i1 %54, %52
   br label %55
 
@@ -351,7 +351,7 @@ _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader:         ; preds = %_ZN2cv3VecIfLi8EEC2
   br i1 %.not.i.i.i65, label %140, label %.lr.ph.i.i.i60, !llvm.loop !4
 
 140:                                              ; preds = %.lr.ph.i.i.i60
-  %141 = icmp eq ptr %23, %.0710.i.i.i61
+  %141 = icmp eq ptr %.0710.i.i.i61, %23
   %spec.select.i.i66 = or i1 %141, %139
   br label %_ZNSt8multimapIfN2cv3VecIiLi2EEESt4lessIfESaISt4pairIKfS2_EEE6insertIS5_IfS2_EEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeEOSD_.exit69
 
@@ -949,11 +949,11 @@ define hidden void @_ZN2cv7optflow8getGraphERKNS_3MatEf(ptr dead_on_unwind noali
 56:                                               ; preds = %42
   %57 = mul nsw i32 %25, %25
   %58 = uitofp nneg i32 %57 to float
-  %59 = fmul float %58, %2
+  %59 = fmul float %2, %58
   %60 = mul nsw i32 %27, %27
   %61 = uitofp nneg i32 %60 to float
-  %62 = fmul float %61, %2
-  %63 = fmul float %62, %2
+  %62 = fmul float %2, %61
+  %63 = fmul float %2, %62
   %64 = tail call float @llvm.fmuladd.f32(float %59, float %2, float %63)
   %65 = load ptr, ptr %14, align 8
   %66 = load ptr, ptr %15, align 8
@@ -1520,7 +1520,7 @@ _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader:         ; preds = %_ZNSt6vectorIN2cv3V
   br i1 %.not.i.i.i, label %260, label %.lr.ph.i.i.i, !llvm.loop !4
 
 260:                                              ; preds = %.lr.ph.i.i.i
-  %261 = icmp eq ptr %118, %.0710.i.i.i
+  %261 = icmp eq ptr %.0710.i.i.i, %118
   %spec.select.i.i = or i1 %261, %259
   br label %_ZNSt8multimapIfN2cv3VecIiLi2EEESt4lessIfESaISt4pairIKfS2_EEE6insertIS5_IfS2_EEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeEOSD_.exit
 
@@ -1779,7 +1779,7 @@ _ZN2cv7optflow12Graph_helper15color_in_targetEii.exit156.thread: ; preds = %367,
   br i1 %.not.i.i.i164, label %385, label %.lr.ph.i.i.i159, !llvm.loop !4
 
 385:                                              ; preds = %.lr.ph.i.i.i159
-  %386 = icmp eq ptr %118, %.0710.i.i.i160
+  %386 = icmp eq ptr %.0710.i.i.i160, %118
   %spec.select.i.i165 = or i1 %386, %384
   br label %_ZNSt8multimapIfN2cv3VecIiLi2EEESt4lessIfESaISt4pairIKfS2_EEE6insertIS5_IfS2_EEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeEOSD_.exit168
 
@@ -2442,7 +2442,7 @@ _ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.i:       ; preds = %183
 
 196:                                              ; preds = %193
   %.not.i.i.i89 = icmp ne ptr %194, null
-  %197 = icmp eq ptr %14, %195
+  %197 = icmp eq ptr %195, %14
   %or.cond.i.i.i = or i1 %.not.i.i.i89, %197
   br i1 %or.cond.i.i.i, label %.thread.i, label %198
 
@@ -2703,7 +2703,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !52
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -2787,7 +2787,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !52
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -2953,7 +2953,7 @@ _ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit5.i:      ; preds = %33
 
 38:                                               ; preds = %._crit_edge.thread.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit5.i, %._crit_edge.i.thread
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa30.i, %._crit_edge.i.thread ], [ %.020.lcssa30.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit5.i ], [ %.020.lcssa31.i, %._crit_edge.thread.i ]
-  %39 = icmp eq ptr %10, %.sroa.4.0.i.ph
+  %39 = icmp eq ptr %.sroa.4.0.i.ph, %10
   br i1 %39, label %.thread24, label %40
 
 40:                                               ; preds = %38
@@ -2999,7 +2999,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIffES0_IKS1_S1_ESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = icmp eq ptr %4, %1
+  %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %52
 
 6:                                                ; preds = %3

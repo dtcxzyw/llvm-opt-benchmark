@@ -521,7 +521,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   %165 = load i64, ptr %164, align 8, !alias.scope !113, !noalias !119, !noundef !7
   %166 = load i64, ptr %33, align 8, !alias.scope !122, !noalias !119, !noundef !7
   %167 = sub i64 %166, %165
-  %168 = icmp ult i64 %167, %3
+  %168 = icmp ugt i64 %3, %167
   br i1 %168, label %169, label %.lr.ph286
 
 169:                                              ; preds = %157
@@ -827,7 +827,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   store i64 10, ptr %.sroa.5109.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %269 = add i64 %266, -10
-  %270 = icmp ult i64 %269, %195
+  %270 = icmp ugt i64 %195, %269
   br i1 %270, label %271, label %279
 
 271:                                              ; preds = %265

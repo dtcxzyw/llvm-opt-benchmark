@@ -1049,13 +1049,13 @@ uint_to_str_back.exit:                            ; preds = %._crit_edge.i, %.si
   %23 = ptrtoint ptr %.2.i to i64
   %.neg = sub i64 %23, %22
   %.neg9 = trunc i64 %.neg to i32
-  %24 = add i32 %.neg9, %2
+  %24 = add i32 %2, %.neg9
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %uint_to_str_back.exit
   %26 = trunc i64 %23 to i32
-  %27 = add i32 %26, %2
+  %27 = add i32 %2, %26
   %28 = trunc i64 %22 to i32
   %29 = xor i32 %28, -1
   %30 = add i32 %27, %29
@@ -1122,13 +1122,13 @@ uint64_to_str_back.exit:                          ; preds = %._crit_edge.i, %.si
   %22 = ptrtoint ptr %.2.i to i64
   %.neg = sub i64 %22, %21
   %.neg9 = trunc i64 %.neg to i32
-  %23 = add i32 %.neg9, %2
+  %23 = add i32 %2, %.neg9
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %uint64_to_str_back.exit
   %25 = trunc i64 %22 to i32
-  %26 = add i32 %25, %2
+  %26 = add i32 %2, %25
   %27 = trunc i64 %21 to i32
   %28 = xor i32 %27, -1
   %29 = add i32 %26, %28
@@ -2273,7 +2273,7 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
 11:                                               ; preds = %9
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %3, i32 noundef %2) #10
   %13 = zext i32 %12 to i64
-  %.not61 = icmp ult i64 %13, %1
+  %.not61 = icmp ugt i64 %1, %13
   br i1 %.not61, label %81, label %14
 
 14:                                               ; preds = %11
@@ -2394,7 +2394,7 @@ uint_to_str_back.exit.i:                          ; preds = %.sink.split.i.i, %.
   %62 = ptrtoint ptr %.2.i.i to i64
   %.neg.i = sub i64 %62, %61
   %.neg9.i = trunc i64 %.neg.i to i32
-  %63 = add i32 %.neg9.i, %4
+  %63 = add i32 %4, %.neg9.i
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph.preheader.i, label %uint_to_str_back_len.exit
 
@@ -2402,7 +2402,7 @@ uint_to_str_back.exit.i:                          ; preds = %.sink.split.i.i, %.
   %65 = trunc i64 %62 to i32
   %66 = trunc i64 %61 to i32
   %67 = xor i32 %66, -1
-  %68 = add i32 %67, %4
+  %68 = add i32 %4, %67
   %69 = add i32 %68, %65
   %70 = zext i32 %69 to i64
   %71 = xor i64 %70, -1
@@ -2417,7 +2417,7 @@ uint_to_str_back_len.exit:                        ; preds = %uint_to_str_back.ex
   %.0.lcssa.i = phi ptr [ %.2.i.i, %uint_to_str_back.exit.i ], [ %scevgep.i, %.lr.ph.preheader.i ]
   %73 = sub i64 %61, %.pre-phi
   %74 = xor i64 %18, -1
-  %75 = add i64 %74, %1
+  %75 = add i64 %1, %74
   %. = call i64 @llvm.umin.i64(i64 %73, i64 %75)
   %76 = icmp eq i64 %., 0
   br i1 %76, label %81, label %77
@@ -2648,7 +2648,7 @@ define void @format_nstime_as_iso8601(ptr noundef %0, i64 noundef %1, ptr nounde
 
 34:                                               ; preds = %16
   %35 = zext nneg i32 %30 to i64
-  %.not = icmp uge i64 %35, %1
+  %.not = icmp ule i64 %1, %35
   %.not33 = icmp eq i32 %5, 0
   %or.cond = or i1 %.not33, %.not
   br i1 %or.cond, label %42, label %36

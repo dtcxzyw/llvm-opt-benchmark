@@ -2580,401 +2580,402 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   %92 = trunc i64 %91 to i32
   %93 = tail call i32 @hash_bytes(ptr noundef %82, i32 noundef %92) #14
   %.val.i.i.us = load i32, ptr %62, align 4
-  %94 = and i32 %.val.i.i.us, %93
-  %95 = load ptr, ptr %51, align 8
-  %96 = zext i32 %94 to i64
-  %97 = getelementptr %struct.RoleNameEntry, ptr %95, i64 %96
-  %98 = load i32, ptr %97, align 8
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %rolename_lookup.exit.thread.us, label %.lr.ph.i.i.us
+  %94 = load ptr, ptr %51, align 8
+  %.01416.i.i.us = and i32 %.val.i.i.us, %93
+  %95 = zext i32 %.01416.i.i.us to i64
+  %96 = getelementptr %struct.RoleNameEntry, ptr %94, i64 %95
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %rolename_lookup.exit.thread.us, label %.lr.ph.i.i.us
 
-.lr.ph.i.i.us:                                    ; preds = %90, %109
-  %100 = phi ptr [ %113, %109 ], [ %97, %90 ]
-  %.01416.i.i.us = phi i32 [ %111, %109 ], [ %94, %90 ]
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %102, %93
-  br i1 %103, label %104, label %109
+.lr.ph.i.i.us:                                    ; preds = %90, %108
+  %99 = phi ptr [ %111, %108 ], [ %96, %90 ]
+  %.01417.i.i.us = phi i32 [ %.014.i.i.us, %108 ], [ %.01416.i.i.us, %90 ]
+  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp eq i32 %93, %101
+  br i1 %102, label %103, label %108
 
-104:                                              ; preds = %.lr.ph.i.i.us
-  %105 = getelementptr inbounds i8, ptr %100, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull readonly dereferenceable(1) %82) #15
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %rolename_lookup.exit.us, label %109
+103:                                              ; preds = %.lr.ph.i.i.us
+  %104 = getelementptr inbounds i8, ptr %99, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull readonly dereferenceable(1) %82) #15
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %rolename_lookup.exit.us, label %108
 
-109:                                              ; preds = %104, %.lr.ph.i.i.us
-  %110 = add i32 %.01416.i.i.us, 1
-  %111 = and i32 %110, %.val.i.i.us
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr %struct.RoleNameEntry, ptr %95, i64 %112
-  %114 = load i32, ptr %113, align 8
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %rolename_lookup.exit.thread.us, label %.lr.ph.i.i.us
+108:                                              ; preds = %103, %.lr.ph.i.i.us
+  %109 = add i32 %.01417.i.i.us, 1
+  %.014.i.i.us = and i32 %109, %.val.i.i.us
+  %110 = zext i32 %.014.i.i.us to i64
+  %111 = getelementptr %struct.RoleNameEntry, ptr %94, i64 %110
+  %112 = load i32, ptr %111, align 8
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %rolename_lookup.exit.thread.us, label %.lr.ph.i.i.us
 
-rolename_lookup.exit.us:                          ; preds = %104, %87, %86
+rolename_lookup.exit.us:                          ; preds = %103, %87, %86
   store i8 1, ptr %76, align 1
-  %116 = add i32 %.1149.us, -1
-  %117 = load i8, ptr %83, align 1
-  %118 = icmp eq i8 %117, 116
-  br i1 %118, label %119, label %rolename_insert.exit.us
+  %114 = add i32 %.1149.us, -1
+  %115 = load i8, ptr %83, align 1
+  %116 = icmp eq i8 %115, 116
+  br i1 %116, label %117, label %rolename_insert.exit.us
 
-119:                                              ; preds = %rolename_lookup.exit.us
-  %120 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #15
-  %121 = trunc i64 %120 to i32
-  %122 = tail call i32 @hash_bytes(ptr noundef %80, i32 noundef %121) #14
+117:                                              ; preds = %rolename_lookup.exit.us
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #15
+  %119 = trunc i64 %118 to i32
+  %120 = tail call i32 @hash_bytes(ptr noundef %80, i32 noundef %119) #14
   %.pre.i.i.us = load i32, ptr %70, align 8
-  %.pre175.i.i.us = load i32, ptr %67, align 8
-  br label %123
+  %.pre176.i.i.us = load i32, ptr %67, align 8
+  br label %121
 
-123:                                              ; preds = %.backedge.i.i.us, %119
-  %124 = phi i32 [ 0, %.backedge.i.i.us ], [ %.pre175.i.i.us, %119 ]
-  %125 = phi i32 [ %238, %.backedge.i.i.us ], [ %.pre.i.i.us, %119 ]
-  %.not.i.i.us = icmp ult i32 %125, %124
-  br i1 %.not.i.i.us, label %184, label %126
+121:                                              ; preds = %.backedge.i.i.us, %117
+  %122 = phi i32 [ 0, %.backedge.i.i.us ], [ %.pre176.i.i.us, %117 ]
+  %123 = phi i32 [ %235, %.backedge.i.i.us ], [ %.pre.i.i.us, %117 ]
+  %.not.i.i.us = icmp ult i32 %123, %122
+  br i1 %.not.i.i.us, label %182, label %124
 
-126:                                              ; preds = %123
-  %127 = load i64, ptr %34, align 8
-  %128 = icmp eq i64 %127, 4294967296
-  br i1 %128, label %.split155.us, label %129
+124:                                              ; preds = %121
+  %125 = load i64, ptr %34, align 8
+  %126 = icmp eq i64 %125, 4294967296
+  br i1 %126, label %.split155.us, label %127
 
-129:                                              ; preds = %126
-  %130 = shl i64 %127, 1
-  %131 = load ptr, ptr %51, align 8
-  %132 = tail call i64 @llvm.umax.i64(i64 %130, i64 2)
-  %133 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %132)
-  %134 = icmp ult i64 %133, 2
-  %135 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %132, i1 true)
-  %136 = sub nuw nsw i64 64, %135
-  %137 = shl nuw i64 1, %136
-  %.0.i.i.i.i.i.us = select i1 %134, i64 %132, i64 %137
-  %138 = shl i64 %.0.i.i.i.i.i.us, 4
-  %139 = icmp ugt i64 %138, 9223372036854775806
-  br i1 %139, label %.split157.us, label %rolename_compute_size.exit.i.i.i.us
+127:                                              ; preds = %124
+  %128 = shl i64 %125, 1
+  %129 = load ptr, ptr %51, align 8
+  %130 = tail call i64 @llvm.umax.i64(i64 %128, i64 2)
+  %131 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %130)
+  %132 = icmp ult i64 %131, 2
+  %133 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %130, i1 true)
+  %134 = sub nuw nsw i64 64, %133
+  %135 = shl nuw i64 1, %134
+  %.0.i.i.i.i.i.us = select i1 %132, i64 %130, i64 %135
+  %136 = shl i64 %.0.i.i.i.i.i.us, 4
+  %137 = icmp ugt i64 %136, 9223372036854775806
+  br i1 %137, label %.split157.us, label %rolename_compute_size.exit.i.i.i.us
 
-rolename_compute_size.exit.i.i.i.us:              ; preds = %129
-  %140 = tail call ptr @pg_malloc0(i64 noundef %138) #14
-  store ptr %140, ptr %51, align 8
-  %141 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i.us)
-  %142 = icmp ult i64 %141, 2
-  %143 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i.us, i1 true)
-  %144 = sub nuw nsw i64 64, %143
-  %145 = shl nuw i64 1, %144
-  %.0.i.i.i.i.i.i.us = select i1 %142, i64 %.0.i.i.i.i.i.us, i64 %145
-  %146 = shl i64 %.0.i.i.i.i.i.i.us, 4
-  %147 = icmp ugt i64 %146, 9223372036854775806
-  br i1 %147, label %.split159.us, label %rolename_update_parameters.exit.i.i.i.us
+rolename_compute_size.exit.i.i.i.us:              ; preds = %127
+  %138 = tail call ptr @pg_malloc0(i64 noundef %136) #14
+  store ptr %138, ptr %51, align 8
+  %139 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i.i.us)
+  %140 = icmp ult i64 %139, 2
+  %141 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i.us, i1 true)
+  %142 = sub nuw nsw i64 64, %141
+  %143 = shl nuw i64 1, %142
+  %.0.i.i.i.i.i.i.us = select i1 %140, i64 %.0.i.i.i.i.i.us, i64 %143
+  %144 = shl i64 %.0.i.i.i.i.i.i.us, 4
+  %145 = icmp ugt i64 %144, 9223372036854775806
+  br i1 %145, label %.split159.us, label %rolename_update_parameters.exit.i.i.i.us
 
 rolename_update_parameters.exit.i.i.i.us:         ; preds = %rolename_compute_size.exit.i.i.i.us
   store i64 %.0.i.i.i.i.i.i.us, ptr %34, align 8
-  %148 = trunc i64 %.0.i.i.i.i.i.i.us to i32
-  %149 = add i32 %148, -1
-  store i32 %149, ptr %62, align 4
-  %150 = icmp eq i64 %.0.i.i.i.i.i.i.us, 4294967296
-  %151 = uitofp i64 %.0.i.i.i.i.i.i.us to double
-  %152 = fmul double %151, 9.000000e-01
-  %153 = fptoui double %152 to i32
-  %.sink.i.i.i.i.us = select i1 %150, i32 -85899346, i32 %153
+  %146 = trunc i64 %.0.i.i.i.i.i.i.us to i32
+  %147 = add i32 %146, -1
+  store i32 %147, ptr %62, align 4
+  %148 = icmp eq i64 %.0.i.i.i.i.i.i.us, 4294967296
+  %149 = uitofp i64 %.0.i.i.i.i.i.i.us to double
+  %150 = fmul double %149, 9.000000e-01
+  %151 = fptoui double %150 to i32
+  %.sink.i.i.i.i.us = select i1 %148, i32 -85899346, i32 %151
   store i32 %.sink.i.i.i.i.us, ptr %67, align 8
-  %.not67.i.i.i.us = icmp eq i64 %127, 0
+  %.not67.i.i.i.us = icmp eq i64 %125, 0
   br i1 %.not67.i.i.i.us, label %rolename_grow.exit.i.i.us, label %.lr.ph.i.i.i.us
 
-.lr.ph.i.i.i.us:                                  ; preds = %rolename_update_parameters.exit.i.i.i.us, %161
-  %154 = phi i64 [ %163, %161 ], [ 0, %rolename_update_parameters.exit.i.i.i.us ]
-  %.057.i.i.i.us = phi i32 [ %162, %161 ], [ 0, %rolename_update_parameters.exit.i.i.i.us ]
-  %155 = getelementptr %struct.RoleNameEntry, ptr %131, i64 %154
-  %156 = load i32, ptr %155, align 8
-  %.not.i.i.i.us = icmp eq i32 %156, 1
-  br i1 %.not.i.i.i.us, label %157, label %.lr.ph65.i.i.i.us.preheader
+.lr.ph.i.i.i.us:                                  ; preds = %rolename_update_parameters.exit.i.i.i.us, %159
+  %152 = phi i64 [ %161, %159 ], [ 0, %rolename_update_parameters.exit.i.i.i.us ]
+  %.057.i.i.i.us = phi i32 [ %160, %159 ], [ 0, %rolename_update_parameters.exit.i.i.i.us ]
+  %153 = getelementptr %struct.RoleNameEntry, ptr %129, i64 %152
+  %154 = load i32, ptr %153, align 8
+  %.not.i.i.i.us = icmp eq i32 %154, 1
+  br i1 %.not.i.i.i.us, label %155, label %.lr.ph65.i.i.i.us.preheader
 
-157:                                              ; preds = %.lr.ph.i.i.i.us
-  %158 = getelementptr i8, ptr %155, i64 4
-  %.val55.i.i.i.us = load i32, ptr %158, align 4
-  %159 = and i32 %.val55.i.i.i.us, %149
-  %160 = icmp eq i32 %159, %.057.i.i.i.us
-  br i1 %160, label %.lr.ph65.i.i.i.us.preheader, label %161
+155:                                              ; preds = %.lr.ph.i.i.i.us
+  %156 = getelementptr i8, ptr %153, i64 4
+  %.val55.i.i.i.us = load i32, ptr %156, align 4
+  %157 = and i32 %.val55.i.i.i.us, %147
+  %158 = icmp eq i32 %157, %.057.i.i.i.us
+  br i1 %158, label %.lr.ph65.i.i.i.us.preheader, label %159
 
-161:                                              ; preds = %157
-  %162 = add i32 %.057.i.i.i.us, 1
-  %163 = zext i32 %162 to i64
-  %164 = icmp ugt i64 %127, %163
-  br i1 %164, label %.lr.ph.i.i.i.us, label %.lr.ph65.i.i.i.us.preheader, !llvm.loop !20
+159:                                              ; preds = %155
+  %160 = add i32 %.057.i.i.i.us, 1
+  %161 = zext i32 %160 to i64
+  %162 = icmp ugt i64 %125, %161
+  br i1 %162, label %.lr.ph.i.i.i.us, label %.lr.ph65.i.i.i.us.preheader, !llvm.loop !20
 
-.lr.ph65.i.i.i.us.preheader:                      ; preds = %161, %157, %.lr.ph.i.i.i.us
-  %.04962.i.i.i.us.ph = phi i32 [ %.057.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.057.i.i.i.us, %157 ], [ 0, %161 ]
+.lr.ph65.i.i.i.us.preheader:                      ; preds = %159, %155, %.lr.ph.i.i.i.us
+  %.04962.i.i.i.us.ph = phi i32 [ %.057.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.057.i.i.i.us, %155 ], [ 0, %159 ]
   br label %.lr.ph65.i.i.i.us
 
-.lr.ph65.i.i.i.us:                                ; preds = %.lr.ph65.i.i.i.us.preheader, %178
-  %.163.i.i.i.us = phi i32 [ %181, %178 ], [ 0, %.lr.ph65.i.i.i.us.preheader ]
-  %.04962.i.i.i.us = phi i32 [ %spec.store.select.i.i.i.us, %178 ], [ %.04962.i.i.i.us.ph, %.lr.ph65.i.i.i.us.preheader ]
-  %165 = zext i32 %.04962.i.i.i.us to i64
-  %166 = getelementptr %struct.RoleNameEntry, ptr %131, i64 %165
-  %167 = load i32, ptr %166, align 8
-  %168 = icmp eq i32 %167, 1
-  br i1 %168, label %169, label %178
+.lr.ph65.i.i.i.us:                                ; preds = %.lr.ph65.i.i.i.us.preheader, %176
+  %.163.i.i.i.us = phi i32 [ %179, %176 ], [ 0, %.lr.ph65.i.i.i.us.preheader ]
+  %.04962.i.i.i.us = phi i32 [ %spec.store.select.i.i.i.us, %176 ], [ %.04962.i.i.i.us.ph, %.lr.ph65.i.i.i.us.preheader ]
+  %163 = zext i32 %.04962.i.i.i.us to i64
+  %164 = getelementptr %struct.RoleNameEntry, ptr %129, i64 %163
+  %165 = load i32, ptr %164, align 8
+  %166 = icmp eq i32 %165, 1
+  br i1 %166, label %167, label %176
 
-169:                                              ; preds = %.lr.ph65.i.i.i.us
-  %170 = getelementptr i8, ptr %166, i64 4
-  %.val56.i.i.i.us = load i32, ptr %170, align 4
+167:                                              ; preds = %.lr.ph65.i.i.i.us
+  %168 = getelementptr i8, ptr %164, i64 4
+  %.val56.i.i.i.us = load i32, ptr %168, align 4
   %.val.i.i.i.us = load i32, ptr %62, align 4
-  br label %171
+  br label %169
 
-171:                                              ; preds = %171, %169
-  %.val56.pn.i.i.i.us = phi i32 [ %.val56.i.i.i.us, %169 ], [ %176, %171 ]
+169:                                              ; preds = %169, %167
+  %.val56.pn.i.i.i.us = phi i32 [ %.val56.i.i.i.us, %167 ], [ %174, %169 ]
   %.047.i.i.i.us = and i32 %.val56.pn.i.i.i.us, %.val.i.i.i.us
-  %172 = zext i32 %.047.i.i.i.us to i64
-  %173 = getelementptr %struct.RoleNameEntry, ptr %140, i64 %172
-  %174 = load i32, ptr %173, align 8
-  %175 = icmp eq i32 %174, 0
-  %176 = add i32 %.047.i.i.i.us, 1
-  br i1 %175, label %177, label %171
+  %170 = zext i32 %.047.i.i.i.us to i64
+  %171 = getelementptr %struct.RoleNameEntry, ptr %138, i64 %170
+  %172 = load i32, ptr %171, align 8
+  %173 = icmp eq i32 %172, 0
+  %174 = add i32 %.047.i.i.i.us, 1
+  br i1 %173, label %175, label %169
 
-177:                                              ; preds = %171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(16) %166, i64 16, i1 false)
-  br label %178
+175:                                              ; preds = %169
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false)
+  br label %176
 
-178:                                              ; preds = %177, %.lr.ph65.i.i.i.us
-  %179 = add i32 %.04962.i.i.i.us, 1
+176:                                              ; preds = %175, %.lr.ph65.i.i.i.us
+  %177 = add i32 %.04962.i.i.i.us, 1
+  %178 = zext i32 %177 to i64
+  %.not52.i.i.i.us = icmp ugt i64 %125, %178
+  %spec.store.select.i.i.i.us = select i1 %.not52.i.i.i.us, i32 %177, i32 0
+  %179 = add i32 %.163.i.i.i.us, 1
   %180 = zext i32 %179 to i64
-  %.not52.i.i.i.us = icmp ugt i64 %127, %180
-  %spec.store.select.i.i.i.us = select i1 %.not52.i.i.i.us, i32 %179, i32 0
-  %181 = add i32 %.163.i.i.i.us, 1
-  %182 = zext i32 %181 to i64
-  %183 = icmp ugt i64 %127, %182
-  br i1 %183, label %.lr.ph65.i.i.i.us, label %rolename_grow.exit.i.i.us, !llvm.loop !21
+  %181 = icmp ugt i64 %125, %180
+  br i1 %181, label %.lr.ph65.i.i.i.us, label %rolename_grow.exit.i.i.us, !llvm.loop !21
 
-rolename_grow.exit.i.i.us:                        ; preds = %178, %rolename_update_parameters.exit.i.i.i.us
-  tail call void @pfree(ptr noundef %131) #14
-  br label %184
+rolename_grow.exit.i.i.us:                        ; preds = %176, %rolename_update_parameters.exit.i.i.i.us
+  tail call void @pfree(ptr noundef %129) #14
+  br label %182
 
-184:                                              ; preds = %rolename_grow.exit.i.i.us, %123
-  %185 = load ptr, ptr %51, align 8
+182:                                              ; preds = %rolename_grow.exit.i.i.us, %121
+  %183 = load ptr, ptr %51, align 8
   %.val82.i.i.us = load i32, ptr %62, align 4
-  %186 = and i32 %.val82.i.i.us, %122
-  %187 = zext i32 %186 to i64
-  %188 = getelementptr %struct.RoleNameEntry, ptr %185, i64 %187
-  %189 = load i32, ptr %188, align 8
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %.sink.split.i.i.us, label %.lr.ph.i.i101.us
+  %.075116.i.i.us = and i32 %.val82.i.i.us, %120
+  %184 = zext i32 %.075116.i.i.us to i64
+  %185 = getelementptr %struct.RoleNameEntry, ptr %183, i64 %184
+  %186 = load i32, ptr %185, align 8
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %.sink.split.i.i.us, label %.lr.ph.i.i101.us
 
-.lr.ph.i.i101.us:                                 ; preds = %184, %219
-  %191 = phi ptr [ %221, %219 ], [ %188, %184 ]
-  %.075117.i.i.us = phi i32 [ %208, %219 ], [ %186, %184 ]
-  %.080116.i.i.us = phi i32 [ %210, %219 ], [ 0, %184 ]
-  %192 = getelementptr inbounds i8, ptr %191, i64 4
-  %193 = load i32, ptr %192, align 4
-  %194 = icmp eq i32 %193, %122
-  br i1 %194, label %195, label %200
+.lr.ph.i.i101.us:                                 ; preds = %182, %215
+  %188 = phi ptr [ %217, %215 ], [ %185, %182 ]
+  %.075118.i.i.us = phi i32 [ %.075.i.i.us, %215 ], [ %.075116.i.i.us, %182 ]
+  %.080117.i.i.us = phi i32 [ %206, %215 ], [ 0, %182 ]
+  %189 = getelementptr inbounds i8, ptr %188, i64 4
+  %190 = load i32, ptr %189, align 4
+  %191 = icmp eq i32 %120, %190
+  br i1 %191, label %192, label %197
 
-195:                                              ; preds = %.lr.ph.i.i101.us
-  %196 = getelementptr inbounds i8, ptr %191, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull dereferenceable(1) %80) #15
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %rolename_insert.exit.us, label %200
+192:                                              ; preds = %.lr.ph.i.i101.us
+  %193 = getelementptr inbounds i8, ptr %188, i64 8
+  %194 = load ptr, ptr %193, align 8
+  %195 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %194, ptr noundef nonnull dereferenceable(1) %80) #15
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %rolename_insert.exit.us, label %197
 
-200:                                              ; preds = %195, %.lr.ph.i.i101.us
-  %201 = and i32 %193, %.val82.i.i.us
-  %.not.i87.i.i.us = icmp ugt i32 %201, %.075117.i.i.us
-  br i1 %.not.i87.i.i.us, label %202, label %rolename_distance.exit.i.i.us
+197:                                              ; preds = %192, %.lr.ph.i.i101.us
+  %198 = and i32 %190, %.val82.i.i.us
+  %.not.i87.i.i.us = icmp ugt i32 %198, %.075118.i.i.us
+  br i1 %.not.i87.i.i.us, label %199, label %rolename_distance.exit.i.i.us
 
-202:                                              ; preds = %200
-  %203 = load i64, ptr %34, align 8
-  %204 = trunc i64 %203 to i32
-  %205 = add i32 %.075117.i.i.us, %204
+199:                                              ; preds = %197
+  %200 = load i64, ptr %34, align 8
+  %201 = trunc i64 %200 to i32
+  %202 = add i32 %.075118.i.i.us, %201
   br label %rolename_distance.exit.i.i.us
 
-rolename_distance.exit.i.i.us:                    ; preds = %202, %200
-  %.pn.i.i.i.us = phi i32 [ %205, %202 ], [ %.075117.i.i.us, %200 ]
-  %.0.i.i.i102.us = sub i32 %.pn.i.i.i.us, %201
-  %206 = icmp ugt i32 %.080116.i.i.us, %.0.i.i.i102.us
-  %207 = add i32 %.075117.i.i.us, 1
-  %208 = and i32 %207, %.val82.i.i.us
-  br i1 %206, label %.preheader88.i.i.us, label %209
+rolename_distance.exit.i.i.us:                    ; preds = %199, %197
+  %.pn.i.i.i.us = phi i32 [ %202, %199 ], [ %.075118.i.i.us, %197 ]
+  %.0.i.i.i102.us = sub i32 %.pn.i.i.i.us, %198
+  %203 = icmp ugt i32 %.080117.i.i.us, %.0.i.i.i102.us
+  %204 = add i32 %.075118.i.i.us, 1
+  br i1 %203, label %.preheader88.i.i.us, label %205
 
-209:                                              ; preds = %rolename_distance.exit.i.i.us
-  %210 = add i32 %.080116.i.i.us, 1
-  %211 = icmp ugt i32 %210, 25
-  br i1 %211, label %212, label %219
+205:                                              ; preds = %rolename_distance.exit.i.i.us
+  %206 = add i32 %.080117.i.i.us, 1
+  %207 = icmp ugt i32 %206, 25
+  br i1 %207, label %208, label %215
 
-212:                                              ; preds = %209
-  %213 = load i32, ptr %70, align 8
-  %214 = uitofp i32 %213 to double
-  %215 = load i64, ptr %34, align 8
-  %216 = uitofp i64 %215 to double
-  %217 = fdiv double %214, %216
-  %218 = fcmp ult double %217, 1.000000e-01
-  br i1 %218, label %219, label %.backedge.i.i.us
+208:                                              ; preds = %205
+  %209 = load i32, ptr %70, align 8
+  %210 = uitofp i32 %209 to double
+  %211 = load i64, ptr %34, align 8
+  %212 = uitofp i64 %211 to double
+  %213 = fdiv double %210, %212
+  %214 = fcmp ult double %213, 1.000000e-01
+  br i1 %214, label %215, label %.backedge.i.i.us
 
-219:                                              ; preds = %212, %209
-  %220 = zext i32 %208 to i64
-  %221 = getelementptr %struct.RoleNameEntry, ptr %185, i64 %220
-  %222 = load i32, ptr %221, align 8
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %.sink.split.i.i.us, label %.lr.ph.i.i101.us
+215:                                              ; preds = %208, %205
+  %.075.i.i.us = and i32 %204, %.val82.i.i.us
+  %216 = zext i32 %.075.i.i.us to i64
+  %217 = getelementptr %struct.RoleNameEntry, ptr %183, i64 %216
+  %218 = load i32, ptr %217, align 8
+  %219 = icmp eq i32 %218, 0
+  br i1 %219, label %.sink.split.i.i.us, label %.lr.ph.i.i101.us
 
 .preheader88.i.i.us:                              ; preds = %rolename_distance.exit.i.i.us
-  %224 = zext i32 %208 to i64
-  %225 = getelementptr %struct.RoleNameEntry, ptr %185, i64 %224
-  %226 = load i32, ptr %225, align 8
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %.preheader.i.i.us, label %.lr.ph123.i.i.us
+  %220 = and i32 %204, %.val82.i.i.us
+  %221 = zext i32 %220 to i64
+  %222 = getelementptr %struct.RoleNameEntry, ptr %183, i64 %221
+  %223 = load i32, ptr %222, align 8
+  %224 = icmp eq i32 %223, 0
+  br i1 %224, label %.preheader.i.i.us, label %.lr.ph124.i.i.us
 
-.lr.ph123.i.i.us:                                 ; preds = %.preheader88.i.i.us, %239
-  %228 = phi i32 [ %241, %239 ], [ %208, %.preheader88.i.i.us ]
-  %.076122.i.i.us = phi i32 [ %229, %239 ], [ 0, %.preheader88.i.i.us ]
-  %229 = add i32 %.076122.i.i.us, 1
-  %230 = icmp sgt i32 %229, 150
-  br i1 %230, label %231, label %239
+.lr.ph124.i.i.us:                                 ; preds = %.preheader88.i.i.us, %236
+  %225 = phi i32 [ %238, %236 ], [ %220, %.preheader88.i.i.us ]
+  %.076123.i.i.us = phi i32 [ %226, %236 ], [ 0, %.preheader88.i.i.us ]
+  %226 = add i32 %.076123.i.i.us, 1
+  %227 = icmp sgt i32 %226, 150
+  br i1 %227, label %228, label %236
 
-231:                                              ; preds = %.lr.ph123.i.i.us
-  %232 = load i32, ptr %70, align 8
-  %233 = uitofp i32 %232 to double
-  %234 = load i64, ptr %34, align 8
-  %235 = uitofp i64 %234 to double
-  %236 = fdiv double %233, %235
-  %237 = fcmp ult double %236, 1.000000e-01
-  br i1 %237, label %239, label %.backedge.i.i.us
+228:                                              ; preds = %.lr.ph124.i.i.us
+  %229 = load i32, ptr %70, align 8
+  %230 = uitofp i32 %229 to double
+  %231 = load i64, ptr %34, align 8
+  %232 = uitofp i64 %231 to double
+  %233 = fdiv double %230, %232
+  %234 = fcmp ult double %233, 1.000000e-01
+  br i1 %234, label %236, label %.backedge.i.i.us
 
-.backedge.i.i.us:                                 ; preds = %212, %231
-  %238 = phi i32 [ %232, %231 ], [ %213, %212 ]
+.backedge.i.i.us:                                 ; preds = %208, %228
+  %235 = phi i32 [ %229, %228 ], [ %209, %208 ]
   store i32 0, ptr %67, align 8
-  br label %123
+  br label %121
 
-239:                                              ; preds = %231, %.lr.ph123.i.i.us
-  %240 = add i32 %228, 1
-  %241 = and i32 %240, %.val82.i.i.us
-  %242 = zext i32 %241 to i64
-  %243 = getelementptr %struct.RoleNameEntry, ptr %185, i64 %242
-  %244 = load i32, ptr %243, align 8
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %.preheader.i.i.us, label %.lr.ph123.i.i.us
+236:                                              ; preds = %228, %.lr.ph124.i.i.us
+  %237 = add i32 %225, 1
+  %238 = and i32 %237, %.val82.i.i.us
+  %239 = zext i32 %238 to i64
+  %240 = getelementptr %struct.RoleNameEntry, ptr %183, i64 %239
+  %241 = load i32, ptr %240, align 8
+  %242 = icmp eq i32 %241, 0
+  br i1 %242, label %.preheader.i.i.us, label %.lr.ph124.i.i.us
 
-.preheader.i.i.us:                                ; preds = %.preheader88.i.i.us, %239
-  %.lcssa101.i.i.us = phi i32 [ %241, %239 ], [ %208, %.preheader88.i.i.us ]
-  %.lcssa99.i.i.us = phi ptr [ %243, %239 ], [ %225, %.preheader88.i.i.us ]
-  %.not81141.i.i.us = icmp eq i32 %.lcssa101.i.i.us, %.075117.i.i.us
-  br i1 %.not81141.i.i.us, label %.sink.split.i.i.us, label %.lr.ph144.i.i.us
+.preheader.i.i.us:                                ; preds = %.preheader88.i.i.us, %236
+  %.lcssa101.i.i.us = phi i32 [ %238, %236 ], [ %220, %.preheader88.i.i.us ]
+  %.lcssa99.i.i.us = phi ptr [ %240, %236 ], [ %222, %.preheader88.i.i.us ]
+  %.not81142.i.i.us = icmp eq i32 %.lcssa101.i.i.us, %.075118.i.i.us
+  br i1 %.not81142.i.i.us, label %.sink.split.i.i.us, label %.lr.ph145.i.i.us
 
-.lr.ph144.i.i.us:                                 ; preds = %.preheader.i.i.us, %.lr.ph144.i.i.us
-  %.077143.i.i.us = phi i32 [ %247, %.lr.ph144.i.i.us ], [ %.lcssa101.i.i.us, %.preheader.i.i.us ]
-  %.079142.i.i.us = phi ptr [ %249, %.lr.ph144.i.i.us ], [ %.lcssa99.i.i.us, %.preheader.i.i.us ]
+.lr.ph145.i.i.us:                                 ; preds = %.preheader.i.i.us, %.lr.ph145.i.i.us
+  %.077144.i.i.us = phi i32 [ %244, %.lr.ph145.i.i.us ], [ %.lcssa101.i.i.us, %.preheader.i.i.us ]
+  %.079143.i.i.us = phi ptr [ %246, %.lr.ph145.i.i.us ], [ %.lcssa99.i.i.us, %.preheader.i.i.us ]
   %.val86.i.i.us = load i32, ptr %62, align 4
-  %246 = add i32 %.077143.i.i.us, -1
-  %247 = and i32 %.val86.i.i.us, %246
-  %248 = zext i32 %247 to i64
-  %249 = getelementptr %struct.RoleNameEntry, ptr %185, i64 %248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.079142.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %249, i64 16, i1 false)
-  %.not81.i.i.us = icmp eq i32 %247, %.075117.i.i.us
-  br i1 %.not81.i.i.us, label %.sink.split.i.i.us, label %.lr.ph144.i.i.us, !llvm.loop !22
+  %243 = add i32 %.077144.i.i.us, -1
+  %244 = and i32 %.val86.i.i.us, %243
+  %245 = zext i32 %244 to i64
+  %246 = getelementptr %struct.RoleNameEntry, ptr %183, i64 %245
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.079143.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %246, i64 16, i1 false)
+  %.not81.i.i.us = icmp eq i32 %244, %.075118.i.i.us
+  br i1 %.not81.i.i.us, label %.sink.split.i.i.us, label %.lr.ph145.i.i.us, !llvm.loop !22
 
-.sink.split.i.i.us:                               ; preds = %184, %.lr.ph144.i.i.us, %219, %.preheader.i.i.us
-  %.lcssa8084.sink.i.us = phi ptr [ %191, %.preheader.i.i.us ], [ %221, %219 ], [ %191, %.lr.ph144.i.i.us ], [ %188, %184 ]
-  %250 = load i32, ptr %70, align 8
-  %251 = add i32 %250, 1
-  store i32 %251, ptr %70, align 8
-  %252 = getelementptr inbounds i8, ptr %.lcssa8084.sink.i.us, i64 8
-  store ptr %80, ptr %252, align 8
-  %.sink217.i.i.us = getelementptr inbounds i8, ptr %.lcssa8084.sink.i.us, i64 4
-  store i32 %122, ptr %.sink217.i.i.us, align 4
+.sink.split.i.i.us:                               ; preds = %182, %.lr.ph145.i.i.us, %215, %.preheader.i.i.us
+  %.lcssa8084.sink.i.us = phi ptr [ %188, %.preheader.i.i.us ], [ %217, %215 ], [ %188, %.lr.ph145.i.i.us ], [ %185, %182 ]
+  %247 = load i32, ptr %70, align 8
+  %248 = add i32 %247, 1
+  store i32 %248, ptr %70, align 8
+  %249 = getelementptr inbounds i8, ptr %.lcssa8084.sink.i.us, i64 8
+  store ptr %80, ptr %249, align 8
+  %.sink218.i.i.us = getelementptr inbounds i8, ptr %.lcssa8084.sink.i.us, i64 4
+  store i32 %120, ptr %.sink218.i.i.us, align 4
   store i32 1, ptr %.lcssa8084.sink.i.us, align 8
   br label %rolename_insert.exit.us
 
-rolename_insert.exit.us:                          ; preds = %195, %.sink.split.i.i.us, %rolename_lookup.exit.us
+rolename_insert.exit.us:                          ; preds = %192, %.sink.split.i.i.us, %rolename_lookup.exit.us
   tail call void @resetPQExpBuffer(ptr noundef %3) #14
+  %250 = load ptr, ptr @OPF, align 8
+  %251 = tail call ptr @fmtId(ptr noundef %30) #14
+  %252 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %250, ptr noundef nonnull @.str.247, ptr noundef %251) #14
   %253 = load ptr, ptr @OPF, align 8
-  %254 = tail call ptr @fmtId(ptr noundef %30) #14
-  %255 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %253, ptr noundef nonnull @.str.247, ptr noundef %254) #14
-  %256 = load ptr, ptr @OPF, align 8
-  %257 = tail call ptr @fmtId(ptr noundef %80) #14
-  %258 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %256, ptr noundef nonnull @.str.248, ptr noundef %257) #14
-  %259 = load i8, ptr %83, align 1
-  %260 = icmp eq i8 %259, 116
-  br i1 %260, label %261, label %262
+  %254 = tail call ptr @fmtId(ptr noundef %80) #14
+  %255 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %253, ptr noundef nonnull @.str.248, ptr noundef %254) #14
+  %256 = load i8, ptr %83, align 1
+  %257 = icmp eq i8 %256, 116
+  br i1 %257, label %258, label %259
 
-261:                                              ; preds = %rolename_insert.exit.us
+258:                                              ; preds = %rolename_insert.exit.us
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.249) #14
-  br label %262
+  br label %259
 
-262:                                              ; preds = %261, %rolename_insert.exit.us
-  br i1 %7, label %263, label %272
+259:                                              ; preds = %258, %rolename_insert.exit.us
+  br i1 %7, label %260, label %269
 
-263:                                              ; preds = %262
-  %264 = load ptr, ptr %3, align 8
-  %265 = load i8, ptr %264, align 1
-  %.not97.us = icmp eq i8 %265, 0
-  br i1 %.not97.us, label %267, label %266
+260:                                              ; preds = %259
+  %261 = load ptr, ptr %3, align 8
+  %262 = load i8, ptr %261, align 1
+  %.not97.us = icmp eq i8 %262, 0
+  br i1 %.not97.us, label %264, label %263
 
-266:                                              ; preds = %263
+263:                                              ; preds = %260
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.250) #14
-  br label %267
+  br label %264
 
-267:                                              ; preds = %266, %263
-  %268 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef %12) #14
-  %269 = load i8, ptr %268, align 1
-  %270 = icmp eq i8 %269, 116
-  %271 = select i1 %270, ptr @.str.252, ptr @.str.253
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.251, ptr noundef nonnull %271) #14
-  br label %272
+264:                                              ; preds = %263, %260
+  %265 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %73, i32 noundef %12) #14
+  %266 = load i8, ptr %265, align 1
+  %267 = icmp eq i8 %266, 116
+  %268 = select i1 %267, ptr @.str.252, ptr @.str.253
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.251, ptr noundef nonnull %268) #14
+  br label %269
 
-272:                                              ; preds = %267, %262
-  %273 = load i8, ptr %.090.us, align 1
-  %.not98.us = icmp eq i8 %273, 116
-  br i1 %.not98.us, label %279, label %274
+269:                                              ; preds = %264, %259
+  %270 = load i8, ptr %.090.us, align 1
+  %.not98.us = icmp eq i8 %270, 116
+  br i1 %.not98.us, label %276, label %271
 
-274:                                              ; preds = %272
-  %275 = load ptr, ptr %3, align 8
-  %276 = load i8, ptr %275, align 1
-  %.not99.us = icmp eq i8 %276, 0
-  br i1 %.not99.us, label %278, label %277
+271:                                              ; preds = %269
+  %272 = load ptr, ptr %3, align 8
+  %273 = load i8, ptr %272, align 1
+  %.not99.us = icmp eq i8 %273, 0
+  br i1 %.not99.us, label %275, label %274
 
-277:                                              ; preds = %274
+274:                                              ; preds = %271
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.250) #14
-  br label %278
+  br label %275
 
-278:                                              ; preds = %277, %274
+275:                                              ; preds = %274, %271
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.254) #14
-  br label %279
+  br label %276
 
-279:                                              ; preds = %278, %272
-  %280 = load ptr, ptr %3, align 8
-  %281 = load i8, ptr %280, align 1
-  %.not100.us = icmp eq i8 %281, 0
-  br i1 %.not100.us, label %285, label %282
+276:                                              ; preds = %275, %269
+  %277 = load ptr, ptr %3, align 8
+  %278 = load i8, ptr %277, align 1
+  %.not100.us = icmp eq i8 %278, 0
+  br i1 %.not100.us, label %282, label %279
 
-282:                                              ; preds = %279
-  %283 = load ptr, ptr @OPF, align 8
-  %284 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %283, ptr noundef nonnull @.str.255, ptr noundef nonnull %280) #14
-  br label %285
+279:                                              ; preds = %276
+  %280 = load ptr, ptr @OPF, align 8
+  %281 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %280, ptr noundef nonnull @.str.255, ptr noundef nonnull %277) #14
+  br label %282
 
-285:                                              ; preds = %282, %279
-  br i1 %5, label %286, label %290
+282:                                              ; preds = %279, %276
+  br i1 %5, label %283, label %287
 
-286:                                              ; preds = %285
-  %287 = load ptr, ptr @OPF, align 8
-  %288 = tail call ptr @fmtId(ptr noundef %82) #14
-  %289 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %287, ptr noundef nonnull @.str.256, ptr noundef %288) #14
-  br label %290
+283:                                              ; preds = %282
+  %284 = load ptr, ptr @OPF, align 8
+  %285 = tail call ptr @fmtId(ptr noundef %82) #14
+  %286 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %284, ptr noundef nonnull @.str.256, ptr noundef %285) #14
+  br label %287
 
-290:                                              ; preds = %286, %285
-  %291 = load ptr, ptr @OPF, align 8
-  %292 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %291, ptr noundef nonnull @.str.233) #14
+287:                                              ; preds = %283, %282
+  %288 = load ptr, ptr @OPF, align 8
+  %289 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %288, ptr noundef nonnull @.str.233) #14
   br label %rolename_lookup.exit.thread.us
 
-rolename_lookup.exit.thread.us:                   ; preds = %109, %290, %90, %.preheader.us
-  %.2.us = phi i32 [ %.1149.us, %.preheader.us ], [ %116, %290 ], [ %.1149.us, %90 ], [ %.1149.us, %109 ]
+rolename_lookup.exit.thread.us:                   ; preds = %108, %287, %90, %.preheader.us
+  %.2.us = phi i32 [ %.1149.us, %.preheader.us ], [ %114, %287 ], [ %.1149.us, %90 ], [ %.1149.us, %108 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !23
 
 ..loopexit_crit_edge.us:                          ; preds = %rolename_lookup.exit.thread.us
-  %293 = icmp sgt i32 %.2.us, 0
-  br i1 %293, label %.lr.ph153.split.us, label %._crit_edge.loopexit, !llvm.loop !24
+  %290 = icmp sgt i32 %.2.us, 0
+  br i1 %290, label %.lr.ph153.split.us, label %._crit_edge.loopexit, !llvm.loop !24
 
 .preheader.us161:                                 ; preds = %.lr.ph153, %.preheader.us161
   %.094151.us160 = phi i32 [ %31, %.preheader.us161 ], [ 0, %.lr.ph153 ]
-  %294 = icmp eq i32 %31, %.094151.us160
-  br i1 %294, label %.split.us, label %.preheader.us161
+  %291 = icmp eq i32 %31, %.094151.us160
+  br i1 %291, label %.split.us, label %.preheader.us161
 
 .split.us:                                        ; preds = %.lr.ph153.split.us, %.preheader.us161
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.245, ptr noundef %30) #14
@@ -2982,12 +2983,12 @@ rolename_lookup.exit.thread.us:                   ; preds = %109, %290, %90, %.p
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-.split155.us:                                     ; preds = %126
+.split155.us:                                     ; preds = %124
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.258) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-.split157.us:                                     ; preds = %129
+.split157.us:                                     ; preds = %127
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
@@ -3002,18 +3003,18 @@ rolename_lookup.exit.thread.us:                   ; preds = %109, %290, %90, %.p
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %rolename_create.exit
-  %295 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %50, %rolename_create.exit ]
-  tail call void @pfree(ptr noundef %295) #14
+  %292 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %50, %rolename_create.exit ]
+  tail call void @pfree(ptr noundef %292) #14
   tail call void @pfree(ptr noundef nonnull %34) #14
   tail call void @pg_free(ptr noundef %33) #14
-  %296 = icmp slt i32 %.091.lcssa, %20
-  br i1 %296, label %.lr.ph, label %._crit_edge181, !llvm.loop !25
+  %293 = icmp slt i32 %.091.lcssa, %20
+  br i1 %293, label %.lr.ph, label %._crit_edge181, !llvm.loop !25
 
 ._crit_edge181:                                   ; preds = %._crit_edge, %19
   tail call void @PQclear(ptr noundef %11) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %2) #14
-  %297 = load ptr, ptr @OPF, align 8
-  %298 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %297, ptr noundef nonnull @.str.186) #14
+  %294 = load ptr, ptr @OPF, align 8
+  %295 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %294, ptr noundef nonnull @.str.186) #14
   ret void
 }
 

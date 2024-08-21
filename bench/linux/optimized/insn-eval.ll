@@ -1011,7 +1011,7 @@ define dso_local zeroext i1 @insn_decode_from_regs(ptr noundef %0, ptr nocapture
   %20 = getelementptr inbounds i8, ptr %0, i64 82
   %21 = load i8, ptr %20, align 2
   %22 = zext i8 %21 to i32
-  %23 = icmp sle i32 %22, %3
+  %23 = icmp sge i32 %3, %22
   br label %24
 
 24:                                               ; preds = %19, %11, %4

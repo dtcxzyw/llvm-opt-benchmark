@@ -837,7 +837,7 @@ define internal fastcc void @_set_assoc_cond(ptr nocapture noundef %0, i32 nound
   %.1 = phi i32 [ %.0102146, %125 ], [ %.0102146, %120 ], [ %.0102146, %112 ], [ %.0102146, %111 ], [ %.0102146, %104 ], [ %.0102146, %94 ], [ %.0102146, %85 ], [ %.0102146, %63 ], [ %.0102146, %56 ], [ 1, %46 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %129, %23
@@ -2506,7 +2506,7 @@ define internal fastcc void @_set_wckey_cond(ptr nocapture noundef %0, i32 nound
   %.1 = phi i32 [ %.0151, %123 ], [ %.0151, %105 ], [ %.0151, %96 ], [ %.0151, %95 ], [ %.0151, %88 ], [ %.0151, %56 ], [ 1, %46 ], [ %.0151, %63 ], [ %.0151, %76 ], [ %.0151, %115 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %1
+  %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %127, %22

@@ -4019,7 +4019,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 1912
   %42 = load ptr, ptr %41, align 8
-  %.not137 = icmp eq ptr %42, %2
+  %.not137 = icmp eq ptr %2, %42
   br i1 %.not137, label %116, label %43
 
 43:                                               ; preds = %40
@@ -4432,7 +4432,7 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
   %115 = getelementptr inbounds i8, ptr %0, i64 832
   %116 = load ptr, ptr %115, align 8
   %117 = tail call double @N_VWrmsNorm(ptr noundef %114, ptr noundef %116) #14
-  %118 = fcmp olt double %117, %109
+  %118 = fcmp ogt double %109, %117
   %..i = select i1 %118, double %109, double %117
   br label %119
 
@@ -4482,7 +4482,7 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
 144:                                              ; preds = %142, %138
   %145 = phi double [ %143, %142 ], [ %139, %138 ]
   %146 = load double, ptr %75, align 8
-  %147 = fcmp ogt double %146, %1
+  %147 = fcmp olt double %1, %146
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %144
@@ -5069,7 +5069,7 @@ IDAWrmsNorm.exit:                                 ; preds = %493, %496
   %500 = load ptr, ptr %313, align 8
   %501 = load ptr, ptr %314, align 8
   %502 = call double @N_VWrmsNorm(ptr noundef %500, ptr noundef %501) #14
-  %503 = fcmp olt double %502, %.0.i
+  %503 = fcmp ogt double %.0.i, %502
   %..i430 = select i1 %503, double %.0.i, double %502
   br label %504
 
@@ -5122,7 +5122,7 @@ IDAWrmsNorm.exit:                                 ; preds = %493, %496
 
 IDASensWrmsNormUpdate.exit:                       ; preds = %.lr.ph.i.i, %518
   %.0.lcssa.i.i = phi double [ %520, %518 ], [ %.1.i.i, %.lr.ph.i.i ]
-  %526 = fcmp olt double %.0.lcssa.i.i, %.0366
+  %526 = fcmp ogt double %.0366, %.0.lcssa.i.i
   %..i431 = select i1 %526, double %.0366, double %.0.lcssa.i.i
   br label %527
 
@@ -5161,7 +5161,7 @@ IDASensWrmsNormUpdate.exit:                       ; preds = %.lr.ph.i.i, %518
 
 IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %529
   %.0.lcssa.i.i432 = phi double [ %536, %529 ], [ %.1.i.i438, %.lr.ph.i.i436 ]
-  %542 = fcmp olt double %.0.lcssa.i.i432, %.1
+  %542 = fcmp ogt double %.1, %.0.lcssa.i.i432
   %..i433 = select i1 %542, double %.1, double %.0.lcssa.i.i432
   br label %543
 
@@ -7058,7 +7058,7 @@ IDAWrmsNorm.exit.i201.i:                          ; preds = %1479, %1476
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1484, double noundef -1.000000e+00, ptr noundef %1489, ptr noundef %1483) #14
   %1490 = load ptr, ptr %314, align 8
   %1491 = call double @N_VWrmsNorm(ptr noundef %1483, ptr noundef %1490) #14
-  %1492 = fcmp olt double %1491, %.0.i.i202.i
+  %1492 = fcmp ogt double %.0.i.i202.i, %1491
   %..i.i.i = select i1 %1492, double %.0.i.i202.i, double %1491
   br label %1493
 
@@ -7119,7 +7119,7 @@ IDAWrmsNorm.exit.i201.i:                          ; preds = %1479, %1476
 
 IDASensWrmsNormUpdate.exit.i.i:                   ; preds = %.lr.ph.i.i.i.i, %1515
   %.0.lcssa.i.i.i.i = phi double [ %1517, %1515 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %1523 = fcmp olt double %.0.lcssa.i.i.i.i, %.0280.i.i
+  %1523 = fcmp ogt double %.0280.i.i, %.0.lcssa.i.i.i.i
   %..i328.i.i = select i1 %1523, double %.0280.i.i, double %.0.lcssa.i.i.i.i
   br label %1524
 
@@ -7167,7 +7167,7 @@ IDASensWrmsNormUpdate.exit.i.i:                   ; preds = %.lr.ph.i.i.i.i, %15
 
 IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, %1526
   %.0.lcssa.i.i329.i.i = phi double [ %1542, %1526 ], [ %.1.i.i335.i.i, %.lr.ph.i.i333.i.i ]
-  %1548 = fcmp olt double %.0.lcssa.i.i329.i.i, %.1281.i.i
+  %1548 = fcmp ogt double %.1281.i.i, %.0.lcssa.i.i329.i.i
   %..i330.i.i = select i1 %1548, double %.1281.i.i, double %.0.lcssa.i.i329.i.i
   br label %1549
 
@@ -8325,7 +8325,7 @@ define double @IDASensWrmsNormUpdate(ptr nocapture noundef readonly %0, double n
 
 IDASensWrmsNorm.exit:                             ; preds = %.lr.ph.i, %18
   %.0.lcssa.i = phi double [ %21, %18 ], [ %.1.i, %.lr.ph.i ]
-  %27 = fcmp olt double %.0.lcssa.i, %1
+  %27 = fcmp ogt double %1, %.0.lcssa.i
   %. = select i1 %27, double %1, double %.0.lcssa.i
   ret double %.
 }
@@ -8360,7 +8360,7 @@ define internal fastcc double @IDAQuadSensWrmsNormUpdate(ptr nocapture noundef r
 
 IDAQuadSensWrmsNorm.exit:                         ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi double [ %11, %4 ], [ %.1.i, %.lr.ph.i ]
-  %17 = fcmp olt double %.0.lcssa.i, %1
+  %17 = fcmp ogt double %1, %.0.lcssa.i
   %. = select i1 %17, double %1, double %.0.lcssa.i
   ret double %.
 }
@@ -9692,7 +9692,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, dou
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %0, i64 1280
   %55 = load double, ptr %54, align 8
-  %56 = fcmp oeq double %55, %1
+  %56 = fcmp oeq double %1, %55
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
@@ -10264,7 +10264,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 1212
   %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, %2
+  %17 = icmp sgt i32 %2, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14, %12
@@ -10313,7 +10313,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   br label %46
 
 .loopexit:                                        ; preds = %72, %.lr.ph92.preheader, %.preheader
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %indvars.iv.next102 = add nuw i64 %indvars.iv101, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %46
 
@@ -10473,7 +10473,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 1208
   %20 = load i32, ptr %19, align 8
-  %21 = icmp slt i32 %20, %2
+  %21 = icmp sgt i32 %2, %20
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18, %16
@@ -10519,7 +10519,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   br label %48
 
 .loopexit:                                        ; preds = %74, %.lr.ph92.preheader, %.preheader
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %indvars.iv.next102 = add nuw i64 %indvars.iv101, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %48
 
@@ -10714,7 +10714,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 160
   %22 = load i32, ptr %21, align 8
-  %.not = icmp sgt i32 %22, %3
+  %.not = icmp slt i32 %3, %22
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %20, %18
@@ -10728,7 +10728,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 1212
   %28 = load i32, ptr %27, align 4
-  %29 = icmp slt i32 %28, %2
+  %29 = icmp sgt i32 %2, %28
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %26, %24
@@ -10777,7 +10777,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   br label %62
 
 .loopexit:                                        ; preds = %88, %.lr.ph113.preheader, %.preheader104
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %indvars.iv.next127 = add nuw i64 %indvars.iv126, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph119, label %62
 
@@ -10936,7 +10936,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 1208
   %19 = load i32, ptr %18, align 8
-  %20 = icmp slt i32 %19, %2
+  %20 = icmp sgt i32 %2, %19
   br i1 %20, label %24, label %.preheader
 
 .preheader:                                       ; preds = %17
@@ -11095,7 +11095,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 160
   %27 = load i32, ptr %26, align 8
-  %.not = icmp sgt i32 %27, %3
+  %.not = icmp slt i32 %3, %27
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %25, %23
@@ -11109,7 +11109,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 1212
   %33 = load i32, ptr %32, align 4
-  %34 = icmp slt i32 %33, %2
+  %34 = icmp sgt i32 %2, %33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31, %29
@@ -11158,7 +11158,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   br label %67
 
 .loopexit:                                        ; preds = %93, %.lr.ph115.preheader, %.preheader106
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %indvars.iv.next129 = add nuw i64 %indvars.iv128, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph121, label %67
 
@@ -11327,7 +11327,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 1208
   %24 = load i32, ptr %23, align 8
-  %25 = icmp slt i32 %24, %2
+  %25 = icmp sgt i32 %2, %24
   br i1 %25, label %29, label %.preheader
 
 .preheader:                                       ; preds = %22

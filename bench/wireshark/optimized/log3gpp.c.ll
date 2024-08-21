@@ -998,7 +998,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef rea
   %36 = icmp ult i64 %indvars.iv264, 16
   %or.cond = select i1 %35, i1 %36, i1 false
   %37 = trunc nuw i64 %indvars.iv.next267 to i32
-  %38 = icmp slt i32 %37, %1
+  %38 = icmp sgt i32 %1, %37
   %or.cond166 = and i1 %38, %or.cond
   br i1 %or.cond166, label %.lr.ph, label %.critedge, !llvm.loop !9
 

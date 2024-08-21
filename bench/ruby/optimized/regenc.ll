@@ -728,7 +728,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 19:                                               ; preds = %10
   %20 = getelementptr i8, ptr %4, i64 1
-  %21 = icmp ult ptr %20, %5
+  %21 = icmp ugt ptr %5, %20
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %19
@@ -767,7 +767,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 38:                                               ; preds = %29
   %39 = getelementptr i8, ptr %4, i64 1
-  %40 = icmp ult ptr %39, %5
+  %40 = icmp ugt ptr %5, %39
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %38
@@ -1218,7 +1218,7 @@ define dso_local i32 @onigenc_mb2_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %9
-  %18 = icmp ugt ptr %11, %2
+  %18 = icmp ult ptr %2, %11
   %spec.select = select i1 %18, i32 %13, i32 0
   br label %onigenc_mbclen.exit
 
@@ -1251,7 +1251,7 @@ define dso_local i32 @onigenc_mb2_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   br label %onigenc_mbclen.exit
 
 38:                                               ; preds = %31
-  %39 = icmp ugt ptr %11, %2
+  %39 = icmp ult ptr %2, %11
   %40 = zext i1 %39 to i32
   br label %onigenc_mbclen.exit
 
@@ -1319,7 +1319,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %18
-  %27 = icmp ugt ptr %20, %2
+  %27 = icmp ult ptr %2, %20
   %spec.select = select i1 %27, i32 %22, i32 0
   br label %onigenc_mbclen.exit
 
@@ -1352,7 +1352,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   br label %onigenc_mbclen.exit
 
 47:                                               ; preds = %40
-  %48 = icmp ugt ptr %20, %2
+  %48 = icmp ult ptr %2, %20
   %49 = zext i1 %48 to i32
   br label %onigenc_mbclen.exit
 

@@ -2964,7 +2964,7 @@ define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   %6 = ptrtoint ptr %2 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -2985,7 +2985,7 @@ define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %16
-  %24 = icmp eq ptr %19, %1
+  %24 = icmp eq ptr %1, %19
   br i1 %24, label %102, label %25
 
 25:                                               ; preds = %23
@@ -3000,7 +3000,7 @@ define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %28
-  %33 = icmp eq ptr %21, %2
+  %33 = icmp eq ptr %2, %21
   br i1 %33, label %102, label %34
 
 34:                                               ; preds = %32

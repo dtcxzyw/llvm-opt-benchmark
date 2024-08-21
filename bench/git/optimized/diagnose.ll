@@ -348,7 +348,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
 if.then13.i:                                      ; preds = %land.lhs.true8.i
   %32 = load i64, ptr %count_path.i, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %32, i64 1)
-  %cmp.i.i = icmp ult i64 %spec.select.i.i, %31
+  %cmp.i.i = icmp ugt i64 %31, %spec.select.i.i
   br i1 %cmp.i.i, label %if.then.i17.i, label %if.end.i.i
 
 if.then.i17.i:                                    ; preds = %if.then13.i
@@ -656,7 +656,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %call24 = call zeroext i8 @get_dtype(ptr noundef nonnull %call17, ptr noundef nonnull %abspath, i32 noundef 0) #12
   %11 = load i64, ptr %buf, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %4
+  %cmp.i = icmp ugt i64 %4, %spec.select.i
   br i1 %cmp.i, label %if.then.i23, label %if.end.i
 
 if.then.i23:                                      ; preds = %strbuf_addch.exit

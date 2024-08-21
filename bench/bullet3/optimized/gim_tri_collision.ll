@@ -73,18 +73,18 @@ entry:
   %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 92
   %8 = load float, ptr %arrayidx62, align 4
   %sub67 = fsub float %8, %5
-  %9 = fneg float %sub37
-  %neg = fmul float %sub57, %9
+  %9 = fneg float %sub57
+  %neg = fmul float %sub37, %9
   %10 = tail call float @llvm.fmuladd.f32(float %sub27, float %sub67, float %neg)
   %tv_plane = getelementptr inbounds i8, ptr %this, i64 116
   store float %10, ptr %tv_plane, align 4
-  %11 = fneg float %sub
-  %neg81 = fmul float %sub67, %11
+  %11 = fneg float %sub67
+  %neg81 = fmul float %sub, %11
   %12 = tail call float @llvm.fmuladd.f32(float %sub37, float %sub47, float %neg81)
   %arrayidx84 = getelementptr inbounds i8, ptr %this, i64 120
   store float %12, ptr %arrayidx84, align 4
-  %13 = fneg float %sub27
-  %neg90 = fmul float %sub47, %13
+  %13 = fneg float %sub47
+  %neg90 = fmul float %sub27, %13
   %14 = tail call float @llvm.fmuladd.f32(float %sub, float %sub57, float %neg90)
   %arrayidx93 = getelementptr inbounds i8, ptr %this, i64 124
   store float %14, ptr %arrayidx93, align 4
@@ -95,12 +95,13 @@ entry:
   br i1 %cmp, label %if.end, label %if.end132
 
 if.end:                                           ; preds = %entry
+  %mul = fmul float %16, 5.000000e-01
   %17 = bitcast float %16 to i32
   %shr = lshr i32 %17, 1
   %sub113 = sub nsw i32 1597463007, %shr
   %18 = bitcast i32 %sub113 to float
-  %19 = fmul float %16, -5.000000e-01
-  %neg116 = fmul float %19, %18
+  %19 = fneg float %18
+  %neg116 = fmul float %mul, %19
   %20 = tail call float @llvm.fmuladd.f32(float %neg116, float %18, float 1.500000e+00)
   %mul117 = fmul float %20, %18
   %cmp118 = fcmp olt float %mul117, 0x47EFFFFFE0000000
@@ -280,18 +281,18 @@ if.end753:                                        ; preds = %if.then522, %if.els
   %sub794 = fsub float %36, %26
   %sub804 = fsub float %37, %27
   %sub814 = fsub float %39, %29
-  %48 = fneg float %sub784
-  %neg822 = fmul float %sub804, %48
+  %48 = fneg float %sub804
+  %neg822 = fmul float %sub784, %48
   %49 = tail call float @llvm.fmuladd.f32(float %sub774, float %sub814, float %neg822)
   %tu_plane = getelementptr inbounds i8, ptr %this, i64 100
   store float %49, ptr %tu_plane, align 4
-  %50 = fneg float %sub764
-  %neg831 = fmul float %sub814, %50
+  %50 = fneg float %sub814
+  %neg831 = fmul float %sub764, %50
   %51 = tail call float @llvm.fmuladd.f32(float %sub784, float %sub794, float %neg831)
   %arrayidx834 = getelementptr inbounds i8, ptr %this, i64 104
   store float %51, ptr %arrayidx834, align 4
-  %52 = fneg float %sub774
-  %neg841 = fmul float %sub794, %52
+  %52 = fneg float %sub794
+  %neg841 = fmul float %sub774, %52
   %53 = tail call float @llvm.fmuladd.f32(float %sub764, float %sub804, float %neg841)
   %arrayidx844 = getelementptr inbounds i8, ptr %this, i64 108
   store float %53, ptr %arrayidx844, align 4
@@ -302,12 +303,13 @@ if.end753:                                        ; preds = %if.then522, %if.els
   br i1 %cmp868, label %if.end880, label %if.end895
 
 if.end880:                                        ; preds = %if.end753
+  %mul872 = fmul float %55, 5.000000e-01
   %56 = bitcast float %55 to i32
   %shr874 = lshr i32 %56, 1
   %sub875 = sub nsw i32 1597463007, %shr874
   %57 = bitcast i32 %sub875 to float
-  %58 = fmul float %55, -5.000000e-01
-  %neg878 = fmul float %58, %57
+  %58 = fneg float %57
+  %neg878 = fmul float %mul872, %58
   %59 = tail call float @llvm.fmuladd.f32(float %neg878, float %57, float 1.500000e+00)
   %mul879 = fmul float %59, %57
   %cmp881 = fcmp olt float %mul879, 0x47EFFFFFE0000000
@@ -711,18 +713,18 @@ entry:
   %6 = load float, ptr %arrayidx25, align 4
   %arrayidx28 = getelementptr inbounds i8, ptr %tri_plane, i64 4
   %7 = load float, ptr %arrayidx28, align 4
-  %8 = fneg float %sub21
-  %neg = fmul float %7, %8
+  %8 = fneg float %7
+  %neg = fmul float %sub21, %8
   %9 = tail call float @llvm.fmuladd.f32(float %sub13, float %6, float %neg)
   store float %9, ptr %edgeplane, align 4
   %10 = load float, ptr %tri_plane, align 4
-  %11 = fneg float %sub
-  %neg39 = fmul float %6, %11
+  %11 = fneg float %6
+  %neg39 = fmul float %sub, %11
   %12 = tail call float @llvm.fmuladd.f32(float %sub21, float %10, float %neg39)
   %arrayidx41 = getelementptr inbounds i8, ptr %edgeplane, i64 4
   store float %12, ptr %arrayidx41, align 4
-  %13 = fneg float %sub13
-  %neg49 = fmul float %10, %13
+  %13 = fneg float %10
+  %neg49 = fmul float %sub13, %13
   %14 = tail call float @llvm.fmuladd.f32(float %sub, float %7, float %neg49)
   %arrayidx51 = getelementptr inbounds i8, ptr %edgeplane, i64 8
   store float %14, ptr %arrayidx51, align 4
@@ -733,12 +735,13 @@ entry:
   br i1 %cmp, label %if.end, label %if.end81
 
 if.end:                                           ; preds = %entry
+  %mul = fmul float %16, 5.000000e-01
   %17 = bitcast float %16 to i32
   %shr = lshr i32 %17, 1
   %sub65 = sub nsw i32 1597463007, %shr
   %18 = bitcast i32 %sub65 to float
-  %19 = fmul float %16, -5.000000e-01
-  %neg68 = fmul float %19, %18
+  %19 = fneg float %18
+  %neg68 = fmul float %mul, %19
   %20 = tail call float @llvm.fmuladd.f32(float %neg68, float %18, float 1.500000e+00)
   %mul69 = fmul float %20, %18
   %cmp70 = fcmp olt float %mul69, 0x47EFFFFFE0000000
@@ -784,17 +787,17 @@ if.end108:                                        ; preds = %if.end81
   %sub132 = fsub float %30, %31
   %32 = load float, ptr %arrayidx25, align 4
   %33 = load float, ptr %arrayidx28, align 4
-  %34 = fneg float %sub132
-  %neg142 = fmul float %33, %34
+  %34 = fneg float %33
+  %neg142 = fmul float %sub132, %34
   %35 = call float @llvm.fmuladd.f32(float %sub124, float %32, float %neg142)
   store float %35, ptr %edgeplane, align 4
   %36 = load float, ptr %tri_plane, align 4
-  %37 = fneg float %sub116
-  %neg153 = fmul float %32, %37
+  %37 = fneg float %32
+  %neg153 = fmul float %sub116, %37
   %38 = call float @llvm.fmuladd.f32(float %sub132, float %36, float %neg153)
   store float %38, ptr %arrayidx41, align 4
-  %39 = fneg float %sub124
-  %neg164 = fmul float %36, %39
+  %39 = fneg float %36
+  %neg164 = fmul float %sub124, %39
   %40 = call float @llvm.fmuladd.f32(float %sub116, float %33, float %neg164)
   store float %40, ptr %arrayidx51, align 4
   %mul178 = fmul float %38, %38
@@ -804,12 +807,13 @@ if.end108:                                        ; preds = %if.end81
   br i1 %cmp184, label %if.end196, label %if.end208
 
 if.end196:                                        ; preds = %if.end108
+  %mul188 = fmul float %42, 5.000000e-01
   %43 = bitcast float %42 to i32
   %shr190 = lshr i32 %43, 1
   %sub191 = sub nsw i32 1597463007, %shr190
   %44 = bitcast i32 %sub191 to float
-  %45 = fmul float %42, -5.000000e-01
-  %neg194 = fmul float %45, %44
+  %45 = fneg float %44
+  %neg194 = fmul float %mul188, %45
   %46 = call float @llvm.fmuladd.f32(float %neg194, float %44, float 1.500000e+00)
   %mul195 = fmul float %46, %44
   %cmp197 = fcmp olt float %mul195, 0x47EFFFFFE0000000
@@ -849,17 +853,17 @@ if.end235:                                        ; preds = %if.end208
   %sub259 = fsub float %56, %57
   %58 = load float, ptr %arrayidx25, align 4
   %59 = load float, ptr %arrayidx28, align 4
-  %60 = fneg float %sub259
-  %neg269 = fmul float %59, %60
+  %60 = fneg float %59
+  %neg269 = fmul float %sub259, %60
   %61 = call float @llvm.fmuladd.f32(float %sub251, float %58, float %neg269)
   store float %61, ptr %edgeplane, align 4
   %62 = load float, ptr %tri_plane, align 4
-  %63 = fneg float %sub243
-  %neg280 = fmul float %58, %63
+  %63 = fneg float %58
+  %neg280 = fmul float %sub243, %63
   %64 = call float @llvm.fmuladd.f32(float %sub259, float %62, float %neg280)
   store float %64, ptr %arrayidx41, align 4
-  %65 = fneg float %sub251
-  %neg291 = fmul float %62, %65
+  %65 = fneg float %62
+  %neg291 = fmul float %sub251, %65
   %66 = call float @llvm.fmuladd.f32(float %sub243, float %59, float %neg291)
   store float %66, ptr %arrayidx51, align 4
   %mul305 = fmul float %64, %64
@@ -869,12 +873,13 @@ if.end235:                                        ; preds = %if.end208
   br i1 %cmp311, label %if.end323, label %if.end335
 
 if.end323:                                        ; preds = %if.end235
+  %mul315 = fmul float %68, 5.000000e-01
   %69 = bitcast float %68 to i32
   %shr317 = lshr i32 %69, 1
   %sub318 = sub nsw i32 1597463007, %shr317
   %70 = bitcast i32 %sub318 to float
-  %71 = fmul float %68, -5.000000e-01
-  %neg321 = fmul float %71, %70
+  %71 = fneg float %70
+  %neg321 = fmul float %mul315, %71
   %72 = call float @llvm.fmuladd.f32(float %neg321, float %70, float 1.500000e+00)
   %mul322 = fmul float %72, %70
   %cmp324 = fcmp olt float %mul322, 0x47EFFFFFE0000000

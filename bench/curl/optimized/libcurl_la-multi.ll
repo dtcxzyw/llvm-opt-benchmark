@@ -2428,7 +2428,7 @@ if.then234:                                       ; preds = %if.end232
   br label %if.end235
 
 if.end235:                                        ; preds = %if.then234, %if.end232
-  %or.cond.not = and i1 %tobool149, %extrawait
+  %or.cond.not = and i1 %extrawait, %tobool149
   br i1 %or.cond.not, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.end235

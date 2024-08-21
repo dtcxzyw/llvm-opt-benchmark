@@ -1258,7 +1258,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %ret.1128 = phi i32 [ 0, %while.body.lr.ph ], [ %ret.1.be, %while.cond.backedge ]
   %21 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %21, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %conv37
+  %cmp.i = icmp ugt i64 %conv37, %spec.select.i
   br i1 %cmp.i, label %if.then.i66, label %if.end.i
 
 if.then.i66:                                      ; preds = %while.body
@@ -1376,7 +1376,7 @@ while.end:                                        ; preds = %while.cond.backedge
   %conv85 = ashr exact i64 %sext53, 32
   %37 = load i64, ptr %path, align 8
   %spec.select.i80 = call i64 @llvm.usub.sat.i64(i64 %37, i64 1)
-  %cmp.i81 = icmp ult i64 %spec.select.i80, %conv85
+  %cmp.i81 = icmp ugt i64 %conv85, %spec.select.i80
   br i1 %cmp.i81, label %if.then.i88, label %if.end.i82
 
 if.then.i88:                                      ; preds = %while.end

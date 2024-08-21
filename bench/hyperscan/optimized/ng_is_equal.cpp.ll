@@ -1132,7 +1132,7 @@ if.else.i.i.i:                                    ; preds = %for.body.i.i.i
   %agg.tmp2.sroa.0.0.copyload.i12.i.i.i.i = load ptr, ptr %__first.coerce.pn11.i.i.i, align 8
   %3 = getelementptr i8, ptr %agg.tmp2.sroa.0.0.copyload.i12.i.i.i.i, i64 80
   %agg.tmp2.sroa.0.0.copyload.val.i13.i.i.i.i = load i64, ptr %3, align 8
-  %cmp.i.i14.i.i.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.val.i13.i.i.i.i, %agg.tmp.sroa.0.0.copyload.val.i.i.i.i
+  %cmp.i.i14.i.i.i.i = icmp ult i64 %agg.tmp.sroa.0.0.copyload.val.i.i.i.i, %agg.tmp2.sroa.0.0.copyload.val.i13.i.i.i.i
   br i1 %cmp.i.i14.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else.i.i.i, %while.body.i.i.i.i
@@ -1144,7 +1144,7 @@ while.body.i.i.i.i:                               ; preds = %if.else.i.i.i, %whi
   %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %__next.sroa.0.0.i.i.i.i, align 8
   %4 = getelementptr i8, ptr %agg.tmp2.sroa.0.0.copyload.i.i.i.i.i, i64 80
   %agg.tmp2.sroa.0.0.copyload.val.i.i.i.i.i = load i64, ptr %4, align 8
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.val.i.i.i.i.i, %__val.val.val.i.i.i.i
+  %cmp.i.i.i.i.i.i = icmp ult i64 %__val.val.val.i.i.i.i, %agg.tmp2.sroa.0.0.copyload.val.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i.i.i, !llvm.loop !70
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i.i.i: ; preds = %while.body.i.i.i.i, %if.else.i.i.i
@@ -1176,7 +1176,7 @@ for.body.i2.i.i:                                  ; preds = %_ZSt16__insertion_s
   %agg.tmp2.sroa.0.0.copyload.i12.i.i5.i.i = load ptr, ptr %__next.sroa.0.010.i.i.i.i, align 8
   %6 = getelementptr i8, ptr %agg.tmp2.sroa.0.0.copyload.i12.i.i5.i.i, i64 80
   %agg.tmp2.sroa.0.0.copyload.val.i13.i.i6.i.i = load i64, ptr %6, align 8
-  %cmp.i.i14.i.i7.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.val.i13.i.i6.i.i, %__val.val.val11.i.i.i.i
+  %cmp.i.i14.i.i7.i.i = icmp ult i64 %__val.val.val11.i.i.i.i, %agg.tmp2.sroa.0.0.copyload.val.i13.i.i6.i.i
   br i1 %cmp.i.i14.i.i7.i.i, label %while.body.i.i11.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i8.i.i
 
 while.body.i.i11.i.i:                             ; preds = %for.body.i2.i.i, %while.body.i.i11.i.i
@@ -1188,7 +1188,7 @@ while.body.i.i11.i.i:                             ; preds = %for.body.i2.i.i, %w
   %agg.tmp2.sroa.0.0.copyload.i.i.i16.i.i = load ptr, ptr %__next.sroa.0.0.i.i14.i.i, align 8
   %7 = getelementptr i8, ptr %agg.tmp2.sroa.0.0.copyload.i.i.i16.i.i, i64 80
   %agg.tmp2.sroa.0.0.copyload.val.i.i.i17.i.i = load i64, ptr %7, align 8
-  %cmp.i.i.i.i18.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.val.i.i.i17.i.i, %__val.val.val.i.i15.i.i
+  %cmp.i.i.i.i18.i.i = icmp ult i64 %__val.val.val.i.i15.i.i, %agg.tmp2.sroa.0.0.copyload.val.i.i.i17.i.i
   br i1 %cmp.i.i.i.i18.i.i, label %while.body.i.i11.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i8.i.i, !llvm.loop !70
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i8.i.i: ; preds = %while.body.i.i11.i.i, %for.body.i2.i.i
@@ -1235,7 +1235,7 @@ if.else.i34.i.i:                                  ; preds = %for.body.i26.i.i
   %agg.tmp2.sroa.0.0.copyload.i12.i.i37.i.i = load ptr, ptr %__first.coerce.pn11.i28.i.i, align 8
   %10 = getelementptr i8, ptr %agg.tmp2.sroa.0.0.copyload.i12.i.i37.i.i, i64 80
   %agg.tmp2.sroa.0.0.copyload.val.i13.i.i38.i.i = load i64, ptr %10, align 8
-  %cmp.i.i14.i.i39.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.val.i13.i.i38.i.i, %agg.tmp.sroa.0.0.copyload.val.i.i31.i.i
+  %cmp.i.i14.i.i39.i.i = icmp ult i64 %agg.tmp.sroa.0.0.copyload.val.i.i31.i.i, %agg.tmp2.sroa.0.0.copyload.val.i13.i.i38.i.i
   br i1 %cmp.i.i14.i.i39.i.i, label %while.body.i.i46.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i40.i.i
 
 while.body.i.i46.i.i:                             ; preds = %if.else.i34.i.i, %while.body.i.i46.i.i
@@ -1247,7 +1247,7 @@ while.body.i.i46.i.i:                             ; preds = %if.else.i34.i.i, %w
   %agg.tmp2.sroa.0.0.copyload.i.i.i51.i.i = load ptr, ptr %__next.sroa.0.0.i.i49.i.i, align 8
   %11 = getelementptr i8, ptr %agg.tmp2.sroa.0.0.copyload.i.i.i51.i.i, i64 80
   %agg.tmp2.sroa.0.0.copyload.val.i.i.i52.i.i = load i64, ptr %11, align 8
-  %cmp.i.i.i.i53.i.i = icmp ugt i64 %agg.tmp2.sroa.0.0.copyload.val.i.i.i52.i.i, %__val.val.val.i.i50.i.i
+  %cmp.i.i.i.i53.i.i = icmp ult i64 %__val.val.val.i.i50.i.i, %agg.tmp2.sroa.0.0.copyload.val.i.i.i52.i.i
   br i1 %cmp.i.i.i.i53.i.i, label %while.body.i.i46.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i40.i.i, !llvm.loop !70
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_T0_.exit.i40.i.i: ; preds = %while.body.i.i46.i.i, %if.else.i34.i.i
@@ -1349,7 +1349,7 @@ entry:
   %__tmp = alloca %"class.std::vector", align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i = icmp eq ptr %0, %__pos.coerce
+  %cmp.i = icmp eq ptr %__pos.coerce, %0
   %1 = load ptr, ptr %__first, align 8
   %2 = load ptr, ptr %__last, align 8
   %cmp.i.i.i.i.not12 = icmp eq ptr %1, %2
@@ -1455,7 +1455,7 @@ entry:
   br i1 %cmp.not, label %if.else21, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i = icmp eq ptr %1, %__position.coerce
+  %cmp.i = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
@@ -1535,7 +1535,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr.i9 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
-  %cmp.not5.i.i.i11.i = icmp eq ptr %1, %__position.coerce
+  %cmp.not5.i.i.i11.i = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.not5.i.i.i11.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i12.i
 
 for.body.i.i.i12.i:                               ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit.i, %for.body.i.i.i12.i
@@ -1815,7 +1815,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
   %add.ptr58 = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %2, i64 %sub
   store ptr %add.ptr58, ptr %_M_finish, align 8
-  %cmp.i.i.not7.i.i.i.i.i34 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i34 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i34, label %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit42, label %for.body.i.i.i.i.i35
 
 for.body.i.i.i.i.i35:                             ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESt6vectorISB_SaISB_EEEEESC_SB_ET0_T_SJ_SI_RSaIT1_E.exit, %for.body.i.i.i.i.i35
@@ -1897,7 +1897,7 @@ for.body.i.i.i.i61:                               ; preds = %for.body.i.i.i.i61.
   br i1 %cmp.i.i.i.not.i.i.i.i66, label %invoke.cont95, label %for.body.i.i.i.i61, !llvm.loop !88
 
 invoke.cont95:                                    ; preds = %for.body.i.i.i.i61
-  %cmp.i.i.not7.i.i.i.i.i69 = icmp eq ptr %1, %__position.coerce
+  %cmp.i.i.not7.i.i.i.i.i69 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i69, label %invoke.cont99, label %for.body.i.i.i.i.i70
 
 for.body.i.i.i.i.i70:                             ; preds = %invoke.cont95, %for.body.i.i.i.i.i70
@@ -1978,7 +1978,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %__value.sroa.0.0.copyload.i.i.i = load ptr, ptr %phi.call.i.i.i, align 8
   %__value.sroa.2.0.call5.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 8
   %__value.sroa.2.0.copyload.i.i.i = load i64, ptr %__value.sroa.2.0.call5.sroa_idx.i.i.i, align 8
-  %cmp27.i.i.i.i = icmp sgt i64 %div.i1819.i.i.i, %__parent.0.i.i.i
+  %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i1819.i.i.i
   br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i
@@ -2294,7 +2294,7 @@ entry:
   %__tmp = alloca %"class.std::vector", align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i = icmp eq ptr %0, %__pos.coerce
+  %cmp.i = icmp eq ptr %__pos.coerce, %0
   %1 = load ptr, ptr %__first, align 8
   %2 = load ptr, ptr %__last, align 8
   %cmp.i.i.i.i.i.i.i.not12 = icmp eq ptr %1, %2
@@ -2696,7 +2696,7 @@ _ZSt19__relocate_object_aISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEES7_SaIS7_EE
 _ZNSt6vectorISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %_ZSt19__relocate_object_aISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
-  %cmp.not6.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not6.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not6.i.i.i18, label %_ZNSt6vectorISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit47, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %_ZSt19__relocate_object_aISt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEES7_SaIS7_EEvPT_PT0_RT1_.exit.i.i.i32
@@ -3518,7 +3518,7 @@ entry:
   %agg.tmp38 = alloca %"struct.std::pair.32", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp71 = icmp sgt i64 %div, %__holeIndex
+  %cmp71 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp71, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEaSEOS6_.exit
@@ -3946,7 +3946,7 @@ while.end:                                        ; preds = %_ZNK9__gnu_cxx5__op
   store i32 %18, ptr %add.ptr.i9, align 8
   %second.i10 = getelementptr inbounds i8, ptr %__value, i64 8
   %second3.i11 = getelementptr inbounds i8, ptr %add.ptr.i9, i64 8
-  %cmp.not.i.i.i.i.i.i.i.i12 = icmp eq ptr %add.ptr.i9, %__value
+  %cmp.not.i.i.i.i.i.i.i.i12 = icmp eq ptr %__value, %add.ptr.i9
   br i1 %cmp.not.i.i.i.i.i.i.i.i12, label %_ZNSt4pairIjN3ue28flat_setIjSt4lessIjESaIjEEEEaSEOS6_.exit32, label %if.then.i.i.i.i.i.i.i.i13
 
 if.then.i.i.i.i.i.i.i.i13:                        ; preds = %while.end

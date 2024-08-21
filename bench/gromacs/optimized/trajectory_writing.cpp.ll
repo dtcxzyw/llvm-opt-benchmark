@@ -311,8 +311,8 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds i8, ptr %7, i64 8
   %162 = load i64, ptr %161, align 8
-  %163 = icmp eq i64 %162, %5
-  %brmerge.not = and i1 %163, %20
+  %163 = icmp eq i64 %5, %162
+  %brmerge.not = and i1 %20, %163
   br i1 %brmerge.not, label %164, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
 
 164:                                              ; preds = %160
@@ -325,7 +325,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
   %169 = getelementptr inbounds i8, ptr %1, i64 48
   %170 = load i32, ptr %169, align 8
   %171 = icmp sgt i32 %170, 1
-  %brmerge93 = or i1 %171, %18
+  %brmerge93 = or i1 %18, %171
   br i1 %brmerge93, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, label %173
 
 172:                                              ; preds = %164

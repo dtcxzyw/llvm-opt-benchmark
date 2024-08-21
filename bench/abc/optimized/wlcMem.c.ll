@@ -8979,7 +8979,7 @@ define noalias noundef ptr @Wlc_NtkExtractCisForThisRead(ptr nocapture noundef r
   %.val13 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds i32, ptr %.val13, i64 %11
   %13 = load i32, ptr %12, align 4
-  %.not = icmp eq i32 %13, %1
+  %.not = icmp eq i32 %1, %13
   br i1 %.not, label %14, label %74
 
 14:                                               ; preds = %10
@@ -9157,8 +9157,8 @@ define noalias noundef ptr @Wlc_NtkCollectOneType(ptr nocapture noundef readonly
   %.val17 = load i16, ptr %17, align 8
   %18 = and i16 %.val17, 63
   %19 = zext nneg i16 %18 to i32
-  %20 = icmp eq i32 %19, %2
-  %21 = icmp eq i32 %19, %3
+  %20 = icmp eq i32 %2, %19
+  %21 = icmp eq i32 %3, %19
   %or.cond = or i1 %20, %21
   br i1 %or.cond, label %22, label %50
 

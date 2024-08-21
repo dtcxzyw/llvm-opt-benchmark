@@ -3472,7 +3472,7 @@ define void @dissect_tcp_payload(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 90:                                               ; preds = %.outer.split.us.split.i.us
   %91 = getelementptr inbounds i8, ptr %89, i64 4
   %92 = load i32, ptr %91, align 4
-  %.not507.i.us = icmp ult i32 %92, %4
+  %.not507.i.us = icmp ugt i32 %4, %92
   br i1 %.not507.i.us, label %.thread604.i.us, label %93
 
 93:                                               ; preds = %90
@@ -5311,13 +5311,13 @@ define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1,
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %52, align 8
-  %55 = icmp ult i32 %54, %7
+  %55 = icmp ugt i32 %7, %54
   br i1 %55, label %56, label %print_pdu_tracking_data.exit.i
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %52, i64 4
   %58 = load i32, ptr %57, align 4
-  %59 = icmp ugt i32 %58, %7
+  %59 = icmp ult i32 %7, %58
   br i1 %59, label %60, label %print_pdu_tracking_data.exit.i
 
 60:                                               ; preds = %56
@@ -5354,15 +5354,15 @@ define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1,
 
 print_pdu_tracking_data.exit.i:                   ; preds = %75, %72, %60, %56, %53
   %79 = load i32, ptr %52, align 8
-  %80 = icmp uge i32 %79, %7
+  %80 = icmp ule i32 %7, %79
   %81 = getelementptr inbounds i8, ptr %52, i64 4
   %82 = load i32, ptr %81, align 4
-  %.not69.i = icmp ult i32 %82, %8
+  %.not69.i = icmp ugt i32 %8, %82
   %or.cond83.i = select i1 %80, i1 true, i1 %.not69.i
   br i1 %or.cond83.i, label %print_pdu_tracking_data.exit._crit_edge.i, label %scan_for_next_pdu.exit
 
 print_pdu_tracking_data.exit._crit_edge.i:        ; preds = %print_pdu_tracking_data.exit.i
-  %83 = icmp ugt i32 %82, %7
+  %83 = icmp ult i32 %7, %82
   %or.cond.i = and i1 %83, %.not69.i
   br i1 %or.cond.i, label %84, label %scan_for_next_pdu.exit
 
@@ -5436,10 +5436,10 @@ proto_item_set_generated.exit77.i:                ; preds = %115, %112, %proto_i
 
 121:                                              ; preds = %proto_item_set_generated.exit77.i
   %122 = load i32, ptr %120, align 8
-  %123 = icmp uge i32 %122, %7
+  %123 = icmp ule i32 %7, %122
   %124 = getelementptr inbounds i8, ptr %120, i64 4
   %125 = load i32, ptr %124, align 4
-  %.not72.i = icmp ult i32 %125, %8
+  %.not72.i = icmp ugt i32 %8, %125
   %or.cond84.i = select i1 %123, i1 true, i1 %.not72.i
   br i1 %or.cond84.i, label %._crit_edge.i, label %126
 
@@ -5469,7 +5469,7 @@ proto_item_set_generated.exit77.i:                ; preds = %115, %112, %proto_i
   br label %scan_for_next_pdu.exit
 
 ._crit_edge.i:                                    ; preds = %121
-  %140 = icmp ugt i32 %125, %7
+  %140 = icmp ult i32 %7, %125
   %or.cond73.i = and i1 %140, %.not72.i
   br i1 %or.cond73.i, label %141, label %scan_for_next_pdu.exit
 
@@ -6791,7 +6791,7 @@ proto_item_set_generated.exit1062:                ; preds = %458, %465, %468
   %542 = load ptr, ptr %541, align 8
   %543 = getelementptr inbounds i8, ptr %542, i64 40
   %544 = load i32, ptr %543, align 8
-  %545 = icmp eq i32 %544, %524
+  %545 = icmp eq i32 %524, %544
   br i1 %545, label %546, label %577
 
 546:                                              ; preds = %538
@@ -7026,7 +7026,7 @@ tcp_analyze_get_acked_struct.exit715.i:           ; preds = %633, %620
   %650 = getelementptr inbounds i8, ptr %649, i64 40
   %651 = load i32, ptr %650, align 8
   %652 = add i32 %651, -1
-  %653 = icmp eq i32 %652, %524
+  %653 = icmp eq i32 %524, %652
   %or.cond678.i = and i1 %579, %653
   br i1 %or.cond678.i, label %654, label %679
 
@@ -7101,7 +7101,7 @@ tcp_analyze_get_acked_struct.exit717.i:           ; preds = %670, %657
   %682 = load ptr, ptr %607, align 8
   %683 = getelementptr inbounds i8, ptr %682, i64 12
   %684 = load i32, ptr %683, align 4
-  %.not595.i = icmp eq i32 %684, %527
+  %.not595.i = icmp eq i32 %527, %684
   br i1 %.not595.i, label %.thread740.i.thread, label %685
 
 685:                                              ; preds = %681
@@ -7109,13 +7109,13 @@ tcp_analyze_get_acked_struct.exit717.i:           ; preds = %670, %657
   %687 = load ptr, ptr %686, align 8
   %688 = getelementptr inbounds i8, ptr %687, i64 40
   %689 = load i32, ptr %688, align 8
-  %690 = icmp eq i32 %689, %524
+  %690 = icmp eq i32 %524, %689
   br i1 %690, label %691, label %.thread740.i
 
 691:                                              ; preds = %685
   %692 = getelementptr inbounds i8, ptr %687, i64 12
   %693 = load i32, ptr %692, align 4
-  %694 = icmp eq i32 %693, %525
+  %694 = icmp eq i32 %525, %693
   %or.cond680.i = and i1 %579, %694
   br i1 %or.cond680.i, label %695, label %.thread740.i
 
@@ -7239,7 +7239,7 @@ tcp_analyze_get_acked_struct.exit719.i:           ; preds = %742, %729
 .thread740.i:                                     ; preds = %700, %691, %685
   %751 = phi i32 [ %.pre1223, %700 ], [ %684, %691 ], [ %684, %685 ]
   %752 = phi ptr [ %.pre1222, %700 ], [ %682, %691 ], [ %682, %685 ]
-  %753 = icmp eq i32 %751, %527
+  %753 = icmp eq i32 %527, %751
   br i1 %753, label %.thread740.i.thread, label %.thread744.i
 
 .thread740.i.thread:                              ; preds = %681, %.thread740.i
@@ -7248,13 +7248,13 @@ tcp_analyze_get_acked_struct.exit719.i:           ; preds = %742, %729
   %756 = load ptr, ptr %755, align 8
   %757 = getelementptr inbounds i8, ptr %756, i64 40
   %758 = load i32, ptr %757, align 8
-  %759 = icmp eq i32 %758, %524
+  %759 = icmp eq i32 %524, %758
   br i1 %759, label %760, label %.thread744.i
 
 760:                                              ; preds = %.thread740.i.thread
   %761 = getelementptr inbounds i8, ptr %756, i64 12
   %762 = load i32, ptr %761, align 4
-  %763 = icmp eq i32 %762, %525
+  %763 = icmp eq i32 %525, %762
   br i1 %763, label %764, label %.thread744.i
 
 764:                                              ; preds = %760
@@ -7305,15 +7305,15 @@ tcp_analyze_get_acked_struct.exit719.i:           ; preds = %742, %729
   %788 = load ptr, ptr %787, align 8
   %789 = getelementptr inbounds i8, ptr %788, i64 40
   %790 = load i32, ptr %789, align 8
-  %791 = icmp eq i32 %790, %524
+  %791 = icmp eq i32 %524, %790
   br i1 %791, label %792, label %830
 
 792:                                              ; preds = %786
   %793 = getelementptr inbounds i8, ptr %788, i64 12
   %794 = load i32, ptr %793, align 4
-  %795 = icmp eq i32 %794, %525
+  %795 = icmp eq i32 %525, %794
   %796 = add i32 %794, 1
-  %797 = icmp eq i32 %796, %525
+  %797 = icmp eq i32 %525, %796
   %or.cond687.i = or i1 %795, %797
   br i1 %or.cond687.i, label %798, label %830
 
@@ -7351,7 +7351,7 @@ tcp_analyze_get_acked_struct.exit719.i:           ; preds = %742, %729
   %817 = getelementptr inbounds i8, ptr %816, i64 12
   %818 = load i32, ptr %817, align 4
   %819 = add i32 %818, 1
-  %820 = icmp eq i32 %819, %525
+  %820 = icmp eq i32 %525, %819
   br i1 %820, label %821, label %881
 
 821:                                              ; preds = %809
@@ -7374,7 +7374,7 @@ tcp_analyze_get_acked_struct.exit719.i:           ; preds = %742, %729
   %832 = load ptr, ptr %607, align 8
   %833 = getelementptr inbounds i8, ptr %832, i64 12
   %834 = load i32, ptr %833, align 4
-  %835 = icmp eq i32 %834, %527
+  %835 = icmp eq i32 %527, %834
   br i1 %835, label %836, label %881
 
 836:                                              ; preds = %831
@@ -7382,13 +7382,13 @@ tcp_analyze_get_acked_struct.exit719.i:           ; preds = %742, %729
   %838 = load ptr, ptr %837, align 8
   %839 = getelementptr inbounds i8, ptr %838, i64 40
   %840 = load i32, ptr %839, align 8
-  %841 = icmp eq i32 %840, %524
+  %841 = icmp eq i32 %524, %840
   br i1 %841, label %842, label %881
 
 842:                                              ; preds = %836
   %843 = getelementptr inbounds i8, ptr %838, i64 12
   %844 = load i32, ptr %843, align 4
-  %845 = icmp eq i32 %844, %525
+  %845 = icmp eq i32 %525, %844
   %or.cond691.i = and i1 %579, %845
   br i1 %or.cond691.i, label %846, label %881
 
@@ -7453,7 +7453,7 @@ tcp_analyze_get_acked_struct.exit719.i:           ; preds = %742, %729
   %885 = load ptr, ptr %884, align 8
   %886 = getelementptr inbounds i8, ptr %885, i64 12
   %887 = load i32, ptr %886, align 4
-  %.not609.i = icmp eq i32 %887, %525
+  %.not609.i = icmp eq i32 %525, %887
   br i1 %.not609.i, label %895, label %888
 
 888:                                              ; preds = %881
@@ -7540,7 +7540,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %920, %907
   %928 = getelementptr inbounds i8, ptr %927, i64 12
   %929 = load i32, ptr %928, align 4
   %930 = add i32 %929, 1
-  %931 = icmp eq i32 %930, %525
+  %931 = icmp eq i32 %525, %930
   br i1 %931, label %932, label %._crit_edge832.i
 
 ._crit_edge832.i:                                 ; preds = %924
@@ -7550,7 +7550,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %920, %907
 932:                                              ; preds = %924
   %933 = getelementptr inbounds i8, ptr %927, i64 40
   %934 = load i32, ptr %933, align 8
-  %935 = icmp eq i32 %934, %524
+  %935 = icmp eq i32 %524, %934
   %.pre834.i = load ptr, ptr %896, align 8
   br i1 %935, label %936, label %947
 
@@ -7617,7 +7617,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %920, %907
 ._crit_edge.i:                                    ; preds = %963, %947
   %.0542.lcssa.i = phi i32 [ 0, %947 ], [ %.2544.i, %963 ]
   %.0539.lcssa.i = phi i32 [ 0, %947 ], [ %.2541.i, %963 ]
-  %964 = icmp eq i32 %.0542.lcssa.i, %525
+  %964 = icmp eq i32 %525, %.0542.lcssa.i
   %965 = sub i32 %525, %.0539.lcssa.i
   %966 = icmp slt i32 %965, 0
   %or.cond695.i = select i1 %964, i1 %966, i1 false
@@ -7788,7 +7788,7 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %920, %907
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i1196, 1
   %1055 = getelementptr [4 x i32], ptr %1052, i64 0, i64 %indvars.iv.i1196
   %1056 = load i32, ptr %1055, align 4
-  %.not627.i = icmp ugt i32 %1056, %524
+  %.not627.i = icmp ult i32 %524, %1056
   br i1 %.not627.i, label %.backedge871.i, label %1057
 
 1057:                                             ; preds = %1054
@@ -8188,7 +8188,7 @@ switch.lookup:                                    ; preds = %1166
   %1253 = phi ptr [ %1222, %1219 ], [ %1222, %1229 ], [ %.pre850.i, %1233 ]
   %1254 = getelementptr inbounds i8, ptr %1252, i64 44
   %1255 = load i32, ptr %1254, align 4
-  %1256 = icmp eq i32 %1255, %524
+  %1256 = icmp eq i32 %524, %1255
   %.not648.i = icmp eq i32 %1255, 0
   %or.cond706.i = or i1 %1256, %.not648.i
   br i1 %or.cond706.i, label %1257, label %1267
@@ -8304,7 +8304,7 @@ switch.lookup:                                    ; preds = %1166
   %1324 = getelementptr inbounds i8, ptr %.3.ph769797.i, i64 8
   %1325 = getelementptr inbounds i8, ptr %.3.ph769797.i, i64 24
   %1326 = load i32, ptr %1322, align 8
-  %1327 = icmp eq i32 %1326, %525
+  %1327 = icmp eq i32 %525, %1326
   br i1 %1327, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tcp_analyze_get_acked_struct.exit727.i, %.lr.ph794.i
@@ -8413,7 +8413,7 @@ tcp_analyze_get_acked_struct.exit727.i:           ; preds = %1353, %1348
   %1362 = getelementptr inbounds i8, ptr %1361, i64 72
   store i32 1, ptr %1362, align 8
   %1363 = load i32, ptr %1322, align 8
-  %1364 = icmp eq i32 %1363, %525
+  %1364 = icmp eq i32 %525, %1363
   br i1 %1364, label %._crit_edge, label %.lr.ph
 
 1365:                                             ; preds = %.lr.ph
@@ -11314,13 +11314,13 @@ proto_item_set_generated.exit.i.i1144:            ; preds = %2819, %2816, %2811
   %2825 = load i32, ptr %2824, align 8
   %.not104.i.i = icmp eq i32 %2825, 0
   %2826 = load i32, ptr %.1.i.i, align 8
-  %2827 = icmp ugt i32 %2826, %2765
+  %2827 = icmp ult i32 %2765, %2826
   br i1 %2827, label %2832, label %2828
 
 2828:                                             ; preds = %.loopexit.i.i
   %2829 = getelementptr inbounds i8, ptr %.1.i.i, i64 4
   %2830 = load i32, ptr %2829, align 4
-  %2831 = icmp ult i32 %2830, %2765
+  %2831 = icmp ugt i32 %2765, %2830
   br i1 %2831, label %2832, label %2835
 
 2832:                                             ; preds = %2828, %.loopexit.i.i
@@ -16613,13 +16613,13 @@ define internal fastcc ptr @mptcp_get_meta_from_token(ptr noundef %0, ptr nounde
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 208
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9
@@ -16775,7 +16775,7 @@ mptcp_attach_subflow.exit57:                      ; preds = %mptcp_alloc_analysi
   %89 = getelementptr inbounds i8, ptr %.042, i64 8
   %90 = icmp ne ptr %88, %89
   %91 = load ptr, ptr %6, align 8
-  %92 = icmp ne ptr %91, %1
+  %92 = icmp ne ptr %1, %91
   %spec.select = xor i1 %90, %92
   %93 = zext i1 %spec.select to i64
   %94 = getelementptr [2 x %struct._mptcp_meta_flow_t], ptr %89, i64 0, i64 %93

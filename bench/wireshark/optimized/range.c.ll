@@ -339,13 +339,13 @@ define range(i32 0, 2) i32 @value_is_in_range(ptr noundef readonly %0, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %5 = getelementptr [1 x %struct.range_admin_tag], ptr %3, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
-  %.not13 = icmp ugt i32 %6, %1
+  %.not13 = icmp ult i32 %1, %6
   br i1 %.not13, label %10, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
-  %.not14 = icmp ult i32 %9, %1
+  %.not14 = icmp ugt i32 %1, %9
   br i1 %.not14, label %10, label %.loopexit
 
 10:                                               ; preds = %.lr.ph, %7
@@ -382,25 +382,25 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %9 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  %.not38 = icmp ugt i32 %10, %2
+  %.not38 = icmp ult i32 %2, %10
   br i1 %.not38, label %14, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
-  %.not39 = icmp ult i32 %13, %2
+  %.not39 = icmp ugt i32 %2, %13
   br i1 %.not39, label %14, label %.loopexit
 
 14:                                               ; preds = %11, %8
   %15 = add i32 %10, -1
-  %16 = icmp eq i32 %15, %2
+  %16 = icmp eq i32 %2, %15
   br i1 %16, label %.loopexit.sink.split, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %9, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
-  %21 = icmp eq i32 %20, %2
+  %21 = icmp eq i32 %2, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
@@ -467,20 +467,20 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %9 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  %11 = icmp ult i32 %10, %2
+  %11 = icmp ugt i32 %2, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = icmp ugt i32 %14, %2
+  %15 = icmp ult i32 %2, %14
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %12, %8
-  %17 = icmp eq i32 %10, %2
+  %17 = icmp eq i32 %2, %10
   %18 = getelementptr inbounds i8, ptr %9, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, %2
+  %20 = icmp eq i32 %2, %19
   br i1 %17, label %21, label %50
 
 21:                                               ; preds = %16

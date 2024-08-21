@@ -2140,7 +2140,7 @@ define range(i32 0, 2) i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr nou
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %24, i32 1
   %26 = load i32, ptr %25, align 4
-  %27 = icmp ult i32 %26, %18
+  %27 = icmp ugt i32 %18, %26
   %28 = add nuw i32 %23, 1
   %.114.i = select i1 %27, i32 %.01315.i, i32 %23
   %.1.i = select i1 %27, i32 %28, i32 %.016.i
@@ -2155,7 +2155,7 @@ define range(i32 0, 2) i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr nou
   %33 = zext nneg i32 %.1.i to i64
   %34 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
-  %.not.i = icmp ugt i32 %35, %18
+  %.not.i = icmp ult i32 %18, %35
   br i1 %.not.i, label %wb_get_type.exit, label %36
 
 36:                                               ; preds = %32
@@ -2175,7 +2175,7 @@ wb_get_type.exit:                                 ; preds = %30, %32, %36
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %43, i32 1
   %45 = load i32, ptr %44, align 4
-  %46 = icmp ult i32 %45, %20
+  %46 = icmp ugt i32 %20, %45
   %47 = add nuw i32 %42, 1
   %.114.i281 = select i1 %46, i32 %.01315.i280, i32 %42
   %.1.i282 = select i1 %46, i32 %47, i32 %.016.i279
@@ -2190,7 +2190,7 @@ wb_get_type.exit:                                 ; preds = %30, %32, %36
   %52 = zext nneg i32 %.1.i282 to i64
   %53 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
-  %.not.i283 = icmp ugt i32 %54, %20
+  %.not.i283 = icmp ult i32 %20, %54
   br i1 %.not.i283, label %wb_get_type.exit284, label %55
 
 55:                                               ; preds = %51
@@ -2543,7 +2543,7 @@ define internal fastcc i32 @wb_get_type(i32 noundef %0) unnamed_addr #2 {
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %5, i32 1
   %7 = load i32, ptr %6, align 4
-  %8 = icmp ult i32 %7, %0
+  %8 = icmp ugt i32 %0, %7
   %9 = add nuw i32 %4, 1
   %.114 = select i1 %8, i32 %.01315, i32 %4
   %.1 = select i1 %8, i32 %9, i32 %.016
@@ -2558,7 +2558,7 @@ define internal fastcc i32 @wb_get_type(i32 noundef %0) unnamed_addr #2 {
   %14 = zext nneg i32 %.1 to i64
   %15 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
-  %.not = icmp ugt i32 %16, %0
+  %.not = icmp ult i32 %0, %16
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %13
@@ -2643,7 +2643,7 @@ define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture 
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %18, i32 1
   %20 = load i32, ptr %19, align 4
-  %21 = icmp ult i32 %20, %14
+  %21 = icmp ugt i32 %14, %20
   %22 = add nuw i32 %17, 1
   %.114.i = select i1 %21, i32 %.01315.i, i32 %17
   %.1.i = select i1 %21, i32 %22, i32 %.016.i
@@ -2658,7 +2658,7 @@ define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture 
   %27 = zext nneg i32 %.1.i to i64
   %28 = getelementptr inbounds [1052 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
-  %.not.i = icmp ugt i32 %29, %14
+  %.not.i = icmp ult i32 %14, %29
   br i1 %.not.i, label %wb_get_type.exit.thread, label %wb_get_type.exit
 
 wb_get_type.exit:                                 ; preds = %26
@@ -2733,7 +2733,7 @@ define range(i32 0, 2) i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr n
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %29, i32 1
   %31 = load i32, ptr %30, align 4
-  %32 = icmp ult i32 %31, %16
+  %32 = icmp ugt i32 %16, %31
   %33 = add nuw i32 %28, 1
   %.114.i.i = select i1 %32, i32 %.01315.i.i, i32 %28
   %.1.i.i = select i1 %32, i32 %33, i32 %.016.i.i
@@ -2748,7 +2748,7 @@ define range(i32 0, 2) i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr n
   %38 = zext nneg i32 %.1.i.i to i64
   %39 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
-  %.not.i.i = icmp ugt i32 %40, %16
+  %.not.i.i = icmp ult i32 %16, %40
   br i1 %.not.i.i, label %egcb_get_type.exit.i, label %41
 
 41:                                               ; preds = %37
@@ -2768,7 +2768,7 @@ egcb_get_type.exit.i:                             ; preds = %41, %37, %35
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %48, i32 1
   %50 = load i32, ptr %49, align 4
-  %51 = icmp ult i32 %50, %18
+  %51 = icmp ugt i32 %18, %50
   %52 = add nuw i32 %47, 1
   %.114.i58.i = select i1 %51, i32 %.01315.i57.i, i32 %47
   %.1.i59.i = select i1 %51, i32 %52, i32 %.016.i56.i
@@ -2783,7 +2783,7 @@ egcb_get_type.exit.i:                             ; preds = %41, %37, %35
   %57 = zext nneg i32 %.1.i59.i to i64
   %58 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
-  %.not.i60.i = icmp ugt i32 %59, %18
+  %.not.i60.i = icmp ult i32 %18, %59
   br i1 %.not.i60.i, label %egcb_get_type.exit61.i, label %60
 
 60:                                               ; preds = %56
@@ -2895,7 +2895,7 @@ unicode_egcb_is_break_2code.exit.thread65:        ; preds = %egcb_get_type.exit6
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %99, i32 1
   %101 = load i32, ptr %100, align 4
-  %102 = icmp ult i32 %101, %95
+  %102 = icmp ugt i32 %95, %101
   %103 = add nuw i32 %98, 1
   %.114.i = select i1 %102, i32 %.01315.i, i32 %98
   %.1.i = select i1 %102, i32 %103, i32 %.016.i
@@ -2910,7 +2910,7 @@ unicode_egcb_is_break_2code.exit.thread65:        ; preds = %egcb_get_type.exit6
   %108 = zext nneg i32 %.1.i to i64
   %109 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4
-  %.not.i56 = icmp ugt i32 %110, %95
+  %.not.i56 = icmp ult i32 %95, %110
   br i1 %.not.i56, label %egcb_get_type.exit.thread, label %egcb_get_type.exit
 
 egcb_get_type.exit:                               ; preds = %107
@@ -2934,7 +2934,7 @@ egcb_get_type.exit:                               ; preds = %107
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %119, i32 1
   %121 = load i32, ptr %120, align 4
-  %122 = icmp ult i32 %121, %115
+  %122 = icmp ugt i32 %115, %121
   %123 = add nuw i32 %118, 1
   %.114.i59 = select i1 %122, i32 %.01315.i58, i32 %118
   %.1.i60 = select i1 %122, i32 %123, i32 %.016.i57
@@ -2949,7 +2949,7 @@ egcb_get_type.exit:                               ; preds = %107
   %128 = zext nneg i32 %.1.i60 to i64
   %129 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4
-  %.not.i61 = icmp ugt i32 %130, %115
+  %.not.i61 = icmp ult i32 %115, %130
   br i1 %.not.i61, label %egcb_get_type.exit62.thread, label %egcb_get_type.exit62
 
 egcb_get_type.exit62:                             ; preds = %127

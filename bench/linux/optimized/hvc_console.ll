@@ -111,7 +111,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hvc_instantiate(i32 noundef %0, i
   tail call void @console_list_unlock() #12
   %18 = load i16, ptr getelementptr inbounds (i8, ptr @hvc_console, i64 74), align 2
   %19 = sext i16 %18 to i32
-  %20 = icmp eq i32 %19, %1
+  %20 = icmp eq i32 %1, %19
   %21 = select i1 %17, i1 %20, i1 false
   br i1 %21, label %22, label %23
 

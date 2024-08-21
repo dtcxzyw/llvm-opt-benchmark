@@ -23,17 +23,17 @@ define dso_local noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_u
   %.057 = phi ptr [ %4, %5 ], [ %.1, %50 ]
   %8 = getelementptr inbounds i8, ptr %.060, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = icmp sgt i64 %9, %0
+  %10 = icmp slt i64 %0, %9
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp slt i64 %9, %0
+  %12 = icmp sgt i64 %0, %9
   br i1 %12, label %.thread91, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %.060, i64 40
   %15 = load i32, ptr %14, align 8
-  %16 = icmp sgt i32 %15, %1
+  %16 = icmp slt i32 %1, %15
   br i1 %16, label %17, label %32
 
 17:                                               ; preds = %7, %13
@@ -44,17 +44,17 @@ define dso_local noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_u
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %18, i64 32
   %21 = load i64, ptr %20, align 8
-  %22 = icmp sgt i64 %21, %0
+  %22 = icmp slt i64 %0, %21
   br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %19
-  %24 = icmp slt i64 %21, %0
+  %24 = icmp sgt i64 %0, %21
   br i1 %24, label %.critedge85, label %25
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %18, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = icmp sgt i32 %27, %1
+  %28 = icmp slt i32 %1, %27
   br i1 %28, label %.critedge, label %.critedge85
 
 .critedge:                                        ; preds = %19, %25
@@ -72,7 +72,7 @@ define dso_local noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_u
   br label %50
 
 32:                                               ; preds = %13
-  %.not93 = icmp slt i32 %15, %1
+  %.not93 = icmp sgt i32 %1, %15
   br i1 %.not93, label %.thread91, label %51
 
 .thread91:                                        ; preds = %11, %32
@@ -84,17 +84,17 @@ define dso_local noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_u
 35:                                               ; preds = %.thread91
   %36 = getelementptr inbounds i8, ptr %34, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = icmp sgt i64 %37, %0
+  %38 = icmp slt i64 %0, %37
   br i1 %38, label %.critedge88, label %39
 
 39:                                               ; preds = %35
-  %40 = icmp slt i64 %37, %0
+  %40 = icmp sgt i64 %0, %37
   br i1 %40, label %.critedge90, label %41
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %34, i64 40
   %43 = load i32, ptr %42, align 8
-  %44 = icmp slt i32 %43, %1
+  %44 = icmp sgt i32 %1, %43
   br i1 %44, label %.critedge90, label %.critedge88
 
 .critedge90:                                      ; preds = %39, %41
@@ -161,17 +161,17 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
   %.057.i = phi ptr [ %5, %7 ], [ %.1.i, %52 ]
   %10 = getelementptr inbounds i8, ptr %.060.i, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = icmp sgt i64 %11, %0
+  %12 = icmp slt i64 %0, %11
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %9
-  %14 = icmp slt i64 %11, %0
+  %14 = icmp sgt i64 %0, %11
   br i1 %14, label %.thread91.i, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %.060.i, i64 40
   %17 = load i32, ptr %16, align 8
-  %18 = icmp sgt i32 %17, %1
+  %18 = icmp slt i32 %1, %17
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %15, %9
@@ -182,17 +182,17 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %20, i64 32
   %23 = load i64, ptr %22, align 8
-  %24 = icmp sgt i64 %23, %0
+  %24 = icmp slt i64 %0, %23
   br i1 %24, label %.critedge.i, label %25
 
 25:                                               ; preds = %21
-  %26 = icmp slt i64 %23, %0
+  %26 = icmp sgt i64 %0, %23
   br i1 %26, label %.critedge85.i, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %20, i64 40
   %29 = load i32, ptr %28, align 8
-  %30 = icmp sgt i32 %29, %1
+  %30 = icmp slt i32 %1, %29
   br i1 %30, label %.critedge.i, label %.critedge85.i
 
 .critedge.i:                                      ; preds = %27, %21
@@ -210,7 +210,7 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
   br label %52
 
 34:                                               ; preds = %15
-  %.not93.i = icmp slt i32 %17, %1
+  %.not93.i = icmp sgt i32 %1, %17
   br i1 %.not93.i, label %.thread91.i, label %Curl_splay.exit
 
 .thread91.i:                                      ; preds = %34, %13
@@ -222,17 +222,17 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
 37:                                               ; preds = %.thread91.i
   %38 = getelementptr inbounds i8, ptr %36, i64 32
   %39 = load i64, ptr %38, align 8
-  %40 = icmp sgt i64 %39, %0
+  %40 = icmp slt i64 %0, %39
   br i1 %40, label %.critedge88.i, label %41
 
 41:                                               ; preds = %37
-  %42 = icmp slt i64 %39, %0
+  %42 = icmp sgt i64 %0, %39
   br i1 %42, label %.critedge90.i, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %36, i64 40
   %45 = load i32, ptr %44, align 8
-  %46 = icmp slt i32 %45, %1
+  %46 = icmp sgt i32 %1, %45
   br i1 %46, label %.critedge90.i, label %.critedge88.i
 
 .critedge90.i:                                    ; preds = %43, %41
@@ -273,13 +273,13 @@ Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %59 = getelementptr inbounds i8, ptr %.161.i, i64 32
   %60 = load i64, ptr %59, align 8
-  %or.cond.not = icmp eq i64 %60, %0
+  %or.cond.not = icmp eq i64 %0, %60
   br i1 %or.cond.not, label %61, label %71
 
 61:                                               ; preds = %Curl_splay.exit
   %62 = getelementptr inbounds i8, ptr %.161.i, i64 40
   %63 = load i32, ptr %62, align 8
-  %spec.select = icmp eq i32 %63, %1
+  %spec.select = icmp eq i32 %1, %63
   br i1 %spec.select, label %64, label %71
 
 64:                                               ; preds = %61
@@ -300,17 +300,17 @@ Curl_splay.exit:                                  ; preds = %19, %.critedge.i, %
   br label %83
 
 71:                                               ; preds = %61, %Curl_splay.exit
-  %72 = icmp sgt i64 %60, %0
+  %72 = icmp slt i64 %0, %60
   br i1 %72, label %.critedge65, label %73
 
 73:                                               ; preds = %71
-  %74 = icmp slt i64 %60, %0
+  %74 = icmp sgt i64 %0, %60
   br i1 %74, label %.critedge67, label %75
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds i8, ptr %.161.i, i64 40
   %77 = load i32, ptr %76, align 8
-  %78 = icmp sgt i32 %77, %1
+  %78 = icmp slt i32 %1, %77
   br i1 %78, label %.critedge65, label %.critedge67
 
 .critedge65:                                      ; preds = %71, %75
@@ -483,17 +483,17 @@ Curl_splay.exit:                                  ; preds = %18, %.critedge.i, %
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %58 = getelementptr inbounds i8, ptr %.161.i, i64 32
   %59 = load i64, ptr %58, align 8
-  %60 = icmp sgt i64 %59, %0
+  %60 = icmp slt i64 %0, %59
   br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %Curl_splay.exit
-  %62 = icmp slt i64 %59, %0
+  %62 = icmp sgt i64 %0, %59
   br i1 %62, label %.critedge41, label %63
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds i8, ptr %.161.i, i64 40
   %65 = load i32, ptr %64, align 8
-  %66 = icmp sgt i32 %65, %1
+  %66 = icmp slt i32 %1, %65
   br i1 %66, label %.critedge, label %.critedge41
 
 .critedge41:                                      ; preds = %61, %63
@@ -579,17 +579,17 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
   %.057.i = phi ptr [ %5, %._crit_edge ], [ %.1.i, %69 ]
   %27 = getelementptr inbounds i8, ptr %.060.i, i64 32
   %28 = load i64, ptr %27, align 8
-  %29 = icmp sgt i64 %28, %10
+  %29 = icmp slt i64 %10, %28
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %26
-  %31 = icmp slt i64 %28, %10
+  %31 = icmp sgt i64 %10, %28
   br i1 %31, label %.thread91.i, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.060.i, i64 40
   %34 = load i32, ptr %33, align 8
-  %35 = icmp sgt i32 %34, %12
+  %35 = icmp slt i32 %12, %34
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %32, %26
@@ -600,17 +600,17 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %37, i64 32
   %40 = load i64, ptr %39, align 8
-  %41 = icmp sgt i64 %40, %10
+  %41 = icmp slt i64 %10, %40
   br i1 %41, label %.critedge.i, label %42
 
 42:                                               ; preds = %38
-  %43 = icmp slt i64 %40, %10
+  %43 = icmp sgt i64 %10, %40
   br i1 %43, label %.critedge85.i, label %44
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %37, i64 40
   %46 = load i32, ptr %45, align 8
-  %47 = icmp sgt i32 %46, %12
+  %47 = icmp slt i32 %12, %46
   br i1 %47, label %.critedge.i, label %.critedge85.i
 
 .critedge.i:                                      ; preds = %44, %38
@@ -628,7 +628,7 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
   br label %69
 
 51:                                               ; preds = %32
-  %.not93.i = icmp slt i32 %34, %12
+  %.not93.i = icmp sgt i32 %12, %34
   br i1 %.not93.i, label %.thread91.i, label %Curl_splay.exit
 
 .thread91.i:                                      ; preds = %51, %30
@@ -640,17 +640,17 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
 54:                                               ; preds = %.thread91.i
   %55 = getelementptr inbounds i8, ptr %53, i64 32
   %56 = load i64, ptr %55, align 8
-  %57 = icmp sgt i64 %56, %10
+  %57 = icmp slt i64 %10, %56
   br i1 %57, label %.critedge88.i, label %58
 
 58:                                               ; preds = %54
-  %59 = icmp slt i64 %56, %10
+  %59 = icmp sgt i64 %10, %56
   br i1 %59, label %.critedge90.i, label %60
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %53, i64 40
   %62 = load i32, ptr %61, align 8
-  %63 = icmp slt i32 %62, %12
+  %63 = icmp sgt i32 %12, %62
   br i1 %63, label %.critedge90.i, label %.critedge88.i
 
 .critedge90.i:                                    ; preds = %60, %58
@@ -738,17 +738,17 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
   %.057.i59 = phi ptr [ %4, %93 ], [ %.1.i69, %140 ]
   %98 = getelementptr inbounds i8, ptr %.060.i57, i64 32
   %99 = load i64, ptr %98, align 8
-  %100 = icmp sgt i64 %99, %94
+  %100 = icmp slt i64 %94, %99
   br i1 %100, label %107, label %101
 
 101:                                              ; preds = %97
-  %102 = icmp slt i64 %99, %94
+  %102 = icmp sgt i64 %94, %99
   br i1 %102, label %.thread91.i63, label %103
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds i8, ptr %.060.i57, i64 40
   %105 = load i32, ptr %104, align 8
-  %106 = icmp sgt i32 %105, %95
+  %106 = icmp slt i32 %95, %105
   br i1 %106, label %107, label %122
 
 107:                                              ; preds = %103, %97
@@ -759,17 +759,17 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
 109:                                              ; preds = %107
   %110 = getelementptr inbounds i8, ptr %108, i64 32
   %111 = load i64, ptr %110, align 8
-  %112 = icmp sgt i64 %111, %94
+  %112 = icmp slt i64 %94, %111
   br i1 %112, label %.critedge.i76, label %113
 
 113:                                              ; preds = %109
-  %114 = icmp slt i64 %111, %94
+  %114 = icmp sgt i64 %94, %111
   br i1 %114, label %.critedge85.i74, label %115
 
 115:                                              ; preds = %113
   %116 = getelementptr inbounds i8, ptr %108, i64 40
   %117 = load i32, ptr %116, align 8
-  %118 = icmp sgt i32 %117, %95
+  %118 = icmp slt i32 %95, %117
   br i1 %118, label %.critedge.i76, label %.critedge85.i74
 
 .critedge.i76:                                    ; preds = %115, %109
@@ -787,7 +787,7 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
   br label %140
 
 122:                                              ; preds = %103
-  %.not93.i60 = icmp slt i32 %105, %95
+  %.not93.i60 = icmp sgt i32 %95, %105
   br i1 %.not93.i60, label %.thread91.i63, label %Curl_splay.exit78
 
 .thread91.i63:                                    ; preds = %122, %101
@@ -799,17 +799,17 @@ Curl_splay.exit:                                  ; preds = %36, %.critedge.i, %
 125:                                              ; preds = %.thread91.i63
   %126 = getelementptr inbounds i8, ptr %124, i64 32
   %127 = load i64, ptr %126, align 8
-  %128 = icmp sgt i64 %127, %94
+  %128 = icmp slt i64 %94, %127
   br i1 %128, label %.critedge88.i65, label %129
 
 129:                                              ; preds = %125
-  %130 = icmp slt i64 %127, %94
+  %130 = icmp sgt i64 %94, %127
   br i1 %130, label %.critedge90.i71, label %131
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds i8, ptr %124, i64 40
   %133 = load i32, ptr %132, align 8
-  %134 = icmp slt i32 %133, %95
+  %134 = icmp sgt i32 %95, %133
   br i1 %134, label %.critedge90.i71, label %.critedge88.i65
 
 .critedge90.i71:                                  ; preds = %131, %129

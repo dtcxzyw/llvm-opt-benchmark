@@ -568,7 +568,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %39 ], [ %38, %.preheader.us.us ]
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %39 ], [ 0, %.preheader.us.us ]
   %40 = trunc nuw nsw i64 %indvars.iv269 to i32
-  %41 = mul i32 %40, %5
+  %41 = mul i32 %5, %40
   %reass.add.us.us = add i32 %41, %.1232.us
   %reass.mul.us.us = mul i32 %reass.add.us.us, 3
   %42 = add i32 %reass.mul.us.us, %.0137230.us.us
@@ -1382,7 +1382,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %97 = load i32, ptr %96, align 4
   %98 = sub nsw i32 %97, %89
   %99 = trunc nuw nsw i64 %indvars.iv9.i to i32
-  %100 = mul i32 %99, %6
+  %100 = mul i32 %6, %99
   %reass.add.us.us.i = add i32 %100, %.07.us.i
   %reass.mul.us.us.i = mul i32 %reass.add.us.us.i, 3
   %101 = add i32 %reass.mul.us.us.i, %.0285.us.us.i

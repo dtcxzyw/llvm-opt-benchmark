@@ -1012,7 +1012,7 @@ define void @_ZN7rocksdb11WriteThread16CompleteFollowerEPNS0_6WriterERNS0_10Writ
 entry:
   %last_writer = getelementptr inbounds i8, ptr %write_group, i64 8
   %0 = load ptr, ptr %last_writer, align 8
-  %cmp = icmp eq ptr %0, %w
+  %cmp = icmp eq ptr %w, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1443,7 +1443,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit, label %lor.lhs.false.i, !llvm.loop !12
 
 _ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit: ; preds = %lor.lhs.false.i, %if.end.i, %entry
-  %cmp7.not38 = icmp eq ptr %atomic-temp.i.0.i, %leader
+  %cmp7.not38 = icmp eq ptr %leader, %atomic-temp.i.0.i
   br i1 %cmp7.not38, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
@@ -1598,7 +1598,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit, label %lor.lhs.false.i, !llvm.loop !12
 
 _ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit: ; preds = %lor.lhs.false.i, %if.end.i, %if.then8
-  %cmp10.not29 = icmp eq ptr %atomic-temp.i.0.i, %leader
+  %cmp10.not29 = icmp eq ptr %leader, %atomic-temp.i.0.i
   br i1 %cmp10.not29, label %if.end32, label %while.body
 
 while.body:                                       ; preds = %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit, %if.end29
@@ -2160,7 +2160,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then8:                                         ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %cmp.not.i = icmp eq ptr %status6, %status
+  %cmp.not.i = icmp eq ptr %status, %status6
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
@@ -2395,7 +2395,7 @@ invoke.cont24:                                    ; preds = %land.lhs.true.i
 
 if.then26:                                        ; preds = %invoke.cont, %land.lhs.true.i, %invoke.cont24
   %40 = load ptr, ptr %last_writer3, align 8
-  %cmp.i67 = icmp eq ptr %40, %w.0234
+  %cmp.i67 = icmp eq ptr %w.0234, %40
   br i1 %cmp.i67, label %if.then.i71, label %if.else.i
 
 if.then.i71:                                      ; preds = %if.then26

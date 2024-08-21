@@ -2318,7 +2318,7 @@ define internal noundef range(i32 0, 2) i32 @device_area_is_invalid(ptr nocaptur
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
   %28 = zext nneg i32 %27 to i64
-  %29 = and i64 %28, %2
+  %29 = and i64 %2, %28
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %37, label %31
 
@@ -2331,7 +2331,7 @@ define internal noundef range(i32 0, 2) i32 @device_area_is_invalid(ptr nocaptur
   br label %46
 
 37:                                               ; preds = %26
-  %38 = and i64 %28, %3
+  %38 = and i64 %3, %28
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %46, label %40
 

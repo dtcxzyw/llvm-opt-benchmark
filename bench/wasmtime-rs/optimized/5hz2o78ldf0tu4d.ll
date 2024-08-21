@@ -3337,7 +3337,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.60921
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
-  %9 = icmp ult i64 %8, %2
+  %9 = icmp ugt i64 %2, %8
   %or.cond = or i1 %7, %9
   br i1 %or.cond, label %10, label %15
 
@@ -6092,7 +6092,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
   br i1 %.not.i, label %89, label %113
 
 89:                                               ; preds = %82
-  %90 = icmp ult i64 %86, %13
+  %90 = icmp ugt i64 %13, %86
   br i1 %90, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7cb4a19f6dc9b62fE.exit.i", label %91, !prof !53
 
 91:                                               ; preds = %89
@@ -8449,7 +8449,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$20gen_c
 
 53:                                               ; preds = %46
   %54 = sub nuw nsw i64 %40, %37
-  %55 = icmp ugt i64 %54, %3
+  %55 = icmp ult i64 %3, %54
   br i1 %55, label %56, label %.invoke, !prof !53
 
 56:                                               ; preds = %53
@@ -8745,7 +8745,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %121
 156:                                              ; preds = %141
   %157 = getelementptr inbounds i8, ptr %1, i64 368
   %158 = load i64, ptr %157, align 8, !noundef !4
-  %159 = icmp ugt i64 %158, %3
+  %159 = icmp ult i64 %3, %158
   br i1 %159, label %193, label %.invoke, !prof !53
 
 160:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$cranelift_codegen..result..CodegenError$GT$$GT$17hab3e439f402e911aE.llvm.6890334928246803750.exit.i", %146
@@ -9253,7 +9253,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$23gen_c
 
 32:                                               ; preds = %6
   %33 = extractvalue { ptr, i64 } %27, 1
-  %34 = icmp ugt i64 %33, %3
+  %34 = icmp ult i64 %3, %33
   br i1 %34, label %35, label %.invoke, !prof !53
 
 35:                                               ; preds = %32
@@ -12055,7 +12055,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi17CallSite$LT$M$GT$24emi
 
 _ZN17cranelift_codegen8machinst3abi6SigSet4args17h07cc1291e033b3edE.exit: ; preds = %36
   %40 = sub nuw nsw i64 %30, %27
-  %41 = icmp ugt i64 %40, %2
+  %41 = icmp ult i64 %2, %40
   br i1 %41, label %42, label %46, !prof !53
 
 42:                                               ; preds = %_ZN17cranelift_codegen8machinst3abi6SigSet4args17h07cc1291e033b3edE.exit
@@ -12475,7 +12475,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi17CallSite$LT$M$GT$7gen_
 
 _ZN17cranelift_codegen8machinst3abi6SigSet4args17h07cc1291e033b3edE.exit: ; preds = %62
   %66 = sub nuw nsw i64 %56, %53
-  %67 = icmp ugt i64 %66, %2
+  %67 = icmp ult i64 %2, %66
   br i1 %67, label %68, label %91, !prof !53
 
 68:                                               ; preds = %_ZN17cranelift_codegen8machinst3abi6SigSet4args17h07cc1291e033b3edE.exit
@@ -13722,7 +13722,7 @@ _ZN17cranelift_codegen8machinst3abi6SigSet8num_args17hb20be322eaa22e9aE.exit: ; 
   unreachable
 
 "_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i": ; preds = %102
-  %.not.i = icmp ugt i64 %96, %90
+  %.not.i = icmp ult i64 %90, %96
   br i1 %.not.i, label %109, label %108
 
 108:                                              ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i", %.noexc
@@ -13907,7 +13907,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi17CallSite$LT$M$GT$10gen
 
 22:                                               ; preds = %5
   %23 = extractvalue { ptr, i64 } %18, 1
-  %24 = icmp ugt i64 %23, %3
+  %24 = icmp ult i64 %3, %23
   br i1 %24, label %25, label %.invoke, !prof !53
 
 25:                                               ; preds = %22
@@ -14984,7 +14984,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %2
   %15 = icmp ugt i64 %14, 1024
   %16 = load i64, ptr %7, align 8, !alias.scope !2164, !noalias !2167
   %.sink4.i.i = select i1 %15, i64 %16, i64 %14
-  %.not.i = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %.not.i = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %.not.i, label %17, label %"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17hb2f52389b6348740E.exit"
 
 17:                                               ; preds = %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i
@@ -15037,7 +15037,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %2
   %15 = icmp ugt i64 %14, 1024
   %16 = load i64, ptr %7, align 8, !alias.scope !2184, !noalias !2187
   %.sink4.i.i = select i1 %15, i64 %16, i64 %14
-  %.not.i = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %.not.i = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %.not.i, label %17, label %"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17hb2f52389b6348740E.exit"
 
 17:                                               ; preds = %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i
@@ -15090,7 +15090,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %2
   %15 = icmp ugt i64 %14, 1024
   %16 = load i64, ptr %7, align 8, !alias.scope !2204, !noalias !2207
   %.sink4.i.i = select i1 %15, i64 %16, i64 %14
-  %.not.i = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %.not.i = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %.not.i, label %17, label %"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17hb2f52389b6348740E.exit"
 
 17:                                               ; preds = %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i
@@ -15143,7 +15143,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %3
   %16 = icmp ugt i64 %15, 1024
   %17 = load i64, ptr %8, align 8, !alias.scope !2224, !noalias !2227
   %.sink4.i.i = select i1 %16, i64 %17, i64 %15
-  %.not.i = icmp ult i64 %.sink4.i.i, %.sink4.i
+  %.not.i = icmp ugt i64 %.sink4.i, %.sink4.i.i
   br i1 %.not.i, label %18, label %"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17hb2f52389b6348740E.exit"
 
 18:                                               ; preds = %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i
@@ -15444,11 +15444,11 @@ define hidden void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$
   %14 = getelementptr inbounds i8, ptr %0, i64 3248
   %15 = load i64, ptr %14, align 8, !alias.scope !2279, !noalias !2282
   %.sink4.i.i = select i1 %13, i64 %15, i64 %12
-  %16 = icmp ult i64 %.sink4.i.i, %10
+  %16 = icmp ugt i64 %10, %.sink4.i.i
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %9
-  %18 = icmp ugt i64 %.sink4.i.i, %10
+  %18 = icmp ult i64 %10, %.sink4.i.i
   br i1 %18, label %.lr.ph.preheader.i.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h01b7c2f292fca025E.exit"
 
 .lr.ph.preheader.i.i:                             ; preds = %17
@@ -15471,11 +15471,11 @@ define hidden void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$
   %26 = getelementptr inbounds i8, ptr %0, i64 3320
   %27 = load i64, ptr %26, align 8, !alias.scope !2290, !noalias !2293
   %.sink4.i.i7 = select i1 %25, i64 %27, i64 %24
-  %28 = icmp ult i64 %.sink4.i.i7, %22
+  %28 = icmp ugt i64 %22, %.sink4.i.i7
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h01b7c2f292fca025E.exit"
-  %30 = icmp ugt i64 %.sink4.i.i7, %22
+  %30 = icmp ult i64 %22, %.sink4.i.i7
   br i1 %30, label %.lr.ph.preheader.i.i8, label %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17hfb1cb284c1313a24E.exit"
 
 .lr.ph.preheader.i.i8:                            ; preds = %29
@@ -16165,7 +16165,7 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer
   %12 = load i64, ptr %11, align 8, !noalias !4
   %.sink4.i = select i1 %10, i64 %12, i64 %9
   %13 = trunc i64 %.sink4.i to i32
-  %14 = icmp eq i32 %13, %1
+  %14 = icmp eq i32 %1, %13
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %4
@@ -16351,7 +16351,7 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer
   %14 = load i64, ptr %13, align 8, !noalias !4
   %.sink4.i = select i1 %12, i64 %14, i64 %11
   %15 = trunc i64 %.sink4.i to i32
-  %16 = icmp eq i32 %15, %1
+  %16 = icmp eq i32 %1, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %5
@@ -16661,7 +16661,7 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer
   %52 = getelementptr inbounds i8, ptr %0, i64 4240
   %.sink2.i.i25 = select i1 %51, ptr %52, ptr %49
   %.sink2.i.promoted.i26 = load i64, ptr %.sink2.i.i25, align 8, !alias.scope !2560
-  %53 = icmp ugt i64 %.sink2.i.promoted.i26, %48
+  %53 = icmp ult i64 %48, %.sink2.i.promoted.i26
   br i1 %53, label %.lr.ph.preheader.i27, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h90ed6c95bd4369a5E.exit"
 
 .lr.ph.preheader.i27:                             ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17hb18967b99b444bd9E.exit"
@@ -17814,7 +17814,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc226
   %415 = icmp ugt i64 %414, 1024
   %416 = load i64, ptr %41, align 8, !alias.scope !2808, !noalias !2811
   %.sink4.i.i224 = select i1 %415, i64 %416, i64 %414
-  %.not.i225 = icmp ult i64 %.sink4.i.i224, %.sink4.i222
+  %.not.i225 = icmp ugt i64 %.sink4.i222, %.sink4.i.i224
   br i1 %.not.i225, label %.invoke, label %420
 
 .invoke:                                          ; preds = %_ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i, %.noexc226
@@ -17910,7 +17910,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc226
   %451 = icmp ugt i64 %450, 16
   %.val.i = load i64, ptr %105, align 8, !alias.scope !2835, !noalias !2838
   %452 = select i1 %451, i64 %.val.i, i64 %450
-  %453 = icmp ugt i64 %452, %449
+  %453 = icmp ult i64 %449, %452
   br i1 %453, label %471, label %454, !prof !53
 
 454:                                              ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$smallvec..SmallVec$LT$$u5b$u8$u3b$$u20$8$u5d$$GT$$GT$$GT$17h99623bff2dea7daeE.exit"
@@ -18939,11 +18939,11 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc64
   %208 = load i64, ptr %43, align 8, !alias.scope !3034, !noalias !4
   %.sink4.i.i67 = select i1 %207, i64 %208, i64 %206
   %209 = add i64 %.sink4.i.i67, %175
-  %210 = icmp ult i64 %.sink4.i.i67, %209
+  %210 = icmp ugt i64 %209, %.sink4.i.i67
   br i1 %210, label %213, label %211
 
 211:                                              ; preds = %200
-  %212 = icmp ugt i64 %.sink4.i.i67, %209
+  %212 = icmp ult i64 %209, %.sink4.i.i67
   br i1 %212, label %.lr.ph.preheader.i.i.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h7488ac294c94a5b5E.exit.i"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %211
@@ -18960,7 +18960,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc64
   %215 = icmp ugt i64 %214, 1024
   %.val.i.i = load i64, ptr %43, align 8, !alias.scope !3042, !noalias !3045
   %216 = select i1 %215, i64 %.val.i.i, i64 %214
-  %217 = icmp ult i64 %216, %.sink4.i.i67
+  %217 = icmp ugt i64 %.sink4.i.i67, %216
   br i1 %217, label %218, label %"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$18get_appended_space17h9b72e9d3db89003bE.exit"
 
 218:                                              ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h7488ac294c94a5b5E.exit.i"
@@ -45305,7 +45305,7 @@ _ZN17cranelift_codegen7context7Context7compile17hed94a8eff1d2cad6E.exit: ; preds
   %34 = load i64, ptr %33, align 8, !alias.scope !6561, !noalias !6566, !noundef !4
   %35 = load i64, ptr %4, align 8, !alias.scope !6568, !noalias !6566, !noundef !4
   %36 = sub i64 %35, %34
-  %37 = icmp ult i64 %36, %.sink4.i.i
+  %37 = icmp ugt i64 %.sink4.i.i, %36
   br i1 %37, label %38, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4de1009769ffd54eE.exit"
 
 38:                                               ; preds = %24

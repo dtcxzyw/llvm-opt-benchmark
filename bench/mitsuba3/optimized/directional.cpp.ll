@@ -379,8 +379,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %78 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %79 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %80 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %81 = fneg contract <4 x float> %79
-  %82 = fmul contract <4 x float> %80, %81
+  %81 = fneg contract <4 x float> %80
+  %82 = fmul contract <4 x float> %79, %81
   %83 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %77, <4 x float> %78, <4 x float> %82)
   %84 = fmul contract <4 x float> %83, %83
   %shift87 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -395,8 +395,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %92 = fmul contract <4 x float> %83, %91
   %93 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %94 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %95 = fneg contract <4 x float> %78
-  %96 = fmul contract <4 x float> %94, %95
+  %95 = fneg contract <4 x float> %94
+  %96 = fmul contract <4 x float> %78, %95
   %97 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %80, <4 x float> %93, <4 x float> %96)
   %.sroa.012.12.vec.insert.i.i = insertelement <4 x float> %92, float 0.000000e+00, i64 3
   %.sroa.012.12.vec.insert.i256.i = insertelement <4 x float> %97, float 0.000000e+00, i64 3
@@ -4005,7 +4005,7 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
   %50 = zext nneg i8 %49 to i64
   %51 = select i1 %.not.i.i.i5, i64 %50, i64 %48
   %52 = trunc i64 %51 to i32
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %52, i32 %2)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %2, i32 %52)
   %53 = sext i32 %.sroa.speculated to i64
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %53)
           to label %55 unwind label %63

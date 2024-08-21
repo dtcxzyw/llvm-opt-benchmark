@@ -89,7 +89,7 @@ define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 
 21:                                               ; preds = %7
   %22 = load i32, ptr @globalUtilOptind, align 4
   %23 = add nsw i32 %22, 1
-  %.not46 = icmp eq i32 %23, %1
+  %.not46 = icmp eq i32 %1, %23
   br i1 %.not46, label %24, label %.loopexit
 
 24:                                               ; preds = %21

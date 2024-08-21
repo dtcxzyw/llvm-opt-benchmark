@@ -249,7 +249,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %20
-  %29 = icmp ugt ptr %22, %1
+  %29 = icmp ult ptr %1, %22
   %spec.select = select i1 %29, i32 %24, i32 0
   br label %32
 

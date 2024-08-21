@@ -9982,7 +9982,7 @@ define noundef ptr @_ZN7xgboost4data13SimpleDMatrix8SliceColEii(ptr noundef nonn
   %16 = sext i32 %2 to i64
   %17 = mul i64 %15, %16
   %18 = add nsw i32 %1, -1
-  %19 = icmp eq i32 %18, %2
+  %19 = icmp eq i32 %2, %18
   %20 = add i64 %17, %15
   %21 = select i1 %19, i64 %13, i64 %20
   %22 = load ptr, ptr %0, align 8, !noalias !84
@@ -15527,7 +15527,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   %104 = ashr exact i64 %103, 3
-  %105 = icmp ult i64 %104, %97
+  %105 = icmp ugt i64 %97, %104
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %96
@@ -15540,7 +15540,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i.i.i
 
 108:                                              ; preds = %96
-  %109 = icmp ugt i64 %104, %97
+  %109 = icmp ult i64 %97, %104
   br i1 %109, label %110, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i.i.i
 
 110:                                              ; preds = %108
@@ -15592,7 +15592,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i.i.i:       ; preds = %112, %110, %108, %.
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
   %136 = ashr exact i64 %135, 3
-  %137 = icmp ult i64 %136, %129
+  %137 = icmp ugt i64 %129, %136
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %128
@@ -15605,7 +15605,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i.i.i:       ; preds = %112, %110, %108, %.
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit.i.i.i.i
 
 140:                                              ; preds = %128
-  %141 = icmp ugt i64 %136, %129
+  %141 = icmp ult i64 %129, %136
   br i1 %141, label %142, label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit.i.i.i.i
 
 142:                                              ; preds = %140
@@ -16531,7 +16531,7 @@ _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_
 
 17:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
   %18 = sext i32 %16 to i64
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp ult i64 %1, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
@@ -22632,7 +22632,7 @@ _ZSt4copyIPKfN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKfmEvRT_T0_.exit:                   ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKfPffET0_T_S4_S3_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIPKfmEvRT_T0_.exit
@@ -22697,7 +22697,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIfSaIf
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit
@@ -22789,7 +22789,7 @@ _ZSt4copyIPKmN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET0_T_SA_S9_.ex
 
 _ZSt7advanceIPKmmEvRT_T0_.exit:                   ; preds = %17
   %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %30, %3
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit, label %31
 
 31:                                               ; preds = %_ZSt7advanceIPKmmEvRT_T0_.exit
@@ -22854,7 +22854,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorImSaIm
   %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %42, %1
+  %.not.i.i.i.i.i.i.i.i.i60 = icmp eq ptr %1, %42
   br i1 %.not.i.i.i.i.i.i.i.i.i60, label %60, label %59
 
 59:                                               ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit

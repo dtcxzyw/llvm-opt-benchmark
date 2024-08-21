@@ -48,7 +48,7 @@ define noundef i32 @LZ4_compress_fast_extState(ptr nocapture noundef %0, ptr nou
 
 LZ4_compressBound.exit:                           ; preds = %6, %8
   %12 = phi i32 [ %11, %8 ], [ 0, %6 ]
-  %.not = icmp sgt i32 %12, %4
+  %.not = icmp slt i32 %4, %12
   %13 = icmp slt i32 %3, 65547
   br i1 %.not, label %19, label %14
 
@@ -412,7 +412,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %152, %362
   %168 = getelementptr inbounds i8, ptr %.2, i64 4
   %169 = getelementptr inbounds i8, ptr %163, i64 4
   %170 = getelementptr inbounds i8, ptr %spec.select, i64 -7
-  %171 = icmp ugt ptr %170, %168
+  %171 = icmp ult ptr %168, %170
   br i1 %171, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %162, %172
@@ -499,7 +499,7 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %176, %196, %198
   br i1 %208, label %209, label %283
 
 209:                                              ; preds = %_ZL9LZ4_countPKhS0_S0_.exit
-  %210 = icmp ugt ptr %.ptr438, %spec.select
+  %210 = icmp ult ptr %spec.select, %.ptr438
   br i1 %210, label %.lr.ph.i310, label %._crit_edge.i295
 
 .lr.ph.i310:                                      ; preds = %209, %211
@@ -585,7 +585,7 @@ _ZL9LZ4_countPKhS0_S0_.exit316:                   ; preds = %215, %233, %235
 245:                                              ; preds = %_ZL12LZ4_wildCopyPvPKvS_.exit
   %246 = getelementptr inbounds i8, ptr %.2, i64 4
   %247 = getelementptr inbounds i8, ptr %.1237, i64 4
-  %248 = icmp ugt ptr %.ptr438, %246
+  %248 = icmp ult ptr %246, %.ptr438
   br i1 %248, label %.lr.ph.i332, label %._crit_edge.i317
 
 .lr.ph.i332:                                      ; preds = %245, %249
@@ -961,7 +961,7 @@ define noundef i32 @LZ4_compress_destSize(ptr noundef %0, ptr noundef %1, ptr no
 
 LZ4_compressBound.exit.i:                         ; preds = %8, %4
   %12 = phi i32 [ %11, %8 ], [ 0, %4 ]
-  %.not.i = icmp sgt i32 %12, %3
+  %.not.i = icmp slt i32 %3, %12
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %LZ4_compressBound.exit.i
@@ -1099,7 +1099,7 @@ define noundef i32 @LZ4_compress_fast_continue(ptr nocapture noundef %0, ptr nou
 
 15:                                               ; preds = %6
   %.not81 = icmp ne i32 %10, 0
-  %16 = icmp ult ptr %12, %1
+  %16 = icmp ugt ptr %1, %12
   %or.cond = select i1 %.not81, i1 %16, i1 false
   %.074 = select i1 %or.cond, ptr %12, ptr %1
   %17 = getelementptr inbounds i8, ptr %0, i64 16384
@@ -2295,7 +2295,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %107, %223
   %115 = getelementptr i8, ptr %.4, i64 2
   %116 = getelementptr inbounds i8, ptr %.2, i64 4
   %117 = getelementptr inbounds i8, ptr %.1179, i64 4
-  %118 = icmp ugt ptr %.ptr291, %116
+  %118 = icmp ult ptr %116, %.ptr291
   br i1 %118, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZL12LZ4_wildCopyPvPKvS_.exit, %119

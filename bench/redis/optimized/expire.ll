@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i32 0, 2) i32 @activeExpireCycleTryExpire(ptr noundef %db, ptr noundef %de, i64 noundef %now) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @dictGetSignedIntegerVal(ptr noundef %de) #9
-  %cmp = icmp slt i64 %call, %now
+  %cmp = icmp sgt i64 %now, %call
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -725,7 +725,7 @@ declare void @dictRelease(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 0, 2) i32 @checkAlreadyExpired(i64 noundef %when) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @commandTimeSnapshot() #9
-  %cmp.not = icmp slt i64 %call, %when
+  %cmp.not = icmp sgt i64 %when, %call
   br i1 %cmp.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -970,7 +970,7 @@ if.then51:                                        ; preds = %if.end45
 if.end54:                                         ; preds = %if.end20.if.end54_crit_edge, %if.end45
   %13 = phi i64 [ %.pre58, %if.end20.if.end54_crit_edge ], [ %.pre57, %if.end45 ]
   %call.i = call i64 @commandTimeSnapshot() #9
-  %cmp.not.i = icmp slt i64 %call.i, %13
+  %cmp.not.i = icmp sgt i64 %13, %call.i
   br i1 %cmp.not.i, label %if.else, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end54

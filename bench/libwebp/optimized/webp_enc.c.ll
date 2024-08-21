@@ -33,7 +33,7 @@ define hidden range(i32 0, 2) i32 @WebPReportProgress(ptr noundef %0, i32 nounde
 
 4:                                                ; preds = %3
   %5 = load i32, ptr %2, align 4
-  %.not13 = icmp eq i32 %5, %1
+  %.not13 = icmp eq i32 %1, %5
   br i1 %.not13, label %WebPEncodingSetError.exit, label %6
 
 6:                                                ; preds = %4

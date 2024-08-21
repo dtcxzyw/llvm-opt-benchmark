@@ -1206,7 +1206,7 @@ define i64 @Gia_Rsb2ManOdcs(ptr nocapture noundef readonly %0, i32 noundef %1) l
 define i32 @Gia_Rsb2ManDeref_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
-  %.not26 = icmp slt i32 %6, %3
+  %.not26 = icmp sgt i32 %3, %6
   br i1 %.not26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %tailrecurse
@@ -1252,7 +1252,7 @@ tailrecurse:                                      ; preds = %22
   %34 = ashr i32 %33, 1
   %35 = add nsw i32 %.0, %accumulator.tr27
   %36 = load i32, ptr %5, align 4
-  %.not = icmp slt i32 %36, %34
+  %.not = icmp sgt i32 %34, %36
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %22, %tailrecurse
@@ -2056,13 +2056,13 @@ Vec_IntPush.exit9:                                ; preds = %.Vec_IntGrow.exit10
 define i32 @Gia_Rsb2AddNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp slt i32 %3, %4
   %. = select i1 %6, i32 %1, i32 %2
-  %.52 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
-  %.53 = select i1 %6, i32 %2, i32 %1
-  %.54 = tail call i32 @llvm.smax.i32(i32 %3, i32 %4)
+  %.53 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
+  %.54 = select i1 %6, i32 %2, i32 %1
+  %.55 = tail call i32 @llvm.smax.i32(i32 %3, i32 %4)
   %7 = and i32 %., 1
-  %8 = xor i32 %7, %.52
-  %9 = and i32 %.53, 1
-  %10 = xor i32 %9, %.54
+  %8 = xor i32 %.53, %7
+  %9 = and i32 %.54, 1
+  %10 = xor i32 %.55, %9
   %11 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %11, align 4
   %12 = icmp slt i32 %1, %2
@@ -2261,13 +2261,13 @@ define i32 @Gia_Rsb2ManInsert_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %87 = load i32, ptr %86, align 4
   %88 = icmp slt i32 %76, %87
   %..i = select i1 %88, i32 %61, i32 %63
-  %.52.i = tail call i32 @llvm.smin.i32(i32 %76, i32 %87)
-  %.53.i = select i1 %88, i32 %63, i32 %61
-  %.54.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %87)
+  %.53.i = tail call i32 @llvm.smin.i32(i32 %76, i32 %87)
+  %.54.i = select i1 %88, i32 %63, i32 %61
+  %.55.i = tail call i32 @llvm.smax.i32(i32 %76, i32 %87)
   %89 = and i32 %..i, 1
-  %90 = xor i32 %89, %.52.i
-  %91 = and i32 %.53.i, 1
-  %92 = xor i32 %91, %.54.i
+  %90 = xor i32 %89, %.53.i
+  %91 = and i32 %.54.i, 1
+  %92 = xor i32 %91, %.55.i
   %.val.i = load i32, ptr %43, align 4
   %93 = icmp slt i32 %61, %63
   br i1 %93, label %94, label %99
@@ -2424,13 +2424,13 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %140
   %157 = tail call i32 @Gia_Rsb2ManInsert_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %156)
   %158 = icmp slt i32 %155, %157
   %..i137 = select i1 %158, i32 %149, i32 %153
-  %.52.i138 = tail call i32 @llvm.smin.i32(i32 %155, i32 %157)
-  %.53.i139 = select i1 %158, i32 %153, i32 %149
-  %.54.i140 = tail call i32 @llvm.smax.i32(i32 %155, i32 %157)
+  %.53.i138 = tail call i32 @llvm.smin.i32(i32 %155, i32 %157)
+  %.54.i139 = select i1 %158, i32 %153, i32 %149
+  %.55.i140 = tail call i32 @llvm.smax.i32(i32 %155, i32 %157)
   %159 = and i32 %..i137, 1
-  %160 = xor i32 %159, %.52.i138
-  %161 = and i32 %.53.i139, 1
-  %162 = xor i32 %161, %.54.i140
+  %160 = xor i32 %159, %.53.i138
+  %161 = and i32 %.54.i139, 1
+  %162 = xor i32 %161, %.55.i140
   %163 = getelementptr i8, ptr %0, i64 4
   %.val.i141 = load i32, ptr %163, align 4
   %164 = icmp slt i32 %149, %153
@@ -4532,13 +4532,13 @@ define internal fastcc i32 @Gia_ObjLevelId(ptr nocapture %.160.val, i32 noundef 
   %2 = add nsw i32 %0, 1
   %3 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not.i.not.i = icmp sgt i32 %4, %0
+  %.not.i.not.i = icmp slt i32 %0, %4
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %.160.val, align 8
   %7 = shl nsw i32 %6, 1
-  %.not.i = icmp sgt i32 %7, %0
+  %.not.i = icmp slt i32 %0, %7
   %.not.i.i.not.i = icmp sgt i32 %6, %0
   br i1 %.not.i, label %20, label %8
 
@@ -5285,7 +5285,7 @@ define range(i32 0, 2) i32 @Gia_RsbWindowExplore(ptr nocapture noundef readonly 
   %.val44 = load i32, ptr %7, align 4
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
-  %8 = icmp sgt i32 %.val44, %2
+  %8 = icmp slt i32 %2, %.val44
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6
@@ -8242,7 +8242,7 @@ define i32 @Gia_RsbFindFaninAdd(i32 noundef %0, ptr nocapture noundef %1, ptr no
   store i32 %15, ptr %13, align 4
   %16 = icmp eq i32 %.0.lcssa, %3
   %17 = zext i1 %16 to i32
-  %18 = add nsw i32 %17, %3
+  %18 = add nsw i32 %3, %17
   ret i32 %18
 }
 

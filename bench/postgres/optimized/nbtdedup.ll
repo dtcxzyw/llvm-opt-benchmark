@@ -1747,7 +1747,7 @@ define dso_local noundef ptr @_bt_swap_posting(ptr nocapture noundef %0, ptr nou
   %5 = and i16 %.val, 4095
   %6 = zext nneg i16 %5 to i32
   %7 = icmp sgt i32 %2, 0
-  %8 = icmp ugt i32 %6, %2
+  %8 = icmp ult i32 %2, %6
   %or.cond = select i1 %7, i1 %8, i1 false
   br i1 %or.cond, label %12, label %9
 

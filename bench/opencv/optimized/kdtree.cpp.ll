@@ -1073,7 +1073,7 @@ _ZNSt6vectorIN2cv2ml6KDTree4NodeESaIS3_EE9push_backEOS3_.exit185: ; preds = %_ZN
   %376 = load i64, ptr %375, align 8
   %377 = getelementptr inbounds float, ptr %313, i64 %376
   %378 = load float, ptr %377, align 4
-  %379 = icmp sgt i32 %315, %205
+  %379 = icmp slt i32 %205, %315
   br i1 %379, label %.lr.ph125.preheader.i, label %.preheader.i186
 
 .lr.ph125.preheader.i:                            ; preds = %._crit_edge121.i
@@ -1087,7 +1087,7 @@ _ZNSt6vectorIN2cv2ml6KDTree4NodeESaIS3_EE9push_backEOS3_.exit185: ; preds = %_ZN
   br i1 %exitcond134.not.i, label %.preheader.i186, label %.lr.ph125.i, !llvm.loop !32
 
 .preheader.i186:                                  ; preds = %381, %._crit_edge121.i
-  %382 = icmp slt i32 %315, %203
+  %382 = icmp sgt i32 %203, %315
   br i1 %382, label %.lr.ph127.preheader.i, label %.loopexit272
 
 .lr.ph127.preheader.i:                            ; preds = %.preheader.i186
@@ -3182,7 +3182,7 @@ define noundef ptr @_ZNK2cv2ml6KDTree8getPointEiPi(ptr nocapture noundef nonnull
   %5 = alloca %"class.std::allocator.5", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
-  %8 = icmp ugt i32 %7, %1
+  %8 = icmp ult i32 %1, %7
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %3

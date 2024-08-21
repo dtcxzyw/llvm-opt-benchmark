@@ -110,7 +110,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i
   %idx.ext20.i.i.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i.i.i to i64
   %add.ptr21.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.95", ptr %this.val.val.i.i, i64 %idx.ext20.i.i.i.i.i.i
   %3 = load ptr, ptr %add.ptr21.i.i.i.i.i.i, align 8
-  %cmp.i22.i.i.i.i.i.i = icmp eq ptr %3, %__begin1.sroa.0.064.i
+  %cmp.i22.i.i.i.i.i.i = icmp eq ptr %__begin1.sroa.0.064.i, %3
   br i1 %cmp.i22.i.i.i.i.i.i, label %_ZN6hermes17CallGraphProvider17getKnownCallsitesEPNS_8FunctionE.exit.i.i.i, label %if.end9.i.i.i.i.i.i
 
 if.end9.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i
@@ -127,7 +127,7 @@ if.end13.i.i.i.i.i.i:                             ; preds = %if.end9.i.i.i.i.i.i
   %idx.ext.i.i.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.95", ptr %this.val.val.i.i, i64 %idx.ext.i.i.i.i.i.i
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, %__begin1.sroa.0.064.i
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %__begin1.sroa.0.064.i, %5
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i, !llvm.loop !4
 
 if.end9.i.i.i.i.i.i.i:                            ; preds = %if.end13.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i
@@ -144,7 +144,7 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %if.end9.i.i.i.i.i.i
   %idx.ext.i.i.i.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.95", ptr %this.val.val.i.i, i64 %idx.ext.i.i.i.i.i.i.i
   %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %7, %__begin1.sroa.0.064.i
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %__begin1.sroa.0.064.i, %7
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN6hermes17CallGraphProvider17getKnownCallsitesEPNS_8FunctionE.exit.i.i.i, label %if.end9.i.i.i.i.i.i.i, !llvm.loop !4
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i.i.i.i
@@ -904,7 +904,7 @@ if.end.i.i.i.i.i44.i.i:                           ; preds = %sw.bb61.i.i.i
   %idx.ext20.i.i.i.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i.i.i.i to i64
   %add.ptr21.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %this.val.val.i.i.i, i64 %idx.ext20.i.i.i.i.i.i.i
   %71 = load ptr, ptr %add.ptr21.i.i.i.i.i.i.i, align 8
-  %cmp.i22.i.i.i.i.i.i.i = icmp eq ptr %71, %__begin3.sroa.0.0199.i.i
+  %cmp.i22.i.i.i.i.i.i.i = icmp eq ptr %__begin3.sroa.0.0199.i.i, %71
   br i1 %cmp.i22.i.i.i.i.i.i.i, label %_ZN6hermes17CallGraphProvider15getKnownCalleesEPNS_8CallInstE.exit.i.i.i.i, label %if.end9.i.i.i.i.i45.i.i
 
 if.end9.i.i.i.i.i45.i.i:                          ; preds = %if.end.i.i.i.i.i44.i.i, %if.end13.i.i.i.i.i49.i.i
@@ -921,7 +921,7 @@ if.end13.i.i.i.i.i49.i.i:                         ; preds = %if.end9.i.i.i.i.i45
   %idx.ext.i.i.i.i.i53.i.i = zext i32 %BucketNo.0.i.i.i.i.i52.i.i to i64
   %add.ptr.i.i.i.i.i54.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %this.val.val.i.i.i, i64 %idx.ext.i.i.i.i.i53.i.i
   %73 = load ptr, ptr %add.ptr.i.i.i.i.i54.i.i, align 8
-  %cmp.i.i.i.i.i.i55.i.i = icmp eq ptr %73, %__begin3.sroa.0.0199.i.i
+  %cmp.i.i.i.i.i.i55.i.i = icmp eq ptr %__begin3.sroa.0.0199.i.i, %73
   br i1 %cmp.i.i.i.i.i.i55.i.i, label %if.end9.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i45.i.i, !llvm.loop !10
 
 if.end9.i.i.i.i.i.i.i.i:                          ; preds = %if.end13.i.i.i.i.i49.i.i, %if.end13.i.i.i.i.i.i.i.i
@@ -938,7 +938,7 @@ if.end13.i.i.i.i.i.i.i.i:                         ; preds = %if.end9.i.i.i.i.i.i
   %idx.ext.i.i.i.i.i.i56.i.i = zext i32 %BucketNo.0.i.i.i.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i57.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %this.val.val.i.i.i, i64 %idx.ext.i.i.i.i.i.i56.i.i
   %75 = load ptr, ptr %add.ptr.i.i.i.i.i.i57.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %75, %__begin3.sroa.0.0199.i.i
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %__begin3.sroa.0.0199.i.i, %75
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6hermes17CallGraphProvider15getKnownCalleesEPNS_8CallInstE.exit.i.i.i.i, label %if.end9.i.i.i.i.i.i.i.i, !llvm.loop !10
 
 if.end.i.i.i.i59.i.i:                             ; preds = %if.end9.i.i.i.i.i.i.i.i
@@ -1104,7 +1104,7 @@ if.end.i.i.i.i105.i.i.i:                          ; preds = %sw.bb81.i.i.i
   %idx.ext20.i.i.i.i112.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i111.i.i.i to i64
   %add.ptr21.i.i.i.i113.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.103", ptr %88, i64 %idx.ext20.i.i.i.i112.i.i.i
   %91 = load ptr, ptr %add.ptr21.i.i.i.i113.i.i.i, align 8
-  %cmp.i22.i.i.i.i114.i.i.i = icmp eq ptr %91, %__begin3.sroa.0.0199.i.i
+  %cmp.i22.i.i.i.i114.i.i.i = icmp eq ptr %__begin3.sroa.0.0199.i.i, %91
   br i1 %cmp.i22.i.i.i.i114.i.i.i, label %_ZN6hermes17CallGraphProvider17getKnownReceiversEPNS_16LoadPropertyInstE.exit.i.i.i.i, label %if.end9.i.i.i.i115.i.i.i
 
 if.end9.i.i.i.i115.i.i.i:                         ; preds = %if.end.i.i.i.i105.i.i.i, %if.end13.i.i.i.i119.i.i.i
@@ -1121,7 +1121,7 @@ if.end13.i.i.i.i119.i.i.i:                        ; preds = %if.end9.i.i.i.i115.
   %idx.ext.i.i.i.i123.i.i.i = zext i32 %BucketNo.0.i.i.i.i122.i.i.i to i64
   %add.ptr.i.i.i.i124.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.103", ptr %88, i64 %idx.ext.i.i.i.i123.i.i.i
   %93 = load ptr, ptr %add.ptr.i.i.i.i124.i.i.i, align 8
-  %cmp.i.i.i.i.i125.i.i.i = icmp eq ptr %93, %__begin3.sroa.0.0199.i.i
+  %cmp.i.i.i.i.i125.i.i.i = icmp eq ptr %__begin3.sroa.0.0199.i.i, %93
   br i1 %cmp.i.i.i.i.i125.i.i.i, label %if.end9.i.i.i.i.i127.i.i.i, label %if.end9.i.i.i.i115.i.i.i, !llvm.loop !12
 
 if.end9.i.i.i.i.i127.i.i.i:                       ; preds = %if.end13.i.i.i.i119.i.i.i, %if.end13.i.i.i.i.i131.i.i.i
@@ -1138,7 +1138,7 @@ if.end13.i.i.i.i.i131.i.i.i:                      ; preds = %if.end9.i.i.i.i.i12
   %idx.ext.i.i.i.i.i135.i.i.i = zext i32 %BucketNo.0.i.i.i.i.i134.i.i.i to i64
   %add.ptr.i.i.i.i.i136.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.103", ptr %88, i64 %idx.ext.i.i.i.i.i135.i.i.i
   %95 = load ptr, ptr %add.ptr.i.i.i.i.i136.i.i.i, align 8
-  %cmp.i.i.i.i.i.i137.i.i.i = icmp eq ptr %95, %__begin3.sroa.0.0199.i.i
+  %cmp.i.i.i.i.i.i137.i.i.i = icmp eq ptr %__begin3.sroa.0.0199.i.i, %95
   br i1 %cmp.i.i.i.i.i.i137.i.i.i, label %_ZN6hermes17CallGraphProvider17getKnownReceiversEPNS_16LoadPropertyInstE.exit.i.i.i.i, label %if.end9.i.i.i.i.i127.i.i.i, !llvm.loop !12
 
 if.end.i.i.i156.i.i.i:                            ; preds = %if.end9.i.i.i.i.i127.i.i.i
@@ -1208,7 +1208,7 @@ if.end.i.i.i31.i.i.i.i:                           ; preds = %for.body.i141.i.i.i
   %idx.ext20.i.i.i38.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i37.i.i.i.i to i64
   %add.ptr21.i.i.i39.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.111", ptr %101, i64 %idx.ext20.i.i.i38.i.i.i.i
   %104 = load ptr, ptr %add.ptr21.i.i.i39.i.i.i.i, align 8
-  %cmp.i22.i.i.i40.i.i.i.i = icmp eq ptr %104, %100
+  %cmp.i22.i.i.i40.i.i.i.i = icmp eq ptr %100, %104
   br i1 %cmp.i22.i.i.i40.i.i.i.i, label %if.end13.i.i.i.i, label %if.end9.i.i.i41.i.i.i.i
 
 if.end9.i.i.i41.i.i.i.i:                          ; preds = %if.end.i.i.i31.i.i.i.i, %if.end13.i.i.i45.i.i.i.i
@@ -1225,7 +1225,7 @@ if.end13.i.i.i45.i.i.i.i:                         ; preds = %if.end9.i.i.i41.i.i
   %idx.ext.i.i.i49.i.i.i.i = zext i32 %BucketNo.0.i.i.i48.i.i.i.i to i64
   %add.ptr.i.i.i50.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.111", ptr %101, i64 %idx.ext.i.i.i49.i.i.i.i
   %106 = load ptr, ptr %add.ptr.i.i.i50.i.i.i.i, align 8
-  %cmp.i.i.i.i51.i.i.i.i = icmp eq ptr %106, %100
+  %cmp.i.i.i.i51.i.i.i.i = icmp eq ptr %100, %106
   br i1 %cmp.i.i.i.i51.i.i.i.i, label %if.end13.i.i.i.i, label %if.end9.i.i.i41.i.i.i.i, !llvm.loop !14
 
 if.end13.i.i.i.i:                                 ; preds = %if.end13.i.i.i45.i.i.i.i, %if.end.i.i.i31.i.i.i.i
@@ -1263,7 +1263,7 @@ if.then.i.i153.i.i.i:                             ; preds = %for.body.i.i151.i.i
 
 if.then7.i.i.i.i.i:                               ; preds = %if.then.i.i153.i.i.i
   %call.i7.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %110, i32 noundef 2) #7
-  %cmp9.i.i.i.i.i = icmp eq ptr %call.i7.i.i.i.i.i, %call.i.i142.i.i.i
+  %cmp9.i.i.i.i.i = icmp eq ptr %call.i.i142.i.i.i, %call.i7.i.i.i.i.i
   br i1 %cmp9.i.i.i.i.i, label %if.end21.i.i.i.i, label %for.inc.i.i155.i.i.i
 
 for.inc.i.i155.i.i.i:                             ; preds = %if.then7.i.i.i.i.i, %if.then.i.i153.i.i.i, %for.body.i.i151.i.i.i
@@ -1283,7 +1283,7 @@ if.end.i.i.i.i57.i.i.i.i:                         ; preds = %if.end21.i.i.i.i
   %idx.ext20.i.i.i.i64.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i63.i.i.i.i to i64
   %add.ptr21.i.i.i.i65.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.111", ptr %114, i64 %idx.ext20.i.i.i.i64.i.i.i.i
   %116 = load ptr, ptr %add.ptr21.i.i.i.i65.i.i.i.i, align 8
-  %cmp.i22.i.i.i.i66.i.i.i.i = icmp eq ptr %116, %100
+  %cmp.i22.i.i.i.i66.i.i.i.i = icmp eq ptr %100, %116
   br i1 %cmp.i22.i.i.i.i66.i.i.i.i, label %_ZN6hermes17CallGraphProvider14getKnownStoresEPNS_11InstructionE.exit.i.i.i.i, label %if.end9.i.i.i.i67.i.i.i.i
 
 if.end9.i.i.i.i67.i.i.i.i:                        ; preds = %if.end.i.i.i.i57.i.i.i.i, %if.end13.i.i.i.i71.i.i.i.i
@@ -1300,7 +1300,7 @@ if.end13.i.i.i.i71.i.i.i.i:                       ; preds = %if.end9.i.i.i.i67.i
   %idx.ext.i.i.i.i75.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i74.i.i.i.i to i64
   %add.ptr.i.i.i.i76.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.111", ptr %114, i64 %idx.ext.i.i.i.i75.i.i.i.i
   %118 = load ptr, ptr %add.ptr.i.i.i.i76.i.i.i.i, align 8
-  %cmp.i.i.i.i.i77.i.i.i.i = icmp eq ptr %118, %100
+  %cmp.i.i.i.i.i77.i.i.i.i = icmp eq ptr %100, %118
   br i1 %cmp.i.i.i.i.i77.i.i.i.i, label %_ZN6hermes17CallGraphProvider14getKnownStoresEPNS_11InstructionE.exit.i.i.i.i, label %if.end9.i.i.i.i67.i.i.i.i, !llvm.loop !14
 
 if.end.i.i80.i.i.i.i:                             ; preds = %if.end9.i.i.i.i67.i.i.i.i, %if.end21.i.i.i.i

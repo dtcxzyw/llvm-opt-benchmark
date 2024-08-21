@@ -992,7 +992,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, %__new_size
+  %cmp = icmp ugt i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1075,7 +1075,7 @@ _ZNSt12_Vector_baseIaSaIaEE13_M_deallocateEPam.exit33.i: ; preds = %if.then.i32.
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %__new_size
+  %cmp4 = icmp ult i64 %__new_size, %sub.ptr.sub.i
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
@@ -1102,7 +1102,7 @@ entry:
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %size
+  %cmp.i = icmp ugt i64 %size, %sub.ptr.div.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -1111,7 +1111,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %size
+  %cmp4.i = icmp ult i64 %size, %sub.ptr.div.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1488,7 +1488,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit83:             ; preds = %if.then.i81, %if.el
 
 if.end90:                                         ; preds = %if.end40, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64, %_ZNSt6vectorIlSaIlEE6resizeEm.exit83
   %total.1 = phi i32 [ %add56, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64 ], [ %add88, %_ZNSt6vectorIlSaIlEE6resizeEm.exit83 ], [ %total.0, %if.end40 ]
-  %cmp92 = icmp ult i32 %total.1, %numBytes
+  %cmp92 = icmp ugt i32 %numBytes, %total.1
   br i1 %cmp92, label %if.then93, label %if.end106
 
 if.then93:                                        ; preds = %if.end90

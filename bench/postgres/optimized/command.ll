@@ -3733,7 +3733,7 @@ sub_1204:                                         ; preds = %sub_0203
   %299 = getelementptr inbounds i8, ptr %2, i64 20
   %300 = tail call zeroext i1 @ParseVariableNum(ptr noundef nonnull %1, ptr noundef nonnull @.str.72, ptr noundef nonnull %299) #17
   %.not183 = xor i1 %300, true
-  %brmerge = or i1 %.not183, %3
+  %brmerge = or i1 %3, %.not183
   br i1 %brmerge, label %printPsetInfo.exit, label %321
 
 301:                                              ; preds = %294
@@ -5118,7 +5118,7 @@ strip_lineno_from_objdesc.exit:                   ; preds = %60
 
 69:                                               ; preds = %66
   %70 = icmp sgt i32 %.0.i.ph52, 0
-  %or.cond = and i1 %70, %3
+  %or.cond = and i1 %3, %70
   br i1 %or.cond, label %71, label %.loopexit
 
 71:                                               ; preds = %69
@@ -5834,7 +5834,7 @@ process_command_g_options.exit:                   ; preds = %52, %.split60.us.i,
   %.not9 = phi i1 [ %65, %process_command_g_options.exit ], [ true, %3 ]
   %.0 = phi i32 [ %62, %process_command_g_options.exit ], [ 2, %3 ]
   %67 = icmp eq i32 %.0, 2
-  %brmerge.not = and i1 %67, %1
+  %brmerge.not = and i1 %1, %67
   br i1 %brmerge.not, label %68, label %.tail.thread
 
 .thread:                                          ; preds = %6

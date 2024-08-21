@@ -1277,7 +1277,7 @@ for.body221.i:                                    ; preds = %for.end.i, %for.bod
 for.end225.i:                                     ; preds = %for.body221.i, %for.end.i
   %91 = load i64, ptr %ldir.i, align 8
   %spec.select.i130.i = call i64 @llvm.usub.sat.i64(i64 %91, i64 1)
-  %cmp.i131.i = icmp ult i64 %spec.select.i130.i, %39
+  %cmp.i131.i = icmp ugt i64 %39, %spec.select.i130.i
   br i1 %cmp.i131.i, label %if.then.i138.i, label %if.end.i132.i
 
 if.then.i138.i:                                   ; preds = %for.end225.i
@@ -1298,7 +1298,7 @@ if.then4.i136.i:                                  ; preds = %if.end.i132.i
 strbuf_setlen.exit139.i:                          ; preds = %if.then4.i136.i, %if.end.i132.i
   %93 = load i64, ptr %rdir.i, align 8
   %spec.select.i140.i = call i64 @llvm.usub.sat.i64(i64 %93, i64 1)
-  %cmp.i141.i = icmp ult i64 %spec.select.i140.i, %38
+  %cmp.i141.i = icmp ugt i64 %38, %spec.select.i140.i
   br i1 %cmp.i141.i, label %if.then.i148.i, label %if.end.i142.i
 
 if.then.i148.i:                                   ; preds = %strbuf_setlen.exit139.i
@@ -1422,7 +1422,7 @@ if.end286.i:                                      ; preds = %lor.lhs.false279.i
   call fastcc void @changed_files(ptr noundef nonnull %wt_modified.i, ptr noundef %109, ptr noundef %call.i7)
   %110 = load i64, ptr %rdir.i, align 8
   %spec.select.i161.i = call i64 @llvm.usub.sat.i64(i64 %110, i64 1)
-  %cmp.i162.i = icmp ult i64 %spec.select.i161.i, %38
+  %cmp.i162.i = icmp ugt i64 %38, %spec.select.i161.i
   br i1 %cmp.i162.i, label %if.then.i169.i, label %if.end.i163.i
 
 if.then.i169.i:                                   ; preds = %if.end286.i
@@ -2002,7 +2002,7 @@ define internal fastcc void @add_path(ptr noundef %buf, i64 noundef %base_len, p
 entry:
   %0 = load i64, ptr %buf, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 1)
-  %cmp.i = icmp ult i64 %spec.select.i, %base_len
+  %cmp.i = icmp ugt i64 %base_len, %spec.select.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry

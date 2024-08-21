@@ -259,7 +259,7 @@ define range(i32 -1, 1) i32 @zend_get_parameters_array_ex(i32 noundef %0, ptr no
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
-  %6 = icmp ult i32 %5, %0
+  %6 = icmp ugt i32 %0, %5
   br i1 %6, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
@@ -296,7 +296,7 @@ define range(i32 -1, 1) i32 @zend_copy_parameters_array(i32 noundef %0, ptr noca
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
-  %6 = icmp ult i32 %5, %0
+  %6 = icmp ugt i32 %0, %5
   br i1 %6, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
@@ -5142,8 +5142,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   %61 = sub i32 %.079, %.077
   %.3 = select i1 %60, i32 -1, i32 %.079
   %.2 = select i1 %60, i32 %61, i32 %.077
-  %62 = icmp ugt i32 %spec.select100, %0
-  %63 = icmp ult i32 %.3, %0
+  %62 = icmp ult i32 %0, %spec.select100
+  %63 = icmp ugt i32 %0, %.3
   %or.cond = select i1 %62, i1 true, i1 %63
   br i1 %or.cond, label %64, label %87
 
@@ -5193,7 +5193,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
 87:                                               ; preds = %59
   %88 = getelementptr inbounds i8, ptr %7, i64 44
   %89 = load i32, ptr %88, align 4
-  %90 = icmp ult i32 %89, %0
+  %90 = icmp ugt i32 %0, %89
   br i1 %90, label %93, label %.preheader
 
 .preheader:                                       ; preds = %87
@@ -11581,7 +11581,7 @@ zend_check_magic_method_public.exit473:           ; preds = %zend_check_magic_me
   %394 = load ptr, ptr @zend_known_strings, align 8
   %395 = getelementptr inbounds i8, ptr %394, i64 176
   %396 = load ptr, ptr %395, align 8
-  %397 = icmp eq ptr %396, %2
+  %397 = icmp eq ptr %2, %396
   br i1 %397, label %.critedge28, label %398
 
 398:                                              ; preds = %.critedge26
@@ -11634,7 +11634,7 @@ zend_check_magic_method_non_static.exit475:       ; preds = %.critedge28, %407
   %421 = phi ptr [ %.pre523, %..critedge30_crit_edge ], [ %394, %398 ]
   %422 = getelementptr inbounds i8, ptr %421, i64 480
   %423 = load ptr, ptr %422, align 8
-  %424 = icmp eq ptr %423, %2
+  %424 = icmp eq ptr %2, %423
   br i1 %424, label %.critedge32, label %425
 
 425:                                              ; preds = %.critedge30
@@ -11707,7 +11707,7 @@ zend_check_magic_method_public.exit484:           ; preds = %zend_check_magic_me
   %457 = phi ptr [ %.pre524, %..critedge34_crit_edge ], [ %421, %425 ]
   %458 = getelementptr inbounds i8, ptr %457, i64 488
   %459 = load ptr, ptr %458, align 8
-  %460 = icmp eq ptr %459, %2
+  %460 = icmp eq ptr %2, %459
   br i1 %460, label %.critedge36, label %461
 
 461:                                              ; preds = %.critedge34
@@ -12852,7 +12852,7 @@ define internal fastcc noundef ptr @do_register_internal_class(ptr nocapture nou
   tail call void @zend_alloc_ce_cache(ptr noundef %6) #33
   %7 = getelementptr inbounds i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = or i32 %8, %1
+  %9 = or i32 %1, %8
   %10 = or i32 %9, 397320
   %11 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %10, ptr %11, align 4
@@ -16814,7 +16814,7 @@ define ptr @zend_declare_typed_property(ptr noundef %0, ptr noundef %1, ptr noun
   %68 = and i32 %3, 7
   %.not306 = icmp eq i32 %68, 0
   %69 = zext i1 %.not306 to i32
-  %spec.select = or disjoint i32 %69, %3
+  %spec.select = or disjoint i32 %3, %69
   %70 = and i32 %3, 16
   %.not307 = icmp eq i32 %70, 0
   %71 = getelementptr inbounds i8, ptr %0, i64 120

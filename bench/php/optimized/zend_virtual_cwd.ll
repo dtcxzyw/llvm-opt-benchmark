@@ -324,7 +324,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
   %18 = getelementptr inbounds i8, ptr %14, i64 40
   %19 = load i16, ptr %18, align 8
   %20 = zext i16 %19 to i64
-  %21 = icmp eq i64 %20, %1
+  %21 = icmp eq i64 %1, %20
   br i1 %21, label %22, label %48
 
 22:                                               ; preds = %17
@@ -426,7 +426,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   %21 = getelementptr inbounds i8, ptr %17, i64 40
   %22 = load i16, ptr %21, align 8
   %23 = zext i16 %22 to i64
-  %24 = icmp eq i64 %23, %1
+  %24 = icmp eq i64 %1, %23
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %20
@@ -501,7 +501,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   %64 = getelementptr inbounds i8, ptr %33, i64 40
   %65 = load i16, ptr %64, align 8
   %66 = zext i16 %65 to i64
-  %67 = icmp eq i64 %66, %1
+  %67 = icmp eq i64 %1, %66
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %63

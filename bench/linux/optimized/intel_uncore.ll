@@ -4315,7 +4315,7 @@ define internal void @vgpu_write8(ptr nocapture noundef readonly %0, i32 %1, i8 
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -4377,7 +4377,7 @@ define internal void @vgpu_write16(ptr nocapture noundef readonly %0, i32 %1, i1
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -4439,7 +4439,7 @@ define internal void @vgpu_write32(ptr nocapture noundef readonly %0, i32 %1, i3
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -4516,7 +4516,7 @@ define internal zeroext i8 @vgpu_read8(ptr nocapture noundef readonly %0, i32 %1
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne i8 %19, 0
-  %22 = and i1 %21, %2
+  %22 = and i1 %2, %21
   br i1 %22, label %23, label %37
 
 23:                                               ; preds = %16
@@ -4578,7 +4578,7 @@ define internal zeroext i16 @vgpu_read16(ptr nocapture noundef readonly %0, i32 
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne i8 %19, 0
-  %22 = and i1 %21, %2
+  %22 = and i1 %2, %21
   br i1 %22, label %23, label %37
 
 23:                                               ; preds = %16
@@ -4640,7 +4640,7 @@ define internal i32 @vgpu_read32(ptr nocapture noundef readonly %0, i32 %1, i1 n
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp ne i8 %19, 0
-  %22 = and i1 %21, %2
+  %22 = and i1 %2, %21
   br i1 %22, label %23, label %37
 
 23:                                               ; preds = %16
@@ -4701,7 +4701,7 @@ define internal i64 @vgpu_read64(ptr nocapture noundef readonly %0, i32 %1, i1 n
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
   %20 = icmp ne i8 %18, 0
-  %21 = and i1 %20, %2
+  %21 = and i1 %2, %20
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %15
@@ -4748,7 +4748,7 @@ define internal void @gen5_write8(ptr nocapture noundef readonly %0, i32 %1, i8 
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -4819,7 +4819,7 @@ define internal void @gen5_write16(ptr nocapture noundef readonly %0, i32 %1, i1
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -4890,7 +4890,7 @@ define internal void @gen5_write32(ptr nocapture noundef readonly %0, i32 %1, i3
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -4985,7 +4985,7 @@ define internal zeroext i8 @gen5_read8(ptr nocapture noundef readonly %0, i32 %1
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
   %28 = icmp ne i8 %26, 0
-  %29 = and i1 %28, %2
+  %29 = and i1 %2, %28
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %23
@@ -5056,7 +5056,7 @@ define internal zeroext i16 @gen5_read16(ptr nocapture noundef readonly %0, i32 
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
   %28 = icmp ne i8 %26, 0
-  %29 = and i1 %28, %2
+  %29 = and i1 %2, %28
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %23
@@ -5127,7 +5127,7 @@ define internal i32 @gen5_read32(ptr nocapture noundef readonly %0, i32 %1, i1 n
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
   %28 = icmp ne i8 %26, 0
-  %29 = and i1 %28, %2
+  %29 = and i1 %2, %28
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %23
@@ -5197,7 +5197,7 @@ define internal i64 @gen5_read64(ptr nocapture noundef readonly %0, i32 %1, i1 n
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
   %27 = icmp ne i8 %25, 0
-  %28 = and i1 %27, %2
+  %28 = and i1 %2, %27
   br i1 %28, label %29, label %43
 
 29:                                               ; preds = %22
@@ -5244,7 +5244,7 @@ define internal void @gen2_write8(ptr nocapture noundef readonly %0, i32 %1, i8 
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -5309,7 +5309,7 @@ define internal void @gen2_write16(ptr nocapture noundef readonly %0, i32 %1, i1
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -5374,7 +5374,7 @@ define internal void @gen2_write32(ptr nocapture noundef readonly %0, i32 %1, i3
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -5457,7 +5457,7 @@ define internal zeroext i8 @gen2_read8(ptr nocapture noundef readonly %0, i32 %1
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
   %23 = icmp ne i8 %21, 0
-  %24 = and i1 %23, %2
+  %24 = and i1 %2, %23
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %18
@@ -5522,7 +5522,7 @@ define internal zeroext i16 @gen2_read16(ptr nocapture noundef readonly %0, i32 
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
   %23 = icmp ne i8 %21, 0
-  %24 = and i1 %23, %2
+  %24 = and i1 %2, %23
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %18
@@ -5587,7 +5587,7 @@ define internal i32 @gen2_read32(ptr nocapture noundef readonly %0, i32 %1, i1 n
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
   %23 = icmp ne i8 %21, 0
-  %24 = and i1 %23, %2
+  %24 = and i1 %2, %23
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %18
@@ -5651,7 +5651,7 @@ define internal i64 @gen2_read64(ptr nocapture noundef readonly %0, i32 %1, i1 n
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
   %22 = icmp ne i8 %20, 0
-  %23 = and i1 %22, %2
+  %23 = and i1 %2, %22
   br i1 %23, label %24, label %38
 
 24:                                               ; preds = %17
@@ -5850,7 +5850,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %105 = icmp ult i8 %104, 2
   tail call void @llvm.assume(i1 %105)
   %106 = icmp ne i8 %104, 0
-  %107 = and i1 %106, %2
+  %107 = and i1 %2, %106
   br i1 %107, label %108, label %122
 
 108:                                              ; preds = %101
@@ -6049,7 +6049,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %105 = icmp ult i8 %104, 2
   tail call void @llvm.assume(i1 %105)
   %106 = icmp ne i8 %104, 0
-  %107 = and i1 %106, %2
+  %107 = and i1 %2, %106
   br i1 %107, label %108, label %122
 
 108:                                              ; preds = %101
@@ -6248,7 +6248,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %105 = icmp ult i8 %104, 2
   tail call void @llvm.assume(i1 %105)
   %106 = icmp ne i8 %104, 0
-  %107 = and i1 %106, %2
+  %107 = and i1 %2, %106
   br i1 %107, label %108, label %122
 
 108:                                              ; preds = %101
@@ -6446,7 +6446,7 @@ ___force_wake_auto.exit:                          ; preds = %59
   %104 = icmp ult i8 %103, 2
   tail call void @llvm.assume(i1 %104)
   %105 = icmp ne i8 %103, 0
-  %106 = and i1 %105, %2
+  %106 = and i1 %2, %105
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %100
@@ -6508,7 +6508,7 @@ define internal void @fwtable_write8(ptr noundef %0, i32 %1, i8 noundef zeroext 
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -6711,7 +6711,7 @@ define internal void @fwtable_write16(ptr noundef %0, i32 %1, i16 noundef zeroex
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -6914,7 +6914,7 @@ define internal void @fwtable_write32(ptr noundef %0, i32 %1, i32 noundef %2, i1
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -7136,7 +7136,7 @@ define internal void @gen6_write8(ptr noundef %0, i32 %1, i8 noundef zeroext %2,
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -7275,7 +7275,7 @@ define internal void @gen6_write16(ptr noundef %0, i32 %1, i16 noundef zeroext %
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6
@@ -7414,7 +7414,7 @@ define internal void @gen6_write32(ptr noundef %0, i32 %1, i32 noundef %2, i1 no
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp ne i8 %9, 0
-  %12 = and i1 %11, %3
+  %12 = and i1 %3, %11
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %6

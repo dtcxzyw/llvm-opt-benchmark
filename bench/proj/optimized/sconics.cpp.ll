@@ -693,7 +693,7 @@ define internal { double, double } @_ZL17sconics_s_forward5PJ_LPP8PJconsts(doubl
 31:                                               ; preds = %27, %16, %8
   %.0 = phi double [ %30, %27 ], [ %26, %16 ], [ %15, %8 ]
   %32 = load double, ptr %5, align 8
-  %33 = fmul double %32, %0
+  %33 = fmul double %0, %32
   %34 = tail call double @sin(double noundef %33) #9
   %35 = fmul double %.0, %34
   %36 = getelementptr inbounds i8, ptr %5, i64 16

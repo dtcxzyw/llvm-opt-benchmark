@@ -114,7 +114,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
@@ -126,7 +126,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %9 = getelementptr inbounds i32, ptr %.sroa.5.0.copyload, i64 %6
   store i32 %8, ptr %9, align 4, !noalias !21
   %10 = add i64 %6, 1
-  %11 = icmp eq ptr %7, %0
+  %11 = icmp eq ptr %0, %7
   br i1 %11, label %.loopexit, label %.lr.ph.i.i.i
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %3
@@ -166,7 +166,7 @@ define hidden { i8, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not.i = icmp ugt i64 %8, %1
+  %.not.i = icmp ult i64 %1, %8
   %9 = getelementptr inbounds i8, ptr %5, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   %storemerge.i = select i1 %.not.i, ptr %10, ptr %4
@@ -298,7 +298,7 @@ define hidden void @"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17ha854088f788c7200E.llvm.15183607879373971598.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
@@ -319,7 +319,7 @@ define hidden void @"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %10, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !76
   %12 = add i64 %8, 1
-  %13 = icmp eq ptr %9, %0
+  %13 = icmp eq ptr %0, %9
   br i1 %13, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17ha854088f788c7200E.llvm.15183607879373971598.exit, label %7
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17ha854088f788c7200E.llvm.15183607879373971598.exit: ; preds = %7, %3
@@ -339,7 +339,7 @@ define hidden void @"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hbfa5dbf6bd852782E.llvm.15183607879373971598.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -352,7 +352,7 @@ define hidden void @"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %.val7.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i, align 4, !noalias !89
   %9 = add i64 %6, 1
-  %10 = icmp eq ptr %7, %0
+  %10 = icmp eq ptr %0, %7
   br i1 %10, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hbfa5dbf6bd852782E.llvm.15183607879373971598.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hbfa5dbf6bd852782E.llvm.15183607879373971598.exit: ; preds = %.lr.ph.i, %3
@@ -397,9 +397,9 @@ define hidden void @_ZN12aho_corasick4util6search5Input8set_span17hb721cd958f36c
   store i64 %2, ptr %.fca.1.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !20
-  %.not = icmp ult i64 %9, %2
+  %.not = icmp ugt i64 %2, %9
   %10 = add i64 %2, 1
-  %.not3 = icmp ult i64 %10, %1
+  %.not3 = icmp ugt i64 %1, %10
   %or.cond = or i1 %.not3, %.not
   br i1 %or.cond, label %11, label %19
 
@@ -1117,7 +1117,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
 define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17ha854088f788c7200E.llvm.15183607879373971598(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2) unnamed_addr #18 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge12, label %.lr.ph
 
 ._crit_edge12:                                    ; preds = %3
@@ -1151,7 +1151,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfol
   %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %13, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !328
   %15 = add i64 %11, 1
-  %16 = icmp eq ptr %12, %0
+  %16 = icmp eq ptr %0, %12
   br i1 %16, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %10
@@ -1169,7 +1169,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfol
 define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hbfa5dbf6bd852782E.llvm.15183607879373971598(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #19 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge12, label %.lr.ph
 
 ._crit_edge12:                                    ; preds = %3
@@ -1198,7 +1198,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfol
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %.val7, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 4, !noalias !353
   %13 = add i64 %10, 1
-  %14 = icmp eq ptr %11, %0
+  %14 = icmp eq ptr %0, %11
   br i1 %14, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9
@@ -1216,7 +1216,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfol
 define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17heb67ddcae9d121c9E.llvm.15183607879373971598(ptr noundef nonnull readnone %0, ptr noundef readonly %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #19 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge8, label %.lr.ph
 
 ._crit_edge8:                                     ; preds = %3
@@ -1243,7 +1243,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfol
   %13 = getelementptr inbounds i32, ptr %7, i64 %10
   store i32 %12, ptr %13, align 4, !noalias !402
   %14 = add i64 %10, 1
-  %15 = icmp eq ptr %11, %0
+  %15 = icmp eq ptr %0, %11
   br i1 %15, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9
@@ -1723,7 +1723,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..s
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub nuw i64 %6, %7
-  %.not = icmp ugt i64 %8, %1
+  %.not = icmp ult i64 %1, %8
   %9 = getelementptr inbounds i8, ptr %5, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   %storemerge = select i1 %.not, ptr %10, ptr %4
@@ -1828,7 +1828,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %.sroa.8.0.copyload.i = load ptr, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !480
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$5rfold17h883953ac090e7931E.llvm.15183607879373971598.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
@@ -1849,7 +1849,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %10, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !493
   %12 = add i64 %8, 1
-  %13 = icmp eq ptr %9, %0
+  %13 = icmp eq ptr %0, %9
   br i1 %13, label %"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$5rfold17h883953ac090e7931E.llvm.15183607879373971598.exit", label %7
 
 "_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$5rfold17h883953ac090e7931E.llvm.15183607879373971598.exit": ; preds = %7, %3
@@ -1870,7 +1870,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %.sroa.7.0.copyload.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !503
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$5rfold17hdc7ffbec0d184bbfE.llvm.15183607879373971598.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
@@ -1883,7 +1883,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %.val7.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i, align 4, !noalias !509
   %9 = add i64 %6, 1
-  %10 = icmp eq ptr %7, %0
+  %10 = icmp eq ptr %0, %7
   br i1 %10, label %"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$5rfold17hdc7ffbec0d184bbfE.llvm.15183607879373971598.exit", label %.lr.ph.i.i
 
 "_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$5rfold17hdc7ffbec0d184bbfE.llvm.15183607879373971598.exit": ; preds = %.lr.ph.i.i, %3
@@ -1899,7 +1899,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %1, %0
+  %5 = icmp eq ptr %0, %1
   br i1 %5, label %._crit_edge8.i, label %.lr.ph.i
 
 ._crit_edge8.i:                                   ; preds = %3
@@ -1926,7 +1926,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %13 = getelementptr inbounds i32, ptr %7, i64 %10
   store i32 %12, ptr %13, align 4, !noalias !555
   %14 = add i64 %10, 1
-  %15 = icmp eq ptr %11, %0
+  %15 = icmp eq ptr %0, %11
   br i1 %15, label %._crit_edge.i, label %9
 
 ._crit_edge.i:                                    ; preds = %9
@@ -2886,9 +2886,9 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hfcf3e076f37f893bE.exit
   store i64 %.sroa.8.0.i.i, ptr %6, align 8, !noalias !720
   %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %84, ptr %.fca.1.gep.i.i.i, align 8, !noalias !720
-  %.not.i.i.i = icmp ult i64 %83, %84
+  %.not.i.i.i = icmp ugt i64 %84, %83
   %85 = add i64 %84, 1
-  %.not3.i.i.i = icmp ult i64 %85, %.sroa.8.0.i.i
+  %.not3.i.i.i = icmp ugt i64 %.sroa.8.0.i.i, %85
   %or.cond.i.i.i = or i1 %.not.i.i.i, %.not3.i.i.i
   br i1 %or.cond.i.i.i, label %86, label %126
 
@@ -7769,7 +7769,7 @@ default.unreachable740:                           ; preds = %_ZN14regex_automata
   %.0.i18.i.i = add nuw nsw i64 %38, %39
   %40 = getelementptr inbounds i8, ptr %2, i64 40
   %41 = load i64, ptr %40, align 8, !alias.scope !1437, !noalias !1438, !noundef !20
-  %42 = icmp ult i64 %41, %.0.i18.i.i
+  %42 = icmp ugt i64 %.0.i18.i.i, %41
   br i1 %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h972c68e056cbcf26E.exit.i.i", label %43
 
 43:                                               ; preds = %35
@@ -8470,7 +8470,7 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
   %378 = getelementptr inbounds i8, ptr %151, i64 16
   %379 = load i32, ptr %378, align 8, !noalias !1479, !noundef !20
   %380 = zext i32 %379 to i64
-  %381 = icmp ult i64 %380, %5
+  %381 = icmp ugt i64 %5, %380
   br i1 %381, label %434, label %.backedge
 
 382:                                              ; preds = %153
@@ -8492,7 +8492,7 @@ _ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exi
   %.not.i.i.i.i = icmp ule i8 %387, %385
   %388 = getelementptr inbounds i8, ptr %151, i64 9
   %389 = load i8, ptr %388, align 1, !alias.scope !1547, !noalias !1550
-  %390 = icmp uge i8 %389, %385
+  %390 = icmp ule i8 %385, %389
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %390, i1 false
   br i1 %.0.i.i.i.i, label %391, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread
 
@@ -8534,7 +8534,7 @@ _ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exi
   %408 = getelementptr inbounds i8, ptr %.sroa.0.01.i.i, i64 8
   %409 = getelementptr inbounds i8, ptr %.sroa.0.01.i.i, i64 5
   %410 = load i8, ptr %409, align 1, !alias.scope !1554, !noalias !1551
-  %.not.i.i = icmp ult i8 %410, %399
+  %.not.i.i = icmp ugt i8 %399, %410
   br i1 %.not.i.i, label %402, label %411
 
 411:                                              ; preds = %407
@@ -8620,7 +8620,7 @@ _ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f
 
 448:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1bddf6d3a0ca4645E.exit"
   %449 = zext i32 %.sroa.7177.0.copyload to i64
-  %450 = icmp ult i64 %449, %5
+  %450 = icmp ugt i64 %5, %449
   br i1 %450, label %457, label %459, !prof !1487
 
 451:                                              ; preds = %_ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit
@@ -9250,7 +9250,7 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
   %732 = getelementptr inbounds i8, ptr %505, i64 16
   %733 = load i32, ptr %732, align 8, !noalias !1599, !noundef !20
   %734 = zext i32 %733 to i64
-  %735 = icmp ult i64 %734, %5
+  %735 = icmp ugt i64 %5, %734
   br i1 %735, label %788, label %.backedge292
 
 736:                                              ; preds = %507
@@ -9272,7 +9272,7 @@ _ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exi
   %.not.i.i.i.i151 = icmp ule i8 %741, %739
   %742 = getelementptr inbounds i8, ptr %505, i64 9
   %743 = load i8, ptr %742, align 1, !alias.scope !1662, !noalias !1665
-  %744 = icmp uge i8 %743, %739
+  %744 = icmp ule i8 %739, %743
   %.0.i.i.i.i152 = select i1 %.not.i.i.i.i151, i1 %744, i1 false
   br i1 %.0.i.i.i.i152, label %745, label %_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit69.thread
 
@@ -9314,7 +9314,7 @@ _ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exi
   %762 = getelementptr inbounds i8, ptr %.sroa.0.01.i.i157, i64 8
   %763 = getelementptr inbounds i8, ptr %.sroa.0.01.i.i157, i64 5
   %764 = load i8, ptr %763, align 1, !alias.scope !1669, !noalias !1666
-  %.not.i.i159 = icmp ult i8 %764, %753
+  %.not.i.i159 = icmp ugt i8 %753, %764
   br i1 %.not.i.i159, label %756, label %765
 
 765:                                              ; preds = %761
@@ -9400,7 +9400,7 @@ _ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f
 
 802:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1bddf6d3a0ca4645E.exit113"
   %803 = zext i32 %.sroa.7184.0.copyload to i64
-  %804 = icmp ult i64 %803, %5
+  %804 = icmp ugt i64 %5, %803
   br i1 %804, label %807, label %809, !prof !1487
 
 _ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit69.thread: ; preds = %.thread748._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %.thread277, %613, %.thread277._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %768, %736, %545, %533, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2ed19b4a3c0f2aa6E.exit.i115", %_ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit119, %507, %_ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exit153, %509, %748, %511, %_ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f6E.exit166, %673, %664, %551, %538, %520, %522, %689, %697, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132, %603, %606, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit136, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit141, %653, %656, %680, %683, %703, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %756, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747f7d9fb2c040d3E.exit.i.i158"
@@ -10163,7 +10163,7 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
 
 ._crit_edge.thread:                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1739)
-  %25 = icmp eq i64 %12, %2
+  %25 = icmp eq i64 %2, %12
   br i1 %25, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %._crit_edge, %._crit_edge.thread
@@ -10524,7 +10524,7 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   %32 = sub nuw i64 %2, %.0.i73.lcssa
   %33 = getelementptr inbounds i8, ptr %0, i64 %.0.i73.lcssa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1758)
-  %34 = icmp eq i64 %.0.i73.lcssa, %2
+  %34 = icmp eq i64 %2, %.0.i73.lcssa
   br i1 %34, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread, label %35
 
 35:                                               ; preds = %31
@@ -10630,7 +10630,7 @@ _ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit: ; pred
 
 ._crit_edge.thread:                               ; preds = %71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1765)
-  %74 = icmp eq i64 %17, %2
+  %74 = icmp eq i64 %2, %17
   br i1 %74, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %._crit_edge, %._crit_edge.thread
@@ -10925,7 +10925,7 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
 
 ._crit_edge.thread:                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1781)
-  %25 = icmp eq i64 %12, %2
+  %25 = icmp eq i64 %2, %12
   br i1 %25, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %._crit_edge, %._crit_edge.thread
@@ -11278,7 +11278,7 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
 
 ._crit_edge.thread:                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1800)
-  %25 = icmp eq i64 %12, %2
+  %25 = icmp eq i64 %2, %12
   br i1 %25, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %._crit_edge, %._crit_edge.thread
@@ -11636,7 +11636,7 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   %28 = sub nuw i64 %2, %.0.i17.lcssa
   %29 = getelementptr inbounds i8, ptr %0, i64 %.0.i17.lcssa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1819)
-  %30 = icmp eq i64 %.0.i17.lcssa, %2
+  %30 = icmp eq i64 %2, %.0.i17.lcssa
   br i1 %30, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit, label %31
 
 31:                                               ; preds = %27
@@ -11737,7 +11737,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i26: ; preds = %45
 
 ._crit_edge.thread:                               ; preds = %66
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1826)
-  %69 = icmp eq i64 %13, %2
+  %69 = icmp eq i64 %2, %13
   br i1 %69, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %._crit_edge, %._crit_edge.thread
@@ -12233,9 +12233,9 @@ define void @"_ZN109_$LT$regex_automata..util..prefilter..teddy..Teddy$u20$as$u2
   store i64 %4, ptr %11, align 8, !noalias !1874
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %5, ptr %.fca.1.gep.i, align 8, !noalias !1874
-  %.not.i = icmp ult i64 %3, %5
+  %.not.i = icmp ugt i64 %5, %3
   %15 = add i64 %5, 1
-  %.not3.i = icmp ult i64 %15, %4
+  %.not3.i = icmp ugt i64 %4, %15
   %or.cond.i = or i1 %.not.i, %.not3.i
   br i1 %or.cond.i, label %16, label %_ZN12aho_corasick4util6search5Input8set_span17hb721cd958f36c0b2E.llvm.15183607879373971598.exit
 

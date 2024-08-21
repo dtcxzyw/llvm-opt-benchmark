@@ -656,11 +656,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 20
-  %cmp4 = icmp ugt ptr %add.ptr, %i
+  %cmp4 = icmp ult ptr %i, %add.ptr
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %cmp9.not = icmp ult ptr %add.ptr, %i
+  %cmp9.not = icmp ugt ptr %i, %add.ptr
   br i1 %cmp9.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end, %entry
@@ -894,11 +894,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 160
-  %cmp4 = icmp ugt ptr %add.ptr, %i
+  %cmp4 = icmp ult ptr %i, %add.ptr
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %cmp9.not = icmp ult ptr %add.ptr, %i
+  %cmp9.not = icmp ugt ptr %i, %add.ptr
   br i1 %cmp9.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end, %entry

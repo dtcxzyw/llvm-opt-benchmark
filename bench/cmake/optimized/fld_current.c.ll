@@ -15,7 +15,7 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %7, %0
+  %.not = icmp eq ptr %0, %7
   br i1 %.not, label %8, label %72
 
 8:                                                ; preds = %5

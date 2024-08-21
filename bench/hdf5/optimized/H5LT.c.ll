@@ -680,24 +680,24 @@ define internal noundef ptr @image_memcpy(ptr noundef readnone %0, ptr noundef r
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8
-  %.not40 = icmp eq ptr %12, %0
+  %.not40 = icmp eq ptr %0, %12
   br i1 %.not40, label %13, label %54
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %4, align 8
-  %.not41 = icmp eq ptr %14, %1
+  %.not41 = icmp eq ptr %1, %14
   br i1 %.not41, label %15, label %54
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = load i64, ptr %16, align 8
-  %.not42 = icmp eq i64 %17, %2
+  %.not42 = icmp eq i64 %2, %17
   br i1 %.not42, label %18, label %54
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8
-  %.not43 = icmp eq i64 %20, %2
+  %.not43 = icmp eq i64 %2, %20
   br i1 %.not43, label %21, label %54
 
 21:                                               ; preds = %18
@@ -709,15 +709,15 @@ define internal noundef ptr @image_memcpy(ptr noundef readnone %0, ptr noundef r
 25:                                               ; preds = %9
   %26 = getelementptr inbounds i8, ptr %4, i64 16
   %27 = load ptr, ptr %26, align 8
-  %.not37 = icmp eq ptr %27, %0
-  %.not38 = icmp eq ptr %27, %1
+  %.not37 = icmp eq ptr %0, %27
+  %.not38 = icmp eq ptr %1, %27
   %or.cond = and i1 %.not37, %.not38
   br i1 %or.cond, label %28, label %54
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %4, i64 24
   %30 = load i64, ptr %29, align 8
-  %.not39 = icmp eq i64 %30, %2
+  %.not39 = icmp eq i64 %2, %30
   br i1 %.not39, label %31, label %54
 
 31:                                               ; preds = %28
@@ -729,25 +729,25 @@ define internal noundef ptr @image_memcpy(ptr noundef readnone %0, ptr noundef r
 35:                                               ; preds = %9
   %36 = getelementptr inbounds i8, ptr %4, i64 40
   %37 = load ptr, ptr %36, align 8
-  %.not32 = icmp eq ptr %37, %0
+  %.not32 = icmp eq ptr %0, %37
   br i1 %.not32, label %38, label %54
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %4, i64 16
   %40 = load ptr, ptr %39, align 8
-  %.not33 = icmp eq ptr %40, %1
+  %.not33 = icmp eq ptr %1, %40
   br i1 %.not33, label %41, label %54
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %4, i64 48
   %43 = load i64, ptr %42, align 8
-  %.not34 = icmp eq i64 %43, %2
+  %.not34 = icmp eq i64 %2, %43
   br i1 %.not34, label %44, label %54
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %4, i64 24
   %46 = load i64, ptr %45, align 8
-  %.not35 = icmp eq i64 %46, %2
+  %.not35 = icmp eq i64 %2, %46
   br i1 %.not35, label %47, label %54
 
 47:                                               ; preds = %44
@@ -4327,7 +4327,7 @@ sub_1:                                            ; preds = %sub_0
 
 37:                                               ; preds = %._crit_edge
   %38 = icmp eq i32 %35, 1
-  %or.cond = and i1 %38, %2
+  %or.cond = and i1 %2, %38
   br i1 %or.cond, label %39, label %.loopexit
 
 39:                                               ; preds = %37

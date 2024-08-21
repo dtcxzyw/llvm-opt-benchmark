@@ -103,7 +103,7 @@ define ptr @Aig_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %28
-  %33 = icmp eq ptr %21, %.tr283350
+  %33 = icmp eq ptr %.tr283350, %21
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %32
@@ -550,7 +550,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %12 = ptrtoint ptr %2 to i64
   %13 = xor i64 %12, 1
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
@@ -568,7 +568,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %19
-  %27 = icmp eq ptr %22, %1
+  %27 = icmp eq ptr %1, %22
   %28 = zext i1 %27 to i64
   %29 = xor i64 %28, %12
   %30 = inttoptr i64 %29 to ptr
@@ -581,7 +581,7 @@ define ptr @Aig_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %31
-  %36 = icmp eq ptr %24, %2
+  %36 = icmp eq ptr %2, %24
   %37 = zext i1 %36 to i64
   %38 = xor i64 %37, %20
   %39 = inttoptr i64 %38 to ptr
@@ -691,8 +691,8 @@ define ptr @Aig_TableLookupInt(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %7 = ptrtoint ptr %.val to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %1
-  %11 = icmp eq ptr %9, %2
+  %10 = icmp eq ptr %1, %9
+  %11 = icmp eq ptr %2, %9
   %or.cond = or i1 %10, %11
   br i1 %or.cond, label %52, label %12
 
@@ -700,15 +700,15 @@ define ptr @Aig_TableLookupInt(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %13 = ptrtoint ptr %2 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %52, label %17
 
 17:                                               ; preds = %12
-  %18 = icmp eq ptr %.val, %1
+  %18 = icmp eq ptr %1, %.val
   br i1 %18, label %52, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp eq ptr %.val, %2
+  %20 = icmp eq ptr %2, %.val
   br i1 %20, label %52, label %21
 
 21:                                               ; preds = %19

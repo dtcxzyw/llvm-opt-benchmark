@@ -557,7 +557,7 @@ define internal i32 @pgsql_length(ptr nocapture readnone %0, ptr noundef %1, i32
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #4
   %.not = icmp ne i8 %5, 0
   %spec.select = zext i1 %.not to i32
-  %6 = add i32 %spec.select, %2
+  %6 = add i32 %2, %spec.select
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %6) #4
   %8 = add i32 %7, %spec.select
   ret i32 %8

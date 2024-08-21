@@ -435,7 +435,7 @@ define hidden noundef zeroext i1 @_ZN5zxing8BitArray7isRangeEiibRNS_12ErrorHandl
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
-  %.not = icmp sgt i32 %28, %2
+  %.not = icmp slt i32 %2, %28
   br i1 %.not, label %36, label %29
 
 29:                                               ; preds = %18, %16
@@ -469,7 +469,7 @@ define hidden noundef zeroext i1 @_ZN5zxing8BitArray7isRangeEiibRNS_12ErrorHandl
   %.not29 = icmp eq i8 %41, 0
   %42 = getelementptr inbounds i8, ptr %0, i64 12
   %43 = load i32, ptr %42, align 4
-  %.not.i26 = icmp sgt i32 %43, %1
+  %.not.i26 = icmp slt i32 %1, %43
   br i1 %.not29, label %52, label %44
 
 44:                                               ; preds = %38
@@ -534,7 +534,7 @@ define linkonce_odr hidden void @_ZN5zxing27IllegalArgumentErrorHandlerD2Ev(ptr 
 define hidden noundef i32 @_ZN5zxing8BitArray12getNextUnsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %13
 
 5:                                                ; preds = %2
@@ -556,7 +556,7 @@ define hidden noundef i32 @_ZN5zxing8BitArray12getNextUnsetEi(ptr nocapture noun
 define hidden noundef i32 @_ZN5zxing8BitArray10getNextSetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %.not = icmp sgt i32 %4, %1
+  %.not = icmp slt i32 %1, %4
   br i1 %.not, label %5, label %13
 
 5:                                                ; preds = %2

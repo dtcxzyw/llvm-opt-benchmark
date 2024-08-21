@@ -29,7 +29,7 @@ define noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr nocapture nou
 
 .lr.ph.preheader:                                 ; preds = %.critedge
   %.115 = ptrtoint ptr %10 to i64
-  %11 = add i64 %4, %2
+  %11 = add i64 %2, %4
   %12 = sub i64 %11, %.115
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %12, i1 false)
   br label %._crit_edge

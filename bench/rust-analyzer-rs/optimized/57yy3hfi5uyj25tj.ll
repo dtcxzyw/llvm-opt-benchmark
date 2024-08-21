@@ -87922,7 +87922,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17he78cc5678
   tail call void @llvm.assume(i1 %11)
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = udiv i64 %12, %0
-  %14 = icmp ult i64 %13, %2
+  %14 = icmp ugt i64 %2, %13
   br i1 %14, label %15, label %5
 
 15:                                               ; preds = %9, %5
@@ -102448,7 +102448,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16959dedb4afa554E.exit: ; pred
   %56 = add i64 %55, %54
   %57 = load i64, ptr %52, align 8, !noalias !40607, !noundef !4
   %58 = sub i64 %57, %56
-  %59 = icmp ult i64 %58, %.sroa.5.0.copyload.i
+  %59 = icmp ugt i64 %.sroa.5.0.copyload.i, %58
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %50

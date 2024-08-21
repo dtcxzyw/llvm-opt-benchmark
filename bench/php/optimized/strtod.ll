@@ -55,7 +55,7 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
 25:                                               ; preds = %19
   %26 = sub i64 %13, %23
   %27 = trunc i64 %26 to i32
-  %28 = add nsw i32 %27, %2
+  %28 = add nsw i32 %2, %27
   %29 = trunc i64 %23 to i32
   %30 = add nsw i32 %28, %29
   %31 = icmp sgt i32 %30, 309
@@ -93,7 +93,7 @@ lexbor_strtod_read_uint64.exit.i.i:               ; preds = %lexbor_strtod_read_
   %.pre-phi = phi i64 [ %.pre, %lexbor_strtod_read_uint64.exit.i.i.loopexit ], [ %21, %34 ]
   %.0.lcssa.i.i.i = phi i64 [ %42, %lexbor_strtod_read_uint64.exit.i.i.loopexit ], [ 0, %34 ]
   %46 = sub i64 %.pre-phi, %21
-  %.not.i.i = icmp eq i64 %46, %23
+  %.not.i.i = icmp eq i64 %23, %46
   br i1 %.not.i.i, label %lexbor_strtod_diyfp_read.exit.i, label %47
 
 47:                                               ; preds = %lexbor_strtod_read_uint64.exit.i.i

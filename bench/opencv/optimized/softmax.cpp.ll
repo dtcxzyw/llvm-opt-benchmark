@@ -183,8 +183,8 @@ define hidden void @_ZN2cv3dnn7softmaxERNS_3MatERKS1_iii(ptr noundef nonnull ali
   %58 = getelementptr inbounds i8, ptr %1, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = sub nsw i32 0, %59
-  %.not.i = icmp sle i32 %60, %2
-  %61 = icmp sgt i32 %59, %2
+  %.not.i = icmp sge i32 %2, %60
+  %61 = icmp slt i32 %2, %59
   %or.cond.i = and i1 %.not.i, %61
   br i1 %or.cond.i, label %63, label %62
 

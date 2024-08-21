@@ -947,7 +947,7 @@ entry:
 define dso_local i64 @do_brk(i64 noundef %brk_val) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr @initial_target_brk, align 8
-  %cmp = icmp ugt i64 %0, %brk_val
+  %cmp = icmp ult i64 %brk_val, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2008,7 +2008,7 @@ if.end:                                           ; preds = %thunk_type_size.exi
   %data_start = getelementptr inbounds i8, ptr %call5, i64 16
   %6 = load i32, ptr %data_start, align 8
   %conv7 = zext i32 %6 to i64
-  %add = add i64 %conv7, %arg
+  %add = add i64 %arg, %conv7
   %data_size11 = getelementptr inbounds i8, ptr %call5, i64 12
   %7 = load i32, ptr %data_size11, align 4
   %sub13 = sub i32 %7, %6
@@ -2116,7 +2116,7 @@ get_errno.exit:                                   ; preds = %sw.epilog, %if.then
 if.then55:                                        ; preds = %get_errno.exit
   %21 = load i32, ptr %data_start, align 8
   %conv57 = zext i32 %21 to i64
-  %add58 = add i64 %conv57, %arg
+  %add58 = add i64 %arg, %conv57
   %22 = load i32, ptr %data_size11, align 4
   %sub61 = sub i32 %22, %21
   %conv62 = zext i32 %sub61 to i64
@@ -4375,8 +4375,8 @@ get_errno.exit1888:                               ; preds = %sw.bb145, %if.then.
 if.then156:                                       ; preds = %get_errno.exit1888
   %38 = load i32, ptr @target_fd_max, align 4
   %conv157 = zext i32 %38 to i64
-  %cond = tail call i64 @llvm.smin.i64(i64 %conv157, i64 %arg2)
-  %cmp1613886 = icmp sgt i64 %cond, %arg1
+  %cond = tail call i64 @llvm.smin.i64(i64 %arg2, i64 %conv157)
+  %cmp1613886 = icmp slt i64 %arg1, %cond
   br i1 %cmp1613886, label %for.body, label %return
 
 for.body:                                         ; preds = %if.then156, %fd_trans_unregister.exit
@@ -5690,13 +5690,13 @@ land.lhs.true872:                                 ; preds = %sw.bb866
   %120 = load ptr, ptr %info873, align 8
   %stack_limit = getelementptr inbounds i8, ptr %120, i64 64
   %121 = load i64, ptr %stack_limit, align 8
-  %cmp874.not = icmp ugt i64 %121, %arg1
+  %cmp874.not = icmp ult i64 %arg1, %121
   br i1 %cmp874.not, label %if.end886, label %land.lhs.true876
 
 land.lhs.true876:                                 ; preds = %land.lhs.true872
   %start_stack = getelementptr inbounds i8, ptr %120, i64 56
   %122 = load i64, ptr %start_stack, align 8
-  %cmp878.not = icmp ult i64 %122, %arg1
+  %cmp878.not = icmp ugt i64 %arg1, %122
   br i1 %cmp878.not, label %if.end886, label %if.then880
 
 if.then880:                                       ; preds = %land.lhs.true876
@@ -10724,19 +10724,19 @@ entry:
   %3 = load i32, ptr %fd3, align 8
   %stack_limit = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i64, ptr %stack_limit, align 8
-  %cmp = icmp eq i64 %4, %start
+  %cmp = icmp eq i64 %start, %4
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %entry
   %brk = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %brk, align 8
-  %cmp4 = icmp eq i64 %5, %start
+  %cmp4 = icmp eq i64 %start, %5
   br i1 %cmp4, label %if.end10, label %if.else6
 
 if.else6:                                         ; preds = %if.else
   %vdso = getelementptr inbounds i8, ptr %1, i64 72
   %6 = load i64, ptr %vdso, align 8
-  %cmp7 = icmp eq i64 %6, %start
+  %cmp7 = icmp eq i64 %start, %6
   %spec.select = select i1 %cmp7, ptr @.str.598, ptr %2
   br label %if.end10
 
@@ -10889,7 +10889,7 @@ if.end:                                           ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
-  %cmp2 = icmp ugt i32 %2, %fd
+  %cmp2 = icmp ult i32 %fd, %2
   br i1 %cmp2, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
 
 land.lhs.true:                                    ; preds = %if.end
@@ -10925,7 +10925,7 @@ if.end:                                           ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
-  %cmp2 = icmp ugt i32 %2, %fd
+  %cmp2 = icmp ult i32 %fd, %2
   br i1 %cmp2, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
 
 land.lhs.true:                                    ; preds = %if.end
@@ -10965,7 +10965,7 @@ if.end:                                           ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
-  %cmp1.i = icmp ugt i32 %2, %fd
+  %cmp1.i = icmp ult i32 %fd, %2
   br i1 %cmp1.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.then.i:                                        ; preds = %if.end
@@ -11353,7 +11353,7 @@ entry:
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %cmp.i = icmp sgt i32 %newfd, -1
   %2 = load i32, ptr @target_fd_max, align 4
-  %cmp1.i = icmp ugt i32 %2, %newfd
+  %cmp1.i = icmp ult i32 %newfd, %2
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %internal_fd_trans_unregister_unsafe.exit
 
@@ -11367,7 +11367,7 @@ if.then.i:                                        ; preds = %entry
 
 internal_fd_trans_unregister_unsafe.exit:         ; preds = %entry, %if.then.i
   %4 = phi i32 [ %2, %entry ], [ %.pre, %if.then.i ]
-  %cmp = icmp ugt i32 %4, %oldfd
+  %cmp = icmp ult i32 %oldfd, %4
   br i1 %cmp, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
 
 land.lhs.true:                                    ; preds = %internal_fd_trans_unregister_unsafe.exit
@@ -11379,7 +11379,7 @@ land.lhs.true:                                    ; preds = %internal_fd_trans_u
   br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %cmp.not.i = icmp ugt i32 %4, %newfd
+  %cmp.not.i = icmp ult i32 %newfd, %4
   br i1 %cmp.not.i, label %internal_fd_trans_register_unsafe.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.then
@@ -12738,7 +12738,7 @@ cond.false.i.i:                                   ; preds = %if.end24
   %cmp.not.i.i.i = icmp ule i64 %sub.i.i.i, %..i.i.i
   %reass.sub = sub i64 %..i.i.i, %conv25
   %add.i.i.i = add i64 %reass.sub, 1
-  %cmp7.i.i.i = icmp uge i64 %add.i.i.i, %target_addr
+  %cmp7.i.i.i = icmp ule i64 %target_addr, %add.i.i.i
   %6 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
   br i1 %6, label %access_ok.exit, label %return
 
@@ -12893,7 +12893,7 @@ cond.false.i.i:                                   ; preds = %if.end6
   %cmp.not.i.i.i = icmp ule i64 %sub.i.i.i, %..i.i.i
   %reass.sub = sub i64 %..i.i.i, %conv
   %add.i.i.i = add i64 %reass.sub, 1
-  %cmp7.i.i.i = icmp uge i64 %add.i.i.i, %target_addr
+  %cmp7.i.i.i = icmp ule i64 %target_addr, %add.i.i.i
   %2 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
   br i1 %2, label %access_ok.exit, label %return
 
@@ -13008,7 +13008,7 @@ cond.false.i.i:                                   ; preds = %if.end6
   %cmp.not.i.i.i = icmp ule i64 %sub.i.i.i, %..i.i.i
   %reass.sub = sub i64 %..i.i.i, %conv
   %add.i.i.i = add i64 %reass.sub, 1
-  %cmp7.i.i.i = icmp uge i64 %add.i.i.i, %target_addr
+  %cmp7.i.i.i = icmp ule i64 %target_addr, %add.i.i.i
   %2 = and i1 %cmp.not.i.i.i, %cmp7.i.i.i
   br i1 %2, label %access_ok.exit, label %return
 
@@ -13766,7 +13766,7 @@ if.end.i:                                         ; preds = %if.then25
   %9 = inttoptr i64 %8 to ptr
   call void %9(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %10 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i = icmp ugt i32 %10, %fd
+  %cmp2.i = icmp ult i32 %fd, %10
   br i1 %cmp2.i, label %land.lhs.true.i, label %fd_trans_host_to_target_data.exit.thread73
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -13792,7 +13792,7 @@ if.end.i51:                                       ; preds = %fd_trans_host_to_ta
   %15 = inttoptr i64 %14 to ptr
   call void %15(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %16 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i52 = icmp ugt i32 %16, %fd
+  %cmp2.i52 = icmp ult i32 %fd, %16
   br i1 %cmp2.i52, label %land.lhs.true.i56, label %fd_trans_host_to_target_data.exit61
 
 land.lhs.true.i56:                                ; preds = %if.end.i51
@@ -13973,7 +13973,7 @@ if.end.i:                                         ; preds = %if.end2
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i = icmp ugt i32 %2, %fd
+  %cmp2.i = icmp ult i32 %fd, %2
   br i1 %cmp2.i, label %land.lhs.true.i, label %fd_trans_target_to_host_data.exit.thread56
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -14002,7 +14002,7 @@ if.end.i29:                                       ; preds = %fd_trans_target_to_
   %7 = inttoptr i64 %6 to ptr
   tail call void %7(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %8 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i30 = icmp ugt i32 %8, %fd
+  %cmp2.i30 = icmp ult i32 %fd, %8
   br i1 %cmp2.i30, label %land.lhs.true.i34, label %fd_trans_target_to_host_data.exit40
 
 land.lhs.true.i34:                                ; preds = %if.end.i29
@@ -14135,7 +14135,7 @@ if.then34:                                        ; preds = %if.then30
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %3 = load i32, ptr @target_fd_max, align 4
-  %cmp.not.i.i = icmp ugt i32 %3, %retval.0.i.in
+  %cmp.not.i.i = icmp ult i32 %retval.0.i.in, %3
   br i1 %cmp.not.i.i, label %if.end42.sink.split, label %if.end42.sink.split.sink.split
 
 if.else:                                          ; preds = %if.then30
@@ -14154,7 +14154,7 @@ sw.bb:                                            ; preds = %if.then37
   %5 = inttoptr i64 %4 to ptr
   tail call void %5(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %6 = load i32, ptr @target_fd_max, align 4
-  %cmp.not.i.i20 = icmp ugt i32 %6, %retval.0.i.in
+  %cmp.not.i.i20 = icmp ult i32 %retval.0.i.in, %6
   br i1 %cmp.not.i.i20, label %if.end42.sink.split, label %if.end42.sink.split.sink.split
 
 sw.bb39:                                          ; preds = %if.then37
@@ -14162,7 +14162,7 @@ sw.bb39:                                          ; preds = %if.then37
   %8 = inttoptr i64 %7 to ptr
   tail call void %8(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %9 = load i32, ptr @target_fd_max, align 4
-  %cmp.not.i.i34 = icmp ugt i32 %9, %retval.0.i.in
+  %cmp.not.i.i34 = icmp ult i32 %retval.0.i.in, %9
   br i1 %cmp.not.i.i34, label %if.end42.sink.split, label %if.end42.sink.split.sink.split
 
 do.body:                                          ; preds = %if.then37
@@ -16513,7 +16513,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   %2 = add i32 %1, 7
   %conv2659 = and i32 %2, -8
   %conv2860 = sext i32 %conv2659 to i64
-  %cmp2961 = icmp sgt i64 %conv2860, %count
+  %cmp2961 = icmp slt i64 %count, %conv2860
   br i1 %cmp2961, label %if.then31, label %if.end38
 
 for.body:                                         ; preds = %if.end38
@@ -16529,7 +16529,7 @@ for.body:                                         ; preds = %if.end38
   %conv26 = and i32 %4, -8
   %add27 = add i32 %conv26, %add2768
   %conv28 = sext i32 %add27 to i64
-  %cmp29 = icmp sgt i64 %conv28, %count
+  %cmp29 = icmp slt i64 %count, %conv28
   br i1 %cmp29, label %if.then31, label %if.end38, !llvm.loop !40
 
 if.then31:                                        ; preds = %for.body, %for.body.preheader
@@ -16816,7 +16816,7 @@ if.end54:                                         ; preds = %if.end44.thread, %i
   %add = add i64 %len.1, %total_len.042
   %inc = add i32 %i.043, 1
   %conv = sext i32 %inc to i64
-  %cmp14 = icmp ult i64 %conv, %count
+  %cmp14 = icmp ugt i64 %count, %conv
   br i1 %cmp14, label %for.body, label %return, !llvm.loop !43
 
 fail2:                                            ; preds = %for.body, %if.then38, %if.end9
@@ -16975,7 +16975,7 @@ entry:
 for.cond:                                         ; preds = %if.end11
   %inc = add i32 %i.08, 1
   %conv1 = sext i32 %inc to i64
-  %cmp2 = icmp ult i64 %conv1, %usize
+  %cmp2 = icmp ugt i64 %usize, %conv1
   br i1 %cmp2, label %for.body, label %return, !llvm.loop !48
 
 for.body:                                         ; preds = %entry, %for.cond
@@ -17580,7 +17580,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
-  %cmp.not.i = icmp ugt i32 %2, %fd
+  %cmp.not.i = icmp ult i32 %fd, %2
   br i1 %cmp.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -17677,7 +17677,7 @@ if.then8:                                         ; preds = %get_errno.exit
   %2 = inttoptr i64 %1 to ptr
   call void %2(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %3 = load i32, ptr @target_fd_max, align 4
-  %cmp.not.i.i = icmp ugt i32 %3, %retval.0.i.in
+  %cmp.not.i.i = icmp ult i32 %retval.0.i.in, %3
   br i1 %cmp.not.i.i, label %fd_trans_register.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then8
@@ -18206,7 +18206,7 @@ if.end.i:                                         ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %2 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i = icmp ugt i32 %2, %fd
+  %cmp2.i = icmp ult i32 %fd, %2
   br i1 %cmp2.i, label %land.lhs.true.i, label %fd_trans_target_to_host_addr.exit.thread48
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -18233,7 +18233,7 @@ if.end.i34:                                       ; preds = %fd_trans_target_to_
   %7 = inttoptr i64 %6 to ptr
   tail call void %7(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %8 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i35 = icmp ugt i32 %8, %fd
+  %cmp2.i35 = icmp ult i32 %fd, %8
   br i1 %cmp2.i35, label %land.lhs.true.i39, label %fd_trans_target_to_host_addr.exit45
 
 land.lhs.true.i39:                                ; preds = %if.end.i34
@@ -18281,7 +18281,7 @@ land.lhs.true19:                                  ; preds = %if.then16
   %16 = load i8, ptr %14, align 1
   %tobool22.not = icmp eq i8 %16, 0
   %inc = zext i1 %tobool22.not to i32
-  %spec.select = add nuw nsw i32 %inc, %len
+  %spec.select = add nuw nsw i32 %len, %inc
   br label %if.end30.thread
 
 if.end30.thread:                                  ; preds = %if.then11, %if.then16, %land.lhs.true19
@@ -18408,7 +18408,7 @@ if.end.i:                                         ; preds = %if.then48
   %10 = inttoptr i64 %9 to ptr
   call void %10(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %11 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i = icmp ugt i32 %11, %fd
+  %cmp2.i = icmp ult i32 %fd, %11
   br i1 %cmp2.i, label %land.lhs.true.i, label %fd_trans_target_to_host_data.exit.thread127
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -18444,7 +18444,7 @@ if.end.i51:                                       ; preds = %fd_trans_target_to_
   %21 = inttoptr i64 %20 to ptr
   call void %21(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %22 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i52 = icmp ugt i32 %22, %fd
+  %cmp2.i52 = icmp ult i32 %fd, %22
   br i1 %cmp2.i52, label %land.lhs.true.i56, label %fd_trans_target_to_host_data.exit62
 
 land.lhs.true.i56:                                ; preds = %if.end.i51
@@ -18703,7 +18703,7 @@ if.end.i95:                                       ; preds = %if.then83
   %65 = inttoptr i64 %64 to ptr
   call void %65(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %66 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i96 = icmp ugt i32 %66, %fd
+  %cmp2.i96 = icmp ult i32 %fd, %66
   br i1 %cmp2.i96, label %land.lhs.true.i100, label %fd_trans_host_to_target_data.exit.thread134
 
 land.lhs.true.i100:                               ; preds = %if.end.i95
@@ -18729,7 +18729,7 @@ if.end.i106:                                      ; preds = %fd_trans_host_to_ta
   %71 = inttoptr i64 %70 to ptr
   call void %71(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 122) #27
   %72 = load i32, ptr @target_fd_max, align 4
-  %cmp2.i107 = icmp ugt i32 %72, %fd
+  %cmp2.i107 = icmp ult i32 %fd, %72
   br i1 %cmp2.i107, label %land.lhs.true.i111, label %if.end96
 
 land.lhs.true.i111:                               ; preds = %if.end.i106

@@ -335,9 +335,9 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_
 define hidden noundef double @_ZNK12G1MMUTracker8when_secEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1052) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = fcmp ogt double %5, %2
+  %6 = fcmp olt double %2, %5
   %7 = select i1 %6, double %2, double %5
-  %8 = fadd double %7, %1
+  %8 = fadd double %1, %7
   %9 = load double, ptr %0, align 8
   %10 = fsub double %8, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 1048

@@ -121,7 +121,7 @@ _ZNSt10unique_ptrIN5ZXing4OneD9RowReader13DecodingStateESt14default_deleteIS3_EE
 24:                                               ; preds = %18
   %25 = getelementptr inbounds i8, ptr %19, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = icmp sgt i32 %26, %2
+  %27 = icmp slt i32 %2, %26
   br i1 %27, label %28, label %46
 
 28:                                               ; preds = %24

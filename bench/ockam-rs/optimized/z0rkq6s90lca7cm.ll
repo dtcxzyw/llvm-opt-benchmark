@@ -3793,7 +3793,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   %67 = icmp ult i64 %storemerge.in.i.i.i78, 63
   call void @llvm.assume(i1 %67)
   %68 = xor i64 %storemerge.in.i.i.i78, 63
-  %69 = icmp ugt i64 %68, %2
+  %69 = icmp ult i64 %2, %68
   br i1 %69, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i35", label %74
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit28.thread": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit"
@@ -3857,7 +3857,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   %92 = icmp ult i8 %storemerge.i.i.i34, 64
   call void @llvm.assume(i1 %92)
   %93 = sub nuw nsw i64 64, %91
-  %94 = icmp ugt i64 %93, %4
+  %94 = icmp ult i64 %4, %93
   br i1 %94, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i43", label %95
 
 95:                                               ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit36"
@@ -3914,7 +3914,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   %114 = icmp ult i8 %storemerge.i.i.i42, 64
   call void @llvm.assume(i1 %114)
   %115 = sub nuw nsw i64 64, %113
-  %116 = icmp ugt i64 %115, %6
+  %116 = icmp ult i64 %6, %115
   br i1 %116, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i51", label %117
 
 117:                                              ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit44"

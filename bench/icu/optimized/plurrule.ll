@@ -307,7 +307,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -587,7 +587,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #28
   %cmp7 = icmp eq ptr %call, null
@@ -4816,7 +4816,7 @@ sw.bb:                                            ; preds = %if.end18, %if.end18
 
 sw.bb22:                                          ; preds = %if.end18
   %add = add nsw i32 %23, 1
-  %cmp.i.i32 = icmp ugt i32 %cond.i26, %add
+  %cmp.i.i32 = icmp ult i32 %add, %cond.i26
   br i1 %cmp.i.i32, label %_ZNK6icu_7513UnicodeString6charAtEi.exit41, label %if.else
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit41:       ; preds = %sw.bb22
@@ -4913,7 +4913,7 @@ while.end61:                                      ; preds = %_ZN6icu_7516PluralR
 sw.bb63:                                          ; preds = %if.end18
   %add64 = add nsw i32 %23, 1
   %cmp67.not = icmp slt i32 %add64, %cond.i26
-  %cmp.i.i126 = icmp ugt i32 %cond.i26, %add64
+  %cmp.i.i126 = icmp ult i32 %add64, %cond.i26
   %or.cond = and i1 %cmp67.not, %cmp.i.i126
   br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit135, label %sw.epilog
 
@@ -4933,7 +4933,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit135:      ; preds = %sw.bb63
 if.end75:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit135
   %add76 = add nsw i32 %23, 2
   %cmp79.not = icmp slt i32 %add76, %cond.i26
-  %cmp.i.i146 = icmp ugt i32 %cond.i26, %add76
+  %cmp.i.i146 = icmp ult i32 %add76, %cond.i26
   %or.cond186 = and i1 %cmp79.not, %cmp.i.i146
   br i1 %or.cond186, label %_ZNK6icu_7513UnicodeString6charAtEi.exit155, label %if.then86
 
@@ -8502,7 +8502,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 80), ptr %0, align 8
   %cmp.i = icmp eq i32 %v, 0
   %1 = tail call double @llvm.floor.f64(double %n)
-  %cmp1.i = fcmp oeq double %1, %n
+  %cmp1.i = fcmp oeq double %n, %1
   %or.cond.i = or i1 %cmp.i, %cmp1.i
   br i1 %or.cond.i, label %invoke.cont, label %lor.lhs.false2.i
 
@@ -8648,7 +8648,7 @@ define noundef i64 @_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi(double noun
 entry:
   %cmp = icmp eq i32 %v, 0
   %0 = tail call double @llvm.floor.f64(double %n)
-  %cmp1 = fcmp oeq double %0, %n
+  %cmp1 = fcmp oeq double %n, %0
   %or.cond = or i1 %cmp, %cmp1
   br i1 %or.cond, label %return, label %lor.lhs.false2
 
@@ -8781,7 +8781,7 @@ _ZN6icu_7512FixedDecimal8decimalsEd.exit:         ; preds = %for.end13.i, %retur
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %buf.i)
   %cmp.i = icmp eq i32 %retval.0.i, 0
   %6 = tail call double @llvm.floor.f64(double %n)
-  %cmp1.i4 = fcmp oeq double %6, %n
+  %cmp1.i4 = fcmp oeq double %n, %6
   %or.cond.i = or i1 %cmp1.i4, %cmp.i
   br i1 %or.cond.i, label %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit, label %lor.lhs.false2.i
 
@@ -9259,7 +9259,7 @@ cond.end:                                         ; preds = %cond.true, %cond.fa
   %sub61 = add i32 %cond, %46
   %cmp.i66 = icmp eq i32 %sub61, 0
   %47 = call double @llvm.floor.f64(double %call51)
-  %cmp1.i = fcmp oeq double %47, %call51
+  %cmp1.i = fcmp oeq double %call51, %47
   %or.cond.i = or i1 %cmp1.i, %cmp.i66
   br i1 %or.cond.i, label %invoke.cont62, label %lor.lhs.false2.i
 
@@ -9507,7 +9507,7 @@ define void @_ZN6icu_7512FixedDecimal18createWithExponentEdii(ptr noalias sret(%
 entry:
   %cmp.i = icmp eq i32 %v, 0
   %0 = tail call double @llvm.floor.f64(double %n)
-  %cmp1.i = fcmp oeq double %0, %n
+  %cmp1.i = fcmp oeq double %n, %0
   %or.cond.i = or i1 %cmp.i, %cmp1.i
   br i1 %or.cond.i, label %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit, label %lor.lhs.false2.i
 
@@ -9652,7 +9652,7 @@ if.then3:                                         ; preds = %for.body
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp.i = icmp eq i64 %indvars.iv, 0
   %4 = tail call double @llvm.floor.f64(double %0)
-  %cmp1.i = fcmp oeq double %4, %0
+  %cmp1.i = fcmp oeq double %0, %4
   %or.cond.i = or i1 %cmp1.i, %cmp.i
   br i1 %or.cond.i, label %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit, label %lor.lhs.false2.i
 
@@ -10400,7 +10400,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %ptr, align 8
-  %cmp.not.i.i = icmp eq ptr %3, %1
+  %cmp.not.i.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i.i, label %if.end5.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i

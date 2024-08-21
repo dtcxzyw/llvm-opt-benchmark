@@ -358,7 +358,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = icmp slt i32 %12, %2
+  %13 = icmp sgt i32 %2, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
@@ -366,7 +366,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
   br label %.loopexit
 
 16:                                               ; preds = %10
-  %17 = icmp ult i32 %12, %3
+  %17 = icmp ugt i32 %3, %12
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -385,8 +385,8 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
   %25 = load i32, ptr %1, align 4
   %26 = getelementptr inbounds i8, ptr %1, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = add i32 %25, %3
-  %29 = add i32 %27, %2
+  %28 = add i32 %3, %25
+  %29 = add i32 %2, %27
   %30 = sub i32 %28, %29
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 4
@@ -567,7 +567,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
 
 .preheader98:                                     ; preds = %._crit_edge.us118, %.preheader99.lr.ph, %.preheader100
   %.3.lcssa = phi i32 [ %.1.lcssa, %.preheader100 ], [ %.1.lcssa, %.preheader99.lr.ph ], [ %121, %._crit_edge.us118 ]
-  %.not124 = icmp slt i32 %12, %3
+  %.not124 = icmp sgt i32 %3, %12
   br i1 %.not124, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader98
@@ -712,7 +712,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = icmp eq i32 %8, %1
+  %9 = icmp eq i32 %1, %8
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -786,7 +786,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %50 = fdiv double %46, %49
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %38, i32 noundef %4, i32 noundef %.041.lcssa, double noundef %50)
   %52 = load i32, ptr %44, align 4
-  %53 = icmp sgt i32 %52, %1
+  %53 = icmp slt i32 %1, %52
   br i1 %53, label %54, label %69
 
 54:                                               ; preds = %._crit_edge

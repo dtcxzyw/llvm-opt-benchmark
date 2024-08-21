@@ -690,7 +690,7 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %6 = load ptr, ptr %5, align 8, !alias.scope !110, !noalias !113, !nonnull !5, !align !115, !noundef !5
   %7 = getelementptr inbounds i8, ptr %6, i64 256
   %8 = load i64, ptr %7, align 128, !noalias !116, !noundef !5
-  %.not.i = icmp eq i64 %8, %1
+  %.not.i = icmp eq i64 %1, %8
   br i1 %.not.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9d5760175140b0afE.llvm.17432428852515034553.exit", label %9
 
 9:                                                ; preds = %2
@@ -698,7 +698,7 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %10 = getelementptr inbounds i8, ptr %4, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !123, !noundef !5
-  %12 = icmp ugt i64 %11, %1
+  %12 = icmp ult i64 %1, %11
   br i1 %12, label %13, label %18, !prof !124
 
 13:                                               ; preds = %9
@@ -780,7 +780,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter6traits8iterator8Iterator8find_map5che
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !137, !noundef !5
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %11, !prof !124
 
 7:                                                ; preds = %2
@@ -832,7 +832,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter8adapters6filter15filter_try_fold28_$u
   %5 = load ptr, ptr %4, align 8, !alias.scope !140, !noalias !143, !nonnull !5, !align !115, !noundef !5
   %6 = getelementptr inbounds i8, ptr %5, i64 256
   %7 = load i64, ptr %6, align 128, !noalias !145, !noundef !5
-  %.not = icmp eq i64 %7, %1
+  %.not = icmp eq i64 %1, %7
   br i1 %.not, label %26, label %8
 
 8:                                                ; preds = %2
@@ -840,7 +840,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter8adapters6filter15filter_try_fold28_$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !152, !noundef !5
-  %11 = icmp ugt i64 %10, %1
+  %11 = icmp ult i64 %1, %10
   br i1 %11, label %12, label %17, !prof !124
 
 12:                                               ; preds = %8
@@ -997,7 +997,7 @@ define hidden { ptr, ptr } @"_ZN10rayon_core8registry12WorkerThread5steal28_$u7b
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = icmp ugt i64 %5, %1
+  %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %11, !prof !124
 
 7:                                                ; preds = %2

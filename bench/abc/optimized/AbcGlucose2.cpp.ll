@@ -730,7 +730,7 @@ define void @bmcg2_sat_solver_var_set_frozen(ptr noundef %0, i32 noundef %1, i32
   %14 = getelementptr inbounds i8, ptr %0, i64 1576
   %15 = getelementptr inbounds i8, ptr %0, i64 1608
   %16 = load i32, ptr %15, align 8
-  %17 = icmp sgt i32 %16, %1
+  %17 = icmp slt i32 %1, %16
   br i1 %17, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i.i, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i.i: ; preds = %13
@@ -1065,7 +1065,7 @@ define range(i32 0, 2) i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef
   %11 = or disjoint i32 %10, %9
   store i32 %11, ptr %8, align 4
   %12 = shl nsw i32 %2, 1
-  %13 = add nsw i32 %12, %4
+  %13 = add nsw i32 %4, %12
   %14 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
   %15 = call noundef range(i32 0, 2) i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 2)
@@ -1075,14 +1075,14 @@ define range(i32 0, 2) i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef
 16:                                               ; preds = %7
   store i32 %11, ptr %8, align 4
   %17 = shl nsw i32 %3, 1
-  %18 = add nsw i32 %17, %5
+  %18 = add nsw i32 %5, %17
   store i32 %18, ptr %14, align 4
   %19 = call noundef range(i32 0, 2) i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 2)
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = add nsw i32 %10, %6
+  %21 = add nsw i32 %6, %10
   store i32 %21, ptr %8, align 4
   %.not19 = icmp eq i32 %4, 0
   %22 = zext i1 %.not19 to i32
@@ -1122,7 +1122,7 @@ define noundef i32 @bmcg2_sat_solver_add_xor(ptr noundef %0, i32 noundef %1, i32
   store i32 %10, ptr %12, align 4
   store i32 %13, ptr %15, align 4
   %17 = call noundef range(i32 0, 2) i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
-  %18 = add nsw i32 %8, %4
+  %18 = add nsw i32 %4, %8
   store i32 %18, ptr %6, align 4
   store i32 %11, ptr %12, align 4
   store i32 %13, ptr %15, align 4
@@ -1566,13 +1566,13 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2, %.preheader.i
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %9, align 8
-  %.not1.i = icmp sgt i32 %29, %.0
+  %.not1.i = icmp slt i32 %.0, %29
   br i1 %.not1.i, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
   %30 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %1, i1 noundef zeroext true, i1 noundef zeroext true)
   %31 = load i32, ptr %9, align 8
-  %.not.i51 = icmp sgt i32 %31, %.0
+  %.not.i51 = icmp slt i32 %.0, %31
   br i1 %.not.i51, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN6Gluco210SimpSolver6addVarEi.exit:             ; preds = %.lr.ph.i, %28
@@ -2031,13 +2031,13 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
   %58 = load i32, ptr %.02536, align 4
   %59 = ashr i32 %58, 1
   %60 = load i32, ptr %19, align 8
-  %.not1.i = icmp sgt i32 %60, %59
+  %.not1.i = icmp slt i32 %59, %60
   br i1 %.not1.i, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit, %.lr.ph.i
   %61 = call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %1, i1 noundef zeroext true, i1 noundef zeroext true)
   %62 = load i32, ptr %19, align 8
-  %.not.i26 = icmp sgt i32 %62, %59
+  %.not.i26 = icmp slt i32 %59, %62
   br i1 %.not.i26, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN6Gluco210SimpSolver6addVarEi.exit:             ; preds = %.lr.ph.i, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
@@ -3746,7 +3746,7 @@ define noundef i32 @_Z26bmcg2_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Ve
   %.val3.i.i = load i64, ptr %45, align 4
   %46 = trunc i64 %.val3.i.i to i32
   %47 = and i32 %46, 536870911
-  %.not97 = icmp eq i32 %47, %.074.val92.val.val
+  %.not97 = icmp eq i32 %.074.val92.val.val, %47
   br i1 %.not97, label %48, label %51
 
 48:                                               ; preds = %.critedge2
@@ -4935,13 +4935,13 @@ _ZL12Vec_StrFreePPP10Vec_Str_t_.exit:             ; preds = %.thread.i120, %_ZL1
 define internal fastcc void @_ZL16Vec_IntFillExtraP10Vec_Int_t_ii(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 
@@ -6116,7 +6116,7 @@ _ZNK6Gluco26Solver10isTwoFaninEi.exit.thread:     ; preds = %tailrecurse, %11, %
 define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE6updateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sgt i32 %4, %1
+  %5 = icmp slt i32 %1, %4
   br i1 %5, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread
 
 _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit: ; preds = %2

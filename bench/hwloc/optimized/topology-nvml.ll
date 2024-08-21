@@ -453,7 +453,7 @@ hwloc__nvml_get_peer_obj_by_pci.exit.thread:      ; preds = %hwloc__nvml_get_pee
   %.018.i = phi ptr [ %164, %196 ], [ %164, %193 ], [ %spec.select.i, %185 ], [ %190, %.lr.ph.i172 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %218 = load i32, ptr %5, align 4
-  %219 = icmp ugt i32 %.1184204, %218
+  %219 = icmp ult i32 %218, %.1184204
   br i1 %219, label %.lr.ph.preheader.i, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %.loopexit

@@ -2838,7 +2838,7 @@ entry:
   %tobool.i = trunc i8 %1 to i1
   %range.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load double, ptr %range.i, align 8
-  %add.i = fadd double %2, %p
+  %add.i = fadd double %p, %2
   %second.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load double, ptr %second.i, align 8
   %sub.i = fsub double %3, %p
@@ -2869,12 +2869,12 @@ entry:
   %tobool.i = trunc i8 %1 to i1
   %range.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load double, ptr %range.i, align 8
-  %add.i = fadd double %2, %a
+  %add.i = fadd double %a, %2
   %second.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load double, ptr %second.i, align 8
   %sub.i = fsub double %3, %a
   %cond.i = select i1 %tobool.i, double %add.i, double %sub.i
-  %add.i4 = fadd double %2, %b
+  %add.i4 = fadd double %b, %2
   %sub.i6 = fsub double %3, %b
   %cond.i7 = select i1 %tobool.i, double %add.i4, double %sub.i6
   %vtable = load ptr, ptr %0, align 8
@@ -2894,12 +2894,12 @@ entry:
   %tobool.i = trunc i8 %1 to i1
   %range.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load double, ptr %range.i, align 8
-  %add.i = fadd double %2, %a
+  %add.i = fadd double %a, %2
   %second.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load double, ptr %second.i, align 8
   %sub.i = fsub double %3, %a
   %cond.i = select i1 %tobool.i, double %add.i, double %sub.i
-  %add.i4 = fadd double %2, %b
+  %add.i4 = fadd double %b, %2
   %sub.i6 = fsub double %3, %b
   %cond.i7 = select i1 %tobool.i, double %add.i4, double %sub.i6
   %vtable = load ptr, ptr %0, align 8
@@ -2989,7 +2989,7 @@ _ZNKSt8_Rb_treeImSt4pairIKmPKN6Assimp4STEP10LazyObjectEESt10_Select1stIS7_ESt4le
 _ZNKSt3mapImPKN6Assimp4STEP10LazyObjectESt4lessImESaISt4pairIKmS4_EEE4findERS8_.exit.i: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmPKN6Assimp4STEP10LazyObjectEESt10_Select1stIS7_ESt4lessImESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i3.i.i.i, align 8
-  %cmp.i4.i.i.i = icmp ugt i64 %2, %id
+  %cmp.i4.i.i.i = icmp ult i64 %id, %2
   br i1 %cmp.i4.i.i.i, label %if.then, label %_ZNK6Assimp4STEP2DB9GetObjectEm.exit
 
 _ZNK6Assimp4STEP2DB9GetObjectEm.exit:             ; preds = %_ZNKSt3mapImPKN6Assimp4STEP10LazyObjectESt4lessImESaISt4pairIKmS4_EEE4findERS8_.exit.i
@@ -3697,7 +3697,7 @@ for.body:                                         ; preds = %entry, %if.end25
   %sub = fsub double %5, %4
   %6 = tail call noundef double @llvm.fabs.f64(double %sub)
   %add = fadd double %acc.024, %6
-  %cmp = fcmp ogt double %add, %u
+  %cmp = fcmp olt double %u, %add
   br i1 %cmp, label %if.then13, label %if.end25
 
 if.then13:                                        ; preds = %for.body
@@ -3772,8 +3772,8 @@ for.body:                                         ; preds = %entry, %if.end
   %sub = fsub double %5, %4
   %6 = tail call noundef double @llvm.fabs.f64(double %sub)
   %add = fadd double %acc.033, %6
-  %cmp = fcmp ult double %add, %a
-  %cmp11 = fcmp ugt double %acc.033, %b
+  %cmp = fcmp ugt double %a, %add
+  %cmp11 = fcmp ult double %b, %acc.033
   %or.cond = or i1 %cmp11, %cmp
   br i1 %or.cond, label %if.end, label %if.then
 
@@ -3919,7 +3919,7 @@ if.then:                                          ; preds = %land.lhs.true
   %add.ptr.i22 = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i15
   %cmp.i.i.i = icmp ne ptr %add.ptr.i22, %14
   %__last.sroa.0.09.i.i = getelementptr inbounds i8, ptr %14, i64 -24
-  %cmp.i110.i.i = icmp ugt ptr %__last.sroa.0.09.i.i, %add.ptr.i22
+  %cmp.i110.i.i = icmp ult ptr %add.ptr.i22, %__last.sroa.0.09.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i110.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %for.inc
 
@@ -4254,7 +4254,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 _ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
-  %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
+  %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit31, label %for.body.i.i.i19
 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %for.body.i.i.i19
@@ -4325,7 +4325,7 @@ entry:
   %angle_scale = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %angle_scale, align 8
   %fneg = fneg double %1
-  %mul = fmul double %fneg, %u
+  %mul = fmul double %u, %fneg
   %location = getelementptr inbounds i8, ptr %this, i64 24
   %entity = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load ptr, ptr %entity, align 8
@@ -4393,8 +4393,8 @@ entry:
   %0 = load ptr, ptr %conv, align 8
   %angle_scale = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %angle_scale, align 8
-  %mul = fmul double %1, %a
-  %mul4 = fmul double %1, %b
+  %mul = fmul double %a, %1
+  %mul4 = fmul double %b, %1
   %call = tail call double @fmod(double noundef %mul, double noundef 0x401921FB54442D18) #28
   %call5 = tail call double @fmod(double noundef %mul4, double noundef 0x401921FB54442D18) #28
   %2 = load ptr, ptr %conv, align 8
@@ -4458,7 +4458,7 @@ entry:
   %angle_scale = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %angle_scale, align 8
   %fneg = fneg double %1
-  %mul = fmul double %fneg, %u
+  %mul = fmul double %u, %fneg
   %location = getelementptr inbounds i8, ptr %this, i64 24
   %entity = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load ptr, ptr %entity, align 8
@@ -4468,7 +4468,7 @@ entry:
   %mul3 = fmul double %3, %call
   %p = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load double, ptr %p, align 8, !noalias !65
-  %mul.i = fmul double %4, %mul3
+  %mul.i = fmul double %mul3, %4
   %y.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load double, ptr %y.i, align 8, !noalias !65
   %mul1.i = fmul double %mul3, %5
@@ -4490,7 +4490,7 @@ entry:
   %mul7 = fmul double %11, %call6
   %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load double, ptr %arrayidx9, align 8, !noalias !71
-  %mul.i7 = fmul double %12, %mul7
+  %mul.i7 = fmul double %mul7, %12
   %y.i8 = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load double, ptr %y.i8, align 8, !noalias !71
   %mul1.i9 = fmul double %mul7, %13
@@ -4535,13 +4535,13 @@ entry:
   %p = getelementptr inbounds i8, ptr %this, i64 24
   %v = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load double, ptr %v, align 8, !noalias !77
-  %mul.i = fmul double %0, %u
+  %mul.i = fmul double %u, %0
   %y.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load double, ptr %y.i, align 8, !noalias !77
-  %mul1.i = fmul double %1, %u
+  %mul1.i = fmul double %u, %1
   %z.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load double, ptr %z.i, align 8, !noalias !77
-  %mul2.i = fmul double %2, %u
+  %mul2.i = fmul double %u, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %3 = load double, ptr %p, align 8, !noalias !80
   %add.i = fadd double %mul.i, %3

@@ -3889,7 +3889,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @__set_oom_adj(ptr %.168.va
   %9 = getelementptr inbounds i8, ptr %8, i64 1010
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i32
-  %12 = icmp sgt i32 %11, %0
+  %12 = icmp slt i32 %0, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %6

@@ -5627,7 +5627,7 @@ trace_sdhci_set_inserted.exit:                    ; preds = %entry, %land.lhs.tr
   %6 = load i16, ptr %norintsts, align 4
   %7 = and i16 %6, 128
   %tobool1.not = icmp ne i16 %7, 0
-  %brmerge.not = and i1 %tobool1.not, %level
+  %brmerge.not = and i1 %level, %tobool1.not
   br i1 %brmerge.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %trace_sdhci_set_inserted.exit
@@ -6082,7 +6082,7 @@ sw.bb38:                                          ; preds = %entry
   %trnmod39 = getelementptr inbounds i8, ptr %call.i, i64 3156
   %6 = load i16, ptr %trnmod39, align 4
   %conv40 = zext i16 %6 to i64
-  %or41 = or i64 %conv40, %val
+  %or41 = or i64 %val, %conv40
   tail call void @sdhci_write(ptr noundef %opaque, i64 noundef 12, i64 noundef %or41, i32 noundef %size)
   br label %sw.epilog45
 

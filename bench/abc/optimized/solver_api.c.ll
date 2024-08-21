@@ -3579,7 +3579,7 @@ vec_char_init.exit:                               ; preds = %5, %11
   %.val20 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %.val20, i64 4
   %.val.i21 = load i32, ptr %33, align 4
-  %34 = icmp ugt i32 %.val.i21, %32
+  %34 = icmp ult i32 %32, %.val.i21
   br i1 %34, label %heap_in_heap.exit, label %heap_in_heap.exit.thread
 
 heap_in_heap.exit:                                ; preds = %20

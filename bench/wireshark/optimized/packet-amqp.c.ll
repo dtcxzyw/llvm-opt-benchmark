@@ -13523,7 +13523,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %.028 = phi i32 [ %10, %8 ], [ %12, %11 ]
   %16 = add i32 %3, %2
   %17 = load i32, ptr @hf_amqp_1_0_data, align 4
-  %18 = icmp eq i32 %17, %5
+  %18 = icmp eq i32 %5, %17
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %15

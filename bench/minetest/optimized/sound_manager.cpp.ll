@@ -427,7 +427,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %conv = uitofp i64 %sub.ptr.div.i to float
-  %mul = fmul nsz float %conv, %dtime
+  %mul = fmul nsz float %dtime, %conv
   %m_stream_timer = getelementptr inbounds i8, ptr %this, i64 448
   %2 = load float, ptr %m_stream_timer, align 8, !tbaa !10
   %div = fdiv nsz float %mul, %2

@@ -4863,7 +4863,7 @@ sljit_has_cpu_feature.exit.i:                     ; preds = %get_cpu_features.ex
   %1930 = trunc i32 %.055.i to i8
   %.val.i864 = load ptr, ptr %8, align 8
   %1931 = and i32 %.055.i, 255
-  %.not.i75.i = icmp eq i8 %1930, %1820
+  %.not.i75.i = icmp eq i8 %1820, %1930
   br i1 %.not.i75.i, label %1937, label %1932
 
 1932:                                             ; preds = %1929
@@ -14273,7 +14273,7 @@ emit_mov.exit.i:                                  ; preds = %189
 221:                                              ; preds = %219
   %.not55.i = icmp eq i32 %11, 0
   %222 = select i1 %.not55.i, i64 63, i64 31
-  %223 = and i64 %222, %7
+  %223 = and i64 %7, %222
   %.not56.i = icmp eq i64 %223, 0
   br i1 %.not56.i, label %226, label %224
 
@@ -14296,7 +14296,7 @@ emit_mov.exit.i:                                  ; preds = %189
 232:                                              ; preds = %230
   %.not55.i174 = icmp eq i32 %11, 0
   %233 = select i1 %.not55.i174, i64 63, i64 31
-  %234 = and i64 %233, %7
+  %234 = and i64 %7, %233
   %.not56.i175 = icmp eq i64 %234, 0
   br i1 %.not56.i175, label %237, label %235
 
@@ -34999,13 +34999,13 @@ call_with_args.exit:                              ; preds = %51, %23
 define internal noundef ptr @sljit_stack_resize(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp ugt ptr %4, %1
+  %5 = icmp ult ptr %1, %4
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %.not = icmp ugt ptr %8, %1
+  %.not = icmp ult ptr %1, %8
   br i1 %.not, label %9, label %34
 
 9:                                                ; preds = %6
@@ -53623,7 +53623,7 @@ define internal fastcc i32 @emit_lea_binary(ptr nocapture noundef %0, i32 nounde
 
 19:                                               ; preds = %18
   %20 = shl nuw nsw i32 %5, 8
-  %21 = or i32 %20, %3
+  %21 = or i32 %3, %20
   %22 = or i32 %21, 128
   %23 = tail call fastcc ptr @emit_x86_instruction(ptr noundef %0, i64 noundef 1, i32 noundef %15, i64 noundef 0, i32 noundef %22, i64 noundef 0)
   %.not58 = icmp eq ptr %23, null
@@ -63218,7 +63218,7 @@ define internal fastcc void @fast_forward_char_pair_sse2_compare(ptr nocapture n
 
 11:                                               ; preds = %9
   %12 = shl nuw nsw i32 %3, 3
-  %13 = or i32 %12, %5
+  %13 = or i32 %5, %12
   %14 = trunc i32 %13 to i8
   %15 = or i8 %14, -64
   %16 = load i32, ptr %0, align 8
@@ -63546,7 +63546,7 @@ define internal fastcc void @fast_forward_char_pair_sse2_compare(ptr nocapture n
 
 167:                                              ; preds = %73
   %168 = shl nuw nsw i32 %3, 3
-  %169 = or i32 %168, %6
+  %169 = or i32 %6, %168
   %170 = trunc i32 %169 to i8
   %171 = or i8 %170, -64
   %172 = load i32, ptr %0, align 8
@@ -63697,7 +63697,7 @@ add_jump.exit:                                    ; preds = %sljit_alloc_memory.
 
 42:                                               ; preds = %add_jump.exit
   %43 = trunc nuw i32 %.0110 to i8
-  %44 = or i8 %43, %1
+  %44 = or i8 %1, %43
   %45 = zext i8 %44 to i64
   %sext = mul nuw i64 %45, 72340172821233664
   %46 = ashr exact i64 %sext, 32

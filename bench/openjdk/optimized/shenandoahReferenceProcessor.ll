@@ -338,7 +338,7 @@ define hidden noundef zeroext i1 @_ZNK28ShenandoahReferenceProcessor16is_strongl
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %8
   %12 = load ptr, ptr %11, align 8
-  %.not.i = icmp ugt ptr %12, %1
+  %.not.i = icmp ult ptr %1, %12
   br i1 %.not.i, label %13, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit
 
 13:                                               ; preds = %2
@@ -670,7 +670,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i = icmp ugt ptr %23, %12
+  %.not.i.i.i = icmp ult ptr %12, %23
   br i1 %.not.i.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, label %_ZL20reference_discoveredIP7oopDescES1_S1_.exit
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i: ; preds = %13
@@ -1239,7 +1239,7 @@ _ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit: ; preds = %_ZNK24Shenand
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds ptr, ptr %271, i64 %269
   %273 = load ptr, ptr %272, align 8
-  %.not.i.i48 = icmp ugt ptr %273, %.0.i.i46
+  %.not.i.i48 = icmp ult ptr %.0.i.i46, %273
   br i1 %.not.i.i48, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51: ; preds = %263
@@ -1396,7 +1396,7 @@ define linkonce_odr hidden void @_ZN28ShenandoahReferenceProcessor18process_refe
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp ugt ptr %21, %9
+  %.not.i.i = icmp ult ptr %9, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
@@ -1452,7 +1452,7 @@ _ZL3lrbP7oopDesc.exit:                            ; preds = %_ZNK24ShenandoahMar
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds ptr, ptr %54, i64 %52
   %56 = load ptr, ptr %55, align 8
-  %.not.i.i34 = icmp ugt ptr %56, %45
+  %.not.i.i34 = icmp ult ptr %45, %56
   br i1 %.not.i.i34, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i37, label %_ZL3lrbP7oopDesc.exit39
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i37: ; preds = %46
@@ -1541,7 +1541,7 @@ _ZL14reference_typeP7oopDesc.exit:                ; preds = %84, %94
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds ptr, ptr %115, i64 %113
   %117 = load ptr, ptr %116, align 8
-  %.not.i.i40 = icmp ugt ptr %117, %104
+  %.not.i.i40 = icmp ult ptr %104, %117
   br i1 %107, label %118, label %137
 
 118:                                              ; preds = %106
@@ -1661,7 +1661,7 @@ _ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit: ;
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds ptr, ptr %184, i64 %182
   %186 = load ptr, ptr %185, align 8
-  %.not.i.i.i = icmp ugt ptr %186, %175
+  %.not.i.i.i = icmp ult ptr %175, %186
   br i1 %.not.i.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, label %_ZL20reference_discoveredIP7oopDescES1_S1_.exit
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i: ; preds = %176
@@ -1710,7 +1710,7 @@ _ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68: ; preds = %_ZL20refere
   %.0.i.i4671 = phi ptr [ %205, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %175, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
   %208 = getelementptr inbounds ptr, ptr %206, i64 %.pre-phi94
   %209 = load ptr, ptr %208, align 8
-  %.not.i.i48 = icmp ugt ptr %209, %.0.i.i4671
+  %.not.i.i48 = icmp ult ptr %.0.i.i4671, %209
   br i1 %.not.i.i48, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51: ; preds = %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68
@@ -1769,7 +1769,7 @@ _ZL3lrbP7oopDesc.exit39.thread:                   ; preds = %44, %_ZL3lrbP7oopDe
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds ptr, ptr %245, i64 %243
   %247 = load ptr, ptr %246, align 8
-  %.not.i.i55 = icmp ugt ptr %247, %235
+  %.not.i.i55 = icmp ult ptr %235, %247
   br i1 %.not.i.i55, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58: ; preds = %237
@@ -2622,7 +2622,7 @@ _ZL14reference_nextI9narrowOopEP7oopDescS2_.exit.i.thread: ; preds = %21, %_ZL14
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds ptr, ptr %71, i64 %69
   %73 = load ptr, ptr %72, align 8
-  %.not.i.i = icmp ugt ptr %73, %19
+  %.not.i.i = icmp ult ptr %19, %73
   br i1 %.not.i.i, label %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit, label %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread
 
 _ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit: ; preds = %_ZL14reference_nextI9narrowOopEP7oopDescS2_.exit.i.thread
@@ -2719,7 +2719,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -2829,7 +2829,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK28ShenandoahReferenceProcesso
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %23
   %27 = load ptr, ptr %26, align 8
-  %.not.i.i.i.i = icmp ugt ptr %27, %16
+  %.not.i.i.i.i = icmp ult ptr %16, %27
   br i1 %.not.i.i.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i.i, label %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i.i: ; preds = %17
@@ -2879,7 +2879,7 @@ _ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceTyp
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
-  %.not.i.i = icmp ugt ptr %59, %9
+  %.not.i.i = icmp ult ptr %9, %59
   br i1 %.not.i.i, label %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit, label %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread
 
 _ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit: ; preds = %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit.thread15
@@ -3077,7 +3077,7 @@ switch.lookup:                                    ; preds = %5
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %21
   %25 = load ptr, ptr %24, align 8
-  %.not.i.i.i = icmp ugt ptr %25, %14
+  %.not.i.i.i = icmp ult ptr %14, %25
   br i1 %.not.i.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i: ; preds = %15

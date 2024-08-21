@@ -262,7 +262,7 @@ define void @Hop_ObjCollectMulti_rec(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 tailrecurse:                                      ; preds = %53, %3
   %.tr23 = phi ptr [ %1, %3 ], [ %.val21, %53 ]
-  %.not = icmp eq ptr %.tr23, %0
+  %.not = icmp eq ptr %0, %.tr23
   br i1 %.not, label %53, label %5
 
 5:                                                ; preds = %tailrecurse

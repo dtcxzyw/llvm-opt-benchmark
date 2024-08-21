@@ -532,7 +532,7 @@ invoke.cont55:                                    ; preds = %if.else.i, %if.then
 
 land.lhs.true57:                                  ; preds = %invoke.cont55
   %43 = load ptr, ptr %m_true.i, align 8
-  %cmp.i198 = icmp eq ptr %43, %33
+  %cmp.i198 = icmp eq ptr %33, %43
   br i1 %cmp.i198, label %for.inc63, label %cleanup
 
 for.inc63:                                        ; preds = %invoke.cont55, %land.lhs.true57
@@ -2206,7 +2206,7 @@ invoke.cont446:                                   ; preds = %invoke.cont446.lr.p
 
 land.lhs.true448:                                 ; preds = %invoke.cont446
   %294 = load ptr, ptr %m_false.i, align 8
-  %cmp.i803 = icmp eq ptr %294, %292
+  %cmp.i803 = icmp eq ptr %292, %294
   br i1 %cmp.i803, label %for.inc454, label %cleanup457
 
 for.inc454:                                       ; preds = %invoke.cont446, %land.lhs.true448

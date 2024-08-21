@@ -93,13 +93,13 @@ define noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr nocapt
   %46 = fneg double %41
   %47 = tail call double @llvm.fmuladd.f64(double %46, double %2, double %45)
   %48 = fcmp ugt double %47, 0.000000e+00
-  %49 = fcmp ult double %43, %2
+  %49 = fcmp ugt double %2, %43
   %or.cond91 = select i1 %48, i1 true, i1 %49
   br i1 %or.cond91, label %50, label %.thread
 
 50:                                               ; preds = %38
   %51 = fcmp ult double %47, 0.000000e+00
-  %52 = fcmp ugt double %43, %2
+  %52 = fcmp ult double %2, %43
   %or.cond92 = select i1 %51, i1 true, i1 %52
   br i1 %or.cond92, label %65, label %53
 
@@ -192,7 +192,7 @@ define noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr nocapt
 ._crit_edge:                                      ; preds = %99, %.loopexit
   %109 = getelementptr inbounds i8, ptr %6, i64 -8
   %110 = load double, ptr %109, align 8
-  %111 = fcmp ogt double %110, %2
+  %111 = fcmp olt double %2, %110
   br i1 %111, label %112, label %.thread
 
 112:                                              ; preds = %._crit_edge

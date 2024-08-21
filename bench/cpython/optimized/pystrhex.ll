@@ -185,7 +185,7 @@ if.end38:                                         ; preds = %entry, %if.then35, 
   %sep_char.1103 = phi i8 [ %sep_char.0, %if.then35 ], [ %sep_char.0, %if.end28 ], [ 0, %entry ]
   %resultlen.0 = phi i64 [ %div, %if.then35 ], [ 0, %if.end28 ], [ 0, %entry ]
   %sub39 = sub nsw i64 4611686018427387903, %resultlen.0
-  %cmp40.not = icmp sgt i64 %sub39, %arglen
+  %cmp40.not = icmp slt i64 %arglen, %sub39
   br i1 %cmp40.not, label %if.end44, label %if.then42
 
 if.then42:                                        ; preds = %if.end38
@@ -196,7 +196,7 @@ if.end44:                                         ; preds = %if.end38
   %mul = shl i64 %arglen, 1
   %add = add i64 %resultlen.0, %mul
   %conv45 = zext i32 %cond105 to i64
-  %cmp46.not = icmp ult i64 %conv45, %arglen
+  %cmp46.not = icmp ugt i64 %arglen, %conv45
   %spec.select = select i1 %cmp46.not, i32 %bytes_per_sep_group.addr.0104, i32 0
   %spec.select87 = select i1 %cmp46.not, i32 %cond105, i32 0
   %tobool51.not = icmp eq i32 %return_bytes, 0

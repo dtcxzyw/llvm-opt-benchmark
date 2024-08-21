@@ -250,7 +250,7 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %28
+  %31 = icmp eq ptr %28, %30
   br i1 %31, label %Extra_bddNodePointedByCube.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21
@@ -335,14 +335,14 @@ tailrecurse.i:                                    ; preds = %79, %71, %66
   %81 = icmp eq ptr %.037.i, %36
   %.038..035.i = select i1 %81, ptr %.038.i, ptr %.035.i
   %.036..037.i = select i1 %81, ptr %.036.i, ptr %.037.i
-  %82 = icmp eq ptr %30, %.036..037.i
+  %82 = icmp eq ptr %.036..037.i, %30
   br i1 %82, label %Extra_bddNodePointedByCube.exit, label %37
 
 Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
   %.tr46.lcssa.i = phi ptr [ %1, %21 ], [ %.038..035.i, %tailrecurse.i ]
   %83 = getelementptr inbounds ptr, ptr %6, i64 %26
   %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %30, %84
+  %85 = icmp eq ptr %84, %30
   br i1 %85, label %Extra_bddNodePointedByCube.exit62, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %Extra_bddNodePointedByCube.exit
@@ -427,7 +427,7 @@ tailrecurse.i56:                                  ; preds = %133, %125, %120
   %135 = icmp eq ptr %.037.i57, %90
   %.038..035.i59 = select i1 %135, ptr %.038.i52, ptr %.035.i53
   %.036..037.i60 = select i1 %135, ptr %.036.i58, ptr %.037.i57
-  %136 = icmp eq ptr %30, %.036..037.i60
+  %136 = icmp eq ptr %.036..037.i60, %30
   br i1 %136, label %Extra_bddNodePointedByCube.exit62, label %91
 
 Extra_bddNodePointedByCube.exit62:                ; preds = %tailrecurse.i56, %Extra_bddNodePointedByCube.exit

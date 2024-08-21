@@ -171,7 +171,7 @@ define internal i32 @crypto_cbc_decrypt(ptr nocapture noundef readonly %0, ptr n
 
 17:                                               ; preds = %15
   %18 = sub i32 0, %14
-  %19 = and i32 %18, %3
+  %19 = and i32 %3, %18
   %20 = sub i32 %19, %14
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %2, i64 %21

@@ -3144,7 +3144,7 @@ define internal fastcc void @_ZN2cvL10thresh_64fERKNS_3MatERS0_ddi(ptr nocapture
   %indvars.iv151.i = phi i64 [ 0, %.preheader101.us.i ], [ %indvars.iv.next152.i, %56 ]
   %57 = getelementptr inbounds double, ptr %.279121.us.i, i64 %indvars.iv151.i
   %58 = load double, ptr %57, align 8
-  %59 = fcmp ogt double %58, %2
+  %59 = fcmp olt double %2, %58
   %60 = select i1 %59, double %2, double %58
   %61 = getelementptr inbounds double, ptr %.284120.us.i, i64 %indvars.iv151.i
   store double %60, ptr %61, align 8

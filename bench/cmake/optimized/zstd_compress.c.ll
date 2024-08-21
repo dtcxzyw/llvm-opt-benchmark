@@ -356,7 +356,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_freeCCtx(ptr noundef %0) local_unna
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 664
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp ule ptr %11, %0
+  %12 = icmp uge ptr %0, %11
   br label %ZSTD_cwksp_owns_buffer.exit
 
 ZSTD_cwksp_owns_buffer.exit:                      ; preds = %6, %9
@@ -2020,7 +2020,7 @@ ZSTD_customFree.exit:                             ; preds = %1, %7, %8
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %10, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp ule ptr %17, %10
+  %18 = icmp uge ptr %10, %17
   br label %ZSTD_cwksp_owns_buffer.exit.i
 
 ZSTD_cwksp_owns_buffer.exit.i:                    ; preds = %15, %12
@@ -2283,7 +2283,7 @@ define dso_local range(i64 -60, 1) i64 @ZSTD_CCtx_reset(ptr nocapture noundef %0
 define dso_local noundef i32 @ZSTD_cycleLog(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 5
   %.neg = sext i1 %3 to i32
-  %4 = add i32 %.neg, %0
+  %4 = add i32 %0, %.neg
   ret i32 %4
 }
 
@@ -4156,7 +4156,7 @@ ZSTD_literalsCompressionIsDisabled.exit:          ; preds = %23
   %35 = load i32, ptr %33, align 8
   %36 = icmp eq i32 %35, 2
   %37 = select i1 %36, i64 6, i64 63
-  %.not85.i = icmp ult i64 %37, %16
+  %.not85.i = icmp ugt i64 %16, %37
   br i1 %.not85.i, label %38, label %ZSTD_buildBlockEntropyStats_literals.exit.thread
 
 38:                                               ; preds = %31
@@ -4332,7 +4332,7 @@ ZSTD_buildBlockEntropyStats_sequences.exit:       ; preds = %88, %101
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @ZSTD_writeSkippableFrame(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = add i64 %3, 8
-  %7 = icmp ugt i64 %6, %1
+  %7 = icmp ult i64 %1, %6
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %5
@@ -4452,7 +4452,7 @@ define internal fastcc i64 @ZSTD_compressContinue_internal(ptr noundef %0, ptr n
   %30 = getelementptr inbounds i8, ptr %0, i64 3328
   %31 = load i32, ptr %30, align 8
   %32 = load ptr, ptr %11, align 8
-  %33 = icmp ne ptr %32, %3
+  %33 = icmp ne ptr %3, %32
   %34 = icmp ne i32 %31, 0
   %or.cond.i = or i1 %34, %33
   br i1 %or.cond.i, label %35, label %._crit_edge.i
@@ -4502,7 +4502,7 @@ define internal fastcc i64 @ZSTD_compressContinue_internal(ptr noundef %0, ptr n
   %58 = icmp ugt ptr %55, %57
   %59 = zext i32 %52 to i64
   %60 = getelementptr inbounds i8, ptr %54, i64 %59
-  %61 = icmp ugt ptr %60, %3
+  %61 = icmp ult ptr %3, %60
   %62 = and i1 %58, %61
   br i1 %62, label %63, label %ZSTD_window_update.exit
 
@@ -4536,7 +4536,7 @@ ZSTD_window_update.exit:                          ; preds = %51, %63
 78:                                               ; preds = %73
   %79 = getelementptr inbounds i8, ptr %0, i64 1008
   %80 = load ptr, ptr %79, align 8
-  %.not106 = icmp eq ptr %80, %3
+  %.not106 = icmp eq ptr %3, %80
   br i1 %.not106, label %._crit_edge.i74, label %81
 
 ._crit_edge.i74:                                  ; preds = %78
@@ -4583,7 +4583,7 @@ ZSTD_window_update.exit:                          ; preds = %51, %63
   %103 = icmp ugt ptr %55, %102
   %104 = zext i32 %98 to i64
   %105 = getelementptr inbounds i8, ptr %100, i64 %104
-  %106 = icmp ugt ptr %105, %3
+  %106 = icmp ult ptr %3, %105
   %107 = and i1 %103, %106
   br i1 %107, label %108, label %ZSTD_window_update.exit83
 
@@ -5003,7 +5003,7 @@ ZSTD_deriveBlockSplits.exit.i.i.i:                ; preds = %324, %315
 
 338:                                              ; preds = %334
   %339 = load i32, ptr %181, align 4
-  %340 = icmp ugt i32 %339, %335
+  %340 = icmp ult i32 %335, %339
   br i1 %340, label %341, label %342
 
 341:                                              ; preds = %338
@@ -5380,7 +5380,7 @@ define dso_local i64 @ZSTD_getBlockSize(ptr nocapture noundef readonly %0) local
   %.val1 = load i64, ptr %3, align 8
   %4 = zext nneg i32 %.val to i64
   %5 = shl nuw i64 1, %4
-  %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %.val1)
+  %..i = tail call i64 @llvm.umin.i64(i64 %.val1, i64 %5)
   ret i64 %..i
 }
 
@@ -5392,8 +5392,8 @@ define dso_local i64 @ZSTD_compressBlock_deprecated(ptr noundef %0, ptr noundef 
   %.val9 = load i64, ptr %7, align 8
   %8 = zext nneg i32 %.val to i64
   %9 = shl nuw i64 1, %8
-  %..i = tail call i64 @llvm.umin.i64(i64 %9, i64 %.val9)
-  %10 = icmp ult i64 %..i, %4
+  %..i = tail call i64 @llvm.umin.i64(i64 %.val9, i64 %9)
+  %10 = icmp ugt i64 %4, %..i
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %5
@@ -5413,8 +5413,8 @@ define dso_local i64 @ZSTD_compressBlock(ptr noundef %0, ptr noundef %1, i64 nou
   %.val9.i = load i64, ptr %7, align 8
   %8 = zext nneg i32 %.val.i to i64
   %9 = shl nuw i64 1, %8
-  %..i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %.val9.i)
-  %10 = icmp ult i64 %..i.i, %4
+  %..i.i = tail call i64 @llvm.umin.i64(i64 %.val9.i, i64 %9)
+  %10 = icmp ugt i64 %4, %..i.i
   br i1 %10, label %ZSTD_compressBlock_deprecated.exit, label %11
 
 11:                                               ; preds = %5
@@ -5736,7 +5736,7 @@ define internal fastcc i64 @ZSTD_compressBegin_internal(ptr noundef %0, ptr noun
 
 27:                                               ; preds = %25
   %28 = mul i64 %24, 6
-  %29 = icmp ugt i64 %28, %7
+  %29 = icmp ult i64 %7, %28
   %30 = icmp eq i64 %7, -1
   %or.cond = or i1 %30, %29
   br i1 %or.cond, label %35, label %31
@@ -5765,7 +5765,7 @@ define internal fastcc i64 @ZSTD_compressBegin_internal(ptr noundef %0, ptr noun
   %44 = zext i32 %42 to i64
   %45 = getelementptr inbounds [10 x i64], ptr @attachDictSizeCutoffs, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8
-  %47 = icmp uge i64 %46, %7
+  %47 = icmp ule i64 %7, %46
   %48 = icmp eq i64 %7, -1
   %or.cond.i.i = or i1 %48, %47
   br i1 %or.cond.i.i, label %51, label %49
@@ -7302,7 +7302,7 @@ ZSTD_customFree.exit.i14:                         ; preds = %31, %30, %ZSTD_clea
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %32, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp ule ptr %39, %32
+  %40 = icmp uge ptr %32, %39
   br label %ZSTD_cwksp_owns_buffer.exit.i.i20
 
 ZSTD_cwksp_owns_buffer.exit.i.i20:                ; preds = %37, %34
@@ -7750,7 +7750,7 @@ ZSTD_createCDict_advanced_internal.exit.thread:   ; preds = %ZSTD_customMalloc.e
 102:                                              ; preds = %99
   %103 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   %104 = load ptr, ptr %103, align 8
-  %105 = icmp ule ptr %104, %.0.i.i
+  %105 = icmp uge ptr %.0.i.i, %104
   br label %ZSTD_cwksp_owns_buffer.exit.i
 
 ZSTD_cwksp_owns_buffer.exit.i:                    ; preds = %102, %99
@@ -7943,7 +7943,7 @@ define dso_local noundef i64 @ZSTD_freeCDict(ptr noundef %0) local_unnamed_addr 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = icmp ule ptr %8, %0
+  %9 = icmp uge ptr %0, %8
   br label %ZSTD_cwksp_owns_buffer.exit
 
 ZSTD_cwksp_owns_buffer.exit:                      ; preds = %3, %6
@@ -8118,7 +8118,7 @@ ZSTD_resolveRowMatchFinderMode.exit:
   store i32 0, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 100
   store i32 1, ptr %.sroa.19.0..sroa_idx, align 4
-  %47 = icmp ugt i64 %34, %1
+  %47 = icmp ult i64 %1, %34
   br i1 %47, label %ZSTD_cwksp_reserve_object.exit.thread, label %48
 
 48:                                               ; preds = %40
@@ -8187,7 +8187,7 @@ define internal fastcc i64 @ZSTD_compressBegin_usingCDict_internal(ptr noundef %
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, 6
-  %15 = icmp ugt i64 %14, %4
+  %15 = icmp ult i64 %4, %14
   %16 = icmp eq i64 %4, -1
   %or.cond = or i1 %16, %15
   br i1 %or.cond, label %21, label %17
@@ -8641,7 +8641,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_freeCStream(ptr noundef %0) local_u
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 664
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp ule ptr %11, %0
+  %12 = icmp uge ptr %0, %11
   br label %ZSTD_cwksp_owns_buffer.exit.i
 
 ZSTD_cwksp_owns_buffer.exit.i:                    ; preds = %9, %6
@@ -9868,7 +9868,7 @@ define internal fastcc i64 @ZSTD_CCtx_init_compressStream2(ptr noundef %0, i32 n
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds [10 x i64], ptr @attachDictSizeCutoffs, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
-  %67 = icmp uge i64 %66, %57
+  %67 = icmp ule i64 %57, %66
   %68 = icmp eq i64 %57, -1
   %or.cond.i.i = or i1 %68, %67
   %.not10.i.not.old.i = icmp eq i32 %.val65, 0
@@ -10069,7 +10069,7 @@ define dso_local range(i64 -107, 1) i64 @ZSTD_copySequencesToSeqStoreExplicitBlo
   %25 = getelementptr inbounds i8, ptr %24, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %25, i64 12, i1 false)
   %26 = zext i32 %9 to i64
-  %27 = icmp ult i64 %26, %3
+  %27 = icmp ugt i64 %3, %26
   br i1 %27, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %22
@@ -10126,12 +10126,12 @@ define dso_local range(i64 -107, 1) i64 @ZSTD_copySequencesToSeqStoreExplicitBlo
   %60 = icmp eq i32 %55, 0
   %61 = load i32, ptr %49, align 4
   %62 = add i32 %61, 3
-  %63 = icmp ne i32 %48, %61
+  %63 = icmp ne i32 %61, %48
   %or.cond209.not = select i1 %60, i1 true, i1 %63
   br i1 %or.cond209.not, label %64, label %ZSTD_finalizeOffBase.exit.thread
 
 64:                                               ; preds = %59
-  %65 = icmp eq i32 %46, %61
+  %65 = icmp eq i32 %61, %46
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
@@ -10139,7 +10139,7 @@ define dso_local range(i64 -107, 1) i64 @ZSTD_copySequencesToSeqStoreExplicitBlo
   br label %ZSTD_finalizeOffBase.exit.thread
 
 68:                                               ; preds = %64
-  %69 = icmp eq i32 %45, %61
+  %69 = icmp eq i32 %61, %45
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -10148,7 +10148,7 @@ define dso_local range(i64 -107, 1) i64 @ZSTD_copySequencesToSeqStoreExplicitBlo
 
 72:                                               ; preds = %68
   %73 = add i32 %48, -1
-  %74 = icmp eq i32 %73, %61
+  %74 = icmp eq i32 %61, %73
   %or.cond235 = select i1 %60, i1 %74, i1 false
   br i1 %or.cond235, label %ZSTD_finalizeOffBase.exit.thread, label %ZSTD_finalizeOffBase.exit
 
@@ -10393,7 +10393,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %132, %.lr.ph.i, %.l
   %189 = getelementptr inbounds i8, ptr %.0176222, i64 %188
   %190 = add i32 %.0174225, 1
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %191, %3
+  %192 = icmp ugt i64 %3, %191
   br i1 %192, label %44, label %.critedge, !llvm.loop !57
 
 .critedge:                                        ; preds = %52, %182
@@ -10577,7 +10577,7 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
   %.0195254 = phi i32 [ 0, %.lr.ph ], [ %.1196, %194 ]
   %47 = phi i32 [ %.promoted, %.lr.ph ], [ %101, %194 ]
   %48 = zext i32 %.0178261 to i64
-  %49 = icmp ult i64 %48, %3
+  %49 = icmp ugt i64 %3, %48
   %.not210 = icmp eq i32 %.0195254, 0
   %or.cond = and i1 %.not210, %49
   br i1 %or.cond, label %50, label %.critedge
@@ -10608,7 +10608,7 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
   %59 = add i32 %.0181260, %58
   %60 = sub i32 %.0183259, %59
   %61 = zext i32 %.sroa.8.0.copyload to i64
-  %62 = icmp ugt i64 %61, %5
+  %62 = icmp ult i64 %5, %61
   br i1 %62, label %63, label %70
 
 63:                                               ; preds = %57
@@ -10639,12 +10639,12 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
   %.2 = sub i32 %.0183259, %.pn
   %73 = icmp eq i32 %.1188, 0
   %74 = add i32 %.sroa.0.0.copyload, 3
-  %75 = icmp ne i32 %47, %.sroa.0.0.copyload
+  %75 = icmp ne i32 %.sroa.0.0.copyload, %47
   %or.cond231.not = select i1 %73, i1 true, i1 %75
   br i1 %or.cond231.not, label %76, label %ZSTD_finalizeOffBase.exit.thread
 
 76:                                               ; preds = %72
-  %77 = icmp eq i32 %46, %.sroa.0.0.copyload
+  %77 = icmp eq i32 %.sroa.0.0.copyload, %46
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
@@ -10652,7 +10652,7 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
   br label %ZSTD_finalizeOffBase.exit.thread
 
 80:                                               ; preds = %76
-  %81 = icmp eq i32 %45, %.sroa.0.0.copyload
+  %81 = icmp eq i32 %.sroa.0.0.copyload, %45
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %80
@@ -10661,7 +10661,7 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
 
 84:                                               ; preds = %80
   %85 = add i32 %47, -1
-  %86 = icmp eq i32 %85, %.sroa.0.0.copyload
+  %86 = icmp eq i32 %.sroa.0.0.copyload, %85
   %or.cond278 = select i1 %73, i1 %86, i1 false
   br i1 %or.cond278, label %ZSTD_finalizeOffBase.exit.thread, label %ZSTD_finalizeOffBase.exit
 
@@ -11299,7 +11299,7 @@ define internal fastcc i64 @ZSTD_writeFrameHeader(ptr nocapture noundef writeonl
   %24 = load i32, ptr %14, align 8
   %25 = icmp ne i32 %24, 0
   %26 = zext i32 %23 to i64
-  %27 = icmp uge i64 %26, %3
+  %27 = icmp ule i64 %3, %26
   %28 = select i1 %25, i1 %27, i1 false
   %.tr = trunc i32 %22 to i8
   %29 = shl i8 %.tr, 3
@@ -14036,11 +14036,11 @@ define internal fastcc void @ZSTD_overflowCorrectIfNeeded(ptr nocapture noundef 
   %16 = getelementptr inbounds i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = shl nuw i32 1, %17
-  %19 = load i32, ptr %7, align 4
-  %20 = icmp ugt i32 %19, 5
-  %.neg.i = sext i1 %20 to i32
-  %21 = load i32, ptr %6, align 4
-  %22 = add i32 %21, %.neg.i
+  %19 = load i32, ptr %6, align 4
+  %20 = load i32, ptr %7, align 4
+  %21 = icmp ugt i32 %20, 5
+  %.neg.i = sext i1 %21 to i32
+  %22 = add i32 %19, %.neg.i
   %23 = shl nuw i32 1, %22
   %24 = add i32 %23, -1
   %25 = ptrtoint ptr %3 to i64
@@ -14050,7 +14050,7 @@ define internal fastcc void @ZSTD_overflowCorrectIfNeeded(ptr nocapture noundef 
   %29 = icmp ult i32 %28, 2
   %30 = tail call i32 @llvm.umax.i32(i32 %23, i32 2)
   %31 = select i1 %29, i32 %30, i32 0
-  %32 = tail call i32 @llvm.umax.i32(i32 %23, i32 %18)
+  %32 = tail call i32 @llvm.umax.i32(i32 %18, i32 %23)
   %33 = add nuw i32 %32, %28
   %34 = add i32 %33, %31
   %35 = sub i32 %27, %34
@@ -15150,8 +15150,8 @@ ZSTD_countSeqStoreLiteralsBytes.exit:             ; preds = %26, %5
   %35 = getelementptr inbounds i8, ptr %1, i64 76
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %37, %2
-  %39 = icmp ugt i64 %37, %3
+  %38 = icmp ugt i64 %2, %37
+  %39 = icmp ult i64 %3, %37
   %or.cond = or i1 %38, %39
   br i1 %or.cond, label %40, label %42
 
@@ -15183,7 +15183,7 @@ ZSTD_countSeqStoreLiteralsBytes.exit:             ; preds = %26, %5
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 3
-  %60 = icmp eq i64 %59, %3
+  %60 = icmp eq i64 %3, %59
   br i1 %60, label %84, label %61
 
 61:                                               ; preds = %47
@@ -16107,16 +16107,16 @@ define internal fastcc void @ZSTD_loadDictionaryContent(ptr noundef %0, ptr noun
   %or.cond = and i1 %17, %narrow.i
   %spec.select.neg = select i1 %or.cond, i64 -16777214, i64 -3758096382
   %spec.select = select i1 %or.cond, i64 16777214, i64 3758096382
-  %18 = icmp ult i64 %spec.select, %5
+  %18 = icmp ugt i64 %5, %spec.select
   %19 = getelementptr inbounds i8, ptr %9, i64 %spec.select.neg
-  %.092 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %5)
+  %.092 = tail call i64 @llvm.umin.i64(i64 %5, i64 %spec.select)
   %.091 = select i1 %18, ptr %19, ptr %4
   %20 = icmp eq i64 %5, 0
   br i1 %20, label %ZSTD_window_update.exit.thread, label %21
 
 21:                                               ; preds = %8
   %22 = load ptr, ptr %0, align 8
-  %.not117 = icmp eq ptr %22, %.091
+  %.not117 = icmp eq ptr %.091, %22
   br i1 %.not117, label %._crit_edge.i, label %23
 
 ._crit_edge.i:                                    ; preds = %21
@@ -16164,7 +16164,7 @@ define internal fastcc void @ZSTD_loadDictionaryContent(ptr noundef %0, ptr noun
   %46 = icmp ugt ptr %43, %45
   %47 = zext i32 %40 to i64
   %48 = getelementptr inbounds i8, ptr %42, i64 %47
-  %49 = icmp ugt ptr %48, %.091
+  %49 = icmp ult ptr %.091, %48
   %50 = and i1 %46, %49
   br i1 %50, label %51, label %ZSTD_window_update.exit
 
@@ -16187,7 +16187,7 @@ ZSTD_window_update.exit.thread:                   ; preds = %8
 
 59:                                               ; preds = %ZSTD_window_update.exit
   %60 = load ptr, ptr %1, align 8
-  %.not118 = icmp eq ptr %60, %.091
+  %.not118 = icmp eq ptr %.091, %60
   br i1 %.not118, label %._crit_edge.i106, label %61
 
 ._crit_edge.i106:                                 ; preds = %59
@@ -16234,7 +16234,7 @@ ZSTD_window_update.exit.thread:                   ; preds = %8
   %83 = icmp ugt ptr %43, %82
   %84 = zext i32 %78 to i64
   %85 = getelementptr inbounds i8, ptr %80, i64 %84
-  %86 = icmp ugt ptr %85, %.091
+  %86 = icmp ult ptr %.091, %85
   %87 = and i1 %83, %86
   br i1 %87, label %88, label %ZSTD_window_update.exit115
 

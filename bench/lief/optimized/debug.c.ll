@@ -50,7 +50,7 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly %0, i32 noundef
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = load i32, ptr @debug_threshold, align 4
-  %17 = icmp slt i32 %16, %1
+  %17 = icmp sgt i32 %1, %16
   %or.cond17 = select i1 %15, i1 true, i1 %17
   br i1 %or.cond17, label %29, label %18
 
@@ -106,7 +106,7 @@ define hidden void @mbedtls_debug_print_ret(ptr noundef readonly %0, i32 noundef
 
 16:                                               ; preds = %12
   %17 = load i32, ptr @debug_threshold, align 4
-  %18 = icmp slt i32 %17, %1
+  %18 = icmp sgt i32 %1, %17
   %19 = icmp eq i32 %5, -26880
   %or.cond = or i1 %19, %18
   br i1 %or.cond, label %25, label %20
@@ -146,7 +146,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %18 = load i32, ptr @debug_threshold, align 4
-  %19 = icmp slt i32 %18, %1
+  %19 = icmp sgt i32 %1, %18
   %or.cond61 = select i1 %17, i1 true, i1 %19
   br i1 %or.cond61, label %._crit_edge.thread, label %20
 
@@ -280,7 +280,7 @@ define hidden void @mbedtls_debug_print_ecp(ptr noundef %0, i32 noundef %1, ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = load i32, ptr @debug_threshold, align 4
-  %17 = icmp slt i32 %16, %1
+  %17 = icmp sgt i32 %1, %16
   %or.cond = select i1 %15, i1 true, i1 %17
   br i1 %or.cond, label %22, label %18
 
@@ -314,7 +314,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
   %16 = icmp eq ptr %5, null
   %or.cond = or i1 %16, %15
   %17 = load i32, ptr @debug_threshold, align 4
-  %18 = icmp slt i32 %17, %1
+  %18 = icmp sgt i32 %1, %17
   %or.cond48 = select i1 %or.cond, i1 true, i1 %18
   br i1 %or.cond48, label %._crit_edge.thread, label %19
 
@@ -434,7 +434,7 @@ define hidden void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef %1, ptr 
   %21 = icmp eq ptr %5, null
   %or.cond = or i1 %21, %20
   %22 = load i32, ptr @debug_threshold, align 4
-  %.not = icmp slt i32 %22, %1
+  %.not = icmp sgt i32 %1, %22
   %or.cond29 = select i1 %or.cond, i1 true, i1 %.not
   br i1 %or.cond29, label %.loopexit, label %.preheader
 
@@ -545,7 +545,7 @@ debug_print_line_by_line.exit:                    ; preds = %30
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   %68 = load i32, ptr @debug_threshold, align 4
-  %69 = icmp slt i32 %68, %1
+  %69 = icmp sgt i32 %1, %68
   %or.cond.i.i = select i1 %67, i1 true, i1 %69
   br i1 %or.cond.i.i, label %mbedtls_debug_print_ecp.exit.i, label %70
 
@@ -615,7 +615,7 @@ define hidden void @mbedtls_debug_printf_ecdh(ptr noundef %0, i32 noundef %1, pt
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   %19 = load i32, ptr @debug_threshold, align 4
-  %20 = icmp slt i32 %19, %1
+  %20 = icmp sgt i32 %1, %19
   %or.cond.i.i = select i1 %18, i1 true, i1 %20
   br i1 %or.cond.i.i, label %mbedtls_debug_print_ecp.exit.i, label %21
 
@@ -647,7 +647,7 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %21, %15, %12, %9
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %35 = load i32, ptr @debug_threshold, align 4
-  %36 = icmp slt i32 %35, %1
+  %36 = icmp sgt i32 %1, %35
   %or.cond.i16.i = select i1 %34, i1 true, i1 %36
   br i1 %or.cond.i16.i, label %mbedtls_debug_print_ecp.exit17.i, label %37
 

@@ -127,7 +127,7 @@ define range(i32 -1, 1) i32 @cli_event_define(ptr nocapture noundef %0, i32 noun
   %8 = getelementptr inbounds %struct.cli_event, ptr %6, i64 %7
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
-  %.not = icmp ugt i32 %10, %1
+  %.not = icmp ult i32 %1, %10
   br i1 %.not, label %43, label %11
 
 11:                                               ; preds = %5
@@ -500,7 +500,7 @@ define internal fastcc ptr @get_event(ptr noundef %0, i32 noundef %1) unnamed_ad
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
-  %.not8 = icmp ugt i32 %5, %1
+  %.not8 = icmp ult i32 %1, %5
   br i1 %.not8, label %38, label %6
 
 6:                                                ; preds = %3

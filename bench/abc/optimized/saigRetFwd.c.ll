@@ -348,7 +348,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef %1, p
   %16 = getelementptr i8, ptr %15, i64 32
   %.val106 = load i32, ptr %16, align 8
   %17 = add nsw i32 %.val105, -1
-  %.not125 = icmp eq i32 %17, %.val106
+  %.not125 = icmp eq i32 %.val106, %17
   br i1 %.not125, label %18, label %19
 
 18:                                               ; preds = %9
@@ -503,7 +503,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef %1, p
   %90 = getelementptr i8, ptr %87, i64 32
   %.val108 = load i32, ptr %90, align 8
   %91 = add nsw i32 %.val107, -1
-  %.not = icmp eq i32 %91, %.val108
+  %.not = icmp eq i32 %.val108, %91
   br i1 %.not, label %163, label %92
 
 92:                                               ; preds = %89
@@ -518,7 +518,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef %1, p
 97:                                               ; preds = %92
   %98 = getelementptr i8, ptr %96, i64 32
   %.val110 = load i32, ptr %98, align 8
-  %.not121 = icmp eq i32 %91, %.val110
+  %.not121 = icmp eq i32 %.val110, %91
   br i1 %.not121, label %99, label %127
 
 99:                                               ; preds = %97
@@ -601,7 +601,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %133 = getelementptr i8, ptr %131, i64 32
   %.val112 = load i32, ptr %133, align 8
   %134 = add nsw i32 %.val111, -1
-  %.not122 = icmp eq i32 %134, %.val112
+  %.not122 = icmp eq i32 %.val112, %134
   br i1 %.not122, label %135, label %163
 
 135:                                              ; preds = %132

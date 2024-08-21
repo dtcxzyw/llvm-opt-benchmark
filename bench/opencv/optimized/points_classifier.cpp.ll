@@ -571,9 +571,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %_ZNSt6vectorIiSaIiE
 
 244:                                              ; preds = %238
   %.not5.i.i.i.i.i = icmp eq ptr %230, %239
-  br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i.thread, label %.lr.ph.i.i.i.i.i174.preheader
+  br i1 %.not5.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i
 
-.lr.ph.i.i.i.i.i174.preheader:                    ; preds = %244
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i: ; preds = %244
   %245 = add i64 %240, -4
   %246 = sub i64 %245, %232
   %247 = and i64 %246, -4
@@ -586,20 +586,20 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %_ZNSt6vectorIiSaIiE
   %.pre24.i = sub i64 %.pre21.i, %.pre22.i
   %.pre26.i = ashr exact i64 %.pre24.i, 2
   %249 = icmp eq i64 %.pre24.i, 8
-  br i1 %249, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i.thread
+  br i1 %249, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i.thread: ; preds = %244, %.lr.ph.i.i.i.i.i174.preheader
-  %250 = phi ptr [ %.pre19.i, %.lr.ph.i.i.i.i.i174.preheader ], [ %239, %244 ]
-  %.pre-phi27.i187 = phi i64 [ %.pre26.i, %.lr.ph.i.i.i.i.i174.preheader ], [ %242, %244 ]
-  %251 = sub nsw i64 2, %.pre-phi27.i187
-  %252 = shl nsw i64 %.pre-phi27.i187, 2
+_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit: ; preds = %244, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i
+  %250 = phi ptr [ %.pre19.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i ], [ %239, %244 ]
+  %.pre-phi27.i243 = phi i64 [ %.pre26.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i ], [ %242, %244 ]
+  %251 = sub nsw i64 2, %.pre-phi27.i243
+  %252 = shl nsw i64 %.pre-phi27.i243, 2
   %253 = sub i64 8, %252
   call void @llvm.memset.p0.i64(ptr align 4 %250, i8 0, i64 %253, i1 false)
   %254 = getelementptr inbounds i32, ptr %250, i64 %251
   br label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i
 
-_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i.thread, %.lr.ph.i.i.i.i.i174.preheader
-  %.0.i.i.i.i.i.i177 = phi ptr [ %.pre19.i, %.lr.ph.i.i.i.i.i174.preheader ], [ %254, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i.thread ]
+_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i: ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i
+  %.0.i.i.i.i.i.i177 = phi ptr [ %.pre19.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i ], [ %254, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit.i.loopexit ]
   store ptr %.0.i.i.i.i.i.i177, ptr getelementptr inbounds (i8, ptr @classCounters, i64 8), align 8
   br label %_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit
 

@@ -34,7 +34,7 @@ define ptr @PMPI_Op_f2c(i32 noundef %0) #0 {
   %12 = load ptr, ptr @ompi_op_f_to_c_table, align 8
   %13 = getelementptr i8, ptr %12, i64 88
   %.val = load i32, ptr %13, align 8
-  %.not = icmp sgt i32 %.val, %0
+  %.not = icmp slt i32 %0, %.val
   br i1 %.not, label %14, label %opal_pointer_array_get_item.exit
 
 14:                                               ; preds = %11

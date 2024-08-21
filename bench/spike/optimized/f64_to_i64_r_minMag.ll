@@ -45,7 +45,7 @@ define range(i64 -9223372036854774784, -9223372036854775807) i64 @f64_to_i64_r_m
 22:                                               ; preds = %20
   %23 = or i64 %4, %5
   %.not33 = icmp ne i64 %23, 0
-  %or.cond35.not = and i1 %.not33, %1
+  %or.cond35.not = and i1 %1, %.not33
   br i1 %or.cond35.not, label %24, label %37
 
 24:                                               ; preds = %22

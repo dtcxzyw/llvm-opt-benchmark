@@ -10,11 +10,11 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b742
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i": ; preds = %8, %4
   %.sroa.3.08 = phi ptr [ %3, %4 ], [ %10, %8 ]
   %5 = phi ptr [ %1, %4 ], [ %9, %8 ]
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit", label %7
 
 7:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i"
-  %.not = icmp eq ptr %.sroa.3.08, %2
+  %.not = icmp eq ptr %2, %.sroa.3.08
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %7
@@ -22,7 +22,7 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b742
   %.val7.i.i.i = load i64, ptr %9, align 8, !noalias !4
   %10 = getelementptr inbounds i8, ptr %.sroa.3.08, i64 -8
   %.val7.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !14, !noalias !17, !noundef !19
-  %11 = icmp eq i64 %.val7.i.i.i.i.i, %.val7.i.i.i
+  %11 = icmp eq i64 %.val7.i.i.i, %.val7.i.i.i.i.i
   br i1 %11, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i", label %.split.loop.exit16.i.i.i
 
 .split.loop.exit16.i.i.i:                         ; preds = %8
@@ -32,7 +32,7 @@ define hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b742
 "_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i"
   %12 = icmp ne ptr %.sroa.3.08, null
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ne ptr %.sroa.3.08, %2
+  %13 = icmp ne ptr %2, %.sroa.3.08
   %.0 = sext i1 %13 to i8
   br label %.loopexit
 
@@ -51,11 +51,11 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h67ab81
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i": ; preds = %8, %4
   %.sroa.3.08.i = phi ptr [ %3, %4 ], [ %10, %8 ]
   %5 = phi ptr [ %1, %4 ], [ %9, %8 ]
-  %6 = icmp eq ptr %5, %0
+  %6 = icmp eq ptr %0, %5
   br i1 %6, label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit.i", label %7
 
 7:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i"
-  %.not.i = icmp eq ptr %.sroa.3.08.i, %2
+  %.not.i = icmp eq ptr %2, %.sroa.3.08.i
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431.exit, label %8
 
 8:                                                ; preds = %7
@@ -63,7 +63,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h67ab81
   %.val7.i.i.i.i = load i64, ptr %9, align 8, !noalias !20
   %10 = getelementptr inbounds i8, ptr %.sroa.3.08.i, i64 -8
   %.val7.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !30, !noalias !33, !noundef !19
-  %11 = icmp eq i64 %.val7.i.i.i.i.i.i, %.val7.i.i.i.i
+  %11 = icmp eq i64 %.val7.i.i.i.i, %.val7.i.i.i.i.i.i
   br i1 %11, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i", label %.split.loop.exit16.i.i.i.i
 
 .split.loop.exit16.i.i.i.i:                       ; preds = %8
@@ -73,7 +73,7 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator6cmp_by17h67ab81
 "_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b007fc028ea3490E.exit.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha06e70ff8f524fbeE.exit.i.i.i.i"
   %12 = icmp ne ptr %.sroa.3.08.i, null
   tail call void @llvm.assume(i1 %12)
-  %13 = icmp ne ptr %.sroa.3.08.i, %2
+  %13 = icmp ne ptr %2, %.sroa.3.08.i
   %.0.i = sext i1 %13 to i8
   br label %_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431.exit
 

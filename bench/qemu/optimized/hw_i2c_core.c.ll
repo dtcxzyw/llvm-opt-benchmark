@@ -1023,7 +1023,7 @@ entry:
   %address1 = getelementptr inbounds i8, ptr %candidate, i64 160
   %0 = load i8, ptr %address1, align 8
   %cmp = icmp eq i8 %0, %address
-  %brmerge = or i1 %cmp, %broadcast
+  %brmerge = or i1 %broadcast, %cmp
   br i1 %brmerge, label %if.then, label %return
 
 if.then:                                          ; preds = %entry

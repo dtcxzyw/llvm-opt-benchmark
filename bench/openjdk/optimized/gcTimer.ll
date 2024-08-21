@@ -80,41 +80,40 @@ define hidden void @_ZN7GCTimer23register_gc_pause_startEPKcRK11TimeInstantI30Co
 12:                                               ; preds = %3
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
-  %15 = xor i32 %8, -2147483648
-  %16 = and i32 %15, %13
-  %17 = icmp eq i32 %16, 0
-  %18 = and i1 %14, %17
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
-  %20 = sub nuw nsw i32 32, %19
-  %21 = shl nuw i32 1, %20
-  %.0.i.i.i.i.i.i = select i1 %18, i32 %13, i32 %21
+  %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
+  %16 = icmp ult i32 %15, 2
+  %or.cond.i.i.i.i.i.i = select i1 %14, i1 %16, i1 false
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
+  %18 = sub nuw nsw i32 32, %17
+  %19 = shl nuw i32 1, %18
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %13, i32 %19
   tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %7, align 8
   br label %_ZN14TimePartitions31report_gc_phase_start_top_levelEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit
 
 _ZN14TimePartitions31report_gc_phase_start_top_levelEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit: ; preds = %3, %12
-  %22 = phi i32 [ %.pre.i.i.i, %12 ], [ %8, %3 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = add nsw i32 %22, 1
-  store i32 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds %class.GCPhase, ptr %26, i64 %27
-  store ptr %1, ptr %28, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %20 = phi i32 [ %.pre.i.i.i, %12 ], [ %8, %3 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = add nsw i32 %20, 1
+  store i32 %22, ptr %7, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %20 to i64
+  %26 = getelementptr inbounds %class.GCPhase, ptr %24, i64 %25
+  store ptr %1, ptr %26, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 8
   store i32 %6, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 12
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.i.i, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 48
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 48
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %29 = load i32, ptr %5, align 8
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [6 x i32], ptr %23, i64 0, i64 %30
-  store i32 %22, ptr %31, align 4
-  %32 = load i32, ptr %5, align 8
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %5, align 8
+  %27 = load i32, ptr %5, align 8
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [6 x i32], ptr %21, i64 0, i64 %28
+  store i32 %20, ptr %29, align 4
+  %30 = load i32, ptr %5, align 8
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.3.i.i)
   ret void
 }
@@ -139,41 +138,40 @@ define hidden void @_ZN14TimePartitions31report_gc_phase_start_top_levelEPKcRK11
 12:                                               ; preds = %4
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
-  %15 = xor i32 %8, -2147483648
-  %16 = and i32 %15, %13
-  %17 = icmp eq i32 %16, 0
-  %18 = and i1 %14, %17
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
-  %20 = sub nuw nsw i32 32, %19
-  %21 = shl nuw i32 1, %20
-  %.0.i.i.i.i.i = select i1 %18, i32 %13, i32 %21
+  %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
+  %16 = icmp ult i32 %15, 2
+  %or.cond.i.i.i.i.i = select i1 %14, i1 %16, i1 false
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
+  %18 = sub nuw nsw i32 32, %17
+  %19 = shl nuw i32 1, %18
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %13, i32 %19
   tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %7, align 8
   br label %_ZN14TimePartitions21report_gc_phase_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit
 
 _ZN14TimePartitions21report_gc_phase_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit: ; preds = %4, %12
-  %22 = phi i32 [ %.pre.i.i, %12 ], [ %8, %4 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = add nsw i32 %22, 1
-  store i32 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds %class.GCPhase, ptr %26, i64 %27
-  store ptr %1, ptr %28, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 8
+  %20 = phi i32 [ %.pre.i.i, %12 ], [ %8, %4 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = add nsw i32 %20, 1
+  store i32 %22, ptr %7, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %20 to i64
+  %26 = getelementptr inbounds %class.GCPhase, ptr %24, i64 %25
+  store ptr %1, ptr %26, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 8
   store i32 %6, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 12
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.i, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 48
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 48
   store i32 %3, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %29 = load i32, ptr %5, align 8
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [6 x i32], ptr %23, i64 0, i64 %30
-  store i32 %22, ptr %31, align 4
-  %32 = load i32, ptr %5, align 8
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %5, align 8
+  %27 = load i32, ptr %5, align 8
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [6 x i32], ptr %21, i64 0, i64 %28
+  store i32 %20, ptr %29, align 4
+  %30 = load i32, ptr %5, align 8
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.3.i)
   ret void
 }
@@ -332,40 +330,39 @@ define hidden void @_ZN7GCTimer23register_gc_phase_startEPKcRK11TimeInstantI30Co
 20:                                               ; preds = %3
   %21 = add nsw i32 %16, 1
   %22 = icmp sgt i32 %16, -1
-  %23 = xor i32 %16, -2147483648
-  %24 = and i32 %23, %21
-  %25 = icmp eq i32 %24, 0
-  %26 = and i1 %22, %25
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
-  %28 = sub nuw nsw i32 32, %27
-  %29 = shl nuw i32 1, %28
-  %.0.i.i.i.i.i.i = select i1 %26, i32 %21, i32 %29
+  %23 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %21)
+  %24 = icmp ult i32 %23, 2
+  %or.cond.i.i.i.i.i.i = select i1 %22, i1 %24, i1 false
+  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
+  %26 = sub nuw nsw i32 32, %25
+  %27 = shl nuw i32 1, %26
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %21, i32 %27
   tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %12, align 8
   %.pre.i = load ptr, ptr %13, align 8
   br label %_ZN14TimePartitions31report_gc_phase_start_sub_phaseEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
 _ZN14TimePartitions31report_gc_phase_start_sub_phaseEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit: ; preds = %3, %20
-  %30 = phi ptr [ %.pre.i, %20 ], [ %14, %3 ]
-  %31 = phi i32 [ %.pre.i.i.i, %20 ], [ %16, %3 ]
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %12, align 8
-  %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %class.GCPhase, ptr %30, i64 %33
-  store ptr %1, ptr %34, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %34, i64 8
+  %28 = phi ptr [ %.pre.i, %20 ], [ %14, %3 ]
+  %29 = phi i32 [ %.pre.i.i.i, %20 ], [ %16, %3 ]
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %12, align 8
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds %class.GCPhase, ptr %28, i64 %31
+  store ptr %1, ptr %32, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %32, i64 8
   store i32 %7, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %34, i64 12
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %32, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.i.i, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %34, i64 48
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %32, i64 48
   store i32 %.sroa.1.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %35 = load i32, ptr %6, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %36
-  store i32 %31, ptr %37, align 4
-  %38 = load i32, ptr %6, align 8
-  %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %6, align 8
+  %33 = load i32, ptr %6, align 8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %34
+  store i32 %29, ptr %35, align 4
+  %36 = load i32, ptr %6, align 8
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.3.i.i)
   ret void
 }
@@ -400,40 +397,39 @@ define hidden void @_ZN14TimePartitions31report_gc_phase_start_sub_phaseEPKcRK11
 19:                                               ; preds = %3
   %20 = add nsw i32 %15, 1
   %21 = icmp sgt i32 %15, -1
-  %22 = xor i32 %15, -2147483648
-  %23 = and i32 %22, %20
-  %24 = icmp eq i32 %23, 0
-  %25 = and i1 %21, %24
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
-  %27 = sub nuw nsw i32 32, %26
-  %28 = shl nuw i32 1, %27
-  %.0.i.i.i.i.i = select i1 %25, i32 %20, i32 %28
+  %22 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %20)
+  %23 = icmp ult i32 %22, 2
+  %or.cond.i.i.i.i.i = select i1 %21, i1 %23, i1 false
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %25 = sub nuw nsw i32 32, %24
+  %26 = shl nuw i32 1, %25
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %20, i32 %26
   tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %11, align 8
   %.pre = load ptr, ptr %12, align 8
   br label %_ZN14TimePartitions21report_gc_phase_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit
 
 _ZN14TimePartitions21report_gc_phase_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit: ; preds = %3, %19
-  %29 = phi ptr [ %.pre, %19 ], [ %13, %3 ]
-  %30 = phi i32 [ %.pre.i.i, %19 ], [ %15, %3 ]
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %11, align 8
-  %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %class.GCPhase, ptr %29, i64 %32
-  store ptr %1, ptr %33, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 8
+  %27 = phi ptr [ %.pre, %19 ], [ %13, %3 ]
+  %28 = phi i32 [ %.pre.i.i, %19 ], [ %15, %3 ]
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %11, align 8
+  %30 = sext i32 %28 to i64
+  %31 = getelementptr inbounds %class.GCPhase, ptr %27, i64 %30
+  store ptr %1, ptr %31, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %6, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 12
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.i, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 48
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 48
   store i32 %.sroa.1.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %34 = load i32, ptr %5, align 8
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %35
-  store i32 %30, ptr %36, align 4
-  %37 = load i32, ptr %5, align 8
-  %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %5, align 8
+  %32 = load i32, ptr %5, align 8
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %33
+  store i32 %28, ptr %34, align 4
+  %35 = load i32, ptr %5, align 8
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.3.i)
   ret void
 }
@@ -527,41 +523,40 @@ define hidden void @_ZN10STWGCTimer17register_gc_startERK11TimeInstantI30Composi
 13:                                               ; preds = %2
   %14 = add nsw i32 %9, 1
   %15 = icmp sgt i32 %9, -1
-  %16 = xor i32 %9, -2147483648
-  %17 = and i32 %16, %14
-  %18 = icmp eq i32 %17, 0
-  %19 = and i1 %15, %18
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
-  %21 = sub nuw nsw i32 32, %20
-  %22 = shl nuw i32 1, %21
-  %.0.i.i.i.i.i.i.i = select i1 %19, i32 %14, i32 %22
+  %16 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %14)
+  %17 = icmp ult i32 %16, 2
+  %or.cond.i.i.i.i.i.i.i = select i1 %15, i1 %17, i1 false
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %14, i1 true)
+  %19 = sub nuw nsw i32 32, %18
+  %20 = shl nuw i32 1, %19
+  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %14, i32 %20
   tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %.0.i.i.i.i.i.i.i)
   %.pre.i.i.i.i = load i32, ptr %8, align 8
   br label %_ZN7GCTimer23register_gc_pause_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
 _ZN7GCTimer23register_gc_pause_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit: ; preds = %2, %13
-  %23 = phi i32 [ %.pre.i.i.i.i, %13 ], [ %9, %2 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = add nsw i32 %23, 1
-  store i32 %25, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = sext i32 %23 to i64
-  %29 = getelementptr inbounds %class.GCPhase, ptr %27, i64 %28
-  store ptr @.str, ptr %29, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
+  %21 = phi i32 [ %.pre.i.i.i.i, %13 ], [ %9, %2 ]
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = add nsw i32 %21, 1
+  store i32 %23, ptr %8, align 8
+  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = sext i32 %21 to i64
+  %27 = getelementptr inbounds %class.GCPhase, ptr %25, i64 %26
+  store ptr @.str, ptr %27, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %29, i64 12
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.i.i.i, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %29, i64 48
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %27, i64 48
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %30 = load i32, ptr %5, align 8
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [6 x i32], ptr %24, i64 0, i64 %31
-  store i32 %23, ptr %32, align 4
-  %33 = load i32, ptr %5, align 8
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %5, align 8
+  %28 = load i32, ptr %5, align 8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [6 x i32], ptr %22, i64 0, i64 %29
+  store i32 %21, ptr %30, align 4
+  %31 = load i32, ptr %5, align 8
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.3.i.i.i)
   ret void
 }
@@ -651,41 +646,40 @@ define hidden void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11
 12:                                               ; preds = %3
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
-  %15 = xor i32 %8, -2147483648
-  %16 = and i32 %15, %13
-  %17 = icmp eq i32 %16, 0
-  %18 = and i1 %14, %17
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
-  %20 = sub nuw nsw i32 32, %19
-  %21 = shl nuw i32 1, %20
-  %.0.i.i.i.i.i.i = select i1 %18, i32 %13, i32 %21
+  %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
+  %16 = icmp ult i32 %15, 2
+  %or.cond.i.i.i.i.i.i = select i1 %14, i1 %16, i1 false
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
+  %18 = sub nuw nsw i32 32, %17
+  %19 = shl nuw i32 1, %18
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %13, i32 %19
   tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %7, align 8
   br label %_ZN14TimePartitions31report_gc_phase_start_top_levelEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit
 
 _ZN14TimePartitions31report_gc_phase_start_top_levelEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEN7GCPhase9PhaseTypeE.exit: ; preds = %3, %12
-  %22 = phi i32 [ %.pre.i.i.i, %12 ], [ %8, %3 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = add nsw i32 %22, 1
-  store i32 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds %class.GCPhase, ptr %26, i64 %27
-  store ptr %1, ptr %28, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %20 = phi i32 [ %.pre.i.i.i, %12 ], [ %8, %3 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = add nsw i32 %20, 1
+  store i32 %22, ptr %7, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %20 to i64
+  %26 = getelementptr inbounds %class.GCPhase, ptr %24, i64 %25
+  store ptr %1, ptr %26, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 8
   store i32 %6, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 12
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.i.i, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 48
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 48
   store i32 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %29 = load i32, ptr %5, align 8
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [6 x i32], ptr %23, i64 0, i64 %30
-  store i32 %22, ptr %31, align 4
-  %32 = load i32, ptr %5, align 8
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %5, align 8
+  %27 = load i32, ptr %5, align 8
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [6 x i32], ptr %21, i64 0, i64 %28
+  store i32 %20, ptr %29, align 4
+  %30 = load i32, ptr %5, align 8
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.3.i.i)
   ret void
 }
@@ -898,41 +892,40 @@ define hidden void @_ZN14TimePartitions21report_gc_phase_startEPKcRK11TimeInstan
 12:                                               ; preds = %4
   %13 = add nsw i32 %8, 1
   %14 = icmp sgt i32 %8, -1
-  %15 = xor i32 %8, -2147483648
-  %16 = and i32 %15, %13
-  %17 = icmp eq i32 %16, 0
-  %18 = and i1 %14, %17
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
-  %20 = sub nuw nsw i32 32, %19
-  %21 = shl nuw i32 1, %20
-  %.0.i.i.i.i = select i1 %18, i32 %13, i32 %21
+  %15 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %13)
+  %16 = icmp ult i32 %15, 2
+  %or.cond.i.i.i.i = select i1 %14, i1 %16, i1 false
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
+  %18 = sub nuw nsw i32 32, %17
+  %19 = shl nuw i32 1, %18
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %13, i32 %19
   tail call void @_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %7, align 8
   br label %_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE6appendERKS0_.exit
 
 _ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE6appendERKS0_.exit: ; preds = %4, %12
-  %22 = phi i32 [ %.pre.i, %12 ], [ %8, %4 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = add nsw i32 %22, 1
-  store i32 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds %class.GCPhase, ptr %26, i64 %27
-  store ptr %1, ptr %28, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
+  %20 = phi i32 [ %.pre.i, %12 ], [ %8, %4 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = add nsw i32 %20, 1
+  store i32 %22, ptr %7, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %20 to i64
+  %26 = getelementptr inbounds %class.GCPhase, ptr %24, i64 %25
+  store ptr %1, ptr %26, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   store i32 %6, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 48
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 48
   store i32 %3, ptr %.sroa.5.0..sroa_idx, align 8
-  %29 = load i32, ptr %5, align 8
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [6 x i32], ptr %23, i64 0, i64 %30
-  store i32 %22, ptr %31, align 4
-  %32 = load i32, ptr %5, align 8
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %5, align 8
+  %27 = load i32, ptr %5, align 8
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [6 x i32], ptr %21, i64 0, i64 %28
+  store i32 %20, ptr %29, align 4
+  %30 = load i32, ptr %5, align 8
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %5, align 8
   ret void
 }
 
@@ -1226,14 +1219,17 @@ _ZN13GrowableArrayI7GCPhaseE10deallocateEPS0_.exit: ; preds = %41, %38, %.prehea
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #14
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1248,8 +1244,8 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

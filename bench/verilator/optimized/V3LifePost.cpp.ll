@@ -1186,7 +1186,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__det
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 224
-  %22 = icmp eq ptr %21, %20
+  %22 = icmp eq ptr %20, %21
   br i1 %22, label %_ZNSt13unordered_mapIPK11AstVarScope16LifePostLocationSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEED2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -1230,7 +1230,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESa
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %38 = load ptr, ptr %24, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 168
-  %40 = icmp eq ptr %39, %38
+  %40 = icmp eq ptr %38, %39
   br i1 %40, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEED2Ev.exit, label %41
 
 41:                                               ; preds = %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
@@ -1274,7 +1274,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESa
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 112
-  %58 = icmp eq ptr %57, %56
+  %58 = icmp eq ptr %56, %57
   br i1 %58, label %_ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEED2Ev.exit12, label %59
 
 59:                                               ; preds = %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i11
@@ -1404,7 +1404,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__det
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = icmp eq ptr %10, %9
+  %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -1452,7 +1452,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESa
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = icmp eq ptr %16, %15
+  %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %18
 
 18:                                               ; preds = %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i
@@ -1795,7 +1795,7 @@ define linkonce_odr dso_local void @_ZN18LifePostDlyVisitor5visitEP8AstCFunc(ptr
   %13 = and i8 %12, 1
   %14 = getelementptr inbounds i8, ptr %0, i64 248
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %10
@@ -2958,7 +2958,7 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   %65 = extractvalue { ptr, ptr } %62, 0
   %.not.i.i.i = icmp ne ptr %65, null
   %66 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
-  %67 = icmp eq ptr %66, %63
+  %67 = icmp eq ptr %63, %66
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %67
   br i1 %or.cond.i.i.i, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %68
 
@@ -3094,7 +3094,7 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   %133 = extractvalue { ptr, ptr } %130, 0
   %.not.i.i.i20 = icmp ne ptr %133, null
   %134 = getelementptr inbounds i8, ptr %.0.i.pn.i.i16, i64 24
-  %135 = icmp eq ptr %134, %131
+  %135 = icmp eq ptr %131, %134
   %or.cond.i.i.i21 = select i1 %.not.i.i.i20, i1 true, i1 %135
   br i1 %or.cond.i.i.i21, label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i24, label %136
 
@@ -3899,7 +3899,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__det
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge
@@ -4290,13 +4290,13 @@ _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i: ; preds = %163
   %.sroa.010.018.i = phi ptr [ %181, %180 ], [ %170, %169 ]
   %171 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 32
   %172 = load ptr, ptr %171, align 8
-  %173 = icmp eq ptr %172, %.sroa.09.0.copyload
+  %173 = icmp eq ptr %.sroa.09.0.copyload, %172
   br i1 %173, label %174, label %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i
 
 174:                                              ; preds = %.lr.ph.i
   %175 = getelementptr inbounds i8, ptr %.sroa.010.018.i, i64 40
   %176 = load i32, ptr %175, align 8
-  %177 = icmp ugt i32 %176, %.sroa.210.0.copyload
+  %177 = icmp ult i32 %.sroa.210.0.copyload, %176
   br i1 %177, label %180, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
 _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i: ; preds = %.lr.ph.i
@@ -4424,13 +4424,13 @@ _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i67: ; preds = %220
   %.sroa.010.018.i70 = phi ptr [ %238, %237 ], [ %227, %226 ]
   %228 = getelementptr inbounds i8, ptr %.sroa.010.018.i70, i64 32
   %229 = load ptr, ptr %228, align 8
-  %230 = icmp eq ptr %229, %.sroa.01.0.copyload
+  %230 = icmp eq ptr %.sroa.01.0.copyload, %229
   br i1 %230, label %231, label %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i71
 
 231:                                              ; preds = %.lr.ph.i69
   %232 = getelementptr inbounds i8, ptr %.sroa.010.018.i70, i64 40
   %233 = load i32, ptr %232, align 8
-  %234 = icmp ugt i32 %233, %.sroa.22.0.copyload
+  %234 = icmp ult i32 %.sroa.22.0.copyload, %233
   br i1 %234, label %237, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread95
 
 _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit9.i71: ; preds = %.lr.ph.i69
@@ -4842,7 +4842,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESa
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = icmp eq ptr %31, %30
+  %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_St3setI12LifeLocationSt4lessIS6_ESaIS6_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
 33:                                               ; preds = %._crit_edge

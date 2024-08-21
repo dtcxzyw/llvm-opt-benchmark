@@ -1795,7 +1795,7 @@ if.end:                                           ; preds = %entry
   %session_id_length = getelementptr inbounds i8, ptr %s, i64 592
   store i64 %conv, ptr %session_id_length, align 8
   %session_id = getelementptr inbounds i8, ptr %s, i64 600
-  %cmp1.not = icmp eq ptr %session_id, %sid
+  %cmp1.not = icmp eq ptr %sid, %session_id
   br i1 %cmp1.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
@@ -2138,7 +2138,7 @@ if.end:                                           ; preds = %entry
   %sid_ctx_length = getelementptr inbounds i8, ptr %s, i64 632
   store i64 %conv, ptr %sid_ctx_length, align 8
   %sid_ctx1 = getelementptr inbounds i8, ptr %s, i64 640
-  %cmp2.not = icmp eq ptr %sid_ctx1, %sid_ctx
+  %cmp2.not = icmp eq ptr %sid_ctx, %sid_ctx1
   br i1 %cmp2.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end

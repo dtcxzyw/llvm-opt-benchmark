@@ -1957,14 +1957,14 @@ declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #2
 define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %2
+  %7 = icmp eq ptr %2, %6
   br i1 %7, label %200, label %8
 
 8:                                                ; preds = %4
   %9 = ptrtoint ptr %6 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %200, label %13
 
 13:                                               ; preds = %8
@@ -2015,7 +2015,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %18, i64 24
   %46 = load ptr, ptr %45, align 8
-  %.not195 = icmp eq ptr %18, %1
+  %.not195 = icmp eq ptr %1, %18
   br i1 %.not195, label %54, label %47
 
 47:                                               ; preds = %42
@@ -2080,7 +2080,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 84:                                               ; preds = %54
   %85 = getelementptr inbounds i8, ptr %31, i64 16
   %86 = load ptr, ptr %85, align 8
-  %.not196 = icmp eq ptr %31, %2
+  %.not196 = icmp eq ptr %2, %31
   %87 = ptrtoint ptr %86 to i64
   %88 = xor i64 %87, 1
   %89 = inttoptr i64 %88 to ptr
@@ -2422,7 +2422,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %6, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   br i1 %17, label %85, label %18
 
 18:                                               ; preds = %14
@@ -2431,7 +2431,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   %21 = ptrtoint ptr %20 to i64
   %22 = xor i64 %21, 1
   %23 = inttoptr i64 %22 to ptr
-  %24 = icmp eq ptr %23, %0
+  %24 = icmp eq ptr %0, %23
   %spec.select = select i1 %24, i32 %3, i32 0
   br label %85
 
@@ -2577,7 +2577,7 @@ define ptr @Cudd_bddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %22, align 8
-  %28 = icmp eq ptr %27, %7
+  %28 = icmp eq ptr %7, %27
   %29 = select i1 %28, double 0.000000e+00, double 0x41E0000000000000
   br label %separateCube.exit
 
@@ -2688,23 +2688,23 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   %12 = ptrtoint ptr %2 to i64
   %13 = xor i64 %12, 1
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %14
   %16 = uitofp i1 %15 to double
-  %17 = fcmp ogt double %16, %3
+  %17 = fcmp olt double %3, %16
   br i1 %17, label %284, label %18
 
 18:                                               ; preds = %4
   %19 = ptrtoint ptr %9 to i64
   %20 = xor i64 %19, 1
   %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %2
-  %23 = icmp eq ptr %21, %1
+  %22 = icmp eq ptr %2, %21
+  %23 = icmp eq ptr %1, %21
   %or.cond = or i1 %22, %23
   br i1 %or.cond, label %284, label %24
 
 24:                                               ; preds = %18
-  %25 = icmp eq ptr %9, %1
-  %26 = icmp eq ptr %9, %2
+  %25 = icmp eq ptr %1, %9
+  %26 = icmp eq ptr %2, %9
   %or.cond250 = and i1 %25, %26
   br i1 %or.cond250, label %284, label %27
 
@@ -2826,7 +2826,7 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
 
 separateCube.exit.thread:                         ; preds = %91
   %100 = load ptr, ptr %8, align 8
-  %101 = icmp eq ptr %100, %89
+  %101 = icmp eq ptr %89, %100
   %102 = select i1 %101, double 0.000000e+00, double 0x41E0000000000000
   br label %133
 
@@ -3183,7 +3183,7 @@ define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef %1, ptr noc
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   %13 = select i1 %12, double 0.000000e+00, double 0x41E0000000000000
   store double %13, ptr %2, align 8
   br label %44

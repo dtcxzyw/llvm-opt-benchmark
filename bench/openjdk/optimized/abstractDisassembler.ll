@@ -131,7 +131,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler14print_locationEPhS0_S0_P12
   %37 = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
   %38 = trunc i8 %37 to i1
   %.not = xor i1 %38, true
-  %brmerge41 = or i1 %.not, %5
+  %brmerge41 = or i1 %5, %.not
   br i1 %brmerge41, label %.thread30, label %.thread28
 
 .thread29:                                        ; preds = %25
@@ -152,7 +152,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler14print_locationEPhS0_S0_P12
   %.pre34 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
   %.pre37 = trunc i8 %.pre34 to i1
   %46 = xor i1 %.pre37, true
-  %brmerge = or i1 %46, %5
+  %brmerge = or i1 %5, %46
   br i1 %brmerge, label %.thread30, label %.thread28
 
 .thread28:                                        ; preds = %36, %.thread, %45
@@ -192,7 +192,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -2
-  %.not41 = icmp ult ptr %14, %0
+  %.not41 = icmp ugt ptr %0, %14
   br i1 %.not41, label %._crit_edge, label %.preheader39
 
 .preheader39:                                     ; preds = %9, %.preheader39
@@ -579,7 +579,7 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
 
 .preheader:                                       ; preds = %31, %20, %11
   %.027.lcssa = phi ptr [ %0, %11 ], [ %16, %20 ], [ %28, %31 ]
-  %.not29.not35 = icmp sgt i32 %12, %2
+  %.not29.not35 = icmp slt i32 %2, %12
   br i1 %.not29.not35, label %.lr.ph38, label %._crit_edge
 
 .lr.ph38:                                         ; preds = %.preheader

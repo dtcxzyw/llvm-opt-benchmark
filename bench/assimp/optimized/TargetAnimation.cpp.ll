@@ -312,13 +312,11 @@ if.then45:                                        ; preds = %if.else
   %sub.ptr.sub.i62 = sub i64 %sub.ptr.lhs.cast.i60, %sub.ptr.rhs.cast.i61
   %sub.ptr.div.i63 = sdiv exact i64 %sub.ptr.sub.i62, 24
   %cmp49 = icmp eq i64 %sub.ptr.sub.i62, 24
-  br i1 %cmp49, label %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit72, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then45
   %tobool51.not = icmp eq i32 %11, 0
-  br i1 %tobool51.not, label %if.then52, label %if.else57
+  %or.cond = or i1 %tobool51.not, %cmp49
+  br i1 %or.cond, label %if.then52, label %if.else57
 
-if.then52:                                        ; preds = %lor.lhs.false
+if.then52:                                        ; preds = %if.then45
   %cmp.not.i.i69.not = icmp eq ptr %22, %23
   br i1 %cmp.not.i.i69.not, label %if.then.i.i70, label %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit72
 
@@ -326,13 +324,13 @@ if.then.i.i70:                                    ; preds = %if.then52
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef %sub.ptr.div.i63) #14
   unreachable
 
-_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit72:  ; preds = %if.then45, %if.then52
+_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit72:  ; preds = %if.then52
   %mValue55 = getelementptr inbounds i8, ptr %23, i64 8
   %curTargetPosition56 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %curTargetPosition56, ptr noundef nonnull align 8 dereferenceable(12) %mValue55, i64 12, i1 false)
   br label %if.end79
 
-if.else57:                                        ; preds = %lor.lhs.false
+if.else57:                                        ; preds = %if.then45
   %conv60 = zext i32 %11 to i64
   %cmp.not.i.i78 = icmp ugt i64 %sub.ptr.div.i63, %conv60
   br i1 %cmp.not.i.i78, label %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit81, label %if.then.i.i79
@@ -407,13 +405,11 @@ if.else90:                                        ; preds = %if.else
   %sub.ptr.sub.i99 = sub i64 %sub.ptr.lhs.cast.i97, %sub.ptr.rhs.cast.i98
   %sub.ptr.div.i100 = sdiv exact i64 %sub.ptr.sub.i99, 24
   %cmp94 = icmp eq i64 %sub.ptr.sub.i99, 24
-  br i1 %cmp94, label %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit109, label %lor.lhs.false95
-
-lor.lhs.false95:                                  ; preds = %if.else90
   %tobool97.not = icmp eq i32 %5, 0
-  br i1 %tobool97.not, label %if.then98, label %if.else103
+  %or.cond164 = or i1 %tobool97.not, %cmp94
+  br i1 %or.cond164, label %if.then98, label %if.else103
 
-if.then98:                                        ; preds = %lor.lhs.false95
+if.then98:                                        ; preds = %if.else90
   %cmp.not.i.i106.not = icmp eq ptr %34, %35
   br i1 %cmp.not.i.i106.not, label %if.then.i.i107, label %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit109
 
@@ -421,13 +417,13 @@ if.then.i.i107:                                   ; preds = %if.then98
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef %sub.ptr.div.i100) #14
   unreachable
 
-_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit109: ; preds = %if.else90, %if.then98
+_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit109: ; preds = %if.then98
   %mValue101 = getelementptr inbounds i8, ptr %35, i64 8
   %curPosition102 = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %curPosition102, ptr noundef nonnull align 8 dereferenceable(12) %mValue101, i64 12, i1 false)
   br label %if.end129
 
-if.else103:                                       ; preds = %lor.lhs.false95
+if.else103:                                       ; preds = %if.else90
   %conv107 = zext i32 %5 to i64
   %cmp.not.i.i115 = icmp ugt i64 %sub.ptr.div.i100, %conv107
   br i1 %cmp.not.i.i115, label %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit118, label %if.then.i.i116
@@ -561,7 +557,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %real, i8 0, i64 24, i1 false)
   %objectPositions = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %objectPositions, align 8
-  %cmp = icmp eq ptr %0, %distanceTrack
+  %cmp = icmp eq ptr %distanceTrack, %0
   %cond = select i1 %cmp, ptr %real, ptr %distanceTrack
   %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8

@@ -462,7 +462,7 @@ for.body193.i:                                    ; preds = %for.inc242.i, %for.
   %cmp208.i = icmp sgt i64 %sub206.i, %mul207.i
   %cmp210.i = icmp sgt i64 %sub206.i, %best.2362.i
   %or.cond292.i = select i1 %cmp208.i, i1 %cmp210.i, i1 false
-  %cmp212.i = icmp sgt i64 %34, %off1.addr.0.lcssa
+  %cmp212.i = icmp slt i64 %off1.addr.0.lcssa, %34
   %or.cond293.i = and i1 %cmp212.i, %or.cond292.i
   br i1 %or.cond293.i, label %land.lhs.true213.i, label %for.inc242.i
 
@@ -470,7 +470,7 @@ land.lhs.true213.i:                               ; preds = %for.body193.i
   %37 = load i64, ptr %snake_cnt.i, align 8
   %sub215.i = sub nsw i64 %lim1.addr.0.lcssa, %37
   %cmp216.not.i = icmp sgt i64 %34, %sub215.i
-  %cmp218.i = icmp sle i64 %sub202.i, %off2.addr.0.lcssa
+  %cmp218.i = icmp sge i64 %off2.addr.0.lcssa, %sub202.i
   %or.cond294.not299.i = or i1 %cmp218.i, %cmp216.not.i
   %sub221.i = sub nsw i64 %lim2.addr.0.lcssa, %37
   %cmp222.not.i = icmp sgt i64 %sub202.i, %sub221.i
@@ -538,10 +538,10 @@ for.body255.i:                                    ; preds = %for.cond253.prehead
   %45 = load i64, ptr %arrayidx256.i, align 8
   %.lim1.i = tail call i64 @llvm.smin.i64(i64 %45, i64 %lim1.addr.0.lcssa)
   %sub263.i = sub nsw i64 %.lim1.i, %d.4373.i
-  %cmp264.i = icmp sgt i64 %sub263.i, %lim2.addr.0.lcssa
+  %cmp264.i = icmp slt i64 %lim2.addr.0.lcssa, %sub263.i
   %add266.i = add nsw i64 %d.4373.i, %lim2.addr.0.lcssa
   %i1.4.i = select i1 %cmp264.i, i64 %add266.i, i64 %.lim1.i
-  %i2.2.i = tail call i64 @llvm.smin.i64(i64 %sub263.i, i64 %lim2.addr.0.lcssa)
+  %i2.2.i = tail call i64 @llvm.smin.i64(i64 %lim2.addr.0.lcssa, i64 %sub263.i)
   %add268.i = add nsw i64 %i1.4.i, %i2.2.i
   %cmp269.i = icmp slt i64 %fbest.0374.i, %add268.i
   %fbest.1.i = tail call i64 @llvm.smax.i64(i64 %fbest.0374.i, i64 %add268.i)
@@ -556,7 +556,7 @@ for.body278.i:                                    ; preds = %for.cond276.prehead
   %d.5379.i = phi i64 [ %sub297.i, %for.body278.i ], [ %bmax.1.i, %for.cond276.preheader.i ]
   %arrayidx279.i = getelementptr inbounds i64, ptr %kvdb, i64 %d.5379.i
   %46 = load i64, ptr %arrayidx279.i, align 8
-  %off1..i = tail call i64 @llvm.smax.i64(i64 %46, i64 %off1.addr.0.lcssa)
+  %off1..i = tail call i64 @llvm.smax.i64(i64 %off1.addr.0.lcssa, i64 %46)
   %sub286.i = sub nsw i64 %off1..i, %d.5379.i
   %cmp287.i = icmp slt i64 %sub286.i, %off2.addr.0.lcssa
   %add289.i = add nsw i64 %d.5379.i, %off2.addr.0.lcssa
@@ -1460,7 +1460,7 @@ define internal fastcc void @measure_split(ptr nocapture noundef readonly %xdf, 
 entry:
   %nrec = getelementptr inbounds i8, ptr %xdf, i64 56
   %0 = load i64, ptr %nrec, align 8
-  %cmp.not = icmp sgt i64 %0, %split
+  %cmp.not = icmp slt i64 %split, %0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry

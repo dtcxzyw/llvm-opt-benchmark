@@ -231,8 +231,8 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr nocapture noundef readonly byva
   %16 = fmul double %13, %15
   %17 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %16)
   %18 = fadd double %.03342, %17
-  %19 = fneg double %9
-  %20 = fmul double %15, %19
+  %19 = fneg double %15
+  %20 = fmul double %9, %19
   %21 = tail call double @llvm.fmuladd.f64(double %13, double %11, double %20)
   %22 = fadd double %.03740, %21
   br i1 %7, label %6, label %23
@@ -287,8 +287,8 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr nocapture noundef readonly byva
   %13 = fmul double %10, %12
   %14 = tail call double @llvm.fmuladd.f64(double %6, double %8, double %13)
   %15 = fadd double %.03342, %14
-  %16 = fneg double %6
-  %17 = fmul double %12, %16
+  %16 = fneg double %12
+  %17 = fmul double %6, %16
   %18 = tail call double @llvm.fmuladd.f64(double %10, double %8, double %17)
   %19 = fadd double %.03740, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -361,8 +361,8 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr nocapture noundef readonly byva
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %24)
   %26 = fadd double %.03646.us.us, %25
-  %27 = fneg double %17
-  %28 = fmul double %23, %27
+  %27 = fneg double %23
+  %28 = fmul double %17, %27
   %29 = tail call double @llvm.fmuladd.f64(double %21, double %19, double %28)
   %30 = fadd double %.04044.us.us, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -433,8 +433,8 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr nocapture noundef reado
   %17 = fmul double %14, %16
   %18 = tail call double @llvm.fmuladd.f64(double %10, double %12, double %17)
   %19 = fadd double %.15762.us.us, %18
-  %20 = fneg double %14
-  %21 = fmul double %12, %20
+  %20 = fneg double %12
+  %21 = fmul double %14, %20
   %22 = tail call double @llvm.fmuladd.f64(double %10, double %16, double %21)
   %23 = fadd double %.163.us.us, %22
   br i1 %8, label %7, label %6
@@ -504,8 +504,8 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr nocapture noundef reado
   %14 = fmul double %11, %13
   %15 = tail call double @llvm.fmuladd.f64(double %7, double %9, double %14)
   %16 = fadd double %.15762.us.us, %15
-  %17 = fneg double %11
-  %18 = fmul double %9, %17
+  %17 = fneg double %9
+  %18 = fmul double %11, %17
   %19 = tail call double @llvm.fmuladd.f64(double %7, double %13, double %18)
   %20 = fadd double %.163.us.us, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -605,8 +605,8 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr nocapture noundef reado
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %24)
   %26 = fadd double %.16167.us.us.us.us.us, %25
-  %27 = fneg double %21
-  %28 = fmul double %17, %27
+  %27 = fneg double %17
+  %28 = fmul double %21, %27
   %29 = tail call double @llvm.fmuladd.f64(double %15, double %23, double %28)
   %30 = fadd double %.168.us.us.us.us.us, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -855,7 +855,7 @@ QuESTAssert.exit:                                 ; preds = %10, %20
 ; Function Attrs: nounwind uwtable
 define void @validateSubDiagOpTargets(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.SubDiagonalOp) align 8 %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = load i32, ptr %3, align 8
-  %.not = icmp eq i32 %6, %2
+  %.not = icmp eq i32 %2, %6
   br i1 %.not, label %QuESTAssert.exit, label %7
 
 7:                                                ; preds = %5
@@ -866,7 +866,7 @@ QuESTAssert.exit:                                 ; preds = %5, %7
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %8 = icmp slt i32 %2, 1
-  %9 = icmp slt i32 %.sroa.3.0.copyload, %2
+  %9 = icmp sgt i32 %2, %.sroa.3.0.copyload
   %.not3.i.i = select i1 %8, i1 true, i1 %9
   br i1 %.not3.i.i, label %validateNumTargets.exit.i, label %.lr.ph.preheader.i
 
@@ -884,7 +884,7 @@ validateNumTargets.exit.i:                        ; preds = %QuESTAssert.exit
   %11 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 0
-  %14 = icmp sle i32 %.sroa.3.0.copyload, %12
+  %14 = icmp sge i32 %12, %.sroa.3.0.copyload
   %.not3.i11.i = select i1 %13, i1 true, i1 %14
   br i1 %.not3.i11.i, label %15, label %validateTarget.exit.i
 
@@ -927,7 +927,7 @@ define void @validateMultiTargets(ptr nocapture noundef readonly byval(%struct.Q
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %2, 1
-  %6 = icmp slt i32 %.sroa.3.0.copyload, %2
+  %6 = icmp sgt i32 %2, %.sroa.3.0.copyload
   %.not3.i = select i1 %5, i1 true, i1 %6
   br i1 %.not3.i, label %validateNumTargets.exit, label %.lr.ph.preheader
 
@@ -945,7 +945,7 @@ validateNumTargets.exit:                          ; preds = %4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
-  %11 = icmp sle i32 %.sroa.3.0.copyload, %9
+  %11 = icmp sge i32 %9, %.sroa.3.0.copyload
   %.not3.i11 = select i1 %10, i1 true, i1 %11
   br i1 %.not3.i11, label %12, label %validateTarget.exit
 
@@ -994,7 +994,7 @@ define void @validateStateIndex(ptr nocapture noundef readonly byval(%struct.Qur
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
   %8 = icmp slt i64 %1, 0
-  %9 = icmp sle i64 %7, %1
+  %9 = icmp sge i64 %1, %7
   %.not4 = select i1 %8, i1 true, i1 %9
   br i1 %.not4, label %10, label %QuESTAssert.exit
 
@@ -1013,7 +1013,7 @@ define void @validateAmpIndex(ptr nocapture noundef readonly byval(%struct.Qureg
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
   %8 = icmp slt i64 %1, 0
-  %9 = icmp sle i64 %7, %1
+  %9 = icmp sge i64 %1, %7
   %.not4 = select i1 %8, i1 true, i1 %9
   br i1 %.not4, label %10, label %QuESTAssert.exit
 
@@ -1032,7 +1032,7 @@ define void @validateNumAmps(ptr nocapture noundef readonly byval(%struct.Qureg)
   %5 = zext nneg i32 %.sroa.3.0.copyload to i64
   %6 = shl nuw i64 1, %5
   %7 = icmp slt i64 %1, 0
-  %8 = icmp sle i64 %6, %1
+  %8 = icmp sge i64 %1, %6
   %.not4.i = select i1 %7, i1 true, i1 %8
   br i1 %.not4.i, label %9, label %validateAmpIndex.exit
 
@@ -1044,7 +1044,7 @@ validateAmpIndex.exit:                            ; preds = %4, %9
   %10 = icmp slt i64 %2, 0
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %2
+  %13 = icmp sgt i64 %2, %12
   %.not10 = select i1 %10, i1 true, i1 %13
   br i1 %.not10, label %14, label %QuESTAssert.exit
 
@@ -1072,7 +1072,7 @@ define void @validateNumDensityAmps(ptr nocapture noundef readonly byval(%struct
   %6 = zext nneg i32 %.sroa.3.0.copyload to i64
   %7 = shl nuw i64 1, %6
   %8 = icmp slt i64 %1, 0
-  %9 = icmp sle i64 %7, %1
+  %9 = icmp sge i64 %1, %7
   %.not4.i = select i1 %8, i1 true, i1 %9
   br i1 %.not4.i, label %10, label %validateAmpIndex.exit
 
@@ -1082,7 +1082,7 @@ define void @validateNumDensityAmps(ptr nocapture noundef readonly byval(%struct
 
 validateAmpIndex.exit:                            ; preds = %5, %10
   %11 = icmp slt i64 %2, 0
-  %12 = icmp sle i64 %7, %2
+  %12 = icmp sge i64 %2, %7
   %.not4.i11 = select i1 %11, i1 true, i1 %12
   br i1 %.not4.i11, label %13, label %validateAmpIndex.exit12
 
@@ -1094,7 +1094,7 @@ validateAmpIndex.exit12:                          ; preds = %validateAmpIndex.ex
   %14 = icmp slt i64 %3, 0
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = icmp slt i64 %16, %3
+  %17 = icmp sgt i64 %3, %16
   %.not19 = select i1 %14, i1 true, i1 %17
   br i1 %.not19, label %18, label %QuESTAssert.exit
 
@@ -1105,7 +1105,7 @@ validateAmpIndex.exit12:                          ; preds = %validateAmpIndex.ex
 QuESTAssert.exit:                                 ; preds = %validateAmpIndex.exit12, %18
   %19 = shl nuw i32 1, %.sroa.3.0.copyload
   %20 = sext i32 %19 to i64
-  %21 = mul nsw i64 %20, %2
+  %21 = mul nsw i64 %2, %20
   %22 = add i64 %3, %1
   %23 = add i64 %22, %21
   %.not = icmp sgt i64 %23, %16
@@ -1125,7 +1125,7 @@ define void @validateNumElems(ptr nocapture noundef readonly byval(%struct.Diago
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
   %8 = icmp slt i64 %1, 0
-  %9 = icmp sle i64 %7, %1
+  %9 = icmp sge i64 %1, %7
   %.not16 = select i1 %8, i1 true, i1 %9
   br i1 %.not16, label %10, label %QuESTAssert.exit
 
@@ -1135,7 +1135,7 @@ define void @validateNumElems(ptr nocapture noundef readonly byval(%struct.Diago
 
 QuESTAssert.exit:                                 ; preds = %4, %10
   %11 = icmp slt i64 %2, 0
-  %12 = icmp slt i64 %7, %2
+  %12 = icmp sgt i64 %2, %7
   %.not18 = select i1 %11, i1 true, i1 %12
   br i1 %.not18, label %13, label %QuESTAssert.exit12
 
@@ -1161,7 +1161,7 @@ define void @validateTarget(ptr nocapture noundef readonly byval(%struct.Qureg) 
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sle i32 %6, %1
+  %7 = icmp sge i32 %1, %6
   %.not3 = select i1 %4, i1 true, i1 %7
   br i1 %.not3, label %8, label %QuESTAssert.exit
 
@@ -1178,7 +1178,7 @@ define void @validateControl(ptr nocapture noundef readonly byval(%struct.Qureg)
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sle i32 %6, %1
+  %7 = icmp sge i32 %1, %6
   %.not3 = select i1 %4, i1 true, i1 %7
   br i1 %.not3, label %8, label %QuESTAssert.exit
 
@@ -1195,7 +1195,7 @@ define void @validateControlTarget(ptr nocapture noundef readonly byval(%struct.
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %2, 0
-  %6 = icmp sle i32 %.sroa.3.0.copyload, %2
+  %6 = icmp sge i32 %2, %.sroa.3.0.copyload
   %.not3.i = select i1 %5, i1 true, i1 %6
   br i1 %.not3.i, label %7, label %validateTarget.exit
 
@@ -1205,7 +1205,7 @@ define void @validateControlTarget(ptr nocapture noundef readonly byval(%struct.
 
 validateTarget.exit:                              ; preds = %4, %7
   %8 = icmp slt i32 %1, 0
-  %9 = icmp sle i32 %.sroa.3.0.copyload, %1
+  %9 = icmp sge i32 %1, %.sroa.3.0.copyload
   %.not3.i6 = select i1 %8, i1 true, i1 %9
   br i1 %.not3.i6, label %10, label %validateControl.exit
 
@@ -1230,7 +1230,7 @@ define void @validateUniqueTargets(ptr nocapture noundef readonly byval(%struct.
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %1, 0
-  %6 = icmp sle i32 %.sroa.3.0.copyload, %1
+  %6 = icmp sge i32 %1, %.sroa.3.0.copyload
   %.not3.i = select i1 %5, i1 true, i1 %6
   br i1 %.not3.i, label %7, label %validateTarget.exit
 
@@ -1240,7 +1240,7 @@ define void @validateUniqueTargets(ptr nocapture noundef readonly byval(%struct.
 
 validateTarget.exit:                              ; preds = %4, %7
   %8 = icmp slt i32 %2, 0
-  %9 = icmp sle i32 %.sroa.3.0.copyload, %2
+  %9 = icmp sge i32 %2, %.sroa.3.0.copyload
   %.not3.i6 = select i1 %8, i1 true, i1 %9
   br i1 %.not3.i6, label %10, label %validateTarget.exit7
 
@@ -1265,7 +1265,7 @@ define void @validateNumTargets(ptr nocapture noundef readonly byval(%struct.Qur
   %4 = icmp slt i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %6, %1
+  %7 = icmp sgt i32 %1, %6
   %.not3 = select i1 %4, i1 true, i1 %7
   br i1 %.not3, label %8, label %QuESTAssert.exit
 
@@ -1282,7 +1282,7 @@ define void @validateNumControls(ptr nocapture noundef readonly byval(%struct.Qu
   %4 = icmp slt i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sle i32 %6, %1
+  %7 = icmp sge i32 %1, %6
   %.not3 = select i1 %4, i1 true, i1 %7
   br i1 %.not3, label %8, label %QuESTAssert.exit
 
@@ -1299,7 +1299,7 @@ define void @validateMultiControls(ptr nocapture noundef readonly byval(%struct.
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %2, 1
-  %6 = icmp sle i32 %.sroa.3.0.copyload, %2
+  %6 = icmp sge i32 %2, %.sroa.3.0.copyload
   %.not3.i = select i1 %5, i1 true, i1 %6
   br i1 %.not3.i, label %validateNumControls.exit, label %.lr.ph.preheader
 
@@ -1317,7 +1317,7 @@ validateNumControls.exit:                         ; preds = %4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
-  %11 = icmp sle i32 %.sroa.3.0.copyload, %9
+  %11 = icmp sge i32 %9, %.sroa.3.0.copyload
   %.not3.i11 = select i1 %10, i1 true, i1 %11
   br i1 %.not3.i11, label %12, label %validateControl.exit
 
@@ -1364,7 +1364,7 @@ define void @validateMultiQubits(ptr nocapture noundef readonly byval(%struct.Qu
   %5 = icmp slt i32 %2, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = icmp slt i32 %7, %2
+  %8 = icmp sgt i32 %2, %7
   %.not23 = select i1 %5, i1 true, i1 %8
   br i1 %.not23, label %QuESTAssert.exit, label %.lr.ph.preheader
 
@@ -1432,7 +1432,7 @@ define void @validateMultiControlsTarget(ptr nocapture noundef readonly byval(%s
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %6 = icmp slt i32 %3, 0
-  %7 = icmp sle i32 %.sroa.3.0.copyload, %3
+  %7 = icmp sge i32 %3, %.sroa.3.0.copyload
   %.not3.i = select i1 %6, i1 true, i1 %7
   br i1 %.not3.i, label %8, label %validateTarget.exit
 
@@ -1442,7 +1442,7 @@ define void @validateMultiControlsTarget(ptr nocapture noundef readonly byval(%s
 
 validateTarget.exit:                              ; preds = %5, %8
   %9 = icmp slt i32 %2, 1
-  %10 = icmp sle i32 %.sroa.3.0.copyload, %2
+  %10 = icmp sge i32 %2, %.sroa.3.0.copyload
   %.not3.i.i = select i1 %9, i1 true, i1 %10
   br i1 %.not3.i.i, label %validateNumControls.exit.i, label %.lr.ph.preheader.i
 
@@ -1460,7 +1460,7 @@ validateNumControls.exit.i:                       ; preds = %validateTarget.exit
   %12 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = icmp slt i32 %13, 0
-  %15 = icmp sle i32 %.sroa.3.0.copyload, %13
+  %15 = icmp sge i32 %13, %.sroa.3.0.copyload
   %.not3.i11.i = select i1 %14, i1 true, i1 %15
   br i1 %.not3.i11.i, label %16, label %validateControl.exit.i
 
@@ -1527,7 +1527,7 @@ define void @validateMultiControlsMultiTargets(ptr nocapture noundef readonly by
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %7 = icmp slt i32 %2, 1
-  %8 = icmp sle i32 %.sroa.3.0.copyload, %2
+  %8 = icmp sge i32 %2, %.sroa.3.0.copyload
   %.not3.i.i = select i1 %7, i1 true, i1 %8
   br i1 %.not3.i.i, label %validateNumControls.exit.i, label %.lr.ph.preheader.i
 
@@ -1545,7 +1545,7 @@ validateNumControls.exit.i:                       ; preds = %6
   %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %11, 0
-  %13 = icmp sle i32 %.sroa.3.0.copyload, %11
+  %13 = icmp sge i32 %11, %.sroa.3.0.copyload
   %.not3.i11.i = select i1 %12, i1 true, i1 %13
   br i1 %.not3.i11.i, label %14, label %validateControl.exit.i
 
@@ -1581,7 +1581,7 @@ areUniqueQubits.exit.i:                           ; preds = %.lr.ph.i.i
 
 validateMultiControls.exit:                       ; preds = %20, %validateNumControls.exit.i, %areUniqueQubits.exit.i
   %22 = icmp slt i32 %4, 1
-  %23 = icmp slt i32 %.sroa.3.0.copyload, %4
+  %23 = icmp sgt i32 %4, %.sroa.3.0.copyload
   %.not3.i.i15 = select i1 %22, i1 true, i1 %23
   br i1 %.not3.i.i15, label %validateNumTargets.exit.i, label %.lr.ph.preheader.i16
 
@@ -1599,7 +1599,7 @@ validateNumTargets.exit.i:                        ; preds = %validateMultiContro
   %25 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i19
   %26 = load i32, ptr %25, align 4
   %27 = icmp slt i32 %26, 0
-  %28 = icmp sle i32 %.sroa.3.0.copyload, %26
+  %28 = icmp sge i32 %26, %.sroa.3.0.copyload
   %.not3.i11.i20 = select i1 %27, i1 true, i1 %28
   br i1 %.not3.i11.i20, label %29, label %validateTarget.exit.i
 
@@ -1731,8 +1731,8 @@ define void @validateOneQubitUnitaryMatrix(ptr nocapture noundef readonly byval(
   %17 = fmul double %14, %16
   %18 = tail call double @llvm.fmuladd.f64(double %10, double %12, double %17)
   %19 = fadd double %.03342.i, %18
-  %20 = fneg double %10
-  %21 = fmul double %16, %20
+  %20 = fneg double %16
+  %21 = fmul double %10, %20
   %22 = tail call double @llvm.fmuladd.f64(double %14, double %12, double %21)
   %23 = fadd double %.03740.i, %22
   br i1 %8, label %7, label %24
@@ -1800,8 +1800,8 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
   %16 = fmul double %13, %15
   %17 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %16)
   %18 = fadd double %.03342.i, %17
-  %19 = fneg double %9
-  %20 = fmul double %15, %19
+  %19 = fneg double %15
+  %20 = fmul double %9, %19
   %21 = tail call double @llvm.fmuladd.f64(double %13, double %11, double %20)
   %22 = fadd double %.03740.i, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1878,7 +1878,7 @@ validateMatrixInit.exit:                          ; preds = %4, %7
 
 validateMultiQubitMatrixFitsInNode.exit:          ; preds = %validateMatrixInit.exit, %10
   %11 = load i32, ptr %1, align 8
-  %.not = icmp eq i32 %11, %2
+  %.not = icmp eq i32 %2, %11
   br i1 %.not, label %QuESTAssert.exit, label %12
 
 12:                                               ; preds = %validateMultiQubitMatrixFitsInNode.exit
@@ -1918,7 +1918,7 @@ validateMatrixInit.exit.i:                        ; preds = %7, %4
   br label %validateMultiQubitMatrixFitsInNode.exit.i
 
 validateMultiQubitMatrixFitsInNode.exit.i:        ; preds = %10, %validateMatrixInit.exit.i
-  %.not.i = icmp eq i32 %.sroa.04.0.copyload, %2
+  %.not.i = icmp eq i32 %2, %.sroa.04.0.copyload
   br i1 %.not.i, label %validateMultiQubitMatrix.exit, label %11
 
 11:                                               ; preds = %validateMultiQubitMatrixFitsInNode.exit.i
@@ -1965,8 +1965,8 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
   %30 = fmul double %27, %29
   %31 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %30)
   %32 = fadd double %.03646.us.us.i, %31
-  %33 = fneg double %23
-  %34 = fmul double %29, %33
+  %33 = fneg double %29
+  %34 = fmul double %23, %33
   %35 = tail call double @llvm.fmuladd.f64(double %27, double %25, double %34)
   %36 = fadd double %.04044.us.us.i, %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2351,7 +2351,7 @@ validateProb.exit21:                              ; preds = %validateProb.exit19
   %14 = fsub double 1.000000e+00, %0
   %15 = fsub double %14, %1
   %16 = fsub double %15, %2
-  %17 = fcmp ult double %16, %0
+  %17 = fcmp ugt double %0, %16
   br i1 %17, label %18, label %QuESTAssert.exit
 
 18:                                               ; preds = %validateProb.exit21
@@ -2359,7 +2359,7 @@ validateProb.exit21:                              ; preds = %validateProb.exit19
   br label %QuESTAssert.exit
 
 QuESTAssert.exit:                                 ; preds = %validateProb.exit21, %18
-  %19 = fcmp ult double %16, %1
+  %19 = fcmp ugt double %1, %16
   br i1 %19, label %20, label %QuESTAssert.exit23
 
 20:                                               ; preds = %QuESTAssert.exit
@@ -2367,7 +2367,7 @@ QuESTAssert.exit:                                 ; preds = %validateProb.exit21
   br label %QuESTAssert.exit23
 
 QuESTAssert.exit23:                               ; preds = %QuESTAssert.exit, %20
-  %21 = fcmp ult double %16, %2
+  %21 = fcmp ugt double %2, %16
   br i1 %21, label %22, label %QuESTAssert.exit25
 
 22:                                               ; preds = %QuESTAssert.exit23
@@ -2503,8 +2503,8 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %23 = fmul double %20, %22
   %24 = tail call double @llvm.fmuladd.f64(double %16, double %18, double %23)
   %25 = fadd double %.15762.us.us.i, %24
-  %26 = fneg double %20
-  %27 = fmul double %18, %26
+  %26 = fneg double %18
+  %27 = fmul double %20, %26
   %28 = tail call double @llvm.fmuladd.f64(double %16, double %22, double %27)
   %29 = fadd double %.163.us.us.i, %28
   br i1 %14, label %13, label %12
@@ -2620,8 +2620,8 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %20 = fmul double %17, %19
   %21 = tail call double @llvm.fmuladd.f64(double %13, double %15, double %20)
   %22 = fadd double %.15762.us.us.i, %21
-  %23 = fneg double %17
-  %24 = fmul double %15, %23
+  %23 = fneg double %15
+  %24 = fmul double %17, %23
   %25 = tail call double @llvm.fmuladd.f64(double %13, double %19, double %24)
   %26 = fadd double %.163.us.us.i, %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2668,7 +2668,7 @@ define void @validateMultiQubitKrausMapDimensions(ptr nocapture noundef readonly
   %6 = shl nsw i32 %1, 1
   %7 = mul nsw i32 %6, %6
   %8 = icmp slt i32 %3, 1
-  %9 = icmp slt i32 %7, %3
+  %9 = icmp sgt i32 %3, %7
   %.not25 = select i1 %8, i1 true, i1 %9
   br i1 %.not25, label %QuESTAssert.exit, label %.lr.ph.preheader
 
@@ -2734,7 +2734,7 @@ define void @validateMultiQubitKrausMap(ptr nocapture noundef readonly byval(%st
   %6 = shl nsw i32 %1, 1
   %7 = mul nsw i32 %6, %6
   %8 = icmp slt i32 %3, 1
-  %9 = icmp slt i32 %7, %3
+  %9 = icmp sgt i32 %3, %7
   %.not25.i = select i1 %8, i1 true, i1 %9
   br i1 %.not25.i, label %QuESTAssert.exit.i, label %.lr.ph.preheader.i
 
@@ -2846,8 +2846,8 @@ validateMultiQubitKrausMapDimensions.exit:        ; preds = %._crit_edge.i, %19
   %42 = fmul double %39, %41
   %43 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %42)
   %44 = fadd double %.16167.us.us.us.us.us.i, %43
-  %45 = fneg double %39
-  %46 = fmul double %35, %45
+  %45 = fneg double %35
+  %46 = fmul double %39, %45
   %47 = tail call double @llvm.fmuladd.f64(double %33, double %41, double %46)
   %48 = fadd double %.168.us.us.us.us.us.i, %47
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
@@ -3561,7 +3561,7 @@ define void @validatePhaseFuncOverrides(i32 noundef %0, i32 noundef %1, ptr noca
 
 QuESTAssert.exit:                                 ; preds = %5, %7
   %8 = shl nuw i32 1, %0
-  %.not40 = icmp slt i32 %8, %3
+  %.not40 = icmp sgt i32 %3, %8
   br i1 %.not40, label %9, label %QuESTAssert.exit35
 
 9:                                                ; preds = %QuESTAssert.exit
@@ -3854,26 +3854,26 @@ QuESTAssert.exit113:                              ; preds = %10, %11
 QuESTAssert.exit115:                              ; preds = %12, %13
   %cond = icmp ne i32 %0, 4
   %14 = add nsw i32 %1, 2
-  %.not127 = icmp eq i32 %14, %2
+  %.not127 = icmp eq i32 %2, %14
   %or.cond128 = select i1 %cond, i1 true, i1 %.not127
   br i1 %or.cond128, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
 
 15:                                               ; preds = %QuESTAssert.exit113, %QuESTAssert.exit111, %QuESTAssert.exit109, %QuESTAssert.exit107
   %.old = add nsw i32 %1, 2
-  %.not127.old = icmp eq i32 %.old, %2
+  %.not127.old = icmp eq i32 %2, %.old
   br i1 %.not127.old, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
 
 16:                                               ; preds = %QuESTAssert.exit107
   %17 = sdiv i32 %1, 2
   %18 = add nsw i32 %17, 2
-  %.not122 = icmp eq i32 %18, %2
+  %.not122 = icmp eq i32 %2, %18
   br i1 %.not122, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
 
 19:                                               ; preds = %QuESTAssert.exit107
   %20 = sdiv i32 %1, 2
   %21 = shl nsw i32 %20, 1
   %22 = add nsw i32 %21, 2
-  %.not = icmp eq i32 %22, %2
+  %.not = icmp eq i32 %2, %22
   br i1 %.not, label %QuESTAssert.exit117, label %QuESTAssert.exit117.sink.split
 
 QuESTAssert.exit117.sink.split:                   ; preds = %19, %16, %15, %QuESTAssert.exit115

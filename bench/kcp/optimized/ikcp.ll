@@ -863,7 +863,7 @@ if.then5:                                         ; preds = %if.then2
 
 if.then9:                                         ; preds = %if.then5
   %sub = sub nuw i32 %4, %3
-  %cond = tail call i32 @llvm.smin.i32(i32 %sub, i32 %len)
+  %cond = tail call i32 @llvm.smin.i32(i32 %len, i32 %sub)
   %add = add i32 %cond, %3
   %conv.i = sext i32 %add to i64
   %add.i = add nsw i64 %conv.i, 72
@@ -1470,7 +1470,7 @@ for.body.i156:                                    ; preds = %for.cond.i
   %24 = load ptr, ptr %p.0.i, align 8
   %sn7.i = getelementptr inbounds i8, ptr %p.0.i, i64 36
   %25 = load i32, ptr %sn7.i, align 4
-  %cmp8.i = icmp eq i32 %25, %sn.0.copyload
+  %cmp8.i = icmp eq i32 %sn.0.copyload, %25
   br i1 %cmp8.i, label %if.then9.i, label %if.end17.i
 
 if.then9.i:                                       ; preds = %for.body.i156
@@ -1796,7 +1796,7 @@ for.body.i228:                                    ; preds = %if.end.i226, %for.i
   br i1 %cmp9.i, label %if.end148.sink.split, label %if.else.i231
 
 if.else.i231:                                     ; preds = %for.body.i228
-  %cmp12.not.i = icmp eq i32 %69, %maxack.2
+  %cmp12.not.i = icmp eq i32 %maxack.2, %69
   br i1 %cmp12.not.i, label %for.inc.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else.i231

@@ -1025,7 +1025,7 @@ declare void @exprSetInputCollation(ptr noundef, i32 noundef) local_unnamed_addr
 define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = icmp ult i32 %8, %1
+  %9 = icmp ugt i32 %1, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
@@ -1043,7 +1043,7 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
   br label %.sink.split
 
 16:                                               ; preds = %6
-  %17 = icmp eq i32 %8, %1
+  %17 = icmp eq i32 %1, %8
   br i1 %17, label %18, label %41
 
 18:                                               ; preds = %16
@@ -1055,7 +1055,7 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i32, ptr %20, align 8
-  %.not = icmp eq i32 %21, %0
+  %.not = icmp eq i32 %0, %21
   br i1 %.not, label %41, label %22
 
 22:                                               ; preds = %19
@@ -1080,7 +1080,7 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   %30 = load i32, ptr %29, align 8
-  %.not41 = icmp eq i32 %30, %0
+  %.not41 = icmp eq i32 %0, %30
   br i1 %.not41, label %41, label %31
 
 31:                                               ; preds = %28

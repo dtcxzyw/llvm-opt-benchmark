@@ -74,26 +74,26 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   store ptr %8, ptr %33, align 8
   %34 = add nsw i64 %1, -1
   %35 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not = icmp slt i64 %35, %1
+  %.not = icmp sgt i64 %1, %35
   %. = select i1 %.not, i64 %35, i64 %34
   store i64 %., ptr %27, align 8
   %36 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not104 = icmp slt i64 %36, %1
+  %.not104 = icmp sgt i64 %1, %36
   %37 = select i1 %.not104, i64 %36, i64 %34
   %38 = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %37, ptr %38, align 8
   %39 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %.not105 = icmp slt i64 %39, %1
+  %.not105 = icmp sgt i64 %1, %39
   %40 = select i1 %.not105, i64 %39, i64 %34
   %41 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %.not106 = icmp slt i64 %41, %1
+  %.not106 = icmp sgt i64 %1, %41
   %42 = select i1 %.not106, i64 %41, i64 %34
   %43 = getelementptr inbounds i8, ptr %27, i64 16
   store i64 %40, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 %42, ptr %44, align 8
   %45 = add nsw i64 %42, %40
-  %.not107 = icmp slt i64 %45, %1
+  %.not107 = icmp sgt i64 %1, %45
   %46 = select i1 %.not107, i64 %45, i64 %34
   %47 = getelementptr inbounds i8, ptr %27, i64 64
   %48 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %40, i64 noundef %42, i64 noundef %46) #7
@@ -783,7 +783,7 @@ define i32 @IDABBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load i32, ptr %21, align 8
-  %.not = icmp sgt i32 %22, %1
+  %.not = icmp slt i32 %1, %22
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %18
@@ -798,7 +798,7 @@ define i32 @IDABBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   %.sink = phi ptr [ %28, %.lr.ph ], [ %25, %24 ]
   %.032 = load ptr, ptr %.sink, align 8, !nonnull !9, !noundef !9
   %26 = load i32, ptr %.032, align 8
-  %27 = icmp eq i32 %26, %1
+  %27 = icmp eq i32 %1, %26
   %28 = getelementptr inbounds i8, ptr %.032, i64 128
   br i1 %27, label %._crit_edge, label %.lr.ph
 
@@ -964,7 +964,7 @@ define range(i32 -101, 1) i32 @IDABBDPrecReInitB(ptr noundef %0, i32 noundef %1,
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
@@ -979,7 +979,7 @@ define range(i32 -101, 1) i32 @IDABBDPrecReInitB(ptr noundef %0, i32 noundef %1,
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
   %.019 = load ptr, ptr %.sink, align 8, !nonnull !9, !noundef !9
   %21 = load i32, ptr %.019, align 8
-  %22 = icmp eq i32 %21, %1
+  %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds i8, ptr %.019, i64 128
   br i1 %22, label %._crit_edge, label %.lr.ph
 

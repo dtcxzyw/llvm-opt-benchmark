@@ -37,7 +37,7 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
   %7 = icmp eq ptr %0, null
   %8 = icmp slt i32 %1, 4
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %106, label %9
+  br i1 %or.cond, label %105, label %9
 
 9:                                                ; preds = %2
   %10 = shl i32 %5, 3
@@ -49,7 +49,7 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
   %15 = add nsw i64 %14, %reass.add.i
   %16 = tail call ptr @cvAlloc(i64 noundef %15)
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %106, label %.lr.ph.i
+  br i1 %.not.i, label %105, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9
   store i32 %5, ptr %16, align 8
@@ -133,88 +133,87 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
   %60 = fneg float %59
   %61 = fmul float %59, %60
   %62 = tail call float @llvm.fmuladd.f32(float %55, float %56, float %61)
-  %63 = fmul float %58, %60
-  %64 = tail call float @llvm.fmuladd.f32(float %57, float %56, float %63)
-  %65 = fneg float %64
-  %66 = fneg float %55
-  %67 = fmul float %58, %66
+  %63 = fneg float %58
+  %64 = fmul float %59, %63
+  %65 = tail call float @llvm.fmuladd.f32(float %57, float %56, float %64)
+  %66 = fneg float %65
+  %67 = fmul float %55, %63
   %68 = tail call float @llvm.fmuladd.f32(float %59, float %57, float %67)
-  %69 = fneg float %58
-  %70 = fmul float %58, %69
-  %71 = tail call float @llvm.fmuladd.f32(float %54, float %56, float %70)
-  %72 = fneg float %57
-  %73 = fmul float %58, %72
-  %74 = tail call float @llvm.fmuladd.f32(float %54, float %59, float %73)
-  %75 = fneg float %74
-  %76 = fmul float %57, %72
-  %77 = tail call float @llvm.fmuladd.f32(float %54, float %55, float %76)
-  %78 = tail call float @llvm.fmuladd.f32(float %54, float %62, float 0.000000e+00)
-  %79 = tail call float @llvm.fmuladd.f32(float %57, float %65, float %78)
-  %80 = tail call float @llvm.fmuladd.f32(float %58, float %68, float %79)
-  %81 = fdiv float 1.000000e+00, %80
-  br label %82
+  %69 = fmul float %58, %63
+  %70 = tail call float @llvm.fmuladd.f32(float %54, float %56, float %69)
+  %71 = fmul float %57, %63
+  %72 = tail call float @llvm.fmuladd.f32(float %54, float %59, float %71)
+  %73 = fneg float %72
+  %74 = fneg float %57
+  %75 = fmul float %57, %74
+  %76 = tail call float @llvm.fmuladd.f32(float %54, float %55, float %75)
+  %77 = tail call float @llvm.fmuladd.f32(float %54, float %62, float 0.000000e+00)
+  %78 = tail call float @llvm.fmuladd.f32(float %57, float %66, float %77)
+  %79 = tail call float @llvm.fmuladd.f32(float %58, float %68, float %78)
+  %80 = fdiv float 1.000000e+00, %79
+  br label %81
 
-82:                                               ; preds = %82, %._crit_edge.i.i
-  %indvars.iv133.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next134.i.i, %82 ]
-  %83 = getelementptr inbounds float, ptr %.pre.i, i64 %indvars.iv133.i.i
-  %84 = load float, ptr %83, align 4
-  %85 = add nuw nsw i64 %indvars.iv133.i.i, %25
-  %86 = getelementptr inbounds float, ptr %.pre.i, i64 %85
-  %87 = load float, ptr %86, align 4
-  %88 = add nuw nsw i64 %indvars.iv133.i.i, %48
-  %89 = getelementptr inbounds float, ptr %.pre.i, i64 %88
-  %90 = load float, ptr %89, align 4
-  %91 = fmul float %87, %65
-  %92 = tail call float @llvm.fmuladd.f32(float %62, float %84, float %91)
-  %93 = tail call float @llvm.fmuladd.f32(float %68, float %90, float %92)
-  %94 = fmul float %81, %93
-  %95 = getelementptr inbounds float, ptr %.pre63.i, i64 %indvars.iv133.i.i
-  store float %94, ptr %95, align 4
-  %96 = fmul float %71, %87
-  %97 = tail call float @llvm.fmuladd.f32(float %65, float %84, float %96)
-  %98 = tail call float @llvm.fmuladd.f32(float %75, float %90, float %97)
-  %99 = fmul float %81, %98
-  %100 = getelementptr inbounds float, ptr %.pre63.i, i64 %85
-  store float %99, ptr %100, align 4
-  %101 = fmul float %87, %75
-  %102 = tail call float @llvm.fmuladd.f32(float %68, float %84, float %101)
-  %103 = tail call float @llvm.fmuladd.f32(float %77, float %90, float %102)
-  %104 = fmul float %81, %103
-  %105 = getelementptr inbounds float, ptr %.pre63.i, i64 %88
-  store float %104, ptr %105, align 4
+81:                                               ; preds = %81, %._crit_edge.i.i
+  %indvars.iv133.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next134.i.i, %81 ]
+  %82 = getelementptr inbounds float, ptr %.pre.i, i64 %indvars.iv133.i.i
+  %83 = load float, ptr %82, align 4
+  %84 = add nuw nsw i64 %indvars.iv133.i.i, %25
+  %85 = getelementptr inbounds float, ptr %.pre.i, i64 %84
+  %86 = load float, ptr %85, align 4
+  %87 = add nuw nsw i64 %indvars.iv133.i.i, %48
+  %88 = getelementptr inbounds float, ptr %.pre.i, i64 %87
+  %89 = load float, ptr %88, align 4
+  %90 = fmul float %86, %66
+  %91 = tail call float @llvm.fmuladd.f32(float %62, float %83, float %90)
+  %92 = tail call float @llvm.fmuladd.f32(float %68, float %89, float %91)
+  %93 = fmul float %80, %92
+  %94 = getelementptr inbounds float, ptr %.pre63.i, i64 %indvars.iv133.i.i
+  store float %93, ptr %94, align 4
+  %95 = fmul float %70, %86
+  %96 = tail call float @llvm.fmuladd.f32(float %66, float %83, float %95)
+  %97 = tail call float @llvm.fmuladd.f32(float %73, float %89, float %96)
+  %98 = fmul float %80, %97
+  %99 = getelementptr inbounds float, ptr %.pre63.i, i64 %84
+  store float %98, ptr %99, align 4
+  %100 = fmul float %86, %73
+  %101 = tail call float @llvm.fmuladd.f32(float %68, float %83, float %100)
+  %102 = tail call float @llvm.fmuladd.f32(float %76, float %89, float %101)
+  %103 = fmul float %80, %102
+  %104 = getelementptr inbounds float, ptr %.pre63.i, i64 %87
+  store float %103, ptr %104, align 4
   %indvars.iv.next134.i.i = add nuw nsw i64 %indvars.iv133.i.i, 1
   %exitcond137.not.i.i = icmp eq i64 %indvars.iv.next134.i.i, %25
-  br i1 %exitcond137.not.i.i, label %_ZL20icvCreatePOSITObjectP12CvPoint3D32fiPP13CvPOSITObject.exit, label %82, !llvm.loop !7
+  br i1 %exitcond137.not.i.i, label %_ZL20icvCreatePOSITObjectP12CvPoint3D32fiPP13CvPOSITObject.exit, label %81, !llvm.loop !7
 
-106:                                              ; preds = %2, %9
+105:                                              ; preds = %2, %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %107 unwind label %109
+          to label %106 unwind label %108
+
+106:                                              ; preds = %105
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__.cvCreatePOSITObject, ptr noundef nonnull @.str.1, i32 noundef 340) #9
+          to label %107 unwind label %110
 
 107:                                              ; preds = %106
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__.cvCreatePOSITObject, ptr noundef nonnull @.str.1, i32 noundef 340) #9
-          to label %108 unwind label %111
-
-108:                                              ; preds = %107
   unreachable
 
-109:                                              ; preds = %106
-  %110 = landingpad { ptr, i32 }
+108:                                              ; preds = %105
+  %109 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %112
 
-111:                                              ; preds = %107
-  %112 = landingpad { ptr, i32 }
+110:                                              ; preds = %106
+  %111 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  br label %113
+  br label %112
 
-113:                                              ; preds = %111, %109
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ]
+112:                                              ; preds = %110, %108
+  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
   resume { ptr, i32 } %.pn
 
-_ZL20icvCreatePOSITObjectP12CvPoint3D32fiPP13CvPOSITObject.exit: ; preds = %82
+_ZL20icvCreatePOSITObjectP12CvPoint3D32fiPP13CvPOSITObject.exit: ; preds = %81
   ret ptr %16
 }
 
@@ -466,16 +465,16 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   store float %127, ptr %45, align 4
   %128 = fmul float %103, %120
   store float %128, ptr %46, align 4
-  %129 = fneg float %125
-  %130 = fmul float %127, %129
+  %129 = fneg float %127
+  %130 = fmul float %125, %129
   %131 = tail call float @llvm.fmuladd.f32(float %124, float %128, float %130)
   store float %131, ptr %37, align 4
-  %132 = fneg float %123
-  %133 = fmul float %128, %132
+  %132 = fneg float %128
+  %133 = fmul float %123, %132
   %134 = tail call float @llvm.fmuladd.f32(float %125, float %126, float %133)
   store float %134, ptr %38, align 4
-  %135 = fneg float %124
-  %136 = fmul float %126, %135
+  %135 = fneg float %126
+  %136 = fmul float %124, %135
   %137 = tail call float @llvm.fmuladd.f32(float %123, float %127, float %136)
   store float %137, ptr %40, align 4
   %138 = fadd float %122, %121
@@ -483,7 +482,7 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   %140 = fmul float %28, %139
   %141 = add nuw nsw i32 %.0180220.i, 1
   %142 = fpext float %.1185255.i to double
-  %143 = fcmp olt double %142, %4
+  %143 = fcmp ogt double %4, %142
   %or.cond200.i = select i1 %21, i1 %143, i1 false
   %144 = icmp eq i32 %141, %.sroa.7.0.extract.trunc.i
   %145 = select i1 %25, i1 %144, i1 false

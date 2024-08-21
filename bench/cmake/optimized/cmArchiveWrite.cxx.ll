@@ -1407,7 +1407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %36 unwind label %46
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %brmerge.demorgan = and i1 %35, %4
+  %brmerge.demorgan = and i1 %4, %35
   br i1 %brmerge.demorgan, label %37, label %.critedge66
 
 37:                                               ; preds = %36
@@ -1715,7 +1715,7 @@ define dso_local noundef zeroext i1 @_ZN14cmArchiveWrite7AddFileEPKcmS1_(ptr nou
   %25 = getelementptr inbounds i8, ptr %0, i64 64
   %26 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.29)
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
-  %.not = icmp ugt i64 %27, %2
+  %.not = icmp ult i64 %2, %27
   br i1 %.not, label %28, label %246
 
 28:                                               ; preds = %4

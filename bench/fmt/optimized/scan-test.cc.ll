@@ -4895,7 +4895,7 @@ if.then2:                                         ; preds = %if.end
   store i32 %inc.i, ptr %next_arg_id_.i, align 8
   %args_.i.i = getelementptr inbounds i8, ptr %handler, i64 24
   %2 = load i32, ptr %args_.i.i, align 8
-  %cmp.not.i.i = icmp sgt i32 %2, %1
+  %cmp.not.i.i = icmp slt i32 %1, %2
   br i1 %cmp.not.i.i, label %_ZN3fmt3v106detail12scan_handler9on_arg_idEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
@@ -4960,7 +4960,7 @@ if.end.i:                                         ; preds = %if.else6
   store i32 %inc.i.i, ptr %next_arg_id_.i.i, align 8
   %args_.i.i.i = getelementptr inbounds i8, ptr %handler, i64 24
   %12 = load i32, ptr %args_.i.i.i, align 8
-  %cmp.not.i.i.i = icmp sgt i32 %12, %11
+  %cmp.not.i.i.i = icmp slt i32 %11, %12
   br i1 %cmp.not.i.i.i, label %_ZZN3fmt3v106detail23parse_replacement_fieldIcRNS1_12scan_handlerEEEPKT_S7_S7_OT0_EN10id_adapter7on_autoEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -5667,7 +5667,7 @@ if.else13:                                        ; preds = %lor.lhs.false, %lor
   %9 = load ptr, ptr %handler, align 8
   %args_.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load i32, ptr %args_.i.i, align 8
-  %cmp.not.i.i = icmp sgt i32 %10, %index.0
+  %cmp.not.i.i = icmp slt i32 %index.0, %10
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else13

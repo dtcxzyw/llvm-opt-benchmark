@@ -2068,7 +2068,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
   %notmask = shl nsw i32 -1, %23
   %30 = xor i32 %notmask, -1
   %31 = zext nneg i32 %30 to i64
-  %32 = and i64 %31, %3
+  %32 = and i64 %3, %31
   %.not = icmp eq i64 %32, 0
   %33 = getelementptr inbounds i8, ptr %0, i64 376
   %34 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2260,7 +2260,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   %notmask = shl nsw i32 -1, %24
   %38 = xor i32 %notmask, -1
   %39 = zext nneg i32 %38 to i64
-  %40 = and i64 %39, %3
+  %40 = and i64 %3, %39
   %.not = icmp eq i64 %40, 0
   %41 = getelementptr inbounds i8, ptr %0, i64 592
   %42 = getelementptr inbounds i8, ptr %0, i64 392

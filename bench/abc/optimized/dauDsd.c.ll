@@ -1168,7 +1168,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 
 6:                                                ; preds = %tailrecurse
   %7 = load i64, ptr @s_Truths6, align 16
-  %8 = icmp ne i64 %7, %0
+  %8 = icmp ne i64 %0, %7
   %9 = load i64, ptr %1, align 8
   %10 = sext i1 %8 to i64
   %spec.select = xor i64 %9, %10
@@ -2618,7 +2618,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %30
   %32 = load i64, ptr %31, align 8
-  %33 = icmp eq i64 %32, %0
+  %33 = icmp eq i64 %0, %32
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %28
@@ -3055,7 +3055,7 @@ define internal fastcc i32 @Dau_DsdPerformReplace(ptr nocapture noundef %0, i32 
   %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv43
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
-  %.not = icmp eq i32 %10, %3
+  %.not = icmp eq i32 %3, %10
   br i1 %.not, label %.preheader, label %12
 
 .preheader:                                       ; preds = %.lr.ph37
@@ -3092,7 +3092,7 @@ define internal fastcc i32 @Dau_DsdPerformReplace(ptr nocapture noundef %0, i32 
   %19 = trunc i64 %18 to i32
   %20 = sub i32 %19, ptrtoint (ptr @Dau_DsdPerformReplace.pTemp to i32)
   %21 = add i32 %20, %1
-  %22 = icmp sgt i32 %21, %1
+  %22 = icmp slt i32 %1, %21
   br i1 %22, label %.lr.ph41.preheader, label %._crit_edge42
 
 .lr.ph41.preheader:                               ; preds = %._crit_edge

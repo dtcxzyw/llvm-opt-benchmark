@@ -280,7 +280,7 @@ if.then9:                                         ; preds = %if.then6
 lor.lhs.false:                                    ; preds = %if.then9
   %data = getelementptr inbounds i8, ptr %call7, i64 16
   %8 = load i32, ptr %data, align 8
-  %cmp16 = icmp eq i32 %8, %type
+  %cmp16 = icmp eq i32 %type, %8
   br i1 %cmp16, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.then9
@@ -837,12 +837,12 @@ sw.bb4.i.i:                                       ; preds = %if.then
   %conv.i30.i.i = zext nneg i32 %div14.i.i.i to i64
   %call.i31.i.i = tail call i64 @fread(ptr noundef nonnull %data5.i.i, i64 noundef 1, i64 noundef %conv.i30.i.i, ptr noundef %3) #28
   %cmp.not.i32.i.i = icmp ne i64 %call.i31.i.i, %conv.i30.i.i
-  %cmp3.i.i.i = icmp ugt i32 %div14.i.i.i, %2
+  %cmp3.i.i.i = icmp ult i32 %2, %div14.i.i.i
   %or.cond.i.i.i = or i1 %cmp3.i.i.i, %cmp.not.i32.i.i
   br i1 %or.cond.i.i.i, label %read_metadata_block_data_.exit.thread, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %sw.bb4.i.i
-  %cmp7.i.i.i = icmp eq i32 %div14.i.i.i, %2
+  %cmp7.i.i.i = icmp eq i32 %2, %div14.i.i.i
   br i1 %cmp7.i.i.i, label %if.then9.i.i.i, label %if.else.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end6.i.i.i
@@ -984,7 +984,7 @@ sw.bb12.i.i:                                      ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i30.i)
   %31 = load i32, ptr @FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN, align 4
   %div22.i31.i = lshr i32 %31, 3
-  %cmp.i32.i = icmp ugt i32 %div22.i31.i, %2
+  %cmp.i32.i = icmp ult i32 %2, %div22.i31.i
   br i1 %cmp.i32.i, label %read_metadata_block_data_vorbis_comment_entry_cb_.exit78.thread85.i, label %if.end.i33.i
 
 if.end.i33.i:                                     ; preds = %sw.bb12.i.i
@@ -1165,7 +1165,7 @@ for.body.i70.i.i:                                 ; preds = %if.end63.i.i.i, %fo
   %block_length.addr.259.i.i.i = phi i32 [ %sub66.i.i.i, %if.end63.i.i.i ], [ %sub12.i.i.i, %for.body.i70.i.preheader.i ]
   %add.ptr.i72.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %40, i64 %indvars.iv.i71.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i11.i)
-  %cmp.i.i = icmp ugt i32 %div22.i31.i, %block_length.addr.259.i.i.i
+  %cmp.i.i = icmp ult i32 %block_length.addr.259.i.i.i, %div22.i31.i
   br i1 %cmp.i.i, label %if.then56.i.i.i, label %if.end.i12.i
 
 if.end.i12.i:                                     ; preds = %for.body.i70.i.i
@@ -6584,7 +6584,7 @@ if.then49:                                        ; preds = %if.then40
 
 if.then57:                                        ; preds = %if.then49
   %27 = load ptr, ptr %node.0.in4.i, align 8
-  %cmp.i.i = icmp eq ptr %27, %23
+  %cmp.i.i = icmp eq ptr %23, %27
   %next.i.i = getelementptr inbounds i8, ptr %23, i64 16
   %28 = load ptr, ptr %next.i.i, align 8
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -6599,7 +6599,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %next3.sink.i.i = phi ptr [ %next3.i.i, %if.else.i.i ], [ %node.0.in4.i, %if.then57 ]
   store ptr %28, ptr %next3.sink.i.i, align 8
   %30 = load ptr, ptr %tail, align 8
-  %cmp4.i.i = icmp eq ptr %30, %23
+  %cmp4.i.i = icmp eq ptr %23, %30
   %prev6.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load ptr, ptr %prev6.i.i, align 8
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else8.i.i
@@ -7214,7 +7214,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   store i32 %add11.i, ptr %length10.i, align 8
   %8 = load ptr, ptr %next.i, align 8
   %9 = load ptr, ptr %head, align 8
-  %cmp.i.i.i = icmp eq ptr %9, %8
+  %cmp.i.i.i = icmp eq ptr %8, %9
   %next.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %next.i.i.i, align 8
   br i1 %cmp.i.i.i, label %if.end.i.i.i, label %if.else.i.i.i
@@ -7229,7 +7229,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %next3.sink.i.i.i = phi ptr [ %next3.i.i.i, %if.else.i.i.i ], [ %head, %if.then.i ]
   store ptr %10, ptr %next3.sink.i.i.i, align 8
   %12 = load ptr, ptr %tail.i.i.i, align 8
-  %cmp4.i.i.i = icmp eq ptr %12, %8
+  %cmp4.i.i.i = icmp eq ptr %8, %12
   %prev6.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load ptr, ptr %prev6.i.i.i, align 8
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else8.i.i.i
@@ -7307,7 +7307,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %head, align 8
-  %cmp.i = icmp eq ptr %6, %node.020
+  %cmp.i = icmp eq ptr %node.020, %6
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
@@ -7320,7 +7320,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %next3.sink.i = phi ptr [ %next3.i, %if.else.i ], [ %head, %if.then ]
   store ptr %5, ptr %next3.sink.i, align 8
   %8 = load ptr, ptr %tail.i, align 8
-  %cmp4.i = icmp eq ptr %8, %node.020
+  %cmp4.i = icmp eq ptr %node.020, %8
   %prev6.i = getelementptr inbounds i8, ptr %node.020, i64 8
   %9 = load ptr, ptr %prev6.i, align 8
   br i1 %cmp4.i, label %if.then5.i, label %if.else8.i
@@ -7503,7 +7503,7 @@ if.end.i:                                         ; preds = %entry
   %2 = load ptr, ptr %iterator, align 8
   %head.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %head.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %3, %0
+  %cmp.i.i.i = icmp eq ptr %0, %3
   %next.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %next.i.i.i, align 8
   %next3.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -7511,7 +7511,7 @@ if.end.i:                                         ; preds = %entry
   store ptr %4, ptr %spec.select.i, align 8
   %tail.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %tail.i.i.i, align 8
-  %cmp4.i.i.i = icmp eq ptr %5, %0
+  %cmp4.i.i.i = icmp eq ptr %0, %5
   %6 = load ptr, ptr %prev.i, align 8
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else8.i.i.i
 
@@ -7634,7 +7634,7 @@ if.else:                                          ; preds = %if.end
   %5 = load ptr, ptr %iterator, align 8
   %head.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %head.i.i, align 8
-  %cmp.i.i = icmp eq ptr %6, %0
+  %cmp.i.i = icmp eq ptr %0, %6
   %next.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %next.i.i, align 8
   %next3.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -7642,7 +7642,7 @@ if.else:                                          ; preds = %if.end
   store ptr %7, ptr %spec.select, align 8
   %tail.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %tail.i.i, align 8
-  %cmp4.i.i = icmp eq ptr %8, %0
+  %cmp4.i.i = icmp eq ptr %0, %8
   %9 = load ptr, ptr %prev, align 8
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else8.i.i
 
@@ -8457,12 +8457,12 @@ sw.bb4.i:                                         ; preds = %if.end22
   %58 = load i32, ptr %length6.i, align 8
   %call.i31.i = call i64 %read_cb(ptr noundef nonnull %data5.i, i64 noundef 1, i64 noundef %conv.i30.i, ptr noundef %handle) #28
   %cmp.not.i32.i = icmp ne i64 %call.i31.i, %conv.i30.i
-  %cmp3.i.i = icmp ugt i32 %div14.i.i, %58
+  %cmp3.i.i = icmp ult i32 %58, %div14.i.i
   %or.cond.i.i = or i1 %cmp3.i.i, %cmp.not.i32.i
   br i1 %or.cond.i.i, label %if.then33, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %sw.bb4.i
-  %cmp7.i.i = icmp eq i32 %div14.i.i, %58
+  %cmp7.i.i = icmp eq i32 %58, %div14.i.i
   br i1 %cmp7.i.i, label %if.then9.i.i, label %if.else.i.i
 
 if.then9.i.i:                                     ; preds = %if.end6.i.i
@@ -9513,7 +9513,7 @@ entry:
   %buffer = alloca [4 x i8], align 1
   %0 = load i32, ptr @FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN, align 4
   %div22 = lshr i32 %0, 3
-  %cmp = icmp ugt i32 %div22, %max_length
+  %cmp = icmp ult i32 %max_length, %div22
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

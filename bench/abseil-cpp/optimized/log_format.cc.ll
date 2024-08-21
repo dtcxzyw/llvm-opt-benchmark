@@ -368,7 +368,7 @@ _ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4T
   %28 = phi i64 [ %.pre, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit_crit_edge ], [ %sub.i37.sink.i, %return.sink.split.i ]
   %retval.0.i = phi i64 [ 0, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit_crit_edge ], [ %retval.0.ph.i, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ci.i)
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %28, i64 %basename.coerce0)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %basename.coerce0, i64 %28)
   %29 = load ptr, ptr %buf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %basename.coerce1, i64 %spec.select.i, i1 false)
   %30 = load ptr, ptr %buf, align 8

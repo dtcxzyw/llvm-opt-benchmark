@@ -4705,7 +4705,7 @@ thread-pre-split:                                 ; preds = %15, %12
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %49, align 4
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !25
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %29

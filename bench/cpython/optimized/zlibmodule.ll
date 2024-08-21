@@ -5075,7 +5075,7 @@ if.else.i.i.i.i:                                  ; preds = %do.body6.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %ob_sval.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp3.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, %obuflen.2.i.i.i
+  %cmp3.i.i.i.i = icmp eq i64 %obuflen.2.i.i.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp3.i.i.i.i, label %if.then4.i.i.i.i, label %arrange_output_buffer_with_maximum.exit.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
@@ -5083,7 +5083,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   br i1 %cmp5.i.i.i.i, label %do.cond26.i.i.i, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.then4.i.i.i.i
-  %cmp8.not.i.i.i.i = icmp slt i64 %shr.i.i.i.i, %obuflen.2.i.i.i
+  %cmp8.not.i.i.i.i = icmp sgt i64 %obuflen.2.i.i.i, %shr.i.i.i.i
   %shl.i.i.i.i = shl i64 %obuflen.2.i.i.i, 1
   %new_length.0.i.i.i.i = select i1 %cmp8.not.i.i.i.i, i64 %hard_limit.0.i.i.i, i64 %shl.i.i.i.i
   %call12.i.i.i.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %return_value.i.i.i, i64 noundef %new_length.0.i.i.i.i) #6
