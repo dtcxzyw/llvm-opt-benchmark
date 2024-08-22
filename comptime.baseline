@@ -12854,7 +12854,7 @@ linux/api.ll 213196339
 linux/apic.ll 393782729
 linux/apic_common.ll 52745123
 linux/apic_flat_64.ll 66370936
-linux/apic_noop.ll 53443469
+linux/apic_noop.ll 53497097
 linux/apple.ll 82323341
 linux/arc4.ll 57636923
 linux/arp.ll 308595951
@@ -16400,7 +16400,7 @@ mold/gdb-index.cc.LOONGARCH64.cc.ll 7879458460
 mold/gdb-index.cc.M68K.cc.ll 7948427973
 mold/gdb-index.cc.PPC32.cc.ll 7947005193
 mold/gdb-index.cc.PPC64V1.cc.ll 7941745709
-mold/gdb-index.cc.PPC64V2.cc.ll 7875895349
+mold/gdb-index.cc.PPC64V2.cc.ll 7883772797
 mold/gdb-index.cc.RV32BE.cc.ll 7949482360
 mold/gdb-index.cc.RV32LE.cc.ll 7897130438
 mold/gdb-index.cc.RV64BE.cc.ll 7938104112
@@ -24671,7 +24671,7 @@ openssl/libcrypto-lib-m_sigver.ll 229657995
 openssl/libcrypto-lib-mac_lib.ll 118320162
 openssl/libcrypto-lib-md4_dgst.ll 372492931
 openssl/libcrypto-lib-md4_one.ll 36792595
-openssl/libcrypto-lib-md5_dgst.ll 66580903
+openssl/libcrypto-lib-md5_dgst.ll 66647524
 openssl/libcrypto-lib-md5_one.ll 36793137
 openssl/libcrypto-lib-md5_sha1.ll 53440501
 openssl/libcrypto-lib-mdc2_one.ll 36808409
@@ -36124,7 +36124,7 @@ wireshark/packet-zbee-zcl-closures.c.ll 77886226
 wireshark/packet-zbee-zcl-general.c.ll 1401734354
 wireshark/packet-zbee-zcl-ha.c.ll 132216597
 wireshark/packet-zbee-zcl-hvac.c.ll 76827023
-wireshark/packet-zbee-zcl-lighting.c.ll 173279397
+wireshark/packet-zbee-zcl-lighting.c.ll 173452710
 wireshark/packet-zbee-zcl-meas-sensing.c.ll 199927907
 wireshark/packet-zbee-zcl-misc.c.ll 108005175
 wireshark/packet-zbee-zcl-sas.c.ll 90839478
