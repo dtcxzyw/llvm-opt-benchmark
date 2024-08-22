@@ -12072,7 +12072,7 @@ libquic/string_number_conversions.cc.ll 1102738820
 libquic/string_piece.cc.ll 1052878385
 libquic/string_split.cc.ll 973190032
 libquic/string_util.cc.ll 1077457871
-libquic/stringprintf.cc.ll 123073660
+libquic/stringprintf.cc.ll 122950394
 libquic/superfasthash.c.ll 61350380
 libquic/symmetric_key.cc.ll 111098415
 libquic/sys_info_linux.cc.ll 73696421
