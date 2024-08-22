@@ -15280,7 +15280,7 @@ luau/TypeInfer.anyerror.test.cpp.ll 2857051397
 luau/TypeInfer.builtins.test.cpp.ll 9297832469
 luau/TypeInfer.cfa.test.cpp.ll 4647351160
 luau/TypeInfer.classes.test.cpp.ll 4840650642
-luau/TypeInfer.cpp.ll 21257603471
+luau/TypeInfer.cpp.ll 21278877524
 luau/TypeInfer.definitions.test.cpp.ll 4090829591
 luau/TypeInfer.functions.test.cpp.ll 12997538914
 luau/TypeInfer.generics.test.cpp.ll 7452195691
@@ -16657,7 +16657,7 @@ msdfgen/Shape.cpp.ll 784943265
 msdfgen/contour-combiners.cpp.ll 833316044
 msdfgen/edge-coloring.cpp.ll 1688096141
 msdfgen/edge-segments.cpp.ll 564325187
-msdfgen/edge-selectors.cpp.ll 263455932
+msdfgen/edge-selectors.cpp.ll 263192419
 msdfgen/equation-solver.cpp.ll 60235074
 msdfgen/import-font.cpp.ll 352108676
 msdfgen/import-svg.cpp.ll 764318915
