@@ -71589,7 +71589,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr %t, align 8, !noalias !2980
   call void @llvm.prefetch.p0(ptr readonly %this.val7.i.i.i.i.i.i.i, i32 0, i32 1, i32 1), !noalias !2980
-  %add.i.i.i.i.i.i.i.i.i.i = add i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
+  %add.i.i.i.i.i.i.i.i.i.i = add nuw i64 %indvars.iv, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i.i.i.i.i.i = zext i64 %add.i.i.i.i.i.i.i.i.i.i to i128
   %mul.i.i.i.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i.i.i.i, 11376068507788127593
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i, 64
