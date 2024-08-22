@@ -1834,12 +1834,12 @@ ratio.exit:                                       ; preds = %701, %706
   %.0..0..0..0.138 = load volatile double, ptr %9, align 8
   %793 = fsub double %.0..0..0..0.138, %792
   store volatile double %793, ptr %9, align 8
-  %794 = icmp eq i32 %571, 0
-  %795 = load i32, ptr %11, align 8
+  %794 = load i32, ptr %11, align 8
+  %795 = icmp eq i32 %794, 0
   %796 = and i32 %787, 1048575
-  %797 = or i32 %795, %796
+  %797 = or i32 %796, %571
   %798 = icmp eq i32 %797, 0
-  %or.cond723 = select i1 %794, i1 %798, i1 false
+  %or.cond723 = select i1 %798, i1 %795, i1 false
   %.0..0..0..0.141 = load volatile double, ptr %9, align 8
   br i1 %or.cond723, label %803, label %799
 

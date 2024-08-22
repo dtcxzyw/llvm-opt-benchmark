@@ -766,33 +766,26 @@ define noundef zeroext i1 @_ZN9text_edit15TextEditBuilder18invalidates_offset17h
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !16
   %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %4, i64 %6
-  %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit", label %.lr.ph.i
+  br label %8
 
-.lr.ph.i:                                         ; preds = %2, %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i"
-  %8 = phi ptr [ %9, %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i" ], [ %4, %2 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
-  %10 = getelementptr i8, ptr %8, i64 24
-  %.val3.i = load i32, ptr %10, align 8, !noalias !163, !noundef !16
-  %.012.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val3.i, i32 %1)
-  switch i8 %.012.i.i.i, label %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i" [
-    i8 -1, label %.critedge.i.i.i
-    i8 0, label %.critedge.i.i.i
-  ]
+8:                                                ; preds = %10, %2
+  %9 = phi ptr [ %11, %10 ], [ %4, %2 ]
+  %.not.i.not = icmp ne ptr %9, %7
+  br i1 %.not.i.not, label %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit"
 
-.critedge.i.i.i:                                  ; preds = %.lr.ph.i, %.lr.ph.i
-  %11 = getelementptr i8, ptr %8, i64 28
-  %.val4.i = load i32, ptr %11, align 4, !noalias !163, !noundef !16
-  %switch.selectcmp.i.i.not.i = icmp ugt i32 %1, %.val4.i
-  br i1 %switch.selectcmp.i.i.not.i, label %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit"
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr i8, ptr %9, i64 24
+  %.val3.i = load i32, ptr %12, align 8, !noalias !163, !noundef !16
+  %13 = getelementptr i8, ptr %9, i64 28
+  %.val4.i = load i32, ptr %13, align 4, !noalias !163, !noundef !16
+  %14 = icmp ule i32 %.val3.i, %1
+  %switch.selectcmp.i.i.i = icmp ule i32 %1, %.val4.i
+  %spec.select.i.i.i = and i1 %14, %switch.selectcmp.i.i.i
+  br i1 %spec.select.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit", label %8
 
-"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i": ; preds = %.critedge.i.i.i, %.lr.ph.i
-  %.not18.i = icmp eq ptr %9, %7
-  br i1 %.not18.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit", label %.lr.ph.i
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit": ; preds = %.critedge.i.i.i, %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i", %2
-  %.lcssa.i = phi i1 [ false, %2 ], [ false, %"_ZN9text_edit15TextEditBuilder18invalidates_offset28_$u7b$$u7b$closure$u7d$$u7d$17h464324c6b98eb7c5E.exit.backedge.i" ], [ true, %.critedge.i.i.i ]
-  ret i1 %.lcssa.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h33eadc90f87f7daaE.exit": ; preds = %8, %10
+  ret i1 %.not.i.not
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -946,9 +939,6 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17

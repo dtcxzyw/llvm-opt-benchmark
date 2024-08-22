@@ -8031,9 +8031,9 @@ tailrecurse.backedge:                             ; preds = %643, %656, %666, %6
   br label %tailrecurse.backedge
 
 653:                                              ; preds = %648
-  %654 = or i32 %.07.i624, %.07.i612
+  %654 = or i32 %.07.i624, %.07.i600
   %655 = icmp ne i32 %654, 0
-  %or.cond41 = or i1 %554, %655
+  %or.cond41 = or i1 %570, %655
   br i1 %or.cond41, label %660, label %656
 
 656:                                              ; preds = %653
@@ -8045,9 +8045,9 @@ tailrecurse.backedge:                             ; preds = %643, %656, %666, %6
   br label %tailrecurse.backedge
 
 660:                                              ; preds = %653
-  %661 = or i32 %.07.i624, %.07.i618
+  %661 = or i32 %.07.i624, %.07.i606
   %662 = icmp ne i32 %661, 0
-  %or.cond49 = or i1 %562, %662
+  %or.cond49 = or i1 %578, %662
   br i1 %or.cond49, label %666, label %663
 
 663:                                              ; preds = %660

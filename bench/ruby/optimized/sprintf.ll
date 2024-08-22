@@ -6773,12 +6773,12 @@ BSD__sprint.exit817:                              ; preds = %1029
 
 1033:                                             ; preds = %972
   %1034 = load i32, ptr %9, align 4
-  %1035 = icmp eq i32 %1034, 0
+  %1035 = icmp eq i32 %.2897, 0
   %1036 = and i32 %.5544, 1
   %1037 = icmp eq i32 %1036, 0
-  %1038 = or i32 %1036, %.2897
+  %1038 = or i32 %1034, %1036
   %1039 = icmp eq i32 %1038, 0
-  %or.cond749 = select i1 %1035, i1 %1039, i1 false
+  %or.cond749 = select i1 %1039, i1 %1035, i1 false
   br i1 %or.cond749, label %1040, label %1052
 
 1040:                                             ; preds = %1033

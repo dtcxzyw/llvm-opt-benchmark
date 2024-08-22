@@ -151,10 +151,10 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   ]
 
 90:                                               ; preds = %89
-  %.not = icmp eq i32 %59, 0
-  %91 = or i32 %51, %66
+  %.not1332 = icmp eq i32 %51, 0
+  %91 = or i32 %59, %66
   %92 = icmp eq i32 %91, 0
-  %or.cond1427 = select i1 %.not, i1 %92, i1 false
+  %or.cond1427 = select i1 %92, i1 %.not1332, i1 false
   br i1 %or.cond1427, label %93, label %.critedge
 
 93:                                               ; preds = %90

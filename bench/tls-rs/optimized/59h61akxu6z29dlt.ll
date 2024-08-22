@@ -10372,31 +10372,28 @@ define hidden void @_ZN6rustls6client11client_conn9EarlyData8rejected17hff7e5c6b
   %2 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %3 = icmp ult i64 %2, 6
   tail call void @llvm.assume(i1 %3)
-  %.0.i12 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 5, i64 %2)
-  switch i8 %.0.i12, label %4 [
-    i8 -1, label %.critedge10
-    i8 0, label %.critedge10
-  ]
+  %4 = icmp ult i64 %2, 5
+  br i1 %4, label %5, label %.critedge10
 
-4:                                                ; preds = %.critedge, %.critedge10
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 4, ptr %5, align 8
+5:                                                ; preds = %.critedge, %.critedge10
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 4, ptr %6, align 8
   ret void
 
-.critedge10:                                      ; preds = %.critedge, %.critedge
+.critedge10:                                      ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
   store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.101.llvm.3875224068774112026, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 0, ptr %9, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 0, ptr %10, align 8
   call void @_ZN3log13__private_api3log17h66329984f18a960bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.103.llvm.3875224068774112026, i32 noundef 543, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1)
-  br label %4
+  br label %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10407,41 +10404,38 @@ define hidden void @_ZN6rustls6client11client_conn9EarlyData8accepted17h03ce9d75
   %3 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %4 = icmp ult i64 %3, 6
   tail call void @llvm.assume(i1 %4)
-  %.0.i12 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 5, i64 %3)
-  switch i8 %.0.i12, label %5 [
-    i8 -1, label %.critedge10
-    i8 0, label %.critedge10
-  ]
+  %5 = icmp ult i64 %3, 5
+  br i1 %5, label %6, label %.critedge10
 
-5:                                                ; preds = %.critedge, %.critedge10
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i8, ptr %6, align 8, !range !2571, !noundef !4
-  %8 = icmp eq i8 %7, 1
-  br i1 %8, label %13, label %14
+6:                                                ; preds = %.critedge, %.critedge10
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load i8, ptr %7, align 8, !range !2571, !noundef !4
+  %9 = icmp eq i8 %8, 1
+  br i1 %9, label %14, label %15
 
-.critedge10:                                      ; preds = %.critedge, %.critedge
+.critedge10:                                      ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.105, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 0, ptr %12, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 0, ptr %13, align 8
   call void @_ZN3log13__private_api3log17h66329984f18a960bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.103.llvm.3875224068774112026, i32 noundef 548, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  br label %5
+  br label %6
 
-13:                                               ; preds = %5
-  store i8 2, ptr %6, align 8
+14:                                               ; preds = %6
+  store i8 2, ptr %7, align 8
   ret void
 
-14:                                               ; preds = %5
+15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @_ZN4core9panicking13assert_failed17h9c4048f8b44a0560E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.106, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.107) #37
+  call void @_ZN4core9panicking13assert_failed17h9c4048f8b44a0560E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.106, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.107) #37
   unreachable
 }
 
@@ -10453,48 +10447,45 @@ define hidden void @_ZN6rustls6client11client_conn9EarlyData8finished17h3d88e7bb
   %3 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
   %4 = icmp ult i64 %3, 6
   tail call void @llvm.assume(i1 %4)
-  %.0.i14 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 5, i64 %3)
-  switch i8 %.0.i14, label %5 [
-    i8 -1, label %.critedge12
-    i8 0, label %.critedge12
-  ]
+  %5 = icmp ult i64 %3, 5
+  br i1 %5, label %6, label %.critedge12
 
-5:                                                ; preds = %.critedge, %.critedge12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i8, ptr %6, align 8, !range !2571, !noundef !4
-  %8 = icmp eq i8 %7, 2
-  br i1 %8, label %13, label %14
+6:                                                ; preds = %.critedge, %.critedge12
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load i8, ptr %7, align 8, !range !2571, !noundef !4
+  %9 = icmp eq i8 %8, 2
+  br i1 %9, label %14, label %15
 
-.critedge12:                                      ; preds = %.critedge, %.critedge
+.critedge12:                                      ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.109, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 0, ptr %12, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 0, ptr %13, align 8
   call void @_ZN3log13__private_api3log17h66329984f18a960bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.103.llvm.3875224068774112026, i32 noundef 554, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  br label %5
+  br label %6
 
-13:                                               ; preds = %5
-  store i8 3, ptr %6, align 8
+14:                                               ; preds = %6
+  store i8 3, ptr %7, align 8
   ret void
 
-14:                                               ; preds = %5
+15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
   store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.111, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 0, ptr %18, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr @anon.c12b500a9dbc3a7785a3e66a12bc69a1.2.llvm.3875224068774112026, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 0, ptr %19, align 8
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.112) #37
   unreachable
 }

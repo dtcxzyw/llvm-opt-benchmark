@@ -105,10 +105,10 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %73, label %.thread267, label %74
 
 74:                                               ; preds = %72
-  %.not = icmp ne i32 %48, 0
-  %75 = or i32 %40, %53
+  %.not327 = icmp ne i32 %40, 0
+  %75 = or i32 %48, %53
   %76 = icmp ne i32 %75, 0
-  %spec.select338 = select i1 %.not, i1 true, i1 %76
+  %spec.select338 = select i1 %76, i1 true, i1 %.not327
   %.fr = freeze i1 %spec.select338
   %77 = add nuw nsw i32 %39, 1
   store i32 %77, ptr %21, align 4

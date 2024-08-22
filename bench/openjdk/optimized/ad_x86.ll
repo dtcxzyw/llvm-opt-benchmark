@@ -5342,686 +5342,685 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   unreachable
 
 367:                                              ; preds = %107, %99
-  switch i32 %.0.i453, label %815 [
+  switch i32 %.0.i453, label %801 [
     i32 4, label %368
-    i32 1, label %532
-    i32 3, label %651
-    i32 2, label %748
+    i32 1, label %528
+    i32 3, label %643
+    i32 2, label %737
   ]
 
 368:                                              ; preds = %367
-  switch i32 %.0.i469, label %815 [
+  switch i32 %.0.i469, label %801 [
     i32 4, label %369
-    i32 1, label %432
-    i32 3, label %470
-    i32 2, label %508
+    i32 1, label %431
+    i32 3, label %468
+    i32 2, label %505
   ]
 
 369:                                              ; preds = %368
-  %370 = and i32 %57, 1
-  %371 = icmp eq i32 %370, 0
-  %372 = or disjoint i32 %57, 1
-  %373 = icmp eq i32 %372, %54
-  %or.cond370 = select i1 %371, i1 %373, i1 false
-  %374 = and i32 %66, 1
-  %375 = icmp eq i32 %374, 0
-  %or.cond372 = and i1 %or.cond370, %375
-  %376 = or disjoint i32 %66, 1
-  %377 = icmp eq i32 %376, %63
-  %or.cond374 = select i1 %or.cond372, i1 %377, i1 false
-  %378 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
-  %379 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
+  %370 = or disjoint i32 %57, 1
+  %371 = icmp eq i32 %370, %54
+  %372 = or i32 %66, %57
+  %373 = and i32 %372, 1
+  %374 = icmp eq i32 %373, 0
+  %or.cond372 = select i1 %374, i1 %371, i1 false
+  %375 = or disjoint i32 %66, 1
+  %376 = icmp eq i32 %375, %63
+  %or.cond374 = select i1 %or.cond372, i1 %376, i1 false
+  %377 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
+  %378 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
   %.not367 = icmp eq ptr %1, null
-  br i1 %or.cond374, label %380, label %398
+  br i1 %or.cond374, label %379, label %397
 
-380:                                              ; preds = %369
-  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %381
+379:                                              ; preds = %369
+  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %380
 
-381:                                              ; preds = %380
+380:                                              ; preds = %379
   store i32 4, ptr %27, align 8
-  %382 = getelementptr inbounds i8, ptr %27, i64 4
-  store i32 -1, ptr %382, align 4
-  %383 = getelementptr inbounds i8, ptr %27, i64 8
-  store i32 -1, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %27, i64 12
-  store i32 -1, ptr %384, align 4
-  %385 = getelementptr inbounds i8, ptr %27, i64 16
-  store i32 %378, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %27, i64 20
-  store i8 0, ptr %386, align 4
-  %387 = getelementptr inbounds i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %387, align 8
-  %388 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr null, ptr %388, align 8
-  %389 = getelementptr inbounds i8, ptr %27, i64 40
-  store i32 0, ptr %389, align 8
+  %381 = getelementptr inbounds i8, ptr %27, i64 4
+  store i32 -1, ptr %381, align 4
+  %382 = getelementptr inbounds i8, ptr %27, i64 8
+  store i32 -1, ptr %382, align 8
+  %383 = getelementptr inbounds i8, ptr %27, i64 12
+  store i32 -1, ptr %383, align 4
+  %384 = getelementptr inbounds i8, ptr %27, i64 16
+  store i32 %377, ptr %384, align 8
+  %385 = getelementptr inbounds i8, ptr %27, i64 20
+  store i8 0, ptr %385, align 4
+  %386 = getelementptr inbounds i8, ptr %27, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
+  %387 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr null, ptr %387, align 8
+  %388 = getelementptr inbounds i8, ptr %27, i64 40
+  store i32 0, ptr %388, align 8
   call void @_ZN9Assembler5pushqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %27) #23
   store i32 4, ptr %28, align 8
-  %390 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 -1, ptr %390, align 4
-  %391 = getelementptr inbounds i8, ptr %28, i64 8
-  store i32 -1, ptr %391, align 8
-  %392 = getelementptr inbounds i8, ptr %28, i64 12
-  store i32 -1, ptr %392, align 4
-  %393 = getelementptr inbounds i8, ptr %28, i64 16
-  store i32 %379, ptr %393, align 8
-  %394 = getelementptr inbounds i8, ptr %28, i64 20
-  store i8 0, ptr %394, align 4
-  %395 = getelementptr inbounds i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %395, align 8
-  %396 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr null, ptr %396, align 8
-  %397 = getelementptr inbounds i8, ptr %28, i64 40
-  store i32 0, ptr %397, align 8
+  %389 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 -1, ptr %389, align 4
+  %390 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 -1, ptr %390, align 8
+  %391 = getelementptr inbounds i8, ptr %28, i64 12
+  store i32 -1, ptr %391, align 4
+  %392 = getelementptr inbounds i8, ptr %28, i64 16
+  store i32 %378, ptr %392, align 8
+  %393 = getelementptr inbounds i8, ptr %28, i64 20
+  store i8 0, ptr %393, align 4
+  %394 = getelementptr inbounds i8, ptr %28, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %394, align 8
+  %395 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr null, ptr %395, align 8
+  %396 = getelementptr inbounds i8, ptr %28, i64 40
+  store i32 0, ptr %396, align 8
   call void @_ZN9Assembler4popqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %28) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-398:                                              ; preds = %369
-  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %399
+397:                                              ; preds = %369
+  br i1 %.not367, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %398
 
-399:                                              ; preds = %398
+398:                                              ; preds = %397
   store i32 4, ptr %29, align 8
-  %400 = getelementptr inbounds i8, ptr %29, i64 4
-  store i32 -1, ptr %400, align 4
-  %401 = getelementptr inbounds i8, ptr %29, i64 8
-  store i32 -1, ptr %401, align 8
-  %402 = getelementptr inbounds i8, ptr %29, i64 12
-  store i32 -1, ptr %402, align 4
-  %403 = getelementptr inbounds i8, ptr %29, i64 16
-  store i32 -8, ptr %403, align 8
-  %404 = getelementptr inbounds i8, ptr %29, i64 20
-  store i8 0, ptr %404, align 4
-  %405 = getelementptr inbounds i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %405, align 8
-  %406 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr null, ptr %406, align 8
-  %407 = getelementptr inbounds i8, ptr %29, i64 40
-  store i32 0, ptr %407, align 8
+  %399 = getelementptr inbounds i8, ptr %29, i64 4
+  store i32 -1, ptr %399, align 4
+  %400 = getelementptr inbounds i8, ptr %29, i64 8
+  store i32 -1, ptr %400, align 8
+  %401 = getelementptr inbounds i8, ptr %29, i64 12
+  store i32 -1, ptr %401, align 4
+  %402 = getelementptr inbounds i8, ptr %29, i64 16
+  store i32 -8, ptr %402, align 8
+  %403 = getelementptr inbounds i8, ptr %29, i64 20
+  store i8 0, ptr %403, align 4
+  %404 = getelementptr inbounds i8, ptr %29, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %404, align 8
+  %405 = getelementptr inbounds i8, ptr %29, i64 32
+  store ptr null, ptr %405, align 8
+  %406 = getelementptr inbounds i8, ptr %29, i64 40
+  store i32 0, ptr %406, align 8
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %29, i32 0) #23
   store i32 4, ptr %30, align 8
-  %408 = getelementptr inbounds i8, ptr %30, i64 4
-  store i32 -1, ptr %408, align 4
-  %409 = getelementptr inbounds i8, ptr %30, i64 8
-  store i32 -1, ptr %409, align 8
-  %410 = getelementptr inbounds i8, ptr %30, i64 12
-  store i32 -1, ptr %410, align 4
-  %411 = getelementptr inbounds i8, ptr %30, i64 16
-  store i32 %378, ptr %411, align 8
-  %412 = getelementptr inbounds i8, ptr %30, i64 20
-  store i8 0, ptr %412, align 4
-  %413 = getelementptr inbounds i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %413, align 8
-  %414 = getelementptr inbounds i8, ptr %30, i64 32
-  store ptr null, ptr %414, align 8
-  %415 = getelementptr inbounds i8, ptr %30, i64 40
-  store i32 0, ptr %415, align 8
+  %407 = getelementptr inbounds i8, ptr %30, i64 4
+  store i32 -1, ptr %407, align 4
+  %408 = getelementptr inbounds i8, ptr %30, i64 8
+  store i32 -1, ptr %408, align 8
+  %409 = getelementptr inbounds i8, ptr %30, i64 12
+  store i32 -1, ptr %409, align 4
+  %410 = getelementptr inbounds i8, ptr %30, i64 16
+  store i32 %377, ptr %410, align 8
+  %411 = getelementptr inbounds i8, ptr %30, i64 20
+  store i8 0, ptr %411, align 4
+  %412 = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %412, align 8
+  %413 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr null, ptr %413, align 8
+  %414 = getelementptr inbounds i8, ptr %30, i64 40
+  store i32 0, ptr %414, align 8
   call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %30) #23
   store i32 4, ptr %31, align 8
-  %416 = getelementptr inbounds i8, ptr %31, i64 4
-  store i32 -1, ptr %416, align 4
-  %417 = getelementptr inbounds i8, ptr %31, i64 8
-  store i32 -1, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %31, i64 12
-  store i32 -1, ptr %418, align 4
-  %419 = getelementptr inbounds i8, ptr %31, i64 16
-  store i32 %379, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %31, i64 20
-  store i8 0, ptr %420, align 4
-  %421 = getelementptr inbounds i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %421, align 8
-  %422 = getelementptr inbounds i8, ptr %31, i64 32
-  store ptr null, ptr %422, align 8
-  %423 = getelementptr inbounds i8, ptr %31, i64 40
-  store i32 0, ptr %423, align 8
+  %415 = getelementptr inbounds i8, ptr %31, i64 4
+  store i32 -1, ptr %415, align 4
+  %416 = getelementptr inbounds i8, ptr %31, i64 8
+  store i32 -1, ptr %416, align 8
+  %417 = getelementptr inbounds i8, ptr %31, i64 12
+  store i32 -1, ptr %417, align 4
+  %418 = getelementptr inbounds i8, ptr %31, i64 16
+  store i32 %378, ptr %418, align 8
+  %419 = getelementptr inbounds i8, ptr %31, i64 20
+  store i8 0, ptr %419, align 4
+  %420 = getelementptr inbounds i8, ptr %31, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %420, align 8
+  %421 = getelementptr inbounds i8, ptr %31, i64 32
+  store ptr null, ptr %421, align 8
+  %422 = getelementptr inbounds i8, ptr %31, i64 40
+  store i32 0, ptr %422, align 8
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %31, i32 0) #23
   store i32 4, ptr %32, align 8
-  %424 = getelementptr inbounds i8, ptr %32, i64 4
-  store i32 -1, ptr %424, align 4
-  %425 = getelementptr inbounds i8, ptr %32, i64 8
-  store i32 -1, ptr %425, align 8
-  %426 = getelementptr inbounds i8, ptr %32, i64 12
-  store i32 -1, ptr %426, align 4
-  %427 = getelementptr inbounds i8, ptr %32, i64 16
-  store i32 -8, ptr %427, align 8
-  %428 = getelementptr inbounds i8, ptr %32, i64 20
-  store i8 0, ptr %428, align 4
-  %429 = getelementptr inbounds i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %429, align 8
-  %430 = getelementptr inbounds i8, ptr %32, i64 32
-  store ptr null, ptr %430, align 8
-  %431 = getelementptr inbounds i8, ptr %32, i64 40
-  store i32 0, ptr %431, align 8
+  %423 = getelementptr inbounds i8, ptr %32, i64 4
+  store i32 -1, ptr %423, align 4
+  %424 = getelementptr inbounds i8, ptr %32, i64 8
+  store i32 -1, ptr %424, align 8
+  %425 = getelementptr inbounds i8, ptr %32, i64 12
+  store i32 -1, ptr %425, align 4
+  %426 = getelementptr inbounds i8, ptr %32, i64 16
+  store i32 -8, ptr %426, align 8
+  %427 = getelementptr inbounds i8, ptr %32, i64 20
+  store i8 0, ptr %427, align 4
+  %428 = getelementptr inbounds i8, ptr %32, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %428, align 8
+  %429 = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr null, ptr %429, align 8
+  %430 = getelementptr inbounds i8, ptr %32, i64 40
+  store i32 0, ptr %430, align 8
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %32) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-432:                                              ; preds = %368
-  %433 = and i32 %57, 1
-  %434 = icmp eq i32 %433, 0
-  %435 = or disjoint i32 %57, 1
-  %436 = icmp eq i32 %435, %54
-  %or.cond376 = select i1 %434, i1 %436, i1 false
-  %437 = and i32 %66, 1
-  %438 = icmp eq i32 %437, 0
-  %or.cond378 = and i1 %or.cond376, %438
-  %439 = or disjoint i32 %66, 1
-  %440 = icmp eq i32 %439, %63
-  %or.cond380 = select i1 %or.cond378, i1 %440, i1 false
-  %441 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
+431:                                              ; preds = %368
+  %432 = or disjoint i32 %57, 1
+  %433 = icmp eq i32 %432, %54
+  %434 = or i32 %66, %57
+  %435 = and i32 %434, 1
+  %436 = icmp eq i32 %435, 0
+  %or.cond378 = select i1 %436, i1 %433, i1 false
+  %437 = or disjoint i32 %66, 1
+  %438 = icmp eq i32 %437, %63
+  %or.cond380 = select i1 %or.cond378, i1 %438, i1 false
+  %439 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
   %.not365 = icmp eq ptr %1, null
-  br i1 %or.cond380, label %442, label %456
+  br i1 %or.cond380, label %440, label %454
 
-442:                                              ; preds = %432
-  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %443
+440:                                              ; preds = %431
+  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %441
 
-443:                                              ; preds = %442
-  %444 = sext i16 %65 to i64
-  %445 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %444
-  %446 = load i8, ptr %445, align 1
-  %447 = zext i8 %446 to i32
-  %or.cond.i475 = icmp ult i8 %446, 32
-  %spec.select.i = select i1 %or.cond.i475, i32 %447, i32 -1
+441:                                              ; preds = %440
+  %442 = sext i16 %65 to i64
+  %443 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %442
+  %444 = load i8, ptr %443, align 1
+  %445 = zext i8 %444 to i32
+  %or.cond.i475 = icmp ult i8 %444, 32
+  %spec.select.i = select i1 %or.cond.i475, i32 %445, i32 -1
   store i32 4, ptr %33, align 8
-  %448 = getelementptr inbounds i8, ptr %33, i64 4
+  %446 = getelementptr inbounds i8, ptr %33, i64 4
+  store i32 -1, ptr %446, align 4
+  %447 = getelementptr inbounds i8, ptr %33, i64 8
+  store i32 -1, ptr %447, align 8
+  %448 = getelementptr inbounds i8, ptr %33, i64 12
   store i32 -1, ptr %448, align 4
-  %449 = getelementptr inbounds i8, ptr %33, i64 8
-  store i32 -1, ptr %449, align 8
-  %450 = getelementptr inbounds i8, ptr %33, i64 12
-  store i32 -1, ptr %450, align 4
-  %451 = getelementptr inbounds i8, ptr %33, i64 16
-  store i32 %441, ptr %451, align 8
-  %452 = getelementptr inbounds i8, ptr %33, i64 20
-  store i8 0, ptr %452, align 4
-  %453 = getelementptr inbounds i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %453, align 8
-  %454 = getelementptr inbounds i8, ptr %33, i64 32
-  store ptr null, ptr %454, align 8
-  %455 = getelementptr inbounds i8, ptr %33, i64 40
-  store i32 0, ptr %455, align 8
+  %449 = getelementptr inbounds i8, ptr %33, i64 16
+  store i32 %439, ptr %449, align 8
+  %450 = getelementptr inbounds i8, ptr %33, i64 20
+  store i8 0, ptr %450, align 4
+  %451 = getelementptr inbounds i8, ptr %33, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %451, align 8
+  %452 = getelementptr inbounds i8, ptr %33, i64 32
+  store ptr null, ptr %452, align 8
+  %453 = getelementptr inbounds i8, ptr %33, i64 40
+  store i32 0, ptr %453, align 8
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i, ptr noundef nonnull %33) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-456:                                              ; preds = %432
-  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %457
+454:                                              ; preds = %431
+  br i1 %.not365, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %455
 
-457:                                              ; preds = %456
-  %458 = sext i16 %65 to i64
-  %459 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %458
-  %460 = load i8, ptr %459, align 1
-  %461 = zext i8 %460 to i32
-  %or.cond.i476 = icmp ult i8 %460, 32
-  %spec.select.i477 = select i1 %or.cond.i476, i32 %461, i32 -1
+455:                                              ; preds = %454
+  %456 = sext i16 %65 to i64
+  %457 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %456
+  %458 = load i8, ptr %457, align 1
+  %459 = zext i8 %458 to i32
+  %or.cond.i476 = icmp ult i8 %458, 32
+  %spec.select.i477 = select i1 %or.cond.i476, i32 %459, i32 -1
   store i32 4, ptr %34, align 8
-  %462 = getelementptr inbounds i8, ptr %34, i64 4
+  %460 = getelementptr inbounds i8, ptr %34, i64 4
+  store i32 -1, ptr %460, align 4
+  %461 = getelementptr inbounds i8, ptr %34, i64 8
+  store i32 -1, ptr %461, align 8
+  %462 = getelementptr inbounds i8, ptr %34, i64 12
   store i32 -1, ptr %462, align 4
-  %463 = getelementptr inbounds i8, ptr %34, i64 8
-  store i32 -1, ptr %463, align 8
-  %464 = getelementptr inbounds i8, ptr %34, i64 12
-  store i32 -1, ptr %464, align 4
-  %465 = getelementptr inbounds i8, ptr %34, i64 16
-  store i32 %441, ptr %465, align 8
-  %466 = getelementptr inbounds i8, ptr %34, i64 20
-  store i8 0, ptr %466, align 4
-  %467 = getelementptr inbounds i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %467, align 8
-  %468 = getelementptr inbounds i8, ptr %34, i64 32
-  store ptr null, ptr %468, align 8
-  %469 = getelementptr inbounds i8, ptr %34, i64 40
-  store i32 0, ptr %469, align 8
+  %463 = getelementptr inbounds i8, ptr %34, i64 16
+  store i32 %439, ptr %463, align 8
+  %464 = getelementptr inbounds i8, ptr %34, i64 20
+  store i8 0, ptr %464, align 4
+  %465 = getelementptr inbounds i8, ptr %34, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %465, align 8
+  %466 = getelementptr inbounds i8, ptr %34, i64 32
+  store ptr null, ptr %466, align 8
+  %467 = getelementptr inbounds i8, ptr %34, i64 40
+  store i32 0, ptr %467, align 8
   call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i477, ptr noundef nonnull %34) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-470:                                              ; preds = %368
-  %471 = and i32 %57, 1
-  %472 = icmp eq i32 %471, 0
-  %473 = or disjoint i32 %57, 1
-  %474 = icmp eq i32 %473, %54
-  %or.cond382 = select i1 %472, i1 %474, i1 false
-  %475 = and i32 %66, 1
-  %476 = icmp eq i32 %475, 0
-  %or.cond384 = and i1 %or.cond382, %476
-  %477 = or disjoint i32 %66, 1
-  %478 = icmp eq i32 %477, %63
-  %or.cond386 = select i1 %or.cond384, i1 %478, i1 false
-  %479 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
+468:                                              ; preds = %368
+  %469 = or disjoint i32 %57, 1
+  %470 = icmp eq i32 %469, %54
+  %471 = or i32 %66, %57
+  %472 = and i32 %471, 1
+  %473 = icmp eq i32 %472, 0
+  %or.cond384 = select i1 %473, i1 %470, i1 false
+  %474 = or disjoint i32 %66, 1
+  %475 = icmp eq i32 %474, %63
+  %or.cond386 = select i1 %or.cond384, i1 %475, i1 false
+  %476 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
   %.not363 = icmp eq ptr %1, null
-  br i1 %or.cond386, label %480, label %494
+  br i1 %or.cond386, label %477, label %491
 
-480:                                              ; preds = %470
-  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %481
+477:                                              ; preds = %468
+  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %478
 
-481:                                              ; preds = %480
-  %482 = sext i16 %65 to i64
-  %483 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %482
-  %484 = load i8, ptr %483, align 1
-  %485 = zext i8 %484 to i32
-  %or.cond.i478 = icmp ult i8 %484, 32
-  %spec.select.i479 = select i1 %or.cond.i478, i32 %485, i32 -1
+478:                                              ; preds = %477
+  %479 = sext i16 %65 to i64
+  %480 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %479
+  %481 = load i8, ptr %480, align 1
+  %482 = zext i8 %481 to i32
+  %or.cond.i478 = icmp ult i8 %481, 32
+  %spec.select.i479 = select i1 %or.cond.i478, i32 %482, i32 -1
   store i32 4, ptr %35, align 8
-  %486 = getelementptr inbounds i8, ptr %35, i64 4
-  store i32 -1, ptr %486, align 4
-  %487 = getelementptr inbounds i8, ptr %35, i64 8
-  store i32 -1, ptr %487, align 8
-  %488 = getelementptr inbounds i8, ptr %35, i64 12
-  store i32 -1, ptr %488, align 4
-  %489 = getelementptr inbounds i8, ptr %35, i64 16
-  store i32 %479, ptr %489, align 8
-  %490 = getelementptr inbounds i8, ptr %35, i64 20
-  store i8 0, ptr %490, align 4
-  %491 = getelementptr inbounds i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %491, align 8
-  %492 = getelementptr inbounds i8, ptr %35, i64 32
-  store ptr null, ptr %492, align 8
-  %493 = getelementptr inbounds i8, ptr %35, i64 40
-  store i32 0, ptr %493, align 8
+  %483 = getelementptr inbounds i8, ptr %35, i64 4
+  store i32 -1, ptr %483, align 4
+  %484 = getelementptr inbounds i8, ptr %35, i64 8
+  store i32 -1, ptr %484, align 8
+  %485 = getelementptr inbounds i8, ptr %35, i64 12
+  store i32 -1, ptr %485, align 4
+  %486 = getelementptr inbounds i8, ptr %35, i64 16
+  store i32 %476, ptr %486, align 8
+  %487 = getelementptr inbounds i8, ptr %35, i64 20
+  store i8 0, ptr %487, align 4
+  %488 = getelementptr inbounds i8, ptr %35, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %488, align 8
+  %489 = getelementptr inbounds i8, ptr %35, i64 32
+  store ptr null, ptr %489, align 8
+  %490 = getelementptr inbounds i8, ptr %35, i64 40
+  store i32 0, ptr %490, align 8
   call void @_ZN14MacroAssembler6movdblE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i479, ptr noundef nonnull %35)
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-494:                                              ; preds = %470
-  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %495
+491:                                              ; preds = %468
+  br i1 %.not363, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %492
 
-495:                                              ; preds = %494
-  %496 = sext i16 %65 to i64
-  %497 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %496
-  %498 = load i8, ptr %497, align 1
-  %499 = zext i8 %498 to i32
-  %or.cond.i480 = icmp ult i8 %498, 32
-  %spec.select.i481 = select i1 %or.cond.i480, i32 %499, i32 -1
+492:                                              ; preds = %491
+  %493 = sext i16 %65 to i64
+  %494 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %493
+  %495 = load i8, ptr %494, align 1
+  %496 = zext i8 %495 to i32
+  %or.cond.i480 = icmp ult i8 %495, 32
+  %spec.select.i481 = select i1 %or.cond.i480, i32 %496, i32 -1
   store i32 4, ptr %36, align 8
-  %500 = getelementptr inbounds i8, ptr %36, i64 4
-  store i32 -1, ptr %500, align 4
-  %501 = getelementptr inbounds i8, ptr %36, i64 8
-  store i32 -1, ptr %501, align 8
-  %502 = getelementptr inbounds i8, ptr %36, i64 12
-  store i32 -1, ptr %502, align 4
-  %503 = getelementptr inbounds i8, ptr %36, i64 16
-  store i32 %479, ptr %503, align 8
-  %504 = getelementptr inbounds i8, ptr %36, i64 20
-  store i8 0, ptr %504, align 4
-  %505 = getelementptr inbounds i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %505, align 8
-  %506 = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr null, ptr %506, align 8
-  %507 = getelementptr inbounds i8, ptr %36, i64 40
-  store i32 0, ptr %507, align 8
+  %497 = getelementptr inbounds i8, ptr %36, i64 4
+  store i32 -1, ptr %497, align 4
+  %498 = getelementptr inbounds i8, ptr %36, i64 8
+  store i32 -1, ptr %498, align 8
+  %499 = getelementptr inbounds i8, ptr %36, i64 12
+  store i32 -1, ptr %499, align 4
+  %500 = getelementptr inbounds i8, ptr %36, i64 16
+  store i32 %476, ptr %500, align 8
+  %501 = getelementptr inbounds i8, ptr %36, i64 20
+  store i8 0, ptr %501, align 4
+  %502 = getelementptr inbounds i8, ptr %36, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %502, align 8
+  %503 = getelementptr inbounds i8, ptr %36, i64 32
+  store ptr null, ptr %503, align 8
+  %504 = getelementptr inbounds i8, ptr %36, i64 40
+  store i32 0, ptr %504, align 8
   call void @_ZN14MacroAssembler6movfltE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i481, ptr noundef nonnull %36)
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-508:                                              ; preds = %368
-  %509 = and i32 %57, 1
+505:                                              ; preds = %368
+  %506 = or disjoint i32 %57, 1
+  %507 = icmp eq i32 %506, %54
+  %508 = or i32 %66, %57
+  %509 = and i32 %508, 1
   %510 = icmp eq i32 %509, 0
-  %511 = or disjoint i32 %57, 1
-  %512 = icmp eq i32 %511, %54
-  %or.cond388 = select i1 %510, i1 %512, i1 false
-  %513 = and i32 %66, 1
-  %514 = icmp eq i32 %513, 0
-  %or.cond390 = and i1 %or.cond388, %514
-  %515 = or disjoint i32 %66, 1
-  %516 = icmp eq i32 %515, %63
-  %or.cond392 = select i1 %or.cond390, i1 %516, i1 false
-  br i1 %or.cond392, label %517, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
+  %or.cond390 = select i1 %510, i1 %507, i1 false
+  %511 = or disjoint i32 %66, 1
+  %512 = icmp eq i32 %511, %63
+  %or.cond392 = select i1 %or.cond390, i1 %512, i1 false
+  br i1 %or.cond392, label %513, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-517:                                              ; preds = %508
-  %518 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
+513:                                              ; preds = %505
+  %514 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
   %.not361 = icmp eq ptr %1, null
-  br i1 %.not361, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %519
+  br i1 %.not361, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %515
 
-519:                                              ; preds = %517
-  %520 = sext i16 %65 to i64
-  %521 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %520
-  %522 = load i8, ptr %521, align 1
-  %523 = zext i8 %522 to i32
-  %or.cond.i482 = icmp ult i8 %522, 8
-  %spec.select.i483 = select i1 %or.cond.i482, i32 %523, i32 -1
+515:                                              ; preds = %513
+  %516 = sext i16 %65 to i64
+  %517 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %516
+  %518 = load i8, ptr %517, align 1
+  %519 = zext i8 %518 to i32
+  %or.cond.i482 = icmp ult i8 %518, 8
+  %spec.select.i483 = select i1 %or.cond.i482, i32 %519, i32 -1
   store i32 4, ptr %37, align 8
-  %524 = getelementptr inbounds i8, ptr %37, i64 4
-  store i32 -1, ptr %524, align 4
-  %525 = getelementptr inbounds i8, ptr %37, i64 8
-  store i32 -1, ptr %525, align 8
-  %526 = getelementptr inbounds i8, ptr %37, i64 12
-  store i32 -1, ptr %526, align 4
-  %527 = getelementptr inbounds i8, ptr %37, i64 16
-  store i32 %518, ptr %527, align 8
-  %528 = getelementptr inbounds i8, ptr %37, i64 20
-  store i8 0, ptr %528, align 4
-  %529 = getelementptr inbounds i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %529, align 8
-  %530 = getelementptr inbounds i8, ptr %37, i64 32
-  store ptr null, ptr %530, align 8
-  %531 = getelementptr inbounds i8, ptr %37, i64 40
-  store i32 0, ptr %531, align 8
+  %520 = getelementptr inbounds i8, ptr %37, i64 4
+  store i32 -1, ptr %520, align 4
+  %521 = getelementptr inbounds i8, ptr %37, i64 8
+  store i32 -1, ptr %521, align 8
+  %522 = getelementptr inbounds i8, ptr %37, i64 12
+  store i32 -1, ptr %522, align 4
+  %523 = getelementptr inbounds i8, ptr %37, i64 16
+  store i32 %514, ptr %523, align 8
+  %524 = getelementptr inbounds i8, ptr %37, i64 20
+  store i8 0, ptr %524, align 4
+  %525 = getelementptr inbounds i8, ptr %37, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %525, align 8
+  %526 = getelementptr inbounds i8, ptr %37, i64 32
+  store ptr null, ptr %526, align 8
+  %527 = getelementptr inbounds i8, ptr %37, i64 40
+  store i32 0, ptr %527, align 8
   call void @_ZN14MacroAssembler4kmovE9KRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i483, ptr noundef nonnull %37) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-532:                                              ; preds = %367
-  switch i32 %.0.i469, label %815 [
-    i32 4, label %533
-    i32 1, label %571
-    i32 3, label %600
-    i32 2, label %629
+528:                                              ; preds = %367
+  switch i32 %.0.i469, label %801 [
+    i32 4, label %529
+    i32 1, label %566
+    i32 3, label %594
+    i32 2, label %622
   ]
 
-533:                                              ; preds = %532
-  %534 = and i32 %57, 1
-  %535 = icmp eq i32 %534, 0
-  %536 = or disjoint i32 %57, 1
-  %537 = icmp eq i32 %536, %54
-  %or.cond394 = select i1 %535, i1 %537, i1 false
-  %538 = and i32 %66, 1
-  %539 = icmp eq i32 %538, 0
-  %or.cond396 = and i1 %or.cond394, %539
-  %540 = or disjoint i32 %66, 1
-  %541 = icmp eq i32 %540, %63
-  %or.cond398 = select i1 %or.cond396, i1 %541, i1 false
-  %542 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
+529:                                              ; preds = %528
+  %530 = or disjoint i32 %57, 1
+  %531 = icmp eq i32 %530, %54
+  %532 = or i32 %66, %57
+  %533 = and i32 %532, 1
+  %534 = icmp eq i32 %533, 0
+  %or.cond396 = select i1 %534, i1 %531, i1 false
+  %535 = or disjoint i32 %66, 1
+  %536 = icmp eq i32 %535, %63
+  %or.cond398 = select i1 %or.cond396, i1 %536, i1 false
+  %537 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
   %.not360 = icmp eq ptr %1, null
-  br i1 %or.cond398, label %543, label %557
+  br i1 %or.cond398, label %538, label %552
 
-543:                                              ; preds = %533
-  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %544
+538:                                              ; preds = %529
+  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %539
 
-544:                                              ; preds = %543
+539:                                              ; preds = %538
   store i32 4, ptr %38, align 8
-  %545 = getelementptr inbounds i8, ptr %38, i64 4
-  store i32 -1, ptr %545, align 4
-  %546 = getelementptr inbounds i8, ptr %38, i64 8
-  store i32 -1, ptr %546, align 8
-  %547 = getelementptr inbounds i8, ptr %38, i64 12
-  store i32 -1, ptr %547, align 4
-  %548 = getelementptr inbounds i8, ptr %38, i64 16
-  store i32 %542, ptr %548, align 8
-  %549 = getelementptr inbounds i8, ptr %38, i64 20
-  store i8 0, ptr %549, align 4
-  %550 = getelementptr inbounds i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %550, align 8
-  %551 = getelementptr inbounds i8, ptr %38, i64 32
-  store ptr null, ptr %551, align 8
-  %552 = getelementptr inbounds i8, ptr %38, i64 40
-  store i32 0, ptr %552, align 8
-  %553 = sext i16 %56 to i64
-  %554 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %553
-  %555 = load i8, ptr %554, align 1
-  %556 = zext i8 %555 to i32
-  %or.cond.i484 = icmp ult i8 %555, 32
-  %spec.select.i485 = select i1 %or.cond.i484, i32 %556, i32 -1
+  %540 = getelementptr inbounds i8, ptr %38, i64 4
+  store i32 -1, ptr %540, align 4
+  %541 = getelementptr inbounds i8, ptr %38, i64 8
+  store i32 -1, ptr %541, align 8
+  %542 = getelementptr inbounds i8, ptr %38, i64 12
+  store i32 -1, ptr %542, align 4
+  %543 = getelementptr inbounds i8, ptr %38, i64 16
+  store i32 %537, ptr %543, align 8
+  %544 = getelementptr inbounds i8, ptr %38, i64 20
+  store i8 0, ptr %544, align 4
+  %545 = getelementptr inbounds i8, ptr %38, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %545, align 8
+  %546 = getelementptr inbounds i8, ptr %38, i64 32
+  store ptr null, ptr %546, align 8
+  %547 = getelementptr inbounds i8, ptr %38, i64 40
+  store i32 0, ptr %547, align 8
+  %548 = sext i16 %56 to i64
+  %549 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %548
+  %550 = load i8, ptr %549, align 1
+  %551 = zext i8 %550 to i32
+  %or.cond.i484 = icmp ult i8 %550, 32
+  %spec.select.i485 = select i1 %or.cond.i484, i32 %551, i32 -1
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %38, i32 %spec.select.i485) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-557:                                              ; preds = %533
-  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %558
+552:                                              ; preds = %529
+  br i1 %.not360, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %553
 
-558:                                              ; preds = %557
+553:                                              ; preds = %552
   store i32 4, ptr %39, align 8
-  %559 = getelementptr inbounds i8, ptr %39, i64 4
-  store i32 -1, ptr %559, align 4
-  %560 = getelementptr inbounds i8, ptr %39, i64 8
-  store i32 -1, ptr %560, align 8
-  %561 = getelementptr inbounds i8, ptr %39, i64 12
-  store i32 -1, ptr %561, align 4
-  %562 = getelementptr inbounds i8, ptr %39, i64 16
-  store i32 %542, ptr %562, align 8
-  %563 = getelementptr inbounds i8, ptr %39, i64 20
-  store i8 0, ptr %563, align 4
-  %564 = getelementptr inbounds i8, ptr %39, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %564, align 8
-  %565 = getelementptr inbounds i8, ptr %39, i64 32
-  store ptr null, ptr %565, align 8
-  %566 = getelementptr inbounds i8, ptr %39, i64 40
-  store i32 0, ptr %566, align 8
-  %567 = sext i16 %56 to i64
-  %568 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %567
-  %569 = load i8, ptr %568, align 1
-  %570 = zext i8 %569 to i32
-  %or.cond.i486 = icmp ult i8 %569, 32
-  %spec.select.i487 = select i1 %or.cond.i486, i32 %570, i32 -1
+  %554 = getelementptr inbounds i8, ptr %39, i64 4
+  store i32 -1, ptr %554, align 4
+  %555 = getelementptr inbounds i8, ptr %39, i64 8
+  store i32 -1, ptr %555, align 8
+  %556 = getelementptr inbounds i8, ptr %39, i64 12
+  store i32 -1, ptr %556, align 4
+  %557 = getelementptr inbounds i8, ptr %39, i64 16
+  store i32 %537, ptr %557, align 8
+  %558 = getelementptr inbounds i8, ptr %39, i64 20
+  store i8 0, ptr %558, align 4
+  %559 = getelementptr inbounds i8, ptr %39, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %559, align 8
+  %560 = getelementptr inbounds i8, ptr %39, i64 32
+  store ptr null, ptr %560, align 8
+  %561 = getelementptr inbounds i8, ptr %39, i64 40
+  store i32 0, ptr %561, align 8
+  %562 = sext i16 %56 to i64
+  %563 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %562
+  %564 = load i8, ptr %563, align 1
+  %565 = zext i8 %564 to i32
+  %or.cond.i486 = icmp ult i8 %564, 32
+  %spec.select.i487 = select i1 %or.cond.i486, i32 %565, i32 -1
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %39, i32 %spec.select.i487) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-571:                                              ; preds = %532
-  %572 = and i32 %57, 1
-  %573 = icmp eq i32 %572, 0
-  %574 = or disjoint i32 %57, 1
-  %575 = icmp eq i32 %574, %54
-  %or.cond400 = select i1 %573, i1 %575, i1 false
-  %576 = and i32 %66, 1
-  %577 = icmp eq i32 %576, 0
-  %or.cond402 = and i1 %or.cond400, %577
-  %578 = or disjoint i32 %66, 1
-  %579 = icmp eq i32 %578, %63
-  %or.cond404 = select i1 %or.cond402, i1 %579, i1 false
+566:                                              ; preds = %528
+  %567 = or disjoint i32 %57, 1
+  %568 = icmp eq i32 %567, %54
+  %569 = or i32 %66, %57
+  %570 = and i32 %569, 1
+  %571 = icmp eq i32 %570, 0
+  %or.cond402 = select i1 %571, i1 %568, i1 false
+  %572 = or disjoint i32 %66, 1
+  %573 = icmp eq i32 %572, %63
+  %or.cond404 = select i1 %or.cond402, i1 %573, i1 false
   %.not358 = icmp eq ptr %1, null
-  br i1 %or.cond404, label %580, label %590
+  br i1 %or.cond404, label %574, label %584
 
-580:                                              ; preds = %571
-  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %581
+574:                                              ; preds = %566
+  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %575
 
-581:                                              ; preds = %580
-  %582 = sext i16 %65 to i64
-  %583 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %582
-  %584 = load i8, ptr %583, align 1
-  %585 = zext i8 %584 to i32
-  %or.cond.i488 = icmp ult i8 %584, 32
-  %spec.select.i489 = select i1 %or.cond.i488, i32 %585, i32 -1
-  %586 = sext i16 %56 to i64
-  %587 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %586
-  %588 = load i8, ptr %587, align 1
-  %589 = zext i8 %588 to i32
-  %or.cond.i490 = icmp ult i8 %588, 32
-  %spec.select.i491 = select i1 %or.cond.i490, i32 %589, i32 -1
+575:                                              ; preds = %574
+  %576 = sext i16 %65 to i64
+  %577 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %576
+  %578 = load i8, ptr %577, align 1
+  %579 = zext i8 %578 to i32
+  %or.cond.i488 = icmp ult i8 %578, 32
+  %spec.select.i489 = select i1 %or.cond.i488, i32 %579, i32 -1
+  %580 = sext i16 %56 to i64
+  %581 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %580
+  %582 = load i8, ptr %581, align 1
+  %583 = zext i8 %582 to i32
+  %or.cond.i490 = icmp ult i8 %582, 32
+  %spec.select.i491 = select i1 %or.cond.i490, i32 %583, i32 -1
   tail call void @_ZN9Assembler4movqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i489, i32 %spec.select.i491) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-590:                                              ; preds = %571
-  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %591
+584:                                              ; preds = %566
+  br i1 %.not358, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %585
 
-591:                                              ; preds = %590
-  %592 = sext i16 %65 to i64
-  %593 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %592
-  %594 = load i8, ptr %593, align 1
-  %595 = zext i8 %594 to i32
-  %or.cond.i492 = icmp ult i8 %594, 32
-  %spec.select.i493 = select i1 %or.cond.i492, i32 %595, i32 -1
-  %596 = sext i16 %56 to i64
-  %597 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %596
-  %598 = load i8, ptr %597, align 1
-  %599 = zext i8 %598 to i32
-  %or.cond.i494 = icmp ult i8 %598, 32
-  %spec.select.i495 = select i1 %or.cond.i494, i32 %599, i32 -1
+585:                                              ; preds = %584
+  %586 = sext i16 %65 to i64
+  %587 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %586
+  %588 = load i8, ptr %587, align 1
+  %589 = zext i8 %588 to i32
+  %or.cond.i492 = icmp ult i8 %588, 32
+  %spec.select.i493 = select i1 %or.cond.i492, i32 %589, i32 -1
+  %590 = sext i16 %56 to i64
+  %591 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %590
+  %592 = load i8, ptr %591, align 1
+  %593 = zext i8 %592 to i32
+  %or.cond.i494 = icmp ult i8 %592, 32
+  %spec.select.i495 = select i1 %or.cond.i494, i32 %593, i32 -1
   tail call void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i493, i32 %spec.select.i495) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-600:                                              ; preds = %532
-  %601 = and i32 %57, 1
-  %602 = icmp eq i32 %601, 0
-  %603 = or disjoint i32 %57, 1
-  %604 = icmp eq i32 %603, %54
-  %or.cond406 = select i1 %602, i1 %604, i1 false
-  %605 = and i32 %66, 1
-  %606 = icmp eq i32 %605, 0
-  %or.cond408 = and i1 %or.cond406, %606
-  %607 = or disjoint i32 %66, 1
-  %608 = icmp eq i32 %607, %63
-  %or.cond410 = select i1 %or.cond408, i1 %608, i1 false
+594:                                              ; preds = %528
+  %595 = or disjoint i32 %57, 1
+  %596 = icmp eq i32 %595, %54
+  %597 = or i32 %66, %57
+  %598 = and i32 %597, 1
+  %599 = icmp eq i32 %598, 0
+  %or.cond408 = select i1 %599, i1 %596, i1 false
+  %600 = or disjoint i32 %66, 1
+  %601 = icmp eq i32 %600, %63
+  %or.cond410 = select i1 %or.cond408, i1 %601, i1 false
   %.not356 = icmp eq ptr %1, null
-  br i1 %or.cond410, label %609, label %619
+  br i1 %or.cond410, label %602, label %612
 
-609:                                              ; preds = %600
-  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %610
+602:                                              ; preds = %594
+  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %603
 
-610:                                              ; preds = %609
-  %611 = sext i16 %65 to i64
-  %612 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %611
-  %613 = load i8, ptr %612, align 1
-  %614 = zext i8 %613 to i32
-  %or.cond.i496 = icmp ult i8 %613, 32
-  %spec.select.i497 = select i1 %or.cond.i496, i32 %614, i32 -1
-  %615 = sext i16 %56 to i64
-  %616 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %615
-  %617 = load i8, ptr %616, align 1
-  %618 = zext i8 %617 to i32
-  %or.cond.i498 = icmp ult i8 %617, 32
-  %spec.select.i499 = select i1 %or.cond.i498, i32 %618, i32 -1
+603:                                              ; preds = %602
+  %604 = sext i16 %65 to i64
+  %605 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %604
+  %606 = load i8, ptr %605, align 1
+  %607 = zext i8 %606 to i32
+  %or.cond.i496 = icmp ult i8 %606, 32
+  %spec.select.i497 = select i1 %or.cond.i496, i32 %607, i32 -1
+  %608 = sext i16 %56 to i64
+  %609 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %608
+  %610 = load i8, ptr %609, align 1
+  %611 = zext i8 %610 to i32
+  %or.cond.i498 = icmp ult i8 %610, 32
+  %spec.select.i499 = select i1 %or.cond.i498, i32 %611, i32 -1
   tail call void @_ZN9Assembler5movdqE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i497, i32 %spec.select.i499) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-619:                                              ; preds = %600
-  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %620
+612:                                              ; preds = %594
+  br i1 %.not356, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %613
 
-620:                                              ; preds = %619
-  %621 = sext i16 %65 to i64
-  %622 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %621
-  %623 = load i8, ptr %622, align 1
-  %624 = zext i8 %623 to i32
-  %or.cond.i500 = icmp ult i8 %623, 32
-  %spec.select.i501 = select i1 %or.cond.i500, i32 %624, i32 -1
-  %625 = sext i16 %56 to i64
-  %626 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %625
-  %627 = load i8, ptr %626, align 1
-  %628 = zext i8 %627 to i32
-  %or.cond.i502 = icmp ult i8 %627, 32
-  %spec.select.i503 = select i1 %or.cond.i502, i32 %628, i32 -1
+613:                                              ; preds = %612
+  %614 = sext i16 %65 to i64
+  %615 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %614
+  %616 = load i8, ptr %615, align 1
+  %617 = zext i8 %616 to i32
+  %or.cond.i500 = icmp ult i8 %616, 32
+  %spec.select.i501 = select i1 %or.cond.i500, i32 %617, i32 -1
+  %618 = sext i16 %56 to i64
+  %619 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %618
+  %620 = load i8, ptr %619, align 1
+  %621 = zext i8 %620 to i32
+  %or.cond.i502 = icmp ult i8 %620, 32
+  %spec.select.i503 = select i1 %or.cond.i502, i32 %621, i32 -1
   tail call void @_ZN9Assembler5movdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i501, i32 %spec.select.i503) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-629:                                              ; preds = %532
-  %630 = and i32 %57, 1
-  %631 = icmp eq i32 %630, 0
-  %632 = or disjoint i32 %57, 1
-  %633 = icmp eq i32 %632, %54
-  %or.cond412 = select i1 %631, i1 %633, i1 false
-  %634 = and i32 %66, 1
-  %635 = icmp eq i32 %634, 0
-  %or.cond414 = and i1 %or.cond412, %635
-  br i1 %or.cond414, label %636, label %649
+622:                                              ; preds = %528
+  %623 = or disjoint i32 %57, 1
+  %624 = icmp eq i32 %623, %54
+  %625 = or i32 %66, %57
+  %626 = and i32 %625, 1
+  %627 = icmp eq i32 %626, 0
+  %or.cond414 = select i1 %627, i1 %624, i1 false
+  br i1 %or.cond414, label %628, label %641
 
-636:                                              ; preds = %629
-  %637 = or disjoint i32 %66, 1
-  %638 = icmp eq i32 %637, %63
-  %639 = icmp ne ptr %1, null
-  %or.cond9 = and i1 %639, %638
-  br i1 %or.cond9, label %640, label %649
+628:                                              ; preds = %622
+  %629 = or disjoint i32 %66, 1
+  %630 = icmp eq i32 %629, %63
+  %631 = icmp ne ptr %1, null
+  %or.cond9 = and i1 %631, %630
+  br i1 %or.cond9, label %632, label %641
 
-640:                                              ; preds = %636
-  %641 = sext i16 %65 to i64
-  %642 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %641
-  %643 = load i8, ptr %642, align 1
-  %644 = zext i8 %643 to i32
-  %or.cond.i504 = icmp ult i8 %643, 8
-  %spec.select.i505 = select i1 %or.cond.i504, i32 %644, i32 -1
-  %645 = sext i16 %56 to i64
-  %646 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %645
-  %647 = load i8, ptr %646, align 1
-  %648 = zext i8 %647 to i32
-  %or.cond.i506 = icmp ult i8 %647, 32
-  %spec.select.i507 = select i1 %or.cond.i506, i32 %648, i32 -1
+632:                                              ; preds = %628
+  %633 = sext i16 %65 to i64
+  %634 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %633
+  %635 = load i8, ptr %634, align 1
+  %636 = zext i8 %635 to i32
+  %or.cond.i504 = icmp ult i8 %635, 8
+  %spec.select.i505 = select i1 %or.cond.i504, i32 %636, i32 -1
+  %637 = sext i16 %56 to i64
+  %638 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %637
+  %639 = load i8, ptr %638, align 1
+  %640 = zext i8 %639 to i32
+  %or.cond.i506 = icmp ult i8 %639, 32
+  %spec.select.i507 = select i1 %or.cond.i506, i32 %640, i32 -1
   tail call void @_ZN14MacroAssembler4kmovE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i505, i32 %spec.select.i507) #23
-  br label %649
+  br label %641
 
-649:                                              ; preds = %629, %636, %640
-  %650 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %650, align 1
+641:                                              ; preds = %622, %628, %632
+  %642 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %642, align 1
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 1355) #24
   unreachable
 
-651:                                              ; preds = %367
-  switch i32 %.0.i469, label %815 [
-    i32 4, label %652
-    i32 1, label %690
-    i32 3, label %719
+643:                                              ; preds = %367
+  switch i32 %.0.i469, label %801 [
+    i32 4, label %644
+    i32 1, label %681
+    i32 3, label %709
     i32 2, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
   ]
 
-652:                                              ; preds = %651
-  %653 = and i32 %57, 1
-  %654 = icmp eq i32 %653, 0
-  %655 = or disjoint i32 %57, 1
-  %656 = icmp eq i32 %655, %54
-  %or.cond416 = select i1 %654, i1 %656, i1 false
-  %657 = and i32 %66, 1
-  %658 = icmp eq i32 %657, 0
-  %or.cond418 = and i1 %or.cond416, %658
-  %659 = or disjoint i32 %66, 1
-  %660 = icmp eq i32 %659, %63
-  %or.cond420 = select i1 %or.cond418, i1 %660, i1 false
-  %661 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
+644:                                              ; preds = %643
+  %645 = or disjoint i32 %57, 1
+  %646 = icmp eq i32 %645, %54
+  %647 = or i32 %66, %57
+  %648 = and i32 %647, 1
+  %649 = icmp eq i32 %648, 0
+  %or.cond418 = select i1 %649, i1 %646, i1 false
+  %650 = or disjoint i32 %66, 1
+  %651 = icmp eq i32 %650, %63
+  %or.cond420 = select i1 %or.cond418, i1 %651, i1 false
+  %652 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
   %.not354 = icmp eq ptr %1, null
-  br i1 %or.cond420, label %662, label %676
+  br i1 %or.cond420, label %653, label %667
 
-662:                                              ; preds = %652
-  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %663
+653:                                              ; preds = %644
+  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %654
 
-663:                                              ; preds = %662
+654:                                              ; preds = %653
   store i32 4, ptr %40, align 8
-  %664 = getelementptr inbounds i8, ptr %40, i64 4
-  store i32 -1, ptr %664, align 4
-  %665 = getelementptr inbounds i8, ptr %40, i64 8
-  store i32 -1, ptr %665, align 8
-  %666 = getelementptr inbounds i8, ptr %40, i64 12
-  store i32 -1, ptr %666, align 4
-  %667 = getelementptr inbounds i8, ptr %40, i64 16
-  store i32 %661, ptr %667, align 8
-  %668 = getelementptr inbounds i8, ptr %40, i64 20
-  store i8 0, ptr %668, align 4
-  %669 = getelementptr inbounds i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %669, align 8
-  %670 = getelementptr inbounds i8, ptr %40, i64 32
-  store ptr null, ptr %670, align 8
-  %671 = getelementptr inbounds i8, ptr %40, i64 40
-  store i32 0, ptr %671, align 8
-  %672 = sext i16 %56 to i64
-  %673 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %672
-  %674 = load i8, ptr %673, align 1
-  %675 = zext i8 %674 to i32
-  %or.cond.i508 = icmp ult i8 %674, 32
-  %spec.select.i509 = select i1 %or.cond.i508, i32 %675, i32 -1
+  %655 = getelementptr inbounds i8, ptr %40, i64 4
+  store i32 -1, ptr %655, align 4
+  %656 = getelementptr inbounds i8, ptr %40, i64 8
+  store i32 -1, ptr %656, align 8
+  %657 = getelementptr inbounds i8, ptr %40, i64 12
+  store i32 -1, ptr %657, align 4
+  %658 = getelementptr inbounds i8, ptr %40, i64 16
+  store i32 %652, ptr %658, align 8
+  %659 = getelementptr inbounds i8, ptr %40, i64 20
+  store i8 0, ptr %659, align 4
+  %660 = getelementptr inbounds i8, ptr %40, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %660, align 8
+  %661 = getelementptr inbounds i8, ptr %40, i64 32
+  store ptr null, ptr %661, align 8
+  %662 = getelementptr inbounds i8, ptr %40, i64 40
+  store i32 0, ptr %662, align 8
+  %663 = sext i16 %56 to i64
+  %664 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %663
+  %665 = load i8, ptr %664, align 1
+  %666 = zext i8 %665 to i32
+  %or.cond.i508 = icmp ult i8 %665, 32
+  %spec.select.i509 = select i1 %or.cond.i508, i32 %666, i32 -1
   call void @_ZN14MacroAssembler6movdblE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %40, i32 %spec.select.i509)
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-676:                                              ; preds = %652
-  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %677
+667:                                              ; preds = %644
+  br i1 %.not354, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %668
 
-677:                                              ; preds = %676
+668:                                              ; preds = %667
   store i32 4, ptr %41, align 8
-  %678 = getelementptr inbounds i8, ptr %41, i64 4
-  store i32 -1, ptr %678, align 4
-  %679 = getelementptr inbounds i8, ptr %41, i64 8
-  store i32 -1, ptr %679, align 8
-  %680 = getelementptr inbounds i8, ptr %41, i64 12
-  store i32 -1, ptr %680, align 4
-  %681 = getelementptr inbounds i8, ptr %41, i64 16
-  store i32 %661, ptr %681, align 8
-  %682 = getelementptr inbounds i8, ptr %41, i64 20
-  store i8 0, ptr %682, align 4
-  %683 = getelementptr inbounds i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %683, align 8
-  %684 = getelementptr inbounds i8, ptr %41, i64 32
-  store ptr null, ptr %684, align 8
-  %685 = getelementptr inbounds i8, ptr %41, i64 40
-  store i32 0, ptr %685, align 8
-  %686 = sext i16 %56 to i64
-  %687 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %686
-  %688 = load i8, ptr %687, align 1
-  %689 = zext i8 %688 to i32
-  %or.cond.i510 = icmp ult i8 %688, 32
-  %spec.select.i511 = select i1 %or.cond.i510, i32 %689, i32 -1
+  %669 = getelementptr inbounds i8, ptr %41, i64 4
+  store i32 -1, ptr %669, align 4
+  %670 = getelementptr inbounds i8, ptr %41, i64 8
+  store i32 -1, ptr %670, align 8
+  %671 = getelementptr inbounds i8, ptr %41, i64 12
+  store i32 -1, ptr %671, align 4
+  %672 = getelementptr inbounds i8, ptr %41, i64 16
+  store i32 %652, ptr %672, align 8
+  %673 = getelementptr inbounds i8, ptr %41, i64 20
+  store i8 0, ptr %673, align 4
+  %674 = getelementptr inbounds i8, ptr %41, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %674, align 8
+  %675 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %675, align 8
+  %676 = getelementptr inbounds i8, ptr %41, i64 40
+  store i32 0, ptr %676, align 8
+  %677 = sext i16 %56 to i64
+  %678 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %677
+  %679 = load i8, ptr %678, align 1
+  %680 = zext i8 %679 to i32
+  %or.cond.i510 = icmp ult i8 %679, 32
+  %spec.select.i511 = select i1 %or.cond.i510, i32 %680, i32 -1
   call void @_ZN14MacroAssembler6movfltE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %41, i32 %spec.select.i511)
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-690:                                              ; preds = %651
-  %691 = and i32 %57, 1
-  %692 = icmp eq i32 %691, 0
-  %693 = or disjoint i32 %57, 1
-  %694 = icmp eq i32 %693, %54
-  %or.cond422 = select i1 %692, i1 %694, i1 false
-  %695 = and i32 %66, 1
-  %696 = icmp eq i32 %695, 0
-  %or.cond424 = and i1 %or.cond422, %696
-  %697 = or disjoint i32 %66, 1
-  %698 = icmp eq i32 %697, %63
-  %or.cond426 = select i1 %or.cond424, i1 %698, i1 false
+681:                                              ; preds = %643
+  %682 = or disjoint i32 %57, 1
+  %683 = icmp eq i32 %682, %54
+  %684 = or i32 %66, %57
+  %685 = and i32 %684, 1
+  %686 = icmp eq i32 %685, 0
+  %or.cond424 = select i1 %686, i1 %683, i1 false
+  %687 = or disjoint i32 %66, 1
+  %688 = icmp eq i32 %687, %63
+  %or.cond426 = select i1 %or.cond424, i1 %688, i1 false
   %.not352 = icmp eq ptr %1, null
-  br i1 %or.cond426, label %699, label %709
+  br i1 %or.cond426, label %689, label %699
 
-699:                                              ; preds = %690
+689:                                              ; preds = %681
+  br i1 %.not352, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %690
+
+690:                                              ; preds = %689
+  %691 = sext i16 %65 to i64
+  %692 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %691
+  %693 = load i8, ptr %692, align 1
+  %694 = zext i8 %693 to i32
+  %or.cond.i512 = icmp ult i8 %693, 32
+  %spec.select.i513 = select i1 %or.cond.i512, i32 %694, i32 -1
+  %695 = sext i16 %56 to i64
+  %696 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %695
+  %697 = load i8, ptr %696, align 1
+  %698 = zext i8 %697 to i32
+  %or.cond.i514 = icmp ult i8 %697, 32
+  %spec.select.i515 = select i1 %or.cond.i514, i32 %698, i32 -1
+  tail call void @_ZN9Assembler5movdqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i513, i32 %spec.select.i515) #23
+  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
+
+699:                                              ; preds = %681
   br i1 %.not352, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %700
 
 700:                                              ; preds = %699
@@ -6029,224 +6028,197 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   %702 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %701
   %703 = load i8, ptr %702, align 1
   %704 = zext i8 %703 to i32
-  %or.cond.i512 = icmp ult i8 %703, 32
-  %spec.select.i513 = select i1 %or.cond.i512, i32 %704, i32 -1
+  %or.cond.i516 = icmp ult i8 %703, 32
+  %spec.select.i517 = select i1 %or.cond.i516, i32 %704, i32 -1
   %705 = sext i16 %56 to i64
   %706 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %705
   %707 = load i8, ptr %706, align 1
   %708 = zext i8 %707 to i32
-  %or.cond.i514 = icmp ult i8 %707, 32
-  %spec.select.i515 = select i1 %or.cond.i514, i32 %708, i32 -1
-  tail call void @_ZN9Assembler5movdqE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i513, i32 %spec.select.i515) #23
-  br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
-
-709:                                              ; preds = %690
-  br i1 %.not352, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %710
-
-710:                                              ; preds = %709
-  %711 = sext i16 %65 to i64
-  %712 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %711
-  %713 = load i8, ptr %712, align 1
-  %714 = zext i8 %713 to i32
-  %or.cond.i516 = icmp ult i8 %713, 32
-  %spec.select.i517 = select i1 %or.cond.i516, i32 %714, i32 -1
-  %715 = sext i16 %56 to i64
-  %716 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %715
-  %717 = load i8, ptr %716, align 1
-  %718 = zext i8 %717 to i32
-  %or.cond.i518 = icmp ult i8 %717, 32
-  %spec.select.i519 = select i1 %or.cond.i518, i32 %718, i32 -1
+  %or.cond.i518 = icmp ult i8 %707, 32
+  %spec.select.i519 = select i1 %or.cond.i518, i32 %708, i32 -1
   tail call void @_ZN9Assembler5movdlE8Register11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i517, i32 %spec.select.i519) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-719:                                              ; preds = %651
-  %720 = and i32 %57, 1
-  %721 = icmp eq i32 %720, 0
-  %722 = or disjoint i32 %57, 1
-  %723 = icmp eq i32 %722, %54
-  %or.cond428 = select i1 %721, i1 %723, i1 false
-  %724 = and i32 %66, 1
-  %725 = icmp eq i32 %724, 0
-  %or.cond430 = and i1 %or.cond428, %725
-  %726 = or disjoint i32 %66, 1
-  %727 = icmp eq i32 %726, %63
-  %or.cond432 = select i1 %or.cond430, i1 %727, i1 false
+709:                                              ; preds = %643
+  %710 = or disjoint i32 %57, 1
+  %711 = icmp eq i32 %710, %54
+  %712 = or i32 %66, %57
+  %713 = and i32 %712, 1
+  %714 = icmp eq i32 %713, 0
+  %or.cond430 = select i1 %714, i1 %711, i1 false
+  %715 = or disjoint i32 %66, 1
+  %716 = icmp eq i32 %715, %63
+  %or.cond432 = select i1 %or.cond430, i1 %716, i1 false
   %.not350 = icmp eq ptr %1, null
-  br i1 %or.cond432, label %728, label %738
+  br i1 %or.cond432, label %717, label %727
 
-728:                                              ; preds = %719
-  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %729
+717:                                              ; preds = %709
+  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %718
 
-729:                                              ; preds = %728
-  %730 = sext i16 %65 to i64
-  %731 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %730
-  %732 = load i8, ptr %731, align 1
-  %733 = zext i8 %732 to i32
-  %or.cond.i520 = icmp ult i8 %732, 32
-  %spec.select.i521 = select i1 %or.cond.i520, i32 %733, i32 -1
-  %734 = sext i16 %56 to i64
-  %735 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %734
-  %736 = load i8, ptr %735, align 1
-  %737 = zext i8 %736 to i32
-  %or.cond.i522 = icmp ult i8 %736, 32
-  %spec.select.i523 = select i1 %or.cond.i522, i32 %737, i32 -1
+718:                                              ; preds = %717
+  %719 = sext i16 %65 to i64
+  %720 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %719
+  %721 = load i8, ptr %720, align 1
+  %722 = zext i8 %721 to i32
+  %or.cond.i520 = icmp ult i8 %721, 32
+  %spec.select.i521 = select i1 %or.cond.i520, i32 %722, i32 -1
+  %723 = sext i16 %56 to i64
+  %724 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %723
+  %725 = load i8, ptr %724, align 1
+  %726 = zext i8 %725 to i32
+  %or.cond.i522 = icmp ult i8 %725, 32
+  %spec.select.i523 = select i1 %or.cond.i522, i32 %726, i32 -1
   tail call void @_ZN14MacroAssembler6movdblE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i521, i32 %spec.select.i523)
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-738:                                              ; preds = %719
-  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %739
+727:                                              ; preds = %709
+  br i1 %.not350, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %728
 
-739:                                              ; preds = %738
-  %740 = sext i16 %65 to i64
-  %741 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %740
-  %742 = load i8, ptr %741, align 1
-  %743 = zext i8 %742 to i32
-  %or.cond.i524 = icmp ult i8 %742, 32
-  %spec.select.i525 = select i1 %or.cond.i524, i32 %743, i32 -1
-  %744 = sext i16 %56 to i64
-  %745 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %744
-  %746 = load i8, ptr %745, align 1
-  %747 = zext i8 %746 to i32
-  %or.cond.i526 = icmp ult i8 %746, 32
-  %spec.select.i527 = select i1 %or.cond.i526, i32 %747, i32 -1
+728:                                              ; preds = %727
+  %729 = sext i16 %65 to i64
+  %730 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %729
+  %731 = load i8, ptr %730, align 1
+  %732 = zext i8 %731 to i32
+  %or.cond.i524 = icmp ult i8 %731, 32
+  %spec.select.i525 = select i1 %or.cond.i524, i32 %732, i32 -1
+  %733 = sext i16 %56 to i64
+  %734 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %733
+  %735 = load i8, ptr %734, align 1
+  %736 = zext i8 %735 to i32
+  %or.cond.i526 = icmp ult i8 %735, 32
+  %spec.select.i527 = select i1 %or.cond.i526, i32 %736, i32 -1
   tail call void @_ZN14MacroAssembler6movfltE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i525, i32 %spec.select.i527)
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-748:                                              ; preds = %367
-  switch i32 %.0.i469, label %815 [
-    i32 4, label %749
-    i32 1, label %773
-    i32 2, label %795
+737:                                              ; preds = %367
+  switch i32 %.0.i469, label %801 [
+    i32 4, label %738
+    i32 1, label %761
+    i32 2, label %782
     i32 3, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
   ]
 
-749:                                              ; preds = %748
-  %750 = and i32 %57, 1
-  %751 = icmp eq i32 %750, 0
-  %752 = or disjoint i32 %57, 1
-  %753 = icmp eq i32 %752, %54
-  %or.cond434 = select i1 %751, i1 %753, i1 false
-  %754 = and i32 %66, 1
-  %755 = icmp eq i32 %754, 0
-  %or.cond436 = and i1 %or.cond434, %755
-  %756 = or disjoint i32 %66, 1
-  %757 = icmp eq i32 %756, %63
-  %or.cond438 = select i1 %or.cond436, i1 %757, i1 false
-  br i1 %or.cond438, label %758, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
+738:                                              ; preds = %737
+  %739 = or disjoint i32 %57, 1
+  %740 = icmp eq i32 %739, %54
+  %741 = or i32 %66, %57
+  %742 = and i32 %741, 1
+  %743 = icmp eq i32 %742, 0
+  %or.cond436 = select i1 %743, i1 %740, i1 false
+  %744 = or disjoint i32 %66, 1
+  %745 = icmp eq i32 %744, %63
+  %or.cond438 = select i1 %or.cond436, i1 %745, i1 false
+  br i1 %or.cond438, label %746, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-758:                                              ; preds = %749
-  %759 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
+746:                                              ; preds = %738
+  %747 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
   %.not348 = icmp eq ptr %1, null
-  br i1 %.not348, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %760
+  br i1 %.not348, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit, label %748
 
-760:                                              ; preds = %758
+748:                                              ; preds = %746
   store i32 4, ptr %42, align 8
-  %761 = getelementptr inbounds i8, ptr %42, i64 4
-  store i32 -1, ptr %761, align 4
-  %762 = getelementptr inbounds i8, ptr %42, i64 8
-  store i32 -1, ptr %762, align 8
-  %763 = getelementptr inbounds i8, ptr %42, i64 12
-  store i32 -1, ptr %763, align 4
-  %764 = getelementptr inbounds i8, ptr %42, i64 16
-  store i32 %759, ptr %764, align 8
-  %765 = getelementptr inbounds i8, ptr %42, i64 20
-  store i8 0, ptr %765, align 4
-  %766 = getelementptr inbounds i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %766, align 8
-  %767 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %767, align 8
-  %768 = getelementptr inbounds i8, ptr %42, i64 40
-  store i32 0, ptr %768, align 8
-  %769 = sext i16 %56 to i64
-  %770 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %769
-  %771 = load i8, ptr %770, align 1
-  %772 = zext i8 %771 to i32
-  %or.cond.i528 = icmp ult i8 %771, 8
-  %spec.select.i529 = select i1 %or.cond.i528, i32 %772, i32 -1
+  %749 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 -1, ptr %749, align 4
+  %750 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 -1, ptr %750, align 8
+  %751 = getelementptr inbounds i8, ptr %42, i64 12
+  store i32 -1, ptr %751, align 4
+  %752 = getelementptr inbounds i8, ptr %42, i64 16
+  store i32 %747, ptr %752, align 8
+  %753 = getelementptr inbounds i8, ptr %42, i64 20
+  store i8 0, ptr %753, align 4
+  %754 = getelementptr inbounds i8, ptr %42, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %754, align 8
+  %755 = getelementptr inbounds i8, ptr %42, i64 32
+  store ptr null, ptr %755, align 8
+  %756 = getelementptr inbounds i8, ptr %42, i64 40
+  store i32 0, ptr %756, align 8
+  %757 = sext i16 %56 to i64
+  %758 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %757
+  %759 = load i8, ptr %758, align 1
+  %760 = zext i8 %759 to i32
+  %or.cond.i528 = icmp ult i8 %759, 8
+  %spec.select.i529 = select i1 %or.cond.i528, i32 %760, i32 -1
   call void @_ZN14MacroAssembler4kmovE7Address9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %42, i32 %spec.select.i529) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-773:                                              ; preds = %748
-  %774 = and i32 %57, 1
-  %775 = icmp eq i32 %774, 0
-  %776 = or disjoint i32 %57, 1
-  %777 = icmp eq i32 %776, %54
-  %or.cond440 = select i1 %775, i1 %777, i1 false
-  %778 = and i32 %66, 1
-  %779 = icmp eq i32 %778, 0
-  %or.cond442 = and i1 %or.cond440, %779
-  br i1 %or.cond442, label %780, label %793
+761:                                              ; preds = %737
+  %762 = or disjoint i32 %57, 1
+  %763 = icmp eq i32 %762, %54
+  %764 = or i32 %66, %57
+  %765 = and i32 %764, 1
+  %766 = icmp eq i32 %765, 0
+  %or.cond442 = select i1 %766, i1 %763, i1 false
+  br i1 %or.cond442, label %767, label %780
 
-780:                                              ; preds = %773
-  %781 = or disjoint i32 %66, 1
-  %782 = icmp eq i32 %781, %63
-  %783 = icmp ne ptr %1, null
-  %or.cond11 = and i1 %783, %782
-  br i1 %or.cond11, label %784, label %793
+767:                                              ; preds = %761
+  %768 = or disjoint i32 %66, 1
+  %769 = icmp eq i32 %768, %63
+  %770 = icmp ne ptr %1, null
+  %or.cond11 = and i1 %770, %769
+  br i1 %or.cond11, label %771, label %780
 
-784:                                              ; preds = %780
-  %785 = sext i16 %65 to i64
-  %786 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %785
-  %787 = load i8, ptr %786, align 1
-  %788 = zext i8 %787 to i32
-  %or.cond.i530 = icmp ult i8 %787, 32
-  %spec.select.i531 = select i1 %or.cond.i530, i32 %788, i32 -1
-  %789 = sext i16 %56 to i64
-  %790 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %789
-  %791 = load i8, ptr %790, align 1
-  %792 = zext i8 %791 to i32
-  %or.cond.i532 = icmp ult i8 %791, 8
-  %spec.select.i533 = select i1 %or.cond.i532, i32 %792, i32 -1
+771:                                              ; preds = %767
+  %772 = sext i16 %65 to i64
+  %773 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %772
+  %774 = load i8, ptr %773, align 1
+  %775 = zext i8 %774 to i32
+  %or.cond.i530 = icmp ult i8 %774, 32
+  %spec.select.i531 = select i1 %or.cond.i530, i32 %775, i32 -1
+  %776 = sext i16 %56 to i64
+  %777 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %776
+  %778 = load i8, ptr %777, align 1
+  %779 = zext i8 %778 to i32
+  %or.cond.i532 = icmp ult i8 %778, 8
+  %spec.select.i533 = select i1 %or.cond.i532, i32 %779, i32 -1
   tail call void @_ZN14MacroAssembler4kmovE8Register9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i531, i32 %spec.select.i533) #23
-  br label %793
+  br label %780
 
-793:                                              ; preds = %773, %780, %784
-  %794 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %794, align 1
+780:                                              ; preds = %761, %767, %771
+  %781 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %781, align 1
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 1487) #24
   unreachable
 
-795:                                              ; preds = %748
-  %796 = and i32 %57, 1
-  %797 = icmp eq i32 %796, 0
-  %798 = or disjoint i32 %57, 1
-  %799 = icmp eq i32 %798, %54
-  %or.cond444 = select i1 %797, i1 %799, i1 false
-  %800 = and i32 %66, 1
-  %801 = icmp eq i32 %800, 0
-  %or.cond446 = and i1 %or.cond444, %801
-  br i1 %or.cond446, label %802, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
+782:                                              ; preds = %737
+  %783 = or disjoint i32 %57, 1
+  %784 = icmp eq i32 %783, %54
+  %785 = or i32 %66, %57
+  %786 = and i32 %785, 1
+  %787 = icmp eq i32 %786, 0
+  %or.cond446 = select i1 %787, i1 %784, i1 false
+  br i1 %or.cond446, label %788, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-802:                                              ; preds = %795
-  %803 = or disjoint i32 %66, 1
-  %804 = icmp eq i32 %803, %63
-  %805 = icmp ne ptr %1, null
-  %or.cond13 = and i1 %805, %804
-  br i1 %or.cond13, label %806, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
+788:                                              ; preds = %782
+  %789 = or disjoint i32 %66, 1
+  %790 = icmp eq i32 %789, %63
+  %791 = icmp ne ptr %1, null
+  %or.cond13 = and i1 %791, %790
+  br i1 %or.cond13, label %792, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-806:                                              ; preds = %802
-  %807 = sext i16 %65 to i64
-  %808 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %807
-  %809 = load i8, ptr %808, align 1
-  %810 = zext i8 %809 to i32
-  %or.cond.i534 = icmp ult i8 %809, 8
-  %spec.select.i535 = select i1 %or.cond.i534, i32 %810, i32 -1
-  %811 = sext i16 %56 to i64
-  %812 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %811
-  %813 = load i8, ptr %812, align 1
-  %814 = zext i8 %813 to i32
-  %or.cond.i536 = icmp ult i8 %813, 8
-  %spec.select.i537 = select i1 %or.cond.i536, i32 %814, i32 -1
+792:                                              ; preds = %788
+  %793 = sext i16 %65 to i64
+  %794 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %793
+  %795 = load i8, ptr %794, align 1
+  %796 = zext i8 %795 to i32
+  %or.cond.i534 = icmp ult i8 %795, 8
+  %spec.select.i535 = select i1 %or.cond.i534, i32 %796, i32 -1
+  %797 = sext i16 %56 to i64
+  %798 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %797
+  %799 = load i8, ptr %798, align 1
+  %800 = zext i8 %799 to i32
+  %or.cond.i536 = icmp ult i8 %799, 8
+  %spec.select.i537 = select i1 %or.cond.i536, i32 %800, i32 -1
   tail call void @_ZN14MacroAssembler4kmovE9KRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i535, i32 %spec.select.i537) #23
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
-815:                                              ; preds = %748, %367, %651, %532, %368
-  %816 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %816, align 1
+801:                                              ; preds = %737, %367, %643, %528, %368
+  %802 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %802, align 1
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 1511) #24
   unreachable
 
-_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit: ; preds = %356, %339, %330, %321, %306, %297, %289, %748, %795, %802, %806, %749, %760, %758, %651, %729, %728, %739, %738, %700, %699, %710, %709, %663, %662, %677, %676, %610, %609, %620, %619, %590, %591, %580, %581, %544, %543, %558, %557, %508, %519, %517, %481, %480, %495, %494, %443, %442, %457, %456, %381, %380, %399, %398, %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit, %360, %363, %_ZL8rc_classi.exit470
+_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit: ; preds = %356, %339, %330, %321, %306, %297, %289, %737, %782, %788, %792, %738, %748, %746, %643, %718, %717, %728, %727, %690, %689, %700, %699, %654, %653, %668, %667, %603, %602, %613, %612, %584, %585, %574, %575, %539, %538, %553, %552, %505, %515, %513, %478, %477, %492, %491, %441, %440, %455, %454, %380, %379, %398, %397, %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit, %360, %363, %_ZL8rc_classi.exit470
   ret i32 0
 }
 
