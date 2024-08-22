@@ -5100,7 +5100,7 @@ cpython/sliceobject.ll 271650595
 cpython/socketmodule.ll 1532307669
 cpython/specialize.ll 390216189
 cpython/sre.ll 4896269720
-cpython/statement.ll 71135227
+cpython/statement.ll 71206584
 cpython/stgdict.ll 427152135
 cpython/string_parser.ll 178378531
 cpython/string_tokenizer.ll 75760049
@@ -10653,7 +10653,7 @@ icu/compactdecimalformat.ll 110992292
 icu/coptccal.ll 89900532
 icu/cpdtrans.ll 361856361
 icu/csdetect.ll 329145313
-icu/csr2022.ll 138960444
+icu/csr2022.ll 139099406
 icu/csrmbcs.ll 166497533
 icu/csrsbcs.ll 401537611
 icu/csrucode.ll 114442049
@@ -11132,7 +11132,7 @@ influxdb-rs/2rfehyqstyicagph.ll 1237854623
 influxdb-rs/34vmrh0qyn6415sj.ll 539690592
 influxdb-rs/35i0bcsvqttn7s2s.ll 225954725
 influxdb-rs/36ewwyapxuttugdq.ll 334723007
-influxdb-rs/380gcqze52ow6205.ll 2428884748
+influxdb-rs/380gcqze52ow6205.ll 2431314491
 influxdb-rs/3a0j6phgxkq6hdnl.ll 1010983343
 influxdb-rs/3anl92eib5msfbrw.ll 95822972
 influxdb-rs/3gmn9v3kvp33clr0.ll 42797834
